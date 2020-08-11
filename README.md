@@ -2,7 +2,7 @@
 
 Welcome to the `sauce-docs`, this website contains all technical documentation with regards to Sauce Labs and all of its products. This site is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
-_Table of Contents__
+__Table of Contents__
 
 1. [Prequisites](#prerequisites)
 2. [Installation](#installation)
