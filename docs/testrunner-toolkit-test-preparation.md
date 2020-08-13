@@ -33,7 +33,7 @@ saucectl run
 ```
 Testrunner Toolkit will then execute the test based on the information in `config.yml`. 
 
-To learn more about how to configure `saucectl`, please visit the [Configuration](configuration.md) section of the docs. 
+To learn more about how to configure `saucectl`, please visit the [Configuration](testrunner-toolkit-configuration.md) section of the docs. 
 
 ### Quick demo
 

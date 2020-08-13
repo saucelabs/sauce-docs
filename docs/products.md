@@ -24,19 +24,10 @@ A modern containerized testing solution that simplifies user setup, speeds up te
 
 ## Sauce Connect Proxy
 
-## [Sauce Insights](sauce-insights-overview.md)
+##[Sauce Insights
 
-You can improve the efficiency of your testing with real-time visibility into test data across teams, platforms, and applications with
+## Sauce Performance
 
-## [Sauce Performance](sauce-performance-overview.md)
+## Sauce Headless
 
-Identify and remediate front-end performance issues early in the development cycle without creating new scripts or deploying new infrastructure.
-
-## [Sauce Headless](sauce-headless-overview.md)
-
-Test earlier in development cycle with a lightweight and scalable test infrastructure that provides fast feedback and increases developer productivity.
-
-## [Sauce Visual](sauce-visual-overview.md) 
-
-Automatically detect visual regressions across your application UI. Know exactly where and what has changed, so you don't waste time testing what hasn't.
-
+## Sauce Visual 
