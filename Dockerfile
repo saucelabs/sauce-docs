@@ -1,6 +1,9 @@
 FROM node:lts
-WORKDIR /
+
+WORKDIR /app
+
 EXPOSE 3000 35729
-COPY . /
-RUN yarn install
-CMD ["yarn", "serve"]
+COPY . /app
+RUN npm install
+
+CMD ["yarn", "start"]
