@@ -15,14 +15,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '13.x'
-      - uses: actions/cache@v1
-        with:
-          path: themes/my-theme/src/node_modules
-          key: ${{ runner.os }}-js-${{ hashFiles('themes/my-theme/src/yarn.lock') }}
-      - run: yarn
-        if: |
-          steps.cache-yarn-cache.outputs.cache-hit != 'true' ||
-          steps.cache-node-modules.outputs.cache-hit != 'true'
+      - name: Run Yarn
+        run: yarn
       - name: Build Site
         run: yarn build
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
