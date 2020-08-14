@@ -4,7 +4,7 @@ Welcome to the `sauce-docs`, this website contains all technical documentation w
 
 __Table of Contents__
 
-1. [Prequisites](#prerequisites)
+1. [Prerequisites](#prerequisites)
 2. [Installation](#installation)
 3. [Local Development](#local-development)
 4. [Contributing](#contributing)
