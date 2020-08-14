@@ -56,3 +56,6 @@ Yes! You can find them here: [Automation Framework Examples](testrunner-toolkit-
 The GitHub repository includes CI/CD examples of `saucectl` using:
 * [GitHub Actions Workflows](https://help.github.com/en/actions) 
 * [CircleCI Pipelines](https://circleci.com/docs/2.0/configuration-reference/) 
+
+Although the [GitHub Actions](./.github/workflows/tests.yml) and [CircleCI](./.circleci/config.yml) 
+examples are included, the mechanism works with any CI/CD provider that supports containers.

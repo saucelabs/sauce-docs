@@ -3,7 +3,6 @@ module.exports = {
   	Home: [
         'saucelabs-overview',
         'saucelabs-getting-started',
-        'saucelabs-application-storage',
     ],
     "Live Testing": [
         'live-testing-overview',

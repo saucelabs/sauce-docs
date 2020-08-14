@@ -11,7 +11,7 @@ The Testrunner Toolkit requires a configuration file to know which tests to run,
 
 ## Basic Configuration
 
-By default, `config.yml` is the file `saucectl` looks to for its configuration.
+By default, `config.yml` is the file [`saucectl`](saucectl) looks to for its configuration.
 
 ```yaml
 #Simple config.yml using puppeteer

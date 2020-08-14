@@ -1,5 +1,3 @@
-*.log
-*/.github/
 */node_modules
-*/build
-*.gitignore
+*.log
+
