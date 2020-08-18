@@ -24,7 +24,7 @@ jobs:
         run: sudo chown -R $USER:$(id -gn $USER) /github/home
 
       - name: Workaround for build permissions
-          run: sudo chown -R $USER:$(id -gn $USER) /__w/sauce-docs/sauce-docs
+        run: sudo chown -R $USER:$(id -gn $USER) /__w/sauce-docs/sauce-docs
 
       - name: Workaround for container folder
         run: sudo ln -s /home/seluser/.cache /github/home/.cache
