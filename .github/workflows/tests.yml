@@ -28,8 +28,8 @@ jobs:
 
       - name: Build Site
         run: |
-          yarn install && \
-          yarn build && \
+          npm install
+          yarn build
           yarn run serve
       - name: Run Sauce Pipleine Tests
         run: |
