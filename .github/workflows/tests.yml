@@ -28,9 +28,9 @@ jobs:
 
       - name: Build Site
         run: |
-          npm install
-          yarn build
-          yarn run serve
+          sudo npm install
+          sudo yarn build
+          sudo yarn run serve
       - name: Run Sauce Pipleine Tests
         run: |
           saucectl run -c ./.sauce/cypress.yml
