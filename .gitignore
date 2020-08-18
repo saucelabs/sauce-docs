@@ -1,5 +1,7 @@
 # Dependencies
 /node_modules
+package-lock.json
+/cypress
 
 # Production
 /build
@@ -7,6 +9,7 @@
 # Generated files
 .docusaurus
 .cache-loader
+nohup.out
 
 # Misc
 .DS_Store

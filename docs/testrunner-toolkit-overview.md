@@ -1,7 +1,7 @@
 ---
 id: testrunner-toolkit-overview
 title: Why Testrunner Toolkit?                                  
-sidebar_label: Overview
+sidebar_label: Testrunner Overview
 ---
 
 export const Highlight = ({children, color}) => ( <span style={{

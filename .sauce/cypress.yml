@@ -1,0 +1,10 @@
+apiVersion: v1
+metadata:
+  name: Sauce Doc Integration Tests
+  tags:
+    - integration tests
+files:
+  - ./tests/cypress/**/*_spec.js
+image:
+  base: saucelabs/stt-cypress-mocha-node
+  version: v0.1.3
