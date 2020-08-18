@@ -20,22 +20,21 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v1
 
-      - name: Setup NodeJS
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-
       - name: Workaround for container permissions
         run: sudo chown -R $USER:$(id -gn $USER) /github/home
+
+      - name: Workaround for build permissions
+          run: sudo chown -R $USER:$(id -gn $USER) /__w/sauce-docs/sauce-docs
 
       - name: Workaround for container folder
         run: sudo ln -s /home/seluser/.cache /github/home/.cache
 
       - name: Build Site
-        run: |
-          sudo npm i
-          sudo yarn build
-          sudo yarn run serve
+          run: |
+            npm i
+            npm build
+            npm serve
+
       - name: Run Sauce Pipleine Tests
         run: |
           saucectl run -c ./.sauce/cypress.yml
