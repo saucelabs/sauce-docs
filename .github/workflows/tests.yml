@@ -32,7 +32,7 @@ jobs:
       - name: Build Site
         run: |
           npm i
-          npm run start
+          npm run build
 
       - name: Run Sauce Pipleine Tests
         run: |
