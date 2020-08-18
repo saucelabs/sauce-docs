@@ -32,8 +32,7 @@ jobs:
       - name: Build Site
         run: |
           npm i
-          yarn build
-          yarn run serve
+          npm run start
 
       - name: Run Sauce Pipleine Tests
         run: |
