@@ -1,4 +1,5 @@
 # Sauce Labs Docs
+![Build, Test, and Deploy to Cloud Run](https://github.com/saucelabs/sauce-docs/workflows/Build,%20Test,%20and%20Deploy%20to%20Cloud%20Run/badge.svg?branch=master)
 
 Welcome to the `sauce-docs`, this website contains all technical documentation with regards to Sauce Labs and all of its products. This site is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
