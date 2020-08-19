@@ -1,0 +1,4 @@
+{
+  "integrationFolder": "/tests",
+  "testFiles": "*.test.js"
+}
