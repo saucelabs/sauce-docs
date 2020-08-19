@@ -2,8 +2,6 @@ name: End to End Cypress Tests
 on:
   pull_request:
   push:
-    branches:
-      - '!master'
 
 jobs:
   e2e-tests:
