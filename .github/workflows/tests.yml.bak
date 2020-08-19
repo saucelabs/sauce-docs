@@ -1,0 +1,44 @@
+name: Sauce Pipeline Browser Tests
+
+on:
+  pull_request:
+  push:
+
+env:
+  SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
+  SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
+
+jobs:
+  saucectl-cypress:
+    runs-on: ubuntu-latest
+    container:
+      image: saucelabs/stt-cypress-mocha-node:v0.1.3
+
+    steps:
+      # appears that checkout@v2 uses javascript which is not compatible
+      # with the included node version in the container image.
+      - name: Checkout Code
+        uses: actions/checkout@v1
+
+      - name: Workaround for container permissions
+        run: sudo chown -R $USER:$(id -gn $USER) /github/home
+
+      - name: Workaround for build permissions
+        run: sudo chown -R $USER:$(id -gn $USER) /__w/sauce-docs/sauce-docs
+
+      - name: Workaround for container folder
+        run: sudo ln -s /home/seluser/.cache /github/home/.cache
+
+      - name: Build Site and Run Sauce Pipeline Tests
+        run: |
+          npm i
+          npm run build
+          npm run serve &
+          saucectl run -c ./.sauce/config.yml
+        env:
+          BUILD_ID: ${{ github.run_id }}
+          BUILD_ENV: GitHub Actions
+
+      - name: Kill Running Processes
+        run: |
+          sudo ps -ef | grep docusaurus | xargs kill

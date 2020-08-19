@@ -1,0 +1,31 @@
+name: End to End Cypress Tests
+on:
+  pull_request:
+  push:
+
+jobs:
+  e2e-tests:
+    # the example has Yarn workspace in its "root" folder
+    # examples/start-and-yarn-workspaces
+    # and tests in a subfolder like "workspace-1"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Build Site
+        run: |
+          yarn install
+          yarn run build
+          yarn run serve &
+
+      - name: Tests
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          spec: tests/**.test.js
