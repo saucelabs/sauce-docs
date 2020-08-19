@@ -1,5 +1,10 @@
 name: End to End Cypress Tests
-on: [push]
+on:
+  pull_request:
+  push:
+    branches:
+      - '!master'
+
 jobs:
   e2e-tests:
     # the example has Yarn workspace in its "root" folder

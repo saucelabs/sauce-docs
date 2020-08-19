@@ -12,10 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: Build and Deploy to Cloud Run
+name: Build, Test, and Deploy to Cloud Run
 
 on:
-  pull_request:
   push:
     branches:
       - master
@@ -26,10 +25,37 @@ env:
   SERVICE_NAME: sauce-docs
 
 jobs:
-  setup-build-deploy:
+  e2e-tests:
+    # the example has Yarn workspace in its "root" folder
+    # examples/start-and-yarn-workspaces
+    # and tests in a subfolder like "workspace-1"
+    name: End to End Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Build Site
+        run: |
+          yarn install
+          yarn run build
+          yarn run serve &
+
+      - name: Tests
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          spec: tests/**.test.js
+
+ build-and-deploy:
     name: Setup, Build, and Deploy
     runs-on: ubuntu-latest
-
+    needs: e2e-tests
     steps:
       - name: Checkout
         uses: actions/checkout@v2
