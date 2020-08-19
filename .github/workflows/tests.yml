@@ -34,7 +34,7 @@ jobs:
           npm i
           npm run build
           npm run serve &
-          saucectl run -c ./.sauce/cypress.yml
+          saucectl run -c ./.sauce/config.yml
         env:
           BUILD_ID: ${{ github.run_id }}
           BUILD_ENV: GitHub Actions
