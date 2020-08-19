@@ -48,6 +48,13 @@ __Table of Contents__
 
 	This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
+* Serve the website:
+	```
+	yarn serve
+	```
+	
+	This command will serve your local build on http://localhost:3000.
+
 
 ## Contributing
 
