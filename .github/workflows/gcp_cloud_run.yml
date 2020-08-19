@@ -18,6 +18,9 @@ on:
   push:
     branches:
       - master
+    paths:
+      - '!README.md'
+      - '!CONTRIBUTING.md'
 
 env:
   PROJECT_ID: ${{ secrets.RUN_PROJECT }}
