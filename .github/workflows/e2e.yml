@@ -16,12 +16,10 @@ jobs:
           node-version: '14.x'
       - run: npm install
 
-      - name: Cypress tests
-        uses: ./
-        with:
-          build: yarn run build
-          start: yarn run serve
-          wait-on: 'http://localhost:3000'
+      - name: Build Site
+        run: |
+          npm run build
+          npm run serve &
 
       - name: Tests
         uses: cypress-io/github-action@v2
