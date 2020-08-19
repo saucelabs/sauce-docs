@@ -1,7 +1,9 @@
 name: End to End Cypress Tests
 on:
   pull_request:
-  push:
+    paths:
+      - '!README.md'
+      - '!CONTRIBUTING.md'
 
 jobs:
   e2e-tests:

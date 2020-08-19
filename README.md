@@ -1,5 +1,10 @@
-# Sauce Labs Docs
+# Sauce Labs Docs ![BETA](https://img.shields.io/badge/beta!-blue?style=for-the-badge)
+
 ![Build, Test, and Deploy to Cloud Run](https://github.com/saucelabs/sauce-docs/workflows/Build,%20Test,%20and%20Deploy%20to%20Cloud%20Run/badge.svg?branch=master)
+
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.MD)
+
+<a href="https://gitpod.io/#https://github.com/saucelabs/sauce-docs"><img src="https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod" alt="Gitpod Ready-to-Code"/></a>
 
 Welcome to the `sauce-docs`, this website contains all technical documentation with regards to Sauce Labs and all of its products. This site is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
@@ -47,4 +52,4 @@ __Table of Contents__
 
 ## Contributing
 
-Before you edit the docs, review the the [style guide](docs/mkdwn-styles.md) to make sure you maintain or standards. Also, before submiting an issue or PR in GitHub, please review the [code of conduct](docs/code-of-conduct.md) for further details.
+Before you edit the docs, review the the [style guide](docs/mkdwn-styles.md) to make sure you maintain or standards. Also, before submitting an issue or PR in GitHub, please review the [code of conduct](docs/code-of-conduct.md) and or [contribution guide](CONTRIBUTING.MD) for further details.
