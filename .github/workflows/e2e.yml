@@ -1,7 +1,7 @@
 name: End to End Cypress Tests
 on: [push]
 jobs:
-  setup:
+  e2e-tests:
     # the example has Yarn workspace in its "root" folder
     # examples/start-and-yarn-workspaces
     # and tests in a subfolder like "workspace-1"
@@ -14,8 +14,9 @@ jobs:
         uses: ./
         with:
           working-directory: ./
+          install: yarn install
           build: yarn run build
-          start: yarn start
+          start: yarn run serve
           wait-on: 'http://localhost:3000'
 
       - name: Tests

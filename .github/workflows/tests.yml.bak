@@ -9,7 +9,7 @@ env:
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
 
 jobs:
-  setup:
+  saucectl-cypress:
     runs-on: ubuntu-latest
     container:
       image: saucelabs/stt-cypress-mocha-node:v0.1.3
