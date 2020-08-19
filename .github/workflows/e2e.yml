@@ -10,13 +10,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Setup
-        uses: ./
+      - name: Setup NodeJS
+        uses: actions/setup-node@v1
         with:
-          working-directory: ./
-          install: yarn install
-          build: yarn run build
-          start: yarn run serve
+          node-version: '14.x'
+
+      - name: Build Site
+        run: |
+          npm install
+          npm run build
+          npm run serve
+        with:
           wait-on: 'http://localhost:3000'
 
       - name: Tests
