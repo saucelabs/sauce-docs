@@ -62,7 +62,13 @@ h1,h2,h3,h4,h5,h6 {
 .footer {
   font-family: museo-sans, sans-serif;
   --ifm-h4-font-size: 20px;
+  padding-bottom: 40px;
 }
+
+.footer__logo {
+  padding-bottom: 40px;
+}
+
 .footer__title {
   border-bottom: 1px solid #bd3431;
   display: block;
@@ -77,12 +83,9 @@ h1,h2,h3,h4,h5,h6 {
   margin: 5px 0;
   line-height: 20px;
   display: block;
-
-}
-.footer__logo {
-  padding-bottom: 15px;
 }
 
 .text--center {
+  padding-top: 20px;
   font-size: 12px;
 }
