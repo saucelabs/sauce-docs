@@ -13,6 +13,12 @@ module.exports = {
     // Object format.
   ],
   themeConfig: {
+    /* Search Bar Config */
+    algolia: {
+      apiKey: '8442c4c56cae89e0f1a1b7c9a8fd8f9c',
+      indexName: 'sauce-docs-staging',
+      searchParameters: {}, // Optional (if provided by Algolia)
+    },
     /* Dark and Light Mode Config */
     colorMode: {
       defaultMode: 'light',
