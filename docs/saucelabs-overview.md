@@ -1,7 +1,9 @@
 ---
 id: saucelabs-overview
-title: Why Sauce Labs?
-sidebar_label: Why Sauce Labs?
+title: Documentation
+sidebar_label: Welcome
+description: Landing Page for Sauce Labs Documentation
+hide_table_of_contents: true
 ---
 
 Sauce Labs is the only cloud-based testing platform to offer the most up-to-date browser/OS combinations, mobile emulators & simulators, plus real device support.

@@ -5,16 +5,26 @@ module.exports = {
         'saucelabs-getting-started',
         'saucelabs-application-storage',
     ],
-    "Live Testing": [
-        'live-testing-overview',
-        'live-testing-web-apps',
-        'live-testing-mobile-apps',
-    ],
-    "Automated Testing": [
-        'automation-getting-started',
-        'automation-web-app-testing',
-        'automation-mobile-app-testing',
-        'automation-best-practices',
+    Guides: [
+        {
+            type: 'category',
+            label: 'Live Testing',
+            items: [
+                'live-testing-overview',
+                'live-testing-web-apps',
+                'live-testing-mobile-apps',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Automated Testing',
+            items: [
+                'automation-getting-started',
+                'automation-web-app-testing',
+                'automation-mobile-app-testing',
+                'automation-best-practices',
+            ],
+        },
     ],
     Products: [
         'products',
