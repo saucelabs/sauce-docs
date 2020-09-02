@@ -21,11 +21,13 @@
   --ifm-code-font-size: 95%;
 }
 body {
-  font-family: "museo-sans", "HelveticaNeue", "Helvetica Neue", "Serif";
+  font-family: museo-sans, sans-serif;
+  font-weight: 100;
 }
 h1,h2,h3,h4,h5,h6 {
   font-weight: normal;
-  font-family: "museo-sans", "HelveticaNeue", "Helvetica Neue", "Serif";
+  font-family: museo-sans, sans-serif;
+  font-weight: 100;
 }
 .docusaurus-highlight-code-line {
   background-color: rgb(72, 77, 91);

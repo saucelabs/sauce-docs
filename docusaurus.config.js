@@ -7,6 +7,11 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'saucelabs', // Usually your GitHub org/user name.
   projectName: 'docusaurus', // Usually your repo name.
+  stylesheets: [
+    // String format.
+    'https://use.typekit.net/zmt8tam.css'
+    // Object format.
+  ],
   themeConfig: {
     navbar: {
       title: 'Sauce Labs Docs',
