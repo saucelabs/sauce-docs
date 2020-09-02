@@ -37,6 +37,29 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .footer {
-  font-family: "museo-sans", "HelveticaNeue", "Helvetica Neue", "Serif";
+  font-family: museo-sans, sans-serif;
   --ifm-h4-font-size: 20px;
+}
+.footer__title {
+  border-bottom: 1px solid #bd3431;
+  display: block;
+  padding-bottom: 10px;
+  font-size: .875rem;
+  line-height: .875rem;
+  font-weight: 700;
+}
+.footer__link-item {
+  font-size: .6875rem;
+  font-weight: 500;
+  margin: 5px 0;
+  line-height: 20px;
+  display: block;
+
+}
+.footer__logo {
+  padding-bottom: 15px;
+}
+
+.text--center {
+  font-size: 12px;
 }

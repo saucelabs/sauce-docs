@@ -36,7 +36,7 @@ module.exports = {
     footer: {
       logo: {
         alt: 'Sauce Logo',
-        src: 'img/sauce-logo.png',
+        src: 'img/logo-saucelabs-inverted.png',
         href: 'https://opensource.saucelabs.com',
       },
       style: 'light',
