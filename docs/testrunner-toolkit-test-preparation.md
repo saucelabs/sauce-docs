@@ -60,6 +60,7 @@ Below are example snippets in the following frameworks: [Puppeteer](https://pptr
   ]}>
 
 <TabItem value="puppeteer">
+
 Our Puppeteer testrunner image exposes `browser` into the global scope which represents an instance of its [`Browser class`](https://pptr.dev/#?product=Puppeteer&version=v3.0.4&show=api-class-browser). The browser will be initiated and shutdown by the testrunner setup.
 
 ```js
