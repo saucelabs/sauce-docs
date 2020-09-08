@@ -89,6 +89,6 @@ jobs:
           BUILD_ID: ${{ github.run_id }}
           BUILD_ENV: GitHub Actions
 
-      - name: Kill Running Processes
-        run: |
-          sudo ps -ef | grep docusaurus | xargs kill
+#      - name: Kill Running Processes
+#        run: |
+#          sudo ps -ef | grep docusaurus | xargs kill
