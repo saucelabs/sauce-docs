@@ -1,7 +1,8 @@
 /// <reference types="cypress" />
 context('Testrunner Toolkit Page Tree Actions', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:3000/products')
+        //cy.visit('http://localhost:3000/products')
+        cy.visit('https://sauce-docs-zc3byb3lfa-uw.a.run.app/products')
         cy.contains('Testrunner Toolkit').click();
     });
 
