@@ -9,6 +9,7 @@ module.exports = {
         {
             type: 'category',
             label: 'Live Testing',
+            collapsed: true,
             items: [
                 'live-testing-overview',
                 'live-testing-web-apps',
@@ -18,6 +19,7 @@ module.exports = {
         {
             type: 'category',
             label: 'Automated Testing',
+            collapsed: true,
             items: [
                 'automation-getting-started',
                 'automation-web-app-testing',
@@ -31,6 +33,7 @@ module.exports = {
         {
             type: 'category',
             label: 'Testrunner Toolkit',
+            collapsed: true,
             items: [
                 'testrunner-toolkit-overview',
                 'testrunner-toolkit-installation',

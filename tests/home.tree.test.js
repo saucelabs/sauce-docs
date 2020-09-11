@@ -2,14 +2,14 @@
 context('Home Page Tree Actions', () => {
     beforeEach(() => {
         //cy.visit('http://localhost:3000/')
-        cy.visit('https://sauce-docs-zc3byb3lfa-uw.a.run.app/')
+        cy.visit('https://sauce-docs-zc3byb3lfa-uw.a.run.app/saucelabs-overview')
     });
 
-    it('Landing Page', () => {
+    it('Welcome Page', () => {
         cy.contains('Welcome')
             .click();
         cy.url()
-            .should('include', '/');
+            .should('include', '/saucelabs-overview');
     });
 
     it('Getting Started Page', () => {

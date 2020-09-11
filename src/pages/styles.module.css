@@ -10,6 +10,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  background-color: #ac1413;
 }
 
 @media screen and (max-width: 966px) {
@@ -35,3 +36,22 @@
   height: 200px;
   width: 200px;
 }
+
+.pathButton {
+  --ifm-font-color-base: white;
+  background-color: #e13326;
+}
+
+.pathButton:hover {
+  --ifm-font-color-base: black;
+  background-color: #f8f8f8;
+}
+.getStarted:hover {
+  --ifm-font-color-base: black;
+  background-color: #f8f8f8;
+}
+.getStarted {
+  --ifm-font-color-base: white;
+  background-color: #1c1e22;
+}
+
