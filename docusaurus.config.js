@@ -15,8 +15,9 @@ module.exports = {
   themeConfig: {
     /* Search Bar Config */
     algolia: {
+      appId: 'ZETDNHTKFC',
       apiKey: '8442c4c56cae89e0f1a1b7c9a8fd8f9c',
-      indexName: 'sauce-docs-staging',
+      indexName: 'sauce-docs.com',
       searchParameters: {}, // Optional (if provided by Algolia)
     },
     /* Dark and Light Mode Config */
@@ -52,36 +53,36 @@ module.exports = {
         src: 'img/logo-saucelabs.png',
       },
       items: [
-        {
-          label: 'Solutions',
-          position: 'right',
-          items: [
-            {
-              label: 'Enterprise',
-              href: 'https://saucelabs.com/solutions/enterprise',
-            },
-            {
-              label: 'Start Ups & SMB Teams',
-              href: 'https://saucelabs.com/solutions/startup-medium-teams',
-            },
-            {
-              label: 'Open Source Projects',
-              href: 'https://saucelabs.com/solutions/open-source',
-            },
-            {
-              label: 'Continuous Testing',
-              href: 'https://saucelabs.com/solutions/continuous-testing',
-            },
-            {
-              label: 'Automated Testing',
-              href: 'https://saucelabs.com/solutions/automated-testing',
-            },
-            {
-              label: 'Live Testing',
-              href: 'https://saucelabs.com/solutions/live-testing',
-            },
-          ],
-        },
+        // {
+        //   label: 'Solutions',
+        //   position: 'right',
+        //   items: [
+        //     {
+        //       label: 'Enterprise',
+        //       href: 'https://saucelabs.com/solutions/enterprise',
+        //     },
+        //     {
+        //       label: 'Start Ups & SMB Teams',
+        //       href: 'https://saucelabs.com/solutions/startup-medium-teams',
+        //     },
+        //     {
+        //       label: 'Open Source Projects',
+        //       href: 'https://saucelabs.com/solutions/open-source',
+        //     },
+        //     {
+        //       label: 'Continuous Testing',
+        //       href: 'https://saucelabs.com/solutions/continuous-testing',
+        //     },
+        //     {
+        //       label: 'Automated Testing',
+        //       href: 'https://saucelabs.com/solutions/automated-testing',
+        //     },
+        //     {
+        //       label: 'Live Testing',
+        //       href: 'https://saucelabs.com/solutions/live-testing',
+        //     },
+        //   ],
+        // },
         {
           label: 'Platform',
           position: 'right',
@@ -128,11 +129,11 @@ module.exports = {
             },
           ]
         },
-        {
-          label: 'Pricing',
-          position: 'right',
-          href: 'https://saucelabs.com/pricing',
-        },
+        // {
+        //   label: 'Pricing',
+        //   position: 'right',
+        //   href: 'https://saucelabs.com/pricing',
+        // },
         {
           label: 'Resources',
           position: 'right',
@@ -372,7 +373,7 @@ module.exports = {
         docs: {
           // It is recommended to set document id as docs home page (`docs/` path).
           routeBasePath: '/',
-          homePageId: 'saucelabs-overview',
+          //homePageId: '',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
