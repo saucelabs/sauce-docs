@@ -62,7 +62,7 @@ jobs:
   saucectl-cypress:
     name: Run Testrunner Toolkit
     runs-on: ubuntu-latest
-    needs: build-and-deploy
+    needs: build-and-deploy-to-cloud-run
     container:
       image: saucelabs/stt-cypress-mocha-node:v0.1.3
 
