@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 const features = [
   {
     title: 'Run Live Tests',
-    imageUrl: 'img/SDET_Developer_Bot_EXPORT.gif',
+    imageUrl: 'img/SDET_Developer_Bot_EXPORT.png',
     slugName: '/live-testing-overview',
     buttonText: 'Run Now',
     description: (
@@ -21,7 +21,7 @@ const features = [
   },
   {
     title: 'Integrate Your Test Suite',
-    imageUrl: 'img/INFOSEC_Bot_EXPORT.gif',
+    imageUrl: 'img/INFOSEC_Bot_EXPORT.png',
     slugName: '/saucelabs-getting-started',
     buttonText: 'Integrate Now',
     description: (
@@ -34,7 +34,7 @@ const features = [
   },
   {
     title: 'Learn Automation',
-    imageUrl: 'img/QA_Bot_EXPORT.gif',
+    imageUrl: 'img/QA_Bot_EXPORT.png',
     slugName: '/automation-getting-started',
     buttonText: 'Automate Now',
     description: (

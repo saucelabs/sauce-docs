@@ -83,52 +83,52 @@ module.exports = {
         //     },
         //   ],
         // },
-        {
-          label: 'Platform',
-          position: 'right',
-          items: [
-            {
-              label: 'Real Device Cloud',
-              href: 'https://saucelabs.com/platform/real-device-cloud',
-            },
-            {
-              label: 'Cross-Browser Testing',
-              href: 'https://saucelabs.com/platform/cross-browser-testing',
-            },
-            {
-              label: 'Emulators & Simulators',
-              href: 'https://saucelabs.com/platform/mobile-emulators-and-simulators',
-            },
-            {
-              label: 'Sauce Headless',
-              href: 'https://saucelabs.com/platform/sauce-headless',
-            },
-            {
-              label: 'Visual Testing',
-              href: 'https://saucelabs.com/platform/visual-testing',
-            },
-            {
-              label: 'Sauce Performance',
-              href: 'https://saucelabs.com/platform/analytics-performance/sauce-performance',
-            },
-            {
-              label: 'Sauce Insights',
-              href: 'https://saucelabs.com/platform/analytics-performance/sauce-insights',
-            },
-            {
-              label: 'Extended Debugging',
-              href: 'https://saucelabs.com/platform/analytics-performance/advanced-debugging-tools',
-            },
-            {
-              label: 'Supported Integrations',
-              href: 'https://saucelabs.com/platform/integrations-plugins',
-            },
-            {
-              label: 'Supported Browsers & Devices',
-              href: 'https://saucelabs.com/platform/supported-browsers-devices',
-            },
-          ]
-        },
+        // {
+        //   label: 'Platform',
+        //   position: 'right',
+        //   items: [
+        //     {
+        //       label: 'Real Device Cloud',
+        //       href: 'https://saucelabs.com/platform/real-device-cloud',
+        //     },
+        //     {
+        //       label: 'Cross-Browser Testing',
+        //       href: 'https://saucelabs.com/platform/cross-browser-testing',
+        //     },
+        //     {
+        //       label: 'Emulators & Simulators',
+        //       href: 'https://saucelabs.com/platform/mobile-emulators-and-simulators',
+        //     },
+        //     {
+        //       label: 'Sauce Headless',
+        //       href: 'https://saucelabs.com/platform/sauce-headless',
+        //     },
+        //     {
+        //       label: 'Visual Testing',
+        //       href: 'https://saucelabs.com/platform/visual-testing',
+        //     },
+        //     {
+        //       label: 'Sauce Performance',
+        //       href: 'https://saucelabs.com/platform/analytics-performance/sauce-performance',
+        //     },
+        //     {
+        //       label: 'Sauce Insights',
+        //       href: 'https://saucelabs.com/platform/analytics-performance/sauce-insights',
+        //     },
+        //     {
+        //       label: 'Extended Debugging',
+        //       href: 'https://saucelabs.com/platform/analytics-performance/advanced-debugging-tools',
+        //     },
+        //     {
+        //       label: 'Supported Integrations',
+        //       href: 'https://saucelabs.com/platform/integrations-plugins',
+        //     },
+        //     {
+        //       label: 'Supported Browsers & Devices',
+        //       href: 'https://saucelabs.com/platform/supported-browsers-devices',
+        //     },
+        //   ]
+        // },
         // {
         //   label: 'Pricing',
         //   position: 'right',
