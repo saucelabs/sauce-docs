@@ -1,5 +1,5 @@
 ---
-id: testrunner-toolkit-test-preparation
+id: preparation
 title: Testrunner Test Preparation
 sidebar_label: Test Preparation
 ---
@@ -39,7 +39,7 @@ To learn more about how to configure `saucectl`, please visit the [Configuration
 
 <!--![Demo](https://gist.githubusercontent.com/diemol/f24bb230a0e3b41a052a1d9c1ff41f9e/raw/a325b6c1da77d4d4a804842da7307b055e7b50d2/saucectl-demo.gif)-->
 
-![Demo](assets/saucectl-demo.gif)
+![Demo](../../assets/saucectl-demo.gif)
 
 ## Automation Framework Examples
 The examples here show how Pipeline testing can be used. Try them and find your own use cases. 

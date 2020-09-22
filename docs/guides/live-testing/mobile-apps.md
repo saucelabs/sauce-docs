@@ -1,6 +1,6 @@
 ---
-id: live-testing-mobile-apps
-title: Live Testing Mobile Apps on Virtual and Real Devices
+id: mobile-apps
+title: Live Testing Mobile Apps
 sidebar_label: Mobile Apps
 ---
 
@@ -12,7 +12,7 @@ With Virtual Devices on Sauce Labs, you can test your mobile applications on a v
 > If you do not have an app, consider using the Sauce Labs [Swag Labs](https://github.com/saucelabs/sample-app-mobile) sample app for validating your account functionality as well as your tests.
 
 ## Upload Your Application
-Before you begin a live test session, you must upload an application to [Sauce Application Storage](saucelabs-application-storage.md).
+Before you begin a live test session, you must upload an application to [Sauce Application Storage](../../saucelabs-application-storage.md).
 
 For further information regarding:
 
@@ -20,7 +20,7 @@ For further information regarding:
 * modifying application startup settings.
 * viewing the storage API reference.
 
-Visit the [Sauce Labs Application Storage](saucelabs-application-storage.md) page.
+Visit the [Sauce Labs Application Storage](../../saucelabs-application-storage.md) page.
 
 ## Virtual Device Testing
 
@@ -41,7 +41,7 @@ After you've uploaded and selected the application, you're ready to launch a liv
 ### Selecting a Real Device
 
 You must select a device prior to launching a session. By default, the public devices will display in a grid format like so:
-    ![Device Grid](assets/device-grid.png)
+    ![Device Grid](../../assets/device-grid.png)
 
 There is a distinction between __Public Devices__ and __Private Devices__.
 
@@ -51,4 +51,4 @@ There is a distinction between __Public Devices__ and __Private Devices__.
 ### Launching a Real Device
 
 Hover over a device thumbnail and click on __Details__ to see the specs for that device. Once you find the desired device, select __Launch__.
-    ![Device Details](assets/device-details.png)
+    ![Device Details](../../assets/device-details.png)

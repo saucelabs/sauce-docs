@@ -1,5 +1,5 @@
 ---
-id: automation-web-app-testing
+id: web-apps
 title: Automated Web App Testing on Desktop and Mobile Browsers
 sidebar_label: Web Apps
 ---

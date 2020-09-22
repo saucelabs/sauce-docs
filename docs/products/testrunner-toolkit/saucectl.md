@@ -1,5 +1,5 @@
 ---
-id: testrunner-toolkit-cli-reference
+id: saucectl
 title: Testrunner CLI Reference
 sidebar_label: CLI Reference
 ---

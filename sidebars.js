@@ -1,9 +1,9 @@
 module.exports = {
   docs: {
   	Home: [
-        'saucelabs-overview',
-        'saucelabs-getting-started',
-        'saucelabs-application-storage',
+        'overview',
+        'getting-started',
+        'storage',
     ],
     Guides: [
         {
@@ -11,9 +11,9 @@ module.exports = {
             label: 'Live Testing',
             collapsed: true,
             items: [
-                'live-testing-overview',
-                'live-testing-web-apps',
-                'live-testing-mobile-apps',
+                'guides/live-testing/overview',
+                'guides/live-testing/web-apps',
+                'guides/live-testing/mobile-apps',
             ],
         },
         {
@@ -21,10 +21,10 @@ module.exports = {
             label: 'Automated Testing',
             collapsed: true,
             items: [
-                'automation-getting-started',
-                'automation-web-app-testing',
-                'automation-mobile-app-testing',
-                'automation-best-practices',
+                'guides/automation/getting-started',
+                'guides/automation/web-apps',
+                'guides/automation/mobile-apps',
+                'guides/automation/best-practices',
             ],
         },
     ],
@@ -35,21 +35,24 @@ module.exports = {
             label: 'Testrunner Toolkit',
             collapsed: true,
             items: [
-                'testrunner-toolkit-overview',
-                'testrunner-toolkit-installation',
-                'testrunner-toolkit-test-preparation',
-                'testrunner-toolkit-configuration',
-                'testrunner-toolkit-cli-reference',
-                'testrunner-toolkit-faqs'
+                'products/testrunner-toolkit/overview',
+                'products/testrunner-toolkit/installation',
+                'products/testrunner-toolkit/preparation',
+                'products/testrunner-toolkit/configuration',
+                'products/testrunner-toolkit/saucectl',
+                'products/testrunner-toolkit/faqs'
             ],
         },
     ],
     Contributing: [
-        'code-of-conduct',
+        'contributing/code-of-conduct',
     	{
     		type: 'category',
     		label: 'Style Guide',
-    		items: ['mkdwn-styles', 'adv-examples'],
+    		items: [
+    		    'contributing/style-guide/mkdwn-styles',
+                'contributing/style-guide/adv-examples'
+            ],
     	},
     ],
   },

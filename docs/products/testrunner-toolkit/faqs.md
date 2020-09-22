@@ -1,5 +1,5 @@
 ---
-id: testrunner-toolkit-faqs
+id: faqs
 title: Testrunner FAQs
 sidebar_label: FAQs
 ---
