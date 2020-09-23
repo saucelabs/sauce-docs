@@ -35,7 +35,7 @@ module.exports = {
             label: 'Testrunner Toolkit',
             collapsed: true,
             items: [
-                'products/testrunner-toolkit/overview',
+                'products/testrunner-toolkit',
                 'products/testrunner-toolkit/installation',
                 'products/testrunner-toolkit/preparation',
                 'products/testrunner-toolkit/configuration',

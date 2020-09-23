@@ -33,7 +33,7 @@ Below are a few of the frameworks that Sauce Labs support:
 
 * __[XCUITest](https://developer.apple.com/documentation/xctest/user_interface_tests) and [Espresso](https://developer.android.com/training/testing/espresso)__ - Sauce Labs allows you to test your mobile application with native mobile test frameworks using the [Sauce Runner]().
 
-* __[Puppeteer](https://github.com/puppeteer/puppeteer), [Playwright](https://github.com/microsoft/playwright), [TestCafe](https://github.com/DevExpress/testcafe), and [Cypress.io](https://github.com/cypress-io/cypress)__ - Refer to our [Testrunner Toolkit Documentation](products/testrunner-toolkit/overview.md) for more information on integrating your JavaScript framework tests with the Sauce Labs platform.
+* __[Puppeteer](https://github.com/puppeteer/puppeteer), [Playwright](https://github.com/microsoft/playwright), [TestCafe](https://github.com/DevExpress/testcafe), and [Cypress.io](https://github.com/cypress-io/cypress)__ - Refer to our [Testrunner Toolkit Documentation](products/testrunner-toolkit.md) for more information on integrating your JavaScript framework tests with the Sauce Labs platform.
 
 > If you don't know much about test automation or need framework-specific training, check out [Sauce School]() to get started.
 

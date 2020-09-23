@@ -2,27 +2,27 @@
 context('Home Page Tree Actions', () => {
     beforeEach(() => {
         //cy.visit('http://localhost:3000/')
-        cy.visit('https://sauce-docs-zc3byb3lfa-uw.a.run.app/saucelabs-overview')
+        cy.visit('https://sauce-docs-zc3byb3lfa-uw.a.run.app/overview')
     });
 
     it('Welcome Page', () => {
         cy.contains('Welcome')
             .click();
         cy.url()
-            .should('include', '/saucelabs-overview');
+            .should('include', '/overview');
     });
 
     it('Getting Started Page', () => {
         cy.contains('Getting Started')
             .click();
         cy.url()
-            .should('include', '/saucelabs-getting-started')
+            .should('include', '/getting-started')
     });
 
     it('Application Storage Page',() => {
-        cy.contains('Application Storage')
+        cy.contains('Storage')
             .click();
         cy.url()
-            .should('include', '/saucelabs-application-storage');
+            .should('include', '/storage');
     })
 });
