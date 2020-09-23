@@ -20,7 +20,7 @@ For further information regarding:
 * modifying application startup settings.
 * viewing the storage API reference.
 
-Visit the [Sauce Labs Application Storage](../../saucelabs-application-storage.md) page.
+Visit the [Sauce Labs Application Storage](storage.md) page.
 
 ## Virtual Device Testing
 
