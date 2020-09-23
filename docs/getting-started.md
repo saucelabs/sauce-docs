@@ -27,7 +27,7 @@ Please visit the [Automated Testing](guides/automation/getting-started.md) secti
 
 Below are a few of the frameworks that Sauce Labs support:
 
-* __[Selenium](https://www.selenium.dev/) and [Appium](http://appium.io/docs/)__ - For more detailed information, please visit the [Getting Started with Selenium or Appium Tests](guides/automation/automation-getting-started.md#selenium-or-appium-tests) page.
+* __[Selenium](https://www.selenium.dev/) and [Appium](http://appium.io/docs/)__ - For more detailed information, please visit the [Getting Started with Selenium or Appium Tests](guides/automation/getting-started.md#selenium-or-appium-tests) page.
 
 * __[WebDriverIO](https://webdriver.io/)__ - is a next-gen browser and mobile automation test framework for Node.js. For more information, view some of our [code examples](https://github.com/saucelabs-training/demo-js) to learn how to use `wdio` with the Sauce Labs platform.
 

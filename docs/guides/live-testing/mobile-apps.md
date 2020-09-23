@@ -12,7 +12,7 @@ With Virtual Devices on Sauce Labs, you can test your mobile applications on a v
 > If you do not have an app, consider using the Sauce Labs [Swag Labs](https://github.com/saucelabs/sample-app-mobile) sample app for validating your account functionality as well as your tests.
 
 ## Upload Your Application
-Before you begin a live test session, you must upload an application to [Sauce Application Storage](../../saucelabs-application-storage.md).
+Before you begin a live test session, you must upload an application to [Sauce Application Storage](storage.md).
 
 For further information regarding:
 
