@@ -1,5 +1,5 @@
 ---
-id: testrunner-toolkit-installation
+id: installation
 title: Testrunner Installation
 sidebar_label: Installation
 ---

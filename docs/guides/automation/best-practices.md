@@ -1,5 +1,5 @@
 ---
-id: automation-best-practices
+id: best-practices
 title: Best Practices for Automated Testing
 sidebar_label: Best Practices
 ---

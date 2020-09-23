@@ -1,7 +1,7 @@
 ---
-id: saucelabs-application-storage
+id: storage
 title: Application Storage
-sidebar_label: Application Storage
+sidebar_label: Storage
 ---
 
 import Tabs from '@theme/Tabs';

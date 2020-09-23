@@ -1,5 +1,5 @@
 ---
-id: automation-mobile-app-testing
+id: mobile-apps
 title: Automated Mobile App Testing on Virtual and Real Devices
 sidebar_label: Mobile Apps
 ---

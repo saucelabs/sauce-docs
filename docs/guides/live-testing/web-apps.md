@@ -1,6 +1,6 @@
 ---
-id: live-testing-web-apps
-title: Live Testing Web Apps on Desktop and Mobile Browsers
+id: web-apps
+title: Live Testing Web Apps
 sidebar_label: Web Apps
 ---
 

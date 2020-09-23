@@ -1,5 +1,5 @@
 ---
-id: testrunner-toolkit-configuration
+id: configuration
 title: Testrunner Configuration
 sidebar_label: Configuration
 ---

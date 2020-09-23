@@ -1,5 +1,5 @@
 ---
-id: automation-getting-started
+id: getting-started
 title: Getting Started with Automated Testing on Sauce Labs
 sidebar_label: Getting Started
 ---

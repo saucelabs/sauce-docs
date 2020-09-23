@@ -43,7 +43,7 @@ h1,h2,h3,h4,h5,h6 {
   text-decoration-color:rgb(70, 75, 84);
 }
 
-.navbar__items.navbar__items--right a:nth-child(4) {
+.navbar__items.navbar__items--right a:nth-child(3) {
   background: #e12219;
   background: -webkit-gradient(linear,right top, left top,from(#ee4439),to(#d92519));
   background: linear-gradient(270deg,#ee4439,#d92519);
@@ -53,7 +53,7 @@ h1,h2,h3,h4,h5,h6 {
   padding: 10px 15px;
   --ifm-menu-color-background-hover: #fff;
 }
-.navbar__items.navbar__items--right a:nth-child(4):hover {
+.navbar__items.navbar__items--right a:nth-child(3):hover {
   background: #f85d5d;
   background: -webkit-gradient(linear,right top,left top,from(#f85d5d),to(#f83838));
   background: linear-gradient(270deg,#f85d5d,#f83838);
@@ -70,7 +70,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .footer__title {
-  border-bottom: 1px solid #bd3431;
+  /*border-bottom: 1px solid #bd3431;*/
   display: block;
   padding-bottom: 10px;
   font-size: .875rem;

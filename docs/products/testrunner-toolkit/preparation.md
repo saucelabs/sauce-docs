@@ -1,5 +1,5 @@
 ---
-id: testrunner-toolkit-test-preparation
+id: preparation
 title: Testrunner Test Preparation
 sidebar_label: Test Preparation
 ---
@@ -7,7 +7,7 @@ sidebar_label: Test Preparation
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Before you begin testing with [Testrunner Toolkit](testrunner-toolkit-overview.md), you must choose an automation framework.
+Before you begin testing with [Testrunner Toolkit](products/testrunner-toolkit.md), you must choose an automation framework.
 
 ## Choose an Automation Framework
 1. Run the following command:
@@ -33,13 +33,13 @@ saucectl run
 ```
 Testrunner Toolkit will then execute the test based on the information in `config.yml`. 
 
-To learn more about how to configure `saucectl`, please visit the [Configuration](testrunner-toolkit-configuration.md) section of the docs. 
+To learn more about how to configure `saucectl`, please visit the [Configuration](products/testrunner-toolkit/configuration.md) section of the docs. 
 
 ### Quick demo
 
 <!--![Demo](https://gist.githubusercontent.com/diemol/f24bb230a0e3b41a052a1d9c1ff41f9e/raw/a325b6c1da77d4d4a804842da7307b055e7b50d2/saucectl-demo.gif)-->
 
-![Demo](assets/saucectl-demo.gif)
+![Demo](../../assets/saucectl-demo.gif)
 
 ## Automation Framework Examples
 The examples here show how Pipeline testing can be used. Try them and find your own use cases. 
