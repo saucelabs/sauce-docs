@@ -9,10 +9,10 @@ Welcome to Sauce Labs! Your path for getting started depends on your experience 
 ## Live Tests
 The topics below contain information about live testing of Web Apps on desktop browser, and native browsers for real and virtual devices, with Sauce Labs. Topics include:
 
-* [Live Web App Testing on Desktop Browsers](guides/live-testing/live-testing-web-apps.md#testing-on-desktop-browsers)
-* [Live Web App Testing on Mobile Browsers](guides/live-testing/live-testing-web-apps.md#testing-on-mobile-browsers)
-* [Live Mobile App Testing on Virtual Devices](guides/live-testing/live-testing-mobile-apps.md#virtual-device-testing)
-* [Live Mobile App Testing on Real Devices](guides/live-testing/live-testing-mobile-apps.md#real-device-testing)
+* [Live Web App Testing on Desktop Browsers](guides/live-testing/web-apps.md#testing-on-desktop-browsers)
+* [Live Web App Testing on Mobile Browsers](guides/live-testing/web-apps.md#testing-on-mobile-browsers)
+* [Live Mobile App Testing on Virtual Devices](guides/live-testing/mobile-apps.md#virtual-device-testing)
+* [Live Mobile App Testing on Real Devices](guides/live-testing/mobile-apps.md#real-device-testing)
 
 ## Automated Tests
 
@@ -21,7 +21,7 @@ If you're starting from scratch, or haven't committed to a specific test framewo
 * configure your test environment
 * configure your tests to communicate with our VMs and send results to Sauce Labs.
 
-Please visit the [Automated Testing](guides/automation/automation-getting-started.md) section of the docs to get started.
+Please visit the [Automated Testing](guides/automation/getting-started.md) section of the docs to get started.
 
 ### Supported Frameworks
 

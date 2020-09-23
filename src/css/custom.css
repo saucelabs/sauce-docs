@@ -70,7 +70,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .footer__title {
-  border-bottom: 1px solid #bd3431;
+  /*border-bottom: 1px solid #bd3431;*/
   display: block;
   padding-bottom: 10px;
   font-size: .875rem;
