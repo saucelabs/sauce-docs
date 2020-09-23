@@ -1,5 +1,5 @@
 ---
-id: live-testing-overview
+id: overview
 title: Live Testing Overview
 sidebar_label: Overview
 ---

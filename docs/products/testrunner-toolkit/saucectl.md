@@ -1,5 +1,5 @@
 ---
-id: testrunner-toolkit-cli-reference
+id: saucectl
 title: Testrunner CLI Reference
 sidebar_label: CLI Reference
 ---
@@ -93,7 +93,7 @@ Using the --region flag will set the Sauce Labs region for the test execution. T
 saucectl run --timeout <seconds>
 ```
 
-Using the `--timeout` flag will set the test timeout for the [Testrunner framework](testrunner-toolkit-test-preparation.md#automation-framework-examples).
+Using the `--timeout` flag will set the test timeout for the [Testrunner framework](products/testrunner-toolkit/preparation.md#automation-framework-examples).
 
 ## Licensing
 

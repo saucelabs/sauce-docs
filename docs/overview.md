@@ -1,5 +1,5 @@
 ---
-id: saucelabs-overview
+id: overview
 title: Documentation
 sidebar_label: Welcome
 description: Landing Page for Sauce Labs Documentation

@@ -58,4 +58,4 @@ __Table of Contents__
 
 ## Contributing
 
-Before you edit the docs, review the the [style guide](docs/mkdwn-styles.md) to make sure you maintain or standards. Also, before submitting an issue or PR in GitHub, please review the [code of conduct](docs/code-of-conduct.md) and or [contribution guide](CONTRIBUTING.MD) for further details.
+Before you edit the docs, review the [style guide](docs/contributing/style-guide/mkdwn-styles.md) to make sure you maintain or standards. Also, before submitting an issue or PR in GitHub, please review the [code of conduct](docs/contributing/code-of-conduct.md) and or [contribution guide](CONTRIBUTING.MD) for further details.

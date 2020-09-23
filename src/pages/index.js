@@ -9,8 +9,8 @@ import styles from './styles.module.css';
 const features = [
   {
     title: 'Run Live Tests',
-    imageUrl: 'img/SDET_Developer_Bot_EXPORT.gif',
-    slugName: '/live-testing-overview',
+    imageUrl: 'img/SDET_Developer_Bot_EXPORT.png',
+    slugName: '/guides/live-testing/overview',
     buttonText: 'Run Now',
     description: (
       <>
@@ -21,8 +21,8 @@ const features = [
   },
   {
     title: 'Integrate Your Test Suite',
-    imageUrl: 'img/INFOSEC_Bot_EXPORT.gif',
-    slugName: '/saucelabs-getting-started',
+    imageUrl: 'img/INFOSEC_Bot_EXPORT.png',
+    slugName: '/getting-started',
     buttonText: 'Integrate Now',
     description: (
       <>
@@ -34,8 +34,8 @@ const features = [
   },
   {
     title: 'Learn Automation',
-    imageUrl: 'img/QA_Bot_EXPORT.gif',
-    slugName: '/automation-getting-started',
+    imageUrl: 'img/QA_Bot_EXPORT.png',
+    slugName: 'guides/automation/getting-started',
     buttonText: 'Automate Now',
     description: (
       <>
@@ -88,7 +88,7 @@ function Home() {
                 'button button--outline button--secondary button--lg',
                 styles.getStarted,
               )}
-              to={useBaseUrl('/saucelabs-overview')}>
+              to={useBaseUrl('/overview')}>
               Get Started
             </Link>
           </div>
