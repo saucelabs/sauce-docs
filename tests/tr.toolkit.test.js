@@ -5,12 +5,12 @@ context('Testrunner Toolkit Page Tree Actions', () => {
         cy.visit('https://sauce-docs-zc3byb3lfa-uw.a.run.app/products/testrunner-toolkit')
     });
 
-    it('Testrunner Overview Page', () => {
-        cy.contains('Overview')
-            .click();
-        cy.url()
-            .should('include', '/products/testrunner-toolkit');
-    });
+    // it('Testrunner Overview Page', () => {
+    //     cy.contains('Overview')
+    //         .click();
+    //     cy.url()
+    //         .should('include', '/products/testrunner-toolkit');
+    // });
 
     it('Installation Page', () => {
         cy.contains('Installation')
