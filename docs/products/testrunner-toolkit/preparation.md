@@ -7,7 +7,7 @@ sidebar_label: Test Preparation
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Before you begin testing with [Testrunner Toolkit](testrunner-toolkit-overview.md), you must choose an automation framework.
+Before you begin testing with [Testrunner Toolkit](products/testrunner-toolkit/overview.md), you must choose an automation framework.
 
 ## Choose an Automation Framework
 1. Run the following command:
@@ -33,7 +33,7 @@ saucectl run
 ```
 Testrunner Toolkit will then execute the test based on the information in `config.yml`. 
 
-To learn more about how to configure `saucectl`, please visit the [Configuration](testrunner-toolkit-configuration.md) section of the docs. 
+To learn more about how to configure `saucectl`, please visit the [Configuration](products/testrunner-toolkit/configuration.md) section of the docs. 
 
 ### Quick demo
 
