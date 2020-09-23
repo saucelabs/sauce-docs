@@ -50,7 +50,7 @@ contains saucectl with different versions of TestCafe.
 * [Base image + Cypress](https://hub.docker.com/r/saucelabs/stt-cypress-mocha-node/tags) contains saucectl with different versions of Cypress.
 
 ## Are There any Test Code Samples? 
-Yes! You can find them here: [Automation Framework Examples](testrunner-toolkit-test-preparation.md#automation-framework-examples).
+Yes! You can find them here: [Automation Framework Examples](products/testrunner-toolkit/preparation.md#automation-framework-examples).
 
 ## How Do I Use This in my Pipeline?
 The GitHub repository includes CI/CD examples of `saucectl` using:
