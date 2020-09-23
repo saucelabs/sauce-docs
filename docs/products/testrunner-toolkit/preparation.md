@@ -7,7 +7,7 @@ sidebar_label: Test Preparation
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Before you begin testing with [Testrunner Toolkit](products/testrunner-toolkit/overview.md), you must choose an automation framework.
+Before you begin testing with [Testrunner Toolkit](products/testrunner-toolkit.md), you must choose an automation framework.
 
 ## Choose an Automation Framework
 1. Run the following command:
