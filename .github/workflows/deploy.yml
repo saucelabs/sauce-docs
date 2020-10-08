@@ -73,3 +73,34 @@ jobs:
           kill %1
 
           exit ${EXIT_CODE}
+
+  deploy-production:
+    needs: test
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/master' }}
+
+    steps:
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - run: pip install crcmod
+
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '290.0.1'
+          service_account_key: ${{ secrets.RUN_SA_KEY }}
+          project_id: ${{ secrets.RUN_PROJECT }}
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: build
+      - name: unarchive build/
+        run: |
+          tar -xf build.tar.gz
+          rm build.tar.gz
+
+      - name: Deploy to Bucket
+        run: |-
+          cd build
+          gsutil -m rsync -R . ${{ secrets.GCS_BUCKET }}
