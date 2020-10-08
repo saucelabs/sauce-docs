@@ -7,7 +7,7 @@ on:
 env:
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
-  SAUCECTL_VERSION: v0.14.0
+  SAUCECTL_VERSION: 0.14.0
 
 jobs:
   build:
@@ -60,7 +60,7 @@ jobs:
           rm build.tar.gz
       - name: install saucectl
         run: |
-          curl -L -s  https://github.com/saucelabs/saucectl/releases/download/${SAUCECTL_VERSION}/saucectl_${SAUCECTL_VERSION}_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
+          curl -L -s  https://github.com/saucelabs/saucectl/releases/download/v${SAUCECTL_VERSION}/saucectl_${SAUCECTL_VERSION}_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
       - name:
         run: |
           # Expose website
