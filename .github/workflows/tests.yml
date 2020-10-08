@@ -1,0 +1,75 @@
+name: Sauce Pipeline Browser Tests
+
+on:
+  pull_request:
+  push:
+
+env:
+  SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
+  SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
+  SAUCECTL_VERSION: v0.14.0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - uses: actions/cache@v2
+        id: cache-npm-packages
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - uses: borales/actions-yarn@v2.0.0
+        if: steps.cache-npm-packages.outputs.cache-hit != 'true'
+        with:
+          cmd: install
+
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: build
+
+      - name: archive build/
+        run: tar -czhf build.tar.gz ./build/
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: |
+            build.tar.gz
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: build
+      - name: unarchive build/
+        run: |
+          tar -xf build.tar.gz
+          rm build.tar.gz
+      - name: install saucectl
+        run: |
+          curl -L -s  https://github.com/saucelabs/saucectl/releases/download/${SAUCECTL_VERSION}/saucectl_${SAUCECTL_VERSION}_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
+      - name:
+        run: |
+          # Expose website
+          cd build/ && python3 -m http.server 8000 &
+
+          # Run skipping ci-mode
+          export SKIP_CI=true
+          saucectl run --env CYPRESS_HOST_ADDR=`hostname -i`:8000 -c ./.sauce/config.yml
+          EXIT_CODE=${?}
+          kill %1
+
+          exit ${EXIT_CODE}
