@@ -61,7 +61,7 @@ jobs:
       - name: install saucectl
         run: |
           curl -L -s  https://github.com/saucelabs/saucectl/releases/download/v${SAUCECTL_VERSION}/saucectl_${SAUCECTL_VERSION}_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
-      - name:
+      - name: saucectl run
         run: |
           # Expose website
           cd build/ && python3 -m http.server 8000 &
