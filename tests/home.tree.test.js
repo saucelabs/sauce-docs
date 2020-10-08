@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 context('Home Page Tree Actions', () => {
     beforeEach(() => {
-        cy.visit(`https://${Cypress.env('HOST_ADDR')}/overview`)
+        cy.visit(`http://${Cypress.env('HOST_ADDR')}/overview`)
     });
 
     it('Welcome Page', () => {

@@ -2,7 +2,7 @@
 context('Testrunner Toolkit Page Tree Actions', () => {
     beforeEach(() => {
         //cy.visit('http://localhost:3000/products')
-        cy.visit(`https://${Cypress.env('HOST_ADDR')}/products/testrunner-toolkit`)
+        cy.visit(`http://${Cypress.env('HOST_ADDR')}/products/testrunner-toolkit`)
     });
 
     // it('Testrunner Overview Page', () => {
