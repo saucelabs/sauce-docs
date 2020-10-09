@@ -1,8 +1,7 @@
 /// <reference types="cypress" />
 context('Home Page Tree Actions', () => {
     beforeEach(() => {
-        //cy.visit('http://localhost:3000/')
-        cy.visit('https://sauce-docs-zc3byb3lfa-uw.a.run.app/overview')
+        cy.visit(`http://${Cypress.env('HOST_ADDR')}/overview`)
     });
 
     it('Welcome Page', () => {
