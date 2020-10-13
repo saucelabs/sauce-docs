@@ -30,18 +30,17 @@ jobs:
         with:
           cmd: install
 
+      - uses: actions/cache@v2
+        id: cache-build
+        with:
+          path: |
+            build
+          key: ${{ runner.os }}-${{ github.sha }}
+
       - uses: borales/actions-yarn@v2.0.0
+        if: steps.cache-build.outputs.cache-hit != 'true'
         with:
           cmd: build
-
-      - name: archive build/
-        run: tar -czhf build.tar.gz ./build/
-
-      - uses: actions/upload-artifact@v2
-        with:
-          name: build
-          path: |
-            build.tar.gz
 
   test:
     runs-on: ubuntu-latest
@@ -51,13 +50,19 @@ jobs:
         with:
           python-version: 3.7
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
+
+      - uses: actions/cache@v2
+        id: cache-build
         with:
-          name: build
-      - name: unarchive build/
-        run: |
-          tar -xf build.tar.gz
-          rm build.tar.gz
+          path: |
+            build
+          key: ${{ runner.os }}-${{ github.sha }}
+
+      - uses: borales/actions-yarn@v2.0.0
+        if: steps.cache-build.outputs.cache-hit != 'true'
+        with:
+          cmd: build
+
       - name: install saucectl
         run: |
           curl -L -s  https://github.com/saucelabs/saucectl/releases/download/v${SAUCECTL_VERSION}/saucectl_${SAUCECTL_VERSION}_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
@@ -92,13 +97,17 @@ jobs:
           service_account_key: ${{ secrets.RUN_SA_KEY }}
           project_id: ${{ secrets.RUN_PROJECT }}
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/cache@v2
+        id: cache-build
         with:
-          name: build
-      - name: unarchive build/
-        run: |
-          tar -xf build.tar.gz
-          rm build.tar.gz
+          path: |
+            build
+          key: ${{ runner.os }}-${{ github.sha }}
+
+      - uses: borales/actions-yarn@v2.0.0
+        if: steps.cache-build.outputs.cache-hit != 'true'
+        with:
+          cmd: build
 
       - name: Deploy to Bucket
         run: |-
