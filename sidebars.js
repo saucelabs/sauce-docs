@@ -39,8 +39,9 @@ module.exports = {
                 'products/testrunner-toolkit/installation',
                 'products/testrunner-toolkit/preparation',
                 'products/testrunner-toolkit/configuration',
+                'products/testrunner-toolkit/integrations',
                 'products/testrunner-toolkit/saucectl',
-                'products/testrunner-toolkit/faqs'
+                'products/testrunner-toolkit/faqs',
             ],
         },
     ],
