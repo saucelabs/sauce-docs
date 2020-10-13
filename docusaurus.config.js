@@ -270,6 +270,7 @@ module.exports = {
           showLastUpdateAuthor: true,
           // Equivalent to `enableUpdateTime`.
           showLastUpdateTime: true,
+          disableVersioning: true,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
