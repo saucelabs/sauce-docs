@@ -1,31 +1,33 @@
 module.exports = {
   docs: {
   	Home: [
-        'overview'
+        'overview',
+        'getting-started',
+        'storage',
     ],
-    // Guides: [
-    //     {
-    //         type: 'category',
-    //         label: 'Live Testing',
-    //         collapsed: true,
-    //         items: [
-    //             'guides/live-testing/introduction',
-    //             'guides/live-testing/web-apps',
-    //             'guides/live-testing/mobile-apps',
-    //         ],
-    //     },
-    //     {
-    //         type: 'category',
-    //         label: 'Automated Testing',
-    //         collapsed: true,
-    //         items: [
-    //             'guides/automation/introduction',
-    //             'guides/automation/web-apps',
-    //             'guides/automation/mobile-apps',
-    //             'guides/automation/best-practices',
-    //         ],
-    //     },
-    // ],
+    Guides: [
+        {
+            type: 'category',
+            label: 'Live Testing',
+            collapsed: true,
+            items: [
+                'guides/live-testing/introduction',
+                'guides/live-testing/web-apps',
+                'guides/live-testing/mobile-apps',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Automated Testing',
+            collapsed: true,
+            items: [
+                'guides/automation/introduction',
+                'guides/automation/web-apps',
+                'guides/automation/mobile-apps',
+                'guides/automation/best-practices',
+            ],
+        },
+    ],
     Products: [
         'products',
         {
