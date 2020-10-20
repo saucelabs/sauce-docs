@@ -77,9 +77,9 @@ files:
   # - ./tests/puppeteer/sauce-swag-checkout.test.js
   # - ./tests/puppeteer/sauce-swag-login.test.js
 # Define a test runner image (e.g. an image to run WebdriverIO tests)
-# Like in Docker, these images can be developed as Open Source projects
+# Like in Docker, these img can be developed as Open Source projects
 # and maintained by our teams, while at the same time, customers can
-# build their own images as well
+# build their own img as well
 image:
   # while a set of properties are defined by our Yaml format
   base: saucelabs/sauce-puppeteer
@@ -108,9 +108,9 @@ metadata:
 files:
   - ./tests/playwright/demo.test.js
 # Define a test runner image (e.g. an image to run WebdriverIO tests)
-# Like in Docker, these images can be developed as Open Source projects
+# Like in Docker, these img can be developed as Open Source projects
 # and maintained by our teams, while at the same time, customers can
-# build their own images as well
+# build their own img as well
 image:
   # while a set of properties are defined by our Yaml format
   base: saucelabs/sauce-playwright

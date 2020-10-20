@@ -10,7 +10,7 @@ const features = [
   {
     title: 'Run Live Tests',
     imageUrl: 'img/SDET_Developer_Bot_EXPORT.png',
-    slugName: '/guides/live-testing/overview',
+    slugName: '/guides/live-testing/introduction',
     buttonText: 'Run Now',
     description: (
       <>
@@ -35,7 +35,7 @@ const features = [
   {
     title: 'Learn Automation',
     imageUrl: 'img/QA_Bot_EXPORT.png',
-    slugName: 'guides/automation/getting-started',
+    slugName: 'guides/automation/introduction',
     buttonText: 'Automate Now',
     description: (
       <>
