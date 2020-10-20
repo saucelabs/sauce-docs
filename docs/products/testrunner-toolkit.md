@@ -1,7 +1,7 @@
 ---
 id: testrunner-toolkit
 title: Why Testrunner Toolkit?                                  
-sidebar_label: Getting Started
+sidebar_label: Why Testrunner Toolkit?
 ---
 
 export const Highlight = ({children, color}) => ( <span style={{
@@ -11,12 +11,12 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-<Highlight color="#1877F2">Beta</Highlight>
-
+<p><Highlight color="#1877F2">Beta</Highlight></p>
 
 Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifies user setup, speeds up test execution time and supports native Javascript frameworks like Puppeteer and Playwright for running end-to-end web tests with Sauce Labs.
 
 ## How Testrunner Toolkit Works
+
 Native JavaScript testing is achieved through the combination of Sauce Labs, Jest, and the
 JavaScript framework of your choice. In the current beta, the toolkit supports:
  

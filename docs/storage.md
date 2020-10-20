@@ -4,6 +4,7 @@ title: Application Storage
 sidebar_label: Storage
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -24,23 +25,24 @@ When testing mobile applications, you now have the option to upload your applica
 2. Select __Mobile-App__.
 3. You will see a list of previously uploaded apps.
 4. To the right of the page, select __App-Upload__ to upload a new application (Note: Live Testing on Real Devices only at the moment):
-    ![Live Test UI Mobile-App Image](assets/live-test-mobile-app.png)
-
+    
+    <img src="/static/img/live-testing/live-test-mobile-app.png" alt="Live Testing Mobile Apps" width="500" />
 
 5. You can either drag and drop and application, or browse for the file (*.APK or *.IPA format):   
-   ![Choosing an App File](assets/app-upload.png)
-
+   
+   <img src="/static/img/live-testing/app-upload.png" alt="App Upload" width="500" />
 
 6. To use an app you've previously uploaded, select "Check out the __old repository__" link at the bottom of the page. This will re-direct you to the legacy App Management UI with all your previously uploaded apps:
-   ![Old Repository Link](assets/old-repository.png)
+   
+   <img src="/static/img/live-testing/old-repository.png" alt="Old Repository Button" width="500" />
 
 ### Delete Apps with the Delete Button
 
 The __Delete__ button will delete a whole application (e.g. a group of builds belonging to the same app package). 
 
 Files associated with app identifiers i.e. belong to the same platform and are accessible to the same team, are indicated by the __+__ symbol next to version number. Also, the version number shown is the most recently updated file, not necessarily the 'latest' version of the application.
-   ![Delete Latest Version](assets/latest-version.png)
-
+   
+   <img src="/static/img/live-testing/latest-version.png" alt="Latest Versions" width="500" />
 
 ## Upload an App/File with the REST API
 
@@ -83,11 +85,13 @@ For more detailed information visit the Storage API Reference Page
 #### Upload API Example
 
 __US Data Center__
+
 ```bash
 $ curl -F 'payload=@/Users/<user-name>/Downloads/<file_name>.apk' -F name=<file_name>.apk -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY"  'https://api.us-west-1.saucelabs.com/v1/storage/upload'
 ```
 
 __EU Data Center__
+
 ```bash
 $ curl -F 'payload=@/Users/<user-name>/Downloads/<file_name>.ipa' -F name=<file_name>.ipa -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY"  'https://api.eu-central-1.saucelabs.com/v1/storage/upload'
 ```

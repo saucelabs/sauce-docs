@@ -8,26 +8,41 @@
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #e53730;
-  --ifm-color-primary-dark: rgb(229,55,48);
-  --ifm-color-primary-darker: rgb(218,41,29);
-  --ifm-color-primary-darkest: rgb(172,20,19);
-  --ifm-color-primary-light: rgb(204,205,207);
-  --ifm-color-primary-lighter: rgb(248,248,248);
-  --ifm-color-primary-lightest: rgb(255,255,255);
-  --ifm-footer-background-color: rgb(172,20,19);
-  --ifm-footer-link-color: rgb(255,255,255);
-  --ifm-footer-title-color: rgb(248,248,248);
-  --ifm-footer-color: rgb(255,255,255);
+  --ifm-color-primary-dark: rgb(229, 55, 48);
+  --ifm-color-primary-darker: rgb(218, 41, 29);
+  --ifm-color-primary-darkest: rgb(172, 20, 19);
+  --ifm-color-primary-light: rgb(204, 205, 207);
+  --ifm-color-primary-lighter: rgb(248, 248, 248);
+  --ifm-color-primary-lightest: rgb(255, 255, 255);
+  --ifm-footer-background-color: rgb(172, 20, 19);
+  --ifm-footer-link-color: rgb(255, 255, 255);
+  --ifm-footer-title-color: rgb(248, 248, 248);
+  --ifm-footer-color: rgb(255, 255, 255);
   --ifm-code-font-size: 95%;
 }
+
 body {
   font-family: museo-sans, sans-serif;
   font-weight: 100;
 }
+
 h1,h2,h3,h4,h5,h6 {
-  font-weight: normal;
   font-family: museo-sans, sans-serif;
   font-weight: 100;
+}
+
+h1, .h1 {
+  font-size: 30px;
+}
+
+h2, .h2 {
+  padding-bottom: 5px;
+  font-size: 25px;
+}
+
+h3, .h3 {
+  padding-bottom: 5px;
+  font-size: 20px;
 }
 
 .docusaurus-highlight-code-line {
@@ -61,7 +76,6 @@ h1,h2,h3,h4,h5,h6 {
 
 .footer {
   font-family: museo-sans, sans-serif;
-  --ifm-h4-font-size: 20px;
   padding-bottom: 40px;
 }
 

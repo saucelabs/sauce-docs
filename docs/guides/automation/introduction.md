@@ -1,7 +1,7 @@
 ---
-id: getting-started
-title: Getting Started with Automated Testing on Sauce Labs
-sidebar_label: Getting Started
+id: introduction
+title: Automated Testing on Sauce Labs
+sidebar_label: Introduction
 ---
 
 If you have existing tests and want to execute them on the Sauce Labs Cloud, you might only be a few steps away. 

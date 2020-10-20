@@ -1,16 +1,8 @@
 /// <reference types="cypress" />
 context('Testrunner Toolkit Page Tree Actions', () => {
     beforeEach(() => {
-        //cy.visit('http://localhost:3000/products')
         cy.visit(`http://${Cypress.env('HOST_ADDR')}/products/testrunner-toolkit`)
     });
-
-    // it('Testrunner Overview Page', () => {
-    //     cy.contains('Overview')
-    //         .click();
-    //     cy.url()
-    //         .should('include', '/products/testrunner-toolkit');
-    // });
 
     it('Installation Page', () => {
         cy.contains('Installation')
