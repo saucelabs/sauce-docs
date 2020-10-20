@@ -61,6 +61,11 @@ jobs:
       - uses: borales/actions-yarn@v2.0.0
         if: steps.cache-build.outputs.cache-hit != 'true'
         with:
+          cmd: install
+
+      - uses: borales/actions-yarn@v2.0.0
+        if: steps.cache-build.outputs.cache-hit != 'true'
+        with:
           cmd: build
 
       - name: install saucectl
@@ -103,6 +108,11 @@ jobs:
           path: |
             build
           key: ${{ runner.os }}-${{ github.sha }}
+
+      - uses: borales/actions-yarn@v2.0.0
+        if: steps.cache-build.outputs.cache-hit != 'true'
+        with:
+          cmd: install
 
       - uses: borales/actions-yarn@v2.0.0
         if: steps.cache-build.outputs.cache-hit != 'true'
