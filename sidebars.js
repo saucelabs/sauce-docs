@@ -1,9 +1,7 @@
 module.exports = {
   docs: {
   	Home: [
-        'overview',
-        'getting-started',
-        'storage',
+        'overview'
     ],
     // Guides: [
     //     {
