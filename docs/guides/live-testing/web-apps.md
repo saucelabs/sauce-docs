@@ -9,6 +9,7 @@ You can run live tests of your websites/web-applications on a wide range of oper
 ## What You'll Need
 * A Sauce Labs Account
 * A Publicly Available Web Application to Test
+
 > If you do not have an app, consider using the Sauce Labs [Swag Labs](https://www.saucedemo.com/) sample app for validating your account functionality as well as your tests.
 
 ## Testing on Desktop Browsers

@@ -11,7 +11,7 @@ module.exports = {
             label: 'Live Testing',
             collapsed: true,
             items: [
-                'guides/live-testing/overview',
+                'guides/live-testing/introduction',
                 'guides/live-testing/web-apps',
                 'guides/live-testing/mobile-apps',
             ],
@@ -21,7 +21,7 @@ module.exports = {
             label: 'Automated Testing',
             collapsed: true,
             items: [
-                'guides/automation/getting-started',
+                'guides/automation/introduction',
                 'guides/automation/web-apps',
                 'guides/automation/mobile-apps',
                 'guides/automation/best-practices',
