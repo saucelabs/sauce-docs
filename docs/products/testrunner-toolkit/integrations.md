@@ -162,7 +162,7 @@ The easiest way to add credentials to Jenkins is with the UI:
 * Go to __Manage Jenkins > Manage Credentials__
 * Next to (Global), select __Add credentials__
 
-    <img src="/static/img/stt/add_credentials.png" alt="Add Jenkins Credentials" width="500" />
+    <img src={useBaseUrl('img/stt/add_credentials.png')} alt="Add Jenkins Credentials" width="500" />;
     
 * For __Kind__, select __Secret Text__
 * Enter the following information:
@@ -172,7 +172,7 @@ The easiest way to add credentials to Jenkins is with the UI:
     * Description: Sauce Labs Username
 * Repeat the above steps for your Sauce Labs Access Key
 
-    <img src="/static/img/stt/secrets.png" alt="Jenkins Secrets" width="500"/>
+    <img src={useBaseUrl('img/stt/secrets.png')} alt="Jenkins Secrets" width="500" />;
 
     > For further information on how to store your Sauce Labs credentials in Jenkins, visit [the Jenkinsfile documentation](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials).
 
@@ -304,7 +304,7 @@ Now you can commit these files and Jenkins will detect the new pipeline and laun
 
 For example if you're using the [Blue Ocean plugin](https://plugins.jenkins.io/blueocean/), your output may look something like this:
 
-<img src="/static/img/stt/blue-ocean.png" alt="GitHub Settings" width="500" />
+<img src={useBaseUrl('img/stt/blue-ocean.png')} alt="GitHub Settings" />;
 
 ## GitHub Actions
 
@@ -324,7 +324,7 @@ The first order of business is to export your [Sauce Labs account credentials]()
 
 1. Navigate to your project repository and select the __settings__ icon
 
-    <img src="/static/img/stt/github-settings.png" alt="GitHub Settings" width="500" />
+    <img src={useBaseUrl('img/stt/github-settings.png')} alt="GitHub Settings" width="500" />;
 
 2. Select __Secrets__
 3. Click the __New secret__ button
@@ -493,8 +493,8 @@ To see the output:
 2. Navigate to your repository page
 3. Click on Actions
 
-    <img src="/static/img/stt/github-actions.png" alt="GitHub Actions" width="500" />
+    <img src={useBaseUrl('img/stt/github-actions.png')} alt="GitHub Actions" width="500" />;
     
 Your output may look something like this:
 
-<img src="/static/img/stt/github-workflow.png" alt="GitHub Workflow" width="800" />    
+<img src={useBaseUrl('img/stt/github-workflow.png')} alt="GitHub Workflow" width="800" />;    

@@ -6,7 +6,8 @@ sidebar_label: Web Apps
 
 You can run live tests of your websites/web-applications on a wide range of operating systems and web browser versions.
 
-## What You'll Need
+__What You'll Need__
+
 * A Sauce Labs Account
 * A Publicly Available Web Application to Test
 

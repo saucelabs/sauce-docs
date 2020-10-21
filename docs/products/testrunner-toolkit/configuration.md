@@ -7,14 +7,19 @@ sidebar_label: Configuration
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Testrunner Toolkit requires a configuration file to know which tests to run, along with which framework to use.
+The Testrunner Toolkit requires a configuration file to know which tests to run, along with which framework to use. Examples of some possible configuration fields you can set include:
+
+* custom `tags`
+* location of the test `files`
+* desired framework `image` and `version`
+* desired `sauce` data center
 
 ## Basic Configuration
 
-By default, `config.yml` is the file `saucectl` looks to for its configuration.
+By default `saucectl` searches for a file called `config.yml`, for example:
 
 ```yaml
-#Simple config.yml using puppeteer
+# Simple config.yml using puppeteer
 apiVersion: v1
 metadata:
   name: Feature XYZ
