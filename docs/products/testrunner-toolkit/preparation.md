@@ -38,7 +38,7 @@ To learn more about how to configure `saucectl`, please visit the [Configuration
 
 ### Quick demo
 
-<img src="/static/img/stt/saucectl-demo.gif" alt="saucectl Demo" />
+<img src={useBaseUrl('img/stt/saucectl-demo.gif')} alt="saucectl Demo" />;
 
 ## Automation Framework Examples
 The examples here show how Pipeline testing can be used. Try them and find your own use cases. 

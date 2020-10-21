@@ -14,27 +14,31 @@ When testing mobile applications, you now have the option to upload your applica
 * Share your uploaded apps between your Extended Team Management (xTM) team members.
 * Apps live in the new application storage for 60 days rather than 7 days in the old Sauce Storage.
 
-## What You'll Need
+__What You'll Need__
 
 * A Sauce Labs Account.
 * A mobile app/binary file you wish to test. If you don't have one, you can use the [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile).
 
 ## Upload an App with App-Upload
 
-1. Log in to Sauce Labs and select __LIVE__ from the options in the left-hand navigation.
-2. Select __Mobile-App__.
-3. You will see a list of previously uploaded apps.
-4. To the right of the page, select __App-Upload__ to upload a new application (Note: Live Testing on Real Devices only at the moment):
+:::info Important
+The App-Upload feature is currently only available with Live Testing on Real Devices.
+:::
+
+1. Log in to Sauce Labs and select __LIVE__ from the options in the left-hand navigation
+2. Select __Mobile-App__
+3. You will see a list of previously uploaded apps
+4. To the right of the page, select __App-Upload__ to upload a new application
     
-    <img src="/static/img/live-testing/live-test-mobile-app.png" alt="Live Testing Mobile Apps" width="500" />
+    <img src={useBaseUrl('img/live-testing/live-test-mobile-app.png')} alt="Live Testing Mobile Apps" />;
 
 5. You can either drag and drop and application, or browse for the file (*.APK or *.IPA format):   
    
-   <img src="/static/img/live-testing/app-upload.png" alt="App Upload" width="500" />
+   <img src={useBaseUrl('img/live-testing/app-upload.png')} alt="App Upload" />;
 
-6. To use an app you've previously uploaded, select "Check out the __old repository__" link at the bottom of the page. This will re-direct you to the legacy App Management UI with all your previously uploaded apps:
+6. To use an app you've previously uploaded, select "Check out the old repository" link at the bottom of the page. This will re-direct you to the legacy App Management UI with all your previously uploaded apps:
    
-   <img src="/static/img/live-testing/old-repository.png" alt="Old Repository Button" width="500" />
+   <img alt="Old Repository Button" src={useBaseUrl('img/live-testing/old-repository.png')} />;
 
 ### Delete Apps with the Delete Button
 
@@ -42,7 +46,7 @@ The __Delete__ button will delete a whole application (e.g. a group of builds be
 
 Files associated with app identifiers i.e. belong to the same platform and are accessible to the same team, are indicated by the __+__ symbol next to version number. Also, the version number shown is the most recently updated file, not necessarily the 'latest' version of the application.
    
-   <img src="/static/img/live-testing/latest-version.png" alt="Latest Versions" width="500" />
+   <img src={useBaseUrl('img/live-testing/latest-version.png')} alt="Latest Versions" />;
 
 ## Upload an App/File with the REST API
 
@@ -69,7 +73,7 @@ For specific instructions on how to set environment variables visit, the followi
 
 App Storage uses an XTM (Extended Team Management) sync feature which allows for user permissions schemes. In other words, a Sauce Labs admin (either an org admin or a team admin) can control access to individual application files or specific binary/script files. 
 
-By default, all uploaded files are shared with the same team where the user participates currently. You, as a user, can only access files that are shared with the team where you contribute/participate unless your role is an organization admin in which case you have access to all files in your particular organization.
+Teams share all files uploaded by any user in the current organization by default. However, you can only access files shared with your team (i.e. the team where you contribute/participate). The one exception is if your role is an organization admin, in which case you have access to all files in your organization.
 
 To manage access to your organization go to Account > Team Management.
 

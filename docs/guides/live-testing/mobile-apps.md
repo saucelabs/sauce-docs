@@ -8,13 +8,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 With Virtual Devices on Sauce Labs, you can test your mobile applications on a variety of Android emulators and iOS simulators. If you do not have an app, consider using the Sauce Labs [Swag Labs](https://github.com/saucelabs/sample-app-mobile) sample app for validating your account functionality as well as your tests. 
 
-## What You'll Need
+__What You'll Need__
+
 * A Sauce Labs Account
 * A Mobile Application to Test
 
 > If you do not have an app, consider using the Sauce Labs [Swag Labs](https://github.com/saucelabs/sample-app-mobile) sample app for validating your account functionality as well as your tests.
 
 ## Upload Your Application
+
 Before you begin a live test session, you must upload an application to [Sauce Application Storage](storage.md).
 
 For further information regarding:
@@ -45,7 +47,7 @@ After you've uploaded and selected the application, you're ready to launch a liv
 
 You must select a device prior to launching a session. By default, the public devices will display in a grid format like so:
     
-   <img src="/static/img/live-testing/device-grid.png" alt="Device Grid" />
+   <img src={useBaseUrl('img/live-testing/device-grid.png')} alt="Device Grid" />;
 
 There is a distinction between __Public Devices__ and __Private Devices__.
 
@@ -56,4 +58,4 @@ There is a distinction between __Public Devices__ and __Private Devices__.
 
 Hover over a device thumbnail and click on __Details__ to see the specs for that device. Once you find the desired device, select __Launch__.
 
-<img src="/static/img/live-testing/device-details.png" alt="Device Details" />
+<img src={useBaseUrl('img/live-testing/device-details.png')} alt="Device Details" />;
