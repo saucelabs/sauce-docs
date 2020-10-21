@@ -162,4 +162,4 @@ jobs:
       - name: Deploy to Bucket
         run: |-
           cd build
-          gsutil -m rsync -R . ${{ secrets.GCS_BUCKET_PROD }}
+          gsutil -m rsync -R . ${{ secrets.GCS_PROD_BUCKET }}
