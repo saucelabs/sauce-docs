@@ -23,26 +23,27 @@
 
 body {
   font-family: museo-sans, sans-serif;
-  font-weight: 100;
+  font-weight: semi-bold;
 }
 
 h1,h2,h3,h4,h5,h6 {
   font-family: museo-sans, sans-serif;
-  font-weight: 100;
+  font-weight: 500;
 }
 
 h1, .h1 {
-  font-size: 30px;
+  font-size: 32px !important;
 }
 
 h2, .h2 {
   padding-bottom: 5px;
-  font-size: 25px;
+  font-size: 24px;
+  margin-bottom: 8px !important;
 }
-
 h3, .h3 {
   padding-bottom: 5px;
   font-size: 20px;
+  margin-bottom: 8px !important;
 }
 
 .docusaurus-highlight-code-line {
@@ -65,13 +66,25 @@ h3, .h3 {
   box-shadow: -3px 0 16px -11px #000;
   border-radius: 50px;
   color: #fff;
-  padding: 10px 15px;
+  padding: 4px 16px;
   --ifm-menu-color-background-hover: #fff;
 }
 .navbar__items.navbar__items--right a:nth-child(3):hover {
   background: #f85d5d;
   background: -webkit-gradient(linear,right top,left top,from(#f85d5d),to(#f83838));
   background: linear-gradient(270deg,#f85d5d,#f83838);
+}
+.navbar__brand {
+  height: 1.5em !important;
+}
+/* overriding nav icons */
+.menu__link--sublist:after {
+  background-size: 1.5em 1.5em !important;
+}
+.dropdown > .navbar__link:after {
+  border-left: 0.25em solid transparent !important;
+  border-right: 0.25em solid transparent !important;
+  border-top: 0.25em solid !important;
 }
 
 .footer {
