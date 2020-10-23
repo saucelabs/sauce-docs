@@ -14,6 +14,6 @@ suites:
       browserName: chrome
 image:
   base: saucelabs/stt-cypress-mocha-node
-  version: v0.1.9
+  version: v0.1.10
 sauce:
   region: us-west-1
