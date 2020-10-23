@@ -740,6 +740,9 @@ workflows:
 </TabItem>
 </Tabs>
 
+> You can reference our example `config.yml` [here](https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml).
+
+
 Commit the updated `config.yml` to your git hosting service provider. Navigate back to the CirceCI dashboard to see your build pass.
 
 <img src={useBaseUrl('img/stt/circleci-output.png')} alt="GitHub Settings" />;
