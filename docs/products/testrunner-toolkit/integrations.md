@@ -320,7 +320,7 @@ __What You'll Need__
 
 ### Create GitHub Secrets
 
-The first order of business is to export your [Sauce Labs account credentials]() and store them as GitHub Secrets.
+The first order of business is to export your [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) and store them as GitHub Secrets.
 
 1. Navigate to your project repository and select the __settings__ icon
 
@@ -497,4 +497,255 @@ To see the output:
     
 Your output may look something like this:
 
-<img src={useBaseUrl('img/stt/github-workflow.png')} alt="GitHub Workflow" width="800" />;    
+<img src={useBaseUrl('img/stt/github-workflow.png')} alt="GitHub Workflow" width="800" />;
+
+## CircleCI
+
+These examples can apply to virtually any CirceCI deployment, provided that you already have some existing automated tests, and are either the maintainer or an admin of the target repository. 
+
+__What You'll Need__
+
+* A [CirceCI account]()
+* A [SauceLabs account]()
+* A git repository hosting service (GitHub or BitBucket)
+
+### Project Setup
+
+The first step is to ensure you have a CircleCI account, and to login with your git hosting provider username; the examples below use GitHub authentication. 
+
+1. Log in to CircleCI
+2. Choose the desired repo and click "Set Up Project"
+3. Select Add Config (or Use Existing Config). This creates a new branch in your project called `circle-ci-project-setup`
+
+> Do not worry if your project fails to build. You need to modify the `config.yml` manually anyway.
+
+### Add Project Environment Variables
+
+In order for CirceCi to communicate with Sauce Labs you need to authenticate with project environment variables.
+
+1. In CirceCI, go to your __Project Settings__
+    
+    <img src={useBaseUrl('img/stt/circleci-project-settings.png')} alt="GitHub Settings" />;
+
+2. Select __Add Environment Variables__
+    
+    <img src={useBaseUrl('img/stt/circleci-add-variables.png')} alt="GitHub Settings" />;
+
+3. Add variables for your [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) as `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` respectively
+    
+    <img src={useBaseUrl('img/stt/circleci-variables.png')} alt="GitHub Settings" />;
+
+
+
+### Modify the CirceCI Configuration
+
+In the root of your project directory, create the `.circleci` directory if it doesn't already exist, and open/create `config.yml`. Below are some examples of how to configure Testrunner Toolkit with CircleCI:
+
+<Tabs
+  defaultValue="puppeteer"
+  values={[
+    {label: 'Puppeteer', value: 'puppeteer'},
+    {label: 'Playwright', value: 'playwright'},
+    {label: 'TestCafe', value: 'testcafe'},
+    {label: 'Cypress', value: 'cypress'},
+  ]}>
+
+<TabItem value="puppeteer">
+
+```yaml
+version: 2.1
+jobs:
+  setup:
+    working_directory: ~/app
+    docker:
+      - image: circleci/node:10.12
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Build Project
+          command: |
+            npm run build
+      - persist_to_workspace:
+          root: ~/app
+          paths:
+            - .
+    test-puppeteer:
+        working_directory: ~/app
+        docker:
+          - image: saucelabs/stt-puppeteer-jest-node:latest
+        steps:
+          - attach_workspace:
+              at: ~/app
+          - run:
+              name: Puppeteer Tests
+              command: |
+                saucectl run -c ./.sauce/puppeteer.yml
+              environment:
+                BUILD_ID: $CIRCLE_BUILD_NUM
+                BUILD_ENV: CircleCI
+workflows:
+  version: 2
+  default_workflow:
+    jobs:
+      - setup
+      - test-puppeteer:
+          requires:
+            - setup
+```
+
+</TabItem>
+<TabItem value="playwright">
+
+```yaml
+version: 2.1
+jobs:
+  setup:
+    working_directory: ~/app
+    docker:
+      - image: circleci/node:10.12
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Build Project
+          command: |
+            npm run build
+      - persist_to_workspace:
+          root: ~/app
+          paths:
+            - .
+
+    test-playwright:
+        working_directory: ~/app
+        docker:
+          - image: saucelabs/stt-playwright-jest-node:latest
+        steps:
+          - attach_workspace:
+              at: ~/app
+          - run:
+              name: Playwright Tests
+              command: |
+                saucectl run -c ./.sauce/playwright.yml
+              environment:
+                BUILD_ID: $CIRCLE_BUILD_NUM
+                BUILD_ENV: CircleCI
+
+
+workflows:
+  version: 2
+  default_workflow:
+    jobs:
+      - setup
+      - test-playwright:
+          requires:
+            - setup
+```
+
+</TabItem>
+<TabItem value="testcafe">
+
+```yaml
+version: 2.1
+jobs:
+  setup:
+    working_directory: ~/app
+    docker:
+      - image: circleci/node:10.12
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Build Project
+          command: |
+            npm run build
+      - persist_to_workspace:
+          root: ~/app
+          paths:
+            - .
+
+    test-testcafe:
+        working_directory: ~/app
+        docker:
+          - image: saucelabs/stt-testcafe-node:latest
+        steps:
+          - attach_workspace:
+              at: ~/app
+          - run:
+              name: Testcafe Tests
+              command: |
+                saucectl run -c ./.sauce/testcafe.yml
+              environment:
+                BUILD_ID: $CIRCLE_BUILD_NUM
+                BUILD_ENV: CircleCI
+
+workflows:
+  version: 2
+  default_workflow:
+    jobs:
+      - setup
+      - test-testcafe:
+          requires:
+            - setup
+```
+
+</TabItem>
+<TabItem value="cypress">
+
+```yaml
+version: 2.1
+jobs:
+  setup:
+    working_directory: ~/app
+    docker:
+      - image: circleci/node:10.12
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Build Project
+          command: |
+            npm run build
+      - persist_to_workspace:
+          root: ~/app
+          paths:
+            - .
+
+    test-cypress:
+        working_directory: ~/app
+        docker:
+          - image: saucelabs/stt-cypress-mocha-node:latest
+        steps:
+          - attach_workspace:
+              at: ~/app
+          - run:
+              name: Testcafe Tests
+              command: |
+                saucectl run -c ./.sauce/cypress.yml
+              environment:
+                BUILD_ID: $CIRCLE_BUILD_NUM
+                BUILD_ENV: CircleCI
+workflows:
+  version: 2
+  default_workflow:
+    jobs:
+      - setup
+      - test-cypress:
+          requires:
+            - setup
+```
+
+</TabItem>
+</Tabs>
+
+Commit the updated `config.yml` to your git hosting service provider. Navigate back to the CirceCI dashboard to see your build pass.
+
+<img src={useBaseUrl('img/stt/circleci-variables.png')} alt="GitHub Settings" />;
