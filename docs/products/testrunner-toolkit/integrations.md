@@ -505,8 +505,8 @@ These examples can apply to virtually any CirceCI deployment, provided that you 
 
 __What You'll Need__
 
-* A [CirceCI account]()
-* A [SauceLabs account]()
+* [CirceCI Account](https://circleci.com/signup/)
+* [SauceLabs Account](https://saucelabs.com/sign-up)
 * A git repository hosting service (GitHub or BitBucket)
 
 ### Project Setup
@@ -525,15 +525,15 @@ In order for CirceCi to communicate with Sauce Labs you need to authenticate wit
 
 1. In CirceCI, go to your __Project Settings__
     
-    <img src={useBaseUrl('img/stt/circleci-project-settings.png')} alt="GitHub Settings" />;
+    <img src={useBaseUrl('img/stt/circleci-project-settings.png')} alt="CircleCI Project Settings" width="200" />;
 
 2. Select __Environment Variables__
     
-    <img src={useBaseUrl('img/stt/circleci-add-variables.png')} alt="GitHub Settings" />;
+    <img src={useBaseUrl('img/stt/circleci-add-variables.png')} alt="Add Variables in CircleCI" width="200" />;
 
 3. Add variables for your [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) as `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` respectively
     
-    <img src={useBaseUrl('img/stt/circleci-variables.png')} alt="GitHub Settings" />;
+    <img src={useBaseUrl('img/stt/circleci-variables.png')} alt="CircleCI Variables" width="600" />;
 
 
 
@@ -742,7 +742,6 @@ workflows:
 
 > You can reference our example `config.yml` [here](https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml).
 
-
 Commit the updated `config.yml` to your git hosting service provider. Navigate back to the CirceCI dashboard to see your build pass.
 
-<img src={useBaseUrl('img/stt/circleci-output.png')} alt="GitHub Settings" />;
+<img src={useBaseUrl('img/stt/circleci-output.png')} alt="CircleCI Output" />;
