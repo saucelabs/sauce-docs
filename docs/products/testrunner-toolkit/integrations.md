@@ -527,7 +527,7 @@ In order for CirceCi to communicate with Sauce Labs you need to authenticate wit
     
     <img src={useBaseUrl('img/stt/circleci-project-settings.png')} alt="GitHub Settings" />;
 
-2. Select __Add Environment Variables__
+2. Select __Environment Variables__
     
     <img src={useBaseUrl('img/stt/circleci-add-variables.png')} alt="GitHub Settings" />;
 
@@ -572,20 +572,20 @@ jobs:
           root: ~/app
           paths:
             - .
-    test-puppeteer:
-        working_directory: ~/app
-        docker:
-          - image: saucelabs/stt-puppeteer-jest-node:latest
-        steps:
-          - attach_workspace:
-              at: ~/app
-          - run:
-              name: Puppeteer Tests
-              command: |
-                saucectl run -c ./.sauce/puppeteer.yml
-              environment:
-                BUILD_ID: $CIRCLE_BUILD_NUM
-                BUILD_ENV: CircleCI
+  test-puppeteer:
+    working_directory: ~/app
+    docker:
+      - image: saucelabs/stt-puppeteer-jest-node:latest
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Puppeteer Tests
+          command: |
+            saucectl run -c ./.sauce/puppeteer.yml
+          environment:
+            BUILD_ID: $CIRCLE_BUILD_NUM
+            BUILD_ENV: CircleCI
 workflows:
   version: 2
   default_workflow:
@@ -619,23 +619,20 @@ jobs:
           root: ~/app
           paths:
             - .
-
-    test-playwright:
-        working_directory: ~/app
-        docker:
-          - image: saucelabs/stt-playwright-jest-node:latest
-        steps:
-          - attach_workspace:
-              at: ~/app
-          - run:
-              name: Playwright Tests
-              command: |
-                saucectl run -c ./.sauce/playwright.yml
-              environment:
-                BUILD_ID: $CIRCLE_BUILD_NUM
-                BUILD_ENV: CircleCI
-
-
+  test-playwright:
+    working_directory: ~/app
+    docker:
+      - image: saucelabs/stt-playwright-jest-node:latest
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Playwright Tests
+          command: |
+            saucectl run -c ./.sauce/playwright.yml
+          environment:
+            BUILD_ID: $CIRCLE_BUILD_NUM
+            BUILD_ENV: CircleCI
 workflows:
   version: 2
   default_workflow:
@@ -669,22 +666,20 @@ jobs:
           root: ~/app
           paths:
             - .
-
-    test-testcafe:
-        working_directory: ~/app
-        docker:
-          - image: saucelabs/stt-testcafe-node:latest
-        steps:
-          - attach_workspace:
-              at: ~/app
-          - run:
-              name: Testcafe Tests
-              command: |
-                saucectl run -c ./.sauce/testcafe.yml
-              environment:
-                BUILD_ID: $CIRCLE_BUILD_NUM
-                BUILD_ENV: CircleCI
-
+  test-testcafe:
+    working_directory: ~/app
+    docker:
+      - image: saucelabs/stt-testcafe-node:latest
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Testcafe Tests
+          command: |
+            saucectl run -c ./.sauce/testcafe.yml
+          environment:
+            BUILD_ID: $CIRCLE_BUILD_NUM
+            BUILD_ENV: CircleCI
 workflows:
   version: 2
   default_workflow:
@@ -718,21 +713,20 @@ jobs:
           root: ~/app
           paths:
             - .
-
-    test-cypress:
-        working_directory: ~/app
-        docker:
-          - image: saucelabs/stt-cypress-mocha-node:latest
-        steps:
-          - attach_workspace:
-              at: ~/app
-          - run:
-              name: Testcafe Tests
-              command: |
-                saucectl run -c ./.sauce/cypress.yml
-              environment:
-                BUILD_ID: $CIRCLE_BUILD_NUM
-                BUILD_ENV: CircleCI
+  test-cypress:
+    working_directory: ~/app
+    docker:
+      - image: saucelabs/stt-cypress-mocha-node:latest
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Cypress Tests
+          command: |
+            saucectl run -c ./.sauce/cypress.yml
+          environment:
+            BUILD_ID: $CIRCLE_BUILD_NUM
+            BUILD_ENV: CircleCI
 workflows:
   version: 2
   default_workflow:
@@ -748,4 +742,4 @@ workflows:
 
 Commit the updated `config.yml` to your git hosting service provider. Navigate back to the CirceCI dashboard to see your build pass.
 
-<img src={useBaseUrl('img/stt/circleci-variables.png')} alt="GitHub Settings" />;
+<img src={useBaseUrl('img/stt/circleci-output.png')} alt="GitHub Settings" />;
