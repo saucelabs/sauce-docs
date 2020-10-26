@@ -1,11 +1,11 @@
 # Sauce Labs Docs ![BETA](https://img.shields.io/badge/beta!-blue?style=for-the-badge)
 
 <!-- [START badges] -->
-![Build, Test, and Deploy to Cloud Run](https://github.com/saucelabs/sauce-docs/workflows/Build,%20Test,%20and%20Deploy%20to%20Cloud%20Run/badge.svg?branch=master)
+[![Sauce Pipeline Browser Tests ](https://github.com/saucelabs/sauce-docs/workflows/Sauce%20Pipeline%20Browser%Tests/badge.svg?branch=master)]((https://github.com/saucelabs/sauce-docs/actions))
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.MD) <a href="https://gitpod.io/#https://github.com/saucelabs/sauce-docs"><img src="https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod" alt="Gitpod Ready-to-Code"/></a>
 <!-- [END badges] -->
 
-Welcome to the `sauce-docs`, this website contains all technical documentation with regards to Sauce Labs and all of its products. This site is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
+Welcome to the `sauce-docs`, this website contains all technical documentation about Sauce Labs and its products. This site uses [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
 __Table of Contents__
 
@@ -24,36 +24,50 @@ __Table of Contents__
 ## Installation
 
 * Pull down this repo:
+	
 	```bash
 	git clone https://github.com/saucelabs/sauce-docs.git
 	```
+ 
+* Change directory to `sauce-docs`:
+    
+    ```bash
+    cd sauce-docs
+    ```
+  
 * Install the dependencies:
+	
 	```
-	yarn
+	yarn install
 	```
+ 
+    > If you have trouble with `yarn`, you can try `npm install` instead.
 
 ## Local Development
 
 * Start the website:
+	
 	```
 	yarn start
 	```
 
-	This command starts a local development server and open up a browser window. Most changes are reflected live without having to restart the server.
+	This command starts a local development server and open up a browser window (http://localhost:3000). Most changes perform live updates to your server without having to restart.
 
 * Build the website:
+	
 	```
 	yarn build
 	```
 
-	This command generates static content into the `build` directory and can be served using any static contents hosting service.
+	This command gathers the static content and places them in a `build` directory; which is compatible with most static content hosting services.
 
 * Serve the website:
+	
 	```
 	yarn serve
 	```
 	
-	This command will serve your local build on http://localhost:3000.
+	This command builds the site and serves it on your machine's host (http://localhost:3000).
 
 
 ## Contributing
