@@ -2,6 +2,8 @@
 id: storage
 title: Application Storage
 sidebar_label: Storage
+hide_table_of_contents: true
 ---
 
-Application Storage
+Storage API page.
+

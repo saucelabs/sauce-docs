@@ -139,31 +139,6 @@ module.exports = {
         'dev',
         {
             type: 'category',
-            label: 'Sauce Bindings',
-            collapsed: true,
-            items: [
-                'dev/sauce-bindings',
-                'dev/sauce-bindings/configuration',
-                'dev/sauce-bindings/integration',
-                'dev/sauce-bindings/support',
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Testrunner Toolkit',
-            collapsed: true,
-            items: [
-                'dev/testrunner-toolkit',
-                'dev/testrunner-toolkit/installation',
-                'dev/testrunner-toolkit/configuration',
-                'dev/testrunner-toolkit/running-tests',
-                'dev/testrunner-toolkit/integrations',
-                'dev/testrunner-toolkit/faqs',
-                'dev/testrunner-toolkit/support',
-            ],
-        },
-        {
-            type: 'category',
             label: 'API Reference',
             collapsed: true,
             items: [
@@ -193,7 +168,32 @@ module.exports = {
                 'dev/cli/sc-cli',
                 'dev/cli/saucectl',
             ]
-        }
+        },
+        {
+            type: 'category',
+            label: 'Sauce Bindings',
+            collapsed: true,
+            items: [
+                'dev/sauce-bindings',
+                'dev/sauce-bindings/configuration',
+                'dev/sauce-bindings/integration',
+                'dev/sauce-bindings/support',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Testrunner Toolkit',
+            collapsed: true,
+            items: [
+                'dev/testrunner-toolkit',
+                'dev/testrunner-toolkit/installation',
+                'dev/testrunner-toolkit/configuration',
+                'dev/testrunner-toolkit/running-tests',
+                'dev/testrunner-toolkit/integrations',
+                'dev/testrunner-toolkit/faqs',
+                'dev/testrunner-toolkit/support',
+            ],
+        },
     ],
     Contributing: [
         'contributing',
