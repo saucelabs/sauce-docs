@@ -190,6 +190,7 @@ module.exports = {
                 'dev/testrunner-toolkit/configuration',
                 'dev/testrunner-toolkit/running-tests',
                 'dev/testrunner-toolkit/integrations',
+                'dev/testrunner-toolkit/typescript',
                 'dev/testrunner-toolkit/faqs',
                 'dev/testrunner-toolkit/support',
             ],
