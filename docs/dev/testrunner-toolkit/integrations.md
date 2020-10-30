@@ -137,7 +137,7 @@ sauce:
 </Tabs>
 
 :::warning 
-Ensure that your tests run locally with Testrunner Toolkit before you begin a CI integration. For more details on this topic, please visit the following page: [Running Testrunner Test](dev/testtrunner-toolkit/running-tests.md)
+Ensure that your tests run locally with Testrunner Toolkit before you begin a CI integration. For more details on this topic, please visit the following page: [Running Testrunner Test](running-tests.md)
 :::
 
 ## Jenkins
