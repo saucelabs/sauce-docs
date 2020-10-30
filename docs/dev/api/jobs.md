@@ -3,9 +3,9 @@ id: jobs
 title: Jobs API
 sidebar_label: Jobs
 hide_table_of_contents: true
-hide_title: true
 ---
-
+Jobs API page.
+<!--
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { RedocStandalone } from 'redoc';
 import Tabs from '@theme/Tabs';
@@ -35,3 +35,4 @@ import TabItem from '@theme/TabItem';
 
 </TabItem>
 </Tabs>
+-->
