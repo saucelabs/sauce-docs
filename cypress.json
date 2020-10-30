@@ -2,5 +2,8 @@
   "integrationFolder": "./tests/",
   "testFiles": "*.test.js",
   "viewportWidth": 1680,
-  "viewportHeight": 864
+  "viewportHeight": 864,
+  "env": {
+    "HOST_ADDR": "localhost:3000"
+  }
 }

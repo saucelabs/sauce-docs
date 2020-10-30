@@ -10,7 +10,7 @@ const features = [
   {
     title: 'Run Live Tests',
     imageUrl: 'img/SDET_Developer_Bot_EXPORT.png',
-    slugName: '/guides/live-testing/introduction',
+    slugName: 'web-apps/live-testing',
     buttonText: 'Run Now',
     description: (
       <>
@@ -22,7 +22,7 @@ const features = [
   {
     title: 'Integrate Your Test Suite',
     imageUrl: 'img/INFOSEC_Bot_EXPORT.png',
-    slugName: '/getting-started',
+    slugName: 'web-apps/automated-testing/selenium',
     buttonText: 'Integrate Now',
     description: (
       <>
@@ -35,7 +35,7 @@ const features = [
   {
     title: 'Learn Automation',
     imageUrl: 'img/QA_Bot_EXPORT.png',
-    slugName: 'guides/automation/introduction',
+    slugName: 'web-apps/automated-testing',
     buttonText: 'Automate Now',
     description: (
       <>

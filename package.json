@@ -18,8 +18,17 @@
     "@docusaurus/preset-classic": "^2.0.0-alpha.61",
     "@mdx-js/react": "^1.5.8",
     "clsx": "^1.1.1",
+    "core-js": "^3.6.5",
+    "mobx": "^6.0.1",
+    "mobx-persist": "^0.4.1",
+    "mobx-react": "^7.0.0",
+    "mobx-react-form": "^2.0.9",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "redoc": "^2.0.0-rc.45",
+    "valid-url": "^1.0.9",
+    "validatorjs": "^3.20.0",
+    "styled-components": "^5.2.0"
   },
   "browserslist": {
     "production": [
