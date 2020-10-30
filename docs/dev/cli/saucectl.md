@@ -1,10 +1,10 @@
 ---
 id: saucectl
-title: Testrunner CLI Reference
-sidebar_label: CLI Reference
+title: Sauce CTL
+sidebar_label: Sauce CTL
 ---
 
-This page provides information for `saucectl`, the command line interface of the Sauce Labs Testrunner Toolkit.
+This page provides information for `saucectl`, the command line interface of the Sauce Labs [Testrunner Toolkit](dev/testrunner-toolkit.md).
 
 ## Development Requirements
  * [Git](https://git-scm.com/downloads)
