@@ -12,16 +12,9 @@ context('Home Page Tree Actions', () => {
     });
 
     it('Getting Started Page', () => {
-        cy.contains('Getting Started')
+        cy.contains('Sauce Labs Basics')
             .click();
         cy.url()
-            .should('include', '/getting-started')
+            .should('include', '/sauce-basics')
     });
-
-    it('Application Storage Page',() => {
-        cy.contains('Storage')
-            .click();
-        cy.url()
-            .should('include', '/storage');
-    })
 });
