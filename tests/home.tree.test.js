@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+//TODO Harden Cypress Locators
 context('Home Page Tree Actions', () => {
     beforeEach(() => {
         cy.visit(`http://${Cypress.env('HOST_ADDR')}/overview`)
@@ -11,17 +12,12 @@ context('Home Page Tree Actions', () => {
             .should('include', '/overview');
     });
 
-    it('Getting Started Page', () => {
-        cy.contains('Getting Started')
+    it('Sauce Labs Overview Page', () => {
+        cy.contains('Sauce Labs Basics')
+            .click();
+        cy.contains('What is Sauce Labs?')
             .click();
         cy.url()
-            .should('include', '/getting-started')
+            .should('include', '/sauce-basics')
     });
-
-    it('Application Storage Page',() => {
-        cy.contains('Storage')
-            .click();
-        cy.url()
-            .should('include', '/storage');
-    })
 });
