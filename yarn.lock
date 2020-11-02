@@ -1688,6 +1688,11 @@
   dependencies:
     any-observable "^0.3.0"
 
+"@saucelabs/theme-github-codeblock@0.0.0":
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/@saucelabs/theme-github-codeblock/-/theme-github-codeblock-0.0.0.tgz#1b800311be5173c1a9e45ff6874f0dfebe783745"
+  integrity sha512-Q8wJa5GKmyalkFcyXmS9UIlSPaXWb49WmicJPLxayV7I/mZ3V1DZZ7obv6faRM4exVpsNkwjUZtjyHyuDD/YGA==
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
