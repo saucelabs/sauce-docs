@@ -9,11 +9,11 @@ files:
   - ./tests/
 suites:
   - name: "Saucy Tests"
-    match: ".*.(spec|test).js$"
+    match: ".*.(oas|test).js$"
     settings:
       browserName: chrome
 image:
   base: saucelabs/stt-cypress-mocha-node
-  version: v0.1.9
+  version: v0.1.10
 sauce:
   region: us-west-1
