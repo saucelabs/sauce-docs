@@ -97,6 +97,7 @@ module.exports = {
     ],
     "CI/CD": [
         'ci',
+        'ci/basics',
         'ci/jenkins',
         'ci/bamboo',
         'ci/circleci',
@@ -106,9 +107,9 @@ module.exports = {
     ],
     "Insights": [
         'insights',
+        'insights/basics',
         'insights/history',
         'insights/trends',
-        'insights/filters',
         'insights/efficiency',
         'insights/failure-analysis',
         'insights/debugging',
