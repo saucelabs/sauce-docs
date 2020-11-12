@@ -94,7 +94,7 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
 Saucectl offers the possibility to set up your tests environment before executing any of your suites using `beforeExec`: 
 
 ```yaml reference
-https://github.com/saucelabs/saucectl/blob/master/.sauce/puppeteer_before_exec.yml#L14-L16
+https://github.com/saucelabs/saucectl/blob/master/.sauce/puppeteer_before_exec.yml#L14-L15
 ```
 
 ## Parallelization

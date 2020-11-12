@@ -1666,10 +1666,10 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@saucelabs/theme-github-codeblock@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@saucelabs/theme-github-codeblock/-/theme-github-codeblock-0.0.0.tgz#1b800311be5173c1a9e45ff6874f0dfebe783745"
-  integrity sha512-Q8wJa5GKmyalkFcyXmS9UIlSPaXWb49WmicJPLxayV7I/mZ3V1DZZ7obv6faRM4exVpsNkwjUZtjyHyuDD/YGA==
+"@saucelabs/theme-github-codeblock@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@saucelabs/theme-github-codeblock/-/theme-github-codeblock-0.0.2.tgz#89b9e2627554344446f6e54980bafd17996d0c42"
+  integrity sha512-rUGWFc0qX1UjBXKxu2oyDaS78MXVClExtXNKz+cdgqT/v+StgARQYT5C44zR0h3k8HrleEb9BM+NLC/6qIYcXA==
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
