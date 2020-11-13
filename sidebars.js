@@ -69,6 +69,14 @@ module.exports = {
                 'mobile-apps/automated-testing/wdio',
             ],
         },
+        {
+            type: 'category',
+            label: 'Native Frameworks',
+            collapsed: true,
+            items: [
+                'mobile-apps/native-frameworks/espresso-vdc',
+            ],
+        },
     ],
     "Web Apps": [
         'web-apps',
