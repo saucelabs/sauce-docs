@@ -138,48 +138,48 @@ module.exports = {
           label: 'Resources',
           position: 'right',
           items: [
-            {
-              label: 'Sauce Labs Blog',
-              href: 'https://saucelabs.com/blog',
-            },
-            {
-              label: 'Resource Center',
-              href: 'https://saucelabs.com/resources',
-            },
-            {
-              label: 'Training',
-              href: 'https://saucelabs.com/training-support',
-            },
-            {
-              label: 'Community',
-              href: 'https://saucelabs.com/community',
-            },
+            // {
+            //   label: 'Sauce Labs Blog',
+            //   href: 'https://saucelabs.com/blog',
+            // },
+            // {
+            //   label: 'Resource Center',
+            //   href: 'https://saucelabs.com/resources',
+            // },
+            // {
+            //   label: 'Training',
+            //   href: 'https://saucelabs.com/training-support',
+            // },
+            // {
+            //   label: 'Community',
+            //   href: 'https://saucelabs.com/community',
+            // },
           ]
         },
         {
           label: 'Contact',
           position: 'right',
           items: [
-            {
-              label: 'About Us',
-              href: 'https://saucelabs.com/company',
-            },
-            {
-              label: 'Careers',
-              href: 'https://saucelabs.com/company/careers',
-            },
-            {
-              label: 'Security',
-              href: 'https://saucelabs.com/security',
-            },
-            {
-              label: 'News',
-              href: 'https://saucelabs.com/news',
-            },
-            {
-              label: 'Partners',
-              href: 'https://saucelabs.com/company/partners',
-            },
+            // {
+            //   label: 'About Us',
+            //   href: 'https://saucelabs.com/company',
+            // },
+            // {
+            //   label: 'Careers',
+            //   href: 'https://saucelabs.com/company/careers',
+            // },
+            // {
+            //   label: 'Security',
+            //   href: 'https://saucelabs.com/security',
+            // },
+            // {
+            //   label: 'News',
+            //   href: 'https://saucelabs.com/news',
+            // },
+            // {
+            //   label: 'Partners',
+            //   href: 'https://saucelabs.com/company/partners',
+            // },
           ]
         },
         // {
@@ -270,12 +270,15 @@ module.exports = {
           showLastUpdateAuthor: true,
           // Equivalent to `enableUpdateTime`.
           showLastUpdateTime: true,
-          disableVersioning: true,
+          // disableVersioning: true,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
       },
     ],
+  ],
+  themes: [
+    '@saucelabs/theme-github-codeblock',
   ],
 };
