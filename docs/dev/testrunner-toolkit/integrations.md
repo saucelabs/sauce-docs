@@ -17,7 +17,7 @@ The use cases below outline general steps for a successful integration with the 
 
 ## Create the Saucectl Configuration
 
-Regardless of the CI tool in your pipeline, you must first create the `.sauce` directory at the root of your project, and add a `config.yaml` file that points [`saucectl`](dev/cli/saucectl.md) to your existing `tests` directory. 
+Regardless of the CI tool in your pipeline, you must first create the `.sauce` directory at the root of your project, and add a `config.yaml` file that points [`saucectl`](dev/cli/saucectl.md) to your existing `tests` directory.
 
 Also, with the `suites` field you can specify groups of tests, as well as the preferred browser `settings`. Refer to the examples below for more details:
 
@@ -136,13 +136,13 @@ sauce:
 </TabItem>
 </Tabs>
 
-:::warning 
+:::warning
 Ensure that your tests run locally with Testrunner Toolkit before you begin a CI integration. For more details on this topic, please visit the following page: [Running Testrunner Test](running-tests.md)
 :::
 
 ## Jenkins
 
-These examples can apply to virtually any Jenkins deployment, provided that you already have some existing automated tests, have access to the Jenkins instance, and are either the maintainer or an admin of the target repository. 
+These examples can apply to virtually any Jenkins deployment, provided that you already have some existing automated tests, have access to the Jenkins instance, and are either the maintainer or an admin of the target repository.
 
 __What You'll Need__
 
@@ -154,7 +154,7 @@ __What You'll Need__
 
 ### Configure Jenkins Credentials
 
-The first step of the integration is to ensure you've added your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as a secret file/text in your Jenkins server (Not sure where to find these? They're [here](https://app.saucelabs.com/user-settings)). 
+The first step of the integration is to ensure you've added your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as a secret file/text in your Jenkins server (Not sure where to find these? They're [here](https://app.saucelabs.com/user-settings)).
 
 The easiest way to add credentials to Jenkins is with the UI:
 
@@ -163,7 +163,7 @@ The easiest way to add credentials to Jenkins is with the UI:
 * Next to (Global), select __Add credentials__
 
     <img src={useBaseUrl('img/stt/add_credentials.png')} alt="Add Jenkins Credentials" width="500" />
-    
+
 * For __Kind__, select __Secret Text__
 * Enter the following information:
     * Scope: Global
@@ -300,7 +300,7 @@ pipeline {
 
 <!--### Run the Pipeline Tests-->
 
-Now you can commit these files and Jenkins will detect the new pipeline and launch `saucetl` to run your tests. 
+Now you can commit these files and Jenkins will detect the new pipeline and launch `saucetl` to run your tests.
 
 For example if you're using the [Blue Ocean plugin](https://plugins.jenkins.io/blueocean/), your output may look something like this:
 
@@ -308,7 +308,7 @@ For example if you're using the [Blue Ocean plugin](https://plugins.jenkins.io/b
 
 ## GitHub Actions
 
-These examples can apply to virtually any GitHub deployment, provided that you already have some existing automated tests, and are either the maintainer or an admin of the target repository. 
+These examples can apply to virtually any GitHub deployment, provided that you already have some existing automated tests, and are either the maintainer or an admin of the target repository.
 
 __What You'll Need__
 
@@ -336,7 +336,7 @@ The first order of business is to export your [Sauce Labs account credentials](h
 
 ### Configure the GitHub Action
 
-In your root project directory, create the following directory tree: `.github/workflows`. In the `workflows` directory create a file called `actions.yml`. 
+In your root project directory, create the following directory tree: `.github/workflows`. In the `workflows` directory create a file called `actions.yml`.
 
 In the examples below, the environment variables (`env`) equate to the values configured in GitHub secrets. The event only triggers test runs `on` every `pull_request` and/or `push` to the `master` branch.
 
@@ -369,7 +369,7 @@ jobs:
     container:
       image: saucelabs/stt-puppeteer-jest-node:latest
       options: --user 1001
-     
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v1
@@ -401,7 +401,7 @@ jobs:
     container:
       image: saucelabs/stt-playwright-jest-node:latest
       options: --user 1001
-     
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v1
@@ -433,7 +433,7 @@ jobs:
     container:
       image: saucelabs/stt-testcafe-node:latest
       options: --user 1001
-     
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v1
@@ -465,7 +465,7 @@ jobs:
     container:
       image: saucelabs/stt-cypress-mocha-node:latest
       options: --user 1001
-     
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v1
@@ -485,23 +485,23 @@ jobs:
 
 <!--### Run the Pipeline Tests-->
 
-Now when you commit these files, GitHub will detect the new workflow actions and launch `saucectl` to run your tests. 
+Now when you commit these files, GitHub will detect the new workflow actions and launch `saucectl` to run your tests.
 
-To see the output: 
+To see the output:
 
 1. Log in to GitHub
 2. Navigate to your repository page
 3. Click on Actions
 
     <img src={useBaseUrl('img/stt/github-actions.png')} alt="GitHub Actions" width="500" />
-    
+
 Your output may look something like this:
 
 <img src={useBaseUrl('img/stt/github-workflow.png')} alt="GitHub Workflow" width="800" />
 
 ## CircleCI
 
-These examples can apply to virtually any CirceCI deployment, provided that you already have some existing automated tests, and are either the maintainer or an admin of the target repository. 
+These examples can apply to virtually any CirceCI deployment, provided that you already have some existing automated tests, and are either the maintainer or an admin of the target repository.
 
 __What You'll Need__
 
@@ -511,7 +511,7 @@ __What You'll Need__
 
 ### Project Setup
 
-The first step is to ensure you have a CircleCI account, and to login with your git hosting provider username; the examples below use GitHub authentication. 
+The first step is to ensure you have a CircleCI account, and to login with your git hosting provider username; the examples below use GitHub authentication.
 
 1. Log in to CircleCI
 2. Choose the desired repo and click "Set Up Project"
@@ -524,15 +524,15 @@ The first step is to ensure you have a CircleCI account, and to login with your 
 In order for CirceCi to communicate with Sauce Labs you need to authenticate with project environment variables.
 
 1. In CirceCI, go to your __Project Settings__
-    
+
     <img src={useBaseUrl('img/stt/circleci-project-settings.png')} alt="CircleCI Project Settings" width="200" />
 
 2. Select __Environment Variables__
-    
+
     <img src={useBaseUrl('img/stt/circleci-add-variables.png')} alt="Add Variables in CircleCI" width="200" />
 
 3. Add variables for your [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) as `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` respectively
-    
+
     <img src={useBaseUrl('img/stt/circleci-variables.png')} alt="CircleCI Variables" width="600" />
 
 
