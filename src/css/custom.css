@@ -164,3 +164,16 @@ h3, .h3 {
 .container {
  padding: 2px 16px;
 }
+
+/* Get Started button styles */
+
+.getStarted {
+    --ifm-font-color-base: #1c1e22;
+    background-color: #f8f8f8;
+}
+
+.getStarted:hover {
+    --ifm-font-color-base: white !important;
+    background-color: #5dc1e5;
+    color: white !important;
+}
