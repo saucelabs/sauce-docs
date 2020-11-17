@@ -188,7 +188,7 @@ module.exports = {
           href: 'https://saucelabs.com/sign-up'
         },
         {
-          label: 'Go to App',
+          label: 'Sign In',
           position: 'right',
           href: 'https://accounts.saucelabs.com/',
         },
