@@ -71,11 +71,10 @@ module.exports = {
         },
         {
             type: 'category',
-            label: 'Testing Frameworks',
+            label: 'Mobile Testing Frameworks',
             collapsed: true,
             items: [
                 'mobile-apps/testing-frameworks',
-                'mobile-apps/testing-frameworks/native-frameworks',
             ],
         },
         {
@@ -84,8 +83,6 @@ module.exports = {
             collapsed: true,
             items: [
                 'mobile-apps/testing-frameworks/native-frameworks',
-                'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-rdc',
-                'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-vdc',
             ],
         },
         {
@@ -94,11 +91,11 @@ module.exports = {
             collapsed: true,
             items: [
                 'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-rdc',
-                'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-rdc/commands',
+                'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-rdc/app-upload-storage',
+                'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-rdc/commands-rdc',
                 'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-rdc/espresso-rdc',
                 'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-rdc/xcuitest-rdc',
-
-
+                'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-rdc/device-specs',
             ],
         },
         {
@@ -107,7 +104,10 @@ module.exports = {
             collapsed: true,
             items: [
                 'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-vdc',
+                'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-vdc/installing-vdc',
                 'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-vdc/espresso-vdc',
+                'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-vdc/commands-vdc',
+                'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-vdc/change-logs-vdc',
             ],
         },
     ],
