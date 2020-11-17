@@ -7,7 +7,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #e53730;
+  --ifm-color-primary: #E2231A;
   --ifm-color-primary-dark: rgb(229, 55, 48);
   --ifm-color-primary-darker: rgb(218, 41, 29);
   --ifm-color-primary-darkest: rgb(172, 20, 19);
@@ -20,6 +20,11 @@
   --ifm-footer-color: rgb(255, 255, 255);
   --ifm-code-font-size: 95%;
   --ifm-font-color-base: #464b54;
+  /*--ifm-*/
+}
+
+.navbar {
+    --ifm-navbar-background-color: #f8f8f8;
 }
 
 body {
@@ -60,8 +65,8 @@ h3, .h3 {
   text-decoration-color:rgb(70, 75, 84);
 }
 
-.navbar__items.navbar__items--right a:nth-child(3) {
-  background: #e12219;
+.navbar__items.navbar__items--right a:nth-child(6) {
+  background: #E2231A;
   background: -webkit-gradient(linear,right top, left top,from(#ee4439),to(#d92519));
   background: linear-gradient(270deg,#ee4439,#d92519);
   box-shadow: -3px 0 16px -11px #000;
@@ -70,7 +75,7 @@ h3, .h3 {
   padding: 4px 16px;
   --ifm-menu-color-background-hover: #fff;
 }
-.navbar__items.navbar__items--right a:nth-child(3):hover {
+.navbar__items.navbar__items--right a:nth-child(6):hover {
   background: #f85d5d;
   background: -webkit-gradient(linear,right top,left top,from(#f85d5d),to(#f83838));
   background: linear-gradient(270deg,#f85d5d,#f83838);
@@ -163,4 +168,17 @@ h3, .h3 {
 
 .container {
  padding: 2px 16px;
+}
+
+/* Get Started button styles */
+
+.getStarted {
+    --ifm-font-color-base: #1c1e22;
+    background-color: #f8f8f8;
+}
+
+.getStarted:hover {
+    --ifm-font-color-base: white !important;
+    background-color: #5dc1e5;
+    color: white !important;
 }
