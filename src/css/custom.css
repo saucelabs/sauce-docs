@@ -20,6 +20,11 @@
   --ifm-footer-color: rgb(255, 255, 255);
   --ifm-code-font-size: 95%;
   --ifm-font-color-base: #464b54;
+  /*--ifm-*/
+}
+
+.navbar {
+    --ifm-navbar-background-color: #f8f8f8;
 }
 
 body {

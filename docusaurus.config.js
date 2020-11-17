@@ -138,74 +138,50 @@ module.exports = {
           label: 'Resources',
           position: 'right',
           items: [
-            // {
-            //   label: 'Sauce Labs Blog',
-            //   href: 'https://saucelabs.com/blog',
-            // },
-            // {
-            //   label: 'Resource Center',
-            //   href: 'https://saucelabs.com/resources',
-            // },
-            // {
-            //   label: 'Training',
-            //   href: 'https://saucelabs.com/training-support',
-            // },
-            // {
-            //   label: 'Community',
-            //   href: 'https://saucelabs.com/community',
-            // },
+            {
+              label: 'Sauce Labs Blog',
+              href: 'https://saucelabs.com/blog',
+            },
+            {
+              label: 'Resource Center',
+              href: 'https://saucelabs.com/resources',
+            },
+            {
+              label: 'Training',
+              href: 'https://saucelabs.com/training-support',
+            },
+            {
+              label: 'Community',
+              href: 'https://saucelabs.com/community',
+            },
           ]
         },
         {
           label: 'Contact',
           position: 'right',
           items: [
-            // {
-            //   label: 'About Us',
-            //   href: 'https://saucelabs.com/company',
-            // },
-            // {
-            //   label: 'Careers',
-            //   href: 'https://saucelabs.com/company/careers',
-            // },
-            // {
-            //   label: 'Security',
-            //   href: 'https://saucelabs.com/security',
-            // },
-            // {
-            //   label: 'News',
-            //   href: 'https://saucelabs.com/news',
-            // },
-            // {
-            //   label: 'Partners',
-            //   href: 'https://saucelabs.com/company/partners',
-            // },
+            {
+              label: 'About Us',
+              href: 'https://saucelabs.com/company',
+            },
+            {
+              label: 'Careers',
+              href: 'https://saucelabs.com/company/careers',
+            },
+            {
+              label: 'Security',
+              href: 'https://saucelabs.com/security',
+            },
+            {
+              label: 'News',
+              href: 'https://saucelabs.com/news',
+            },
+            {
+              label: 'Partners',
+              href: 'https://saucelabs.com/company/partners',
+            },
           ]
         },
-        // {
-        //   to: '/',
-        //   activeBasePath: '/',
-        //   label: 'Social Media',
-        //   position: 'right',
-        //   items: [
-        //     {
-        //       label: 'Facebook',
-        //       href: 'https://www.facebook.com/saucelabs/',
-        //     },
-        //     {
-        //       label: 'GitHub',
-        //       href: 'https://github.com/saucelabs',
-        //     },
-        //     {
-        //       label: 'Twitter',
-        //       href: 'https://twitter.com/saucelabs',
-        //     },
-        //     {
-        //       label: 'LinkedIn',
-        //       href: 'https://www.linkedin.com/company/sauce-labs',
-        //     },
-        //   ]
-        // },
         {
           label: 'Try it Free',
           position: 'right',
