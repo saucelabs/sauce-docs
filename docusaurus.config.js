@@ -11,6 +11,9 @@ module.exports = {
     'https://use.typekit.net/zmt8tam.css'
   ],
   themeConfig: {
+    prism: {
+      additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
+    },
     /* Search Bar Config */
     algolia: {
       //appId: 'ZETDNHTKFC',
