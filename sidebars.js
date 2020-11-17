@@ -97,10 +97,8 @@ module.exports = {
     ],
     "CI/CD": [
         'ci',
-        'ci/basics',
         'ci/jenkins',
         'ci/bamboo',
-        'ci/circleci',
         'ci/azure',
         'ci/github',
         'ci/gitlab',
