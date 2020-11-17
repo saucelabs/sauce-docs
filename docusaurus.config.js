@@ -13,6 +13,9 @@ module.exports = {
     // Object format.
   ],
   themeConfig: {
+    prism: {
+      additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
+    },
     /* Search Bar Config */
     algolia: {
       appId: 'ZETDNHTKFC',
