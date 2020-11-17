@@ -7,7 +7,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #e53730;
+  --ifm-color-primary: #E2231A;
   --ifm-color-primary-dark: rgb(229, 55, 48);
   --ifm-color-primary-darker: rgb(218, 41, 29);
   --ifm-color-primary-darkest: rgb(172, 20, 19);
@@ -66,7 +66,7 @@ h3, .h3 {
 }
 
 .navbar__items.navbar__items--right a:nth-child(6) {
-  background: #e12219;
+  background: #E2231A;
   background: -webkit-gradient(linear,right top, left top,from(#ee4439),to(#d92519));
   background: linear-gradient(270deg,#ee4439,#d92519);
   box-shadow: -3px 0 16px -11px #000;
