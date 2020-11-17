@@ -8,7 +8,7 @@ sidebar_label: Espresso Using VDC
 
 ### This is a test!
 
-Sauce Labs offers the option to run Espresso tests against  emulators in our testing cloud with Sauce Runner for Virtual Devices.
+Sauce Labs offers the option to run Espresso tests against emulators in our testing cloud with Sauce Runner for Virtual Devices.
 
 ##### Requirements
 

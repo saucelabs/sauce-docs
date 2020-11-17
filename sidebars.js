@@ -71,10 +71,43 @@ module.exports = {
         },
         {
             type: 'category',
+            label: 'Testing Frameworks',
+            collapsed: true,
+            items: [
+                'mobile-apps/testing-frameworks',
+                'mobile-apps/testing-frameworks/native-frameworks',
+            ],
+        },
+        {
+            type: 'category',
             label: 'Native Frameworks',
             collapsed: true,
             items: [
-                'mobile-apps/native-frameworks/espresso-vdc',
+                'mobile-apps/testing-frameworks/native-frameworks',
+                'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-rdc',
+                'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-vdc',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Sauce Runner Using RDC',
+            collapsed: true,
+            items: [
+                'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-rdc',
+                'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-rdc/commands',
+                'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-rdc/espresso-rdc',
+                'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-rdc/xcuitest-rdc',
+
+
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Sauce Runner Using VDC',
+            collapsed: true,
+            items: [
+                'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-vdc',
+                'mobile-apps/testing-frameworks/native-frameworks/sauce-runner-vdc/espresso-vdc',
             ],
         },
     ],
