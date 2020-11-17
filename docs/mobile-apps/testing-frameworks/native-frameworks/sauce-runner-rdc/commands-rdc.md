@@ -1,5 +1,5 @@
 ---
-id: commands
+id: commands-rdc
 title: Command Reference for Sauce Runner for Real Devices
 sidebar_label: Commands
 ---
@@ -33,11 +33,43 @@ JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar  <command> 
 | `config` | Defines a configuration YAML file where the runner executes based on the parameters set in the file. Please note, if you decide to use the config command you can no longer use any of the command options below. For more information, see [Creating a Sauce Runner for Real Devices Configuration File](https://wiki.saucelabs.com/pages/viewpage.action?pageId=72748118).
 
 ## Options
+<span style="color:green"> ***-------------------*** </span>
+##### <span style="color:green">**Using Sauce Runner with a Proxy**</span>
+
+If you need Sauce Runner to connect to the internet through a proxy server, use the `-D` command to specify a direct domain connection to your proxy server and port. The parameters `http.proxyUser` and `http.proxyPassword` are optional and they can be used if the proxy needs authentication:
+
+```js
+java -Dhttp.proxyHost=<your proxy server> -Dhttp.proxyPort=<the port to use> -Dhttp.proxyUser=<the username to use> -Dhttp.proxyPassword=<the password to use>
+```
 
 
+<span style="color:green"> ***-------------------*** </span>
+
+
+
+| Required | Option | Description |
+| :------- | :--- | :---|
+| Yes | ``--apikey`` | The API key for your Sauce Labs real device cloud account. |
+| Yes | Centered | Right Aligned |
+| Yes | Centered | Right Aligned |
+| Yes | Centered | Right Aligned |
+|  | Centered | Right Aligned |
+|  | Centered | Right Aligned |
 
 
 
 ## CLI Examples
+
 ### XCUITest Example
+XCUITest Example with All Required Parameters and Setting the Data Center Option to US:
+
+```js
+java -jar runner.jar xcuitest --test DummyTestingApp-Runner.ipa --app DummyTestingApp.ipa --apikey <apikey> --datacenter US
+```
+
 ### Espresso Example
+Espresso Example with all Required Parameters and Setting the Data Center Option to US:
+
+```js
+java -jar runner.jar espresso --test DummyTestingApp-Runner.apk --app DummyTestingApp.apk --apikey <apikey> --datacenter US
+```
