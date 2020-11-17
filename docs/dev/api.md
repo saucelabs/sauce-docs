@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 Use the Sauce Labs REST API to help optimize and streamline automated testing for you and your team.
 
 :::note Status Page
-[status.saucelabs.com](status.saucelabs.com)
+[status.saucelabs.com](https://status.saucelabs.com/)
 :::
 
 ## Accessing the API
