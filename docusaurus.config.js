@@ -4,19 +4,13 @@ module.exports = {
   url: 'https://saucelabs.com/docs',
   baseUrl: '/',
   onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'saucelabs', // Usually your GitHub org/user name.
   projectName: 'sauce-docs', // Usually your repo name.
-  stylesheets: [
-    'https://use.typekit.net/zmt8tam.css'
-  ],
   themeConfig: {
-    prism: {
-      additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
-    },
-    /* Search Bar Config */
     algolia: {
-      //appId: 'ZETDNHTKFC',
+      appId: 'ZETDNHTKFC',
       apiKey: '8442c4c56cae89e0f1a1b7c9a8fd8f9c',
       indexName: 'sauce-docs.com',
     },
@@ -44,12 +38,11 @@ module.exports = {
         },
       },
     },
-    /* Navbar Config */
     navbar: {
       title: null,
       hideOnScroll: false,
       logo: {
-        alt: 'Sauce Labs',
+        alt: 'Sauce Labs logo',
         src: 'img/logo-saucelabs.png',
       },
       items: [
@@ -57,76 +50,76 @@ module.exports = {
           label: 'Solutions',
           position: 'right',
           items: [
-            // {
-            //   label: 'Enterprise',
-            //   href: 'https://saucelabs.com/solutions/enterprise',
-            // },
-            // {
-            //   label: 'Start Ups & SMB Teams',
-            //   href: 'https://saucelabs.com/solutions/startup-medium-teams',
-            // },
-            // {
-            //   label: 'Open Source Projects',
-            //   href: 'https://saucelabs.com/solutions/open-source',
-            // },
-            // {
-            //   label: 'Continuous Testing',
-            //   href: 'https://saucelabs.com/solutions/continuous-testing',
-            // },
-            // {
-            //   label: 'Automated Testing',
-            //   href: 'https://saucelabs.com/solutions/automated-testing',
-            // },
-            // {
-            //   label: 'Live Testing',
-            //   href: 'https://saucelabs.com/solutions/live-testing',
-            // },
+            {
+              label: 'Enterprise',
+              href: 'https://saucelabs.com/solutions/enterprise',
+            },
+            {
+              label: 'Start Ups & SMB Teams',
+              href: 'https://saucelabs.com/solutions/startup-medium-teams',
+            },
+            {
+              label: 'Open Source Projects',
+              href: 'https://saucelabs.com/solutions/open-source',
+            },
+            {
+              label: 'Continuous Testing',
+              href: 'https://saucelabs.com/solutions/continuous-testing',
+            },
+            {
+              label: 'Automated Testing',
+              href: 'https://saucelabs.com/solutions/automated-testing',
+            },
+            {
+              label: 'Live Testing',
+              href: 'https://saucelabs.com/solutions/live-testing',
+            },
           ],
         },
         {
           label: 'Platform',
           position: 'right',
           items: [
-            // {
-            //   label: 'Real Device Cloud',
-            //   href: 'https://saucelabs.com/platform/real-device-cloud',
-            // },
-            // {
-            //   label: 'Cross-Browser Testing',
-            //   href: 'https://saucelabs.com/platform/cross-browser-testing',
-            // },
-            // {
-            //   label: 'Emulators & Simulators',
-            //   href: 'https://saucelabs.com/platform/mobile-emulators-and-simulators',
-            // },
-            // {
-            //   label: 'Sauce Headless',
-            //   href: 'https://saucelabs.com/platform/sauce-headless',
-            // },
-            // {
-            //   label: 'Visual Testing',
-            //   href: 'https://saucelabs.com/platform/visual-testing',
-            // },
-            // {
-            //   label: 'Sauce Performance',
-            //   href: 'https://saucelabs.com/platform/analytics-performance/sauce-performance',
-            // },
-            // {
-            //   label: 'Sauce Insights',
-            //   href: 'https://saucelabs.com/platform/analytics-performance/sauce-insights',
-            // },
-            // {
-            //   label: 'Extended Debugging',
-            //   href: 'https://saucelabs.com/platform/analytics-performance/advanced-debugging-tools',
-            // },
-            // {
-            //   label: 'Supported Integrations',
-            //   href: 'https://saucelabs.com/platform/integrations-plugins',
-            // },
-            // {
-            //   label: 'Supported Browsers & Devices',
-            //   href: 'https://saucelabs.com/platform/supported-browsers-devices',
-            // },
+            {
+              label: 'Real Device Cloud',
+              href: 'https://saucelabs.com/platform/real-device-cloud',
+            },
+            {
+              label: 'Cross-Browser Testing',
+              href: 'https://saucelabs.com/platform/cross-browser-testing',
+            },
+            {
+              label: 'Emulators & Simulators',
+              href: 'https://saucelabs.com/platform/mobile-emulators-and-simulators',
+            },
+            {
+              label: 'Sauce Headless',
+              href: 'https://saucelabs.com/platform/sauce-headless',
+            },
+            {
+              label: 'Visual Testing',
+              href: 'https://saucelabs.com/platform/visual-testing',
+            },
+            {
+              label: 'Sauce Performance',
+              href: 'https://saucelabs.com/platform/analytics-performance/sauce-performance',
+            },
+            {
+              label: 'Sauce Insights',
+              href: 'https://saucelabs.com/platform/analytics-performance/sauce-insights',
+            },
+            {
+              label: 'Extended Debugging',
+              href: 'https://saucelabs.com/platform/analytics-performance/advanced-debugging-tools',
+            },
+            {
+              label: 'Supported Integrations',
+              href: 'https://saucelabs.com/platform/integrations-plugins',
+            },
+            {
+              label: 'Supported Browsers & Devices',
+              href: 'https://saucelabs.com/platform/supported-browsers-devices',
+            },
           ]
         },
         {
@@ -138,48 +131,48 @@ module.exports = {
           label: 'Resources',
           position: 'right',
           items: [
-            // {
-            //   label: 'Sauce Labs Blog',
-            //   href: 'https://saucelabs.com/blog',
-            // },
-            // {
-            //   label: 'Resource Center',
-            //   href: 'https://saucelabs.com/resources',
-            // },
-            // {
-            //   label: 'Training',
-            //   href: 'https://saucelabs.com/training-support',
-            // },
-            // {
-            //   label: 'Community',
-            //   href: 'https://saucelabs.com/community',
-            // },
+            {
+              label: 'Sauce Labs Blog',
+              href: 'https://saucelabs.com/blog',
+            },
+            {
+              label: 'Resource Center',
+              href: 'https://saucelabs.com/resources',
+            },
+            {
+              label: 'Training',
+              href: 'https://saucelabs.com/training-support',
+            },
+            {
+              label: 'Community',
+              href: 'https://saucelabs.com/community',
+            },
           ]
         },
         {
           label: 'Contact',
           position: 'right',
           items: [
-            // {
-            //   label: 'About Us',
-            //   href: 'https://saucelabs.com/company',
-            // },
-            // {
-            //   label: 'Careers',
-            //   href: 'https://saucelabs.com/company/careers',
-            // },
-            // {
-            //   label: 'Security',
-            //   href: 'https://saucelabs.com/security',
-            // },
-            // {
-            //   label: 'News',
-            //   href: 'https://saucelabs.com/news',
-            // },
-            // {
-            //   label: 'Partners',
-            //   href: 'https://saucelabs.com/company/partners',
-            // },
+            {
+              label: 'About Us',
+              href: 'https://saucelabs.com/company',
+            },
+            {
+              label: 'Careers',
+              href: 'https://saucelabs.com/company/careers',
+            },
+            {
+              label: 'Security',
+              href: 'https://saucelabs.com/security',
+            },
+            {
+              label: 'News',
+              href: 'https://saucelabs.com/news',
+            },
+            {
+              label: 'Partners',
+              href: 'https://saucelabs.com/company/partners',
+            },
           ]
         },
         {
@@ -235,18 +228,13 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          // It is recommended to set document id as docs home page (`docs/` path).
-          routeBasePath: '/',
-          //homePageId: '',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
+          routeBasePath: '/',
           editUrl:
             'https://github.com/saucelabs/sauce-docs/edit/master/',
-          // Equivalent to `enableUpdateBy`.
           showLastUpdateAuthor: true,
-          // Equivalent to `enableUpdateTime`.
           showLastUpdateTime: true,
-          // disableVersioning: true,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
