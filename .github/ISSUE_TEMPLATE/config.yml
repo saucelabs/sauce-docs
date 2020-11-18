@@ -4,8 +4,8 @@ contact_links:
     url: https://saucelabs.com/training-support
     about: Visit our support portal to review frequently asked questions, use cases, and submit questions.
   - name: 📃 Documentation Issue
-    url: https://github.com/saucelabs/sauce-docs/issues/new
+    url: https://github.com/saucelabs/sauce-docs/issues/doc-error
     about: Report any inaccurate or missing content in a particular page or section.
   - name: 💡 New Topic Suggestion
-    url: https://github.com/saucelabs/sauce-docs/issue/new
+    url: https://github.com/saucelabs/sauce-docs/issue/new-doc
     about: Suggest an idea for new documentation topic!
