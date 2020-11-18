@@ -1,6 +1,7 @@
 name: Run Search Crawler
 
 on:
+  pull_request:
   push:
     branches:
       - 'master'
