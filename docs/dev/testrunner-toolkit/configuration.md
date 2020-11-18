@@ -61,100 +61,29 @@ Below are framework-specific configuration examples that exist in the [Testrunne
 
 <TabItem value="puppeteer">
 
-```yaml
-apiVersion: v1
-# type of object, there could be theoretically other types
-# of "orchestration" in the future, e.g. network config maps etc.
-kind: Test
-# meta data to the test
-metadata:
-  name: Feature XYZ
-  tags:
-    - e2e
-    - release team
-    - other tag
-  build: "Build #$BUILD_ID in $BUILD_ENV"
-# Every file defined in this list will be bundled into a zip and
-# uploaded to Sauce Labs.
-files:
-  - ./tests/puppeteer/demo.test.js
-  # - ./tests/puppeteer/sauce-swag-checkout.test.js
-  # - ./tests/puppeteer/sauce-swag-login.test.js
-# Define a test runner image (e.g. an image to run WebdriverIO tests)
-# Like in Docker, these images can be developed as Open Source projects
-# and maintained by our teams, while at the same time, customers can
-# build their own images as well
-image:
-  # while a set of properties are defined by our Yaml format
-  base: saucelabs/stt-puppeteer-jest-node
-  version: latest
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/puppeteer.yml
 ```
 
 </TabItem>
 <TabItem value="playwright">
 
-```yaml
-apiVersion: v1
-# type of object, there could be theoretically other types
-# of "orchestration" in the future, e.g. network config maps etc.
-kind: Test
-# meta data to the test
-metadata:
-  name: Feature XYZ
-  tags:
-    - e2e
-    - release team
-    - other tag
-  build: "Build #$BUILD_ID in $BUILD_ENV"
-# Every file defined in this list will be bundled into a zip and
-# uploaded to Sauce Labs.
-files:
-  - ./tests/playwright/demo.test.js
-# Define a test runner image (e.g. an image to run WebdriverIO tests)
-# Like in Docker, these images can be developed as Open Source projects
-# and maintained by our teams, while at the same time, customers can
-# build their own images as well
-image:
-  # while a set of properties are defined by our Yaml format
-  base: saucelabs/stt-playwright-jest-node
-  version: latest
+```yaml reference 
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/playwright.yml
 ```
 
 </TabItem>
 <TabItem value="testcafe">
 
-```yaml
-apiVersion: v1
-metadata:
-  name: Feature XYZ
-  tags:
-    - e2e
-    - release team
-    - other tag
-  build: Release $CI_COMMIT_SHORT_SHA
-files:
-  - ./tests/testcafe/*.js
-image:
-  base: saucelabs/stt-testcafe-node
-  version: latest
+```yaml reference 
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
 ```
 
 </TabItem>
 <TabItem value="cypress">
 
-```yaml
-apiVersion: v1
-metadata:
-  name: Feature XYZ
-  tags:
-    - e2e
-    - release team
-    - other tag
-files:
-  - ./tests/cypress/example.test.js
-image:
-  base: saucelabs/stt-cypress-mocha-node
-  version: latest
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
 ```
 
 </TabItem>
@@ -164,11 +93,8 @@ image:
 
 Saucectl offers the possibility to set up your tests environment before executing any of your suites using `beforeExec`: 
 
-<!--https://github.com/saucelabs/saucectl/blob/master/.sauce/puppeteer_before_exec.yml#L14-L15
--->
-```yaml
-beforeExec:
-  - npm install --save chai
+```yaml reference
+https://github.com/saucelabs/saucectl/blob/master/.sauce/puppeteer_before_exec.yml#L14-L15
 ```
 
 ## Parallelization
@@ -176,10 +102,9 @@ beforeExec:
 Saucectl is capable of running tests in parallel by utilizing multiple CI machines. _This feature requires a Sauce Labs account_, so don't forget to set the environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`!
 
 Parallelization can be turned on either via the config:
-<!--https://github.com/saucelabs/saucectl/blob/master/.sauce/puppeteer_parallel.yml#L21
--->
-```yaml
-parallel: true
+
+```yaml reference
+https://github.com/saucelabs/saucectl/blob/master/.sauce/puppeteer_parallel.yml#L21
 ```
 
 or the CLI
