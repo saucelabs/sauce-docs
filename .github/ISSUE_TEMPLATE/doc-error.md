@@ -1,7 +1,7 @@
 ---
 name: 📃 Documentation Issue
 about: Report any inaccurate or missing content in a particular page or section.
-labels: documentation, needs triage,
+labels: documentation, needs triage
 ---
 
 ## 📃 Documentation Issue
