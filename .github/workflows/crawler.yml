@@ -1,0 +1,23 @@
+name: Run Search Crawler
+
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'docs/**'
+
+jobs:
+  run-docsearch:
+    runs-on: ubuntu-latest
+    container:
+      image: algolia/docsearch-scraper:latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@master
+      - name: Update Algolia Search Index
+        run: |
+          ./docsearch docker:run .docsearch/config.json
+        env:
+          APPLICATION_ID: ${{secrets.ALGOLIA_ID}}
+          API_KEY: ${{secrets.ALGOLIA_CREDENTIALS}}
