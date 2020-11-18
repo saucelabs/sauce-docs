@@ -8,6 +8,7 @@ on:
     paths:
       - 'docs/**'
       - '.docsearch/**'
+      - '.github/**'
 
 jobs:
   run-docsearch:
@@ -18,8 +19,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@master
       - name: Update Algolia Search Index
-        run: |
-          ./docsearch docker:run .docsearch/config.json
+      - run: |
+          ./docsearch run .docsearch/config.json
         env:
           APPLICATION_ID: ${{secrets.ALGOLIA_ID}}
           API_KEY: ${{secrets.ALGOLIA_CREDENTIALS}}
