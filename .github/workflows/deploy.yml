@@ -3,6 +3,9 @@ name: Sauce Pipeline Browser Tests
 on:
   pull_request:
   push:
+    paths-ignore:
+    - '.github/**'
+    - '.docsearch/**'
 
 env:
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
