@@ -1,5 +1,5 @@
 ---
-id: sauce-runner-vdc
+id: native-frameworks-vdc
 title: Using Sauce Runner with Native Frameworks for Virtual Device Testing
 sidebar_label: Sauce Runner Using VDC
 ---
