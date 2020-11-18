@@ -10,8 +10,9 @@ const features = [
   {
     title: 'Run Live Tests',
     imageUrl: 'img/SDET_Developer_Bot_EXPORT.png',
-    slugName: 'web-apps/live-testing',
     buttonText: 'Run Now',
+    slugName: 'web-apps/live-testing',
+
     description: (
       <>
           See how your app or site performs on any supported browser, OS, or device,
@@ -22,8 +23,8 @@ const features = [
   {
     title: 'Integrate Your Test Suite',
     imageUrl: 'img/INFOSEC_Bot_EXPORT.png',
-    slugName: 'web-apps/automated-testing/selenium',
     buttonText: 'Integrate Now',
+    slugName: 'web-apps/automated-testing/selenium',
     description: (
       <>
           If you already have automated tests,
@@ -35,12 +36,12 @@ const features = [
   {
     title: 'Learn Automation',
     imageUrl: 'img/QA_Bot_EXPORT.png',
-    slugName: 'web-apps/automated-testing',
     buttonText: 'Automate Now',
+    slugName: 'web-apps/automated-testing',
     description: (
       <>
-          To up-level your testing skills, take our Elemental Selenium courses,
-          brought to you by automation expert Dave Haeffner.
+          To level-up your testing skills, browse our automation docs and transfrom
+          into an test automation hero.
       </>
     ),
   },
@@ -85,9 +86,10 @@ function Home() {
           <div className={styles.buttons}>
             <Link
               className={clsx(
-                'button button--outline button--secondary button--lg getStarted',
+                'button button--outline button--secondary button--lg',
+                styles.getStarted,
               )}
-              to={useBaseUrl('/overview')}>
+              to={useBaseUrl('overview')}>
               Get Started
             </Link>
           </div>

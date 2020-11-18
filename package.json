@@ -1,7 +1,6 @@
 {
-  "name": "sauce-docs",
-  "version": "0.0.1",
-  "license": "MIT",
+  "name": "sauce-docs-3",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -10,25 +9,21 @@
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
-    "test": "npx cypress run"
+    "clear": "docusaurus clear"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.61",
-    "@docusaurus/plugin-google-analytics": "^2.0.0-alpha.37",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.61",
-    "@mdx-js/react": "^1.5.8",
+    "@babel/plugin-transform-modules-commonjs": "7.12.1",
+    "@docusaurus/core": "2.0.0-alpha.68",
+    "@docusaurus/preset-classic": "2.0.0-alpha.68",
+    "@mdx-js/react": "1.6.21",
     "@saucelabs/theme-github-codeblock": "0.0.2",
-    "clsx": "^1.1.1",
-    "core-js": "^3.6.5",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "styled-components": "^5.2.0",
-    "valid-url": "^1.0.9",
-    "validatorjs": "^3.20.0"
+    "clsx": "1.1.1",
+    "react": "16.8.4",
+    "react-dom": "16.8.4"
   },
   "browserslist": {
     "production": [
-      ">0.2%",
+      ">0.5%",
       "not dead",
       "not op_mini all"
     ],
