@@ -23,43 +23,6 @@ __Table of Contents__
 
 ## Installation
 
-***
-
-### For Tech Content Team
-
-Before your start, you should have your own GitHub account associated with your Sauce Labs email.
-
-#### Create a sauce-docs Working Directory
-
-1. Submit a Helpdesk ticket to become a member of github.com/saucelabs.
-1. Open https://github.com/saucelabs/sauce-docs.
-1. In the top right of the screen, click the **Fork** button and choose your personal repo as the target.
-1. In the same screen, click the green **Code** button and choose the tab for the protocol of your personal GitHub account (HTTPS or SSH).
-    > **NOTE:** You can learn more about generating SSH keys in this [GitHub doc](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh).
-
-1. Click the clipboard icon to copy the clone address.
-1. Open a Terminal shell and navigate to the location that will be your working directory.
-    Example: `nancysweeney$ cd GH`
-1. Enter the following command to clone your repo in your local working directory:
-    `$ git clone <paste clipboard contents here>`
-
-Now you should have successfully pulled the sauce-docs directory into your own remote repo (your personal GitHub account) and onto your own local working directory. You can check by opening Finder to see whether the directory is there.
-
-#### Install Docusaurus
-
-If you haven't installed Yarn, you should do that now.
-
-> **NOTE:** I highly recommend using [Homebrew](https://brew.sh/) to install Yarn.
-
-1. Run this command to install Homebrew, if you do not have it: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
-1. Navigate to your sauce-docs root directory (i.e., ` cd GH/sauce-docs`).
-1. Run `brew install yarn`.
-1. When that completes, close the Terminal window and reopen a new shell.
-1. Navigate back to your sauce-docs root directory and run `yarn install` to install the Docusaurus client.
-1. Run `yarn start` to test your environment. This should initiate the local server and launch a browser window at `localhost:3000` that is the Sauce Docs front page.
-
-***
-
 * Pull down this repo:
 
 	```bash
