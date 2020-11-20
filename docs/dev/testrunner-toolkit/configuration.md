@@ -61,7 +61,6 @@ Below are framework-specific configuration examples that exist in the [Testrunne
 
 <TabItem value="puppeteer">
 
-[__`puppeteer.yml`__](https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/puppeteer.yml)
 ```yaml
 apiVersion: v1
 # type of object, there could be theoretically other types
@@ -82,19 +81,18 @@ files:
   # - ./tests/puppeteer/sauce-swag-checkout.test.js
   # - ./tests/puppeteer/sauce-swag-login.test.js
 # Define a test runner image (e.g. an image to run WebdriverIO tests)
-# Like in Docker, these img can be developed as Open Source projects
+# Like in Docker, these images can be developed as Open Source projects
 # and maintained by our teams, while at the same time, customers can
-# build their own img as well
+# build their own images as well
 image:
   # while a set of properties are defined by our Yaml format
-  base: saucelabs/sauce-puppeteer
-  version: 3.0.4-saucectl0.6.2
+  base: saucelabs/stt-puppeteer-jest-node
+  version: latest
 ```
 
 </TabItem>
 <TabItem value="playwright">
 
-[__`playwright.yml`__](https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/playwright.yml)
 ```yaml
 apiVersion: v1
 # type of object, there could be theoretically other types
@@ -113,19 +111,18 @@ metadata:
 files:
   - ./tests/playwright/demo.test.js
 # Define a test runner image (e.g. an image to run WebdriverIO tests)
-# Like in Docker, these img can be developed as Open Source projects
+# Like in Docker, these images can be developed as Open Source projects
 # and maintained by our teams, while at the same time, customers can
-# build their own img as well
+# build their own images as well
 image:
   # while a set of properties are defined by our Yaml format
-  base: saucelabs/sauce-playwright
-  version: 1.0.0-saucectl0.6.2
+  base: saucelabs/stt-playwright-jest-node
+  version: latest
 ```
 
 </TabItem>
 <TabItem value="testcafe">
 
-[__`testcafe.yml`__](https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml)
 ```yaml
 apiVersion: v1
 metadata:
@@ -137,17 +134,14 @@ metadata:
   build: Release $CI_COMMIT_SHORT_SHA
 files:
   - ./tests/testcafe/*.js
-capabilities:
-  - browserName: Chrome
 image:
-  base: saucelabs/sauce-testcafe
-  version: 1.8.5-saucectl0.6.3
+  base: saucelabs/stt-testcafe-node
+  version: latest
 ```
 
 </TabItem>
 <TabItem value="cypress">
 
-[__`cypress.yml`__](https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml)
 ```yaml
 apiVersion: v1
 metadata:
@@ -160,7 +154,7 @@ files:
   - ./tests/cypress/example.test.js
 image:
   base: saucelabs/stt-cypress-mocha-node
-  version: v0.1.3
+  version: latest
 ```
 
 </TabItem>
@@ -168,8 +162,10 @@ image:
 
 ## Prepare your environment
 
-Saucectl offers the possibility to setup your tests environment before executing any of your suites using `beforeExec`: 
+Saucectl offers the possibility to set up your tests environment before executing any of your suites using `beforeExec`: 
 
+<!--https://github.com/saucelabs/saucectl/blob/master/.sauce/puppeteer_before_exec.yml#L14-L15
+-->
 ```yaml
 beforeExec:
   - npm install --save chai
@@ -179,7 +175,9 @@ beforeExec:
 
 Saucectl is capable of running tests in parallel by utilizing multiple CI machines. _This feature requires a Sauce Labs account_, so don't forget to set the environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`!
 
-Parallelization can be turned on either via the config
+Parallelization can be turned on either via the config:
+<!--https://github.com/saucelabs/saucectl/blob/master/.sauce/puppeteer_parallel.yml#L21
+-->
 ```yaml
 parallel: true
 ```
@@ -191,4 +189,4 @@ saucectl run --parallel
 
 The concrete setup of the pipeline will depend on your CI provider however. [Here's an example](https://github.com/saucelabs/saucectl/blob/master/.github/workflows/test.yml#L94-L145) how to set it up for GitHub Actions.
 
-Please visit [here](dev/cli/saucectl.md#parallel) for more information about the parallelization feature and its limitations.
+Please visit [here](/dev/cli/saucectl#parallel) for more information about the parallelization feature and its limitations.
