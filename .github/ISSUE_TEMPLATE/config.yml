@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🤔 Questions and Help
+    url: https://saucelabs.com/training-support
+    about: Visit our support portal to review frequently asked questions, use cases, and submit questions.
+  - name: 💡 New Topic Suggestion
+    url: https://github.com/saucelabs/sauce-docs/issue/new-doc
+    about: Suggest an idea for new documentation topic!

@@ -7,115 +7,121 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #e53730;
-  --ifm-color-primary-dark: rgb(229, 55, 48);
-  --ifm-color-primary-darker: rgb(218, 41, 29);
-  --ifm-color-primary-darkest: rgb(172, 20, 19);
-  --ifm-color-primary-light: rgb(204, 205, 207);
-  --ifm-color-primary-lighter: rgb(248, 248, 248);
-  --ifm-color-primary-lightest: rgb(255, 255, 255);
-  --ifm-footer-background-color: rgb(172, 20, 19);
-  --ifm-footer-link-color: rgb(255, 255, 255);
-  --ifm-footer-title-color: rgb(248, 248, 248);
-  --ifm-footer-color: rgb(255, 255, 255);
-  --ifm-code-font-size: 95%;
-  --ifm-font-color-base: #464b54;
+    --ifm-color-primary: #E2231A;
+    --ifm-color-primary-dark: rgb(229, 55, 48);
+    --ifm-color-primary-darker: rgb(218, 41, 29);
+    --ifm-color-primary-darkest: rgb(172, 20, 19);
+    --ifm-color-primary-light: rgb(204, 205, 207);
+    --ifm-color-primary-lighter: rgb(248, 248, 248);
+    --ifm-color-primary-lightest: rgb(255, 255, 255);
+    --ifm-footer-background-color: rgb(172, 20, 19);
+    --ifm-footer-link-color: rgb(255, 255, 255);
+    --ifm-footer-title-color: rgb(248, 248, 248);
+    --ifm-footer-color: rgb(255, 255, 255);
+    --ifm-code-font-size: 95%;
+    --ifm-font-color-base: #464b54;
+    /*--ifm-*/
+}
+
+.navbar {
+    --ifm-navbar-background-color: #f8f8f8;
 }
 
 body {
-  font-family: museo-sans, sans-serif;
-  font-weight: semi-bold;
+    font-family: museo-sans, sans-serif;
+    font-weight: semi-bold;
 }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: museo-sans, sans-serif;
-  font-weight: 500;
+    font-family: museo-sans, sans-serif;
+    font-weight: 500;
 }
 
 h1, .h1 {
-  font-size: 32px !important;
+    font-size: 32px !important;
 }
 
 h2, .h2 {
-  padding-bottom: 5px;
-  font-size: 24px;
-  margin-bottom: 8px !important;
+    padding-bottom: 5px;
+    font-size: 24px;
+    margin-bottom: 8px !important;
 }
 h3, .h3 {
-  padding-bottom: 5px;
-  font-size: 20px;
-  margin-bottom: 8px !important;
+    padding-bottom: 5px;
+    font-size: 20px;
+    margin-bottom: 8px !important;
 }
 
 .docusaurus-highlight-code-line {
-  background-color: rgb(72, 77, 91);
-  display: block;
-  margin: 0 calc(-1 * var(--ifm-pre-padding));
-  padding: 0 var(--ifm-pre-padding);
+    background-color: rgb(72, 77, 91);
+    display: block;
+    margin: 0 calc(-1 * var(--ifm-pre-padding));
+    padding: 0 var(--ifm-pre-padding);
 }
 
 .navbar__items {
-  font-weight: 500;
-  color:rgb(70, 75, 84);
-  text-decoration-color:rgb(70, 75, 84);
+    font-weight: 500;
+    color:rgb(70, 75, 84);
+    text-decoration-color:rgb(70, 75, 84);
 }
 
-.navbar__items.navbar__items--right a:nth-child(3) {
-  background: #e12219;
-  background: -webkit-gradient(linear,right top, left top,from(#ee4439),to(#d92519));
-  background: linear-gradient(270deg,#ee4439,#d92519);
-  box-shadow: -3px 0 16px -11px #000;
-  border-radius: 50px;
-  color: #fff;
-  padding: 4px 16px;
-  --ifm-menu-color-background-hover: #fff;
+.navbar__items.navbar__items--right a:nth-child(6) {
+    background: #E2231A;
+    background: -webkit-gradient(linear,right top, left top,from(#ee4439),to(#d92519));
+    background: linear-gradient(270deg,#ee4439,#d92519);
+    box-shadow: -3px 0 16px -11px #000;
+    border-radius: 50px;
+    color: #fff;
+    padding: 4px 16px;
+    --ifm-menu-color-background-hover: #fff;
 }
-.navbar__items.navbar__items--right a:nth-child(3):hover {
-  background: #f85d5d;
-  background: -webkit-gradient(linear,right top,left top,from(#f85d5d),to(#f83838));
-  background: linear-gradient(270deg,#f85d5d,#f83838);
+.navbar__items.navbar__items--right a:nth-child(6):hover {
+    background: #f85d5d;
+    background: -webkit-gradient(linear,right top,left top,from(#f85d5d),to(#f83838));
+    background: linear-gradient(270deg,#f85d5d,#f83838);
 }
 .navbar__brand {
-  height: 1.5em !important;
+    height: 1.5em !important;
 }
 /* overriding nav icons */
 .menu__link--sublist:after {
-  background-size: 1.5em 1.5em !important;
+    background-size: 1.5em 1.5em !important;
 }
 .dropdown > .navbar__link:after {
-  border-left: 0.25em solid transparent !important;
-  border-right: 0.25em solid transparent !important;
-  border-top: 0.25em solid !important;
+    border-left: 0.25em solid transparent !important;
+    border-right: 0.25em solid transparent !important;
+    border-top: 0.25em solid !important;
 }
 
 .footer {
-  font-family: museo-sans, sans-serif;
-  padding-bottom: 40px;
+    font-family: museo-sans, sans-serif;
+    padding-bottom: 40px;
+    --ifm-footer-background-color: #E2231A;
 }
 
 .footer__logo {
-  padding-bottom: 40px;
+    padding-bottom: 40px;
 }
 
 .footer__title {
-  /*border-bottom: 1px solid #bd3431;*/
-  display: block;
-  padding-bottom: 10px;
-  font-size: .875rem;
-  line-height: .875rem;
-  font-weight: 700;
+    /*border-bottom: 1px solid #bd3431;*/
+    display: block;
+    padding-bottom: 10px;
+    font-size: .875rem;
+    line-height: .875rem;
+    font-weight: 700;
 }
 .footer__link-item {
-  font-size: .6875rem;
-  font-weight: 500;
-  margin: 5px 0;
-  line-height: 20px;
-  display: block;
+    font-size: .6875rem;
+    font-weight: 500;
+    margin: 5px 0;
+    line-height: 20px;
+    display: block;
 }
 
 .text--center {
-  padding-top: 20px;
-  font-size: 12px;
+    padding-top: 20px;
+    font-size: 12px;
 }
 
 /* Hub and introduction page CSS below */
@@ -195,3 +201,18 @@ h3, .h3 {
   line-height:15px;
   border-radius:10%;
 }
+
+
+/* Get Started button styles */
+
+#__docusaurus > div.main-wrapper > header > div > div > a {
+    --ifm-font-color-base: #1c1e22;
+    background-color: #f8f8f8;
+}
+
+#__docusaurus > div.main-wrapper > header > div > div > a:hover {
+    --ifm-font-color-base: white !important;
+    background-color: #5dc1e5;
+    color: white !important;
+}
+
