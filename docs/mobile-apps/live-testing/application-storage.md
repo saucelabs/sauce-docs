@@ -31,7 +31,7 @@ App-Upload UI currently supports Live Testing on Real Devices only. Use the REST
 
 <img src={useBaseUrl('img/live-testing/live-test-mobile-app.png')} alt="Live App Upload UI" width="700" />
 
-You can either drag and drop and application, or browse for the file. Supported application file types include:
+You can either drag and drop an application, or browse for the file. Supported application file types include:
 * `.APK` For Android native app and mobile browser tests
 * `.IPA` for IOS native app Tests
 * `.ZIP` for IOS mobile browser tests.  (.ZIP must include a valid iOS application bundle) There is a max file upload size of 4 GB.
