@@ -16,6 +16,7 @@ module.exports = {
         },
     ],
     "Secure Connections": [
+        'secure-connections',
         {
             type: 'category',
             label: 'Sauce Connect Proxy',
@@ -63,24 +64,21 @@ module.exports = {
             items: [
                 'mobile-apps/automated-testing',
                 'mobile-apps/automated-testing/appium',
-                'mobile-apps/automated-testing/espresso',
-                'mobile-apps/automated-testing/xcuitest',
                 'mobile-apps/automated-testing/robotium',
                 'mobile-apps/automated-testing/wdio',
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Native Frameworks for RDC',
-            collapsed: true,
-            items: [
-                'mobile-apps/native-frameworks-rdc',
-                'mobile-apps/native-frameworks-rdc/app-upload-storage',
-                'mobile-apps/native-frameworks-rdc/commands-rdc',
-                'mobile-apps/native-frameworks-rdc/configuration-file',
-                'mobile-apps/native-frameworks-rdc/device-specs',
-                'mobile-apps/native-frameworks-rdc/espresso-rdc',
-                'mobile-apps/native-frameworks-rdc/xcuitest-rdc',
+
+                {
+                    type: 'category',
+                    label: 'Espresso and XCUITest',
+                    collapsed: true,
+                    items: [
+                        'mobile-apps/automated-testing/espresso-xcuitest/real-device-testing',
+                        'mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing',
+                        'mobile-apps/automated-testing/espresso-xcuitest/example-configurations',
+                        'mobile-apps/automated-testing/espresso-xcuitest/app-upload-storage',
+                        'mobile-apps/automated-testing/espresso-xcuitest/change-logs',
+                    ],
+                },
             ],
         },
     ],
@@ -178,6 +176,8 @@ module.exports = {
             collapsed: true,
             items: [
                 'dev/cli',
+                'dev/cli/espresso-xcuitest-real-devices-cli',
+                'dev/cli/espresso-virtual-devices-cli',
                 'dev/cli/ipsec-cli',
                 'dev/cli/sc-cli',
                 'dev/cli/saucectl',
