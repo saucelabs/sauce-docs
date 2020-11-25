@@ -14,7 +14,7 @@ docsearch.json
 nohup.out
 
 # Misc
-.DS_Store
+*.DS_Store
 .env.local
 .env.development.local
 .env.test.local
