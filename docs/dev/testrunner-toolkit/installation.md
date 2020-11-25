@@ -22,7 +22,7 @@ There are multiple ways to install the Sauce Labs Testrunner Toolkit (colloquial
     ```bash
     npm i -g saucectl
     ```
-* Use our one line installer via command line tools such as [cURL]():
+* Use our one line installer via command line tools such as [cURL](https://curl.haxx.se/download.html):
 
     ```bash
     curl -L https://saucelabs.github.io/saucectl/install | bash

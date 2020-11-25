@@ -1,7 +1,7 @@
 # Sauce Labs Docs ![BETA](https://img.shields.io/badge/beta!-blue?style=for-the-badge)
 
 <!-- [START badges] -->
-[![Sauce Pipeline Browser Tests](https://github.com/saucelabs/sauce-docs/workflows/Sauce%20Pipeline%20Browser%20Tests/badge.svg?branch=master)](https://github.com/saucelabs/sauce-docs/actions)
+![Sauce Pipeline Browser Tests](https://github.com/saucelabs/sauce-docs/workflows/Sauce%20Pipeline%20Browser%20Tests/badge.svg)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.MD) <a href="https://gitpod.io/#https://github.com/saucelabs/sauce-docs"><img src="https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod" alt="Gitpod Ready-to-Code"/></a>
 <!-- [END badges] -->
 
