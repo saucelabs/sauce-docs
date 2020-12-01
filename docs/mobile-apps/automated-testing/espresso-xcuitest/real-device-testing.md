@@ -200,13 +200,13 @@ devices:
 
 ```
 
-## Uploading Your App and Test Files to Sauce Storage
+## Uploading Your App and Test Files to TestObject Storage API
 
-As an alternative to using the built-in upload behavior of Sauce Runner, you can separate the upload of your application and test files to Sauce Storage via the REST API.
+As an alternative to using the built-in upload behavior of Sauce Runner for Real Devices, you can separate the upload of your application and test files via TestObject Storage API.
 
 Implementing the separation of upload allows you to take control of when to upload a new version, which in turn helps save time by reducing the total amount of file uploads done.
 
-Below are example `curl` commands for uploading your app build and test runners to Sauce Storage.
+Below are example `curl` commands for uploading your app build and test runners to TestObject.
 
 Example: uploading an iOS app
 
