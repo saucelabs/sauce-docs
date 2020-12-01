@@ -38,13 +38,13 @@ For more information about Sauce Labs architecture, security requirements/protoc
   <div class="box box5 card">
     <div class="container">
     <h3><a href="https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Tunnel+Management">Sauce Connect Tunnel Management</a></h3>
-    <p>Description</p>
+    <p>Best practices for managing tunnels.</p>
     </div>
   </div>
   <div class="box box6 card">
     <div class="container">
     <h3><a href="https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+and+Network+Security">Network Security and Authentication</a></h3>
-    <p>Description</p>
+    <p>Settings and tips for configuring Sauce Connect Proxy with your network.</p>
     </div>
   </div>
 </div>

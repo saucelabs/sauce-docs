@@ -6,7 +6,7 @@ sidebar_label: Espresso for VDC
 
 Sauce Runner for Virtual Devices lets you run tests using the native testing frameworks like Espresso with virtual devices in the Sauce Labs testing cloud. This topic describes the required and optional command parameters you can use to set up your test runs.
 
-## Sauce Runner for Virtual Devices Commands
+## Sauce Runner for Virtual Devices Command Line Options
 
 ### Required
 

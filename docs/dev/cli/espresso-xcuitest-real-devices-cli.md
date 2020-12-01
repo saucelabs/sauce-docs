@@ -26,24 +26,27 @@ JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar  <command> 
 
 ## Sauce Runner for Real Devices Commands
 
-### Getting Started
+Choose from one of the following commands:
 
 | Command | Description |
 | :-------------------------- | :--- |
 | `xcuitest` | Defines `xcuitest` as the test framework to use for your native iOS tests.
 | `espresso` | Defines `espresso` as the test framework to use for your native Android tests.
-| `config` | Defines a configuration YAML file where the runner executes based on the parameters set in the file. **Please note**: if you decide to use the config command, you can no longer use any of the command options below. For more information, see [Creating a Sauce Runner for Real Devices Configuration File](https://wiki.saucelabs.com/pages/viewpage.action?pageId=72748118).
+| `config` | Defines a configuration YAML file where the runner executes based on the parameters set in the file. **NOTE**: if you decide to use the config command, you can no longer use any of the command options below. For more information, see [Creating a Sauce Runner for Real Devices Configuration File](https://wiki.saucelabs.com/pages/viewpage.action?pageId=72748118).
+
+## Sauce Runner for Real Devices Command Line Options
 
 ### Required
+These are required for use with the above `xcuitest` and `espresso` commands.
 
 #### `--apikey`
 The API key for your Sauce Labs real device cloud account.
 
 #### `--app`
-The path to the *.ipa or *.apk file of the application under test or the id number of an already uploaded app.
+The path to the *.ipa or *.apk file of the application under test or the id number of an already uploaded app. In your command line, refer to the location where you have downloaded the runner.jar file or run the command from the folder from where you downloaded the runner.
 
 #### `--test`
-The path to the *.ipa or *.apk file of the test or the id number of an already uploaded test.
+The path to the *.ipa or *.apk file of the test.
 
 #### `--datacenter`
 The data center, either in the US or EU, to use in your tests. If you don't specify a device or devices for your test, one will be assigned to your tests based on the type of application you're testing against.
@@ -114,7 +117,7 @@ Test timeout in minutes.  Test duration cannot exceed 60 minutes. Defaults to 60
 The folder for the JUnit XML output.
 
 #### `--url`
-Provide the URL of an alternative REST endpoint to use. Default is https://app.testobject.com/api/rest.
+Provide the URL of an alternative REST endpoint to use. See [Data Center Endpoints](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068).
 
 #### `--platformVersion`
 For dynamic allocation of a device, provide an operating system version to use. For example, use '9' to allocate a device running major version 9 and arbitrary versions of the OS, or '9.3.3' for a specific version.
@@ -133,7 +136,7 @@ For dynamic allocation of a device, provide the device name you would like to dy
 
 #### `--testsToRun`
 
->**XCUITest Only**
+**XCUITest Only**
 
 Provide a comma separated list of test cases or test classes. If you want to run all tests of a class provide only the classname and if you want to run a specific method of a class provide the class name and method name separated with a '/' (e.g. '--testsToRun ClassA,ClassB/methodC' runs all tests in 'ClassA' and only 'methodC' of 'ClassB')
 
@@ -143,13 +146,13 @@ Example:
 ```
 
 #### `--useTestOrchestrator`
->**Espresso Only**
+**Espresso Only**
 
 If set, the instrumentation will start with Test Orchestrator version 1.1.1 in use. Supported on runner version 1.7 and newer.
 Note that with Test Orchestrator it is in most cases recommended to also add the `--e clearPackageData true` parameter To remove all shared state from your device's CPU and memory after each test.
 
 #### `--e`
->**Espresso Only**
+**Espresso Only**
 
 Provide a list of test options to Espresso. The key-value pairs supported by espresso are documented here: https://developer.android.com/studio/test/command-line#AMOptionsSyntax. In the example, the test would execute all test methods defined in the class com.example.android.TestClassA and the test method methodName defined in com.example.android.TestClassB.
 
