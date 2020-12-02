@@ -29,9 +29,11 @@ Before you begin testing with [Testrunner Toolkit](dev/testrunner-toolkit.md), y
 ## Run Your First Test
 
 Run the following command to execute you first test and to ensure Testrunner works properly:
+
 ```bash
 saucectl run
 ```
+
 Testrunner Toolkit will then execute the test based on the information in `config.yml`. 
 
 To learn more about how to configure `saucectl`, please visit the [Configuration](dev/testrunner-toolkit/configuration.md) section of the docs. 
@@ -62,7 +64,9 @@ Below are example snippets in the following frameworks: [Puppeteer](https://pptr
 
 Our Puppeteer testrunner image exposes `browser` into the global scope which represents an instance of its [`Browser class`](https://pptr.dev/#?product=Puppeteer&version=v3.0.4&show=api-class-browser). The browser will be initiated and shutdown by the testrunner setup.
 
-```js
+<!--https://github.com/saucelabs/saucectl/blob/master/tests/e2e/puppeteer/example.test.js
+-->
+```js 
 describe('saucectl demo test', () => {
 	test('should verify title of the page', async () => {
 		const page = (await browser.pages())[0]
@@ -77,6 +81,8 @@ describe('saucectl demo test', () => {
 
 The Playwright testrunner image also exposes a global `browser` variable that represents Playwright's [`Browser class`](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=browser). In addition to that you also have access to a pre-generated [browser context](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=browser-contexts) via `context` as well as to a [page frame](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=pages-and-frames) via `page`.
 
+<!--https://github.com/saucelabs/saucectl/blob/master/tests/e2e/playwright/example.test.js
+-->
 ```js
 describe('saucectl demo test', () => {
 	test('should verify title of the page', async () => {
@@ -89,6 +95,8 @@ describe('saucectl demo test', () => {
 </TabItem>
 <TabItem value="testcafe">
 
+<!--https://github.com/saucelabs/saucectl/blob/master/tests/e2e/testcafe/example.test.js
+-->
 ```js
 import { Selector } from 'testcafe';
 fixture `Getting Started`
@@ -106,17 +114,19 @@ test(testName, async t => {
 </TabItem>
 <TabItem value="cypress">
 
+<!--https://github.com/saucelabs/saucectl/blob/master/tests/e2e/cypress/integration/example.test.js-->
+
 ```js
 context('Actions', () => {
-	beforeEach(() => {
-		cy.visit('https://example.cypress.io/commands/actions')
+		beforeEach(() => {
+			cy.visit('https://example.cypress.io/commands/actions')
+		})
+		it('.type() - type into a DOM element', () => {
+			// https://on.cypress.io/type
+			cy.get('.action-email')
+				.type('fake@email.com').should('have.value', 'fake@email.com')
+		})
 	})
-	it('.type() - type into a DOM element', () => {
-		// https://on.cypress.io/type
-		cy.get('.action-email')
-			.type('fake@email.com').should('have.value', 'fake@email.com')
-	})
-})
 ```
 
 </TabItem>
