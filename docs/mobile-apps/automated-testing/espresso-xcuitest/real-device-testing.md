@@ -211,23 +211,23 @@ Below are example `curl` commands for uploading your app build and test runners 
 Example: uploading an iOS app
 
 ```sh
-curl -u "username:APP_APIKEY" -X POST https://app.testobject.com:443/api/storage/upload -H "Content-Type: application/octet-stream" --data-binary @/path/to/iOSApp.ipa
+curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest -H "Content-Type: application/octet-stream" --data-binary @/path/to/iOSApp.ipa
 ```
 
 Example: uploading an Android app
 
 ```sh
-curl -u "username:APP_APIKEY" -X POST https://app.testobject.com:443/api/storage/upload -H "Content-Type: application/octet-stream" --data-binary @/path/to/androidApp.apk
+curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest -H "Content-Type: application/octet-stream" --data-binary @/path/to/androidApp.apk
 ```
 
 Example: uploading an iOS test runner
 
 ```sh
-curl -u "username:APP_APIKEY" -X POST https://app.testobject.com:443/api/storage/upload -H "Content-Type: application/octet-stream" -H "App-Type: XCUITEST" --data-binary @/path/to/XCUITests-Runner.ipa
+curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest -H "Content-Type: application/octet-stream" -H "App-Type: XCUITEST" --data-binary @/path/to/XCUITests-Runner.ipa
 ```
 
 Example: uploading an Android test runner
 
 ```sh
-curl -u "username:APP_APIKEY" -X POST https://app.testobject.com:443/api/storage/upload -H "Content-Type: application/octet-stream" -H "App-Type: ANDROID_INSTRUMENTATION_TEST" --data-binary @/path/to/androidTest.apk
+curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest -H "Content-Type: application/octet-stream" -H "App-Type: ANDROID_INSTRUMENTATION_TEST" --data-binary @/path/to/androidTest.apk
 ``
