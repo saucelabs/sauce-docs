@@ -115,10 +115,11 @@ module.exports = {
     ],
     "Performance": [
       'performance',
-      'performance/load',
+      'performance/about',
       'performance/speedo',
-      'performance/jankiness',
-      'performance/troubleshooting',
+      'performance/transitions',
+      'performance/motion',
+      'performance/analyze',
     ],
     "Headless": [
       'headless',

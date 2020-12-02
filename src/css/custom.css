@@ -129,8 +129,8 @@ h3, .h3 {
 .box-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 300px;
-    grid-gap: 50px;
+    grid-auto-rows: minmax(150px, 2fr);
+    grid-gap: 30px;
 
 }
 
@@ -158,6 +158,16 @@ h3, .h3 {
     padding: 8px;
 }
 
+.boxwidetop {
+  margin-bottom: 30px;
+  padding: 8px;
+}
+
+.boxwidebottom {
+  margin-top: 30px;
+  padding: 8px;
+}
+
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -170,6 +180,61 @@ h3, .h3 {
 .container {
     padding: 2px 16px;
 }
+
+/* Information badges below */
+
+.badge-blue {
+  position:relative;
+  font-size:9pt;
+  background:#003A70;
+  color:white;
+  font-weight:750;
+  width:135px;height:25px;
+  text-align:center;
+  line-height:15px;
+  border-radius:10%;
+}
+
+.badge-orange {
+  position:relative;
+  font-size:9pt;
+  background:#f58505;
+  color:white;
+  font-weight:750;
+  width:135px;height:25px;
+  text-align:center;
+  line-height:15px;
+  border-radius:10%;
+}
+
+.badge-red {
+  position:relative;
+  font-size:9pt;
+  background:#e2231a;
+  color:white;
+  font-weight:750;
+  width:135px;height:25px;
+  text-align:center;
+  line-height:15px;
+  border-radius:10%;
+}
+
+.badge-green {
+  position:relative;
+  font-size:9pt;
+  background:#086e0e;
+  color:white;
+  font-weight:750;
+  width:135px;height:25px;
+  text-align:center;
+  line-height:15px;
+  border-radius:10%;
+}
+
+
+
+
+
 
 /* Get Started button styles */
 #__docusaurus > div.main-wrapper > header > div > div > a {
