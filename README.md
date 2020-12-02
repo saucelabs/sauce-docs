@@ -24,29 +24,29 @@ __Table of Contents__
 ## Installation
 
 * Pull down this repo:
-	
+
 	```bash
 	git clone https://github.com/saucelabs/sauce-docs.git
 	```
- 
+
 * Change directory to `sauce-docs`:
-    
+
     ```bash
     cd sauce-docs
     ```
-  
+
 * Install the dependencies:
-	
+
 	```
 	yarn install
 	```
- 
+
     > If you have trouble with `yarn`, you can try `npm install` instead.
 
 ## Local Development
 
 * Start the website:
-	
+
 	```
 	yarn start
 	```
@@ -54,7 +54,7 @@ __Table of Contents__
 	This command starts a local development server and open up a browser window (http://localhost:3000). Most changes perform live updates to your server without having to restart.
 
 * Build the website:
-	
+
 	```
 	yarn build
 	```
@@ -62,11 +62,11 @@ __Table of Contents__
 	This command gathers the static content and places them in a `build` directory; which is compatible with most static content hosting services.
 
 * Serve the website:
-	
+
 	```
 	yarn serve
 	```
-	
+
 	This command builds the site and serves it on your machine's host (http://localhost:3000).
 
 
