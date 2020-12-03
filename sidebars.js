@@ -16,6 +16,7 @@ module.exports = {
       },
     ],
     "Secure Connections": [
+      'secure-connections',
       {
         type: 'category',
         label: 'Sauce Connect Proxy',
@@ -74,7 +75,6 @@ module.exports = {
                         'mobile-apps/automated-testing/espresso-xcuitest/real-device-testing',
                         'mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing',
                         'mobile-apps/automated-testing/espresso-xcuitest/example-configurations',
-                        'mobile-apps/automated-testing/espresso-xcuitest/app-upload-storage',
                         'mobile-apps/automated-testing/espresso-xcuitest/change-logs',
                     ],
                 },
@@ -138,12 +138,6 @@ module.exports = {
     ],
     "Visual": [
       'visual',
-      'visual/requirements',
-      'visual/configuration',
-      'visual/workflows',
-      'visual/history',
-      'visual/advanced',
-      'visual/troubleshooting',
     ],
     "Developer Resources": [
       'dev',
@@ -174,8 +168,9 @@ module.exports = {
         collapsed: true,
         items: [
           'dev/cli',
-          'dev/cli/ipsec-cli',
+          'dev/cli/espresso-xcuitest-cli',
           'dev/cli/sc-cli',
+          'dev/cli/ipsec-cli',
           'dev/cli/saucectl',
         ]
       },
