@@ -16,7 +16,7 @@ To begin, you'll need to download and configure our test runner, Sauce Runner fo
 ## What You'll Need
 Prior to downloading Sauce Runner for Real Devices and getting started with your Espresso and XCUITest tests in the Real Device Cloud, you'll need to have:
 
-* The .ipa or .apk file for both your app and tests
+* The `.ipa` or `.apk` file for both your app and tests
 * Java 8 or later installed on your local machine
 * Set up your mobile app testing project (see [Application and Project Management for Real Devices](https://wiki.saucelabs.com/pages/viewpage.action?pageId=92677287))
 
@@ -199,3 +199,35 @@ devices:
     value: com.example.android.TestClassA
 
 ```
+
+## Uploading Your App and Test Files to TestObject Storage API
+
+As an alternative to using the built-in upload behavior of Sauce Runner for Real Devices, you can separate the upload of your application and test files via TestObject Storage API.
+
+Implementing the separation of upload allows you to take control of when to upload a new version, which in turn helps save time by reducing the total amount of file uploads done.
+
+Below are example `curl` commands for uploading your app build and test runners to TestObject.
+
+Example: uploading an iOS app
+
+```sh
+curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest -H "Content-Type: application/octet-stream" --data-binary @/path/to/iOSApp.ipa
+```
+
+Example: uploading an Android app
+
+```sh
+curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest -H "Content-Type: application/octet-stream" --data-binary @/path/to/androidApp.apk
+```
+
+Example: uploading an iOS test runner
+
+```sh
+curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest -H "Content-Type: application/octet-stream" -H "App-Type: XCUITEST" --data-binary @/path/to/XCUITests-Runner.ipa
+```
+
+Example: uploading an Android test runner
+
+```sh
+curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest -H "Content-Type: application/octet-stream" -H "App-Type: ANDROID_INSTRUMENTATION_TEST" --data-binary @/path/to/androidTest.apk
+``
