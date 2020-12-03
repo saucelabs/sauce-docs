@@ -11,9 +11,9 @@ sidebar_label: Espresso and XCUITest
 At the moment, the Sauce Runner is only available for our Legacy Real Device Cloud Platform, therefore all topics in this page do not apply to automated testing with Real Devices in Sauce Labs. Check the [Real Device Testing in Sauce Labs Feature Preview](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721844) for updates on when the Sauce Runner will be available.
 :::
 
-To run automated tests using the Espresso and XCUITest frameworks, you'll need to download Sauce Runner for Real Devices. See [/mobile-apps/real-devices-espresso-xcuitest] for more information.
+To run automated tests using the Espresso and XCUITest frameworks, you'll need to download Sauce Runner for Real Devices. See mobile-apps/real-devices-espresso-xcuitest for more information.
 
-This topic describes the options you can use with the runner. You can run tests in parallel across multiple devices and run subsets of tests against specific devices. You can set the options as environment variables that can be referenced in your testing scripts, or pass them as command line parameters, which will take precedence over options set as environment variables. You can also create a [runner configuration file](/docs/mobile-apps/real-device-testing) with the options and commands for running your tests.
+This topic describes the options you can use with the runner. You can run tests in parallel across multiple devices and run subsets of tests against specific devices. You can set the options as environment variables that can be referenced in your testing scripts, or pass them as command line parameters, which will take precedence over options set as environment variables. You can also create a [runner configuration file](mobile-apps/automated-testing/espresso-xcuitest/real-device-testing.md) with the options and commands for running your tests.
 
 ### What You'll Need
 * Your [Sauce Labs Account](https://app.saucelabs.com) credentials
