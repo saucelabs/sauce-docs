@@ -9,9 +9,8 @@ An automated testing solution that detects visual UI regressions across browsers
 <div class="box-wrapper" markdown="1">
 <div class="box box1 card">
   <div class="container">
-  <h2>Visual E2E Testing</h2>
+  <h2>Visual E2E Testing (Beta)</h2>
   <p>Combine visual and functional testing in the same test run by integrating our End-to-End (E2E) solution with your Selenium WebDriver tests.</p>
-  <p><button class="badge-blue">IN BETA</button></p>
   <ul>
       <li><a href="https://screener.io/docs">Quick Start</a></li>
       <li><a href="https://screener.io/docs/pages">Workflow</a></li>
