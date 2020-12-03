@@ -139,12 +139,6 @@ module.exports = {
     ],
     "Visual": [
       'visual',
-      'visual/requirements',
-      'visual/configuration',
-      'visual/workflows',
-      'visual/history',
-      'visual/advanced',
-      'visual/troubleshooting',
     ],
     "Developer Resources": [
       'dev',
@@ -175,11 +169,10 @@ module.exports = {
         collapsed: true,
         items: [
           'dev/cli',
-          'dev/cli/ipsec-cli',
+          'dev/cli/espresso-xcuitest-cli',
           'dev/cli/sc-cli',
+          'dev/cli/ipsec-cli',
           'dev/cli/saucectl',
-          'dev/cli/espresso-xcuitest-real-devices-cli',
-          'dev/cli/espresso-virtual-devices-cli',
         ]
       },
       {
