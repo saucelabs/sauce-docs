@@ -4,18 +4,19 @@ title: Espresso and XCUITest CLI Reference
 sidebar_label: Espresso and XCUITest
 ---
 
-## Sauce Runner for Real Devices Commands
+## Sauce Runner for Real Devices Command Line Options
 
-:::warning Only Available in TestObject
+This topic describes the options you can use with [Sauce Runner for Real Devices](mobile-apps/automated-testing/espresso-xcuitest/real-device-testing.md) to run automated tests on Sauce Labs real devices using Espresso and XCUITest.
 
-At the moment, the Sauce Runner is only available for our Legacy Real Device Cloud Platform, therefore all topics in this page do not apply to automated testing with Real Devices in Sauce Labs. Check the [Real Device Testing in Sauce Labs Feature Preview](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721844) for updates on when the Sauce Runner will be available.
-:::
-
-To run automated tests using the Espresso and XCUITest frameworks, you'll need to download Sauce Runner for Real Devices. See mobile-apps/real-devices-espresso-xcuitest for more information.
-
-This topic describes the options you can use with the runner. You can run tests in parallel across multiple devices and run subsets of tests against specific devices. You can set the options as environment variables that can be referenced in your testing scripts, or pass them as command line parameters, which will take precedence over options set as environment variables. You can also create a [runner configuration file](mobile-apps/automated-testing/espresso-xcuitest/real-device-testing.md) with the options and commands for running your tests.
+* Run tests in parallel across multiple devices
+* Run subsets of tests against specific devices
+* Set the options as environment variables that can be referenced in your testing scripts, or pass them as command line parameters, which will take precedence over options set as environment variables
+* Create a [runner configuration file](mobile-apps/automated-testing/espresso-xcuitest/real-device-testing.md) with the options and commands for running your tests
 
 ### What You'll Need
+
+**NOTE**: Sauce Runner for Real Devices is only available on TestObject, our [Legacy Real Device Cloud Platform](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177), which you can access via **Sauce Apps** > **Legacy RDC**. See [Real Device Testing in Sauce Labs Feature Preview](https://wiki.saucelabs.com/display/DOCS/Real+Device+Testing+in+Sauce+Labs+Feature+Preview) for more information.
+
 * Your [Sauce Labs Account](https://app.saucelabs.com) credentials
 * Your native mobile app (both debug and non-debug app)
 * Have [Sauce Runner for Real Devices downloaded and installed](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80414342)
@@ -26,18 +27,8 @@ This topic describes the options you can use with the runner. You can run tests 
 JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar  <command> <command options>
 ```
 
-### Required Commands
-
-Choose from one of the following commands:
-
-| Command | Description |
-| :-------------------------- | :--- |
-| `xcuitest` | Defines `xcuitest` as the test framework to use for your native iOS tests.
-| `espresso` | Defines `espresso` as the test framework to use for your native Android tests.
-| `config` | Defines a YAML configuration file where the runner executes based on the parameters set in the file. **NOTE**: if you decide to use the config command, you can no longer use any of the command options below. For more information, see [Creating a Sauce Runner for Real Devices Configuration File](https://wiki.saucelabs.com/pages/viewpage.action?pageId=72748118).
-
-### Required Command Line Options
-These command line options are required in conjunction with the `xcuitest` or `espresso` commands above.
+### Required
+These options are required for use with the `xcuitest` or `espresso` commands. They are not compatible with the YAML file `config` command.
 
 #### `--apikey`
 The API key for your Sauce Labs real device cloud account.
@@ -51,10 +42,10 @@ The path to the *.ipa or *.apk file of the test.
 #### `--datacenter`
 Specify the data center — either `US` or `EU` — to use in your tests. If you don't specify a device or devices for your test, one will be assigned to your tests based on the type of application you're testing against.
 
-### Optional Command Line Options
+### Optional
 
 #### `--device`
-For static allocation of a device, provide the ID for the type of device to use in your tests, such as `iPhone_5_real`. To find device ID numbers, go to **Live** > **Mobile-App** > **Choose device** > Search for the device you want to use > Click **Details** in the device description. For more information, see the examples under `devices`.
+For static allocation of a device, provide the ID for the type of device to use in your tests, such as `iPhone_5_real`. To find device ID numbers, go to **Live** > **Mobile-App** > **Choose device** > Search for the device you want to use > Click **Details** in the device description. For more information, see the examples under `--devices`.
 
 #### `--devices`
 The list of devices, allocated dynamically or through static description of the device ID, to use in your tests.
@@ -119,7 +110,7 @@ The folder for the JUnit XML output.
 Provide the URL of an alternative REST endpoint to use. For a list of endpoints, see [Data Center Endpoints](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068).
 
 #### `--platformVersion`
-For dynamic allocation of a device, provide an operating system version to use. For example, use `9` to allocate a device running major version 9 and arbitrary versions of the OS, or `9.3.3` for a specific version. For more information, see the examples under `devices`.
+For dynamic allocation of a device, provide an operating system version to use. For example, use `9` to allocate a device running major version 9 and arbitrary versions of the OS, or `9.3.3` for a specific version. For more information, see the examples under [`--devices`](/dev/cli/espresso-xcuitest-cli#--devices).
 
 #### `--privateDevicesOnly`
 If set, only private devices will be queried.
@@ -131,11 +122,11 @@ If set, only phones will be queried.
 If set, only tablets will be queried.
 
 #### `--deviceNameQuery`
-For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use `iPhone.*Plus` to allocate any iPhone Plus device. For more information, see the examples under `devices`.
+For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use `iPhone.*Plus` to allocate any iPhone Plus device. For more information, see the examples under [`--devices`](/dev/cli/espresso-xcuitest-cli#--devices).
 
 #### `--testsToRun`
 
-<p><button class="badge-green">XCUITEST ONLY</button></p>
+<p><button class="badge-green">XCUITest Only</button></p>
 
 Provide a comma separated list of test cases or test classes. If you want to run all tests of a class, provide only the classname. If you want to run a specific method of a class, provide the class name and method name separated with a `/`.
 
@@ -147,7 +138,7 @@ Execute all tests in `ClassA` and only `methodC` of `ClassB`:
 ```
 
 #### `--e`
-<p><button class="badge-green">ESPRESSO ONLY</button></p>
+<p><button class="badge-green">Espresso Only</button></p>
 
 Provide a list of test options to Espresso. The key-value pairs supported by espresso are documented here: https://developer.android.com/studio/test/command-line#AMOptionsSyntax.
 
@@ -167,15 +158,16 @@ Execute a specific test in class TestClassB
 ```
 
 #### `--useTestOrchestrator`
-<p><button class="badge-green">ESPRESSO ONLY</button></p>
+<p><button class="badge-green">Espresso Only</button></p>
 
 If set, the instrumentation will start with Test Orchestrator version 1.1.1 in use.
 
 **NOTE**: With Test Orchestrator, it is in most cases recommended to also add the `--e clearPackageData true` parameter to remove all shared state from your device's CPU and memory after each test.
 
 
-### Code Examples Using All Required Parameters
-The examples below contain all required parameters and have the Data Center option set to US.
+### Code Examples
+
+The code examples below contain all required Sauce Runner for Real Devices parameters and have the Data Center option set to US.
 
 #### XCUITest
 
@@ -197,11 +189,11 @@ If you need Sauce Runner to connect to the internet through a proxy server, use 
 java -Dhttp.proxyHost=<your proxy server> -Dhttp.proxyPort=<the port to use> -Dhttp.proxyUser=<the username to use> -Dhttp.proxyPassword=<the password to use>
 ```
 
-## Sauce Runner for Virtual Devices Commands
+## Sauce Runner for Virtual Devices Command Line Options
 
 Sauce Runner for Virtual Devices lets you run tests using the native testing frameworks like Espresso with virtual devices in the Sauce Labs testing cloud. This topic describes the required and optional command parameters you can use to set up your test runs.
 
-### Required Command Line Options
+### Required
 
 #### `-f` `--test-framework`
 Specifies the name of the test framework you want to use. At the moment, Espresso is the only supported option.
@@ -214,7 +206,7 @@ Specifies the name of the test framework you want to use. At the moment, Espress
 ```
 
 ##### `-u --user`
-Your Sauce Labs username. You can also use the environment variable `SAUCE_USERNAME` to provide your login information. The command line argument will take precedence over the [environment variable](https://wiki.saucelabs.com/display/DOCSDEV/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials).
+Your Sauce Labs username. You can also use the environment variable `SAUCE_USERNAME` to provide your login information. The command line argument will take precedence over the [environment variable](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365921).
 
 **Example**
 
@@ -276,7 +268,7 @@ The type of device you want to use with your test. You can specify two or more d
 --devices='deviceName=Google Pixel GoogleAPI Emulator,platformVersion=7.0'
 ```
 
-### Optional Command Line Options
+### Optional
 
 #### `-e --exclude-tests` or `-i --include-tests`
 Optional parameter to run a subset of tests. You can provide a test filter to either exclude or include tests. By default, the full test suite is executed.
@@ -304,7 +296,7 @@ Optional parameter to run a subset of tests. You can provide a test filter to ei
 ```
 
 #### `-n --tunnel-identifier`
-Parameter to specify a [Sauce Connect Proxy tunnel](https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy) to use with the tests.
+Parameter to specify a [Sauce Connect Proxy tunnel](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365718) to use with the tests.
 
 **Examples**
 
@@ -334,20 +326,13 @@ Print this command line reference to the console.
 #### `--version`
 Version information for Sauce Runner.
 
+### Code Examples
 
-### Exit Status Codes
-Sauce Runner for Virtual Devices returns the following status codes based on test execution results:
+#### Espresso
 
-| Status Code        | Description           
-| :------------- |:-------------
-| 0  | All the tests passed on all devices.
-| 1  | This status code can mean multiple things, it is important to refer to the logs to identify the problem: <ul><li>One or more tests failed during execution</li><li>User error like an invalid path to test files or invalid arguments</li><li>Sauce Labs infrastructure error while executing the test</li></ul>            
+Below is a Sauce Runner for Virtual Devices code example that uses all required parameters. It's testing the application `helloworld.apk` simultaneously on two emulators — Galaxy S8 and Pixel — using the Espresso test suite `espresso-test-suite.apk`.
 
-### Code Examples Using All Required Parameters
-
-This example tests the application `helloworld.apk` simultaneously on two emulators, Galaxy S8 and Pixel, using the Espresso test suite `espresso-test-suite.apk`.
-
-Sauce-Runner-Virtual installs `helloworld.apk` and `espresso-test-suite.apk` on Sauce emulators and launches the Espresso test suite on both emulators at the same time. `Sauce-Runner-Virtual` exits when all the tests have completed. `Sauce-Runner-Virtual` exits with status code zero if all the tests passed, otherwise it exits with status code 1.
+`Sauce-Runner-Virtual` installs `helloworld.apk` and `espresso-test-suite.apk` on the Sauce emulators and launches the Espresso test suite on both emulators at the same time. `Sauce-Runner-Virtual` exits when all the tests have completed. `Sauce-Runner-Virtual` exits with status code zero if all the tests passed, otherwise it exits with status code 1.
 
 ```sh
 ./sauce-runner-virtual \
