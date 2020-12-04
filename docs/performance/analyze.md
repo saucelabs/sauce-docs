@@ -61,7 +61,7 @@ The score is a weighted average between:
 * Total Blocking Time
 * Cumulative Layout Shift
 
-See [Metric Values](/performance/speedo#metric-values) for definitions of each metric.
+See [Metric Values](/performance/one-page.md#metric-values) for definitions of each metric.
 
 ## View Trace Report
 

@@ -2,6 +2,7 @@
 id: about
 title: About Sauce Performance
 sidebar_label: About
+description: Understand how Performance works, when and why you would use it, benefits you gain from it, requirements and restrictions.
 ---
 
 Front-end performance testing complements your functional testing strategy by helping you gain insight into how quickly and accurately your app renders and becomes interactive, which has proven to have a statistical correlation to revenue.
@@ -21,7 +22,7 @@ Sauce Performance is a pre-integrated tool within the Sauce portfolio that is av
 
 ## Sauce Performance Requirements and Recommendations
 
-Consider the following guidelines to optimize your performance testing implementation. Also review our [Front End Performance Testing Best Practices](https://wiki.saucelabs.com/display/DOCS/Front+End+Performance+Testing+Best+Practices) white paper for more guidance about your performance test strategy. 
+Consider the following guidelines to optimize your performance testing implementation. Also review our [Front End Performance Testing Best Practices](https://wiki.saucelabs.com/display/DOCS/Front+End+Performance+Testing+Best+Practices) white paper for more guidance about your performance test strategy.
 
 ### Use the Chrome Browser
 

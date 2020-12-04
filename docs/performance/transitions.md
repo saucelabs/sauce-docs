@@ -2,6 +2,7 @@
 id: transitions
 title: Measure Page Transitions with Scripts
 sidebar_label: Page Transitions
+description: Use Sauce Performance in an automation scripts to test page load performance during typical interaction with your app.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -104,7 +105,7 @@ The custom `sauce:performance` command measures the performance output against a
 |Argument|Description|
 |---|------|
 |`name`<br/><font size="2">Required</font>|A name of the test as it would appear in the Sauce Labs application.|
-|`metrics`<br/><font size="2">Optional</font>|Specifies one or more specific metrics you want to assert. If not specified, the test defaults to score, which automatically tests all metrics that currently make up a Lighthouse Performance Score.<br/>See [Metric Values](/performance/speedo.md#metric-values) for the list of supported metric values.|
+|`metrics`<br/><font size="2">Optional</font>|Specifies one or more specific metrics you want to assert. If not specified, the test defaults to score, which automatically tests all metrics that currently make up a Lighthouse Performance Score.<br/>See [Metric Values](/performance/one-page.md#metric-values) for the list of supported metric values.|
 
 ### Script Examples
 
@@ -243,7 +244,7 @@ for (const [url, budget] of Object.entries(budgets)) {
 
 ## Handle Regressions
 
-When one or more metric evaluations fail because the result falls outside the established baseline, it is considered a regression and the tester has an option to either troubleshoot and resolve the source of the regression to get the test back into the baseline range or update the baseline with the new performance values. If new baselines are accepted, the command will measure performance against those new values until another regression is detected, when you will again have the option to troubleshoot or update the baselines.
+When one or more metric evaluations fail because the result falls outside the established baseline, it is considered a regression and the tester has an option to either troubleshoot and resolve the source of the regression to get the test back into the baseline range or [update the baseline](/performance/analyze#reset-baselines-for-a-failed-test) with the new performance values. If new baselines are accepted, the command will measure performance against those new values until another regression is detected, when you will again have the option to troubleshoot or update the baselines.
 
 Since the command can be called throughout the test script, create tests that check for performance regressions across core business flows and screens. For example, evaluate pages that load following a successful login event or require multiple steps to trigger.
 
@@ -287,8 +288,6 @@ The following response is returned when the Page Load metric is above the expect
  }
 }
 ```
-
-> <font color="pink">**Nancy:** Would like to understand how a user is prompted to "accept new baseline" in event of failure?</font>
 
 ## Log Performance Results
 
