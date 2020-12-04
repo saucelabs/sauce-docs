@@ -15,7 +15,7 @@ module.exports = {
     algolia: {
       appId: 'ZETDNHTKFC',
       apiKey: '8442c4c56cae89e0f1a1b7c9a8fd8f9c',
-      indexName: 'sauce-docs.com',
+      indexName: 'docs.staging.saucelabs.net',
     },
     /* Dark and Light Mode Config */
     colorMode: {
