@@ -52,6 +52,14 @@ Following [Google's recommendation to avoid flakey tests](https://developer.andr
 Recommended maximum execution time for Espresso jobs is one hour, however, the emulators are capable of running Espresso jobs for three hours, and are shutdown after three hours.
 :::
 
+### Exit Status Codes
+Sauce Runner for Virtual Devices returns the following status codes based on test execution results:
+
+| Status Code        | Description           
+| :------------- |:-------------
+| 0  | All the tests passed on all devices.
+| 1  | This status code can mean multiple things, it is important to refer to the logs to identify the problem: <ul><li>One or more tests failed during execution</li><li>User error like an invalid path to test files or invalid arguments</li><li>Sauce Labs infrastructure error while executing the test</li></ul>   
+
 ## Troubleshooting
 When testing on Sauce emulators, one error to look out for is Espresso test suites running as expected on one Android version, but failing on another version (e.g., "Internal Server Error").
 
