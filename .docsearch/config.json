@@ -1,6 +1,6 @@
 {
-  "index_name": "docs.saucelabs.com",
-  "start_urls": ["https://docs.staging.saucelabs.net/"],
+  "index_name": "docs.staging.saucelabs.net",
+  "start_urls": ["https://docs.staging.saucelabs.net"],
   "selectors": {
     "lvl0": "#content header h1",
     "lvl1": "#content article h1",
