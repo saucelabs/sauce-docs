@@ -1,10 +1,12 @@
 ---
 id: visual
 title: Sauce Labs Visual Testing
-sidebar_label: Introduction
+sidebar_label: Getting Started
 ---
 
-An automated testing solution that detects visual UI regressions across browsers, devices, and operating systems, ensuring a consistent experience for your users.
+Get clear and instant visibility into the impact of code changes on your UI across browsers, devices, and operating systems with our automated visual testing solution, which generates side-by-side screenshot comparisons of your UI versions. Know exactly where and what has changed so that you can deliver a consistent and intuitive user experience.
+
+Perform front-end visual regression tests across your Storybook, React, Vue, Angular and HTML components — no coding needed. And our end-to-end visual testing enables you to integrate your Selenium WebDriver tests to combine visual and functional testing in the same test run.
 
 <div class="box-wrapper" markdown="1">
 <div class="box box1 card">
