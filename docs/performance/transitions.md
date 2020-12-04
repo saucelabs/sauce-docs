@@ -350,38 +350,3 @@ Retrieve the log by calling:
 `driver.execute('sauce:log', {type: 'sauce:performance'});`
 
 > **NOTE:** See [Custom Sauce Labs Extensions](https://wiki.saucelabs.com/display/DOCS/Custom+Sauce+Labs+WebDriver+Extensions+for+Network+and+Log+Commands) for additional network and logging options enabled with extended debugging.
-
-## View Performance Results in the Sauce Labs App
-
-When your test completes, it generates a set of metrics and that you can view through the **Performance** tab of your **Test Details** page. If you detect a regression in your website's performance, you can download a Full Trace report, or you can use the Chrome DevTool, which records Javascript method signatures in a hierarchical view for each thread in each process, to get a better idea of how the Chrome browser is interacting with your website.
-
-<img src="/docs/assets/perf-summary.png" alt="Performance Summary" width="750"/>
-
-Clicking the **Full Report** button shows you all performance metrics tracked over time.
-
-<img src="/docs/assets/perf-detail.png" alt="Performance Full Report" width="750"/>
-
-### Performance Score
-
-A performance score is a rating between 0 and 100 indicating how well your page is performing compared to the industry standard. 0 is the lowest possible score and indicates a serious performance issue, while 100 indicates a top-performing application.
-
-The metric is similar to the performance score you can find in a [Google Lighthouse Report](https://developers.google.com/web/tools/lighthouse). The scoring distribution is a log-normal distribution derived from the performance metrics of real website performance data on HTTPArchive.
-
-The color-coding maps to these Performance score ranges:
-
-* 0 to 49 (slow): Red
-* 50 to 89 (average): Orange
-* 90 to 100 (fast): Green
-
-Ref: https://web.dev/performance-scoring/#lighthouse-6
-
-The score is a weighted average between:
-
-* First Contentful Paint
-* Speed Index
-* Largest Contentful Paint
-* Time to Interactive
-* Total Blocking Time
-* Cumulative Layout Shift
-
-See [Metric Values](/performance/speedo#metric-values) for definitions of each metric.

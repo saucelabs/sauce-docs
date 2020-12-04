@@ -1,5 +1,5 @@
 ---
-id: speedo
+id: one-page
 title: Collect Single URL Performance Statistics
 sidebar_label: Single Page Statistics
 description: Use Sauce's custom Speedo command line to establish a performance baseline for a particular URL or to analyze performance of a previously run test.

@@ -116,7 +116,7 @@ module.exports = {
     "Performance": [
       'performance',
       'performance/about',
-      'performance/speedo',
+      'performance/one-page',
       'performance/transitions',
       'performance/motion',
       'performance/analyze',
