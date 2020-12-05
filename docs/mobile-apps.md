@@ -1,6 +1,6 @@
 ---
 id: mobile-apps
-title: Mobile Application Testing Home Page
+title: Mobile App Testing
 sidebar_label: Getting Started
 ---
 
