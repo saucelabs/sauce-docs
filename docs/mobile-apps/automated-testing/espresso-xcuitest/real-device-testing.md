@@ -47,7 +47,7 @@ XCUITest, built on Apple's XCTest framework, is included as part of the iOS Xcod
 
 
 ### Building Your iOS App for Use with Sauce Runner
-When you are ready to build the .ipa file for your app to use with Sauce Runner for Real Devices, you need to make sure that the iOS version you set for the **iOS Deployment Target** for both the application and your test runner match. If these don’t match, your tests will run locally, but fail when you run them against the Sauce Labs real devices. You can set this for both Projects and Targets of your application in the Xcode **Build Settings**.  
+When you are ready to build the .ipa file for your app to use with Sauce Runner for Real Devices, you need to make sure that the iOS version you set for the **iOS Deployment Target** for both the application and your test runner match. If these donâ€™t match, your tests will run locally, but fail when you run them against the Sauce Labs real devices. You can set this for both Projects and Targets of your application in the Xcode **Build Settings**.  
 
 #### **Select Your Project**
 Select the Project you want to build, and under Build Settings, set the iOS Deployment Target to the iOS operating system version you want to use in your test. All target outputs of this project, including the application and your test runner, will be set to the same operating system version.
