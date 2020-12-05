@@ -40,7 +40,7 @@ The path to the `*.ipa` or `*.apk` file of the app under test, or the ID number 
 The path to the *.ipa or *.apk file of the test.
 
 #### `--datacenter`
-Specify the data center — either `US` or `EU` — to use in your tests. If you don't specify a device or devices for your test, one will be assigned to your tests based on the type of application you're testing against.
+Specify the data center â€” either `US` or `EU` â€” to use in your tests. If you don't specify a device or devices for your test, one will be assigned to your tests based on the type of application you're testing against.
 
 ### Optional
 
@@ -330,7 +330,7 @@ Version information for Sauce Runner.
 
 #### Espresso
 
-Below is a Sauce Runner for Virtual Devices code example that uses all required parameters. It's testing the application `helloworld.apk` simultaneously on two emulators — Galaxy S8 and Pixel — using the Espresso test suite `espresso-test-suite.apk`.
+Below is a Sauce Runner for Virtual Devices code example that uses all required parameters. It's testing the application `helloworld.apk` simultaneously on two emulators â€” Galaxy S8 and Pixel â€” using the Espresso test suite `espresso-test-suite.apk`.
 
 `Sauce-Runner-Virtual` installs `helloworld.apk` and `espresso-test-suite.apk` on the Sauce emulators and launches the Espresso test suite on both emulators at the same time. `Sauce-Runner-Virtual` exits when all the tests have completed. `Sauce-Runner-Virtual` exits with status code zero if all the tests passed, otherwise it exits with status code 1.
 
