@@ -28,15 +28,14 @@ Not supported at the moment.
 
 ## Creating a YAML Configuration File
 
-There are two ways to configure your Espresso and XCUITest tests with Sauce Runner for Real Devices: use command line options or create a YAML configuration file. When using a YAML config file, the runner will execute tests based on the parameters you set in the file.
+There are two ways to configure your Espresso and XCUITest tests with Sauce Runner for Real Devices: by using [command line options](dev/cli/espresso-xcuitest-cli.md) or by creating a YAML configuration file.
 
-**NOTE**: You cannot combine the two options; i.e., you cannot use [command line options](dev/cli/espresso-xcuitest-cli.md) in your YAML config file. When you pass the config command to the runner, it will not let you use the other configuration options available on the command line.
-
-You'll need to add the `config` command to your code. The config command only accepts two parameters: `--path <path to config.yml>` and `--apikey <apikey>`. Here's an example:
+Sauce Runner for Real Devices will execute tests based on the parameters you set in the file. First, you'll need to add the `config` command to your code. The config command only accepts two parameters: `--path <path to config.yml>` and `--apikey <apikey>`. Here's an example:
 
   ```js
   JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config --path <path to config.yml> --apikey <apikey>
   ```
+**NOTE**: You cannot use [command line options](dev/cli/espresso-xcuitest-cli.md) in your YAML config file. Once you pass the `config` command to the runner, it will prohibit you from using the other configuration options available on the command line.
 
 ### Parallel Test Executions
 For both examples, the tests can be configured to run in parallel on the Sauce Labs Real Device Cloud.
@@ -173,7 +172,7 @@ devices:
     value: com.example.android.TestClassA
 ```
 
-## Uploading Your App and Test Files to TestObject Storage API
+### Uploading Your App and Test Files to TestObject Storage API
 
 As an alternative to using the built-in upload behavior of Sauce Runner for Real Devices, you can separate the upload of your application and test files via TestObject Storage API.
 
