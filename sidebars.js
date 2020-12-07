@@ -16,6 +16,7 @@ module.exports = {
       },
     ],
     "Secure Connections": [
+      'secure-connections',
       {
         type: 'category',
         label: 'Sauce Connect Proxy',
@@ -43,32 +44,42 @@ module.exports = {
         ],
       },
     ],
-    "Mobile Apps": [
-      'mobile-apps',
-      {
-        type: 'category',
-        label: 'Live Testing',
-        collapsed: true,
-        items: [
-          'mobile-apps/live-testing',
-          'mobile-apps/live-testing/application-storage',
-          'mobile-apps/live-testing/real-devices',
-          'mobile-apps/live-testing/virtual-devices',
-        ],
-      },
-      {
-        type: 'category',
-        label: 'Automated Testing',
-        collapsed: true,
-        items: [
-          'mobile-apps/automated-testing',
-          'mobile-apps/automated-testing/appium',
-          'mobile-apps/automated-testing/espresso',
-          'mobile-apps/automated-testing/xcuitest',
-          'mobile-apps/automated-testing/robotium',
-          'mobile-apps/automated-testing/wdio',
-        ],
-      },
+   "Mobile Apps": [
+        'mobile-apps',
+        {
+            type: 'category',
+            label: 'Live Testing',
+            collapsed: true,
+            items: [
+                'mobile-apps/live-testing',
+                'mobile-apps/live-testing/application-storage',
+                'mobile-apps/live-testing/real-devices',
+                'mobile-apps/live-testing/virtual-devices',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Automated Testing',
+            collapsed: true,
+            items: [
+                'mobile-apps/automated-testing',
+                'mobile-apps/automated-testing/appium',
+                'mobile-apps/automated-testing/robotium',
+                'mobile-apps/automated-testing/wdio',
+
+                {
+                    type: 'category',
+                    label: 'Espresso and XCUITest',
+                    collapsed: true,
+                    items: [
+                        'mobile-apps/automated-testing/espresso-xcuitest/real-device-testing',
+                        'mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing',
+                        'mobile-apps/automated-testing/espresso-xcuitest/example-configurations',
+                        'mobile-apps/automated-testing/espresso-xcuitest/change-logs',
+                    ],
+                },
+            ],
+        },
     ],
     "Web Apps": [
       'web-apps',
@@ -96,22 +107,21 @@ module.exports = {
       },
     ],
     "CI/CD": [
-      'ci',
-      'ci/jenkins',
-      'ci/bamboo',
-      'ci/circleci',
-      'ci/azure',
-      'ci/github',
-      'ci/gitlab',
+        'ci',
+        'ci/jenkins',
+        'ci/bamboo',
+        'ci/azure',
+        'ci/github',
+        'ci/gitlab',
     ],
     "Insights": [
-      'insights',
-      'insights/history',
-      'insights/trends',
-      'insights/filters',
-      'insights/efficiency',
-      'insights/failure-analysis',
-      'insights/debugging',
+        'insights',
+        'insights/basics',
+        'insights/history',
+        'insights/trends',
+        'insights/efficiency',
+        'insights/failure-analysis',
+        'insights/debugging',
     ],
     "Performance": [
       'performance',
@@ -128,12 +138,6 @@ module.exports = {
     ],
     "Visual": [
       'visual',
-      'visual/requirements',
-      'visual/configuration',
-      'visual/workflows',
-      'visual/history',
-      'visual/advanced',
-      'visual/troubleshooting',
     ],
     "Developer Resources": [
       'dev',
@@ -164,8 +168,9 @@ module.exports = {
         collapsed: true,
         items: [
           'dev/cli',
-          'dev/cli/ipsec-cli',
+          'dev/cli/espresso-xcuitest-cli',
           'dev/cli/sc-cli',
+          'dev/cli/ipsec-cli',
           'dev/cli/saucectl',
         ]
       },
