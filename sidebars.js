@@ -108,11 +108,11 @@ module.exports = {
     ],
     "CI/CD": [
         'ci',
-        'ci/jenkins',
         'ci/bamboo',
-        'ci/azure',
-        'ci/github',
-        'ci/gitlab',
+        'ci/bitbucket',
+        'ci/jenkins',
+        'ci/teamcity',
+        'ci/visual-studio',
     ],
     "Insights": [
         'insights',
