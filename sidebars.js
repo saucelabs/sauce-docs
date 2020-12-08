@@ -17,32 +17,8 @@ module.exports = {
     ],
     "Secure Connections": [
       'secure-connections',
-      {
-        type: 'category',
-        label: 'Sauce Connect Proxy',
-        collapsed: true,
-        items: [
-          'sauce-connect',
-          'sauce-connect/requirements',
-          'sauce-connect/setup',
-          'sauce-connect/network',
-          'sauce-connect/admin',
-          'sauce-connect/troubleshooting',
-        ],
-      },
-      {
-        type: 'category',
-        label: 'IPSec VPN',
-        collapsed: true,
-        items: [
-          'ipsec',
-          'ipsec/requirements',
-          'ipsec/setup',
-          'ipsec/network',
-          'ipsec/admin',
-          'ipsec/troubleshooting',
-        ],
-      },
+      'sauce-connect',
+      'ipsec-vpn',
     ],
    "Mobile Apps": [
         'mobile-apps',
