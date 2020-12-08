@@ -17,8 +17,8 @@ module.exports = {
     ],
     "Secure Connections": [
       'secure-connections',
-      'sauce-connect',
       'ipsec-vpn',
+      'sauce-connect',
     ],
    "Mobile Apps": [
         'mobile-apps',
