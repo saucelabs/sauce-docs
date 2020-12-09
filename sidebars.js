@@ -108,9 +108,6 @@ module.exports = {
     ],
     "Headless": [
       'headless',
-      'headless/requirements',
-      'headless/configuration',
-      'headless/troubleshooting',
     ],
     "Visual": [
       'visual',
