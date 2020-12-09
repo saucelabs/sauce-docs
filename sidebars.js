@@ -16,59 +16,46 @@ module.exports = {
       },
     ],
     "Secure Connections": [
-      {
-        type: 'category',
-        label: 'Sauce Connect Proxy',
-        collapsed: true,
-        items: [
-          'sauce-connect',
-          'sauce-connect/requirements',
-          'sauce-connect/setup',
-          'sauce-connect/network',
-          'sauce-connect/admin',
-          'sauce-connect/troubleshooting',
-        ],
-      },
-      {
-        type: 'category',
-        label: 'IPSec VPN',
-        collapsed: true,
-        items: [
-          'ipsec',
-          'ipsec/requirements',
-          'ipsec/setup',
-          'ipsec/network',
-          'ipsec/admin',
-          'ipsec/troubleshooting',
-        ],
-      },
+      'secure-connections',
+      'sauce-connect',
+      'ipsec-vpn',
     ],
-    "Mobile Apps": [
-      'mobile-apps',
-      {
-        type: 'category',
-        label: 'Live Testing',
-        collapsed: true,
-        items: [
-          'mobile-apps/live-testing',
-          'mobile-apps/live-testing/application-storage',
-          'mobile-apps/live-testing/real-devices',
-          'mobile-apps/live-testing/virtual-devices',
-        ],
-      },
-      {
-        type: 'category',
-        label: 'Automated Testing',
-        collapsed: true,
-        items: [
-          'mobile-apps/automated-testing',
-          'mobile-apps/automated-testing/appium',
-          'mobile-apps/automated-testing/espresso',
-          'mobile-apps/automated-testing/xcuitest',
-          'mobile-apps/automated-testing/robotium',
-          'mobile-apps/automated-testing/wdio',
-        ],
-      },
+   "Mobile Apps": [
+        'mobile-apps',
+        {
+            type: 'category',
+            label: 'Live Testing',
+            collapsed: true,
+            items: [
+                'mobile-apps/live-testing',
+                'mobile-apps/live-testing/application-storage',
+                'mobile-apps/live-testing/real-devices',
+                'mobile-apps/live-testing/virtual-devices',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Automated Testing',
+            collapsed: true,
+            items: [
+                'mobile-apps/automated-testing',
+                'mobile-apps/automated-testing/appium',
+                'mobile-apps/automated-testing/robotium',
+                'mobile-apps/automated-testing/wdio',
+
+                {
+                    type: 'category',
+                    label: 'Espresso and XCUITest',
+                    collapsed: true,
+                    items: [
+                        'mobile-apps/automated-testing/espresso-xcuitest/real-device-testing',
+                        'mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing',
+                        'mobile-apps/automated-testing/espresso-xcuitest/example-configurations',
+                        'mobile-apps/automated-testing/espresso-xcuitest/change-logs',
+                    ],
+                },
+            ],
+        },
     ],
     "Web Apps": [
       'web-apps',
@@ -127,12 +114,6 @@ module.exports = {
     ],
     "Visual": [
       'visual',
-      'visual/requirements',
-      'visual/configuration',
-      'visual/workflows',
-      'visual/history',
-      'visual/advanced',
-      'visual/troubleshooting',
     ],
     "Developer Resources": [
       'dev',
@@ -163,8 +144,9 @@ module.exports = {
         collapsed: true,
         items: [
           'dev/cli',
-          'dev/cli/ipsec-cli',
+          'dev/cli/espresso-xcuitest-cli',
           'dev/cli/sc-cli',
+          'dev/cli/ipsec-cli',
           'dev/cli/saucectl',
         ]
       },
