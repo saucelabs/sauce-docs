@@ -16,10 +16,18 @@ module.exports = {
       },
     ],
     "Secure Connections": [
-      'secure-connections',
-      'sauce-connect',
-      'ipsec-vpn',
-    ],
+          'secure-connections',
+          'ipsec-vpn',
+          {
+            type: 'category',
+            label: 'Sauce Connect Proxy',
+            collapsed: true,
+            items: [
+              'secure-connections/sauce-connect',
+              'secure-connections/sauce-connect/environment-variables',
+            ],
+          },
+        ],
    "Mobile Apps": [
         'mobile-apps',
         {
@@ -108,9 +116,6 @@ module.exports = {
     ],
     "Headless": [
       'headless',
-      'headless/requirements',
-      'headless/configuration',
-      'headless/troubleshooting',
     ],
     "Visual": [
       'visual',
