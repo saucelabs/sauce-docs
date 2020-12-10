@@ -1,4 +1,4 @@
-name: Run Search Crawler
+name: Update Search Index
 
 on:
   pull_request:
