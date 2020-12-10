@@ -32,7 +32,7 @@ Also, with the `suites` field you can specify groups of tests, as well as the pr
 
 <TabItem value="puppeteer">
 
-```sh
+```yaml
 apiVersion: v1alpha
 metadata:
   name: Testing Puppeteer Support
@@ -58,7 +58,7 @@ sauce:
 </TabItem>
 <TabItem value="playwright">
 
-```sh
+```yaml
 apiVersion: v1alpha
 metadata:
   name: Testing Playwright Support
@@ -84,7 +84,7 @@ sauce:
 </TabItem>
 <TabItem value="testcafe">
 
-```sh
+```yaml
 apiVersion: v1alpha
 metadata:
   name: Testing TestCafe Support
@@ -110,7 +110,7 @@ sauce:
 </TabItem>
 <TabItem value="cypress">
 
-```sh
+```yaml
 apiVersion: v1alpha
 metadata:
   name: Testing Cypress Support
@@ -353,7 +353,7 @@ In the examples below, the environment variables (`env`) equate to the values co
 
 <TabItem value="puppeteer">
 
-```sh
+```yaml
 name: Puppeteer Pipeline Browser Tests
 on:
   pull_request:
@@ -385,7 +385,7 @@ jobs:
 </TabItem>
 <TabItem value="playwright">
 
-```sh
+```yaml
 name: Playwright Pipeline Browser Tests
 on:
   pull_request:
@@ -417,7 +417,7 @@ jobs:
 </TabItem>
 <TabItem value="testcafe">
 
-```sh
+```yaml
 name: TestCafe Pipeline Browser Tests
 on:
   pull_request:
@@ -449,7 +449,7 @@ jobs:
 </TabItem>
 <TabItem value="cypress">
 
-```sh
+```yaml
 name: Cypress Pipeline Browser Tests
 on:
   pull_request:

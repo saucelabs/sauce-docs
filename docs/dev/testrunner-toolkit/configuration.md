@@ -4,7 +4,6 @@ title: Testrunner Configuration
 sidebar_label: Configuration
 ---
 
-import ClientOnly from './ClientOnly'
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -61,39 +60,32 @@ Below are framework-specific configuration examples that exist in the [Testrunne
   ]}>
 
 <TabItem value="puppeteer">
-<ClientOnly>
 
 ```yaml reference
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/puppeteer.yml
 ```
 
-</ClientOnly>
 </TabItem>
 <TabItem value="playwright">
-<ClientOnly>
 
 ```yaml reference 
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/playwright.yml
 ```
 
-</ClientOnly>
 </TabItem>
 <TabItem value="testcafe">
-<ClientOnly>
 
 ```yaml reference 
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
 ```
 
-</ClientOnly>
 </TabItem>
 <TabItem value="cypress">
-<ClientOnly>
 
 ```yaml reference
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
 ```
-</ClientOnly>
+
 </TabItem>
 </Tabs>
 
@@ -101,13 +93,10 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
 
 Saucectl offers the possibility to set up your tests environment before executing any of your suites using `beforeExec`: 
 
-<ClientOnly>
 
 ```yaml reference
 https://github.com/saucelabs/saucectl/blob/master/.sauce/puppeteer_before_exec.yml#L14-L15
 ```
-
-</ClientOnly>
 
 ## Parallelization
 
@@ -115,15 +104,14 @@ Saucectl is capable of running tests in parallel by utilizing multiple CI machin
 
 Parallelization can be turned on either via the config:
 
-<ClientOnly>
 
 ```yaml reference
 https://github.com/saucelabs/saucectl/blob/master/.sauce/puppeteer_parallel.yml#L21
 ```
 
-</ClientOnly>
 
 or the CLI
+
 ```bash
 saucectl run --parallel
 ```
