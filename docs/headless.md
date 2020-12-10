@@ -1,13 +1,13 @@
 ---
 id: headless
-title: Sauce Labs Headless Testing
+title: Sauce Headless Testing in the Cross-Browser Cloud
 sidebar_label: Headless Testing
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Headless is a container-based, lightweight, and scalable infrastructure solution for testing web apps on headless Chrome and Firefox browsers in our virtual device cloud. Test early in your development cycle on headless browsers to fast pass/fail data on early pipeline component tests, sanity checks, and pull request tests.
+Sauce Headless is a container-based, lightweight, and scalable infrastructure solution for testing web apps on headless Chrome and Firefox browsers in our virtual device cloud. Test early in your development cycle on headless browsers to get fast pass/fail data on early pipeline component tests, sanity checks, and pull request tests.
 
 There are a few key differences between setting up Sauce Headless tests versus setting up other [Sauce Labs automated web app tests](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80415923), as described below.
 
@@ -194,23 +194,11 @@ Information about your Headless testing jobs is accessible by logging into the h
 
 If you want to use a Sauce Connect Proxy tunnel for your Sauce Headless tests, you'll need to start it from here in the UI.
 
-## Using Sauce Connect Proxy for Headless Testing
-To test a website that's on your local machine or or behind a corporate firewall, we recommend looking at using [Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365718).
+## Sauce Connect Proxy for Headless Testing
+If you're testing website that's on your local machine or behind a corporate firewall, we recommend using [Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365718).
 
-To use Sauce Connect Proxy in conjunction with your Sauce Headless tests, be sure you're using the [latest version](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863). You'll need to start a new, separate tunnel from the one used for the Virtual and Real Device Cloud, by connecting to the [Sauce Headless-specific endpoint](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068).
+To use Sauce Connect Proxy in conjunction with your Sauce Headless tests, be sure you have the [latest version](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863) on your machine. You'll need to start a new, separate tunnel from the one used for the Virtual and Real Device Cloud, by connecting to the [Sauce Headless-specific endpoint](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068).
 
-## Using Sauce Headless with Other Sauce Labs Solutions
-Sauce Headless will exist as its own separate instance at release. It will integrate with the larger Sauce Labs platform at a later date.
-
-Headless will have many of the same features, including, but not limited to:
-
-* Ability to view individual tests results, as well as automated builds
-* Screenshots, logs, and metadata for debugging
-* Team Management
-* SSO
-* Sauce Connect support
-
-Video recordings and Extended Debugging features are available in our Cross Browser Testing Platform.
 
 ## Video Tutorial: Running Headless Tests
 This video shows you how to configure your early pipeline tests to run in Sauce Headless and determine which of your tests might be a good candidate for this lightweight and cost-effective testing solution.
