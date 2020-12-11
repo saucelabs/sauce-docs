@@ -8,7 +8,7 @@ sidebar_label: Configuring Active Directory Federation Services (AD FS)
 ## Before You Begin
 - Make sure that your Active Directory Domain Service is set up
 - Make sure that the Active Directory Federation Services Role is set up
-</br></br>Microsoft has an extensive library of How To and Step-by-Step Guides for AD FS in their TechNet Library
+<br></br>Microsoft has an extensive library of How To and Step-by-Step Guides for AD FS in their TechNet Library
 
 ## Configuration
 1. Log in to the Server Manager application for your Windows Server 2012 R2 instance as an administrator and go to the **Dashboard**.
