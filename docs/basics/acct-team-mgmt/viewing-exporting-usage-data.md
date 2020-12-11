@@ -15,7 +15,7 @@ The **Users** tab on the **Organization Management** page provides the following
     <td>The date and time of the last VM test run by the user.</td>
   </tr>
   <tr>
-    <td><strong>VM Tests (last 30 days)
+    <td><strong>VM Tests (last 30 days)</strong>
     </td>
     <td>The total number of tests run by that user in the previous 30 days.
     </td>
