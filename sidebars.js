@@ -16,15 +16,15 @@ module.exports = {
       },
     ],
     "Secure Connections": [
-          'secure-connections',
-          'ipsec-vpn',
-          {
-            type: 'category',
-            label: 'Sauce Connect Proxy',
-            collapsed: true,
-            items: [
-              'secure-connections/sauce-connect',
-              'secure-connections/sauce-connect/environment-variables',
+       'secure-connections',
+       'ipsec-vpn',
+       {
+          type: 'category',
+          label: 'Sauce Connect Proxy',
+          collapsed: true,
+          items: [
+            'secure-connections/sauce-connect',
+            'secure-connections/sauce-connect/environment-variables',
             ],
           },
         ],
