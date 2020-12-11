@@ -16,34 +16,18 @@ module.exports = {
       },
     ],
     "Secure Connections": [
-      'secure-connections',
-      {
-        type: 'category',
-        label: 'Sauce Connect Proxy',
-        collapsed: true,
-        items: [
-          'sauce-connect',
-          'sauce-connect/requirements',
-          'sauce-connect/setup',
-          'sauce-connect/network',
-          'sauce-connect/admin',
-          'sauce-connect/troubleshooting',
+       'secure-connections',
+       'ipsec-vpn',
+       {
+          type: 'category',
+          label: 'Sauce Connect Proxy',
+          collapsed: true,
+          items: [
+            'secure-connections/sauce-connect',
+            'secure-connections/sauce-connect/environment-variables',
+            ],
+          },
         ],
-      },
-      {
-        type: 'category',
-        label: 'IPSec VPN',
-        collapsed: true,
-        items: [
-          'ipsec',
-          'ipsec/requirements',
-          'ipsec/setup',
-          'ipsec/network',
-          'ipsec/admin',
-          'ipsec/troubleshooting',
-        ],
-      },
-    ],
    "Mobile Apps": [
         'mobile-apps',
         {
@@ -125,16 +109,14 @@ module.exports = {
     ],
     "Performance": [
       'performance',
-      'performance/load',
-      'performance/speedo',
-      'performance/jankiness',
-      'performance/troubleshooting',
+      'performance/about',
+      'performance/one-page',
+      'performance/transitions',
+      'performance/motion',
+      'performance/analyze',
     ],
     "Headless": [
       'headless',
-      'headless/requirements',
-      'headless/configuration',
-      'headless/troubleshooting',
     ],
     "Visual": [
       'visual',

@@ -1,10 +1,10 @@
 ---
 id: secure-connections
-title: Secure Connections
-sidebar_label: Security Overview
+title: Overview of Sauce Labs Secure Connection Options
+sidebar_label: Getting Started
 ---
 
-We offer a couple of options that provide an extra layer of security to protect test data in flight between the Sauce Labs cloud and your app or site under test on your network. Both of these solutions, Sauce Connect (SSL Proxy) solution and IPSec VPN, support secure connectivity using TLS 1.2 or above.
+We offer two options to provide an extra layer of security to protect test data in flight between the Sauce Labs cloud and your app or site under test on your network. Both of these solutions, Sauce Connect (SSL Proxy) solution and IPSec VPN, support secure connectivity using TLS 1.2 or above. To determine which solution is best for you, see [Overview of Sauce Labs Security Processes](https://saucelabs.com/resources/white-papers/overview-of-sauce-labs-security-processes).
 
 ## Sauce Connect Proxy™
 
