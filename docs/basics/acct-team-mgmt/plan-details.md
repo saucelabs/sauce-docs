@@ -18,4 +18,4 @@ You can view usage information for your account on the **Team Management** page.
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 
 2. Next to **Usage**, select a user to view their usage statistics for the current 30 days as compared with the previous 30 days.
-</br>You can view usage statistics for your entire team or yourself only.
+<br></br>You can view usage statistics for your entire team or yourself only.
