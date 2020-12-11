@@ -8,13 +8,13 @@ sidebar_label: Configuring Active Directory Federation Services (AD FS)
 ## Before You Begin
 - Make sure that your Active Directory Domain Service is set up
 - Make sure that the Active Directory Federation Services Role is set up
-</br></br>Microsoft has an extensive library of How To and Step-by-Step Guides for AD FS in their TechNet Library
+<br></br>Microsoft has an extensive library of How To and Step-by-Step Guides for AD FS in their TechNet Library
 
 ## Configuration
 1. Log in to the Server Manager application for your Windows Server 2012 R2 instance as an administrator and go to the **Dashboard**.
 2. In the **Tools** menu, select **AD FS Management**.
 3. In the **Actions** menu, under **AD FS**, select **Add Relying Party Trust**.
-</br>This will launch the **Add Relying Party Trust Wizard**.
+<br></br>This will launch the **Add Relying Party Trust Wizard**.
 4. In the **Select Data Source** screen, select **Enter Data about the Relying Party Manually**, and then click **Next**.
 5. On the **Specify Display Name** screen, enter **Sauce Labs**, and then click **Next**.
 6. On the **Choose Profile** screen, select **AD FS profile**, and then click **Next**.
@@ -31,4 +31,4 @@ sidebar_label: Configuring Active Directory Federation Services (AD FS)
 17. In the **Configure Claim Rule** screen, in the **Claim Rule Name** field, enter **Email**.
 18. In the **Configure Claim Rule** screen, under **Attribute Score**, select **E-mail Addresses**.
 19. In the **Configure Claim Rule** screen, under **Mapping of LDAP attributes to outgoing claim types**, select **Email addresses** for **LDAP Attribute**, and **Name ID** for **Outgoing Claim Type**, and then click **Finish**.
-</br></br>You can now check to make sure that Sauce Labs has been added as a Relying Party Trust by going to the AD FS directory on you server, and then navigating to **Trust Relationships > Relying Party Trusts**, where you should see a listing for Sauce Labs. You can then finish configuring Sauce Labs SSO by following the instructions in Single Sign-On Settings. If you need more assistance setting up SSO, contact help@saucelabs.com.
+<br></br>You can now check to make sure that Sauce Labs has been added as a Relying Party Trust by going to the AD FS directory on you server, and then navigating to **Trust Relationships > Relying Party Trusts**, where you should see a listing for Sauce Labs. You can then finish configuring Sauce Labs SSO by following the instructions in Single Sign-On Settings. If you need more assistance setting up SSO, contact help@saucelabs.com.
