@@ -7,7 +7,7 @@ sidebar_label: Virtual Device Testing
 
 Sauce Labs offers the ability to run tests on our virtual device cloud emulators using popular native frameworks such as Espresso, a native testing framework for running user interface tests on Android devices. At this time, XCUITest is not supported.
 
-To get started, you'll need to download Sauce Runner for Virtual Devices to your local machine, then launch it from your command line using the [required and optional parameters](https://wiki.saucelabs.com/display/DOCSDEV/Command+Reference+for+Sauce+Runner+for+Virtual+Devices).
+To get started, you'll need to download Sauce Runner for Virtual Devices to your local machine, then launch it from your command line using the [required and optional parameters](/dev/cli/espresso-xcuitest.md).
 
 ## System Requirements
 * You must have network connectivity to saucelabs.com on `port 443`

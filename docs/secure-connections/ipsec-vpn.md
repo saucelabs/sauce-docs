@@ -3,7 +3,15 @@ id: ipsec-vpn
 title: Running Sauce Labs Tests with IPSec VPN Tunnels
 sidebar_label: IPSec VPN
 ---
-<p><button class="badge-blue">ENTERPRISE PLANS ONLY</button></p>
+
+export const Highlight = ({children, color}) => ( <span style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>{children}</span> );
+
+<p> <Highlight color="#013a70">ENTERPRISE PLANS ONLY</Highlight> </p>
 
 Internet Protocol Security VPN (IPSec VPN) is a technology that connects two private networks securely over the public Internet. Sauce Labs offers an IPSec VPN solution that enables secure connections between applications hosted on a private network or local machine, and the Sauce Labs cloud. Topics in this section cover architecture, setup information, and troubleshooting tips.
 
@@ -11,7 +19,7 @@ Internet Protocol Security VPN (IPSec VPN) is a technology that connects two pri
 
 To get started, you'll need to contact your Sauce Labs Sales Engineer or Customer Success Manager, who will guide you through the IPSec VPN tunnel setup and configuration. Once you're up and running with your tunnel, you'll be able to connect to Sauce Labs virtual cloud devices and real cloud devices.
 
-* Authorization to use your organization's IPSec VPN tunnel; see [Tunnel Permissions](/ipsec-vpn#tunnel-permissions) for more .
+* Authorization to use your organization's IPSec VPN tunnel; see [Tunnel Permissions](/secure-connections/ipsec-vpn#tunnel-permissions) for more.
 * Know your organization's IPSec VPN tunnel name. You can obtain this from your Organization Admin, who controls tunnel settings; see [Organization Security Settings](https://wiki.saucelabs.com/display/DOCS/Security+Settings+for+Organizations) for more.
 
 
@@ -19,8 +27,7 @@ To get started, you'll need to contact your Sauce Labs Sales Engineer or Custome
 
 IPSec VPN allows virtual machines on the Sauce Labs network to access application servers on private networks. The solution consists of a VPN connection and two IPSec tunnel gateways, one running on the customer network, and the other on Sauce Labs. This connection allows secure communication between the gateways, which provide rules for DNS resolution, routing, and security.
 
-![IPSec VPN Network Architecture](assets/ipsecvpn.png)
-
+!["IPSec VPN Network Architecture"](/img/ipsecvpn.png)
 
 ### Security
 We recommend using an enterprise-grade gateway for your IPSec VPN configuration. The tunnel gateway runs a firewall, through which only authorized virtual machines (VMs) can connect.
@@ -52,7 +59,7 @@ The tunnel gateway can be configured with the options `tunnel-domains` and `dire
 
 The order of precedence is as follows:
 
-1. Route based on `tunnel-domains` and `direct-domains`
+1. Route based on `tunnel-domains` and `direct-domains`.
 1. Route based on customer subnets.
 
 We strongly recommend using subnets for routing.
@@ -164,26 +171,26 @@ Currently, Sauce Labs only supports dual-tunnel mode, with our data center as th
 
 **What devices are available with IPSec VPN?**
 
-You can access all Sauce Labs virtual devices and real devices. See [Testing with IPSec VPN Tunnels](/ipsec-vpn#testing-with-ipsec-vpn-tunnels).
+You can access all Sauce Labs virtual devices and real devices. See [Testing with IPSec VPN Tunnels](/secure-connections/ipsec-vpn#testing-with-ipsec-vpn-tunnels).
 
 <br/>
 
 **How is an IPSec VPN tunnel secured?**
 
-See [Security](/ipsec-vpn#security).
+See [Security](/secure-connections/ipsec-vpn#security).
 <br/>
 
 **How does DNS resolution work with IPSec VPN?**
 
-See [DNS Resolution](/ipsec-vpn#dns-resolution).
+See [DNS Resolution](/secure-connections/ipsec-vpn#dns-resolution).
 <br/>
 
 **Can I test with internal servers using self-signed certificates through IPSec VPN?**
 
-See [Self-Signed Certificates](/ipsec-vpn#self-signed-certificates).
+See [Self-Signed Certificates](/secure-connections/ipsec-vpn#self-signed-certificates).
 <br/>
 
 **Can I limit requests sent through the tunnel?**
 
-See [Routing](/ipsec-vpn#routing-options).
+See [Routing](/secure-connections/ipsec-vpn#routing-options).
 <br/>
