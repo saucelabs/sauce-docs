@@ -1,24 +1,25 @@
 ---
-id: espresso-xcuitest-cli
+id: espresso-xcuitest
 title: Espresso and XCUITest CLI Reference
 sidebar_label: Espresso and XCUITest
 ---
 
 ## Sauce Runner for Real Devices Command Line Options
 
-This topic describes the options you can use with [Sauce Runner for Real Devices](mobile-apps/automated-testing/espresso-xcuitest/real-device-testing.md) to run automated tests on Sauce Labs real devices using Espresso and XCUITest.
+This topic describes the options you can use with [Sauce Runner for Real Devices](/mobile-apps/automated-testing/espresso-xcuitest/real-device-testing.md) to run automated tests on Sauce Labs real devices using Espresso and XCUITest.
 
 * Run tests in parallel across multiple devices
 * Run subsets of tests against specific devices
 * Set the options as environment variables that can be referenced in your testing scripts, or pass them as command line parameters, which will take precedence over options set as environment variables
-* Create a [runner configuration file](mobile-apps/automated-testing/espresso-xcuitest/real-device-testing.md) with the options and commands for running your tests
+* Create a [runner configuration file](/mobile-apps/automated-testing/espresso-xcuitest/real-device-testing.md) with the options and commands for running your tests
 
 ### What You'll Need
 
-**NOTE**: Sauce Runner for Real Devices is only available on TestObject, our [Legacy Real Device Cloud Platform](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177), which you can access via **Sauce Apps** > **Legacy RDC**. See [Real Device Testing in Sauce Labs Feature Preview](https://wiki.saucelabs.com/display/DOCS/Real+Device+Testing+in+Sauce+Labs+Feature+Preview) for more information.
+:::danger Sauce Runner for Real Devices is only available on TestObject, our legacy real device platform, which you can access via **Sauce Apps** > **Legacy RDC**. For more information, see [TestObject Resources](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177) and [Real Device Testing in Sauce Labs Feature Preview](https://wiki.saucelabs.com/display/DOCS/Real+Device+Testing+in+Sauce+Labs+Feature+Preview).
+:::
 
 * Your [Sauce Labs Account](https://app.saucelabs.com) credentials
-* Your native mobile app (both debug and non-debug app)
+* Your native mobile app file (both debug and non-debug app) and test file
 * Have [Sauce Runner for Real Devices downloaded and installed](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80414342)
 
 ### General Usage
@@ -110,7 +111,7 @@ The folder for the JUnit XML output.
 Provide the URL of an alternative REST endpoint to use. For a list of endpoints, see [Data Center Endpoints](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068).
 
 #### `--platformVersion`
-For dynamic allocation of a device, provide an operating system version to use. For example, use `9` to allocate a device running major version 9 and arbitrary versions of the OS, or `9.3.3` for a specific version. For more information, see the examples under [`--devices`](/dev/cli/espresso-xcuitest-cli#--devices).
+For dynamic allocation of a device, provide an operating system version to use. For example, use `9` to allocate a device running major version 9 and arbitrary versions of the OS, or `9.3.3` for a specific version. For more information, see the examples under [`--devices`](/dev/cli/espresso-xcuitest#--devices).
 
 #### `--privateDevicesOnly`
 If set, only private devices will be queried.
@@ -122,7 +123,7 @@ If set, only phones will be queried.
 If set, only tablets will be queried.
 
 #### `--deviceNameQuery`
-For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use `iPhone.*Plus` to allocate any iPhone Plus device. For more information, see the examples under [`--devices`](/dev/cli/espresso-xcuitest-cli#--devices).
+For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use `iPhone.*Plus` to allocate any iPhone Plus device. For more information, see the examples under [`--devices`](/dev/cli/espresso-xcuitest#--devices).
 
 #### `--testsToRun`
 

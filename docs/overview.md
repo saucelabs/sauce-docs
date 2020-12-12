@@ -33,8 +33,8 @@ hide_table_of_contents: true
     <h2>Secure Connections</h2>
     <p>Browse the security documentation to learn how to communicate with Sauce Labs Cloud from your private network.</p>
     <ul>
-        <li><a href="/sauce-connect">Sauce Connect Proxy</a></li>
-        <li><a href="/ipsec-vpn">IPSec VPN</a></li>
+        <li><a href="/secure-connections/sauce-connect">Sauce Connect Proxy</a></li>
+        <li><a href="/secure-connections/ipsec-vpn">IPSec VPN</a></li>
     </ul>
     </div>
   </div>
