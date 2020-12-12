@@ -28,14 +28,14 @@ Not supported at the moment.
 
 ## Creating a YAML Configuration File
 
-There are two ways to configure your Espresso and XCUITest tests with Sauce Runner for Real Devices: by using [command line options](dev/cli/espresso-xcuitest-cli.md) or by creating a YAML configuration file.
+There are two ways to configure your Espresso and XCUITest tests with Sauce Runner for Real Devices: by using [command line options](dev/cli/espresso-xcuitest.md) or by creating a YAML configuration file.
 
 Sauce Runner for Real Devices will execute tests based on the parameters you set in the file. First, you'll need to add the `config` command to your code. The config command only accepts two parameters: `--path <path to config.yml>` and `--apikey <apikey>`. Here's an example:
 
   ```js
   JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config --path <path to config.yml> --apikey <apikey>
   ```
-**NOTE**: You cannot use [command line options](dev/cli/espresso-xcuitest-cli.md) in your YAML config file. Once you pass the `config` command to the runner, it will prohibit you from using the other configuration options available on the command line.
+**NOTE**: You cannot use [command line options](dev/cli/espresso-xcuitest.md) in your YAML config file. Once you pass the `config` command to the runner, it will prohibit you from using the other configuration options available on the command line.
 
 ### Parallel Test Executions
 For both examples, the tests can be configured to run in parallel on the Sauce Labs Real Device Cloud.

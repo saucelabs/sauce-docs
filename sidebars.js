@@ -17,7 +17,7 @@ module.exports = {
     ],
     "Secure Connections": [
        'secure-connections',
-       'ipsec-vpn',
+       'secure-connections/ipsec-vpn',
        {
           type: 'category',
           label: 'Sauce Connect Proxy',
@@ -149,9 +149,8 @@ module.exports = {
         collapsed: true,
         items: [
           'dev/cli',
-          'dev/cli/espresso-xcuitest-cli',
-          'dev/cli/sc-cli',
-          'dev/cli/ipsec-cli',
+          'dev/cli/espresso-xcuitest',
+          'dev/cli/sauce-connect-proxy',
           'dev/cli/saucectl',
         ]
       },
