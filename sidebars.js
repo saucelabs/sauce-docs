@@ -16,10 +16,18 @@ module.exports = {
       },
     ],
     "Secure Connections": [
-      'secure-connections',
-      'sauce-connect',
-      'ipsec-vpn',
-    ],
+       'secure-connections',
+       'secure-connections/ipsec-vpn',
+       {
+          type: 'category',
+          label: 'Sauce Connect Proxy',
+          collapsed: true,
+          items: [
+            'secure-connections/sauce-connect',
+            'secure-connections/sauce-connect/environment-variables',
+            ],
+          },
+        ],
    "Mobile Apps": [
         'mobile-apps',
         {
@@ -101,16 +109,14 @@ module.exports = {
     ],
     "Performance": [
       'performance',
-      'performance/load',
-      'performance/speedo',
-      'performance/jankiness',
-      'performance/troubleshooting',
+      'performance/about',
+      'performance/one-page',
+      'performance/transitions',
+      'performance/motion',
+      'performance/analyze',
     ],
     "Headless": [
       'headless',
-      'headless/requirements',
-      'headless/configuration',
-      'headless/troubleshooting',
     ],
     "Visual": [
       'visual',
@@ -144,9 +150,8 @@ module.exports = {
         collapsed: true,
         items: [
           'dev/cli',
-          'dev/cli/espresso-xcuitest-cli',
-          'dev/cli/sc-cli',
-          'dev/cli/ipsec-cli',
+          'dev/cli/espresso-xcuitest',
+          'dev/cli/sauce-connect-proxy',
           'dev/cli/saucectl',
         ]
       },
