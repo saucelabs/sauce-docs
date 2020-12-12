@@ -8,10 +8,9 @@ Sauce Connect Proxy provides several command-line arguments. The table below out
 
 Some command-line arguments can be passed through a config file or an environment variable. When the same argument is passed through multiple methods, the order of precedence is as follows: Command Line Argument > Environment Variable > Config File.
 
-To ensure compatibility with these variables, make sure that you're using the most recent version of Sauce Connect Proxy [(download here)](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863).
+To ensure compatibility with these variables, make sure that you're using the latest version of Sauce Connect Proxy ([download here](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863)).
 
 ## List of Sauce Connect Proxy Command-Line Arguments
-
 
 <table>
   <tr>
@@ -23,35 +22,40 @@ To ensure compatibility with these variables, make sure that you're using the mo
    </td>
   </tr>
   <tr>
-   <td>-u
+   <td><code>-u</code>
    </td>
-   <td><code>--user [username]</code>
+   <td>
+
+    --user <username>
+
    </td>
-   <td>Sauce Labs username.
-<p>
-You can also use the environment variable <code>SAUCE_USERNAME </code>on the command line. For more info, see <a href="https://wiki.saucelabs.com/display/DOCSDEV/Environment+Variables+Used+by+Sauce+Connect+Proxy">Environment Variables Used by Sauce Connect Proxy</a> and <a href="https://wiki.saucelabs.com/display/DOCSDEV/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials">Best Practice: Use Environment Variables for Authentication Credentials</a>.</p>
+   <td><p>Sauce Labs username.</p>
+   <p>You can also use the environment variable <code>SAUCE_USERNAME</code> on the command line. For more info, see <a href="/secure-connections/sauce-connect/environment-variables">Environment Variables Used by Sauce Connect Proxy</a> and <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365921">Best Practice: Use Environment Variables for Authentication Credentials</a>.</p>
    </td>
   </tr>
   <tr>
    <td><code>-k</code>
    </td>
-   <td><code>--api-key [api-key]</code>
+   <td>
+
+    --api-key <api-key>
+
    </td>
    <td>Sauce Labs API key.
-<p>
-You can also use the environment variable <code>SAUCE_ACCESS_KEY</code> on the command line. For more info, see <a href="https://wiki.saucelabs.com/display/DOCSDEV/Environment+Variables+Used+by+Sauce+Connect+Proxy">Environment Variables Used by Sauce Connect Proxy</a> and <a href="https://wiki.saucelabs.com/display/DOCSDEV/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials">Best Practice: Use Environment Variables for Authentication Credentials</a>.</p>
+   <p>You can also use the environment variable <code>SAUCE_ACCESS_KEY</code> on the command line. For more info, see <a href="/secure-connections/sauce-connect/environment-variables">Environment Variables Used by Sauce Connect Proxy</a> and <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365921">Best Practice: Use Environment Variables for Authentication Credentials</a>.</p>
    </td>
   </tr>
   <tr>
    <td><code>-c</code>
    </td>
-   <td><code>--config-file [path]</code>
-   </td>
-   <td><p>Included as part of the Sauce Connect Proxy download package (sc.exe) is the example configuration file <strong>config.yaml</strong>, to be used with the <code>--config-file</code> command-line option. This is the local path to a YAML file containing Sauce Connect Proxy configuration. Please refer to the <a href="https://wiki.saucelabs.com/download/attachments/63475846/config.yml?version=2&modificationDate=1541880007875&api=v2">sample YAML file</a> for more information.</p>
+   <td>
 
-<p> Here is the order of precedence when the same argument is provided through multiple methods, with methods to the left having higher precedence: Command Line Argument > Environment Variable > Config File.</p>
-<p>
-In production environments, we recommend using a configuration file rather than command-line arguments for the following reasons:</p>
+    --config-file <path>
+
+   </td>
+   <td><p>Included as part of the Sauce Connect Proxy download package (sc.exe) is the example configuration file <strong>config.yaml</strong>, to be used with the <code>--config-file</code> command-line option. This is the local path to a YAML file containing Sauce Connect Proxy configuration. Download and review our <a href="https://wiki.saucelabs.com/download/attachments/63475846/config.yml?version=2&modificationDate=1541880007875&api=v2">sample YAML file</a> for more information.</p>
+<p> Here is the order of precedence when the same argument is provided through multiple methods, with methods to the left having higher precedence: <strong>Command Line Argument</strong> > <strong>Environment Variable</strong> > <strong>Config File</strong>.</p>
+<p>In production environments, we recommend using a configuration file rather than command-line arguments for the following reasons:</p>
 
 <ul>
 <li>Ability to track configuration changes</li>
@@ -63,19 +67,23 @@ In production environments, we recommend using a configuration file rather than 
   <tr>
    <td><code>-B</code>
    </td>
-   <td><code>--no-ssl-bump-domains</code>
+   <td>
+
+    --no-ssl-bump-domains
+
    </td>
-   <td>Comma-separated list of domains. Requests, including hosts that match one of these domains, will not be SSL re-encrypted. See <a href="https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy+and+SSL+Certificate+Bumping">Sauce Connect Proxy and SSL Certificate Bumping</a> for more information about scenarios in which you would want to use this command.
-<p>
-For more info, see <a href="https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide#SauceConnectProxyCommandLineQuickReferenceGuide-FormattingDomains">Formatting Domains guidelines</a>.</p>
-<p>
-HTTP Header Injection is disabled for all HTTPS domains passed to <code>--no-ssl-bump-domains</code> argument.</p>
+   <td>Comma-separated list of domains. Requests, including hosts that match one of these domains, will not be SSL re-encrypted. See <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=80414353">Sauce Connect Proxy and SSL Certificate Bumping</a> for more information about scenarios in which you would want to use this command.
+<p>For more info, see <a href="/dev/cli/sauce-connect-proxy#formatting-domains-in-your-commands">Formatting Domains guidelines</a>.</p>
+<p>HTTP Header Injection is disabled for all HTTPS domains passed to <code>--no-ssl-bump-domains</code> argument.</p>
    </td>
   </tr>
   <tr>
    <td><code>-N</code>
    </td>
-   <td><code>--no-proxy-caching</code>
+   <td>
+
+    --no-proxy-caching
+
    </td>
    <td>Disables caching in Sauce Connect Proxy. All requests will be sent through the tunnel.
    </td>
@@ -83,7 +91,10 @@ HTTP Header Injection is disabled for all HTTPS domains passed to <code>--no-ssl
   <tr>
    <td><code>-M</code>
    </td>
-   <td><code>--max-missed-acks</code>
+   <td>
+
+    --max-missed-acks
+
    </td>
    <td>Sets the maximum amount of keepalive ACKs that can be missed before the client will trigger a reconnect. The default is 30.
    </td>
@@ -91,137 +102,171 @@ HTTP Header Injection is disabled for all HTTPS domains passed to <code>--no-ssl
   <tr>
    <td><code>-D</code>
    </td>
-   <td><code>--direct-domains [...]</code>
+   <td>
+
+    --direct-domains <...>
+
    </td>
-   <td>Comma-separated list of domains. Requests, including hosts that match one of these domains, will be relayed directly through the Internet instead of through the Sauce Connect tunnel.
-<p>
-For more info, see <a href="https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide#SauceConnectProxyCommandLineQuickReferenceGuide-FormattingDomains">Formatting Domains guidelines</a>.</p>
-   </td>
+   <td><p>Comma-separated list of domains. Requests, including hosts that match one of these domains, will be relayed directly through the Internet instead of through the Sauce Connect tunnel.</p>
+   <p>For more info, see <a href="/dev/cli/sauce-connect-proxy#formatting-domains-in-your-commands">Formatting Domains guidelines</a>.</p></td>
   </tr>
   <tr>
    <td><code>-t</code>
    </td>
-   <td><code>--tunnel-domains [...]</code>
+   <td>
+
+    --tunnel-domains <...>
+
    </td>
-   <td>Inverse of <code>--direct-domains</code>. Overrides <code>--direct-domains</code>. Only requests for domains in this list will be sent through the Sauce Connect Proxy tunnel.
-<p>
-For more info, see <a href="https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide#SauceConnectProxyCommandLineQuickReferenceGuide-FormattingDomains">Formatting Domains guidelines</a>.</p>
+   <td><p>Inverse of <code>--direct-domains</code>. Overrides <code>--direct-domains</code>. Only requests for domains in this list will be sent through the Sauce Connect Proxy tunnel. For more info, see <a href="/dev/cli/sauce-connect-proxy#formatting-domains-in-your-commands">Formatting Domains guidelines</a>.</p>
    </td>
   </tr>
   <tr>
-   <td><code>-v</code>
-   </td>
-   <td><code>--verbose</code>
+   <td><code>-v</code></td>
+   <td>
+
+    --verbose
+
    </td>
    <td>Enables verbose debugging. Use <code>-v</code> to output HTTP headers.
-<p>
-You can also use the<code> -vv</code> (very verbose) option to output HTTP headers and KGP logs, however, it's meant for troubleshooting only. It's not for long-term use, nor should it be used in production. Running Sauce Connect Proxy with the very verbose<code> -vv</code> option is system-resource demanding and will adversely affect Sauce Connect Proxy performance.</p>
+<p>You can also use the<code> -vv</code> (very verbose) option to output HTTP headers and KGP logs, however, it's meant for troubleshooting only. It's not for long-term use, nor should it be used in production. Running Sauce Connect Proxy with the very verbose<code> -vv</code> option is system-resource demanding and will adversely affect Sauce Connect Proxy performance.</p>
    </td>
   </tr>
   <tr>
    <td><code>-F</code>
    </td>
-   <td><code>--fast-fail-regexps [...]</code>
+   <td>
+
+    --fast-fail-regexps <...>
+
    </td>
-   <td>Comma-separated list of regular expressions. Requests with URLs matching one of these will get dropped instantly and will not go through the tunnel. See <a href="https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy+FAQs">Sauce Connect Proxy FAQs</a> > <strong>How Can I Use Sauce Connect Proxy to Test Graceful Degradation</strong>? for an example of using this command to test for application or site degradation based on missing assets or resources.
+   <td>Comma-separated list of regular expressions. Requests with URLs matching one of these will get dropped instantly and will not go through the tunnel. See <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365877">Sauce Connect Proxy FAQs</a> > <strong>How Can I Use Sauce Connect Proxy to Test Graceful Degradation</strong>? for an example of using this command to test for application or site degradation based on missing assets or resources.
    </td>
   </tr>
   <tr>
    <td><code>-i</code>
    </td>
-   <td><code>--tunnel-identifier [id]</code>
+   <td>
+
+    --tunnel-identifier <id>
+
    </td>
-   <td>Assigns an <code>id</code> to a Sauce Connect Proxy tunnel. Future jobs will use this tunnel only when explicitly specified by the <code>tunnelIdentifier</code> Capability in a Selenium client. Note that <code>id</code> must be ASCII.
-<p>For more information on using <code>--tunnel-identifier</code> to run multiple Sauce Connect tunnels simultaneously, see <a href="https://wiki.saucelabs.com/display/DOCSDEV/High+Availability+Sauce+Connect+Proxy+Setup">High Availability Sauce Connect Proxy Setup</a>. For more information about the syntax for setting <code>tunnelIdentifier</code> as a capability, see <a href="https://wiki.saucelabs.com/display/DOCSDEV/Test+Configuration+Options">Test Configuration Options</a>.</p>
+   <td><p>Assigns an <code>id</code> to a Sauce Connect Proxy tunnel. Future jobs will use this tunnel only when explicitly specified by the <code>tunnelIdentifier</code> Capability in a Selenium client. Note that <code>id</code> must be ASCII.</p>
+   <p>For more information on using <code>--tunnel-identifier</code> to run multiple Sauce Connect tunnels simultaneously, see <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=64717567">High Availability Sauce Connect Proxy Setup</a>. For more information about the syntax for setting <code>tunnelIdentifier</code> as a capability, see <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492">Test Configuration Options</a>.</p>
    </td>
   </tr>
   <tr>
    <td><code>-l</code>
    </td>
-   <td><code>--logfile [file]</code>
+   <td>
+
+    --logfile <file>
+
    </td>
-   <td>Capture the Sauce Connect Proxy logs in <code>[file]</code>. If a path is not specified in <code>[file]</code>, the default location of the <code>[file]</code> is the same location where the Sauce Connect executable can be found on your machine.
+   <td><p>Capture the Sauce Connect Proxy logs in `file` If a path is not specified in `file`, the default location of the `file` is the same location where the Sauce Connect executable can be found on your machine.</p>
    </td>
   </tr>
   <tr>
    <td><code>-P</code>
    </td>
-   <td><code>--se-port [port]</code>
+   <td>
+
+    --se-port <port>
+
    </td>
    <td><p>Sets the port on which Sauce Connect's Selenium relay will listen for requests. Selenium commands reaching Sauce Connect on this port will be relayed to Sauce Labs securely and reliably through Sauce Connect's tunnel. This feature is disabled unless specified.</p>
    <p><strong>NOTE</strong>: Effective with Sauce Connect Proxy version 4.6.0, this feature is no longer enabled by default.</p>
    </td>
   </tr>
-
   <tr>
    <td><code>-p</code></td>
-   <td><code>--proxy [host:port]</code></td>
-   <td><p>Proxy host and port that Sauce Connect Proxy should use to connect to the Sauce Labs REST API and test traffic. For more information about the <code>-p</code> option and configuring Sauce Connect with other proxies, see <a href="https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy+Setup+with+Additional+Proxies">Sauce Connect Proxy Setup with Additional Proxies</a>.</p>
-   <p>As an alternative, you can also use environment variables <code>HTTP_PROXY, http_proxy, all_proxy, or ALL_PROXY </code>on the command line. For more information, see <a href="https://wiki.saucelabs.com/display/DOCSDEV/Environment+Variables+Used+by+Sauce+Connect+Proxy">Environment Variables Used by Sauce Connect Proxy</a>.</p>
+   <td>
+
+    --proxy <host:port>
+
+   </td>
+   <td><p>Proxy host and port that Sauce Connect Proxy should use to connect to the Sauce Labs REST API and test traffic. For more information about the <code>-p</code> option and configuring Sauce Connect with other proxies, see <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=64717562">Sauce Connect Proxy Setup with Additional Proxies</a>.</p>
+   <p>As an alternative, you can also use environment variables <code>HTTP_PROXY, http_proxy, all_proxy, or ALL_PROXY </code>on the command line. For more information, see <a href="/secure-connections/sauce-connect/environment-variables">Environment Variables Used by Sauce Connect Proxy</a>.</p>
    </td>
   </tr>
   <tr>
    <td><code>-w</code>
    </td>
-   <td><code>--proxy-userpwd [user:pwd]</code>
+   <td>
+
+    --proxy-userpwd <user:pwd>
+
    </td>
-   <td>Username and password sent via basic authentication required to access the proxy configured with<code> -p (--proxy)</code>. For more information about the <code>-w</code> option and configuring Sauce Connect with other proxies, see <a href="https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy+Setup+with+Additional+Proxies">Sauce Connect Proxy Setup with Additional Proxies</a>.
-<p><strong>NOTE</strong>: Sauce Connect Proxy versions older than 4.6.1 do <em>not</em> support the <code>-p</code> option combined with<code> --pac</code>. Update to the latest version here: <a href="https://wiki.saucelabs.com/display/DOCSDEV/Downloading+Sauce+Connect+Proxy">Downloading Sauce Connect Proxy</a>.</p>
+   <td><p>Username and password sent via basic authentication required to access the proxy configured with <code>-p (--proxy)</code>. For more information about the <code>-w</code> option and configuring Sauce Connect with other proxies, see <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=64717562">Sauce Connect Proxy Setup with Additional Proxies</a>.</p>
+   <p><strong>NOTE</strong>: Sauce Connect Proxy versions older than 4.6.1 do <em>not</em> support the <code>-p</code> option combined with <code>--pac</code>. Update to the latest version here: <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863">Downloading Sauce Connect Proxy</a>.</p>
    </td>
   </tr>
   <tr>
    <td>
    </td>
-   <td><code>--pac [url]</code>
+   <td>
+
+    --pac <url>
+
    </td>
-   <td>Proxy auto-configuration (PAC). Can be a http(s) or local file:// URL. For more information about the <code>-pac</code> option and configuring Sauce Connect with other proxies, see <a href="https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy+Setup+with+Additional+Proxies">Sauce Connect Proxy Setup with Additional Proxies</a>.
-<p>
-Absolute paths are required when specifying a local PAC file (e.g., file:///Users/Andrew/Desktop/MyPac.pac).</p>
+   <td><p>Proxy auto-configuration (PAC). Can be a http(s) or local file://URL. For more information about the <code>-pac</code> option and configuring Sauce Connect with other proxies, see <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=64717562">Sauce Connect Proxy Setup with Additional Proxies</a>.</p>
+<p>Absolute paths are required when specifying a local PAC file (e.g., <code>file:///Users/JohnSmith/Desktop/MyPac.pac</code>).</p>
    </td>
   </tr>
   <tr>
    <td>
    </td>
-   <td><code>--pac-auth [username:password@host:port]</code>
+   <td>
+
+    --pac-auth <username:password@host:port>
+
    </td>
-   <td>Supplies PAC authentication string in format [username:password@host:port]. This option can be used multiple times for each authenticated host in the PAC file.
-<p>
-<strong>New Feature</strong>
-Option is only compatible with Sauce Connect Proxy client version 4.6.3+.</p>
+   <td><p>Supplies PAC authentication string in format <code>username:password@host:port</code>. This option can be used multiple times for each authenticated host in the PAC file.</p>
+   <p><strong>New Feature</strong> Option is only compatible with Sauce Connect Proxy client version 4.6.3+.</p>
    </td>
   </tr>
   <tr>
    <td><code>-T</code>
    </td>
-   <td><code>--proxy-tunnel</code>
+   <td>
+
+    --proxy-tunnel
+
    </td>
-   <td>Uses the proxy configured with<code> -p</code> for the tunnel connection. For more information about the <code>-T</code> option and configuring Sauce Connect with other proxies, see <a href="https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy+Setup+with+Additional+Proxies">Sauce Connect Proxy Setup with Additional Proxies</a>.
-<p>
-You'll need to use this option if you use a PAC file that contains Sauce Labs DNS names.</p>
+   <td>Uses the proxy configured with<code> -p</code> for the tunnel connection. For more information about the <code>-T</code> option and configuring Sauce Connect with other proxies, see <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=64717562">Sauce Connect Proxy Setup with Additional Proxies</a>.
+  <p>You'll need to use this option if you use a PAC file that contains Sauce Labs DNS names.</p>
    </td>
   </tr>
   <tr>
    <td><code>-s</code>
    </td>
-   <td><code>--shared-tunnel</code>
+   <td>
+
+    --shared-tunnel
+
    </td>
-   <td>Allows other users of the tunnel owner to use the tunnel. For more information, visit the <a href="https://wiki.saucelabs.com/display/DOCSDEV/Sharing+Sauce+Connect+Proxy+Tunnels+-+Extended+Team+Management">Sharing Sauce Connect Proxy Tunnels - Extended Team Management</a> page.
+   <td>Allows other users of the tunnel owner to use the tunnel. For more information, visit the <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=78414547">Sharing Sauce Connect Proxy Tunnels - Extended Team Management</a> page.
    </td>
   </tr>
   <tr>
    <td><code>-x</code>
    </td>
-   <td><code>--rest-url [arg]</code>
+   <td>
+
+    --rest-url <arg>
+
    </td>
-   <td>By default, Sauce Connect Proxy connects to the US Virtual Device and Desktop Cloud (US-West-1). Use this option if you need to connect to a different Sauce Labs cloud (e.g., EU Virtual Device and Desktop Cloud or US Real Device Cloud).
-<p>
-For a full list of Sauce Connect Proxy endpoints, see <a href="https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints">Data Center Endpoints</a>.</p>
+   <td><p>By default, Sauce Connect Proxy connects to the US Virtual Device and Desktop Cloud (US-West-1). Use this option if you need to connect to a different Sauce Labs cloud (e.g., EU Virtual Device and Desktop Cloud or US Real Device Cloud).</p>
+<p>For a full list of Sauce Connect Proxy endpoints, see <a href="https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints">Data Center Endpoints</a>.</p>
    </td>
   </tr>
   <tr>
    <td><code>-f</code>
    </td>
-   <td><code>--readyfile</code>
+   <td>
+
+    --readyfile
+
    </td>
    <td>File that will be touched to indicate when the tunnel is ready.
    </td>
@@ -229,43 +274,57 @@ For a full list of Sauce Connect Proxy endpoints, see <a href="https://wiki.sauc
   <tr>
    <td><code>-a</code>
    </td>
-   <td><code>--auth [host:port:user:pwd]</code>
+   <td>
+
+    --auth <host:port:user:pwd>
+
    </td>
-   <td>Performs basic authentication when a URL on <code>host:port</code> asks for a username and password. This option can be used multiple times. For examples, see <a href="https://wiki.saucelabs.com/display/DOCSDEV/Using+--auth+with+Sauce+Connect+Proxy">Using --auth with Sauce Connect Proxy</a>.
-<p><strong>Basic Authentication Only</strong></p>
-<p>Sauce Connect's <code>--auth</code> flag will only send the header Authorization with a type of 'Basic'.  If a resource responds with the header WWW-Authenticate of a type any other than 'Basic,' your authentication will fail and return a non-200 HTTP response.</p>
-<p>
-HTTP Header Injection is disabled for SSL domains that are not re-encrypted by Sauce Connect, which means performing basic authentication in this way is disabled for all HTTPS domains passed to <code><a href="https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide#SauceConnectProxyCommandLineQuickReferenceGuide---no-ssl-bump-domains">--no-ssl-bump-domains</a></code>argument.</p>
+   <td>Performs basic authentication when a URL on <code>host:port</code> asks for a username and password. This option can be used multiple times. For examples, see <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=65607085">Using --auth with Sauce Connect Proxy</a>.
+  <p><strong>Basic Authentication Only</strong></p>
+  <p>Sauce Connect's <code>--auth</code> flag will only send the header Authorization with a type of 'Basic'.  If a resource responds with the header WWW-Authenticate of a type any other than 'Basic,' your authentication will fail and return a non-200 HTTP response.</p>
+  <p>HTTP Header Injection is disabled for SSL domains that are not re-encrypted by Sauce Connect, which means performing basic authentication in this way is disabled for all HTTPS domains passed to <code>--no-ssl-bump-domains</code>argument.</p>
    </td>
   </tr>
   <tr>
    <td><code>-z</code>
    </td>
-   <td><code>--log-stats [seconds]</code>
+   <td>
+
+    --log-stats <seconds>
+
    </td>
-   <td>Logs statistics about HTTP traffic every <code>[seconds]</code>. Information includes bytes transmitted, requests made, and responses received.
+   <td>Logs statistics about HTTP traffic every <code>seconds</code>. Information includes bytes transmitted, requests made, and responses received.
    </td>
   </tr>
   <tr>
    <td>
    </td>
-   <td><code>--max-logsize [bytes]</code>
+   <td>
+
+    --max-logsize <bytes>
+
    </td>
-   <td>Rotates log file after reaching <code>[bytes]</code> size. Disabled by default.
+   <td>Rotates log file after reaching <code>bytes</code> size. Disabled by default.
    </td>
   </tr>
   <tr>
    <td>
    </td>
-   <td><code>--doctor</code>
+   <td>
+
+    --doctor
+
    </td>
-   <td>Performs checks to detect possible misconfiguration or problems. Check out <a href="https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy+Debugging+and+Diagnostics+with+--doctor+flag">Sauce Connect Proxy Debugging and Diagnostics with --doctor flag</a> for more information about the errors that <code>--doctor</code> will detect and how to resolve them. Please note that when using the <code>--doctor</code> flag, place it at the end of your command for best results.
+   <td>Performs checks to detect possible misconfiguration or problems. Check out <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=65605320">Sauce Connect Proxy Debugging and Diagnostics with --doctor flag</a> for more information about the errors that <code>--doctor</code> will detect and how to resolve them. Please note that when using the <code>--doctor</code> flag, place it at the end of your command for best results.
    </td>
   </tr>
   <tr>
    <td>
    </td>
-   <td><code>--no-autodetect</code>
+   <td>
+
+    --no-autodetect
+
    </td>
    <td>Disables the auto-detection of proxy settings.
    </td>
@@ -273,7 +332,10 @@ HTTP Header Injection is disabled for SSL domains that are not re-encrypted by S
   <tr>
    <td>
    </td>
-   <td><code>--version</code>
+   <td>
+
+    --version
+
    </td>
    <td>Displays version information and exit.
    </td>
@@ -283,7 +345,7 @@ HTTP Header Injection is disabled for SSL domains that are not re-encrypted by S
    </td>
    <td>
 
-    --scproxy-port [port]
+    --scproxy-port <port>
 
    </td>
    <td>Sets port to use for the built-in HTTP proxy.
@@ -294,7 +356,7 @@ HTTP Header Injection is disabled for SSL domains that are not re-encrypted by S
    </td>
    <td>
 
-    --cainfo [cainfo file]
+    --cainfo <cainfo file>
 
    </td>
    <td>CA certificate bundle to use for verifying REST connections.
@@ -433,7 +495,7 @@ Sauce Connect Proxy makes a best effort but cannot guarantee that the pidfile wi
    </td>
    <td><p>Injects job id and tunnel id as HTTP request headers.</p>
 <p>
-HTTP Header Injection is disabled for SSL domains that are not re-encrypted by Sauce Connect Proxy. Header Injection is disabled for all HTTPS domains passed to <code><a href="https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide#SauceConnectProxyCommandLineQuickReferenceGuide---no-ssl-bump-domains">--no-ssl-bump-domains</a></code> argument.</p>
+HTTP Header Injection is disabled for SSL domains that are not re-encrypted by Sauce Connect Proxy. Header Injection is disabled for all HTTPS domains passed to <code>--no-ssl-bump-domains</code> argument.</p>
    </td>
   </tr>
   <tr>
