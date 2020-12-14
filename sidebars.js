@@ -8,10 +8,6 @@ module.exports = {
         collapsed: true,
         items: [
           'sauce-basics',
-          'configuration',
-          'platform-support',
-          'account-and-team-management',
-          'data-centers',
         ],
       },
     ],
