@@ -39,38 +39,38 @@ These options are required for use with the `xcuitest` or `espresso` commands. T
    </td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --apikey
 
-   </td>
+   </sub></td>
    <td>The API key for your Sauce Labs real device cloud account.
    </td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --app
 
-   </td>
+   </sub></td>
    <td>
-   The path to the *.ipa or *.apk file of the app under test, or the ID number of an already uploaded app. In your command line, refer to the location where you have downloaded the <code>runner.jar</code> file or run the command from the folder from where you downloaded the runner.</td>
+   The path to the *.ipa or *.apk file of the app under test, or the ID number of an already uploaded app. In your command line, refer to the location where you have downloaded the <code>runner.jar</code> file or run the command from the folder from where you downloaded the runner. </td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --test
 
-   </td>
+   </sub></td>
    <td>
    The path to the *.ipa or *.apk file of the test.</td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --datacenter
 
-   </td>
+   </sub></td>
    <td>
     Specify the data center (either <code>US</code> or <code>EU</code>) to use in your tests. If you don't specify a device or devices for your test, one will be assigned to your tests based on the type of application you're testing against.</td>
   </tr>
@@ -86,20 +86,20 @@ These options are required for use with the `xcuitest` or `espresso` commands. T
    </td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --device
 
-   </td>
+   </sub></td>
    <td>For static allocation of a device, provide the ID for the type of device to use in your tests, such as `iPhone_5_real`. To find device ID numbers, go to <strong>Live</strong> > <strong>Mobile-App</strong> > <strong>Choose device</strong> > Search for the device you want to use > Click <strong>Details</strong> in the device description. For more information, see the examples under `--devices`.
    </td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --devices
 
-   </td>
+   </sub></td>
    <td>
    The list of devices, allocated dynamically or through static description of the device ID, to use in your tests.
 
@@ -149,146 +149,155 @@ These options are required for use with the `xcuitest` or `espresso` commands. T
    </sub></td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --testname
 
-   </td>
+   </sub></td>
    <td>Set a custom test name to appear on the UI. Default is <code>Test</code>.
    </td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --tunnelIdentifier
 
-   </td>
+   </sub></td>
    <td>
    If you are using Sauce Connect Proxy, provide the identifier of the tunnel you want to use.</td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     ----checkFrequency
 
-   </td>
+   </sub></td>
    <td>
    Interval in seconds to check test results. Default is `30`.</td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --timeout
 
-   </td>
+   </sub></td>
    <td>
    Test timeout in minutes.  Test duration cannot exceed 60 minutes. Defaults to 60.</td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --xmlFolder
 
-   </td>
+   </sub></td>
    <td>
    The folder for the JUnit XML output.</td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --url
 
-   </td>
+   </sub></td>
    <td>
    Provide the URL of an alternative REST endpoint to use. For a list of endpoints, see <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068">Data Center Endpoints</a>.</td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --platformVersion
 
-   </td>
+   </sub></td>
    <td>
    For dynamic allocation of a device, provide an operating system version to use. For example, use `9` to allocate a device running major version 9 and arbitrary versions of the OS, or `9.3.3` for a specific version. For more information, see the examples under <a href="/dev/cli/espresso-xcuitest#--devices"><code>--devices</code></a>.</td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --privateDevicesOnly
 
-   </td>
+   </sub></td>
    <td>
    If set, only private devices will be queried.</td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --phoneOnly
 
-   </td>
+   </sub></td>
    <td>
    If set, only phones will be queried.</td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --tabletOnly
 
-   </td>
+   </sub></td>
    <td>
    If set, only tablets will be queried.</td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --deviceNameQuery
 
-   </td>
+   </sub></td>
    <td>
    For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use `iPhone.*Plus` to allocate any iPhone Plus device. For more information, see the examples under <a href="/dev/cli/espresso-xcuitest#--devices">--devices</a>.</td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --testsToRun
 
-   </td>
+   </sub></td>
    <td>
    <p><button class="badge-green">XCUITest Only</button></p>
-   <p>For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use `iPhone.*Plus` to allocate any iPhone Plus device. For more information, see the examples under <a href="/dev/cli/espresso-xcuitest#--devices">--devices</a>.</p>
+   <p>For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use `iPhone.*Plus` to allocate any iPhone Plus device. For more information, see the examples under <a href="/dev/cli/espresso-xcuitest#--devices">--devices</a>. Example: Execute all tests in `ClassA` and only `methodC` of `ClassB`:</p>
 
-   Example: Execute all tests in `ClassA` and only `methodC` of `ClassB`:
+   <p><sub>
 
-    --testsToRun ClassA,ClassB/methodC
+      --testsToRun ClassA,ClassB/methodC
+
+   </sub></p>
 
    </td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --e
 
-   </td>
+   </sub></td>
    <td>
    <p><button class="badge-green">Espresso Only</button></p>
    <p>Provide a list of test options to Espresso. The key-value pairs supported by espresso are documented here: <a href="https://developer.android.com/studio/test/command-line#AMOptionsSyntax">https://developer.android.com/studio/test/command-line#AMOptionsSyntax</a>.</p>
 
-   Example: Execute all tests in class TestClassA
+   <p>Example: Execute all tests in class TestClassA</p>
+
+   <p><sub>
 
     --e class com.example.android.TestClass
 
-   Example: Execute a specific test in class TestClassB
+   </sub></p>
 
-    --e class com.example.android.TestClassB#methodName
+   <p>Example: Execute a specific test in class TestClassB</p>
 
-   </td>
+   <p><sub>
+
+      --e class com.example.android.TestClassB#methodName
+
+  </sub></p>
+  </td>
   </tr>
   <tr>
-   <td>
+   <td><sub>
 
     --useTestOrchestrator
 
-   </td>
+   </sub></td>
    <td>
    <p><button class="badge-green">Espresso Only</button></p>
    <p>If set, the instrumentation will start with Test Orchestrator version 1.1.1 in use.</p>
