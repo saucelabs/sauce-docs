@@ -31,164 +31,307 @@ JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar  <command> 
 ### Required
 These options are required for use with the `xcuitest` or `espresso` commands. They are not compatible with the YAML file `config` command.
 
-#### `--apikey`
-The API key for your Sauce Labs real device cloud account.
+<table>
+  <tr>
+   <td><strong>Flag</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>
 
-#### `--app`
-The path to the `*.ipa` or `*.apk` file of the app under test, or the ID number of an already uploaded app. In your command line, refer to the location where you have downloaded the `runner.jar` file or run the command from the folder from where you downloaded the runner.
+    --apikey
 
-#### `--test`
-The path to the *.ipa or *.apk file of the test.
+   </td>
+   <td>The API key for your Sauce Labs real device cloud account.
+   </td>
+  </tr>
+  <tr>
+   <td>
 
-#### `--datacenter`
-Specify the data center â€” either `US` or `EU` â€” to use in your tests. If you don't specify a device or devices for your test, one will be assigned to your tests based on the type of application you're testing against.
+    --app
+
+   </td>
+   <td>
+   The path to the *.ipa or *.apk file of the app under test, or the ID number of an already uploaded app. In your command line, refer to the location where you have downloaded the <code>runner.jar</code> file or run the command from the folder from where you downloaded the runner.</td>
+  </tr>
+  <tr>
+   <td>
+
+    --test
+
+   </td>
+   <td>
+   The path to the *.ipa or *.apk file of the test.</td>
+  </tr>
+  <tr>
+   <td>
+
+    --datacenter
+
+   </td>
+   <td>
+    Specify the data center (either <code>US</code> or <code>EU</code>) to use in your tests. If you don't specify a device or devices for your test, one will be assigned to your tests based on the type of application you're testing against.</td>
+  </tr>
+</table>
 
 ### Optional
 
-#### `--device`
-For static allocation of a device, provide the ID for the type of device to use in your tests, such as `iPhone_5_real`. To find device ID numbers, go to **Live** > **Mobile-App** > **Choose device** > Search for the device you want to use > Click **Details** in the device description. For more information, see the examples under `--devices`.
+<table>
+  <tr>
+   <td><strong>Flag</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>
 
-#### `--devices`
-The list of devices, allocated dynamically or through static description of the device ID, to use in your tests.
+    --device
 
-With the `--devices` option, you can configure Sauce Runner for Real Devices to run tests in parallel across multiple devices using both static and dynamic allocation. Below are some examples of the various configuration options. As an option, you can run a select set of tests against a specific device using the `--testsToRun` command.
+   </td>
+   <td>For static allocation of a device, provide the ID for the type of device to use in your tests, such as `iPhone_5_real`. To find device ID numbers, go to <strong>Live</strong> > <strong>Mobile-App</strong> > <strong>Choose device</strong> > Search for the device you want to use > Click <strong>Details</strong> in the device description. For more information, see the examples under `--devices`.
+   </td>
+  </tr>
+  <tr>
+   <td>
 
-```sh
-# Define a list of devices on which the tests should be executed.
-  devices:
+    --devices
 
-# Device 1 example: minimal configuration.
-# Only specify a DC (either EU or US).
-- datacenter: EU
+   </td>
+   <td>
+   The list of devices, allocated dynamically or through static description of the device ID, to use in your tests.
 
-# Device 2 example: Static Allocation.
-- datacenter: US
-  # Specify a device descriptor for static allocation f.ex. iPhone_8_real_us.
-  device: iPhone_8_real_us
+   With the `--devices` option, you can configure Sauce Runner for Real Devices to run tests in parallel across multiple devices using both static and dynamic allocation. Below are some examples of the various configuration options. As an option, you can run a select set of tests against a specific device using the `--testsToRun` command.
 
-# Device 3 example: Dynamic Allocation.
-- datacenter: US
-  # Specify a device name or regex for dynamic allocation: 'iPhone 5', 'iPad.*', etc.
-  deviceNameQuery: iPhone 5
-  # Platform Version for a dynamic device query. f.ex '9' for all Devices
-  # with major version 9 and arbitrary minor versions or '9.3.3' for a more
-  # specific version.
-  platformVersion: 11.4
-  # Optional parameters, set to true to enable.
-  # phoneOnly: false
-  # tabletOnly: false
-  # privateDevicesOnly: false
+   <sub>
 
-# Device 4 example: Running subset of tests.
-  # Data center to run tests in (either EU or US).
-- datacenter: EU
-  # Provide a list of test cases or test classes. If you want to run all tests
-  # of a class provide only the class name and if you want to run a specific
-  # method of a class provide the class name and method name.
-  testsToRun:
-  - testClass: SampleTestCase
-  - testClass: SampleTestCase2
-    testMethod: testItWorks
+   ```sh
+   # Define a list of devices on which the tests should be executed.
+     devices:
 
-```
+   # Device 1 example: minimal configuration.
+   # Only specify a DC (either EU or US).
+   - datacenter: EU
 
-#### `--testname`
-Set a custom test name to appear on the UI. Default is `Test`.
+   # Device 2 example: Static Allocation.
+   - datacenter: US
+     # Specify a device descriptor for static allocation f.ex. iPhone_8_real_us.
+     device: iPhone_8_real_us
 
-#### `--tunnelIdentifier`
-If you are using Sauce Connect Proxy, provide the identifier of the tunnel you want to use.
+   # Device 3 example: Dynamic Allocation.
+   - datacenter: US
+     # Specify a device name or regex for dynamic allocation: 'iPhone 5', 'iPad.*', etc.
+     deviceNameQuery: iPhone 5
+     # Platform Version for a dynamic device query. f.ex '9' for all Devices
+     # with major version 9 and arbitrary minor versions or '9.3.3' for a more
+     # specific version.
+     platformVersion: 11.4
+     # Optional parameters, set to true to enable.
+     # phoneOnly: false
+     # tabletOnly: false
+     # privateDevicesOnly: false
 
-#### `--checkFrequency`
-Interval in seconds to check test results. Default is `30`.
+   # Device 4 example: Running subset of tests.
+     # Data center to run tests in (either EU or US).
+   - datacenter: EU
+     # Provide a list of test cases or test classes. If you want to run all tests
+     # of a class provide only the class name and if you want to run a specific
+     # method of a class provide the class name and method name.
+     testsToRun:
+     - testClass: SampleTestCase
+     - testClass: SampleTestCase2
+       testMethod: testItWorks
 
-#### `--timeout`
-Test timeout in minutes.  Test duration cannot exceed 60 minutes. Defaults to 60.
+   ```
 
-#### `--xmlFolder`
-The folder for the JUnit XML output.
+   </sub></td>
+  </tr>
+  <tr>
+   <td>
 
-#### `--url`
-Provide the URL of an alternative REST endpoint to use. For a list of endpoints, see [Data Center Endpoints](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068).
+    --testname
 
-#### `--platformVersion`
-For dynamic allocation of a device, provide an operating system version to use. For example, use `9` to allocate a device running major version 9 and arbitrary versions of the OS, or `9.3.3` for a specific version. For more information, see the examples under [`--devices`](/dev/cli/espresso-xcuitest#--devices).
+   </td>
+   <td>Set a custom test name to appear on the UI. Default is <code>Test</code>.
+   </td>
+  </tr>
+  <tr>
+   <td>
 
-#### `--privateDevicesOnly`
-If set, only private devices will be queried.
+    --tunnelIdentifier
 
-#### `--phoneOnly`
-If set, only phones will be queried.
+   </td>
+   <td>
+   If you are using Sauce Connect Proxy, provide the identifier of the tunnel you want to use.</td>
+  </tr>
+  <tr>
+   <td>
 
-#### `--tabletOnly`
-If set, only tablets will be queried.
+    ----checkFrequency
 
-#### `--deviceNameQuery`
-For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use `iPhone.*Plus` to allocate any iPhone Plus device. For more information, see the examples under [`--devices`](/dev/cli/espresso-xcuitest#--devices).
+   </td>
+   <td>
+   Interval in seconds to check test results. Default is `30`.</td>
+  </tr>
+  <tr>
+   <td>
 
-#### `--testsToRun`
+    --timeout
 
-<p><button class="badge-green">XCUITest Only</button></p>
+   </td>
+   <td>
+   Test timeout in minutes.  Test duration cannot exceed 60 minutes. Defaults to 60.</td>
+  </tr>
+  <tr>
+   <td>
 
-Provide a comma separated list of test cases or test classes. If you want to run all tests of a class, provide only the classname. If you want to run a specific method of a class, provide the class name and method name separated with a `/`.
+    --xmlFolder
 
-**Example**
+   </td>
+   <td>
+   The folder for the JUnit XML output.</td>
+  </tr>
+  <tr>
+   <td>
 
-Execute all tests in `ClassA` and only `methodC` of `ClassB`:
-```sh
---testsToRun ClassA,ClassB/methodC
-```
+    --url
 
-#### `--e`
-<p><button class="badge-green">Espresso Only</button></p>
+   </td>
+   <td>
+   Provide the URL of an alternative REST endpoint to use. For a list of endpoints, see <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068">Data Center Endpoints</a>.</td>
+  </tr>
+  <tr>
+   <td>
 
-Provide a list of test options to Espresso. The key-value pairs supported by espresso are documented here: https://developer.android.com/studio/test/command-line#AMOptionsSyntax.
+    --platformVersion
 
+   </td>
+   <td>
+   For dynamic allocation of a device, provide an operating system version to use. For example, use `9` to allocate a device running major version 9 and arbitrary versions of the OS, or `9.3.3` for a specific version. For more information, see the examples under <a href="/dev/cli/espresso-xcuitest#--devices"><code>--devices</code></a>.</td>
+  </tr>
+  <tr>
+   <td>
 
-**Example**
+    --privateDevicesOnly
 
-Execute all tests in class TestClassA
-```sh
---e class com.example.android.TestClassA
-```
+   </td>
+   <td>
+   If set, only private devices will be queried.</td>
+  </tr>
+  <tr>
+   <td>
 
-**Example**
+    --phoneOnly
 
-Execute a specific test in class TestClassB
-```sh
---e class com.example.android.TestClassB#methodName
-```
+   </td>
+   <td>
+   If set, only phones will be queried.</td>
+  </tr>
+  <tr>
+   <td>
 
-#### `--useTestOrchestrator`
-<p><button class="badge-green">Espresso Only</button></p>
+    --tabletOnly
 
-If set, the instrumentation will start with Test Orchestrator version 1.1.1 in use.
+   </td>
+   <td>
+   If set, only tablets will be queried.</td>
+  </tr>
+  <tr>
+   <td>
 
-**NOTE**: With Test Orchestrator, it is in most cases recommended to also add the `--e clearPackageData true` parameter to remove all shared state from your device's CPU and memory after each test.
+    --deviceNameQuery
+
+   </td>
+   <td>
+   For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use `iPhone.*Plus` to allocate any iPhone Plus device. For more information, see the examples under <a href="/dev/cli/espresso-xcuitest#--devices">--devices</a>.</td>
+  </tr>
+  <tr>
+   <td>
+
+    --testsToRun
+
+   </td>
+   <td>
+   <p><button class="badge-green">XCUITest Only</button></p>
+   <p>For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use `iPhone.*Plus` to allocate any iPhone Plus device. For more information, see the examples under <a href="/dev/cli/espresso-xcuitest#--devices">--devices</a>.</p>
+
+   Example: Execute all tests in `ClassA` and only `methodC` of `ClassB`:
+
+    --testsToRun ClassA,ClassB/methodC
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+
+    --e
+
+   </td>
+   <td>
+   <p><button class="badge-green">Espresso Only</button></p>
+   <p>Provide a list of test options to Espresso. The key-value pairs supported by espresso are documented here: <a href="https://developer.android.com/studio/test/command-line#AMOptionsSyntax">https://developer.android.com/studio/test/command-line#AMOptionsSyntax</a>.</p>
+
+   Example: Execute all tests in class TestClassA
+
+    --e class com.example.android.TestClass
+
+   Example: Execute a specific test in class TestClassB
+
+    --e class com.example.android.TestClassB#methodName
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+
+    --useTestOrchestrator
+
+   </td>
+   <td>
+   <p><button class="badge-green">Espresso Only</button></p>
+   <p>If set, the instrumentation will start with Test Orchestrator version 1.1.1 in use.</p>
+
+   **NOTE**: With Test Orchestrator, it is in most cases recommended to also add the `--e clearPackageData true` parameter to remove all shared state from your device's CPU and memory after each test.
+
+   </td>
+  </tr>
+</table>
 
 
 ### Code Examples
 
-The code examples below contain all required Sauce Runner for Real Devices parameters and have the Data Center option set to US.
+The code examples below contain all required Sauce Runner for Real Devices parameters, with the Data Center option set to US.
 
-#### XCUITest
+<table>
+  <tr>
+   <td><p><strong>XCUITest</strong></p>
+
+    java -jar runner.jar xcuitest --test DummyTestingApp-Runner.ipa --app DummyTestingApp.ipa --apikey <apikey> --datacenter US
+  </td>   
+  </tr>
+
+  <tr>
+  <td><strong>Espresso</strong>
+
+    java -jar runner.jar espresso --test DummyTestingApp-Runner.apk --app DummyTestingApp.apk --apikey <apikey> --datacenter US
+
+  </td>
+  </tr>
+</table>
+
+### Using Sauce Connect Proxy
+If you need Sauce Runner to connect to the internet through a proxy server, use the -D command to specify a direct domain connection to your proxy server and port. The parameters http.proxyUser and http.proxyPassword are optional and they can be used if the proxy needs authentication:
 
 ```sh
-java -jar runner.jar xcuitest --test DummyTestingApp-Runner.ipa --app DummyTestingApp.ipa --apikey <apikey> --datacenter US
-```
-
-#### Espresso
-
-```sh
-java -jar runner.jar espresso --test DummyTestingApp-Runner.apk --app DummyTestingApp.apk --apikey <apikey> --datacenter US
-```
-
-### Using Sauce Runner with a Proxy
-
-If you need Sauce Runner to connect to the internet through a proxy server, use the `-D` command to specify a direct domain connection to your proxy server and port. The parameters `http.proxyUser` and `http.proxyPassword` are optional and they can be used if the proxy needs authentication:
-
-```js
 java -Dhttp.proxyHost=<your proxy server> -Dhttp.proxyPort=<the port to use> -Dhttp.proxyUser=<the username to use> -Dhttp.proxyPassword=<the password to use>
 ```
+
+
+
+<br/>
+<br/>
 
 ## Sauce Runner for Virtual Devices Command Line Options
 
@@ -196,57 +339,94 @@ Sauce Runner for Virtual Devices lets you run tests using the native testing fra
 
 ### Required
 
-#### `-f` `--test-framework`
-Specifies the name of the test framework you want to use. At the moment, Espresso is the only supported option.
+<table>
+  <tr>
+   <td><strong>Flag (Short)</strong>
+   </td>
+   <td><strong>Flag (Long)</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>-f</code>
+   </td>
+   <td><sub>
 
-**Example**
+    --test-framework
 
-```sh
--f espresso
---test-framework=espresso
-```
+   </sub></td>
+   <td><p>Specifies the name of the test framework you want to use. At the moment, Espresso is the only supported option.</p>
 
-##### `-u --user`
-Your Sauce Labs username. You can also use the environment variable `SAUCE_USERNAME` to provide your login information. The command line argument will take precedence over the [environment variable](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365921).
+    -f espresso
+    --test-framework=espresso
 
-**Example**
+   </td>
+  </tr>
+  <tr>
+   <td><code>-u</code>
+   </td>
+   <td><sub>
 
-```sh
--u test_user
---user=test_user
-export $SAUCE_USERNAME=test_user
-```
+    --user
 
-#### `-k --api-key`
-Your Sauce Labs API key, which you can find under User Settings in the Sauce Labs interface. You can also use the environment variable `SAUCE_ACCESS_KEY` to provide your login information. The command line argument will take precedence over the environment variable.
+   </sub></td>
+   <td><p>Your Sauce Labs username. You can also use the environment variable `SAUCE_USERNAME` to provide your login information. The command line argument will take precedence over the <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365921">environment variable</a>. Example:</p>
 
-**Example**
+    -u test_user
+    --user=test_user
+    export $SAUCE_USERNAME=test_user
 
-```sh
--k aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
---api-key=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
-export $SAUCE_ACCESS_KEY=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
-```
+   </td>
+  </tr>
+  <tr>
+   <td><code>-k</code>
+   </td>
+   <td><sub>
 
-#### `-a --app`
-The local path or publicly accessible URL to the location of the application you want to test.
+    --api-key
 
-**Example**
+   </sub></td>
+   <td><p>Your Sauce Labs API key, which you can find under User Settings in the Sauce Labs interface. You can also use the environment variable `SAUCE_ACCESS_KEY` to provide your login information. The command line argument will take precedence over the environment variable. Example:</p>
 
-```sh
--a ./helloworld.apk
---app='https://the.bestapp.ai/helloworld.apk'
-```
+    -k aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
+    --api-key=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
+    export $SAUCE_ACCESS_KEY=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
 
-#### `-t --test-app`
-The local path or publicly accessible URL to the location of the test package you want to use.
+   </td>
+  </tr>
+  <tr>
+   <td><code>-a</code>
+   </td>
+   <td><sub>
 
-**Example**
+    --app
 
-```sh
--t ./app-debug-AndroidTest.apk
---test-app='https://the.bestapp.ai/app-debug-AndroidTest.apk'
-```
+   </sub></td>
+   <td><p>The local path or publicly accessible URL to the location of the application you want to test.</p>
+
+    -a ./helloworld.apk
+    --app='https://the.bestapp.ai/helloworld.apk'
+
+   </td>
+  </tr>
+  <tr>
+   <td><code>-t</code>
+   </td>
+   <td><sub>
+
+    --test-app
+
+   </sub></td>
+   <td><p>The local path or publicly accessible URL to the location of the test package you want to use.</p>
+
+    -t ./app-debug-AndroidTest.apk
+    --test-app='https://the.bestapp.ai/app-debug-AndroidTest.apk'
+
+   </td>
+  </tr>
+</table>
+
 
 #### `-d --devices`
 The type of device you want to use with your test. You can specify two or more device arguments to run tests on multiple devices in parallel, and each device will execute the full test suite. You specify the type of device to use by setting the required `deviceName` and `platformVersion` property.
