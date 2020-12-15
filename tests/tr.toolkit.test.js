@@ -28,7 +28,7 @@ context('Testrunner Toolkit Page Tree Actions', () => {
 
     it('Integrations Page', () => {
         //cy.contains('Integrations')
-        cy.get(':nth-child(10) > :nth-child(2) > :nth-child(5) > .menu__list > :nth-child(5) > .menu__link')
+        cy.get('ul > li:nth-child(9) > ul > li:nth-child(5) > a')
             .click();
         cy.url()
             .should('include', '/testrunner-toolkit/integrations');
