@@ -4,7 +4,7 @@ title: Mobile App Testing
 sidebar_label: Getting Started
 ---
 
-Test your iOS and Android native mobile apps and hybrid apps on our cutting edge emulators, simulators, and real devices in the Sauce Labs Cloud.
+Test your iOS and Android native mobile apps and hybrid apps on emulators, simulators, and real devices in the Sauce Labs Cloud.
 
 <div class="box-wrapper" markdown="1">
 <div class="box box1 card">

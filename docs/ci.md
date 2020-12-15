@@ -32,7 +32,7 @@ Incorporating continuous testing into your CI/CD pipeline means designing your t
   </div>
 </div>
 <div>
-  <div class="box boxwide card">
+  <div class="box boxwidebottom card">
     <div class="container">
     <font size="5">Learn More</font>
     <p>Not a developer? Want to learn more about continuous integration and how you can design a strategy for testing right through your entire software development cycle? Check out some of these helpful resources.<br/>
