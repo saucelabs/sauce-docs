@@ -24,7 +24,7 @@ const features = [
     title: 'Integrate Your Test Suite',
     imageUrl: 'img/INFOSEC_Bot_EXPORT.png',
     buttonText: 'Integrate Now',
-    slugName: 'web-apps/automated-testing/selenium',
+    slugName: 'web-apps/automated-testing',
     description: (
       <>
           If you already have automated tests,
