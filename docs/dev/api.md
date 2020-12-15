@@ -1,7 +1,7 @@
 ---
 id: api
-title: API Reference Docs
-sidebar_label: Introduction
+title: Sauce REST API Overview
+sidebar_label: Getting Started
 ---
 
 import Tabs from '@theme/Tabs';
@@ -185,11 +185,3 @@ Once a user reaches the rate limit and exhausted the allowable amount of connect
 | All unauthenticated request endpoints | 2 requests per minute ||
 
 For more information about rate limiting check out this blog post: [Announcing New Rest API Usage Limits](https://saucelabs.com/blog/announcing-new-rest-api-rate-limits).
-
-## Additional Topics
-
-* [Account Methods](/dev/api/account.md): Browse through the Account API docs for user account information and management
-* [Job Methods](/dev/api/jobs.md): Browse through the Job API docs for information regarding test job management
-* [Analytics Methods](/dev/api/analytics.md): Browse the Analytics API docs to track test trends and activity
-* [Performance Methods](/dev/api/performance): Browse the Performance API docs to gather front-end test performance metrics
-

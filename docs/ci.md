@@ -1,7 +1,7 @@
 ---
 id: ci
 title: Sauce Labs CI Integrations
-sidebar_label: Introduction
+sidebar_label: Getting Started
 ---
 
 Incorporating continuous testing into your CI/CD pipeline means designing your tests to fit appropriately into each stage of your application development and delivery cycle. If you are already using one of the many platforms for continuous delivery of your application, we've got instructions for integrating your Sauce Labs test suite right into that pipeline.
@@ -12,11 +12,11 @@ Incorporating continuous testing into your CI/CD pipeline means designing your t
     <font size="5">Sauce CI/CD Plugins</font>
     <p>Use one of the Sauce Labs plugins to set up your existing CI/CD pipeline to integrate your tests.<br/>
       <ul>
-        <li><a href="/ci/jenkins">Jenkins</a></li>
-        <li><a href="/ci/azure">Azure</a></li>
-        <li><a href="/ci/bamboo">Bamboo</a></li>
-        <li><a href="/ci/github">GitHub</a></li>
-        <li><a href="/ci/gitlab">GitLab</a></li>
+        <li><a href="">Jenkins</a></li>
+        <li><a href="">Azure</a></li>
+        <li><a href="">Bamboo</a></li>
+        <li><a href="">GitHub</a></li>
+        <li><a href="">GitLab</a></li>
       </ul></p>
     </div>
   </div>

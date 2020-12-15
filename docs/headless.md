@@ -1,7 +1,7 @@
 ---
 id: headless
 title: Sauce Headless Testing in the Cross-Browser Cloud
-sidebar_label: Headless Testing
+sidebar_label: Getting Started
 ---
 
 import Tabs from '@theme/Tabs';
