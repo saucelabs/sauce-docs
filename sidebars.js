@@ -33,8 +33,6 @@ module.exports = {
             items: [
                 'mobile-apps/live-testing',
                 'mobile-apps/live-testing/application-storage',
-                'mobile-apps/live-testing/real-devices',
-                'mobile-apps/live-testing/virtual-devices',
             ],
         },
         {
@@ -43,15 +41,13 @@ module.exports = {
             collapsed: true,
             items: [
                 'mobile-apps/automated-testing',
-                'mobile-apps/automated-testing/appium',
-                'mobile-apps/automated-testing/robotium',
-                'mobile-apps/automated-testing/wdio',
 
                 {
                     type: 'category',
                     label: 'Espresso and XCUITest',
                     collapsed: true,
                     items: [
+                        'mobile-apps/automated-testing/espresso-xcuitest',
                         'mobile-apps/automated-testing/espresso-xcuitest/real-device-testing',
                         'mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing',
                         'mobile-apps/automated-testing/espresso-xcuitest/example-configurations',
