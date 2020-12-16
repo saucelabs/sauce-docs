@@ -1,7 +1,7 @@
 ---
 id: dev
-title: Sauce Labs Developer Resources
-sidebar_label: Overview
+title: Sauce Labs Reference Docs
+sidebar_label: About
 ---
 
 <!--This is the Sauce Labs Developer Resources section of the Documentation.-->
@@ -17,18 +17,6 @@ sidebar_label: Overview
     <div class="container">
     <a href="/dev/cli"><h2>CLI Reference</h2></a>
     <p>Browse through the CLI reference documentation to see examples of how to execute commands in your DevOps toolchain.</p>
-    </div>
-  </div>
-  <div class="box box3 card">
-    <div class="container">
-    <a href="/dev/sauce-bindings"><h2>Sauce Bindings</h2></a>
-    <p>Browse the Sauce Bindings documentation to learn how to reduce complexity of writing and maintaining automated tests that integrate with Sauce Labs.</p>
-    </div>
-  </div>
-  <div class="box box4 card">
-    <div class="container">
-    <a href="/dev/testrunner-toolkit"><h2>Testrunner Toolkit</h2></a>
-    <p>Browse the Sauce Labs Testrunner Toolkit documentation to explore the containerized solution using JavaScript frameworks such as Puppeteer, Playwright and Cypress.</p>
     </div>
   </div>
 </div>
