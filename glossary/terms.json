@@ -1,0 +1,11 @@
+var glossary = {
+
+    "items": [{
+      "term":"build",
+      "definition":"A suite of individual Sauce Labs tests on various parts (e.g., page objects) of a website or app using any platform/browser combination, bundled together in the same session. A build is defined when you add the same build number to the code for tests in that suite."
+    },
+    {
+      "term":"JSON",
+      "definition":"An open-standard file format that uses human-readable text to transmit data objects consisting of attribute–value pairs and array data types"
+    }]
+}
