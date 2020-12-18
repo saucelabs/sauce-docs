@@ -86,4 +86,46 @@ Once we have isolated the failing test, we can check the **Builds** list and fin
 
 ### Using the Efficiency Metric to Optimize Tests
 
-The **Builds and Test Statistics** section of the Trends page provides an **Efficiency** metric for builds that indicated the percentage of tests in the build that are running in parallel.
+The **Builds and Test Statistics** section of the Trends page provides an **Efficiency** metric for builds that indicates the percentage of tests in the build that are running in parallel.
+
+<img src="/static/img/insights/build-efficiency.png" alt="Efficiency Metric Example" width="600"/>
+
+#### Benchmarking Efficiency
+
+The Efficiency metric is expressed as a percentage because it is based on how long the build took to run as compared to the duration of the longest test within it. For example, let's say that Build A contains four tests with these run times:
+
+|Test|Run Time|
+|---|---|
+|T1 |30 secs|
+|T2	|60 secs|
+|T3	|45 secs|
+|T4	|30 secs|
+
+In this build, T2 serves as the benchmark test because it takes the longest to run at 60 seconds. If the entire build takes 60 seconds to run, then it has achieved full efficiency, because all the tests are running in parallel, and the Efficiency metric would be 100%.
+
+Consider another example, Build B:
+
+|Test|Run Time|
+|---|---|
+|T1	|15 secs|
+|T2	|20 secs|
+|T3	|10 secs|
+|T4 |45 secs|
+|T5	|30 secs|
+|T7	|10 secs|
+|T8	|20 secs|
+|T9	|15 secs|
+
+In this example, T4 serves as the benchmark for the build efficiency, because it takes the longest to run at 45 seconds. However, even if the test has complete parallelization (the entire build runs in 45 seconds), given that the majority of the tests are considerably shorter than 45 seconds, the overall efficiency of this build is still not optimal. Reducing the run time of T4 (and even T5) would improve the build efficiency.
+
+#### Improving Efficiency
+
+An Efficiency score of less than 100% means that the entire build took longer to run than the longest test within it, whichi s an indicator that all the tests in the build are running in parallel. If, on the other hand, the build in our first example ran in 115 seconds compared to the longest test of 60 seconds, its efficiency would be around 52% because the tests are clearly not running in parallel. The following table provides some guidance for how you might improve your build efficiency based on your score.
+
+|Efficiency|Degree of Parallelization|Guidance|
+|---|---|---------|
+|0%	|Sequential	|The build took as long to run as the sum of each run time of all the tests within it, which means that the tests ran in sequential order. Consider using a test framework to run your tests in parallel. |
+|1 - 90%	|Semi-parallel	|The build took less time to run than the sum of all test run times, which means that some tests ran in parallel and some ran in sequential order. Consider reorganizing your tests into small, atomic, and autonomous validations of very focused functionality to make sure they aren't dependent on one another to complete before they can execute.|
+|91 - 100%	|Parallel	|The build took approximately the same amount of time to run as the longest test within it, meaning that most, if not all, the tests ran simultaneously. You can still potentially improve the overall efficiency of your build by breaking your longer running tests into smaller, shorter tests, if possible. In the benchmarking example for Build A, if T2 could be broken down into two tests that ran for 30 seconds each, you would improve the efficiency of that build by 25%, since the longest running test within it would be 45 seconds instead of 60 seconds.|
+
+See our [Small, Atomic Tests white paper](https://wiki.saucelabs.com/display/DOCS/Best+Practices%3A+Use+Small%2C+Atomic%2C+Autonomous+Tests) for more comprehensive discussion about improving the efficiency of your builds.
