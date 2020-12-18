@@ -13,7 +13,7 @@ You can update your plan billing information at any time for our online plans.
 ## Virtual Device Cloud Billing
 In Sauce Labs, click **Account**, and then click **Billing**.
 
-<img src="/static/img/team-mgmt/billing-nav.jpg" alt="Billing navigation/>
+<img src="/static/img/team-mgmt/billing-nav.jpg" alt="Billing navigation"/>
 
 ### Payment Tab
 If the **Payment** tab is visible:
