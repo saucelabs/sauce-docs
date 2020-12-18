@@ -10,15 +10,15 @@ Organization admins can update the name, email address, user name, role, and tea
 
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 
-<img src="/static/img/team-mgmt/team-mgmt-nav.jpg" alt="Team management navigation">
+<img src="/static/img/team-mgmt/team-mgmt-nav.jpg" alt="Team management navigation"/>
 
 2. On the **Users** tab, click the user name of the user whose information you want to edit.
 
-<img src="/static/img/team-mgmt/users-list-username.jpg" alt="User details">
+<img src="/static/img/team-mgmt/users-list-username.jpg" alt="User details"/>
 
 3. On the **User Details** page, in the **User Information** section, make the necessary changes and then click **Update**.
 
-<img src="/static/img/team-mgmt/user-details-user-info.jpg" alt="User details">
+<img src="/static/img/team-mgmt/user-details-user-info.jpg" alt="User details"/>
 
 ## Filtering Users
 
@@ -60,17 +60,17 @@ You can change a user’s role on the **Organization Management** page and also 
 2. On the **Users** tab, select the checkbox of the user you want to deactivate.
 3. Above the list of users, in the **Action** dropdown, click **Assign Role** and then click the new role.
 
-<img src="/static/img/team-mgmt/change-role-org-mgmt.jpg" alt="Change a user's role">
+<img src="/static/img/team-mgmt/change-role-org-mgmt.jpg" alt="Change a user's role"/>
 
 ### Changing a User’s Role - User Details
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 2. On the **Users** tab, click the user name of the user whose role you want to change.
 
-<img src="/static/img/team-mgmt/users-list-username.jpg" alt="Users list">
+<img src="/static/img/team-mgmt/users-list-username.jpg" alt="Users list"/>
 
 3. On the **User Details** page, in the **User Information** section, click the **Org. Role** dropdown and then click the new role.
 
-<img src="/static/img/team-mgmt/change-role-user-details.jpg" alt="Change a user's role">
+<img src="/static/img/team-mgmt/change-role-user-details.jpg" alt="Change a user's role"/>
 
 4. Click **Update**.
 
@@ -81,11 +81,11 @@ You can regenerate a user's access key on the **Organization Management** page.
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 2. On the **Users** tab, click the user name of the user whose access key you want to regenerate.
 
-<img src="/static/img/team-mgmt/users-list-username.jpg" alt="Users list">
+<img src="/static/img/team-mgmt/users-list-username.jpg" alt="Users list"/>
 
 3. On the **User Details** page, in the **Access Key** section, click **Regenerate Access Key**.
 
-<img src="/static/img/team-mgmt/user-details-access-key.jpg" alt="User Details - Access Key">
+<img src="/static/img/team-mgmt/user-details-access-key.jpg" alt="User Details - Access Key"/>
 
 **NOTE:** Regenerating your access key will update the access key throughout your configuration. Commands containing your old access key will fail.
 
