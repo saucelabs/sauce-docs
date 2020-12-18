@@ -2,14 +2,14 @@
 //TODO Harden Cypress Locators
 context('Testrunner Toolkit Page Tree Actions', () => {
     beforeEach(() => {
-        cy.visit(`http://${Cypress.env('HOST_ADDR')}/dev/testrunner-toolkit`)
+        cy.visit(`http://${Cypress.env('HOST_ADDR')}/testrunner-toolkit`)
     });
 
     it('Installation Page', () => {
         cy.contains('Installation')
             .click();
         cy.url()
-            .should('include', '/dev/testrunner-toolkit/installation');
+            .should('include', '/testrunner-toolkit/installation');
     });
     //TODO: Fix Cypress locator, use CSS selector instead
     // it('Testrunner Configuration', () => {
@@ -23,22 +23,22 @@ context('Testrunner Toolkit Page Tree Actions', () => {
         cy.contains('Running Tests')
             .click();
         cy.url()
-            .should('include', '/dev/testrunner-toolkit/running-tests');
+            .should('include', '/testrunner-toolkit/running-tests');
     });
 
     it('Integrations Page', () => {
         //cy.contains('Integrations')
-        cy.get(':nth-child(10) > :nth-child(2) > :nth-child(5) > .menu__list > :nth-child(5) > .menu__link')
+        cy.get('ul > li:nth-child(9) > ul > li:nth-child(5) > a')
             .click();
         cy.url()
-            .should('include', '/dev/testrunner-toolkit/integrations');
+            .should('include', '/testrunner-toolkit/integrations');
     });
 
     it('FAQs Page', () => {
         cy.contains('FAQs')
             .click();
         cy.url()
-            .should('include', '/dev/testrunner-toolkit/faqs');
+            .should('include', '/testrunner-toolkit/faqs');
     });
 
     //TODO Fix Cypress locator, use CSS selector instead
