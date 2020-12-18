@@ -24,7 +24,7 @@ The **Users** tab on the **Organization Management** page provides the following
   </tr>
 </table>
 
-<img src="/static/img/team-mgmt/usage-data-users-tab.jpg" alt="Usage data - Users tab">
+<img src="/static/img/team-mgmt/usage-data-users-tab.jpg" alt="Usage data - Users tab"/>
 
 Click a username in the list to view the following information on the **User Details** page:
 <table>
@@ -40,7 +40,7 @@ Click a username in the list to view the following information on the **User Det
   </tr>
 </table>
 
-<img src="/static/img/team-mgmt/usage-data-user-details.jpg" alt="Usage data - User Details tab">
+<img src="/static/img/team-mgmt/usage-data-user-details.jpg" alt="Usage data - User Details tab"/>
 
 ## Usage Data - Teams
 The **Teams** tab on the **Organization Management** page provides the following information for each team:
@@ -63,7 +63,7 @@ The **Teams** tab on the **Organization Management** page provides the following
   </tr>
 </table>
 
-<img src="/static/img/team-mgmt/usage-data-teams-tab.jpg" alt="Usage data - Teams tab">
+<img src="/static/img/team-mgmt/usage-data-teams-tab.jpg" alt="Usage data - Teams tab"/>
 
 Click a team name in the list to view the following information on the **Team Details** page:
 <table>
@@ -79,7 +79,7 @@ Click a team name in the list to view the following information on the **Team De
   </tr>
 </table>
 
-<img src="/static/img/team-mgmt/usage-data-team-details.jpg" alt="Usage data - Team Details">
+<img src="/static/img/team-mgmt/usage-data-team-details.jpg" alt="Usage data - Team Details"/>
 
 ## Minutes Used vs. Concurrency
 One way to tell if you're getting the most efficient use out of your Sauce Labs plan is to compare the minutes used with the number of concurrent tests run during the same period. If the ratio of minutes to concurrency is low, for example, 2:1 (100 minutes:50 concurrent tests), then you are using a lot of minutes to run very few tests. You should redesign your tests to take greater advantage of concurrency. See [Using Frameworks to Run Tests in Parallel](https://wiki.saucelabs.com/display/DOCS/Using+Frameworks+to+Run+Tests+in+Parallel) for more information.
@@ -90,9 +90,9 @@ You can export a .csv file that contains the usage information for selected acco
 
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 
-<img src="/static/img/team-mgmt/team-mgmt-nav.jpg" alt="Team management navigation">
+<img src="/static/img/team-mgmt/team-mgmt-nav.jpg" alt="Team management navigation"/>
 
 2. On the **User** tab, select the checkboxes of the users whose usage information you want to export.
 3. Next to **Users Selected**, click the download button.
 
-<img src="/static/img/team-mgmt/usage-download-button.jpg" alt="Usage download button">
+<img src="/static/img/team-mgmt/usage-download-button.jpg" alt="Usage download button"/>
