@@ -33,7 +33,7 @@ Click a username in the list to view the following information on the **User Det
     <td>The highest number of concurrent tests run during a single session on a virtual machine, including Web browser, emulator, and simulator tests, in the previous 28 days.</td>
   </tr>
   <tr>
-    <td><strong>VM Tests by Day
+    <td><strong>VM Tests by Day</strong>
     </td>
     <td>The number of tests run by that user in each of the previous 28 days.
     </td>
