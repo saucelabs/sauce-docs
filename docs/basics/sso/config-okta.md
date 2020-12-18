@@ -14,5 +14,5 @@ sidebar_label: Configuring Okta
 9. On the application details page, in the **Assign** dropdown, click **Assign to People**.
 10. In the **Assign Sauce Labs to People** window, next to the users or groups you want to give SSO access to, click **Assign**.
 11. Click **Done**.
-12. Follow the instructions in Single Sign-On Settings to complete the integration of Sauce Labs with your Okta instance.
+12. Follow the instructions in [Single Sign-On Settings](https://sauce-docs.com/basics/account-team-management/org-settings) to complete the integration of Sauce Labs with your Okta instance.
 **NOTE:** The Sauce Labs app on the Okta Application Network only supports access to us-west-1. If you need to configure access for another data center, please follow the instructions for general setup of SSO.
