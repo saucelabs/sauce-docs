@@ -50,13 +50,13 @@ The **Teams** tab on the **Organization Management** page provides the following
     <td>The concurrency set for the team.</td>
   </tr>
   <tr>
-    <td><strong>Peak VM Concurrency
+    <td><strong>Peak VM Concurrency</strong>
     </td>
     <td>The highest number of concurrent tests run during a single session on a virtual machine, including Web browser, emulator, and simulator tests, in the previous 28 days.
     </td>
   </tr>
   <tr>
-    <td><strong>Tests (Last 28 Days)
+    <td><strong>Tests (Last 28 Days)</strong>
     </td>
     <td>The number of tests run by the team in the last 28 days.
     </td>
@@ -72,7 +72,7 @@ Click a team name in the list to view the following information on the **Team De
     <td>The highest number of concurrent tests run during a single session on a virtual machine, including Web browser, emulator, and simulator tests, in the previous 28 days.</td>
   </tr>
   <tr>
-    <td><strong>VM Tests by Day
+    <td><strong>VM Tests by Day</strong>
     </td>
     <td>The number of tests run by the team in each of the previous 28 days.
     </td>
