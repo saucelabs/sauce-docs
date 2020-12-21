@@ -1,6 +1,6 @@
 ---
 id: integrations
-title: Testrunner CI Integrations
+title: Testrunner Toolkit CI Integrations
 sidebar_label: CI Integrations
 ---
 
