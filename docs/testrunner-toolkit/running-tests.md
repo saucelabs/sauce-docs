@@ -8,9 +8,20 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Before you begin testing with [Testrunner Toolkit](testrunner-toolkit.md), you must choose an automation framework.
+Before you begin testing we suggest visiting the [Testrunner Toolkit](testrunner-toolkit.md) home page as well as the [Configuration](configuration.md) page.
 
-## Choose an Automation Framework
+## What You'll Need
+
+* [Docker](https://docs.docker.com/get-docker/) installed
+* Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g. `docker info` works in your terminal)
+* (Optional) A [Sauce Labs](https://saucelabs.com/) account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
+
+## Create a Configuration
+
+Creating a configuration is a crucial step before you begin testing. Without the `config.yml`, `saucectl` has no idea which framework to use during testing.
+
+To get started quickly run the following commands:
+
 1. Run the following command:
     ```bash
     saucectl new
@@ -21,10 +32,7 @@ Before you begin testing with [Testrunner Toolkit](testrunner-toolkit.md), you m
     * [TestCafe](https://devexpress.github.io/testcafe)
     * [Cypress](https://github.com/cypress-io/cypress)
     
-    Next, the Toolkit will automatically generate: 
-    * a config file (`./sauce/config.yml`)
-    * the `tests` directory
-    * an example test (`tests/example.test.js`)
+    For more detailed information, please visit the [Configuration](configuration.md) page.
 
 ## Run Your First Test
 
@@ -35,8 +43,6 @@ saucectl run
 ```
 
 Testrunner Toolkit will then execute the test based on the information in `config.yml`. 
-
-To learn more about how to configure `saucectl`, please visit the [Configuration](testrunner-toolkit/configuration.md) section of the docs. 
 
 ### Quick demo
 
