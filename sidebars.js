@@ -81,6 +81,10 @@ module.exports = {
     ],
     "Insights": [
         'insights',
+        'insights/scope',
+        'insights/history',
+        'insights/trends',
+        'insights/failure-analysis',
     ],
     "Performance": [
       'performance',

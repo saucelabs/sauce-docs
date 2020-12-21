@@ -22,66 +22,51 @@ To ensure compatibility with these variables, make sure that you're using the la
    <td><strong>Command-Line Option</strong></td>
   </tr>
   <tr>
-   <td>
-
-    SAUCE_USERNAME
-
-   </td>
+   <td><sub><code>
+   SAUCE_USERNAME
+   </code></sub></td>
    <td>Sauce Labs username.</td>
    <td>Windows, Linux, Mac OS X</td>
-   <td><a href="/dev/cli/sauce-connect-proxy"><code>--user</code></a></td>
+   <td><a href="/dev/cli/sauce-connect-proxy"><sub><code>--user</code></sub></a></td>
   </tr>
   <tr>
-   <td>
-
-    SAUCE_ACCESS_KEY
-
-   </td>
+   <td><sub><code>
+   SAUCE_ACCESS_KEY
+   </code></sub></td>
    <td>Sauce Labs access key.</td>
    <td>Windows, Linux, Mac OS X</td>
-   <td><a href="/dev/cli/sauce-connect-proxy"><code>--api-key</code></a></td>
+   <td><a href="/dev/cli/sauce-connect-proxy"><sub><code>--api-key</code></sub></a></td>
   </tr>
   <tr>
-  <td>
-
-    http_proxy
-
-   </td>
-
+  <td><sub><code>
+   http_proxy
+   </code></sub></td>
    <td rowspan="4" >
-   <p>An HTTP proxy that will be used by Sauce Connect Proxy. It can be in the format of <code>http://hostname:port</code> or just <code>hostname:port</code>.</p>
+   <p>An HTTP proxy that will be used by Sauce Connect Proxy. It can be formatted as <code>http://hostname:port</code>or <code>hostname:port</code>.</p>
 
-   <p>On Linux and Mac environments, <code>http_proxy</code> and <code>https_proxy</code> variables can contain proxy credentials in the following format <code>scheme://user:password@host:port</code>.</p>
+   <p>On Linux and Mac environments, <code>http_proxy</code> and <code>https_proxy</code> variables can contain proxy credentials in the following format: <sub><code>scheme://user:password@host:port</code></sub></p>
    </td>
 
    <td rowspan="4" >Windows, Linux, Mac OS X</td>
 
-   <td rowspan="4" ><a href="/dev/cli/sauce-connect-proxy"><code>--proxy</code></a></td>
+   <td rowspan="4" ><a href="/dev/cli/sauce-connect-proxy"><sub><code>--proxy</code></sub></a></td>
   </tr>
 
-  <tr><td>
+  <tr><td><sub><code>
+  HTTP_PROXY
+  </code></sub></td></tr>
 
-    HTTP_PROXY
+  <tr><td><sub><code>
+  all_proxy
+  </code></sub></td></tr>
 
-  </td></tr>
+  <tr><td><sub><code>
+  ALL_PROXY
+  </code></sub></td></tr>
 
-  <tr><td>
-
-    all_proxy
-
-  </td></tr>
-
-  <tr><td>
-
-    ALL_PROXY
-
-  </td></tr>
-
-  <tr><td>
-
-    no_proxy
-
-  </td>
+  <tr><td><sub><code>
+  no_proxy
+  </code></sub></td>
   <td rowspan="2" >
    <p>A comma-separated list of hostnames that will not be proxied, even when Sauce Connect is configured to use a proxy. Subdomain wildcarding is supported when the hostname starts with a ".".</p>
    <p><strong>Examples</strong></p>
@@ -93,23 +78,17 @@ To ensure compatibility with these variables, make sure that you're using the la
    <td rowspan="2" > </td>
   </tr>
 
-  <tr>
-  <td>
-
-    NO_PROXY
-
-  </td>
-  </tr>
+  <tr><td><sub><code>
+  NO_PROXY
+  </code></sub></td></tr>
 
   <tr>
-  <td>
-
-    SAUCE_ARES_FLAGS
-
-   </td>
+  <td><sub><code>
+  SAUCE_ARES_FLAGS
+  </code></sub></td>
 
    <td>
-   Advanced flags for the DNS library Sauce Connect use integer. For more information, see <a href="http://c-ares.haxx.se/ares_init.html">http://c-ares.haxx.se/ares_init.html</a>.
+   Advanced flags for the DNS library Sauce Connect use integer. For more information, see <a href="http://c-ares.haxx.se/ares_init.html">c-ares</a>, a C library.
    </td>
 
    <td>Windows, Linux, Mac OS X</td>
