@@ -1,7 +1,7 @@
 ---
 id: integrations
-title: Testrunner CI Integrations
-sidebar_label: Integrations
+title: Testrunner Toolkit CI Integrations
+sidebar_label: CI Integrations
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
