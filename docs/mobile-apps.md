@@ -1,10 +1,10 @@
 ---
 id: mobile-apps
-title: Mobile Application Testing Home Page
-sidebar_label: Introduction
+title: Mobile App Testing
+sidebar_label: Getting Started
 ---
 
-Test your iOS and Android native mobile apps and hybrid apps on our cutting edge emulators, simulators, and real devices in the Sauce Labs Cloud.
+Test your iOS and Android native mobile apps and hybrid apps on emulators, simulators, and real devices in the Sauce Labs Cloud.
 
 <div class="box-wrapper" markdown="1">
 <div class="box box1 card">
@@ -14,7 +14,7 @@ Test your iOS and Android native mobile apps and hybrid apps on our cutting edge
   <ul>
       <li><a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=92677311">Real Devices vs. Virtual Devices</a></li>
       <li><a href="https://wiki.saucelabs.com/display/DOCSDEV/Getting+Started+with+Appium+for+Mobile+Application+Testing">Appium Framework</a></li>
-      <li><a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=80414309">Espresso and XCUITest Frameworks</a></li>
+      <li><a href="/mobile-apps/automated-testing/espresso-xcuitest">Espresso and XCUITest Frameworks</a></li>
   </ul>
   </div>
 </div>
