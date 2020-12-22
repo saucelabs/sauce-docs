@@ -1,6 +1,6 @@
 ---
 id: transitions
-title: Measure Page Transitions with Scripts
+title: Measuring Page Transitions with Scripts
 sidebar_label: Page Transitions
 description: Use Sauce Performance in an automation scripts to test page load performance during typical interaction with your app.
 ---
@@ -27,7 +27,7 @@ Capturing page load performance for a specific URL is a great start to detect op
 * SAUCE_USERNAME and SAUCE_ACCESS_KEY defined for your environment
 * An automation script that performs the interaction with your app during which you want to measure performance
 
-## Set Performance Capabilities
+## Setting Performance Capabilities
 
 Before you configure your script to capture performance metrics as it executes, you must update your capabilities configuration file to enable performance actions. To do this, set the `extendedDebugging` and `capturePerformance` sauce:options attributes to `True`. The following excerpts show you the Webdriver.io `sauce:options` code samples for a variety of supported languages.
 
@@ -92,7 +92,7 @@ options = {browser_name: browser_name,
 </TabItem>
 </Tabs>
 
-## Implement the Performance Command Assertion
+## Implementing the Performance Command Assertion
 
 The custom `sauce:performance` command measures the performance output against a baseline of previously accepted performance values. If no baseline has been set, the Performance test will create one by measuring performance output 10 times to get an aggregate baseline. The command returns `pass` when the current results are within the baseline allowances or `fail` when the results fall outside the baseline. A fail result gives you the option to handle [regressions](#handle-regressions).
 
@@ -204,7 +204,7 @@ describe('Sauce Labs Front-End Performance', () => {
 </TabItem>
 </Tabs>
 
-## Define a Performance Budget
+## Defining a Performance Budget
 
 Rather than letting a baseline determine the acceptable metric values for your pages, you can define your own metric value limits for individual pages in your app and then assert against those values to ensure your performance results are always within the range that your deem optimal.
 
@@ -242,7 +242,7 @@ for (const [url, budget] of Object.entries(budgets)) {
 }
 ```
 
-## Handle Regressions
+## Handling Regressions
 
 When one or more metric evaluations fail because the result falls outside the established baseline, it is considered a regression and the tester has an option to either troubleshoot and resolve the source of the regression to get the test back into the baseline range or [update the baseline](/performance/analyze#reset-baselines-for-a-failed-test) with the new performance values. If new baselines are accepted, the command will measure performance against those new values until another regression is detected, when you will again have the option to troubleshoot or update the baselines.
 
@@ -289,7 +289,7 @@ The following response is returned when the Page Load metric is above the expect
 }
 ```
 
-## Log Performance Results
+## Logging Performance Results
 
 If you would rather send your performance results to a log instead of asserting on them in your test, configure the `sauce:performance` command to export to a log file, as shown in the following code samples:
 
