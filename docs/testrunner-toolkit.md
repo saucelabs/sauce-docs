@@ -64,7 +64,7 @@ Each docker image tag is the 'latest' image that supports the specific framework
 
 | Puppeteer Version | Supported Browsers                | Docker Image Tag                         |
 |---------|-----------------------------------|------------------------------------------|
-| 3.0.4   | <ul><li>Chrome 81.0.4044.138</li> <li>Firefox 74.0</li></ul> | [saucelabs/stt-puppeteer-jest-node:v0.2.2](https://hub.docker.com/layers/saucelabs/stt-puppeteer-jest-node/v0.2.2/images/sha256-ed9eed4ec107666858e4644d9b44ebab144cf5b68f0cae155edd22be3b146cb2?context=explore) |
+| 3.0.4   | <ul><li>Chrome 81.0.4044.138</li></ul> | [saucelabs/stt-puppeteer-jest-node:v0.2.2](https://hub.docker.com/layers/saucelabs/stt-puppeteer-jest-node/v0.2.2/images/sha256-ed9eed4ec107666858e4644d9b44ebab144cf5b68f0cae155edd22be3b146cb2?context=explore) |
 
 </TabItem>
 <TabItem value="playwright">
