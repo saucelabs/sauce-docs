@@ -1,6 +1,6 @@
 ---
 id: one-page
-title: Collect Single URL Performance Statistics
+title: Collecting Single URL Performance Statistics
 sidebar_label: Single Page Statistics
 description: Use Sauce's custom Speedo command line to establish a performance baseline for a particular URL or to analyze performance of a previously run test.
 ---
@@ -25,7 +25,7 @@ The Speedo Node JS package is a tool that allows you to enter a simple command f
 * Node.js v8 or later (for NPM installations)
 * SAUCE_USERNAME and SAUCE_ACCESS_KEY defined for your environment
 
-## Install Speedo
+## Installing Speedo
 
 You can install the Speedo package for Sauce using NPM or Docker.
 
@@ -130,7 +130,7 @@ The following screenshot shows an example of the returned output for the analysi
 
 <img src="/docs/assets/speedo-analyze-output.png" alt="Analyze Command Output" width="750"/>
 
-## Integrate with a CI/CD Pipeline
+## Integrating with a CI/CD Pipeline
 
 The Speedo package is designed to organically fit into your existing continuous integration and delivery pipeline, as illustrated in the following examples.
 
