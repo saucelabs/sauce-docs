@@ -1,13 +1,13 @@
 ---
 id: analyze
-title: Analyze Performance Results
+title: Analyzing Performance Results
 sidebar_label: Results Analysis
 description: Drill into the results of your performance testing in the Sauce Labs dashboard to isolate and identify sources of performance degradation.
 ---
 
 Every time you run a performance test, whether it is through the Speedo command line or an automation script testing page load or motion effects, the results of the test are compiled and displayed in your Sauce Labs app, and available to all members of your team for analysis and debugging.
 
-## View Performance Results in the Sauce Labs App
+## Viewing Performance Results in the Sauce Labs App
 
 From your Sauce Labs **Test Results** page, chose one of your completed Performance tests for an overview of its results.
 
@@ -22,13 +22,13 @@ From here, you can drill into a variety of specific details about the test:
     * The **Metadata** tab shows you the basic identity of the test, such as the Job ID, Name, and Build, which you may need to use if you are using this data in API calls or other testing.
 * At the bottom  of the interface, click the **Performance** tab for a score overview and access to the **Performance Report**.
 
-## Reset Baselines for a Failed Test
+## Resetting Baselines for a Failed Test
 
 When you expand the Performance tab, if any of the metrics in your test fall  outside the  established baseline, this is where you have the option to reset the baseline if you wish.
 
 <img  src="/docs/assets/perf-reset-base.png"  alt="Reset  Baseline"  width="750"/>
 
-## Open the Performance Report
+## Opening the Performance Report
 
 The full Performance Report gives you more detail about the results of your test and its statistics tracked over time.
 
@@ -63,7 +63,7 @@ The score is a weighted average between:
 
 See [Metric Values](/performance/one-page.md#metric-values) for definitions of each metric.
 
-## View Trace Report
+## Viewing the Trace Report
 
 Another useful tool that is accessible from the Performance Report is the Trace Report. Click the **View Trace** button in the top right of the Performance Report screen to open the Chrome DevTools webpage showing the Javascript method signatures in a hierarchical view for each thread in each process.
 
