@@ -23,6 +23,11 @@
     /*--ifm-*/
 }
 
+.hero--primary {
+    --ifm-hero-background-color: var(--ifm-color-primary-darkest);
+    --ifm-hero-text-color: var(--ifm-font-color-base-inverse);
+}
+
 .navbar {
     --ifm-navbar-background-color: #f8f8f8;
 }
@@ -96,7 +101,7 @@ h3, .h3 {
 .footer {
     font-family: museo-sans, sans-serif;
     padding-bottom: 40px;
-    --ifm-footer-background-color: #E2231A;
+    --ifm-footer-background-color: #ac1413;
 }
 
 .footer__logo {
