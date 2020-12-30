@@ -19,7 +19,7 @@ Learn more about how to use Insights to help you get the most out of your test r
   <div class="box box2 card">
     <div class="container">
     <h2><a href="/insights/history">Evaluate a Test Over Time</a></h2>
-    <p>Look at a test's result history to pinpoint when failures were introduced on in what configurations.</p>
+    <p>Look at a test's result history to pinpoint when failures were introduced and in what configurations.</p>
     </div>
   </div>
   <div class="box box3 card">
