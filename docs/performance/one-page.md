@@ -4,7 +4,6 @@ title: Collecting Single URL Performance Statistics
 sidebar_label: Single Page Statistics
 description: Use Sauce's custom Speedo command line to establish a performance baseline for a particular URL or to analyze performance of a previously run test.
 ---
-
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -99,7 +98,7 @@ $ speedo run <URL> -u Slavocado -k XXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX // if S
 
 The output returned for a passing test may look as follows:
 
-<img src="/docs/assets/speedo-run-output.png" alt="Run Command Output" width="750"/>
+<img src={useBaseUrl('img/performance/speedo-run-output.png')} alt="Run Command Output" width="750"/>
 
 ### Analyze Command: Review Existing Tests
 
@@ -128,7 +127,7 @@ $ speedo analyze "Instagram Login Test" -u "Slavocado" -k "XXXXXXXXX-XXXX-XXXX-X
 
 The following screenshot shows an example of the returned output for the analysis of the automation test.
 
-<img src="/docs/assets/speedo-analyze-output.png" alt="Analyze Command Output" width="750"/>
+<img src={useBaseUrl('speedo-analyze-output.png')} alt="Analyze Command Output" width="750"/>
 
 ## Integrating with a CI/CD Pipeline
 
