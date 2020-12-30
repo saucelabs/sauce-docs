@@ -200,7 +200,6 @@ describe('Sauce Labs Front-End Performance', () => {
   });
 });
 ```
-
 </TabItem>
 </Tabs>
 
@@ -224,7 +223,9 @@ First, create a separate file in which you define your target metric limits, as 
 ```
 Then, import your budget file in your test script and assert your performance call against the values in your budget, as shown in the following sample.
 
+<!--
 > <font color="pink">**Nancy:** Would be great if we could get at least a Python code sample, for consistency.</font>
+-->
 
 ```js {1,9,19,11}
 const budgets = require('./budget.json')
