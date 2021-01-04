@@ -16,6 +16,7 @@ If you are an organization admin, you can create and delete teams and assign con
 
 <img src="/static/img/team-mgmt/add-new-team-nav.jpg" alt="Add new team"/>
 
+
 3. In the **Create new team** box, enter a team name and description.
 
 <img src="/static/img/team-mgmt/create-new-team.jpg" alt="Create new team"/>

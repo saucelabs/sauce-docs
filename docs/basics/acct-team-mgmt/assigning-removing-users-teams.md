@@ -11,6 +11,7 @@ If you are an organization admin, you can assign users to and remove users from 
 
 <img src="/static/img/team-mgmt/team-mgmt-nav.jpg" alt="Team management navigation"/>
 
+
 2. On the **Users** tab, select the checkbox of the user(s) you want to assign or remove.
 3. Next to **Users Selected**, in the **Action** dropdown, click **Team Assignment**.
 

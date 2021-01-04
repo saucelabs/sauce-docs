@@ -4,6 +4,13 @@ title: Overview of Sauce Labs Secure Connection Options
 sidebar_label: Getting Started
 ---
 
+export const Highlight = ({children, color}) => ( <span style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>{children}</span> );
+
 We offer two options to provide an extra layer of security to protect test data in flight between the Sauce Labs cloud and your app or site under test on your network. Both of these solutions, Sauce Connect (SSL Proxy) solution and IPSec VPN, support secure connectivity using TLS 1.2 or above. To determine which solution is best for you, see [Overview of Sauce Labs Security Processes](https://saucelabs.com/resources/white-papers/overview-of-sauce-labs-security-processes).
 
 ## Sauce Connect Proxy™
@@ -51,7 +58,7 @@ For more information about Sauce Labs architecture, security requirements/protoc
 
 ## IPSec VPN
 
-<p><button class="badge-blue">ENTERPRISE PLANS ONLY</button></p>
+<p> <Highlight color="#013a70">ENTERPRISE PLANS ONLY</Highlight> </p>
 
 Our IPSec VPN solution establishes a VPN connection between two IPSec gateways, and a tunnel gateway that allows only your authorized test VMs to connect. Contact your Sauce Labs Sales Engineer or Customer Success Manager for more information.
 
@@ -62,16 +69,18 @@ Our IPSec VPN solution establishes a VPN connection between two IPSec gateways, 
     <p>The tunnel gateway is always on for the lifetime of the secure IPSec VPN connection, allowing you to run secure and encrypted tests anytime in the Sauce Labs cloud.</p>
     </div>
   </div>
+  
   <div class="box box2 card">
     <div class="container">
     <h3><a href="https://wiki.saucelabs.com/display/DOCS/IPSec+VPN+Network+Requirements">IPSec VPN Network Requirements</a></h3>
     <p>Our minimum bandwidth requirements differ, depending on the number of tests you’re running.</p>
     </div>
   </div>
-  <div class="box box3 card">
+  </div>
+  
+  <div class="box boxwidebottom card">
     <div class="container">
     <h3><a href="https://wiki.saucelabs.com/display/DOCS/Sharing+IPSec+VPN+Tunnels">Sharing IPSec VPN Tunnels</a></h3>
     <p>IPSec tunnel permission settings allow you to share with your entire organization or restrict access to admins only.</p>
     </div>
   </div>
-</div>

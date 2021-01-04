@@ -1,10 +1,9 @@
 ---
 id: one-page
-title: Collect Single URL Performance Statistics
+title: Collecting Single URL Performance Statistics
 sidebar_label: Single Page Statistics
 description: Use Sauce's custom Speedo command line to establish a performance baseline for a particular URL or to analyze performance of a previously run test.
 ---
-
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -25,7 +24,7 @@ The Speedo Node JS package is a tool that allows you to enter a simple command f
 * Node.js v8 or later (for NPM installations)
 * SAUCE_USERNAME and SAUCE_ACCESS_KEY defined for your environment
 
-## Install Speedo
+## Installing Speedo
 
 You can install the Speedo package for Sauce using NPM or Docker.
 
@@ -99,7 +98,7 @@ $ speedo run <URL> -u Slavocado -k XXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX // if S
 
 The output returned for a passing test may look as follows:
 
-<img src="/docs/assets/speedo-run-output.png" alt="Run Command Output" width="750"/>
+<img src={useBaseUrl('img/performance/speedo-run-output.png')} alt="Run Command Output" width="750"/>
 
 ### Analyze Command: Review Existing Tests
 
@@ -128,9 +127,9 @@ $ speedo analyze "Instagram Login Test" -u "Slavocado" -k "XXXXXXXXX-XXXX-XXXX-X
 
 The following screenshot shows an example of the returned output for the analysis of the automation test.
 
-<img src="/docs/assets/speedo-analyze-output.png" alt="Analyze Command Output" width="750"/>
+<img src={useBaseUrl('speedo-analyze-output.png')} alt="Analyze Command Output" width="750"/>
 
-## Integrate with a CI/CD Pipeline
+## Integrating with a CI/CD Pipeline
 
 The Speedo package is designed to organically fit into your existing continuous integration and delivery pipeline, as illustrated in the following examples.
 
