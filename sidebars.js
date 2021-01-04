@@ -1,29 +1,103 @@
 module.exports = {
   someSidebar: {
     "Home": [
-      'overview',
-      {
-        type: 'category',
-        label: 'Sauce Labs Basics',
-        collapsed: true,
-        items: [
-          'sauce-basics',
-        ],
-      },
-    ],
-    "Secure Connections": [
-       'secure-connections',
-       'secure-connections/ipsec-vpn',
-       {
-          type: 'category',
-          label: 'Sauce Connect Proxy',
-          collapsed: true,
-          items: [
-            'secure-connections/sauce-connect',
-            'secure-connections/sauce-connect/environment-variables',
+     'overview',
+     {
+       type: 'category',
+       label: 'Sauce Labs Basics',
+       collapsed: true,
+       items: [
+         'sauce-basics',
+         {
+           type: 'category',
+           label: 'Account and Team Management',
+           collapsed: true,
+           items: [
+             'basics/acct-team-mgmt-hub',
+             'basics/acct-team-mgmt/org-settings',
+
+               {
+                 type: 'category',
+                 label: 'Managing Users and Accounts',
+                 collapsed: true,
+                 items: [
+                   'basics/acct-team-mgmt/concurrency-limits',
+                   'basics/acct-team-mgmt/adding-deactivating-users',
+                   'basics/acct-team-mgmt/managing-user-info',
+                   'basics/acct-team-mgmt/viewing-exporting-usage-data',
+                 ],
+               },
+               {
+                 type: 'category',
+                 label: 'Managing Teams',
+                 collapsed: true,
+                 items: [
+                   'basics/acct-team-mgmt/adding-deleting-teams',
+                   'basics/acct-team-mgmt/assigning-removing-users-teams',
+                   'basics/acct-team-mgmt/sauce-connect-proxy-tunnels',
+                ],
+              },
+              {
+                type: 'category',
+                label: 'Billing and Subscriptions',
+                collapsed: true,
+                items: [
+                  'basics/acct-team-mgmt/managing-subscription',
+                  'basics/acct-team-mgmt/updating-billing',
+                  'basics/acct-team-mgmt/plan-details',
+                ],
+              },
             ],
           },
-        ],
+
+       {
+         type: 'category',
+         label: 'Single Sign-On',
+         collapsed: true,
+         items: [
+           'basics/sso-hub',
+           'basics/sso/setting-up-single-sign-on',
+           'basics/sso/config-adfs',
+           'basics/sso/config-okta',
+
+         ],
+       },
+       {
+         type: 'category',
+         label: 'Best Practices',
+         collapsed: true,
+         items: [
+           'basics/best-practices-hub',
+           'basics/best-practices/avoiding-dependencies-parallel-tests',
+           'basics/best-practices/using-attributes-tests',
+           'basics/best-practices/using-explicit-waits',
+           'basics/best-practices/small-atomic-autonomous',
+           'basics/best-practices/using-environment-variables',
+           'basics/best-practices/protecting-test-log-credentials',
+           'basics/best-practices/imperative-declarative-testing',
+           'basics/best-practices/using-maven-manage-dependencies',
+           'basics/best-practices/running-speedy-tests',
+           'basics/best-practices/handling-authentication',
+           'basics/best-practices/downloading-files-vm-before-testing',
+           'basics/best-practices/test-config-annotation',
+         ],
+       },
+     ],
+  },
+],
+          "Secure Connections": [
+             'secure-connections',
+             'secure-connections/ipsec-vpn',
+             {
+                type: 'category',
+                label: 'Sauce Connect Proxy',
+                collapsed: true,
+                items: [
+                  'secure-connections/sauce-connect',
+                  'secure-connections/sauce-connect/environment-variables',
+                  ],
+                },
+              ],
    "Mobile Apps": [
         'mobile-apps',
         {
