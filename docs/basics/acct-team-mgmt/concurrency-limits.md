@@ -11,7 +11,7 @@ Only organization admins can set the total concurrency of their organization's S
 
 In the diagram below, OrgX has a total concurrency of 100 VMs, and the org admin allocates 20 VMs to their Apps Team, which has five members. This means that each member can run 20 VMs at the same time and max out the organization's 100 VM limit. To avoid this scenario, set the concurrency limit for each Apps Team member to 4, so that if all members run tests at the same time, they'd be consuming 20 VMs.
 
-Concurrency Allocation Diagram.png
+<img src="/static/img/team-mgmt/concurrency-allocation-diagram.jpg" alt="Concurrency allocation diagram"/>
 
 ## Queuing Tests
 Once you've used all of your concurrency slots, additional tests will not start until an existing test finishes. As tests complete, queued tests are allocated to concurrency slots in the order they were queued, however, we do not recommend queuing tests intentionally. Tests will time out with an error if they are queued for too long and/or if too many tests are already queued.
