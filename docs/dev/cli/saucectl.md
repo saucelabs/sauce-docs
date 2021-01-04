@@ -4,7 +4,7 @@ title: Sauce CTL
 sidebar_label: Sauce CTL
 ---
 
-This page provides information for `saucectl`, the command line interface of the Sauce Labs [Testrunner Toolkit](dev/testrunner-toolkit.md).
+This page provides information for `saucectl`, the command line interface of the Sauce Labs [Testrunner Toolkit](testrunner-toolkit.md).
 
 ## Development Requirements
  * [Git](https://git-scm.com/downloads)
@@ -134,7 +134,7 @@ Using the --region flag will set the Sauce Labs region for the test execution. T
 saucectl run --timeout <seconds>
 ```
 
-Using the `--timeout` flag will set the test timeout for the [Testrunner framework](dev/testrunner-toolkit/running-tests.md#automation-framework-examples).
+Using the `--timeout` flag will set the test timeout for the [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
 
 ## Licensing
 

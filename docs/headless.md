@@ -1,7 +1,7 @@
 ---
 id: headless
 title: Sauce Headless Testing in the Cross-Browser Cloud
-sidebar_label: Headless Testing
+sidebar_label: Getting Started
 ---
 
 import Tabs from '@theme/Tabs';
@@ -18,11 +18,11 @@ There are a few key differences between setting up Sauce Headless tests versus s
 
 The [latest version](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863) of Sauce Connect Proxy, if you're using it to run Headless tests.
 
-## Setting Up Headless Testing on Sauce Labs
+## Setup and Configuration
 
 Sauce Headless provides headless Chrome and Firefox in the three most recent versions and the most recent version of Linux. 
 
-### WebDriver Capabilities for Headless Testing
+### WebDriver Capabilities
 You'll need to set desired capabilities in your test that are specific to headless testing, as shown in this example:
 
 ```
@@ -174,7 +174,7 @@ Additional resources: [Sauce Labs Node.js Demonstration Scripts](https://wiki.sa
 </TabItem>
 </Tabs>
 
-## Data Center Endpoints for Sauce Headless
+## Headless Data Center Endpoints
 The containers used for Sauce Headless testing are hosted in the Sauce Labs East Coast data center, which is entirely separate from our data centers in the West Coast and in the EU. You'll need to connect to the [US-East Data Center](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) to access the web UI, Selenium endpoint, and Sauce Connect Proxy endpoint for headless testing.
 
 The US-East IP addresses should be reachable from your network. If there's an issue, see the Whitelisting for Restricted Networks section of [System and Network Requirements for Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365793).
@@ -194,7 +194,7 @@ Information about your Headless testing jobs is accessible by logging into the h
 
 If you want to use a Sauce Connect Proxy tunnel for your Sauce Headless tests, you'll need to start it from here in the UI.
 
-## Sauce Connect Proxy for Headless Testing
+## Headless Testing with Sauce Connect Proxy
 If you're testing website that's on your local machine or behind a corporate firewall, we recommend using [Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365718).
 
 To use Sauce Connect Proxy in conjunction with your Sauce Headless tests, be sure you have the [latest version](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863) on your machine. You'll need to start a new, separate tunnel from the one used for the Virtual and Real Device Cloud, by connecting to the [Sauce Headless-specific endpoint](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068).
