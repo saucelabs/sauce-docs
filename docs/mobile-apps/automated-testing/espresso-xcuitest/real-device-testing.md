@@ -46,7 +46,7 @@ Here's how to configure Sauce Runner for Real Devices with Espresso and XCUITest
 
 2. Choose one of the following ways to set your test parameters:
 
-  * **Add command line options**: see [Sauce Runner for Real Devices command line options](dev/cli/espresso-xcuitest-cli.md)
+  * **Add command line options**: see [Sauce Runner for Real Devices command line options](dev/cli/espresso-xcuitest.md)
   * **Create a YAML configuration file**: see [Example Configurations](mobile-apps/automated-testing/espresso-xcuitest/example-configurations.md)
 
 
