@@ -23,6 +23,11 @@
     /*--ifm-*/
 }
 
+.hero--primary {
+    --ifm-hero-background-color: var(--ifm-color-primary-darkest);
+    --ifm-hero-text-color: var(--ifm-font-color-base-inverse);
+}
+
 .navbar {
     --ifm-navbar-background-color: #f8f8f8;
 }
@@ -96,7 +101,7 @@ h3, .h3 {
 .footer {
     font-family: museo-sans, sans-serif;
     padding-bottom: 40px;
-    --ifm-footer-background-color: #E2231A;
+    --ifm-footer-background-color: #ac1413;
 }
 
 .footer__logo {
@@ -189,7 +194,7 @@ h3, .h3 {
   background:#003A70;
   color:white;
   font-weight:750;
-  width:135px;height:25px;
+  height:25px;
   text-align:center;
   line-height:15px;
   border-radius:10%;
@@ -201,7 +206,7 @@ h3, .h3 {
   background:#f58505;
   color:white;
   font-weight:750;
-  width:135px;height:25px;
+  height:25px;
   text-align:center;
   line-height:15px;
   border-radius:10%;
@@ -213,7 +218,7 @@ h3, .h3 {
   background:#e2231a;
   color:white;
   font-weight:750;
-  width:135px;height:25px;
+  height:25px;
   text-align:center;
   line-height:15px;
   border-radius:10%;
@@ -225,7 +230,7 @@ h3, .h3 {
   background:#086e0e;
   color:white;
   font-weight:750;
-  width:135px;height:25px;
+  height:25px;
   text-align:center;
   line-height:15px;
   border-radius:10%;

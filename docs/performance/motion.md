@@ -1,6 +1,6 @@
 ---
 id: motion
-title: Measure On-Page Motion Effects
+title: Measuring On-Page Motion Effects
 sidebar_label: Page Motion
 description: Measure aesthetic smoothness as a page is in motion due to scrolling or tabbing between fields.
 ---
@@ -28,7 +28,7 @@ According to jankfree.org:
 
 View an [example of jankiness](https://googlechrome.github.io/devtools-samples/jank/).
 
-## Implement the Jankiness Custom Command
+## Implementing the Jankiness Custom Command
 
 Since Jankiness occurs during interaction with a page (such as scrolling) rather than just at page load, Sauce Labs created a framework-agnostic custom command that executes a set of automation actions:
 
