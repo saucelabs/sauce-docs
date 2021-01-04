@@ -23,6 +23,7 @@ When you add a user manually, you assign the user a user name and password. To a
 
 <img src="/static/img/team-mgmt/add-new-user-manual.jpg" alt="Add new user - manually"/>
 
+
 4. In the **Add to Team** dropdown, select the team for the user. If you don't select a team, the user will be added to the default team.  
 5. In the **Org Role** dropdown, select an organizational role for the user. The options are Org. Admin, Team Member, and Member. For more information about the permissions associated with each role, see [User Roles](https://sauce-docs.com/basics/account-team-management/managing-user-info).
 6. Click **Add User**.
