@@ -17,8 +17,6 @@ When you add a user manually, you assign the user a user name and password. To a
 
 2. On the **Users** tab, click the blue plus sign.
 
-<img src="/static/img/team-mgmt/add-new-user-nav.jpg" alt="Add new user - manually"/>
-
 3. On the **Manual Entry** tab, enter an email address, user name, password, and optional first and last name for the new user.
 
 <img src="/static/img/team-mgmt/add-new-user-manual.jpg" alt="Add new user - manually"/>

@@ -4,7 +4,6 @@ title: Viewing and Exporting Usage Data
 sidebar_label: Viewing and Exporting Usage Data
 ---
 <p><button class="badge-blue">ENTERPRISE PLANS ONLY</button></p>
-
 If you're the owner of the overall Sauce Labs account, you can view usage information for all accounts on the **Organization Management** page. If you're an individual user, you can view your usage information on the **My Account** page.
 
 ## Usage Data - Users
