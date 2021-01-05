@@ -4,12 +4,13 @@ title: Managing User Information
 sidebar_label: Managing User Information
 ---
 <p><button class="badge-blue">ENTERPRISE PLANS ONLY</button></p>
+
 ## Updating User Information
 Organization admins can update the name, email address, user name, role, and team assignment for any user in their organization. Team admins can update that information for users on their team. If you invite a user via email, you will need to edit their concurrency limit and other account details after they have accepted your invitation and created an account.
 
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 
-<img src="/static/img/team-mgmt/team-mgmt-nav.jpg" alt="Team management navigation"/>
+<img src="/static/img/team-mgmt/team-mgmt-nav.jpg" alt="Team management navigation" width="400"/>
 
 2. On the **Users** tab, click the user name of the user whose information you want to edit.
 
@@ -40,19 +41,11 @@ Sauce Labs offers several options for filtering your list of users. To apply one
 | ------------- | ------------- |
 | Team name  | Filters by team  |
 
-### Role Filters
-
-| Filter  | Description | Org Admin Options |
-| ------------- | ------------- | ------------- |
-| Organization Admin  |   |   |
-| Member  |   |   |
-| Team Admin  |   |   |
-
 ## Changing a User's Role
 
 **NOTE:** Only an organization admin can change a user’s role.
 
-You can change a user’s role on the **Organization Management** page and also on the user details page.
+You can change a user’s role on the **Organization Management** page and also on the **User Details** page.
 
 ### Changing a User’s Role - Organization Management
 1. In Sauce Labs, click **Account** and then click **Team Management**.

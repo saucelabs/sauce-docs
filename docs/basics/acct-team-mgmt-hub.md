@@ -11,10 +11,10 @@ The Account area in Sauce Labs provides several options for you to configure you
   <h2>Settings and Accounts</h2>
   <p>Sauce Labs offers a number of features to set up additional team members who can share your account.</p>
   <ul>
-      <li><a href="https://wiki.saucelabs.com/display/DOCS/Managing+User+Info+and+Accounts">Managing Users and Accounts
+      <li><a href="/basics/acct-team-mgmt/managing-user-info">Managing Users and Accounts
 </a></li>
-      <li><a href="/acct-team-mgmt/adding-deleting-teams">Managing Teams</a></li>
-      <li><a href="https://wiki.saucelabs.com/display/DOCS/User+Account+Types">User Roles</a></li>
+      <li><a href="/basics/acct-team-mgmt/adding-deleting-teams">Adding and Deleting Teams</a></li>
+      <li><a href="/basics/acct-team-mgmt/assigning-removing-users-teams">Assigning and Removing Users from Teams</a></li>
   </ul>
   </div>
 </div>
@@ -24,9 +24,9 @@ The Account area in Sauce Labs provides several options for you to configure you
   <p>Sauce Labs offers several options for managing your billing and subscription information.
 </p>
   <ul>
-      <li><a href="https://wiki.saucelabs.com/display/DOCS/Viewing+Plan+Details">Viewing Plan Details</a></li>
-      <li><a href="https://wiki.saucelabs.com/display/DOCS/Updating+Your+Plan+Billing+Information">Updating Your Billing Information</a></li>
-      <li><a href="https://wiki.saucelabs.com/display/DOCS/Upgrading+Your+Subscription+Plan">Upgrading Your Subscription</a></li>
+      <li><a href="/basics/acct-team-mgmt/plan-details">Viewing Plan Details</a></li>
+      <li><a href="/basics/acct-team-mgmt/updating-billing">Updating Your Billing Information</a></li>
+      <li><a href="/basics/acct-team-mgmt/managing-subscription">Managing Your Subscription</a></li>
   </ul>
   </div>
 </div>
