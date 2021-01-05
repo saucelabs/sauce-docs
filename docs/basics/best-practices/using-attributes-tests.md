@@ -3,6 +3,10 @@ id: using-attributes-tests
 title: Using Attributes to Identify Tests
 sidebar_label: Using Attributes to Identify Tests
 ---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 By assigning unique attributes (such as test name, tags, and build ID) in your test capabilities, you can then apply these annotations to filter results on your Sauce Labs Test Results and Archive pages. Although not required, following this best practice can make it easier to monitor tests and builds in your CI pipeline.
 
 You can set these capabilities to be any combination of letters and numbers. To differentiate between builds, it's also a good practice to add a timestamp or CI job/build number at the end of your build tag.
@@ -12,7 +16,19 @@ You can set these capabilities to be any combination of letters and numbers. To 
 **NOTE:** While it's technically possible to use the same build name for multiple test runs, this will cause all of your test results to appear incorrectly as part of a single run. This, in turn, will cause your test results for those builds to be inaccurate.
 
 ### Code Examples: Build, Tags, and Name
-#### Java
+
+<Tabs
+  defaultValue="java"
+  values={[
+    {label: 'Java', value: 'java'},
+    {label: 'C#', value: 'c#'},
+    {label: 'Node.js', value: 'nodejs'},
+    {label: 'Python', value: 'python'},
+    {label: 'Ruby', value: 'ruby'},
+  ]}>
+
+<TabItem value="java">
+
 ```js
 String username = System.getenv("SAUCE_USERNAME");
 String accessKey = System.getenv("SAUCE_ACCESS_KEY");
@@ -30,7 +46,10 @@ WebDriver driver = new RemoteWebDriver(
 new URL("https://ondemand.saucelabs.com/wd/hub"),
     firefoxOptions);
 ```
-#### C# #
+</TabItem>
+
+<TabItem value="c#">
+
 ```js
 string _sauceUsername = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
 string _sauceAccessKey = = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
@@ -52,7 +71,10 @@ firefoxOptions.AddAdditionalCapability("sauce:options", sauceOptions, true);
 IWebDriver driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
                 firefoxOptions.ToCapabilities(), TimeSpan.FromSeconds(600));
 ```
-#### Node.js
+</TabItem>
+
+<TabItem value="nodejs">
+
 ```js
 const username = process.env.SAUCE_USERNAME;
 const accessKey = process.env.SAUCE_ACCESS_KEY;
@@ -74,7 +96,9 @@ const driver = new webdriver.Builder()
           "@ondemand.saucelabs.com:443/wd/hub")
     .build();
 ```
-#### Python
+</TabItem>
+<TabItem value="python">
+
 ```js
 sauce_username = os.environ["SAUCE_USERNAME"]
 sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
@@ -91,7 +115,9 @@ browserOptions =  {
 }
 browser = webdriver.Remote(“https://ondemand.saucelabs.com/wd/hub”, desired_capabilities=browserOptions)
 ```
-#### Ruby
+</TabItem>
+<TabItem value="ruby">
+
 ```js
 caps = {
     browser_name: 'firefox',
@@ -109,3 +135,5 @@ driver = Selenium::WebDriver.for(:remote,
     url: 'https://ondemand.saucelabs.com:443/wd/hub',
     desired_capabilities: caps)
 ```
+</TabItem>
+</Tabs>

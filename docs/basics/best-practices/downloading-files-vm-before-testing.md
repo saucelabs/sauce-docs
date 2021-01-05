@@ -3,22 +3,48 @@ id: downloading-files-vm-before-testing
 title: Downloading Files to a Virtual Machine Before Testing
 sidebar_label: Downloading Files to a Virtual Machine Before Testing
 ---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 You can use a pre-run executable script to download files from a public location to the Sauce Labs virtual machine running your tests. This topic contains example scripts for downloading remote files on different operating systems, and details configuring the prerun capability in your tests.
 
-## OS X 10.6, 10.8, 10.9, 10.10
+<Tabs
+  defaultValue="macos"
+  values={[
+    {label: 'macOS', value: 'macos'},
+    {label: 'Windows 7, 8, 8.1', value: 'windows'},
+    {label: 'Windows XP', value: 'windowsxp'},
+    {label: 'Linux', value: 'linux'},
+  ]}>
+
+<TabItem value="macos">
+
+### OS X 10.6, 10.8, 10.9, 10.10
 This shell script will fetch the file at the URL and save it to **/tmp/file.txt**.
+
 ```js
 #!/bin/bash
 curl -o /tmp/file.txt http://mywebsite.com/file.txt
 ```
-## Windows 7, 8, 8.1
+</TabItem>
+
+<TabItem value="windows">
+
+### Windows 7, 8, 8.1
 This batch file accomplishes the same thing as the OS X curl method, but using **bitsadmin.exe** since Windows doesn't ship with curl.
+
 ```js
 @echo off
 bitsadmin.exe /transfer "JobName" http://mywebsite.com/file.txt C:\Users\Administrator\Desktop\file.txt
 ```
-## Windows XP
+</TabItem>
+
+<TabItem value="windowsxp">
+
+### Windows XP
 This batch file creates a VBScript file, **dl.vbs**, which will perform the download, and then runs it:
+
 ```js
 @echo off
 
@@ -44,12 +70,21 @@ echo Set objXMLHTTP = Nothing >> C:\dl.vbs
 
 cscript.exe C:\dl.vbs
 ```
-## Linux
+
+</TabItem>
+
+<TabItem value="linux">
+
+### Linux
 This shell script downloads **file.txt** at **mywebsite.com** to the **/tmp** directory.
+
 ```js
 #!/bin/bash
 wget -O /tmp/file.txt http://mywebsite.com/file.txt
 ```
+</TabItem>
+</Tabs>
+
 ## Set Prerun Capability
 After you've created the download script, use the prerun capability in your test script to point to its location.
 
