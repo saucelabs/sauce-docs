@@ -12,7 +12,7 @@ The general advice from the Selenium community on how to handle this is to use e
 
 The following code samples, from the [The Selenium Browser Automation Project](https://www.selenium.dev/documentation/en/webdriver/waits/), shows how you would use an explicit wait. In their words, the sample shows how you would use an explicit wait that "waits up to 10 seconds before throwing a TimeoutException, or, if it finds the element, will return it in 0 - 10 seconds. WebDriverWait by default calls the ExpectedCondition every 500 milliseconds until it returns successfully. A successful return for ExpectedCondition type is Boolean return true, or a not null return value for all other ExpectedCondition types."
 
- ## Python Example of an Explicit Wait from SeleniumHQ.org
+ ### Python Example of an Explicit Wait from SeleniumHQ.org
 ```js
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -27,7 +27,7 @@ finally:
     ff.quit() "
 ```
 
-## Java Example of an Explicit Wait from SeleniumHQ.org
+### Java Example of an Explicit Wait from SeleniumHQ.org
 ```js
 WebDriver driver = new FirefoxDriver();
 driver.get("http://somedomain/url_that_delays_loading");
@@ -35,7 +35,7 @@ WebElement myDynamicElement = (new WebDriverWait(driver, 10))
   .until(ExpectedConditions.presenceOfElementLocated(By.id("myDynamicElement")));
   ```
 
-  ## C# Example of an Explicit Wait from SeleniumHQ.org
+  ### C# Example of an Explicit Wait from SeleniumHQ.org
   ```js
   IWebDriver driver = new FirefoxDriver();
 driver.Url = "http://somedomain/url_that_delays_loading";
@@ -46,7 +46,7 @@ IWebElement myDynamicElement = wait.Until<IWebElement>((d) =>
     });
 ```
 
-## Ruby Example of an Explicit Wait from SeleniumHQ.org
+### Ruby Example of an Explicit Wait from SeleniumHQ.org
 ```js
 require 'selenium-webdriver'
 

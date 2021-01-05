@@ -10,7 +10,7 @@ Declarative testing or programming is only specifying (or declaring) what needs 
 This is seen acutely in BDD circles because the goal of BDD is to get all of the interested parties (Project, Dev, Test, Business, etc.) to collaborate on the requirements of a feature before anyone begins working on the implementation. Many testers have latched on to BDD tools as glorified test runners rather than a way to actually facilitate BDD practices. This results in features that include actual code and data structures. Less problematic, but still usually missing the point, is a heavy reliance on imperative scenarios. For example:
 
 1. Given I open a browser
-2. And I navigate to http://example.com/login
+2. And I navigate to http://<span></span>example.com/login
 3. When I type in the username field bob97
 4. And I type in the password field F1d0
 5. And I click the Submit button

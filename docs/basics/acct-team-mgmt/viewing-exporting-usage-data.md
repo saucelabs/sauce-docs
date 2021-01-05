@@ -4,6 +4,7 @@ title: Viewing and Exporting Usage Data
 sidebar_label: Viewing and Exporting Usage Data
 ---
 <p><button class="badge-blue">ENTERPRISE PLANS ONLY</button></p>
+
 If you're the owner of the overall Sauce Labs account, you can view usage information for all accounts on the **Organization Management** page. If you're an individual user, you can view your usage information on the **My Account** page.
 
 ## Usage Data - Users
@@ -25,11 +26,11 @@ The **Users** tab on the **Organization Management** page provides the following
 
 <img src="/static/img/team-mgmt/usage-data-users-tab.jpg" alt="Usage data - Users tab"/>
 
-Click a username in the list to view the following information on the **User Details** page:
+Click a user name in the list to view the following information on the **User Details** page:
 <table>
   <tr>
     <td><strong>Peak VM Concurrency</strong></td>
-    <td>The highest number of concurrent tests run during a single session on a virtual machine, including Web browser, emulator, and simulator tests, in the previous 28 days.</td>
+    <td>The highest number of concurrent tests run during a single session on a virtual machine, including web browser, emulator, and simulator tests, in the previous 28 days.</td>
   </tr>
   <tr>
     <td><strong>VM Tests by Day</strong>
@@ -51,7 +52,7 @@ The **Teams** tab on the **Organization Management** page provides the following
   <tr>
     <td><strong>Peak VM Concurrency</strong>
     </td>
-    <td>The highest number of concurrent tests run during a single session on a virtual machine, including Web browser, emulator, and simulator tests, in the previous 28 days.
+    <td>The highest number of concurrent tests run during a single session on a virtual machine, including web browser, emulator, and simulator tests, in the previous 28 days.
     </td>
   </tr>
   <tr>
@@ -68,7 +69,7 @@ Click a team name in the list to view the following information on the **Team De
 <table>
   <tr>
     <td><strong>Peak VM Concurrency</strong></td>
-    <td>The highest number of concurrent tests run during a single session on a virtual machine, including Web browser, emulator, and simulator tests, in the previous 28 days.</td>
+    <td>The highest number of concurrent tests run during a single session on a virtual machine, including web browser, emulator, and simulator tests, in the previous 28 days.</td>
   </tr>
   <tr>
     <td><strong>VM Tests by Day</strong>
@@ -89,7 +90,7 @@ You can export a .csv file that contains the usage information for selected acco
 
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 
-<img src="/static/img/team-mgmt/team-mgmt-nav.jpg" alt="Team management navigation"/>
+<img src="/static/img/team-mgmt/team-mgmt-nav.jpg" alt="Team management navigation" width="500"/>
 
 2. On the **User** tab, select the checkboxes of the users whose usage information you want to export.
 3. Next to **Users Selected**, click the download button.

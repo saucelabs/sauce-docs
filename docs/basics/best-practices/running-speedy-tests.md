@@ -20,19 +20,17 @@ It's a reality that tests run on Sauce Labs will always have some latency, compa
 If you are using Sauce Connect, reduce the unnecessary traffic that goes through the Sauce Connect tunnel; this will help the test run faster. Here are some suggested methods:
 
 1. In your test, determine the URLs that are publicly available over the internet and list their domains with the **-D, --direct-domains** flag when you start the Sauce Connect tunnel. The  **-D, --direct-domains** flag takes a comma-separated list of domains which will be relayed directly through the internet, instead of through the tunnel.
-
-
 2. Determine those resources in your application that are not necessary for your test verifications (for example, images or advertisements). List the domains for these resources using the **-F, --fast-fail-regexps** flag when you start the Sauce Connect tunnel. The **-F, --fast-fail-regexps** flag takes a comma-separated list of domains and any requests matching one of these will be dropped instantly, not going through the tunnel. This will allow your application to load faster.
 
 For more information about all the flags you can use with Sauce Connect, see [Sauce Connect Proxy Command-Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide).
 
 ## Optimize Your Test Scripts
-The main thing you can do to decrease latency is to break your test down into small, atomic, autonomous tests (see [Running Small, Atomic, Autonomous Tests](https://wiki.saucelabs.com/display/DOCS/Best+Practices%3A+Use+Small%2C+Atomic%2C+Autonomous+Tests) for more information).
+The main thing you can do to decrease latency is to break your test down into small, atomic, autonomous tests (see [Running Small, Atomic, Autonomous Tests](/basics/best-practices/small-atomic-autonomous) for more information).
 
  We recommend breaking the test down into smaller chunks, because: 
 
 1. You will be able to run independent tests in parallel, decreasing your build time.
- 2. It will make your tests more robust, since independent sections are tested without a pre-existing application state from earlier actions. 
+2. It will make your tests more robust, since independent sections are tested without a pre-existing application state from earlier actions. 
 3. If you're using Sauce Connect, you have use of a proxy that intelligently caches static
 resources, so that later tests don't have to re-load those from scratch. 
 
@@ -40,7 +38,7 @@ resources, so that later tests don't have to re-load those from scratch. 
 
 - CSS locators are generally faster than XPATH locators, especially if you're running tests in Internet Explorer (locating by an element's unique ID is usually the most stable method).
 - Cut down on unneeded chatter. If your test contains an abundance of GET requests (get text, get displayed, etc.), this will contribute disproportionately to the test duration. Each command takes time to transmit to our cloud and pass back a result; since these steps execute so quickly, the time required to send the command through the Internet is proportionally larger, causing the test duration to inflate more than usual.
-- Reduce repetition: Check your test logs for duplicated requests and determine whether this is necessary.
+- Reduce repetition. Check your test logs for duplicated requests and determine whether this is necessary.
 
 ## Integrate Intelligently
 Besides these script-dependent factors, there are a few additional Sauce processes that happen on a per-job basis, aside from the test, that add some extra time. These include:
@@ -51,5 +49,5 @@ Besides these script-dependent factors, there are a few additional Sauce process
 
 Additional factors that may affect your test run time include:
 
-- When using Connect, some additional length is expected (due to the time required to relay each request and response between our browsers and your machine running the .jar)
-- If your tests are very short, the processing on each end also contributes time in a greater proportion relative to the test - since these times will not reduce below a few seconds.
+- When using Connect, some additional length is expected (due to the time required to relay each request and response between our browsers and your machine running the .jar).
+- If your tests are very short, the processing on each end also contributes time in a greater proportion relative to the test, since these times will not reduce below a few seconds.

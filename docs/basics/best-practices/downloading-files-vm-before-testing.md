@@ -3,7 +3,7 @@ id: downloading-files-vm-before-testing
 title: Downloading Files to a Virtual Machine Before Testing
 sidebar_label: Downloading Files to a Virtual Machine Before Testing
 ---
-You can use a pre-run executable script to download files from a public location to the Sauce Labs virtual machine running your tests. This topic contains example scripts for downloading remote files on different operating systems, and details configuring the prerun capability in your tests. 
+You can use a pre-run executable script to download files from a public location to the Sauce Labs virtual machine running your tests. This topic contains example scripts for downloading remote files on different operating systems, and details configuring the prerun capability in your tests.
 
 ## OS X 10.6, 10.8, 10.9, 10.10
 This shell script will fetch the file at the URL and save it to **/tmp/file.txt**.
@@ -45,7 +45,7 @@ echo Set objXMLHTTP = Nothing >> C:\dl.vbs
 cscript.exe C:\dl.vbs
 ```
 ## Linux
-This shell script downloads **file.txt** at mywebsite.com to the /tmp directory.
+This shell script downloads **file.txt** at **mywebsite.com** to the **/tmp** directory.
 ```js
 #!/bin/bash
 wget -O /tmp/file.txt http://mywebsite.com/file.txt

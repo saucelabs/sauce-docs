@@ -6,7 +6,7 @@ sidebar_label: Handling Authentication
 There are several ways to handle authentication and security dialogs during testing. You might, for example, need to log a user in, or bypass a browser warning. The topics in this section cover cookie injection with Selenium, basic HTTP authentication, and other options.
 
 ## Basic HTTP Authentication
-Basic HTTP authentication supplies a username and password via URL, such as https://admin:admin@the-internet.herokuapp.com/basic_auth. This request sends the credentials in the standard HTTP "Authorization" header.
+Basic HTTP authentication supplies a username and password via URL, such as **https://admin:admin@<span></span>the-internet.herokuapp.com/basic_auth**. This request sends the credentials in the standard HTTP "Authorization" header.
 
 Because browser support for basic HTTP authentication is limited, we recommend injecting cookies to bypass authentication dialogs and running an AutoIt script as a pre-run executable to handle Windows security authentication dialogs as solutions for authentication while testing.
 
@@ -84,9 +84,9 @@ Send(“{TAB}”)
 Send(“mysupersecretpassword”)
 Send(“{ENTER}”)
 ```
-For Username and mysupersecretpassword, enter the authentication credentials required by the Windows host.
+For **Username** and **mysupersecretpassword**, enter the authentication credentials required by the Windows host.
 
-When you save the script, it will be an .au3 file, and you will need to compile it as an .exe file. Once compiled, you can use it as a pre-run executable with this desired capability call:
+When you save the script, it will be an **.au3** file, and you will need to compile it as an **.exe** file. Once compiled, you can use it as a pre-run executable with this desired capability call:
 
 ```js
 "prerun": { "executable": "http://url.to/your/executable.exe",
@@ -101,7 +101,7 @@ If using Sauce Storage for your pre-run executable send the following desired ca
 
  The 64bit version of AutoIT works on IE11, and not on IE9. The 32bit version works with both browser versions.
 
- ## Using --auth with Sauce Connect ProxyPUBLISHED
+ ## Using **--auth** with **Sauce Connect ProxyPUBLISHED**
 
 This approach to authentication works by configuring [Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy) to send authentication details to any URL requesting them. It works for all requests, even those where you're asked for credentials in response to a click or form submission.
 
@@ -110,7 +110,7 @@ For each URL where you need to bypass HTTP authentication, add this to your Sauc
 ```js
 --auth host:port:username:password
 ```
-If your website doesn't need a port, you can use the default port, port 80. Let's say that your website under test is mysite.com, your username is awesometester, and your password is supersekrit. Here's how you'd write your Sauce Connect Proxy startup command:
+If your website doesn't need a port, you can use the default port, **port 80**. Let's say that your website under test is **mysite.com**, your user name is **awesometester**, and your password is **supersekrit**. Here's how you'd write your Sauce Connect Proxy startup command:
 ```js
 --auth mysite.com:80:awesometester:supersekrit
 ```
