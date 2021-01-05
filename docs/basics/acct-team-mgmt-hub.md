@@ -1,7 +1,7 @@
 ---
 id: acct-team-mgmt-hub
-title: Overview
-sidebar_label: Overview
+title: Account and Team Management
+sidebar_label: Getting Started
 ---
 The Account area in Sauce Labs provides several options for you to configure your teams, users, and accounts.
 
