@@ -24,7 +24,7 @@ It's easy to run automated web application tests in the Sauce Labs device cloud.
   <p>Run automated tests of web apps on desktop and mobile browsers.</p>
   <ul>
       <li><a href="https://wiki.saucelabs.com/display/DOCS/Automated+Web+App+Testing+on+Desktop+and+Mobile+Browsers">Testing on Desktop and Mobile Browsers</a></li>
-      <li><a href="/docs/testrunner-toolkit">Testrunner Toolkit</a></li>
+      <li><a href="/testrunner-toolkit">Testrunner Toolkit</a></li>
   </ul>
   </div>
   </div>
