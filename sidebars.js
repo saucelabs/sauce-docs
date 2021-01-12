@@ -102,6 +102,7 @@ module.exports = {
                     label: 'Espresso and XCUITest',
                     collapsed: true,
                     items: [
+                        'mobile-apps/automated-testing/espresso-xcuitest',
                         'mobile-apps/automated-testing/espresso-xcuitest/real-device-testing',
                         'mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing',
                         'mobile-apps/automated-testing/espresso-xcuitest/example-configurations',
@@ -127,6 +128,7 @@ module.exports = {
         collapsed: true,
         items: [
           'web-apps/automated-testing',
+          'web-apps/automated-testing/cypress'
         ],
       },
     ],
