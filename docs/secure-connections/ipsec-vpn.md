@@ -23,7 +23,7 @@ To get started, you'll need to contact your Sauce Labs Sales Engineer or Custome
 * Know your organization's IPSec VPN tunnel name. You can obtain this from your Organization Admin, who controls tunnel settings; see [Organization Security Settings](https://wiki.saucelabs.com/display/DOCS/Security+Settings+for+Organizations) for more.
 
 
-## Network Architecture
+## IPSec VPN Network Architecture
 
 IPSec VPN allows virtual machines on the Sauce Labs network to access application servers on private networks. The solution consists of a VPN connection and two IPSec tunnel gateways, one running on the customer network, and the other on Sauce Labs. This connection allows secure communication between the gateways, which provide rules for DNS resolution, routing, and security.
 
@@ -89,22 +89,9 @@ We recommend the following as general guidelines, rather than requirements, to e
 | 1,000 | 2 | 1.5Gbps
 | 2,000 | 2 | 3Gbps
 
-Bandwidth requirements for testing depend on the number of pages downloaded by each test, and the approximate size of each page. To estimate your requirements, we recommend running 25-40 concurrent sessions through a proxy while observing network usage patterns. You should have enough bandwidth to download a page in 3 to 5 seconds.
+Bandwidth recommendations for testing depend on the number of pages downloaded by each test, and the approximate size of each page. To estimate your requirements, we recommend running 25-40 concurrent sessions through a proxy while observing network usage patterns. You should have enough bandwidth to download a page in 3 to 5 seconds.
 
 Multiple users can run different tests simultaneously through the same tunnel, as long as the number is within the threshold of your concurrency limits/allocations.
-
-## Tunnel Permissions
-
-IPSec VPN tunnel sharing permissions are established by Sauce Labs on the back end during initial setup and tunnel creation on your network. During this process, your organization can select from two permissions options:
-
-* Restrict IPSec VPN tunnel access to only the Organization Admin; or
-* Share IPSec VPN tunnel access organization-wide with all users
-
-At this time, we don't support granting permissions to individual users.
-
-To switch between the above permissions settings, your Organization Admin would need to contact Sauce Labs Support and we'll configure it for you.
-
-To verify that you have access to your organization's IPSec VPN tunnel, head to Tunnels. If the tunnel name and details are displayed here, it means you have access.
 
 ## Testing with IPSec VPN Tunnels
 
@@ -144,6 +131,19 @@ To run tests on public real devices in the Sauce Labs cloud using IPSec VPN, you
 
 Each time you initiate a test, you'll see a temporary pop-up alert window with a reminder that the utilization of a trusted IPSec VPN connection combined with RDC public real device tests may not be compliant with your organization's network policy.
 :::
+
+## Setting IPSec VPN Tunnel Permissions
+
+IPSec VPN tunnel sharing permissions are established by Sauce Labs on the back end during initial setup and tunnel creation on your network. During this process, your organization can select from two permissions options:
+
+* Restrict IPSec VPN tunnel access to only the Organization Admin; or
+* Share IPSec VPN tunnel access organization-wide with all users
+
+At this time, we don't support granting permissions to individual users.
+
+To switch between the above permissions settings, your Organization Admin would need to contact Sauce Labs Support and we'll configure it for you.
+
+To verify that you have access to your organization's IPSec VPN tunnel, head to Tunnels. If the tunnel name and details are displayed here, it means you have access.
 
 ## Monitoring and Troubleshooting
 To monitor tunnel stability, we recommend pinging the tunnel gateway or checking the status of the VPN connection from the IPSec gateway itself.
