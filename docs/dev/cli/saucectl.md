@@ -77,6 +77,10 @@ saucectl run --test-env sauce --ccy 2
 
 Using `--ccy` allows you to increase your Sauce Labs VM concurrency when [running tests remotely on the Sauce Labs Cloud](/testrunner-toolkit/running-tests#test-on-sauce-labs).
 
+> Concurrency with `saucectl` is tied to the test `suites` field in your `.sauce/config.yml`. 
+>
+> For example if you have ten `.spec` files split across two test `suites`, and you set `--ccy` to `10`, the max concurrency is `2`.
+
 ### `ci-build-id`
 
 ```sh

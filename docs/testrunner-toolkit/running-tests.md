@@ -61,13 +61,15 @@ If you wish to run your tests on Sauce Labs VMs, simply run the following comman
 saucectl run --test-env sauce
 ```
 
-If you wish to increase your VM concurrency you can also use the flag `--ccy <vm number>`:
+If you wish to increase your VM concurrency you can also use the flag `--ccy <vm number>`. 
 
 ```bash
 saucectl run --test-env sauce --ccy 2
 ```
 
-> Please visit the [CLI Reference](/dev/cli/saucectl) for more information regarding command parameters. Your concurrency and VM entitlements depend on your Sauce Labs subscription tier. For more information please visit the [pricing guide](https://saucelabs.com/pricing)
+Please note that VM concurrency depends on the suite number rather than the number of `.spec.js |.test.js` files. Plese visit the [CLI Reference](/dev/cli/saucectl#ccy) for more information regarding command parameters:
+
+> Your concurrency and VM entitlements also depend on your Sauce Labs subscription tier. For more information please visit the [pricing guide](https://saucelabs.com/pricing)
 
 
 ### Quick demo
