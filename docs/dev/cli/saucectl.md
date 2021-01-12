@@ -4,6 +4,13 @@ title: Sauce CTL
 sidebar_label: Sauce CTL
 ---
 
+export const Highlight = ({children, color}) => ( <span style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>{children}</span> );
+
 This page provides information for `saucectl`, the command line interface of the Sauce Labs [Testrunner Toolkit](testrunner-toolkit.md).
 
 ## Development Requirements
@@ -70,6 +77,8 @@ This command will run the test based on the `./.sauce/config.yml` file.
 
 
 ### `ccy`
+
+<p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
 
 ```bash
 saucectl run --test-env sauce --ccy 2
@@ -152,6 +161,8 @@ saucectl run --suite <suite_name>
 Using the `--suite` flag will only run specified suite by name.
 
 ### `test-env`
+
+<p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
 
 ```bash
 saucectl run --test-env <sauce | docker>

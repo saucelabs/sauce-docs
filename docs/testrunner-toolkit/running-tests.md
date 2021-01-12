@@ -53,7 +53,7 @@ Testrunner Toolkit will then execute the test based on the information in `confi
 
 ### Test on Sauce Labs
 
-<p><Highlight color="#1877F2">Beta</Highlight></p>
+<p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
 
 If you wish to run your tests on Sauce Labs VMs, simply run the following command:
 
