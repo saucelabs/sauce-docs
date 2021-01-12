@@ -143,6 +143,14 @@ saucectl run --region <region>
 
 Using the --region flag will set the Sauce Labs region for the test execution. The region corresponds to the available regions at [saucelabs.com](https://app.saucelabs.com) and affects where your job information and assets are going to be stored.
 
+### `suite`
+
+```bash
+saucectl run --suite <suite_name>
+```
+
+Using the `--suite` flag will only run specified suite by name.
+
 ### `test-env`
 
 ```bash
