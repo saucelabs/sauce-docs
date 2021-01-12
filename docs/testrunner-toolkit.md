@@ -24,6 +24,7 @@ This approach combines the power and expressiveness of different test frameworks
 
 Most importantly, by running these tests through Sauce Labs, you can:
 
+* Run tests using popular JavaScript frameworks: [Cypress](https://github.com/cypress-io/cypress), [TestCafe](https://devexpress.github.io/testcafe), [Playwright](https://github.com/microsoft/playwright), [Puppeteer](https://github.com/puppeteer/puppeteer)
 * Take advantage of low latency provided by a containerized solution
 * Review, share, and evaluate your test assets, such as logs, test results, and test videos 
 * Use our Insights feature to perform deeper analysis of test outcomes
