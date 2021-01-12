@@ -4,7 +4,7 @@ title: Cypress on Sauce Labs
 sidebar_label: Cypress
 ---
 
-This page provides walk-throughs on how to run [Cypress](https://docs.cypress.io/guides/overview/why-cypress.html) tests with `saucectl` locally and on Sauce Labs.
+This page provides a walkthrough on how to run [Cypress](https://docs.cypress.io/guides/overview/why-cypress.html) tests locally and on Sauce Labs.
 
 ## What You'll Need
 
@@ -17,25 +17,17 @@ The following steps outline how to run your cypress tests using the containerize
 
 1. Download and install `saucectl`:
     
-    * via `npm`:
-    
-        ```bash
-        npm i -g saucectl
-        ```
-      
-    * via `curl | bash`:
-    
-        ```bash
-        curl -L https://saucelabs.github.io/saucectl/install | bash
-        ```
+    ```bash title="curl Example"
+    curl -L https://saucelabs.github.io/saucectl/install | bash
+    ```
       
 2. Configure your Sauce Labs credentials:
 
     * via system environment variables:
         
         ```bash title="bash example"
-        export SAUCE_USERNAME="your sauce labs username"
-        export SAUCE_ACCESS_KEY="your sauce labs access key" 
+        export SAUCE_USERNAME=<your sauce labs username>
+        export SAUCE_ACCESS_KEY=<your sauce labs access key>
         ```
     
     * via `saucectl configure`:
@@ -106,25 +98,17 @@ The following steps outline how to run your cypress tests using Sauce Labs virtu
 
 1. Download and install `saucectl`:
     
-    * via `npm`:
-    
-        ```bash
-        npm i -g saucectl
-        ```
-      
-    * via `curl | bash`:
-    
-        ```bash
-        curl -L https://saucelabs.github.io/saucectl/install | bash
-        ```
+    ```bash title="curl Example"
+    curl -L https://saucelabs.github.io/saucectl/install | bash
+    ```
       
 2. Configure your Sauce Labs credentials:
 
     * via system environment variables:
-        
+            
         ```bash title="bash example"
-        export SAUCE_USERNAME="your sauce labs username"
-        export SAUCE_ACCESS_KEY="your sauce labs access key" 
+        export SAUCE_USERNAME=<your sauce labs username>
+        export SAUCE_ACCESS_KEY=<your sauce labs access key>
         ```
     
     * via `saucectl configure`:
@@ -184,6 +168,8 @@ The following steps outline how to run your cypress tests using Sauce Labs virtu
     ```bash
     saucectl run --test-env sauce
     ```
+   
+   > For more information regarding the `saucectl` parameters, including how to increase your VM concurrency, please visit the [CLI Reference](/dev/cli/saucectl#test-env) and the [configuration](/testrunner-toolkit/configuration) documentation.
 
 7. Verify the results in the Sauce Labs dashboard:
 

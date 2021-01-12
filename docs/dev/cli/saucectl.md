@@ -68,7 +68,27 @@ This command will run the test based on the `./.sauce/config.yml` file.
 
 ## Flags
 
+
+### `ccy`
+
+```bash
+saucectl run --test-env sauce --ccy 2
+```
+
+Using `--ccy` allows you to increase your Sauce Labs VM concurrency when [running tests remotely on the Sauce Labs Cloud](/testrunner-toolkit/running-tests#test-on-sauce-labs).
+
+### `ci-build-id`
+
+```sh
+saucectl run --ci-build-id <value>
+```
+
+Using the `--ci-build-id` flag will override the build ID that is otherwise determined
+based on the CI provider. The config file hash will still be used in addition to this
+provided CI build ID.
+
 ### `config`
+
 ```bash
 saucectl run --config <path>
 ```
@@ -111,16 +131,6 @@ with certain CI providers.
 If your CI provider is not listed here, you will have to specify your own `build ID`.
 Please consult the [`ci-build-id`](#ci-build-id) flag for this option.
 
-### `ci-build-id`
-
-```sh
-saucectl run --ci-build-id <value>
-```
-
-Using the `--ci-build-id` flag will override the build ID that is otherwise determined
-based on the CI provider. The config file hash will still be used in addition to this
-provided CI build ID.
-
 ### `region`
 
 ```bash
@@ -129,12 +139,21 @@ saucectl run --region <region>
 
 Using the --region flag will set the Sauce Labs region for the test execution. The region corresponds to the available regions at [saucelabs.com](https://app.saucelabs.com) and affects where your job information and assets are going to be stored.
 
+### `test-env`
+
+```bash
+saucectl run --test-env <sauce | >
+```
+
+Using the `--test-env` flag allows you to toggle testing locally via containers, or remotely on the Sauce Labs VMs.
+
 ### `timeout`
+
 ```bash
 saucectl run --timeout <seconds>
 ```
 
-Using the `--timeout` flag will set the test timeout for the [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
+Using the `--timeout` flag will set the test timeout for the test runs [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
 
 ## Licensing
 
