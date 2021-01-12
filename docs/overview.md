@@ -23,8 +23,8 @@ hide_table_of_contents: true
     <p>Browse through the Automated Testing documentation to see examples of how to execute tests in your preferred automation framework.</p>
     <ul>
         <li><a href="">Selenium</a> and <a href="">Appium</a></li>
-        <li><a href="/mobile-apps/automated-testing/espresso-xcuitest">Espresso and XCUITest</a></li>
-        <li><a href="/testrunner-toolkit">Testrunner Toolkit</a> (e.g. Puppeteer, Cypress, etc.)</li>
+        <li>Espresso, XCUITest with <a href="/mobile-apps/automated-testing/espresso-xcuitest/real-device-testing">Real Devices</a> and <a href="/mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing">emusim</a></li>
+        <li><a href="/testrunner-toolkit">Testrunner Toolkit</a> (e.g., Puppeteer, Cypress, etc.)</li>
     </ul>
     </div>
   </div>
