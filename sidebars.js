@@ -127,6 +127,7 @@ module.exports = {
         collapsed: true,
         items: [
           'web-apps/automated-testing',
+          'web-apps/automated-testing/cypress'
         ],
       },
     ],
