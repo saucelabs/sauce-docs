@@ -154,10 +154,10 @@ Using the `--suite` flag will only run specified suite by name.
 ### `test-env`
 
 ```bash
-saucectl run --test-env <sauce | >
+saucectl run --test-env <sauce | docker>
 ```
 
-Using the `--test-env` flag allows you to toggle testing locally via containers, or remotely on the Sauce Labs VMs.
+Using the `--test-env` flag allows you to toggle testing locally via containers (`docker`), or remotely via Sauce Labs VMs (`sauce`).
 
 ### `timeout`
 
