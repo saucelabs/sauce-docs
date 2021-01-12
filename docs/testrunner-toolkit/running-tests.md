@@ -8,6 +8,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+export const Highlight = ({children, color}) => ( <span style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>{children}</span> );
+
 Before you begin testing we suggest visiting the [Testrunner Toolkit](testrunner-toolkit.md) home page as well as the [Configuration](configuration.md) page.
 
 ## What You'll Need
@@ -43,6 +50,27 @@ saucectl run
 ```
 
 Testrunner Toolkit will then execute the test based on the information in `config.yml`. 
+
+### Test on Sauce Labs
+
+<p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
+
+If you wish to run your tests on Sauce Labs VMs, simply run the following command:
+
+```bash
+saucectl run --test-env sauce
+```
+
+If you wish to increase your VM concurrency you can also use the flag `--ccy <vm number>`. 
+
+```bash
+saucectl run --test-env sauce --ccy 2
+```
+
+Please note that VM concurrency depends on the suite number rather than the number of `.spec.js |.test.js` files. Plese visit the [CLI Reference](/dev/cli/saucectl#ccy) for more information regarding command parameters:
+
+> Your concurrency and VM entitlements also depend on your Sauce Labs subscription tier. For more information please visit the [pricing guide](https://saucelabs.com/pricing)
+
 
 ### Quick demo
 
