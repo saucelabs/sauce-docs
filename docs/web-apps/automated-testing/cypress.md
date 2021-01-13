@@ -15,10 +15,18 @@ This page provides a walkthrough on how to run [Cypress](https://docs.cypress.io
 
 The following steps outline how to run your cypress tests using the containerized solution, [Testrunner Toolkit](/testrunner-toolkit):
 
-1. Download and install `saucectl`:
+1. Install [saucectl](https://github.com/saucelabs/saucectl):
     
-    ```bash title="curl Example"
+    ```bash title="Using curl"
     curl -L https://saucelabs.github.io/saucectl/install | bash
+    ```
+
+    ```bash title="Using NPM"
+    npm install -g saucectl
+    ```
+
+    ```bash title="Using Homebrew (macOS)"
+    brew install saucectl
     ```
       
 2. Configure your Sauce Labs credentials:
