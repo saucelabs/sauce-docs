@@ -116,7 +116,7 @@ If you're starting from scratch and don't have any tests currently running as a 
 
 ### Existing Tests
 
-If you already have existing tests in your project (like say in `cypress` for example), you can simply [download and install `saucectl`](testrunner-toolkit#installing-testrunner-toolkit), [modify the existing configuration](testrunner-toolkit/configuration.md#modifying-the-configuration-file), and [run your existing tests](testrunner-toolkit/running-tests.md#automation-framework-examples).
+If you already have existing tests in your project (like say in `cypress` for example), you can simply [download and install `saucectl`](testrunner-toolkit/installation#installing-testrunner-toolkit), [modify the existing configuration](testrunner-toolkit/configuration.md#modifying-the-configuration-file), and [run your existing tests](testrunner-toolkit/running-tests.md#automation-framework-examples).
 
 ### Pipeline Tests
 
