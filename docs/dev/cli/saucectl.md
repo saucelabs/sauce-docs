@@ -41,7 +41,7 @@ This command generates a `./sauce/config.yml` file, a test directory, and an exa
 saucectl run
 ```
 
-This command executes tests based on information in the configuration file ([`.sauce/config.yml`](/testrunner-toolkit/confguration)).
+This command executes tests based on information in the configuration file ([`.sauce/config.yml`](/testrunner-toolkit/configuration)).
 
 ## Flags
 
