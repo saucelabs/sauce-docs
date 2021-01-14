@@ -9,6 +9,7 @@ module.exports = {
   organizationName: 'saucelabs', // Usually your GitHub org/user name.
   projectName: 'sauce-docs', // Usually your repo name.
   themeConfig: {
+    hideableSidebar: true,
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
     },
