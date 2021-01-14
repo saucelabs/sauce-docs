@@ -17,16 +17,17 @@ Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifie
 
 There are multiple ways to install the Sauce Labs Testrunner Toolkit (colloquially known as `saucectl`):
 
-* Use [NPM](https://www.npmjs.com/)
+* ```bash title="Using curl"
+  curl -L https://saucelabs.github.io/saucectl/install | bash
+  ```
 
-    ```bash
-    npm i -g saucectl
-    ```
-* Use our one line installer via command line tools such as [cURL](https://curl.haxx.se/download.html):
-
-    ```bash
-    curl -L https://saucelabs.github.io/saucectl/install | bash
-    ```
+* ```bash title="Using NPM"
+  npm install -g saucectl
+  ```
+  
+* ```bash title="Using Homebrew (macOS)"
+  brew install saucectl
+  ```
   
 If you would like to inspect the content of our one line installer, download it, have a look, and execute it:
 

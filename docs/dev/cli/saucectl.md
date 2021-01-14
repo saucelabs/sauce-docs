@@ -79,7 +79,7 @@ This command will run the test based on the `./.sauce/config.yml` file.
 ### `ccy`
 
 <p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
-
+__
 ```bash
 saucectl run --test-env sauce --ccy 2
 ```

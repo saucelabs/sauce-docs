@@ -9,27 +9,14 @@ This page provides a walkthrough on how to run [Cypress](https://docs.cypress.io
 ## What You'll Need
 
 * A [Sauce Labs](https://saucelabs.com/) account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
+* [Install `saucectl`](/testrunner-toolkit/installation#installing-testrunner-toolkit)
 * Ensure you've met the prerequisites outlined in the [Testrunner Toolkit documentation](/testrunner-toolkit/installation#what-youll-need)
 
 ## Run Cypress Tests Locally
 
 The following steps outline how to run your cypress tests using the containerized solution, [Testrunner Toolkit](/testrunner-toolkit):
-
-1. Install [saucectl](https://github.com/saucelabs/saucectl):
-    
-    ```bash title="Using curl"
-    curl -L https://saucelabs.github.io/saucectl/install | bash
-    ```
-
-    ```bash title="Using NPM"
-    npm install -g saucectl
-    ```
-
-    ```bash title="Using Homebrew (macOS)"
-    brew install saucectl
-    ```
       
-2. Configure your Sauce Labs credentials:
+1. Configure your Sauce Labs credentials:
 
     * via system environment variables:
         
@@ -54,16 +41,15 @@ The following steps outline how to run your cypress tests using the containerize
       
       :::warning Do NOT commit `credentials.yml`
       It should go without saying, but do not publicly expose your `credentials.yml` file over the internet. Make sure you add this file to your `.gitignore` file, as you should only use it locally.
-      :::
+      :::  
       
-      
-3. Create the `saucectl` configuration:
+2. Create the `saucectl` configuration:
     
     ```bash
     saucectl new
     ```
 
-4. Choose the `cypress` framework. This command generates the default `cypress` directory, the `cypress.json` file, and an example cypress test:
+3. Choose the `cypress` framework. This command generates the default `cypress` directory, the `cypress.json` file, and an example cypress test:
     
     ```bash
     INF Start New Command
@@ -80,7 +66,7 @@ The following steps outline how to run your cypress tests using the containerize
     If you want to edit the configuration manually select "No" and visit the [configuration](/testrunner-toolkit/configuration#configuration-examples) documentation for more details.
     :::
 
-5. Choose a Sauce Labs data center location:
+4. Choose a Sauce Labs data center location:
 
     ```bash
     INF Start New Command
@@ -90,27 +76,21 @@ The following steps outline how to run your cypress tests using the containerize
       eu-central-1
     ```
    
-6. Run your cypress tests:
+5. Run your cypress tests:
 
     ```bash
     saucectl run
     ```
 
-7. Verify the results in the Sauce Labs dashboard:
+6. Verify the results in the Sauce Labs dashboard:
 
     > Insert video and/or screenshot
 
 ## Run Cypress Tests on Sauce Labs
 
 The following steps outline how to run your cypress tests using Sauce Labs virtual machines:
-
-1. Download and install `saucectl`:
-    
-    ```bash title="curl Example"
-    curl -L https://saucelabs.github.io/saucectl/install | bash
-    ```
       
-2. Configure your Sauce Labs credentials:
+1. Configure your Sauce Labs credentials:
 
     * via system environment variables:
             
@@ -135,16 +115,15 @@ The following steps outline how to run your cypress tests using Sauce Labs virtu
       
       :::warning Do NOT commit `credentials.yml`
       It should go without saying, but do not publicly expose your `credentials.yml` file over the internet. Make sure you add this file to your `.gitignore` file, as you should only use it locally.
-      :::
+      :::     
       
-      
-3. Create the `saucectl` configuration:
+2. Create the `saucectl` configuration:
     
     ```bash
     saucectl new
     ```
 
-4. Choose the `cypress` framework. This command generates the default `cypress` directory, the `cypress.json` file, and an example cypress test:
+3. Choose the `cypress` framework. This command generates the default `cypress` directory, the `cypress.json` file, and an example cypress test:
     
     ```bash
     INF Start New Command
@@ -161,7 +140,7 @@ The following steps outline how to run your cypress tests using Sauce Labs virtu
     If you want to edit the configuration manually select "No" and visit the [configuration](/testrunner-toolkit/configuration#configuration-examples) documentation for more details.
     :::
 
-5. Choose a Sauce Labs data center location:
+4. Choose a Sauce Labs data center location:
 
     ```bash
     INF Start New Command
@@ -171,7 +150,7 @@ The following steps outline how to run your cypress tests using Sauce Labs virtu
       eu-central-1
     ```
    
-6. Run your cypress tests with the following `saucectl` parameter:
+5. Run your cypress tests with the following `saucectl` parameter:
 
     ```bash
     saucectl run --test-env sauce
@@ -179,6 +158,6 @@ The following steps outline how to run your cypress tests using Sauce Labs virtu
    
    > For more information regarding the `saucectl` parameters, including how to increase your VM concurrency, please visit the [CLI Reference](/dev/cli/saucectl#test-env) and the [configuration](/testrunner-toolkit/configuration) documentation.
 
-7. Verify the results in the Sauce Labs dashboard:
+6. Verify the results in the Sauce Labs dashboard:
 
     > Insert video and/or screenshot
