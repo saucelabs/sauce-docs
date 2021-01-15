@@ -181,7 +181,7 @@ Additional resources: [Sauce Labs Node.js Demonstration Scripts](https://wiki.sa
 </TabItem>
 </Tabs>
 
-## Headless Data Center Endpoints
+## Data Center Endpoints for Headless
 The containers used for Sauce Headless testing are hosted in the Sauce Labs East Coast data center, which is entirely separate from our data centers in the West Coast and in the EU. You'll need to connect to the [US-East Data Center](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) to access the web UI, Selenium endpoint, and Sauce Connect Proxy endpoint for headless testing.
 
 The US-East IP addresses should be reachable from your network. If there's an issue, see the Whitelisting for Restricted Networks section of [System and Network Requirements for Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365793).
