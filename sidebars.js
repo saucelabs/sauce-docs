@@ -176,6 +176,7 @@ module.exports = {
           'dev/api',
         ],
       },
+      'dev/stt-config-reference',
       {
         type: 'category',
         label: 'CLI Reference',

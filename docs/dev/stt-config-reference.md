@@ -1,5 +1,5 @@
 ---
-id: cli
+id: stt-config-reference
 title: Testrunner Toolkit Configuration Reference
 sidebar_label: config.yml
 ---
@@ -19,12 +19,12 @@ This page provides details and explanations regarding the syntax and fields of t
 ## Full Examples
 
 <Tabs
-  defaultValue="puppeteer"
+  defaultValue="cypress"
   values={[
+    {label: 'Cypress', value: 'cypress'},
+    {label: 'TestCafe', value: 'testcafe'},
     {label: 'Puppeteer', value: 'puppeteer'},
     {label: 'Playwright', value: 'playwright'},
-    {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Cypress', value: 'cypress'},
   ]}>
 
 <TabItem value="cypress">
