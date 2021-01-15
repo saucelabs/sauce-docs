@@ -1,8 +1,15 @@
 ---
 id: headless
 title: Sauce Headless Testing in the Cross-Browser Cloud
-sidebar_label: Headless Testing
+sidebar_label: Using Headless
 ---
+
+export const Highlight = ({children, color}) => ( <span style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>{children}</span> );
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -14,7 +21,7 @@ There are a few key differences between setting up Sauce Headless tests versus s
 
 ## What You'll Need
 
-<p><button class="badge-blue">ENTERPRISE PLANS ONLY</button></p>
+<p> <Highlight color="#013a70">ENTERPRISE PLANS ONLY</Highlight> </p>
 
 The [latest version](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863) of Sauce Connect Proxy, if you're using it to run Headless tests.
 
@@ -174,17 +181,12 @@ Additional resources: [Sauce Labs Node.js Demonstration Scripts](https://wiki.sa
 </TabItem>
 </Tabs>
 
-## Headless Data Center Endpoints
+## Data Center Endpoints for Headless
 The containers used for Sauce Headless testing are hosted in the Sauce Labs East Coast data center, which is entirely separate from our data centers in the West Coast and in the EU. You'll need to connect to the [US-East Data Center](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) to access the web UI, Selenium endpoint, and Sauce Connect Proxy endpoint for headless testing.
 
 The US-East IP addresses should be reachable from your network. If there's an issue, see the Whitelisting for Restricted Networks section of [System and Network Requirements for Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365793).
 
-**NOTE**: Cross-Browser VMs are not available at this time in US-East.
-
-### Logging into Multiple Data Centers
-If you need to be logged into both the US-East and US-West-1 data centers in our web interface, we advise against doing it in the same browser (different tabs). It may cause you to be logged out of one of the data centers or result in other inconsistent interface behavior.
-
-If you do want to use the same browser, we recommend logging into the web interfaces from separate browsers or by using an incognito/private browser window. If you have issues with your username for logging into either of the web interfaces and don't want to use an incognito browser, try clearing all Sauce-related cookies from your browser cache.
+>**NOTE**: Cross-Browser VMs are not available at this time in US-East.
 
 ## Using the Sauce Headless Web UI
 Information about your Headless testing jobs is accessible by logging into the headless testing web interface.
