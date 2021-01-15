@@ -12,11 +12,11 @@ Incorporating continuous testing into your CI/CD pipeline means designing your t
     <font size="5">Sauce CI/CD Plugins</font>
     <p>Use one of the Sauce Labs plugins to set up your existing CI/CD pipeline to integrate your tests.<br/>
       <ul>
-        <li><a href="">Jenkins</a></li>
-        <li><a href="">Azure</a></li>
-        <li><a href="">Bamboo</a></li>
-        <li><a href="">GitHub</a></li>
-        <li><a href="">GitLab</a></li>
+        <li><a href="https://wiki.saucelabs.com/display/DOCS/Setting+Up+Sauce+Labs+with+Jenkins">Jenkins</a></li>
+        <li>Azure (coming soon)</li>
+        <li><a href="https://wiki.saucelabs.com/display/DOCS/Setting+Up+Sauce+Labs+with+Bamboo">Bamboo</a></li>
+        <li><a href="/testrunner-toolkit/integrations#github-actions">GitHub</a></li>
+        <li>GitLab (coming soon)</li>
       </ul></p>
     </div>
   </div>
@@ -39,7 +39,7 @@ Incorporating continuous testing into your CI/CD pipeline means designing your t
       <ul>
         <li><a href="https://saucelabs.com/resources/articles/automated-testing-in-cicd-a-continuous-integration-server-integration-primer">Automated Testing in CI/CD Primer White Paper</a></li>
         <li><a href="https://saucelabs.com/blog/choosing-a-ci-cd-tool">Choosing a CI/CD Tool Blog</a></li>
-        <li><a href="https://github.com/saucelabs/sauce-school">Sauce School CI/CD Training Module</a></li>
+        <li>Sauce School CI/CD Training Module (coming soon)</li>
       </ul></p>
     </div>
   </div>

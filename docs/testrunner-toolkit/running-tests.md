@@ -8,9 +8,27 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Before you begin testing with [Testrunner Toolkit](testrunner-toolkit.md), you must choose an automation framework.
+export const Highlight = ({children, color}) => ( <span style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>{children}</span> );
 
-## Choose an Automation Framework
+Before you begin testing we suggest visiting the [Testrunner Toolkit](testrunner-toolkit.md) home page as well as the [Configuration](configuration.md) page.
+
+## What You'll Need
+
+* [Docker](https://docs.docker.com/get-docker/) installed
+* Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g. `docker info` works in your terminal)
+* (Optional) A [Sauce Labs](https://saucelabs.com/) account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
+
+## Create a Configuration
+
+Creating a configuration is a crucial step before you begin testing. Without the `config.yml`, `saucectl` has no idea which framework to use during testing.
+
+To get started quickly run the following commands:
+
 1. Run the following command:
     ```bash
     saucectl new
@@ -21,10 +39,7 @@ Before you begin testing with [Testrunner Toolkit](testrunner-toolkit.md), you m
     * [TestCafe](https://devexpress.github.io/testcafe)
     * [Cypress](https://github.com/cypress-io/cypress)
     
-    Next, the Toolkit will automatically generate: 
-    * a config file (`./sauce/config.yml`)
-    * the `tests` directory
-    * an example test (`tests/example.test.js`)
+    For more detailed information, please visit the [Configuration](configuration.md) page.
 
 ## Run Your First Test
 
@@ -36,7 +51,26 @@ saucectl run
 
 Testrunner Toolkit will then execute the test based on the information in `config.yml`. 
 
-To learn more about how to configure `saucectl`, please visit the [Configuration](testrunner-toolkit/configuration.md) section of the docs. 
+### Test on Sauce Labs
+
+<p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
+
+If you wish to run your tests on Sauce Labs VMs, simply run the following command:
+
+```bash
+saucectl run --test-env sauce
+```
+
+If you wish to increase your VM concurrency you can also use the flag `--ccy <vm number>`. 
+
+```bash
+saucectl run --test-env sauce --ccy 2
+```
+
+Please note that VM concurrency depends on the suite number rather than the number of `.spec.js |.test.js` files. Plese visit the [CLI Reference](/dev/cli/saucectl#ccy) for more information regarding command parameters:
+
+> Your concurrency and VM entitlements also depend on your Sauce Labs subscription tier. For more information please visit the [pricing guide](https://saucelabs.com/pricing)
+
 
 ### Quick demo
 
