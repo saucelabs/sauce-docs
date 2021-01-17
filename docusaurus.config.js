@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Sauce Labs Documentation',
-  tagline: 'Documentation for the Sauce Labs Platform',
+  tagline: 'Find everything you need to know about manual and automated cross-browser and mobile app testing in the Sauce Labs Continuous Testing Cloud.',
   url: 'https://saucelabs.com/docs',
   baseUrl: '/',
   onBrokenLinks: 'throw',

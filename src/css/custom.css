@@ -63,6 +63,7 @@ h3, .h3 {
     font-weight: 500;
     color:rgb(70, 75, 84);
     text-decoration-color:rgb(70, 75, 84);
+    display: inline-block;
 }
 
 .navbar__items.navbar__items--right a:nth-child(6) {
@@ -181,4 +182,36 @@ h3, .h3 {
     --ifm-font-color-base: white !important;
     background-color: #5dc1e5;
     color: white !important;
+}
+.navbar__inner {
+  width: 1160px;
+  display: inline-block;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+.navbar--fixed-top {
+  height: 130px;
+}
+.DocSearch-Button {
+  display: inline-block!important;
+  margin-right: 0px!important;
+}
+.hero--primary {
+  background-color: #F1F2F2;
+}
+.hero__title, .hero__subtitle {
+  color: #464B54;
+}
+.hero__subtitle {
+  font-size: 16px;
+  max-width: 650px;
+  margin: 0 auto;
+}
+a.hero__button {
+  background-image: linear-gradient(#F83838, #D92619)!important;
+  color: #fff;
+  padding: 15px 25px 15px 25px;
+  border-radius: 30px;
+  font-size: 14px;
+  margin-top: 15px;
 }
