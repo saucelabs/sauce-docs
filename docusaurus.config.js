@@ -9,13 +9,14 @@ module.exports = {
   organizationName: 'saucelabs', // Usually your GitHub org/user name.
   projectName: 'sauce-docs', // Usually your repo name.
   themeConfig: {
+    hideableSidebar: true,
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
     },
     algolia: {
       appId: 'ZETDNHTKFC',
       apiKey: '8442c4c56cae89e0f1a1b7c9a8fd8f9c',
-      indexName: 'sauce-docs.com',
+      indexName: 'saucelabs',
     },
     /* Dark and Light Mode Config */
     colorMode: {

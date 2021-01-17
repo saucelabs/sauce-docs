@@ -6,19 +6,23 @@ labels: documentation, needs triage
 
 ## 📃 Documentation Issue
 
-A clear and concise description about the documentation issue, typo, or error. Also, please provide the URL of the page in question.
+### Have you read the [Contributing Guidelines on issues?](https://github.com/saucelabs/sauce-docs/blob/master/CONTRIBUTING.MD#reporting-bugs)
 
-Doc URL:
+- [ ] Yes
 
-<!--example Doc URL: [Testrunner Toolkit Installation doc url](https://github.com/saucelabs/sauce-docs/blob/master/docs/dev/testrunner-toolkit/installation.md)-->
+## Description
+
+<!--A clear and concise description about the documentation issue, typo, or error. Also, please provide the URL of the page in question.-->
+
+__Doc URL:__ <!--example: [Testrunner Toolkit Installation doc url](https://github.com/saucelabs/sauce-docs/blob/master/docs/dev/testrunner-toolkit/installation.md)-->
 
 ## Suggested Fix
 
-A clear and concise suggestion for correction or replacement. You can also provide line numbers and links to the file in GitHub.
+<!--A clear and concise suggestion for correction or replacement. You can also provide line numbers and links to the file in GitHub.-->
 
 ## Documentation Checklist
 
-Indicate the type of doc fix by completing the checklist below.
+<!--Indicate the type of doc fix by completing the checklist below.-->
 
 - [ ] Typos
 - [ ] Grammar

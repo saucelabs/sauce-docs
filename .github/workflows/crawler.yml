@@ -1,0 +1,55 @@
+name: Update Search Index
+
+on:
+  pull_request:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'docs/**'
+      - '.docsearch/**'
+      - '.github/**'
+
+jobs:
+  run-docsearch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Download Crawler Source Code
+        run: |
+          git clone https://github.com/algolia/docsearch-scraper.git
+          cp .docsearch/config.json docsearch-scraper
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.6'
+      - name: Install pipenv
+        run: |
+          pip install --upgrade pip
+          pip install pipenv
+      - name: Update Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get --only-upgrade install google-chrome-stable
+          google-chrome --version
+      - name: Install Chromedriver
+        run: |
+          sudo apt-get install unzip
+          version=$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          wget -qP "/tmp/" "https://chromedriver.storage.googleapis.com/${version}/chromedriver_linux64.zip"
+          sudo unzip -o /tmp/chromedriver_linux64.zip -d /usr/bin
+          export CHROMEDRIVER_PATH="usr/bin/chromedriver"
+          echo $CHROMEDRIVER_PATH
+          chromedriver -v
+      - name: Set Algolia .env Variables
+        run: |
+          echo APPLICATION_ID=${{secrets.ALGOLIA_ID}} >> .env  # create the file and write into
+          echo API_KEY=${{secrets.ALGOLIA_CREDENTIALS}} >> .env
+          cp .env docsearch-scraper
+      - name: Install Dependecies and Run Algolia DocSearch
+        run: |
+          cd docsearch-scraper
+          pipenv install
+          pipenv run ./docsearch run config.json
