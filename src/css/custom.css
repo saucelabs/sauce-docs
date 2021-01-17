@@ -261,6 +261,11 @@ h3, .h3 {
 .DocSearch-Button {
   display: inline-block!important;
   margin-right: 0px!important;
+  width: 170px;
+  text-align: left;
+}
+.DocSearch-Button-Key {
+  display: none!important;
 }
 .hero--primary {
   background-color: #F1F2F2;
@@ -280,4 +285,53 @@ a.hero__button {
   border-radius: 30px;
   font-size: 14px;
   margin-top: 15px;
+}
+.main__container {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+.main__container-inner {
+  margin: 0 auto;
+  display: flex;
+  max-width: 1160px;
+}
+.callouts__container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.callouts__container:first-of-type {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 45px 0 15px 0;
+  margin-bottom: 35px;
+  border-bottom: solid 1px #C1C3C7;
+}
+.callouts__container .callout {
+  width: 33%;
+  text-align: left;
+  padding: 0 10px 0 10px;
+}
+.callout h2 {
+  color: #E12726;
+}
+
+/* mobile overrides */
+@media only screen
+    and (max-device-width: 740px),
+    only screen and (max-device-width: 740px),
+    only screen and (max-width: 740px)
+  {
+    .callouts__container .callout {
+      width: 100%;
+      text-align: left;
+      padding: 0 10px 0 10px;
+    }
 }

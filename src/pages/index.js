@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Navigation from './Navigation';
+import HomeCallouts from './home-callouts';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -83,7 +84,11 @@ function Home() {
         </div>
       </header>
       <main>
-      <h1>Test</h1>
+        <div className="main__container">
+          <div className="main__container-inner">
+            <HomeCallouts></HomeCallouts>
+          </div>
+        </div>
       </main>
     </Layout>
   );
