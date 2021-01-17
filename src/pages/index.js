@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Navigation from './Navigation';
 import HomeCallouts from './home-callouts';
+import DeveloperResources from './developer-resources';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -88,6 +89,7 @@ function Home() {
           <div className="main__container-inner">
             <HomeCallouts></HomeCallouts>
           </div>
+          <DeveloperResources></DeveloperResources>
         </div>
       </main>
     </Layout>
