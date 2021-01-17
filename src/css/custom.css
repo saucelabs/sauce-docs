@@ -296,13 +296,14 @@ a.hero__button {
   margin: 0 auto;
   display: flex;
   max-width: 1160px;
+  padding: 15px 0 35px 0;
 }
 .main__container-inner.--no-flex {
   margin: 0 auto;
   display: inline-block;
   clear: both;
   position: relative;
-  min-width: 1160px;
+  max-width: 1160px;
 }
 .callouts__container {
   width: 100%;
@@ -335,10 +336,28 @@ a.hero__button {
   background-position: top left;
   width: 100%;
   background-color: #fff;
+  height: 700px;
+}
+
+.main__container-bg.--important-links {
+  background-image: url(../assets/important-links-bg.png);
+  background-repeat: no-repeat;
+  background-position: top right;
+  width: 100%;
+  background-color: #fff;
 }
 .main__container-bg.--dev-resources {
   margin: 45px 0 45px 0;
 }
+.main__container-bg.--important-links .dev-resources__list ul  {
+  margin: 45px 0 45px 0;
+  border-left: none;
+  border-right: solid 1px #C1C3C7;
+  text-align: right;
+  padding-right: 15px;
+  margin-right: 35px;
+}
+
 .main__container-bg.--dev-resources .main__container-inner {
   border-bottom: solid 1px #C1C3C7;
 }
@@ -393,5 +412,31 @@ a.hero__button {
     .callouts__container:first-of-type {
       margin-bottom: 0px;
       border-bottom: none;
+    }
+    .dev-resources__image {
+      width: 100%;
+    }
+    .dev-resources__image img {
+      width: 300px;
+    }
+    .dev-resources__list {
+      width: 100%;
+    }
+    .dev-resources__list ul {
+      text-align: center!important;
+      border-left: none!important;
+      border-right: none!important;
+    }
+    .main__container-bg {
+      height: inherit!important;
+    }
+    .dev-resources__image {
+      padding: 15px 0 15px 0;
+    }
+    .main__container-bg.--important-links .dev-resources__list ul {
+      margin: 15px 0 15px 0;
+    }
+    .dev-resources__title {
+      padding: 15px 0 15px 0;
     }
 }

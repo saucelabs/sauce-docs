@@ -5,61 +5,11 @@ import Layout from '@theme/Layout';
 import Navigation from './Navigation';
 import HomeCallouts from './home-callouts';
 import DeveloperResources from './developer-resources';
+import ImportantLinks from './important-links';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
-
-const features = [
-  {
-    title: 'Run Live Tests',
-    imageUrl: 'img/SDET_Developer_Bot_EXPORT.png',
-    buttonText: 'Run Now',
-    slugName: 'web-apps/live-testing',
-
-    description: (
-      <>
-          See how your app or site performs on any supported browser, OS, or device,
-          when you manually test it in our UI.
-      </>
-    ),
-  },
-  {
-    title: 'Integrate Your Test Suite',
-    imageUrl: 'img/INFOSEC_Bot_EXPORT.png',
-    buttonText: 'Integrate Now',
-    slugName: 'web-apps/automated-testing',
-    description: (
-      <>
-          If you already have automated tests,
-          you're only a few steps away from running them on
-          the world's largest continuous testing cloud.
-      </>
-    ),
-  },
-  {
-    title: 'Learn Automation',
-    imageUrl: 'img/QA_Bot_EXPORT.png',
-    buttonText: 'Automate Now',
-    slugName: 'web-apps/automated-testing',
-    description: (
-      <>
-          To level-up your testing skills, browse our automation docs and transfrom
-          into an test automation hero.
-      </>
-    ),
-  },
-];
-
-function Feature({imageUrl, title, description, slugName, buttonText}) {
-  const imgUrl = useBaseUrl(imageUrl);
-  return (
-    <div className='col col--4'>
-    <Navigation></Navigation>
-      Test
-    </div>
-  );
-}
 
 function Home() {
   const context = useDocusaurusContext();
@@ -90,6 +40,7 @@ function Home() {
             <HomeCallouts></HomeCallouts>
           </div>
           <DeveloperResources></DeveloperResources>
+          <ImportantLinks></ImportantLinks>
         </div>
       </main>
     </Layout>
