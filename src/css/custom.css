@@ -545,19 +545,19 @@ ul.footer__sublinks li {
     #footer {
       padding: 24px 0;
     }
-    #footer .footer-wrapper {
+    .footer-wrapper {
       flex-direction: column;
     }
-    #footer .link-list {
+    .link-list {
       margin: 0 0 24px 0;
     }
-    #footer .footer__inner {
-      display: flex;
-      flex-wrap: wrap;
+    .footer__inner {
+      display: flex!important;
+      flex-wrap: wrap!important;
     }
 
     .footer-column {
-      flex: 0 50%;
+      flex: 0 50%!important;
     }
 
     .footerbar .site-width.layout.horizontal.center.justified {
