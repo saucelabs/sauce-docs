@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import linkHero from '../assets/important-links-hero.png';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 class ImportantLinks extends Component {
   render() {
@@ -25,7 +25,7 @@ class ImportantLinks extends Component {
             </div>
 
             <div className="dev-resources__image">
-              <img src={linkHero} />
+              <img src='img/important-links-hero.png' />
             </div>
 
           </div>

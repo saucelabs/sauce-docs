@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import devHero from '../assets/dev-resources-hero.png';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 class DeveloperResources extends Component {
   render() {
@@ -14,7 +14,7 @@ class DeveloperResources extends Component {
           <div class="dev-resources__content-container">
 
             <div className="dev-resources__image">
-              <img src={devHero} />
+              <img src='img/dev-resources-hero.png' />
             </div>
 
             <div className="dev-resources__list">
