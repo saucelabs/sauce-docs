@@ -6,6 +6,127 @@
  */
 
 /* You can override the default Infima variables here. */
+/*
+ * The Typekit service used to deliver this font or fonts for use on websites
+ * is provided by Adobe and is subject to these Terms of Use
+ * http://www.adobe.com/products/eulas/tou_typekit. For font license
+ * information, see the list below.
+ *
+ * museo-sans:
+ *   - http://typekit.com/eulas/00000000000000007735da11
+ *   - http://typekit.com/eulas/00000000000000007735da14
+ *   - http://typekit.com/eulas/00000000000000007735da1d
+ *   - http://typekit.com/eulas/00000000000000007735da1e
+ * museo-sans-condensed:
+ *   - http://typekit.com/eulas/00000000000000007735d9f8
+ *   - http://typekit.com/eulas/00000000000000007735da0c
+ *   - http://typekit.com/eulas/00000000000000007735da10
+ *   - http://typekit.com/eulas/00000000000000007735da13
+ * museo-sans-display:
+ *   - http://typekit.com/eulas/000000000000000077359978
+ *   - http://typekit.com/eulas/000000000000000077359966
+ * museo-sans-rounded:
+ *   - http://typekit.com/eulas/000000000000000077359942
+ *   - http://typekit.com/eulas/00000000000000007735994a
+ *   - http://typekit.com/eulas/000000000000000077359977
+ *   - http://typekit.com/eulas/000000000000000077359984
+ *
+ * © 2009-2020 Adobe Systems Incorporated. All Rights Reserved.
+ */
+/*{"last_published":"2021-01-18 18:46:45 UTC"}*/
+
+@import url("https://p.typekit.net/p.css?s=1&k=bte6qhg&ht=tk&f=2005.2006.2009.2010.9938.9939.39002.39004.17398.17399.17400.17401.22618.22619&a=55013559&app=typekit&e=css");
+
+@font-face {
+font-family:"museo-sans";
+src:url("https://use.typekit.net/af/26ad38/00000000000000007735da11/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("woff2"),url("https://use.typekit.net/af/26ad38/00000000000000007735da11/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("woff"),url("https://use.typekit.net/af/26ad38/00000000000000007735da11/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:300;
+}
+
+@font-face {
+font-family:"museo-sans";
+src:url("https://use.typekit.net/af/4738ff/00000000000000007735da14/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3") format("woff2"),url("https://use.typekit.net/af/4738ff/00000000000000007735da14/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3") format("woff"),url("https://use.typekit.net/af/4738ff/00000000000000007735da14/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3") format("opentype");
+font-display:auto;font-style:italic;font-weight:300;
+}
+
+@font-face {
+font-family:"museo-sans";
+src:url("https://use.typekit.net/af/16d52d/00000000000000007735da1d/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/16d52d/00000000000000007735da1d/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/16d52d/00000000000000007735da1d/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:700;
+}
+
+@font-face {
+font-family:"museo-sans";
+src:url("https://use.typekit.net/af/23217f/00000000000000007735da1e/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff2"),url("https://use.typekit.net/af/23217f/00000000000000007735da1e/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff"),url("https://use.typekit.net/af/23217f/00000000000000007735da1e/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("opentype");
+font-display:auto;font-style:italic;font-weight:700;
+}
+
+@font-face {
+font-family:"museo-sans-rounded";
+src:url("https://use.typekit.net/af/00279f/000000000000000077359942/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("woff2"),url("https://use.typekit.net/af/00279f/000000000000000077359942/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("woff"),url("https://use.typekit.net/af/00279f/000000000000000077359942/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:300;
+}
+
+@font-face {
+font-family:"museo-sans-rounded";
+src:url("https://use.typekit.net/af/d39206/00000000000000007735994a/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/d39206/00000000000000007735994a/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/d39206/00000000000000007735994a/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:700;
+}
+
+@font-face {
+font-family:"museo-sans-rounded";
+src:url("https://use.typekit.net/af/f8a7d1/000000000000000077359977/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3") format("woff2"),url("https://use.typekit.net/af/f8a7d1/000000000000000077359977/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3") format("woff"),url("https://use.typekit.net/af/f8a7d1/000000000000000077359977/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3") format("opentype");
+font-display:auto;font-style:italic;font-weight:300;
+}
+
+@font-face {
+font-family:"museo-sans-rounded";
+src:url("https://use.typekit.net/af/a52fd8/000000000000000077359984/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff2"),url("https://use.typekit.net/af/a52fd8/000000000000000077359984/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff"),url("https://use.typekit.net/af/a52fd8/000000000000000077359984/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("opentype");
+font-display:auto;font-style:italic;font-weight:700;
+}
+
+@font-face {
+font-family:"museo-sans-condensed";
+src:url("https://use.typekit.net/af/ef2d68/00000000000000007735d9f8/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("woff2"),url("https://use.typekit.net/af/ef2d68/00000000000000007735d9f8/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("woff"),url("https://use.typekit.net/af/ef2d68/00000000000000007735d9f8/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:300;
+}
+
+@font-face {
+font-family:"museo-sans-condensed";
+src:url("https://use.typekit.net/af/f758b3/00000000000000007735da0c/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3") format("woff2"),url("https://use.typekit.net/af/f758b3/00000000000000007735da0c/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3") format("woff"),url("https://use.typekit.net/af/f758b3/00000000000000007735da0c/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3") format("opentype");
+font-display:auto;font-style:italic;font-weight:300;
+}
+
+@font-face {
+font-family:"museo-sans-condensed";
+src:url("https://use.typekit.net/af/e9f257/00000000000000007735da10/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/e9f257/00000000000000007735da10/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/e9f257/00000000000000007735da10/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:700;
+}
+
+@font-face {
+font-family:"museo-sans-condensed";
+src:url("https://use.typekit.net/af/0c2faf/00000000000000007735da13/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff2"),url("https://use.typekit.net/af/0c2faf/00000000000000007735da13/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff"),url("https://use.typekit.net/af/0c2faf/00000000000000007735da13/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("opentype");
+font-display:auto;font-style:italic;font-weight:700;
+}
+
+@font-face {
+font-family:"museo-sans-display";
+src:url("https://use.typekit.net/af/40f89d/000000000000000077359978/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/40f89d/000000000000000077359978/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/40f89d/000000000000000077359978/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;
+}
+
+@font-face {
+font-family:"museo-sans-display";
+src:url("https://use.typekit.net/af/9ed559/000000000000000077359966/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3") format("woff2"),url("https://use.typekit.net/af/9ed559/000000000000000077359966/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3") format("woff"),url("https://use.typekit.net/af/9ed559/000000000000000077359966/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:800;
+}
+
+.tk-museo-sans { font-family: "museo-sans",sans-serif; }
+.tk-museo-sans-rounded { font-family: "museo-sans-rounded",sans-serif; }
+.tk-museo-sans-condensed { font-family: "museo-sans-condensed",sans-serif; }
+.tk-museo-sans-display { font-family: "museo-sans-display",sans-serif; }
+
+
 :root {
     --ifm-color-primary: #E2231A;
     --ifm-color-primary-dark: rgb(229, 55, 48);
