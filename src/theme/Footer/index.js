@@ -151,7 +151,8 @@ function Footer() {
               </ul>
             </div>
             <span class="footer__copyright">
-              <a href="https://saucelabs.com/contact" target ="_blank">2020 Sauce Labs Inc., all rights reserved. SAUCE and SAUCE LABS are registered trademarks owned by Sauce Labs Inc. in the United States, EU, and may be registered in other jurisdictions. Built with Google Code Labs</a>
+
+              <a href="https://saucelabs.com/contact" target ="_blank">{(copyright) && (<div dangerouslySetInnerHTML={{  __html: copyright,}} />)} Sauce Labs Inc., all rights reserved. SAUCE and SAUCE LABS are registered trademarks owned by Sauce Labs Inc. in the United States, EU, and may be registered in other jurisdictions. Built with Google Code Labs</a>
             </span>
         </div>
       </div>

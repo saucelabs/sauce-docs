@@ -253,7 +253,7 @@ h3, .h3 {
   width: 1160px;
   display: inline-block;
   margin: 0 auto;
-  padding-top: 30px;
+  padding-top: 40px;
 }
 .navbar--fixed-top {
   height: 130px;
@@ -263,6 +263,7 @@ h3, .h3 {
   margin-right: 0px!important;
   width: 170px;
   text-align: left;
+  position: absolute;
 }
 .DocSearch-Button-Key {
   display: none!important;
@@ -499,6 +500,10 @@ ul.footer__sublinks li {
 .footer__copyright {
   text-align: left;
 }
+.DocSearch-Button-Placeholder {
+  position: relative;
+  top: -3px;
+}
 /* footer styles */
 
 /* mobile overrides */
@@ -555,11 +560,9 @@ ul.footer__sublinks li {
       display: flex!important;
       flex-wrap: wrap!important;
     }
-
     .footer-column {
       flex: 0 50%!important;
     }
-
     .footerbar .site-width.layout.horizontal.center.justified {
       display: flex;
       flex-wrap: wrap;
@@ -568,5 +571,21 @@ ul.footer__sublinks li {
     .footerbar .footer__sublinks, .footerbar .footer__copyright {
       flex: 0 100%;
       padding: 5px 0 5px 0;
+    }
+    .navbar__inner {
+      width: inherit!important;
+      display: inline-block;
+      margin: 0 auto;
+      padding-top: 0px;
+    }
+    .navbar__toggle {
+      position: absolute;
+      right: 0px;
+    }
+    .navbar__logo {
+      margin-top: 25px;
+    }
+    .DocSearch-Button {
+      top: 15px;
     }
 }
