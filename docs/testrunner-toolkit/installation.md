@@ -4,7 +4,7 @@ title: Testrunner Toolkit Installation
 sidebar_label: Installation
 ---
 
-Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifies user setup, speeds up test execution time and supports native Javascript frameworks like [Puppeteer](https://developers.google.com/web/tools/puppeteer), [Playwright](https://playwright.dev/), and [TestCafe](https://devexpress.github.io/testcafe/) for running end-to-end web tests with [Sauce Labs](https://saucelabs.com/).
+Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifies user setup, speeds up test execution time and supports native Javascript frameworks like, [Cypress](https://github.com/cypress-io/cypress) and [TestCafe](https://devexpress.github.io/testcafe/), for running end-to-end web tests with [Sauce Labs](https://saucelabs.com/).
 
 ## What You'll Need
 

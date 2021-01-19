@@ -26,7 +26,6 @@ Also, with the `suites` field you can specify groups of tests, as well as the pr
   values={[
     {label: 'Cypress', value: 'cypress'},
     {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Puppeteer', value: 'puppeteer'},
     {label: 'Playwright', value: 'playwright'},
   ]}>
 
@@ -37,24 +36,17 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
 ```
 
 </TabItem>
-<TabItem value="testcafe">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
-```
-
-</TabItem>
-<TabItem value="puppeteer">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/puppeteer.yml
-```
-
-</TabItem>
 <TabItem value="playwright">
 
 ```yaml reference
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/playwright.yml
+```
+
+</TabItem>
+<TabItem value="testcafe">
+
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
 ```
 
 </TabItem>
@@ -109,9 +101,8 @@ In the examples below, the `environment` variables are the GitHub secrets config
   defaultValue="cypress"
   values={[
     {label: 'Cypress', value: 'cypress'},
-    {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Puppeteer', value: 'puppeteer'},
     {label: 'Playwright', value: 'playwright'},
+    {label: 'TestCafe', value: 'testcafe'},
   ]}>
 
 <TabItem value="cypress">
@@ -121,24 +112,17 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile
 ```
 
 </TabItem>
-<TabItem value="testcafe">
-
-```bash reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.testcafe
-```
-
-</TabItem>
-<TabItem value="puppeteer">
-
-```sh
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.puppeteer
-```
-
-</TabItem>
 <TabItem value="playwright">
 
 ```sh reference
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.playwright
+```
+
+</TabItem>
+<TabItem value="testcafe">
+
+```bash reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.testcafe
 ```
 
 </TabItem>
@@ -194,9 +178,8 @@ In the examples below, the environment variables (`env`) equate to the values co
   defaultValue="cypress"
   values={[
     {label: 'Cypress', value: 'cypress'},
-     {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Puppeteer', value: 'puppeteer'},
     {label: 'Playwright', value: 'playwright'},
+    {label: 'TestCafe', value: 'testcafe'},
   ]}>
   
 <TabItem value="cypress">
@@ -206,26 +189,17 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/te
 ```
 
 </TabItem>
-
-<TabItem value="testcafe">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L69-L91
-```
-
-</TabItem>
-
-<TabItem value="puppeteer">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L20-L42
-```
-
-</TabItem>
 <TabItem value="playwright">
 
 ```yaml reference
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L44-L67
+```
+
+</TabItem>
+<TabItem value="testcafe">
+
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L69-L91
 ```
 
 </TabItem>
@@ -295,9 +269,8 @@ In the root of your project directory, create the `.circleci` directory if it do
   defaultValue="cypress"
   values={[
     {label: 'Cypress', value: 'cypress'},
-    {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Puppeteer', value: 'puppeteer'},
     {label: 'Playwright', value: 'playwright'},
+    {label: 'TestCafe', value: 'testcafe'},
   ]}>
   
 <TabItem value="cypress">
@@ -307,24 +280,17 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml
 ```
 
 </TabItem>
-<TabItem value="testcafe">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml#L53-L67
-```
-
-</TabItem>
-<TabItem value="puppeteer">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114
-```
-
-</TabItem>
 <TabItem value="playwright">
 
 ```yaml reference
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114
+```
+
+</TabItem>
+<TabItem value="testcafe">
+
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml#L53-L67
 ```
 
 </TabItem>
