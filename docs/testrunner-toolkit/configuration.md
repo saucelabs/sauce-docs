@@ -156,14 +156,29 @@ Below are framework-specific configuration examples that exist in the [Testrunne
 >
 
 <Tabs
-  defaultValue="puppeteer"
+  defaultValue="cypress"
   values={[
+    {label: 'Cypress', value: 'cypress'},
+    {label: 'TestCafe', value: 'testcafe'},
     {label: 'Puppeteer', value: 'puppeteer'},
     {label: 'Playwright', value: 'playwright'},
-    {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Cypress', value: 'cypress'},
   ]}>
+  
+<TabItem value="cypress">
 
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
+```
+
+</TabItem>
+
+<TabItem value="testcafe">
+
+```yaml reference 
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
+```
+
+</TabItem>
 <TabItem value="puppeteer">
 
 ```yaml reference
@@ -175,20 +190,6 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/puppeteer.yml
 
 ```yaml reference 
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/playwright.yml
-```
-
-</TabItem>
-<TabItem value="testcafe">
-
-```yaml reference 
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
-```
-
-</TabItem>
-<TabItem value="cypress">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
 ```
 
 </TabItem>
