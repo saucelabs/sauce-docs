@@ -86,14 +86,51 @@ Below are example snippets in the following frameworks: [Puppeteer](https://pptr
 
 
 <Tabs
-  defaultValue="puppeteer"
+  defaultValue="cypress"
   values={[
+    {label: 'Cypress', value: 'cypress'},
+    {label: 'TestCafe', value: 'testcafe'},
     {label: 'Puppeteer', value: 'puppeteer'},
     {label: 'Playwright', value: 'playwright'},
-    {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Cypress', value: 'cypress'},
   ]}>
 
+<TabItem value="cypress">
+
+<!--https://github.com/saucelabs/saucectl/blob/master/tests/e2e/cypress/integration/example.test.js-->
+
+```js
+context('Actions', () => {
+		beforeEach(() => {
+			cy.visit('https://example.cypress.io/commands/actions')
+		})
+		it('.type() - type into a DOM element', () => {
+			// https://on.cypress.io/type
+			cy.get('.action-email')
+				.type('fake@email.com').should('have.value', 'fake@email.com')
+		})
+	})
+```
+
+</TabItem>
+<TabItem value="testcafe">
+
+<!--https://github.com/saucelabs/saucectl/blob/master/tests/e2e/testcafe/example.test.js
+-->
+```js
+import { Selector } from 'testcafe';
+fixture `Getting Started`
+	.page `http://devexpress.github.io/testcafe/example`
+
+const testName = 'testcafe test'
+test(testName, async t => {
+	await t
+		.typeText('#developer-name', 'devx')
+		.click('#submit-button')
+		.expect(Selector('#article-header').innerText).eql('Thank you, devx!');
+});
+```
+
+</TabItem>
 <TabItem value="puppeteer">
 
 Our Puppeteer testrunner image exposes `browser` into the global scope which represents an instance of its [`Browser class`](https://pptr.dev/#?product=Puppeteer&version=v3.0.4&show=api-class-browser). The browser will be initiated and shutdown by the testrunner setup.
@@ -124,43 +161,6 @@ describe('saucectl demo test', () => {
 		expect(await page.title()).toBe('Swag Labs');
 	});
 });
-```
-
-</TabItem>
-<TabItem value="testcafe">
-
-<!--https://github.com/saucelabs/saucectl/blob/master/tests/e2e/testcafe/example.test.js
--->
-```js
-import { Selector } from 'testcafe';
-fixture `Getting Started`
-	.page `http://devexpress.github.io/testcafe/example`
-
-const testName = 'testcafe test'
-test(testName, async t => {
-	await t
-		.typeText('#developer-name', 'devx')
-		.click('#submit-button')
-		.expect(Selector('#article-header').innerText).eql('Thank you, devx!');
-});
-```
-
-</TabItem>
-<TabItem value="cypress">
-
-<!--https://github.com/saucelabs/saucectl/blob/master/tests/e2e/cypress/integration/example.test.js-->
-
-```js
-context('Actions', () => {
-		beforeEach(() => {
-			cy.visit('https://example.cypress.io/commands/actions')
-		})
-		it('.type() - type into a DOM element', () => {
-			// https://on.cypress.io/type
-			cy.get('.action-email')
-				.type('fake@email.com').should('have.value', 'fake@email.com')
-		})
-	})
 ```
 
 </TabItem>

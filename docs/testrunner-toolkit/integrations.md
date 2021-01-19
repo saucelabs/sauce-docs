@@ -22,14 +22,28 @@ Regardless of the CI tool in your pipeline, you must first create the `.sauce` d
 Also, with the `suites` field you can specify groups of tests, as well as the preferred browser `settings`. Refer to the examples below for more details:
 
 <Tabs
-  defaultValue="puppeteer"
+  defaultValue="cypress"
   values={[
+    {label: 'Cypress', value: 'cypress'},
+    {label: 'TestCafe', value: 'testcafe'},
     {label: 'Puppeteer', value: 'puppeteer'},
     {label: 'Playwright', value: 'playwright'},
-    {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Cypress', value: 'cypress'},
   ]}>
 
+<TabItem value="cypress">
+
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
+```
+
+</TabItem>
+<TabItem value="testcafe">
+
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
+```
+
+</TabItem>
 <TabItem value="puppeteer">
 
 ```yaml reference
@@ -41,20 +55,6 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/puppeteer.yml
 
 ```yaml reference
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/playwright.yml
-```
-
-</TabItem>
-<TabItem value="testcafe">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
-```
-
-</TabItem>
-<TabItem value="cypress">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
 ```
 
 </TabItem>
@@ -106,14 +106,28 @@ Add the `Jenkinsfile` at the root of your project directory so that Jenkins can 
 In the examples below, the `environment` variables are the GitHub secrets configured in Jenkins:
 
 <Tabs
-  defaultValue="puppeteer"
+  defaultValue="cypress"
   values={[
+    {label: 'Cypress', value: 'cypress'},
+    {label: 'TestCafe', value: 'testcafe'},
     {label: 'Puppeteer', value: 'puppeteer'},
     {label: 'Playwright', value: 'playwright'},
-    {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Cypress', value: 'cypress'},
   ]}>
 
+<TabItem value="cypress">
+
+```bash reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.cypress
+```
+
+</TabItem>
+<TabItem value="testcafe">
+
+```bash reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.testcafe
+```
+
+</TabItem>
 <TabItem value="puppeteer">
 
 ```sh
@@ -125,20 +139,6 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile
 
 ```sh reference
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.playwright
-```
-
-</TabItem>
-<TabItem value="testcafe">
-
-```bash reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.testcafe
-```
-
-</TabItem>
-<TabItem value="cypress">
-
-```bash reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.cypress
 ```
 
 </TabItem>
@@ -191,13 +191,29 @@ In the examples below, the environment variables (`env`) equate to the values co
 > For more detailed information on setting event-driven actions and jobs, please visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
 
 <Tabs
-  defaultValue="puppeteer"
+  defaultValue="cypress"
   values={[
+    {label: 'Cypress', value: 'cypress'},
+     {label: 'TestCafe', value: 'testcafe'},
     {label: 'Puppeteer', value: 'puppeteer'},
     {label: 'Playwright', value: 'playwright'},
-    {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Cypress', value: 'cypress'},
   ]}>
+  
+<TabItem value="cypress">
+
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114
+```
+
+</TabItem>
+
+<TabItem value="testcafe">
+
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L69-L91
+```
+
+</TabItem>
 
 <TabItem value="puppeteer">
 
@@ -210,20 +226,6 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/te
 
 ```yaml reference
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L44-L67
-```
-
-</TabItem>
-<TabItem value="testcafe">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L69-L91
-```
-
-</TabItem>
-<TabItem value="cypress">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114
 ```
 
 </TabItem>
@@ -290,14 +292,28 @@ In order for CirceCi to communicate with Sauce Labs you need to authenticate wit
 In the root of your project directory, create the `.circleci` directory if it doesn't already exist, and open/create `config.yml`. Below are some job snippets of how to configure Testrunner Toolkit with CircleCI:
 
 <Tabs
-  defaultValue="puppeteer"
+  defaultValue="cypress"
   values={[
+    {label: 'Cypress', value: 'cypress'},
+    {label: 'TestCafe', value: 'testcafe'},
     {label: 'Puppeteer', value: 'puppeteer'},
     {label: 'Playwright', value: 'playwright'},
-    {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Cypress', value: 'cypress'},
   ]}>
+  
+<TabItem value="cypress">
 
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml#L69-L83
+```
+
+</TabItem>
+<TabItem value="testcafe">
+
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml#L53-L67
+```
+
+</TabItem>
 <TabItem value="puppeteer">
 
 ```yaml reference
@@ -309,20 +325,6 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/te
 
 ```yaml reference
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114
-```
-
-</TabItem>
-<TabItem value="testcafe">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml#L53-L67
-```
-
-</TabItem>
-<TabItem value="cypress">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml#L69-L83
 ```
 
 </TabItem>
