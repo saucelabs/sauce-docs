@@ -168,9 +168,31 @@ The first order of business is to export your [Sauce Labs account credentials](h
 
 ### Configure the GitHub Action
 
-In your root project directory, create the following directory tree: `.github/workflows`. In the `workflows` directory create a file called `actions.yml`.
+In your root project directory, create the following directory tree: `.github/workflows`. In the `workflows` directory create a file called `actions.yml`. 
 
-In the examples below, the environment variables (`env`) equate to the values configured in GitHub secrets. The event only triggers test runs `on` every `pull_request` and/or `push` to the `master` branch.
+Add the following to the top of your file:
+
+> __NOTE__: Setting `env` at the top of the file enables it globally in this workflow, so all jobs have access to these variables.
+
+```yaml
+name: Sauce Pipeline Browser Tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+env:
+  SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
+  SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
+
+jobs:
+```
+
+### Create the Test Job
+
+In the examples below, the environment variables (`env`) equate to the values configured in GitHub secrets (see above steps). These events only trigger test runs `on` every `pull_request` and/or `push` to the `master` branch.
 
 > For more detailed information on setting event-driven actions and jobs, please visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
 
@@ -207,7 +229,7 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/te
 
 > You can reference our example workflows [here](https://github.com/saucelabs/testrunner-toolkit/tree/master/.github/workflows).
 
-<!--### Run the Pipeline Tests-->
+### View Test Results
 
 Now when you commit these files, GitHub will detect the new workflow actions and launch `saucectl` to run your tests.
 
