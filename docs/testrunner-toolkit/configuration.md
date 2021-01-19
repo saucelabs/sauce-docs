@@ -234,12 +234,11 @@ or the CLI
 saucectl run --parallel
 ```
 
-The concrete setup of the pipeline will depend on your CI provider however. 
-
-[Here's an example](https://github.com/saucelabs/saucectl/blob/master/.github/workflows/test.yml#L94-L145) how to set it up for GitHub Actions:
+Below [is an example of running Cypress job in GitHub Actions workflow](https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114):
+ > __NOTE:__ The concrete setup of the pipeline will depend on your CI provider. 
 
 ```yaml reference
-https://github.com/saucelabs/saucectl/blob/master/.github/workflows/test.yml#L94-L145
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114
 ```
 
 ## Additional Resources
