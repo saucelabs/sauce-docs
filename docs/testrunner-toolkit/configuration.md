@@ -214,33 +214,6 @@ beforeExec:
   - npm install --save chai
 ```
 
-### Parallelization
-
-Saucectl is capable of running tests in parallel by utilizing multiple CI machines. _This feature requires a Sauce Labs account_, so don't forget to set the environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`!
-
-Parallelization can be turned on either via the config:
-
-
-```yaml
-sauce:
-  region: us-west-1
-parallel: true
-```
-
-
-or the CLI
-
-```bash
-saucectl run --parallel
-```
-
-Below [is an example of running Cypress job in GitHub Actions workflow](https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114):
- > __NOTE:__ The concrete setup of the pipeline will depend on your CI provider. 
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114
-```
-
 ## Additional Resources
 
 Please visit [here](/dev/cli/saucectl#parallel) for more information about the parallelization feature and its limitations. You can also visit our [CI Integrations](integrations.md) page for more information on how to use the following CI platforms:
