@@ -6,7 +6,7 @@ module.exports = {
         type: 'category',
         label: 'Sauce Labs Basics',
         collapsed: true,
-        items: 'sauce-basics',
+        items: ['sauce-basics'],
       },
     ],
     "Secure Connections": [
@@ -39,7 +39,6 @@ module.exports = {
             collapsed: true,
             items: [
                 'mobile-apps/automated-testing',
-
                 {
                     type: 'category',
                     label: 'Espresso and XCUITest',

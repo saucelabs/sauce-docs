@@ -13,6 +13,7 @@ The OnDemand plugin allows you to easily manage your Sauce Labs testing from [Je
 ## What You'll Learn
 
 * How to install and configure the Sauce OnDemand Plugin for Jenkins
+* How to configure Sauce Connect to enable testing on private networks
 * How to run parallel tests in Jenkins
 * How to set up reporting between Sauce Labs & Jenkins
 * How to implement the OnDemand plugin into your Jenkins pipeline
@@ -45,12 +46,12 @@ Once you have installed the plugin and Jenkins has restarted, add your Sauce Lab
 1. Hover over the applicable domain and click **Add Credentials** from the context menu.
 1. In the **Kind** field, use the pull-down menu to select **Sauce Labs**.
 1. Provide the information in the form relevant to your Sauce Labs account:
-    **Scope**: Choose `Global` or `System` based on level of access these credentials will provide in your projects.
-    **Username**: Enter the `USERNAME` value from your Sauce Labs account profile.
-    **Access Key**: Enter the `ACCESS KEY` value from your Sauce Labs account profile.
-    **Sauce Data Center**: Choose the Sauce Labs data center through which you run your tests.
-    **ID**: Enter a unique identifier for these credentials in your Jenkins environment, or leave this field blank to allow Jenkins to generate a random ID.
-    **Description**: Provide a brief, meaningful label for these credentials.
+    * **Scope**: Choose `Global` (recommended) or `System` based on level of access these credentials will provide in your projects.
+    * **Username**: Enter the `USERNAME` value from your Sauce Labs account profile.
+    * **Access Key**: Enter the `ACCESS KEY` value from your Sauce Labs account profile.
+    * **Sauce Data Center**: Choose the Sauce Labs data center through which you run your tests.
+    * **ID**: Enter a unique identifier for these credentials in your Jenkins environment, or leave this field blank to allow Jenkins to generate a random ID.
+    * **Description**: Provide a brief, meaningful label for these credentials.
 1. Click **OK**.
 1. Back in your Jenkins dashboard, select an applicable project to apply your credentials.
 1. Choose **Configure** from the project menu.
@@ -71,9 +72,7 @@ WebDriver driver = new RemoteWebDriver(
 
 ### Setting Credentials for EU Data Center Pipeline Builds
 
-For pipeline builds in the EU data center, set the credential ID you created in Jenkins in your Pipelines Block, as shown in the following example.
-
-> **NOTE:** Non-pipeline builds apply credentials using the same method as the US projects.
+Use the process outlined in steps 7-12 above to apply EU credentials for non-pipeline builds, but for pipeline builds in the EU data center, set the credential ID you created in Jenkins in your Pipelines Block, as shown in the following example.
 
 ```
 stage('Test') {
@@ -87,7 +86,7 @@ stage('Test') {
 
 ## Using Sauce Connect in Jenkins
 
-The Sauce OnDemand plugin is bundled with the latest version of [Sauce Connect Proxy](/docs/secure-connections.md), which allows you to run your Sauce Labs tests in environments that are not publicly accessible, like your local network or behind a firewall.
+The Sauce OnDemand plugin is bundled with the latest version of Sauce Connect Proxy, which allows you to run your Sauce Labs tests in environments that are not publicly accessible, like your local network or behind a firewall.
 
 Configure Sauce Connect Proxy to establish a secure tunnel for your Jenkins projects running Sauce Labs tests against websites or applications on a private network.
 
@@ -116,13 +115,15 @@ The OnDemand plugin extracts the Sauce Connect binary compatible with your opera
 
 1. From your Jenkins dashboard, choose **Manage Jenkins** and then **Configure System**.
 1. In the **Sauce Support** section, specify a location in the **Override Sauce Connect Path** field that will be the default extraction directory for all projects using Sauce Connect.
+
 </TabItem>
 <TabItem value="project">
 
 1. From your Jenkins dashboard, select the project you wish to configure.
 1. Choose **Configure** from the project menu.
 1. Choose the **Sauce Connect Advanced Options** tab and click **Advanced**.
-1. Specify a location in the **Sauce Connect Binary Location** field that will be the extraction directory for this project only.
+1. Specify a location in the **Sauce Connect Binary Location** field that will be the extraction directory for this project only. This value will override the global setting.
+
 </TabItem>
 </Tabs>
 
@@ -131,24 +132,45 @@ The OnDemand plugin extracts the Sauce Connect binary compatible with your opera
 
 There are a number of command line options you can use with Sauce Connect, which you can configure to execute at both the global level and on a per-project basis when Sauce Connect launches.
 
-Setting Global Sauce Connect Command Line Options
-In Jenkins, go to the Administration page.
-Click Manage Jenkins.
-Click Configure System.
-Under Sauce Support, enter the command line options you'd like to use in the Sauce Connect Options field.
+<Tabs
+  defaultValue="global"
+  values={[
+    {label: 'Set a Global Location', value: 'global'},
+    {label: 'Set a Project Location', value: 'project'},
+  ]}>
 
-Setting Per-Project Sauce Connect Command Line Options
-In Jenkins, go to your project.
-Select Configure.
-In the Sauce Connect Advanced Options section, click Advanced.
-Enter the command line options you'd like to use in the Sauce Connect Options field.
-Launching Sauce Connect on the Jenkins Slave Node
-Another advanced option is launching Sauce Connect on the Jenkins slave node that is executing the build, rather than on the Master node.
+<TabItem value="global">
 
-In Jenkins, go to your project.
-Select Configure.
-In the Sauce Connect Advanced Options section, click Advanced.
-Select Launch Sauce Connect on Slave.
+1. From your Jenkins dashboard, choose **Manage Jenkins** and then **Configure System**.
+1. In the **Sauce Support** section, enter the list of command line arguments in the **Sauce Connect Options** field that will be applied each time Sauce Connect Proxy is launched for any project. For example:
+    ```
+    -i myTunnel -l ./jenkins_scp_log
+    ```
+
+</TabItem>
+<TabItem value="project">
+Arguments set for a project will override any global command line arguments.
+
+1. From your Jenkins dashboard, select the project you wish to configure.
+1. Choose **Configure** from the project menu.
+1. Choose the **Sauce Connect Advanced Options** tab and click **Advanced**.
+1. In the **Sauce Connect Options** field, enter the list of command line arguments to apply each time Sauce Connect Proxy is launched for this project. For example:
+    ```
+    -i projectTunnel -l ./scp_project_log
+    ```
+
+</TabItem>
+</Tabs>
+
+### Launching Sauce Connect on the Jenkins Slave Node
+
+If you're executing your build using a slave node, you can configure the plugin to launch Sauce Connect from the slave instead the Master node.
+
+1. From your Jenkins dashboard, select the project to configure.
+1. Choose **Configure** from the project menu.
+1. Choose the **Sauce Connect Advanced Options** tab and click **Advanced**.
+1. Check **Launch Sauce Connect on Slave**.
+
 Creating a new unique Sauce Connect tunnel per build
 
 If you select theCreate a new unique Sauce Connect tunnel per build option, the plugin will spin up a unique tunnel identifier for each build and populate a TUNNEL_IDENTIFIER environment variable. You must then reference this variable in the desired capabilities for your tests.
