@@ -6,9 +6,7 @@ module.exports = {
         type: 'category',
         label: 'Sauce Labs Basics',
         collapsed: true,
-        items: [
-          'sauce-basics',
-        ],
+        items: 'sauce-basics',
       },
     ],
     "Secure Connections": [
@@ -78,14 +76,11 @@ module.exports = {
     ],
     "CI/CD": [
         'ci',
-<<<<<<< HEAD
         'ci/bamboo',
         'ci/bitbucket',
         'ci/jenkins',
         'ci/teamcity',
         'ci/visual-studio',
-=======
->>>>>>> b38a10a5e0dd136c181ba3ed4ed9bf4013c32220
     ],
     "Insights": [
         'insights',
