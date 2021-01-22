@@ -214,6 +214,26 @@ beforeExec:
   - npm install --save chai
 ```
 
+### Concurrency
+Saucectl is capable of running test suites in parallel when utilizing the Sauce Labs infrastructure. _This feature requires a Sauce Labs account_, so don't forget to set the environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`!
+The degree of concurrency can be controlled via the config:
+
+```yaml
+sauce:
+  concurrency: 10
+```
+
+or the CLI
+```bash
+saucectl run --test-env sauce --ccy 10
+```
+
+A setting of `10` would mean that up to 10 test suites would run concurrently.
+If you have more suites than that, any excess will simply be queued until it's their turn to run. 
+
+The concurrency setting has no effect when the test environment is `--test-env docker` and only works when running tests in the Sauce cloud via `--test-env sauce`.
+The maximum concurrency that you can use is limited by your account settings.
+
 ## Additional Resources
 
 Please visit [here](/dev/cli/saucectl#parallel) for more information about the parallelization feature and its limitations. You can also visit our [CI Integrations](integrations.md) page for more information on how to use the following CI platforms:
