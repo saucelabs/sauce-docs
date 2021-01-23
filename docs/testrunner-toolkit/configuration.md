@@ -66,10 +66,9 @@ After running this command, a prompt appears asking you to select the desired fr
 ```bash
 8:59AM INF Start New Command
      Choose a framework:
-     ❯ Puppeteer
+     ❯ Cypress
        Playwright
        Testcafe
-       Cypress
 ```
 
 ### Select a Data Center
@@ -124,22 +123,41 @@ If you have existing tests and wish to expand or modify the `.sauce/config.yml`,
 By default `saucectl` searches for a file called `config.yml`, for example:
 
 ```yaml
-# Simple config.yml using puppeteer
-apiVersion: v1
-metadata:
-  name: Feature XYZ
-  tags:
-    - e2e
-    - release team
-    - other tag
-  build: Release $CI_COMMIT_SHORT_SHA
-files:
-  - ./tests/**/*.js
-image:
-  base: saucelabs/sauce-puppeteer-jest-node
-  version: v0.1.0
+# Simple config.yml using cypress
+apiVersion: v1alpha
+kind: cypress
 sauce:
   region: us-west-1
+## Tunnel allows you to specify an existing sauce connect tunnel when running cypress inside the Sauce cloud.
+## This has no effect when running tests inside docker.
+  tunnel:
+    id: your_tunnel_id
+    parent: parent_owner_of_tunnel # if applicable, specify the owner of the tunnel
+  metadata:
+    name: Testing Cypress Support
+    tags:
+      - e2e
+      - release team
+      - other tag
+    build: Release $CI_COMMIT_SHORT_SHA
+docker:
+  # fileTransfer controls how test files are transferred to the docker container before tests are run (choice: mount|copy).
+  # `mount` will mount files and folders into the container. Changes to these files and folders will be reflected on the
+  # host as well (and vice versa). However, you may run into permission issues depending on your docker or host settings.
+  # In this case the usage of `copy` is advised. `copy` will simply copy files and folders into the container.
+  fileTransfer: mount # Defaults to `mount`. Choose between mount|copy.
+  image:
+    name: saucelabs/stt-cypress-mocha-node
+    tag: v0.3.4
+cypress:
+  configFile: "tests/cypress.json"  # We determine related files based on the location of the config file.
+suites:
+  - name: "saucy test"
+    browser: "chrome"
+    config:
+      env:
+        hello: world
+      testFiles: [ "**/*.*" ] # Cypress native glob support.
 ```
 
 If you wish to use more than one framework, or to configure different sets of tests separately, you can use any name for the configuration file and specify it with the following command:
@@ -156,18 +174,17 @@ Below are framework-specific configuration examples that exist in the [Testrunne
 >
 
 <Tabs
-  defaultValue="puppeteer"
+  defaultValue="cypress"
   values={[
-    {label: 'Puppeteer', value: 'puppeteer'},
+    {label: 'Cypress', value: 'cypress'},
     {label: 'Playwright', value: 'playwright'},
     {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Cypress', value: 'cypress'},
   ]}>
-
-<TabItem value="puppeteer">
+  
+<TabItem value="cypress">
 
 ```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/puppeteer.yml
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
 ```
 
 </TabItem>
@@ -185,13 +202,6 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
 ```
 
 </TabItem>
-<TabItem value="cypress">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
-```
-
-</TabItem>
 </Tabs>
 
 ### Prepare your environment
@@ -199,35 +209,30 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
 Saucectl offers the possibility to set up your tests environment before executing any of your suites using `beforeExec`: 
 
 
-```yaml reference
-https://github.com/saucelabs/saucectl/blob/master/.sauce/puppeteer_before_exec.yml#L14-L15
+```yaml
+beforeExec:
+  - npm install --save chai
 ```
 
-### Parallelization
+### Concurrency
+Saucectl is capable of running test suites in parallel when utilizing the Sauce Labs infrastructure. _This feature requires a Sauce Labs account_, so don't forget to set the environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`!
+The degree of concurrency can be controlled via the config:
 
-Saucectl is capable of running tests in parallel by utilizing multiple CI machines. _This feature requires a Sauce Labs account_, so don't forget to set the environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`!
-
-Parallelization can be turned on either via the config:
-
-
-```yaml reference
-https://github.com/saucelabs/saucectl/blob/master/.sauce/puppeteer_parallel.yml#L21
+```yaml
+sauce:
+  concurrency: 10
 ```
-
 
 or the CLI
-
 ```bash
-saucectl run --parallel
+saucectl run --test-env sauce --ccy 10
 ```
 
-The concrete setup of the pipeline will depend on your CI provider however. 
+A setting of `10` would mean that up to 10 test suites would run concurrently.
+If you have more suites than that, any excess will simply be queued until it's their turn to run. 
 
-[Here's an example](https://github.com/saucelabs/saucectl/blob/master/.github/workflows/test.yml#L94-L145) how to set it up for GitHub Actions:
-
-```yaml reference
-https://github.com/saucelabs/saucectl/blob/master/.github/workflows/test.yml#L94-L145
-```
+The concurrency setting has no effect when the test environment is `--test-env docker` and only works when running tests in the Sauce cloud via `--test-env sauce`.
+The maximum concurrency that you can use is limited by your account settings.
 
 ## Additional Resources
 

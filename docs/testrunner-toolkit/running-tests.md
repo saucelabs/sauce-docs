@@ -34,10 +34,9 @@ To get started quickly run the following commands:
     saucectl new
     ```
 2. Choose the desired framework following the prompt:
-    * [Puppeteer](https://github.com/puppeteer/puppeteer)
+    * [Cypress](https://github.com/cypress-io/cypress)
     * [Playwright](https://github.com/microsoft/playwright)
     * [TestCafe](https://devexpress.github.io/testcafe)
-    * [Cypress](https://github.com/cypress-io/cypress)
     
     For more detailed information, please visit the [Configuration](configuration.md) page.
 
@@ -79,35 +78,35 @@ Please note that VM concurrency depends on the suite number rather than the numb
 ## Automation Framework Examples
 The examples here show how Pipeline testing can be used. Try them and find your own use cases. 
 
-Every __testrunner__ image comes with a preconfigured setup that allows you to focus on writing tests instead of tweaking with the configurations. Our initial `testrunner` flavors come either with Puppeteer, Playwright, or TestCafe as an automation framework. 
+Every __testrunner__ image comes with a preconfigured setup that allows you to focus on writing tests instead of tweaking with the configurations. Our initial `testrunner` flavors come either with Cypress, Playwright, or TestCafe as an automation framework. 
 
 
-Below are example snippets in the following frameworks: [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v3.0.3&show=api-class-browser), [Playwright](https://playwright.dev/#version=v1.0.1&path=docs%2Fcore-concepts.md&q=browser), [TestCafe](https://devexpress.github.io/testcafe/documentation/reference/test-api/testcontroller/browser.html), and [Cypress](https://github.com/cypress-io/cypress).
+Below are example snippets in the following frameworks: [Cypress](https://github.com/cypress-io/cypress), [Playwright](https://playwright.dev/#version=v1.0.1&path=docs%2Fcore-concepts.md&q=browser), and [TestCafe](https://devexpress.github.io/testcafe/documentation/reference/test-api/testcontroller/browser.html).
 
 
 <Tabs
-  defaultValue="puppeteer"
+  defaultValue="cypress"
   values={[
-    {label: 'Puppeteer', value: 'puppeteer'},
+    {label: 'Cypress', value: 'cypress'},
     {label: 'Playwright', value: 'playwright'},
     {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Cypress', value: 'cypress'},
   ]}>
 
-<TabItem value="puppeteer">
+<TabItem value="cypress">
 
-Our Puppeteer testrunner image exposes `browser` into the global scope which represents an instance of its [`Browser class`](https://pptr.dev/#?product=Puppeteer&version=v3.0.4&show=api-class-browser). The browser will be initiated and shutdown by the testrunner setup.
+<!--https://github.com/saucelabs/saucectl/blob/master/tests/e2e/cypress/integration/example.test.js-->
 
-<!--https://github.com/saucelabs/saucectl/blob/master/tests/e2e/puppeteer/example.test.js
--->
-```js 
-describe('saucectl demo test', () => {
-	test('should verify title of the page', async () => {
-		const page = (await browser.pages())[0]
-		await page.goto('https://www.saucedemo.com/');
-		expect(await page.title()).toBe('Swag Labs');
-	});
-});
+```js
+context('Actions', () => {
+		beforeEach(() => {
+			cy.visit('https://example.cypress.io/commands/actions')
+		})
+		it('.type() - type into a DOM element', () => {
+			// https://on.cypress.io/type
+			cy.get('.action-email')
+				.type('fake@email.com').should('have.value', 'fake@email.com')
+		})
+	})
 ```
 
 </TabItem>
@@ -143,24 +142,6 @@ test(testName, async t => {
 		.click('#submit-button')
 		.expect(Selector('#article-header').innerText).eql('Thank you, devx!');
 });
-```
-
-</TabItem>
-<TabItem value="cypress">
-
-<!--https://github.com/saucelabs/saucectl/blob/master/tests/e2e/cypress/integration/example.test.js-->
-
-```js
-context('Actions', () => {
-		beforeEach(() => {
-			cy.visit('https://example.cypress.io/commands/actions')
-		})
-		it('.type() - type into a DOM element', () => {
-			// https://on.cypress.io/type
-			cy.get('.action-email')
-				.type('fake@email.com').should('have.value', 'fake@email.com')
-		})
-	})
 ```
 
 </TabItem>

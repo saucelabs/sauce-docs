@@ -22,18 +22,17 @@ Regardless of the CI tool in your pipeline, you must first create the `.sauce` d
 Also, with the `suites` field you can specify groups of tests, as well as the preferred browser `settings`. Refer to the examples below for more details:
 
 <Tabs
-  defaultValue="puppeteer"
+  defaultValue="cypress"
   values={[
-    {label: 'Puppeteer', value: 'puppeteer'},
-    {label: 'Playwright', value: 'playwright'},
-    {label: 'TestCafe', value: 'testcafe'},
     {label: 'Cypress', value: 'cypress'},
+    {label: 'TestCafe', value: 'testcafe'},
+    {label: 'Playwright', value: 'playwright'},
   ]}>
 
-<TabItem value="puppeteer">
+<TabItem value="cypress">
 
 ```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/puppeteer.yml
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
 ```
 
 </TabItem>
@@ -48,13 +47,6 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/playwright.ym
 
 ```yaml reference
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
-```
-
-</TabItem>
-<TabItem value="cypress">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
 ```
 
 </TabItem>
@@ -106,18 +98,17 @@ Add the `Jenkinsfile` at the root of your project directory so that Jenkins can 
 In the examples below, the `environment` variables are the GitHub secrets configured in Jenkins:
 
 <Tabs
-  defaultValue="puppeteer"
+  defaultValue="cypress"
   values={[
-    {label: 'Puppeteer', value: 'puppeteer'},
+    {label: 'Cypress', value: 'cypress'},
     {label: 'Playwright', value: 'playwright'},
     {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Cypress', value: 'cypress'},
   ]}>
 
-<TabItem value="puppeteer">
+<TabItem value="cypress">
 
-```sh
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.puppeteer
+```bash reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.cypress
 ```
 
 </TabItem>
@@ -132,13 +123,6 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile
 
 ```bash reference
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.testcafe
-```
-
-</TabItem>
-<TabItem value="cypress">
-
-```bash reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.cypress
 ```
 
 </TabItem>
@@ -184,25 +168,46 @@ The first order of business is to export your [Sauce Labs account credentials](h
 
 ### Configure the GitHub Action
 
-In your root project directory, create the following directory tree: `.github/workflows`. In the `workflows` directory create a file called `actions.yml`.
+In your root project directory, create the following directory tree: `.github/workflows`. In the `workflows` directory create a file called `actions.yml`. 
 
-In the examples below, the environment variables (`env`) equate to the values configured in GitHub secrets. The event only triggers test runs `on` every `pull_request` and/or `push` to the `master` branch.
+Add the following to the top of your file:
+
+> __NOTE__: Setting `env` at the top of the file enables it globally in this workflow, so all jobs have access to these variables.
+
+```yaml
+name: Sauce Pipeline Browser Tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+env:
+  SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
+  SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
+
+jobs:
+```
+
+### Create the Test Job
+
+In the examples below, the environment variables (`env`) equate to the values configured in GitHub secrets (see above steps). These events only trigger test runs `on` every `pull_request` and/or `push` to the `master` branch.
 
 > For more detailed information on setting event-driven actions and jobs, please visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
 
 <Tabs
-  defaultValue="puppeteer"
+  defaultValue="cypress"
   values={[
-    {label: 'Puppeteer', value: 'puppeteer'},
+    {label: 'Cypress', value: 'cypress'},
     {label: 'Playwright', value: 'playwright'},
     {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Cypress', value: 'cypress'},
   ]}>
-
-<TabItem value="puppeteer">
+  
+<TabItem value="cypress">
 
 ```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L20-L42
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114
 ```
 
 </TabItem>
@@ -220,18 +225,11 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/te
 ```
 
 </TabItem>
-<TabItem value="cypress">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114
-```
-
-</TabItem>
 </Tabs>
 
 > You can reference our example workflows [here](https://github.com/saucelabs/testrunner-toolkit/tree/master/.github/workflows).
 
-<!--### Run the Pipeline Tests-->
+### View Test Results
 
 Now when you commit these files, GitHub will detect the new workflow actions and launch `saucectl` to run your tests.
 
@@ -290,18 +288,17 @@ In order for CirceCi to communicate with Sauce Labs you need to authenticate wit
 In the root of your project directory, create the `.circleci` directory if it doesn't already exist, and open/create `config.yml`. Below are some job snippets of how to configure Testrunner Toolkit with CircleCI:
 
 <Tabs
-  defaultValue="puppeteer"
+  defaultValue="cypress"
   values={[
-    {label: 'Puppeteer', value: 'puppeteer'},
+    {label: 'Cypress', value: 'cypress'},
     {label: 'Playwright', value: 'playwright'},
     {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Cypress', value: 'cypress'},
   ]}>
-
-<TabItem value="puppeteer">
+  
+<TabItem value="cypress">
 
 ```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml#L69-L83
 ```
 
 </TabItem>
@@ -316,13 +313,6 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/te
 
 ```yaml reference
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml#L53-L67
-```
-
-</TabItem>
-<TabItem value="cypress">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml#L69-L83
 ```
 
 </TabItem>
