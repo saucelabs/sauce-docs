@@ -119,6 +119,22 @@ saucectl run --timeout <seconds>
 
 Using the `--timeout` flag will set the test timeout for the test runs [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
 
+### `tunnel-id`
+
+```bash
+saucectl run --tunnel-id <tunnel-id>
+```
+
+Using the `--tunnel-id` flag will set the tunnel id for the test runs [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
+
+### `tunnel-parent`
+
+```bash
+saucectl run --tunnel-parent <tunnel-parent>
+```
+
+Using the `--tunnel-parent` flag will set the tunnel parent for the test runs [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
+
 ### `verbose`
 
 ```bash
