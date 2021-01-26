@@ -15,7 +15,7 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-Before you begin testing we suggest visiting the [Testrunner Toolkit](testrunner-toolkit.md) home page as well as the [Configuration](configuration.md) page.
+Before you begin testing we suggest visiting the [Testrunner Toolkit](testrunner-toolkit.md) home page as well as the [configuration](configuration.md) page.
 
 ## What You'll Need
 
@@ -25,20 +25,7 @@ Before you begin testing we suggest visiting the [Testrunner Toolkit](testrunner
 
 ## Create a Configuration
 
-Creating a configuration is a crucial step before you begin testing. Without the `config.yml`, `saucectl` has no idea which framework to use during testing.
-
-To get started quickly run the following commands:
-
-1. Run the following command:
-    ```bash
-    saucectl new
-    ```
-2. Choose the desired framework following the prompt:
-    * [Cypress](https://github.com/cypress-io/cypress)
-    * [Playwright](https://github.com/microsoft/playwright)
-    * [TestCafe](https://devexpress.github.io/testcafe)
-    
-    For more detailed information, please visit the [Configuration](configuration.md) page.
+Creating a configuration is a crucial step before you begin testing. Without the `config.yml`, `saucectl` has no idea which framework to use during testing. Please visit the [Configuration](configuration.md) page for detailed information on how to create or edit a configuration.
 
 ## Run Your First Test
 
@@ -76,6 +63,7 @@ Please note that VM concurrency depends on the suite number rather than the numb
 <img src={useBaseUrl('img/stt/saucectl-demo.gif')} alt="saucectl Demo" />
 
 ## Automation Framework Examples
+
 The examples here show how Pipeline testing can be used. Try them and find your own use cases. 
 
 Every __testrunner__ image comes with a preconfigured setup that allows you to focus on writing tests instead of tweaking with the configurations. Our initial `testrunner` flavors come either with Cypress, Playwright, or TestCafe as an automation framework. 
