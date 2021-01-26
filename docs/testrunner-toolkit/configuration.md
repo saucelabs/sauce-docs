@@ -21,18 +21,19 @@ The Testrunner Toolkit requires a configuration file to know which tests to run,
 * Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g. `docker info` works in your terminal)
 * Know which [framework and browser version](/testrunner-toolkit#supported-frameworks-and-browsers) you wish to run tests against
 
-## Generate a Configuration File and Tests
+## Create a Configuration File and Tests
 
-If you're starting your journey without tests, the first is to generate a `.sauce/config.yml`, which in turn will create an example `tests` directory in your project.
+If you're starting your journey without tests, follow the steps below in order to generate a config file, which in turn creates the necessary test files in your project's root directory.
+
+For example depending on the chosen framework, your generated files could look like so:
+
+* a config file (e.g. `.sauce/config.yml`)
+* the `tests` directory and other necessary files (e.g. `cypress.json` and `cypress/`)
+* an example test (e.g. `cypress/integration/example.test.js`)
+
 :::note
 You should run the following commands in the root of your project directory
 :::
-
-__Generated Files__
-
-* a config file (`./sauce/config.yml`)
-* the `tests` directory
-* an example test (`tests/example.test.js`)
 
 ### Authenticate
 To get started, you must: [download and install testrunner toolkit](testrunner-toolkit/installation.md) and run the following command to authenticate Sauce Labs:
@@ -54,6 +55,7 @@ It should go without saying, but do not publicly expose your `credentials.yml` f
 :::
 
 ### Create a New File
+
 Then run the following command to generate a config file:
 
 ```bash
@@ -187,6 +189,7 @@ beforeExec:
 ```
 
 ### Concurrency
+
 Saucectl is capable of running test suites in parallel when utilizing the Sauce Labs infrastructure. _This feature requires a Sauce Labs account_, so don't forget to set the environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`!
 The degree of concurrency can be controlled via the config:
 
