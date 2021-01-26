@@ -125,7 +125,7 @@ Using the `--timeout` flag will set the test timeout for the test runs [Testrunn
 saucectl run --tunnel-id <tunnel-id>
 ```
 
-Using the `--tunnel-id` flag will set the tunnel id for the test runs [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
+Using the `--tunnel-id` flag sets the tunnel id for a given test run and the chosen [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
 
 ### `tunnel-parent`
 
