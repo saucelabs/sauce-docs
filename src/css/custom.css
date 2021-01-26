@@ -625,6 +625,26 @@ ul.footer__sublinks li {
   position: relative;
   top: -3px;
 }
+ul.dropdown__menu {
+  max-height: 400px;
+  min-width: 480px;
+  left: -100px;
+  padding: 15px 15px 15px 15px;
+  box-shadow: 0px 0px 13px -4px rgb(0 0 0 / 75%);
+}
+ul.dropdown__menu li {
+  width: 50%;
+  float: left;
+}
+ul.dropdown__menu li a {
+  font-size: 16px;
+  display: inline-block;
+  padding: 0px 0px 8px 0px!important;
+}
+ul.dropdown__menu li a:hover {
+  background: none;
+  color: #E12726;
+}
 /* footer styles */
 
 /* mobile overrides */
