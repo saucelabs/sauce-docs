@@ -130,8 +130,10 @@ Using the `--tunnel-id` flag sets the tunnel id for a given test run and the cho
 ### `tunnel-parent`
 
 ```bash
-saucectl run --tunnel-parent <tunnel-parent>
+saucectl run --tunnel-id <tunnel-id> --tunnel-parent <tunnel-parent>
 ```
+
+> This flag only works in conjunction with the `tunnel-id` flag.
 
 Using the `--tunnel-parent` flag sets the tunnel parent for a given test run and the chosen [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
 
