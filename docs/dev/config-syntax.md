@@ -1,5 +1,5 @@
 ---
-id: stt-config-reference
+id: config-syntax
 title: Testrunner Toolkit Configuration Reference
 sidebar_label: config.yml
 ---
