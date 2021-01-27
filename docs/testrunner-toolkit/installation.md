@@ -69,7 +69,7 @@ Testrunner Toolkit generally does a good job of detecting the presence of `SAUCE
 saucectl configure
 ```
 
-This command then prompts you to manually enter you credentials if it cannot detect any environment variables, and it will generate a `credentials.yml` file in the `.sauce` directory.
+This command then prompts you to manually enter you credentials if it cannot detect any environment variables, and it will generate a `credentials.yml` file in a `.sauce` directory on your home folder.
 
 :::warning Do NOT commit `credentials.yml`
 It should go without saying, but do not publicly expose your `credentials.yml` file over the internet. Make sure you add this file to your `.gitignore` file, as you should only use it locally.
