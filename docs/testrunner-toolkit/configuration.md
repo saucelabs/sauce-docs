@@ -53,7 +53,7 @@ source: environment variables
 It should go without saying, but do not publicly expose your `credentials.yml` file over the internet. Make sure you add this file to your `.gitignore` file, as you should only use it locally.
 :::
 
-### Create a New File
+### Create a New Configuration
 Then run the following command to generate a config file:
 
 ```bash
