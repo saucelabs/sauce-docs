@@ -85,34 +85,6 @@ saucectl run --env <key>=value1> --env <key2>=<value2> ...
 
 Using the `--env` flag will define environment variables that are then available for use by the test framework.
 
-### `parallel`
-
-```sh
-saucectl run --parallel=<true|false>
-```
-
-Using the `--parallel` flag allows the parallelization of tests across machines to be
-turned on/off. 
-
-`saucectl` will use CI provider specific clues from the environment and `saucectl` config
-file to generate a `build ID`. This `build ID` is used a grouping mechanism to
-synchronize the different machines that are running in the same pipeline to distribute
-the tests. 
-
-`saucectl` currently uses the following CI environment variables to generate a build ID.
-
-| CI            | Environment Variables          | Current Limitations                                 |
-|:-------------:|:------------------------------:|:---------------------------------------------------:|
-| GitHub        | GITHUB_WORKFLOW, GITHUB_RUN_ID | Unable to re-run jobs. Must trigger a new pipeline. |
-| GitLab        | CI_PIPELINE_ID, CI_JOB_STAGE   | Unable to re-run jobs. Must trigger a new pipeline. |
-| Jenkins       | BUILD_NUMBER                   | None                                                |
-
-The current parallelization feature is _highly experimental_ and may have limitations
-with certain CI providers.
-
-If your CI provider is not listed here, you will have to specify your own `build ID`.
-Please consult the [`ci-build-id`](#ci-build-id) flag for this option.
-
 ### `region`
 
 ```bash
@@ -146,6 +118,24 @@ saucectl run --timeout <seconds>
 ```
 
 Using the `--timeout` flag will set the test timeout for the test runs [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
+
+### `tunnel-id`
+
+```bash
+saucectl run --tunnel-id <tunnel-id>
+```
+
+Using the `--tunnel-id` flag sets the tunnel id for a given test run and the chosen [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
+
+### `tunnel-parent`
+
+```bash
+saucectl run --tunnel-id <tunnel-id> --tunnel-parent <tunnel-parent>
+```
+
+> This flag only works in conjunction with the `tunnel-id` flag.
+
+Using the `--tunnel-parent` flag sets the tunnel parent for a given test run and the chosen [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
 
 ### `verbose`
 

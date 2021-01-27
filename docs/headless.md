@@ -25,6 +25,8 @@ There are a few key differences between setting up Sauce Headless tests versus s
 
 The [latest version](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863) of Sauce Connect Proxy, if you're using it to run Headless tests.
 
+>**NOTE**: At this time, data from tests run in Headless mode is not available to the [Sauce Insights](/insights) analytics features.
+
 ## Setup and Configuration
 
 Sauce Headless provides headless Chrome and Firefox in the three most recent versions and the most recent version of Linux. 
@@ -181,7 +183,7 @@ Additional resources: [Sauce Labs Node.js Demonstration Scripts](https://wiki.sa
 </TabItem>
 </Tabs>
 
-## Headless Data Center Endpoints
+## Data Center Endpoints for Headless
 The containers used for Sauce Headless testing are hosted in the Sauce Labs East Coast data center, which is entirely separate from our data centers in the West Coast and in the EU. You'll need to connect to the [US-East Data Center](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) to access the web UI, Selenium endpoint, and Sauce Connect Proxy endpoint for headless testing.
 
 The US-East IP addresses should be reachable from your network. If there's an issue, see the Whitelisting for Restricted Networks section of [System and Network Requirements for Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365793).

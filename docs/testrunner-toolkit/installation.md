@@ -4,7 +4,7 @@ title: Testrunner Toolkit Installation
 sidebar_label: Installation
 ---
 
-Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifies user setup, speeds up test execution time and supports native Javascript frameworks like [Puppeteer](https://developers.google.com/web/tools/puppeteer), [Playwright](https://playwright.dev/), and [TestCafe](https://devexpress.github.io/testcafe/) for running end-to-end web tests with [Sauce Labs](https://saucelabs.com/).
+Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifies user setup, speeds up test execution time and supports native Javascript frameworks like, [Cypress](https://github.com/cypress-io/cypress) and [TestCafe](https://devexpress.github.io/testcafe/), for running end-to-end web tests with [Sauce Labs](https://saucelabs.com/).
 
 ## What You'll Need
 
@@ -69,7 +69,7 @@ Testrunner Toolkit generally does a good job of detecting the presence of `SAUCE
 saucectl configure
 ```
 
-This command then prompts you to manually enter you credentials if it cannot detect any environment variables, and it will generate a `credentials.yml` file in the `.sauce` directory.
+This command prompts you to manually enter your credentials if it cannot detect any environment variables, and will generate a `credentials.yml` file in a `.sauce` directory in your home folder.
 
 :::warning Do NOT commit `credentials.yml`
 It should go without saying, but do not publicly expose your `credentials.yml` file over the internet. Make sure you add this file to your `.gitignore` file, as you should only use it locally.
