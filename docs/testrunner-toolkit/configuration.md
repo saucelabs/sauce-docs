@@ -206,16 +206,6 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
 </TabItem>
 </Tabs>
 
-### Prepare your environment
-
-Saucectl offers the possibility to set up your tests environment before executing any of your suites using `beforeExec`: 
-
-
-```yaml
-beforeExec:
-  - npm install --save chai
-```
-
 ### Concurrency
 Saucectl is capable of running test suites in parallel when utilizing the Sauce Labs infrastructure. _This feature requires a Sauce Labs account_, so don't forget to set the environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`!
 The degree of concurrency can be controlled via the config:
