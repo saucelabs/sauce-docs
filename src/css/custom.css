@@ -730,7 +730,7 @@ ul.dropdown__menu li a:hover {
       width: inherit!important;
       display: inline-block;
       margin: 0 auto;
-      padding-top: 0px;
+      padding-top: 0px!important;
     }
     .navbar__toggle {
       position: absolute;
@@ -746,12 +746,17 @@ ul.dropdown__menu li a:hover {
     .navbar--fixed-top {
       height: 60px;
     }
+    .DocSearch-Button-Placeholder {
+      position: relative;
+      top: -3px;
+      display: inline-block!important;
+    }
 }
 /* mobile overrides */
 @media only screen
-    and (max-device-width: 1160px),
-    only screen and (max-device-width: 1160px),
-    only screen and (max-width: 1160px)
+    and (max-device-width: 996px),
+    only screen and (max-device-width: 996px),
+    only screen and (max-width: 996px)
   {
     .navbar__toggle {
       position: absolute;
@@ -761,16 +766,14 @@ ul.dropdown__menu li a:hover {
     .navbar__logo {
       margin-top: 25px;
     }
-    .DocSearch-Button {
-      top: 15px;
-    }
-    .navbar--fixed-top {
-      height: 60px;
-    }
+
     .navbar__inner {
       width: inherit!important;
       display: inline-block;
       margin: 0 auto;
       padding-top: 0px;
+    }
+    .DocSearch-Button {
+      top: 15px;
     }
 }
