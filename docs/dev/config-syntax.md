@@ -347,6 +347,6 @@ __Example__:
 ```yaml
     params:
       browserName: "firefox"
-      headful: false
-      slowMo: 1000
+      headful: boolean
+      slowMo: int
 ```
