@@ -68,16 +68,12 @@ __Type__: string
 
 __Example__:
 ```yaml
-<<<<<<< HEAD
 kind: < cypress | playwright | testcafe>
-=======
-kind: < cypress | playwright | testcafe >
->>>>>>> ba8057740014c34da76a954cbd6996875e75e042
 ```
 
 ## `sauce`
 
-__Description__: Parent field that contains all details related to the Sauce Labs platform.
+__Description__: The parent field containing all details related to the Sauce Labs platform.
 
 __Type__: NA
 
@@ -180,10 +176,6 @@ __Example__:
 
 > For further information regarding cypress configurations, please consult the [Cypress documentation](https://docs.cypress.io/guides/references/configuration.html#Options).
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ba8057740014c34da76a954cbd6996875e75e042
 ## `suites`
 
 __Description__: Field for defining test suite details such as the suite `name`, desired `browser`
