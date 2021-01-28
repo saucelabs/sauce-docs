@@ -4,14 +4,57 @@ title: Testrunner Toolkit Installation
 sidebar_label: Installation
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifies user setup, speeds up test execution time and supports native Javascript frameworks like, [Cypress](https://github.com/cypress-io/cypress) and [TestCafe](https://devexpress.github.io/testcafe/), for running end-to-end web tests with [Sauce Labs](https://saucelabs.com/).
 
 ## What You'll Need
 
 * A [Sauce Labs](https://saucelabs.com/) account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
-* [Docker](https://docs.docker.com/get-docker/) installed
-* Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g. `docker info` works in your terminal)
+* Install [Docker](https://docs.docker.com/get-docker/)
+  > Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g. `docker info` works in your terminal / command prompt
+* Know which [test framework and browser versions](/testrunner-toolkit#supported-frameworks-and-browsers) you plan to run tests against
 
+### System Requirements
+
+The system requirements to successfully run `saucectl` vary depending on whether you plan to run it locally via [`docker`](/testrunner-toolkit/running-tests#run-your-first-test), or remotely via [`sauce`](/testrunner-toolkit/running-tests#test-on-sauce-labs). 
+
+As a rule of thumb, your local system requirements should match the [Docker installation requirements](https://docs.docker.com/engine/install/#supported-platforms). Please use the table below as a quick reference:
+
+<Tabs
+  defaultValue="macos"
+  values={[
+    {label: 'macOS', value: 'macos'},
+    {label: 'Linux', value: 'linux'},
+    {label: 'Windows', value: 'windows'},
+  ]}>
+  
+<TabItem value="macos">
+
+* Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
+* OS: 10.14+ (Mojave, Catalina, or Big Sur)
+
+> Browser support depends on the chosen test framework, see [this section](/testrunner-toolkit#supported-frameworks-and-browsers) for more details.
+
+</TabItem>
+<TabItem value="linux">
+
+* Docker: [Server](https://docs.docker.com/engine/install/#server)
+* OS/Distros: [CentOS](https://docs.docker.com/engine/install/centos/), [Debian](https://docs.docker.com/engine/install/debian/), [Fedora](https://docs.docker.com/engine/install/fedora/), [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+
+> Browser support depends on the chosen test framework, see [this section](/testrunner-toolkit#supported-frameworks-and-browsers) for more details.
+
+</TabItem>
+<TabItem value="windows">
+
+* Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
+* OS: Windows 10 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
+
+> Browser support depends on the chosen test framework, see [this section](/testrunner-toolkit#supported-frameworks-and-browsers) for more details.
+
+</TabItem>
+</Tabs>
 
 ## Installing Testrunner Toolkit
 
