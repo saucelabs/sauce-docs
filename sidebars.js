@@ -176,7 +176,6 @@ module.exports = {
           'dev/api',
         ],
       },
-      'dev/config-syntax',
       {
         type: 'category',
         label: 'CLI Reference',

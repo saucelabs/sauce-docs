@@ -120,7 +120,7 @@ sauce:
 
 __Description__: Version of `saucectl` API.
 
-__Type__: string
+__Type__: *string*
 
 __Example__:
 ```yaml
@@ -131,11 +131,11 @@ apiVersion: v1alpha
 
 __Description__: The kind of tests (framework) you wish to run.
 
-__Type__: string
+__Type__: *string*
 
 __Example__:
 ```yaml
-kind: < cypress | playwright | testcafe>
+kind: < cypress | playwright | testcafe >
 ```
 
 ## `sauce`
@@ -161,7 +161,7 @@ sauce:
 
 __Description__: Geographical region of the desired Sauce Labs data center.
 
-__Type__: string
+__Type__: *string*
 
 __Example__:
 ```yaml
@@ -176,13 +176,13 @@ __Type__: NA
 
 __Example__:
 ```yaml
-    metadata:
-      name: string
-      tags:
-        - string 1
-        - string 2
-        - string 3
-      build: < id | string | env >
+  metadata:
+    name: Testing Cypress Support
+    tags:
+      - e2e
+      - release team
+      - other tag
+    build: Release $CI_COMMIT_SHORT_SHA
 ```
 
 ## `docker`
@@ -194,16 +194,31 @@ __Type__: NA
 __Example__:
 ```yaml
 docker:
+  fileTransfer: mount
   image:
     name: saucelabs/stt-cypress-mocha-node
     tag: v1.X.X
+```
+
+### `fileTransfer`
+
+__Description__: Method in which to transfer test files into the docker container. There are two options:
+* `mount` : Default method; mounts files and folders into the docker container. Changes to these files and folders will be reflected on the host (and vice a versa).
+* `copy` : Copies files and folders into the docker container. If you run into permission issues, either due to docker or host settings, `copy` is the advised use case.
+  > See the Docker documentation to read more about the copy convention ([`docker cp`](https://docs.docker.com/engine/reference/commandline/cp/) | [`COPY`](https://docs.docker.com/engine/reference/builder/#copy)).
+
+__Type__: *string*
+
+__Example__:
+```yaml
+  fileTransfer: < mount | copy >
 ```
 
 ### `image`
 
 __Description__: The chosen docker image, `name` and version `tag`, in which to run tests.
 
-__Type__: string
+__Type__: *string*
 
 __Example__:
 ```yaml
@@ -234,7 +249,7 @@ cypress:
 
 __Description__: The designated `cypress` configuration file. `saucectl` determines related files based on the location of the config file. By default `saucectl` defers to the test file location defined in `cypress.json`.
 
-__Type__: string
+__Type__: *string*
 
 __Example__:
 ```yaml
@@ -267,7 +282,7 @@ suites:
 
 __Description__: Name of the test suite.
 
-__Type__: string
+__Type__: *string*
 
 __Example__:
 ```yaml
@@ -278,7 +293,7 @@ __Example__:
 
 __Description__: Regular expression for test file names.
 
-__Type__: string
+__Type__: *string*
 
 __Example__:
 ```yaml
@@ -289,7 +304,7 @@ __Example__:
 
 __Description__: Browser in which the test runs.
 
-__Type__: string
+__Type__: *string*
 
 __Example__:
 ```yaml
@@ -300,7 +315,7 @@ __Example__:
 
 __Description__: Operating system on which the browser and test runs.
 
-__Type__: string
+__Type__: *string*
 
 __Example__:
 ```yaml
@@ -309,9 +324,11 @@ __Example__:
 
 ### `screenResolution`
 
+<p><small><Highlight color="#25c2a0">cypress only</Highlight></small></p>
+
 __Description__: Field where you can change the browser window screen resolution.
 
-__Type__: string
+__Type__: *string*
 
 __Example__:
 ```yaml
@@ -322,7 +339,9 @@ __Example__:
 
 <p><small><Highlight color="#25c2a0">cypress only</Highlight></small></p>
 
-__Description__: Details specific to the test configuration, including the specific location of `testFiles` and any ephemeral `env` variables.
+__Description__: Details specific to the test configuration, for example: 
+* `testFiles` ( *string* | *regex* ): the specific location of test files
+* `env` ( *string* | *int* | *float* | *boolean* ) any ephemeral/environment variables.
 
 __Type__: NA
 
@@ -330,8 +349,8 @@ __Example__:
 ```yaml
     config:
       env:
-        string: < string | int | float | env >
-      testFiles: < string array | regex >
+        hello: world
+      testFiles: [ "**/*.*" ]
 ```
 
 ### `params`
@@ -339,7 +358,10 @@ __Example__:
 <p><small><Highlight color="#44ba4a">playwright only</Highlight></small></p>
 
 
-__Description__:
+__Description__: This field is for specific test run parameters, for example:
+* `browserName` ( *string* ) : the browser in which to run tests 
+* `headful` ( *boolean* ) : whether to run browsers in headless mode
+* `sloMo` ( *int* ) : whether to implement artificially slow load times in milliseconds
 
 __Type__: NA
 
@@ -347,6 +369,6 @@ __Example__:
 ```yaml
     params:
       browserName: "firefox"
-      headful: boolean
-      slowMo: int
+      headful: false
+      slowMo: 1000
 ```
