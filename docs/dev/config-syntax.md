@@ -138,13 +138,6 @@ cypress:
 
 > We determine related files based on the location of the config file. By default `saucectl` defers to the test file location defined in `cypress.json`
 
-## `files`
-
-```yaml
-files:
-  - tests/example.test.js
-```
-
 ## `suites`
 
 ```yaml
