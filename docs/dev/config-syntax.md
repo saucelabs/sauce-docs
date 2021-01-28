@@ -73,7 +73,7 @@ kind: < cypress | playwright | testcafe >
 
 ```yaml
 sauce:
-  region: us-west-1
+  region: < us-west-1 | eu-central-1 >
   metadata:
     name: Testing Cypress Support
     tags:
