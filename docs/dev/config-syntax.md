@@ -28,22 +28,89 @@ This page provides details and explanations regarding the syntax and fields of t
 
 <TabItem value="cypress">
 
-```yaml reference
-https://github.com/saucelabs/sauce-cypress-runner/blob/master/.saucetpl/.sauce/config.yml
+<p><small>See full example <a href="https://github.com/saucelabs/sauce-cypress-runner/blob/master/.saucetpl/.sauce/config.yml">here</a>.</small></p>
+
+```yaml
+apiVersion: v1alpha
+kind: cypress
+sauce:
+  region: us-west-1
+  metadata:
+    name: Testing Cypress Support
+    tags:
+      - e2e
+      - release team
+      - other tag
+    build: Release $CI_COMMIT_SHORT_SHA
+cypress:
+  version: ##VERSION##
+  configFile: "cypress.json"  # We determine related files based on the location of the config file.
+suites:
+  - name: "saucy test"
+    browser: "chrome"
+    screenResolution: "2560x1600"  # Available resolutions on sauce for Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
+    config:
+      env:
+        hello: world
+      testFiles: [ "**/*.*" ] # Cypress native glob support.
 ```
 
 </TabItem>
 <TabItem value="playwright">
 
-```yaml reference
-https://github.com/saucelabs/sauce-playwright-runner/blob/master/.saucetpl/.sauce/config.yml
+<p><small>See full example <a href="https://github.com/saucelabs/sauce-playwright-runner/blob/master/.saucetpl/.sauce/config.yml">here</a>.</small></p>
+
+```yaml
+apiVersion: v1alpha
+kind: playwright
+sauce:
+  region: us-west-1
+  concurrency: 1
+  metadata:
+    name: Testing Playwright Support
+    tags:
+      - e2e
+    build: "$BUILD_ID"
+playwright:
+  version: ##VERSION##
+  projectPath: tests/
+docker:
+  fileTransfer: mount
+suites:
+  - name: "saucy test"
+    platformName: "Windows 10"
+    testMatch: '**/*.js'
+
+    params:
+      browserName: "firefox"
+      headful: false
+      slowMo: 1000
 ```
 
 </TabItem>
 <TabItem value="testcafe">
 
-```yaml reference
-https://github.com/saucelabs/sauce-testcafe-runner/blob/master/.saucetpl/.sauce/config.yml
+<p><small>See full example <a href="https://github.com/saucelabs/sauce-testcafe-runner/blob/master/.saucetpl/.sauce/config.yml">here</a>.</small></p>
+
+```yaml
+apiVersion: v1alpha
+metadata:
+  name: Feature XYZ
+  tags:
+    - e2e
+    - release team
+    - other tag
+  build: Release $CI_COMMIT_SHORT_SHA
+files:
+  - tests/example.test.js
+suites:
+  - name: "saucy test"
+    match: ".*.(spec|test).[jt]s$"
+image:
+  base: saucelabs/stt-testcafe-node
+  version: ##VERSION##
+sauce:
+  region: us-west-1
 ```
 
 </TabItem>
@@ -265,4 +332,21 @@ __Example__:
       env:
         string: < string | int | float | env >
       testFiles: < string array | regex >
+```
+
+### `params`
+
+<p><small><Highlight color="#44ba4a">playwright only</Highlight></small></p>
+
+
+__Description__:
+
+__Type__: NA
+
+__Example__:
+```yaml
+    params:
+      browserName: "firefox"
+      headful: false
+      slowMo: 1000
 ```
