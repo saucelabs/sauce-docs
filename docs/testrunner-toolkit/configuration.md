@@ -16,10 +16,7 @@ The Testrunner Toolkit requires a configuration file to know which tests to run,
 
 ## What You'll Need
 
-* A [Sauce Labs](https://saucelabs.com/) account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
-* [Docker](https://docs.docker.com/get-docker/) installed
-* Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g. `docker info` works in your terminal)
-* Know which [framework and browser version](/testrunner-toolkit#supported-frameworks-and-browsers) you wish to run tests against
+Refer to the requirements listed on the [Installation](/testrunner-toolkit#installation) page.
 
 ## Create a Configuration File and Tests
 

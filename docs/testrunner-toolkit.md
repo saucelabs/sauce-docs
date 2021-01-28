@@ -30,12 +30,6 @@ Most importantly, by running these tests through Sauce Labs, you can:
 * Use our Insights feature to perform deeper analysis of test outcomes
 * Take advantage of other Sauce-specific options as development of this beta feature continues, including VMs, parallelization, and so on
 
-## What You'll Need
-
-* A [Sauce Labs](https://saucelabs.com/) account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
-* [Docker](https://docs.docker.com/get-docker/) installed
-* Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g. `docker info` works in your terminal)
-
 ## How it Works
 
 Testrunner Toolkit achieves JavaScript framework testing through the combination of Sauce Labs, Jest, and the

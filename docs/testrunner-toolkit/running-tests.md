@@ -19,9 +19,7 @@ Before you begin testing we suggest visiting the [Testrunner Toolkit](testrunner
 
 ## What You'll Need
 
-* [Docker](https://docs.docker.com/get-docker/) installed
-* Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g. `docker info` works in your terminal)
-* (Optional) A [Sauce Labs](https://saucelabs.com/) account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
+Refer to the requirements listed on the [Installation](/testrunner-toolkit#installation) page.
 
 ## Create a Configuration
 
