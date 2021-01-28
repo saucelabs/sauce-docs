@@ -66,7 +66,7 @@ apiVersion: v1alpha
 ## `kind`
 
 ```yaml
-kind: < cypress | testcafe | puppeteer | playwright >
+kind: < cypress | playwright | testcafe >
 ```
 
 ## `sauce`
