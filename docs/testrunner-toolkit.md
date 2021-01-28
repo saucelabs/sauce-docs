@@ -62,28 +62,28 @@ Each docker image tag is the 'latest' image that supports the specific framework
   
 <TabItem value="cypress">
 
-| Cypress Version | Supported Browsers                     | Docker Image Tag                    |
-|---------|----------------------------------------|-------------------------------------|
-| 5.6.0   | <ul><li>Chrome 81.0.4044.138</li><li>Firefox 74.0</li></ul> | [saucelabs/stt-cypress-mocha:v0.3.0](https://hub.docker.com/layers/saucelabs/stt-cypress-mocha-node/v0.3.0/images/sha256-a93da0cc76f4eb775f696a159a5f06b34df7a9248b2df0c4363724da8d83633e?context=explore)  |
-| 5.5.0   | <ul><li>Chrome 81.0.4044.138</li><li>Firefox 74.0</li></ul>  | [saucelabs/stt-cypress-mocha:v0.2.3](https://hub.docker.com/layers/saucelabs/stt-cypress-mocha-node/v0.2.3/images/sha256-95b25c5a85624779c2ed9aaa82a6ca76e770a77e487936e6814f9f9c95dc1e52?context=explore)  |
-| 5.4.0   | <ul><li>Chrome 81.0.4044.138</li><li>Firefox 74.0</li></ul>  | [saucelabs/stt-cypress-mocha:v0.1.18](https://hub.docker.com/layers/saucelabs/stt-cypress-mocha-node/v0.1.18/images/sha256-1709f9e55223267b0a63b33fa9f00a84920dd1c175dcd33ee0fababf5abfed50?context=explore) |
-| 4.9.0   | <ul><li>Chrome 81.0.4044.138</li><li>Firefox 74.0</li></ul>  | [saucelabs/stt-cypress-mocha:v0.1.12](https://hub.docker.com/layers/saucelabs/stt-cypress-mocha-node/v0.1.12/images/sha256-7c8d0ce5bc1b0260375345bfba71e9d76dfff97fd223da0aa570e8f4715ba075?context=explore) |
+| Cypress Version | Supported Browsers                     | Docker Image Tag            |        Sauce Cloud Support [[?](testrunner-toolkit/running-tests.md#test-on-sauce-labs)]         |
+|---------|----------------------------------------|-------------------------------------|------------------------------|
+| 5.6.0   | <ul><li>Chrome 81.0.4044.138</li><li>Firefox 74.0</li></ul> | [saucelabs/stt-cypress-mocha:v0.3.0](https://hub.docker.com/layers/saucelabs/stt-cypress-mocha-node/v0.3.0/images/sha256-a93da0cc76f4eb775f696a159a5f06b34df7a9248b2df0c4363724da8d83633e?context=explore)  |     <center>:white_check_mark:</center> |
+| 5.5.0   | <ul><li>Chrome 81.0.4044.138</li><li>Firefox 74.0</li></ul>  | [saucelabs/stt-cypress-mocha:v0.2.3](https://hub.docker.com/layers/saucelabs/stt-cypress-mocha-node/v0.2.3/images/sha256-95b25c5a85624779c2ed9aaa82a6ca76e770a77e487936e6814f9f9c95dc1e52?context=explore)  |           |
+| 5.4.0   | <ul><li>Chrome 81.0.4044.138</li><li>Firefox 74.0</li></ul>  | [saucelabs/stt-cypress-mocha:v0.1.18](https://hub.docker.com/layers/saucelabs/stt-cypress-mocha-node/v0.1.18/images/sha256-1709f9e55223267b0a63b33fa9f00a84920dd1c175dcd33ee0fababf5abfed50?context=explore) |          |
+| 4.9.0   | <ul><li>Chrome 81.0.4044.138</li><li>Firefox 74.0</li></ul>  | [saucelabs/stt-cypress-mocha:v0.1.12](https://hub.docker.com/layers/saucelabs/stt-cypress-mocha-node/v0.1.12/images/sha256-7c8d0ce5bc1b0260375345bfba71e9d76dfff97fd223da0aa570e8f4715ba075?context=explore) |          |
 
 </TabItem>
 <TabItem value="playwright">
 
-| Playwright Version | Supported Browsers                                      | Docker Image Tag                                  |
-|---------|---------------------------------------------------------|---------------------------------------------------|
-| 1.4.0   | <ul><li>Chromium 86.0.4217.0</li> <li>Mozilla Firefox 78.0b5</li> <li>WebKit 14.0</li></ul> | [saucelabs/stt-playwright-jest-node:v0.2.1](https://hub.docker.com/layers/saucelabs/stt-playwright-jest-node/v0.2.1/images/sha256-4084258641418233491812a61f47ef3da7baf2dd8ae0d54e1a3125fb1fd5cf42?context=explore)         |
-| 1.3.0   | <ul><li>Chromium 86.0.4217.0</li> <li>Mozilla Firefox 78.0b5</li> <li>WebKit 14.0</li></ul> | [saucelabs/stt-playwright-jest-node:v0.2.0](https://hub.docker.com/layers/saucelabs/stt-playwright-jest-node/v0.2.0/images/sha256-3f98d1d68ecb82ecf16ca72ba3d3ff75ab5c4f9e85edfe7b631069ecd2a18067?context=explore)         |
-| 1.0.0   | <ul><li>Chromium 84.0.4135.0</li> <li>Mozilla Firefox 76.0b5</li></ul>             | [saucelabs/stt-playwright-jest-node:v0.1.6-alpha.1](https://hub.docker.com/layers/saucelabs/stt-playwright-jest-node/v0.1.6-alpha.1/images/sha256-301dbb659245c403b144972e06bc26a859f969e8bda2c3abbdd1756ecd692e2a?context=explore) |
+| Playwright Version | Supported Browsers                                      | Docker Image Tag                       | Sauce Cloud Support          |
+|---------|---------------------------------------------------------|---------------------------------------------------|------------------------------|
+| 1.4.0   | <ul><li>Chromium 86.0.4217.0</li> <li>Mozilla Firefox 78.0b5</li> <li>WebKit 14.0</li></ul> | [saucelabs/stt-playwright-jest-node:v0.2.1](https://hub.docker.com/layers/saucelabs/stt-playwright-jest-node/v0.2.1/images/sha256-4084258641418233491812a61f47ef3da7baf2dd8ae0d54e1a3125fb1fd5cf42?context=explore)         |     |
+| 1.3.0   | <ul><li>Chromium 86.0.4217.0</li> <li>Mozilla Firefox 78.0b5</li> <li>WebKit 14.0</li></ul> | [saucelabs/stt-playwright-jest-node:v0.2.0](https://hub.docker.com/layers/saucelabs/stt-playwright-jest-node/v0.2.0/images/sha256-3f98d1d68ecb82ecf16ca72ba3d3ff75ab5c4f9e85edfe7b631069ecd2a18067?context=explore)         |     |
+| 1.0.0   | <ul><li>Chromium 84.0.4135.0</li> <li>Mozilla Firefox 76.0b5</li></ul>             | [saucelabs/stt-playwright-jest-node:v0.1.6-alpha.1](https://hub.docker.com/layers/saucelabs/stt-playwright-jest-node/v0.1.6-alpha.1/images/sha256-301dbb659245c403b144972e06bc26a859f969e8bda2c3abbdd1756ecd692e2a?context=explore) |      |
 
 </TabItem>
 <TabItem value="testcafe">
 
-| TestCafe Version | Supported Browsers                | Docker Image Tag                    |
-|---------|-----------------------------------|-------------------------------------|
-| 1.8.5   | <ul><li>Chrome 81.0.4044.138</li><li>Firefox 74.0</li></ul> | [saucelabs/stt-testcafe-node:v0.1.13](https://hub.docker.com/layers/saucelabs/stt-testcafe-node/v0.1.13/images/sha256-698c954f254b3a68ba57b8ed0f6f87becf0dc7686998e02e197f306e0002fa10?context=explore) |
+| TestCafe Version | Supported Browsers                | Docker Image Tag           | Sauce Cloud Support          |
+|---------|-----------------------------------|-------------------------------------|------------------------------|
+| 1.8.5   | <ul><li>Chrome 81.0.4044.138</li><li>Firefox 74.0</li></ul> | [saucelabs/stt-testcafe-node:v0.1.13](https://hub.docker.com/layers/saucelabs/stt-testcafe-node/v0.1.13/images/sha256-698c954f254b3a68ba57b8ed0f6f87becf0dc7686998e02e197f306e0002fa10?context=explore) |    |
 
 </TabItem>
 </Tabs> 
