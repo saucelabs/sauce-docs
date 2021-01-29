@@ -48,7 +48,7 @@ Consult your desired framework's documentation for more information about the de
 
 Testrunner Toolkit will then execute the test based on the information in `config.yml`. 
 
-### Test on Sauce Labs
+## Test on Sauce Labs
 
 <p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
 
@@ -68,6 +68,39 @@ Please note that VM concurrency depends on the suite number rather than the numb
 
 > Your concurrency and VM entitlements also depend on your Sauce Labs subscription tier. For more information please visit the [pricing guide](https://saucelabs.com/pricing)
 
+### Cross-Browser Tests
+
+<p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
+
+When you run tests on Sauce Labs VMs you have access to a wide range of OS + browser combinations. In order to test against multiple different browsers, you can indicate the desired combinations in the `suites` > `browser` field:
+
+```yaml
+suites:
+  # Chrome
+  - name: "Swag Labs Login Chrome"
+    browser: "chrome"
+    platformName: "Windows 10"
+    screenResolution: "1400x1050"
+    config:
+      testFiles: [ "**/login.*" ]
+  # MicrosoftEdge
+  - name: "Swag Labs Login MicrosoftEdge"
+    browser: "MicrosoftEdge"
+    platformName: "Windows 10"
+    screenResolution: "1400x1050"
+    config:
+      testFiles: [ "**/login.*" ]
+ # Firefox
+   - name: "Swag Labs Login Firefox"
+     browser: "firefox"
+     platformName: "Windows 10"
+     screenResolution: "1400x1050"
+     config:
+       testFiles: [ "**/login.*" ]
+```
+
+
+> For full examples, please [visit this repository](https://github.com/saucelabs-training/demo-js/tree/master/testrunner-toolkit)
 
 ### Analyze Test Results in Sauce Labs
 
