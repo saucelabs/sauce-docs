@@ -1,7 +1,7 @@
 ---
 id: configuration
-title: Testrunner Toolkit Configuration
-sidebar_label: Configuration
+title: Testrunner Toolkit Configuration 
+sidebar_label: Basics
 ---
 
 import Tabs from '@theme/Tabs';
@@ -313,11 +313,11 @@ Please visit [here](/dev/cli/saucectl#parallel) for more information about the p
 * [Jenkins](integrations.md#jenkins)
 * [CircleCI](integrations.md#circleci)
 
-## Syntax Reference
+## Common Syntax Reference
 
-The section below provides details and explanations regarding the syntax/fields of `.sauce/config.yml`.
+The section below provides details and explanations regarding the common syntax/fields of `.sauce/config.yml`.
 
-## `apiVersion`
+### `apiVersion`
 
 __Description__: Version of `saucectl` API.
 
@@ -328,7 +328,7 @@ __Example__:
 apiVersion: v1alpha
 ```
 
-## `kind`
+### `kind`
 
 __Description__: The kind of tests (framework) you wish to run.
 
@@ -339,7 +339,7 @@ __Example__:
 kind: < cypress | playwright | testcafe >
 ```
 
-## `sauce`
+### `sauce`
 
 __Description__: The parent field containing all details related to the Sauce Labs platform.
 
@@ -358,7 +358,7 @@ sauce:
     build: Release $CI_COMMIT_SHORT_SHA
 ```
 
-### `region`
+#### `region`
 
 __Description__: Geographical region of the desired Sauce Labs data center.
 
@@ -369,7 +369,7 @@ __Example__:
   region: < us-west-1 | eu-central-1 >
 ```
 
-### `metadata`
+#### `metadata`
 
 __Description__: Data specific to the test execution details (i.e. `name`, `tags`, `build`, etc.)
 
@@ -386,7 +386,7 @@ __Example__:
     build: Release $CI_COMMIT_SHORT_SHA
 ```
 
-## `docker`
+### `docker`
 
 __Description__: Details specific to the desired [Sauce Labs docker images](https://hub.docker.com/u/saucelabs).
 
@@ -401,7 +401,7 @@ docker:
     tag: v1.X.X
 ```
 
-### `fileTransfer`
+#### `fileTransfer`
 
 __Description__: Method in which to transfer test files into the docker container. There are two options:
 * `mount` : Default method; mounts files and folders into the docker container. Changes to these files and folders will be reflected on the host (and vice a versa).
@@ -415,7 +415,7 @@ __Example__:
   fileTransfer: < mount | copy >
 ```
 
-### `image`
+#### `image`
 
 __Description__: The chosen docker image, `name` and version `tag`, in which to run tests.
 
@@ -430,36 +430,7 @@ __Example__:
 
 > WARNING: using the `latest` tag for docker images is dangerous. For further information, read [this article](https://vsupalov.com/docker-latest-tag/#:~:text=You%20should%20avoid%20using%20the,apart%20from%20the%20image%20ID.).
 
-## `cypress`
-
-<p><small><Highlight color="#25c2a0">cypress only</Highlight></small></p>
-
-__Description__: Details specific to the `cypress` configuration.
-
-__Type__: NA
-
-__Example__:
-```yaml
-cypress:
-  configFile: "cypress.json"
-```
-
-### `configFile`
-
-<p><small><Highlight color="#25c2a0">cypress only</Highlight></small></p>
-
-__Description__: The designated `cypress` configuration file. `saucectl` determines related files based on the location of the config file. By default `saucectl` defers to the test file location defined in `cypress.json`.
-
-__Type__: *string*
-
-__Example__:
-```yaml
-  configFile: "cypress.json"
-```
-
-> For further information regarding cypress configurations, please consult the [Cypress documentation](https://docs.cypress.io/guides/references/configuration.html#Options).
-
-## `suites`
+### `suites`
 
 __Description__: Field for defining test suite details such as the suite `name`, desired `browser`
 / `platformName`, and `config`.
@@ -470,16 +441,9 @@ __Example__:
 ```yaml
 suites:
   - name: "saucy test"
-    browser: "chrome"
-    platformName: "Windows 10"
-    screenResolution: "2560x1600"
-    config:
-      env:
-        hello: world
-      testFiles: [ "**/*.*" ] # Cypress native glob support.
 ```
 
-### `name`
+#### `name`
 
 __Description__: Name of the test suite.
 
@@ -489,87 +453,8 @@ __Example__:
 ```yaml
   - name: "saucy test"
 ```
+## Framework-Specific Syntax Reference
 
-### `match`
-
-__Description__: Regular expression for test file names.
-
-__Type__: *string*
-
-__Example__:
-```yaml
-    match: ".*.(spec|test).js$"
-```
-
-### `browser`
-
-__Description__: Browser in which the test runs.
-
-__Type__: *string*
-
-__Example__:
-```yaml
-    browser: "chrome"
-```
-
-### `platformName`
-
-__Description__: Operating system on which the browser and test runs.
-
-__Type__: *string*
-
-__Example__:
-```yaml
-    platformName: "Windows 10"
-```
-
-### `screenResolution`
-
-<p><small><Highlight color="#25c2a0">cypress only</Highlight></small></p>
-
-__Description__: Field where you can change the browser window screen resolution.
-
-__Type__: *string*
-
-__Example__:
-```yaml
-    screenResolution: "2560x1600"  # Available resolutions on sauce for Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
-```
-
-### `config`
-
-<p><small><Highlight color="#25c2a0">cypress only</Highlight></small></p>
-
-__Description__: Details specific to the test configuration, for example: 
-* `testFiles` ( *string* | *regex* ): the specific location of test files
-* `env` ( *string* | *int* | *float* | *boolean* ) any ephemeral/environment variables.
-
-__Type__: NA
-
-__Example__:
-```yaml
-    config:
-      env:
-        hello: world
-      testFiles: [ "**/*.*" ]
-```
-
-### `params`
-
-<p><small><Highlight color="#44ba4a">playwright only</Highlight></small></p>
-
-
-__Description__: This field is for specific test run parameters, for example:
-* `browserName` ( *string* ) : the browser in which to run tests 
-* `headful` ( *boolean* ) : whether to run browsers in headless mode
-* `sloMo` ( *int* ) : whether to implement artificially slow load times in milliseconds
-
-__Type__: NA
-
-__Example__:
-```yaml
-    params:
-      browserName: "firefox"
-      headful: false
-      slowMo: 1000
-```
+* [Cypress](testrunner-toolkit/configuration/cypress)
+* [Playwright](testrunner-toolkit/configuration/playwright)
+* [TestCafe](testrunner-toolkit/configuration/testcafe)
