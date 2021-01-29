@@ -155,22 +155,104 @@ Below are framework-specific configuration examples that exist in the [Testrunne
   
 <TabItem value="cypress">
 
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
-```
+<p><small>Full Example on <a href="https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml">GitHub</a></small></p>
+
+```yaml
+apiVersion: v1alpha
+kind: cypress
+sauce:
+  region: us-west-1
+## Tunnel allows you to specify an existing sauce connect tunnel when running cypress inside the Sauce cloud.
+## This has no effect when running tests inside docker.
+#  tunnel:
+#    id: your_tunnel_id
+#    parent: parent_owner_of_tunnel # if applicable, specify the owner of the tunnel
+  metadata:
+    name: Testing Cypress Support
+    tags:
+      - e2e
+      - release team
+      - other tag
+    build: Release $CI_COMMIT_SHORT_SHA
+docker:
+  # fileTransfer controls how test files are transferred to the docker container before tests are run (choice: mount|copy).
+  # `mount` will mount files and folders into the container. Changes to these files and folders will be reflected on the
+  # host as well (and vice versa). However, you may run into permission issues depending on your docker or host settings.
+  # In this case the usage of `copy` is advised. `copy` will simply copy files and folders into the container.
+  fileTransfer: mount # Defaults to `mount`. Choose between mount|copy.
+  # image controls which images to be used for local testing. Change this value is you want to use a custom image.
+  # image:
+  #   name: saucelabs/stt-cypress-mocha-node
+  #   tag: v5.6.0
+cypress:
+  configFile: "tests/cypress.json"  # We determine related files based on the location of the config file.
+  version: 5.6.0
+suites:
+  - name: "saucy test"
+    browser: "chrome"
+    config:
+      env:
+        hello: world
+      testFiles: [ "**/*.*" ] # Cypress native glob support.```
 
 </TabItem>
 <TabItem value="playwright">
 
-```yaml reference 
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/playwright.yml
+<p><small>Full Example on <a href="https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/playwright.yml">GitHub</a></small></p>
+
+```yaml
+apiVersion: v1alpha
+# meta data to the test
+metadata:
+  name: Feature XYZ
+  tags:
+    - e2e
+    - release team
+    - other tag
+  build: "Build #$BUILD_ID in $BUILD_ENV"
+# Every file defined in this list will be bundled into a zip and
+# uploaded to Sauce Labs.
+files:
+  - ./tests/playwright/demo.test.js
+# Define a test runner image (e.g. an image to run WebdriverIO tests)
+# Like in Docker, these images can be developed as Open Source projects
+# and maintained by our teams, while at the same time, customers can
+# build their own images as well
+suites:
+  - name: "saucy test"
+    match: ".*.(spec|test).js$"
+    settings:
+      browserName: "firefox"
+image:
+  # while a set of properties are defined by our Yaml format
+  base: saucelabs/stt-playwright-jest-node
+  version: v0.2.3
 ```
 
 </TabItem>
 <TabItem value="testcafe">
 
-```yaml reference 
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
+<p><small>Full Example on <a href="https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml">GitHub</a></small></p>
+
+```yaml
+apiVersion: v1alpha
+metadata:
+  name: Testing TestCafe Support
+  tags:
+    - e2e
+    - release team
+    - other tag
+  build: Release $CI_COMMIT_SHORT_SHA
+files:
+  - ./tests/testcafe/
+suites:
+  - name: "saucy test"
+    match: ".*.(spec|test).[jt]s$"
+image:
+  base: saucelabs/stt-testcafe-node
+  version: v0.1.14
+sauce:
+  region: us-west-1
 ```
 
 </TabItem>
