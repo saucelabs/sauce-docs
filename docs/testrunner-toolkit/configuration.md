@@ -1,11 +1,18 @@
 ---
 id: configuration
-title: Testrunner Toolkit Configuration
-sidebar_label: Configuration
+title: Testrunner Toolkit Configuration 
+sidebar_label: Basics
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+export const Highlight = ({children, color}) => ( <span style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>{children}</span> );
 
 The Testrunner Toolkit requires a configuration file to know which tests to run, along with which framework to use. Examples of some possible configuration fields you can set include:
 
@@ -33,7 +40,7 @@ You should run the following commands in the root of your project directory
 :::
 
 ### Authenticate
-To get started, you must: [download and install testrunner toolkit](testrunner-toolkit/installation.md) and run the following command to authenticate Sauce Labs:
+To get started, you must: [download and install testrunner toolkit](/testrunner-toolkit/installation.md) and run the following command to authenticate Sauce Labs:
 
 ```bash
 saucectl configure
@@ -82,7 +89,7 @@ Next, a prompt appears asking you to select the desired [Sauce Labs data center]
 
 ### Run the Test
 
-Testrunner Toolkit generates a new config file in your current working directory (`.sauce/config.yml`) and prompts you to execute the `saucectl run` command. Visit the [Running Tests](testrunner-toolkit/running-tests) page for more detailed information about running tests with Testrunner Toolkit.
+Testrunner Toolkit generates a new config file in your current working directory (`.sauce/config.yml`) and prompts you to execute the `saucectl run` command. Visit the [Running Tests](/testrunner-toolkit/running-tests) page for more detailed information about running tests with Testrunner Toolkit.
 
 ## Modifying the Configuration File
 
@@ -152,21 +159,16 @@ Below are framework-specific configuration examples that exist in the [Testrunne
     {label: 'Playwright', value: 'playwright'},
     {label: 'TestCafe', value: 'testcafe'},
   ]}>
-  
+
 <TabItem value="cypress">
 
-<p><small>Full Example on <a href="https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml">GitHub</a></small></p>
+<p><small>See full example <a href="https://github.com/saucelabs/sauce-cypress-runner/blob/master/.saucetpl/.sauce/config.yml">here</a>.</small></p>
 
 ```yaml title=".sauce/cypress.yml"
 apiVersion: v1alpha
 kind: cypress
 sauce:
   region: us-west-1
-## Tunnel allows you to specify an existing sauce connect tunnel when running cypress inside the Sauce cloud.
-## This has no effect when running tests inside docker.
-#  tunnel:
-#    id: your_tunnel_id
-#    parent: parent_owner_of_tunnel # if applicable, specify the owner of the tunnel
   metadata:
     name: Testing Cypress Support
     tags:
@@ -174,16 +176,18 @@ sauce:
       - release team
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
+cypress:
+  version: ##VERSION##
+  configFile: "cypress.json"  # We determine related files based on the location of the config file.
+suites:
+  - name: "saucy test"
+    browser: "chrome"
+    screenResolution: "2560x1600"  # Available resolutions on sauce for Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
 docker:
-  # fileTransfer controls how test files are transferred to the docker container before tests are run (choice: mount|copy).
-  # `mount` will mount files and folders into the container. Changes to these files and folders will be reflected on the
-  # host as well (and vice versa). However, you may run into permission issues depending on your docker or host settings.
-  # In this case the usage of `copy` is advised. `copy` will simply copy files and folders into the container.
   fileTransfer: mount # Defaults to `mount`. Choose between mount|copy.
-  # image controls which images to be used for local testing. Change this value is you want to use a custom image.
-  # image:
-  #   name: saucelabs/stt-cypress-mocha-node
-  #   tag: v5.6.0
+   image:
+     name: saucelabs/stt-cypress-mocha-node
+     tag: v5.6.0
 cypress:
   configFile: "tests/cypress.json"  # We determine related files based on the location of the config file.
   version: 5.6.0
@@ -199,41 +203,39 @@ suites:
 </TabItem>
 <TabItem value="playwright">
 
-<p><small>Full Example on <a href="https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/playwright.yml">GitHub</a></small></p>
+<p><small>See full example <a href="https://github.com/saucelabs/sauce-playwright-runner/blob/master/.saucetpl/.sauce/config.yml">here</a>.</small></p>
 
 ```yaml title=".sauce/playwright.yml"
 apiVersion: v1alpha
-# meta data to the test
-metadata:
-  name: Feature XYZ
-  tags:
-    - e2e
-    - release team
-    - other tag
-  build: "Build #$BUILD_ID in $BUILD_ENV"
-# Every file defined in this list will be bundled into a zip and
-# uploaded to Sauce Labs.
-files:
-  - ./tests/playwright/demo.test.js
-# Define a test runner image (e.g. an image to run WebdriverIO tests)
-# Like in Docker, these images can be developed as Open Source projects
-# and maintained by our teams, while at the same time, customers can
-# build their own images as well
+kind: playwright
+sauce:
+  region: us-west-1
+  concurrency: 1
+  metadata:
+    name: Testing Playwright Support
+    tags:
+      - e2e
+    build: "$BUILD_ID"
+playwright:
+  version: ##VERSION##
+  projectPath: tests/
+docker:
+  fileTransfer: mount
 suites:
   - name: "saucy test"
-    match: ".*.(spec|test).js$"
-    settings:
+    platformName: "Windows 10"
+    testMatch: '**/*.js'
+
+    params:
       browserName: "firefox"
-image:
-  # while a set of properties are defined by our Yaml format
-  base: saucelabs/stt-playwright-jest-node
-  version: v0.2.3
+      headful: false
+      slowMo: 1000
 ```
 
 </TabItem>
 <TabItem value="testcafe">
 
-<p><small>Full Example on <a href="https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml">GitHub</a></small></p>
+<p><small>See full example <a href="https://github.com/saucelabs/sauce-testcafe-runner/blob/master/.saucetpl/.sauce/config.yml">here</a>.</small></p>
 
 ```yaml title=".sauce/testcafe.yml"
 apiVersion: v1alpha
@@ -245,13 +247,13 @@ metadata:
     - other tag
   build: Release $CI_COMMIT_SHORT_SHA
 files:
-  - ./tests/testcafe/
+  - tests/example.test.js
 suites:
   - name: "saucy test"
     match: ".*.(spec|test).[jt]s$"
 image:
   base: saucelabs/stt-testcafe-node
-  version: v0.1.14
+  version: ##VERSION##
 sauce:
   region: us-west-1
 ```
@@ -297,10 +299,9 @@ sauce:
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
 docker:
-#  image:
-#    name: saucelabs/stt-cypress-mocha-node
-#    tag: v0.3.3
-
+  image:
+    name: saucelabs/stt-cypress-mocha-node
+    tag: v0.3.3
 cypress:
   version: 5.6.0
   configFile: "tests/e2e/cypress.json"  # We determine related files based on the location of the config file.
@@ -308,7 +309,7 @@ suites:
   - name: "saucy test"
     browser: "chrome"
     platformName: "Windows 10"
-    screenResolution: "800x600"  # Available resolutions on Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
+    screenResolution: "1920x1080"  # Available resolutions on Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
     config:
       env:
         hello: world
@@ -321,3 +322,161 @@ Please visit [here](/dev/cli/saucectl#parallel) for more information about the p
 
 * [Jenkins](integrations.md#jenkins)
 * [CircleCI](integrations.md#circleci)
+
+## Common Syntax Reference
+
+The section below provides details and explanations regarding the common syntax/fields of `.sauce/config.yml`.
+
+### `apiVersion`
+
+__Description__: Version of `saucectl` API.
+
+__Type__: *string*
+
+__Example__:
+```yaml
+apiVersion: v1alpha
+```
+
+### `kind`
+
+__Description__: The kind of tests (framework) you wish to run.
+
+__Type__: *string*
+
+__Example__:
+```yaml
+kind: < cypress | playwright | testcafe >
+```
+
+### `sauce`
+
+__Description__: The parent field containing all details related to the Sauce Labs platform.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+sauce:
+  region: < us-west-1 | eu-central-1 >
+  metadata:
+    name: Testing Cypress Support
+    tags:
+      - e2e
+      - release team
+      - other tag
+    build: Release $CI_COMMIT_SHORT_SHA
+```
+
+#### `region`
+
+__Description__: Geographical region of the desired Sauce Labs data center.
+
+__Type__: *string*
+
+__Example__:
+```yaml
+  region: < us-west-1 | eu-central-1 >
+```
+
+#### `metadata`
+
+__Description__: Data specific to the test execution details (i.e. `name`, `tags`, `build`, etc.)
+
+__Type__: *object*
+
+__Example__:
+```yaml
+  metadata:
+    name: Testing Cypress Support
+    tags:
+      - e2e
+      - release team
+      - other tag
+    build: Release $CI_COMMIT_SHORT_SHA
+```
+
+### `docker`
+
+__Description__: Details specific to the desired [Sauce Labs docker images](https://hub.docker.com/u/saucelabs).
+
+__Type__: *object*
+
+__Example__:
+```yaml
+docker:
+  fileTransfer: mount
+  image:
+    name: saucelabs/stt-cypress-mocha-node
+    tag: v1.X.X
+```
+
+#### `fileTransfer`
+
+__Description__: Method in which to transfer test files into the docker container. There are two options:
+* `mount` : Default method; mounts files and folders into the docker container. Changes to these files and folders will be reflected on the host (and vice a versa).
+* `copy` : Copies files and folders into the docker container. If you run into permission issues, either due to docker or host settings, `copy` is the advised use case.
+  > See the Docker documentation to read more about the copy convention ([`docker cp`](https://docs.docker.com/engine/reference/commandline/cp/) | [`COPY`](https://docs.docker.com/engine/reference/builder/#copy)).
+
+__Type__: *string*
+
+__Example__:
+```yaml
+  fileTransfer: < mount | copy >
+```
+
+#### `image`
+
+__Description__: The chosen docker image, `name` and version `tag`, in which to run tests.
+
+__Type__: *string*
+
+__Example__:
+```yaml
+  image:
+    name: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node >
+    tag: < latest | vX.X.X >
+```
+
+> WARNING: using the `latest` tag for docker images is dangerous. For further information, read [this article](https://vsupalov.com/docker-latest-tag/#:~:text=You%20should%20avoid%20using%20the,apart%20from%20the%20image%20ID.).
+
+## `npm`
+__Description__: Details specific to the `npm` configuration. Packages listed will be installed on the environment prior to your tests execution.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+  npm:
+    packages:
+      lodash: "4.17.20"
+```
+
+### `suites`
+
+__Description__: Field for defining test suite details such as the suite `name`, desired `browser`
+/ `platformName`, and `config`.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+suites:
+  - name: "saucy test"
+```
+
+#### `name`
+
+__Description__: Name of the test suite.
+
+__Type__: *string*
+
+__Example__:
+```yaml
+  - name: "saucy test"
+```
+## Framework-Specific Syntax Reference
+
+* [Cypress](/testrunner-toolkit/configuration/cypress)
+* [Playwright](/testrunner-toolkit/configuration/playwright)
+* [TestCafe](/testrunner-toolkit/configuration/testcafe)
