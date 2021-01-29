@@ -16,7 +16,7 @@ The Testrunner Toolkit requires a configuration file to know which tests to run,
 
 ## What You'll Need
 
-Refer to the requirements listed on the [Installation](/testrunner-toolkit#installation) page.
+Refer to the requirements listed on the [Installation](/testrunner-toolkit/installation) page.
 
 ## Create a Configuration File and Tests
 
