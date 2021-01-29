@@ -157,7 +157,7 @@ Below are framework-specific configuration examples that exist in the [Testrunne
 
 <p><small>Full Example on <a href="https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml">GitHub</a></small></p>
 
-```yaml
+```yaml title=".sauce/cypress.yml"
 apiVersion: v1alpha
 kind: cypress
 sauce:
@@ -193,14 +193,15 @@ suites:
     config:
       env:
         hello: world
-      testFiles: [ "**/*.*" ] # Cypress native glob support.```
+      testFiles: [ "**/*.*" ] # Cypress native glob support.
+```
 
 </TabItem>
 <TabItem value="playwright">
 
 <p><small>Full Example on <a href="https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/playwright.yml">GitHub</a></small></p>
 
-```yaml
+```yaml title=".sauce/playwright.yml"
 apiVersion: v1alpha
 # meta data to the test
 metadata:
@@ -234,7 +235,7 @@ image:
 
 <p><small>Full Example on <a href="https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml">GitHub</a></small></p>
 
-```yaml
+```yaml title=".sauce/testcafe.yml"
 apiVersion: v1alpha
 metadata:
   name: Testing TestCafe Support
