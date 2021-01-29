@@ -343,7 +343,7 @@ kind: < cypress | playwright | testcafe >
 
 __Description__: The parent field containing all details related to the Sauce Labs platform.
 
-__Type__: NA
+__Type__: *object*
 
 __Example__:
 ```yaml
@@ -373,7 +373,7 @@ __Example__:
 
 __Description__: Data specific to the test execution details (i.e. `name`, `tags`, `build`, etc.)
 
-__Type__: NA
+__Type__: *object*
 
 __Example__:
 ```yaml
@@ -390,7 +390,7 @@ __Example__:
 
 __Description__: Details specific to the desired [Sauce Labs docker images](https://hub.docker.com/u/saucelabs).
 
-__Type__: NA
+__Type__: *object*
 
 __Example__:
 ```yaml
@@ -447,7 +447,7 @@ __Example__:
 __Description__: Field for defining test suite details such as the suite `name`, desired `browser`
 / `platformName`, and `config`.
 
-__Type__: NA
+__Type__: *object*
 
 __Example__:
 ```yaml

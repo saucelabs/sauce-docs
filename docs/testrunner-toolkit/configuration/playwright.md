@@ -39,7 +39,7 @@ suites:
 
 __Description__: Details specific to the `playwright` project configuration.
 
-__Type__: NA
+__Type__: *object*
 
 __Example__:
 ```yaml
@@ -74,7 +74,7 @@ __Example__:
 
 __Description__: Field for defining test suite details such as the suite `name`, desired `browser`, and test `params`.
 
-__Type__: NA
+__Type__: *object*
 
 __Example__:
 ```yaml
@@ -129,7 +129,7 @@ __Description__: This field is for specific test run parameters, for example:
 * `headful` ( *boolean* ) : whether to run browsers in headless mode
 * `sloMo` ( *int* ) : whether to implement artificially slow load times in milliseconds
 
-__Type__: NA
+__Type__: *object*
 
 __Example__:
 ```yaml

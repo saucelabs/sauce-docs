@@ -38,7 +38,7 @@ suites:
 
 __Description__: Details specific to the `cypress` configuration.
 
-__Type__: NA
+__Type__: *object*
 
 __Example__:
 ```yaml
@@ -64,7 +64,7 @@ __Example__:
 __Description__: Field for defining test suite details such as the suite `name`, desired `browser`
 / `platformName`, and `config`.
 
-__Type__: NA
+__Type__: *object*
 
 __Example__:
 ```yaml
@@ -127,7 +127,7 @@ __Description__: Details specific to the test configuration, for example:
 * `testFiles` ( *string array* | *string* | *regex* ): the specific location of test files
 * `env` ( *string* | *int* | *float* | *boolean* ) any ephemeral/environment variables.
 
-__Type__: NA
+__Type__: *object*
 
 __Example__:
 ```yaml

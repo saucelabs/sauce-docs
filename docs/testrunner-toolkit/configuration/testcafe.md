@@ -45,7 +45,7 @@ files:
 
 __Description__:
 
-__Type__: NA
+__Type__: *object*
 
 __Example__:
 ```yaml
