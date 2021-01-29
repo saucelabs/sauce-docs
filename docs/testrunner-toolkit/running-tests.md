@@ -64,6 +64,14 @@ If you wish to increase your VM concurrency you can also use the flag `--ccy <vm
 saucectl run --test-env sauce --ccy 2
 ```
 
+You can also designate `concurrency` in the `config.yml` like so:
+
+```yaml {2}
+sauce:
+  concurrency: 3
+  region: us-west-1
+```
+
 Please note that VM concurrency depends on the suite number rather than the number of `.spec.js |.test.js` files. Plese visit the [CLI Reference](/dev/cli/saucectl#ccy) for more information regarding command parameters:
 
 > Your concurrency and VM entitlements also depend on your Sauce Labs subscription tier. For more information please visit the [pricing guide](https://saucelabs.com/pricing)
@@ -99,8 +107,31 @@ suites:
        testFiles: [ "**/login.*" ]
 ```
 
-
 > For full examples, please [visit this repository](https://github.com/saucelabs-training/demo-js/tree/master/testrunner-toolkit)
+
+### Using Sauce Connect
+
+If you're running tests on Sauce Labs VMs, but the site under test is protected behind strict network security/policies, you can utilize [Sauce Connect Proxy](/secure-connections/sauce-connect) to circumvent the problem.
+
+You can use the `--tunnel-id` flag with `saucectl` in order to launch a tunnel with your test session:
+
+```bash
+saucectl run --tunnel-id <tunnel-id>
+```
+
+> For more information on how to use the `--tunnel-id` flag, please visit the [CLI Reference](/dev/cli/saucectl#tunnel-id).
+
+To enable Sauce Connect Proxy in the `config.yml`, use the `tunnel` field:
+
+```yaml {3,4}
+sauce:
+  concurrency: 3
+  tunnel:
+    id: sauce-ci-tunnel
+  region: us-west-1
+```
+
+> For more information regarding how to install, setup, and configure Sauce Connect Proxy, please visit the [Sauce Connect Proxy documentation](/secure-connections/sauce-connect)
 
 ### Analyze Test Results in Sauce Labs
 
