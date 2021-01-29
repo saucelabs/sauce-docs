@@ -23,7 +23,7 @@ The Testrunner Toolkit requires a configuration file to know which tests to run,
 
 ## What You'll Need
 
-Refer to the requirements listed on the [Installation](/testrunner-toolkit#installation) page.
+Refer to the requirements listed on the [Installation](/testrunner-toolkit/installation) page.
 
 ## Create a Configuration File and Tests
 
@@ -164,7 +164,7 @@ Below are framework-specific configuration examples that exist in the [Testrunne
 
 <p><small>See full example <a href="https://github.com/saucelabs/sauce-cypress-runner/blob/master/.saucetpl/.sauce/config.yml">here</a>.</small></p>
 
-```yaml
+```yaml title=".sauce/cypress.yml"
 apiVersion: v1alpha
 kind: cypress
 sauce:
@@ -183,6 +183,17 @@ suites:
   - name: "saucy test"
     browser: "chrome"
     screenResolution: "2560x1600"  # Available resolutions on sauce for Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
+docker:
+  fileTransfer: mount # Defaults to `mount`. Choose between mount|copy.
+   image:
+     name: saucelabs/stt-cypress-mocha-node
+     tag: v5.6.0
+cypress:
+  configFile: "tests/cypress.json"  # We determine related files based on the location of the config file.
+  version: 5.6.0
+suites:
+  - name: "saucy test"
+    browser: "chrome"
     config:
       env:
         hello: world
@@ -194,7 +205,7 @@ suites:
 
 <p><small>See full example <a href="https://github.com/saucelabs/sauce-playwright-runner/blob/master/.saucetpl/.sauce/config.yml">here</a>.</small></p>
 
-```yaml
+```yaml title=".sauce/playwright.yml"
 apiVersion: v1alpha
 kind: playwright
 sauce:
@@ -226,10 +237,10 @@ suites:
 
 <p><small>See full example <a href="https://github.com/saucelabs/sauce-testcafe-runner/blob/master/.saucetpl/.sauce/config.yml">here</a>.</small></p>
 
-```yaml
+```yaml title=".sauce/testcafe.yml"
 apiVersion: v1alpha
 metadata:
-  name: Feature XYZ
+  name: Testing TestCafe Support
   tags:
     - e2e
     - release team
@@ -288,10 +299,9 @@ sauce:
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
 docker:
-#  image:
-#    name: saucelabs/stt-cypress-mocha-node
-#    tag: v0.3.3
-
+  image:
+    name: saucelabs/stt-cypress-mocha-node
+    tag: v0.3.3
 cypress:
   version: 5.6.0
   configFile: "tests/e2e/cypress.json"  # We determine related files based on the location of the config file.
@@ -299,7 +309,7 @@ suites:
   - name: "saucy test"
     browser: "chrome"
     platformName: "Windows 10"
-    screenResolution: "800x600"  # Available resolutions on Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
+    screenResolution: "1920x1080"  # Available resolutions on Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
     config:
       env:
         hello: world

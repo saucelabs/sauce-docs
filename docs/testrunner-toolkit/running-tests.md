@@ -19,7 +19,7 @@ Before you begin testing we suggest visiting the [Testrunner Toolkit](testrunner
 
 ## What You'll Need
 
-Refer to the requirements listed on the [Installation](/testrunner-toolkit#installation) page.
+Refer to the requirements listed on the [Installation](/testrunner-toolkit/installation) page.
 
 ## Create a Configuration
 
