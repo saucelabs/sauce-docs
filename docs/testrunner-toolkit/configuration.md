@@ -398,6 +398,18 @@ __Example__:
 
 > WARNING: using the `latest` tag for docker images is dangerous. For further information, read [this article](https://vsupalov.com/docker-latest-tag/#:~:text=You%20should%20avoid%20using%20the,apart%20from%20the%20image%20ID.).
 
+## `npm`
+__Description__: Details specific to the `npm` configuration. Packakges listed will be installed on the environment prior to your tests execution.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+  npm:
+    packages:
+      lodash: "4.17.20"
+```
+
 ## `cypress`
 
 <p><small><Highlight color="#25c2a0">cypress only</Highlight></small></p>
