@@ -156,7 +156,17 @@ module.exports = {
     "Testrunner Toolkit": [
         'testrunner-toolkit',
         'testrunner-toolkit/installation',
-        'testrunner-toolkit/configuration',
+        {
+            type: 'category',
+            label: 'Configuration',
+            collapsed: true,
+            items: [
+                'testrunner-toolkit/configuration',
+                'testrunner-toolkit/configuration/cypress',
+                'testrunner-toolkit/configuration/playwright',
+                'testrunner-toolkit/configuration/testcafe',
+            ],
+        },
         'testrunner-toolkit/running-tests',
         'testrunner-toolkit/integrations',
         'testrunner-toolkit/typescript',

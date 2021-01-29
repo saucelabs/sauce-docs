@@ -7,8 +7,8 @@ sidebar_label: Using TypeScript
 If you wrote your automated tests using TypeScript in either Playwright, Puppeteer, or Cypress, you need to transpile your Typescript files to Javascript before running them with Testrunner Toolkit.
 
 ## What You'll Need
-1. [A Sauce Labs Account](https://saucelabs.com/sign-up)
-2. [TypeScript](https://www.typescriptlang.org/download)
+
+Refer to the requirements listed on the [Installation](/testrunner-toolkit#installation) page.
 
 ## The Problem
 
