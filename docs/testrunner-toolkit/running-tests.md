@@ -48,7 +48,7 @@ Consult your desired framework's documentation for more information about the de
 
 Testrunner Toolkit will then execute the test based on the information in `config.yml`. 
 
-### Test on Sauce Labs
+## Test on Sauce Labs
 
 <p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
 
@@ -68,6 +68,70 @@ Please note that VM concurrency depends on the suite number rather than the numb
 
 > Your concurrency and VM entitlements also depend on your Sauce Labs subscription tier. For more information please visit the [pricing guide](https://saucelabs.com/pricing)
 
+### Cross Browser, Cross Platform Tests
+
+<p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
+
+When you run tests on Sauce Labs VMs you have access to a wide range of OS + browser combinations. In order to test against multiple different browsers and/or platforms, you can indicate the desired combinations in the `suites` field via `browser` and `platformName`:
+
+__Cross Browser Example__
+
+```yaml
+  # Chrome
+  - name: "Swag Labs Login Chrome"
+    browser: "chrome"
+    platformName: "Windows 10"
+    screenResolution: "1400x1050"
+    config:
+      testFiles: [ "**/login.*" ]
+  # MicrosoftEdge
+  - name: "Swag Labs Login MicrosoftEdge"
+    browser: "MicrosoftEdge"
+    platformName: "Windows 10"
+    screenResolution: "1400x1050"
+    config:
+      testFiles: [ "**/login.*" ]
+```
+
+__Cross Platform Example__
+
+```yaml
+  # Chrome + MacOS
+  - name: "Swag Labs Login Chrome"
+    browser: "chrome"
+    platformName: "macOS"
+    screenResolution: "1400x1050"
+    config:
+      testFiles: [ "**/login.*" ]
+  # MicrosoftEdge + Windows
+  - name: "Swag Labs Login MicrosoftEdge"
+    browser: "chrome"
+    platformName: "Windows 10"
+    screenResolution: "1400x1050"
+    config:
+      testFiles: [ "**/login.*" ]
+```
+
+__Cross Platform & Browser Example__
+
+```yaml
+  # Chrome + Chrome + MacOS
+  - name: "Swag Labs Login Chrome"
+    browser: "chrome"
+    platformName: "macOS"
+    screenResolution: "1400x1050"
+    config:
+      testFiles: [ "**/login.*" ]
+  # MicrosoftEdge + MicrosoftEdge + Windows
+  - name: "Swag Labs Login MicrosoftEdge"
+    browser: "MicrosoftEdge"
+    platformName: "Windows 10"
+    screenResolution: "1400x1050"
+    config:
+      testFiles: [ "**/login.*" ]
+```
+
+> For full examples, please [visit this repository](https://github.com/saucelabs-training/demo-js/tree/master/testrunner-toolkit)
 
 ### Analyze Test Results in Sauce Labs
 
