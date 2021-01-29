@@ -74,7 +74,7 @@ Please note that VM concurrency depends on the suite number rather than the numb
 
 When you run tests on Sauce Labs VMs you have access to a wide range of OS + browser combinations. In order to test against multiple different browsers, you can indicate the desired combinations in the `suites` > `browser` field:
 
-```yaml
+```yaml {4,11,18}
 suites:
   # Chrome
   - name: "Swag Labs Login Chrome"
