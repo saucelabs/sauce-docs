@@ -4,7 +4,7 @@ title: "Configuration Syntax: Playwright"
 sidebar_label: playwright.yml
 ---
 
-Please refer to the [Common Configuration Syntax Reference](testrunner-toolkit/configuration#common-syntax-reference)for information regarding fields such as `apiVersion`, `kind`, and `sauce`.
+Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference)for information regarding fields such as `apiVersion`, `kind`, and `sauce`.
 
 ## Example Configuration
 

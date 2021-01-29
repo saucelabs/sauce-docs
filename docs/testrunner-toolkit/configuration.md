@@ -40,7 +40,7 @@ You should run the following commands in the root of your project directory
 :::
 
 ### Authenticate
-To get started, you must: [download and install testrunner toolkit](testrunner-toolkit/installation.md) and run the following command to authenticate Sauce Labs:
+To get started, you must: [download and install testrunner toolkit](/testrunner-toolkit/installation.md) and run the following command to authenticate Sauce Labs:
 
 ```bash
 saucectl configure
@@ -89,7 +89,7 @@ Next, a prompt appears asking you to select the desired [Sauce Labs data center]
 
 ### Run the Test
 
-Testrunner Toolkit generates a new config file in your current working directory (`.sauce/config.yml`) and prompts you to execute the `saucectl run` command. Visit the [Running Tests](testrunner-toolkit/running-tests) page for more detailed information about running tests with Testrunner Toolkit.
+Testrunner Toolkit generates a new config file in your current working directory (`.sauce/config.yml`) and prompts you to execute the `saucectl run` command. Visit the [Running Tests](/testrunner-toolkit/running-tests) page for more detailed information about running tests with Testrunner Toolkit.
 
 ## Modifying the Configuration File
 
@@ -467,6 +467,6 @@ __Example__:
 ```
 ## Framework-Specific Syntax Reference
 
-* [Cypress](testrunner-toolkit/configuration/cypress)
-* [Playwright](testrunner-toolkit/configuration/playwright)
-* [TestCafe](testrunner-toolkit/configuration/testcafe)
+* [Cypress](/testrunner-toolkit/configuration/cypress)
+* [Playwright](/testrunner-toolkit/configuration/playwright)
+* [TestCafe](/testrunner-toolkit/configuration/testcafe)
