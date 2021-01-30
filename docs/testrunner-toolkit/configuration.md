@@ -475,7 +475,7 @@ __Example__:
 ```yaml
   - name: "saucy test"
 ```
-## Framework-Specific Syntax Reference
+## Framework Syntax Reference
 
 * [Cypress](/testrunner-toolkit/configuration/cypress)
 * [Playwright](/testrunner-toolkit/configuration/playwright)
