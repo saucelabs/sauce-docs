@@ -452,7 +452,7 @@ __Example__:
       lodash: "4.17.20"
 ```
 
-## `suites`
+### `suites`
 
 __Description__: Field for defining test suite details such as the suite `name`, desired `browser`
 / `platformName`, and `config`.
@@ -465,7 +465,7 @@ suites:
   - name: "saucy test"
 ```
 
-### `name`
+#### `name`
 
 __Description__: Name of the test suite.
 
@@ -475,7 +475,7 @@ __Example__:
 ```yaml
   - name: "saucy test"
 ```
-## Framework Syntax Reference
+## Framework-Specific Syntax Reference
 
 * [Cypress](/testrunner-toolkit/configuration/cypress)
 * [Playwright](/testrunner-toolkit/configuration/playwright)
