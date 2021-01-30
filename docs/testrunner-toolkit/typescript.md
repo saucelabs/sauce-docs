@@ -8,7 +8,7 @@ If you wrote your automated tests using TypeScript in either Playwright, Puppete
 
 ## What You'll Need
 
-Refer to the requirements listed on the [Installation](/testrunner-toolkit#installation) page.
+Refer to the requirements listed on the [Installation](/testrunner-toolkit/installation) page.
 
 ## The Problem
 

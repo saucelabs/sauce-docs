@@ -19,7 +19,7 @@ Before you begin testing we suggest visiting the [Testrunner Toolkit](testrunner
 
 ## What You'll Need
 
-Refer to the requirements listed on the [Installation](/testrunner-toolkit#installation) page.
+Refer to the requirements listed on the [Installation](/testrunner-toolkit/installation) page.
 
 ## Create a Configuration
 
@@ -48,7 +48,7 @@ Consult your desired framework's documentation for more information about the de
 
 Testrunner Toolkit will then execute the test based on the information in `config.yml`. 
 
-### Test on Sauce Labs
+## Test on Sauce Labs
 
 <p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
 
@@ -64,10 +64,74 @@ If you wish to increase your VM concurrency you can also use the flag `--ccy <vm
 saucectl run --test-env sauce --ccy 2
 ```
 
+You can also designate `concurrency` in the `config.yml` like so:
+
+```yaml {2}
+sauce:
+  concurrency: 3
+  region: us-west-1
+```
+
 Please note that VM concurrency depends on the suite number rather than the number of `.spec.js |.test.js` files. Plese visit the [CLI Reference](/dev/cli/saucectl#ccy) for more information regarding command parameters:
 
 > Your concurrency and VM entitlements also depend on your Sauce Labs subscription tier. For more information please visit the [pricing guide](https://saucelabs.com/pricing)
 
+### Cross-Browser Tests
+
+<p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
+
+When you run tests on Sauce Labs VMs you have access to a wide range of OS + browser combinations. In order to test against multiple different browsers, you can indicate the desired combinations in the `suites` > `browser` field:
+
+```yaml {4,11,18}
+suites:
+  # Chrome
+  - name: "Swag Labs Login Chrome"
+    browser: "chrome"
+    platformName: "Windows 10"
+    screenResolution: "1400x1050"
+    config:
+      testFiles: [ "**/login.*" ]
+  # MicrosoftEdge
+  - name: "Swag Labs Login MicrosoftEdge"
+    browser: "MicrosoftEdge"
+    platformName: "Windows 10"
+    screenResolution: "1400x1050"
+    config:
+      testFiles: [ "**/login.*" ]
+ # Firefox
+   - name: "Swag Labs Login Firefox"
+     browser: "firefox"
+     platformName: "Windows 10"
+     screenResolution: "1400x1050"
+     config:
+       testFiles: [ "**/login.*" ]
+```
+
+> For full examples, please [visit this repository](https://github.com/saucelabs-training/demo-js/tree/master/testrunner-toolkit)
+
+### Using Sauce Connect
+
+If you're running tests on Sauce Labs VMs, but the site under test is protected behind strict network security/policies, you can utilize [Sauce Connect Proxy](/secure-connections/sauce-connect) to circumvent the problem.
+
+You can use the `--tunnel-id` flag with `saucectl` in order to launch a tunnel with your test session:
+
+```bash
+saucectl run --tunnel-id <tunnel-id>
+```
+
+> For more information on how to use the `--tunnel-id` flag, please visit the [CLI Reference](/dev/cli/saucectl#tunnel-id).
+
+To enable Sauce Connect Proxy in the `config.yml`, use the `tunnel` field:
+
+```yaml {3,4}
+sauce:
+  concurrency: 3
+  tunnel:
+    id: sauce-ci-tunnel
+  region: us-west-1
+```
+
+> For more information regarding how to install, setup, and configure Sauce Connect Proxy, please visit the [Sauce Connect Proxy documentation](/secure-connections/sauce-connect)
 
 ### Analyze Test Results in Sauce Labs
 
