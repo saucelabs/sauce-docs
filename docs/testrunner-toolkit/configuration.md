@@ -182,7 +182,7 @@ cypress:
 suites:
   - name: "saucy test"
     browser: "chrome"
-    screenResolution: "2560x1600"  # Available resolutions on sauce for Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
+    screenResolution: "1920x1080"  # Available resolutions on sauce for Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
 docker:
   fileTransfer: mount # Defaults to `mount`. Choose between mount|copy.
    image:
