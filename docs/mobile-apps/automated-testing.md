@@ -1,7 +1,7 @@
 ---
 id: automated-testing
 title: Mobile Automated Testing Quickstart
-sidebar_label: Getting Started
+sidebar_label: Quickstart
 ---
 
-Sauce Labs mobile automated testing intro page.
+Sauce Labs mobile automated testing quickstart page.
