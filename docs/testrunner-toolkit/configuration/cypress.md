@@ -83,7 +83,7 @@ __Example__:
   key: $MY_SECRET_KEY
 ```
 
-> For further information regarding cypress configurations, please consult the [Cypress documentation](https://docs.cypress.io/guides/guides/command-line.html#cypress-run-record-key-lt-record-key-gt).
+> For further information about recording cypress tests, please consult the [Cypress documentation](https://docs.cypress.io/guides/guides/command-line.html#cypress-run-record-key-lt-record-key-gt).
 
 ## `suites`
 
@@ -162,5 +162,4 @@ __Example__:
         hello: world
       testFiles: [ "**/*.*" ]
 ```
-
 
