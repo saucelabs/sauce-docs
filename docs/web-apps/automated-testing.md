@@ -1,7 +1,7 @@
 ---
 id: automated-testing
 title: Web Automated Testing Quickstart
-sidebar_label: Getting Started
+sidebar_label: Quickstart
 ---
 
-Sauce Labs web automated testing intro page.
+Sauce Labs web automated testing quickstart page.

@@ -1,7 +1,7 @@
 ---
 id: testrunner-toolkit
-title: Getting Started with Testrunner Toolkit                                 
-sidebar_label: Getting Started
+title: Using Testrunner Toolkit                                 
+sidebar_label: About
 ---
 
 import Tabs from '@theme/Tabs';
