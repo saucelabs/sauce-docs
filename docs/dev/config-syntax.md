@@ -195,7 +195,7 @@ __Example__:
 ```yaml
 docker:
   fileTransfer: mount
-  image: saucelabs/stt-cypress-mocha-node:v1.X.X
+  image: saucelabs/stt-cypress-mocha-node:vX.X.X
 ```
 
 ### `fileTransfer`

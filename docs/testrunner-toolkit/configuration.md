@@ -294,8 +294,6 @@ sauce:
       - release team
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
-docker:
-  image: saucelabs/stt-cypress-mocha-node:v0.3.3
 cypress:
   version: 5.6.0
   configFile: "tests/e2e/cypress.json"  # We determine related files based on the location of the config file.
@@ -400,7 +398,7 @@ __Example__:
 ```yaml
 docker:
   fileTransfer: mount
-  image: saucelabs/stt-cypress-mocha-node:v1.X.X
+  image: saucelabs/stt-cypress-mocha-node:vX.X.X
 ```
 
 #### `fileTransfer`
