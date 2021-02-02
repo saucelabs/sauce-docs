@@ -59,6 +59,32 @@ __Example__:
 
 > For further information regarding cypress configurations, please consult the [Cypress documentation](https://docs.cypress.io/guides/references/configuration.html#Options).
 
+### `record`
+
+__Description__: Record video of tests running.
+
+__Type__: *boolean*
+
+__Example__:
+```yaml
+  record: true
+  key: $MY_SECRET_KEY
+```
+
+### `key`
+
+__Description__: Secret record key.
+
+__Type__: *string*
+
+__Example__:
+```yaml
+  record: true
+  key: $MY_SECRET_KEY
+```
+
+> For further information about recording cypress tests, please consult the [Cypress documentation](https://docs.cypress.io/guides/guides/command-line.html#cypress-run-record-key-lt-record-key-gt).
+
 ## `suites`
 
 __Description__: Field for defining test suite details such as the suite `name`, desired `browser`
@@ -136,5 +162,4 @@ __Example__:
         hello: world
       testFiles: [ "**/*.*" ]
 ```
-
 
