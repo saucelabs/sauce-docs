@@ -15,12 +15,12 @@ class ImportantLinks extends Component {
 
             <div className="dev-resources__list">
               <ul>
-                <li><a href="#">Testing Insights</a></li>
-                <li><a href="#">W3C Capabilities</a></li>
-                <li><a href="#">Glossary</a></li>
-                <li><a href="#">Product Announcements</a></li>
-                <li><a href="#">Data Center Endpoints</a></li>
-                <li><a href="#">System Status</a></li>
+                <li><a href="/insights">Testing Insights</a></li>
+                <li><a href="https://wiki.saucelabs.com/display/DOCS/W3C+Capabilities+Support">W3C Capabilities</a></li>
+                <li><a href="https://wiki.saucelabs.com/display/DOCS/Sauce+Labs+Glossary">Glossary</a></li>
+                <li><a href="https://wiki.saucelabs.com/display/DOCS/Product+Announcements+and+Release+Notes+Blog">Product Announcements</a></li>
+                <li><a href="https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints">Data Center Endpoints</a></li>
+                <li><a href="https://status.saucelabs.com/">System Status</a></li>
               </ul>
             </div>
 
