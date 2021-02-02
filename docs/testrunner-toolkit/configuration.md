@@ -124,9 +124,7 @@ docker:
   # In this case the usage of `copy` is advised. `copy` will simply copy files and folders into the container.
   fileTransfer: mount # Defaults to `mount`. Choose between mount|copy.
   # image controls which images to be used for local testing. Change this value is you want to use a custom image.
-  # image:
-  #   name: saucelabs/stt-cypress-mocha-node
-  #   tag: v5.6.0
+  # image: saucelabs/stt-cypress-mocha-node:v5.6.0
 cypress:
   configFile: "tests/cypress.json"  # We determine related files based on the location of the config file.
   version: 5.6.0
@@ -182,12 +180,10 @@ cypress:
 suites:
   - name: "saucy test"
     browser: "chrome"
-    screenResolution: "2560x1600"  # Available resolutions on sauce for Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
+    screenResolution: "1920x1080"  # Available resolutions on sauce for Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
 docker:
   fileTransfer: mount # Defaults to `mount`. Choose between mount|copy.
-   image:
-     name: saucelabs/stt-cypress-mocha-node
-     tag: v5.6.0
+   image: saucelabs/stt-cypress-mocha-node:v5.6.0
 cypress:
   configFile: "tests/cypress.json"  # We determine related files based on the location of the config file.
   version: 5.6.0
@@ -299,9 +295,7 @@ sauce:
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
 docker:
-  image:
-    name: saucelabs/stt-cypress-mocha-node
-    tag: v0.3.3
+  image: saucelabs/stt-cypress-mocha-node:v0.3.3
 cypress:
   version: 5.6.0
   configFile: "tests/e2e/cypress.json"  # We determine related files based on the location of the config file.
@@ -406,9 +400,7 @@ __Example__:
 ```yaml
 docker:
   fileTransfer: mount
-  image:
-    name: saucelabs/stt-cypress-mocha-node
-    tag: v1.X.X
+  image: saucelabs/stt-cypress-mocha-node:v1.X.X
 ```
 
 #### `fileTransfer`
@@ -433,9 +425,7 @@ __Type__: *string*
 
 __Example__:
 ```yaml
-  image:
-    name: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node >
-    tag: < latest | vX.X.X >
+  image: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node >:< vX.X.X >
 ```
 
 > WARNING: using the `latest` tag for docker images is dangerous. For further information, read [this article](https://vsupalov.com/docker-latest-tag/#:~:text=You%20should%20avoid%20using%20the,apart%20from%20the%20image%20ID.).

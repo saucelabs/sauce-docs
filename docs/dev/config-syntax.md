@@ -195,9 +195,7 @@ __Example__:
 ```yaml
 docker:
   fileTransfer: mount
-  image:
-    name: saucelabs/stt-cypress-mocha-node
-    tag: v1.X.X
+  image: saucelabs/stt-cypress-mocha-node:v1.X.X
 ```
 
 ### `fileTransfer`
@@ -223,8 +221,7 @@ __Type__: *string*
 __Example__:
 ```yaml
   image:
-    name: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node >
-    tag: < latest | vX.X.X >
+    name: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node >:< vX.X.X >
 ```
 
 > WARNING: using the `latest` tag for docker images is dangerous. For further information, read [this article](https://vsupalov.com/docker-latest-tag/#:~:text=You%20should%20avoid%20using%20the,apart%20from%20the%20image%20ID.).
