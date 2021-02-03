@@ -44,7 +44,7 @@ module.exports = {
     },
     navbar: {
       title: null,
-      hideOnScroll: false,
+      hideOnScroll: true,
       logo: {
         alt: 'Sauce Labs logo',
         src: 'img/logo-saucelabs.png',
