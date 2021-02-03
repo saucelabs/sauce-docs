@@ -182,8 +182,9 @@ suites:
     browser: "chrome"
     screenResolution: "1920x1080"  # Available resolutions on sauce for Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
 docker:
-  fileTransfer: mount # Defaults to `mount`. Choose between mount|copy.
-   image: saucelabs/stt-cypress-mocha-node:v5.6.0
+   fileTransfer: mount # Defaults to `mount`. Choose between mount|copy.
+   image:
+     name: saucelabs/stt-cypress-mocha-node:v5.6.0
 cypress:
   configFile: "tests/cypress.json"  # We determine related files based on the location of the config file.
   version: 5.6.0
@@ -221,6 +222,9 @@ suites:
   - name: "saucy test"
     platformName: "Windows 10"
     testMatch: '**/*.js'
+    env:
+      hello: world
+    screenResolution: "1920x1080"
 
     params:
       browserName: "firefox"

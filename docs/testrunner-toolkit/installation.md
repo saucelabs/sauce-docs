@@ -69,14 +69,15 @@ There are multiple ways to install the Sauce Labs Testrunner Toolkit (colloquial
   ```
   
 * ```bash title="Using Homebrew (macOS)"
+  brew tap saucelabs/saucectl
   brew install saucectl
   ```
   
 If you would like to inspect the content of our one line installer, download it, have a look, and execute it:
 
 ```bash
-curl -fsSL -o get_saucectl.sh https://saucelabs.github.io/saucectl/install \
-chmod 700 get_saucectl.sh \
+curl -fsSL -o get_saucectl.sh https://saucelabs.github.io/saucectl/install && \
+chmod 700 get_saucectl.sh && \
 ./get_saucectl.sh
 ```
 
