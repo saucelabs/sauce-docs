@@ -298,21 +298,21 @@ In the root of your project directory, create the `.circleci` directory if it do
 <TabItem value="cypress">
 
 ```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml#L69-L83
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml#L43-L58
 ```
 
 </TabItem>
 <TabItem value="playwright">
 
 ```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L60-L76
 ```
 
 </TabItem>
 <TabItem value="testcafe">
 
 ```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml#L53-L67
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml#L96-L112
 ```
 
 </TabItem>
