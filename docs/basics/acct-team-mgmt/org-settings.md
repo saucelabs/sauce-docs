@@ -3,6 +3,9 @@ id: org-settings
 title: Organization Settings
 sidebar_label: Organization Settings
 ---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 ## General Settings
 General settings determine the options available to your users when they create their Sauce Labs accounts.
 
@@ -10,11 +13,11 @@ To access General settings:
 
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 
-<img src="/static/img/team-mgmt/team-mgmt-nav.jpg" alt="Team management navigation" width="400" />
+<img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.jpg')} alt="Team management navigation" width="400" />
 
 2. On the **Organization Management** page, in the **Organization Settings** section, click **View Settings**.
 
-<img src="/static/img/team-mgmt/team-mgmt-view-settings-nav.jpg" alt="View settings" width="600" />
+<img src={useBaseUrl('img/team-mgmt/team-mgmt-view-settings-nav.jpg')} alt="View settings" width="600" />
 
 3. On the **General** tab, you have the following option:
 
@@ -30,7 +33,7 @@ To access Security settings:
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 2. On the **Organization Management** page, in the **Organization Settings** section, click **View Settings**.
 
-<img src="/static/img/team-mgmt/team-mgmt-view-settings-nav.jpg" alt="View settings" width="600" />
+<img src={useBaseUrl('img/team-mgmt/team-mgmt-view-settings-nav.jpg')} alt="View settings" width="600" />
 
 3. On the **Security** tab, you have the following options:
 
@@ -52,11 +55,11 @@ When you set up SSO with Sauce Labs, you are establishing a connection between t
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 2. On the **Organization Management** page, in the **Organization Settings** section, click **View Settings**.
 
-<img src="/static/img/team-mgmt/team-mgmt-view-settings-nav.jpg" alt="View settings" width="600" />
+<img src={useBaseUrl('img/team-mgmt/team-mgmt-view-settings-nav.jpg')} alt="View settings" width="600" />
 
 3. On the **Organization Settings** page, click the **Single Sign-On** tab.
 
-<img src="/static/img/team-mgmt/sso-settings-tab.jpg" alt="SSO Settings tab" width="600" />
+<img src={useBaseUrl('img/team-mgmt/sso-settings-tab.jpg')} alt="SSO Settings tab" width="600" />
 
 4. Enter a **unique identifier string**. The string will be applied to user names to make sure that your users will have unique names associated with your account.
 5. Upload the SAML metadata file provided by your IdP that contains the list of your SSO users. Sauce Labs SSO supports most SAML 2.0 metadata files. For more information about specific IdPs, see [Configuring Active Directory Federation Services (AD FS)](/basics/sso/config-adfs) and [Configuring Okta](/basics/sso/config-okta).

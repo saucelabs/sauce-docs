@@ -4,6 +4,8 @@ title: Updating Your Billing Information
 sidebar_label: Updating Your Billing Information
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 You can update your plan billing information at any time for our online plans.
 
 **NOTE:** If you want to update the billing information for an Enterprise plan, contact your Sauce Labs account executive.
@@ -13,7 +15,7 @@ You can update your plan billing information at any time for our online plans.
 ## Virtual Device Cloud Billing
 In Sauce Labs, click **Account**, and then click **Billing**.
 
-<img src="/static/img/team-mgmt/billing-nav.jpg" alt="Billing navigation" width="400"/>
+<img src={useBaseUrl('img/team-mgmt/billing-nav.jpg')} alt="Billing navigation" width="400"/>
 
 ### Payment Tab
 If the **Payment** tab is visible:
@@ -38,14 +40,14 @@ If the **Billing Information** tab is visible:
 ## Real Device Cloud Billing
 1. In Sauce Labs, in the left panel, click **Sauce Apps** and then click **Legacy RDC**.
 
-<img src="/static/img/team-mgmt/legacy-rdc-nav.jpg" alt="Legacy RDC navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/legacy-rdc-nav.jpg')} alt="Legacy RDC navigation" width="400"/>
 
 2. Click the person icon, and then click **Account Settings**.
 
-<img src="/static/img/team-mgmt/legacy-rdc-acct-settings.jpg" alt="Legacy RDC account settings" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/legacy-rdc-acct-settings.jpg')} alt="Legacy RDC account settings" width="400"/>
 
 3. On the **Billing** tab, click **Payment Data**.
 
-<img src="/static/img/team-mgmt/rdc-billing-payment-data.jpg" alt="Legacy RDC billing payment data" width="500"/>
+   <img src={useBaseUrl('img/team-mgmt/rdc-billing-payment-data.jpg')} alt="Legacy RDC billing payment data" width="500"/>
 
 4. In the **Update Payment Data** window, update the billing information and/or credit card on file, and then click **Save**.

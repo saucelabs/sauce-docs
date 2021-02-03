@@ -84,7 +84,13 @@ __Example__:
   key: $MY_SECRET_KEY
 ```
 
-> For further information about recording cypress tests, please consult the [Cypress documentation](https://docs.cypress.io/guides/guides/command-line.html#cypress-run-record-key-lt-record-key-gt).
+In order for the `record` and `key` fields to work you must add the cypress `"projectId"` in your `cypress.json` file. 
+
+The value of your `projectId` correlates directly with the value of the `key` field; in this case `$MY_SECRET_KEY`.
+
+> Please refer to [this Cypress Documentation page](https://docs.cypress.io/guides/dashboard/projects.html#Project-ID) for further information about how to configure/retrieve the cypress `projectId`.
+>
+> For more information about the cypress __Record Key__, please consult this [Cypress Documentation page](https://docs.cypress.io/guides/guides/command-line.html#cypress-run-record-key-lt-record-key-gt).
 
 ## `suites`
 
