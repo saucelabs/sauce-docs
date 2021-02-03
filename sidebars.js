@@ -1,27 +1,84 @@
 module.exports = {
   someSidebar: {
     "Home": [
-      'overview',
-      {
-        type: 'category',
-        label: 'Sauce Labs Basics',
-        collapsed: true,
-        items: ['sauce-basics'],
-      },
-    ],
-    "Secure Connections": [
-       'secure-connections',
-       'secure-connections/ipsec-vpn',
-       {
-          type: 'category',
-          label: 'Sauce Connect Proxy',
-          collapsed: true,
-          items: [
-            'secure-connections/sauce-connect',
-            'secure-connections/sauce-connect/environment-variables',
+     'overview',
+     {
+       type: 'category',
+       label: 'Sauce Labs Basics',
+       collapsed: true,
+       items: [
+         'sauce-basics',
+         {
+           type: 'category',
+           label: 'Account and Team Management',
+           collapsed: true,
+           items: [
+             'basics/acct-team-mgmt-hub',
+             'basics/acct-team-mgmt/org-settings',
+
+               {
+                 type: 'category',
+                 label: 'Managing Users and Accounts',
+                 collapsed: true,
+                 items: [
+                   'basics/acct-team-mgmt/concurrency-limits',
+                   'basics/acct-team-mgmt/adding-deactivating-users',
+                   'basics/acct-team-mgmt/managing-user-info',
+                   'basics/acct-team-mgmt/viewing-exporting-usage-data',
+                 ],
+               },
+               {
+                 type: 'category',
+                 label: 'Managing Teams',
+                 collapsed: true,
+                 items: [
+                   'basics/acct-team-mgmt/adding-deleting-teams',
+                   'basics/acct-team-mgmt/assigning-removing-users-teams',
+                   'basics/acct-team-mgmt/sauce-connect-proxy-tunnels',
+                ],
+              },
+              {
+                type: 'category',
+                label: 'Billing and Subscriptions',
+                collapsed: true,
+                items: [
+                  'basics/acct-team-mgmt/managing-subscription',
+                  'basics/acct-team-mgmt/updating-billing',
+                  'basics/acct-team-mgmt/plan-details',
+                ],
+              },
             ],
           },
-        ],
+
+       {
+         type: 'category',
+         label: 'Single Sign-On',
+         collapsed: true,
+         items: [
+           'basics/sso-hub',
+           'basics/sso/setting-up-single-sign-on',
+           'basics/sso/config-adfs',
+           'basics/sso/config-okta',
+
+         ],
+       },
+
+     ],
+  },
+],
+          "Secure Connections": [
+             'secure-connections',
+             'secure-connections/ipsec-vpn',
+             {
+                type: 'category',
+                label: 'Sauce Connect Proxy',
+                collapsed: true,
+                items: [
+                  'secure-connections/sauce-connect',
+                  'secure-connections/sauce-connect/environment-variables',
+                  ],
+                },
+              ],
    "Mobile Apps": [
         'mobile-apps',
         {
@@ -70,6 +127,7 @@ module.exports = {
         collapsed: true,
         items: [
           'web-apps/automated-testing',
+          'web-apps/automated-testing/cypress'
         ],
       },
     ],
@@ -102,7 +160,17 @@ module.exports = {
     "Testrunner Toolkit": [
         'testrunner-toolkit',
         'testrunner-toolkit/installation',
-        'testrunner-toolkit/configuration',
+        {
+            type: 'category',
+            label: 'Configuration',
+            collapsed: true,
+            items: [
+                'testrunner-toolkit/configuration',
+                'testrunner-toolkit/configuration/cypress',
+                'testrunner-toolkit/configuration/playwright',
+                'testrunner-toolkit/configuration/testcafe',
+            ],
+        },
         'testrunner-toolkit/running-tests',
         'testrunner-toolkit/integrations',
         'testrunner-toolkit/typescript',

@@ -4,29 +4,73 @@ title: Testrunner Toolkit Installation
 sidebar_label: Installation
 ---
 
-Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifies user setup, speeds up test execution time and supports native Javascript frameworks like [Puppeteer](https://developers.google.com/web/tools/puppeteer), [Playwright](https://playwright.dev/), and [TestCafe](https://devexpress.github.io/testcafe/) for running end-to-end web tests with [Sauce Labs](https://saucelabs.com/).
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifies user setup, speeds up test execution time and supports native Javascript frameworks like, [Cypress](https://github.com/cypress-io/cypress) and [TestCafe](https://devexpress.github.io/testcafe/), for running end-to-end web tests with [Sauce Labs](https://saucelabs.com/).
 
 ## What You'll Need
 
 * A [Sauce Labs](https://saucelabs.com/) account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
-* [Docker](https://docs.docker.com/get-docker/) installed
-* Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g. `docker info` works in your terminal)
+* Install [Docker](https://docs.docker.com/get-docker/)
+  > Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g. `docker info` works in your terminal / command prompt
+* Know which [test framework and browser versions](/testrunner-toolkit#supported-frameworks-and-browsers) you plan to run tests against
 
+### System Requirements
+
+The system requirements to successfully run `saucectl` vary depending on whether you plan to run it locally via [`docker`](/testrunner-toolkit/running-tests#run-your-first-test), or remotely via [`sauce`](/testrunner-toolkit/running-tests#test-on-sauce-labs). 
+
+As a rule of thumb, your local system requirements should match the [Docker installation requirements](https://docs.docker.com/engine/install/#supported-platforms). Please use the table below as a quick reference:
+
+<Tabs
+  defaultValue="macos"
+  values={[
+    {label: 'macOS', value: 'macos'},
+    {label: 'Linux', value: 'linux'},
+    {label: 'Windows', value: 'windows'},
+  ]}>
+  
+<TabItem value="macos">
+
+* Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
+* OS: 10.14+ (Mojave, Catalina, or Big Sur)
+
+> Browser support depends on the chosen test framework, see [this section](/testrunner-toolkit#supported-frameworks-and-browsers) for more details.
+
+</TabItem>
+<TabItem value="linux">
+
+* Docker: [Server](https://docs.docker.com/engine/install/#server)
+* OS/Distros: [CentOS](https://docs.docker.com/engine/install/centos/), [Debian](https://docs.docker.com/engine/install/debian/), [Fedora](https://docs.docker.com/engine/install/fedora/), [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+
+> Browser support depends on the chosen test framework, see [this section](/testrunner-toolkit#supported-frameworks-and-browsers) for more details.
+
+</TabItem>
+<TabItem value="windows">
+
+* Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
+* OS: Windows 10 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
+
+> Browser support depends on the chosen test framework, see [this section](/testrunner-toolkit#supported-frameworks-and-browsers) for more details.
+
+</TabItem>
+</Tabs>
 
 ## Installing Testrunner Toolkit
 
 There are multiple ways to install the Sauce Labs Testrunner Toolkit (colloquially known as `saucectl`):
 
-* Use [NPM](https://www.npmjs.com/)
+* ```bash title="Using curl"
+  curl -L https://saucelabs.github.io/saucectl/install | bash
+  ```
 
-    ```bash
-    npm i -g saucectl
-    ```
-* Use our one line installer via command line tools such as [cURL](https://curl.haxx.se/download.html):
-
-    ```bash
-    curl -L https://saucelabs.github.io/saucectl/install | bash
-    ```
+* ```bash title="Using NPM"
+  npm install -g saucectl
+  ```
+  
+* ```bash title="Using Homebrew (macOS)"
+  brew install saucectl
+  ```
   
 If you would like to inspect the content of our one line installer, download it, have a look, and execute it:
 
@@ -68,7 +112,7 @@ Testrunner Toolkit generally does a good job of detecting the presence of `SAUCE
 saucectl configure
 ```
 
-This command then prompts you to manually enter you credentials if it cannot detect any environment variables, and it will generate a `credentials.yml` file in the `.sauce` directory.
+This command prompts you to manually enter your credentials if it cannot detect any environment variables, and will generate a `credentials.yml` file in a `.sauce` directory in your home folder.
 
 :::warning Do NOT commit `credentials.yml`
 It should go without saying, but do not publicly expose your `credentials.yml` file over the internet. Make sure you add this file to your `.gitignore` file, as you should only use it locally.

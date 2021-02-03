@@ -4,7 +4,7 @@ title: Espresso and XCUITest CLI Reference
 sidebar_label: Espresso and XCUITest
 ---
 
-## Sauce Runner for Real Devices Command Line Options
+## Sauce Runner for Real Devices Command Line Reference
 
 This topic describes the options you can use with [Sauce Runner for Real Devices](/mobile-apps/automated-testing/espresso-xcuitest/real-device-testing.md) to run automated tests on Sauce Labs real devices using Espresso and XCUITest.
 
@@ -81,21 +81,19 @@ These options are required for use with the `xcuitest` or `espresso` commands. T
    <td><sub><code>
    --device
    </code></sub></td>
-   <td>For static allocation of a device, provide the ID for the type of device to use in your tests, such as <code>iPhone_5_real</code>. To find device ID numbers, go to <strong>Live</strong> > <strong>Mobile-App</strong> > <strong>Choose device</strong> > Search for the device you want to use > Click <strong>Details</strong> in the device description. For more information, see the examples under <code>--devices</code>.
+   <td>For static allocation of a device, provide the ID for the type of device to use in your tests, such as <code>iPhone_5_real</code>. To find device ID numbers, go to <strong>Live</strong> > <strong>Mobile-App</strong> > <strong>Choose device</strong> > Search for the device you want to use > Click <strong>Details</strong> in the device description. For more information, see the examples under <a href="#devices"><code>--devices</code></a>.
    </td>
   </tr>
   <tr>
-   <td><sub><code>
-   --devices
-   </code></sub></td>
+   <td><p><sub><a id="devices"></a><code>--devices</code></sub></p></td>
    <td>
    The list of devices, allocated dynamically or through static description of the device ID, to use in your tests.
 
-   With the `--devices` option, you can configure Sauce Runner for Real Devices to run tests in parallel across multiple devices using both static and dynamic allocation. Below are some examples of the various configuration options. As an option, you can run a select set of tests against a specific device using the `--testsToRun` command.
+   With the <code>--devices</code> option, you can configure Sauce Runner for Real Devices to run tests in parallel across multiple devices using both static and dynamic allocation. Below are some examples of the various configuration options. As an option, you can run a select set of tests against a specific device using the <code>--testsToRun</code> command.
 
    <sub>
 
-   ```sh
+   ```
    # Define a list of devices on which the
    # tests should be executed.
      devices:
@@ -109,7 +107,7 @@ These options are required for use with the `xcuitest` or `espresso` commands. T
     # Specify a device descriptor for static allocation.
     device: iPhone_8_real_us
 
-# Device 3 example: Dynamic Allocation.
+   # Device 3 example: Dynamic Allocation.
    - datacenter: US
     # Specify a device name or regex for dynamic
     # allocation (e.g.,'iPhone 5', 'iPad.*').
@@ -136,7 +134,6 @@ These options are required for use with the `xcuitest` or `espresso` commands. T
      - testClass: SampleTestCase
      - testClass: SampleTestCase2
        testMethod: testItWorks
-
    ```
 
    </sub></td>
@@ -188,7 +185,7 @@ These options are required for use with the `xcuitest` or `espresso` commands. T
    --platformVersion
    </code></sub></td>
    <td>
-   For dynamic allocation of a device, provide an operating system version to use. For example, use < code>9</code> to allocate a device running major version 9 and arbitrary versions of the OS, or <code>9.3.3</code> for a specific version. For more information, see the examples under <a href="/dev/cli/espresso-xcuitest#--devices"><code>--devices</code></a>.</td>
+   For dynamic allocation of a device, provide an operating system version to use. For example, use < code>9</code> to allocate a device running major version 9 and arbitrary versions of the OS, or <code>9.3.3</code> for a specific version. For more information, see the examples under <a href="#devices"><code>--devices</code></a>.</td>
   </tr>
   <tr>
    <td><sub><code>
@@ -216,15 +213,16 @@ These options are required for use with the `xcuitest` or `espresso` commands. T
    --deviceNameQuery
    </code></sub></td>
    <td>
-   For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use <code>iPhone.*Plus</code> to allocate any iPhone Plus device. For more information, see the examples under <a href="/dev/cli/espresso-xcuitest#--devices"><code>--devices</code></a>.</td>
+   For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use <code>iPhone.*Plus</code> to allocate any iPhone Plus device. For more information, see the examples under <a href="#devices"><code>--devices</code></a>.</td>
   </tr>
   <tr>
-   <td><sub><code>
+   <td><p><sub><code>
    --testsToRun
-   </code></sub></td>
-   <td>
+   </code></sub></p>
    <p><button class="badge-green">XCUITest Only</button></p>
-   <p>For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use <code>iPhone.*Plus</code> to allocate any iPhone Plus device. For more information, see the examples under <a href="/dev/cli/espresso-xcuitest#--devices"><code>--devices</code></a>. Example: Execute all tests in <code>ClassA</code> and only <code>methodC</code> of <code>ClassB</code>:</p>
+   </td>
+   <td>
+   <p>For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use <code>iPhone.*Plus</code> to allocate any iPhone Plus device. For more information, see the examples under <a href="#devices"><code>--devices</code></a>. Example: Execute all tests in <code>ClassA</code> and only <code>methodC</code> of <code>ClassB</code>:</p>
 
    <p><sub>
 
@@ -235,11 +233,10 @@ These options are required for use with the `xcuitest` or `espresso` commands. T
    </td>
   </tr>
   <tr>
-   <td><sub><code>
-   --e
-   </code></sub></td>
-   <td>
+   <td><p><sub><code>--e</code></sub></p>
    <p><button class="badge-green">Espresso Only</button></p>
+   </td>
+   <td>
    <p>Provide a list of test options to Espresso. The key-value pairs supported by Espresso are documented here: <a href="https://developer.android.com/studio/test/command-line#AMOptionsSyntax">Android Developers: <code>am instrument</code> options</a>.</p>
 
    <p>Example: Execute all tests in class TestClassA</p>
@@ -260,21 +257,38 @@ These options are required for use with the `xcuitest` or `espresso` commands. T
   </td>
   </tr>
   <tr>
-   <td><sub><code>
+   <td><p><sub><code>
    --useTestOrchestrator
-   </code></sub></td>
-   <td>
+   </code></sub></p>
    <p><button class="badge-green">Espresso Only</button></p>
+   </td>
+   <td>
    <p>If set, the instrumentation will start with Test Orchestrator version 1.1.1 in use.</p>
 
    **NOTE**: With Test Orchestrator, it is in most cases recommended to also add the `--e clearPackageData true` parameter to remove all shared state from your device's CPU and memory after each test.
 
    </td>
   </tr>
+  <tr>
+   <td><sub><code>
+   --D
+   </code></sub></td>
+   <td>
+   <p>Enables Sauce Connect Proxy. If you need Sauce Runner to connect to the internet through a proxy server, use <code>-D</code> to specify a direct domain connection to your proxy server and port. The parameters <code>http.proxyUser</code> and <code>http.proxyPassword</code> are optional and they can be used if the proxy needs authentication:</p>
+
+   ```java
+   -Dhttp.proxyHost=<your proxy server>
+   -Dhttp.proxyPort=<the port to use>
+   -Dhttp.proxyUser=<the username to use>
+   -Dhttp.proxyPassword=<the password to use>
+   ```
+
+   </td>
+  </tr>
 </table>
 
 
-### Code Examples
+### Example Scripts
 
 The code examples below contain all required Sauce Runner for Real Devices parameters, with the Data Center option set to US.
 
@@ -297,20 +311,10 @@ The code examples below contain all required Sauce Runner for Real Devices param
   </tr>
 </table>
 
-### Using Sauce Connect Proxy
-If you need Sauce Runner to connect to the internet through a proxy server, use the <code>-D</code> command to specify a direct domain connection to your proxy server and port. The parameters <code>http.proxyUser</code> and <code>http.proxyPassword</code> are optional and they can be used if the proxy needs authentication:
-
-```java
--Dhttp.proxyHost=<your proxy server>
--Dhttp.proxyPort=<the port to use>
--Dhttp.proxyUser=<the username to use>
--Dhttp.proxyPassword=<the password to use>
-```
-
 
 <br/>
 
-## Sauce Runner for Virtual Devices Command Line Options
+## Sauce Runner for Virtual Devices Command Line Reference
 
 Sauce Runner for Virtual Devices lets you run tests using the native testing frameworks like Espresso with virtual devices in the Sauce Labs testing cloud. This topic describes the required and optional command parameters you can use to set up your test runs.
 
@@ -389,95 +393,221 @@ Sauce Runner for Virtual Devices lets you run tests using the native testing fra
 
    </sub></td>
   </tr>
-</table>
+  <tr>
+   <td><sub><code>-d</code></sub></td>
+   <td><sub><code>
+   --devices
+   </code></sub></td>
+   <td><p>The type of device you want to use with your test. You can specify two or more device arguments to run tests on multiple devices in parallel, and each device will execute the full test suite. You specify the type of device to use by setting the required <code>deviceName</code> and <code>platformVersion</code> property.</p><sub>
 
+   <table>
+  <tr>
+  <td><strong>Property</strong>
+  </td>
+  <td><strong>Required</strong>
+  </td>
+  <td><strong>Description</strong>
+  </td>
+ </tr>
+ <tr>
+  <td><code>deviceName</code>
+  </td>
+  <td>Yes
+  </td>
+  <td>The name of the device to use. You can use the <a href="https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/">Sauce Labs Platform Configurator</a> to look up the Appium <code>deviceName</code> for supported devices.
+  </td>
+ </tr>
+ <tr>
+  <td><code>platformVersion</code>
+  </td>
+  <td>Yes
+  </td>
+  <td>The operating system version of the device you want to use. Supported values depend on the device.You can use the <a href="https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/">Sauce Labs Platform Configurator</a> to look up the Appium <code>platformVersion</code> for the device.
+  </td>
+ </tr>
+ <tr>
+  <td><code>locale</code>
+  </td>
+  <td>No
+  </td>
+  <td>Locale of the device.
+  </td>
+ </tr>
+ <tr>
+  <td><code>orientation</code>
+  </td>
+  <td>No
+  </td>
+  <td>Orientation of the device. Supported values are:
+<ul><li><code>portrait</code> (default)</li>
+<li><code>landscape</code></li></ul>
+  </td>
+ </tr>
+</table></sub>
+<sub><b>Examples</b>
 
-#### `-d --devices`
-The type of device you want to use with your test. You can specify two or more device arguments to run tests on multiple devices in parallel, and each device will execute the full test suite. You specify the type of device to use by setting the required `deviceName` and `platformVersion` property.
-
-| Property  | Required  | Description |        
-| :------------- |:-------------  | :-------------  |
-| `deviceName` | Yes | The name of the device to use. You can use the Sauce Labs Platform Configurator to look up the Appium deviceName for supported devices.
-| `platformVersion` | Yes | The operating system version of the device you want to use. Supported values depend on the device.You can use the Sauce Labs Platform Configurator to look up the Appium platformVersion for the device.
-| `locale` | No | Locale of the device.
-| `orientation` | No | Orientation of the device. Supported values are: <ul><li>portrait (default)</li><li>landscape</li></ul>
-
-**Examples**
-
-```sh
+  ```sh
 # Test on one device
 -d 'deviceName=Google Pixel GoogleAPI Emulator,platformVersion=7.0'
 
 # Test on two devices
 --devices='deviceName=LG Nexus 4 GoogleAPI Emulator,platformVersion=4.4' \
 --devices='deviceName=Google Pixel GoogleAPI Emulator,platformVersion=7.0'
-```
+  ```
+
+</sub>
+   </td>
+  </tr>
+</table>
+
 
 ### Optional
 
-#### `-e --exclude-tests` or `-i --include-tests`
-Optional parameter to run a subset of tests. You can provide a test filter to either exclude or include tests. By default, the full test suite is executed.
+<table>
+<tr>
+ <td><strong>Flag (Short)</strong>
+ </td>
+ <td><strong>Flag (Long)</strong>
+ </td>
+ <td><strong>Description</strong>
+ </td>
+</tr>
+<tr>
+<td>
+<sub><p><code>-e</code></p>
+     <br/>
+    <p><code>-i</code></p>
+  </sub></td>
+ <td><sub><p><code>--exclude-tests</code></p>
+       <code>--include-tests</code></sub></td>
+ <td><p>Optional parameter to run a subset of tests. You can provide a test filter to either exclude or include tests. By default, the full test suite is executed.</p><sub>
 
-| Filter  | Description      
-| :------------- |:-------------  
-| `class com.example.MyClass#testLogin` | Filters one test method
-| `class com.example.MyClass#testLogin, com.example.MyClass#testOrder` | Filters two test methods
-| `class com.example.MyClass` | Filters a test class
-| `package com.example.testPackage` | Filters a package
-| `size small` or `size medium` or `size large` | Filters by size. Tests should be annotated with `SmallTest`, `MediumTest` or `LargeTest`. **Cannot be used for exclusion.**
-| `annotation com.example.MyAnnotation` | Filters by annotation
+ <table>
+   <tr>
+    <td><strong>Filter</strong>
+    </td>
+    <td><strong>Description</strong>
+    </td>
+   </tr>
+   <tr>
+    <td><code>class com.example.MyClass#testLogin</code>
+    </td>
+    <td>Filter one test method
+    </td>
+   </tr>
+   <tr>
+    <td>
+    <p><code>class com.example.MyClass#testLogin,</code></p>
+    <p><code>com.example.MyClass#testOrder</code></p>
+    </td>
+    <td>Filter two test methods
+    </td>
+   </tr>
+   <tr>
+    <td><code>class com.example.MyClass</code>
+    </td>
+    <td>Filter a test class
+    </td>
+   </tr>
+   <tr>
+    <td><code>package com.example.testPackage</code>
+    </td>
+    <td>Filter a package
+    </td>
+   </tr>
+   <tr>
+    <td><code>size small|medium|large</code>
+    </td>
+    <td>Filter by size. Tests should be annotated with <code>SmallTest</code>, <code>MediumTest</code> or <code>LargeTest.</code>Cannot be used for exclusion.
+    </td>
+   </tr>
+   <tr>
+    <td><code>annotation com.example.MyAnnotation</code>
+    </td>
+    <td><p>Filter by annotation</p>
 
-**Examples**
+    # Run only one test method
+      --include-tests='class com.example.MyClass#testLogin'
 
-```sh
-# Run only one test method
---include-tests='class com.example.MyClass#testLogin'
+    # Run all but one test class
+      --exclude-tests='class com.example.MyClass'
 
-# Run all but one test class
---exclude-tests='class com.example.MyClass'
+    # Run only the large tests
+      --include-tests='size large'
 
-# Run only the large tests
---include-tests='size large'
-```
+</td>
+</tr>
+ </table>
+ </sub></td>
+</tr>
+<tr>
+ <td><sub><code>-n</code></sub></td>
+ <td><sub><code>
+ --tunnel-identifier
+ </code></sub></td>
+ <td><p>Parameter to specify a <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365718">Sauce Connect Proxy tunnel</a> to use with the tests.</p> <sub>
 
-#### `-n --tunnel-identifier`
-Parameter to specify a [Sauce Connect Proxy tunnel](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365718) to use with the tests.
+ ```sh
+ -n dev_tunnel
+ --tunnel-identifier=dev_tunnel
+ ```
 
-**Examples**
+ </sub></td>
+</tr>
+<tr>
+ <td></td>
+ <td><sub><code>
+ --data-center
+ </code></sub></td>
+ <td><p>Optional parameter to specify a Sauce Labs data center. Options are <code>us-west-1</code> and <code>eu-central-1</code>.</p><sub>
 
-```sh
--n dev_tunnel
---tunnel-identifier=dev_tunnel
-```
+ ```sh
+ --data-center eu-central-1
+ ```
+ </sub></td>
+</tr>
+<tr>
+ <td></td>
+ <td><sub><code>
+ --skip-download-junit-reports
+ </code></sub></td>
+ <td><p>Optional parameter to skip the download of the JUnit files at the end of the test suite.</p>
+ </td>
+</tr>
+<tr>
+ <td><sub><code>-v</code></sub></td>
+ <td><sub><code>
+ --verbose
+ </code></sub></td>
+ <td><p>Optional parameter to set the verbosity of console output. Valid options as <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code> and <code>ERROR</code>.</p>
+ </td>
+</tr>
+<tr>
+ <td><sub><code>-h</code></sub></td>
+ <td><sub><code>
+ --help
+ </code></sub></td>
+ <td><p>Print this command line reference to the console.</p>
+ </td>
+</tr>
+<tr>
+ <td></td>
+ <td><sub><code>
+ --version
+ </code></sub></td>
+ <td><p>Version information for Sauce Runner.</p>
+ </td>
+</tr>
+</table>
 
-#### `--data-center`
-Optional parameter to specify a Sauce Labs data center. Options are `us-west-1` and `eu-central-1`.
 
-**Example**
-
-```sh
---data-center eu-central-1
-```
-
-#### `--skip-download-junit-reports`
-Optional parameter to skip the download of the JUnit files at the end of the test suite.
-
-#### `-v --verbose`
-Optional parameter to set the verbosity of console output. Valid options as `DEBUG`, `INFO`, `WARN` and `ERROR`.
-
-#### `-h --help`
-Print this command line reference to the console.
-
-#### `--version`
-Version information for Sauce Runner.
-
-### Code Examples
+### Example Scripts
 
 #### Espresso
 
-<p>Below is a Sauce Runner for Virtual Devices code example that uses all required parameters. It's testing the application `helloworld.apk` simultaneously on two emulators — Galaxy S8 and Pixel — using the Espresso test suite `espresso-test-suite.apk`.</p>
+Below is a Sauce Runner for Virtual Devices code example that uses all required parameters. It's testing the application `helloworld.apk` simultaneously on two emulators — Galaxy S8 and Pixel — using the Espresso test suite `espresso-test-suite.apk`.
 
-<p>`Sauce-Runner-Virtual` installs `helloworld.apk` and `espresso-test-suite.apk` on the Sauce emulators and launches the Espresso test suite on both emulators at the same time. `Sauce-Runner-Virtual` exits when all the tests have completed. `Sauce-Runner-Virtual` exits with status code zero if all the tests passed, otherwise it exits with status code 1.</p><p><sub>
+`Sauce-Runner-Virtual` installs `helloworld.apk` and `espresso-test-suite.apk` on the Sauce emulators and launches the Espresso test suite on both emulators at the same time. `Sauce-Runner-Virtual` exits when all the tests have completed. `Sauce-Runner-Virtual` exits with status code zero if all the tests passed, otherwise it exits with status code 1.
 
 ```sh
 ./sauce-runner-virtual \
@@ -489,5 +619,3 @@ Version information for Sauce Runner.
    -d 'deviceName=Samsung Galaxy S8 HD GoogleAPI Emulator,platformVersion=7.0' \
    -d 'deviceName=Google Pixel GoogleAPI Emulator,platformVersion=7.1'
    ```
-
-</sub></p>

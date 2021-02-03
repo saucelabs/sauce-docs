@@ -22,7 +22,7 @@ hide_table_of_contents: true
     <h2>Automated Testing</h2>
     <p>Browse through the Automated Testing documentation to see examples of how to execute tests in your preferred automation framework.</p>
     <ul>
-        <li><a href="">Selenium</a> and <a href="">Appium</a></li>
+        <li><a href="https://wiki.saucelabs.com/display/DOCS/Getting+Started+with+Selenium+for+Automated+Website+Testing">Selenium</a> and <a href="https://wiki.saucelabs.com/display/DOCS/Getting+Started+with+Appium+for+Mobile+Application+Testing">Appium</a></li>
         <li><a href="/mobile-apps/automated-testing/espresso-xcuitest">Espresso and XCUITest</a></li>
         <li><a href="/testrunner-toolkit">Testrunner Toolkit</a> (e.g. Puppeteer, Cypress, etc.)</li>
     </ul>
@@ -43,8 +43,8 @@ hide_table_of_contents: true
     <h2>CI / CD</h2>
     <p>Browse the continuous integration and continuous delivery documentation to explore how to integrate Sauce Labs into your DevOps pipeline.</p>
     <ul>
-        <li><a href="">Jenkins</a></li>
-        <li><a href="">Bamboo</a></li>
+        <li><a href="https://wiki.saucelabs.com/display/DOCS/Setting+Up+Sauce+Labs+with+Jenkins">Jenkins</a></li>
+        <li><a href="https://wiki.saucelabs.com/display/DOCS/Setting+Up+Sauce+Labs+with+Bamboo">Bamboo</a></li>
         <li>and <a href="/ci">More</a></li>
     </ul>
     </div>
