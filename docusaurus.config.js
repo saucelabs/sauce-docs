@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Sauce Labs Documentation',
-  tagline: 'Documentation for the Sauce Labs Platform',
+  tagline: 'Find everything you need to know about manual and automated cross-browser and mobile app testing in the Sauce Labs Continuous Testing Cloud.',
   url: 'https://saucelabs.com/docs',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -9,6 +9,7 @@ module.exports = {
   organizationName: 'saucelabs', // Usually your GitHub org/user name.
   projectName: 'sauce-docs', // Usually your repo name.
   themeConfig: {
+    hideableSidebar: true,
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
     },
@@ -100,8 +101,21 @@ module.exports = {
               href: 'https://saucelabs.com/platform/sauce-headless',
             },
             {
+              label: 'Testrunner ToolKit BETA',
+              href: 'https://saucelabs.com/platform/sauce-testrunner-toolkit',
+            },
+            {
               label: 'Visual Testing',
               href: 'https://saucelabs.com/platform/visual-testing',
+            },
+            {
+              label: 'Supported Integrations',
+              href: 'https://saucelabs.com/platform/integrations-plugins',
+            },
+
+            {
+              label: 'Supported Browsers & Devices',
+              href: 'https://saucelabs.com/platform/supported-browsers-devices',
             },
             {
               label: 'Sauce Performance',
@@ -116,13 +130,25 @@ module.exports = {
               href: 'https://saucelabs.com/platform/analytics-performance/advanced-debugging-tools',
             },
             {
-              label: 'Supported Integrations',
-              href: 'https://saucelabs.com/platform/integrations-plugins',
+              label: 'Selenium',
+              href: 'https://saucelabs.com/platform/automation-tools/selenium',
             },
             {
-              label: 'Supported Browsers & Devices',
-              href: 'https://saucelabs.com/platform/supported-browsers-devices',
+              label: 'Espresso',
+              href: 'https://saucelabs.com/platform/automation-tools/espresso',
             },
+            {
+              label: 'Appium',
+              href: 'https://saucelabs.com/platform/automation-tools/appium',
+            },
+            {
+              label: 'XCUI Test',
+              href: 'https://saucelabs.com/platform/automation-tools/xcuitest',
+            },
+            {
+              label: 'View All',
+              href: 'https://saucelabs.com/platform/automation-tools',
+            }
           ]
         },
         {
@@ -143,17 +169,69 @@ module.exports = {
               href: 'https://saucelabs.com/resources',
             },
             {
-              label: 'Training',
+              label: 'Articles',
+              href: 'https://saucelabs.com/resources/articles',
+            },
+            {
+              label: 'Videos',
+              href: 'https://saucelabs.com/resources/videos',
+            },
+            {
+              label: 'Webinars',
+              href: 'https://saucelabs.com/resources/webinars',
+            },
+            {
+              label: 'Case Studies',
+              href: 'https://saucelabs.com/resources/case-studies',
+            },
+            {
+              label: 'White Papers',
+              href: 'https://saucelabs.com/resources/white-papers',
+            },
+            {
+              label: 'Data Sheets',
+              href: 'https://saucelabs.com/resources/data-sheets',
+            },
+            {
+              label: 'Training & Support',
               href: 'https://saucelabs.com/training-support',
+            },
+            {
+              label: 'Knowledge Base',
+              href: 'https://support.saucelabs.com/',
+            },
+            {
+              label: 'Documentation',
+              href: 'https://wiki.saucelabs.com/',
+            },
+            {
+              label: 'Our Experts',
+              href: 'https://saucelabs.com/our-experts',
             },
             {
               label: 'Community',
               href: 'https://saucelabs.com/community',
             },
+            {
+              label: 'Join Secret Sauce',
+              href: 'https://saucelabs.com/community/join-secret-sauce',
+            },
+            {
+              label: 'Events',
+              href: 'https://saucelabs.com/community/events',
+            },
+            {
+              label: 'Selenium',
+              href: 'https://www.seleniumhq.org/',
+            },
+            {
+              label: 'Appium',
+              href: 'http://appium.io/',
+            },
           ]
         },
         {
-          label: 'Contact',
+          label: 'Company',
           position: 'right',
           items: [
             {
@@ -176,6 +254,36 @@ module.exports = {
               label: 'Partners',
               href: 'https://saucelabs.com/company/partners',
             },
+            {
+              label: 'Technology Alliance',
+              href: 'https://saucelabs.com/company/partners/tap',
+            },
+            {
+              label: 'Go-To-Market',
+              href: 'https://saucelabs.com/company/partners/go-to-market',
+            },
+          ]
+        },
+        {
+          label: 'Contact',
+          position: 'right',
+          items: [
+            {
+              label: 'Contact Sales',
+              href: 'https://saucelabs.com/sales',
+            },
+            {
+              label: 'General Inquiries',
+              href: 'https://saucelabs.com/contact',
+            },
+            {
+              label: 'Contact Support',
+              href: 'https://saucelabs.com/training-support',
+            },
+            {
+              label: 'Sauce Community',
+              href: 'https://saucelabs.com/community',
+            }
           ]
         },
         {
@@ -240,7 +348,7 @@ module.exports = {
           showLastUpdateTime: true,
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.css')
         },
       },
     ],

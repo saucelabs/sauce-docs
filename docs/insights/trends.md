@@ -4,6 +4,7 @@ title: Comparing Statistical Trends
 sidebar_label: Trends
 description: See how grouping tests reveals outcome patterns across isolated variables, such as browser, operating system, or date to optimize your tests.
 ---
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The Trends section of the Insights feature provides a variety of data visualizations to give you a holistic perspective of your test outcomes. The following table describes each section.
 
@@ -14,7 +15,7 @@ The Trends section of the Insights feature provides a variety of data visualizat
   </tr>
   <tr>
     <td><b>Number of Tests</b></td>
-    <td>The total number of tests run during the specified time period, separated in increments relative to the overall duration. For example, increments may be every 10 minutes for a time period of one hour, while increments might be daily for a 30 day time period.</td>
+    <td>The total number of tests run during the specified time period, separated in increments relative to the overall duration. For example, increments may be every 10 minutes for a time period of one hour, while increments might be daily for a 30-day time period.</td>
   </tr>
   <tr>
     <td><b>Pass/Fail Rate</b></td>
@@ -33,14 +34,14 @@ The Trends section of the Insights feature provides a variety of data visualizat
   </tr>
   <tr>
     <td><b>Build and Test Statistics</b></td>
-    <td>A snapshot of all tests run during the time period, displayed in separate tabs based on whether the test is or is not assigned a Build ID.For each test listed, basic data about the time the test was executed, the time it took to run, the Sauce Labs user who ran it, and its outcome. Tests in the <b>Builds</b> tab have an additional statistic - <i>Efficiency</i>, that indicates whether the tests in the build run in parallel to optimize the execution time for the entire build.<br/>This visualization can be further filtered to show only only tests with a failed and/or errored status.</td>
+    <td>A snapshot of all tests run during the time period, displayed in separate tabs based on whether the test is or is not assigned a Build ID.For each test listed, basic data about the time the test was executed, the time it took to run, the Sauce Labs user who ran it, and its outcome. Tests in the <b>Builds</b> tab have an additional statistic &mdash; <i>Efficiency</i> &mdash; that indicates whether the tests in the build run in parallel to optimize the execution time for the entire build.<br/>This visualization can be further filtered to show only tests with a failed and/or errored status.</td>
   </tr>
 </table>
 
 
 ## Drilling Down on Visualizations
 
-The visualizations shown in the Trends section of Insights are interactive; you can hover over any of the bars to view a statistics overview for that increment, or you can click-drag across the bars to redraw the graph for a narrower time period. The latter action updates the Time Period filter at the top of the page accordingly. After drilling down on a time period, click the Back link to step back through the previous time periods.
+The visualizations shown in the **Trends** section are interactive; you can hover over any of the bars to view a statistics overview for that increment, or you can click-drag across the bars to redraw the graph for a narrower time period. The latter action updates the time period filter at the top of the page accordingly.
 
 ## Using Trends Data to Improve Testing
 
@@ -48,23 +49,25 @@ The trend visualizations can provide you with a quick overview of what's going o
 
 ### Comparing Test Results on Chrome 50 and 55
 
-To find out how well a site under test performs against a browser update, we start by filtering our data to isolate only the relevant tests -- those that are owned by the same organization; were run over the past 7 days on Windows 7 for Chrome 55 and Chrome 50. This is a typical use case to compare a set of new tests for a recent browser release against the baseline of an established set of tests for a previous version of the same browser.
+To find out how well a site under test performs against a browser update, we start by filtering our data to isolate only the relevant tests &mdash; those that are owned by the same organization &mdash; were run over the past seven days on Windows 7 for Chrome 55 and Chrome 50. This is a typical use case to compare a set of new tests for a recent browser release against the baseline of an established set of tests for a previous version of the same browser.
 
 #### Chrome 50
 
-As the figure below shows, more than 3,500 tests were run on Windows 7 for Chrome 50 in the past 7 days, with a 41% pass rate.
+As the figure below shows, more than 3,500 tests were run on Windows 7 for Chrome 50 in the past seven days, with a 41% pass rate.
 
-<img src="/static/img/insights/chrome50.png" alt="Chrome 50 Trends" width="750"/>
+<img src={useBaseUrl('img/insights/chrome50.png')} alt="Chrome 50 Trends" width="750"/>
 
-There are no errors, indicating that this is a robust set of tests, but a large number of tests ran to completion without reporting a Pass or Fail status. Hovering over one of the bars in the graph shows that these no-status completions account for about 65% of the tests in every time increment. While the tests themselves perform well, it's difficult to judge how well the site functions when completed tests do not offer a definitive outcome. To provide a better baseline for cross-browser comparison, [annotate](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+and+Annotation) these tests with relevant status using the Jobs API or the Selenium Javascript Executor.
+There are no errors, indicating that this is a robust set of tests, but a large number of tests ran to completion without reporting a Pass or Fail status. Hovering over one of the bars in the graph shows that these no-status completions account for about 65% of the tests in every time increment.
+
+While the tests themselves perform well, it's difficult to judge how well the site functions when completed tests do not offer a definitive outcome. To provide a better baseline for cross-browser comparison, [annotate](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+and+Annotation) these tests with relevant status using the Jobs API or the Selenium Javascript Executor.
 
 #### Chrome 55
 
-Now let's change the Browser filter to Chrome 55where nearly 4000 tests ran during the same 7 day period.
+Now let's change the Browser filter to Chrome 55where nearly 4000 tests ran during the same seven-day period.
 
-<img src="/static/img/insights/chrome55.png" alt="Chrome 55 Trends" width="750"/>
+<img src={useBaseUrl('img/insights/chrome55.png')} alt="Chrome 55 Trends" width="750"/>
 
-The pass rate for these tests is lower than Chrome 55, at 32%, and we still see a lot of completed tests without status, but we also see some failures showing up, although there are no errors, so the tests themselves seem to executing successfully for both browser versions.
+The pass rate for these tests is lower than Chrome 55, at 32% and we still see a lot of completed tests without status. We see some failures showing up, but there are no errors, indicating that the tests themselves seem to execute successfully for both browser versions.
 
 #### Conclusions
 
@@ -76,19 +79,19 @@ In summary, we see from this browser version comparison:
 
 #### Next Steps
 
-Since our comparison suggests that the tests themselves are strong, but yielded some uncertainty about how well the site performs in either Chrome version, we isolate the time interval that contains the first failing test at 4:00PM on February 7th and can drill down to the 5 minute scale to find the exact test that failed.
+Since our comparison suggests that the tests themselves are strong, but yielded some uncertainty about how well the site performs in either Chrome version, we isolate the time interval that contains the first failing test at 4:00PM on February 7. Then, we can drill down to the five-minute scale to find the exact test that failed.
 
-<img src="/static/img/insights/5sec_interval.png" alt="Failure Interval" width="600"/>
+<img src={useBaseUrl('img/insights/5sec_interval.png')} alt="Failure Interval" width="600"/>
 
 Once we have isolated the failing test, we can check the **Builds** list and find the failing test, **TestCompareBrowserVersion**. Click that test name to see the **Test Details** page, where you can review the videos, screenshots, logs, and metadata that can help you determine why the test failed for Chrome 55.
 
-<img src="/static/img/insights/test_fail.png" alt="Failing Test" width="600"/>
+<img src={useBaseUrl('img/insights/test_fail.png')} alt="Failing Test" width="600"/>
 
 ### Using the Efficiency Metric to Optimize Tests
 
-The **Builds and Test Statistics** section of the Trends page provides an **Efficiency** metric for builds that indicates the percentage of tests in the build that are running in parallel.
+The **Builds and Test Statistics** section of the **Trends** page provides an **Efficiency** metric for builds that indicates the percentage of tests in the build that are running in parallel.
 
-<img src="/static/img/insights/build-efficiency.png" alt="Efficiency Metric Example" width="600"/>
+<img src={useBaseUrl('img/insights/build-efficiency.png')} alt="Efficiency Metric Example" width="600"/>
 
 #### Benchmarking Efficiency
 
@@ -120,7 +123,9 @@ In this example, T4 serves as the benchmark for the build efficiency, because it
 
 #### Improving Efficiency
 
-An Efficiency score of less than 100% means that the entire build took longer to run than the longest test within it, whichi s an indicator that all the tests in the build are running in parallel. If, on the other hand, the build in our first example ran in 115 seconds compared to the longest test of 60 seconds, its efficiency would be around 52% because the tests are clearly not running in parallel. The following table provides some guidance for how you might improve your build efficiency based on your score.
+An Efficiency score of less than 100% means that the entire build took longer to run than the longest test within it, which is an indicator that all the tests in the build are running in parallel. If, on the other hand, the build in our first example ran in 115 seconds compared to the longest test of 60 seconds, its efficiency would be around 52% because the tests are clearly not running in parallel.
+
+The following table provides some guidance for how you might improve your build efficiency based on your score.
 
 |Efficiency|Degree of Parallelization|Guidance|
 |---|---|---------|
