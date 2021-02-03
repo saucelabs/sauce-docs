@@ -452,7 +452,7 @@ HTTP Header Injection is disabled for SSL domains that are not re-encrypted by S
   </tr>
 </table>
 
-**NOTE**: OCSP supports the following Sauce Connect flags: `--kgp-host`, `--kgp-port`, `--proxy`, `--pac`, `--no-autodetect`, `--proxy-tunnel`, `--tunnel-cainfo`, `--tunnel-capath`. More information: [Sauce Connect Proxy Certificate Handling](https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy+Certificate+Handling).
+**NOTE**: OCSP supports the following Sauce Connect flags: `--kgp-host`, `--kgp-port`, `--proxy`, `--pac`, `--no-autodetect`, `--proxy-tunnel`, `--tunnel-cainfo`, `--tunnel-capath`. More information: [Sauce Connect Proxy Certificate Handling](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365729).
 
 
 ## Developer-Only Command-Line Arguments

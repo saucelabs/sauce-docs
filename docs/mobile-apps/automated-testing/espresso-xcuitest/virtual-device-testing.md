@@ -39,7 +39,7 @@ Download a `sauce-runner-virtual` package from the links below.
 1. Check out [Command Reference for Sauce Runner for Virtual Devices](https://wiki.saucelabs.com/pages/viewpage.action?pageId=72746736) for more information on using Sauce Runner for Virtual Devices.
 
 ## Setup and Configuration
-The [Command Reference for Sauce Runner for Virtual Devices](https://wiki.saucelabs.com/display/DOCSDEV/Command+Reference+for+Sauce+Runner+for+Virtual+Devices) contains a list of the options you can use to configure Sauce Runner to run tests with Espresso.
+The [Command Reference for Sauce Runner for Virtual Devices](https://wiki.saucelabs.com/pages/viewpage.action?pageId=72746736) contains a list of the options you can use to configure Sauce Runner to run tests with Espresso.
 
 ## Android Emulator Settings
 Following [Google's recommendation to avoid flakey tests](https://developer.android.com/training/testing/espresso/setup), we disable system animations on emulators during Espresso tests. Specifically the following three system animations are disabled:

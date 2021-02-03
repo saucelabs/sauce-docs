@@ -1,7 +1,7 @@
 ---
 id: integrations
-title: Testrunner CI Integrations
-sidebar_label: Integrations
+title: Testrunner Toolkit CI Integrations
+sidebar_label: CI Integrations
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -22,115 +22,31 @@ Regardless of the CI tool in your pipeline, you must first create the `.sauce` d
 Also, with the `suites` field you can specify groups of tests, as well as the preferred browser `settings`. Refer to the examples below for more details:
 
 <Tabs
-  defaultValue="puppeteer"
+  defaultValue="cypress"
   values={[
-    {label: 'Puppeteer', value: 'puppeteer'},
-    {label: 'Playwright', value: 'playwright'},
-    {label: 'TestCafe', value: 'testcafe'},
     {label: 'Cypress', value: 'cypress'},
+    {label: 'TestCafe', value: 'testcafe'},
+    {label: 'Playwright', value: 'playwright'},
   ]}>
 
-<TabItem value="puppeteer">
+<TabItem value="cypress">
 
-```yaml
-apiVersion: v1alpha
-metadata:
-  name: Testing Puppeteer Support
-  tags:
-    - e2e
-    - release team
-    - other tag
-  build: Release $CI_COMMIT_SHORT_SHA
-files:
-  - ./tests
-suites:
-  - name: "chrome"
-    match: ".*.(spec|test).js$"
-    settings:
-      browserName: "chrome"
-image:
-  base: saucelabs/stt-puppeteer-jest-node
-  version: v0.1.8
-sauce:
-  region: us-west-1
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
 ```
 
 </TabItem>
 <TabItem value="playwright">
 
-```yaml
-apiVersion: v1alpha
-metadata:
-  name: Testing Playwright Support
-  tags:
-    - e2e
-    - release team
-    - other tag
-  build: Release $CI_COMMIT_SHORT_SHA
-files:
-  - ./tests
-suites:
-  - name: "chrome"
-    match: ".*.(spec|test).js$"
-    settings:
-      browserName: "chrome"
-image:
-  base: saucelabs/stt-playwright-jest-node
-  version: v0.1.9
-sauce:
-  region: us-west-1
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/playwright.yml
 ```
 
 </TabItem>
 <TabItem value="testcafe">
 
-```yaml
-apiVersion: v1alpha
-metadata:
-  name: Testing TestCafe Support
-  tags:
-    - e2e
-    - release team
-    - other tag
-  build: Release $CI_COMMIT_SHORT_SHA
-files:
-  - ./tests
-suites:
-  - name: "chrome"
-    match: ".*.(spec|test).js$"
-    settings:
-      browserName: "chrome"
-image:
-  base: saucelabs/stt-testcafe-node
-  version: v0.1.7
-sauce:
-  region: us-west-1
-```
-
-</TabItem>
-<TabItem value="cypress">
-
-```yaml
-apiVersion: v1alpha
-metadata:
-  name: Testing Cypress Support
-  tags:
-    - e2e
-    - release team
-    - other tag
-  build: Release $CI_COMMIT_SHORT_SHA
-files:
-  - ./tests
-suites:
-  - name: "chrome"
-    match: ".*.(spec|test).js$"
-    settings:
-      browserName: "chrome"
-image:
-  base: saucelabs/stt-cypress-mocha-node
-  version: v0.1.11
-sauce:
-  region: us-west-1
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
 ```
 
 </TabItem>
@@ -182,115 +98,31 @@ Add the `Jenkinsfile` at the root of your project directory so that Jenkins can 
 In the examples below, the `environment` variables are the GitHub secrets configured in Jenkins:
 
 <Tabs
-  defaultValue="puppeteer"
+  defaultValue="cypress"
   values={[
-    {label: 'Puppeteer', value: 'puppeteer'},
+    {label: 'Cypress', value: 'cypress'},
     {label: 'Playwright', value: 'playwright'},
     {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Cypress', value: 'cypress'},
   ]}>
 
-<TabItem value="puppeteer">
+<TabItem value="cypress">
 
-```sh
-pipeline {
-  agent {
-    docker {
-        image 'saucelabs/stt-puppeteer-jest-node:v0.1.8'
-    }
-  }
-  environment {
-    SAUCE_USERNAME = credentials('sauce-username')
-    SAUCE_ACCESS_KEY = credentials('sauce-access-key')
-    CI = true
-  }
-  stages {
-    stage('run') {
-      steps {
-        // This step trigger the tests
-        sh 'saucectl run -c ./.sauce/config.yml --verbose'
-      }
-    }
-  }
-}
+```bash reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.cypress
 ```
 
 </TabItem>
 <TabItem value="playwright">
 
-```sh
-pipeline {
-  agent {
-    docker {
-        image 'saucelabs/stt-playwright-jest-node:v0.1.9'
-    }
-  }
-  environment {
-    SAUCE_USERNAME = credentials('sauce-username')
-    SAUCE_ACCESS_KEY = credentials('sauce-access-key')
-    CI = true
-  }
-  stages {
-    stage('run') {
-      steps {
-        // This step trigger the tests
-        sh 'saucectl run -c ./.sauce/config.yml --verbose'
-      }
-    }
-  }
-}
+```sh reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.playwright
 ```
 
 </TabItem>
 <TabItem value="testcafe">
 
-```sh
-pipeline {
-  agent {
-    docker {
-        image 'saucelabs/stt-testcafe-node:v0.1.7'
-    }
-  }
-  environment {
-    SAUCE_USERNAME = credentials('sauce-username')
-    SAUCE_ACCESS_KEY = credentials('sauce-access-key')
-    CI = true
-  }
-  stages {
-    stage('run') {
-      steps {
-        // This step trigger the tests
-        sh 'saucectl run -c ./.sauce/config.yml --verbose'
-      }
-    }
-  }
-}
-```
-
-</TabItem>
-<TabItem value="cypress">
-
-```sh
-pipeline {
-  agent {
-    docker {
-        image 'saucelabs/stt-cypress-mocha-node:v0.1.11'
-    }
-  }
-  environment {
-    SAUCE_USERNAME = credentials('sauce-username')
-    SAUCE_ACCESS_KEY = credentials('sauce-access-key')
-    CI = true
-  }
-  stages {
-    stage('run') {
-      steps {
-        // This step trigger the tests
-        sh 'saucectl run -c ./.sauce/config.yml --verbose'
-      }
-    }
-  }
-}
+```bash reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.testcafe
 ```
 
 </TabItem>
@@ -336,146 +168,60 @@ The first order of business is to export your [Sauce Labs account credentials](h
 
 ### Configure the GitHub Action
 
-In your root project directory, create the following directory tree: `.github/workflows`. In the `workflows` directory create a file called `actions.yml`.
+In your root project directory, create the following directory tree: `.github/workflows`. In the `workflows` directory create a file called `actions.yml`. 
 
-In the examples below, the environment variables (`env`) equate to the values configured in GitHub secrets. The event only triggers test runs `on` every `pull_request` and/or `push` to the `master` branch.
+Add the following to the top of your file:
 
-> For more detailed information on setting event-driven actions and jobs, please visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
-
-<Tabs
-  defaultValue="puppeteer"
-  values={[
-    {label: 'Puppeteer', value: 'puppeteer'},
-    {label: 'Playwright', value: 'playwright'},
-    {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Cypress', value: 'cypress'},
-  ]}>
-
-<TabItem value="puppeteer">
+> __NOTE__: Setting `env` at the top of the file enables it globally in this workflow, so all jobs have access to these variables.
 
 ```yaml
-name: Puppeteer Pipeline Browser Tests
+name: Sauce Pipeline Browser Tests
+
 on:
   pull_request:
   push:
     branches:
       - master
+
 env:
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
+
 jobs:
-  puppeteer:
-    runs-on: ubuntu-latest
-    container:
-      image: saucelabs/stt-puppeteer-jest-node:latest
-      options: --user 1001
+```
 
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v1
+### Create the Test Job
 
-      - name: Run Sauce Pipeline Test
-        run: |
-          saucectl run -c ./.sauce/puppeteer.yml
-        env:
-          BUILD_ID: ${{ github.run_id }}
-          BUILD_ENV: GitHub Actions
+In the examples below, the environment variables (`env`) equate to the values configured in GitHub secrets (see above steps). These events only trigger test runs `on` every `pull_request` and/or `push` to the `master` branch.
+
+> For more detailed information on setting event-driven actions and jobs, please visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
+
+<Tabs
+  defaultValue="cypress"
+  values={[
+    {label: 'Cypress', value: 'cypress'},
+    {label: 'Playwright', value: 'playwright'},
+    {label: 'TestCafe', value: 'testcafe'},
+  ]}>
+  
+<TabItem value="cypress">
+
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114
 ```
 
 </TabItem>
 <TabItem value="playwright">
 
-```yaml
-name: Playwright Pipeline Browser Tests
-on:
-  pull_request:
-  push:
-    branches:
-      - master
-env:
-  SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
-  SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
-jobs:
-  playwright:
-    runs-on: ubuntu-latest
-    container:
-      image: saucelabs/stt-playwright-jest-node:latest
-      options: --user 1001
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v1
-
-      - name: Run Sauce Pipeline Test
-        run: |
-          saucectl run -c ./.sauce/playwright.yml
-        env:
-          BUILD_ID: ${{ github.run_id }}
-          BUILD_ENV: GitHub Actions
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L44-L67
 ```
 
 </TabItem>
 <TabItem value="testcafe">
 
-```yaml
-name: TestCafe Pipeline Browser Tests
-on:
-  pull_request:
-  push:
-    branches:
-      - master
-env:
-  SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
-  SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
-jobs:
-  testcafe:
-    runs-on: ubuntu-latest
-    container:
-      image: saucelabs/stt-testcafe-node:latest
-      options: --user 1001
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v1
-
-      - name: Run Sauce Pipeline Test
-        run: |
-          saucectl run -c ./.sauce/testcafe.yml
-        env:
-          BUILD_ID: ${{ github.run_id }}
-          BUILD_ENV: GitHub Actions
-```
-
-</TabItem>
-<TabItem value="cypress">
-
-```yaml
-name: Cypress Pipeline Browser Tests
-on:
-  pull_request:
-  push:
-    branches:
-      - master
-env:
-  SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
-  SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
-jobs:
-  cypress:
-    runs-on: ubuntu-latest
-    container:
-      image: saucelabs/stt-cypress-mocha-node:latest
-      options: --user 1001
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v1
-
-      - name: Run Sauce Pipeline Test
-        run: |
-          saucectl run -c ./.sauce/cypress.yml
-        env:
-          BUILD_ID: ${{ github.run_id }}
-          BUILD_ENV: GitHub Actions
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L69-L91
 ```
 
 </TabItem>
@@ -483,7 +229,7 @@ jobs:
 
 > You can reference our example workflows [here](https://github.com/saucelabs/testrunner-toolkit/tree/master/.github/workflows).
 
-<!--### Run the Pipeline Tests-->
+### View Test Results
 
 Now when you commit these files, GitHub will detect the new workflow actions and launch `saucectl` to run your tests.
 
@@ -539,208 +285,40 @@ In order for CirceCi to communicate with Sauce Labs you need to authenticate wit
 
 ### Modify the CirceCI Configuration
 
-In the root of your project directory, create the `.circleci` directory if it doesn't already exist, and open/create `config.yml`. Below are some examples of how to configure Testrunner Toolkit with CircleCI:
+In the root of your project directory, create the `.circleci` directory if it doesn't already exist, and open/create `config.yml`. Below are some job snippets of how to configure Testrunner Toolkit with CircleCI:
 
 <Tabs
-  defaultValue="puppeteer"
+  defaultValue="cypress"
   values={[
-    {label: 'Puppeteer', value: 'puppeteer'},
+    {label: 'Cypress', value: 'cypress'},
     {label: 'Playwright', value: 'playwright'},
     {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Cypress', value: 'cypress'},
   ]}>
+  
+<TabItem value="cypress">
 
-<TabItem value="puppeteer">
-
-```yaml
-version: 2.1
-jobs:
-  setup:
-    working_directory: ~/app
-    docker:
-      - image: circleci/node:10.12
-    steps:
-      - checkout
-      - run:
-          name: Install Dependencies
-          command: npm install
-      - run:
-          name: Build Project
-          command: |
-            npm run build
-      - persist_to_workspace:
-          root: ~/app
-          paths:
-            - .
-  test-puppeteer:
-    working_directory: ~/app
-    docker:
-      - image: saucelabs/stt-puppeteer-jest-node:latest
-    steps:
-      - attach_workspace:
-          at: ~/app
-      - run:
-          name: Puppeteer Tests
-          command: |
-            saucectl run -c ./.sauce/puppeteer.yml
-          environment:
-            BUILD_ID: $CIRCLE_BUILD_NUM
-            BUILD_ENV: CircleCI
-workflows:
-  version: 2
-  default_workflow:
-    jobs:
-      - setup
-      - test-puppeteer:
-          requires:
-            - setup
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml#L69-L83
 ```
 
 </TabItem>
 <TabItem value="playwright">
 
-```yaml
-version: 2.1
-jobs:
-  setup:
-    working_directory: ~/app
-    docker:
-      - image: circleci/node:10.12
-    steps:
-      - checkout
-      - run:
-          name: Install Dependencies
-          command: npm install
-      - run:
-          name: Build Project
-          command: |
-            npm run build
-      - persist_to_workspace:
-          root: ~/app
-          paths:
-            - .
-  test-playwright:
-    working_directory: ~/app
-    docker:
-      - image: saucelabs/stt-playwright-jest-node:latest
-    steps:
-      - attach_workspace:
-          at: ~/app
-      - run:
-          name: Playwright Tests
-          command: |
-            saucectl run -c ./.sauce/playwright.yml
-          environment:
-            BUILD_ID: $CIRCLE_BUILD_NUM
-            BUILD_ENV: CircleCI
-workflows:
-  version: 2
-  default_workflow:
-    jobs:
-      - setup
-      - test-playwright:
-          requires:
-            - setup
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114
 ```
 
 </TabItem>
 <TabItem value="testcafe">
 
-```yaml
-version: 2.1
-jobs:
-  setup:
-    working_directory: ~/app
-    docker:
-      - image: circleci/node:10.12
-    steps:
-      - checkout
-      - run:
-          name: Install Dependencies
-          command: npm install
-      - run:
-          name: Build Project
-          command: |
-            npm run build
-      - persist_to_workspace:
-          root: ~/app
-          paths:
-            - .
-  test-testcafe:
-    working_directory: ~/app
-    docker:
-      - image: saucelabs/stt-testcafe-node:latest
-    steps:
-      - attach_workspace:
-          at: ~/app
-      - run:
-          name: Testcafe Tests
-          command: |
-            saucectl run -c ./.sauce/testcafe.yml
-          environment:
-            BUILD_ID: $CIRCLE_BUILD_NUM
-            BUILD_ENV: CircleCI
-workflows:
-  version: 2
-  default_workflow:
-    jobs:
-      - setup
-      - test-testcafe:
-          requires:
-            - setup
-```
-
-</TabItem>
-<TabItem value="cypress">
-
-```yaml
-version: 2.1
-jobs:
-  setup:
-    working_directory: ~/app
-    docker:
-      - image: circleci/node:10.12
-    steps:
-      - checkout
-      - run:
-          name: Install Dependencies
-          command: npm install
-      - run:
-          name: Build Project
-          command: |
-            npm run build
-      - persist_to_workspace:
-          root: ~/app
-          paths:
-            - .
-  test-cypress:
-    working_directory: ~/app
-    docker:
-      - image: saucelabs/stt-cypress-mocha-node:latest
-    steps:
-      - attach_workspace:
-          at: ~/app
-      - run:
-          name: Cypress Tests
-          command: |
-            saucectl run -c ./.sauce/cypress.yml
-          environment:
-            BUILD_ID: $CIRCLE_BUILD_NUM
-            BUILD_ENV: CircleCI
-workflows:
-  version: 2
-  default_workflow:
-    jobs:
-      - setup
-      - test-cypress:
-          requires:
-            - setup
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml#L53-L67
 ```
 
 </TabItem>
 </Tabs>
 
-> You can reference our example `config.yml` [here](https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml).
+> You can reference the complete `config.yml` [here](https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml).
 
 Commit the updated `config.yml` to your git hosting service provider. Navigate back to the CirceCI dashboard to see your build pass.
 
