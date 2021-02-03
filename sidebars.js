@@ -78,7 +78,6 @@ module.exports = {
         'ci/bamboo',
         'ci/bitbucket',
         'ci/jenkins',
-        'ci/jenkins2',
         'ci/teamcity',
         'ci/visual-studio',
     ],
