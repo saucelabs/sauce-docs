@@ -3,6 +3,8 @@ id: adding-deactivating-users
 title: Adding and Deactivating Users
 sidebar_label: Adding and Deactivating Users
 ---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 <p><button class="badge-blue">ENTERPRISE PLANS ONLY</button></p>
 
 ## Adding Users
@@ -13,15 +15,15 @@ When you add a user manually, you assign the user a user name and password. To a
 ### Adding a User Manually
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 
-<img src="/static/img/team-mgmt/team-mgmt-nav.jpg" alt="Team management navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.jpg')} alt="Team management navigation" width="400"/>
 
 2. On the **Users** tab, click the blue plus sign.
-
-<img src="/static/img/team-mgmt/add-new-user-nav.jpg" alt="Add new user - Blue plus sign" width="700"/>
+    
+   <img src={useBaseUrl('img/team-mgmt/add-new-user-nav.jpg')} alt="Add new user - Blue plus sign" width="700"/>
 
 3. On the **Manual Entry** tab, enter an email address, user name, password, and optional first and last name for the new user.
 
-<img src="/static/img/team-mgmt/add-new-user-manual.jpg" alt="Add new user - manually" width="500"/>
+   <img src={useBaseUrl('img/team-mgmt/add-new-user-manual.jpg')} alt="Add new user - manually" width="500"/>
 
 4. In the **Add to Team** dropdown, select the team for the user. If you don't select a team, the user will be added to the default team.  
 5. In the **Org Role** dropdown, select an organizational role for the user. The options are Org. Admin, Team Member, and Member. For more information about the permissions associated with each role, see [User Roles](/basics/acct-team-mgmt/managing-user-info).
@@ -32,7 +34,7 @@ When you add a user manually, you assign the user a user name and password. To a
 2. On the **Users** tab, click the blue plus sign.
 3. On the **Invite Via Email** tab, enter the user's email address, and then select a role from the **User Role** dropdown.
 
-<img src="/static/img/team-mgmt/add-new-user-email.jpg" alt="Add new user - email" width="500"/>
+   <img src={useBaseUrl('img/team-mgmt/add-new-user-email.jpg')} alt="Add new user - email" width="500"/>
 
 4. To invite multiple users to the same team, click **Add Another Row** and add the additional users' information.
 5. In the **Add to Team** dropdown, select the team to which to add the user(s).
@@ -59,7 +61,7 @@ You can deactivate users in your account on the **Organization Management** page
 2. On the **Users** tab, select the check box of the user you want to deactivate.
 3. Above the list of users, in the **Action** dropdown, click **Deactivate User**.
 
-<img src="/static/img/team-mgmt/deactivate-user-org-mgmt.jpg" alt="Deactivate a user in team management"/>
+   <img src={useBaseUrl('img/team-mgmt/deactivate-user-org-mgmt.jpg')} alt="Deactivate a user in team management"/>
 
 4. In the **Confirm deactivate** box, click **Yes, Deactivate**.
 
@@ -67,10 +69,10 @@ You can deactivate users in your account on the **Organization Management** page
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 2. On the **Users** tab, click the user name of the user you want to deactivate.
 
-<img src="/static/img/team-mgmt/users-list-username.jpg" alt="Deactivate a user in User Details"/>
+   <img src={useBaseUrl('img/team-mgmt/users-list-username.jpg')} alt="Deactivate a user in User Details"/>
 
 3. On the **User Details** page, in the **User Name** box, click **Deactivate User**.
 
-<img src="/static/img/team-mgmt/deactivate-user-user-details.jpg" alt="Deactivate a user in User Details"/>
+   <img src={useBaseUrl('img/team-mgmt/deactivate-user-user-details.jpg')} alt="Deactivate a user in User Details"/>
 
 4. In the **Confirm deactivate** box, click **Yes, Deactivate**.
