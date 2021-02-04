@@ -169,16 +169,36 @@ module.exports = {
     "Headless": [
       'headless',
     ],
-    "Testrunner Toolkit": [
-        'testrunner-toolkit',
-        'testrunner-toolkit/installation',
-        'testrunner-toolkit/configuration',
-        'testrunner-toolkit/running-tests',
-        'testrunner-toolkit/integrations',
-        'testrunner-toolkit/typescript',
-        'testrunner-toolkit/faqs',
-        'testrunner-toolkit/support',
-    ],
+      "Testrunner Toolkit": [
+          'testrunner-toolkit',
+          'testrunner-toolkit/installation',
+          {
+              type: 'category',
+              label: 'Configuration',
+              collapsed: true,
+              items: [
+                  'testrunner-toolkit/configuration',
+                  'testrunner-toolkit/configuration/cypress',
+                  'testrunner-toolkit/configuration/playwright',
+                  'testrunner-toolkit/configuration/testcafe',
+              ],
+          },
+          'testrunner-toolkit/running-tests',
+          {
+              type: 'category',
+              label: 'CI Integrations',
+              collapsed: true,
+              items: [
+                  'testrunner-toolkit/integrations',
+                  'testrunner-toolkit/integrations/jenkins',
+                  'testrunner-toolkit/integrations/github-actions',
+
+              ],
+          },
+          'testrunner-toolkit/typescript',
+          'testrunner-toolkit/faqs',
+          'testrunner-toolkit/support',
+      ],
     "Visual": [
       'visual',
     ],
