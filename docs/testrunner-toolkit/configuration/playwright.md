@@ -1,7 +1,7 @@
 ---
 id: playwright
 title: "Configuration Syntax: Playwright"
-sidebar_label: playwright.yml
+sidebar_label: Playwright
 ---
 
 Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference)for information regarding fields such as `apiVersion`, `kind`, and `sauce`.

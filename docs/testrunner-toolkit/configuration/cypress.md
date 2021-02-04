@@ -1,7 +1,7 @@
 ---
 id: cypress
 title: "Configuration Syntax: Cypress"
-sidebar_label: cypress.yml
+sidebar_label: Cypress
 ---
 
 Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference)for information regarding fields such as `apiVersion`, `kind`, and `sauce`.
