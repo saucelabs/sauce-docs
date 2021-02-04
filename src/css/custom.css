@@ -79,8 +79,8 @@ h1,h2,h3,h4,h5,h6 {
     font-weight: 500;
 }
 
-#__docusaurus > nav.navbar.navbar--fixed-top.navbarHideable_node_modules-\@docusaurus-theme-classic-lib-next-theme-Navbar-.navbarHidden_node_modules-\@docusaurus-theme-classic-lib-next-theme-Navbar- {
-    top: calc(var(--ifm-navbar-height) * -3) !important;
+nav.navbar.navbar--fixed-top.navbarHideable {
+    top: calc(var(--ifm-navbar-height) * -5) !important;
     transition: top 0.2.5s ease-in-out;
 }
 
