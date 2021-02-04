@@ -160,101 +160,22 @@ Below are framework-specific configuration examples that exist in the [Testrunne
 
 <TabItem value="cypress">
 
-<p><small>See full example <a href="https://github.com/saucelabs/sauce-cypress-runner/blob/master/.saucetpl/.sauce/config.yml">here</a>.</small></p>
-
-```yaml title=".sauce/cypress.yml"
-apiVersion: v1alpha
-kind: cypress
-sauce:
-  region: us-west-1
-  metadata:
-    name: Testing Cypress Support
-    tags:
-      - e2e
-      - release team
-      - other tag
-    build: Release $CI_COMMIT_SHORT_SHA
-cypress:
-  version: ##VERSION##
-  configFile: "cypress.json"  # We determine related files based on the location of the config file.
-suites:
-  - name: "saucy test"
-    browser: "chrome"
-    screenResolution: "1920x1080"  # Available resolutions on sauce for Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
-docker:
-    fileTransfer: mount # Defaults to `mount`. Choose between mount|copy.
-    image: saucelabs/stt-cypress-mocha-node:v5.6.0
-cypress:
-  configFile: "tests/cypress.json"  # We determine related files based on the location of the config file.
-  version: 5.6.0
-suites:
-  - name: "saucy test"
-    browser: "chrome"
-    config:
-      env:
-        hello: world
-      testFiles: [ "**/*.*" ] # Cypress native glob support.
+```yaml reference
+https://github.com/saucelabs/sauce-cypress-runner/blob/master/.saucetpl/.sauce/config.yml
 ```
 
 </TabItem>
 <TabItem value="playwright">
 
-<p><small>See full example <a href="https://github.com/saucelabs/sauce-playwright-runner/blob/master/.saucetpl/.sauce/config.yml">here</a>.</small></p>
-
-```yaml title=".sauce/playwright.yml"
-apiVersion: v1alpha
-kind: playwright
-sauce:
-  region: us-west-1
-  concurrency: 1
-  metadata:
-    name: Testing Playwright Support
-    tags:
-      - e2e
-    build: "$BUILD_ID"
-playwright:
-  version: ##VERSION##
-  projectPath: tests/
-docker:
-  fileTransfer: mount
-suites:
-  - name: "saucy test"
-    platformName: "Windows 10"
-    testMatch: '**/*.js'
-    env:
-      hello: world
-    screenResolution: "1920x1080"
-
-    params:
-      browserName: "firefox"
-      headful: false
-      slowMo: 1000
+```yaml reference
+https://github.com/saucelabs/sauce-playwright-runner/blob/master/.saucetpl/.sauce/config.yml
 ```
 
 </TabItem>
 <TabItem value="testcafe">
 
-<p><small>See full example <a href="https://github.com/saucelabs/sauce-testcafe-runner/blob/master/.saucetpl/.sauce/config.yml">here</a>.</small></p>
-
-```yaml title=".sauce/testcafe.yml"
-apiVersion: v1alpha
-metadata:
-  name: Testing TestCafe Support
-  tags:
-    - e2e
-    - release team
-    - other tag
-  build: Release $CI_COMMIT_SHORT_SHA
-files:
-  - tests/example.test.js
-suites:
-  - name: "saucy test"
-    match: ".*.(spec|test).[jt]s$"
-image:
-  base: saucelabs/stt-testcafe-node
-  version: ##VERSION##
-sauce:
-  region: us-west-1
+```yaml reference
+https://github.com/saucelabs/sauce-testcafe-runner/blob/master/.saucetpl/.sauce/config.yml
 ```
 
 </TabItem>
@@ -282,6 +203,7 @@ The concurrency setting has no effect when the test environment is `--test-env d
 The maximum concurrency that you can use is limited by your account settings.
 
 ## Set different screen resolutions
+
 If you wish to execute tests on different screen resolutions while using Testrunner Toolkit, add the `screenResolution` parameter to your `.sauce/config.yml`:
 
 ### Example
@@ -304,19 +226,14 @@ suites:
   - name: "saucy test"
     browser: "chrome"
     platformName: "Windows 10"
-    screenResolution: "1920x1080"  # Available resolutions on Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
+    screenResolution: "1920x1080"
     config:
       env:
         hello: world
       testFiles: [ "**/*.*" ] # Cypress native glob support.
 ```
 
-## Additional Resources
-
-Please visit [here](/dev/cli/saucectl#parallel) for more information about the parallelization feature and its limitations. You can also visit our [CI Integrations](integrations.md) page for more information on how to use the following CI platforms:
-
-* [Jenkins](integrations.md#jenkins)
-* [CircleCI](integrations.md#circleci)
+> For all available resolutions please visit [this documentation page](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
 
 ## Common Syntax Reference
 
@@ -443,7 +360,7 @@ __Example__:
       lodash: "4.17.20"
 ```
 
-## `suites`
+### `suites`
 
 __Description__: Field for defining test suite details such as the suite `name`, desired `browser`
 / `platformName`, and `config`.
@@ -456,7 +373,7 @@ suites:
   - name: "saucy test"
 ```
 
-### `name`
+#### `name`
 
 __Description__: Name of the test suite.
 
@@ -471,3 +388,10 @@ __Example__:
 * [Cypress](/testrunner-toolkit/configuration/cypress)
 * [Playwright](/testrunner-toolkit/configuration/playwright)
 * [TestCafe](/testrunner-toolkit/configuration/testcafe)
+
+## Additional Resources
+
+Please visit [our CI integrations page](integrations.md) for more information about how to use the following CI platforms:
+
+* [Jenkins](/testrunner-toolkit/integrations#jenkins)
+* [GitHub Actions](/testrunner-toolkit/integrations#github-actions)
