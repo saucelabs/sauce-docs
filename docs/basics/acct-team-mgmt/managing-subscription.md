@@ -4,6 +4,8 @@ title: Managing Your Subscription
 sidebar_label: Managing Your Subscription
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 ## Canceling Your Subscription
 
 You can cancel your subscription plan at any time from the **Team Management** page.
@@ -12,7 +14,7 @@ You can cancel your subscription plan at any time from the **Team Management** p
 
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 
-<img src="/static/img/team-mgmt/team-mgmt-nav.jpg" alt="Team management navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.jpg')} alt="Team management navigation" width="400"/>
 
 2. Next to your plan description on the **Team Management** page, click **Manage**.
 3. Click the **Cancel Subscription** link at the bottom of the **Plan Details** page.
