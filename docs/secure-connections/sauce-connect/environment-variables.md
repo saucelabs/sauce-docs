@@ -1,6 +1,6 @@
 ---
 id: environment-variables
-title: Sauce Connect Proxy Environment Variables
+title: Sauce Connect Environment Variables
 sidebar_label: Environment Variables
 ---
 
