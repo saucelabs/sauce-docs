@@ -6,18 +6,17 @@ context('Testrunner Toolkit Page Tree Actions', () => {
     });
 
     it('Installation Page', () => {
-        cy.contains('Installation')
-            .click();
+        cy.get('li:nth-child(9) > ul > li:nth-child(2) > a').click();
         cy.url()
             .should('include', '/testrunner-toolkit/installation');
     });
     //TODO: Fix Cypress locator, use CSS selector instead
-    // it('Testrunner Configuration', () => {
-    //     cy.contains('Configuration')
-    //         .click();
-    //     cy.url()
-    //         .should('include', '/dev/testrunner-toolkit/configuration');
-    // });
+    it('Testrunner Configuration', () => {
+        cy.get('li:nth-child(9) > ul > li:nth-child(3) > a').click();
+        cy.contains('cypress').click();
+        cy.url()
+            .should('include', '/testrunner-toolkit/configuration/cypress');
+    });
 
     it('Running tests', () => {
         cy.contains('Running Tests')
