@@ -26,19 +26,11 @@ context('Testrunner Toolkit Page Tree Actions', () => {
             .should('include', '/testrunner-toolkit/running-tests');
     });
 
-    it('Integrations Page', () => {
-        //cy.contains('Integrations')
-        cy.get('ul > li:nth-child(9) > ul > li:nth-child(5) > a')
-            .click();
+    it('Jenkins Page', () => {
+        cy.contains('CI Integrations').click();
+        cy.contains('Requirements').click();
         cy.url()
             .should('include', '/testrunner-toolkit/integrations');
-    });
-
-    it('FAQs Page', () => {
-        cy.contains('FAQs')
-            .click();
-        cy.url()
-            .should('include', '/testrunner-toolkit/faqs');
     });
 
     //TODO Fix Cypress locator, use CSS selector instead
