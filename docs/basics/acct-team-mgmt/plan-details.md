@@ -3,11 +3,14 @@ id: plan-details
 title: Viewing Plan Details
 sidebar_label: Viewing Plan Details
 ---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 You can view the number of concurrent VMs, concurrent devices, and minutes allowed under your plan.
 
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 
-<img src="/static/img/team-mgmt/team-mgmt-nav.jpg" alt="Team management navigation" width="400"/>
+<img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.jpg')} alt="Team management navigation" width="400"/>
 
 2. Your plan type (for example, Enterprise or Subscription) is displayed at the top of the **Team Management** page.
 3. Click **View Details** to see specific information about VMs, devices, and minutes allowed under your plan.

@@ -1,7 +1,7 @@
 ---
 id: automated-testing
 title: Choosing Devices for Automated Mobile App Testing
-sidebar_label: Choosing a Mobile Device
+sidebar_label: Choosing Devices
 ---
 
 Get the most out of your testing automation by including a healthy mix of emulators, simulators, and real devices as your mobile testing platforms. Why? Because there are aspects of the mobile experience that you can't test on emulators or simulators, such as location-based apps that use manufacturer-specific device sensors, memory consumption, and CPU usage.
