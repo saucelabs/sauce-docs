@@ -142,3 +142,21 @@ The following steps outline how to run your cypress tests using Sauce Labs virtu
 6. Watch test runs in real-time, or verify the results in the [Sauce Labs dashboard](https://app.saucelabs.com/dashboard/tests/vdc):
    
    <img src={useBaseUrl('img/cypress/test-results.png')} alt="Cypress Test Results" />
+
+## Additional Resources
+
+Below are some additional topics related to using Cypress with Sauce Labs.
+
+### Configuration Details
+
+Please visit the [Configuration page](/testrunner-toolkit/configuration) to learn more about `config.yml` and the specific fields and properties:
+
+* [Common Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference)
+* [Cypress Syntax Reference](/testrunner-toolkit/configuration/cypress)
+
+### Running in CI
+
+Please visit [our CI integrations page](/testrunner-toolkit/integrations) for more information about how to run your tests in the following CI platforms:
+
+* [Jenkins](/testrunner-toolkit/integrations/jenkins)
+* [GitHub Actions](/testrunner-toolkit/integrations/github-actions)
