@@ -203,6 +203,21 @@ describe('Sauce Labs Front-End Performance', () => {
 </TabItem>
 </Tabs>
 
+## Target Specific URLs in a Script
+
+You can use the `sauce:performanceDisable` and `sauce:performanceEnable` commands to limit the collection of performance metrics to specific URL pages. Implementing these pauses in metrics collection allows you to bypass navigational pages such as login so your tests are faster and more efficient, and your performance results are more relevant.
+
+### Example
+
+```js title="JS Performance Pause Sample"
+
+browser.execute('sauce:performanceDisable')
+browser.url('https://www.json.org/json-en.html')
+browser.execute('sauce:performanceEnable')
+browser.url('https://example.com')
+```
+In the preceding example, performance metrics will only be collected for `https://example.com`.
+
 ## Defining a Performance Budget
 
 Rather than letting a baseline determine the acceptable metric values for your pages, you can define your own metric value limits for individual pages in your app and then assert against those values to ensure your performance results are always within the range that your deem optimal.
