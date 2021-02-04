@@ -66,52 +66,64 @@ module.exports = {
      ],
   },
 ],
-          "Secure Connections": [
-             'secure-connections',
-             'secure-connections/ipsec-vpn',
-             {
-                type: 'category',
-                label: 'Sauce Connect Proxy',
-                collapsed: true,
-                items: [
-                  'secure-connections/sauce-connect',
-                  'secure-connections/sauce-connect/environment-variables',
-                  ],
-                },
-              ],
+  "Secure Connections": [
+     'secure-connections',
+     'secure-connections/ipsec-vpn',
+     {
+        type: 'category',
+        label: 'Sauce Connect Proxy',
+        collapsed: true,
+        items: [
+          'secure-connections/sauce-connect',
+          'secure-connections/sauce-connect/environment-variables',
+          ],
+        },
+      ],
    "Mobile Apps": [
         'mobile-apps',
         {
-            type: 'category',
-            label: 'Live Testing',
-            collapsed: true,
-            items: [
-                'mobile-apps/live-testing',
-                'mobile-apps/live-testing/application-storage',
+          type: 'category',
+          label: 'Live Testing',
+          collapsed: true,
+          items: [
+            'mobile-apps/live-testing',
+            'mobile-apps/live-testing/application-storage',
             ],
         },
         {
-            type: 'category',
-            label: 'Automated Testing',
-            collapsed: true,
-            items: [
-                'mobile-apps/automated-testing',
-
+          type: 'category',
+          label: 'Automated Testing',
+          collapsed: true,
+          items: [
+            'mobile-apps/automated-testing',
                 {
-                    type: 'category',
-                    label: 'Espresso and XCUITest',
-                    collapsed: true,
-                    items: [
-                        'mobile-apps/automated-testing/espresso-xcuitest',
-                        'mobile-apps/automated-testing/espresso-xcuitest/real-device-testing',
-                        'mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing',
-                        'mobile-apps/automated-testing/espresso-xcuitest/example-configurations',
-                        'mobile-apps/automated-testing/espresso-xcuitest/change-logs',
+                  type: 'category',
+                  label: 'Appium',
+                  collapsed: true,
+                  items: [
+                     'mobile-apps/automated-testing/appium',
+                     'mobile-apps/automated-testing/appium/real-device-testing',
+                     'mobile-apps/automated-testing/appium/virtual-device-testing',
+                     'mobile-apps/automated-testing/appium/example-scripts',
                     ],
                 },
+                {
+                  type: 'category',
+                  label: 'Espresso and XCUITest',
+                  collapsed: true,
+                  items: [
+                    'mobile-apps/automated-testing/espresso-xcuitest',
+                    'mobile-apps/automated-testing/espresso-xcuitest/real-device-testing',
+                    'mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing',
+                    'mobile-apps/automated-testing/espresso-xcuitest/example-configurations',
+                    'mobile-apps/automated-testing/espresso-xcuitest/change-logs',
+
+                     ],
+                   },
+
+                 ],
+              },
             ],
-        },
-    ],
     "Web Apps": [
       'web-apps',
       {
