@@ -145,14 +145,18 @@ The following steps outline how to run your cypress tests using Sauce Labs virtu
 
 ## Additional Resources
 
-### Configuration Syntax Reference
+Below are some additional topics related to using Cypress with Sauce Labs.
 
-* [Common configuration syntax](/testrunner-toolkit/configuration#common-syntax-reference)
-* [Cypress configuration syntax](/testrunner-toolkit/configuration/cypress)
+### Configuration Details
 
-### Running Cypress Tests in CI 
+Please visit the [Configuration page](/testrunner-toolkit/configuration) to learn more about `config.yml` and the specific fields and properties:
 
-Please visit [our CI integrations page](/testrunner-toolkit/integrations.md) for more information about how to use the following CI platforms:
+* [Common Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference)
+* [Cypress Syntax Reference](/testrunner-toolkit/configuration/cypress)
 
-* [Jenkins](/testrunner-toolkit/integrations.md#jenkins)
-* [GitHub Actions](/testrunner-toolkit/integrations.md#github-actions)
+### Running in CI
+
+Please visit [our CI integrations page](/testrunner-toolkit/integrations) for more information about how to run your tests in the following CI platforms:
+
+* [Jenkins](/testrunner-toolkit/integrations/jenkins)
+* [GitHub Actions](/testrunner-toolkit/integrations/github-actions)

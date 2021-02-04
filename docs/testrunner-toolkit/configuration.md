@@ -203,7 +203,6 @@ The concurrency setting has no effect when the test environment is `--test-env d
 The maximum concurrency that you can use is limited by your account settings.
 
 ## Set different screen resolutions
-
 If you wish to execute tests on different screen resolutions while using Testrunner Toolkit, add the `screenResolution` parameter to your `.sauce/config.yml`:
 
 ### Example
@@ -226,14 +225,19 @@ suites:
   - name: "saucy test"
     browser: "chrome"
     platformName: "Windows 10"
-    screenResolution: "1920x1080"
+    screenResolution: "1920x1080"  # Available resolutions on Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
     config:
       env:
         hello: world
       testFiles: [ "**/*.*" ] # Cypress native glob support.
 ```
 
-> For all available resolutions please visit [this documentation page](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
+## Running in CI
+
+Please visit [our CI integrations page](/testrunner-toolkit/integrations) for more information about how to run your tests in the following CI platforms:
+
+* [Jenkins](/testrunner-toolkit/integrations/jenkins)
+* [GitHub Actions](/testrunner-toolkit/integrations/github-actions)
 
 ## Common Syntax Reference
 
@@ -388,10 +392,3 @@ __Example__:
 * [Cypress](/testrunner-toolkit/configuration/cypress)
 * [Playwright](/testrunner-toolkit/configuration/playwright)
 * [TestCafe](/testrunner-toolkit/configuration/testcafe)
-
-## Additional Resources
-
-Please visit [our CI integrations page](integrations.md) for more information about how to use the following CI platforms:
-
-* [Jenkins](/testrunner-toolkit/integrations#jenkins)
-* [GitHub Actions](/testrunner-toolkit/integrations#github-actions)
