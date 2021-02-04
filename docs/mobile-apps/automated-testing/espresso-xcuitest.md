@@ -5,7 +5,7 @@ sidebar_label: Using Espresso and XCUITest
 description: Landing Page for Espresso and XCUITest
 hide_table_of_contents: true
 ---
-Please select the relevant use case for mobile application testing:
+Please select the relevant use case for your mobile app testing:
 
 * [Real Device Testing](/mobile-apps/automated-testing/espresso-xcuitest/real-device-testing)
 * [Virtual Device Testing](/mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing)
