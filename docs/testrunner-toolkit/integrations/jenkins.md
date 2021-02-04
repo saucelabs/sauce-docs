@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 These examples can apply to virtually any Jenkins deployment, provided that you already have some existing automated tests, have access to the Jenkins instance, and are either the maintainer or an admin of the target repository.
 
-__What You'll Need__
+## What You'll Need
 
 * [Jenkins Server](https://www.jenkins.io/doc/book/installing/)
 * [Sauce Labs Account](https://saucelabs.com/sign-up)
