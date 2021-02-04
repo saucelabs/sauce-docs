@@ -4,4 +4,4 @@ title: Appium Mobile App Testing with Real Devices
 sidebar_label: Real Device Testing
 ---
 
-coming soon
+See [Automated Testing with Real Devices](https://wiki.saucelabs.com/pages/viewpage.action?pageId=92677295).
