@@ -1,6 +1,6 @@
 <h1 align="center">
   <p align="center">Sauce Labs Docs</p>
-  <a href="https://docs.saucelabs.com"><img src="/static/img/QA_Bot_EXPORT.png" alt="QA Sauce Bot" width="400"> </a>
+  <a href="https://docs.saucelabs.com"><img src="/static/img/QA_Bot_EXPORT.png" alt="QA Sauce Bot" width="300"> </a>
 </h1>
 
 <p align="center">
