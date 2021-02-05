@@ -122,7 +122,6 @@ module.exports = {
                     'mobile-apps/automated-testing/espresso-xcuitest/real-device-testing',
                     'mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing',
                     'mobile-apps/automated-testing/espresso-xcuitest/example-configurations',
-                    'mobile-apps/automated-testing/espresso-xcuitest/change-logs',
                   ],
                 },
               ],
