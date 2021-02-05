@@ -28,6 +28,7 @@ suites:
   - name: "saucy test"
     platformName: "Windows 10"
     testMatch: '**/*.js'
+    browser: playwright
     screenResolution: "1920x1080"
     env:
       hello: world
@@ -85,6 +86,7 @@ suites:
   - name: "saucy test"
     platformName: "Windows 10"
     testMatch: '**/*.js'
+    browser: playwright
 
     params:
       browserName: "firefox"
