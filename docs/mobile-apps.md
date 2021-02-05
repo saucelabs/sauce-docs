@@ -69,3 +69,16 @@ Debug faster, facilitate collaboration, increase mobile device coverage, and com
     </div>
   </div>
 </div>
+
+## Legacy Real Device Testing Platform
+
+Documentation for our legacy real device platform, TestObject.
+
+<div>
+  <div class="box boxwidetop card">
+    <div class="container">
+    <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177"><h3>Legacy Real Device Platform Resources</h3></a>
+    <p>Resources for our legacy Real Device Platform (TestObject), which is approaching end-of-life. We've been gradually releasing equivalent features and functionality with regards to <a href="https://wiki.saucelabs.com/display/DOCS/Real+Device+Testing+in+Sauce+Labs+Feature+Preview">Real Device Testing in Sauce Labs Feature Preview</a>.</p>
+    </div>  
+  </div>
+</div>

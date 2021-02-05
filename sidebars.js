@@ -79,7 +79,7 @@ module.exports = {
           'secure-connections/sauce-connect/setup-configuration',
           'secure-connections/sauce-connect/environment-variables',
           'secure-connections/sauce-connect/proxy-tunnels',
-          'secure-connections/sauce-connect/proxy-authentication',
+          'secure-connections/sauce-connect/security',
           'secure-connections/sauce-connect/troubleshooting',
           'secure-connections/sauce-connect/faq',
           ],
@@ -87,13 +87,15 @@ module.exports = {
       ],
   "Mobile Apps": [
     'mobile-apps',
+    'mobile-apps/features',
+    'mobile-apps/admin-guide',
+    'mobile-apps/app-storage',
      {
         type: 'category',
         label: 'Live Testing',
         collapsed: true,
         items: [
           'mobile-apps/live-testing',
-          'mobile-apps/live-testing/application-storage',
             ],
         },
         {
