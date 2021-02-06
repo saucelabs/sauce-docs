@@ -64,3 +64,7 @@ If you need...
 ## Additional Resources
 
 [Sauce Labs Blog: How to Choose Mobile Devices for Testing](https://saucelabs.com/blog/how-to-choose-mobile-devices-for-testing)
+
+https://saucelabs.com/blog/better-together-real-devices-emulators-simulators-for-mobile-testing
+
+https://saucelabs.com/blog/mobile-testing-basics-manual-vs-automated-testing 
