@@ -90,6 +90,7 @@ module.exports = {
     'mobile-apps/features',
     'mobile-apps/admin-guide',
     'mobile-apps/app-storage',
+    'mobile-apps/virtual-usb',
      {
         type: 'category',
         label: 'Live Testing',
@@ -112,7 +113,9 @@ module.exports = {
                      'mobile-apps/automated-testing/appium',
                      'mobile-apps/automated-testing/appium/real-device-testing',
                      'mobile-apps/automated-testing/appium/virtual-device-testing',
-                     'mobile-apps/automated-testing/appium/example-scripts',
+                     'mobile-apps/automated-testing/appium/performance-rdc',
+                     'mobile-apps/automated-testing/appium/capabilities-rdc',
+                     'mobile-apps/automated-testing/appium/capabilities-vdc',
                     ],
                 },
                 {
