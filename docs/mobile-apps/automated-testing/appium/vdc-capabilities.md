@@ -1,5 +1,5 @@
 ---
-id: capabilities-vdc
+id: vdc-capabilities
 title: VDC Capabilities and Example Scripts
 sidebar_label: Capabilities and Scripts
 ---

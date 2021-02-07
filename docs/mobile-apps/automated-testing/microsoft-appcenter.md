@@ -9,13 +9,13 @@ In order to upload your apps from Microsoft App Center to a Sauce Labs data cent
 >**NOTE**: if you're looking for the legacy solution, see [Legacy Platform App Center Integration](https://wiki.saucelabs.com/pages/viewpage.action?pageId=110205512) page.
 
 
-## **What You'll Need**
+## What You'll Need
 
 *   [Microsoft App Center Account](https://docs.microsoft.com/en-us/appcenter/)
 *   [A Project Source Code Repository](https://docs.microsoft.com/en-us/appcenter/build/#getting-started)
 
 
-## **Creating the `post-build` Script**
+## Creating the Post-Build Script
 
 1. Once you've linked your project source code to your app center project, create a script called **appcenter-post-build.sh** and add it to your project source code repository.
 
@@ -28,6 +28,7 @@ APP_NAME="your.app.name"
 # project that is using this script
 BUILD_NAME="your.build.name"
 ```
+
 >**NOTE**: If you're building a single project (iOS or Android), ignore steps 2-4 and skip to step 5.
 
 3. Set the correct app name based on the application platform.
@@ -72,4 +73,4 @@ curl \
 If you need to retrieve a specific build, or information regarding the build that ran during this operation, you can use the [App Storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137) API.
 :::
 
-6. Too view the full **App Center Post-Build Script**, see [Sauce Labs sample mobile app repo](https://github.com/saucelabs/sample-app-mobile/blob/master/appcenter-post-build.sh).
+6. To view the full **App Center Post-Build Script**, see [Sauce Labs sample mobile app repo](https://github.com/saucelabs/sample-app-mobile/blob/master/appcenter-post-build.sh).
