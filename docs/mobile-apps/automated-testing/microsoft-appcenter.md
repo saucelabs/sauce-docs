@@ -20,6 +20,7 @@ In order to upload your apps from Microsoft App Center to a Sauce Labs data cent
 1. Once you've linked your project source code to your app center project, create a script called **appcenter-post-build.sh** and add it to your project source code repository.
 
 2. If you're testing a cross-platform application (e.g., a react-native), add the following environment variables **APP_NAME and** **BUILD_NAME**.
+
 ```
 #!/usr/bin/env bash
 APP_NAME="your.app.name"
@@ -32,6 +33,7 @@ BUILD_NAME="your.build.name"
 >**NOTE**: If you're building a single project (iOS or Android), ignore steps 2-4 and skip to step 5.
 
 3. Set the correct app name based on the application platform.
+
 ```
 if [[ "$APPCENTER_XCODE_PROJECT" ]]; then
     APP_NAME="iOS.SauceLabs.Mobile.Sample.app.ipa"
@@ -43,6 +45,7 @@ fi
 ```
 
 4. You can optionally set a console message to appear in your App Center logs.
+
 ```
 echo "**************** PUBLISH APP TO SAUCELABS WITH THIS DATA ******************"
 echo "APP NAME                => $APP_NAME"
@@ -61,7 +64,9 @@ curl \
   -F name=$APP_NAME \
   -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY"  'https://api.us-west-1.saucelabs.com/v1/storage/upload'
 ```
+
 **Push to EU Data Center**
+
 ```
 curl \
   -F "payload=@$APPCENTER_OUTPUT_DIRECTORY/$BUILD_NAME" \
