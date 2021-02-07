@@ -32,11 +32,11 @@ The desired capabilities you've supplied include a URL to a mobile application t
 
 ### Causes
 
-*   You've specified an app hosted in [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137), but there is nothing stored for your account with the given name
-*   You've specified an app hosted online, but the URL you've used can't be contacted by Sauce Labs
-*   You've specified an app hosted in your corporate network which can't be accessed via the Internet
-*   You're not providing the full path to the app file itself
-*   The site serving your application requires authentication
+* You've specified an app hosted in [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137), but there is nothing stored for your account with the given name
+* You've specified an app hosted online, but the URL you've used can't be contacted by Sauce Labs
+* You've specified an app hosted in your corporate network which can't be accessed via the Internet
+* You're not providing the full path to the app file itself
+* The site serving your application requires authentication
 
 
 ### How to Resolve
@@ -45,11 +45,11 @@ We recommend avoiding all problems with apps hosted internally by [uploading to 
 
 If you're already using [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137), check:
 
-*   Your upload to [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137) has succeeded
-*   Your upload to [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137) was within the last week, since Sauce Storage is cleaned out on a weekly basis
-*   Your uploaded app has the same MD5 hash as it does on your machine
-*   You're starting the `app` desired capability with `sauce-storage:` - there shouldn't be a leading `http`.
-*   You're using the exact name you provided via the rest API, **not** the original filename. For example, iif you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `sauce storage:new_app_name.apk`.
+* Your upload to [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137) has succeeded
+* Your upload to [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137) was within the last week, since Sauce Storage is cleaned out on a weekly basis
+* Your uploaded app has the same MD5 hash as it does on your machine
+* You're starting the `app` desired capability with `sauce-storage:` - there shouldn't be a leading `http`.
+* You're using the exact name you provided via the rest API, not the original filename. For example, iif you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `sauce storage:new_app_name.apk`.
 
 
 ## Internal Server Error
@@ -65,8 +65,8 @@ The error is expected to occur no more often than 0.1% (1 out of 1000 tests) ove
 
 The first explanation is that the VM crashed. When that happens, the VM stops communicating with our OnDemand services and the VM is effectively "lost." This can happen when:
 
-*   The VM runs out of disk space or RAM
-*   There is a bug in the browser, OS, virtualization software, or combination of all three, which then causes the VM to crash
+* The VM runs out of disk space or RAM
+* There is a bug in the browser, OS, virtualization software, or combination of all three, which then causes the VM to crash
 
 It's difficult to reliably distinguish between these two cases automatically. The error message “internal server error” is meant to cover both of them.  
 
@@ -79,11 +79,11 @@ A third, very rare case is when the error can be correlated to a particular comb
 
 ### How to Resolve
 
-Check the error rate over time. It is expected to occur approximately 0.1% of the time (1 out of 1000 tests). If the error rate remains below this level, add a retry for this kind of error into your Continuous Integration program. You can contact <span style="text-decoration:underline;">help@saucelabs.com</span> to check the error rate if it’s not easy to ascertain from your own CI program.
+Check the error rate over time. It is expected to occur approximately 0.1% of the time (1 out of 1000 tests). If the error rate remains below this level, add a retry for this kind of error into your Continuous Integration program. You can contact help@saucelabs.com to check the error rate if it’s not easy to ascertain from your own CI program.
 
 If the error rate is over 0.1% for a short period of time, check [status.saucelabs.com](http://status.saucelabs.com/) for signs of an incident at a time corresponding to the elevated error rate. Some types of incidents (but not all) will cause Internal Server Errors.
 
-If the error rate is over 0.1% for a sustained period of time (days or weeks), contact <span style="text-decoration:underline;">help@saucelabs.com</span>. We'll try to identify a pattern to the errors (for example, is it particular to one type of browser, OS, or test). Note that this is the least likely explanation.
+If the error rate is over 0.1% for a sustained period of time (days or weeks), contact help@saucelabs.com. We'll try to identify a pattern to the errors (for example, is it particular to one type of browser, OS, or test). Note that this is the least likely explanation.
 
 
 ## Invalid Parent Tunnel
