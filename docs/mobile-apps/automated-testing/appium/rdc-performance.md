@@ -1,5 +1,5 @@
 ---
-id: performance-rdc
+id: rdc-performance
 title: Tracking RDC Performance with Appium
 sidebar_label: RDC Performance
 ---

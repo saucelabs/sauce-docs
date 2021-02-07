@@ -105,17 +105,19 @@ module.exports = {
           collapsed: true,
           items: [
             'mobile-apps/automated-testing',
+            'mobile-apps/automated-testing/microsoft-appcenter',
+            'mobile-apps/automated-testing/troubleshooting',
                 {
                   type: 'category',
                   label: 'Appium',
                   collapsed: true,
                   items: [
                      'mobile-apps/automated-testing/appium',
-                     'mobile-apps/automated-testing/appium/real-device-testing',
-                     'mobile-apps/automated-testing/appium/virtual-device-testing',
-                     'mobile-apps/automated-testing/appium/performance-rdc',
-                     'mobile-apps/automated-testing/appium/capabilities-rdc',
-                     'mobile-apps/automated-testing/appium/capabilities-vdc',
+                     'mobile-apps/automated-testing/appium/rdc',
+                     'mobile-apps/automated-testing/appium/vdc',
+                     'mobile-apps/automated-testing/appium/rdc-performance',
+                     'mobile-apps/automated-testing/appium/rdc-capabilities',
+                     'mobile-apps/automated-testing/appium/vdc-capabilities',
                     ],
                 },
                 {

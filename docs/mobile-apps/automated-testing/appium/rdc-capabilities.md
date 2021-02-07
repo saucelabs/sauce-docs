@@ -1,5 +1,5 @@
 ---
-id: capabilities-rdc
+id: rdc-capabilities
 title: RDC Capabilities and Example Scripts
 sidebar_label: Capabilities and Scripts
 ---

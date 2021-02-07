@@ -1,5 +1,5 @@
 ---
-id: virtual-device-testing
+id: vdc
 title: Appium Testing with Emulators and Simulators
 sidebar_label: Virtual Device Testing
 ---
