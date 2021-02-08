@@ -1,6 +1,6 @@
 ---
 id: security
-title: Proxy Authentication and Certificate Handling
+title: Sauce Connect Authentication and Certificates
 sidebar_label: Security
 ---
 
