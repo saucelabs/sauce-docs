@@ -52,8 +52,6 @@ The following commonly used browsers and ports are subject to change as new vers
 
 Microsoft Edge, Chrome 71+ and the Safari browser on OS X 10.10+ and mobile iOS 8+ proxy these common ports:
 
-<sub>
-
     443, 888,
 
 
@@ -82,7 +80,6 @@ Microsoft Edge, Chrome 71+ and the Safari browser on OS X 10.10+ and mobile iOS 
 
 
     49221, 55001
-</sub>
 
 
 ## If we have five users, should we use five instances of Sauce Connect Proxy or set up one shared instance?
