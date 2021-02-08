@@ -1,6 +1,6 @@
 ---
 id: rdc
-title: Appium Mobile App Testing with Real Devices
+title: Appium Testing with Real Devices
 sidebar_label: RDC
 ---
 
