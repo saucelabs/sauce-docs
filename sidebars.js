@@ -88,6 +88,7 @@ module.exports = {
   "Mobile Apps": [
     'mobile-apps',
     'mobile-apps/features',
+    'mobile-apps/devices',
     'mobile-apps/admin-guide',
     'mobile-apps/app-storage',
     'mobile-apps/virtual-usb',
@@ -114,8 +115,8 @@ module.exports = {
                   items: [
                      'mobile-apps/automated-testing/appium',
                      'mobile-apps/automated-testing/appium/rdc',
-                     'mobile-apps/automated-testing/appium/rdc-performance',
                      'mobile-apps/automated-testing/appium/rdc-capabilities',
+                     'mobile-apps/automated-testing/appium/rdc-performance',
                      'mobile-apps/automated-testing/appium/vdc',
                      'mobile-apps/automated-testing/appium/vdc-capabilities',
                     ],
