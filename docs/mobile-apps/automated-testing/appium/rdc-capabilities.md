@@ -1,6 +1,6 @@
 ---
 id: rdc-capabilities
-title: Real Device Capabilities and Example Scripts
+title: RDC Capabilities and Example Scripts
 sidebar_label: RDC Capabilities and Scripts
 ---
 
