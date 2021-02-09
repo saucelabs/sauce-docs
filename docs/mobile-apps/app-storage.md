@@ -1,7 +1,7 @@
 ---
-id: application-storage
-title: Application Storage
-sidebar_label: Application Storage
+id: app-storage
+title: Mobile App Storage
+sidebar_label: App Storage
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

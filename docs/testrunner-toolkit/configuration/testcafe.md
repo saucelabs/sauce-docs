@@ -1,7 +1,7 @@
 ---
 id: testcafe
 title: "Configuration Syntax: TestCafe"
-sidebar_label: testcafe.yml
+sidebar_label: TestCafe
 ---
 
 Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference)for information regarding fields such as `apiVersion`, `kind`, and `sauce`.
