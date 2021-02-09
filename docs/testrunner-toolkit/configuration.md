@@ -161,21 +161,21 @@ Below are framework-specific configuration examples that exist in the [Testrunne
 <TabItem value="cypress">
 
 ```yaml reference
-https://github.com/saucelabs/sauce-cypress-runner/blob/master/.saucetpl/.sauce/config.yml
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
 ```
 
 </TabItem>
 <TabItem value="playwright">
 
 ```yaml reference
-https://github.com/saucelabs/sauce-playwright-runner/blob/master/.saucetpl/.sauce/config.yml
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/playwright.yml
 ```
 
 </TabItem>
 <TabItem value="testcafe">
 
 ```yaml reference
-https://github.com/saucelabs/sauce-testcafe-runner/blob/master/.saucetpl/.sauce/config.yml
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
 ```
 
 </TabItem>
