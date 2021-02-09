@@ -1,66 +1,32 @@
 ---
 id: automated-testing
-title: Choosing Devices for Automated Mobile App Testing
-sidebar_label: Choosing Devices
+title: Using Automated Mobile App Testing
+sidebar_label: Overview
+description: Landing Page for Automated Mobile App Testing
+hide_table_of_contents: true
 ---
 
-Get the most out of your testing automation by including a healthy mix of emulators, simulators, and real devices as your mobile testing platforms. Why? Because there are aspects of the mobile experience that you can't test on emulators or simulators, such as location-based apps that use manufacturer-specific device sensors, memory consumption, and CPU usage.
+This page covers topics related to native mobile app test automation using Sauce Labs emulators, simulators, and real devices. See the following sections for more information:
 
-There are a variety of use cases to consider when you're deciding on the mix of emulators, simulators, and real devices to use in your testing.
-
-## When to Test on Real Devices
-
-If you need...
-
-* Breadth of device types for panel/compatibility testing
-* To replicate an issue to match exact model as reported
-* Pixel-perfect display testing
-* To test hardware dependencies like CPU, memory, display, GPS
-* To test native ARM Libraries
-* To test on a custom OS (e.g., Samsung TouchWiz, OnePlus OxygenOS)
-* To test on a native framework like Espresso and Robotium
-* To test scenarios that require network connectivity (e.g., phone calls, send SMS messages)
-
-The Sauce Labs real device cloud provides you with the ability to run either manual or automated tests across Android and iOS devices. Some of the features that are specific to our real device cloud include:
-
-* Manual testing on real devices
-* Choice of public real devices or private real devices unique to your organization
-* Support for Appium, Robotium, Espresso, and XCUITest frameworks
-* Support on hundreds of device/OS combinations
-* IPSec VPN secure connections to private device clouds
-* Devices cleaning process between sessions to ensure maximum privacy
-* Carrier Network Connectivity (devices with SIM cards)
-
-### System Requirements
-
-See the [Automated Mobile Application Testing Admin Guide](https://wiki.saucelabs.com/display/DOCS/Mobile+Application+Testing+Admin+Guide).
+*   [Environment Configuration](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365795#MobileApplicationTesting-EnvironmentConfiguration)
+*   [Getting Started](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365795#MobileApplicationTesting-GettingStarted)
+*   [More Information](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365795#MobileApplicationTesting-MoreInformation)
 
 
+## System Requirements and Environment Configuration
 
-## When to Test on Emulators and Simulators
+Please visit our mobile testing admin guides to ensure you've properly configured the testing environment and meet platform and support requirements.
 
-If you need...
-
-* Massive concurrency
-* To reduce build times
-* To save costs
-* Immediate availability
-* Extremely low error rates for your test environment
+*   [Real Device Testing Admin Guide](https://wiki.saucelabs.com/display/DOCS/Real+Device+Testing+Admin+Guide)
+*   [Emulator and Simulator Testing Admin Guide](https://wiki.saucelabs.com/display/DOCS/Emulator+and+Simulator+Testing+Admin+Guide)
 
 
+## Getting Started
 
+A general process outline for automated testing goes like this:
 
-
-
-
-
-
-
-
-
-
-
-
-## Additional Resources
-
-[Sauce Labs Blog: How to Choose Mobile Devices for Testing](https://saucelabs.com/blog/how-to-choose-mobile-devices-for-testing)
+1. Upload the app you want to test on [real devices](https://wiki.saucelabs.com/display/DOCS/Uploading+and+Accessing+Applications+with+Real+Devices) or [virtual devices (emulators and simulators)](https://wiki.saucelabs.com/display/DOCS/Uploading+your+Application+to+Emulators+and+Simulators) to a location where Sauce Labs can retrieve it; for example, AWS S3, GitHub, Dropbox, [Sauce Storage](https://wiki.saucelabs.com/display/DOCS/Uploading+your+Application+to+Sauce+Storage), etc. Please keep in mind that if the application you want to test isn't publicly available / behind a firewall, you'll need to set up a secure [Sauce Connect Proxy Tunnel](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy) in order for Sauce Labs to connect to the application.
+2. Update your test script with your [Sauce Labs credentials](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials) and the path to the application you want to test, as shown in the example scripts located here:
+    1. [Example Appium Scripts for iOS Mobile Application Tests](https://wiki.saucelabs.com/display/DOCS/Example+Appium+Scripts+for+iOS+Mobile+Application+Tests)
+    2. [Example Appium Scripts for Android Mobile Application Tests](https://wiki.saucelabs.com/display/DOCS/Example+Appium+Scripts+for+Android+Mobile+Application+Tests)
+3. Set [the desired capabilities of your test](https://wiki.saucelabs.com/display/DOCS/Desired+Capabilities+Required+for+Selenium+and+Appium+Tests) for the device/operating system you want to test against, and the path to your application. The topics in [Test Configuration and Annotation](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+and+Annotation) describe the various options for desired capabilities, or you can use our [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to set up the desired capabilities of your test.

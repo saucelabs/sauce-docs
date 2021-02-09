@@ -229,6 +229,7 @@ suites:
     config:
       env:
         hello: world
+        my_var: $MY_VAR
       testFiles: [ "**/*.*" ] # Cypress native glob support.
 ```
 
@@ -387,6 +388,19 @@ __Example__:
 ```yaml
   - name: "saucy test"
 ```
+
+#### `env`
+__Description__: Field for setting enviornment variables. It supports expanded enviornment variables.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+  env:
+    hello: world
+    my_var: $MY_VAR
+```
+
 ## Framework Syntax Reference
 
 * [Cypress](/testrunner-toolkit/configuration/cypress)

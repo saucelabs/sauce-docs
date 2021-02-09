@@ -79,7 +79,7 @@ module.exports = {
           'secure-connections/sauce-connect/setup-configuration',
           'secure-connections/sauce-connect/environment-variables',
           'secure-connections/sauce-connect/proxy-tunnels',
-          'secure-connections/sauce-connect/proxy-authentication',
+          'secure-connections/sauce-connect/security',
           'secure-connections/sauce-connect/troubleshooting',
           'secure-connections/sauce-connect/faq',
           ],
@@ -87,13 +87,17 @@ module.exports = {
       ],
   "Mobile Apps": [
     'mobile-apps',
+    'mobile-apps/features',
+    'mobile-apps/devices',
+    'mobile-apps/admin-guide',
+    'mobile-apps/app-storage',
+    'mobile-apps/virtual-usb',
      {
         type: 'category',
         label: 'Live Testing',
         collapsed: true,
         items: [
           'mobile-apps/live-testing',
-          'mobile-apps/live-testing/application-storage',
             ],
         },
         {
@@ -102,15 +106,20 @@ module.exports = {
           collapsed: true,
           items: [
             'mobile-apps/automated-testing',
+            'mobile-apps/automated-testing/microsoft-app-center',
+            'mobile-apps/automated-testing/troubleshooting',
+            'mobile-apps/automated-testing/faq',
                 {
                   type: 'category',
                   label: 'Appium',
                   collapsed: true,
                   items: [
                      'mobile-apps/automated-testing/appium',
-                     'mobile-apps/automated-testing/appium/real-device-testing',
-                     'mobile-apps/automated-testing/appium/virtual-device-testing',
-                     'mobile-apps/automated-testing/appium/example-scripts',
+                     'mobile-apps/automated-testing/appium/rdc',
+                     'mobile-apps/automated-testing/appium/rdc-capabilities',
+                     'mobile-apps/automated-testing/appium/rdc-performance',
+                     'mobile-apps/automated-testing/appium/vdc',
+                     'mobile-apps/automated-testing/appium/vdc-capabilities',
                     ],
                 },
                 {
@@ -122,7 +131,6 @@ module.exports = {
                     'mobile-apps/automated-testing/espresso-xcuitest/real-device-testing',
                     'mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing',
                     'mobile-apps/automated-testing/espresso-xcuitest/example-configurations',
-                    'mobile-apps/automated-testing/espresso-xcuitest/change-logs',
                   ],
                 },
               ],
