@@ -1,7 +1,7 @@
 ---
 id: cypress
 title: "Configuration Syntax: Cypress"
-sidebar_label: cypress.yml
+sidebar_label: Cypress
 ---
 
 Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference)for information regarding fields such as `apiVersion`, `kind`, and `sauce`.
@@ -28,6 +28,7 @@ cypress:
 suites:
   - name: "saucy test"
     browser: "chrome"
+    screenResolution: "1920x1080"
     config:
       env:
         hello: world
@@ -83,7 +84,13 @@ __Example__:
   key: $MY_SECRET_KEY
 ```
 
-> For further information about recording cypress tests, please consult the [Cypress documentation](https://docs.cypress.io/guides/guides/command-line.html#cypress-run-record-key-lt-record-key-gt).
+In order for the `record` and `key` fields to work you must add the cypress `"projectId"` in your `cypress.json` file. 
+
+The value of your `projectId` correlates directly with the value of the `key` field; in this case `$MY_SECRET_KEY`.
+
+> Please refer to [this Cypress Documentation page](https://docs.cypress.io/guides/dashboard/projects.html#Project-ID) for further information about how to configure/retrieve the cypress `projectId`.
+>
+> For more information about the cypress __Record Key__, please consult this [Cypress Documentation page](https://docs.cypress.io/guides/guides/command-line.html#cypress-run-record-key-lt-record-key-gt).
 
 ## `suites`
 
@@ -144,8 +151,10 @@ __Type__: *string*
 
 __Example__:
 ```yaml
-    screenResolution: "2560x1600"  # Available resolutions on sauce for Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
+    screenResolution: "1920x1080"
 ```
+
+> For all available resolutions please visit [this documentation page](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
 
 ### `config`
 

@@ -79,6 +79,11 @@ h1,h2,h3,h4,h5,h6 {
     font-weight: 500;
 }
 
+nav.navbar.navbar--fixed-top.navbarHideable {
+    top: calc(var(--ifm-navbar-height) * -5) !important;
+    transition: top 0.2.5s ease-in-out;
+}
+
 h1, .h1 {
     font-size: 32px !important;
 }
@@ -293,8 +298,9 @@ h3, .h3 {
   padding-top: 40px;
 }
 .navbar--fixed-top {
-  height: 130px;
+  height: 110px;
 }
+
 .DocSearch-Button {
   display: inline-block!important;
   margin-right: 0px!important;
@@ -656,6 +662,7 @@ ul.dropdown__menu li a:hover {
     .navbar__logo {
       margin-top: 25px;
     }
+
     .DocSearch-Button {
       top: 15px;
     }

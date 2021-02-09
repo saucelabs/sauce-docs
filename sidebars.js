@@ -66,52 +66,76 @@ module.exports = {
      ],
   },
 ],
-          "Secure Connections": [
-             'secure-connections',
-             'secure-connections/ipsec-vpn',
-             {
-                type: 'category',
-                label: 'Sauce Connect Proxy',
-                collapsed: true,
-                items: [
-                  'secure-connections/sauce-connect',
-                  'secure-connections/sauce-connect/environment-variables',
+  "Secure Connections": [
+     'secure-connections',
+     'secure-connections/ipsec-vpn',
+     {
+        type: 'category',
+        label: 'Sauce Connect Proxy',
+        collapsed: true,
+        items: [
+          'secure-connections/sauce-connect',
+          'secure-connections/sauce-connect/installation',
+          'secure-connections/sauce-connect/setup-configuration',
+          'secure-connections/sauce-connect/environment-variables',
+          'secure-connections/sauce-connect/proxy-tunnels',
+          'secure-connections/sauce-connect/security',
+          'secure-connections/sauce-connect/troubleshooting',
+          'secure-connections/sauce-connect/faq',
+          ],
+        },
+      ],
+  "Mobile Apps": [
+    'mobile-apps',
+    'mobile-apps/features',
+    'mobile-apps/devices',
+    'mobile-apps/admin-guide',
+    'mobile-apps/app-storage',
+    'mobile-apps/virtual-usb',
+     {
+        type: 'category',
+        label: 'Live Testing',
+        collapsed: true,
+        items: [
+          'mobile-apps/live-testing',
+            ],
+        },
+        {
+          type: 'category',
+          label: 'Automated Testing',
+          collapsed: true,
+          items: [
+            'mobile-apps/automated-testing',
+            'mobile-apps/automated-testing/microsoft-app-center',
+            'mobile-apps/automated-testing/troubleshooting',
+            'mobile-apps/automated-testing/faq',
+                {
+                  type: 'category',
+                  label: 'Appium',
+                  collapsed: true,
+                  items: [
+                     'mobile-apps/automated-testing/appium',
+                     'mobile-apps/automated-testing/appium/rdc',
+                     'mobile-apps/automated-testing/appium/rdc-capabilities',
+                     'mobile-apps/automated-testing/appium/rdc-performance',
+                     'mobile-apps/automated-testing/appium/vdc',
+                     'mobile-apps/automated-testing/appium/vdc-capabilities',
+                    ],
+                },
+                {
+                  type: 'category',
+                  label: 'Espresso and XCUITest',
+                  collapsed: true,
+                  items: [
+                    'mobile-apps/automated-testing/espresso-xcuitest',
+                    'mobile-apps/automated-testing/espresso-xcuitest/real-device-testing',
+                    'mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing',
+                    'mobile-apps/automated-testing/espresso-xcuitest/example-configurations',
                   ],
                 },
               ],
-   "Mobile Apps": [
-        'mobile-apps',
-        {
-            type: 'category',
-            label: 'Live Testing',
-            collapsed: true,
-            items: [
-                'mobile-apps/live-testing',
-                'mobile-apps/live-testing/application-storage',
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Automated Testing',
-            collapsed: true,
-            items: [
-                'mobile-apps/automated-testing',
-
-                {
-                    type: 'category',
-                    label: 'Espresso and XCUITest',
-                    collapsed: true,
-                    items: [
-                        'mobile-apps/automated-testing/espresso-xcuitest',
-                        'mobile-apps/automated-testing/espresso-xcuitest/real-device-testing',
-                        'mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing',
-                        'mobile-apps/automated-testing/espresso-xcuitest/example-configurations',
-                        'mobile-apps/automated-testing/espresso-xcuitest/change-logs',
-                    ],
-                },
-            ],
-        },
-    ],
+           },
+         ],
     "Web Apps": [
       'web-apps',
       {
@@ -153,26 +177,36 @@ module.exports = {
     "Headless": [
       'headless',
     ],
-    "Testrunner Toolkit": [
-        'testrunner-toolkit',
-        'testrunner-toolkit/installation',
-        {
-            type: 'category',
-            label: 'Configuration',
-            collapsed: true,
-            items: [
-                'testrunner-toolkit/configuration',
-                'testrunner-toolkit/configuration/cypress',
-                'testrunner-toolkit/configuration/playwright',
-                'testrunner-toolkit/configuration/testcafe',
-            ],
-        },
-        'testrunner-toolkit/running-tests',
-        'testrunner-toolkit/integrations',
-        'testrunner-toolkit/typescript',
-        'testrunner-toolkit/faqs',
-        'testrunner-toolkit/support',
-    ],
+      "Testrunner Toolkit": [
+          'testrunner-toolkit',
+          'testrunner-toolkit/installation',
+          {
+              type: 'category',
+              label: 'Configuration',
+              collapsed: true,
+              items: [
+                  'testrunner-toolkit/configuration',
+                  'testrunner-toolkit/configuration/cypress',
+                  'testrunner-toolkit/configuration/playwright',
+                  'testrunner-toolkit/configuration/testcafe',
+              ],
+          },
+          'testrunner-toolkit/running-tests',
+          {
+              type: 'category',
+              label: 'CI Integrations',
+              collapsed: true,
+              items: [
+                  'testrunner-toolkit/integrations',
+                  'testrunner-toolkit/integrations/jenkins',
+                  'testrunner-toolkit/integrations/github-actions',
+
+              ],
+          },
+          'testrunner-toolkit/typescript',
+          'testrunner-toolkit/faqs',
+          'testrunner-toolkit/support',
+      ],
     "Visual": [
       'visual',
     ],
