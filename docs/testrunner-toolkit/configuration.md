@@ -203,6 +203,9 @@ The concurrency setting has no effect when the test environment is `--test-env d
 The maximum concurrency that you can use is limited by your account settings.
 
 ## Set different screen resolutions
+
+<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight></small></p>
+
 If you wish to execute tests on different screen resolutions while using Testrunner Toolkit, add the `screenResolution` parameter to your `.sauce/config.yml`:
 
 ### Example
