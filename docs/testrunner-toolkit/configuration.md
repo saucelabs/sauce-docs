@@ -183,6 +183,9 @@ https://github.com/saucelabs/sauce-testcafe-runner/blob/master/.saucetpl/.sauce/
 
 ### Concurrency
 
+<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight></small></p>
+
+
 Saucectl is capable of running test suites in parallel when utilizing the Sauce Labs infrastructure. _This feature requires a Sauce Labs account_, so don't forget to set the environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`!
 The degree of concurrency can be controlled via the config:
 
