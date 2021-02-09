@@ -1,6 +1,6 @@
 ---
 id: espresso-xcuitest
-title: Automated Mobile App Testing with Espresso and XCUITest
+title: Mobile App Testing with Espresso and XCUITest
 sidebar_label: Using Espresso and XCUITest
 description: Landing Page for Espresso and XCUITest
 hide_table_of_contents: true

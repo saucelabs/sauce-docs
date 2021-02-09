@@ -1,7 +1,9 @@
 ---
 id: automated-testing
-title: Automated Mobile App Testing
-sidebar_label: Test Automation
+title: Using Automated Mobile App Testing
+sidebar_label: Overview
+description: Landing Page for Automated Mobile App Testing
+hide_table_of_contents: true
 ---
 
 This page covers topics related to native mobile app test automation using Sauce Labs emulators, simulators, and real devices. See the following sections for more information:
