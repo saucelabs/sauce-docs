@@ -293,7 +293,7 @@ Alternatively, you can configure your project so you can choose specific operati
 
 Jenkins populates the `SELENIUM_PLATFORM`, `SELENIUM_VERSION`, `SELENIUM_BROWSER`, and `SELENIUM_DRIVER` environment variables for each combination you specified and runs the tests in parallel.
 
-## Publish Test Status to Sauce Labs
+## Publishing Test Status to Sauce Labs
 
 The Sauce plugin for Jenkins will also mark the Sauce jobs as passed or failed, but you need to configure Jenkins to parse the test results.
 
@@ -303,7 +303,7 @@ The Sauce plugin for Jenkins will also mark the Sauce jobs as passed or failed, 
 ## Outputting the Jenkins Session ID to stdout
 
 As part of the post-build activities, the Sauce plugin will parse the test result files in an attempt to associate test results with Sauce jobs. It does this by identifying lines in the stdout or stderr that have this format:
-`SauceOnDemandSessionID=<session id> job-name=<some job name>``
+`SauceOnDemandSessionID=<session id> job-name=<some job name>`
 
 The session id can be obtained from the RemoteWebDriver instance and the job-name can be any string, but is generally the name of the test class being executed.
 
@@ -322,17 +322,12 @@ private void printSessionId() {
 
 One of the most helpful features of Jenkins CI is automatic job queuing. If there are more build jobs requested than there are resources to execute those jobs, Jenkins can queue your tests, executing them in the order they were requested as resources become available. Or you can use labels to specify the resources you want to use for specific jobs, and set up graceful queuing for your tests.
 
-### Default Queuing
+On the Jenkins dashboard, The **Build Queue** and **Build Executor Status** panels show the nodes' capacity for running jobs.
+By default, a node with two executors can run up to two jobs at once and any additional jobs are added to the Job Queue and will run on the next executor that becomes free.
 
-On the Jenkins dashboard, The **Build Queue** and **Build Executor Status** panels show the node's capacity for running jobs.
+Assigned nodes let you define nodes for specific purposes, such as dedicated platforms, as well as for load balancing and other functions. To assign projects to a specific node, the node must have a label.
 
-For example, a node with two executors can run up to two jobs at once. If three jobs are started, then the first two will execute and the third will be added to the Build Queue.
-
-### Assigned Queuing
-
-You can use different nodes to test on multiple OSs/platforms, as well as for load balancing and other functions. When you add a label to a node, you can control which jobs run on it.
-
-To add a node or label:
+To label a node and assign a project to it:
 
 1. From the Jenkins Dashboard, select **Manage Jenkins**, then click **Manage Nodes & Clouds** and choose **Add New Node**.
 1. Provide a name for the node and the number of executors it can use.
@@ -361,9 +356,9 @@ The `{sauceconnect}` block lets you manage starting and stopping Sauce Connect. 
 1. Select **sauce: Sauce Connect** and **Generate Groovy**.
 1. Add the returned snippet to your Groovy script within the `{sauce}` block.
 
-The following example shows the sauce and sauceconnect snippets as they would be added in the Groovey script.
+The following example shows the `sauce` and `sauceconnect` snippets as they would be added in the Groovy script.
 
-```jsx title=Sample Sauce and Sauce Connect Block Snippets
+```jsx title="Sample Sauce and Sauce Connect Block Snippets"
 
 node('mac') {
     sauce('36987f5a-62da-40ac-bbc0-583806f9df4d') {
@@ -374,9 +369,9 @@ node('mac') {
 }
 ```
 
-### Creating the Sauce Publisher/Reporting Snippet
+### Creating the Sauce Publisher Snippet
 
-The `{saucePublisher}` function lets you enable reporting between your project and Sauce Labs. See [Setting Up Reporting](#publish-test-status-to-sauce-labs).
+The `{saucePublisher}` function lets you send test result data to Sauce Labs. See [Publishing Test Status to Sauce Labs](#publishing-test-status-to-sauce-labs).
 
 1. Enable the **Snippet Generator** in Jenkins Pipeline.
 1. Select **saucePublisher: Run Sauce Labs Test Publisher** and **Generate Groovy**.
