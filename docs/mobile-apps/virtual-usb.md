@@ -1,6 +1,6 @@
 ---
 id: virtual-usb
-title: Virtual USB for Real Mobile Devices
+title: Virtual USB Testing on Real Mobile Devices
 sidebar_label: Virtual USB
 ---
 
@@ -56,8 +56,8 @@ You can also find instructions for using the Virtual USB client by running `java
 3. Click the person icon > Account Settings.
 <img src={useBaseUrl('img/virtual-usb/vusb1.jpg')} alt="Live App Upload UI" width="300" />
 
-4. Grab your User API key. **NOTE**: This is API key entirely separate from the one in the main Sauce Labs interface.
-5. From a command line, launch the client. Choose between the **EU **or the **US **data center, depending on which device you are trying to connect to:
+4. Grab your User API key. **NOTE**: This API key is entirely separate from the one in the main Sauce Labs interface.
+5. From a command line, launch the client. Choose between the **EU** or the **US** data center, depending on which device you are trying to connect to:
 
 ```
 java -jar vusb-client.jar server --datacenter <EU/US>

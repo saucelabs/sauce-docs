@@ -106,8 +106,9 @@ module.exports = {
           collapsed: true,
           items: [
             'mobile-apps/automated-testing',
-            'mobile-apps/automated-testing/microsoft-appcenter',
+            'mobile-apps/automated-testing/microsoft-app-center',
             'mobile-apps/automated-testing/troubleshooting',
+            'mobile-apps/automated-testing/faq',
                 {
                   type: 'category',
                   label: 'Appium',

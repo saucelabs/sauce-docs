@@ -1,5 +1,5 @@
 ---
-id: microsoft-appcenter
+id: microsoft-app-center
 title: Microsoft App Center Integration
 sidebar_label: MS App Center
 ---
@@ -17,9 +17,9 @@ In order to upload your apps from Microsoft App Center to a Sauce Labs data cent
 
 ## Creating the Post-Build Script
 
-1. Once you've linked your project source code to your app center project, create a script called **appcenter-post-build.sh** and add it to your project source code repository.
+1. Once you've linked your project source code to your app center project, create a script called `appcenter-post-build.sh` and add it to your project source code repository.
 
-2. If you're testing a cross-platform application (e.g., a react-native), add the following environment variables **APP_NAME and** **BUILD_NAME**.
+2. If you're testing a cross-platform application (e.g., a react-native), add the following environment variables `APP_NAME` and `BUILD_NAME`.
 
 ```
 #!/usr/bin/env bash
