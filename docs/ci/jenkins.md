@@ -60,16 +60,6 @@ Once you have installed the plugin and Jenkins has restarted, add your Sauce Lab
 1. Click **Save**.
 1. Repeat for any additional projects that manage Sauce Labs tests.
 
-### Setting Authentication Environment Variables in Your Tests
-
-Once you've configured your Sauce Labs credentials in Jenkins, add the following code reference in any of the Sauce Labs tests managed by the Jenkins projects.
-
-```
-WebDriver driver = new RemoteWebDriver(
-            new URL("https://"+System.getenv("SAUCE_USERNAME")+":"+System.getenv("SAUCE_ACCESS_KEY")+"@ondemand.saucelabs.com:443/wd/hub",
-            desiredCapabilities);
-```
-
 ### Setting Credentials for EU Data Center Pipeline Builds
 
 Use the process outlined in steps 7-12 above to apply EU credentials for non-pipeline builds, but for pipeline builds in the EU data center, set the credential ID you created in Jenkins in your Pipelines Block, as shown in the following example.
@@ -84,17 +74,15 @@ stage('Test') {
 }
 ```
 
-## Using Sauce Connect in Jenkins
+## Configuring Sauce Labs and Sauce Connect Settings in Jenkins
 
-The Sauce OnDemand plugin is bundled with the latest version of Sauce Connect Proxy, which allows you to run your Sauce Labs tests in environments that are not publicly accessible, like your local network or behind a firewall.
+You can manage many of the plugin settings from within the Jenkins dashboard to ensure your tests run according to your needs. The plugin is bundled with the latest version of Sauce Connect. When you enable it, you can run your Sauce Labs tests in environments that are not publicly accessible, like your local network or behind a firewall.
 
-Configure Sauce Connect to establish a secure tunnel for your Jenkins projects running Sauce Labs tests against websites or applications on a private network.
+ Some plugin options are set globally for all your Jenkins projects and some options are specific to individual projects.
 
-### Customize Sauce Connect Settings
+ > **NOTE:** When options can be set at both levels, project settings override global settings.
 
-You can manage many of the Sauce Connect settings from within the Jenkins dashboard to ensure your tunnels are launched according to your needs. Some options are set globally for all your Jenkins projects and some options are specific to individual projects. For options that can be set at both levels, project-specific values override global settings.
-
-#### Configure Global Sauce Connect Settings
+### Configure Global Sauce Settings
 
 <ol>
   <li>From your Jenkins dashboard, choose <b>Manage Jenkins</b> and then <b>Configure System</b>.</li>
@@ -136,7 +124,7 @@ You can manage many of the Sauce Connect settings from within the Jenkins dashbo
   <li>Click <b>Save</b></li>
 </ol>
 
-#### Configure Sauce Connect Settings for a Project
+### Configure Sauce Settings for a Project
 
 <ol>
   <li>From your Jenkins dashboard, select the project you wish to configure.</li>
@@ -155,7 +143,7 @@ You can manage many of the Sauce Connect settings from within the Jenkins dashbo
       </tr>
       <tr>
         <td><b>Credentials</b></td>
-        <td>If you have already created a crendentials variable for your Sauce Labs account, use the drop-down menu to choose it as the authentication account for this project. If you have not created a credentials variable yet, click the <b>Add</b> button to do that now. See <a href="/docs/ci/jenkins#creating-your-sauce-labs-credentials">Creating Your Sauce Labs Credentials</a> for details.</td>
+        <td>If you have already created a crendentials variable for your Sauce Labs account, use the drop-down menu to choose it as the authentication account for this project. If you have not created a credentials variable yet, click the <b>Add</b> button to do that now. See <a href="#creating-your-sauce-labs-credentials">Creating Your Sauce Labs Credentials</a> for details.</td>
       </tr>
       <tr>
         <td><b>WebDriver</b></td>
@@ -245,17 +233,44 @@ You can manage many of the Sauce Connect settings from within the Jenkins dashbo
   </li>
 </ol>
 
-## Configuring Tests to Use the Environment Variables
+## Populating your Capabilities with Environment Variables
 
-In your test script, you reference the environment variables as part of your desired capabilities. Though the exact syntax will vary depending on your scripting language, this example illustrates the way you would reference the environment variables SELENIUM_BROWSER, SELENIUM_VERSION, AND SELENIUM_PLATFORM in your test script.
+Sauce Labs tests use capabilities settings to specify the environment on which a test will run. Many of the plugin configurations you have set in the preceding section automatically generate applicable environment variables that can then be used to populate your test capabilities.
+
+### Environment Variables
+
+The following environment variables are relevant for Sauce Labs tests running in Jenkins and can be used to populate your test capabilities. Most of the environment variables defined here are automatically generated based on your project configurations for the plugin and Sauce Connect.
+
+|Variable|Description|Usage|
+|---|---|---|
+|`SELENIUM_HOST`|Identifies the Selenium server host.|Configured by the **Sauce Host** project setting. When not set, defaults to `localhost` if Sauce Connect is enabled or `ondemand.saucelabs.com` if Sauce Connect is not enabled.|
+|`SELENIUM_PORT`|	Identifies the Selenium server port.|Configured by the **Sauce Port** project setting. When not set, defaults to `4445` if Sauce Connect is enabled or `4444` if Sauce Connect is not enabled.
+|`SELENIUM_PLATFORM`|The operating system on which the browser being tested is installed.|Populated by the **WebDriver** or **Appium** operating system combination specified during project configuration.|
+|`SELENIUM_VERSION`|	The version number of the browser being tested.|Populated by the **WebDriver** or **Appium** operating system combination specified during project configuration or dynamically if the **Use latest version of selected browsers** option is enabled.|
+|`SELENIUM_BROWSER`|The name of the browser being tested.|Populated by the **WebDriver** or **Appium** operating system combination specified during project configuration.|
+|`SELENIUM_DRIVER`|Contains the operating system, version and browser name of the selected browser, in a format designed for use by the Selenium Client Factory.|Populated by the **WebDriver** or **Appium** operating system combination specified during project configuration.|
+|`SELENIUM_DEVICE`|The type of hardware on which the browser being tested is running.|Populated by the **WebDriver** or **Appium** operating system combination specified during project configuration.|
+|`SELENIUM_DEVICE_ORIENTATION`|The direction of the device (`Portrait` or `Landscape`) used for testing.|Populated by the **WebDriver** or **Appium** operating system combination specified during project configuration.|
+|`SELENIUM_URL`|The initial URL to load when the test begins.|Not automatically populated.|
+|`SAUCE_USERNAME`|The username of the Sauce Labs account on which tests in this project are run.|Populated by the `Username` value of the authentication credential associated with the project.|
+|`SAUCE_ACCESS_KEY`|The access key of the Sauce Labs account on which tests in this project are run.|Populated by the `Access Key` value of the authentication credential associated with the project.|
+|`SELENIUM_STARTING_URL`|The value of the Starting URL field.|This value is not populated by any configuration setting.|
+|`SAUCE_ONDEMAND_BROWSERS`|A JSON-formatted string containing a set of attributes for multiple operating system and browser combinations.|Populated when you select more than one **WebDriver** or **Appium** value during project configuration.|
+|`TUNNEL_IDENTIFIER`|The unique tunnel identifier used when Sauce Connect is launched.| Populated when the **Create a new unique Sauce Connect tunnel per build** option is selected during project configuration.|
+|`JENKINS_BUILD_NUMBER`|The ID of the build the Sauce OnDemand plugin will use when showing results that are not in the logs|How is this populated?|
+|`SAUCE_BUILD_NAME`|The name of the build the Sauce OnDemand plugin will use when showing test results.|The plugin automatically populates this this value at run-time with `${JOB_NAME}_${BUILD_NUMBER}`.|
+
+### Referencing Environment Variables in Your Tests
+
+Sauce Labs automation test use the `capabilities` parameters to tell Sauce everything it needs to know before the test runs, such as what device, operating system, and browser the test should target; what versions of those systems; and what Sauce user is authorizing the test. Using environment variables as the values for the tests capabilities allows you to run a single test against multiple environments. For example, several of the following test capabilities all use the `SAUCE_ON_DEMAND` environment variable, which will loop through multiple platform combinations configured for the project.
 
 ```
-desiredCapabilities.setBrowserName(System.getenv("SELENIUM_BROWSER"));
-desiredCapabilities.setVersion(System.getenv("SELENIUM_VERSION"));
-desiredCapabilities.setCapability(CapabilityType.PLATFORM, System.getenv("SELENIUM_PLATFORM"));
+desiredCapabilities.setBrowserName(System.getenv("SAUCE_ONDEMAND_BROWSERS"));
+desiredCapabilities.setVersion(System.getenv("SAUCE_ONDEMAND_BROWSERS"));
+desiredCapabilities.setCapability(CapabilityType.PLATFORM, System.getenv("SAUCE_ONDEMAND_BROWSERS"));
+desiredCapabilities.setCapability(build, System.getenv("SAUCE_BUILD_NAME"));
 ```
 
-This example is for a single operating system/browser combination. If you have multiple selections, you can load the JSON string for the SAUCE_ONDEMAND_BROWSERS environment variable by using the JSON library for your scripting language, and then loop through the string to send the various combinations to your test framework.
 
 ## Parallel Testing
 
@@ -269,4 +284,102 @@ The OnDemand plugin supports automating your tests to run on many different comb
 
 When you run a build for this project, it kicks off separate jobs for each OS/browser combination you specified, populating the `SELENIUM_PLATFORM`, `SELENIUM_VERSION`, `SELENIUM_BROWSER`, and `SELENIUM_DRIVER` environment variables and running them simultaneously.  
 
-Build with Parameters
+Alternatively, you can configure your project so you can choose specific operating system/browser combinations at run-time rather than configuring the combinations in the build specification itself. This option allows you to only test those environments that may be affected by a recent change, for example.
+
+1. From the **Configure** page of your project, check the **This project is parameterized** setting.
+1. Click the **Add Parameter** button and select the **Sauce Labs Browsers** option from the list.
+1. When you run the tests in this project, click the **Build with Parameters** menu item.
+1. In the parameters selection screen, choose the operating system/browser combinations you wish to test for this iteration.
+
+Jenkins populates the `SELENIUM_PLATFORM`, `SELENIUM_VERSION`, `SELENIUM_BROWSER`, and `SELENIUM_DRIVER` environment variables for each combination you specified and runs the tests in parallel.
+
+## Publish Test Status to Sauce Labs
+
+The Sauce plugin for Jenkins will also mark the Sauce jobs as passed or failed, but you need to configure Jenkins to parse the test results.
+
+1. From the **Configure** page of your project, select the **Post-Build Actions** tab.
+1. Select **Run Sauce Labs Test Publisher**.
+
+## Outputting the Jenkins Session ID to stdout
+
+As part of the post-build activities, the Sauce plugin will parse the test result files in an attempt to associate test results with Sauce jobs. It does this by identifying lines in the stdout or stderr that have this format:
+`SauceOnDemandSessionID=<session id> job-name=<some job name>``
+
+The session id can be obtained from the RemoteWebDriver instance and the job-name can be any string, but is generally the name of the test class being executed.
+
+To make sure that your test results and Sauce jobs are associated properly, you need to output the session id to stdout. For example, this is the code you would use to output the session id to the Java stdout.
+
+```
+private void printSessionId() {
+
+    String message = String.format("SauceOnDemandSessionID=%1$s job-name=%2$s",
+    (((RemoteWebDriver) driver).getSessionId()).toString(), "some job name");
+    System.out.println(message);
+}
+```
+
+## Setting up Multi-Node Job Queuing
+
+One of the most helpful features of Jenkins CI is automatic job queuing. If there are more build jobs requested than there are resources to execute those jobs, Jenkins can queue your tests, executing them in the order they were requested as resources become available. Or you can use labels to specify the resources you want to use for specific jobs, and set up graceful queuing for your tests.
+
+### Default Queuing
+
+On the Jenkins dashboard, The **Build Queue** and **Build Executor Status** panels show the node's capacity for running jobs.
+
+For example, a node with two executors can run up to two jobs at once. If three jobs are started, then the first two will execute and the third will be added to the Build Queue.
+
+### Assigned Queuing
+
+You can use different nodes to test on multiple OSs/platforms, as well as for load balancing and other functions. When you add a label to a node, you can control which jobs run on it.
+
+To add a node or label:
+
+1. From the Jenkins Dashboard, select **Manage Jenkins**, then click **Manage Nodes & Clouds** and choose **Add New Node**.
+1. Provide a name for the node and the number of executors it can use.
+1. Add a descriptive **Label**, such as `sauceJobs`.
+1. From the **Configure** page of any project you wish to run on this node, check **Restrict where this project can be run** to enable the **Label Expression** field, then enter the label of the applicable node for the project.
+
+Projects configured to run on specific nodes queue to run on their assigned nodes according to availability.
+
+## Using the OnDemand Plugin with the Jenkins Pipeline
+
+Pipeline is a plugin for Jenkins, based on the Groovy programming language, for managing your Continuous Deployment process. The OnDemand plugin lets you authenticate to Sauce Labs and manage Sauce Connect so you can take advantage of your Jenkins Pipeline integration to run your Sauce Labs tests.
+
+### Creating the Sauce Block Snippet
+
+The `{sauce}` block lets you pass your Sauce Labs username and access key as environment variables to Jenkins.
+
+1. Enable the **Snippet Generator** in Jenkins Pipeline.
+1. Select **sauce: Sauce** and **Generate Groovy**.
+1. Add the returned snippet to your Groovy script.
+
+### Creating the Sauce Connect Block Snippet
+
+The `{sauceconnect}` block lets you manage starting and stopping Sauce Connect. Wrap it with the `{sauce}` block so your authentication is included.
+
+1. Enable the **Snippet Generator** in Jenkins Pipeline.
+1. Select **sauce: Sauce Connect** and **Generate Groovy**.
+1. Add the returned snippet to your Groovy script within the `{sauce}` block.
+
+The following example shows the sauce and sauceconnect snippets as they would be added in the Groovey script.
+
+```jsx title=Sample Sauce and Sauce Connect Block Snippets
+
+node('mac') {
+    sauce('36987f5a-62da-40ac-bbc0-583806f9df4d') {
+        sauceconnect(useGeneratedTunnelIdentifier: true, verboseLogging: true) {
+            sh 'env | sort'
+        }
+    }
+}
+```
+
+### Creating the Sauce Publisher/Reporting Snippet
+
+The `{saucePublisher}` function lets you enable reporting between your project and Sauce Labs. See [Setting Up Reporting](#publish-test-status-to-sauce-labs).
+
+1. Enable the **Snippet Generator** in Jenkins Pipeline.
+1. Select **saucePublisher: Run Sauce Labs Test Publisher** and **Generate Groovy**.
+1. Add the returned snippet to your Groovy script.
+
+> **NOTE:** You need not wrap the `{saucePublisher}` in the `{sauce}` snippet, but do include the `{saucePublisher}` in some part of the Pipeline file in order to report the results.

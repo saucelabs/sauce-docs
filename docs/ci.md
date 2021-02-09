@@ -10,8 +10,8 @@ Incorporating continuous testing into your CI/CD pipeline means designing your t
 <div class="box-wrapper" markdown="1">
   <div class="box box1 card">
     <div class="container">
-    <h2>Sauce CI/CD Plugins</h2>
-    <p>Use one of the Sauce Labs plugins to set up your existing CI/CD pipeline to integrate your tests.<br/>
+    <h2>Sauce OnDemand Plugin</h2>
+    <p>Use the Sauce Labs OnDemand plugin in conjunction with your existing CI/CD pipeline to integrate your tests.<br/>
       <ul>
         <li><a href="/ci/bamboo">Bamboo</a></li>
         <li><a href="/ci/bitbucket">Bitbucket</a></li>
