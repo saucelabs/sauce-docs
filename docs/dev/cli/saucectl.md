@@ -19,29 +19,35 @@ This page provides command line references for `saucectl`, the CLI tool used wit
 
 ### `configure`
 
+__Description__: Sets your [Sauce Labs authentication credentials](https://app.saucelabs.com/user-settings) and generates a `credentials.yml` file. Please refer to [the installation page](/testrunner-toolkit/installation#connecting-to-sauce-labs) for further information.
+
+__Example__:
 ```bash
 saucectl configure
 ```
 
-This command sets your [Sauce Labs authentication credentials](https://app.saucelabs.com/user-settings) and generates a `credentials.yml` file. Please refer to [the installation page](/testrunner-toolkit/installation#connecting-to-sauce-labs) for further information.
-
 ### `new`
 
+__Description__: Prompts you to choose one of the [supported frameworks](/testrunner-toolkit#supported-frameworks-and-browsers). Based on the chosen framework, this command also generates:
+
+* a configuration file (e.g. `./sauce/config.yml`) 
+* a test directory (e.g. `cypress/`)
+* an example test (e.g. `example.test.js`)
+
+__Example__:
 ```bash
 saucectl new
 ```
 
-This command will ask you to choose one of the frameworks: [Puppeteer](https://github.com/puppeteer/puppeteer), [Playwright](https://github.com/microsoft/playwright), [TestCafe](https://github.com/DevExpress/testcafe), and [Cypress](https://github.com/cypress-io/cypress).
-
-This command generates a `./sauce/config.yml` file, a test directory, and an example test.
-
 ### `run`
+
+__Description__: Executes tests based on information in the configuration file ([`.sauce/config.yml`](/testrunner-toolkit/configuration)).
+
+__Example__:
 
 ```bash
 saucectl run
 ```
-
-This command executes tests based on information in the configuration file ([`.sauce/config.yml`](/testrunner-toolkit/configuration)).
 
 ## Flags
 
@@ -49,101 +55,115 @@ This command executes tests based on information in the configuration file ([`.s
 
 <p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
 
+__Description__: Increases your Sauce Labs VM concurrency when [running tests remotely on the Sauce Labs Cloud](/testrunner-toolkit/running-tests#test-on-sauce-labs).
+                                                                                                                                                                       
+
+__Example__:
 ```bash
 saucectl run --test-env sauce --ccy 2
 ```
 
-Using `--ccy` allows you to increase your Sauce Labs VM concurrency when [running tests remotely on the Sauce Labs Cloud](/testrunner-toolkit/running-tests#test-on-sauce-labs).
-
-> Concurrency with `saucectl` is tied to the test `suites` field in your `.sauce/config.yml`. 
->
-> For example if you have ten `.spec` files split across two test `suites`, and you set `--ccy` to `10`, the max concurrency is `2`.
+> __NOTE__: Concurrency with `saucectl` is tied to [the test `suites` field](/testrunner-toolkit/configuration#suites) in your `.sauce/config.yml`. 
+> For example if you have ten `.spec` files split across two tests `suites`, and you set `--ccy` to `10`, the max concurrency is `2`.
 
 ### `ci-build-id`
 
+__Description__: Overrides the build ID that is otherwise determined based on the CI provider. The config file hash will still be used in addition to this provided CI build ID.
+
+__Example__:
 ```sh
 saucectl run --ci-build-id <value>
 ```
 
-Using the `--ci-build-id` flag will override the build ID that is otherwise determined
-based on the CI provider. The config file hash will still be used in addition to this
-provided CI build ID.
-
 ### `config`
 
-```bash
-saucectl run --config <path>
-```
+__Description__: Run tests from a specific configuration file.
 
-Using the `--config` flag will run the tests specified by that config file.
+__Shorthand__: `-c`
+
+__Example__:
+```bash
+saucectl run --config </path/to/config.yml>
+```
 
 ### `env`
 
+__Description__: Defines environment variables that are available for use by the test framework.
+
+__Example__:
 ```bash
 saucectl run --env <key>=value1> --env <key2>=<value2> ...
 ```
 
-Using the `--env` flag will define environment variables that are then available for use by the test framework.
-
 ### `region`
 
+__Description__: Sets the Sauce Labs region for test execution. The region corresponds to the available region at [saucelabs.com](https://app.saucelabs.com) and affects where your job information and assets are going to be stored.
+
+__Example__:
 ```bash
 saucectl run --region <region>
 ```
 
-Using the --region flag will set the Sauce Labs region for the test execution. The region corresponds to the available regions at [saucelabs.com](https://app.saucelabs.com) and affects where your job information and assets are going to be stored.
-
 ### `suite`
 
+__Description__: Specifies a test suite to execute by name.
+
+__Example__:
 ```bash
 saucectl run --suite <suite_name>
 ```
-
-Using the `--suite` flag will only run specified suite by name.
 
 ### `test-env`
 
 <p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
 
+__Description__: Specifies the test execution environment:
+* test locally with `docker` containers 
+* test remotely on `sauce` virtual machines
+
+__Example__:
 ```bash
 saucectl run --test-env <sauce | docker>
 ```
 
-Using the `--test-env` flag allows you to toggle testing locally via containers (`docker`), or remotely via Sauce Labs VMs (`sauce`).
-
 ### `timeout`
 
+__Description__: Sets the timeout for test runs.
+
+__Example__:
 ```bash
 saucectl run --timeout <seconds>
 ```
 
-Using the `--timeout` flag will set the test timeout for the test runs [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
-
 ### `tunnel-id`
 
+__Description__: Sets the tunnel id for a given test run and the chosen [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
+
+__Example__:
 ```bash
 saucectl run --tunnel-id <tunnel-id>
 ```
 
-Using the `--tunnel-id` flag sets the tunnel id for a given test run and the chosen [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
-
 ### `tunnel-parent`
 
+__Description__: Sets the tunnel parent for a given test run and the chosen [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
+
+__Example__:
 ```bash
 saucectl run --tunnel-id <tunnel-id> --tunnel-parent <tunnel-parent>
 ```
 
-> This flag only works in conjunction with the `tunnel-id` flag.
+> __NOTE__: This flag only works in conjunction with the `tunnel-id` flag.
 
-Using the `--tunnel-parent` flag sets the tunnel parent for a given test run and the chosen [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
 
 ### `verbose`
 
+__Description__: Use the `--verbose` flag to troubleshoot potential authentication, connection, and/or container issues.
+
+__Example__:
 ```bash
 saucectl run --verbose
 ```
-
-Using the `--verbose` flag allows you to troubleshoot potential authentication, connection, and/or container issues.
 
 ## Licensing
 

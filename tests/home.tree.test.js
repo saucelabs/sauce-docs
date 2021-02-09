@@ -5,12 +5,12 @@ context('Home Page Tree Actions', () => {
         cy.visit(`http://${Cypress.env('HOST_ADDR')}/overview`)
     });
 
-    it('Welcome Page', () => {
-        cy.contains('Welcome')
-            .click();
-        cy.url()
-            .should('include', '/overview');
-    });
+    // it('Welcome Page', () => {
+    //     cy.contains('Welcome')
+    //         .click();
+    //     cy.url()
+    //         .should('include', '/overview');
+    // });
 
     it('Sauce Labs Overview Page', () => {
         cy.contains('Sauce Labs Basics')
