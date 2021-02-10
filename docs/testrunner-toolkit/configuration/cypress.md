@@ -143,7 +143,7 @@ __Example__:
 
 ### `browserVersion`
 
-<p><small><Highlight color="#ad1415">sauce cloud only</Highlight> <a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></small></p>
+<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
 
 __Description__: Version of the browser in which the test runs.
 
