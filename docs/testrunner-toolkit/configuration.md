@@ -206,7 +206,7 @@ If you have more suites than that, any excess will simply be queued until it's t
 The concurrency setting has no effect when the test environment is `--test-env docker` and only works when running tests in the Sauce cloud via `--test-env sauce`.
 The maximum concurrency that you can use is limited by your account settings.
 
-## Set different screen resolutions
+## Set Different Screen Resolutions
 
 <p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight></small></p>
 
