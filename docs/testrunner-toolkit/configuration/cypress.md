@@ -142,7 +142,7 @@ __Type__: *string*
 
 __Example__:
 ```yaml
-    browser: "85.0"
+    browserVersion: "85.0"
 ```
 
 ### `platformName`
@@ -184,4 +184,3 @@ __Example__:
         hello: world
       testFiles: [ "**/*.*" ]
 ```
-
