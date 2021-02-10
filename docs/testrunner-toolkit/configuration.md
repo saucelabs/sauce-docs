@@ -131,6 +131,7 @@ cypress:
 suites:
   - name: "saucy test"
     browser: "chrome"
+    browserVersion: "latest"
     config:
       env:
         hello: world
