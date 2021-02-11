@@ -156,6 +156,9 @@ module.exports = {
         ],
       },
     ],
+    "API Testing": [
+        'api-testing',
+    ],
     "CI/CD": [
         'ci',
         'ci/bamboo',
