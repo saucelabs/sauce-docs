@@ -157,7 +157,16 @@ module.exports = {
       },
     ],
     "API Testing": [
-        'api-testing',
+      'api-testing',
+      {
+        type: 'category',
+        label: 'Quick Start',
+        collapsed: true,
+        items: [
+            'api-testing/quick-start',
+            'api-testing/quick-start/composer',
+        ],
+      },
     ],
     "CI/CD": [
         'ci',
