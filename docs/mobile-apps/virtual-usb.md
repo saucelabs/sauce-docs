@@ -4,6 +4,13 @@ title: Virtual USB Testing on Real Mobile Devices
 sidebar_label: Virtual USB
 ---
 
+export const Highlight = ({children, color}) => ( <span style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>{children}</span> );
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -26,15 +33,15 @@ With Virtual USB (vUSB), you can use homegrown developing and testing tools beca
 ### Android
 
 Click below to download the latest Virtual USB client to the same machine where you have Android Studio installed.
+
 <p><button class="badge-"><a href="https://s3-eu-west-1.amazonaws.com/saucelabs-vusb/v1.8/vusb-client.jar">Download (vusb-client.jar)</a></button></p>
+
 
 For version release notes, see [Android Virtual USB Changelog](https://wiki.saucelabs.com/pages/viewpage.action?pageId=86575598).
 
 ### iOS
 
-:::note **beta**
-Virtual USB for iOS Devices is in beta. Contact your Customer Success Manager to get access.
-:::
+<p><Highlight color="#eb7734">BETA</Highlight>: Virtual USB for iOS Devices is in beta. Contact your Customer Success Manager to get access.</p>
 
 For version release notes, see [iOS Virtual USB Changelog](https://wiki.saucelabs.com/pages/viewpage.action?pageId=99652031).
 
