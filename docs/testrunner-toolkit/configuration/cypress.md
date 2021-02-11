@@ -4,6 +4,13 @@ title: "Configuration Syntax: Cypress"
 sidebar_label: Cypress
 ---
 
+export const Highlight = ({children, color}) => ( <span style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>{children}</span> );
+
 Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference)for information regarding fields such as `apiVersion`, `kind`, and `sauce`.
 
 ## Example Configuration
@@ -28,6 +35,7 @@ cypress:
 suites:
   - name: "saucy test"
     browser: "chrome"
+    browserVersion: "latest" # Can also be a hardcoded version
     screenResolution: "1920x1080"
     config:
       env:
@@ -104,6 +112,7 @@ __Example__:
 suites:
   - name: "saucy test"
     browser: "chrome"
+    browserVersion: "latest"
     config:
       env:
         hello: world
@@ -123,13 +132,26 @@ __Example__:
 
 ### `browser`
 
-__Description__: Browser in which the test runs.
+__Description__: Name of the browser in which the test runs.
 
 __Type__: *string*
 
 __Example__:
 ```yaml
     browser: "chrome"
+```
+
+### `browserVersion`
+
+<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
+
+__Description__: Version of the browser in which the test runs.
+
+__Type__: *string*
+
+__Example__:
+```yaml
+    browserVersion: "85.0"
 ```
 
 ### `platformName`
@@ -171,4 +193,3 @@ __Example__:
         hello: world
       testFiles: [ "**/*.*" ]
 ```
-

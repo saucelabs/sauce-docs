@@ -53,7 +53,7 @@ saucectl run
 
 ### `ccy`
 
-<p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
+<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight></small></p>
 
 __Description__: Increases your Sauce Labs VM concurrency when [running tests remotely on the Sauce Labs Cloud](/testrunner-toolkit/running-tests#test-on-sauce-labs).
                                                                                                                                                                        
@@ -115,7 +115,7 @@ saucectl run --suite <suite_name>
 
 ### `test-env`
 
-<p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
+<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight></small></p>
 
 __Description__: Specifies the test execution environment:
 * test locally with `docker` containers 
