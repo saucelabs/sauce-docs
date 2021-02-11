@@ -3,7 +3,15 @@ id: virtual-device-testing
 title: Virtual Device Testing with Espresso
 sidebar_label: Virtual Device Testing
 ---
-<p><button class="badge-blue">BETA</button></p>
+
+export const Highlight = ({children, color}) => ( <span style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>{children}</span> );
+
+<p> <Highlight color="#eb7734">BETA</Highlight> </p>
 
 Sauce Labs offers the ability to run tests on our virtual device cloud emulators using popular native frameworks such as Espresso, a native testing framework for running user interface tests on Android devices. At this time, XCUITest is not supported.
 
