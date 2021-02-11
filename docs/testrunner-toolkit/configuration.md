@@ -131,6 +131,7 @@ cypress:
 suites:
   - name: "saucy test"
     browser: "chrome"
+    browserVersion: "latest"
     config:
       env:
         hello: world
@@ -161,27 +162,30 @@ Below are framework-specific configuration examples that exist in the [Testrunne
 <TabItem value="cypress">
 
 ```yaml reference
-https://github.com/saucelabs/sauce-cypress-runner/blob/master/.saucetpl/.sauce/config.yml
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
 ```
 
 </TabItem>
 <TabItem value="playwright">
 
 ```yaml reference
-https://github.com/saucelabs/sauce-playwright-runner/blob/master/.saucetpl/.sauce/config.yml
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/playwright.yml
 ```
 
 </TabItem>
 <TabItem value="testcafe">
 
 ```yaml reference
-https://github.com/saucelabs/sauce-testcafe-runner/blob/master/.saucetpl/.sauce/config.yml
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
 ```
 
 </TabItem>
 </Tabs>
 
 ### Concurrency
+
+<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight></small></p>
+
 
 Saucectl is capable of running test suites in parallel when utilizing the Sauce Labs infrastructure. _This feature requires a Sauce Labs account_, so don't forget to set the environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`!
 The degree of concurrency can be controlled via the config:
@@ -202,7 +206,10 @@ If you have more suites than that, any excess will simply be queued until it's t
 The concurrency setting has no effect when the test environment is `--test-env docker` and only works when running tests in the Sauce cloud via `--test-env sauce`.
 The maximum concurrency that you can use is limited by your account settings.
 
-## Set different screen resolutions
+## Set Different Screen Resolutions
+
+<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight></small></p>
+
 If you wish to execute tests on different screen resolutions while using Testrunner Toolkit, add the `screenResolution` parameter to your `.sauce/config.yml`:
 
 ### Example
@@ -229,6 +236,7 @@ suites:
     config:
       env:
         hello: world
+        my_var: $MY_VAR
       testFiles: [ "**/*.*" ] # Cypress native glob support.
 ```
 
@@ -387,6 +395,19 @@ __Example__:
 ```yaml
   - name: "saucy test"
 ```
+
+#### `env`
+__Description__: Field for setting enviornment variables. It supports expanded enviornment variables.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+  env:
+    hello: world
+    my_var: $MY_VAR
+```
+
 ## Framework Syntax Reference
 
 * [Cypress](/testrunner-toolkit/configuration/cypress)
