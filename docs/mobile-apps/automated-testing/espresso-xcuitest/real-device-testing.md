@@ -50,7 +50,12 @@ Here's how to configure Sauce Runner for Real Devices with Espresso and XCUITest
 
 2. Choose one of the following ways to set your test parameters:
 
-  * **Add command line options**: see [Sauce Runner for Real Devices command line options](dev/cli/espresso-xcuitest.md)
+  * **Using the command line interface**: Sauce Runner for Real Devices will execute tests based on the parameters you set in the file. First, you'll need to add the `config` command to your code. The config command only accepts two parameters: `--path <path to config.yml>` and `--apikey <apikey>`. See the full list at [Sauce Runner for Real Devices command line options](dev/cli/espresso-xcuitest.md). Here's an example:
+
+  ```js
+  JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config --path <path to config.yml> --apikey <apikey>
+  ```
+
   * **Create a YAML configuration file**: see [Example Configurations](mobile-apps/automated-testing/espresso-xcuitest/example-configurations.md)
 
 
