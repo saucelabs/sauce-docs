@@ -27,7 +27,7 @@ To get started, you'll need to contact your Sauce Labs Sales Engineer or Custome
 
 IPSec VPN allows virtual machines on the Sauce Labs network to access application servers on private networks. The solution consists of a VPN connection and two IPSec tunnel gateways, one running on the customer network, and the other on Sauce Labs. This connection allows secure communication between the gateways, which provide rules for DNS resolution, routing, and security.
 
-!["IPSec VPN Network Architecture"](/img/ipsecvpn.png)
+!["IPSec VPN Network Architecture"](/img/ipsec-vpn/ipsec-diagram.png)
 
 ### Security
 We recommend using an enterprise-grade gateway for your IPSec VPN configuration. The tunnel gateway runs a firewall, through which only authorized virtual machines (VMs) can connect.
