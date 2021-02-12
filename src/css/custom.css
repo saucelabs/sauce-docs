@@ -279,6 +279,19 @@ h3, .h3 {
   border-radius:10%;
 }
 
+.badge-download {
+  position:relative;
+  font-size:12pt;
+  background:#EDEDEF;
+  color:white;
+  font-weight:525;
+  height:45px;
+  width:125px;
+  text-align:center;
+  line-height:25px;
+  border-radius:15%;
+}
+
 
 /* Get Started button styles */
 #__docusaurus > div.main-wrapper > header > div > div > a {
