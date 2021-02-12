@@ -221,6 +221,7 @@ module.exports = {
         collapsed: true,
         items: [
           'dev/api',
+          'dev/api/accounts',
         ],
       },
       {
