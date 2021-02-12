@@ -113,7 +113,7 @@ suites:
 
 If you're running tests on Sauce Labs VMs, but the site under test is protected behind strict network security/policies, you can utilize [Sauce Connect Proxy](/secure-connections/sauce-connect) to circumvent the problem.
 
-You can use the `--tunnel-id` flag with `saucectl` in order to launch a tunnel with your test session:
+You can use the --tunnel-id flag with saucectl in order to use an existing Sauce Connect tunnel with your test session:
 
 ```bash
 saucectl run --tunnel-id <tunnel-id>
