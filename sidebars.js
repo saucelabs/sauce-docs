@@ -87,10 +87,10 @@ module.exports = {
       ],
   "Mobile Apps": [
     'mobile-apps',
-    'mobile-apps/features',
     'mobile-apps/devices',
-    'mobile-apps/admin-guide',
+    'mobile-apps/features',
     'mobile-apps/app-storage',
+    'mobile-apps/faq',
     'mobile-apps/virtual-usb',
      {
         type: 'category',
@@ -108,7 +108,6 @@ module.exports = {
             'mobile-apps/automated-testing',
             'mobile-apps/automated-testing/microsoft-app-center',
             'mobile-apps/automated-testing/troubleshooting',
-            'mobile-apps/automated-testing/faq',
                 {
                   type: 'category',
                   label: 'Appium',

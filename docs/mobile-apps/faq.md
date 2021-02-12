@@ -1,6 +1,6 @@
 ---
 id: faq
-title: Automated Mobile Appp Testing FAQ
+title: Mobile App Testing FAQ
 sidebar_label: FAQ
 ---
 
@@ -12,7 +12,7 @@ sidebar_label: FAQ
 
 Our devices are real, physical devices. They are standard, commercially available devices and not modified or rooted. We use virtual networking computer (VNC) to transmit mouse and keyboard events on the devices. The VNC server on the devices relays back the content of the screen of the devices in real time.
 
-#### What does the top device lists by country tell me, and how reliable are they?
+#### What does the top device lists by country, and how reliable are they?
 
 The top lists indicate the ten most common devices by country. We gather information from an external provider who analyses mobile web traffic data from thousands of websites worldwide. The lists are generally reliable, but by using the "web traffic" metric for device distribution numbers, high-end devices and tablets might be overrepresented. Older and low-cost devices often have a smaller screen and a poorer performance, and are less used for surfing the web than top devices. This is why the  "web-traffic" metric might underrepresent the overall distribution of these devices.
 
@@ -26,7 +26,7 @@ We try to source new popular devices really quickly. Usually, we can provide new
 
 #### You don't have the device that I need. Can you get it for me?
 
-Generally, yes. If the model you are looking for is not in our pool yet you can request it. In the device selection screen for your manual test, click the Device request link under Search devices. We'll add that request to our purchasing list. If a device is requested by enough users, we will look to source it in our next purchasing round.
+Generally, yes. If the model you are looking for is not in our pool yet, you can request it. In the device selection screen for your Live test, click the Device request link under Search devices. We'll add that request to our purchasing list. If a device is requested by enough users, we will look to source it in our next purchasing round.
 
 #### Is it possible to test the camera behavior using your devices?
 
@@ -35,7 +35,7 @@ While you will be able to access the camera on all our devices, our smartphones 
 
 #### Is it possible to test push notifications?
 
-Yes. For iOS you will need to disable resigning before testing to enable notifications testing. Disabling resigning is a feature to be used on private devices only and will require you to start keeping track of the iOS device UDIDs (Unique Device Identifier) by maintaining them in your own Apple Developer profile used at app build time. Android testing requires no changes.
+Yes. For iOS, you will need to disable resigning before testing to enable notifications testing. Disabling resigning is a feature to be used on private devices only and will require you to start keeping track of the iOS device UDIDs (Unique Device Identifier) by maintaining them in your own Apple Developer profile used at app build time. Android testing requires no changes.
 
 
 ### Security
