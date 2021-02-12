@@ -50,7 +50,7 @@ Testrunner Toolkit will then execute the test based on the information in `confi
 
 ## Test on Sauce Labs
 
-<p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
+<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight></small></p>
 
 If you wish to run your tests on Sauce Labs VMs, simply run the following command:
 
@@ -78,7 +78,7 @@ Please note that VM concurrency depends on the suite number rather than the numb
 
 ### Cross-Browser Tests
 
-<p><small><Highlight color="#25c2a0">cypress only</Highlight> <Highlight color="#1877F2">beta</Highlight> </small></p>
+<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight></small></p>
 
 When you run tests on Sauce Labs VMs you have access to a wide range of OS + browser combinations. In order to test against multiple different browsers, you can indicate the desired combinations in the `suites` > `browser` field:
 
@@ -113,7 +113,7 @@ suites:
 
 If you're running tests on Sauce Labs VMs, but the site under test is protected behind strict network security/policies, you can utilize [Sauce Connect Proxy](/secure-connections/sauce-connect) to circumvent the problem.
 
-You can use the `--tunnel-id` flag with `saucectl` in order to launch a tunnel with your test session:
+You can use the --tunnel-id flag with saucectl in order to use an existing Sauce Connect tunnel with your test session:
 
 ```bash
 saucectl run --tunnel-id <tunnel-id>

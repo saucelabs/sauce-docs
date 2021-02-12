@@ -87,11 +87,8 @@ module.exports = {
       ],
   "Mobile Apps": [
     'mobile-apps',
-    'mobile-apps/features',
     'mobile-apps/devices',
-    'mobile-apps/admin-guide',
     'mobile-apps/app-storage',
-    'mobile-apps/virtual-usb',
      {
         type: 'category',
         label: 'Live Testing',
@@ -108,7 +105,6 @@ module.exports = {
             'mobile-apps/automated-testing',
             'mobile-apps/automated-testing/microsoft-app-center',
             'mobile-apps/automated-testing/troubleshooting',
-            'mobile-apps/automated-testing/faq',
                 {
                   type: 'category',
                   label: 'Appium',
@@ -135,6 +131,9 @@ module.exports = {
                 },
               ],
            },
+     'mobile-apps/features',
+     'mobile-apps/virtual-usb',
+     'mobile-apps/faq',
          ],
     "Web Apps": [
       'web-apps',
@@ -151,13 +150,17 @@ module.exports = {
         label: 'Automated Testing',
         collapsed: true,
         items: [
-          'web-apps/automated-testing',
           'web-apps/automated-testing/cypress'
         ],
       },
     ],
     "CI/CD": [
         'ci',
+        'ci/bamboo',
+        'ci/bitbucket',
+        'ci/jenkins',
+        'ci/teamcity',
+        'ci/visual-studio',
     ],
     "Insights": [
         'insights',
