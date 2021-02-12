@@ -4,47 +4,16 @@ title: Example Configurations for Espresso and XCUITest
 sidebar_label: Example Configurations
 ---
 
-## Wim's repositories...
-
-These repositories below contains multiple examples on how to run Espresso tests on the Sauce Labs cloud.
-
-### Espresso
-
-#### Real Devices
-https://github.com/saucelabs-training/demo-espresso/tree/master/real-devices
-
-#### Virtual Devices
-https://github.com/saucelabs-training/demo-espresso/tree/master/emulators
+These repositories below illustrate how to run Espresso tests on the Sauce Labs cloud.
 
 
-### XCUITest
+## Creating a YAML Configuration File for Real Devices
 
-#### Real Devices
-https://github.com/saucelabs-training/demo-xcuitest/tree/master/real-devices
+As an alternative to configuring your [Espresso and XCUITest RDC tests](mobile-apps/automated-testing/espresso-xcuitest/real-device-testing.md) using the [command line interface](/dev/cli/espresso-xcuitest.md), you can create a YAML configuration file, as described below.
 
-#### Virtual Devices
-Not supported at the moment.
+>**NOTE**: You cannot use [command line options](dev/cli/espresso-xcuitest.md) in your YAML config file. Once you pass the `config` command to the runner, it will prohibit you from using the other configuration options available on the command line.
 
-
-## Creating a YAML Configuration File
-
-There are two ways to configure your Espresso and XCUITest tests with Sauce Runner for Real Devices: by using [command line options](dev/cli/espresso-xcuitest.md) or by creating a YAML configuration file.
-
-Sauce Runner for Real Devices will execute tests based on the parameters you set in the file. First, you'll need to add the `config` command to your code. The config command only accepts two parameters: `--path <path to config.yml>` and `--apikey <apikey>`. Here's an example:
-
-  ```js
-  JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config --path <path to config.yml> --apikey <apikey>
-  ```
-**NOTE**: You cannot use [command line options](dev/cli/espresso-xcuitest.md) in your YAML config file. Once you pass the `config` command to the runner, it will prohibit you from using the other configuration options available on the command line.
-
-### Parallel Test Executions
-For both examples, the tests can be configured to run in parallel on the Sauce Labs Real Device Cloud.
-
-For each section starting with the `-datacenter` directive, a new parallel test thread will spin up for the device indicated. If you specify multiple test classes or test methods, each will be executed serially, in the order presented in the section, on the device. The test results for each device are then rolled into a single set of artifacts (e.g., videos, logs) in the UI. These artifacts may be downloaded via the API after the test suite is complete.
-
-If either example were executed, it would result in four separate test executions in parallel on four different devices. The tests within the section will be assigned to that one device and executed in the order specified.
-
-#### Example Sauce Runner Configuration File for XCUITest
+#### XCUITest Example: Sauce Runner YAML Configuration File
 
 This snippet includes all the required options for running an XCUITest suite in conjunction with Sauce Runner for Real Devices. It includes the `--devices` option to select devices based on both static and dynamic allocation, and the `--testsToRun` option to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Swift or Objective-C.
 
@@ -64,7 +33,7 @@ xmlFolder: ./
 # A list of devices to be used for this test run
 devices:
 
-# Device 1 example: this will execute every test in the ipa file on a random iOS device
+# Device 1 example: this will execute every test in the .ipa file on a random iOS device
 # Only specify a DC (either EU or US)
 - datacenter: EU
 
@@ -89,7 +58,8 @@ devices:
   # Optional parameters, set to true to enable
   # phoneOnly: false
   # tabletOnly: false
-  # privateDevicesOnly: false            # if 'true', will run only on Private Devices assigned to your account
+  # privateDevicesOnly: false            
+        # if 'true', will run only on Private Devices assigned to your account
 
 # Device 4 example: Running subset of tests
 - datacenter: EU
@@ -111,9 +81,9 @@ devices:
 
 ```
 
-#### Example Sauce Runner Configuration File for Espresso
+#### Espresso Example: Sauce Runner YAML Configuration File
 
-This snippet includes all the required options for running an Espresso test suite, including the --devices option to select devices based on both static and dynamic allocation, and the `--envs` option to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Java or Kotlin.
+This snippet includes all the required options for running an Espresso test suite, including the `--devices` option to select devices based on both static and dynamic allocation, and the `--envs` option to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Java or Kotlin.
 
 ```sh
 testFramework: espresso
@@ -172,6 +142,15 @@ devices:
     value: com.example.android.TestClassA
 ```
 
+### Parallel Test Executions
+The XCUITest and Espresso examples above each contain tests on four different iOS and Android devices, respectively. On the Sauce Labs Real Device Cloud, you'll have the option to configure these tests to run in parallel.
+
+For each section starting with the `-datacenter` directive, a new parallel test thread will spin up for the device indicated. If you specify multiple test classes or test methods, each will be executed serially, in the order presented in the section, on the device.
+
+By executing either example (Espresso or XCUITest), it would result in four separate test executions in parallel on four different devices. The tests within the section will be assigned to that one device and executed in the order specified.
+
+Once the test suite has completed, you can find the test results for each device rolled into a single set of artifacts (e.g., videos, logs) under Sauce Labs > Automated > Test Results. You can download these artifacts via the API.
+
 ### Uploading Your App and Test Files to TestObject Storage API
 
 As an alternative to using the built-in upload behavior of Sauce Runner for Real Devices, you can separate the upload of your application and test files via TestObject Storage API.
@@ -202,4 +181,19 @@ Example: uploading an Android test runner
 
 ```sh
 curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest/storage/upload -H "Content-Type: application/octet-stream" -H "App-Type: ANDROID_INSTRUMENTATION_TEST" --data-binary @/path/to/androidTest.apk
-``
+```
+
+## Additional Resources
+
+### Real Devices
+
+* [Sauce Labs GitHub repository | Espresso for Real Devices](https://github.com/saucelabs-training/demo-espresso/tree/master/real-devices)
+
+* [Sauce Labs GitHub repository | XCUITest for Real Devices](https://github.com/saucelabs-training/demo-xcuitest/tree/master/real-devices)
+
+
+### Virtual Devices
+
+* [Sauce Labs GitHub repository | Espresso for Real Devices](https://github.com/saucelabs-training/demo-espresso/tree/master/emulators)
+
+Sauce Labs virtual devices do not support XCUITest.

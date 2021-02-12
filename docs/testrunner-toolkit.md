@@ -1,20 +1,12 @@
 ---
 id: testrunner-toolkit
 title: Using Testrunner Toolkit                                 
-sidebar_label: About
+sidebar_label: Using Testrunner Toolkit
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-export const Highlight = ({children, color}) => ( <span style={{
-      backgroundColor: color,
-      borderRadius: '2px',
-      color: '#fff',
-      padding: '0.2rem',
-    }}>{children}</span> );
-
-<p><Highlight color="#1877F2">Beta</Highlight></p>
 
 Sauce Labs Testrunner Toolkit is designed to support native Javascript frameworks through a containerized testing solution that simplifies user set up and speeds up test execution time. 
 
@@ -30,6 +22,9 @@ Most importantly, by running these tests through Sauce Labs, you can:
 * Use our Insights feature to perform deeper analysis of test outcomes
 * Take advantage of other Sauce-specific options as development of this beta feature continues, including VMs, parallelization, and so on
 
+## How to Get Started
+
+To get started quickly, please see [this page](/testrunner-toolkit/installation).
 ## How it Works
 
 Testrunner Toolkit achieves JavaScript framework testing through the combination of Sauce Labs, Jest, and the
