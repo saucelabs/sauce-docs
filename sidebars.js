@@ -88,10 +88,7 @@ module.exports = {
   "Mobile Apps": [
     'mobile-apps',
     'mobile-apps/devices',
-    'mobile-apps/features',
     'mobile-apps/app-storage',
-    'mobile-apps/faq',
-    'mobile-apps/virtual-usb',
      {
         type: 'category',
         label: 'Live Testing',
@@ -134,6 +131,9 @@ module.exports = {
                 },
               ],
            },
+     'mobile-apps/features',
+     'mobile-apps/virtual-usb',
+     'mobile-apps/faq',
          ],
     "Web Apps": [
       'web-apps',
