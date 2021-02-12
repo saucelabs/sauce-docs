@@ -20,6 +20,28 @@ There are a variety of use cases to consider when you're deciding on the mix of 
 >**NOTE**: If your organization requires a secure, proxied connection to the Sauce Labs Cloud platform, see [Secure Connections](secure-connections.md)
 
 
+
+## When to Test on Emulators and Simulators
+
+If you need...
+
+* Massive concurrency
+* To reduce build times
+* To save costs
+* Immediate availability
+* Extremely low error rates for your test environment
+
+## What You'll Need
+
+| | iOS Mobile Apps | Android Mobile Apps |
+:-------:| :-------:| :----:|
+|  | <img src={useBaseUrl('img/mobile-apps/apple-logo.png')} alt="Apple logo" width="50"/> | <img src={useBaseUrl('img/mobile-apps/android-logo.png')} alt="Android logo" width="50"/> |
+| **Requirements** | <p>Your iOS app must be:</p><p>Compiled for the simulator/device version of your choice</p><p>Compressed into a .zip package/archive file (must include app directory)</p><p>[Uploaded and hosted](mobile-apps/app-storage.md) in a place that Sauce Labs can access (for example: AWS, GitHub, or Sauce Storage)</p> | <p>Your Android app must be:</p><p>Compiled for the simulator/device version of your choice</p><p>Configured to have internet permissions</p><p>Built into an .apk package/archive file</p><p>[Uploaded and hosted](mobile-apps/app-storage.md) in a place that Sauce Labs can access (for example: AWS, GitHub, or Sauce Storage)</p> |
+| **Versions supported** | iOS versions 10.3 and higher | Android versions 5.0 and higher |
+| **Tips** | <p>If you're using Sauce Storage, get the returned location, which will look something like sauce-storage:myApplication.zip.</p><p>In your [test capabilities](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options), specify the location of the .zip file, or the `sauce-storage:myApplication.zip` URL as described in [App Storage](mobile-apps/app-storage.md).</p> | <p>This StackOverflow article contains instructions on how to build an .apk file in Eclipse.</p><p>In the test capabilities, specify the location of the .apk file, or the sauce-storage:app.apk URL as described in Temporary Sauce Storage.</p> |
+
+For the full list of supported real devices, see [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices).
+
 ## When to Test on Real Devices
 
 If you need...
@@ -246,31 +268,6 @@ You can also use the cacheId capability in conjunction with the standard noReset
 >**NOTE**: Our [legacy Real Device Cloud platform](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177) used the capability `testobject_cache_device` – specific to static allocation – to keep the device allocated to you during the cleaning process. This capability has been deprecated and replaced with `cacheId`, which works for both static and dynamic allocation. If you have scripts that use `testobject_cache_device`, they will still work for static allocation, and the 10-second limit on cached devices is still the same.
 
 <br/>
-
-
-
-
-## When to Test on Emulators and Simulators
-
-If you need...
-
-* Massive concurrency
-* To reduce build times
-* To save costs
-* Immediate availability
-* Extremely low error rates for your test environment
-
-## What You'll Need
-
-| | iOS Mobile Apps | Android Mobile Apps |
-:-------:| :-------:| :----:|
-|  | <img src={useBaseUrl('img/mobile-apps/apple-logo.png')} alt="Apple logo" width="50"/> | <img src={useBaseUrl('img/mobile-apps/android-logo.png')} alt="Android logo" width="50"/> |
-| **Requirements** | <p>Your iOS app must be:</p><p>Compiled for the simulator/device version of your choice</p><p>Compressed into a .zip package/archive file (must include app directory)</p><p>[Uploaded and hosted](mobile-apps/app-storage.md) in a place that Sauce Labs can access (for example: AWS, GitHub, or Sauce Storage)</p> | <p>Your Android app must be:</p><p>Compiled for the simulator/device version of your choice</p><p>Configured to have internet permissions</p><p>Built into an .apk package/archive file</p><p>[Uploaded and hosted](mobile-apps/app-storage.md) in a place that Sauce Labs can access (for example: AWS, GitHub, or Sauce Storage)</p> |
-| **Versions supported** | iOS versions 10.3 and higher | Android versions 5.0 and higher |
-| **Tips** | <p>If you're using Sauce Storage, get the returned location, which will look something like sauce-storage:myApplication.zip.</p><p>In your [test capabilities](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options), specify the location of the .zip file, or the `sauce-storage:myApplication.zip` URL as described in [App Storage](mobile-apps/app-storage.md).</p> | <p>This StackOverflow article contains instructions on how to build an .apk file in Eclipse.</p><p>In the test capabilities, specify the location of the .apk file, or the sauce-storage:app.apk URL as described in Temporary Sauce Storage.</p> |
-
-For the full list of supported real devices, see [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices).
-
 
 
 ## Additional Resources
