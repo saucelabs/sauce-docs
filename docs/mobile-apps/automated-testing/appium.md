@@ -8,24 +8,24 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This page is intended to provide you with a quick overview of how Appium works to get started with mobile application testing. For full documentation of Appium, with more examples in popular scripting languages, check out the Appium.io website.
+This page is intended to provide you with a quick overview of how Appium works to get started with mobile application testing. For full documentation of Appium, with more examples in popular scripting languages, check out the [Appium.io website](http://appium.io).
 
 
 ## Overview
-Appium was originally developed by Dan Cueller as a way to take advantage of the UIAutomation framework for Apple iOS to run tests against native mobile applications. Using the same syntax as Selenium, it shares similarities with Selenium's ability to automate interaction with a website through a mobile browser. Although Appium can test websites on a mobile device, it is more commonly used for testing native and hybrid mobile applications for both iOS and Android.
+Appium was originally developed by Dan Cueller as a way to take advantage of the UIAutomation framework for Apple iOS to run tests against native mobile applications. Using the same syntax as [Selenium](https://www.selenium.dev), it shares similarities with Selenium's ability to automate interaction with a website through a mobile browser. Although Appium can test websites on a mobile device, it is more commonly used for testing native and hybrid mobile applications for both iOS and Android.
 
 ## Appium Architecture
 Appium has a client-server architecture.
 
 ### Appium Client
 
-* Includes a set of client libraries for various scripting languages in which you write your test scripts based on the Selenium WebDriver API.
+* Includes a [set of client libraries](http://appium.io/downloads) for various scripting languages in which you write your test scripts based on the Selenium WebDriver API.
 
 ### Appium Server
 
-* Includes a server component, based on node.js, which exposes the WebDriver API. In fact it exposes a superset of the WebDriver API known as the Mobile JSON Wire Protocol.
+* Includes a server component, based on node.js, which exposes the WebDriver API. In fact it exposes a superset of the WebDriver API known as the [Mobile JSON Wire Protocol](https://speakerdeck.com/jlipps/the-mobile-json-wire-protocol).
 
-* Includes a desktop application, available for both OS X and Windows, that includes everything you need to run Appium bundled in a single package, as well as the ability to inspect elements in running applications.
+* Includes a [desktop application](http://appium.io/downloads.html), available for both OS X and Windows, that includes everything you need to run Appium bundled in a single package, as well as the ability to inspect elements in running applications.
 
 >**NOTE**: Appium Desktop is currently unsupported by the Appium core team.
 
@@ -39,12 +39,12 @@ There are seven basic steps in creating an Appium test script for your applicati
 4. [Perform an action on the element (e.g., tap the login button)](/mobile-apps/automated-testing/appium#4-performing-actions-on-the-application-elements).
 5. [Anticipate the application response to the action (e.g., successfully logged in)](/mobile-apps/automated-testing/appium#5-anticipating-the-application-response).
 6. [Run tests and record test results. (e.g., log whether test passed, failed, or returned an error)](/mobile-apps/automated-testing/appium#6-running-tests-and-recording-results).
-7. [Conclude the test (e.g., shut down connection to Sauce Labs)](/mobile-apps/automated-testing/appium#7-concluding-the-tests.)
+7. [Conclude the test (e.g., shut down connection to Sauce Labs)](/mobile-apps/automated-testing/appium#7-concluding-the-tests).
 
 
 
 ### 1. Locating the Mobile Application
-When you write an Appium test script, the most basic component is the DesiredCapabilities object, which sets the parameters of your test, such as the mobile platform and operating system you want to test against. Within that object, one of the required capabilities is Application Path, or the app desired capability. One of the advantages of the Appium architecture is that the application you want to test can be hosted anywhere, from a local path to any other web host on the network, since the Appium server will send the commands it receives from the client to any application path you specify. Practically, you have three options. 
+When you write an Appium test script, the most basic component is the [DesiredCapabilities object](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365693), which sets the parameters of your test, such as the mobile platform and operating system you want to test against. Within that object, one of the [required capabilities](https://wiki.saucelabs.com/pages/viewpage.action?pageId=63475214) is Application Path, or the app desired capability. One of the advantages of the Appium architecture is that the application you want to test can be hosted anywhere, from a local path to any other web host on the network, since the Appium server will send the commands it receives from the client to any application path you specify. Practically, you have three options. 
 
 See [Application Storage](/mobile-apps/app-storage.md).
 
@@ -193,8 +193,8 @@ In order to find elements in a mobile environment, Appium implements a number of
 #### accessibility ID
 The `accessibility ID` locator strategy is designed to read a unique identifier for a UI element. This has the benefit of not changing during localization or any other process that might change text. In addition, it can be an aid in creating cross-platform tests, if elements that are functionally the same have the same accessibility id.
 
-* For iOS this is the accessibility identifier laid out by Apple here.
-* For Android the accessibility id maps to the content-description for the element, as described here.
+* For iOS, this is the accessibility identifier laid out by Apple [here](https://developer.apple.com/documentation/uikit/uiaccessibilityidentification).
+* For Android, the accessibility id maps to the content-description for the element, as described [here](https://developer.android.com/guide/topics/ui/accessibility/apps).
 
 For both platforms getting an element, or multiple elements, by their accessibility id is usually the best method. It is also the preferred way, in replacement of the deprecated name strategy.
 
@@ -246,7 +246,7 @@ WebElement emailInput = driver.findElement(By.id("fbemail"));
 
 #### xpath
 
-The `xpath` locator strategy is also available in the WebDriver protocol, and exposes the functionality of XPath language to locate elements within a mobile view. An XML representation of the view is created in Appium, and searches are made against that image.
+The `xpath` locator strategy is also available in the WebDriver protocol, and exposes the functionality of [XPath language](https://www.w3.org/TR/xpath20/) to locate elements within a mobile view. An XML representation of the view is created in Appium, and searches are made against that image.
 
 The Selenium clients have methods for retrieving elements using the xpath locator strategy.
 

@@ -17,7 +17,7 @@ Get the most out of your live and automated testing by including a healthy mix o
 
 There are a variety of use cases to consider when you're deciding on the mix of emulators, simulators, and real devices to use in your testing.
 
->**NOTE**: If your organization requires a secure, proxied connection to the Sauce Labs Cloud platform, see [Secure Connections](secure-connections.md)
+>**NOTE**: If your organization requires a secure, proxied connection to the Sauce Labs Cloud platform, see [Secure Connections](secure-connections.md).
 
 
 
@@ -31,7 +31,7 @@ If you need...
 * Immediate availability
 * Extremely low error rates for your test environment
 
-## What You'll Need
+### Requirements
 
 | | iOS Mobile Apps | Android Mobile Apps |
 :-------:| :-------:| :----:|
@@ -41,6 +41,7 @@ If you need...
 | **Tips** | <p>If you're using Sauce Storage, get the returned location, which will look something like sauce-storage:myApplication.zip.</p><p>In your [test capabilities](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options), specify the location of the .zip file, or the `sauce-storage:myApplication.zip` URL as described in [App Storage](mobile-apps/app-storage.md).</p> | <p>This StackOverflow article contains instructions on how to build an .apk file in Eclipse.</p><p>In the test capabilities, specify the location of the .apk file, or the sauce-storage:app.apk URL as described in Temporary Sauce Storage.</p> |
 
 For the full list of supported real devices, see [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices).
+
 
 ## When to Test on Real Devices
 
@@ -65,7 +66,7 @@ The Sauce Labs real device cloud provides you with the ability to run live and a
 * Devices cleaning process between sessions to ensure maximum privacy
 * Carrier Network Connectivity (devices with SIM cards)
 
-## What You'll Need
+### Requirements
 
 | | iOS Mobile Apps | Android Mobile Apps |
 :-------:| :-------:| :----:|
@@ -76,12 +77,12 @@ The Sauce Labs real device cloud provides you with the ability to run live and a
 For the full list of supported real devices, see [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices).
 
 
-## Choosing Public vs. Private Real Devices
+### Public Real Devices vs. Private Real Devices
 
-Sauce Labs offers access to both public and private device clouds for your real device testing. Review the use cases below to see which option will suit your testing needs.
+Sauce Labs offers access to both public and private device clouds for your real device testing. Review the use cases below to see which option will suit your testing needs. Learn more [here](https://saucelabs.com/platform/real-device-cloud).
 
 
-### Public Real Device Cloud Uses Cases
+#### Public Real Device Cloud Uses Cases
 
 *   The devices available on the public cloud are sufficient for your testing coverage
 *   You need to reproduce bugs on a selection of hundreds of iOS and Android devices
@@ -90,7 +91,7 @@ Sauce Labs offers access to both public and private device clouds for your real 
 *   You are looking for a low-cost real device testing option
 
 
-### Private Real Device Cloud Use Cases
+#### Private Real Device Cloud Use Cases
 
 <p> <Highlight color="#013a70">ENTERPRISE PLANS ONLY</Highlight> </p>
 
@@ -100,8 +101,9 @@ Sauce Labs offers access to both public and private device clouds for your real 
 *   You want to run automated/parallel tests across multiple devices
 *   You need specific settings which are set on the devices all the time
 
+### Security
 
-### Real Device Cleaning
+#### Real Device Cleaning
 
 We use a proprietary process that wipes every device clean at the end of the testing session. Steps in this process include:
 
@@ -116,12 +118,12 @@ While we take these actions after each test session on a public device, users of
 For more information on Sauce Labs security settings, see [Security Settings for Organizations](https://wiki.saucelabs.com/pages/viewpage.action?pageId=69108863).
 
 
-### Data Center Security
+#### Data Center Security
 
 Data Center security related to real devices is described in [Data Center Endpoints](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068).
 
 
-### Dynamic Allocation
+### Dynamic Device Allocation
 
 _Dynamic Allocation_ involves providing basic parameters for the platform and operating system, or the type of device you want to use in your tests, and a device with those specifications is selected from the device pool. While static allocation allows you more fine-grained control over the device used in your tests, it can also cause delays in your test execution if that device isn't available when you run your tests. If you only need to test on a particular platform and OS version, such as an Android 4.1, or on a particular type of device, you should use dynamic allocation, and we recommend that you use dynamic allocation for all automated mobile application testing in CI/CD environments.
 
@@ -214,7 +216,7 @@ _Dynamic Allocation_ involves providing basic parameters for the platform and op
 </table>
 
 
-### Static Allocation
+### Static Device Allocation
 
 With _Static Allocation_, you can specify the device to use in your tests, but if that device is not available when you run your tests, it will delay test execution. For this reason, you should always make sure that the device you want to use is available before launching your tests. The `platformName` and `platformVersion` capabilities will be set by default, and if these are included in your test script, they will be ignored.
 
@@ -229,7 +231,7 @@ With _Static Allocation_, you can specify the device to use in your tests, but i
 
 By default, every time you complete a test session, the real device cloud uninstalls your application, performs device cleaning, and de-allocates the device. This means that if you have multiple tests that you want to run on the same device, you will, by default, wait for this cleaning process to complete between every test.
 
-However, you can use the capability cacheId to leave the device allocated to you for 10 seconds after each test completes. If you immediately start another test on the device, you won't need to wait for the allocation and device cleaning process to be repeated. In this case, no device cleaning will take place in between sessions, with the only exception being the application under test and the data it owns.
+However, you can use the capability `cacheId` to leave the device allocated to you for 10 seconds after each test completes. If you immediately start another test on the device, you won't need to wait for the allocation and device cleaning process to be repeated. In this case, no device cleaning will take place in between sessions, with the only exception being the application under test and the data it owns.
 
 
 <table>
@@ -258,7 +260,6 @@ However, you can use the capability cacheId to leave the device allocated to you
    </td>
   </tr>
 </table>
-
 
 
 #### Using Device Caching with `noReset`
