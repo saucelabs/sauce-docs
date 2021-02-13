@@ -111,8 +111,8 @@ module.exports = {
                   collapsed: true,
                   items: [
                      'mobile-apps/automated-testing/appium',
-                     'mobile-apps/automated-testing/appium/rdc',
-                     'mobile-apps/automated-testing/appium/vdc',
+                     'mobile-apps/automated-testing/appium/real-devices',
+                     'mobile-apps/automated-testing/appium/virtual-devices',
                      'mobile-apps/automated-testing/appium/capabilities-scripts',
                     ],
                 },
@@ -122,8 +122,8 @@ module.exports = {
                   collapsed: true,
                   items: [
                     'mobile-apps/automated-testing/espresso-xcuitest',
-                    'mobile-apps/automated-testing/espresso-xcuitest/real-device-testing',
-                    'mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing',
+                    'mobile-apps/automated-testing/espresso-xcuitest/real-devices',
+                    'mobile-apps/automated-testing/espresso-xcuitest/virtual-devices',
                     'mobile-apps/automated-testing/espresso-xcuitest/example-configurations',
                   ],
                 },
