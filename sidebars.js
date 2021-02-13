@@ -88,7 +88,6 @@ module.exports = {
   "Mobile Apps": [
     'mobile-apps',
     'mobile-apps/devices',
-    'mobile-apps/app-storage',
      {
         type: 'category',
         label: 'Live Testing',
@@ -103,8 +102,6 @@ module.exports = {
           collapsed: true,
           items: [
             'mobile-apps/automated-testing',
-            'mobile-apps/automated-testing/microsoft-app-center',
-            'mobile-apps/automated-testing/troubleshooting',
                 {
                   type: 'category',
                   label: 'Appium',
@@ -129,6 +126,9 @@ module.exports = {
                 },
               ],
            },
+     'mobile-apps/app-storage',
+     'mobile-apps/automated-testing/microsoft-app-center',
+     'mobile-apps/automated-testing/troubleshooting',
      'mobile-apps/features',
      'mobile-apps/virtual-usb',
      'mobile-apps/faq',
