@@ -198,7 +198,7 @@ The `accessibility ID` locator strategy is designed to read a unique identifie
 
 For both platforms getting an element, or multiple elements, by their accessibility id is usually the best method. It is also the preferred way, in replacement of the deprecated name strategy.
 
-The client libraries specific to Appium support getting elements by accessibility id.
+The client libraries specific to Appium support getting elements by `accessibility id`.
 
 ```py
 #python example
