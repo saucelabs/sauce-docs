@@ -1,5 +1,5 @@
 ---
-id: rdc
+id: real-devices
 title: Appium Testing with Real Devices
 sidebar_label: Real Devices
 ---

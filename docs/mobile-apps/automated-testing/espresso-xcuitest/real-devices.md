@@ -1,5 +1,5 @@
 ---
-id: real-device-testing
+id: real-device
 title: Real Device Testing with Espresso and XCUITest
 sidebar_label: Real Device Testing
 ---
