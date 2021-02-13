@@ -1,7 +1,7 @@
 ---
 id: virtual-devices
 title: Virtual Device Testing with Espresso
-sidebar_label: Virtual Device Testing
+sidebar_label: Virtual Devices
 ---
 
 export const Highlight = ({children, color}) => ( <span style={{
