@@ -113,7 +113,7 @@ module.exports = {
                      'mobile-apps/automated-testing/appium',
                      'mobile-apps/automated-testing/appium/rdc',
                      'mobile-apps/automated-testing/appium/vdc',
-                     'mobile-apps/automated-testing/appium/capabilities-sample-scripts',
+                     'mobile-apps/automated-testing/appium/capabilities-scripts',
                     ],
                 },
                 {
