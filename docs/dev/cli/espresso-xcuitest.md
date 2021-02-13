@@ -6,12 +6,12 @@ sidebar_label: Espresso and XCUITest
 
 ## Sauce Runner for Real Devices Command Line Reference
 
-This topic describes the options you can use with [Sauce Runner for Real Devices](/mobile-apps/automated-testing/espresso-xcuitest/real-device-testing.md) to run automated tests on Sauce Labs real devices using Espresso and XCUITest.
+This topic describes the options you can use with [Sauce Runner for Real Devices](/mobile-apps/automated-testing/espresso-xcuitest/real-devices.md) to run automated tests on Sauce Labs real devices using Espresso and XCUITest.
 
 * Run tests in parallel across multiple devices
 * Run subsets of tests against specific devices
 * Set the options as environment variables that can be referenced in your testing scripts, or pass them as command line parameters, which will take precedence over options set as environment variables
-* Create a [runner configuration file](/mobile-apps/automated-testing/espresso-xcuitest/real-device-testing.md) with the options and commands for running your tests
+* Create a [runner configuration file](/mobile-apps/automated-testing/espresso-xcuitest/real-devices.md) with the options and commands for running your tests
 
 ### What You'll Need
 
