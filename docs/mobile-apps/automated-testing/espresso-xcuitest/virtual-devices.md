@@ -1,5 +1,5 @@
 ---
-id: virtual-device-testing
+id: virtual-devices
 title: Virtual Device Testing with Espresso
 sidebar_label: Virtual Device Testing
 ---
