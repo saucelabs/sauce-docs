@@ -9,7 +9,7 @@ These repositories below illustrate how to run Espresso tests on the Sauce Labs 
 
 ## Creating a YAML Configuration File for Real Devices
 
-As an alternative to configuring your [Espresso and XCUITest RDC tests](mobile-apps/automated-testing/espresso-xcuitest/real-device-testing.md) using the [command line interface](/dev/cli/espresso-xcuitest.md), you can create a YAML configuration file, as described below.
+As an alternative to configuring your [Espresso and XCUITest RDC tests](mobile-apps/automated-testing/espresso-xcuitest/real-devices.md) using the [command line interface](/dev/cli/espresso-xcuitest.md), you can create a YAML configuration file, as described below.
 
 >**NOTE**: You cannot use [command line options](dev/cli/espresso-xcuitest.md) in your YAML config file. Once you pass the `config` command to the runner, it will prohibit you from using the other configuration options available on the command line.
 

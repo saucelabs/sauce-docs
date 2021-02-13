@@ -1,5 +1,5 @@
 ---
-id: capabilities-sample-scripts
+id: capabilities-scripts
 title: Appium Capabilities and Example Scripts
 sidebar_label: Capabilities and Scripts
 ---

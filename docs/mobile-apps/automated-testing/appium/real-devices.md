@@ -1,7 +1,7 @@
 ---
-id: rdc
+id: real-devices
 title: Appium Testing with Real Devices
-sidebar_label: RDC
+sidebar_label: Real Devices
 ---
 
 See [Automated Testing with Real Devices](https://wiki.saucelabs.com/pages/viewpage.action?pageId=92677295).

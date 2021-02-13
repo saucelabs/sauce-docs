@@ -228,7 +228,7 @@ Android Emulators have software buttons and a hardware keyboard. In a regular An
 
 #### How can I run Android tests without Appium?
 
-If you wish to use the native Android testing framework (Espresso), please refer to the following documentation for [real device testing](/mobile-apps/automated-testing/espresso-xcuitest/real-device-testing) or [emulator and simulator testing](/mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing).
+If you wish to use the native Android testing framework (Espresso), please refer to the following documentation for [real device testing](/mobile-apps/automated-testing/espresso-xcuitest/real-devices) or [emulator and simulator testing](/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices).
 
 
 #### What mobile web browsers can I automate in the Android emulator?
