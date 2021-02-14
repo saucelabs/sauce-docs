@@ -20,7 +20,7 @@ Virtual USB for Real Devices simulates connecting a real device with a USB cable
 
 With Virtual USB (vUSB), you can use homegrown developing and testing tools because it integrates into the development environment as if the device was directly connected to the workstation. When you debug your applications, Virtual USB provides the ability to build and deploy an application directly from the IDE. You can also directly monitor device performance metrics such as CPU consumption, device memory, and network data performance.
 
->**NOTE**:Your access may depend on whether you're using the Legacy platform or the Sauce Labs platform. For more information on upcoming and available features for Real Devices, refer to the [feature preview doc](https://wiki.saucelabs.com/display/DOCSDEV/Real+Device+Testing+in+Sauce+Labs+Feature+Preview).
+>**NOTE**:Your access may depend on whether you're using the Legacy platform or the Sauce Labs platform. For more information on upcoming and available features for Real Devices, refer to the [feature preview doc](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721844).
 
 
 ## What You'll Need
