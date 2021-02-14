@@ -79,7 +79,7 @@ For the full list of supported real devices, see [Supported Browsers and Devices
 
 ### Public vs. Private Real Devices
 
-Sauce Labs offers access to both public and private device clouds for your real device testing. Review the use cases below to see which option will suit your testing needs.
+Sauce Labs offers access to both public and private device clouds for your real device testing. Review the use cases below to see which option will suit your testing needs. Learn more [here](https://saucelabs.com/platform/real-device-cloud).
 
 
 #### Public Real Device Cloud Uses Cases
