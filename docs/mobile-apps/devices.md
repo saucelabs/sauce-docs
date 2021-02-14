@@ -56,7 +56,7 @@ If you need...
 * To test on a native framework like Espresso and Robotium
 * To test scenarios that require network connectivity (e.g., phone calls, send SMS messages)
 
-The Sauce Labs real device cloud provides you with the ability to run live and automated tests across Android and iOS devices. Some of the features that are specific to our real device cloud include:
+The Sauce Labs real device cloud (RDC) provides you with the ability to run live and automated tests across Android and iOS devices. Some of the features that are specific to our real device cloud include:
 
 * Manual testing on real devices
 * Choice of public real devices or private real devices unique to your organization
@@ -77,12 +77,14 @@ The Sauce Labs real device cloud provides you with the ability to run live and a
 For the full list of supported real devices, see [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices).
 
 
-### Public Real Devices vs. Private Real Devices
+### Public vs. Private Real Devices
 
-Sauce Labs offers access to both public and private device clouds for your real device testing. Review the use cases below to see which option will suit your testing needs. Learn more [here](https://saucelabs.com/platform/real-device-cloud).
+Sauce Labs offers access to both public and private device clouds for your real device testing. Review the use cases below to see which option will suit your testing needs.
 
 
 #### Public Real Device Cloud Uses Cases
+
+Our public cloud contains a wide selection of thoroughly cleaned devices.
 
 *   The devices available on the public cloud are sufficient for your testing coverage
 *   You need to reproduce bugs on a selection of hundreds of iOS and Android devices
@@ -94,6 +96,8 @@ Sauce Labs offers access to both public and private device clouds for your real 
 #### Private Real Device Cloud Use Cases
 
 <p> <Highlight color="#013a70">ENTERPRISE PLANS ONLY</Highlight> </p>
+
+Dedicated pool of devices just for your organization.
 
 *   You need a very specific set of devices that aren't supported on the public cloud
 *   Your security team insists on dedicated devices
@@ -113,7 +117,7 @@ We use a proprietary process that wipes every device clean at the end of the tes
 *   Device settings are reset
 *   The app is uninstalled, and any cached data is deleted
 
-While we take these actions after each test session on a public device, users of the public RDC should be aware that Sauce Labs does not factory reset devices in the public RDC between test sessions, and these devices do not have anti-virus software installed on them. It is possible that other users of the public RDC may engage in malicious, careless or unsecure activity, and that sophisticated, persistent malware could therefore be present on any device in the public RDC.
+>**NOTE**: While we take these actions after each test session on a public device, users of the public RDC should be aware that Sauce Labs does not factory reset devices in the public RDC between test sessions, and these devices do not have anti-virus software installed on them. It is possible that other users of the public RDC may engage in malicious, careless or unsecure activity, and that sophisticated, persistent malware could therefore be present on any device in the public RDC.
 
 For more information on Sauce Labs security settings, see [Security Settings for Organizations](https://wiki.saucelabs.com/pages/viewpage.action?pageId=69108863).
 
