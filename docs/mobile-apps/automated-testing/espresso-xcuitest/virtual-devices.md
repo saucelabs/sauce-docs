@@ -32,7 +32,7 @@ To get started, you'll need to download Sauce Runner for Virtual Devices to your
 | junit:junit | 4.12 |
 
 ## Download
-Download a `sauce-runner-virtual` package from the links below.
+Download a Sauce Runner for Virtual Devices package below.
 
 | Download Link | SHA1 Checksum
 | :-------------------------- | :---
@@ -74,3 +74,9 @@ When testing on Sauce emulators, one error to look out for is Espresso test suit
 **Potential Cause**: Application under test requires a minimum Android version or above.
 
 **Recommendation**: Check the `minSdkVersion` in `build.gradle` for your application project.
+
+## Additional Resources
+
+* [Sauce Labs GitHub repository | Espresso for Real Devices](https://github.com/saucelabs-training/demo-espresso/tree/master/emulators)
+
+At this time, XCUITest is not supported on Sauce Labs virtual devices.
