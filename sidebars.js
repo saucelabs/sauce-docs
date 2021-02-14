@@ -110,7 +110,6 @@ module.exports = {
                      'mobile-apps/automated-testing/appium',
                      'mobile-apps/automated-testing/appium/real-devices',
                      'mobile-apps/automated-testing/appium/virtual-devices',
-                     'mobile-apps/automated-testing/appium/capabilities-scripts',
                     ],
                 },
                 {
