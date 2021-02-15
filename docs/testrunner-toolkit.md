@@ -20,7 +20,7 @@ Most importantly, by running these tests through Sauce Labs, you can:
 * Take advantage of low latency provided by a containerized solution
 * Review, share, and evaluate your test assets, such as logs, test results, and test videos 
 * Use our Insights feature to perform deeper analysis of test outcomes
-* Take advantage of other Sauce-specific options as development of this beta feature continues, including VMs, parallelization, and so on
+* Take advantage of other Sauce-specific options as development continues, including VMs, parallelization, and so on
 
 ## How to Get Started
 
