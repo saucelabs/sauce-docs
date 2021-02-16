@@ -165,6 +165,7 @@ module.exports = {
         items: [
             'api-testing/quick-start',
             'api-testing/quick-start/composer',
+            'api-testing/quick-start/build-from-spec',
         ],
       },
     ],
