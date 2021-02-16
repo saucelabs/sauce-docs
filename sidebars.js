@@ -203,6 +203,7 @@ module.exports = {
               ],
           },
           'testrunner-toolkit/typescript',
+          'testrunner-toolkit/saucectl',
           'testrunner-toolkit/faqs',
           'testrunner-toolkit/support',
       ],
@@ -227,7 +228,6 @@ module.exports = {
           'dev/cli',
           'dev/cli/espresso-xcuitest',
           'dev/cli/sauce-connect-proxy',
-          'dev/cli/saucectl',
         ]
       },
     ],

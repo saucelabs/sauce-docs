@@ -1,7 +1,7 @@
 ---
 id: saucectl
 title: Sauce CTL
-sidebar_label: Sauce CTL
+sidebar_label: CLI Reference
 ---
 
 export const Highlight = ({children, color}) => ( <span style={{
