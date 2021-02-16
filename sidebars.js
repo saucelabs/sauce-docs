@@ -228,7 +228,6 @@ module.exports = {
           'dev/cli',
           'dev/cli/espresso-xcuitest',
           'dev/cli/sauce-connect-proxy',
-          'dev/cli/saucectl',
         ]
       },
     ],
