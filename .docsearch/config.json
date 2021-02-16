@@ -1,37 +1,58 @@
 {
   "index_name": "saucelabs",
   "start_urls": [
-    "https://docs.staging.saucelabs.net/"
+    {
+      "url": "https://training.saucelabs.com/",
+      "selectors_key": "training",
+      "tags": ["training"]
+    },
+    {
+      "url": "https://docs.staging.saucelabs.net/",
+      "tags": ["docs"]
+    }
   ],
   "sitemap_urls": [
+    "https://training.saucelabs.com/sitemap.xml",
     "https://docs.staging.saucelabs.net/sitemap.xml"
   ],
+  "use_anchors": true,
+  "scrape_start_urls": false,
   "stop_urls": [],
   "selectors": {
-    "lvl0": {
-      "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[last()]",
-      "type": "xpath",
-      "global": true,
-      "default_value": "Documentation"
+    "default": {
+      "lvl0": {
+        "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[last()]",
+        "type": "xpath",
+        "global": true,
+        "default_value": "Documentation"
+      },
+      "lvl1": "header h1",
+      "lvl2": "article h2",
+      "lvl3": "article h3",
+      "lvl4": "article h4",
+      "lvl5": "article h5, article td:first-child",
+      "lvl6": "article h6",
+      "text": "article p, article li, article td:last-child"
     },
-    "lvl1": "header h1",
-    "lvl2": "article h2",
-    "lvl3": "article h3",
-    "lvl4": "article h4",
-    "lvl5": "article h5, article td:first-child",
-    "lvl6": "article h6",
-    "text": "article p, article li, article td:last-child"
+    "training": {
+      "lvl0": "#codelab-title h1",
+      "lvl1": "#steps h2.step-title",
+      "lvl2": "#steps h2",
+      "text": "#steps p, #steps li"
+    }
   },
   "strip_chars": " .,;:#",
   "custom_settings": {
     "separatorsToIndex": "_",
     "attributesForFaceting": [
+      "tags",
       "language",
       "version",
       "type",
       "docusaurus_tag"
     ],
     "attributesToRetrieve": [
+      "tags",
       "hierarchy",
       "content",
       "anchor",
@@ -40,5 +61,5 @@
       "type"
     ]
   },
-  "nb_hits": 1062
+  "js_render": true
 }
