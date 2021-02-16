@@ -203,6 +203,7 @@ module.exports = {
               ],
           },
           'testrunner-toolkit/typescript',
+          'testrunner-toolkit/saucectl',
           'testrunner-toolkit/faqs',
           'testrunner-toolkit/support',
       ],
