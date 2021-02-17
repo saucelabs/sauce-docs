@@ -50,7 +50,7 @@ Use the following image as a reference for the numbered items listed below:
 
 This is the __Add Request__ / __Assertions__ button, it can display all available components.
 
-[![](https://apifortress.com/doc/wp-content/uploads/2019/06/components.png)](https://apifortress.com/doc/wp-content/uploads/2019/06/components.png)
+<img src={useBaseUrl('img/api-fortress/2019/06/components.png')} alt="Test Components"/>
 
 If a component is not valid for the operation you are conducting, it will not be made available to help avoid mistakes. 
 
@@ -69,7 +69,7 @@ __Input Sets__ are a group of input variables representing a scenario. The test 
 
 __Global Parameters__ are variables that are available to be used throughout a test. Reference these variables simply by calling it within the test using the convention `“${VARIABLE}”`.  
  
-[![](https://apifortress.com/doc/wp-content/uploads/2019/06/params.png)](https://apifortress.com/doc/wp-content/uploads/2019/06/params.png)
+<img src={useBaseUrl('img/api-fortress/2019/06/params.png')} alt="Test Params"/>
 
 ### 4 - HTTP Client
 
