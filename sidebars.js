@@ -192,6 +192,24 @@ module.exports = {
             'api-testing/api/using-the-api',
         ],
       },
+      {
+        type: 'category',
+        label: 'Assertion Components',
+        collapsed: true,
+        items: [
+            'api-testing/assertion-components/assert-compares',
+            'api-testing/assertion-components/assert-contains',
+            'api-testing/assertion-components/assert-equals',
+            'api-testing/assertion-components/assert-exists',
+            'api-testing/assertion-components/assert-greater',
+            'api-testing/assertion-components/assert-in',
+            'api-testing/assertion-components/assert-is',
+            'api-testing/assertion-components/assert-less',
+            'api-testing/assertion-components/assert-matches',
+            'api-testing/assertion-components/assert-valid-json-schema',
+
+        ],
+      },
     ],
     "CI/CD": [
         'ci',

@@ -12,9 +12,9 @@ hide_table_of_contents: true
     <h2>A Quick Start</h2>
     <p>Some quick facts and guides to get started with the platform.</p>
     <ul>
-        <li><a href="#">Create a Test Quickly</a></li>
-        <li><a href="#">Test Composer Guide</a></li>
-        <li><a href="#">Build from Spec</a></li>
+        <li><a href="/api-testing/quick-start">Create a Test Quickly</a></li>
+        <li><a href="/api-testing/quick-start/composer">Test Composer Guide</a></li>
+        <li><a href="/api-testing/quick-start/build-from-spec">Build from Spec</a></li>
     </ul>
     </div>
   </div>
@@ -34,8 +34,8 @@ hide_table_of_contents: true
     <h2>APIs and Webhooks</h2>
     <p>Leverage a robust collection of APIs and webhooks to manage everything from execution, test creation, data, and integrations.</p>
     <ul>
-        <li><a href="#">API Docs (v3)</a></li>
-        <li><a href="#">Usage Guides</a></li>
+        <li><a href="/api-testing/api/v3">API Docs (v3)</a></li>
+        <li><a href="/api-testing/api/using-the-api">Usage Guides</a></li>
     </ul>
     </div>
   </div>
