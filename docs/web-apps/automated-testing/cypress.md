@@ -117,7 +117,7 @@ The following steps outline how to run your cypress tests on your local machine 
    ```
   
    
-  > You can also troubleshoot any issues with the [--verbose](/dev/cli/saucectl#verbose) flag.
+  > You can also troubleshoot any issues with the [--verbose](/testrunner-toolkit/saucectl#verbose) flag.
 
 2. A Sauce Labs job link appears in the console where you can [verify the results in the Sauce Labs dashboard](#run-tests-on-sauce-labs):
 
@@ -137,7 +137,7 @@ The following steps outline how to run your cypress tests using Sauce Labs virtu
     saucectl run --test-env sauce
     ```
    
-   > For more information regarding the `saucectl` parameters, including how to increase your VM concurrency, please visit the [CLI Reference](/dev/cli/saucectl#test-env) and the [configuration](/testrunner-toolkit/configuration) documentation.
+   > For more information regarding the `saucectl` parameters, including how to increase your VM concurrency, please visit the [CLI Reference](/testrunner-toolkit/saucectl#test-env) and the [configuration](/testrunner-toolkit/configuration) documentation.
 
 6. Watch test runs in real-time, or verify the results in the [Sauce Labs dashboard](https://app.saucelabs.com/dashboard/tests/vdc):
    

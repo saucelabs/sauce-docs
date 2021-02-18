@@ -72,7 +72,7 @@ sauce:
   region: us-west-1
 ```
 
-Please note that VM concurrency depends on the suite number rather than the number of `.spec.js |.test.js` files. Plese visit the [CLI Reference](/dev/cli/saucectl#ccy) for more information regarding command parameters:
+Please note that VM concurrency depends on the suite number rather than the number of `.spec.js |.test.js` files. Plese visit the [CLI Reference](/testrunner-toolkit/saucectl#ccy) for more information regarding command parameters:
 
 > Your concurrency and VM entitlements also depend on your Sauce Labs subscription tier. For more information please visit the [pricing guide](https://saucelabs.com/pricing)
 
@@ -119,7 +119,7 @@ You can use the `--tunnel-id` flag with `saucectl` in order to use an existing S
 saucectl run --tunnel-id <tunnel-id>
 ```
 
-> For more information on how to use the `--tunnel-id` flag, please visit the [CLI Reference](/dev/cli/saucectl#tunnel-id).
+> For more information on how to use the `--tunnel-id` flag, please visit the [CLI Reference](/testrunner-toolkit/saucectl#tunnel-id).
 
 To enable Sauce Connect Proxy in the `config.yml`, use the `tunnel` field:
 
