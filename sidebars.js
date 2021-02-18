@@ -183,6 +183,15 @@ module.exports = {
             'api-testing/quick-start/forge',
         ],
       },
+      {
+        type: 'category',
+        label: 'APIs and Webhooks',
+        collapsed: true,
+        items: [
+            'api-testing/api/v3',
+            'api-testing/api/using-the-api',
+        ],
+      },
     ],
     "CI/CD": [
         'ci',
