@@ -22,7 +22,7 @@ It doesn't allow for optimal testing of how each API interacts with each other. 
 
 For example __Search__ > __Add to Cart__ > __Checkout__ can and should all be inside of one smart test, and not three separate tests.  
 
-Read the following page to learn more about [Integration / Multistep Testing](/api-testing/introduction-to-integration-testing) 
+Read the following page to learn more about [Integration / Multistep Testing](/api-testing/quick-start/introduction-to-integration-testing) 
  
 :::
 
