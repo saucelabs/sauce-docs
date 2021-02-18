@@ -231,52 +231,88 @@ h3, .h3 {
 
 /* Information badges below */
 
-.badge-blue {
-  position:relative;
-  font-size:9pt;
+.sauceRed {
+  background:#E2231A;
+  color:white;
+  padding:.2rem;
+  font-weight:750;
+}
+
+.sauceDBlue {
   background:#003A70;
-  color:white;
+  color:#EDEDEF;
   font-weight:750;
-  height:25px;
-  text-align:center;
-  line-height:15px;
-  border-radius:10%;
+  padding:.2rem;
 }
 
-.badge-orange {
-  position:relative;
-  font-size:9pt;
-  background:#f58505;
-  color:white;
+.sauceLBlue {
+  background:#57C1E8;
+  color:#003A70;
+  padding:.2rem;
   font-weight:750;
-  height:25px;
-  text-align:center;
-  line-height:15px;
-  border-radius:10%;
 }
 
-.badge-red {
-  position:relative;
-  font-size:9pt;
-  background:#e2231a;
-  color:white;
+.sauceGray {
+  background:#474C55;
+  color:#EDEDEF;
   font-weight:750;
-  height:25px;
-  text-align:center;
-  line-height:15px;
-  border-radius:10%;
+  padding:.2rem;
 }
 
-.badge-green {
-  position:relative;
-  font-size:9pt;
-  background:#086e0e;
+.sauceGreen {
+  background:#009245;
   color:white;
   font-weight:750;
-  height:25px;
-  text-align:center;
-  line-height:15px;
-  border-radius:10%;
+  padding:.2rem;
+}
+
+.sauceMint {
+  background:#01c3a5;
+  color:#000000;
+  padding:.2rem;
+  font-weight:750;
+}
+
+.sauceGold {
+  background:#fbd741;
+  color:#000000;
+  padding:.2rem;
+  font-weight:750;
+}
+
+.saucePink {
+  background:#ff7aac;
+  color:#000000;
+  padding:.2rem;
+  font-weight:750;
+}
+
+.sauceOrange {
+  background:#ec5c26;
+  color:#FFFFFF;
+  padding:.2rem;
+  font-weight:750;
+}
+
+.sauceLime {
+  background:#98cb3c;
+  color:#000000;
+  padding:.2rem;
+  font-weight:750;
+}
+
+.saucePurple {
+  background:#7868a6;
+  color:#FFFFFF;
+  padding:.2rem;
+  font-weight:750;
+}
+
+.sauceYellow {
+  background:#fddf7f;
+  color:#474c55;
+  padding:.2rem;
+  font-weight:750;
 }
 
 .badge-download {
@@ -284,12 +320,11 @@ h3, .h3 {
   font-size:12pt;
   background:#EDEDEF;
   color:white;
+  width:10rem;
   font-weight:525;
-  height:45px;
-  width:125px;
   text-align:center;
   line-height:25px;
-  border-radius:15%;
+  border-radius:250px;
 }
 
 
