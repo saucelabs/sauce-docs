@@ -39,6 +39,4 @@ The following links provide useful information about using the dashboard and its
 
 - [Improving the metrics view](https://apifortress.com/doc/improving-your-metrics/)
 - [Creating test assertions based on metrics](https://apifortress.com/doc/assertions-for-metrics-performance/)
-- [Simplest method to set up a basic monitor](https://apifortress.com/doc/easy-monitoring/)
-
-[Next Section →](https://apifortress.com/doc/integrate-with-your-cicd/)
+- [Simplest method to set up a basic monitor](/api-testing/quick-start/easy-monitoring/)

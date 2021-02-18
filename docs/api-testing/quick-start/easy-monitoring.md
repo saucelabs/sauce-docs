@@ -10,7 +10,7 @@ We suggest creating comprehensive functional tests, and then scheduling those te
 * First, this method ensures that your monitors validate functional uptime rather than a simple `200 OK` ping. 
 * Second, this approach makes it efficient to reuse existing tests. However, we understand that you may simply be looking for a simple monitor that validates that the 200 OK is returned, and performance is acceptable.
 
-Video Example [https://www.youtube.com/watch?v=-RDh1ukLN8w](https://www.youtube.com/watch?v=-RDh1ukLN8w)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-RDh1ukLN8w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Follow these steps to quickly create a basic monitor:
 

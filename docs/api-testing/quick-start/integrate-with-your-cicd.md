@@ -50,11 +50,13 @@ The next step depends on what you’re trying to test. The following directions 
 
 As it stands, our API hook is as follows:
 
-**https://mastiff.apifortress.com/app/api/rest/v3/86f81b19-2d29-4879-91d9-6dbb2271fec0861**
+`https://mastiff.apifortress.com/app/api/rest/v3/86f81b19-2d29-4879-91d9-6dbb2271fec0861`
 
-The normal command to run all of the tests in the project, per the API Fortress docs is _/tests/run-all_, so we append this onto the end of the API call. You may need to request a JUnit output. To do that, simply collect a few query parameters. First, set _sync_ to _true_ so that we can set _format_ to _JUnit_. In short, we need to append _?sync=true&format=junit_ to the webhook call. That gives us the final API call:
+The normal command to run all of the tests in the project, per the API Fortress docs is _/tests/run-all_, so we append this onto the end of the API call. You may need to request a JUnit output. To do that, simply collect a few query parameters. First, set _sync_ to _true_ so that we can set _format_ to _JUnit_. 
+
+In short, we need to append `?sync=true&format=junit` to the webhook call. That gives us the final API call:
  
-**https://mastiff.apifortress.com/app/api/rest/v3/86f81b19-2d29-4879-91d9-6dbb2271fec0861/tests/run-all?sync=true&format=junit**
+`https://mastiff.apifortress.com/app/api/rest/v3/86f81b19-2d29-4879-91d9-6dbb2271fec0861/tests/run-all?sync=true&format=junit`
 
 Great! If we make this API call via a browser or a tool like Postman, we can see our results in JUnit. We’re almost there.
 
