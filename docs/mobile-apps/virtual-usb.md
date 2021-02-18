@@ -37,7 +37,6 @@ Click below to download the latest Virtual USB client to the same machine where 
 
 <p><button class="badge-download"><a href="https://s3-eu-west-1.amazonaws.com/saucelabs-vusb/v1.8/vusb-client.jar">Download</a></button></p>
 
-
 For version release notes, see [Android Virtual USB Changelog](https://wiki.saucelabs.com/pages/viewpage.action?pageId=86575598).
 
 ### iOS
