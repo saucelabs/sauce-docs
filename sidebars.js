@@ -87,7 +87,6 @@ module.exports = {
       ],
   "Mobile Apps": [
     'mobile-apps',
-    'mobile-apps/devices',
      {
         type: 'category',
         label: 'Live Testing',
@@ -122,11 +121,12 @@ module.exports = {
                     'mobile-apps/automated-testing/espresso-xcuitest/virtual-devices',
                   ],
                 },
+                'mobile-apps/automated-testing/microsoft-app-center',
+                'mobile-apps/automated-testing/troubleshooting',
               ],
            },
+     'mobile-apps/devices',
      'mobile-apps/app-storage',
-     'mobile-apps/automated-testing/microsoft-app-center',
-     'mobile-apps/automated-testing/troubleshooting',
      'mobile-apps/features',
      'mobile-apps/virtual-usb',
      'mobile-apps/faq',
