@@ -73,5 +73,5 @@ All done!
 ## Additional Topics
 
 * Learn how to schedule a test [here](api-testing/quick-start/schedule-a-test).  
-* Learn about data and notifications connectors [here](/api-testing/connectors-alert-groups/). Simple solutions to plug into the systems you use today (e.g DataDog or New Relic).
+* Learn about data and notifications connectors [here](/api-testing/setup-connectors/). Simple solutions to plug into the systems you use today (e.g DataDog or New Relic).
 
