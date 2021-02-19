@@ -137,6 +137,8 @@ saucectl run --timeout <seconds>
 
 ### `tunnel-id`
 
+<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
+
 __Description__: Sets the tunnel id for a given test run and the chosen [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
 
 __Example__:
@@ -145,6 +147,8 @@ saucectl run --tunnel-id <tunnel-id>
 ```
 
 ### `tunnel-parent`
+
+<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
 
 __Description__: Sets the tunnel parent for a given test run and the chosen [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
 
