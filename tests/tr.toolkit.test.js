@@ -6,7 +6,7 @@ context('Testrunner Toolkit Page Tree Actions', () => {
     });
 
     it('Installation Page', () => {
-        cy.get('li:nth-child(9) > ul > li:nth-child(2) > a').click();
+        cy.get('li:nth-child(10) > ul > li:nth-child(2) > a').click();
         cy.url()
             .should('include', '/testrunner-toolkit/installation');
     });
