@@ -4,6 +4,13 @@ title: "Configuration Syntax: Playwright"
 sidebar_label: Playwright
 ---
 
+export const Highlight = ({children, color}) => ( <span style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>{children}</span> );
+
 Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference)for information regarding fields such as `apiVersion`, `kind`, and `sauce`.
 
 ## Example Configuration
@@ -105,6 +112,8 @@ __Example__:
 
 ### `platformName`
 
+<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
+
 __Description__: Operating system on which the browser and test runs.
 
 __Type__: *string*
@@ -126,6 +135,8 @@ __Example__:
 ```
 
 ### `screenResolution`
+
+<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
 
 __Description__: Field where you can change the browser window screen resolution.
 
