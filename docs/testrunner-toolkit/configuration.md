@@ -183,13 +183,8 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
 </Tabs>
 
 ### Concurrency
-<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight></small></p>
 
-
-> __NOTE__: This feature is only available when running tests on Sauce Labs VMs, `docker` mode does not support `concurrency`.
-
-Saucectl is capable of running test suites in parallel when utilizing the Sauce Labs infrastructure. _This feature requires a Sauce Labs account_, so don't forget to set the environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`!
-The degree of concurrency can be controlled via the config:
+Saucectl is capable of running test suites in parallel, the degree of concurrency can be controlled via the config:
 
 ```yaml
 sauce:
@@ -202,10 +197,9 @@ saucectl run --test-env sauce --ccy 10
 ```
 
 A setting of `10` would mean that up to 10 test suites would run concurrently.
-If you have more suites than that, any excess will simply be queued until it's their turn to run. 
+If you have more suites than that, any excess will simply be queued until it's their turn to run.
 
-The concurrency setting has no effect when the test environment is `--test-env docker` and only works when running tests in the Sauce cloud via `--test-env sauce`.
-The maximum concurrency that you can use is limited by your account settings.
+When running on Sauce cloud, the maximum concurrency that you can use is limited by your account settings.
 
 ## Set Different Screen Resolutions
 
