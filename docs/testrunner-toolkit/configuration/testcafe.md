@@ -43,7 +43,7 @@ testcafe:
 
 ## `testcafe`
 
-__Description__: Details specific to the `testcafe` project configuration.
+__Description__: Details specific to the `testcafe` project configuration
 
 __Type__: *object*
 
@@ -56,7 +56,7 @@ testcafe:
 
 ### `version`
 
-__Description__: Version of `testcafe` to use during tests.
+__Description__: Version of `testcafe` to use during tests
 
 __Type__: *string*
 
@@ -78,7 +78,7 @@ __Example__:
 
 ## `suites`
 
-__Description__: Field for defining test suite details such as the suite `name`, desired `browserName` and test `params`.
+__Description__: Field for defining test suite details such as the suite `name`, desired `browserName` and test configurations.
 
 __Type__: *object*
 
@@ -133,7 +133,7 @@ __Example__:
 
 ### `env`
 
-__Description__: Environment variables. It can be expanded.
+__Description__: Environment variables. Substituted variables like $MY_VAR can be expanded
 
 __Type__: *object*
 
@@ -141,12 +141,12 @@ __Example__:
 ```yaml
   env:
     hello: world
-    foo: $my_bar
+    foo: $MY_BAR
 ```
 
 ### `screenshots`
 
-__Description__: Native screenshots settings for testcafe.
+__Description__: Screenshots settings for testcafe. [See link in Testcafe](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#screenshots)
 
 __Type__: *object*
 
@@ -196,7 +196,7 @@ __Example__:
 
 <p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
 
-__Description__: Field where you can change the browser window screen resolution.
+__Description__: Set browser window screen resolution
 
 __Type__: *string*
 
