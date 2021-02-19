@@ -156,6 +156,8 @@ __Example__:
 
 ### `platformName`
 
+<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
+
 __Description__: Operating system on which the browser and test runs.
 
 __Type__: *string*
@@ -166,6 +168,8 @@ __Example__:
 ```
 
 ### `screenResolution`
+
+<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
 
 __Description__: Field where you can change the browser window screen resolution.
 
