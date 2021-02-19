@@ -4,6 +4,8 @@ title: "Configuration Syntax: Playwright"
 sidebar_label: Playwright
 ---
 
+import Highlight from "../../../src/components/highlight"
+
 Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference)for information regarding fields such as `apiVersion`, `kind`, and `sauce`.
 
 ## Example Configuration
