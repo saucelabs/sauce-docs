@@ -144,7 +144,7 @@ If you wish to use more than one framework, or to configure different sets of te
 saucectl run -c ./path/to/config.yml
 ```
 
-:::info yaml validation
+:::note yaml validation
 If you're having trouble with the `.yml` syntax, it's recommended to use a free online YAML/JSON validator tool like these:
 * [YAML Lint](http://www.yamllint.com/)
 * [Code Beautify](https://codebeautify.org/yaml-validator)
