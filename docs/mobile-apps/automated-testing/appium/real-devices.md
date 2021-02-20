@@ -45,7 +45,7 @@ There may be situations where you want to install an app from a downloadable rem
 
 Please review the following guidelines below before uploading your app:
 
-1. Make sure your app meets the [requirements](/mobile-apps/devices.md) for Android and iOS Mobile App Testing.
+1. Make sure your app meets the [requirements](/mobile-apps/automated-testing/devices.md) for Android and iOS Mobile App Testing.
 2. Upload your app to the hosting location.
 3. Ensure Sauce Labs has READ access to the app URL.
 4. In your Appium test script, enter the URL for the app as the "app" desired capability. Example Java Snippet:
@@ -267,7 +267,7 @@ Below are some examples of how to configure Appium tests for Real Devices. Visit
 
 ### Required Capabilities
 
-Your Appium scripts for real device testing must include these capabilities along with a data center endpoint. Check out the example script in [Dynamic Allocation Examples](/mobile-apps/devices.md) for examples of these capabilities and their values.
+Your Appium scripts for real device testing must include these capabilities along with a data center endpoint. Check out the example script in [Dynamic Allocation Examples](/mobile-apps/automated-testing/devices.md) for examples of these capabilities and their values.
 
 <table>
   <tr>
@@ -333,7 +333,7 @@ Your Appium scripts for real device testing must include these capabilities alon
    <li><code>"iPhone [67]S"</code> or <code>"iPhone [6-7]S"</code> will allocate either "iPhone 7S" or "iPhone 6S" device.</li>
    <li><code>"iPhone 7.*"</code> will allocate "iPhone 7" or "iPhone 7S", or any device that starts with the display name "iPhone 7".</li>
    </ul>
-   <p>Values are not case-sensitive. To learn more, see: <a href="mobile-apps/devices.md">Dynamic Device Allocation</a>.</p>
+   <p>Values are not case-sensitive. To learn more, see: <a href="/mobile-apps/automated-testing/devices.md">Dynamic Device Allocation</a>.</p>
    </td>
   </tr>
 </table>
@@ -452,7 +452,7 @@ Your Appium scripts for real device testing must include these capabilities alon
    <li><code>autoGrantPermissions</code></li>
    <li><code>appiumVersion</code></li>
   </ul>
-<p>We recommend reviewing <a href="/mobile-apps/devices.md">Device Management for Real Devices</a> to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.</p>
+<p>We recommend reviewing <a href="/mobile-apps/automated-testing/devices.md">Device Management for Real Devices</a> to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.</p>
    </td>
   </tr>
   <tr>
