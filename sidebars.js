@@ -101,6 +101,7 @@ module.exports = {
           collapsed: true,
           items: [
             'mobile-apps/automated-testing',
+            'mobile-apps/automated-testing/devices',
                 {
                   type: 'category',
                   label: 'Appium',
@@ -125,7 +126,6 @@ module.exports = {
                 'mobile-apps/automated-testing/troubleshooting',
               ],
            },
-     'mobile-apps/devices',
      'mobile-apps/app-storage',
      'mobile-apps/features',
      'mobile-apps/virtual-usb',
