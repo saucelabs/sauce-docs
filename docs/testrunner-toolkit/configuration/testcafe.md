@@ -133,7 +133,7 @@ __Example__:
 
 ### `env`
 
-__Description__: Environment variables. Substituted variables like $MY_VAR can be expanded
+__Description__: Environment variables. Substituted variables like $MY_VAR can be expanded.
 
 __Type__: *object*
 
