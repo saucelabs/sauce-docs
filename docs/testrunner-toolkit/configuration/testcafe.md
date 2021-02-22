@@ -196,7 +196,7 @@ __Example__:
 
 <p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
 
-__Description__: Set browser window screen resolution
+__Description__: Set browser window screen resolution.
 
 __Type__: *string*
 
