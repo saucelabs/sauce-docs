@@ -108,7 +108,7 @@ __Example__:
 
 ### `browserName`
 
-__Description__: Name of desired browser. Although Testcafe supports triggering one test in multiple browsers, it'd better here to split them into every suite to indicate each suite has its own test point.
+__Description__: Name of desired browser. Although Testcafe supports triggering one test in multiple browsers, it is better here to split them into every suite to indicate each suite has its own test point.
 
 __Type__: *string*
 
