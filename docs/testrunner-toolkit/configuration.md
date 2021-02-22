@@ -378,7 +378,9 @@ __Example__:
   npm:
     packages:
       lodash: "4.17.20"
-      "@babel/preset-typescript": "7.12.7"
+      "@babel/preset-typescript": "7.12"
+      "@cypress/react": "^5.0.1"
+      
 ```
 
 ### `suites`
