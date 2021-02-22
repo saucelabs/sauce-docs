@@ -119,7 +119,7 @@ __Example__:
 
 ### `src`
 
-__Description__: The explicit name, file glob, or location of the test files
+__Description__: The explicit name, file glob, or location of the test files.
 
 __Type__: *object*
 
