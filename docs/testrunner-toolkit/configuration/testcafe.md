@@ -183,7 +183,7 @@ __Example__:
 
 ### `testMatch`
 
-__Description__: The explicit name, regex, or location of the test files
+__Description__: The explicit name, regex, or location of the test files.
 
 __Type__: *string* | *regex*
 
