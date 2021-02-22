@@ -20,6 +20,7 @@ import TabItem from '@theme/TabItem';
 <p> <span class="sauceLime">SAUCE LIME!</span> </p>
 <p> <span class="saucePurple">SAUCE PURPLE!</span> </p>
 <p> <span class="sauceYellow">SAUCE YELLOW!</span> </p>
+<p> <button class="badge-download"><a href="http://saucelabs.com" style="color: white">Download Sauce Connect</a></button> </p>
 
 Sauce Labs exposes a set of REST API endpoints that allow you to perform operations, manage accounts, and retrieve data programmatically so you can use the Sauce platform in the way that best suits your business logic.
 
