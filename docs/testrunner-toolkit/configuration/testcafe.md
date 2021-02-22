@@ -146,7 +146,7 @@ __Example__:
 
 ### `screenshots`
 
-__Description__: Screenshots settings for testcafe. [See link in Testcafe](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#screenshots)
+__Description__: Screenshots settings for testcafe. [See link in Testcafe](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#screenshots).
 
 __Type__: *object*
 
