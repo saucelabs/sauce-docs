@@ -67,7 +67,7 @@ __Example__:
 
 ### `projectPath`
 
-__Description__: Absolute path to the test directory and related test files
+__Description__: Absolute path to the test directory and related test files.
 
 __Type__: *string*
 
