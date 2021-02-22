@@ -78,7 +78,7 @@ __Example__:
 
 ## `suites`
 
-__Description__: Field for defining test suite details such as the suite `name`, desired `browserName` and test configurations.
+__Description__: Field for defining test suite details such as the suite `name`, desired `browserName`, and test configurations.
 
 __Type__: *object*
 
