@@ -8,11 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::warning Only Available in TestObject
+:::caution  **Only Available in TestObject**
 
-Espresso and XCUITest real device testing is supported on TestObject, our [Legacy Real Device Cloud Platform](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177), which you can access via **Sauce Apps** > **Legacy RDC**.
+At this time, Espresso and XCUITest real device testing is only supported on TestObject, our [Legacy Real Device Cloud Platform](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177), which you can access via **Sauce Apps** > **Legacy RDC**.
 
-In spring 2021, Espresso and XCUITest support move from TestObject to Sauce Labs. See [Real Device Testing in Sauce Labs Feature Preview](https://wiki.saucelabs.com/display/DOCS/Real+Device+Testing+in+Sauce+Labs+Feature+Preview) for more information.
+In spring 2021, Espresso and XCUITest support will move from TestObject to Sauce Labs. See [Real Device Testing in Sauce Labs Feature Preview](https://wiki.saucelabs.com/display/DOCS/Real+Device+Testing+in+Sauce+Labs+Feature+Preview) for more information.
 :::
 
 Automated testing is included in the two most common integrated development environments (IDEs) used for making mobile apps:
