@@ -315,23 +315,34 @@ h3, .h3 {
   font-weight:750;
 }
 
-.badge-download {
+.download {
   position:relative;
-  font-size:12pt;
-  background:#E2231A;
-  color:white;
+  font-size:11pt;
+  background:linear-gradient(180deg, rgba(226,35,26,1) 0%, rgba(183,29,21,1) 100%);
+  color:#EDEDEF;
   width:10rem;
-  font-weight:525;
+  font-weight:600;
   text-align:center;
   line-height:25px;
   border-radius:250px;
+  box-shadow: 0px 5px 0px #b71d15, 0px 3px 6px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
+  transition: all .2s ease-in-out;
 }
 
-.badge-download:hover {
-  box-shadow:0 0 2px 2px #EDEDEF inset, 0 0 2px 2px #474C55;
-  background:white;
-  color:#e2231a;
+.download:hover {
+  box-shadow: 0px 5px 0px #b71d15, 0px 3px 6px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
+  background:linear-gradient(180deg, rgba(242,32,22,1) 0%, rgba(217,32,22,1) 100%);
+  color:white;
+  cursor:pointer;
 }
+
+.download:active {
+  background:linear-gradient(bottom, rgba(183,29,21,1) 0%, rgba(226,35,26,1) 100%);
+  color:#EDEDEF;
+  box-shadow: 0px 2px 0px #b71d15, 0px 1px 3px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
+  transform:translate(0, 4px);
+}
+
 
 
 /* Get Started button styles */
