@@ -4,6 +4,13 @@ title: Espresso and XCUITest CLI Reference
 sidebar_label: Espresso and XCUITest
 ---
 
+:::caution  **Only Available in TestObject**
+
+At this time, Espresso and XCUITest real device testing is only supported on TestObject, our [Legacy Real Device Cloud Platform](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177), which you can access via **Sauce Apps** > **Legacy RDC**.
+
+In spring 2021, Espresso and XCUITest support will move from TestObject to Sauce Labs. See [Real Device Testing in Sauce Labs Feature Preview](https://wiki.saucelabs.com/display/DOCS/Real+Device+Testing+in+Sauce+Labs+Feature+Preview) for more information.
+:::
+
 ## Sauce Runner for Real Devices Command Line Reference
 
 This topic describes the options you can use with [Sauce Runner for Real Devices](/mobile-apps/automated-testing/espresso-xcuitest/real-devices.md) to run automated tests on Sauce Labs real devices using Espresso and XCUITest.
@@ -14,9 +21,6 @@ This topic describes the options you can use with [Sauce Runner for Real Devices
 * Create a [runner configuration file](/mobile-apps/automated-testing/espresso-xcuitest/real-devices.md) with the options and commands for running your tests
 
 ### What You'll Need
-
-:::danger Sauce Runner for Real Devices is only available on TestObject, our legacy real device platform, which you can access via **Sauce Apps** > **Legacy RDC**. For more information, see [TestObject Resources](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177) and [Real Device Testing in Sauce Labs Feature Preview](https://wiki.saucelabs.com/display/DOCS/Real+Device+Testing+in+Sauce+Labs+Feature+Preview).
-:::
 
 * Your [Sauce Labs Account](https://app.saucelabs.com) credentials
 * Your native mobile app file (both debug and non-debug app) and test file
