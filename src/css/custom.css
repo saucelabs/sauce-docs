@@ -318,14 +318,19 @@ h3, .h3 {
 .badge-download {
   position:relative;
   font-size:12pt;
-  background:#EDEDEF;
+  background:#E2231A;
   color:white;
+  width:10rem;
   font-weight:525;
-  height:45px;
-  width:125px;
   text-align:center;
   line-height:25px;
-  border-radius:15%;
+  border-radius:250px;
+}
+
+.badge-download:hover {
+  box-shadow:0 0 2px 2px #EDEDEF inset, 0 0 2px 2px #474C55;
+  background:white;
+  color:#e2231a;
 }
 
 
