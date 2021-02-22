@@ -43,7 +43,7 @@ testcafe:
 
 ## `testcafe`
 
-__Description__: Details specific to the `testcafe` project configuration
+__Description__: Details specific to the `testcafe` project configuration.
 
 __Type__: *object*
 
