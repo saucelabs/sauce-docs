@@ -86,3 +86,53 @@ Our IPSec VPN solution establishes a VPN connection between two IPSec gateways, 
       </div>
     </div>
   </div>
+
+
+## Choosing the Right Solution
+
+Sauce Connect Proxy and IPSec VPN accomplish the same thing: establishing a secure connection between applications hosted on a customer's private network and Sauce Labs cloud virtual machines and real devices. The main differences are:
+
+<table>
+  <tr>
+   <td><strong>Sauce Connect Proxy</strong>
+   </td>
+   <td><strong>Sauce IPSec VPN</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>By default, the Sauce Connect client starts a single tunnel. For high-volume testing, we recommend High Availability tunnel pools, which you can launch using designated <a href="/dev/cli/sauce-connect-proxy.md">Sauce Connect command-line options</a>).
+   </td>
+   <td>IPSec Proxy VPN is a static setup with two tunnel gateways that are pre-configured in High Availability mode.
+   </td>
+  </tr>
+  <tr>
+   <td>Customers can manage tunnel lifespan by launching different types of tunnels: ephemeral (per-build) tunnels or long-running tunnels.
+   </td>
+   <td>IPSec VPN tunnels are long-running, by default.
+   </td>
+  </tr>
+  <tr>
+   <td>Sauce Connect client (binary) runs within the customer's network to establish the tunnels, which use proprietary protocol over TLS 1.2.
+   </td>
+   <td>IPSec VPN tunnels use industry standards to establish connection and offer two options for routing traffic to sites and applications under test.
+   </td>
+  </tr>
+  <tr>
+   <td>Available to all Sauce Labs accountholders at no additional cost.
+   </td>
+   <td><a href="https://saucelabs.com/pricing">Enterprise Plans</a> only.
+   </td>
+  </tr>
+  <tr>
+   <td>All customers can download and launch Sauce Connect tunnels on their own local machine. For help, please contact our Support Team.
+   </td>
+   <td>Requires a custom setup between your network and the Sauce Labs cloud prior to use.
+   </td>
+  </tr>
+  <tr>
+   <td>Minimal setup time required; as little as 5-10 minutes.
+   </td>
+   <td>Setup time is appropriately 4 weeks; involves close collaboration and coordination between your organization and Sauce Labs.
+   </td>
+  </tr>
+</table>
