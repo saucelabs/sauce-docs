@@ -100,7 +100,7 @@ Sauce Connect Proxy and IPSec VPN accomplish the same thing: establishing a secu
    </td>
   </tr>
   <tr>
-   <td>By default, the Sauce Connect client starts a single tunnel. For high-volume testing, we recommend High Availability tunnel pools, which you can launch using designated <a href="/dev/cli/sauce-connect-proxy.md">Sauce Connect command-line options</a>).
+   <td>By default, the Sauce Connect client starts a single tunnel. For high-volume testing, we recommend High Availability tunnel pools, which you can launch using designated <a href="/dev/cli/sauce-connect-proxy">Sauce Connect command-line options</a>).
    </td>
    <td>IPSec Proxy VPN is a static setup with two tunnel gateways that are pre-configured in High Availability mode.
    </td>
