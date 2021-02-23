@@ -352,7 +352,17 @@ module.exports = {
         },
       },
     ],
+    [
+      'redocusaurus',
+      {
+        specs: [{
+          routePath: "/dev/api/redoc/",
+          specUrl: 'https://https://github.com/saucelabs/node-saucelabs/blob/master/apis/sauce.json',
+        }],
+      }
+    ],
   ],
+
   themes: [
     '@saucelabs/theme-github-codeblock',
   ],
