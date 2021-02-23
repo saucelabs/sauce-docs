@@ -12,11 +12,11 @@ Perform front-end visual regression tests across your Storybook, React, Vue, Ang
 <div class="box box1 card">
   <div class="container">
   <h2>Visual E2E Testing (Beta)</h2>
-  <p>Combine visual and functional testing in the same test run by integrating our End-to-End (E2E) solution with your Selenium WebDriver tests.</p>
+  <p>Combine visual and functional testing in the same run by integrating our End-to-End (E2E) solution with your Selenium WebDriver tests.</p>
   <ul>
       <li><a href="https://screener.io/docs">Quick Start</a></li>
       <li><a href="https://screener.io/docs/pages">Workflow</a></li>
-      <li><a href="https://screener.io/docs/webdriver">Selenium WebDriver Integration and Commands</a></li>
+      <li><a href="https://screener.io/docs/webdriver">WebDriver Integration and Commands</a></li>
   </ul>
   </div>
 </div>
