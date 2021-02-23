@@ -1,0 +1,22 @@
+{
+  "unversionedId": "performance",
+  "id": "performance",
+  "isDocsHomePage": false,
+  "title": "Front-End Performance Testing",
+  "description": "Does your app render quickly and flawlessly every time on every device and operating system? Are your page transitions fast and smooth? Are your users satisfied with the pace of their transactions on your site? Measuring and monitoring front end performance can help you answer these questions and is an important complement to your overall testing strategy. Learn how Sauce Labs can help you integrate this useful aspect of digital confidence.",
+  "source": "@site/docs/performance.md",
+  "permalink": "/performance",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/performance.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Introduction",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Debugging with Sauce Insights",
+    "permalink": "/insights/debugging"
+  },
+  "next": {
+    "title": "Measuring Page Loads with Sauce Performance",
+    "permalink": "/performance/load"
+  }
+}

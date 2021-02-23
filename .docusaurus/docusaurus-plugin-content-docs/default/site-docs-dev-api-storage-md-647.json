@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/api/storage",
+  "id": "dev/api/storage",
+  "isDocsHomePage": false,
+  "title": "File Storage API Methods",
+  "description": "Upload and manage files in Sauce Storage.",
+  "source": "@site/docs/dev/api/storage.md",
+  "slug": "/dev/api/storage",
+  "permalink": "/dev/api/storage",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/storage.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Storage",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Real Device API Methods",
+    "permalink": "/dev/api/rdc"
+  },
+  "next": {
+    "title": "Sauce Labs CLI Reference",
+    "permalink": "/dev/cli"
+  }
+}

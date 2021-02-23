@@ -1,0 +1,24 @@
+{
+  "unversionedId": "performance",
+  "id": "performance",
+  "isDocsHomePage": false,
+  "title": "Front-End Performance Testing",
+  "description": "Gain insight into how quickly and accurately your app renders, which directly affects your users' perception of quality.",
+  "source": "@site/docs/performance.md",
+  "slug": "/performance",
+  "permalink": "/performance",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/performance.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Getting Started",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Analyzing Failure Patterns Across Your Test Suite",
+    "permalink": "/insights/failure-analysis"
+  },
+  "next": {
+    "title": "About Sauce Performance",
+    "permalink": "/performance/about"
+  }
+}

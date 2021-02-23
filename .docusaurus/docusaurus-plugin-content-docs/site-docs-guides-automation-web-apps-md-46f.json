@@ -1,0 +1,22 @@
+{
+  "unversionedId": "guides/automation/web-apps",
+  "id": "guides/automation/web-apps",
+  "isDocsHomePage": false,
+  "title": "Automated Web App Testing on Desktop and Mobile Browsers",
+  "description": "This is a doc about Automated Web App Testing on Desktop and Mobile Browsers",
+  "source": "@site/docs/guides/automation/web-apps.md",
+  "permalink": "/guides/automation/web-apps",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/guides/automation/web-apps.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Web Apps",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Getting Started with Automated Testing on Sauce Labs",
+    "permalink": "/guides/automation/getting-started"
+  },
+  "next": {
+    "title": "Automated Mobile App Testing on Virtual and Real Devices",
+    "permalink": "/guides/automation/mobile-apps"
+  }
+}

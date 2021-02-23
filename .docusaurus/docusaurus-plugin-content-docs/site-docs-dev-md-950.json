@@ -1,0 +1,22 @@
+{
+  "unversionedId": "dev",
+  "id": "dev",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs Developer Resources",
+  "description": "Sauce Labs Developer Resources hub page.",
+  "source": "@site/docs/dev.md",
+  "permalink": "/dev",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Overview",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Visual Troubleshooting Guide",
+    "permalink": "/visual/troubleshooting"
+  },
+  "next": {
+    "title": "API Reference Docs",
+    "permalink": "/dev/api"
+  }
+}

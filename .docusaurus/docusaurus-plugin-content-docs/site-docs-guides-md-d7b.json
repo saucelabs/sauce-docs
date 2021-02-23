@@ -1,0 +1,13 @@
+{
+  "unversionedId": "guides",
+  "id": "guides",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs Technical Guides",
+  "description": "This is a hub page for Sauce Labs Technical Guides",
+  "source": "@site/docs/guides.md",
+  "permalink": "/guides",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/guides.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Overview"
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/faq",
+  "id": "mobile-apps/faq",
+  "isDocsHomePage": false,
+  "title": "Mobile App Testing FAQ",
+  "description": "Emulators and Simulators",
+  "source": "@site/docs/mobile-apps/faq.md",
+  "slug": "/mobile-apps/faq",
+  "permalink": "/mobile-apps/faq",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/faq.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "FAQ",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Virtual USB Testing on Real Mobile Devices",
+    "permalink": "/mobile-apps/virtual-usb"
+  },
+  "next": {
+    "title": "Web Application Testing",
+    "permalink": "/web-apps"
+  }
+}

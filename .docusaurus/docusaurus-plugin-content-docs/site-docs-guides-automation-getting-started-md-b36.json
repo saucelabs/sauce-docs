@@ -1,0 +1,22 @@
+{
+  "unversionedId": "guides/automation/getting-started",
+  "id": "guides/automation/getting-started",
+  "isDocsHomePage": false,
+  "title": "Getting Started with Automated Testing on Sauce Labs",
+  "description": "If you have existing tests and want to execute them on the Sauce Labs Cloud, you might only be a few steps away.",
+  "source": "@site/docs/guides/automation/getting-started.md",
+  "permalink": "/guides/automation/getting-started",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/guides/automation/getting-started.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Getting Started",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Live Testing Mobile Apps",
+    "permalink": "/guides/live-testing/mobile-apps"
+  },
+  "next": {
+    "title": "Automated Web App Testing on Desktop and Mobile Browsers",
+    "permalink": "/guides/automation/web-apps"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "secure-connections/sauce-connect/proxy-tunnels",
+  "id": "secure-connections/sauce-connect/proxy-tunnels",
+  "isDocsHomePage": false,
+  "title": "Using Sauce Connect Proxy Tunnels",
+  "description": "* Sauce Connect Proxy Tunnel Management",
+  "source": "@site/docs/secure-connections/sauce-connect/proxy-tunnels.md",
+  "slug": "/secure-connections/sauce-connect/proxy-tunnels",
+  "permalink": "/secure-connections/sauce-connect/proxy-tunnels",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/sauce-connect/proxy-tunnels.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Proxy Tunnels",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Connect Environment Variables",
+    "permalink": "/secure-connections/sauce-connect/environment-variables"
+  },
+  "next": {
+    "title": "Sauce Connect Authentication and Certificates",
+    "permalink": "/secure-connections/sauce-connect/security"
+  }
+}

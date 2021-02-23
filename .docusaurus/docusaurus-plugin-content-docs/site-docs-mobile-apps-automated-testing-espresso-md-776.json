@@ -1,0 +1,22 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/espresso",
+  "id": "mobile-apps/automated-testing/espresso",
+  "isDocsHomePage": false,
+  "title": "Automated Testing with Espresso",
+  "description": "Espresso page.",
+  "source": "@site/docs/mobile-apps/automated-testing/espresso.md",
+  "permalink": "/mobile-apps/automated-testing/espresso",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/espresso.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Espresso",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Automated Testing with Appium",
+    "permalink": "/mobile-apps/automated-testing/appium"
+  },
+  "next": {
+    "title": "Automated Testing with XCUITest",
+    "permalink": "/mobile-apps/automated-testing/xcuitest"
+  }
+}

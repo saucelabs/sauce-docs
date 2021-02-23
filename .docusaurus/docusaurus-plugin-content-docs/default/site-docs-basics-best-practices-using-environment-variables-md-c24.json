@@ -1,0 +1,15 @@
+{
+  "unversionedId": "basics/best-practices/using-environment-variables",
+  "id": "basics/best-practices/using-environment-variables",
+  "isDocsHomePage": false,
+  "title": "Using Environment Variables for Authentication Credentials",
+  "description": "As a best practice, we recommend setting your Sauce Labs authentication credentials as environment variables on your local system, which can then be referenced from within your tests. This provides an extra layer of security for your tests, and also enables other members of your development and testing team to write tests that will authenticate against a single account.",
+  "source": "@site/docs/basics/best-practices/using-environment-variables.md",
+  "slug": "/basics/best-practices/using-environment-variables",
+  "permalink": "/basics/best-practices/using-environment-variables",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/using-environment-variables.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Using Environment Variables for Authentication Credentials"
+}

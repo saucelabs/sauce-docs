@@ -1,0 +1,24 @@
+{
+  "unversionedId": "testrunner-toolkit/integrations",
+  "id": "testrunner-toolkit/integrations",
+  "isDocsHomePage": false,
+  "title": "Testrunner Toolkit CI Requirements",
+  "description": "A successful Testrunner Toolkit CI pipeline integration depends on a few requirements:",
+  "source": "@site/docs/testrunner-toolkit/integrations.md",
+  "slug": "/testrunner-toolkit/integrations",
+  "permalink": "/testrunner-toolkit/integrations",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/integrations.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Requirements",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Running Tests in Testrunner Toolkit",
+    "permalink": "/testrunner-toolkit/running-tests"
+  },
+  "next": {
+    "title": "Testrunner Toolkit with Jenkins",
+    "permalink": "/testrunner-toolkit/integrations/jenkins"
+  }
+}

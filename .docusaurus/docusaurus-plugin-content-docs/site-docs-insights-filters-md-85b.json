@@ -1,0 +1,22 @@
+{
+  "unversionedId": "insights/filters",
+  "id": "insights/filters",
+  "isDocsHomePage": false,
+  "title": "Sauce Insights Test Filtering",
+  "description": "Sauce Labs Insights test filtering page.",
+  "source": "@site/docs/insights/filters.md",
+  "permalink": "/insights/filters",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/insights/filters.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Test Filtering",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Insights Test Trends",
+    "permalink": "/insights/trends"
+  },
+  "next": {
+    "title": "Sauce Insights Build Efficiency",
+    "permalink": "/insights/efficiency"
+  }
+}

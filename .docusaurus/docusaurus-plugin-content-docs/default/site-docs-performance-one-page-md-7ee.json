@@ -1,0 +1,24 @@
+{
+  "unversionedId": "performance/one-page",
+  "id": "performance/one-page",
+  "isDocsHomePage": false,
+  "title": "Collecting Single URL Performance Statistics",
+  "description": "Use Sauce's custom Speedo command line to establish a performance baseline for a particular URL or to analyze performance of a previously run test.",
+  "source": "@site/docs/performance/one-page.md",
+  "slug": "/performance/one-page",
+  "permalink": "/performance/one-page",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/performance/one-page.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Single Page Statistics",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "About Sauce Performance",
+    "permalink": "/performance/about"
+  },
+  "next": {
+    "title": "Measuring Page Transitions with Scripts",
+    "permalink": "/performance/transitions"
+  }
+}

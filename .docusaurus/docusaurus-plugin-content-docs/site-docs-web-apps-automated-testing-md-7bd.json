@@ -1,0 +1,22 @@
+{
+  "unversionedId": "web-apps/automated-testing",
+  "id": "web-apps/automated-testing",
+  "isDocsHomePage": false,
+  "title": "Web Automated Testing Quickstart",
+  "description": "Sauce Labs web automated testing intro page.",
+  "source": "@site/docs/web-apps/automated-testing.md",
+  "permalink": "/web-apps/automated-testing",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/web-apps/automated-testing.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Quickstart Guide",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Live Web Testing Troubleshooting Guide",
+    "permalink": "/web-apps/live-testing/troubleshooting"
+  },
+  "next": {
+    "title": "Automated Web App Testing with Selenium",
+    "permalink": "/web-apps/automated-testing/selenium"
+  }
+}

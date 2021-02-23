@@ -1,0 +1,22 @@
+{
+  "unversionedId": "ipsec/network",
+  "id": "ipsec/network",
+  "isDocsHomePage": false,
+  "title": "IPSec VPN Network and Security",
+  "description": "Sauce Labs IPSec VPN network and security page.",
+  "source": "@site/docs/ipsec/network.md",
+  "permalink": "/ipsec/network",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ipsec/network.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Network and Security",
+  "sidebar": "docs",
+  "previous": {
+    "title": "IPSec VPN Setup and Configuration",
+    "permalink": "/ipsec/setup"
+  },
+  "next": {
+    "title": "IPSec VPN Admin Guide",
+    "permalink": "/ipsec/admin"
+  }
+}

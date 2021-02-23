@@ -1,0 +1,24 @@
+{
+  "unversionedId": "visual/advanced",
+  "id": "visual/advanced",
+  "isDocsHomePage": false,
+  "title": "Sauce Visual Testing Advanced Options",
+  "description": "Sauce Labs Visual advanced options page.",
+  "source": "@site/docs/visual/advanced.md",
+  "slug": "/visual/advanced",
+  "permalink": "/visual/advanced",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/visual/advanced.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Advanced Options",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Visual Test History",
+    "permalink": "/visual/history"
+  },
+  "next": {
+    "title": "Sauce Visual Troubleshooting Guide",
+    "permalink": "/visual/troubleshooting"
+  }
+}

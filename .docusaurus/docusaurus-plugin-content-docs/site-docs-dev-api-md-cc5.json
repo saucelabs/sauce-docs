@@ -1,0 +1,22 @@
+{
+  "unversionedId": "dev/api",
+  "id": "dev/api",
+  "isDocsHomePage": false,
+  "title": "API Reference Docs",
+  "description": "API Reference Overview.",
+  "source": "@site/docs/dev/api.md",
+  "permalink": "/dev/api",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Introduction",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Labs Developer Resources",
+    "permalink": "/dev"
+  },
+  "next": {
+    "title": "Access Key API",
+    "permalink": "/dev/api/access-key"
+  }
+}

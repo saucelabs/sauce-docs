@@ -1,0 +1,22 @@
+{
+  "unversionedId": "ipsec",
+  "id": "ipsec",
+  "isDocsHomePage": false,
+  "title": "Why IPSec VPN?",
+  "description": "Sauce Labs IPSec VPN integration introduction page.",
+  "source": "@site/docs/ipsec.md",
+  "permalink": "/ipsec",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ipsec.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Why IPSec VPN?",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Connect Proxy Troubleshooting Guide",
+    "permalink": "/sauce-connect/troubleshooting"
+  },
+  "next": {
+    "title": "IPSec VPN System Requirements",
+    "permalink": "/ipsec/requirements"
+  }
+}

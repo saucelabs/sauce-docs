@@ -1,0 +1,14 @@
+{
+  "unversionedId": "acct-team-mgmt/update-billing",
+  "id": "acct-team-mgmt/update-billing",
+  "isDocsHomePage": false,
+  "title": "update-billing",
+  "description": "",
+  "source": "@site/docs/acct-team-mgmt/update-billing.md",
+  "slug": "/acct-team-mgmt/update-billing",
+  "permalink": "/acct-team-mgmt/update-billing",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/acct-team-mgmt/update-billing.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055
+}

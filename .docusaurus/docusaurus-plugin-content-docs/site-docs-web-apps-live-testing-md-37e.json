@@ -1,0 +1,22 @@
+{
+  "unversionedId": "web-apps/live-testing",
+  "id": "web-apps/live-testing",
+  "isDocsHomePage": false,
+  "title": "Web Live Testing Quickstart",
+  "description": "Sauce Labs Web live testing quickstart guide.",
+  "source": "@site/docs/web-apps/live-testing.md",
+  "permalink": "/web-apps/live-testing",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/web-apps/live-testing.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Quickstart Guide",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Web Application Testing Home Page",
+    "permalink": "/web-apps"
+  },
+  "next": {
+    "title": "Live Testing with Desktop Web Browsers",
+    "permalink": "/web-apps/live-testing/desktop-browsers"
+  }
+}

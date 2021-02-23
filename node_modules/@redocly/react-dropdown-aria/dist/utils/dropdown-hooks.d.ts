@@ -1,0 +1,32 @@
+import * as React from "react";
+import { DropdownProps, Option, DropdownOption } from './types';
+export declare const useDropdownHooks: (props: DropdownProps, mergedId: string) => {
+    focusedIndex: number;
+    setFocusedIndex: React.Dispatch<React.SetStateAction<number>>;
+    open: boolean;
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    searchTerm: string;
+    setSearchTerm: (newSearchTerm: string, resetFocusedIndex?: any) => void;
+    dropdownFocused: boolean;
+    setDropdownFocused: React.Dispatch<React.SetStateAction<boolean>>;
+    setValue: (newOption?: Option | undefined, shouldClose?: any) => void;
+    filteredOptions: DropdownOption[];
+    openDropdown: () => void;
+    closeDropdown: (focus?: any) => void;
+    flattenedOptions: Option[];
+    container: React.RefObject<HTMLDivElement>;
+    inputRef: React.RefObject<HTMLInputElement>;
+    listWrapper: React.RefObject<HTMLDivElement>;
+    ariaProps: {
+        'aria-hidden': boolean;
+        'aria-expanded': boolean;
+        'aria-haspopup': "listbox";
+        'aria-activedescendant': string;
+        'aria-controls': string;
+        'aria-label': string;
+        'aria-labelledby': string;
+        'aria-describedby': string;
+    };
+    ariaList: JSX.Element;
+};
+export declare const useId: (idProp: string) => string;

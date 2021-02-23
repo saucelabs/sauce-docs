@@ -1,0 +1,22 @@
+{
+  "unversionedId": "dev/api/jobs",
+  "id": "dev/api/jobs",
+  "isDocsHomePage": false,
+  "title": "Jobs API",
+  "description": "Jobs API page.",
+  "source": "@site/docs/dev/api/jobs.md",
+  "permalink": "/dev/api/jobs",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/jobs.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Jobs",
+  "sidebar": "docs",
+  "previous": {
+    "title": "System Info API",
+    "permalink": "/dev/api/info"
+  },
+  "next": {
+    "title": "JavaScript Unit Tests API",
+    "permalink": "/dev/api/js-tests"
+  }
+}

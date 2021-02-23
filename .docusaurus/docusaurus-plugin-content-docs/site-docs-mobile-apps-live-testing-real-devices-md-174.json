@@ -1,0 +1,22 @@
+{
+  "unversionedId": "mobile-apps/live-testing/real-devices",
+  "id": "mobile-apps/live-testing/real-devices",
+  "isDocsHomePage": false,
+  "title": "Live Testing with Real Devices",
+  "description": "Live Testing Real Devices page.",
+  "source": "@site/docs/mobile-apps/live-testing/real-devices.md",
+  "permalink": "/mobile-apps/live-testing/real-devices",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/live-testing/real-devices.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Real Devices",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Application Storage",
+    "permalink": "/mobile-apps/live-testing/application-storage"
+  },
+  "next": {
+    "title": "Live Testing with Virtual Devices",
+    "permalink": "/mobile-apps/live-testing/virtual-devices"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "visual/history",
+  "id": "visual/history",
+  "isDocsHomePage": false,
+  "title": "Sauce Visual Test History",
+  "description": "Sauce Labs Visual test history page.",
+  "source": "@site/docs/visual/history.md",
+  "slug": "/visual/history",
+  "permalink": "/visual/history",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/visual/history.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Test History",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Visual Testing System Requirements",
+    "permalink": "/visual/workflows"
+  },
+  "next": {
+    "title": "Sauce Visual Testing Advanced Options",
+    "permalink": "/visual/advanced"
+  }
+}

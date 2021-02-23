@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/api",
+  "id": "dev/api",
+  "isDocsHomePage": false,
+  "title": "About the Sauce REST API",
+  "description": "Introduction to basic principles of authentication, request/response structure, response codes and errors.",
+  "source": "@site/docs/dev/api.md",
+  "slug": "/dev/api",
+  "permalink": "/dev/api",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Getting Started",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs Reference Docs",
+    "permalink": "/dev"
+  },
+  "next": {
+    "title": "Account Management API Methods",
+    "permalink": "/dev/api/accounts"
+  }
+}

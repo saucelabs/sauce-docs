@@ -1,0 +1,22 @@
+{
+  "unversionedId": "dev/cli/saucectl",
+  "id": "dev/cli/saucectl",
+  "isDocsHomePage": false,
+  "title": "Sauce CTL",
+  "description": "This page provides information for saucectl, the command line interface of the Sauce Labs Testrunner Toolkit.",
+  "source": "@site/docs/dev/cli/saucectl.md",
+  "permalink": "/dev/cli/saucectl",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/cli/saucectl.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Sauce CTL",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Connect Proxy CLI Reference",
+    "permalink": "/dev/cli/sc-cli"
+  },
+  "next": {
+    "title": "Sauce Bindings",
+    "permalink": "/dev/sauce-bindings"
+  }
+}

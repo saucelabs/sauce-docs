@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/api/jobs",
+  "id": "dev/api/jobs",
+  "isDocsHomePage": false,
+  "title": "Jobs API Methods",
+  "description": "View and manage jobs and builds running on Sauce Labs.",
+  "source": "@site/docs/dev/api/jobs.md",
+  "slug": "/dev/api/jobs",
+  "permalink": "/dev/api/jobs",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/jobs.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Jobs",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Insights API Methods",
+    "permalink": "/dev/api/insights"
+  },
+  "next": {
+    "title": "Performance API Methods",
+    "permalink": "/dev/api/performance"
+  }
+}

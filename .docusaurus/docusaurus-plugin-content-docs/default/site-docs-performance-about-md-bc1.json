@@ -1,0 +1,24 @@
+{
+  "unversionedId": "performance/about",
+  "id": "performance/about",
+  "isDocsHomePage": false,
+  "title": "About Sauce Performance",
+  "description": "Understand how Performance works, when and why you would use it, benefits you gain from it, requirements and restrictions.",
+  "source": "@site/docs/performance/about.md",
+  "slug": "/performance/about",
+  "permalink": "/performance/about",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/performance/about.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "About",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Front-End Performance Testing",
+    "permalink": "/performance"
+  },
+  "next": {
+    "title": "Collecting Single URL Performance Statistics",
+    "permalink": "/performance/one-page"
+  }
+}

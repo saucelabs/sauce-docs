@@ -1,0 +1,24 @@
+{
+  "unversionedId": "basics/acct-team-mgmt/concurrency-limits",
+  "id": "basics/acct-team-mgmt/concurrency-limits",
+  "isDocsHomePage": false,
+  "title": "Concurrency Limits and Team Accounts",
+  "description": "If your organization has multiple teams sharing a Sauce Labs account, it's important to monitor your concurrency limits--the number of virtual machines that you can run tests on simultaneously. You'll need to ensure that your organization's concurrency is distributed among your accounts, rather than allocating all of it to a single user.",
+  "source": "@site/docs/basics/acct-team-mgmt/concurrency-limits.md",
+  "slug": "/basics/acct-team-mgmt/concurrency-limits",
+  "permalink": "/basics/acct-team-mgmt/concurrency-limits",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/concurrency-limits.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Concurrency Limits and Team Accounts",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Organization Settings",
+    "permalink": "/basics/acct-team-mgmt/org-settings"
+  },
+  "next": {
+    "title": "Adding and Deactivating Users",
+    "permalink": "/basics/acct-team-mgmt/adding-deactivating-users"
+  }
+}

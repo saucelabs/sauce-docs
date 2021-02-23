@@ -1,0 +1,22 @@
+{
+  "unversionedId": "visual/requirements",
+  "id": "visual/requirements",
+  "isDocsHomePage": false,
+  "title": "Sauce Visual Testing System Requirements",
+  "description": "Sauce Labs Visual requirements page.",
+  "source": "@site/docs/visual/requirements.md",
+  "permalink": "/visual/requirements",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/visual/requirements.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "System Requirements",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Labs Visual Testing",
+    "permalink": "/visual"
+  },
+  "next": {
+    "title": "Sauce Visual Testing Setup and Configuration",
+    "permalink": "/visual/configuration"
+  }
+}

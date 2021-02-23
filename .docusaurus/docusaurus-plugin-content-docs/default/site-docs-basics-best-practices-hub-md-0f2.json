@@ -1,0 +1,15 @@
+{
+  "unversionedId": "basics/best-practices-hub",
+  "id": "basics/best-practices-hub",
+  "isDocsHomePage": false,
+  "title": "Best Practices",
+  "description": "Sauce Labs provides several best practices, tips, and tricks to help you run your tests successfully.",
+  "source": "@site/docs/basics/best-practices-hub.md",
+  "slug": "/basics/best-practices-hub",
+  "permalink": "/basics/best-practices-hub",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices-hub.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Getting Started"
+}

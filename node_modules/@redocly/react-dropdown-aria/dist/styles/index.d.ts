@@ -1,0 +1,12 @@
+import { DropdownProps, DropdownStyleDependantState, ExtraState } from '../utils/types';
+export declare const DropdownWrapper: import("styled-components").StyledComponent<"div", any, Pick<DropdownProps, "width" | "height" | "disabled"> & Pick<DropdownStyleDependantState, "open" | "dropdownFocused">, never>;
+export declare const DropdownSelector: import("styled-components").StyledComponent<"div", any, Pick<DropdownProps, "searchable"> & Pick<DropdownStyleDependantState, "open">, never>;
+export declare const SelectorSearch: import("styled-components").StyledComponent<"span", any, any, never>;
+export declare const SelectedValue: import("styled-components").StyledComponent<"span", any, Pick<DropdownProps, "centerText" | "value"> & Pick<DropdownStyleDependantState, "open">, never>;
+export declare const Placeholder: import("styled-components").StyledComponent<"span", any, Pick<DropdownProps, "centerText">, never>;
+export declare const Arrow: import("styled-components").StyledComponent<"div", any, any, never>;
+export declare const OptionContainer: import("styled-components").StyledComponent<"span", any, Pick<DropdownProps, "maxContentHeight" | "openUp"> & Pick<DropdownStyleDependantState, "open">, never>;
+export declare const GroupContainer: import("styled-components").StyledComponent<"div", any, any, never>;
+export declare const GroupHeading: import("styled-components").StyledComponent<"div", any, any, never>;
+export declare const GroupDivider: import("styled-components").StyledComponent<"div", any, any, never>;
+export declare const OptionItemWrap: import("styled-components").StyledComponent<"div", any, Pick<ExtraState, "selected" | "focused">, never>;

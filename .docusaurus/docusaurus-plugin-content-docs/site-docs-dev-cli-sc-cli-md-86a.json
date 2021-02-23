@@ -1,0 +1,22 @@
+{
+  "unversionedId": "dev/cli/sc-cli",
+  "id": "dev/cli/sc-cli",
+  "isDocsHomePage": false,
+  "title": "Sauce Connect Proxy CLI Reference",
+  "description": "SCP CLI reference.",
+  "source": "@site/docs/dev/cli/sc-cli.md",
+  "permalink": "/dev/cli/sc-cli",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/cli/sc-cli.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Sauce Connect Proxy",
+  "sidebar": "docs",
+  "previous": {
+    "title": "IPSec VPN CLI Reference",
+    "permalink": "/dev/cli/ipsec-cli"
+  },
+  "next": {
+    "title": "Sauce CTL",
+    "permalink": "/dev/cli/saucectl"
+  }
+}

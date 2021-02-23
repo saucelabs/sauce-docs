@@ -1,0 +1,24 @@
+{
+  "unversionedId": "testrunner-toolkit/saucectl",
+  "id": "testrunner-toolkit/saucectl",
+  "isDocsHomePage": false,
+  "title": "Sauce CTL",
+  "description": "backgroundColor: color,",
+  "source": "@site/docs/testrunner-toolkit/saucectl.md",
+  "slug": "/testrunner-toolkit/saucectl",
+  "permalink": "/testrunner-toolkit/saucectl",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/saucectl.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "CLI Reference",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Using TypeScript Tests",
+    "permalink": "/testrunner-toolkit/typescript"
+  },
+  "next": {
+    "title": "Testrunner FAQs",
+    "permalink": "/testrunner-toolkit/faqs"
+  }
+}

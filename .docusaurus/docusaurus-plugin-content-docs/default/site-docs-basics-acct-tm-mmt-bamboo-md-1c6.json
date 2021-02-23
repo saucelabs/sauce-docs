@@ -1,0 +1,15 @@
+{
+  "unversionedId": "basics/acct-tm-mmt/bamboo",
+  "id": "basics/acct-tm-mmt/bamboo",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs with Bamboo",
+  "description": "Use our plugin to run your Sauce Labs tests within your Atlassian Bamboo pipeline.",
+  "source": "@site/docs/basics/acct-tm-mmt/bamboo.md",
+  "slug": "/basics/acct-tm-mmt/bamboo",
+  "permalink": "/basics/acct-tm-mmt/bamboo",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-tm-mmt/bamboo.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Bamboo"
+}

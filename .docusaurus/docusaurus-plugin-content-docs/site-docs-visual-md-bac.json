@@ -1,0 +1,22 @@
+{
+  "unversionedId": "visual",
+  "id": "visual",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs Visual Testing",
+  "description": "Sauce Labs Visual intro page.",
+  "source": "@site/docs/visual.md",
+  "permalink": "/visual",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/visual.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Introduction",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Headless Troubleshooting Guide",
+    "permalink": "/headless/troubleshooting"
+  },
+  "next": {
+    "title": "Sauce Visual Testing System Requirements",
+    "permalink": "/visual/requirements"
+  }
+}

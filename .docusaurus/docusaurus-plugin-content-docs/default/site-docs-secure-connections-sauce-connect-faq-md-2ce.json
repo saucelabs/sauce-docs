@@ -1,0 +1,24 @@
+{
+  "unversionedId": "secure-connections/sauce-connect/faq",
+  "id": "secure-connections/sauce-connect/faq",
+  "isDocsHomePage": false,
+  "title": "Sauce Connect Frequently Asked Questions",
+  "description": "If you're new to Sauce Connect Proxy or troubleshooting, this list of Frequently Asked Questions can help you with what you need to know.",
+  "source": "@site/docs/secure-connections/sauce-connect/faq.md",
+  "slug": "/secure-connections/sauce-connect/faq",
+  "permalink": "/secure-connections/sauce-connect/faq",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/sauce-connect/faq.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "FAQ",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Connect Troubleshooting",
+    "permalink": "/secure-connections/sauce-connect/troubleshooting"
+  },
+  "next": {
+    "title": "Mobile App Testing",
+    "permalink": "/mobile-apps"
+  }
+}

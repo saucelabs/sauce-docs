@@ -1,0 +1,22 @@
+{
+  "unversionedId": "data-centers",
+  "id": "data-centers",
+  "isDocsHomePage": false,
+  "title": "Data Center Information",
+  "description": "Sauce Labs data center information page.",
+  "source": "@site/docs/data-centers.md",
+  "permalink": "/data-centers",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/data-centers.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Data Center Info",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Account and Team Management",
+    "permalink": "/account-and-team-management"
+  },
+  "next": {
+    "title": "What is Sauce Connect Proxy?",
+    "permalink": "/sauce-connect"
+  }
+}

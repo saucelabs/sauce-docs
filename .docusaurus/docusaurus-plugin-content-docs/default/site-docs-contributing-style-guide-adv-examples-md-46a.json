@@ -1,0 +1,19 @@
+{
+  "unversionedId": "contributing/style-guide/adv-examples",
+  "id": "contributing/style-guide/adv-examples",
+  "isDocsHomePage": false,
+  "title": "Advanced Examples",
+  "description": "Powered by MDX",
+  "source": "@site/docs/contributing/style-guide/adv-examples.md",
+  "slug": "/contributing/style-guide/adv-examples",
+  "permalink": "/contributing/style-guide/adv-examples",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/contributing/style-guide/adv-examples.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Markdown Styles",
+    "permalink": "/contributing/style-guide/mkdwn-styles"
+  }
+}

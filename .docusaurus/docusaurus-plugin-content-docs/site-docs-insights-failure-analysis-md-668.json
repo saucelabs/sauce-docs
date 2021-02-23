@@ -1,0 +1,22 @@
+{
+  "unversionedId": "insights/failure-analysis",
+  "id": "insights/failure-analysis",
+  "isDocsHomePage": false,
+  "title": "Sauce Insights Failure Analysis",
+  "description": "Sauce Labs Insights Failure Analysis page.",
+  "source": "@site/docs/insights/failure-analysis.md",
+  "permalink": "/insights/failure-analysis",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/insights/failure-analysis.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Failure Analysis",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Insights Build Efficiency",
+    "permalink": "/insights/efficiency"
+  },
+  "next": {
+    "title": "Debugging with Sauce Insights",
+    "permalink": "/insights/debugging"
+  }
+}

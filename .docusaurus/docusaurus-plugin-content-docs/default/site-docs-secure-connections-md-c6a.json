@@ -1,0 +1,24 @@
+{
+  "unversionedId": "secure-connections",
+  "id": "secure-connections",
+  "isDocsHomePage": false,
+  "title": "Overview of Sauce Labs Secure Connection Options",
+  "description": "backgroundColor: color,",
+  "source": "@site/docs/secure-connections.md",
+  "slug": "/secure-connections",
+  "permalink": "/secure-connections",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Getting Started",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Configuring Okta",
+    "permalink": "/basics/sso/config-okta"
+  },
+  "next": {
+    "title": "Running Sauce Labs Tests with IPSec VPN Tunnels",
+    "permalink": "/secure-connections/ipsec-vpn"
+  }
+}

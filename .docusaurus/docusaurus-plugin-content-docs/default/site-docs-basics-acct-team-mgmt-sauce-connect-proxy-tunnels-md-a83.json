@@ -1,0 +1,24 @@
+{
+  "unversionedId": "basics/acct-team-mgmt/sauce-connect-proxy-tunnels",
+  "id": "basics/acct-team-mgmt/sauce-connect-proxy-tunnels",
+  "isDocsHomePage": false,
+  "title": "Sharing Sauce Connect Proxy Tunnels",
+  "description": "You can share Sauce Connect Proxy tunnels based on the hierarchical structure of user roles. You can also verify which tunnels are available on the Tunnels page in Sauce Labs.",
+  "source": "@site/docs/basics/acct-team-mgmt/sauce-connect-proxy-tunnels.md",
+  "slug": "/basics/acct-team-mgmt/sauce-connect-proxy-tunnels",
+  "permalink": "/basics/acct-team-mgmt/sauce-connect-proxy-tunnels",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/sauce-connect-proxy-tunnels.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Sharing Sauce Connect Proxy Tunnels",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Assigning and Removing Users from Teams",
+    "permalink": "/basics/acct-team-mgmt/assigning-removing-users-teams"
+  },
+  "next": {
+    "title": "Managing Your Subscription",
+    "permalink": "/basics/acct-team-mgmt/managing-subscription"
+  }
+}

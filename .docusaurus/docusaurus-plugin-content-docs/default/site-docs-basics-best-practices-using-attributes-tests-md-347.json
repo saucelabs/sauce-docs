@@ -1,0 +1,15 @@
+{
+  "unversionedId": "basics/best-practices/using-attributes-tests",
+  "id": "basics/best-practices/using-attributes-tests",
+  "isDocsHomePage": false,
+  "title": "Using Attributes to Identify Tests",
+  "description": "By assigning unique attributes (such as test name, tags, and build ID) in your test capabilities, you can then apply these annotations to filter results on your Sauce Labs Test Results and Archive pages. Although not required, following this best practice can make it easier to monitor tests and builds in your CI pipeline.",
+  "source": "@site/docs/basics/best-practices/using-attributes-tests.md",
+  "slug": "/basics/best-practices/using-attributes-tests",
+  "permalink": "/basics/best-practices/using-attributes-tests",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/using-attributes-tests.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Using Attributes to Identify Tests"
+}

@@ -1,0 +1,22 @@
+{
+  "unversionedId": "mobile-apps/live-testing",
+  "id": "mobile-apps/live-testing",
+  "isDocsHomePage": false,
+  "title": "Mobile Live Testing Quickstart",
+  "description": "Sauce Labs configuration page.",
+  "source": "@site/docs/mobile-apps/live-testing.md",
+  "permalink": "/mobile-apps/live-testing",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/live-testing.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Quickstart Guide",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Mobile Application Testing Home Page",
+    "permalink": "/mobile-apps"
+  },
+  "next": {
+    "title": "Application Storage",
+    "permalink": "/mobile-apps/live-testing/application-storage"
+  }
+}

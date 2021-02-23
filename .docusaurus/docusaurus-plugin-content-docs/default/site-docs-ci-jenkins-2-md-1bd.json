@@ -1,0 +1,23 @@
+{
+  "unversionedId": "ci/jenkins2",
+  "id": "ci/jenkins2",
+  "isDocsHomePage": false,
+  "title": "jenkins2",
+  "description": "Customize Sauce Connect Settings",
+  "source": "@site/docs/ci/jenkins2.md",
+  "slug": "/ci/jenkins2",
+  "permalink": "/ci/jenkins2",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/jenkins2.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs with Jenkins",
+    "permalink": "/ci/jenkins"
+  },
+  "next": {
+    "title": "Sauce Labs with TeamCity",
+    "permalink": "/ci/teamcity"
+  }
+}

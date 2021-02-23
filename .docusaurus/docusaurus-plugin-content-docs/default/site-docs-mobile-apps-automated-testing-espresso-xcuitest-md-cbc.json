@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/espresso-xcuitest",
+  "id": "mobile-apps/automated-testing/espresso-xcuitest",
+  "isDocsHomePage": false,
+  "title": "Mobile App Testing with Espresso and XCUITest",
+  "description": "Landing Page for Espresso and XCUITest",
+  "source": "@site/docs/mobile-apps/automated-testing/espresso-xcuitest.md",
+  "slug": "/mobile-apps/automated-testing/espresso-xcuitest",
+  "permalink": "/mobile-apps/automated-testing/espresso-xcuitest",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/espresso-xcuitest.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Using Espresso and XCUITest",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Appium Testing with Emulators and Simulators",
+    "permalink": "/mobile-apps/automated-testing/appium/virtual-devices"
+  },
+  "next": {
+    "title": "Real Device Testing with Espresso and XCUITest",
+    "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/real-devices"
+  }
+}

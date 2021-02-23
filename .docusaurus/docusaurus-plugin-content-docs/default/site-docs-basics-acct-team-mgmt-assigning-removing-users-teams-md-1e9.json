@@ -1,0 +1,24 @@
+{
+  "unversionedId": "basics/acct-team-mgmt/assigning-removing-users-teams",
+  "id": "basics/acct-team-mgmt/assigning-removing-users-teams",
+  "isDocsHomePage": false,
+  "title": "Assigning and Removing Users from Teams",
+  "description": "ENTERPRISE PLANS ONLY",
+  "source": "@site/docs/basics/acct-team-mgmt/assigning-removing-users-teams.md",
+  "slug": "/basics/acct-team-mgmt/assigning-removing-users-teams",
+  "permalink": "/basics/acct-team-mgmt/assigning-removing-users-teams",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/assigning-removing-users-teams.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Assigning and Removing Users from Teams",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Adding and Deleting Teams",
+    "permalink": "/basics/acct-team-mgmt/adding-deleting-teams"
+  },
+  "next": {
+    "title": "Sharing Sauce Connect Proxy Tunnels",
+    "permalink": "/basics/acct-team-mgmt/sauce-connect-proxy-tunnels"
+  }
+}

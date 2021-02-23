@@ -1,0 +1,24 @@
+{
+  "unversionedId": "performance/jankiness",
+  "id": "performance/jankiness",
+  "isDocsHomePage": false,
+  "title": "Testing Smoothness and Jankiness with Sauce Performance",
+  "description": "Sauce Labs Performance testing smoothness vs. jankiness page.",
+  "source": "@site/docs/performance/jankiness.md",
+  "slug": "/performance/jankiness",
+  "permalink": "/performance/jankiness",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/performance/jankiness.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Smoothness vs. Jankiness",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Performance with Speedo",
+    "permalink": "/performance/speedo"
+  },
+  "next": {
+    "title": "Sauce Performance Troubleshooting Guide",
+    "permalink": "/performance/troubleshooting"
+  }
+}

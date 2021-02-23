@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/espresso-xcuitest/virtual-devices",
+  "id": "mobile-apps/automated-testing/espresso-xcuitest/virtual-devices",
+  "isDocsHomePage": false,
+  "title": "Virtual Device Testing with Espresso",
+  "description": "backgroundColor: color,",
+  "source": "@site/docs/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices.md",
+  "slug": "/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices",
+  "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Virtual Devices",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Real Device Testing with Espresso and XCUITest",
+    "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/real-devices"
+  },
+  "next": {
+    "title": "Microsoft App Center Integration",
+    "permalink": "/mobile-apps/automated-testing/microsoft-app-center"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "ipsec-vpn",
+  "id": "ipsec-vpn",
+  "isDocsHomePage": false,
+  "title": "Using IPSec VPN",
+  "description": "ENTERPRISE PLANS ONLY",
+  "source": "@site/docs/ipsec-vpn.md",
+  "slug": "/ipsec-vpn",
+  "permalink": "/ipsec-vpn",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ipsec-vpn.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "IPSec VPN",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "What is Sauce Connect Proxy?",
+    "permalink": "/sauce-connect"
+  },
+  "next": {
+    "title": "Mobile App Testing",
+    "permalink": "/mobile-apps"
+  }
+}

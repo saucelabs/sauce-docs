@@ -1,0 +1,22 @@
+{
+  "unversionedId": "ci/basics",
+  "id": "ci/basics",
+  "isDocsHomePage": false,
+  "title": "Sauce Continuous Testing Basics",
+  "description": "Looking for a little background about Continuo",
+  "source": "@site/docs/ci/basics.md",
+  "permalink": "/ci/basics",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/basics.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "CI/CD Basics",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Labs CI Integrations",
+    "permalink": "/ci"
+  },
+  "next": {
+    "title": "Sauce Labs with Jenkins",
+    "permalink": "/ci/jenkins"
+  }
+}

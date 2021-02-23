@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/app-storage",
+  "id": "mobile-apps/app-storage",
+  "isDocsHomePage": false,
+  "title": "Mobile App Storage",
+  "description": "When testing mobile applications, you now have the option to upload your application to our new temporary application storage. Application storage is quite different and more flexible than our previous iteration (Sauce Storage) in multiple ways:",
+  "source": "@site/docs/mobile-apps/app-storage.md",
+  "slug": "/mobile-apps/app-storage",
+  "permalink": "/mobile-apps/app-storage",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/app-storage.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "App Storage",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Troubleshooting Automated Mobile App Tests",
+    "permalink": "/mobile-apps/automated-testing/troubleshooting"
+  },
+  "next": {
+    "title": "Mobile App Testing Features and Functionality",
+    "permalink": "/mobile-apps/features"
+  }
+}

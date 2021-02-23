@@ -1,0 +1,794 @@
+{
+  "docsSidebars": {
+    "docs": [
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Home",
+        "items": [
+          {
+            "type": "link",
+            "label": "Welcome",
+            "href": "/overview"
+          },
+          {
+            "collapsed": true,
+            "type": "category",
+            "label": "Sauce Labs Basics",
+            "items": [
+              {
+                "type": "link",
+                "label": "What is Sauce Labs?",
+                "href": "/sauce-basics"
+              },
+              {
+                "type": "link",
+                "label": "Setup and Configuration",
+                "href": "/configuration"
+              },
+              {
+                "type": "link",
+                "label": "Platform Support",
+                "href": "/platform-support"
+              },
+              {
+                "type": "link",
+                "label": "Account Management",
+                "href": "/account-and-team-management"
+              },
+              {
+                "type": "link",
+                "label": "Data Center Info",
+                "href": "/data-centers"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Secure Connections",
+        "items": [
+          {
+            "collapsed": true,
+            "type": "category",
+            "label": "Sauce Connect Proxy",
+            "items": [
+              {
+                "type": "link",
+                "label": "What is Sauce Connect Proxy?",
+                "href": "/sauce-connect"
+              },
+              {
+                "type": "link",
+                "label": "System Requirements",
+                "href": "/sauce-connect/requirements"
+              },
+              {
+                "type": "link",
+                "label": "Setup and Configuration",
+                "href": "/sauce-connect/setup"
+              },
+              {
+                "type": "link",
+                "label": "Network and Security",
+                "href": "/sauce-connect/network"
+              },
+              {
+                "type": "link",
+                "label": "Administration",
+                "href": "/sauce-connect/admin"
+              },
+              {
+                "type": "link",
+                "label": "Troubleshooting",
+                "href": "/sauce-connect/troubleshooting"
+              }
+            ]
+          },
+          {
+            "collapsed": true,
+            "type": "category",
+            "label": "IPSec VPN",
+            "items": [
+              {
+                "type": "link",
+                "label": "Why IPSec VPN?",
+                "href": "/ipsec"
+              },
+              {
+                "type": "link",
+                "label": "System Requirements",
+                "href": "/ipsec/requirements"
+              },
+              {
+                "type": "link",
+                "label": "Setup and Configuration",
+                "href": "/ipsec/setup"
+              },
+              {
+                "type": "link",
+                "label": "Network and Security",
+                "href": "/ipsec/network"
+              },
+              {
+                "type": "link",
+                "label": "Administration",
+                "href": "/ipsec/admin"
+              },
+              {
+                "type": "link",
+                "label": "Troubleshooting",
+                "href": "/ipsec/troubleshooting"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Mobile Apps",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/mobile-apps"
+          },
+          {
+            "collapsed": true,
+            "type": "category",
+            "label": "Live Testing",
+            "items": [
+              {
+                "type": "link",
+                "label": "Quickstart Guide",
+                "href": "/mobile-apps/live-testing"
+              },
+              {
+                "type": "link",
+                "label": "Application Storage",
+                "href": "/mobile-apps/live-testing/application-storage"
+              },
+              {
+                "type": "link",
+                "label": "Real Devices",
+                "href": "/mobile-apps/live-testing/real-devices"
+              },
+              {
+                "type": "link",
+                "label": "Virtual Devices",
+                "href": "/mobile-apps/live-testing/virtual-devices"
+              }
+            ]
+          },
+          {
+            "collapsed": true,
+            "type": "category",
+            "label": "Automated Testing",
+            "items": [
+              {
+                "type": "link",
+                "label": "Quickstart Guide",
+                "href": "/mobile-apps/automated-testing"
+              },
+              {
+                "type": "link",
+                "label": "Appium",
+                "href": "/mobile-apps/automated-testing/appium"
+              },
+              {
+                "type": "link",
+                "label": "Espresso",
+                "href": "/mobile-apps/automated-testing/espresso"
+              },
+              {
+                "type": "link",
+                "label": "XCUITest",
+                "href": "/mobile-apps/automated-testing/xcuitest"
+              },
+              {
+                "type": "link",
+                "label": "Robotium",
+                "href": "/mobile-apps/automated-testing/robotium"
+              },
+              {
+                "type": "link",
+                "label": "WebdriverIO",
+                "href": "/mobile-apps/automated-testing/wdio"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Web Apps",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/web-apps"
+          },
+          {
+            "collapsed": true,
+            "type": "category",
+            "label": "Live Testing",
+            "items": [
+              {
+                "type": "link",
+                "label": "Quickstart Guide",
+                "href": "/web-apps/live-testing"
+              },
+              {
+                "type": "link",
+                "label": "Desktop Browsers",
+                "href": "/web-apps/live-testing/desktop-browsers"
+              },
+              {
+                "type": "link",
+                "label": "Mobile Browsers",
+                "href": "/web-apps/live-testing/mobile-browsers"
+              },
+              {
+                "type": "link",
+                "label": "Troubleshooting",
+                "href": "/web-apps/live-testing/troubleshooting"
+              }
+            ]
+          },
+          {
+            "collapsed": true,
+            "type": "category",
+            "label": "Automated Testing",
+            "items": [
+              {
+                "type": "link",
+                "label": "Quickstart Guide",
+                "href": "/web-apps/automated-testing"
+              },
+              {
+                "type": "link",
+                "label": "Selenium",
+                "href": "/web-apps/automated-testing/selenium"
+              },
+              {
+                "type": "link",
+                "label": "Selenium",
+                "href": "/web-apps/automated-testing/wdio"
+              },
+              {
+                "type": "link",
+                "label": "JavaScript",
+                "href": "/web-apps/automated-testing/js"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "CI/CD",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/ci"
+          },
+          {
+            "type": "link",
+            "label": "Jenkins",
+            "href": "/ci/jenkins"
+          },
+          {
+            "type": "link",
+            "label": "Bamboo",
+            "href": "/ci/bamboo"
+          },
+          {
+            "type": "link",
+            "label": "CircleCI",
+            "href": "/ci/circleci"
+          },
+          {
+            "type": "link",
+            "label": "Azure",
+            "href": "/ci/azure"
+          },
+          {
+            "type": "link",
+            "label": "GitHub",
+            "href": "/ci/github"
+          },
+          {
+            "type": "link",
+            "label": "GitLab",
+            "href": "/ci/gitlab"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Insights",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/insights"
+          },
+          {
+            "type": "link",
+            "label": "Test History",
+            "href": "/insights/history"
+          },
+          {
+            "type": "link",
+            "label": "Test Trends",
+            "href": "/insights/trends"
+          },
+          {
+            "type": "link",
+            "label": "Test Filtering",
+            "href": "/insights/filters"
+          },
+          {
+            "type": "link",
+            "label": "Build Efficiency",
+            "href": "/insights/efficiency"
+          },
+          {
+            "type": "link",
+            "label": "Failure Analysis",
+            "href": "/insights/failure-analysis"
+          },
+          {
+            "type": "link",
+            "label": "Debugging",
+            "href": "/insights/debugging"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Performance",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/performance"
+          },
+          {
+            "type": "link",
+            "label": "Page Loads",
+            "href": "/performance/load"
+          },
+          {
+            "type": "link",
+            "label": "Testing with Speedo",
+            "href": "/performance/speedo"
+          },
+          {
+            "type": "link",
+            "label": "Smoothness vs. Jankiness",
+            "href": "/performance/jankiness"
+          },
+          {
+            "type": "link",
+            "label": "Troubleshooting",
+            "href": "/performance/troubleshooting"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Headless",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/headless"
+          },
+          {
+            "type": "link",
+            "label": "System Requirements",
+            "href": "/headless/requirements"
+          },
+          {
+            "type": "link",
+            "label": "Configuration",
+            "href": "/headless/configuration"
+          },
+          {
+            "type": "link",
+            "label": "Troubleshooting",
+            "href": "/headless/troubleshooting"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Visual",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/visual"
+          },
+          {
+            "type": "link",
+            "label": "System Requirements",
+            "href": "/visual/requirements"
+          },
+          {
+            "type": "link",
+            "label": "Configuration",
+            "href": "/visual/configuration"
+          },
+          {
+            "type": "link",
+            "label": "System Requirements",
+            "href": "/visual/workflows"
+          },
+          {
+            "type": "link",
+            "label": "Test History",
+            "href": "/visual/history"
+          },
+          {
+            "type": "link",
+            "label": "Advanced Options",
+            "href": "/visual/advanced"
+          },
+          {
+            "type": "link",
+            "label": "Troubleshooting",
+            "href": "/visual/troubleshooting"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Developer Resources",
+        "items": [
+          {
+            "type": "link",
+            "label": "Overview",
+            "href": "/dev"
+          },
+          {
+            "collapsed": true,
+            "type": "category",
+            "label": "API Reference",
+            "items": [
+              {
+                "type": "link",
+                "label": "Introduction",
+                "href": "/dev/api"
+              },
+              {
+                "type": "link",
+                "label": "Access Key",
+                "href": "/dev/api/access-key"
+              },
+              {
+                "type": "link",
+                "label": "Account",
+                "href": "/dev/api/account"
+              },
+              {
+                "type": "link",
+                "label": "Activity",
+                "href": "/dev/api/activity"
+              },
+              {
+                "type": "link",
+                "label": "Analytics",
+                "href": "/dev/api/analytics"
+              },
+              {
+                "type": "link",
+                "label": "Devices",
+                "href": "/dev/api/devices"
+              },
+              {
+                "type": "link",
+                "label": "Info",
+                "href": "/dev/api/info"
+              },
+              {
+                "type": "link",
+                "label": "Jobs",
+                "href": "/dev/api/jobs"
+              },
+              {
+                "type": "link",
+                "label": "JS Tests",
+                "href": "/dev/api/js-tests"
+              },
+              {
+                "type": "link",
+                "label": "Performance",
+                "href": "/dev/api/performance"
+              },
+              {
+                "type": "link",
+                "label": "Sauce Storage",
+                "href": "/dev/api/sauce-storage"
+              },
+              {
+                "type": "link",
+                "label": "Storage",
+                "href": "/dev/api/storage"
+              },
+              {
+                "type": "link",
+                "label": "Tunnels",
+                "href": "/dev/api/tunnels"
+              },
+              {
+                "type": "link",
+                "label": "User",
+                "href": "/dev/api/user"
+              }
+            ]
+          },
+          {
+            "collapsed": true,
+            "type": "category",
+            "label": "CLI Reference",
+            "items": [
+              {
+                "type": "link",
+                "label": "Introduction",
+                "href": "/dev/cli"
+              },
+              {
+                "type": "link",
+                "label": "IPSec VPN",
+                "href": "/dev/cli/ipsec-cli"
+              },
+              {
+                "type": "link",
+                "label": "Sauce Connect Proxy",
+                "href": "/dev/cli/sc-cli"
+              },
+              {
+                "type": "link",
+                "label": "Sauce CTL",
+                "href": "/dev/cli/saucectl"
+              }
+            ]
+          },
+          {
+            "collapsed": true,
+            "type": "category",
+            "label": "Sauce Bindings",
+            "items": [
+              {
+                "type": "link",
+                "label": "Introduction",
+                "href": "/dev/sauce-bindings"
+              },
+              {
+                "type": "link",
+                "label": "Configuration",
+                "href": "/dev/sauce-bindings/configuration"
+              },
+              {
+                "type": "link",
+                "label": "Integration",
+                "href": "/dev/sauce-bindings/integration"
+              },
+              {
+                "type": "link",
+                "label": "Support",
+                "href": "/dev/sauce-bindings/support"
+              }
+            ]
+          },
+          {
+            "collapsed": true,
+            "type": "category",
+            "label": "Testrunner Toolkit",
+            "items": [
+              {
+                "type": "link",
+                "label": "Why Testrunner Toolkit?",
+                "href": "/dev/testrunner-toolkit"
+              },
+              {
+                "type": "link",
+                "label": "Installation",
+                "href": "/dev/testrunner-toolkit/installation"
+              },
+              {
+                "type": "link",
+                "label": "Configuration",
+                "href": "/dev/testrunner-toolkit/configuration"
+              },
+              {
+                "type": "link",
+                "label": "Running Tests",
+                "href": "/dev/testrunner-toolkit/running-tests"
+              },
+              {
+                "type": "link",
+                "label": "Integrations",
+                "href": "/dev/testrunner-toolkit/integrations"
+              },
+              {
+                "type": "link",
+                "label": "Using TypeScript",
+                "href": "/dev/testrunner-toolkit/typescript"
+              },
+              {
+                "type": "link",
+                "label": "FAQs",
+                "href": "/dev/testrunner-toolkit/faqs"
+              },
+              {
+                "type": "link",
+                "label": "Support",
+                "href": "/dev/testrunner-toolkit/support"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Contributing",
+        "items": [
+          {
+            "type": "link",
+            "label": "Overview",
+            "href": "/contributing"
+          },
+          {
+            "type": "link",
+            "label": "Code of Conduct",
+            "href": "/contributing/code-of-conduct"
+          },
+          {
+            "collapsed": true,
+            "type": "category",
+            "label": "Style Guide",
+            "items": [
+              {
+                "type": "link",
+                "label": "Overview",
+                "href": "/contributing/style-guide"
+              },
+              {
+                "type": "link",
+                "label": "Markdown Styles",
+                "href": "/contributing/style-guide/mkdwn-styles"
+              },
+              {
+                "type": "link",
+                "label": "Advanced Examples",
+                "href": "/contributing/style-guide/adv-examples"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "permalinkToSidebar": {
+    "/account-and-team-management": "docs",
+    "/ci": "docs",
+    "/ci/azure": "docs",
+    "/ci/bamboo": "docs",
+    "/ci/circleci": "docs",
+    "/ci/github": "docs",
+    "/ci/gitlab": "docs",
+    "/ci/jenkins": "docs",
+    "/configuration": "docs",
+    "/contributing": "docs",
+    "/contributing/code-of-conduct": "docs",
+    "/contributing/style-guide": "docs",
+    "/contributing/style-guide/adv-examples": "docs",
+    "/contributing/style-guide/mkdwn-styles": "docs",
+    "/data-centers": "docs",
+    "/dev": "docs",
+    "/dev/api": "docs",
+    "/dev/api/access-key": "docs",
+    "/dev/api/account": "docs",
+    "/dev/api/activity": "docs",
+    "/dev/api/analytics": "docs",
+    "/dev/api/devices": "docs",
+    "/dev/api/info": "docs",
+    "/dev/api/jobs": "docs",
+    "/dev/api/js-tests": "docs",
+    "/dev/api/performance": "docs",
+    "/dev/api/sauce-storage": "docs",
+    "/dev/api/storage": "docs",
+    "/dev/api/tunnels": "docs",
+    "/dev/api/user": "docs",
+    "/dev/cli": "docs",
+    "/dev/cli/ipsec-cli": "docs",
+    "/dev/cli/saucectl": "docs",
+    "/dev/cli/sc-cli": "docs",
+    "/dev/sauce-bindings": "docs",
+    "/dev/sauce-bindings/configuration": "docs",
+    "/dev/sauce-bindings/integration": "docs",
+    "/dev/sauce-bindings/support": "docs",
+    "/dev/testrunner-toolkit": "docs",
+    "/dev/testrunner-toolkit/configuration": "docs",
+    "/dev/testrunner-toolkit/faqs": "docs",
+    "/dev/testrunner-toolkit/installation": "docs",
+    "/dev/testrunner-toolkit/integrations": "docs",
+    "/dev/testrunner-toolkit/running-tests": "docs",
+    "/dev/testrunner-toolkit/support": "docs",
+    "/dev/testrunner-toolkit/typescript": "docs",
+    "/headless": "docs",
+    "/headless/configuration": "docs",
+    "/headless/requirements": "docs",
+    "/headless/troubleshooting": "docs",
+    "/insights": "docs",
+    "/insights/debugging": "docs",
+    "/insights/efficiency": "docs",
+    "/insights/failure-analysis": "docs",
+    "/insights/filters": "docs",
+    "/insights/history": "docs",
+    "/insights/trends": "docs",
+    "/ipsec": "docs",
+    "/ipsec/admin": "docs",
+    "/ipsec/network": "docs",
+    "/ipsec/requirements": "docs",
+    "/ipsec/setup": "docs",
+    "/ipsec/troubleshooting": "docs",
+    "/mobile-apps": "docs",
+    "/mobile-apps/automated-testing": "docs",
+    "/mobile-apps/automated-testing/appium": "docs",
+    "/mobile-apps/automated-testing/espresso": "docs",
+    "/mobile-apps/automated-testing/robotium": "docs",
+    "/mobile-apps/automated-testing/wdio": "docs",
+    "/mobile-apps/automated-testing/xcuitest": "docs",
+    "/mobile-apps/live-testing": "docs",
+    "/mobile-apps/live-testing/application-storage": "docs",
+    "/mobile-apps/live-testing/real-devices": "docs",
+    "/mobile-apps/live-testing/virtual-devices": "docs",
+    "/overview": "docs",
+    "/performance": "docs",
+    "/performance/jankiness": "docs",
+    "/performance/load": "docs",
+    "/performance/speedo": "docs",
+    "/performance/troubleshooting": "docs",
+    "/platform-support": "docs",
+    "/sauce-basics": "docs",
+    "/sauce-connect": "docs",
+    "/sauce-connect/admin": "docs",
+    "/sauce-connect/network": "docs",
+    "/sauce-connect/requirements": "docs",
+    "/sauce-connect/setup": "docs",
+    "/sauce-connect/troubleshooting": "docs",
+    "/visual": "docs",
+    "/visual/advanced": "docs",
+    "/visual/configuration": "docs",
+    "/visual/history": "docs",
+    "/visual/requirements": "docs",
+    "/visual/troubleshooting": "docs",
+    "/visual/workflows": "docs",
+    "/web-apps": "docs",
+    "/web-apps/automated-testing": "docs",
+    "/web-apps/automated-testing/js": "docs",
+    "/web-apps/automated-testing/selenium": "docs",
+    "/web-apps/automated-testing/wdio": "docs",
+    "/web-apps/live-testing": "docs",
+    "/web-apps/live-testing/desktop-browsers": "docs",
+    "/web-apps/live-testing/mobile-browsers": "docs",
+    "/web-apps/live-testing/troubleshooting": "docs"
+  },
+  "version": null
+}

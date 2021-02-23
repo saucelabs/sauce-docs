@@ -1,0 +1,24 @@
+{
+  "unversionedId": "basics/acct-team-mgmt-hub",
+  "id": "basics/acct-team-mgmt-hub",
+  "isDocsHomePage": false,
+  "title": "Account and Team Management",
+  "description": "The Account area in Sauce Labs provides several options for you to configure your teams, users, and accounts.",
+  "source": "@site/docs/basics/acct-team-mgmt-hub.md",
+  "slug": "/basics/acct-team-mgmt-hub",
+  "permalink": "/basics/acct-team-mgmt-hub",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt-hub.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Getting Started",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "What is Sauce Labs?",
+    "permalink": "/sauce-basics"
+  },
+  "next": {
+    "title": "Organization Settings",
+    "permalink": "/basics/acct-team-mgmt/org-settings"
+  }
+}

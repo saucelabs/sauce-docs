@@ -1,0 +1,15 @@
+{
+  "unversionedId": "basics/best-practices/small-atomic-autonomous",
+  "id": "basics/best-practices/small-atomic-autonomous",
+  "isDocsHomePage": false,
+  "title": "Running Small, Atomic, Autonomous Tests",
+  "description": "When a test fails, the most important thing is knowing what went wrong so you can easily come up with a fix. The best way to know what went wrong is to keep three characteristics in mind when designing your tests: small, atomic, and autonomous.",
+  "source": "@site/docs/basics/best-practices/small-atomic-autonomous.md",
+  "slug": "/basics/best-practices/small-atomic-autonomous",
+  "permalink": "/basics/best-practices/small-atomic-autonomous",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/small-atomic-autonomous.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Running Small, Atomic, Autonomous Tests"
+}

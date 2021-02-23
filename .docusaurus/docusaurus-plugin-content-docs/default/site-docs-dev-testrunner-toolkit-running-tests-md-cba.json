@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/testrunner-toolkit/running-tests",
+  "id": "dev/testrunner-toolkit/running-tests",
+  "isDocsHomePage": false,
+  "title": "Running Tests in Testrunner Toolkit",
+  "description": "Before you begin testing with Testrunner Toolkit, you must choose an automation framework.",
+  "source": "@site/docs/dev/testrunner-toolkit/running-tests.md",
+  "slug": "/dev/testrunner-toolkit/running-tests",
+  "permalink": "/dev/testrunner-toolkit/running-tests",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/testrunner-toolkit/running-tests.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Running Tests",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Testrunner Configuration",
+    "permalink": "/dev/testrunner-toolkit/configuration"
+  },
+  "next": {
+    "title": "Testrunner CI Integrations",
+    "permalink": "/dev/testrunner-toolkit/integrations"
+  }
+}

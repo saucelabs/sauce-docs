@@ -1,0 +1,24 @@
+{
+  "unversionedId": "ci",
+  "id": "ci",
+  "isDocsHomePage": false,
+  "title": "Incorporating Sauce Labs in Your CI/CD Pipeline",
+  "description": "Sauce Labs coordinates seamlessly with the most popular CI/CD platforms.",
+  "source": "@site/docs/ci.md",
+  "slug": "/ci",
+  "permalink": "/ci",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Getting Started",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Cypress on Sauce Labs",
+    "permalink": "/web-apps/automated-testing/cypress"
+  },
+  "next": {
+    "title": "Sauce Labs with Bamboo",
+    "permalink": "/ci/bamboo"
+  }
+}

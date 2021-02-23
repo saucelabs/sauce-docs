@@ -1,0 +1,22 @@
+{
+  "unversionedId": "ipsec/requirements",
+  "id": "ipsec/requirements",
+  "isDocsHomePage": false,
+  "title": "IPSec VPN System Requirements",
+  "description": "Sauce Labs IPSec VPN system requirements page.",
+  "source": "@site/docs/ipsec/requirements.md",
+  "permalink": "/ipsec/requirements",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ipsec/requirements.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "System Requirements",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Why IPSec VPN?",
+    "permalink": "/ipsec"
+  },
+  "next": {
+    "title": "IPSec VPN Setup and Configuration",
+    "permalink": "/ipsec/setup"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "basics/acct-team-mgmt/managing-user-info",
+  "id": "basics/acct-team-mgmt/managing-user-info",
+  "isDocsHomePage": false,
+  "title": "Managing User Information",
+  "description": "ENTERPRISE PLANS ONLY",
+  "source": "@site/docs/basics/acct-team-mgmt/managing-user-info.md",
+  "slug": "/basics/acct-team-mgmt/managing-user-info",
+  "permalink": "/basics/acct-team-mgmt/managing-user-info",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/managing-user-info.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Managing User Information",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Adding and Deactivating Users",
+    "permalink": "/basics/acct-team-mgmt/adding-deactivating-users"
+  },
+  "next": {
+    "title": "Viewing and Exporting Usage Data",
+    "permalink": "/basics/acct-team-mgmt/viewing-exporting-usage-data"
+  }
+}

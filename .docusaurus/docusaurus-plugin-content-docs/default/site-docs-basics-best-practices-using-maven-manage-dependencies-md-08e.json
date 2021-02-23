@@ -1,0 +1,15 @@
+{
+  "unversionedId": "basics/best-practices/using-maven-manage-dependencies",
+  "id": "basics/best-practices/using-maven-manage-dependencies",
+  "isDocsHomePage": false,
+  "title": "Using Maven to Manage Dependencies",
+  "description": "If you use use Maven as the dependency manager for your projects, this will give you some insight into how it works, along with some useful commands. You will find these especially helpful if you are using a private repository as the main repo to source the dependencies for your project. By using the dependency list generation methods described here, you can greatly reduce the workload needed to make dependencies available in your private repository, or locally if you intend to run your project offline.",
+  "source": "@site/docs/basics/best-practices/using-maven-manage-dependencies.md",
+  "slug": "/basics/best-practices/using-maven-manage-dependencies",
+  "permalink": "/basics/best-practices/using-maven-manage-dependencies",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/using-maven-manage-dependencies.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Using Maven to Manage Dependencies"
+}

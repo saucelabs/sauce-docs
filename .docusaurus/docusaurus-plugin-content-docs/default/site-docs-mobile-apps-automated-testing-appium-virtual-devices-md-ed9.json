@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/appium/virtual-devices",
+  "id": "mobile-apps/automated-testing/appium/virtual-devices",
+  "isDocsHomePage": false,
+  "title": "Appium Testing with Emulators and Simulators",
+  "description": "With Sauce Labs, you can run automated Appium tests against many virtual OS and platform combinations with Android emulators and iOS simulators.",
+  "source": "@site/docs/mobile-apps/automated-testing/appium/virtual-devices.md",
+  "slug": "/mobile-apps/automated-testing/appium/virtual-devices",
+  "permalink": "/mobile-apps/automated-testing/appium/virtual-devices",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/appium/virtual-devices.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Virtual Devices",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Appium Testing with Real Devices",
+    "permalink": "/mobile-apps/automated-testing/appium/real-devices"
+  },
+  "next": {
+    "title": "Mobile App Testing with Espresso and XCUITest",
+    "permalink": "/mobile-apps/automated-testing/espresso-xcuitest"
+  }
+}

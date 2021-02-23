@@ -1,0 +1,15 @@
+{
+  "unversionedId": "testrunner-toolkit/integrations/circleci",
+  "id": "testrunner-toolkit/integrations/circleci",
+  "isDocsHomePage": false,
+  "title": "Testrunner Toolkit with CircleCI",
+  "description": "These examples can apply to virtually any CirceCI deployment, provided that you already have some existing automated tests, and are either the maintainer or an admin of the target repository.",
+  "source": "@site/docs/testrunner-toolkit/integrations/circleci.md",
+  "slug": "/testrunner-toolkit/integrations/circleci",
+  "permalink": "/testrunner-toolkit/integrations/circleci",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/integrations/circleci.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "CircleCI"
+}

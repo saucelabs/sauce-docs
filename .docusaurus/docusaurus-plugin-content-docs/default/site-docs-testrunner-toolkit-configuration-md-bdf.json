@@ -1,0 +1,24 @@
+{
+  "unversionedId": "testrunner-toolkit/configuration",
+  "id": "testrunner-toolkit/configuration",
+  "isDocsHomePage": false,
+  "title": "Testrunner Toolkit Configuration",
+  "description": "backgroundColor: color,",
+  "source": "@site/docs/testrunner-toolkit/configuration.md",
+  "slug": "/testrunner-toolkit/configuration",
+  "permalink": "/testrunner-toolkit/configuration",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/configuration.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Basics",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Testrunner Toolkit Installation",
+    "permalink": "/testrunner-toolkit/installation"
+  },
+  "next": {
+    "title": "Configuration Syntax: Cypress",
+    "permalink": "/testrunner-toolkit/configuration/cypress"
+  }
+}

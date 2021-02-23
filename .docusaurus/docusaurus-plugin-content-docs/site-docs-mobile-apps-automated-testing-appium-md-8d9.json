@@ -1,0 +1,22 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/appium",
+  "id": "mobile-apps/automated-testing/appium",
+  "isDocsHomePage": false,
+  "title": "Automated Testing with Appium",
+  "description": "Appium page.",
+  "source": "@site/docs/mobile-apps/automated-testing/appium.md",
+  "permalink": "/mobile-apps/automated-testing/appium",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/appium.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Appium",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Mobile Automated Testing Quickstart",
+    "permalink": "/mobile-apps/automated-testing"
+  },
+  "next": {
+    "title": "Automated Testing with Espresso",
+    "permalink": "/mobile-apps/automated-testing/espresso"
+  }
+}

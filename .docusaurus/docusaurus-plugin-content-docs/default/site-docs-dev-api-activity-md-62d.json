@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/api/activity",
+  "id": "dev/api/activity",
+  "isDocsHomePage": false,
+  "title": "Activity API",
+  "description": "Test and user activity API.",
+  "source": "@site/docs/dev/api/activity.md",
+  "slug": "/dev/api/activity",
+  "permalink": "/dev/api/activity",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/activity.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Activity",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Account API",
+    "permalink": "/dev/api/account"
+  },
+  "next": {
+    "title": "Insights and Analytics API",
+    "permalink": "/dev/api/analytics"
+  }
+}

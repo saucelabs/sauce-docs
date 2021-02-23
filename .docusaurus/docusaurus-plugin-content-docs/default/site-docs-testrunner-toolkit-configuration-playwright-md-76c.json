@@ -1,0 +1,24 @@
+{
+  "unversionedId": "testrunner-toolkit/configuration/playwright",
+  "id": "testrunner-toolkit/configuration/playwright",
+  "isDocsHomePage": false,
+  "title": "Configuration Syntax: Playwright",
+  "description": "Please refer to the Common Configuration Syntax Referencefor information regarding fields such as apiVersion, kind, and sauce.",
+  "source": "@site/docs/testrunner-toolkit/configuration/playwright.md",
+  "slug": "/testrunner-toolkit/configuration/playwright",
+  "permalink": "/testrunner-toolkit/configuration/playwright",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/configuration/playwright.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Playwright",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Configuration Syntax: Cypress",
+    "permalink": "/testrunner-toolkit/configuration/cypress"
+  },
+  "next": {
+    "title": "Configuration Syntax: TestCafe",
+    "permalink": "/testrunner-toolkit/configuration/testcafe"
+  }
+}

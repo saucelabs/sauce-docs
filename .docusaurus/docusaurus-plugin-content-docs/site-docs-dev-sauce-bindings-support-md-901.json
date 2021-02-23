@@ -1,0 +1,22 @@
+{
+  "unversionedId": "dev/sauce-bindings/support",
+  "id": "dev/sauce-bindings/support",
+  "isDocsHomePage": false,
+  "title": "Sauce Bindings Support",
+  "description": "Sauce Labs support page.",
+  "source": "@site/docs/dev/sauce-bindings/support.md",
+  "permalink": "/dev/sauce-bindings/support",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/sauce-bindings/support.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Support",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Bindings Integration Guide",
+    "permalink": "/dev/sauce-bindings/integration"
+  },
+  "next": {
+    "title": "Why Testrunner Toolkit?",
+    "permalink": "/dev/testrunner-toolkit"
+  }
+}

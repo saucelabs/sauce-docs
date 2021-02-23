@@ -1,0 +1,24 @@
+{
+  "unversionedId": "web-apps",
+  "id": "web-apps",
+  "isDocsHomePage": false,
+  "title": "Web Application Testing",
+  "description": "It's easy to run automated web application tests in the Sauce Labs device cloud.",
+  "source": "@site/docs/web-apps.md",
+  "slug": "/web-apps",
+  "permalink": "/web-apps",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/web-apps.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Getting Started",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Mobile App Testing FAQ",
+    "permalink": "/mobile-apps/faq"
+  },
+  "next": {
+    "title": "Web Live Testing Quickstart",
+    "permalink": "/web-apps/live-testing"
+  }
+}

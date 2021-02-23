@@ -1,0 +1,15 @@
+{
+  "unversionedId": "dev/sauce-bindings/support",
+  "id": "dev/sauce-bindings/support",
+  "isDocsHomePage": false,
+  "title": "Sauce Bindings Support",
+  "description": "Sauce Labs support page.",
+  "source": "@site/docs/dev/sauce-bindings/support.md",
+  "slug": "/dev/sauce-bindings/support",
+  "permalink": "/dev/sauce-bindings/support",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/sauce-bindings/support.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Support"
+}

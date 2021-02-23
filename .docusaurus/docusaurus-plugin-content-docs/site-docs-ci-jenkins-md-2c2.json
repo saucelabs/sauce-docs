@@ -1,0 +1,22 @@
+{
+  "unversionedId": "ci/jenkins",
+  "id": "ci/jenkins",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs with Jenkins",
+  "description": "Sauce Labs Jenkins Integrations page.",
+  "source": "@site/docs/ci/jenkins.md",
+  "permalink": "/ci/jenkins",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/jenkins.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Jenkins",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Labs CI Integrations",
+    "permalink": "/ci"
+  },
+  "next": {
+    "title": "Sauce Labs with Bamboo",
+    "permalink": "/ci/bamboo"
+  }
+}

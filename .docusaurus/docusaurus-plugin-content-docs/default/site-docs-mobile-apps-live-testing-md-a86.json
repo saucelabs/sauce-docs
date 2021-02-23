@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/live-testing",
+  "id": "mobile-apps/live-testing",
+  "isDocsHomePage": false,
+  "title": "Mobile Live Testing Quickstart",
+  "description": "Sauce Labs configuration page.",
+  "source": "@site/docs/mobile-apps/live-testing.md",
+  "slug": "/mobile-apps/live-testing",
+  "permalink": "/mobile-apps/live-testing",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/live-testing.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Quickstart",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Mobile App Testing",
+    "permalink": "/mobile-apps"
+  },
+  "next": {
+    "title": "Using Automated Mobile App Testing",
+    "permalink": "/mobile-apps/automated-testing"
+  }
+}

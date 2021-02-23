@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/appium/vdc-capabilities",
+  "id": "mobile-apps/automated-testing/appium/vdc-capabilities",
+  "isDocsHomePage": false,
+  "title": "VDC Capabilities and Example Scripts for Appium",
+  "description": "See Appium Capabilities and Example Scripts for Emulators and Simulators.",
+  "source": "@site/docs/mobile-apps/automated-testing/appium/vdc-capabilities.md",
+  "slug": "/mobile-apps/automated-testing/appium/vdc-capabilities",
+  "permalink": "/mobile-apps/automated-testing/appium/vdc-capabilities",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/appium/vdc-capabilities.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "VDC Capabilities and Scripts",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Appium Testing with Emulators and Simulators",
+    "permalink": "/mobile-apps/automated-testing/appium/vdc"
+  },
+  "next": {
+    "title": "Mobile App Testing with Espresso and XCUITest",
+    "permalink": "/mobile-apps/automated-testing/espresso-xcuitest"
+  }
+}

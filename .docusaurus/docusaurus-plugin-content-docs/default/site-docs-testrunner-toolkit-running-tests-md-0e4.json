@@ -1,0 +1,24 @@
+{
+  "unversionedId": "testrunner-toolkit/running-tests",
+  "id": "testrunner-toolkit/running-tests",
+  "isDocsHomePage": false,
+  "title": "Running Tests in Testrunner Toolkit",
+  "description": "backgroundColor: color,",
+  "source": "@site/docs/testrunner-toolkit/running-tests.md",
+  "slug": "/testrunner-toolkit/running-tests",
+  "permalink": "/testrunner-toolkit/running-tests",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/running-tests.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Running Tests",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Configuration Syntax: TestCafe",
+    "permalink": "/testrunner-toolkit/configuration/testcafe"
+  },
+  "next": {
+    "title": "Testrunner Toolkit CI Requirements",
+    "permalink": "/testrunner-toolkit/integrations"
+  }
+}

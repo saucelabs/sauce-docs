@@ -1,0 +1,24 @@
+{
+  "unversionedId": "sauce-connect",
+  "id": "sauce-connect",
+  "isDocsHomePage": false,
+  "title": "What is Sauce Connect Proxy?",
+  "description": "See Sauce Labs Cookbook: Sauce Connect Proxy for information on how to integrate IPSec VPN tunnels with your testing.",
+  "source": "@site/docs/sauce-connect.md",
+  "slug": "/sauce-connect",
+  "permalink": "/sauce-connect",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/sauce-connect.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Sauce Connect Proxy",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Overview of Sauce Labs Secure Connection Options",
+    "permalink": "/secure-connections"
+  },
+  "next": {
+    "title": "Using IPSec VPN",
+    "permalink": "/ipsec-vpn"
+  }
+}

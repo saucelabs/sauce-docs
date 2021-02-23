@@ -1,0 +1,24 @@
+{
+  "unversionedId": "testrunner-toolkit/integrations/github-actions",
+  "id": "testrunner-toolkit/integrations/github-actions",
+  "isDocsHomePage": false,
+  "title": "Testrunner Toolkit with GitHub Actions",
+  "description": "These examples can apply to virtually any GitHub deployment, provided that you already have some existing automated tests, and are either the maintainer or an admin of the target repository.",
+  "source": "@site/docs/testrunner-toolkit/integrations/github-actions.md",
+  "slug": "/testrunner-toolkit/integrations/github-actions",
+  "permalink": "/testrunner-toolkit/integrations/github-actions",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/integrations/github-actions.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "GitHub Actions",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Testrunner Toolkit with Jenkins",
+    "permalink": "/testrunner-toolkit/integrations/jenkins"
+  },
+  "next": {
+    "title": "Using TypeScript Tests",
+    "permalink": "/testrunner-toolkit/typescript"
+  }
+}

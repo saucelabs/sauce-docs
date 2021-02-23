@@ -1,0 +1,22 @@
+{
+  "unversionedId": "ci/bamboo",
+  "id": "ci/bamboo",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs with Bamboo",
+  "description": "Sauce Labs Bamboo Integration page.",
+  "source": "@site/docs/ci/bamboo.md",
+  "permalink": "/ci/bamboo",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/bamboo.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Bamboo",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Labs with Jenkins",
+    "permalink": "/ci/jenkins"
+  },
+  "next": {
+    "title": "Sauce Labs with CircleCI",
+    "permalink": "/ci/circleci"
+  }
+}

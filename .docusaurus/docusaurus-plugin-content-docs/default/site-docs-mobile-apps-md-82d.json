@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps",
+  "id": "mobile-apps",
+  "isDocsHomePage": false,
+  "title": "Mobile App Testing",
+  "description": "Test your iOS and Android native mobile apps and hybrid apps on emulators, simulators, and real devices in the Sauce Labs Cloud.",
+  "source": "@site/docs/mobile-apps.md",
+  "slug": "/mobile-apps",
+  "permalink": "/mobile-apps",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Getting Started",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Connect Frequently Asked Questions",
+    "permalink": "/secure-connections/sauce-connect/faq"
+  },
+  "next": {
+    "title": "Mobile Live Testing Quickstart",
+    "permalink": "/mobile-apps/live-testing"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "sauce-basics/acct-tm-mmt/bamboo",
+  "id": "sauce-basics/acct-tm-mmt/bamboo",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs with Bamboo",
+  "description": "Use our plugin to run your Sauce Labs tests within your Atlassian Bamboo pipeline.",
+  "source": "@site/docs/sauce-basics/acct-tm-mmt/bamboo.md",
+  "slug": "/sauce-basics/acct-tm-mmt/bamboo",
+  "permalink": "/sauce-basics/acct-tm-mmt/bamboo",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/sauce-basics/acct-tm-mmt/bamboo.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Bamboo",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Account and Team Management",
+    "permalink": "/sauce-basics/acct-tm-mmt"
+  },
+  "next": {
+    "title": "Overview of Sauce Labs Secure Connection Options",
+    "permalink": "/secure-connections"
+  }
+}

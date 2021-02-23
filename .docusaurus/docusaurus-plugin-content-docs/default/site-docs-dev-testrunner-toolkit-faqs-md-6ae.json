@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/testrunner-toolkit/faqs",
+  "id": "dev/testrunner-toolkit/faqs",
+  "isDocsHomePage": false,
+  "title": "Testrunner FAQs",
+  "description": "Below are list of frequently asked questions regarding some of the business and technical use cases surrounding the Testrunner Toolkit.",
+  "source": "@site/docs/dev/testrunner-toolkit/faqs.md",
+  "slug": "/dev/testrunner-toolkit/faqs",
+  "permalink": "/dev/testrunner-toolkit/faqs",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/testrunner-toolkit/faqs.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "FAQs",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Using TypeScript Tests",
+    "permalink": "/dev/testrunner-toolkit/typescript"
+  },
+  "next": {
+    "title": "Testrunner Toolkit Support",
+    "permalink": "/dev/testrunner-toolkit/support"
+  }
+}

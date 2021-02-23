@@ -1,0 +1,22 @@
+{
+  "unversionedId": "visual/configuration",
+  "id": "visual/configuration",
+  "isDocsHomePage": false,
+  "title": "Sauce Visual Testing Setup and Configuration",
+  "description": "Sauce Labs Visual config page.",
+  "source": "@site/docs/visual/configuration.md",
+  "permalink": "/visual/configuration",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/visual/configuration.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Configuration",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Visual Testing System Requirements",
+    "permalink": "/visual/requirements"
+  },
+  "next": {
+    "title": "Sauce Visual Testing System Requirements",
+    "permalink": "/visual/workflows"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/espresso-xcuitest/change-logs",
+  "id": "mobile-apps/automated-testing/espresso-xcuitest/change-logs",
+  "isDocsHomePage": false,
+  "title": "Sauce Runner for Virtual Devices Change Logs",
+  "description": "This table lists changes for each version of Sauce Runner for Virtual Devices, as well as the release date for that version.",
+  "source": "@site/docs/mobile-apps/automated-testing/espresso-xcuitest/change-logs.md",
+  "slug": "/mobile-apps/automated-testing/espresso-xcuitest/change-logs",
+  "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/change-logs",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/espresso-xcuitest/change-logs.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Change Logs",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Example Configurations for Espresso and XCUITest",
+    "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/example-configurations"
+  },
+  "next": {
+    "title": "Web Application Testing",
+    "permalink": "/web-apps"
+  }
+}

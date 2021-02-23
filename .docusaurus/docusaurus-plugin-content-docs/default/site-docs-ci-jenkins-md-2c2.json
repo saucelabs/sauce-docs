@@ -1,0 +1,24 @@
+{
+  "unversionedId": "ci/jenkins",
+  "id": "ci/jenkins",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs with Jenkins",
+  "description": "Use our plugin to run your Sauce Labs tests within your Jenkins pipeline.",
+  "source": "@site/docs/ci/jenkins.md",
+  "slug": "/ci/jenkins",
+  "permalink": "/ci/jenkins",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/jenkins.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Jenkins",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs with Bitbucket",
+    "permalink": "/ci/bitbucket"
+  },
+  "next": {
+    "title": "Sauce Labs with TeamCity",
+    "permalink": "/ci/teamcity"
+  }
+}

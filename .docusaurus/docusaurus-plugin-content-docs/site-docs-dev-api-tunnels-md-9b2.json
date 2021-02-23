@@ -1,0 +1,22 @@
+{
+  "unversionedId": "dev/api/tunnels",
+  "id": "dev/api/tunnels",
+  "isDocsHomePage": false,
+  "title": "Tunnels API",
+  "description": "Tunnels API page.",
+  "source": "@site/docs/dev/api/tunnels.md",
+  "permalink": "/dev/api/tunnels",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/tunnels.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Tunnels",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Application Storage",
+    "permalink": "/dev/api/storage"
+  },
+  "next": {
+    "title": "User API",
+    "permalink": "/dev/api/user"
+  }
+}

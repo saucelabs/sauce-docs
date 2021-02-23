@@ -1,0 +1,22 @@
+{
+  "unversionedId": "dev/cli",
+  "id": "dev/cli",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs CLI Reference",
+  "description": "Sauce Labs CLI reference intro page.",
+  "source": "@site/docs/dev/cli.md",
+  "permalink": "/dev/cli",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/cli.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Introduction",
+  "sidebar": "docs",
+  "previous": {
+    "title": "User API",
+    "permalink": "/dev/api/user"
+  },
+  "next": {
+    "title": "IPSec VPN CLI Reference",
+    "permalink": "/dev/cli/ipsec-cli"
+  }
+}

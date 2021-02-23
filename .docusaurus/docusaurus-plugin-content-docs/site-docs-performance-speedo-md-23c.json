@@ -1,0 +1,22 @@
+{
+  "unversionedId": "performance/speedo",
+  "id": "performance/speedo",
+  "isDocsHomePage": false,
+  "title": "Sauce Performance with Speedo",
+  "description": "Sauce Labs Performance testing with Speedo page.",
+  "source": "@site/docs/performance/speedo.md",
+  "permalink": "/performance/speedo",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/performance/speedo.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Testing with Speedo",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Measuring Page Loads with Sauce Performance",
+    "permalink": "/performance/load"
+  },
+  "next": {
+    "title": "Testing Smoothness and Jankiness with Sauce Performance",
+    "permalink": "/performance/jankiness"
+  }
+}

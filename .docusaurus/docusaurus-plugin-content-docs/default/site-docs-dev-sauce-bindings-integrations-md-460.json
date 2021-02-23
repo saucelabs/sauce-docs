@@ -1,0 +1,15 @@
+{
+  "unversionedId": "dev/sauce-bindings/integration",
+  "id": "dev/sauce-bindings/integration",
+  "isDocsHomePage": false,
+  "title": "Sauce Bindings Integration Guide",
+  "description": "Sauce Bindings Integration Guide",
+  "source": "@site/docs/dev/sauce-bindings/integrations.md",
+  "slug": "/dev/sauce-bindings/integration",
+  "permalink": "/dev/sauce-bindings/integration",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/sauce-bindings/integrations.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Integration"
+}

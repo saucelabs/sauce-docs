@@ -1,0 +1,24 @@
+{
+  "unversionedId": "insights/efficiency",
+  "id": "insights/efficiency",
+  "isDocsHomePage": false,
+  "title": "Sauce Insights Build Efficiency",
+  "description": "Sauce Labs Insights Build Efficiency page.",
+  "source": "@site/docs/insights/efficiency.md",
+  "slug": "/insights/efficiency",
+  "permalink": "/insights/efficiency",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/insights/efficiency.md",
+  "version": "current",
+  "lastUpdatedBy": "James Tacker",
+  "lastUpdatedAt": 1604076646,
+  "sidebar_label": "Build Efficiency",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Insights Test Trends",
+    "permalink": "/insights/trends"
+  },
+  "next": {
+    "title": "Sauce Insights Failure Analysis",
+    "permalink": "/insights/failure-analysis"
+  }
+}

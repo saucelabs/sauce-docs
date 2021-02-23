@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/admin-guide",
+  "id": "mobile-apps/admin-guide",
+  "isDocsHomePage": false,
+  "title": "Mobile App Testing Admin Guide",
+  "description": "* Real Devices (RDC) Admin Guide",
+  "source": "@site/docs/mobile-apps/admin-guide.md",
+  "slug": "/mobile-apps/admin-guide",
+  "permalink": "/mobile-apps/admin-guide",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/admin-guide.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Admin Guide",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Choosing a Device for Mobile App Testing",
+    "permalink": "/mobile-apps/devices"
+  },
+  "next": {
+    "title": "Mobile App Storage",
+    "permalink": "/mobile-apps/app-storage"
+  }
+}

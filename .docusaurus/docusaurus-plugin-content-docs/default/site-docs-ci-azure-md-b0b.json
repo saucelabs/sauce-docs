@@ -1,0 +1,24 @@
+{
+  "unversionedId": "ci/azure",
+  "id": "ci/azure",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs with Azure Pipelines",
+  "description": "Sauce Labs Azure Pipelines page.",
+  "source": "@site/docs/ci/azure.md",
+  "slug": "/ci/azure",
+  "permalink": "/ci/azure",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/azure.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Azure",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs with Bamboo",
+    "permalink": "/ci/bamboo"
+  },
+  "next": {
+    "title": "Sauce Labs with GitHub Actions",
+    "permalink": "/ci/github"
+  }
+}

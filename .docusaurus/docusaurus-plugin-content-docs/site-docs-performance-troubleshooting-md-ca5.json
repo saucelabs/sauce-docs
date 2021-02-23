@@ -1,0 +1,22 @@
+{
+  "unversionedId": "performance/troubleshooting",
+  "id": "performance/troubleshooting",
+  "isDocsHomePage": false,
+  "title": "Sauce Performance Troubleshooting Guide",
+  "description": "Sauce Labs Performance troubleshooting guide page.",
+  "source": "@site/docs/performance/troubleshooting.md",
+  "permalink": "/performance/troubleshooting",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/performance/troubleshooting.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Troubleshooting",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Testing Smoothness and Jankiness with Sauce Performance",
+    "permalink": "/performance/jankiness"
+  },
+  "next": {
+    "title": "Sauce Labs Headless Testing",
+    "permalink": "/headless"
+  }
+}

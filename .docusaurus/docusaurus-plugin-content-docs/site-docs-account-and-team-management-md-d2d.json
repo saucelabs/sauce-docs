@@ -1,0 +1,22 @@
+{
+  "unversionedId": "account-and-team-management",
+  "id": "account-and-team-management",
+  "isDocsHomePage": false,
+  "title": "Account and Team Management",
+  "description": "Sauce Labs account, team, and org management page.",
+  "source": "@site/docs/account-and-team-management.md",
+  "permalink": "/account-and-team-management",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/account-and-team-management.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Account Management",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Platform Support",
+    "permalink": "/platform-support"
+  },
+  "next": {
+    "title": "Data Center Information",
+    "permalink": "/data-centers"
+  }
+}

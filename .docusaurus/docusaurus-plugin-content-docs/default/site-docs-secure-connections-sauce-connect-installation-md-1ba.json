@@ -1,0 +1,24 @@
+{
+  "unversionedId": "secure-connections/sauce-connect/installation",
+  "id": "secure-connections/sauce-connect/installation",
+  "isDocsHomePage": false,
+  "title": "Sauce Connect Installation and Requirements",
+  "description": "* Getting Started with Sauce Connect",
+  "source": "@site/docs/secure-connections/sauce-connect/installation.md",
+  "slug": "/secure-connections/sauce-connect/installation",
+  "permalink": "/secure-connections/sauce-connect/installation",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/sauce-connect/installation.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Installation",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Connect Proxy",
+    "permalink": "/secure-connections/sauce-connect"
+  },
+  "next": {
+    "title": "Sauce Connect Setup and Configuration",
+    "permalink": "/secure-connections/sauce-connect/setup-configuration"
+  }
+}

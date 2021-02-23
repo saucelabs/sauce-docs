@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/espresso-xcuitest/example-configurations",
+  "id": "mobile-apps/automated-testing/espresso-xcuitest/example-configurations",
+  "isDocsHomePage": false,
+  "title": "Example Configurations for Espresso and XCUITest",
+  "description": "These repositories below illustrate how to run Espresso tests on the Sauce Labs cloud.",
+  "source": "@site/docs/mobile-apps/automated-testing/espresso-xcuitest/example-configurations.md",
+  "slug": "/mobile-apps/automated-testing/espresso-xcuitest/example-configurations",
+  "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/example-configurations",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/espresso-xcuitest/example-configurations.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Example Configurations",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Virtual Device Testing with Espresso",
+    "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing"
+  },
+  "next": {
+    "title": "Mobile App Testing Features and Functionality",
+    "permalink": "/mobile-apps/features"
+  }
+}

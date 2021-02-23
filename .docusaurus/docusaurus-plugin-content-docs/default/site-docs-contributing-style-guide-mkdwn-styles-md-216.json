@@ -1,0 +1,24 @@
+{
+  "unversionedId": "contributing/style-guide/mkdwn-styles",
+  "id": "contributing/style-guide/mkdwn-styles",
+  "isDocsHomePage": false,
+  "title": "Markdown Styles",
+  "description": "You can write content using GitHub-flavored Markdown syntax.",
+  "source": "@site/docs/contributing/style-guide/mkdwn-styles.md",
+  "slug": "/contributing/style-guide/mkdwn-styles",
+  "permalink": "/contributing/style-guide/mkdwn-styles",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/contributing/style-guide/mkdwn-styles.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Markdown Styles",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Stylde Guide Introduction",
+    "permalink": "/contributing/style-guide"
+  },
+  "next": {
+    "title": "Advanced Examples",
+    "permalink": "/contributing/style-guide/adv-examples"
+  }
+}

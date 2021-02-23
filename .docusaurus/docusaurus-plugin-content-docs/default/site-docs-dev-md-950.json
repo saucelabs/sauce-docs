@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev",
+  "id": "dev",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs Reference Docs",
+  "description": "API Reference",
+  "source": "@site/docs/dev.md",
+  "slug": "/dev",
+  "permalink": "/dev",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "About",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs Visual Testing",
+    "permalink": "/visual"
+  },
+  "next": {
+    "title": "About the Sauce REST API",
+    "permalink": "/dev/api"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "unversionedId": "insights/history",
+  "id": "insights/history",
+  "isDocsHomePage": false,
+  "title": "Sauce Insights Test History",
+  "description": "Sauce Labs Insights Test History page.",
+  "source": "@site/docs/insights/history.md",
+  "permalink": "/insights/history",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/insights/history.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Test History",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Labs Insights",
+    "permalink": "/insights"
+  },
+  "next": {
+    "title": "Sauce Insights Test Trends",
+    "permalink": "/insights/trends"
+  }
+}

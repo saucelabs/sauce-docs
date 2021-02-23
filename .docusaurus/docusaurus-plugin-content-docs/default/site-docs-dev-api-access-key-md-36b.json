@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/api/access-key",
+  "id": "dev/api/access-key",
+  "isDocsHomePage": false,
+  "title": "Access Key API",
+  "description": "Access key api page.",
+  "source": "@site/docs/dev/api/access-key.md",
+  "slug": "/dev/api/access-key",
+  "permalink": "/dev/api/access-key",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/access-key.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Access Key",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "API Reference Docs",
+    "permalink": "/dev/api"
+  },
+  "next": {
+    "title": "Account API",
+    "permalink": "/dev/api/account"
+  }
+}

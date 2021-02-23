@@ -1,0 +1,24 @@
+{
+  "unversionedId": "ci/teamcity",
+  "id": "ci/teamcity",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs with TeamCity",
+  "description": "Use our plugin to run your Sauce Labs tests within your TeamCity pipeline.",
+  "source": "@site/docs/ci/teamcity.md",
+  "slug": "/ci/teamcity",
+  "permalink": "/ci/teamcity",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/teamcity.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "TeamCity",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs with Jenkins",
+    "permalink": "/ci/jenkins"
+  },
+  "next": {
+    "title": "Sauce Labs with Visual Studio",
+    "permalink": "/ci/visual-studio"
+  }
+}

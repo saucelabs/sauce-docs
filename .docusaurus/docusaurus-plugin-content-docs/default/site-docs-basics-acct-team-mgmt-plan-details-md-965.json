@@ -1,0 +1,24 @@
+{
+  "unversionedId": "basics/acct-team-mgmt/plan-details",
+  "id": "basics/acct-team-mgmt/plan-details",
+  "isDocsHomePage": false,
+  "title": "Viewing Plan Details",
+  "description": "You can view the number of concurrent VMs, concurrent devices, and minutes allowed under your plan.",
+  "source": "@site/docs/basics/acct-team-mgmt/plan-details.md",
+  "slug": "/basics/acct-team-mgmt/plan-details",
+  "permalink": "/basics/acct-team-mgmt/plan-details",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/plan-details.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Viewing Plan Details",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Updating Your Billing Information",
+    "permalink": "/basics/acct-team-mgmt/updating-billing"
+  },
+  "next": {
+    "title": "Single Sign-On",
+    "permalink": "/basics/sso-hub"
+  }
+}

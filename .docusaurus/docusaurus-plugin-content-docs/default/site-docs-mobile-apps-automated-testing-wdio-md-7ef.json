@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/wdio",
+  "id": "mobile-apps/automated-testing/wdio",
+  "isDocsHomePage": false,
+  "title": "Automated Testing with WebdriverIO",
+  "description": "WebdriverIO page.",
+  "source": "@site/docs/mobile-apps/automated-testing/wdio.md",
+  "slug": "/mobile-apps/automated-testing/wdio",
+  "permalink": "/mobile-apps/automated-testing/wdio",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/wdio.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "WebdriverIO",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Automated Testing with Robotium",
+    "permalink": "/mobile-apps/automated-testing/robotium"
+  },
+  "next": {
+    "title": "Real Device Testing with Espresso and XCUITest",
+    "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/real-device-testing"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/api/analytics",
+  "id": "dev/api/analytics",
+  "isDocsHomePage": false,
+  "title": "Insights and Analytics API",
+  "description": "Insights adn Analytics API.",
+  "source": "@site/docs/dev/api/analytics.md",
+  "slug": "/dev/api/analytics",
+  "permalink": "/dev/api/analytics",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/analytics.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Analytics",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Activity API",
+    "permalink": "/dev/api/activity"
+  },
+  "next": {
+    "title": "Devices API",
+    "permalink": "/dev/api/devices"
+  }
+}

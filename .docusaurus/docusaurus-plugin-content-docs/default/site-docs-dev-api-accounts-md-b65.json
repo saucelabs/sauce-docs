@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/api/accounts",
+  "id": "dev/api/accounts",
+  "isDocsHomePage": false,
+  "title": "Account Management API Methods",
+  "description": "Manage all aspects of your Sauce Labs organization, team, and member accounts.",
+  "source": "@site/docs/dev/api/accounts.md",
+  "slug": "/dev/api/accounts",
+  "permalink": "/dev/api/accounts",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/accounts.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Accounts",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "About the Sauce REST API",
+    "permalink": "/dev/api"
+  },
+  "next": {
+    "title": "Sauce Labs CLI Reference",
+    "permalink": "/dev/cli"
+  }
+}

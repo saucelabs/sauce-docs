@@ -1,0 +1,14 @@
+{
+  "unversionedId": "acct-team-mgmt/overview",
+  "id": "acct-team-mgmt/overview",
+  "isDocsHomePage": false,
+  "title": "overview",
+  "description": "",
+  "source": "@site/docs/acct-team-mgmt/overview.md",
+  "slug": "/acct-team-mgmt/overview",
+  "permalink": "/acct-team-mgmt/overview",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/acct-team-mgmt/overview.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055
+}

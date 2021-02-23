@@ -1,0 +1,24 @@
+{
+  "unversionedId": "headless/requirements",
+  "id": "headless/requirements",
+  "isDocsHomePage": false,
+  "title": "Sauce Headless System Requirements",
+  "description": "Sauce Labs Headless Requirements page.",
+  "source": "@site/docs/headless/requirements.md",
+  "slug": "/headless/requirements",
+  "permalink": "/headless/requirements",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/headless/requirements.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "System Requirements",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs Headless Testing",
+    "permalink": "/headless"
+  },
+  "next": {
+    "title": "Sauce Headless Setup and Configuration",
+    "permalink": "/headless/configuration"
+  }
+}

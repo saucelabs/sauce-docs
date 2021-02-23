@@ -1,0 +1,22 @@
+{
+  "unversionedId": "mobile-apps",
+  "id": "mobile-apps",
+  "isDocsHomePage": false,
+  "title": "Mobile Application Testing Home Page",
+  "description": "Sauce Labs mobile app testing hub page.",
+  "source": "@site/docs/mobile-apps.md",
+  "permalink": "/mobile-apps",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Introduction",
+  "sidebar": "docs",
+  "previous": {
+    "title": "IPSec VPN Troubleshooting Guide",
+    "permalink": "/ipsec/troubleshooting"
+  },
+  "next": {
+    "title": "Mobile Live Testing Quickstart",
+    "permalink": "/mobile-apps/live-testing"
+  }
+}

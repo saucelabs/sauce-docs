@@ -1,0 +1,24 @@
+{
+  "unversionedId": "visual/troubleshooting",
+  "id": "visual/troubleshooting",
+  "isDocsHomePage": false,
+  "title": "Sauce Visual Troubleshooting Guide",
+  "description": "Sauce Labs Visual troubleshooting guide page.",
+  "source": "@site/docs/visual/troubleshooting.md",
+  "slug": "/visual/troubleshooting",
+  "permalink": "/visual/troubleshooting",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/visual/troubleshooting.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Troubleshooting",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Visual Testing Advanced Options",
+    "permalink": "/visual/advanced"
+  },
+  "next": {
+    "title": "Sauce Labs Developer Resources",
+    "permalink": "/dev"
+  }
+}

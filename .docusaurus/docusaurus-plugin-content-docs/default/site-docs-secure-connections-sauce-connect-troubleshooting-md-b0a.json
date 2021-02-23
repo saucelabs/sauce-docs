@@ -1,0 +1,24 @@
+{
+  "unversionedId": "secure-connections/sauce-connect/troubleshooting",
+  "id": "secure-connections/sauce-connect/troubleshooting",
+  "isDocsHomePage": false,
+  "title": "Sauce Connect Troubleshooting",
+  "description": "* Troubleshooting",
+  "source": "@site/docs/secure-connections/sauce-connect/troubleshooting.md",
+  "slug": "/secure-connections/sauce-connect/troubleshooting",
+  "permalink": "/secure-connections/sauce-connect/troubleshooting",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/sauce-connect/troubleshooting.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Troubleshooting",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Connect Authentication and Certificates",
+    "permalink": "/secure-connections/sauce-connect/security"
+  },
+  "next": {
+    "title": "Sauce Connect Frequently Asked Questions",
+    "permalink": "/secure-connections/sauce-connect/faq"
+  }
+}

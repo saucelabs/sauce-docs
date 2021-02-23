@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/api/connect",
+  "id": "dev/api/connect",
+  "isDocsHomePage": false,
+  "title": "Sauce Connect API Methods",
+  "description": "Retrieve information about or close your Sauce Connect tunnels.",
+  "source": "@site/docs/dev/api/connect.md",
+  "slug": "/dev/api/connect",
+  "permalink": "/dev/api/connect",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/connect.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Sauce Connect",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Account Management API Methods",
+    "permalink": "/dev/api/accounts"
+  },
+  "next": {
+    "title": "Insights API Methods",
+    "permalink": "/dev/api/insights"
+  }
+}

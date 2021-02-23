@@ -1,0 +1,22 @@
+{
+  "unversionedId": "web-apps/live-testing/mobile-browsers",
+  "id": "web-apps/live-testing/mobile-browsers",
+  "isDocsHomePage": false,
+  "title": "Live Testing with Mobile Browsers",
+  "description": "Sauce Labs live testing with mobile browsers page.",
+  "source": "@site/docs/web-apps/live-testing/mobile-browsers.md",
+  "permalink": "/web-apps/live-testing/mobile-browsers",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/web-apps/live-testing/mobile-browsers.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Mobile Browsers",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Live Testing with Desktop Web Browsers",
+    "permalink": "/web-apps/live-testing/desktop-browsers"
+  },
+  "next": {
+    "title": "Live Web Testing Troubleshooting Guide",
+    "permalink": "/web-apps/live-testing/troubleshooting"
+  }
+}

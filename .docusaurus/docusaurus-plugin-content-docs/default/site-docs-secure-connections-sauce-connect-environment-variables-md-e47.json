@@ -1,0 +1,24 @@
+{
+  "unversionedId": "secure-connections/sauce-connect/environment-variables",
+  "id": "secure-connections/sauce-connect/environment-variables",
+  "isDocsHomePage": false,
+  "title": "Sauce Connect Environment Variables",
+  "description": "These environment variables can be used in addition to command-line flags to control the behavior of Sauce Connect Proxy. Please note that not all environment variables are supported on all platforms.",
+  "source": "@site/docs/secure-connections/sauce-connect/environment-variables.md",
+  "slug": "/secure-connections/sauce-connect/environment-variables",
+  "permalink": "/secure-connections/sauce-connect/environment-variables",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/sauce-connect/environment-variables.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Environment Variables",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Connect Setup and Configuration",
+    "permalink": "/secure-connections/sauce-connect/setup-configuration"
+  },
+  "next": {
+    "title": "Using Sauce Connect Proxy Tunnels",
+    "permalink": "/secure-connections/sauce-connect/proxy-tunnels"
+  }
+}

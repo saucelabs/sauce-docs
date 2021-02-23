@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/live-testing/application-storage",
+  "id": "mobile-apps/live-testing/application-storage",
+  "isDocsHomePage": false,
+  "title": "Application Storage",
+  "description": "When testing mobile applications, you now have the option to upload your application to our new temporary application storage. Application storage is quite different and more flexible than our previous iteration (Sauce Storage) in multiple ways:",
+  "source": "@site/docs/mobile-apps/live-testing/application-storage.md",
+  "slug": "/mobile-apps/live-testing/application-storage",
+  "permalink": "/mobile-apps/live-testing/application-storage",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/live-testing/application-storage.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Application Storage",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Mobile Live Testing Quickstart",
+    "permalink": "/mobile-apps/live-testing"
+  },
+  "next": {
+    "title": "Mobile Automated Testing Quickstart",
+    "permalink": "/mobile-apps/automated-testing"
+  }
+}

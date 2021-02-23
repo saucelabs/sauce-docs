@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/api/platform",
+  "id": "dev/api/platform",
+  "isDocsHomePage": false,
+  "title": "Sauce Platform API Methods",
+  "description": "Retrieve information about the Sauce Labs supported automation environments and platform status.",
+  "source": "@site/docs/dev/api/platform.md",
+  "slug": "/dev/api/platform",
+  "permalink": "/dev/api/platform",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/platform.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Platform",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Performance API Methods",
+    "permalink": "/dev/api/performance"
+  },
+  "next": {
+    "title": "Real Device API Methods",
+    "permalink": "/dev/api/rdc"
+  }
+}

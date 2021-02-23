@@ -1,0 +1,24 @@
+{
+  "unversionedId": "ci/visual-studio",
+  "id": "ci/visual-studio",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs with Visual Studio",
+  "description": "Use our plugin to run your Sauce Labs tests within your Visual Studio Team Services pipeline.",
+  "source": "@site/docs/ci/visual-studio.md",
+  "slug": "/ci/visual-studio",
+  "permalink": "/ci/visual-studio",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/visual-studio.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Visual Studio",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs with TeamCity",
+    "permalink": "/ci/teamcity"
+  },
+  "next": {
+    "title": "Sauce Labs Insights",
+    "permalink": "/insights"
+  }
+}

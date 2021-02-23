@@ -1,0 +1,22 @@
+{
+  "unversionedId": "dev/sauce-bindings",
+  "id": "dev/sauce-bindings",
+  "isDocsHomePage": false,
+  "title": "Sauce Bindings",
+  "description": "Sauce Labs Bindings Introduction Page.",
+  "source": "@site/docs/dev/sauce-bindings.md",
+  "permalink": "/dev/sauce-bindings",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/sauce-bindings.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Introduction",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce CTL",
+    "permalink": "/dev/cli/saucectl"
+  },
+  "next": {
+    "title": "Configuring the Sauce Bindings",
+    "permalink": "/dev/sauce-bindings/configuration"
+  }
+}

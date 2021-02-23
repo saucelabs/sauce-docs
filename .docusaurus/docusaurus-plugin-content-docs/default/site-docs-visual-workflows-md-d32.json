@@ -1,0 +1,24 @@
+{
+  "unversionedId": "visual/workflows",
+  "id": "visual/workflows",
+  "isDocsHomePage": false,
+  "title": "Sauce Visual Testing System Requirements",
+  "description": "Sauce Labs Visual requirements page.",
+  "source": "@site/docs/visual/workflows.md",
+  "slug": "/visual/workflows",
+  "permalink": "/visual/workflows",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/visual/workflows.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "System Requirements",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Visual Testing Setup and Configuration",
+    "permalink": "/visual/configuration"
+  },
+  "next": {
+    "title": "Sauce Visual Test History",
+    "permalink": "/visual/history"
+  }
+}

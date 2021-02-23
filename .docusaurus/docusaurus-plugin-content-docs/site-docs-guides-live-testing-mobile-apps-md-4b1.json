@@ -1,0 +1,22 @@
+{
+  "unversionedId": "guides/live-testing/mobile-apps",
+  "id": "guides/live-testing/mobile-apps",
+  "isDocsHomePage": false,
+  "title": "Live Testing Mobile Apps",
+  "description": "With Virtual Devices on Sauce Labs, you can test your mobile applications on a variety of Android emulators and iOS simulators. If you do not have an app, consider using the Sauce Labs Swag Labs sample app for validating your account functionality as well as your tests.",
+  "source": "@site/docs/guides/live-testing/mobile-apps.md",
+  "permalink": "/guides/live-testing/mobile-apps",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/guides/live-testing/mobile-apps.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Mobile Apps",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Live Testing Web Apps",
+    "permalink": "/guides/live-testing/web-apps"
+  },
+  "next": {
+    "title": "Getting Started with Automated Testing on Sauce Labs",
+    "permalink": "/guides/automation/getting-started"
+  }
+}

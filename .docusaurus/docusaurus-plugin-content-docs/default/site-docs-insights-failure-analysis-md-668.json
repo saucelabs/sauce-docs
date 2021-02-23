@@ -1,0 +1,24 @@
+{
+  "unversionedId": "insights/failure-analysis",
+  "id": "insights/failure-analysis",
+  "isDocsHomePage": false,
+  "title": "Analyzing Failure Patterns Across Your Test Suite",
+  "description": "Use the machine learning power of Sauce Failure Analytics to uncover errors and inefficiencies in your tests to improve your testing process.",
+  "source": "@site/docs/insights/failure-analysis.md",
+  "slug": "/insights/failure-analysis",
+  "permalink": "/insights/failure-analysis",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/insights/failure-analysis.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Failure Analysis",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Comparing Statistical Trends",
+    "permalink": "/insights/trends"
+  },
+  "next": {
+    "title": "Front-End Performance Testing",
+    "permalink": "/performance"
+  }
+}

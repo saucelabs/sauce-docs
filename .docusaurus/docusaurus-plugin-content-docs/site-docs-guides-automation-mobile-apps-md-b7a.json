@@ -1,0 +1,22 @@
+{
+  "unversionedId": "guides/automation/mobile-apps",
+  "id": "guides/automation/mobile-apps",
+  "isDocsHomePage": false,
+  "title": "Automated Mobile App Testing on Virtual and Real Devices",
+  "description": "This is a doc about Automated Mobile Application Testing on Virtual and Real Devices",
+  "source": "@site/docs/guides/automation/mobile-apps.md",
+  "permalink": "/guides/automation/mobile-apps",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/guides/automation/mobile-apps.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Mobile Apps",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Automated Web App Testing on Desktop and Mobile Browsers",
+    "permalink": "/guides/automation/web-apps"
+  },
+  "next": {
+    "title": "Best Practices for Automated Testing",
+    "permalink": "/guides/automation/best-practices"
+  }
+}

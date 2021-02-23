@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/api/rdc",
+  "id": "dev/api/rdc",
+  "isDocsHomePage": false,
+  "title": "Real Device API Methods",
+  "description": "REST API methods regarding test session and test asset management.",
+  "source": "@site/docs/dev/api/rdc.md",
+  "slug": "/dev/api/rdc",
+  "permalink": "/dev/api/rdc",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/rdc.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Real Devices",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Platform API Methods",
+    "permalink": "/dev/api/platform"
+  },
+  "next": {
+    "title": "File Storage API Methods",
+    "permalink": "/dev/api/storage"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/api/sauce-storage",
+  "id": "dev/api/sauce-storage",
+  "isDocsHomePage": false,
+  "title": "Temporary Sauce Storage API",
+  "description": "Temporary Sauce Storage API page.",
+  "source": "@site/docs/dev/api/sauce-storage.md",
+  "slug": "/dev/api/sauce-storage",
+  "permalink": "/dev/api/sauce-storage",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/sauce-storage.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Sauce Storage",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Performance API",
+    "permalink": "/dev/api/performance"
+  },
+  "next": {
+    "title": "Application Storage",
+    "permalink": "/dev/api/storage"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "secure-connections/ipsec-vpn",
+  "id": "secure-connections/ipsec-vpn",
+  "isDocsHomePage": false,
+  "title": "Running Sauce Labs Tests with IPSec VPN Tunnels",
+  "description": "backgroundColor: color,",
+  "source": "@site/docs/secure-connections/ipsec-vpn.md",
+  "slug": "/secure-connections/ipsec-vpn",
+  "permalink": "/secure-connections/ipsec-vpn",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/ipsec-vpn.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "IPSec VPN",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Overview of Sauce Labs Secure Connection Options",
+    "permalink": "/secure-connections"
+  },
+  "next": {
+    "title": "Sauce Connect Proxy",
+    "permalink": "/secure-connections/sauce-connect"
+  }
+}

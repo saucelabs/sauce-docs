@@ -1,0 +1,24 @@
+{
+  "unversionedId": "basics/acct-team-mgmt/managing-subscription",
+  "id": "basics/acct-team-mgmt/managing-subscription",
+  "isDocsHomePage": false,
+  "title": "Managing Your Subscription",
+  "description": "Canceling Your Subscription",
+  "source": "@site/docs/basics/acct-team-mgmt/managing-subscription.md",
+  "slug": "/basics/acct-team-mgmt/managing-subscription",
+  "permalink": "/basics/acct-team-mgmt/managing-subscription",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/managing-subscription.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Managing Your Subscription",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sharing Sauce Connect Proxy Tunnels",
+    "permalink": "/basics/acct-team-mgmt/sauce-connect-proxy-tunnels"
+  },
+  "next": {
+    "title": "Updating Your Billing Information",
+    "permalink": "/basics/acct-team-mgmt/updating-billing"
+  }
+}

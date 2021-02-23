@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/espresso-xcuitest/real-device-testing",
+  "id": "mobile-apps/automated-testing/espresso-xcuitest/real-device-testing",
+  "isDocsHomePage": false,
+  "title": "Real Device Testing with Espresso and XCUITest",
+  "description": "Espresso and XCUITest real device testing is supported on TestObject, our Legacy Real Device Cloud Platform, which you can access via Sauce Apps > Legacy RDC.",
+  "source": "@site/docs/mobile-apps/automated-testing/espresso-xcuitest/real-device-testing.md",
+  "slug": "/mobile-apps/automated-testing/espresso-xcuitest/real-device-testing",
+  "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/real-device-testing",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/espresso-xcuitest/real-device-testing.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Real Device Testing",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Mobile App Testing with Espresso and XCUITest",
+    "permalink": "/mobile-apps/automated-testing/espresso-xcuitest"
+  },
+  "next": {
+    "title": "Virtual Device Testing with Espresso",
+    "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing"
+  }
+}

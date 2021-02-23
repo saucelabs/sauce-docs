@@ -1,0 +1,12 @@
+{
+  "unversionedId": "contributing/mdx",
+  "id": "contributing/mdx",
+  "isDocsHomePage": false,
+  "title": "Powered by MDX",
+  "description": "You can write JSX and use React components within your Markdown thanks to MDX.",
+  "source": "@site/docs/contributing/mdx.md",
+  "permalink": "/contributing/mdx",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/contributing/mdx.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055
+}

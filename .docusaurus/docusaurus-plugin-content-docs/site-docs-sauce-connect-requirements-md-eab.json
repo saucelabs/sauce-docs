@@ -1,0 +1,22 @@
+{
+  "unversionedId": "sauce-connect/requirements",
+  "id": "sauce-connect/requirements",
+  "isDocsHomePage": false,
+  "title": "Sauce Connect Proxy System Requirements",
+  "description": "Sauce Connect Proxy Requirements page.",
+  "source": "@site/docs/sauce-connect/requirements.md",
+  "permalink": "/sauce-connect/requirements",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/sauce-connect/requirements.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "System Requirements",
+  "sidebar": "docs",
+  "previous": {
+    "title": "What is Sauce Connect Proxy?",
+    "permalink": "/sauce-connect"
+  },
+  "next": {
+    "title": "Sauce Connect Proxy Setup and Configuration",
+    "permalink": "/sauce-connect/setup"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "unversionedId": "dev/config-syntax",
+  "id": "dev/config-syntax",
+  "isDocsHomePage": false,
+  "title": "Testrunner Toolkit Configuration Reference",
+  "description": "backgroundColor: color,",
+  "source": "@site/docs/dev/config-syntax.md",
+  "slug": "/dev/config-syntax",
+  "permalink": "/dev/config-syntax",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/config-syntax.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "config.yml"
+}

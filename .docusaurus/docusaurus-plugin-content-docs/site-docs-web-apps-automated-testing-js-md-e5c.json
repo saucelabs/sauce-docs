@@ -1,0 +1,22 @@
+{
+  "unversionedId": "web-apps/automated-testing/js",
+  "id": "web-apps/automated-testing/js",
+  "isDocsHomePage": false,
+  "title": "Automated Web App Testing with JavaScript Frameworks",
+  "description": "Sauce Labs JavaScript Framework page.",
+  "source": "@site/docs/web-apps/automated-testing/js.md",
+  "permalink": "/web-apps/automated-testing/js",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/web-apps/automated-testing/js.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "JavaScript",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Automated Web App Testing with WebdriverIO",
+    "permalink": "/web-apps/automated-testing/wdio"
+  },
+  "next": {
+    "title": "Sauce Labs CI Integrations",
+    "permalink": "/ci"
+  }
+}

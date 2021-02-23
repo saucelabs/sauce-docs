@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/robotium",
+  "id": "mobile-apps/automated-testing/robotium",
+  "isDocsHomePage": false,
+  "title": "Automated Testing with Robotium",
+  "description": "Robotium page.",
+  "source": "@site/docs/mobile-apps/automated-testing/robotium.md",
+  "slug": "/mobile-apps/automated-testing/robotium",
+  "permalink": "/mobile-apps/automated-testing/robotium",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/robotium.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Robotium",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Automated Testing with Appium",
+    "permalink": "/mobile-apps/automated-testing/appium"
+  },
+  "next": {
+    "title": "Automated Testing with WebdriverIO",
+    "permalink": "/mobile-apps/automated-testing/wdio"
+  }
+}

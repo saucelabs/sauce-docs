@@ -1,0 +1,22 @@
+{
+  "unversionedId": "dev/api/js-tests",
+  "id": "dev/api/js-tests",
+  "isDocsHomePage": false,
+  "title": "JavaScript Unit Tests API",
+  "description": "JavaScript Unit Testing API.",
+  "source": "@site/docs/dev/api/js-tests.md",
+  "permalink": "/dev/api/js-tests",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/js-tests.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "JS Tests",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Jobs API",
+    "permalink": "/dev/api/jobs"
+  },
+  "next": {
+    "title": "Performance API",
+    "permalink": "/dev/api/performance"
+  }
+}

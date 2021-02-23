@@ -1,0 +1,22 @@
+{
+  "unversionedId": "dev/api/user",
+  "id": "dev/api/user",
+  "isDocsHomePage": false,
+  "title": "User API",
+  "description": "User API page.",
+  "source": "@site/docs/dev/api/user.md",
+  "permalink": "/dev/api/user",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/user.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "User",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Tunnels API",
+    "permalink": "/dev/api/tunnels"
+  },
+  "next": {
+    "title": "Sauce Labs CLI Reference",
+    "permalink": "/dev/cli"
+  }
+}

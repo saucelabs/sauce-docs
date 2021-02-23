@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/cli/espresso-xcuitest",
+  "id": "dev/cli/espresso-xcuitest",
+  "isDocsHomePage": false,
+  "title": "Espresso and XCUITest CLI Reference",
+  "description": "At this time, Espresso and XCUITest real device testing is only supported on TestObject, our Legacy Real Device Cloud Platform, which you can access via Sauce Apps > Legacy RDC.",
+  "source": "@site/docs/dev/cli/espresso-xcuitest.md",
+  "slug": "/dev/cli/espresso-xcuitest",
+  "permalink": "/dev/cli/espresso-xcuitest",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/cli/espresso-xcuitest.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Espresso and XCUITest",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs CLI Reference",
+    "permalink": "/dev/cli"
+  },
+  "next": {
+    "title": "Sauce Connect Proxy CLI",
+    "permalink": "/dev/cli/sauce-connect-proxy"
+  }
+}

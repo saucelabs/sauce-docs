@@ -1,0 +1,15 @@
+{
+  "unversionedId": "basics/best-practices/imperative-declarative-testing",
+  "id": "basics/best-practices/imperative-declarative-testing",
+  "isDocsHomePage": false,
+  "title": "Imperative and Declarative Testing",
+  "description": "Imperative versus declarative test scenarios is a concept that is often discussed in the context of Cucumber and Behavior Driven Development (BDD), but it is applicable to all languages and test runners. (For more information about Cucumber, see Aslak Hellesøy's \"The training wheels came off\")",
+  "source": "@site/docs/basics/best-practices/imperative-declarative-testing.md",
+  "slug": "/basics/best-practices/imperative-declarative-testing",
+  "permalink": "/basics/best-practices/imperative-declarative-testing",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/imperative-declarative-testing.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Imperative and Declarative Testing"
+}

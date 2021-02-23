@@ -1,0 +1,15 @@
+{
+  "unversionedId": "basics/best-practices/test-config-annotation",
+  "id": "basics/best-practices/test-config-annotation",
+  "isDocsHomePage": false,
+  "title": "Test Configuration and Annotation",
+  "description": "Before running a browser or device test with Sauce Labs, you need to write your test script to launch the platform/operating system/browser combination you want, and specify the location of the app for testing. You'll also want to configure other options, such as the path to your app.",
+  "source": "@site/docs/basics/best-practices/test-config-annotation.md",
+  "slug": "/basics/best-practices/test-config-annotation",
+  "permalink": "/basics/best-practices/test-config-annotation",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/test-config-annotation.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Test Configuration and Annotation"
+}

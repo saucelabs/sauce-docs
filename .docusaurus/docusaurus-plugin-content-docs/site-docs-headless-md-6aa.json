@@ -1,0 +1,22 @@
+{
+  "unversionedId": "headless",
+  "id": "headless",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs Headless Testing",
+  "description": "Sauce Labs Headless intro page.",
+  "source": "@site/docs/headless.md",
+  "permalink": "/headless",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/headless.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Introduction",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Performance Troubleshooting Guide",
+    "permalink": "/performance/troubleshooting"
+  },
+  "next": {
+    "title": "Sauce Headless System Requirements",
+    "permalink": "/headless/requirements"
+  }
+}

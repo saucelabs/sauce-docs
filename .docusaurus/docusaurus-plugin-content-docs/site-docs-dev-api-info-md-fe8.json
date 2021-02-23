@@ -1,0 +1,22 @@
+{
+  "unversionedId": "dev/api/info",
+  "id": "dev/api/info",
+  "isDocsHomePage": false,
+  "title": "System Info API",
+  "description": "System Info Api.",
+  "source": "@site/docs/dev/api/info.md",
+  "permalink": "/dev/api/info",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/info.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Info",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Devices API",
+    "permalink": "/dev/api/devices"
+  },
+  "next": {
+    "title": "Jobs API",
+    "permalink": "/dev/api/jobs"
+  }
+}

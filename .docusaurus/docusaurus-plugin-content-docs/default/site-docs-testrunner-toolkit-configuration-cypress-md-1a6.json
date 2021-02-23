@@ -1,0 +1,24 @@
+{
+  "unversionedId": "testrunner-toolkit/configuration/cypress",
+  "id": "testrunner-toolkit/configuration/cypress",
+  "isDocsHomePage": false,
+  "title": "Configuration Syntax: Cypress",
+  "description": "Please refer to the Common Configuration Syntax Referencefor information regarding fields such as apiVersion, kind, and sauce.",
+  "source": "@site/docs/testrunner-toolkit/configuration/cypress.md",
+  "slug": "/testrunner-toolkit/configuration/cypress",
+  "permalink": "/testrunner-toolkit/configuration/cypress",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/configuration/cypress.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Cypress",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Testrunner Toolkit Configuration",
+    "permalink": "/testrunner-toolkit/configuration"
+  },
+  "next": {
+    "title": "Configuration Syntax: Playwright",
+    "permalink": "/testrunner-toolkit/configuration/playwright"
+  }
+}

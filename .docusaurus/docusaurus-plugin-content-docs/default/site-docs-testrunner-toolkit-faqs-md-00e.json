@@ -1,0 +1,24 @@
+{
+  "unversionedId": "testrunner-toolkit/faqs",
+  "id": "testrunner-toolkit/faqs",
+  "isDocsHomePage": false,
+  "title": "Testrunner FAQs",
+  "description": "Below are list of frequently asked questions regarding some of the business and technical use cases surrounding the Testrunner Toolkit.",
+  "source": "@site/docs/testrunner-toolkit/faqs.md",
+  "slug": "/testrunner-toolkit/faqs",
+  "permalink": "/testrunner-toolkit/faqs",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/faqs.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "FAQs",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce CTL",
+    "permalink": "/testrunner-toolkit/saucectl"
+  },
+  "next": {
+    "title": "Testrunner Toolkit Support",
+    "permalink": "/testrunner-toolkit/support"
+  }
+}

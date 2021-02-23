@@ -1,0 +1,14 @@
+{
+  "unversionedId": "acct-team-mgmt/users-accounts",
+  "id": "acct-team-mgmt/users-accounts",
+  "isDocsHomePage": false,
+  "title": "users-accounts",
+  "description": "",
+  "source": "@site/docs/acct-team-mgmt/users-accounts.md",
+  "slug": "/acct-team-mgmt/users-accounts",
+  "permalink": "/acct-team-mgmt/users-accounts",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/acct-team-mgmt/users-accounts.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055
+}

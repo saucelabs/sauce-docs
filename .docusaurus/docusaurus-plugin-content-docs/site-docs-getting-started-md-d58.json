@@ -1,0 +1,22 @@
+{
+  "unversionedId": "getting-started",
+  "id": "getting-started",
+  "isDocsHomePage": false,
+  "title": "Getting Started with Sauce Labs",
+  "description": "Welcome to Sauce Labs! Your path for getting started depends on your experience level and use case. Below are the various test scenarios that Sauce Labs supports.",
+  "source": "@site/docs/getting-started.md",
+  "permalink": "/getting-started",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/getting-started.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Getting Started",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Documentation",
+    "permalink": "/overview"
+  },
+  "next": {
+    "title": "Application Storage",
+    "permalink": "/storage"
+  }
+}

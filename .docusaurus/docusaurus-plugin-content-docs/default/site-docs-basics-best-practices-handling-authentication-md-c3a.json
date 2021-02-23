@@ -1,0 +1,15 @@
+{
+  "unversionedId": "basics/best-practices/handling-authentication",
+  "id": "basics/best-practices/handling-authentication",
+  "isDocsHomePage": false,
+  "title": "Handling Authentication",
+  "description": "There are several ways to handle authentication and security dialogs during testing. You might, for example, need to log a user in, or bypass a browser warning. The topics in this section cover cookie injection with Selenium, basic HTTP authentication, and other options.",
+  "source": "@site/docs/basics/best-practices/handling-authentication.md",
+  "slug": "/basics/best-practices/handling-authentication",
+  "permalink": "/basics/best-practices/handling-authentication",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/handling-authentication.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Handling Authentication"
+}

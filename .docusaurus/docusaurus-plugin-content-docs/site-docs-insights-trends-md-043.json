@@ -1,0 +1,22 @@
+{
+  "unversionedId": "insights/trends",
+  "id": "insights/trends",
+  "isDocsHomePage": false,
+  "title": "Sauce Insights Test Trends",
+  "description": "Sauce Labs Insights Test Trends page.",
+  "source": "@site/docs/insights/trends.md",
+  "permalink": "/insights/trends",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/insights/trends.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Test Trends",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Insights Test History",
+    "permalink": "/insights/history"
+  },
+  "next": {
+    "title": "Sauce Insights Test Filtering",
+    "permalink": "/insights/filters"
+  }
+}

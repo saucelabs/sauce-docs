@@ -1,0 +1,24 @@
+{
+  "unversionedId": "basics/acct-team-mgmt/org-settings",
+  "id": "basics/acct-team-mgmt/org-settings",
+  "isDocsHomePage": false,
+  "title": "Organization Settings",
+  "description": "General Settings",
+  "source": "@site/docs/basics/acct-team-mgmt/org-settings.md",
+  "slug": "/basics/acct-team-mgmt/org-settings",
+  "permalink": "/basics/acct-team-mgmt/org-settings",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/org-settings.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Organization Settings",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Account and Team Management",
+    "permalink": "/basics/acct-team-mgmt-hub"
+  },
+  "next": {
+    "title": "Concurrency Limits and Team Accounts",
+    "permalink": "/basics/acct-team-mgmt/concurrency-limits"
+  }
+}

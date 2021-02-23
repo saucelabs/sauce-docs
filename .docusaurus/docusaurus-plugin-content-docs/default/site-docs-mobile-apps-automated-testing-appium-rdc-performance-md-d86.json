@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/appium/rdc-performance",
+  "id": "mobile-apps/automated-testing/appium/rdc-performance",
+  "isDocsHomePage": false,
+  "title": "Monitoring Real Device Performance",
+  "description": "See Monitoring Real Device Performance for Automated Tests",
+  "source": "@site/docs/mobile-apps/automated-testing/appium/rdc-performance.md",
+  "slug": "/mobile-apps/automated-testing/appium/rdc-performance",
+  "permalink": "/mobile-apps/automated-testing/appium/rdc-performance",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/appium/rdc-performance.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "RDC Performance",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "RDC Capabilities and Example Scripts",
+    "permalink": "/mobile-apps/automated-testing/appium/rdc-capabilities"
+  },
+  "next": {
+    "title": "Appium Testing with Emulators and Simulators",
+    "permalink": "/mobile-apps/automated-testing/appium/vdc"
+  }
+}

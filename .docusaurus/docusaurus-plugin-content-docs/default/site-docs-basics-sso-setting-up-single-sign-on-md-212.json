@@ -1,0 +1,24 @@
+{
+  "unversionedId": "basics/sso/setting-up-single-sign-on",
+  "id": "basics/sso/setting-up-single-sign-on",
+  "isDocsHomePage": false,
+  "title": "Setting Up Single Sign-On",
+  "description": "ENTERPRISE PLANS ONLY",
+  "source": "@site/docs/basics/sso/setting-up-single-sign-on.md",
+  "slug": "/basics/sso/setting-up-single-sign-on",
+  "permalink": "/basics/sso/setting-up-single-sign-on",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/sso/setting-up-single-sign-on.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Setting Up Single Sign-On",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Single Sign-On",
+    "permalink": "/basics/sso-hub"
+  },
+  "next": {
+    "title": "Configuring Active Directory Federation Services (AD FS)",
+    "permalink": "/basics/sso/config-adfs"
+  }
+}

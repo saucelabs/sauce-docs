@@ -1,0 +1,24 @@
+{
+  "unversionedId": "web-apps/live-testing/desktop-browsers",
+  "id": "web-apps/live-testing/desktop-browsers",
+  "isDocsHomePage": false,
+  "title": "Live Testing with Desktop Web Browsers",
+  "description": "Sauce Labs live testing with desktop browsers page.",
+  "source": "@site/docs/web-apps/live-testing/desktop-browsers.md",
+  "slug": "/web-apps/live-testing/desktop-browsers",
+  "permalink": "/web-apps/live-testing/desktop-browsers",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/web-apps/live-testing/desktop-browsers.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Desktop Browsers",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Web Live Testing Quickstart",
+    "permalink": "/web-apps/live-testing"
+  },
+  "next": {
+    "title": "Live Testing with Mobile Browsers",
+    "permalink": "/web-apps/live-testing/mobile-browsers"
+  }
+}

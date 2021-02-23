@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/cli/saucectl",
+  "id": "dev/cli/saucectl",
+  "isDocsHomePage": false,
+  "title": "Sauce CTL",
+  "description": "backgroundColor: color,",
+  "source": "@site/docs/dev/cli/saucectl.md",
+  "slug": "/dev/cli/saucectl",
+  "permalink": "/dev/cli/saucectl",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/cli/saucectl.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Sauce CTL",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Connect Proxy CLI",
+    "permalink": "/dev/cli/sauce-connect-proxy"
+  },
+  "next": {
+    "title": "Contributing",
+    "permalink": "/contributing"
+  }
+}

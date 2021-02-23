@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/cli",
+  "id": "dev/cli",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs CLI Reference",
+  "description": "Sauce Labs CLI reference intro page.",
+  "source": "@site/docs/dev/cli.md",
+  "slug": "/dev/cli",
+  "permalink": "/dev/cli",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/cli.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Getting Started",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Account Management API Methods",
+    "permalink": "/dev/api/accounts"
+  },
+  "next": {
+    "title": "Espresso and XCUITest CLI Reference",
+    "permalink": "/dev/cli/espresso-xcuitest"
+  }
+}

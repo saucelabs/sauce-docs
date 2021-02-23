@@ -1,0 +1,24 @@
+{
+  "unversionedId": "web-apps/automated-testing/cypress",
+  "id": "web-apps/automated-testing/cypress",
+  "isDocsHomePage": false,
+  "title": "Cypress on Sauce Labs",
+  "description": "This page provides a walkthrough on how to run Cypress tests locally and on Sauce Labs.",
+  "source": "@site/docs/web-apps/automated-testing/cypress.md",
+  "slug": "/web-apps/automated-testing/cypress",
+  "permalink": "/web-apps/automated-testing/cypress",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/web-apps/automated-testing/cypress.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Cypress",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Web Live Testing Quickstart",
+    "permalink": "/web-apps/live-testing"
+  },
+  "next": {
+    "title": "Incorporating Sauce Labs in Your CI/CD Pipeline",
+    "permalink": "/ci"
+  }
+}

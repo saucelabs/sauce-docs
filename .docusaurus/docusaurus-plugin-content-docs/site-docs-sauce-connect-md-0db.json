@@ -1,0 +1,22 @@
+{
+  "unversionedId": "sauce-connect",
+  "id": "sauce-connect",
+  "isDocsHomePage": false,
+  "title": "What is Sauce Connect Proxy?",
+  "description": "Sauce Connect Proxy intro page.",
+  "source": "@site/docs/sauce-connect.md",
+  "permalink": "/sauce-connect",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/sauce-connect.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "What is Sauce Connect Proxy?",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Data Center Information",
+    "permalink": "/data-centers"
+  },
+  "next": {
+    "title": "Sauce Connect Proxy System Requirements",
+    "permalink": "/sauce-connect/requirements"
+  }
+}

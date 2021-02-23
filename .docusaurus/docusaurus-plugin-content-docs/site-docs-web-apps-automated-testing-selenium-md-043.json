@@ -1,0 +1,22 @@
+{
+  "unversionedId": "web-apps/automated-testing/selenium",
+  "id": "web-apps/automated-testing/selenium",
+  "isDocsHomePage": false,
+  "title": "Automated Web App Testing with Selenium",
+  "description": "Sauce Labs Selenium page.",
+  "source": "@site/docs/web-apps/automated-testing/selenium.md",
+  "permalink": "/web-apps/automated-testing/selenium",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/web-apps/automated-testing/selenium.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Selenium",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Web Automated Testing Quickstart",
+    "permalink": "/web-apps/automated-testing"
+  },
+  "next": {
+    "title": "Automated Web App Testing with WebdriverIO",
+    "permalink": "/web-apps/automated-testing/wdio"
+  }
+}

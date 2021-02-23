@@ -1,0 +1,24 @@
+{
+  "unversionedId": "insights/debugging",
+  "id": "insights/debugging",
+  "isDocsHomePage": false,
+  "title": "Debugging with Sauce Insights",
+  "description": "Sauce Labs Insights debugging page.",
+  "source": "@site/docs/insights/debugging.md",
+  "slug": "/insights/debugging",
+  "permalink": "/insights/debugging",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/insights/debugging.md",
+  "version": "current",
+  "lastUpdatedBy": "James Tacker",
+  "lastUpdatedAt": 1604076646,
+  "sidebar_label": "Debugging",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Insights Failure Analysis",
+    "permalink": "/insights/failure-analysis"
+  },
+  "next": {
+    "title": "Sauce Labs Performance",
+    "permalink": "/performance"
+  }
+}

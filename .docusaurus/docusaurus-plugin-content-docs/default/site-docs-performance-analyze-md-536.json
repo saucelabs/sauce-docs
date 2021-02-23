@@ -1,0 +1,24 @@
+{
+  "unversionedId": "performance/analyze",
+  "id": "performance/analyze",
+  "isDocsHomePage": false,
+  "title": "Analyzing Performance Results",
+  "description": "Drill into the results of your performance testing in the Sauce Labs dashboard to isolate and identify sources of performance degradation.",
+  "source": "@site/docs/performance/analyze.md",
+  "slug": "/performance/analyze",
+  "permalink": "/performance/analyze",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/performance/analyze.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Results Analysis",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Measuring On-Page Motion Effects",
+    "permalink": "/performance/motion"
+  },
+  "next": {
+    "title": "Sauce Headless Testing in the Cross-Browser Cloud",
+    "permalink": "/headless"
+  }
+}

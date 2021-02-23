@@ -1,0 +1,15 @@
+{
+  "unversionedId": "basics/best-practices/using-explicit-waits",
+  "id": "basics/best-practices/using-explicit-waits",
+  "isDocsHomePage": false,
+  "title": "Using Explicit Waits",
+  "description": "As a best practice, use explicit waits on Selenium when you run into timeouts and failing tests.",
+  "source": "@site/docs/basics/best-practices/using-explicit-waits.md",
+  "slug": "/basics/best-practices/using-explicit-waits",
+  "permalink": "/basics/best-practices/using-explicit-waits",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/using-explicit-waits.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Using Explicit Waits"
+}

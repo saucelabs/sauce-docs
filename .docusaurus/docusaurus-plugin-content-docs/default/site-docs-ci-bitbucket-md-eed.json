@@ -1,0 +1,24 @@
+{
+  "unversionedId": "ci/bitbucket",
+  "id": "ci/bitbucket",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs with Bitbucket",
+  "description": "Use our plugin to run your Sauce Labs tests within your Bitbucket pipeline.",
+  "source": "@site/docs/ci/bitbucket.md",
+  "slug": "/ci/bitbucket",
+  "permalink": "/ci/bitbucket",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/bitbucket.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Bitbucket",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs with Bamboo",
+    "permalink": "/ci/bamboo"
+  },
+  "next": {
+    "title": "Sauce Labs with Jenkins",
+    "permalink": "/ci/jenkins"
+  }
+}

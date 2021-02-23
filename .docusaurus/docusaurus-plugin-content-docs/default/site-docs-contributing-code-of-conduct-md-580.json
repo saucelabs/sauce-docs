@@ -1,0 +1,24 @@
+{
+  "unversionedId": "contributing/code-of-conduct",
+  "id": "contributing/code-of-conduct",
+  "isDocsHomePage": false,
+  "title": "Contributor Covenant Code of Conduct",
+  "description": "Our Pledge",
+  "source": "@site/docs/contributing/code-of-conduct.md",
+  "slug": "/contributing/code-of-conduct",
+  "permalink": "/contributing/code-of-conduct",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/contributing/code-of-conduct.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Code of Conduct",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Contributing",
+    "permalink": "/contributing"
+  },
+  "next": {
+    "title": "Stylde Guide Introduction",
+    "permalink": "/contributing/style-guide"
+  }
+}

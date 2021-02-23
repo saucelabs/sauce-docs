@@ -1,0 +1,24 @@
+{
+  "unversionedId": "data-centers",
+  "id": "data-centers",
+  "isDocsHomePage": false,
+  "title": "Data Center Information",
+  "description": "Sauce Labs data center information page.",
+  "source": "@site/docs/data-centers.md",
+  "slug": "/data-centers",
+  "permalink": "/data-centers",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/data-centers.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Data Center Info",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Account and Team Management",
+    "permalink": "/account-and-team-management"
+  },
+  "next": {
+    "title": "Overview of Sauce Labs Secure Connection Options",
+    "permalink": "/secure-connections"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "headless/troubleshooting",
+  "id": "headless/troubleshooting",
+  "isDocsHomePage": false,
+  "title": "Sauce Headless Troubleshooting Guide",
+  "description": "Sauce Labs Headless troubleshooting page.",
+  "source": "@site/docs/headless/troubleshooting.md",
+  "slug": "/headless/troubleshooting",
+  "permalink": "/headless/troubleshooting",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/headless/troubleshooting.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Troubleshooting",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Headless Setup and Configuration",
+    "permalink": "/headless/configuration"
+  },
+  "next": {
+    "title": "Sauce Labs Visual Testing",
+    "permalink": "/visual"
+  }
+}

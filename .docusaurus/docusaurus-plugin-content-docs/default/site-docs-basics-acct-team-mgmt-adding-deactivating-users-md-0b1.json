@@ -1,0 +1,24 @@
+{
+  "unversionedId": "basics/acct-team-mgmt/adding-deactivating-users",
+  "id": "basics/acct-team-mgmt/adding-deactivating-users",
+  "isDocsHomePage": false,
+  "title": "Adding and Deactivating Users",
+  "description": "ENTERPRISE PLANS ONLY",
+  "source": "@site/docs/basics/acct-team-mgmt/adding-deactivating-users.md",
+  "slug": "/basics/acct-team-mgmt/adding-deactivating-users",
+  "permalink": "/basics/acct-team-mgmt/adding-deactivating-users",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/adding-deactivating-users.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Adding and Deactivating Users",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Concurrency Limits and Team Accounts",
+    "permalink": "/basics/acct-team-mgmt/concurrency-limits"
+  },
+  "next": {
+    "title": "Managing User Information",
+    "permalink": "/basics/acct-team-mgmt/managing-user-info"
+  }
+}

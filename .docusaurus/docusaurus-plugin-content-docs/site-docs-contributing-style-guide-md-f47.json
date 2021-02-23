@@ -1,0 +1,22 @@
+{
+  "unversionedId": "contributing/style-guide",
+  "id": "contributing/style-guide",
+  "isDocsHomePage": false,
+  "title": "Stylde Guide Introduction",
+  "description": "Sauce Labs style guide intro page.",
+  "source": "@site/docs/contributing/style-guide.md",
+  "permalink": "/contributing/style-guide",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/contributing/style-guide.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Overview",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Contributor Covenant Code of Conduct",
+    "permalink": "/contributing/code-of-conduct"
+  },
+  "next": {
+    "title": "Markdown Styles",
+    "permalink": "/contributing/style-guide/mkdwn-styles"
+  }
+}

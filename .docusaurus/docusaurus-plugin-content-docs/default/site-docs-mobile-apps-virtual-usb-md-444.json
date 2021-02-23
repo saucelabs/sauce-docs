@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/virtual-usb",
+  "id": "mobile-apps/virtual-usb",
+  "isDocsHomePage": false,
+  "title": "Virtual USB Testing on Real Mobile Devices",
+  "description": "backgroundColor: color,",
+  "source": "@site/docs/mobile-apps/virtual-usb.md",
+  "slug": "/mobile-apps/virtual-usb",
+  "permalink": "/mobile-apps/virtual-usb",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/virtual-usb.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Virtual USB",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Mobile App Testing Features and Functionality",
+    "permalink": "/mobile-apps/features"
+  },
+  "next": {
+    "title": "Mobile App Testing FAQ",
+    "permalink": "/mobile-apps/faq"
+  }
+}

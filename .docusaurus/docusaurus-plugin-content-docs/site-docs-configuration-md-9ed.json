@@ -1,0 +1,22 @@
+{
+  "unversionedId": "configuration",
+  "id": "configuration",
+  "isDocsHomePage": false,
+  "title": "Setup and Configuration",
+  "description": "Sauce Labs configuration page.",
+  "source": "@site/docs/configuration.md",
+  "permalink": "/configuration",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/configuration.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Setup and Configuration",
+  "sidebar": "docs",
+  "previous": {
+    "title": "What is Sauce Labs?",
+    "permalink": "/sauce-basics"
+  },
+  "next": {
+    "title": "Platform Support",
+    "permalink": "/platform-support"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "performance/transitions",
+  "id": "performance/transitions",
+  "isDocsHomePage": false,
+  "title": "Measuring Page Transitions with Scripts",
+  "description": "Use Sauce Performance in an automation scripts to test page load performance during typical interaction with your app.",
+  "source": "@site/docs/performance/transitions.md",
+  "slug": "/performance/transitions",
+  "permalink": "/performance/transitions",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/performance/transitions.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Page Transitions",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Collecting Single URL Performance Statistics",
+    "permalink": "/performance/one-page"
+  },
+  "next": {
+    "title": "Measuring On-Page Motion Effects",
+    "permalink": "/performance/motion"
+  }
+}

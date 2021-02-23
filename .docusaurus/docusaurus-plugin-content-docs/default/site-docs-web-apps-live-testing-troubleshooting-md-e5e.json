@@ -1,0 +1,24 @@
+{
+  "unversionedId": "web-apps/live-testing/troubleshooting",
+  "id": "web-apps/live-testing/troubleshooting",
+  "isDocsHomePage": false,
+  "title": "Live Web Testing Troubleshooting Guide",
+  "description": "Sauce Labs live Web testing troubleshooting page.",
+  "source": "@site/docs/web-apps/live-testing/troubleshooting.md",
+  "slug": "/web-apps/live-testing/troubleshooting",
+  "permalink": "/web-apps/live-testing/troubleshooting",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/web-apps/live-testing/troubleshooting.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Troubleshooting",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Live Testing with Mobile Browsers",
+    "permalink": "/web-apps/live-testing/mobile-browsers"
+  },
+  "next": {
+    "title": "Web Automated Testing Quickstart",
+    "permalink": "/web-apps/automated-testing"
+  }
+}

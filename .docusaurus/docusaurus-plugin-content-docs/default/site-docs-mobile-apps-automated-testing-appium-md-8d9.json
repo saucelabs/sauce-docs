@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/appium",
+  "id": "mobile-apps/automated-testing/appium",
+  "isDocsHomePage": false,
+  "title": "Using Appium for Automated Mobile App Testing",
+  "description": "This page is intended to provide you with a quick overview of how Appium works to get started with mobile application testing. For full documentation of Appium, with more examples in popular scripting languages, check out the Appium.io website.",
+  "source": "@site/docs/mobile-apps/automated-testing/appium.md",
+  "slug": "/mobile-apps/automated-testing/appium",
+  "permalink": "/mobile-apps/automated-testing/appium",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/appium.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Using Appium",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Choosing a Device for Mobile App Testing",
+    "permalink": "/mobile-apps/automated-testing/devices"
+  },
+  "next": {
+    "title": "Appium Testing with Real Devices",
+    "permalink": "/mobile-apps/automated-testing/appium/real-devices"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/troubleshooting",
+  "id": "mobile-apps/automated-testing/troubleshooting",
+  "isDocsHomePage": false,
+  "title": "Troubleshooting Automated Mobile App Tests",
+  "description": "There are several ways to troubleshoot your automated mobile app tests. Below are some common error messages and how to resolve them.",
+  "source": "@site/docs/mobile-apps/automated-testing/troubleshooting.md",
+  "slug": "/mobile-apps/automated-testing/troubleshooting",
+  "permalink": "/mobile-apps/automated-testing/troubleshooting",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/troubleshooting.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Troubleshooting",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Microsoft App Center Integration",
+    "permalink": "/mobile-apps/automated-testing/microsoft-app-center"
+  },
+  "next": {
+    "title": "Mobile App Storage",
+    "permalink": "/mobile-apps/app-storage"
+  }
+}

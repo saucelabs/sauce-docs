@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/devices",
+  "id": "mobile-apps/automated-testing/devices",
+  "isDocsHomePage": false,
+  "title": "Choosing a Device for Mobile App Testing",
+  "description": "backgroundColor: color,",
+  "source": "@site/docs/mobile-apps/automated-testing/devices.md",
+  "slug": "/mobile-apps/automated-testing/devices",
+  "permalink": "/mobile-apps/automated-testing/devices",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/devices.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Choosing a Device",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Using Automated Mobile App Testing",
+    "permalink": "/mobile-apps/automated-testing"
+  },
+  "next": {
+    "title": "Using Appium for Automated Mobile App Testing",
+    "permalink": "/mobile-apps/automated-testing/appium"
+  }
+}

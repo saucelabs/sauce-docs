@@ -1,0 +1,22 @@
+{
+  "unversionedId": "storage",
+  "id": "storage",
+  "isDocsHomePage": false,
+  "title": "Application Storage",
+  "description": "When testing mobile applications, you now have the option to upload your application to our new temporary application storage. Application storage is quite different and more flexible than our previous iteration (Sauce Storage) in multiple ways:",
+  "source": "@site/docs/storage.md",
+  "permalink": "/storage",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/storage.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Storage",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Getting Started with Sauce Labs",
+    "permalink": "/getting-started"
+  },
+  "next": {
+    "title": "Live Testing Overview",
+    "permalink": "/guides/live-testing/overview"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/appium/rdc",
+  "id": "mobile-apps/automated-testing/appium/rdc",
+  "isDocsHomePage": false,
+  "title": "Appium Testing with Real Devices",
+  "description": "See Automated Testing with Real Devices.",
+  "source": "@site/docs/mobile-apps/automated-testing/appium/rdc.md",
+  "slug": "/mobile-apps/automated-testing/appium/rdc",
+  "permalink": "/mobile-apps/automated-testing/appium/rdc",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/appium/rdc.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "RDC",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Using Appium for Automated Mobile App Testing",
+    "permalink": "/mobile-apps/automated-testing/appium"
+  },
+  "next": {
+    "title": "RDC Capabilities and Example Scripts",
+    "permalink": "/mobile-apps/automated-testing/appium/rdc-capabilities"
+  }
+}

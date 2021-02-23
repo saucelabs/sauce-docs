@@ -1,0 +1,24 @@
+{
+  "unversionedId": "ci/circleci",
+  "id": "ci/circleci",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs with CircleCI",
+  "description": "Sauce Labs CircleCI Integration page.",
+  "source": "@site/docs/ci/circleci.md",
+  "slug": "/ci/circleci",
+  "permalink": "/ci/circleci",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/circleci.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "CircleCI",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs with Bamboo",
+    "permalink": "/ci/bamboo"
+  },
+  "next": {
+    "title": "Sauce Labs with Azure Pipelines",
+    "permalink": "/ci/azure"
+  }
+}

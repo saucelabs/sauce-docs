@@ -1,0 +1,24 @@
+{
+  "unversionedId": "basics/acct-team-mgmt/viewing-exporting-usage-data",
+  "id": "basics/acct-team-mgmt/viewing-exporting-usage-data",
+  "isDocsHomePage": false,
+  "title": "Viewing and Exporting Usage Data",
+  "description": "ENTERPRISE PLANS ONLY",
+  "source": "@site/docs/basics/acct-team-mgmt/viewing-exporting-usage-data.md",
+  "slug": "/basics/acct-team-mgmt/viewing-exporting-usage-data",
+  "permalink": "/basics/acct-team-mgmt/viewing-exporting-usage-data",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/viewing-exporting-usage-data.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Viewing and Exporting Usage Data",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Managing User Information",
+    "permalink": "/basics/acct-team-mgmt/managing-user-info"
+  },
+  "next": {
+    "title": "Adding and Deleting Teams",
+    "permalink": "/basics/acct-team-mgmt/adding-deleting-teams"
+  }
+}

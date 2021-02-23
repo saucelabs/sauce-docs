@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/cli/ipsec-cli",
+  "id": "dev/cli/ipsec-cli",
+  "isDocsHomePage": false,
+  "title": "IPSec VPN CLI Reference",
+  "description": "IPSec VPN CLI Reference.",
+  "source": "@site/docs/dev/cli/ispec-cli.md",
+  "slug": "/dev/cli/ipsec-cli",
+  "permalink": "/dev/cli/ipsec-cli",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/cli/ispec-cli.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "IPSec VPN",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Connect Proxy CLI Reference",
+    "permalink": "/dev/cli/sc-cli"
+  },
+  "next": {
+    "title": "Sauce CTL",
+    "permalink": "/dev/cli/saucectl"
+  }
+}

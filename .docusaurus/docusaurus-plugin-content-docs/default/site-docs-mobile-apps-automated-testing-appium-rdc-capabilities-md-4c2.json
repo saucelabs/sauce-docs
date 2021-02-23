@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/appium/rdc-capabilities",
+  "id": "mobile-apps/automated-testing/appium/rdc-capabilities",
+  "isDocsHomePage": false,
+  "title": "RDC Capabilities and Example Scripts",
+  "description": "See Appium Capabilities and Example Scripts for Real Device Testing.",
+  "source": "@site/docs/mobile-apps/automated-testing/appium/rdc-capabilities.md",
+  "slug": "/mobile-apps/automated-testing/appium/rdc-capabilities",
+  "permalink": "/mobile-apps/automated-testing/appium/rdc-capabilities",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/appium/rdc-capabilities.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "RDC Capabilities and Scripts",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Appium Testing with Real Devices",
+    "permalink": "/mobile-apps/automated-testing/appium/rdc"
+  },
+  "next": {
+    "title": "Monitoring Real Device Performance",
+    "permalink": "/mobile-apps/automated-testing/appium/rdc-performance"
+  }
+}

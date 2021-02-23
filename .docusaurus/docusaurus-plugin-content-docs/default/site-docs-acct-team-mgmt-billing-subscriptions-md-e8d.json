@@ -1,0 +1,14 @@
+{
+  "unversionedId": "acct-team-mgmt/billing-subscriptions",
+  "id": "acct-team-mgmt/billing-subscriptions",
+  "isDocsHomePage": false,
+  "title": "billing-subscriptions",
+  "description": "",
+  "source": "@site/docs/acct-team-mgmt/billing-subscriptions.md",
+  "slug": "/acct-team-mgmt/billing-subscriptions",
+  "permalink": "/acct-team-mgmt/billing-subscriptions",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/acct-team-mgmt/billing-subscriptions.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055
+}

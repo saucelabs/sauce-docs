@@ -1,0 +1,24 @@
+{
+  "unversionedId": "basics/sso-hub",
+  "id": "basics/sso-hub",
+  "isDocsHomePage": false,
+  "title": "Single Sign-On",
+  "description": "Sauce Labs supports Idp-initiated SSO, which allows your authorized employees to access Sauce Labs in a moderated fashion.",
+  "source": "@site/docs/basics/sso-hub.md",
+  "slug": "/basics/sso-hub",
+  "permalink": "/basics/sso-hub",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/sso-hub.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Getting Started",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Viewing Plan Details",
+    "permalink": "/basics/acct-team-mgmt/plan-details"
+  },
+  "next": {
+    "title": "Setting Up Single Sign-On",
+    "permalink": "/basics/sso/setting-up-single-sign-on"
+  }
+}

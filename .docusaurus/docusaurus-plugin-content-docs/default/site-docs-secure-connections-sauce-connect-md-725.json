@@ -1,0 +1,24 @@
+{
+  "unversionedId": "secure-connections/sauce-connect",
+  "id": "secure-connections/sauce-connect",
+  "isDocsHomePage": false,
+  "title": "Sauce Connect Proxy",
+  "description": "Sauce Connect Proxy&trade; is a proxy server that opens a secure connection between a Sauce Labs virtual machine, emulator, simulator or real device running your browser or native app tests, and an application or website you want to test that is on your local machine or behind a corporate firewall.",
+  "source": "@site/docs/secure-connections/sauce-connect.md",
+  "slug": "/secure-connections/sauce-connect",
+  "permalink": "/secure-connections/sauce-connect",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/sauce-connect.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Using Sauce Connect",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Running Sauce Labs Tests with IPSec VPN Tunnels",
+    "permalink": "/secure-connections/ipsec-vpn"
+  },
+  "next": {
+    "title": "Sauce Connect Installation and Requirements",
+    "permalink": "/secure-connections/sauce-connect/installation"
+  }
+}

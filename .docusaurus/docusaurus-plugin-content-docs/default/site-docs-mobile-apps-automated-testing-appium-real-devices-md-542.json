@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/appium/real-devices",
+  "id": "mobile-apps/automated-testing/appium/real-devices",
+  "isDocsHomePage": false,
+  "title": "Appium Testing with Real Devices",
+  "description": "backgroundColor: color,",
+  "source": "@site/docs/mobile-apps/automated-testing/appium/real-devices.md",
+  "slug": "/mobile-apps/automated-testing/appium/real-devices",
+  "permalink": "/mobile-apps/automated-testing/appium/real-devices",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/appium/real-devices.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Real Devices",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Using Appium for Automated Mobile App Testing",
+    "permalink": "/mobile-apps/automated-testing/appium"
+  },
+  "next": {
+    "title": "Appium Testing with Emulators and Simulators",
+    "permalink": "/mobile-apps/automated-testing/appium/virtual-devices"
+  }
+}

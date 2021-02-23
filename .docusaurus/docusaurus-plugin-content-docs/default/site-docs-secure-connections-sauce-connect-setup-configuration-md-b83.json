@@ -1,0 +1,24 @@
+{
+  "unversionedId": "secure-connections/sauce-connect/setup-configuration",
+  "id": "secure-connections/sauce-connect/setup-configuration",
+  "isDocsHomePage": false,
+  "title": "Sauce Connect Setup and Configuration",
+  "description": "Using Tunnels in Your Organization",
+  "source": "@site/docs/secure-connections/sauce-connect/setup-configuration.md",
+  "slug": "/secure-connections/sauce-connect/setup-configuration",
+  "permalink": "/secure-connections/sauce-connect/setup-configuration",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/sauce-connect/setup-configuration.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Configuration",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Connect Installation and Requirements",
+    "permalink": "/secure-connections/sauce-connect/installation"
+  },
+  "next": {
+    "title": "Sauce Connect Environment Variables",
+    "permalink": "/secure-connections/sauce-connect/environment-variables"
+  }
+}

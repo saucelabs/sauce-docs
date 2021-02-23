@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/faq",
+  "id": "mobile-apps/automated-testing/faq",
+  "isDocsHomePage": false,
+  "title": "Automated Mobile Appp Testing FAQ",
+  "description": "Real Devices",
+  "source": "@site/docs/mobile-apps/automated-testing/faq.md",
+  "slug": "/mobile-apps/automated-testing/faq",
+  "permalink": "/mobile-apps/automated-testing/faq",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/faq.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "FAQ",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Troubleshooting Automated Mobile App Tests",
+    "permalink": "/mobile-apps/automated-testing/troubleshooting"
+  },
+  "next": {
+    "title": "Using Appium for Automated Mobile App Testing",
+    "permalink": "/mobile-apps/automated-testing/appium"
+  }
+}

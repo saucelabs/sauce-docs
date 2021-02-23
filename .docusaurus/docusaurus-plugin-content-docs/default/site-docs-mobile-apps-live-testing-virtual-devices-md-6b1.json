@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/live-testing/virtual-devices",
+  "id": "mobile-apps/live-testing/virtual-devices",
+  "isDocsHomePage": false,
+  "title": "Live Testing with Virtual Devices",
+  "description": "Live testing with virtual devices page.",
+  "source": "@site/docs/mobile-apps/live-testing/virtual-devices.md",
+  "slug": "/mobile-apps/live-testing/virtual-devices",
+  "permalink": "/mobile-apps/live-testing/virtual-devices",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/live-testing/virtual-devices.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Virtual Devices",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Live Testing with Real Devices",
+    "permalink": "/mobile-apps/live-testing/real-devices"
+  },
+  "next": {
+    "title": "Mobile Automated Testing Quickstart",
+    "permalink": "/mobile-apps/automated-testing"
+  }
+}

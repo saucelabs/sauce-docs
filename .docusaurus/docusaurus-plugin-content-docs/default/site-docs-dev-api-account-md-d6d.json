@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/api/account",
+  "id": "dev/api/account",
+  "isDocsHomePage": false,
+  "title": "Account API",
+  "description": "backgroundColor: color,",
+  "source": "@site/docs/dev/api/account.md",
+  "slug": "/dev/api/account",
+  "permalink": "/dev/api/account",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/account.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Account",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Access Key API",
+    "permalink": "/dev/api/access-key"
+  },
+  "next": {
+    "title": "Activity API",
+    "permalink": "/dev/api/activity"
+  }
+}

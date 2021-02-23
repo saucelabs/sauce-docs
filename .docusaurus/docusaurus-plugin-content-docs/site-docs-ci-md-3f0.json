@@ -1,0 +1,22 @@
+{
+  "unversionedId": "ci",
+  "id": "ci",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs CI Integrations",
+  "description": "Sauce Labs CI/CD hub page.",
+  "source": "@site/docs/ci.md",
+  "permalink": "/ci",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Introduction",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Automated Web App Testing with JavaScript Frameworks",
+    "permalink": "/web-apps/automated-testing/js"
+  },
+  "next": {
+    "title": "Sauce Labs with Jenkins",
+    "permalink": "/ci/jenkins"
+  }
+}

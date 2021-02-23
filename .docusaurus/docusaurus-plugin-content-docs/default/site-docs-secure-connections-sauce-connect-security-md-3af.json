@@ -1,0 +1,24 @@
+{
+  "unversionedId": "secure-connections/sauce-connect/security",
+  "id": "secure-connections/sauce-connect/security",
+  "isDocsHomePage": false,
+  "title": "Sauce Connect Authentication and Certificates",
+  "description": "*   Network Security",
+  "source": "@site/docs/secure-connections/sauce-connect/security.md",
+  "slug": "/secure-connections/sauce-connect/security",
+  "permalink": "/secure-connections/sauce-connect/security",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/sauce-connect/security.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Security",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Using Sauce Connect Proxy Tunnels",
+    "permalink": "/secure-connections/sauce-connect/proxy-tunnels"
+  },
+  "next": {
+    "title": "Sauce Connect Troubleshooting",
+    "permalink": "/secure-connections/sauce-connect/troubleshooting"
+  }
+}

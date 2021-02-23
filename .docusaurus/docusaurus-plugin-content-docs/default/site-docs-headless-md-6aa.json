@@ -1,0 +1,24 @@
+{
+  "unversionedId": "headless",
+  "id": "headless",
+  "isDocsHomePage": false,
+  "title": "Sauce Headless Testing in the Cross-Browser Cloud",
+  "description": "backgroundColor: color,",
+  "source": "@site/docs/headless.md",
+  "slug": "/headless",
+  "permalink": "/headless",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/headless.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Using Headless",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Analyzing Performance Results",
+    "permalink": "/performance/analyze"
+  },
+  "next": {
+    "title": "Using Testrunner Toolkit",
+    "permalink": "/testrunner-toolkit"
+  }
+}

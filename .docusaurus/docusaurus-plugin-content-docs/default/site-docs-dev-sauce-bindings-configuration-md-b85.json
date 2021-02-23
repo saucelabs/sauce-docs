@@ -1,0 +1,15 @@
+{
+  "unversionedId": "dev/sauce-bindings/configuration",
+  "id": "dev/sauce-bindings/configuration",
+  "isDocsHomePage": false,
+  "title": "Configuring the Sauce Bindings",
+  "description": "Sauce Bindings Configuration page.",
+  "source": "@site/docs/dev/sauce-bindings/configuration.md",
+  "slug": "/dev/sauce-bindings/configuration",
+  "permalink": "/dev/sauce-bindings/configuration",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/sauce-bindings/configuration.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Configuration"
+}

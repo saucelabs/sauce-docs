@@ -1,0 +1,22 @@
+{
+  "unversionedId": "products/testrunner-toolkit/preparation",
+  "id": "products/testrunner-toolkit/preparation",
+  "isDocsHomePage": false,
+  "title": "Testrunner Test Preparation",
+  "description": "Before you begin testing with Testrunner Toolkit, you must choose an automation framework.",
+  "source": "@site/docs/products/testrunner-toolkit/preparation.md",
+  "permalink": "/products/testrunner-toolkit/preparation",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/products/testrunner-toolkit/preparation.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Test Preparation",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Testrunner Installation",
+    "permalink": "/products/testrunner-toolkit/installation"
+  },
+  "next": {
+    "title": "Testrunner Configuration",
+    "permalink": "/products/testrunner-toolkit/configuration"
+  }
+}

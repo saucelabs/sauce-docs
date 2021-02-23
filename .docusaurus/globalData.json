@@ -1,0 +1,560 @@
+{
+  "docusaurus-theme-redoc": {
+    "default": {
+      "baseTheme": {
+        "colors": {
+          "primary": {
+            "main": "#25c2a0"
+          }
+        }
+      }
+    }
+  },
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/",
+          "mainDocId": "overview",
+          "docs": [
+            {
+              "id": "basics/acct-team-mgmt-hub",
+              "path": "/basics/acct-team-mgmt-hub",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "basics/acct-team-mgmt/adding-deactivating-users",
+              "path": "/basics/acct-team-mgmt/adding-deactivating-users",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "basics/acct-team-mgmt/adding-deleting-teams",
+              "path": "/basics/acct-team-mgmt/adding-deleting-teams",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "basics/acct-team-mgmt/assigning-removing-users-teams",
+              "path": "/basics/acct-team-mgmt/assigning-removing-users-teams",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "basics/acct-team-mgmt/concurrency-limits",
+              "path": "/basics/acct-team-mgmt/concurrency-limits",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "basics/acct-team-mgmt/managing-subscription",
+              "path": "/basics/acct-team-mgmt/managing-subscription",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "basics/acct-team-mgmt/managing-user-info",
+              "path": "/basics/acct-team-mgmt/managing-user-info",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "basics/acct-team-mgmt/org-settings",
+              "path": "/basics/acct-team-mgmt/org-settings",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "basics/acct-team-mgmt/plan-details",
+              "path": "/basics/acct-team-mgmt/plan-details",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "basics/acct-team-mgmt/sauce-connect-proxy-tunnels",
+              "path": "/basics/acct-team-mgmt/sauce-connect-proxy-tunnels",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "basics/acct-team-mgmt/updating-billing",
+              "path": "/basics/acct-team-mgmt/updating-billing",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "basics/acct-team-mgmt/viewing-exporting-usage-data",
+              "path": "/basics/acct-team-mgmt/viewing-exporting-usage-data",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "basics/best-practices-hub",
+              "path": "/basics/best-practices-hub"
+            },
+            {
+              "id": "basics/best-practices/avoiding-dependencies-parallel-tests",
+              "path": "/basics/best-practices/avoiding-dependencies-parallel-tests"
+            },
+            {
+              "id": "basics/best-practices/downloading-files-vm-before-testing",
+              "path": "/basics/best-practices/downloading-files-vm-before-testing"
+            },
+            {
+              "id": "basics/best-practices/handling-authentication",
+              "path": "/basics/best-practices/handling-authentication"
+            },
+            {
+              "id": "basics/best-practices/imperative-declarative-testing",
+              "path": "/basics/best-practices/imperative-declarative-testing"
+            },
+            {
+              "id": "basics/best-practices/protecting-test-log-credentials",
+              "path": "/basics/best-practices/protecting-test-log-credentials"
+            },
+            {
+              "id": "basics/best-practices/running-speedy-tests",
+              "path": "/basics/best-practices/running-speedy-tests"
+            },
+            {
+              "id": "basics/best-practices/small-atomic-autonomous",
+              "path": "/basics/best-practices/small-atomic-autonomous"
+            },
+            {
+              "id": "basics/best-practices/test-config-annotation",
+              "path": "/basics/best-practices/test-config-annotation"
+            },
+            {
+              "id": "basics/best-practices/using-attributes-tests",
+              "path": "/basics/best-practices/using-attributes-tests"
+            },
+            {
+              "id": "basics/best-practices/using-environment-variables",
+              "path": "/basics/best-practices/using-environment-variables"
+            },
+            {
+              "id": "basics/best-practices/using-explicit-waits",
+              "path": "/basics/best-practices/using-explicit-waits"
+            },
+            {
+              "id": "basics/best-practices/using-maven-manage-dependencies",
+              "path": "/basics/best-practices/using-maven-manage-dependencies"
+            },
+            {
+              "id": "basics/sso-hub",
+              "path": "/basics/sso-hub",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "basics/sso/config-adfs",
+              "path": "/basics/sso/config-adfs",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "basics/sso/config-okta",
+              "path": "/basics/sso/config-okta",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "basics/sso/setting-up-single-sign-on",
+              "path": "/basics/sso/setting-up-single-sign-on",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "ci",
+              "path": "/ci",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "ci/bamboo",
+              "path": "/ci/bamboo",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "ci/bitbucket",
+              "path": "/ci/bitbucket",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "ci/jenkins",
+              "path": "/ci/jenkins",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "ci/teamcity",
+              "path": "/ci/teamcity",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "ci/visual-studio",
+              "path": "/ci/visual-studio",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "contributing",
+              "path": "/contributing",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "contributing/code-of-conduct",
+              "path": "/contributing/code-of-conduct",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "contributing/mdx",
+              "path": "/contributing/mdx"
+            },
+            {
+              "id": "contributing/style-guide",
+              "path": "/contributing/style-guide",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "contributing/style-guide/adv-examples",
+              "path": "/contributing/style-guide/adv-examples",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "contributing/style-guide/mkdwn-styles",
+              "path": "/contributing/style-guide/mkdwn-styles",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "dev",
+              "path": "/dev",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "dev/api",
+              "path": "/dev/api",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "dev/api/accounts",
+              "path": "/dev/api/accounts",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "dev/cli",
+              "path": "/dev/cli",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "dev/cli/espresso-xcuitest",
+              "path": "/dev/cli/espresso-xcuitest",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "dev/cli/sauce-connect-proxy",
+              "path": "/dev/cli/sauce-connect-proxy",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "dev/sauce-bindings/configuration",
+              "path": "/dev/sauce-bindings/configuration"
+            },
+            {
+              "id": "dev/sauce-bindings/integration",
+              "path": "/dev/sauce-bindings/integration"
+            },
+            {
+              "id": "dev/sauce-bindings/support",
+              "path": "/dev/sauce-bindings/support"
+            },
+            {
+              "id": "headless",
+              "path": "/headless",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "insights",
+              "path": "/insights",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "insights/failure-analysis",
+              "path": "/insights/failure-analysis",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "insights/history",
+              "path": "/insights/history",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "insights/scope",
+              "path": "/insights/scope",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "insights/trends",
+              "path": "/insights/trends",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "mobile-apps",
+              "path": "/mobile-apps",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "mobile-apps/app-storage",
+              "path": "/mobile-apps/app-storage",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "mobile-apps/automated-testing",
+              "path": "/mobile-apps/automated-testing",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "mobile-apps/automated-testing/appium",
+              "path": "/mobile-apps/automated-testing/appium",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "mobile-apps/automated-testing/appium/real-devices",
+              "path": "/mobile-apps/automated-testing/appium/real-devices",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "mobile-apps/automated-testing/appium/virtual-devices",
+              "path": "/mobile-apps/automated-testing/appium/virtual-devices",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "mobile-apps/automated-testing/devices",
+              "path": "/mobile-apps/automated-testing/devices",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "mobile-apps/automated-testing/espresso-xcuitest",
+              "path": "/mobile-apps/automated-testing/espresso-xcuitest",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "mobile-apps/automated-testing/espresso-xcuitest/real-devices",
+              "path": "/mobile-apps/automated-testing/espresso-xcuitest/real-devices",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "mobile-apps/automated-testing/espresso-xcuitest/virtual-devices",
+              "path": "/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "mobile-apps/automated-testing/microsoft-app-center",
+              "path": "/mobile-apps/automated-testing/microsoft-app-center",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "mobile-apps/automated-testing/troubleshooting",
+              "path": "/mobile-apps/automated-testing/troubleshooting",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "mobile-apps/faq",
+              "path": "/mobile-apps/faq",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "mobile-apps/features",
+              "path": "/mobile-apps/features",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "mobile-apps/live-testing",
+              "path": "/mobile-apps/live-testing",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "mobile-apps/virtual-usb",
+              "path": "/mobile-apps/virtual-usb",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "overview",
+              "path": "/overview",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "performance",
+              "path": "/performance",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "performance/about",
+              "path": "/performance/about",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "performance/analyze",
+              "path": "/performance/analyze",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "performance/motion",
+              "path": "/performance/motion",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "performance/one-page",
+              "path": "/performance/one-page",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "performance/transitions",
+              "path": "/performance/transitions",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "sauce-basics",
+              "path": "/sauce-basics",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "secure-connections",
+              "path": "/secure-connections",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "secure-connections/ipsec-vpn",
+              "path": "/secure-connections/ipsec-vpn",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "secure-connections/sauce-connect",
+              "path": "/secure-connections/sauce-connect",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "secure-connections/sauce-connect/environment-variables",
+              "path": "/secure-connections/sauce-connect/environment-variables",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "secure-connections/sauce-connect/faq",
+              "path": "/secure-connections/sauce-connect/faq",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "secure-connections/sauce-connect/installation",
+              "path": "/secure-connections/sauce-connect/installation",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "secure-connections/sauce-connect/proxy-tunnels",
+              "path": "/secure-connections/sauce-connect/proxy-tunnels",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "secure-connections/sauce-connect/security",
+              "path": "/secure-connections/sauce-connect/security",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "secure-connections/sauce-connect/setup-configuration",
+              "path": "/secure-connections/sauce-connect/setup-configuration",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "secure-connections/sauce-connect/troubleshooting",
+              "path": "/secure-connections/sauce-connect/troubleshooting",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "testrunner-toolkit",
+              "path": "/testrunner-toolkit",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "testrunner-toolkit/configuration",
+              "path": "/testrunner-toolkit/configuration",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "testrunner-toolkit/configuration/cypress",
+              "path": "/testrunner-toolkit/configuration/cypress",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "testrunner-toolkit/configuration/playwright",
+              "path": "/testrunner-toolkit/configuration/playwright",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "testrunner-toolkit/configuration/testcafe",
+              "path": "/testrunner-toolkit/configuration/testcafe",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "testrunner-toolkit/faqs",
+              "path": "/testrunner-toolkit/faqs",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "testrunner-toolkit/installation",
+              "path": "/testrunner-toolkit/installation",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "testrunner-toolkit/integrations",
+              "path": "/testrunner-toolkit/integrations",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "testrunner-toolkit/integrations/circleci",
+              "path": "/testrunner-toolkit/integrations/circleci"
+            },
+            {
+              "id": "testrunner-toolkit/integrations/github-actions",
+              "path": "/testrunner-toolkit/integrations/github-actions",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "testrunner-toolkit/integrations/jenkins",
+              "path": "/testrunner-toolkit/integrations/jenkins",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "testrunner-toolkit/running-tests",
+              "path": "/testrunner-toolkit/running-tests",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "testrunner-toolkit/saucectl",
+              "path": "/testrunner-toolkit/saucectl",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "testrunner-toolkit/support",
+              "path": "/testrunner-toolkit/support",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "testrunner-toolkit/typescript",
+              "path": "/testrunner-toolkit/typescript",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "visual",
+              "path": "/visual",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "web-apps",
+              "path": "/web-apps",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "web-apps/automated-testing",
+              "path": "/web-apps/automated-testing"
+            },
+            {
+              "id": "web-apps/automated-testing/cypress",
+              "path": "/web-apps/automated-testing/cypress",
+              "sidebar": "someSidebar"
+            },
+            {
+              "id": "web-apps/live-testing",
+              "path": "/web-apps/live-testing",
+              "sidebar": "someSidebar"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

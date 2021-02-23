@@ -1,0 +1,22 @@
+{
+  "unversionedId": "sauce-connect/troubleshooting",
+  "id": "sauce-connect/troubleshooting",
+  "isDocsHomePage": false,
+  "title": "Sauce Connect Proxy Troubleshooting Guide",
+  "description": "Sauce Connect Proxy troubleshooting page.",
+  "source": "@site/docs/sauce-connect/troubleshooting.md",
+  "permalink": "/sauce-connect/troubleshooting",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/sauce-connect/troubleshooting.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Troubleshooting",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Connect Proxy Admin Guide",
+    "permalink": "/sauce-connect/admin"
+  },
+  "next": {
+    "title": "Why IPSec VPN?",
+    "permalink": "/ipsec"
+  }
+}

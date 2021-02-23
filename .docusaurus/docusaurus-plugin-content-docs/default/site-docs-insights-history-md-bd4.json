@@ -1,0 +1,24 @@
+{
+  "unversionedId": "insights/history",
+  "id": "insights/history",
+  "isDocsHomePage": false,
+  "title": "Evaluating a Test Over Time",
+  "description": "Get a full picture of the success of your tests. Learn how to look at a test's history across a variety of metrics to diagnose failure patterns.",
+  "source": "@site/docs/insights/history.md",
+  "slug": "/insights/history",
+  "permalink": "/insights/history",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/insights/history.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Test History",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Customizing the Insights Scope",
+    "permalink": "/insights/scope"
+  },
+  "next": {
+    "title": "Comparing Statistical Trends",
+    "permalink": "/insights/trends"
+  }
+}

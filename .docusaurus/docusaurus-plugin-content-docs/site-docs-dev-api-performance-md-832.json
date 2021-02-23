@@ -1,0 +1,22 @@
+{
+  "unversionedId": "dev/api/performance",
+  "id": "dev/api/performance",
+  "isDocsHomePage": false,
+  "title": "Performance API",
+  "description": "Performance API page.",
+  "source": "@site/docs/dev/api/performance.md",
+  "permalink": "/dev/api/performance",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/performance.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Performance",
+  "sidebar": "docs",
+  "previous": {
+    "title": "JavaScript Unit Tests API",
+    "permalink": "/dev/api/js-tests"
+  },
+  "next": {
+    "title": "Temporary Sauce Storage API",
+    "permalink": "/dev/api/sauce-storage"
+  }
+}

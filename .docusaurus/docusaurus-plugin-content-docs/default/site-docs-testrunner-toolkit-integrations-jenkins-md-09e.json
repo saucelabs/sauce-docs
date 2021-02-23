@@ -1,0 +1,24 @@
+{
+  "unversionedId": "testrunner-toolkit/integrations/jenkins",
+  "id": "testrunner-toolkit/integrations/jenkins",
+  "isDocsHomePage": false,
+  "title": "Testrunner Toolkit with Jenkins",
+  "description": "These examples can apply to virtually any Jenkins deployment, provided that you already have some existing automated tests, have access to the Jenkins instance, and are either the maintainer or an admin of the target repository.",
+  "source": "@site/docs/testrunner-toolkit/integrations/jenkins.md",
+  "slug": "/testrunner-toolkit/integrations/jenkins",
+  "permalink": "/testrunner-toolkit/integrations/jenkins",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/integrations/jenkins.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Jenkins",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Testrunner Toolkit CI Requirements",
+    "permalink": "/testrunner-toolkit/integrations"
+  },
+  "next": {
+    "title": "Testrunner Toolkit with GitHub Actions",
+    "permalink": "/testrunner-toolkit/integrations/github-actions"
+  }
+}

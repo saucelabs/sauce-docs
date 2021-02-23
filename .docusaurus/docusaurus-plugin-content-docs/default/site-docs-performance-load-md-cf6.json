@@ -1,0 +1,24 @@
+{
+  "unversionedId": "performance/load",
+  "id": "performance/load",
+  "isDocsHomePage": false,
+  "title": "Measuring Page Loads with Sauce Performance",
+  "description": "Sauce Labs Performance page load page.",
+  "source": "@site/docs/performance/load.md",
+  "slug": "/performance/load",
+  "permalink": "/performance/load",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/performance/load.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Page Loads",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs Performance",
+    "permalink": "/performance"
+  },
+  "next": {
+    "title": "Sauce Performance with Speedo",
+    "permalink": "/performance/speedo"
+  }
+}

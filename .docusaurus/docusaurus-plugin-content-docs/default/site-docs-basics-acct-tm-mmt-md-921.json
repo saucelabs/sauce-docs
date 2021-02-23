@@ -1,0 +1,24 @@
+{
+  "unversionedId": "basics/acct-tm-mmt",
+  "id": "basics/acct-tm-mmt",
+  "isDocsHomePage": false,
+  "title": "Account and Team Management",
+  "description": "Here's how you set up your teams!",
+  "source": "@site/docs/basics/acct-tm-mmt.md",
+  "slug": "/basics/acct-tm-mmt",
+  "permalink": "/basics/acct-tm-mmt",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-tm-mmt.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Getting Started",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "What is Sauce Labs?",
+    "permalink": "/sauce-basics"
+  },
+  "next": {
+    "title": "Sauce Labs Teams",
+    "permalink": "/basics/acct-tm-mmt/teams"
+  }
+}

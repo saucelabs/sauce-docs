@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/microsoft-app-center",
+  "id": "mobile-apps/automated-testing/microsoft-app-center",
+  "isDocsHomePage": false,
+  "title": "Microsoft App Center Integration",
+  "description": "In order to upload your apps from Microsoft App Center to a Sauce Labs data center you must create a post-build script in Microsoft App Center.",
+  "source": "@site/docs/mobile-apps/automated-testing/microsoft-app-center.md",
+  "slug": "/mobile-apps/automated-testing/microsoft-app-center",
+  "permalink": "/mobile-apps/automated-testing/microsoft-app-center",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/microsoft-app-center.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "MS App Center",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Virtual Device Testing with Espresso",
+    "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices"
+  },
+  "next": {
+    "title": "Troubleshooting Automated Mobile App Tests",
+    "permalink": "/mobile-apps/automated-testing/troubleshooting"
+  }
+}

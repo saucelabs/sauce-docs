@@ -1,0 +1,24 @@
+{
+  "unversionedId": "platform-support",
+  "id": "platform-support",
+  "isDocsHomePage": false,
+  "title": "Platform Support",
+  "description": "Sauce Labs platform support page.",
+  "source": "@site/docs/platform-support.md",
+  "slug": "/platform-support",
+  "permalink": "/platform-support",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/platform-support.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Platform Support",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Setup and Configuration",
+    "permalink": "/configuration"
+  },
+  "next": {
+    "title": "Account and Team Management",
+    "permalink": "/account-and-team-management"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "basics/acct-tm-mmt/teams",
+  "id": "basics/acct-tm-mmt/teams",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs Teams",
+  "description": "This is about the teams.",
+  "source": "@site/docs/basics/acct-tm-mmt/teams.md",
+  "slug": "/basics/acct-tm-mmt/teams",
+  "permalink": "/basics/acct-tm-mmt/teams",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-tm-mmt/teams.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Teams",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Account and Team Management",
+    "permalink": "/basics/acct-tm-mmt"
+  },
+  "next": {
+    "title": "Sauce Labs Accounts",
+    "permalink": "/basics/acct-tm-mmt/accounts"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "insights/trends",
+  "id": "insights/trends",
+  "isDocsHomePage": false,
+  "title": "Comparing Statistical Trends",
+  "description": "See how grouping tests reveals outcome patterns across isolated variables, such as browser, operating system, or date to optimize your tests.",
+  "source": "@site/docs/insights/trends.md",
+  "slug": "/insights/trends",
+  "permalink": "/insights/trends",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/insights/trends.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Trends",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Evaluating a Test Over Time",
+    "permalink": "/insights/history"
+  },
+  "next": {
+    "title": "Analyzing Failure Patterns Across Your Test Suite",
+    "permalink": "/insights/failure-analysis"
+  }
+}

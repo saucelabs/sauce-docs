@@ -1,0 +1,22 @@
+{
+  "unversionedId": "products/testrunner-toolkit/installation",
+  "id": "products/testrunner-toolkit/installation",
+  "isDocsHomePage": false,
+  "title": "Testrunner Installation",
+  "description": "Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifies user setup, speeds up test execution time and supports native Javascript frameworks like Puppeteer, Playwright, and TestCafe for running end-to-end web tests with Sauce Labs.",
+  "source": "@site/docs/products/testrunner-toolkit/installation.md",
+  "permalink": "/products/testrunner-toolkit/installation",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/products/testrunner-toolkit/installation.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Installation",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Why Testrunner Toolkit?",
+    "permalink": "/products/testrunner-toolkit"
+  },
+  "next": {
+    "title": "Testrunner Test Preparation",
+    "permalink": "/products/testrunner-toolkit/preparation"
+  }
+}

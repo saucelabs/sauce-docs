@@ -1,0 +1,22 @@
+{
+  "unversionedId": "guides/automation/best-practices",
+  "id": "guides/automation/best-practices",
+  "isDocsHomePage": false,
+  "title": "Best Practices for Automated Testing",
+  "description": "This is a doc about Sauce Labs Best Practices for Automated Testing",
+  "source": "@site/docs/guides/automation/best-practices.md",
+  "permalink": "/guides/automation/best-practices",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/guides/automation/best-practices.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Best Practices",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Automated Mobile App Testing on Virtual and Real Devices",
+    "permalink": "/guides/automation/mobile-apps"
+  },
+  "next": {
+    "title": "Product Overview",
+    "permalink": "/products"
+  }
+}

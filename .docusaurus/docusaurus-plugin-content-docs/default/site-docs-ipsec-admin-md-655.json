@@ -1,0 +1,24 @@
+{
+  "unversionedId": "ipsec/admin",
+  "id": "ipsec/admin",
+  "isDocsHomePage": false,
+  "title": "IPSec VPN Admin Guide",
+  "description": "Sauce Labs IPSec VPN admin guide page.",
+  "source": "@site/docs/ipsec/admin.md",
+  "slug": "/ipsec/admin",
+  "permalink": "/ipsec/admin",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ipsec/admin.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Administration",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "IPSec VPN Network and Security",
+    "permalink": "/ipsec/network"
+  },
+  "next": {
+    "title": "IPSec VPN Troubleshooting Guide",
+    "permalink": "/ipsec/troubleshooting"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "unversionedId": "acct-team-mgmt/concurrency-limits",
+  "id": "acct-team-mgmt/concurrency-limits",
+  "isDocsHomePage": false,
+  "title": "concurrency-limits",
+  "description": "",
+  "source": "@site/docs/acct-team-mgmt/concurrency-limits.md",
+  "slug": "/acct-team-mgmt/concurrency-limits",
+  "permalink": "/acct-team-mgmt/concurrency-limits",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/acct-team-mgmt/concurrency-limits.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "insights",
+  "id": "insights",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs Insights",
+  "description": "Get the most out of your Sauce test results by utilizing our machine learning driven interpretation of your test data.",
+  "source": "@site/docs/insights.md",
+  "slug": "/insights",
+  "permalink": "/insights",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/insights.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Getting Started",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs with Visual Studio",
+    "permalink": "/ci/visual-studio"
+  },
+  "next": {
+    "title": "Customizing the Insights Scope",
+    "permalink": "/insights/scope"
+  }
+}

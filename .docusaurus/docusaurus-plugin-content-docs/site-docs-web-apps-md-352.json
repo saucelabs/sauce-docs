@@ -1,0 +1,22 @@
+{
+  "unversionedId": "web-apps",
+  "id": "web-apps",
+  "isDocsHomePage": false,
+  "title": "Web Application Testing Home Page",
+  "description": "Web App testing hub page.",
+  "source": "@site/docs/web-apps.md",
+  "permalink": "/web-apps",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/web-apps.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Introduction",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Automated Testing with WebdriverIO",
+    "permalink": "/mobile-apps/automated-testing/wdio"
+  },
+  "next": {
+    "title": "Web Live Testing Quickstart",
+    "permalink": "/web-apps/live-testing"
+  }
+}

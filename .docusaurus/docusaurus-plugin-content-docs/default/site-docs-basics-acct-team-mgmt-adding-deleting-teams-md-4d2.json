@@ -1,0 +1,24 @@
+{
+  "unversionedId": "basics/acct-team-mgmt/adding-deleting-teams",
+  "id": "basics/acct-team-mgmt/adding-deleting-teams",
+  "isDocsHomePage": false,
+  "title": "Adding and Deleting Teams",
+  "description": "ENTERPRISE PLANS ONLY",
+  "source": "@site/docs/basics/acct-team-mgmt/adding-deleting-teams.md",
+  "slug": "/basics/acct-team-mgmt/adding-deleting-teams",
+  "permalink": "/basics/acct-team-mgmt/adding-deleting-teams",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/adding-deleting-teams.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Adding and Deleting Teams",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Viewing and Exporting Usage Data",
+    "permalink": "/basics/acct-team-mgmt/viewing-exporting-usage-data"
+  },
+  "next": {
+    "title": "Assigning and Removing Users from Teams",
+    "permalink": "/basics/acct-team-mgmt/assigning-removing-users-teams"
+  }
+}

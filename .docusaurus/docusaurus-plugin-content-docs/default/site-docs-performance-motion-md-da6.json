@@ -1,0 +1,24 @@
+{
+  "unversionedId": "performance/motion",
+  "id": "performance/motion",
+  "isDocsHomePage": false,
+  "title": "Measuring On-Page Motion Effects",
+  "description": "Measure aesthetic smoothness as a page is in motion due to scrolling or tabbing between fields.",
+  "source": "@site/docs/performance/motion.md",
+  "slug": "/performance/motion",
+  "permalink": "/performance/motion",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/performance/motion.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Page Motion",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Measuring Page Transitions with Scripts",
+    "permalink": "/performance/transitions"
+  },
+  "next": {
+    "title": "Analyzing Performance Results",
+    "permalink": "/performance/analyze"
+  }
+}

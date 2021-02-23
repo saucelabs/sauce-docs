@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/devices",
+  "id": "mobile-apps/devices",
+  "isDocsHomePage": false,
+  "title": "Choosing a Device for Mobile App Testing",
+  "description": "backgroundColor: color,",
+  "source": "@site/docs/mobile-apps/devices.md",
+  "slug": "/mobile-apps/devices",
+  "permalink": "/mobile-apps/devices",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/devices.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Choosing a Device",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Mobile App Testing",
+    "permalink": "/mobile-apps"
+  },
+  "next": {
+    "title": "Mobile App Storage",
+    "permalink": "/mobile-apps/app-storage"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "unversionedId": "insights/basics",
+  "id": "insights/basics",
+  "isDocsHomePage": false,
+  "title": "Sauce Insights Basics",
+  "description": "Sauce Labs Insights overview page.",
+  "source": "@site/docs/insights/basics.md",
+  "permalink": "/insights/basics",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/insights/basics.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Insights Basics",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Labs Insights",
+    "permalink": "/insights"
+  },
+  "next": {
+    "title": "Sauce Insights Test History",
+    "permalink": "/insights/history"
+  }
+}

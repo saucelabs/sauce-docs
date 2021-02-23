@@ -1,0 +1,24 @@
+{
+  "unversionedId": "web-apps/automated-testing/wdio",
+  "id": "web-apps/automated-testing/wdio",
+  "isDocsHomePage": false,
+  "title": "Automated Web App Testing with WebdriverIO",
+  "description": "Sauce Labs web testing WebdriverIO page.",
+  "source": "@site/docs/web-apps/automated-testing/wdio.md",
+  "slug": "/web-apps/automated-testing/wdio",
+  "permalink": "/web-apps/automated-testing/wdio",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/web-apps/automated-testing/wdio.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Selenium",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Automated Web App Testing with Selenium",
+    "permalink": "/web-apps/automated-testing/selenium"
+  },
+  "next": {
+    "title": "Automated Web App Testing with JavaScript Frameworks",
+    "permalink": "/web-apps/automated-testing/js"
+  }
+}

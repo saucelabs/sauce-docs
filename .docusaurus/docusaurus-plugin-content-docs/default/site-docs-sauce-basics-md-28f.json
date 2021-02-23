@@ -1,0 +1,24 @@
+{
+  "unversionedId": "sauce-basics",
+  "id": "sauce-basics",
+  "isDocsHomePage": false,
+  "title": "What is Sauce Labs?",
+  "description": "Welcome to Sauce Labs! Your path for getting started depends on your experience level and use case. Below are the various test scenarios that Sauce Labs supports.",
+  "source": "@site/docs/sauce-basics.md",
+  "slug": "/sauce-basics",
+  "permalink": "/sauce-basics",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/sauce-basics.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "What is Sauce Labs?",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Documentation",
+    "permalink": "/overview"
+  },
+  "next": {
+    "title": "Account and Team Management",
+    "permalink": "/basics/acct-team-mgmt-hub"
+  }
+}

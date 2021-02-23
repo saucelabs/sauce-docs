@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/cli/sauce-connect-proxy",
+  "id": "dev/cli/sauce-connect-proxy",
+  "isDocsHomePage": false,
+  "title": "Sauce Connect Proxy CLI",
+  "description": "Sauce Connect Proxy provides several command-line arguments. The table below outlines all of the current flags you can use to specify Sauce Connect Proxy parameters.",
+  "source": "@site/docs/dev/cli/sauce-connect-proxy.md",
+  "slug": "/dev/cli/sauce-connect-proxy",
+  "permalink": "/dev/cli/sauce-connect-proxy",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/cli/sauce-connect-proxy.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Sauce Connect Proxy",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Espresso and XCUITest CLI Reference",
+    "permalink": "/dev/cli/espresso-xcuitest"
+  },
+  "next": {
+    "title": "Contributing",
+    "permalink": "/contributing"
+  }
+}

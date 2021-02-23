@@ -1,0 +1,15 @@
+{
+  "unversionedId": "basics/best-practices/avoiding-dependencies-parallel-tests",
+  "id": "basics/best-practices/avoiding-dependencies-parallel-tests",
+  "isDocsHomePage": false,
+  "title": "Avoiding Dependencies in Parallel Tests",
+  "description": "Dependencies between tests prevent tests from being able to run in parallel. And running tests in parallel is by far the best way to speed up the execution of your entire test suite. It's much easier to add a virtual machine than to try to figure out how to squeeze out another second of performance from a single test.",
+  "source": "@site/docs/basics/best-practices/avoiding-dependencies-parallel-tests.md",
+  "slug": "/basics/best-practices/avoiding-dependencies-parallel-tests",
+  "permalink": "/basics/best-practices/avoiding-dependencies-parallel-tests",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/avoiding-dependencies-parallel-tests.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Avoiding Dependencies in Parallel Tests"
+}

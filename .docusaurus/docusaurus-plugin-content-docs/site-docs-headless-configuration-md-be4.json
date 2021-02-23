@@ -1,0 +1,22 @@
+{
+  "unversionedId": "headless/configuration",
+  "id": "headless/configuration",
+  "isDocsHomePage": false,
+  "title": "Sauce Headless Setup and Configuration",
+  "description": "Sauce Labs Headless config page.",
+  "source": "@site/docs/headless/configuration.md",
+  "permalink": "/headless/configuration",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/headless/configuration.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Configuration",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Headless System Requirements",
+    "permalink": "/headless/requirements"
+  },
+  "next": {
+    "title": "Sauce Headless Troubleshooting Guide",
+    "permalink": "/headless/troubleshooting"
+  }
+}

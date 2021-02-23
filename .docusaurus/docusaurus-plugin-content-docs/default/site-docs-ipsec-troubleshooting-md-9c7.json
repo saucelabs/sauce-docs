@@ -1,0 +1,24 @@
+{
+  "unversionedId": "ipsec/troubleshooting",
+  "id": "ipsec/troubleshooting",
+  "isDocsHomePage": false,
+  "title": "IPSec VPN Troubleshooting Guide",
+  "description": "Sauce Labs IPSec VPN troubleshooting pa~~ge.",
+  "source": "@site/docs/ipsec/troubleshooting.md",
+  "slug": "/ipsec/troubleshooting",
+  "permalink": "/ipsec/troubleshooting",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ipsec/troubleshooting.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Troubleshooting",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "IPSec VPN Admin Guide",
+    "permalink": "/ipsec/admin"
+  },
+  "next": {
+    "title": "Mobile Application Testing Home Page",
+    "permalink": "/mobile-apps"
+  }
+}

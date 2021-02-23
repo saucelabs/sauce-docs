@@ -1,0 +1,14 @@
+{
+  "unversionedId": "acct-team-mgmt/manage-subscription",
+  "id": "acct-team-mgmt/manage-subscription",
+  "isDocsHomePage": false,
+  "title": "manage-subscription",
+  "description": "",
+  "source": "@site/docs/acct-team-mgmt/manage-subscription.md",
+  "slug": "/acct-team-mgmt/manage-subscription",
+  "permalink": "/acct-team-mgmt/manage-subscription",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/acct-team-mgmt/manage-subscription.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055
+}

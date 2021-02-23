@@ -1,0 +1,24 @@
+{
+  "unversionedId": "web-apps/live-testing",
+  "id": "web-apps/live-testing",
+  "isDocsHomePage": false,
+  "title": "Web Live Testing Quickstart",
+  "description": "Sauce Labs Web live testing quickstart guide.",
+  "source": "@site/docs/web-apps/live-testing.md",
+  "slug": "/web-apps/live-testing",
+  "permalink": "/web-apps/live-testing",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/web-apps/live-testing.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Quickstart",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Web Application Testing",
+    "permalink": "/web-apps"
+  },
+  "next": {
+    "title": "Cypress on Sauce Labs",
+    "permalink": "/web-apps/automated-testing/cypress"
+  }
+}

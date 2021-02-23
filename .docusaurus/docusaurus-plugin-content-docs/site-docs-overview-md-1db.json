@@ -1,0 +1,18 @@
+{
+  "unversionedId": "overview",
+  "id": "overview",
+  "isDocsHomePage": false,
+  "title": "Documentation",
+  "description": "Landing Page for Sauce Labs Documentation",
+  "source": "@site/docs/overview.md",
+  "permalink": "/overview",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/overview.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Welcome",
+  "sidebar": "docs",
+  "next": {
+    "title": "What is Sauce Labs?",
+    "permalink": "/sauce-basics"
+  }
+}

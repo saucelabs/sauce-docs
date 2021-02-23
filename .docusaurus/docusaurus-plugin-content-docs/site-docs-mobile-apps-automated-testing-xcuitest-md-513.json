@@ -1,0 +1,22 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/xcuitest",
+  "id": "mobile-apps/automated-testing/xcuitest",
+  "isDocsHomePage": false,
+  "title": "Automated Testing with XCUITest",
+  "description": "XCUITest page.",
+  "source": "@site/docs/mobile-apps/automated-testing/xcuitest.md",
+  "permalink": "/mobile-apps/automated-testing/xcuitest",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/xcuitest.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "XCUITest",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Automated Testing with Espresso",
+    "permalink": "/mobile-apps/automated-testing/espresso"
+  },
+  "next": {
+    "title": "Automated Testing with Robotium",
+    "permalink": "/mobile-apps/automated-testing/robotium"
+  }
+}

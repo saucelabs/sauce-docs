@@ -1,0 +1,22 @@
+{
+  "unversionedId": "contributing",
+  "id": "contributing",
+  "isDocsHomePage": false,
+  "title": "Contributing",
+  "description": "Thank you for your interest in making this project even better and more awesome. Your contributions are highly welcomed.",
+  "source": "@site/docs/contributing.md",
+  "permalink": "/contributing",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/contributing.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Overview",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Testrunner Toolkit Support",
+    "permalink": "/dev/testrunner-toolkit/support"
+  },
+  "next": {
+    "title": "Contributor Covenant Code of Conduct",
+    "permalink": "/contributing/code-of-conduct"
+  }
+}

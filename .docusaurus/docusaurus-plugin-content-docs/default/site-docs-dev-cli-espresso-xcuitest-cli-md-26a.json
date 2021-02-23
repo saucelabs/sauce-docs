@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/cli/espresso-xcuitest-cli",
+  "id": "dev/cli/espresso-xcuitest-cli",
+  "isDocsHomePage": false,
+  "title": "Espresso and XCUITest CLI Reference",
+  "description": "Sauce Runner for Real Devices Command Line Options",
+  "source": "@site/docs/dev/cli/espresso-xcuitest-cli.md",
+  "slug": "/dev/cli/espresso-xcuitest-cli",
+  "permalink": "/dev/cli/espresso-xcuitest-cli",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/cli/espresso-xcuitest-cli.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Espresso and XCUITest",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs CLI Reference",
+    "permalink": "/dev/cli"
+  },
+  "next": {
+    "title": "Sauce Connect Proxy CLI Reference",
+    "permalink": "/dev/cli/sc-cli"
+  }
+}

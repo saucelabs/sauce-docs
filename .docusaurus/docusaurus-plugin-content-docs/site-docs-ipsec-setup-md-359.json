@@ -1,0 +1,22 @@
+{
+  "unversionedId": "ipsec/setup",
+  "id": "ipsec/setup",
+  "isDocsHomePage": false,
+  "title": "IPSec VPN Setup and Configuration",
+  "description": "Sauce Labs IPSec VPN configuration page.",
+  "source": "@site/docs/ipsec/setup.md",
+  "permalink": "/ipsec/setup",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ipsec/setup.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Setup and Configuration",
+  "sidebar": "docs",
+  "previous": {
+    "title": "IPSec VPN System Requirements",
+    "permalink": "/ipsec/requirements"
+  },
+  "next": {
+    "title": "IPSec VPN Network and Security",
+    "permalink": "/ipsec/network"
+  }
+}

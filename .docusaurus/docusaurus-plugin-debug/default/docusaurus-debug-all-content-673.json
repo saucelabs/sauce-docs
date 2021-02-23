@@ -1,0 +1,3196 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "loadedVersions": [
+        {
+          "versionName": "current",
+          "versionLabel": "Next",
+          "versionPath": "/",
+          "isLast": true,
+          "routePriority": -1,
+          "sidebarFilePath": "/Users/nancysweeney/GH/sauce-docs/sidebars.js",
+          "docsDirPath": "/Users/nancysweeney/GH/sauce-docs/docs",
+          "docsDirPathLocalized": "/Users/nancysweeney/GH/sauce-docs/i18n/en/docusaurus-plugin-content-docs/current",
+          "mainDocId": "overview",
+          "sidebars": {
+            "someSidebar": [
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Home",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "overview"
+                  },
+                  {
+                    "collapsed": true,
+                    "type": "category",
+                    "label": "Sauce Labs Basics",
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "sauce-basics"
+                      },
+                      {
+                        "collapsed": true,
+                        "type": "category",
+                        "label": "Account and Team Management",
+                        "items": [
+                          {
+                            "type": "doc",
+                            "id": "basics/acct-team-mgmt-hub"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "basics/acct-team-mgmt/org-settings"
+                          },
+                          {
+                            "collapsed": true,
+                            "type": "category",
+                            "label": "Managing Users and Accounts",
+                            "items": [
+                              {
+                                "type": "doc",
+                                "id": "basics/acct-team-mgmt/concurrency-limits"
+                              },
+                              {
+                                "type": "doc",
+                                "id": "basics/acct-team-mgmt/adding-deactivating-users"
+                              },
+                              {
+                                "type": "doc",
+                                "id": "basics/acct-team-mgmt/managing-user-info"
+                              },
+                              {
+                                "type": "doc",
+                                "id": "basics/acct-team-mgmt/viewing-exporting-usage-data"
+                              }
+                            ]
+                          },
+                          {
+                            "collapsed": true,
+                            "type": "category",
+                            "label": "Managing Teams",
+                            "items": [
+                              {
+                                "type": "doc",
+                                "id": "basics/acct-team-mgmt/adding-deleting-teams"
+                              },
+                              {
+                                "type": "doc",
+                                "id": "basics/acct-team-mgmt/assigning-removing-users-teams"
+                              },
+                              {
+                                "type": "doc",
+                                "id": "basics/acct-team-mgmt/sauce-connect-proxy-tunnels"
+                              }
+                            ]
+                          },
+                          {
+                            "collapsed": true,
+                            "type": "category",
+                            "label": "Billing and Subscriptions",
+                            "items": [
+                              {
+                                "type": "doc",
+                                "id": "basics/acct-team-mgmt/managing-subscription"
+                              },
+                              {
+                                "type": "doc",
+                                "id": "basics/acct-team-mgmt/updating-billing"
+                              },
+                              {
+                                "type": "doc",
+                                "id": "basics/acct-team-mgmt/plan-details"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "collapsed": true,
+                        "type": "category",
+                        "label": "Single Sign-On",
+                        "items": [
+                          {
+                            "type": "doc",
+                            "id": "basics/sso-hub"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "basics/sso/setting-up-single-sign-on"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "basics/sso/config-adfs"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "basics/sso/config-okta"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Secure Connections",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "secure-connections"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "secure-connections/ipsec-vpn"
+                  },
+                  {
+                    "collapsed": true,
+                    "type": "category",
+                    "label": "Sauce Connect Proxy",
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "secure-connections/sauce-connect"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "secure-connections/sauce-connect/installation"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "secure-connections/sauce-connect/setup-configuration"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "secure-connections/sauce-connect/environment-variables"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "secure-connections/sauce-connect/proxy-tunnels"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "secure-connections/sauce-connect/security"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "secure-connections/sauce-connect/troubleshooting"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "secure-connections/sauce-connect/faq"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Mobile Apps",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "mobile-apps"
+                  },
+                  {
+                    "collapsed": true,
+                    "type": "category",
+                    "label": "Live Testing",
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "mobile-apps/live-testing"
+                      }
+                    ]
+                  },
+                  {
+                    "collapsed": true,
+                    "type": "category",
+                    "label": "Automated Testing",
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "mobile-apps/automated-testing"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "mobile-apps/automated-testing/devices"
+                      },
+                      {
+                        "collapsed": true,
+                        "type": "category",
+                        "label": "Appium",
+                        "items": [
+                          {
+                            "type": "doc",
+                            "id": "mobile-apps/automated-testing/appium"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "mobile-apps/automated-testing/appium/real-devices"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "mobile-apps/automated-testing/appium/virtual-devices"
+                          }
+                        ]
+                      },
+                      {
+                        "collapsed": true,
+                        "type": "category",
+                        "label": "Espresso and XCUITest",
+                        "items": [
+                          {
+                            "type": "doc",
+                            "id": "mobile-apps/automated-testing/espresso-xcuitest"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "mobile-apps/automated-testing/espresso-xcuitest/real-devices"
+                          },
+                          {
+                            "type": "doc",
+                            "id": "mobile-apps/automated-testing/espresso-xcuitest/virtual-devices"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "doc",
+                        "id": "mobile-apps/automated-testing/microsoft-app-center"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "mobile-apps/automated-testing/troubleshooting"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "doc",
+                    "id": "mobile-apps/app-storage"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "mobile-apps/features"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "mobile-apps/virtual-usb"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "mobile-apps/faq"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Web Apps",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "web-apps"
+                  },
+                  {
+                    "collapsed": true,
+                    "type": "category",
+                    "label": "Live Testing",
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "web-apps/live-testing"
+                      }
+                    ]
+                  },
+                  {
+                    "collapsed": true,
+                    "type": "category",
+                    "label": "Automated Testing",
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "web-apps/automated-testing/cypress"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "CI/CD",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "ci"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ci/bamboo"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ci/bitbucket"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ci/jenkins"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ci/teamcity"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ci/visual-studio"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Insights",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "insights"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "insights/scope"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "insights/history"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "insights/trends"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "insights/failure-analysis"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Performance",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "performance"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "performance/about"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "performance/one-page"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "performance/transitions"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "performance/motion"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "performance/analyze"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Headless",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "headless"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Testrunner Toolkit",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "testrunner-toolkit"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "testrunner-toolkit/installation"
+                  },
+                  {
+                    "collapsed": true,
+                    "type": "category",
+                    "label": "Configuration",
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "testrunner-toolkit/configuration"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "testrunner-toolkit/configuration/cypress"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "testrunner-toolkit/configuration/playwright"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "testrunner-toolkit/configuration/testcafe"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "doc",
+                    "id": "testrunner-toolkit/running-tests"
+                  },
+                  {
+                    "collapsed": true,
+                    "type": "category",
+                    "label": "CI Integrations",
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "testrunner-toolkit/integrations"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "testrunner-toolkit/integrations/jenkins"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "testrunner-toolkit/integrations/github-actions"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "doc",
+                    "id": "testrunner-toolkit/typescript"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "testrunner-toolkit/saucectl"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "testrunner-toolkit/faqs"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "testrunner-toolkit/support"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Visual",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "visual"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Reference",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "dev"
+                  },
+                  {
+                    "collapsed": true,
+                    "type": "category",
+                    "label": "API Reference",
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "dev/api"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "dev/api/accounts"
+                      }
+                    ]
+                  },
+                  {
+                    "collapsed": true,
+                    "type": "category",
+                    "label": "CLI Reference",
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "dev/cli"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "dev/cli/espresso-xcuitest"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "dev/cli/sauce-connect-proxy"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Contributing",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "contributing"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "contributing/code-of-conduct"
+                  },
+                  {
+                    "collapsed": true,
+                    "type": "category",
+                    "label": "Style Guide",
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "contributing/style-guide"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "contributing/style-guide/mkdwn-styles"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "contributing/style-guide/adv-examples"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "permalinkToSidebar": {
+            "/basics/acct-team-mgmt-hub": "someSidebar",
+            "/basics/acct-team-mgmt/adding-deactivating-users": "someSidebar",
+            "/basics/acct-team-mgmt/adding-deleting-teams": "someSidebar",
+            "/basics/acct-team-mgmt/assigning-removing-users-teams": "someSidebar",
+            "/basics/acct-team-mgmt/concurrency-limits": "someSidebar",
+            "/basics/acct-team-mgmt/managing-subscription": "someSidebar",
+            "/basics/acct-team-mgmt/managing-user-info": "someSidebar",
+            "/basics/acct-team-mgmt/org-settings": "someSidebar",
+            "/basics/acct-team-mgmt/plan-details": "someSidebar",
+            "/basics/acct-team-mgmt/sauce-connect-proxy-tunnels": "someSidebar",
+            "/basics/acct-team-mgmt/updating-billing": "someSidebar",
+            "/basics/acct-team-mgmt/viewing-exporting-usage-data": "someSidebar",
+            "/basics/sso-hub": "someSidebar",
+            "/basics/sso/config-adfs": "someSidebar",
+            "/basics/sso/config-okta": "someSidebar",
+            "/basics/sso/setting-up-single-sign-on": "someSidebar",
+            "/ci": "someSidebar",
+            "/ci/bamboo": "someSidebar",
+            "/ci/bitbucket": "someSidebar",
+            "/ci/jenkins": "someSidebar",
+            "/ci/teamcity": "someSidebar",
+            "/ci/visual-studio": "someSidebar",
+            "/contributing": "someSidebar",
+            "/contributing/code-of-conduct": "someSidebar",
+            "/contributing/style-guide": "someSidebar",
+            "/contributing/style-guide/adv-examples": "someSidebar",
+            "/contributing/style-guide/mkdwn-styles": "someSidebar",
+            "/dev": "someSidebar",
+            "/dev/api": "someSidebar",
+            "/dev/api/accounts": "someSidebar",
+            "/dev/cli": "someSidebar",
+            "/dev/cli/espresso-xcuitest": "someSidebar",
+            "/dev/cli/sauce-connect-proxy": "someSidebar",
+            "/headless": "someSidebar",
+            "/insights": "someSidebar",
+            "/insights/failure-analysis": "someSidebar",
+            "/insights/history": "someSidebar",
+            "/insights/scope": "someSidebar",
+            "/insights/trends": "someSidebar",
+            "/mobile-apps": "someSidebar",
+            "/mobile-apps/app-storage": "someSidebar",
+            "/mobile-apps/automated-testing": "someSidebar",
+            "/mobile-apps/automated-testing/appium": "someSidebar",
+            "/mobile-apps/automated-testing/appium/real-devices": "someSidebar",
+            "/mobile-apps/automated-testing/appium/virtual-devices": "someSidebar",
+            "/mobile-apps/automated-testing/devices": "someSidebar",
+            "/mobile-apps/automated-testing/espresso-xcuitest": "someSidebar",
+            "/mobile-apps/automated-testing/espresso-xcuitest/real-devices": "someSidebar",
+            "/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices": "someSidebar",
+            "/mobile-apps/automated-testing/microsoft-app-center": "someSidebar",
+            "/mobile-apps/automated-testing/troubleshooting": "someSidebar",
+            "/mobile-apps/faq": "someSidebar",
+            "/mobile-apps/features": "someSidebar",
+            "/mobile-apps/live-testing": "someSidebar",
+            "/mobile-apps/virtual-usb": "someSidebar",
+            "/overview": "someSidebar",
+            "/performance": "someSidebar",
+            "/performance/about": "someSidebar",
+            "/performance/analyze": "someSidebar",
+            "/performance/motion": "someSidebar",
+            "/performance/one-page": "someSidebar",
+            "/performance/transitions": "someSidebar",
+            "/sauce-basics": "someSidebar",
+            "/secure-connections": "someSidebar",
+            "/secure-connections/ipsec-vpn": "someSidebar",
+            "/secure-connections/sauce-connect": "someSidebar",
+            "/secure-connections/sauce-connect/environment-variables": "someSidebar",
+            "/secure-connections/sauce-connect/faq": "someSidebar",
+            "/secure-connections/sauce-connect/installation": "someSidebar",
+            "/secure-connections/sauce-connect/proxy-tunnels": "someSidebar",
+            "/secure-connections/sauce-connect/security": "someSidebar",
+            "/secure-connections/sauce-connect/setup-configuration": "someSidebar",
+            "/secure-connections/sauce-connect/troubleshooting": "someSidebar",
+            "/testrunner-toolkit": "someSidebar",
+            "/testrunner-toolkit/configuration": "someSidebar",
+            "/testrunner-toolkit/configuration/cypress": "someSidebar",
+            "/testrunner-toolkit/configuration/playwright": "someSidebar",
+            "/testrunner-toolkit/configuration/testcafe": "someSidebar",
+            "/testrunner-toolkit/faqs": "someSidebar",
+            "/testrunner-toolkit/installation": "someSidebar",
+            "/testrunner-toolkit/integrations": "someSidebar",
+            "/testrunner-toolkit/integrations/github-actions": "someSidebar",
+            "/testrunner-toolkit/integrations/jenkins": "someSidebar",
+            "/testrunner-toolkit/running-tests": "someSidebar",
+            "/testrunner-toolkit/saucectl": "someSidebar",
+            "/testrunner-toolkit/support": "someSidebar",
+            "/testrunner-toolkit/typescript": "someSidebar",
+            "/visual": "someSidebar",
+            "/web-apps": "someSidebar",
+            "/web-apps/automated-testing/cypress": "someSidebar",
+            "/web-apps/live-testing": "someSidebar"
+          },
+          "docs": [
+            {
+              "unversionedId": "basics/acct-team-mgmt-hub",
+              "id": "basics/acct-team-mgmt-hub",
+              "isDocsHomePage": false,
+              "title": "Account and Team Management",
+              "description": "The Account area in Sauce Labs provides several options for you to configure your teams, users, and accounts.",
+              "source": "@site/docs/basics/acct-team-mgmt-hub.md",
+              "slug": "/basics/acct-team-mgmt-hub",
+              "permalink": "/basics/acct-team-mgmt-hub",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt-hub.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Getting Started",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "What is Sauce Labs?",
+                "permalink": "/sauce-basics"
+              },
+              "next": {
+                "title": "Organization Settings",
+                "permalink": "/basics/acct-team-mgmt/org-settings"
+              }
+            },
+            {
+              "unversionedId": "basics/acct-team-mgmt/adding-deactivating-users",
+              "id": "basics/acct-team-mgmt/adding-deactivating-users",
+              "isDocsHomePage": false,
+              "title": "Adding and Deactivating Users",
+              "description": "ENTERPRISE PLANS ONLY",
+              "source": "@site/docs/basics/acct-team-mgmt/adding-deactivating-users.md",
+              "slug": "/basics/acct-team-mgmt/adding-deactivating-users",
+              "permalink": "/basics/acct-team-mgmt/adding-deactivating-users",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/adding-deactivating-users.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Adding and Deactivating Users",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Concurrency Limits and Team Accounts",
+                "permalink": "/basics/acct-team-mgmt/concurrency-limits"
+              },
+              "next": {
+                "title": "Managing User Information",
+                "permalink": "/basics/acct-team-mgmt/managing-user-info"
+              }
+            },
+            {
+              "unversionedId": "basics/acct-team-mgmt/adding-deleting-teams",
+              "id": "basics/acct-team-mgmt/adding-deleting-teams",
+              "isDocsHomePage": false,
+              "title": "Adding and Deleting Teams",
+              "description": "ENTERPRISE PLANS ONLY",
+              "source": "@site/docs/basics/acct-team-mgmt/adding-deleting-teams.md",
+              "slug": "/basics/acct-team-mgmt/adding-deleting-teams",
+              "permalink": "/basics/acct-team-mgmt/adding-deleting-teams",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/adding-deleting-teams.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Adding and Deleting Teams",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Viewing and Exporting Usage Data",
+                "permalink": "/basics/acct-team-mgmt/viewing-exporting-usage-data"
+              },
+              "next": {
+                "title": "Assigning and Removing Users from Teams",
+                "permalink": "/basics/acct-team-mgmt/assigning-removing-users-teams"
+              }
+            },
+            {
+              "unversionedId": "basics/acct-team-mgmt/assigning-removing-users-teams",
+              "id": "basics/acct-team-mgmt/assigning-removing-users-teams",
+              "isDocsHomePage": false,
+              "title": "Assigning and Removing Users from Teams",
+              "description": "ENTERPRISE PLANS ONLY",
+              "source": "@site/docs/basics/acct-team-mgmt/assigning-removing-users-teams.md",
+              "slug": "/basics/acct-team-mgmt/assigning-removing-users-teams",
+              "permalink": "/basics/acct-team-mgmt/assigning-removing-users-teams",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/assigning-removing-users-teams.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Assigning and Removing Users from Teams",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Adding and Deleting Teams",
+                "permalink": "/basics/acct-team-mgmt/adding-deleting-teams"
+              },
+              "next": {
+                "title": "Sharing Sauce Connect Proxy Tunnels",
+                "permalink": "/basics/acct-team-mgmt/sauce-connect-proxy-tunnels"
+              }
+            },
+            {
+              "unversionedId": "basics/acct-team-mgmt/concurrency-limits",
+              "id": "basics/acct-team-mgmt/concurrency-limits",
+              "isDocsHomePage": false,
+              "title": "Concurrency Limits and Team Accounts",
+              "description": "If your organization has multiple teams sharing a Sauce Labs account, it's important to monitor your concurrency limits--the number of virtual machines that you can run tests on simultaneously. You'll need to ensure that your organization's concurrency is distributed among your accounts, rather than allocating all of it to a single user.",
+              "source": "@site/docs/basics/acct-team-mgmt/concurrency-limits.md",
+              "slug": "/basics/acct-team-mgmt/concurrency-limits",
+              "permalink": "/basics/acct-team-mgmt/concurrency-limits",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/concurrency-limits.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Concurrency Limits and Team Accounts",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Organization Settings",
+                "permalink": "/basics/acct-team-mgmt/org-settings"
+              },
+              "next": {
+                "title": "Adding and Deactivating Users",
+                "permalink": "/basics/acct-team-mgmt/adding-deactivating-users"
+              }
+            },
+            {
+              "unversionedId": "basics/acct-team-mgmt/managing-subscription",
+              "id": "basics/acct-team-mgmt/managing-subscription",
+              "isDocsHomePage": false,
+              "title": "Managing Your Subscription",
+              "description": "Canceling Your Subscription",
+              "source": "@site/docs/basics/acct-team-mgmt/managing-subscription.md",
+              "slug": "/basics/acct-team-mgmt/managing-subscription",
+              "permalink": "/basics/acct-team-mgmt/managing-subscription",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/managing-subscription.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Managing Your Subscription",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sharing Sauce Connect Proxy Tunnels",
+                "permalink": "/basics/acct-team-mgmt/sauce-connect-proxy-tunnels"
+              },
+              "next": {
+                "title": "Updating Your Billing Information",
+                "permalink": "/basics/acct-team-mgmt/updating-billing"
+              }
+            },
+            {
+              "unversionedId": "basics/acct-team-mgmt/managing-user-info",
+              "id": "basics/acct-team-mgmt/managing-user-info",
+              "isDocsHomePage": false,
+              "title": "Managing User Information",
+              "description": "ENTERPRISE PLANS ONLY",
+              "source": "@site/docs/basics/acct-team-mgmt/managing-user-info.md",
+              "slug": "/basics/acct-team-mgmt/managing-user-info",
+              "permalink": "/basics/acct-team-mgmt/managing-user-info",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/managing-user-info.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Managing User Information",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Adding and Deactivating Users",
+                "permalink": "/basics/acct-team-mgmt/adding-deactivating-users"
+              },
+              "next": {
+                "title": "Viewing and Exporting Usage Data",
+                "permalink": "/basics/acct-team-mgmt/viewing-exporting-usage-data"
+              }
+            },
+            {
+              "unversionedId": "basics/acct-team-mgmt/org-settings",
+              "id": "basics/acct-team-mgmt/org-settings",
+              "isDocsHomePage": false,
+              "title": "Organization Settings",
+              "description": "General Settings",
+              "source": "@site/docs/basics/acct-team-mgmt/org-settings.md",
+              "slug": "/basics/acct-team-mgmt/org-settings",
+              "permalink": "/basics/acct-team-mgmt/org-settings",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/org-settings.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Organization Settings",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Account and Team Management",
+                "permalink": "/basics/acct-team-mgmt-hub"
+              },
+              "next": {
+                "title": "Concurrency Limits and Team Accounts",
+                "permalink": "/basics/acct-team-mgmt/concurrency-limits"
+              }
+            },
+            {
+              "unversionedId": "basics/acct-team-mgmt/plan-details",
+              "id": "basics/acct-team-mgmt/plan-details",
+              "isDocsHomePage": false,
+              "title": "Viewing Plan Details",
+              "description": "You can view the number of concurrent VMs, concurrent devices, and minutes allowed under your plan.",
+              "source": "@site/docs/basics/acct-team-mgmt/plan-details.md",
+              "slug": "/basics/acct-team-mgmt/plan-details",
+              "permalink": "/basics/acct-team-mgmt/plan-details",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/plan-details.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Viewing Plan Details",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Updating Your Billing Information",
+                "permalink": "/basics/acct-team-mgmt/updating-billing"
+              },
+              "next": {
+                "title": "Single Sign-On",
+                "permalink": "/basics/sso-hub"
+              }
+            },
+            {
+              "unversionedId": "basics/acct-team-mgmt/sauce-connect-proxy-tunnels",
+              "id": "basics/acct-team-mgmt/sauce-connect-proxy-tunnels",
+              "isDocsHomePage": false,
+              "title": "Sharing Sauce Connect Proxy Tunnels",
+              "description": "You can share Sauce Connect Proxy tunnels based on the hierarchical structure of user roles. You can also verify which tunnels are available on the Tunnels page in Sauce Labs.",
+              "source": "@site/docs/basics/acct-team-mgmt/sauce-connect-proxy-tunnels.md",
+              "slug": "/basics/acct-team-mgmt/sauce-connect-proxy-tunnels",
+              "permalink": "/basics/acct-team-mgmt/sauce-connect-proxy-tunnels",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/sauce-connect-proxy-tunnels.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Sharing Sauce Connect Proxy Tunnels",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Assigning and Removing Users from Teams",
+                "permalink": "/basics/acct-team-mgmt/assigning-removing-users-teams"
+              },
+              "next": {
+                "title": "Managing Your Subscription",
+                "permalink": "/basics/acct-team-mgmt/managing-subscription"
+              }
+            },
+            {
+              "unversionedId": "basics/acct-team-mgmt/updating-billing",
+              "id": "basics/acct-team-mgmt/updating-billing",
+              "isDocsHomePage": false,
+              "title": "Updating Your Billing Information",
+              "description": "You can update your plan billing information at any time for our online plans.",
+              "source": "@site/docs/basics/acct-team-mgmt/updating-billing.md",
+              "slug": "/basics/acct-team-mgmt/updating-billing",
+              "permalink": "/basics/acct-team-mgmt/updating-billing",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/updating-billing.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Updating Your Billing Information",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Managing Your Subscription",
+                "permalink": "/basics/acct-team-mgmt/managing-subscription"
+              },
+              "next": {
+                "title": "Viewing Plan Details",
+                "permalink": "/basics/acct-team-mgmt/plan-details"
+              }
+            },
+            {
+              "unversionedId": "basics/acct-team-mgmt/viewing-exporting-usage-data",
+              "id": "basics/acct-team-mgmt/viewing-exporting-usage-data",
+              "isDocsHomePage": false,
+              "title": "Viewing and Exporting Usage Data",
+              "description": "ENTERPRISE PLANS ONLY",
+              "source": "@site/docs/basics/acct-team-mgmt/viewing-exporting-usage-data.md",
+              "slug": "/basics/acct-team-mgmt/viewing-exporting-usage-data",
+              "permalink": "/basics/acct-team-mgmt/viewing-exporting-usage-data",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/viewing-exporting-usage-data.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Viewing and Exporting Usage Data",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Managing User Information",
+                "permalink": "/basics/acct-team-mgmt/managing-user-info"
+              },
+              "next": {
+                "title": "Adding and Deleting Teams",
+                "permalink": "/basics/acct-team-mgmt/adding-deleting-teams"
+              }
+            },
+            {
+              "unversionedId": "basics/best-practices-hub",
+              "id": "basics/best-practices-hub",
+              "isDocsHomePage": false,
+              "title": "Best Practices",
+              "description": "Sauce Labs provides several best practices, tips, and tricks to help you run your tests successfully.",
+              "source": "@site/docs/basics/best-practices-hub.md",
+              "slug": "/basics/best-practices-hub",
+              "permalink": "/basics/best-practices-hub",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices-hub.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Getting Started"
+            },
+            {
+              "unversionedId": "basics/best-practices/avoiding-dependencies-parallel-tests",
+              "id": "basics/best-practices/avoiding-dependencies-parallel-tests",
+              "isDocsHomePage": false,
+              "title": "Avoiding Dependencies in Parallel Tests",
+              "description": "Dependencies between tests prevent tests from being able to run in parallel. And running tests in parallel is by far the best way to speed up the execution of your entire test suite. It's much easier to add a virtual machine than to try to figure out how to squeeze out another second of performance from a single test.",
+              "source": "@site/docs/basics/best-practices/avoiding-dependencies-parallel-tests.md",
+              "slug": "/basics/best-practices/avoiding-dependencies-parallel-tests",
+              "permalink": "/basics/best-practices/avoiding-dependencies-parallel-tests",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/avoiding-dependencies-parallel-tests.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Avoiding Dependencies in Parallel Tests"
+            },
+            {
+              "unversionedId": "basics/best-practices/downloading-files-vm-before-testing",
+              "id": "basics/best-practices/downloading-files-vm-before-testing",
+              "isDocsHomePage": false,
+              "title": "Downloading Files to a Virtual Machine Before Testing",
+              "description": "You can use a pre-run executable script to download files from a public location to the Sauce Labs virtual machine running your tests. This topic contains example scripts for downloading remote files on different operating systems, and details configuring the prerun capability in your tests.",
+              "source": "@site/docs/basics/best-practices/downloading-files-vm-before-testing.md",
+              "slug": "/basics/best-practices/downloading-files-vm-before-testing",
+              "permalink": "/basics/best-practices/downloading-files-vm-before-testing",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/downloading-files-vm-before-testing.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Downloading Files to a Virtual Machine Before Testing"
+            },
+            {
+              "unversionedId": "basics/best-practices/handling-authentication",
+              "id": "basics/best-practices/handling-authentication",
+              "isDocsHomePage": false,
+              "title": "Handling Authentication",
+              "description": "There are several ways to handle authentication and security dialogs during testing. You might, for example, need to log a user in, or bypass a browser warning. The topics in this section cover cookie injection with Selenium, basic HTTP authentication, and other options.",
+              "source": "@site/docs/basics/best-practices/handling-authentication.md",
+              "slug": "/basics/best-practices/handling-authentication",
+              "permalink": "/basics/best-practices/handling-authentication",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/handling-authentication.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Handling Authentication"
+            },
+            {
+              "unversionedId": "basics/best-practices/imperative-declarative-testing",
+              "id": "basics/best-practices/imperative-declarative-testing",
+              "isDocsHomePage": false,
+              "title": "Imperative and Declarative Testing",
+              "description": "Imperative versus declarative test scenarios is a concept that is often discussed in the context of Cucumber and Behavior Driven Development (BDD), but it is applicable to all languages and test runners. (For more information about Cucumber, see Aslak Hellesøy's \"The training wheels came off\")",
+              "source": "@site/docs/basics/best-practices/imperative-declarative-testing.md",
+              "slug": "/basics/best-practices/imperative-declarative-testing",
+              "permalink": "/basics/best-practices/imperative-declarative-testing",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/imperative-declarative-testing.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Imperative and Declarative Testing"
+            },
+            {
+              "unversionedId": "basics/best-practices/protecting-test-log-credentials",
+              "id": "basics/best-practices/protecting-test-log-credentials",
+              "isDocsHomePage": false,
+              "title": "Protecting Test Log Credentials",
+              "description": "Sauce Labs test logs are securely stored, protecting them from external access. However, there are still some groups that can see test logs, including Sauce Support, your parent account, and other accounts in your company (depending on test privacy settings).",
+              "source": "@site/docs/basics/best-practices/protecting-test-log-credentials.md",
+              "slug": "/basics/best-practices/protecting-test-log-credentials",
+              "permalink": "/basics/best-practices/protecting-test-log-credentials",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/protecting-test-log-credentials.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Protecting Test Log Credentials"
+            },
+            {
+              "unversionedId": "basics/best-practices/running-speedy-tests",
+              "id": "basics/best-practices/running-speedy-tests",
+              "isDocsHomePage": false,
+              "title": "Running Speedy Tests",
+              "description": "It's a reality that tests run on Sauce Labs will always have some latency, compared to running locally, due to there being an Internet in the middle between your tests and our browsers. So, rather than running in the same machine, each Selenium request is sent through the wire to our VMs and receives a response back through the same channels. These are some other common factors that contribute to test duration, and a few tips for using your minutes efficiently.",
+              "source": "@site/docs/basics/best-practices/running-speedy-tests.md",
+              "slug": "/basics/best-practices/running-speedy-tests",
+              "permalink": "/basics/best-practices/running-speedy-tests",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/running-speedy-tests.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Running Speedy Tests"
+            },
+            {
+              "unversionedId": "basics/best-practices/small-atomic-autonomous",
+              "id": "basics/best-practices/small-atomic-autonomous",
+              "isDocsHomePage": false,
+              "title": "Running Small, Atomic, Autonomous Tests",
+              "description": "When a test fails, the most important thing is knowing what went wrong so you can easily come up with a fix. The best way to know what went wrong is to keep three characteristics in mind when designing your tests: small, atomic, and autonomous.",
+              "source": "@site/docs/basics/best-practices/small-atomic-autonomous.md",
+              "slug": "/basics/best-practices/small-atomic-autonomous",
+              "permalink": "/basics/best-practices/small-atomic-autonomous",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/small-atomic-autonomous.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Running Small, Atomic, Autonomous Tests"
+            },
+            {
+              "unversionedId": "basics/best-practices/test-config-annotation",
+              "id": "basics/best-practices/test-config-annotation",
+              "isDocsHomePage": false,
+              "title": "Test Configuration and Annotation",
+              "description": "Before running a browser or device test with Sauce Labs, you need to write your test script to launch the platform/operating system/browser combination you want, and specify the location of the app for testing. You'll also want to configure other options, such as the path to your app.",
+              "source": "@site/docs/basics/best-practices/test-config-annotation.md",
+              "slug": "/basics/best-practices/test-config-annotation",
+              "permalink": "/basics/best-practices/test-config-annotation",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/test-config-annotation.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Test Configuration and Annotation"
+            },
+            {
+              "unversionedId": "basics/best-practices/using-attributes-tests",
+              "id": "basics/best-practices/using-attributes-tests",
+              "isDocsHomePage": false,
+              "title": "Using Attributes to Identify Tests",
+              "description": "By assigning unique attributes (such as test name, tags, and build ID) in your test capabilities, you can then apply these annotations to filter results on your Sauce Labs Test Results and Archive pages. Although not required, following this best practice can make it easier to monitor tests and builds in your CI pipeline.",
+              "source": "@site/docs/basics/best-practices/using-attributes-tests.md",
+              "slug": "/basics/best-practices/using-attributes-tests",
+              "permalink": "/basics/best-practices/using-attributes-tests",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/using-attributes-tests.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Using Attributes to Identify Tests"
+            },
+            {
+              "unversionedId": "basics/best-practices/using-environment-variables",
+              "id": "basics/best-practices/using-environment-variables",
+              "isDocsHomePage": false,
+              "title": "Using Environment Variables for Authentication Credentials",
+              "description": "As a best practice, we recommend setting your Sauce Labs authentication credentials as environment variables on your local system, which can then be referenced from within your tests. This provides an extra layer of security for your tests, and also enables other members of your development and testing team to write tests that will authenticate against a single account.",
+              "source": "@site/docs/basics/best-practices/using-environment-variables.md",
+              "slug": "/basics/best-practices/using-environment-variables",
+              "permalink": "/basics/best-practices/using-environment-variables",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/using-environment-variables.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Using Environment Variables for Authentication Credentials"
+            },
+            {
+              "unversionedId": "basics/best-practices/using-explicit-waits",
+              "id": "basics/best-practices/using-explicit-waits",
+              "isDocsHomePage": false,
+              "title": "Using Explicit Waits",
+              "description": "As a best practice, use explicit waits on Selenium when you run into timeouts and failing tests.",
+              "source": "@site/docs/basics/best-practices/using-explicit-waits.md",
+              "slug": "/basics/best-practices/using-explicit-waits",
+              "permalink": "/basics/best-practices/using-explicit-waits",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/using-explicit-waits.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Using Explicit Waits"
+            },
+            {
+              "unversionedId": "basics/best-practices/using-maven-manage-dependencies",
+              "id": "basics/best-practices/using-maven-manage-dependencies",
+              "isDocsHomePage": false,
+              "title": "Using Maven to Manage Dependencies",
+              "description": "If you use use Maven as the dependency manager for your projects, this will give you some insight into how it works, along with some useful commands. You will find these especially helpful if you are using a private repository as the main repo to source the dependencies for your project. By using the dependency list generation methods described here, you can greatly reduce the workload needed to make dependencies available in your private repository, or locally if you intend to run your project offline.",
+              "source": "@site/docs/basics/best-practices/using-maven-manage-dependencies.md",
+              "slug": "/basics/best-practices/using-maven-manage-dependencies",
+              "permalink": "/basics/best-practices/using-maven-manage-dependencies",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/using-maven-manage-dependencies.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Using Maven to Manage Dependencies"
+            },
+            {
+              "unversionedId": "basics/sso-hub",
+              "id": "basics/sso-hub",
+              "isDocsHomePage": false,
+              "title": "Single Sign-On",
+              "description": "Sauce Labs supports Idp-initiated SSO, which allows your authorized employees to access Sauce Labs in a moderated fashion.",
+              "source": "@site/docs/basics/sso-hub.md",
+              "slug": "/basics/sso-hub",
+              "permalink": "/basics/sso-hub",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/sso-hub.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Getting Started",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Viewing Plan Details",
+                "permalink": "/basics/acct-team-mgmt/plan-details"
+              },
+              "next": {
+                "title": "Setting Up Single Sign-On",
+                "permalink": "/basics/sso/setting-up-single-sign-on"
+              }
+            },
+            {
+              "unversionedId": "basics/sso/config-adfs",
+              "id": "basics/sso/config-adfs",
+              "isDocsHomePage": false,
+              "title": "Configuring Active Directory Federation Services (AD FS)",
+              "description": "NOTE: These instructions are for setting up Microsoft's Active Directory Federated Service (AD FS) as an Identity Provider for Sauce Labs SSO using Windows Server 2012 R2 and ADFS 3.0. ADFS 3.0 is also supported on Windows Server 2008R2, but may require additional configuration for that operating system.",
+              "source": "@site/docs/basics/sso/config-adfs.md",
+              "slug": "/basics/sso/config-adfs",
+              "permalink": "/basics/sso/config-adfs",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/sso/config-adfs.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Configuring Active Directory Federation Services (AD FS)",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Setting Up Single Sign-On",
+                "permalink": "/basics/sso/setting-up-single-sign-on"
+              },
+              "next": {
+                "title": "Configuring Okta",
+                "permalink": "/basics/sso/config-okta"
+              }
+            },
+            {
+              "unversionedId": "basics/sso/config-okta",
+              "id": "basics/sso/config-okta",
+              "isDocsHomePage": false,
+              "title": "Configuring Okta",
+              "description": "1. Log in to Okta with administrator credentials.",
+              "source": "@site/docs/basics/sso/config-okta.md",
+              "slug": "/basics/sso/config-okta",
+              "permalink": "/basics/sso/config-okta",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/sso/config-okta.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Configuring Okta",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Configuring Active Directory Federation Services (AD FS)",
+                "permalink": "/basics/sso/config-adfs"
+              },
+              "next": {
+                "title": "Overview of Sauce Labs Secure Connection Options",
+                "permalink": "/secure-connections"
+              }
+            },
+            {
+              "unversionedId": "basics/sso/setting-up-single-sign-on",
+              "id": "basics/sso/setting-up-single-sign-on",
+              "isDocsHomePage": false,
+              "title": "Setting Up Single Sign-On",
+              "description": "ENTERPRISE PLANS ONLY",
+              "source": "@site/docs/basics/sso/setting-up-single-sign-on.md",
+              "slug": "/basics/sso/setting-up-single-sign-on",
+              "permalink": "/basics/sso/setting-up-single-sign-on",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/sso/setting-up-single-sign-on.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Setting Up Single Sign-On",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Single Sign-On",
+                "permalink": "/basics/sso-hub"
+              },
+              "next": {
+                "title": "Configuring Active Directory Federation Services (AD FS)",
+                "permalink": "/basics/sso/config-adfs"
+              }
+            },
+            {
+              "unversionedId": "ci",
+              "id": "ci",
+              "isDocsHomePage": false,
+              "title": "Incorporating Sauce Labs in Your CI/CD Pipeline",
+              "description": "Sauce Labs coordinates seamlessly with the most popular CI/CD platforms.",
+              "source": "@site/docs/ci.md",
+              "slug": "/ci",
+              "permalink": "/ci",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Getting Started",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Cypress on Sauce Labs",
+                "permalink": "/web-apps/automated-testing/cypress"
+              },
+              "next": {
+                "title": "Sauce Labs with Bamboo",
+                "permalink": "/ci/bamboo"
+              }
+            },
+            {
+              "unversionedId": "ci/bamboo",
+              "id": "ci/bamboo",
+              "isDocsHomePage": false,
+              "title": "Sauce Labs with Bamboo",
+              "description": "Use our plugin to run your Sauce Labs tests within your Atlassian Bamboo pipeline.",
+              "source": "@site/docs/ci/bamboo.md",
+              "slug": "/ci/bamboo",
+              "permalink": "/ci/bamboo",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/bamboo.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Bamboo",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Incorporating Sauce Labs in Your CI/CD Pipeline",
+                "permalink": "/ci"
+              },
+              "next": {
+                "title": "Sauce Labs with Bitbucket",
+                "permalink": "/ci/bitbucket"
+              }
+            },
+            {
+              "unversionedId": "ci/bitbucket",
+              "id": "ci/bitbucket",
+              "isDocsHomePage": false,
+              "title": "Sauce Labs with Bitbucket",
+              "description": "Use our plugin to run your Sauce Labs tests within your Bitbucket pipeline.",
+              "source": "@site/docs/ci/bitbucket.md",
+              "slug": "/ci/bitbucket",
+              "permalink": "/ci/bitbucket",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/bitbucket.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Bitbucket",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Labs with Bamboo",
+                "permalink": "/ci/bamboo"
+              },
+              "next": {
+                "title": "Sauce Labs with Jenkins",
+                "permalink": "/ci/jenkins"
+              }
+            },
+            {
+              "unversionedId": "ci/jenkins",
+              "id": "ci/jenkins",
+              "isDocsHomePage": false,
+              "title": "Sauce Labs with Jenkins",
+              "description": "Use our plugin to run your Sauce Labs tests within your Jenkins pipeline.",
+              "source": "@site/docs/ci/jenkins.md",
+              "slug": "/ci/jenkins",
+              "permalink": "/ci/jenkins",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/jenkins.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Jenkins",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Labs with Bitbucket",
+                "permalink": "/ci/bitbucket"
+              },
+              "next": {
+                "title": "Sauce Labs with TeamCity",
+                "permalink": "/ci/teamcity"
+              }
+            },
+            {
+              "unversionedId": "ci/teamcity",
+              "id": "ci/teamcity",
+              "isDocsHomePage": false,
+              "title": "Sauce Labs with TeamCity",
+              "description": "Use our plugin to run your Sauce Labs tests within your TeamCity pipeline.",
+              "source": "@site/docs/ci/teamcity.md",
+              "slug": "/ci/teamcity",
+              "permalink": "/ci/teamcity",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/teamcity.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "TeamCity",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Labs with Jenkins",
+                "permalink": "/ci/jenkins"
+              },
+              "next": {
+                "title": "Sauce Labs with Visual Studio",
+                "permalink": "/ci/visual-studio"
+              }
+            },
+            {
+              "unversionedId": "ci/visual-studio",
+              "id": "ci/visual-studio",
+              "isDocsHomePage": false,
+              "title": "Sauce Labs with Visual Studio",
+              "description": "Use our plugin to run your Sauce Labs tests within your Visual Studio Team Services pipeline.",
+              "source": "@site/docs/ci/visual-studio.md",
+              "slug": "/ci/visual-studio",
+              "permalink": "/ci/visual-studio",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/visual-studio.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Visual Studio",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Labs with TeamCity",
+                "permalink": "/ci/teamcity"
+              },
+              "next": {
+                "title": "Sauce Labs Insights",
+                "permalink": "/insights"
+              }
+            },
+            {
+              "unversionedId": "contributing",
+              "id": "contributing",
+              "isDocsHomePage": false,
+              "title": "Contributing",
+              "description": "Thank you for your interest in making this project even better and more awesome. Your contributions are highly welcomed.",
+              "source": "@site/docs/contributing.md",
+              "slug": "/contributing",
+              "permalink": "/contributing",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/contributing.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Overview",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Connect Proxy CLI",
+                "permalink": "/dev/cli/sauce-connect-proxy"
+              },
+              "next": {
+                "title": "Contributor Covenant Code of Conduct",
+                "permalink": "/contributing/code-of-conduct"
+              }
+            },
+            {
+              "unversionedId": "contributing/code-of-conduct",
+              "id": "contributing/code-of-conduct",
+              "isDocsHomePage": false,
+              "title": "Contributor Covenant Code of Conduct",
+              "description": "Our Pledge",
+              "source": "@site/docs/contributing/code-of-conduct.md",
+              "slug": "/contributing/code-of-conduct",
+              "permalink": "/contributing/code-of-conduct",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/contributing/code-of-conduct.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Code of Conduct",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Contributing",
+                "permalink": "/contributing"
+              },
+              "next": {
+                "title": "Stylde Guide Introduction",
+                "permalink": "/contributing/style-guide"
+              }
+            },
+            {
+              "unversionedId": "contributing/mdx",
+              "id": "contributing/mdx",
+              "isDocsHomePage": false,
+              "title": "Powered by MDX",
+              "description": "You can write JSX and use React components within your Markdown thanks to MDX.",
+              "source": "@site/docs/contributing/mdx.md",
+              "slug": "/contributing/mdx",
+              "permalink": "/contributing/mdx",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/contributing/mdx.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055
+            },
+            {
+              "unversionedId": "contributing/style-guide",
+              "id": "contributing/style-guide",
+              "isDocsHomePage": false,
+              "title": "Stylde Guide Introduction",
+              "description": "Sauce Labs style guide intro page.",
+              "source": "@site/docs/contributing/style-guide.md",
+              "slug": "/contributing/style-guide",
+              "permalink": "/contributing/style-guide",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/contributing/style-guide.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Overview",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Contributor Covenant Code of Conduct",
+                "permalink": "/contributing/code-of-conduct"
+              },
+              "next": {
+                "title": "Markdown Styles",
+                "permalink": "/contributing/style-guide/mkdwn-styles"
+              }
+            },
+            {
+              "unversionedId": "contributing/style-guide/adv-examples",
+              "id": "contributing/style-guide/adv-examples",
+              "isDocsHomePage": false,
+              "title": "Advanced Examples",
+              "description": "Powered by MDX",
+              "source": "@site/docs/contributing/style-guide/adv-examples.md",
+              "slug": "/contributing/style-guide/adv-examples",
+              "permalink": "/contributing/style-guide/adv-examples",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/contributing/style-guide/adv-examples.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Markdown Styles",
+                "permalink": "/contributing/style-guide/mkdwn-styles"
+              }
+            },
+            {
+              "unversionedId": "contributing/style-guide/mkdwn-styles",
+              "id": "contributing/style-guide/mkdwn-styles",
+              "isDocsHomePage": false,
+              "title": "Markdown Styles",
+              "description": "You can write content using GitHub-flavored Markdown syntax.",
+              "source": "@site/docs/contributing/style-guide/mkdwn-styles.md",
+              "slug": "/contributing/style-guide/mkdwn-styles",
+              "permalink": "/contributing/style-guide/mkdwn-styles",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/contributing/style-guide/mkdwn-styles.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Markdown Styles",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Stylde Guide Introduction",
+                "permalink": "/contributing/style-guide"
+              },
+              "next": {
+                "title": "Advanced Examples",
+                "permalink": "/contributing/style-guide/adv-examples"
+              }
+            },
+            {
+              "unversionedId": "dev",
+              "id": "dev",
+              "isDocsHomePage": false,
+              "title": "Sauce Labs Reference Docs",
+              "description": "API Reference",
+              "source": "@site/docs/dev.md",
+              "slug": "/dev",
+              "permalink": "/dev",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "About",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Labs Visual Testing",
+                "permalink": "/visual"
+              },
+              "next": {
+                "title": "About the Sauce REST API",
+                "permalink": "/dev/api"
+              }
+            },
+            {
+              "unversionedId": "dev/api",
+              "id": "dev/api",
+              "isDocsHomePage": false,
+              "title": "About the Sauce REST API",
+              "description": "Introduction to basic principles of authentication, request/response structure, response codes and errors.",
+              "source": "@site/docs/dev/api.md",
+              "slug": "/dev/api",
+              "permalink": "/dev/api",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Getting Started",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Labs Reference Docs",
+                "permalink": "/dev"
+              },
+              "next": {
+                "title": "Account Management API Methods",
+                "permalink": "/dev/api/accounts"
+              }
+            },
+            {
+              "unversionedId": "dev/api/accounts",
+              "id": "dev/api/accounts",
+              "isDocsHomePage": false,
+              "title": "Account Management API Methods",
+              "description": "Manage all aspects of your Sauce Labs organization, team, and member accounts.",
+              "source": "@site/docs/dev/api/accounts.md",
+              "slug": "/dev/api/accounts",
+              "permalink": "/dev/api/accounts",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/accounts.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Accounts",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "About the Sauce REST API",
+                "permalink": "/dev/api"
+              },
+              "next": {
+                "title": "Sauce Labs CLI Reference",
+                "permalink": "/dev/cli"
+              }
+            },
+            {
+              "unversionedId": "dev/cli",
+              "id": "dev/cli",
+              "isDocsHomePage": false,
+              "title": "Sauce Labs CLI Reference",
+              "description": "Sauce Labs CLI reference intro page.",
+              "source": "@site/docs/dev/cli.md",
+              "slug": "/dev/cli",
+              "permalink": "/dev/cli",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/cli.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Getting Started",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Account Management API Methods",
+                "permalink": "/dev/api/accounts"
+              },
+              "next": {
+                "title": "Espresso and XCUITest CLI Reference",
+                "permalink": "/dev/cli/espresso-xcuitest"
+              }
+            },
+            {
+              "unversionedId": "dev/cli/espresso-xcuitest",
+              "id": "dev/cli/espresso-xcuitest",
+              "isDocsHomePage": false,
+              "title": "Espresso and XCUITest CLI Reference",
+              "description": "At this time, Espresso and XCUITest real device testing is only supported on TestObject, our Legacy Real Device Cloud Platform, which you can access via Sauce Apps > Legacy RDC.",
+              "source": "@site/docs/dev/cli/espresso-xcuitest.md",
+              "slug": "/dev/cli/espresso-xcuitest",
+              "permalink": "/dev/cli/espresso-xcuitest",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/cli/espresso-xcuitest.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Espresso and XCUITest",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Labs CLI Reference",
+                "permalink": "/dev/cli"
+              },
+              "next": {
+                "title": "Sauce Connect Proxy CLI",
+                "permalink": "/dev/cli/sauce-connect-proxy"
+              }
+            },
+            {
+              "unversionedId": "dev/cli/sauce-connect-proxy",
+              "id": "dev/cli/sauce-connect-proxy",
+              "isDocsHomePage": false,
+              "title": "Sauce Connect Proxy CLI",
+              "description": "Sauce Connect Proxy provides several command-line arguments. The table below outlines all of the current flags you can use to specify Sauce Connect Proxy parameters.",
+              "source": "@site/docs/dev/cli/sauce-connect-proxy.md",
+              "slug": "/dev/cli/sauce-connect-proxy",
+              "permalink": "/dev/cli/sauce-connect-proxy",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/cli/sauce-connect-proxy.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Sauce Connect Proxy",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Espresso and XCUITest CLI Reference",
+                "permalink": "/dev/cli/espresso-xcuitest"
+              },
+              "next": {
+                "title": "Contributing",
+                "permalink": "/contributing"
+              }
+            },
+            {
+              "unversionedId": "dev/sauce-bindings/configuration",
+              "id": "dev/sauce-bindings/configuration",
+              "isDocsHomePage": false,
+              "title": "Configuring the Sauce Bindings",
+              "description": "Sauce Bindings Configuration page.",
+              "source": "@site/docs/dev/sauce-bindings/configuration.md",
+              "slug": "/dev/sauce-bindings/configuration",
+              "permalink": "/dev/sauce-bindings/configuration",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/sauce-bindings/configuration.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Configuration"
+            },
+            {
+              "unversionedId": "dev/sauce-bindings/integration",
+              "id": "dev/sauce-bindings/integration",
+              "isDocsHomePage": false,
+              "title": "Sauce Bindings Integration Guide",
+              "description": "Sauce Bindings Integration Guide",
+              "source": "@site/docs/dev/sauce-bindings/integrations.md",
+              "slug": "/dev/sauce-bindings/integration",
+              "permalink": "/dev/sauce-bindings/integration",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/sauce-bindings/integrations.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Integration"
+            },
+            {
+              "unversionedId": "dev/sauce-bindings/support",
+              "id": "dev/sauce-bindings/support",
+              "isDocsHomePage": false,
+              "title": "Sauce Bindings Support",
+              "description": "Sauce Labs support page.",
+              "source": "@site/docs/dev/sauce-bindings/support.md",
+              "slug": "/dev/sauce-bindings/support",
+              "permalink": "/dev/sauce-bindings/support",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/sauce-bindings/support.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Support"
+            },
+            {
+              "unversionedId": "headless",
+              "id": "headless",
+              "isDocsHomePage": false,
+              "title": "Sauce Headless Testing in the Cross-Browser Cloud",
+              "description": "backgroundColor: color,",
+              "source": "@site/docs/headless.md",
+              "slug": "/headless",
+              "permalink": "/headless",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/headless.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Using Headless",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Analyzing Performance Results",
+                "permalink": "/performance/analyze"
+              },
+              "next": {
+                "title": "Using Testrunner Toolkit",
+                "permalink": "/testrunner-toolkit"
+              }
+            },
+            {
+              "unversionedId": "insights",
+              "id": "insights",
+              "isDocsHomePage": false,
+              "title": "Sauce Labs Insights",
+              "description": "Get the most out of your Sauce test results by utilizing our machine learning driven interpretation of your test data.",
+              "source": "@site/docs/insights.md",
+              "slug": "/insights",
+              "permalink": "/insights",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/insights.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Getting Started",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Labs with Visual Studio",
+                "permalink": "/ci/visual-studio"
+              },
+              "next": {
+                "title": "Customizing the Insights Scope",
+                "permalink": "/insights/scope"
+              }
+            },
+            {
+              "unversionedId": "insights/failure-analysis",
+              "id": "insights/failure-analysis",
+              "isDocsHomePage": false,
+              "title": "Analyzing Failure Patterns Across Your Test Suite",
+              "description": "Use the machine learning power of Sauce Failure Analytics to uncover errors and inefficiencies in your tests to improve your testing process.",
+              "source": "@site/docs/insights/failure-analysis.md",
+              "slug": "/insights/failure-analysis",
+              "permalink": "/insights/failure-analysis",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/insights/failure-analysis.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Failure Analysis",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Comparing Statistical Trends",
+                "permalink": "/insights/trends"
+              },
+              "next": {
+                "title": "Front-End Performance Testing",
+                "permalink": "/performance"
+              }
+            },
+            {
+              "unversionedId": "insights/history",
+              "id": "insights/history",
+              "isDocsHomePage": false,
+              "title": "Evaluating a Test Over Time",
+              "description": "Get a full picture of the success of your tests. Learn how to look at a test's history across a variety of metrics to diagnose failure patterns.",
+              "source": "@site/docs/insights/history.md",
+              "slug": "/insights/history",
+              "permalink": "/insights/history",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/insights/history.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Test History",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Customizing the Insights Scope",
+                "permalink": "/insights/scope"
+              },
+              "next": {
+                "title": "Comparing Statistical Trends",
+                "permalink": "/insights/trends"
+              }
+            },
+            {
+              "unversionedId": "insights/scope",
+              "id": "insights/scope",
+              "isDocsHomePage": false,
+              "title": "Customizing the Insights Scope",
+              "description": "Tailor the Sauce Labs Insights dashboard to zero in on the results that help you identify and solve your app imperfections.",
+              "source": "@site/docs/insights/scope.md",
+              "slug": "/insights/scope",
+              "permalink": "/insights/scope",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/insights/scope.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Customizing Scope",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Labs Insights",
+                "permalink": "/insights"
+              },
+              "next": {
+                "title": "Evaluating a Test Over Time",
+                "permalink": "/insights/history"
+              }
+            },
+            {
+              "unversionedId": "insights/trends",
+              "id": "insights/trends",
+              "isDocsHomePage": false,
+              "title": "Comparing Statistical Trends",
+              "description": "See how grouping tests reveals outcome patterns across isolated variables, such as browser, operating system, or date to optimize your tests.",
+              "source": "@site/docs/insights/trends.md",
+              "slug": "/insights/trends",
+              "permalink": "/insights/trends",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/insights/trends.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Trends",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Evaluating a Test Over Time",
+                "permalink": "/insights/history"
+              },
+              "next": {
+                "title": "Analyzing Failure Patterns Across Your Test Suite",
+                "permalink": "/insights/failure-analysis"
+              }
+            },
+            {
+              "unversionedId": "mobile-apps",
+              "id": "mobile-apps",
+              "isDocsHomePage": false,
+              "title": "Mobile App Testing",
+              "description": "Test your iOS and Android native mobile apps and hybrid apps on emulators, simulators, and real devices in the Sauce Labs Cloud.",
+              "source": "@site/docs/mobile-apps.md",
+              "slug": "/mobile-apps",
+              "permalink": "/mobile-apps",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Getting Started",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Connect Frequently Asked Questions",
+                "permalink": "/secure-connections/sauce-connect/faq"
+              },
+              "next": {
+                "title": "Mobile Live Testing Quickstart",
+                "permalink": "/mobile-apps/live-testing"
+              }
+            },
+            {
+              "unversionedId": "mobile-apps/app-storage",
+              "id": "mobile-apps/app-storage",
+              "isDocsHomePage": false,
+              "title": "Mobile App Storage",
+              "description": "When testing mobile applications, you now have the option to upload your application to our new temporary application storage. Application storage is quite different and more flexible than our previous iteration (Sauce Storage) in multiple ways:",
+              "source": "@site/docs/mobile-apps/app-storage.md",
+              "slug": "/mobile-apps/app-storage",
+              "permalink": "/mobile-apps/app-storage",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/app-storage.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "App Storage",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Troubleshooting Automated Mobile App Tests",
+                "permalink": "/mobile-apps/automated-testing/troubleshooting"
+              },
+              "next": {
+                "title": "Mobile App Testing Features and Functionality",
+                "permalink": "/mobile-apps/features"
+              }
+            },
+            {
+              "unversionedId": "mobile-apps/automated-testing",
+              "id": "mobile-apps/automated-testing",
+              "isDocsHomePage": false,
+              "title": "Using Automated Mobile App Testing",
+              "description": "Landing Page for Automated Mobile App Testing",
+              "source": "@site/docs/mobile-apps/automated-testing.md",
+              "slug": "/mobile-apps/automated-testing",
+              "permalink": "/mobile-apps/automated-testing",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Overview",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Mobile Live Testing Quickstart",
+                "permalink": "/mobile-apps/live-testing"
+              },
+              "next": {
+                "title": "Choosing a Device for Mobile App Testing",
+                "permalink": "/mobile-apps/automated-testing/devices"
+              }
+            },
+            {
+              "unversionedId": "mobile-apps/automated-testing/appium",
+              "id": "mobile-apps/automated-testing/appium",
+              "isDocsHomePage": false,
+              "title": "Using Appium for Automated Mobile App Testing",
+              "description": "This page is intended to provide you with a quick overview of how Appium works to get started with mobile application testing. For full documentation of Appium, with more examples in popular scripting languages, check out the Appium.io website.",
+              "source": "@site/docs/mobile-apps/automated-testing/appium.md",
+              "slug": "/mobile-apps/automated-testing/appium",
+              "permalink": "/mobile-apps/automated-testing/appium",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/appium.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Using Appium",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Choosing a Device for Mobile App Testing",
+                "permalink": "/mobile-apps/automated-testing/devices"
+              },
+              "next": {
+                "title": "Appium Testing with Real Devices",
+                "permalink": "/mobile-apps/automated-testing/appium/real-devices"
+              }
+            },
+            {
+              "unversionedId": "mobile-apps/automated-testing/appium/real-devices",
+              "id": "mobile-apps/automated-testing/appium/real-devices",
+              "isDocsHomePage": false,
+              "title": "Appium Testing with Real Devices",
+              "description": "backgroundColor: color,",
+              "source": "@site/docs/mobile-apps/automated-testing/appium/real-devices.md",
+              "slug": "/mobile-apps/automated-testing/appium/real-devices",
+              "permalink": "/mobile-apps/automated-testing/appium/real-devices",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/appium/real-devices.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Real Devices",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Using Appium for Automated Mobile App Testing",
+                "permalink": "/mobile-apps/automated-testing/appium"
+              },
+              "next": {
+                "title": "Appium Testing with Emulators and Simulators",
+                "permalink": "/mobile-apps/automated-testing/appium/virtual-devices"
+              }
+            },
+            {
+              "unversionedId": "mobile-apps/automated-testing/appium/virtual-devices",
+              "id": "mobile-apps/automated-testing/appium/virtual-devices",
+              "isDocsHomePage": false,
+              "title": "Appium Testing with Emulators and Simulators",
+              "description": "With Sauce Labs, you can run automated Appium tests against many virtual OS and platform combinations with Android emulators and iOS simulators.",
+              "source": "@site/docs/mobile-apps/automated-testing/appium/virtual-devices.md",
+              "slug": "/mobile-apps/automated-testing/appium/virtual-devices",
+              "permalink": "/mobile-apps/automated-testing/appium/virtual-devices",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/appium/virtual-devices.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Virtual Devices",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Appium Testing with Real Devices",
+                "permalink": "/mobile-apps/automated-testing/appium/real-devices"
+              },
+              "next": {
+                "title": "Mobile App Testing with Espresso and XCUITest",
+                "permalink": "/mobile-apps/automated-testing/espresso-xcuitest"
+              }
+            },
+            {
+              "unversionedId": "mobile-apps/automated-testing/devices",
+              "id": "mobile-apps/automated-testing/devices",
+              "isDocsHomePage": false,
+              "title": "Choosing a Device for Mobile App Testing",
+              "description": "backgroundColor: color,",
+              "source": "@site/docs/mobile-apps/automated-testing/devices.md",
+              "slug": "/mobile-apps/automated-testing/devices",
+              "permalink": "/mobile-apps/automated-testing/devices",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/devices.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Choosing a Device",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Using Automated Mobile App Testing",
+                "permalink": "/mobile-apps/automated-testing"
+              },
+              "next": {
+                "title": "Using Appium for Automated Mobile App Testing",
+                "permalink": "/mobile-apps/automated-testing/appium"
+              }
+            },
+            {
+              "unversionedId": "mobile-apps/automated-testing/espresso-xcuitest",
+              "id": "mobile-apps/automated-testing/espresso-xcuitest",
+              "isDocsHomePage": false,
+              "title": "Mobile App Testing with Espresso and XCUITest",
+              "description": "Landing Page for Espresso and XCUITest",
+              "source": "@site/docs/mobile-apps/automated-testing/espresso-xcuitest.md",
+              "slug": "/mobile-apps/automated-testing/espresso-xcuitest",
+              "permalink": "/mobile-apps/automated-testing/espresso-xcuitest",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/espresso-xcuitest.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Using Espresso and XCUITest",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Appium Testing with Emulators and Simulators",
+                "permalink": "/mobile-apps/automated-testing/appium/virtual-devices"
+              },
+              "next": {
+                "title": "Real Device Testing with Espresso and XCUITest",
+                "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/real-devices"
+              }
+            },
+            {
+              "unversionedId": "mobile-apps/automated-testing/espresso-xcuitest/real-devices",
+              "id": "mobile-apps/automated-testing/espresso-xcuitest/real-devices",
+              "isDocsHomePage": false,
+              "title": "Real Device Testing with Espresso and XCUITest",
+              "description": "At this time, Espresso and XCUITest real device testing is only supported on TestObject, our Legacy Real Device Cloud Platform, which you can access via Sauce Apps > Legacy RDC.",
+              "source": "@site/docs/mobile-apps/automated-testing/espresso-xcuitest/real-devices.md",
+              "slug": "/mobile-apps/automated-testing/espresso-xcuitest/real-devices",
+              "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/real-devices",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/espresso-xcuitest/real-devices.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Real Devices",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Mobile App Testing with Espresso and XCUITest",
+                "permalink": "/mobile-apps/automated-testing/espresso-xcuitest"
+              },
+              "next": {
+                "title": "Virtual Device Testing with Espresso",
+                "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices"
+              }
+            },
+            {
+              "unversionedId": "mobile-apps/automated-testing/espresso-xcuitest/virtual-devices",
+              "id": "mobile-apps/automated-testing/espresso-xcuitest/virtual-devices",
+              "isDocsHomePage": false,
+              "title": "Virtual Device Testing with Espresso",
+              "description": "backgroundColor: color,",
+              "source": "@site/docs/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices.md",
+              "slug": "/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices",
+              "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Virtual Devices",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Real Device Testing with Espresso and XCUITest",
+                "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/real-devices"
+              },
+              "next": {
+                "title": "Microsoft App Center Integration",
+                "permalink": "/mobile-apps/automated-testing/microsoft-app-center"
+              }
+            },
+            {
+              "unversionedId": "mobile-apps/automated-testing/microsoft-app-center",
+              "id": "mobile-apps/automated-testing/microsoft-app-center",
+              "isDocsHomePage": false,
+              "title": "Microsoft App Center Integration",
+              "description": "In order to upload your apps from Microsoft App Center to a Sauce Labs data center you must create a post-build script in Microsoft App Center.",
+              "source": "@site/docs/mobile-apps/automated-testing/microsoft-app-center.md",
+              "slug": "/mobile-apps/automated-testing/microsoft-app-center",
+              "permalink": "/mobile-apps/automated-testing/microsoft-app-center",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/microsoft-app-center.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "MS App Center",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Virtual Device Testing with Espresso",
+                "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices"
+              },
+              "next": {
+                "title": "Troubleshooting Automated Mobile App Tests",
+                "permalink": "/mobile-apps/automated-testing/troubleshooting"
+              }
+            },
+            {
+              "unversionedId": "mobile-apps/automated-testing/troubleshooting",
+              "id": "mobile-apps/automated-testing/troubleshooting",
+              "isDocsHomePage": false,
+              "title": "Troubleshooting Automated Mobile App Tests",
+              "description": "There are several ways to troubleshoot your automated mobile app tests. Below are some common error messages and how to resolve them.",
+              "source": "@site/docs/mobile-apps/automated-testing/troubleshooting.md",
+              "slug": "/mobile-apps/automated-testing/troubleshooting",
+              "permalink": "/mobile-apps/automated-testing/troubleshooting",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/troubleshooting.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Troubleshooting",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Microsoft App Center Integration",
+                "permalink": "/mobile-apps/automated-testing/microsoft-app-center"
+              },
+              "next": {
+                "title": "Mobile App Storage",
+                "permalink": "/mobile-apps/app-storage"
+              }
+            },
+            {
+              "unversionedId": "mobile-apps/faq",
+              "id": "mobile-apps/faq",
+              "isDocsHomePage": false,
+              "title": "Mobile App Testing FAQ",
+              "description": "Emulators and Simulators",
+              "source": "@site/docs/mobile-apps/faq.md",
+              "slug": "/mobile-apps/faq",
+              "permalink": "/mobile-apps/faq",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/faq.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "FAQ",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Virtual USB Testing on Real Mobile Devices",
+                "permalink": "/mobile-apps/virtual-usb"
+              },
+              "next": {
+                "title": "Web Application Testing",
+                "permalink": "/web-apps"
+              }
+            },
+            {
+              "unversionedId": "mobile-apps/features",
+              "id": "mobile-apps/features",
+              "isDocsHomePage": false,
+              "title": "Mobile App Testing Features and Functionality",
+              "description": "Gestures",
+              "source": "@site/docs/mobile-apps/features.md",
+              "slug": "/mobile-apps/features",
+              "permalink": "/mobile-apps/features",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/features.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Features",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Mobile App Storage",
+                "permalink": "/mobile-apps/app-storage"
+              },
+              "next": {
+                "title": "Virtual USB Testing on Real Mobile Devices",
+                "permalink": "/mobile-apps/virtual-usb"
+              }
+            },
+            {
+              "unversionedId": "mobile-apps/live-testing",
+              "id": "mobile-apps/live-testing",
+              "isDocsHomePage": false,
+              "title": "Mobile Live Testing Quickstart",
+              "description": "Sauce Labs configuration page.",
+              "source": "@site/docs/mobile-apps/live-testing.md",
+              "slug": "/mobile-apps/live-testing",
+              "permalink": "/mobile-apps/live-testing",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/live-testing.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Quickstart",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Mobile App Testing",
+                "permalink": "/mobile-apps"
+              },
+              "next": {
+                "title": "Using Automated Mobile App Testing",
+                "permalink": "/mobile-apps/automated-testing"
+              }
+            },
+            {
+              "unversionedId": "mobile-apps/virtual-usb",
+              "id": "mobile-apps/virtual-usb",
+              "isDocsHomePage": false,
+              "title": "Virtual USB Testing on Real Mobile Devices",
+              "description": "backgroundColor: color,",
+              "source": "@site/docs/mobile-apps/virtual-usb.md",
+              "slug": "/mobile-apps/virtual-usb",
+              "permalink": "/mobile-apps/virtual-usb",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/virtual-usb.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Virtual USB",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Mobile App Testing Features and Functionality",
+                "permalink": "/mobile-apps/features"
+              },
+              "next": {
+                "title": "Mobile App Testing FAQ",
+                "permalink": "/mobile-apps/faq"
+              }
+            },
+            {
+              "unversionedId": "overview",
+              "id": "overview",
+              "isDocsHomePage": false,
+              "title": "Documentation",
+              "description": "Landing Page for Sauce Labs Documentation",
+              "source": "@site/docs/overview.md",
+              "slug": "/overview",
+              "permalink": "/overview",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/overview.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Welcome",
+              "sidebar": "someSidebar",
+              "next": {
+                "title": "What is Sauce Labs?",
+                "permalink": "/sauce-basics"
+              }
+            },
+            {
+              "unversionedId": "performance",
+              "id": "performance",
+              "isDocsHomePage": false,
+              "title": "Front-End Performance Testing",
+              "description": "Gain insight into how quickly and accurately your app renders, which directly affects your users' perception of quality.",
+              "source": "@site/docs/performance.md",
+              "slug": "/performance",
+              "permalink": "/performance",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/performance.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Getting Started",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Analyzing Failure Patterns Across Your Test Suite",
+                "permalink": "/insights/failure-analysis"
+              },
+              "next": {
+                "title": "About Sauce Performance",
+                "permalink": "/performance/about"
+              }
+            },
+            {
+              "unversionedId": "performance/about",
+              "id": "performance/about",
+              "isDocsHomePage": false,
+              "title": "About Sauce Performance",
+              "description": "Understand how Performance works, when and why you would use it, benefits you gain from it, requirements and restrictions.",
+              "source": "@site/docs/performance/about.md",
+              "slug": "/performance/about",
+              "permalink": "/performance/about",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/performance/about.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "About",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Front-End Performance Testing",
+                "permalink": "/performance"
+              },
+              "next": {
+                "title": "Collecting Single URL Performance Statistics",
+                "permalink": "/performance/one-page"
+              }
+            },
+            {
+              "unversionedId": "performance/analyze",
+              "id": "performance/analyze",
+              "isDocsHomePage": false,
+              "title": "Analyzing Performance Results",
+              "description": "Drill into the results of your performance testing in the Sauce Labs dashboard to isolate and identify sources of performance degradation.",
+              "source": "@site/docs/performance/analyze.md",
+              "slug": "/performance/analyze",
+              "permalink": "/performance/analyze",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/performance/analyze.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Results Analysis",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Measuring On-Page Motion Effects",
+                "permalink": "/performance/motion"
+              },
+              "next": {
+                "title": "Sauce Headless Testing in the Cross-Browser Cloud",
+                "permalink": "/headless"
+              }
+            },
+            {
+              "unversionedId": "performance/motion",
+              "id": "performance/motion",
+              "isDocsHomePage": false,
+              "title": "Measuring On-Page Motion Effects",
+              "description": "Measure aesthetic smoothness as a page is in motion due to scrolling or tabbing between fields.",
+              "source": "@site/docs/performance/motion.md",
+              "slug": "/performance/motion",
+              "permalink": "/performance/motion",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/performance/motion.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Page Motion",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Measuring Page Transitions with Scripts",
+                "permalink": "/performance/transitions"
+              },
+              "next": {
+                "title": "Analyzing Performance Results",
+                "permalink": "/performance/analyze"
+              }
+            },
+            {
+              "unversionedId": "performance/one-page",
+              "id": "performance/one-page",
+              "isDocsHomePage": false,
+              "title": "Collecting Single URL Performance Statistics",
+              "description": "Use Sauce's custom Speedo command line to establish a performance baseline for a particular URL or to analyze performance of a previously run test.",
+              "source": "@site/docs/performance/one-page.md",
+              "slug": "/performance/one-page",
+              "permalink": "/performance/one-page",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/performance/one-page.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Single Page Statistics",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "About Sauce Performance",
+                "permalink": "/performance/about"
+              },
+              "next": {
+                "title": "Measuring Page Transitions with Scripts",
+                "permalink": "/performance/transitions"
+              }
+            },
+            {
+              "unversionedId": "performance/transitions",
+              "id": "performance/transitions",
+              "isDocsHomePage": false,
+              "title": "Measuring Page Transitions with Scripts",
+              "description": "Use Sauce Performance in an automation scripts to test page load performance during typical interaction with your app.",
+              "source": "@site/docs/performance/transitions.md",
+              "slug": "/performance/transitions",
+              "permalink": "/performance/transitions",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/performance/transitions.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Page Transitions",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Collecting Single URL Performance Statistics",
+                "permalink": "/performance/one-page"
+              },
+              "next": {
+                "title": "Measuring On-Page Motion Effects",
+                "permalink": "/performance/motion"
+              }
+            },
+            {
+              "unversionedId": "sauce-basics",
+              "id": "sauce-basics",
+              "isDocsHomePage": false,
+              "title": "What is Sauce Labs?",
+              "description": "Welcome to Sauce Labs! Your path for getting started depends on your experience level and use case. Below are the various test scenarios that Sauce Labs supports.",
+              "source": "@site/docs/sauce-basics.md",
+              "slug": "/sauce-basics",
+              "permalink": "/sauce-basics",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/sauce-basics.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "What is Sauce Labs?",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Documentation",
+                "permalink": "/overview"
+              },
+              "next": {
+                "title": "Account and Team Management",
+                "permalink": "/basics/acct-team-mgmt-hub"
+              }
+            },
+            {
+              "unversionedId": "secure-connections",
+              "id": "secure-connections",
+              "isDocsHomePage": false,
+              "title": "Overview of Sauce Labs Secure Connection Options",
+              "description": "backgroundColor: color,",
+              "source": "@site/docs/secure-connections.md",
+              "slug": "/secure-connections",
+              "permalink": "/secure-connections",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Getting Started",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Configuring Okta",
+                "permalink": "/basics/sso/config-okta"
+              },
+              "next": {
+                "title": "Running Sauce Labs Tests with IPSec VPN Tunnels",
+                "permalink": "/secure-connections/ipsec-vpn"
+              }
+            },
+            {
+              "unversionedId": "secure-connections/ipsec-vpn",
+              "id": "secure-connections/ipsec-vpn",
+              "isDocsHomePage": false,
+              "title": "Running Sauce Labs Tests with IPSec VPN Tunnels",
+              "description": "backgroundColor: color,",
+              "source": "@site/docs/secure-connections/ipsec-vpn.md",
+              "slug": "/secure-connections/ipsec-vpn",
+              "permalink": "/secure-connections/ipsec-vpn",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/ipsec-vpn.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "IPSec VPN",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Overview of Sauce Labs Secure Connection Options",
+                "permalink": "/secure-connections"
+              },
+              "next": {
+                "title": "Sauce Connect Proxy",
+                "permalink": "/secure-connections/sauce-connect"
+              }
+            },
+            {
+              "unversionedId": "secure-connections/sauce-connect",
+              "id": "secure-connections/sauce-connect",
+              "isDocsHomePage": false,
+              "title": "Sauce Connect Proxy",
+              "description": "Sauce Connect Proxy&trade; is a proxy server that opens a secure connection between a Sauce Labs virtual machine, emulator, simulator or real device running your browser or native app tests, and an application or website you want to test that is on your local machine or behind a corporate firewall.",
+              "source": "@site/docs/secure-connections/sauce-connect.md",
+              "slug": "/secure-connections/sauce-connect",
+              "permalink": "/secure-connections/sauce-connect",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/sauce-connect.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Using Sauce Connect",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Running Sauce Labs Tests with IPSec VPN Tunnels",
+                "permalink": "/secure-connections/ipsec-vpn"
+              },
+              "next": {
+                "title": "Sauce Connect Installation and Requirements",
+                "permalink": "/secure-connections/sauce-connect/installation"
+              }
+            },
+            {
+              "unversionedId": "secure-connections/sauce-connect/environment-variables",
+              "id": "secure-connections/sauce-connect/environment-variables",
+              "isDocsHomePage": false,
+              "title": "Sauce Connect Environment Variables",
+              "description": "These environment variables can be used in addition to command-line flags to control the behavior of Sauce Connect Proxy. Please note that not all environment variables are supported on all platforms.",
+              "source": "@site/docs/secure-connections/sauce-connect/environment-variables.md",
+              "slug": "/secure-connections/sauce-connect/environment-variables",
+              "permalink": "/secure-connections/sauce-connect/environment-variables",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/sauce-connect/environment-variables.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Environment Variables",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Connect Setup and Configuration",
+                "permalink": "/secure-connections/sauce-connect/setup-configuration"
+              },
+              "next": {
+                "title": "Using Sauce Connect Proxy Tunnels",
+                "permalink": "/secure-connections/sauce-connect/proxy-tunnels"
+              }
+            },
+            {
+              "unversionedId": "secure-connections/sauce-connect/faq",
+              "id": "secure-connections/sauce-connect/faq",
+              "isDocsHomePage": false,
+              "title": "Sauce Connect Frequently Asked Questions",
+              "description": "If you're new to Sauce Connect Proxy or troubleshooting, this list of Frequently Asked Questions can help you with what you need to know.",
+              "source": "@site/docs/secure-connections/sauce-connect/faq.md",
+              "slug": "/secure-connections/sauce-connect/faq",
+              "permalink": "/secure-connections/sauce-connect/faq",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/sauce-connect/faq.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "FAQ",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Connect Troubleshooting",
+                "permalink": "/secure-connections/sauce-connect/troubleshooting"
+              },
+              "next": {
+                "title": "Mobile App Testing",
+                "permalink": "/mobile-apps"
+              }
+            },
+            {
+              "unversionedId": "secure-connections/sauce-connect/installation",
+              "id": "secure-connections/sauce-connect/installation",
+              "isDocsHomePage": false,
+              "title": "Sauce Connect Installation and Requirements",
+              "description": "* Getting Started with Sauce Connect",
+              "source": "@site/docs/secure-connections/sauce-connect/installation.md",
+              "slug": "/secure-connections/sauce-connect/installation",
+              "permalink": "/secure-connections/sauce-connect/installation",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/sauce-connect/installation.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Installation",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Connect Proxy",
+                "permalink": "/secure-connections/sauce-connect"
+              },
+              "next": {
+                "title": "Sauce Connect Setup and Configuration",
+                "permalink": "/secure-connections/sauce-connect/setup-configuration"
+              }
+            },
+            {
+              "unversionedId": "secure-connections/sauce-connect/proxy-tunnels",
+              "id": "secure-connections/sauce-connect/proxy-tunnels",
+              "isDocsHomePage": false,
+              "title": "Using Sauce Connect Proxy Tunnels",
+              "description": "* Sauce Connect Proxy Tunnel Management",
+              "source": "@site/docs/secure-connections/sauce-connect/proxy-tunnels.md",
+              "slug": "/secure-connections/sauce-connect/proxy-tunnels",
+              "permalink": "/secure-connections/sauce-connect/proxy-tunnels",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/sauce-connect/proxy-tunnels.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Proxy Tunnels",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Connect Environment Variables",
+                "permalink": "/secure-connections/sauce-connect/environment-variables"
+              },
+              "next": {
+                "title": "Sauce Connect Authentication and Certificates",
+                "permalink": "/secure-connections/sauce-connect/security"
+              }
+            },
+            {
+              "unversionedId": "secure-connections/sauce-connect/security",
+              "id": "secure-connections/sauce-connect/security",
+              "isDocsHomePage": false,
+              "title": "Sauce Connect Authentication and Certificates",
+              "description": "*   Network Security",
+              "source": "@site/docs/secure-connections/sauce-connect/security.md",
+              "slug": "/secure-connections/sauce-connect/security",
+              "permalink": "/secure-connections/sauce-connect/security",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/sauce-connect/security.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Security",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Using Sauce Connect Proxy Tunnels",
+                "permalink": "/secure-connections/sauce-connect/proxy-tunnels"
+              },
+              "next": {
+                "title": "Sauce Connect Troubleshooting",
+                "permalink": "/secure-connections/sauce-connect/troubleshooting"
+              }
+            },
+            {
+              "unversionedId": "secure-connections/sauce-connect/setup-configuration",
+              "id": "secure-connections/sauce-connect/setup-configuration",
+              "isDocsHomePage": false,
+              "title": "Sauce Connect Setup and Configuration",
+              "description": "Using Tunnels in Your Organization",
+              "source": "@site/docs/secure-connections/sauce-connect/setup-configuration.md",
+              "slug": "/secure-connections/sauce-connect/setup-configuration",
+              "permalink": "/secure-connections/sauce-connect/setup-configuration",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/sauce-connect/setup-configuration.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Configuration",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Connect Installation and Requirements",
+                "permalink": "/secure-connections/sauce-connect/installation"
+              },
+              "next": {
+                "title": "Sauce Connect Environment Variables",
+                "permalink": "/secure-connections/sauce-connect/environment-variables"
+              }
+            },
+            {
+              "unversionedId": "secure-connections/sauce-connect/troubleshooting",
+              "id": "secure-connections/sauce-connect/troubleshooting",
+              "isDocsHomePage": false,
+              "title": "Sauce Connect Troubleshooting",
+              "description": "* Troubleshooting",
+              "source": "@site/docs/secure-connections/sauce-connect/troubleshooting.md",
+              "slug": "/secure-connections/sauce-connect/troubleshooting",
+              "permalink": "/secure-connections/sauce-connect/troubleshooting",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/secure-connections/sauce-connect/troubleshooting.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Troubleshooting",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Connect Authentication and Certificates",
+                "permalink": "/secure-connections/sauce-connect/security"
+              },
+              "next": {
+                "title": "Sauce Connect Frequently Asked Questions",
+                "permalink": "/secure-connections/sauce-connect/faq"
+              }
+            },
+            {
+              "unversionedId": "testrunner-toolkit",
+              "id": "testrunner-toolkit",
+              "isDocsHomePage": false,
+              "title": "Using Testrunner Toolkit",
+              "description": "Sauce Labs Testrunner Toolkit is designed to support native Javascript frameworks through a containerized testing solution that simplifies user set up and speeds up test execution time.",
+              "source": "@site/docs/testrunner-toolkit.md",
+              "slug": "/testrunner-toolkit",
+              "permalink": "/testrunner-toolkit",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Using Testrunner Toolkit",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce Headless Testing in the Cross-Browser Cloud",
+                "permalink": "/headless"
+              },
+              "next": {
+                "title": "Testrunner Toolkit Installation",
+                "permalink": "/testrunner-toolkit/installation"
+              }
+            },
+            {
+              "unversionedId": "testrunner-toolkit/configuration",
+              "id": "testrunner-toolkit/configuration",
+              "isDocsHomePage": false,
+              "title": "Testrunner Toolkit Configuration",
+              "description": "backgroundColor: color,",
+              "source": "@site/docs/testrunner-toolkit/configuration.md",
+              "slug": "/testrunner-toolkit/configuration",
+              "permalink": "/testrunner-toolkit/configuration",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/configuration.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Basics",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Testrunner Toolkit Installation",
+                "permalink": "/testrunner-toolkit/installation"
+              },
+              "next": {
+                "title": "Configuration Syntax: Cypress",
+                "permalink": "/testrunner-toolkit/configuration/cypress"
+              }
+            },
+            {
+              "unversionedId": "testrunner-toolkit/configuration/cypress",
+              "id": "testrunner-toolkit/configuration/cypress",
+              "isDocsHomePage": false,
+              "title": "Configuration Syntax: Cypress",
+              "description": "Please refer to the Common Configuration Syntax Referencefor information regarding fields such as apiVersion, kind, and sauce.",
+              "source": "@site/docs/testrunner-toolkit/configuration/cypress.md",
+              "slug": "/testrunner-toolkit/configuration/cypress",
+              "permalink": "/testrunner-toolkit/configuration/cypress",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/configuration/cypress.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Cypress",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Testrunner Toolkit Configuration",
+                "permalink": "/testrunner-toolkit/configuration"
+              },
+              "next": {
+                "title": "Configuration Syntax: Playwright",
+                "permalink": "/testrunner-toolkit/configuration/playwright"
+              }
+            },
+            {
+              "unversionedId": "testrunner-toolkit/configuration/playwright",
+              "id": "testrunner-toolkit/configuration/playwright",
+              "isDocsHomePage": false,
+              "title": "Configuration Syntax: Playwright",
+              "description": "Please refer to the Common Configuration Syntax Referencefor information regarding fields such as apiVersion, kind, and sauce.",
+              "source": "@site/docs/testrunner-toolkit/configuration/playwright.md",
+              "slug": "/testrunner-toolkit/configuration/playwright",
+              "permalink": "/testrunner-toolkit/configuration/playwright",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/configuration/playwright.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Playwright",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Configuration Syntax: Cypress",
+                "permalink": "/testrunner-toolkit/configuration/cypress"
+              },
+              "next": {
+                "title": "Configuration Syntax: TestCafe",
+                "permalink": "/testrunner-toolkit/configuration/testcafe"
+              }
+            },
+            {
+              "unversionedId": "testrunner-toolkit/configuration/testcafe",
+              "id": "testrunner-toolkit/configuration/testcafe",
+              "isDocsHomePage": false,
+              "title": "Configuration Syntax: TestCafe",
+              "description": "Please refer to the Common Configuration Syntax Referencefor information regarding fields such as apiVersion, kind, and sauce.",
+              "source": "@site/docs/testrunner-toolkit/configuration/testcafe.md",
+              "slug": "/testrunner-toolkit/configuration/testcafe",
+              "permalink": "/testrunner-toolkit/configuration/testcafe",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/configuration/testcafe.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "TestCafe",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Configuration Syntax: Playwright",
+                "permalink": "/testrunner-toolkit/configuration/playwright"
+              },
+              "next": {
+                "title": "Running Tests in Testrunner Toolkit",
+                "permalink": "/testrunner-toolkit/running-tests"
+              }
+            },
+            {
+              "unversionedId": "testrunner-toolkit/faqs",
+              "id": "testrunner-toolkit/faqs",
+              "isDocsHomePage": false,
+              "title": "Testrunner FAQs",
+              "description": "Below are list of frequently asked questions regarding some of the business and technical use cases surrounding the Testrunner Toolkit.",
+              "source": "@site/docs/testrunner-toolkit/faqs.md",
+              "slug": "/testrunner-toolkit/faqs",
+              "permalink": "/testrunner-toolkit/faqs",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/faqs.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "FAQs",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Sauce CTL",
+                "permalink": "/testrunner-toolkit/saucectl"
+              },
+              "next": {
+                "title": "Testrunner Toolkit Support",
+                "permalink": "/testrunner-toolkit/support"
+              }
+            },
+            {
+              "unversionedId": "testrunner-toolkit/installation",
+              "id": "testrunner-toolkit/installation",
+              "isDocsHomePage": false,
+              "title": "Testrunner Toolkit Installation",
+              "description": "Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifies user setup, speeds up test execution time and supports native Javascript frameworks like, Cypress and TestCafe, for running end-to-end web tests with Sauce Labs.",
+              "source": "@site/docs/testrunner-toolkit/installation.md",
+              "slug": "/testrunner-toolkit/installation",
+              "permalink": "/testrunner-toolkit/installation",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/installation.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Installation",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Using Testrunner Toolkit",
+                "permalink": "/testrunner-toolkit"
+              },
+              "next": {
+                "title": "Testrunner Toolkit Configuration",
+                "permalink": "/testrunner-toolkit/configuration"
+              }
+            },
+            {
+              "unversionedId": "testrunner-toolkit/integrations",
+              "id": "testrunner-toolkit/integrations",
+              "isDocsHomePage": false,
+              "title": "Testrunner Toolkit CI Requirements",
+              "description": "A successful Testrunner Toolkit CI pipeline integration depends on a few requirements:",
+              "source": "@site/docs/testrunner-toolkit/integrations.md",
+              "slug": "/testrunner-toolkit/integrations",
+              "permalink": "/testrunner-toolkit/integrations",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/integrations.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Requirements",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Running Tests in Testrunner Toolkit",
+                "permalink": "/testrunner-toolkit/running-tests"
+              },
+              "next": {
+                "title": "Testrunner Toolkit with Jenkins",
+                "permalink": "/testrunner-toolkit/integrations/jenkins"
+              }
+            },
+            {
+              "unversionedId": "testrunner-toolkit/integrations/circleci",
+              "id": "testrunner-toolkit/integrations/circleci",
+              "isDocsHomePage": false,
+              "title": "Testrunner Toolkit with CircleCI",
+              "description": "These examples can apply to virtually any CirceCI deployment, provided that you already have some existing automated tests, and are either the maintainer or an admin of the target repository.",
+              "source": "@site/docs/testrunner-toolkit/integrations/circleci.md",
+              "slug": "/testrunner-toolkit/integrations/circleci",
+              "permalink": "/testrunner-toolkit/integrations/circleci",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/integrations/circleci.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "CircleCI"
+            },
+            {
+              "unversionedId": "testrunner-toolkit/integrations/github-actions",
+              "id": "testrunner-toolkit/integrations/github-actions",
+              "isDocsHomePage": false,
+              "title": "Testrunner Toolkit with GitHub Actions",
+              "description": "These examples can apply to virtually any GitHub deployment, provided that you already have some existing automated tests, and are either the maintainer or an admin of the target repository.",
+              "source": "@site/docs/testrunner-toolkit/integrations/github-actions.md",
+              "slug": "/testrunner-toolkit/integrations/github-actions",
+              "permalink": "/testrunner-toolkit/integrations/github-actions",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/integrations/github-actions.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "GitHub Actions",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Testrunner Toolkit with Jenkins",
+                "permalink": "/testrunner-toolkit/integrations/jenkins"
+              },
+              "next": {
+                "title": "Using TypeScript Tests",
+                "permalink": "/testrunner-toolkit/typescript"
+              }
+            },
+            {
+              "unversionedId": "testrunner-toolkit/integrations/jenkins",
+              "id": "testrunner-toolkit/integrations/jenkins",
+              "isDocsHomePage": false,
+              "title": "Testrunner Toolkit with Jenkins",
+              "description": "These examples can apply to virtually any Jenkins deployment, provided that you already have some existing automated tests, have access to the Jenkins instance, and are either the maintainer or an admin of the target repository.",
+              "source": "@site/docs/testrunner-toolkit/integrations/jenkins.md",
+              "slug": "/testrunner-toolkit/integrations/jenkins",
+              "permalink": "/testrunner-toolkit/integrations/jenkins",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/integrations/jenkins.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Jenkins",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Testrunner Toolkit CI Requirements",
+                "permalink": "/testrunner-toolkit/integrations"
+              },
+              "next": {
+                "title": "Testrunner Toolkit with GitHub Actions",
+                "permalink": "/testrunner-toolkit/integrations/github-actions"
+              }
+            },
+            {
+              "unversionedId": "testrunner-toolkit/running-tests",
+              "id": "testrunner-toolkit/running-tests",
+              "isDocsHomePage": false,
+              "title": "Running Tests in Testrunner Toolkit",
+              "description": "backgroundColor: color,",
+              "source": "@site/docs/testrunner-toolkit/running-tests.md",
+              "slug": "/testrunner-toolkit/running-tests",
+              "permalink": "/testrunner-toolkit/running-tests",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/running-tests.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Running Tests",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Configuration Syntax: TestCafe",
+                "permalink": "/testrunner-toolkit/configuration/testcafe"
+              },
+              "next": {
+                "title": "Testrunner Toolkit CI Requirements",
+                "permalink": "/testrunner-toolkit/integrations"
+              }
+            },
+            {
+              "unversionedId": "testrunner-toolkit/saucectl",
+              "id": "testrunner-toolkit/saucectl",
+              "isDocsHomePage": false,
+              "title": "Sauce CTL",
+              "description": "backgroundColor: color,",
+              "source": "@site/docs/testrunner-toolkit/saucectl.md",
+              "slug": "/testrunner-toolkit/saucectl",
+              "permalink": "/testrunner-toolkit/saucectl",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/saucectl.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "CLI Reference",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Using TypeScript Tests",
+                "permalink": "/testrunner-toolkit/typescript"
+              },
+              "next": {
+                "title": "Testrunner FAQs",
+                "permalink": "/testrunner-toolkit/faqs"
+              }
+            },
+            {
+              "unversionedId": "testrunner-toolkit/support",
+              "id": "testrunner-toolkit/support",
+              "isDocsHomePage": false,
+              "title": "Testrunner Toolkit Support",
+              "description": "Contribution and Support page.",
+              "source": "@site/docs/testrunner-toolkit/support.md",
+              "slug": "/testrunner-toolkit/support",
+              "permalink": "/testrunner-toolkit/support",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/support.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Support",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Testrunner FAQs",
+                "permalink": "/testrunner-toolkit/faqs"
+              },
+              "next": {
+                "title": "Sauce Labs Visual Testing",
+                "permalink": "/visual"
+              }
+            },
+            {
+              "unversionedId": "testrunner-toolkit/typescript",
+              "id": "testrunner-toolkit/typescript",
+              "isDocsHomePage": false,
+              "title": "Using TypeScript Tests",
+              "description": "If you wrote your automated tests using TypeScript in either Playwright, Puppeteer, or Cypress, you need to transpile your Typescript files to Javascript before running them with Testrunner Toolkit.",
+              "source": "@site/docs/testrunner-toolkit/typescript.md",
+              "slug": "/testrunner-toolkit/typescript",
+              "permalink": "/testrunner-toolkit/typescript",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/typescript.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Using TypeScript",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Testrunner Toolkit with GitHub Actions",
+                "permalink": "/testrunner-toolkit/integrations/github-actions"
+              },
+              "next": {
+                "title": "Sauce CTL",
+                "permalink": "/testrunner-toolkit/saucectl"
+              }
+            },
+            {
+              "unversionedId": "visual",
+              "id": "visual",
+              "isDocsHomePage": false,
+              "title": "Sauce Labs Visual Testing",
+              "description": "Get clear and instant visibility into the impact of code changes on your UI across browsers, devices, and operating systems with our automated visual testing solution, which generates side-by-side screenshot comparisons of your UI versions. Know exactly where and what has changed so that you can deliver a consistent and intuitive user experience.",
+              "source": "@site/docs/visual.md",
+              "slug": "/visual",
+              "permalink": "/visual",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/visual.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Getting Started",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Testrunner Toolkit Support",
+                "permalink": "/testrunner-toolkit/support"
+              },
+              "next": {
+                "title": "Sauce Labs Reference Docs",
+                "permalink": "/dev"
+              }
+            },
+            {
+              "unversionedId": "web-apps",
+              "id": "web-apps",
+              "isDocsHomePage": false,
+              "title": "Web Application Testing",
+              "description": "It's easy to run automated web application tests in the Sauce Labs device cloud.",
+              "source": "@site/docs/web-apps.md",
+              "slug": "/web-apps",
+              "permalink": "/web-apps",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/web-apps.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Getting Started",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Mobile App Testing FAQ",
+                "permalink": "/mobile-apps/faq"
+              },
+              "next": {
+                "title": "Web Live Testing Quickstart",
+                "permalink": "/web-apps/live-testing"
+              }
+            },
+            {
+              "unversionedId": "web-apps/automated-testing",
+              "id": "web-apps/automated-testing",
+              "isDocsHomePage": false,
+              "title": "Web Automated Testing Quickstart",
+              "description": "Sauce Labs web automated testing quickstart page.",
+              "source": "@site/docs/web-apps/automated-testing.md",
+              "slug": "/web-apps/automated-testing",
+              "permalink": "/web-apps/automated-testing",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/web-apps/automated-testing.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Quickstart"
+            },
+            {
+              "unversionedId": "web-apps/automated-testing/cypress",
+              "id": "web-apps/automated-testing/cypress",
+              "isDocsHomePage": false,
+              "title": "Cypress on Sauce Labs",
+              "description": "This page provides a walkthrough on how to run Cypress tests locally and on Sauce Labs.",
+              "source": "@site/docs/web-apps/automated-testing/cypress.md",
+              "slug": "/web-apps/automated-testing/cypress",
+              "permalink": "/web-apps/automated-testing/cypress",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/web-apps/automated-testing/cypress.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Cypress",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Web Live Testing Quickstart",
+                "permalink": "/web-apps/live-testing"
+              },
+              "next": {
+                "title": "Incorporating Sauce Labs in Your CI/CD Pipeline",
+                "permalink": "/ci"
+              }
+            },
+            {
+              "unversionedId": "web-apps/live-testing",
+              "id": "web-apps/live-testing",
+              "isDocsHomePage": false,
+              "title": "Web Live Testing Quickstart",
+              "description": "Sauce Labs Web live testing quickstart guide.",
+              "source": "@site/docs/web-apps/live-testing.md",
+              "slug": "/web-apps/live-testing",
+              "permalink": "/web-apps/live-testing",
+              "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/web-apps/live-testing.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "sidebar_label": "Quickstart",
+              "sidebar": "someSidebar",
+              "previous": {
+                "title": "Web Application Testing",
+                "permalink": "/web-apps"
+              },
+              "next": {
+                "title": "Cypress on Sauce Labs",
+                "permalink": "/web-apps/automated-testing/cypress"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "docusaurus-plugin-content-blog": {
+    "default": null
+  },
+  "docusaurus-plugin-content-pages": {
+    "default": [
+      {
+        "type": "jsx",
+        "permalink": "/developer-resources",
+        "source": "@site/src/pages/developer-resources.js"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/home-callouts",
+        "source": "@site/src/pages/home-callouts.js"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/important-links",
+        "source": "@site/src/pages/important-links.js"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/",
+        "source": "@site/src/pages/index.js"
+      }
+    ]
+  },
+  "docusaurus-plugin-debug": {
+    "default": null
+  },
+  "docusaurus-plugin-redoc": {
+    "plugin-redoc-0": null
+  },
+  "docusaurus-theme-classic": {
+    "default": null
+  },
+  "docusaurus-theme-search-algolia": {
+    "default": null
+  },
+  "docusaurus-theme-redoc": {
+    "default": null
+  },
+  "docusaurus-theme-github-codeblock": {
+    "default": null
+  }
+}

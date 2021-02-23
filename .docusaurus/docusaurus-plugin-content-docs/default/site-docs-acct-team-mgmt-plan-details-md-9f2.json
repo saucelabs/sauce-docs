@@ -1,0 +1,14 @@
+{
+  "unversionedId": "acct-team-mgmt/plan-details",
+  "id": "acct-team-mgmt/plan-details",
+  "isDocsHomePage": false,
+  "title": "plan-details",
+  "description": "",
+  "source": "@site/docs/acct-team-mgmt/plan-details.md",
+  "slug": "/acct-team-mgmt/plan-details",
+  "permalink": "/acct-team-mgmt/plan-details",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/acct-team-mgmt/plan-details.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "insights/scope",
+  "id": "insights/scope",
+  "isDocsHomePage": false,
+  "title": "Customizing the Insights Scope",
+  "description": "Tailor the Sauce Labs Insights dashboard to zero in on the results that help you identify and solve your app imperfections.",
+  "source": "@site/docs/insights/scope.md",
+  "slug": "/insights/scope",
+  "permalink": "/insights/scope",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/insights/scope.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Customizing Scope",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs Insights",
+    "permalink": "/insights"
+  },
+  "next": {
+    "title": "Evaluating a Test Over Time",
+    "permalink": "/insights/history"
+  }
+}

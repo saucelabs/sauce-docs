@@ -1,0 +1,15 @@
+{
+  "unversionedId": "basics/best-practices/running-speedy-tests",
+  "id": "basics/best-practices/running-speedy-tests",
+  "isDocsHomePage": false,
+  "title": "Running Speedy Tests",
+  "description": "It's a reality that tests run on Sauce Labs will always have some latency, compared to running locally, due to there being an Internet in the middle between your tests and our browsers. So, rather than running in the same machine, each Selenium request is sent through the wire to our VMs and receives a response back through the same channels. These are some other common factors that contribute to test duration, and a few tips for using your minutes efficiently.",
+  "source": "@site/docs/basics/best-practices/running-speedy-tests.md",
+  "slug": "/basics/best-practices/running-speedy-tests",
+  "permalink": "/basics/best-practices/running-speedy-tests",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/best-practices/running-speedy-tests.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Running Speedy Tests"
+}

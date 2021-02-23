@@ -1,0 +1,24 @@
+{
+  "unversionedId": "basics/acct-team-mgmt/updating-billing",
+  "id": "basics/acct-team-mgmt/updating-billing",
+  "isDocsHomePage": false,
+  "title": "Updating Your Billing Information",
+  "description": "You can update your plan billing information at any time for our online plans.",
+  "source": "@site/docs/basics/acct-team-mgmt/updating-billing.md",
+  "slug": "/basics/acct-team-mgmt/updating-billing",
+  "permalink": "/basics/acct-team-mgmt/updating-billing",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-team-mgmt/updating-billing.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Updating Your Billing Information",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Managing Your Subscription",
+    "permalink": "/basics/acct-team-mgmt/managing-subscription"
+  },
+  "next": {
+    "title": "Viewing Plan Details",
+    "permalink": "/basics/acct-team-mgmt/plan-details"
+  }
+}

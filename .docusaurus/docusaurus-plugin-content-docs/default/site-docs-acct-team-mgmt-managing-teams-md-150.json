@@ -1,0 +1,14 @@
+{
+  "unversionedId": "acct-team-mgmt/managing-teams",
+  "id": "acct-team-mgmt/managing-teams",
+  "isDocsHomePage": false,
+  "title": "managing-teams",
+  "description": "",
+  "source": "@site/docs/acct-team-mgmt/managing-teams.md",
+  "slug": "/acct-team-mgmt/managing-teams",
+  "permalink": "/acct-team-mgmt/managing-teams",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/acct-team-mgmt/managing-teams.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055
+}

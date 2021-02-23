@@ -1,0 +1,24 @@
+{
+  "unversionedId": "ci/gitlab",
+  "id": "ci/gitlab",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs with GitLab Pipelines",
+  "description": "Sauce Labs GitLab page.",
+  "source": "@site/docs/ci/gitlab.md",
+  "slug": "/ci/gitlab",
+  "permalink": "/ci/gitlab",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/gitlab.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "GitLab",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs with GitHub Actions",
+    "permalink": "/ci/github"
+  },
+  "next": {
+    "title": "Sauce Labs Insights",
+    "permalink": "/insights"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "basics/acct-tm-mmt/accounts",
+  "id": "basics/acct-tm-mmt/accounts",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs Accounts",
+  "description": "This is about the accounts.",
+  "source": "@site/docs/basics/acct-tm-mmt/accounts.md",
+  "slug": "/basics/acct-tm-mmt/accounts",
+  "permalink": "/basics/acct-tm-mmt/accounts",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/basics/acct-tm-mmt/accounts.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Accounts",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs Teams",
+    "permalink": "/basics/acct-tm-mmt/teams"
+  },
+  "next": {
+    "title": "Overview of Sauce Labs Secure Connection Options",
+    "permalink": "/secure-connections"
+  }
+}

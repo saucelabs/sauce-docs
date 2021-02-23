@@ -1,0 +1,24 @@
+{
+  "unversionedId": "ci/github",
+  "id": "ci/github",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs with GitHub Actions",
+  "description": "Sauce Labs GitHub Actions page.",
+  "source": "@site/docs/ci/github.md",
+  "slug": "/ci/github",
+  "permalink": "/ci/github",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/github.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "GitHub",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Sauce Labs with Azure Pipelines",
+    "permalink": "/ci/azure"
+  },
+  "next": {
+    "title": "Sauce Labs with GitLab Pipelines",
+    "permalink": "/ci/gitlab"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "unversionedId": "sauce-connect/admin",
+  "id": "sauce-connect/admin",
+  "isDocsHomePage": false,
+  "title": "Sauce Connect Proxy Admin Guide",
+  "description": "Sauce Connect Proxy admin guide page.",
+  "source": "@site/docs/sauce-connect/admin.md",
+  "permalink": "/sauce-connect/admin",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/sauce-connect/admin.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Administration",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sauce Connect Proxy Network and Security",
+    "permalink": "/sauce-connect/network"
+  },
+  "next": {
+    "title": "Sauce Connect Proxy Troubleshooting Guide",
+    "permalink": "/sauce-connect/troubleshooting"
+  }
+}

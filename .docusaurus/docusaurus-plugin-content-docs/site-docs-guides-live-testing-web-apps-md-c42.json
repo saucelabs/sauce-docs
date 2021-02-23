@@ -1,0 +1,22 @@
+{
+  "unversionedId": "guides/live-testing/web-apps",
+  "id": "guides/live-testing/web-apps",
+  "isDocsHomePage": false,
+  "title": "Live Testing Web Apps",
+  "description": "You can run live tests of your websites/web-applications on a wide range of operating systems and web browser versions.",
+  "source": "@site/docs/guides/live-testing/web-apps.md",
+  "permalink": "/guides/live-testing/web-apps",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/guides/live-testing/web-apps.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Web Apps",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Live Testing Overview",
+    "permalink": "/guides/live-testing/overview"
+  },
+  "next": {
+    "title": "Live Testing Mobile Apps",
+    "permalink": "/guides/live-testing/mobile-apps"
+  }
+}

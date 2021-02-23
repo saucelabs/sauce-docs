@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/features",
+  "id": "mobile-apps/features",
+  "isDocsHomePage": false,
+  "title": "Mobile App Testing Features and Functionality",
+  "description": "Gestures",
+  "source": "@site/docs/mobile-apps/features.md",
+  "slug": "/mobile-apps/features",
+  "permalink": "/mobile-apps/features",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/features.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Features",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Mobile App Storage",
+    "permalink": "/mobile-apps/app-storage"
+  },
+  "next": {
+    "title": "Virtual USB Testing on Real Mobile Devices",
+    "permalink": "/mobile-apps/virtual-usb"
+  }
+}

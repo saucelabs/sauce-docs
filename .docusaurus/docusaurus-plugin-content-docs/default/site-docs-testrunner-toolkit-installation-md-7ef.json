@@ -1,0 +1,24 @@
+{
+  "unversionedId": "testrunner-toolkit/installation",
+  "id": "testrunner-toolkit/installation",
+  "isDocsHomePage": false,
+  "title": "Testrunner Toolkit Installation",
+  "description": "Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifies user setup, speeds up test execution time and supports native Javascript frameworks like, Cypress and TestCafe, for running end-to-end web tests with Sauce Labs.",
+  "source": "@site/docs/testrunner-toolkit/installation.md",
+  "slug": "/testrunner-toolkit/installation",
+  "permalink": "/testrunner-toolkit/installation",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/installation.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Installation",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Using Testrunner Toolkit",
+    "permalink": "/testrunner-toolkit"
+  },
+  "next": {
+    "title": "Testrunner Toolkit Configuration",
+    "permalink": "/testrunner-toolkit/configuration"
+  }
+}

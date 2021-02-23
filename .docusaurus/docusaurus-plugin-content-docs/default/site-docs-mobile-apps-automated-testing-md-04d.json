@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing",
+  "id": "mobile-apps/automated-testing",
+  "isDocsHomePage": false,
+  "title": "Using Automated Mobile App Testing",
+  "description": "Landing Page for Automated Mobile App Testing",
+  "source": "@site/docs/mobile-apps/automated-testing.md",
+  "slug": "/mobile-apps/automated-testing",
+  "permalink": "/mobile-apps/automated-testing",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Overview",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Mobile Live Testing Quickstart",
+    "permalink": "/mobile-apps/live-testing"
+  },
+  "next": {
+    "title": "Choosing a Device for Mobile App Testing",
+    "permalink": "/mobile-apps/automated-testing/devices"
+  }
+}

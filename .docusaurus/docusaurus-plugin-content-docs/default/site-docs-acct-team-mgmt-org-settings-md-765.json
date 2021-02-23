@@ -1,0 +1,14 @@
+{
+  "unversionedId": "acct-team-mgmt/org-settings",
+  "id": "acct-team-mgmt/org-settings",
+  "isDocsHomePage": false,
+  "title": "org-settings",
+  "description": "",
+  "source": "@site/docs/acct-team-mgmt/org-settings.md",
+  "slug": "/acct-team-mgmt/org-settings",
+  "permalink": "/acct-team-mgmt/org-settings",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/acct-team-mgmt/org-settings.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055
+}

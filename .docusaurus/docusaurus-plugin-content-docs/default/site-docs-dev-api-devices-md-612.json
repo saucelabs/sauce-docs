@@ -1,0 +1,24 @@
+{
+  "unversionedId": "dev/api/devices",
+  "id": "dev/api/devices",
+  "isDocsHomePage": false,
+  "title": "Devices API",
+  "description": "Devices API page.",
+  "source": "@site/docs/dev/api/devices.md",
+  "slug": "/dev/api/devices",
+  "permalink": "/dev/api/devices",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/dev/api/devices.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Devices",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Insights and Analytics API",
+    "permalink": "/dev/api/analytics"
+  },
+  "next": {
+    "title": "System Info API",
+    "permalink": "/dev/api/info"
+  }
+}

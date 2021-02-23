@@ -1,0 +1,24 @@
+{
+  "unversionedId": "mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing",
+  "id": "mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing",
+  "isDocsHomePage": false,
+  "title": "Virtual Device Testing with Espresso",
+  "description": "backgroundColor: color,",
+  "source": "@site/docs/mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing.md",
+  "slug": "/mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing",
+  "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Virtual Device Testing",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Real Device Testing with Espresso and XCUITest",
+    "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/real-device-testing"
+  },
+  "next": {
+    "title": "Example Configurations for Espresso and XCUITest",
+    "permalink": "/mobile-apps/automated-testing/espresso-xcuitest/example-configurations"
+  }
+}

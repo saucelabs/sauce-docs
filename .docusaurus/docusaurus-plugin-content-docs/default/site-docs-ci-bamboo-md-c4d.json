@@ -1,0 +1,24 @@
+{
+  "unversionedId": "ci/bamboo",
+  "id": "ci/bamboo",
+  "isDocsHomePage": false,
+  "title": "Sauce Labs with Bamboo",
+  "description": "Use our plugin to run your Sauce Labs tests within your Atlassian Bamboo pipeline.",
+  "source": "@site/docs/ci/bamboo.md",
+  "slug": "/ci/bamboo",
+  "permalink": "/ci/bamboo",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/ci/bamboo.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Bamboo",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Incorporating Sauce Labs in Your CI/CD Pipeline",
+    "permalink": "/ci"
+  },
+  "next": {
+    "title": "Sauce Labs with Bitbucket",
+    "permalink": "/ci/bitbucket"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "testrunner-toolkit/typescript",
+  "id": "testrunner-toolkit/typescript",
+  "isDocsHomePage": false,
+  "title": "Using TypeScript Tests",
+  "description": "If you wrote your automated tests using TypeScript in either Playwright, Puppeteer, or Cypress, you need to transpile your Typescript files to Javascript before running them with Testrunner Toolkit.",
+  "source": "@site/docs/testrunner-toolkit/typescript.md",
+  "slug": "/testrunner-toolkit/typescript",
+  "permalink": "/testrunner-toolkit/typescript",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/testrunner-toolkit/typescript.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Using TypeScript",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Testrunner Toolkit with GitHub Actions",
+    "permalink": "/testrunner-toolkit/integrations/github-actions"
+  },
+  "next": {
+    "title": "Sauce CTL",
+    "permalink": "/testrunner-toolkit/saucectl"
+  }
+}

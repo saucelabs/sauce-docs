@@ -1,0 +1,22 @@
+{
+  "unversionedId": "products/testrunner-toolkit/integrations",
+  "id": "products/testrunner-toolkit/integrations",
+  "isDocsHomePage": false,
+  "title": "Testrunner CI Integrations",
+  "description": "A Testrunner Toolkit CI pipeline integration depends on a few factors:",
+  "source": "@site/docs/products/testrunner-toolkit/integrations.md",
+  "permalink": "/products/testrunner-toolkit/integrations",
+  "editUrl": "https://github.com/saucelabs/sauce-docs/edit/master/docs/products/testrunner-toolkit/integrations.md",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Integrations",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Testrunner Configuration",
+    "permalink": "/products/testrunner-toolkit/configuration"
+  },
+  "next": {
+    "title": "Testrunner CLI Reference",
+    "permalink": "/products/testrunner-toolkit/saucectl"
+  }
+}
