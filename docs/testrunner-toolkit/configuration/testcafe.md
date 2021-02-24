@@ -38,7 +38,7 @@ docker:
   fileTransfer: mount
 testcafe:
   projectPath: tests/e2e/testcafe
-  version: 1.8.5
+  version: 1.11.0
 ```
 
 ## `testcafe`
