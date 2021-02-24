@@ -102,4 +102,5 @@ Some command-line arguments can be passed through a config file or an environmen
 
 ## Additional Resources
 
-[Sauce Connect Proxy Command-Line Reference](/dev/cli/sauce-connect-proxy)
+* [Sauce Connect Proxy Command-Line Reference](/dev/cli/sauce-connect-proxy)
+* [Download Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863)

@@ -36,6 +36,24 @@ This connection allows secure communication between the gateways, which provide 
 
 !["IPSec VPN Network Architecture"](/img/ipsec-vpn/ipsec-diagram.png)
 
+## Bandwidth Recommendations
+
+General guidelines for IPSec VPN tunnels described in the table below ensure that your tunnel can support your desired number of concurrent sessions.
+
+**NOTE**: We set up all IPSec VPN customers with a redundant, High Availability (HA) tunnel pool with two tunnel gateways.
+
+| Number of Concurrent Sessions | Recommended Number of IPSec Tunnels | Recommended Total Bandwidth
+| :-------------------------- | :--- | :---
+| 20 | 1 | 50Mbps
+| 100 | 1 | 250Mbps
+| 500 | 2 | 750Mbps
+| 1,000 | 2 | 1.5Gbps
+| 2,000 | 2 | 3Gbps
+
+Bandwidth recommendations for testing depend on the number of pages downloaded by each test, and the approximate size of each page. To estimate your requirements, we recommend running 25-40 concurrent sessions through a proxy while observing network usage patterns. You should have enough bandwidth to download a page in 3 to 5 seconds.
+
+Multiple users can run different tests simultaneously through the same tunnel, as long as the number is within the threshold of your concurrency limits/allocations.
+
 ## Security
 
 ### Tunnel Gateway Security Features
@@ -66,29 +84,11 @@ To request additional ports and protocols to be opened, contact [Sauce Labs Supp
 
 ### Self-Signed Certificates
 
-The tunnel gateway acts as a man-in-the-middle proxy, re-encrypting all SSL connections with Sauce Labs certificate by default. If your tests don't require access to servers with self-signed certificates, we strongly recommended disabling SSL re-encryption.
+The tunnel gateway acts as a man-in-the-middle proxy, re-encrypting all SSL connections with Sauce Labs certificate by default. If your tests don't require access to servers with self-signed certificates, we strongly recommend disabling SSL re-encryption.
 
 SSL re-encryption can be disabled for all domains or selected domains with `no-ssl-bump-domains`.
 
 WebSocket servers with self-signed certificates are not supported.
-
-## Bandwidth Recommendations
-
-General guidelines for IPSec VPN tunnels described in the table below ensure that your tunnel can support your desired number of concurrent sessions.
-
-**NOTE**: We set up all IPSec VPN customers with a redundant, High Availability (HA) tunnel pool with two tunnel gateways.
-
-| Number of Concurrent Sessions | Recommended Number of IPSec Tunnels | Recommended Total Bandwidth
-| :-------------------------- | :--- | :---
-| 20 | 1 | 50Mbps
-| 100 | 1 | 250Mbps
-| 500 | 2 | 750Mbps
-| 1,000 | 2 | 1.5Gbps
-| 2,000 | 2 | 3Gbps
-
-Bandwidth recommendations for testing depend on the number of pages downloaded by each test, and the approximate size of each page. To estimate your requirements, we recommend running 25-40 concurrent sessions through a proxy while observing network usage patterns. You should have enough bandwidth to download a page in 3 to 5 seconds.
-
-Multiple users can run different tests simultaneously through the same tunnel, as long as the number is within the threshold of your concurrency limits/allocations.
 
 ## Testing with IPSec VPN Tunnels
 
