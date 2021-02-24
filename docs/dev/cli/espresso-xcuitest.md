@@ -4,7 +4,7 @@ title: Espresso and XCUITest CLI Reference
 sidebar_label: Espresso and XCUITest
 ---
 
-:::caution  **Only Available in TestObject**
+:::note  **Only Available in TestObject**
 
 At this time, Espresso and XCUITest real device testing is only supported on TestObject, our [Legacy Real Device Cloud Platform](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177), which you can access via **Sauce Apps** > **Legacy RDC**.
 
