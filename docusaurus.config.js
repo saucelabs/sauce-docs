@@ -4,19 +4,18 @@ module.exports = {
   url: 'https://saucelabs.com/docs',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  noIndex: true,
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.ico',
-  organizationName: 'saucelabs', // Usually your GitHub org/user name.
-  projectName: 'sauce-docs', // Usually your repo name.
+  organizationName: 'saucelabs',
+  projectName: 'sauce-docs',
   themeConfig: {
     hideableSidebar: true,
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
     },
     algolia: {
-      appId: 'ZETDNHTKFC',
-      apiKey: '8442c4c56cae89e0f1a1b7c9a8fd8f9c',
+      appId: process.env.ALGOLIA_APP_ID,
+      apiKey: process.env.ALGOLIA_KEY,
       indexName: 'saucelabs',
     },
     /* Dark and Light Mode Config */
@@ -34,9 +33,6 @@ module.exports = {
         darkIconStyle: {
           marginLeft: '2px',
         },
-        // Unicode icons such as '\u2600' will work
-        // Unicode with 5 chars require brackets: '\u{1F602}'
-        //lightIcon: '\u{1F602}',
         lightIcon: '🌞',
         lightIconStyle: {
           marginLeft: '1px',
@@ -344,7 +340,7 @@ module.exports = {
           // Please change this to your repo.
           routeBasePath: '/',
           editUrl:
-            'https://github.com/saucelabs/sauce-docs/edit/master/',
+              'https://github.com/saucelabs/sauce-docs/edit/master/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         },
@@ -356,5 +352,13 @@ module.exports = {
   ],
   themes: [
     '@saucelabs/theme-github-codeblock',
+  ],
+  plugins: [
+    [
+      "docusaurus2-dotenv",
+      {
+        systemvars: true,
+      },
+    ],
   ],
 };
