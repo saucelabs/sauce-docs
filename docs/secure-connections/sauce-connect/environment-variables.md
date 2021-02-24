@@ -4,14 +4,17 @@ title: Sauce Connect Environment Variables
 sidebar_label: Environment Variables
 ---
 
-These environment variables can be used in addition to command-line flags to control the behavior of Sauce Connect Proxy. Please note that not all environment variables are supported on all platforms.
+These environment variables can be used in addition to [command-line options](/dev/cli/sauce-connect-proxy) to control the behavior of Sauce Connect Proxy.
 
-When an environment variable is used, it can still be overridden by the command-line. Command-line options – when available – always take precedence. Some command-line arguments can be passed through a config file or an environment variable. When the same argument is passed through multiple methods, the order of precedence is as follows: Command Line Argument > Config File > Environment Variable.
+When an environment variable is used, it can still be overridden by the command-line. Command-line options – when available – always take precedence. Some command-line arguments can be passed through a config file or an environment variable.
 
-See [Sauce Connect Proxy Command Line Reference](/dev/cli/sauce-connect-proxy) for the full list of CLI options.
+When the same argument is passed through multiple methods, the order of precedence is as follows:
 
-To ensure compatibility with these variables, make sure that you're using the latest version of Sauce Connect Proxy ([download here](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863)).
+1. Command Line Argument
+1. Config File
+1. Environment Variable
 
+>**NOTE**: Not all environment variables are supported on all platforms. For best performance, make sure that you're using the [latest version of Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863).
 
   <table>
 
@@ -97,3 +100,7 @@ To ensure compatibility with these variables, make sure that you're using the la
 
    </tr>
    </table>
+
+## Additional Resources
+
+[Sauce Connect Proxy Command-Line Reference](/dev/cli/sauce-connect-proxy)
