@@ -247,6 +247,7 @@ module.exports = {
                 'api-testing/ci/azure-devops',
                 'api-testing/ci/connecting-with-bamboo',
                 'api-testing/ci/bitbucket',
+                'api-testing/ci/gitlab',
             ],
         },
     ],
