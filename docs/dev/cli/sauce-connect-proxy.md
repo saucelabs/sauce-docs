@@ -2,6 +2,7 @@
 id: sauce-connect-proxy
 title: Sauce Connect Proxy CLI Reference
 sidebar_label: Sauce Connect Proxy
+hide_table_of_contents: true
 ---
 
 The table below outlines all command-line options that you can use to specify Sauce Connect Proxy parameters.
