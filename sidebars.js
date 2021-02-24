@@ -75,6 +75,7 @@ module.exports = {
         collapsed: true,
         items: [
           'secure-connections/sauce-connect',
+          'secure-connections/sauce-connect/download',
           'secure-connections/sauce-connect/installation',
           'secure-connections/sauce-connect/setup-configuration',
           'secure-connections/sauce-connect/environment-variables',
@@ -82,6 +83,7 @@ module.exports = {
           'secure-connections/sauce-connect/security',
           'secure-connections/sauce-connect/troubleshooting',
           'secure-connections/sauce-connect/faq',
+          'secure-connections/sauce-connect/changelog',
           ],
         },
       ],
