@@ -4,6 +4,7 @@ module.exports = {
   url: 'https://saucelabs.com/docs',
   baseUrl: '/',
   onBrokenLinks: 'throw',
+  noIndex: true,
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'saucelabs', // Usually your GitHub org/user name.
