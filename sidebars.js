@@ -75,6 +75,7 @@ module.exports = {
         collapsed: true,
         items: [
           'secure-connections/sauce-connect',
+          'secure-connections/sauce-connect/download',
           'secure-connections/sauce-connect/installation',
           'secure-connections/sauce-connect/setup-configuration',
           'secure-connections/sauce-connect/environment-variables',
