@@ -82,6 +82,7 @@ module.exports = {
           'secure-connections/sauce-connect/security',
           'secure-connections/sauce-connect/troubleshooting',
           'secure-connections/sauce-connect/faq',
+          'secure-connections/sauce-connect/changelog',
           ],
         },
       ],

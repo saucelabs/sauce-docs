@@ -1,6 +1,6 @@
 ---
 id: sauce-connect-proxy
-title: Sauce Connect Proxy CLI
+title: Sauce Connect Proxy CLI Reference
 sidebar_label: Sauce Connect Proxy
 ---
 
@@ -10,7 +10,7 @@ Some command-line arguments can be passed through a config file or an environmen
 
 To ensure compatibility with these variables, make sure that you're using the latest version of Sauce Connect Proxy ([download here](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863)).
 
-## List of Sauce Connect Proxy Command-Line Arguments
+## Sauce Connect Proxy Command-Line Options
 
 <table>
   <tr>
@@ -136,7 +136,7 @@ To ensure compatibility with these variables, make sure that you're using the la
    <td><sub><code>
     --logfile [file]
    </code></sub></td>
-   <td><p>Capture the Sauce Connect Proxy logs in `file` If a path is not specified in `file`, the default location of the `file` is the same location where the Sauce Connect executable can be found on your machine.</p>
+   <td><p>Capture the Sauce Connect Proxy logs in <code>file</code> If a path is not specified in <code>file</code>, the default location of the <code>file</code> is the same location where the Sauce Connect executable can be found on your machine.</p>
    </td>
   </tr>
   <tr>
@@ -455,7 +455,7 @@ HTTP Header Injection is disabled for SSL domains that are not re-encrypted by S
 **NOTE**: OCSP supports the following Sauce Connect flags: `--kgp-host`, `--kgp-port`, `--proxy`, `--pac`, `--no-autodetect`, `--proxy-tunnel`, `--tunnel-cainfo`, `--tunnel-capath`. More information: [Sauce Connect Proxy Certificate Handling](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365729).
 
 
-## Developer-Only Command-Line Arguments
+## Developer-Only Command-Line Options
 
 The following command-line arguments are only to be used when explicitly requested by our Support team.
 
@@ -515,12 +515,17 @@ The following command-line arguments are only to be used when explicitly request
   </tr>
 </table>
 
-## Formatting Domains in Your Commands
+## Additional Resources
 
-Here are some guidelines to follow when formatting domains within your commands:
+### Formatting Domains in Your Command Lines
+
+Here are some guidelines to follow when formatting domains:
 
 *   Make sure your comma-separated list of domains doesn't include any spaces. For example, `mydomain.com,saucelabs.com,mysite.com`, instead of `mydomain.com, saucelabs.com, mysite.com`
 *   Use only the domain name; no need to precede it with `http:` or `https:`
 *   Prefix a domain name with "`*."` or simply `"."` to match all its subdomains. For example, you could refer to both `wiki.saucelabs.com` and `my.saucelabs.com` with "`*.saucelabs.com"` or` ".saucelabs.com"`. Enclose the argument in quotes to prevent shell expansion of asterisk.
 *   If you don't want any domains to be SSL re-encrypted, you can specify `all` with the argument (i.e., `-B all` or `--no-ssl-bump-domains all`)
 *   WebSockets are not compatible with SSL bumping; you'll need to disable SSL Bumping for WebSocket domains
+
+### Related Docs
+* [Sauce Connect Proxy Changelog](secure-connections/sauce-connect/changelog)
