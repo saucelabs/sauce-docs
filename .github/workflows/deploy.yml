@@ -11,6 +11,8 @@ env:
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
   SAUCECTL_VERSION: 0.14.0
+  ALGOLIA_APP_ID: ${{secrets.ALGOLIA_APP_ID}}
+  ALGOLIA_KEY: ${{secrets.ALGOLIA_KEY}}
 
 jobs:
   build:
