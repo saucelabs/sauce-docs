@@ -2,6 +2,7 @@
 id: espresso-xcuitest
 title: Espresso and XCUITest CLI Reference
 sidebar_label: Espresso and XCUITest
+hide_table_of_contents: true
 ---
 
 :::note  **Only Available in TestObject**
