@@ -238,6 +238,17 @@ module.exports = {
             'api-testing/bloodhound/using-databases',
         ],
       },
+        {
+            type: 'category',
+            label: 'CI/CD',
+            collapsed: true,
+            items: [
+                'api-testing/ci/apif-auto',
+                'api-testing/ci/azure-devops',
+                'api-testing/ci/connecting-with-bamboo',
+                'api-testing/ci/bitbucket',
+            ],
+        },
     ],
     "CI/CD": [
         'ci',
