@@ -68,7 +68,6 @@ Each docker image tag is the 'latest' image that supports the specific framework
 | TestCafe Version   | Supported Browsers        | Release Notes                                                                                                 | Sauce Cloud Support [[?](testrunner-toolkit/running-tests.md#test-on-sauce-labs)] |
 |--------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | 1.11.0              | Please see release notes. | [saucelabs/sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.3.0)    |                                                                                   |
-| 1.10.1              | Please see release notes. | [saucelabs/sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.2.5)    |                                                                                   |
 | 1.8.5              | Please see release notes. | [saucelabs/sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.1.16)    |                                                                                   |
 
 </TabItem>
