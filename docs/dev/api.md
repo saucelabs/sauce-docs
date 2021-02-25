@@ -8,42 +8,12 @@ description: Introduction to basic principles of authentication, request/respons
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<p> <span class="sauceRed">SAUCE RED!</span> </p>
-<p> <span class="sauceGray">SAUCE GRAY!</span> </p>
-<p> <span class="sauceDBlue">SAUCE DARK BLUE!</span> </p>
-<p> <span class="sauceLBlue">SAUCE LIGHT BLUE!</span> </p>
-<p> <span class="sauceGreen">SAUCE GREEN!</span> </p>
-<p> <span class="sauceMint">SAUCE MINT!</span> </p>
-<p> <span class="sauceGold">SAUCE GOLD!</span> </p>
-<p> <span class="saucePink">SAUCE PINK!</span> </p>
-<p> <span class="sauceOrange">SAUCE ORANGE!</span> </p>
-<p> <span class="sauceLime">SAUCE LIME!</span> </p>
-<p> <span class="saucePurple">SAUCE PURPLE!</span> </p>
-<p> <span class="sauceYellow">SAUCE YELLOW!</span> </p>
 
 Sauce Labs exposes a set of REST API endpoints that allow you to perform operations, manage accounts, and retrieve data programmatically so you can use the Sauce platform in the way that best suits your business logic.
 
 :::note Check the current accessibility of any Sauce Labs system
 [CHECK STATUS](https://status.saucelabs.com/)
 :::
-
-:::note
-This is some info for you.
-:::
-
-:::tip
-Here is a good idea.
-:::
-
-:::caution
-You should probably pay attention.
-:::
-
-:::warning
-You are about to do something dangerous!
-:::
-
-
 
 
 ## Accessing the API
