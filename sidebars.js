@@ -270,6 +270,12 @@ module.exports = {
                 'api-testing/how-to/assertions-for-metrics-performance',
                 'api-testing/how-to/3-leg-oauth',
                 'api-testing/how-to/integration-testing',
+                'api-testing/how-to/copy-a-test',
+                'api-testing/how-to/authorization-simple-oauth-etc',
+                'api-testing/how-to/different-ways-to-compose-a-request-body',
+                'api-testing/how-to/disable-ssl-validation',
+                'api-testing/how-to/set-dynamic-dates',
+                'api-testing/how-to/tweaking-stateful-email-notifications',
             ],
         }
     ],
