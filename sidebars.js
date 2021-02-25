@@ -248,8 +248,30 @@ module.exports = {
                 'api-testing/ci/connecting-with-bamboo',
                 'api-testing/ci/bitbucket',
                 'api-testing/ci/gitlab',
+                {
+                    type: 'category',
+                    label: 'Jenkins',
+                    collapsed: true,
+                    items: [
+                        'api-testing/ci/jenkins/using-the-api',
+                        'api-testing/ci/jenkins/apif-auto',
+                        'api-testing/ci/jenkins/apif-auto-and-github',
+                        'api-testing/ci/jenkins/zephyr-enterprise-integration',
+                    ],
+                },
+                'api-testing/ci/micro-focus-alm-integration',
             ],
         },
+        {
+            type: 'category',
+            label: 'How To Guides',
+            collapsed: true,
+            items: [
+                'api-testing/how-to/assertions-for-metrics-performance',
+                'api-testing/how-to/3-leg-oauth',
+                'api-testing/how-to/integration-testing',
+            ],
+        }
     ],
     "CI/CD": [
         'ci',

@@ -1,6 +1,6 @@
 ---
 id: apif-auto
-title: "APIF-Auto: Command-Line Tools"
+title: "APIF-Auto: Command-Line Tool"
 sidebar_label: APIF-Auto
 keywords:
     - cicd

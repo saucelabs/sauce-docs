@@ -15,7 +15,7 @@ APIF-Auto, a command line tool that supports automated API Fortress test executi
 
 ## Example Pipeline Script
 
-The pipeline script below serves as a template for creating a step in your Azure DevOps Pipeline for testing your APIs with API Fortress. If you’d like to take a look at the documentation for APIF-Auto, click [here](https://apifortress.com/doc/command-line-tools/). 
+The pipeline script below serves as a template for creating a step in your Azure DevOps Pipeline for testing your APIs with API Fortress. If you’d like to take a look at the documentation for APIF-Auto, click [here](/api-testing/ci/apif-auto). 
 
 >NOTE: this is an **example** of an Azure DevOps Pipeline. Experienced users are free to configure their workflow as best suits their needs.
 
@@ -63,6 +63,3 @@ First, it’s worth mentioning that in this example we have the APIF-Auto files 
 
 Below is a sample output from the above execution:  
 <img src={useBaseUrl('img/api-fortress/2020/06/Screen-Shot-2020-06-18-at-10.08.50-AM.png')} alt="Azure APIF-Auto Pic1"/>
-
-<img src={useBaseUrl('img/api-fortress/2020/06/Screen-Shot-2020-06-18-at-10.07.23-AM.png')} alt="Azure APIF-Auto Pic2"/>
-

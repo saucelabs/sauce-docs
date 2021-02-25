@@ -24,10 +24,10 @@ You can clearly declare multiple actors of the same type in `implementers.yml`, 
 For Example:
 
 ```yaml
-  - id: transform\_headers\_1
+  - id: transform_headers_1
     class: com.apifortress.afthem.actors.transformers.TransformHeadersActor
     type: transformer
-  - id: transform\_headers\_2
+  - id: transform_headers_2
     class: com.apifortress.afthem.actors.transformers.TransformHeadersActor
     type: transformer
 ```
@@ -52,7 +52,7 @@ Actors, as previously said, **could** allow you to work in parallel, but actors 
 In the `implementers.yml` file, the `thread_pools` section allows you to create pools of threads that can be assigned to actors.
 
 ```yaml
-thread\_pools:
+thread_pools:
   default:
     min: 1
     max: 2
@@ -65,16 +65,16 @@ thread\_pools:
 
 * `min` is the minimum number of threads created for this thread pool.
 * `max` is the maximum number of threads created for this thread pool (the threads exceeding `min` get decommissioned when not in use)
-* `factor` is a multiplier that depends on the server Bloodhound is operating on and it works like this `factor*cpu=n_of_threads`. A way to make the system more adaptive to the context.
+* `factor` is a multiplier that depends on the server Bloodhound is operating on and it works like this `factor` * `cpu` = `number_of_threads`. A way to make the system more adaptive to the context.
 
 The `default` thread pool is used when no pool is assigned to an implementer. To assign a specific thread pool, update the implementer like so:
 
 ```yaml
-  - id: header\_filter
+  - id: header_filter
     class: com.apifortress.afthem.actors.filters.FilterActor
     type: filter
     instances: 2
-    thread\_pool: computational
+    thread_pool: computational
 ```
 
 Thread pools can be assigned to a specific implementer or to multiple implementers. This is crucial because a good balance strongly reduces resource waste. In `etc.simplest`, for example, two instances of `header_filter` and two instances of `transform_headers` share a single pool with 2 threads max. This means that at most, 2 filter operations OR 2 transformation operations OR 1 filter and 1 transformation operations can happen at the same time.
