@@ -1,7 +1,7 @@
 ---
-id: set-dynamic-dates
-title: Set Dynamic Dates
-sidebar_label: Set Dynamic Dates
+id: dynamic-dates
+title: Dynamic Dates
+sidebar_label: Dynamic Dates
 keywords:
     - api-testing
     - how-to
