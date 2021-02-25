@@ -376,12 +376,15 @@ __Type__: *object*
 __Example__:
 ```yaml
   npm:
+    registry: https://registry.npmjs.org
     packages:
       lodash: "4.17.20"
       "@babel/preset-typescript": "7.12"
       "@cypress/react": "^5.0.1"
       
 ```
+
+⚠️ `registry` configuration is only supported in latest cypress docker image. No other frameworks, or Sauce Labs cloud.
 
 ### `suites`
 
