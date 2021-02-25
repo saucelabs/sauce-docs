@@ -444,7 +444,7 @@ When your tests are running through a Sauce Connect tunnel, the client on your n
 
 If you're testing in a restricted network setting, you may need to whitelist the Sauce Labs domains below to allow outbound communication to Sauce Labs Selenium and Appium endpoints. Whitelisting for inbound traffic coming into your network is not necessary. To check if your setup is successful, see [Validating Your Basic Sauce Connect Proxy Setup](https://wiki.saucelabs.com/display/DOCS/Basic+Sauce+Connect+Proxy+Setup#BasicSauceConnectProxySetup-ValidatingYourBasicSauceConnectProxySetup).
 
-You'll need to use the set of domains for your corresponding Sauce Labs Data Center: US Data Center (**US-West-1**), Headless Data Center (**US-East-1**), or European Data Center (**EU-Central-1**). The Data Center you're connected to is indicated in your navigation menu.
+You'll need to use the set of domains for your corresponding Sauce Labs Data Center: US Data Center (US-West-1**), Headless Data Center (US-East-1), or European Data Center (EU-Central-1). The Data Center you're connected to is indicated in your navigation menu.
 
 <img src={useBaseUrl('img/sauce-connect/data-center-ui.jpg')} alt="Sauce Connect download file contents" width="600" margin-bottom="50px"/>
 
