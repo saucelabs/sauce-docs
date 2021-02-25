@@ -15,6 +15,7 @@ module.exports = {
            items: [
              'basics/acct-team-mgmt-hub',
              'basics/acct-team-mgmt/org-settings',
+             'basics/acct-team-mgmt/real-devices',
 
                {
                  type: 'category',
@@ -75,6 +76,7 @@ module.exports = {
         collapsed: true,
         items: [
           'secure-connections/sauce-connect',
+          'secure-connections/sauce-connect/system-requirements',
           'secure-connections/sauce-connect/download',
           'secure-connections/sauce-connect/installation',
           'secure-connections/sauce-connect/setup-configuration',
