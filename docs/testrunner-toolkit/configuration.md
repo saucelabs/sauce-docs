@@ -384,7 +384,7 @@ __Example__:
       
 ```
 
-⚠️ `regsitry` configuration is only supported in latest cypress docker image. No other frameworks, or Sauce Labs cloud.
+⚠️ `registry` configuration is only supported in latest cypress docker image. No other frameworks, or Sauce Labs cloud.
 
 ### `suites`
 
