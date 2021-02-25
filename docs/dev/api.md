@@ -27,6 +27,25 @@ Sauce Labs exposes a set of REST API endpoints that allow you to perform operati
 [CHECK STATUS](https://status.saucelabs.com/)
 :::
 
+:::note
+This is some info for you.
+:::
+
+:::tip
+Here is a good idea.
+:::
+
+:::caution
+You should probably pay attention.
+:::
+
+:::warning
+You are about to do something dangerous!
+:::
+
+
+
+
 ## Accessing the API
 
 The Sauce Labs REST API is organized around REST and each endpoint is structured as a resource-oriented URL that accepts inline query parameters and form-encoded request bodies, then returns JSON-encoded responses.

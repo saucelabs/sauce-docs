@@ -172,6 +172,115 @@ h3, .h3 {
     font-size: 12px;
 }
 
+/* Callout styles */
+
+.admonition-note {
+  border-left: 5px solid #C1C3C7;
+  margin-left: 50px;
+  margin-right: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: transparent;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  border-radius: 0px;
+  icon: none;
+}
+
+.admonition-note h5 {
+  color: #474c55;
+  font-weight: bold;
+}
+
+.admonition-note .admonition-icon svg {
+  stroke: #474c55;
+  fill: #C1C3C7;
+}
+
+.admonition-tip {
+  border-left: 5px solid #01c3a5;
+  color: #474c55;
+  margin-left: 50px;
+  margin-right: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: transparent;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  border-radius: 0px;
+  icon: none;
+}
+
+.admonition-tip h5 {
+  color: #474c55;
+  font-weight: bold;
+}
+
+.admonition-tip .admonition-icon svg {
+  stroke: #474c55;
+  fill: #01c3a5;
+}
+
+.admonition-caution {
+  border-left: 5px solid #fbd741;
+  color: #474c55;
+  margin-left: 50px;
+  margin-right: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: transparent;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  border-radius: 0px;
+  icon: none;
+}
+
+.admonition-caution h5 {
+  color: #474c55;
+  font-weight: bold;
+}
+
+.admonition-caution .admonition-icon svg {
+  stroke: #474c55;
+  fill: #fbd741;
+}
+
+.admonition-warning {
+  border-left: 5px solid #ec5c26;;
+  color: #474c55;
+  margin-left: 50px;
+  margin-right: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: transparent;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  border-radius: 0px;
+  icon: none;
+}
+
+.admonition-warning h5 {
+  color: #474c55;
+  font-weight: bold;
+}
+
+.admonition-warning .admonition-icon svg {
+  stroke: #474c55;
+  fill: #ec5c26;;
+}
+
 /* Hub and introduction page CSS below */
 
 .box-wrapper {

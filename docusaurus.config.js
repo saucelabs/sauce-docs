@@ -10,9 +10,9 @@ module.exports = {
   projectName: 'sauce-docs', // Usually your repo name.
   themeConfig: {
     hideableSidebar: true,
-    prism: {
-      additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
-    },
+    // prism: {
+    //   additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
+    // },
     algolia: {
       appId: 'ZETDNHTKFC',
       apiKey: '8442c4c56cae89e0f1a1b7c9a8fd8f9c',
@@ -356,9 +356,12 @@ module.exports = {
       'redocusaurus',
       {
         specs: [{
-          routePath: "/dev/api/redoc/",
-          specUrl: 'https://https://github.com/saucelabs/node-saucelabs/blob/master/apis/sauce.json',
+          spec: './static/oas/vdc/jobs.yml',
+          routePath: '/dev/api/accounts/'
         }],
+        theme: {
+          customCss: require.resolve('./src/css/custom.css')
+        },
       }
     ],
   ],
