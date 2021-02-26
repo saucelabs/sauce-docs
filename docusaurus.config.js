@@ -9,10 +9,10 @@ module.exports = {
   organizationName: 'saucelabs',
   projectName: 'sauce-docs',
   themeConfig: {
-    hideableSidebar: true,
-    gtag: {
+    googleAnalytics: {
       trackingID: 'UA-6735579-1',
     },
+    hideableSidebar: true,
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
     },
@@ -357,7 +357,6 @@ module.exports = {
     '@saucelabs/theme-github-codeblock',
   ],
   plugins: [
-    '@docusaurus/plugin-google-gtag',
     [
       "docusaurus2-dotenv",
       {
