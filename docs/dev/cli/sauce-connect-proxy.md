@@ -78,7 +78,7 @@ The table below outlines all command-line options that you can use to specify Sa
    <td><sub><code>
     --direct-domains [...]
    </code></sub></td>
-   <td>Use this option along with a <a href="https://docs.saucelabs.com/dev/cli/sauce-connect-proxy#formatting-domains-in-your-commands">comma-separated list of domains</a> that you want to be relayed directly through the Internet instead of through the Sauce Connect Proxy tunnel.
+   <td>Use this option along with a <a href="https://docs.saucelabs.com/dev/cli/sauce-connect-proxy#formatting-domains-in-your-commands">comma-separated list of domains</a> that you want to be relayed directly through the Internet instead of through the Sauce Connect Proxy tunnel.</td>
   </tr>
   <tr>
    <td><sub><code>-t</code></sub>
