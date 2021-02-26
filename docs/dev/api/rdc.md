@@ -2,7 +2,7 @@
 id: rdc
 title: Real Device API Methods
 sidebar_label: Real Devices
-description: REST API methods regarding test session and test asset management.
+description: Retrieve information related to real device availability, device/platform/browser combinations, and currently running tests.
 ---
 
 Use the Real Device Cloud (RDC) REST API methods to look up device types and availability in your data center and view current activity on those devices.
