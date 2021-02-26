@@ -1,7 +1,7 @@
 ---
 id: features
 title: Mobile App Testing Features and Functionality
-sidebar_label: Test Features
+sidebar_label: Features
 ---
 
 ## Gestures

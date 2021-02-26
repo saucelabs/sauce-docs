@@ -15,6 +15,7 @@ module.exports = {
            items: [
              'basics/acct-team-mgmt-hub',
              'basics/acct-team-mgmt/org-settings',
+             'basics/acct-team-mgmt/real-devices',
 
                {
                  type: 'category',
@@ -75,6 +76,8 @@ module.exports = {
         collapsed: true,
         items: [
           'secure-connections/sauce-connect',
+          'secure-connections/sauce-connect/system-requirements',
+          'secure-connections/sauce-connect/download',
           'secure-connections/sauce-connect/installation',
           'secure-connections/sauce-connect/setup-configuration',
           'secure-connections/sauce-connect/environment-variables',
@@ -82,13 +85,12 @@ module.exports = {
           'secure-connections/sauce-connect/security',
           'secure-connections/sauce-connect/troubleshooting',
           'secure-connections/sauce-connect/faq',
+          'secure-connections/sauce-connect/changelog',
           ],
         },
       ],
   "Mobile Apps": [
     'mobile-apps',
-    'mobile-apps/devices',
-    'mobile-apps/app-storage',
      {
         type: 'category',
         label: 'Live Testing',
@@ -103,19 +105,15 @@ module.exports = {
           collapsed: true,
           items: [
             'mobile-apps/automated-testing',
-            'mobile-apps/automated-testing/microsoft-app-center',
-            'mobile-apps/automated-testing/troubleshooting',
+            'mobile-apps/automated-testing/devices',
                 {
                   type: 'category',
                   label: 'Appium',
                   collapsed: true,
                   items: [
                      'mobile-apps/automated-testing/appium',
-                     'mobile-apps/automated-testing/appium/rdc',
-                     'mobile-apps/automated-testing/appium/rdc-capabilities',
-                     'mobile-apps/automated-testing/appium/rdc-performance',
-                     'mobile-apps/automated-testing/appium/vdc',
-                     'mobile-apps/automated-testing/appium/vdc-capabilities',
+                     'mobile-apps/automated-testing/appium/real-devices',
+                     'mobile-apps/automated-testing/appium/virtual-devices',
                     ],
                 },
                 {
@@ -124,13 +122,15 @@ module.exports = {
                   collapsed: true,
                   items: [
                     'mobile-apps/automated-testing/espresso-xcuitest',
-                    'mobile-apps/automated-testing/espresso-xcuitest/real-device-testing',
-                    'mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing',
-                    'mobile-apps/automated-testing/espresso-xcuitest/example-configurations',
+                    'mobile-apps/automated-testing/espresso-xcuitest/real-devices',
+                    'mobile-apps/automated-testing/espresso-xcuitest/virtual-devices',
                   ],
                 },
+                'mobile-apps/automated-testing/microsoft-app-center',
+                'mobile-apps/automated-testing/troubleshooting',
               ],
            },
+     'mobile-apps/app-storage',
      'mobile-apps/features',
      'mobile-apps/virtual-usb',
      'mobile-apps/faq',
@@ -207,6 +207,7 @@ module.exports = {
               ],
           },
           'testrunner-toolkit/typescript',
+          'testrunner-toolkit/saucectl',
           'testrunner-toolkit/faqs',
           'testrunner-toolkit/support',
       ],
@@ -239,7 +240,6 @@ module.exports = {
           'dev/cli',
           'dev/cli/espresso-xcuitest',
           'dev/cli/sauce-connect-proxy',
-          'dev/cli/saucectl',
         ]
       },
     ],
