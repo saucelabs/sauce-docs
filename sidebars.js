@@ -223,6 +223,14 @@ module.exports = {
         collapsed: true,
         items: [
           'dev/api',
+          'dev/api/accounts',
+          'dev/api/connect',
+          'dev/api/insights',
+          'dev/api/jobs',
+          'dev/api/performance',
+          'dev/api/platform',
+          'dev/api/rdc',
+          'dev/api/storage',
         ],
       },
       {
