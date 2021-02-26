@@ -7,5 +7,5 @@ hide_table_of_contents: true
 ---
 Please select the relevant use case for your mobile app testing:
 
-* [Real Device Testing](/mobile-apps/automated-testing/espresso-xcuitest/real-device-testing)
-* [Virtual Device Testing](/mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing)
+* [Real Device Testing](/mobile-apps/automated-testing/espresso-xcuitest/real-devices)
+* [Virtual Device Testing](/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices)
