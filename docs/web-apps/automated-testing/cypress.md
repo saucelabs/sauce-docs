@@ -143,6 +143,17 @@ The following steps outline how to run your cypress tests using Sauce Labs virtu
    
    <img src={useBaseUrl('img/cypress/test-results.png')} alt="Cypress Test Results" />
 
+:::warning Running Tests with a Local App
+
+If you plan to run your cypress tests with either of the following scenarios:
+
+* A `localhost` app running on your host machine
+* An app running locally in a CI pipeline
+* An app running on a local app server in a private network
+
+Please review the following [documentation section](/testrunner-toolkit/running-tests#run-tests-against-a-local-app) for further details.
+:::
+
 ## Additional Resources
 
 Below are some additional topics related to using Cypress with Sauce Labs.
