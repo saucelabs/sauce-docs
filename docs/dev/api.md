@@ -1,29 +1,46 @@
 ---
 id: api
-title: Sauce REST API Overview
+title: About the Sauce REST API
 sidebar_label: Getting Started
+description: Introduction to basic principles of authentication, request/response structure, response codes and errors.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Use the Sauce Labs REST API to help optimize and streamline automated testing for you and your team.
 
-:::note Status Page
-[status.saucelabs.com](https://status.saucelabs.com/)
+Sauce Labs exposes a set of REST API endpoints that allow you to perform operations, manage accounts, and retrieve data programmatically so you can use the Sauce platform in the way that best suits your business logic.
+
+:::tip
+You cab check the current accessibility of any Sauce Labs system on the [Sauce Labs System Status](https://status.saucelabs.com/) page.
 :::
+
 
 ## Accessing the API
 
-You can access the Sauce Labs REST API over HTTPS and use JSON encoding for request and response data.
+The Sauce Labs REST API is organized around REST and each endpoint is structured as a resource-oriented URL that accepts inline query parameters and form-encoded request bodies, then returns JSON-encoded responses.
 
-The API is versioned by URL. The current version is `v1`, and resides under the `saucelabs.com/rest/v1/` base URL. Some `v1.1` methods appear under `saucelabs.com/rest/v1.1/`. 
+Each endpoint is constructed from a `{base-url}` prefix that is based on the data center associated with the Sauce Labs account for which the request is relevant, plus the latests version for the given method. The following table provide the base URLs for each data center.
 
-All Sauce REST API methods default to `GET` requests unless specified otherwise; `PUT` and `POST` requests require the `Content-Type` header set to `application/json`.
+|Data Center|API Base URL|
+|---|-------|
+|US|`api.us-west-1.saucelabs.com/`|
+|Europe|`api.eu-central-1.saucelabs.com/`|
+
+### Versioning
+
+The API is versioned by URL, each of which may be in a different stage of release. The currently published version of each endpoint is reflected in the base URL, as demonstrated in the following two endpoints:
+
+* `https://api.us-west-1.saucelabs.com/rest/v1.2/users/<USERNAME>/concurrency`
+* `https://api.us-west-1.saucelabs.com/rest/v1/users/<USERNAME>/activity`
+
+### Methods
+
+Unspecified method requests default to `GET`. All other supported request types (`PUT`; `POST`; `DELETE`: `PATCH`) require setting the `Content-Type` header to `application/json`.
 
 ### Authentication
 
-The Sauce Labs REST API uses [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). In order to authenticate, either include the Sauce `username` and `accessKey` in the request URL, or add an [`Authorization` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) to the request.
+The Sauce Labs REST API uses [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). You can pass the `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` authentication credentials as inline parameters in the URL, or include an Authorization Header to the request.
 
 The following pseudocode examples illustrate how to authenticate the Sauce Labs REST API:
 <Tabs
@@ -39,16 +56,12 @@ The following pseudocode examples illustrate how to authenticate the Sauce Labs 
 
 <TabItem value="curl">
 
-__Authenticating with the Request URL Example__
-
-```shell script
-curl https://<SAUCE_USERNAME>:<SAUCE_ACCESS_KEY>@saucelabs.com/rest/v1/users/<SAUCE_USERNAME>
+```curl title="Inline Parameter Authentication"
+curl -XGET 'https://<SAUCE_USERNAME>:<SAUCE_ACCESS_KEY>@api.us-west-1.saucelabs.com/team-management/v1/users'
 ```
 
-__Authenticating with the `Authorization` Header Example__
-
-```shell script
-curl -u <YOUR_SAUCE_USERNAME>:<YOUR_SAUCE_ACCESS_KEY> https://saucelabs.com/rest/v1/users/<YOUR_SAUCE_USERNAME>
+```curl title="Auth Header Authentication"
+curl -L -X GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/' -H 'Authorization: Basic' -U <SAUCE_USERNAME> -K <SAUCE_ACCESS_KEY>
 ```
 
 </TabItem>
@@ -63,25 +76,23 @@ CredentialsProvider provider = new BasicCredentialsProvider();
 UsernamePasswordCredentials credentials
  = new UsernamePasswordCredentials(username, accessKey);
 provider.setCredentials(AuthScope.ANY, credentials);
- 
+
 HttpClient client = HttpClientBuilder.create()
   .setDefaultCredentialsProvider(provider)
   .build();
- 
-HttpResponse response = client.execute(
+
+HttpResponse response = client.execute()
   new HttpGet(statusURL);
 int statusCode = response.getStatusLine()
   .getStatusCode();
- 
+
 assertThat(statusCode, equalTo(HttpStatus.SC_OK));
 ```
 
 </TabItem>
 <TabItem value="csharp">
 
-__.NET 4.5 HTTPClient Example__
-
-```csharp
+```csharp title=".NET 4.5 HTTPClient Example"
 static async void HTTP_GET() {
     var SAUCEURL = "https://saucelabs.com/rest/v1/info/status";
     var sauceUsername = Environment.GetEnvironmentVariable("SAUCE_USERNAME");
@@ -133,7 +144,6 @@ sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
 sauce_url = "https://saucelabs.com/rest/v1/info/status"
 
 requests.get(sauce_url, auth=HTTPBasicAuth(sauce_username, sauce_access_key))
-
 ```
 
 </TabItem>
@@ -150,14 +160,14 @@ sauce_access_key = ENV['SAUCE_ACCESS_KEY']
 sauce_uri = URI('https://saucelabs.com/rest/v1/info/status')
 
 Net::HTTP.start(uri.host, uri.port,
-    :use_ssl => uri.scheme == 'https', 
+    :use_ssl => uri.scheme == 'https',
     :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
 
     request = Net::HTTP::Get.new uri.request_uri
     request.basic_auth sauce_username, sauce_access_key
 
     response = http.request request # Net::HTTPResponse object
-    
+
     puts response
     puts response.body
 end
@@ -166,17 +176,18 @@ end
 </TabItem>
 </Tabs>
 
-### Rate Limits
+## Rate Limits
 
-Some endpoints of the Sauce Labs REST API have rate limits in order to prevent over-utilization.
+The Sauce Labs REST API places rate limits on some endpoints in order to prevent over-utilization.
 
 For example:
+
 * Incoming authenticated API requests have rate limits imposed against the individual user accounts.
 * Incoming unauthenticated API requests have rate limits imposed against the IP addresses.
 
-Once a user reaches the rate limit and exhausted the allowable amount of connections, said user the receives a [`429` response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429#:~:text=The%20HTTP%20429%20Too%20Many,before%20making%20a%20new%20request.).
+Requests received after the rate limit is reached return a [429 response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429#:~:text=The%20HTTP%20429%20Too%20Many,before%20making%20a%20new%20request) indicating that the number of allowable requests has been exceeded.
 
-#### Rate Limit Breakdown
+### Rate Limit Breakdown
 
 | REST API Endpoint | Rate Limit | Authenticated |
 | :-------------------------- | :---:| ---:|
