@@ -12,6 +12,27 @@ Sauce Connect Proxy system requirements vary, depending on the number of paralle
 
 Keep in mind that these are guidelines. Most environments have their own workload requirements for optimal performance. Test and profile your own environment using these recommendations as a baseline.
 
+## What You'll Need
+
+We strongly recommend using the [cURL command line](https://curl.haxx.se/download.html) or an equivalent tool to ensure that any error messages you receive are precise and actionable. If you're not familiar with the tool, you can [review their docs here](https://curl.se/docs) and then install cURL on your local host machine.
+
+## Verifying Sauce Connect Network Routes on Your Host Machine
+
+As an important step prior to downloading Sauce Connect Proxy, you or your systems administrator will need to verify that Sauce Connect Proxy can make the required network requests.
+
+1. Log into the machine that will be hosting your Sauce Connect Proxy tunnels. This is the machine where you'll eventually be placing and running the downloaded Sauce Connect Binary.
+
+2. Use cURL (or equivalent tool) to reach your Site Under Test. If you are relying on API to support a website or mobile app, you can cURL that as well. You should get a `200 OK HTTP` response. If you do NOT see a `200 OK HTTP` response, then Sauce Connect Proxy will not be able to reach it either.
+
+3. Use cURL (or equivalent tool) to reach the below URLs, as needed:
+  * [https://saucelabs.com](https://saucelabs.com/)
+  * [https://eu-central-1.saucelabs.com](https://eu-central-1.saucelabs.com/)
+  * [https://us1.api.testobject.com/sc](https://us1.api.testobject.com/sc/)
+  * [https://eu1.api.testobject.com/sc](https://eu1.api.testobject.com/sc/)
+
+If you can get a` 200 OK` response from all URLs above, you are ready to start Sauce Connect! As an alternative, you can use [Nethelp](https://github.com/mdsauce/nethelp) to quickly connect to multiple resources and save the output.
+
+
 ## Configuring Your System to Use Sauce Connect
 
 Select a cloud provider from the tables below to view the recommended system requirements:
@@ -560,6 +581,10 @@ Here are the Sauce Connect Proxy network requirements for TLS and SSL traffic:
 ## Certificate Management
 
 Public key certificates are used to manage the security of Sauce Connect Proxy communication to both the Sauce Labs API and to the Virtual Machine hosting your tests in the Sauce Labs cloud. For information on saucelabs.com certificate authentication, see [Sauce Connect Proxy Certificate Handling](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Certificate+Handling).
+
+
+
+
 
 
 ## Additional Resources
