@@ -26,7 +26,6 @@ There are a couple of ways you can generate this data:
 
 * You can use the "Fake data generation" component to generate this data.
 
-  [![](https://apifortress.com/doc/wp-content/uploads/2019/07/Screen-Shot-2019-07-16-at-3.06.57-PM.png)](https://apifortress.com/doc/wp-content/uploads/2019/07/Screen-Shot-2019-07-16-at-3.06.57-PM.png)
   <img src={useBaseUrl('img/api-fortress/2019/07/Screen-Shot-2019-07-16-at-3.06.57-PM.png')} alt="screenshot" />
 
 There are a few different ways this component can be used. You can use it to generate a string, array, or an object. See below for examples.
