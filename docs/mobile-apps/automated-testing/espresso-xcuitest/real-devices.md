@@ -147,24 +147,23 @@ There are two ways to configure your parameters for testing on Sauce Runner for 
 ### Using the Command Line Interface
 Sauce Runner for Real Devices will execute tests based on the parameters you set in the file.
 
-1. Add the [`config` command](dev/cli/espresso-xcuitest.md) to your code. The config command only accepts two parameters: `--path <path to config.yml>` and `--apikey <apikey>`.  
-2. Add one of the following commands:
+#### Sauce Runner RDC CLI Reference
+
+Add one of the following commands to your test script:
   * `xcuitest` Defines XCUITest as the test framework to use for your native iOS app tests
   * `espresso` Defines Espresso as the test framework to use for your native Android app tests
-
-Here's an example:
-
-```js
-JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config --path <path to config.yml> --apikey <apikey>
-```
-
-#### Sauce Runner RDC CLI Reference
 
 From here, head to the full list of commands and options at [Sauce Runner for Real Devices Command-Line Reference](dev/cli/espresso-xcuitest.md).
 
 ### Using a YAML Configuration File
 
-As an alternative to configuring your [Espresso and XCUITest RDC tests](mobile-apps/automated-testing/espresso-xcuitest/real-devices.md) using the [command line interface](/dev/cli/espresso-xcuitest.md), you can create a YAML configuration file, as described below.
+As an alternative to configuring your [Espresso and XCUITest RDC tests](mobile-apps/automated-testing/espresso-xcuitest/real-devices.md) using the [command line interface](/dev/cli/espresso-xcuitest.md), you can create a YAML configuration file.
+
+Add the [`config` command](dev/cli/espresso-xcuitest.md) to your test script. The config command only accepts two parameters: `--path <path to config.yml>` and `--apikey <apikey>`. Here's an example:
+
+```js
+JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config --path <path to config.yml> --apikey <apikey>
+```
 
 >**NOTE**: You cannot use [command line options](dev/cli/espresso-xcuitest.md) in your YAML config file. Once you pass the `config` command to the runner, it will prohibit you from using the other configuration options available on the command line.
 
