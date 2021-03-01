@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Sauce Labs Documentation',
   tagline: 'Find everything you need to know about manual and automated cross-browser and mobile app testing in the Sauce Labs Continuous Testing Cloud.',
-  url: 'https://saucelabs.com/docs',
+  url: 'https://docs.saucelabs.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
@@ -9,6 +9,9 @@ module.exports = {
   organizationName: 'saucelabs',
   projectName: 'sauce-docs',
   themeConfig: {
+    googleAnalytics: {
+      trackingID: 'UA-6735579-1',
+    },
     hideableSidebar: true,
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
