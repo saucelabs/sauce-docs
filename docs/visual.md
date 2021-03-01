@@ -11,7 +11,7 @@ Know exactly where and what has changed so that you can deliver a consistent and
 <div class="box-wrapper" markdown="1">
 <div class="box box1 card">
   <div class="container">
-  <h2>Visual E2E Testing (Beta)</h2>
+  <h2>Visual E2E Testing</h2>
   <p>Combine visual and functional testing in the same run by integrating your Selenium WebDriver tests with our End-to-End (E2E) solution.</p>
   <ul>
       <li><a href="https://screener.io/docs">Quick Start</a></li>
