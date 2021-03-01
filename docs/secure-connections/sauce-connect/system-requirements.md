@@ -30,7 +30,7 @@ As an important step prior to downloading Sauce Connect Proxy, you or your syste
   * [https://us1.api.testobject.com/sc](https://us1.api.testobject.com/sc/)
   * [https://eu1.api.testobject.com/sc](https://eu1.api.testobject.com/sc/)
 
-If you can get a` 200 OK` response from all URLs above, you are ready to start Sauce Connect! As an alternative, you can use [Nethelp](https://github.com/mdsauce/nethelp) to quickly connect to multiple resources and save the output.
+If you can get a `200 OK` response from all URLs above, you are ready to start Sauce Connect! As an alternative, you can use [Nethelp](https://github.com/mdsauce/nethelp) to quickly connect to multiple resources and save the output.
 
 
 ## Configuring Your System to Use Sauce Connect
