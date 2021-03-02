@@ -184,7 +184,7 @@ suites:
 * __Running in CI/CD__: Please visit [our CI integrations page](/testrunner-toolkit/integrations) for more information about how to run your tests in the following CI platforms:  
     * [Jenkins](/testrunner-toolkit/integrations/jenkins)
     * [GitHub Actions](/testrunner-toolkit/integrations/github-actions)
-* __Configuration Syntax__: Please visit [our basic configuration syntax page](/testrunner-toolkit/configuration/basic) for more technical information regarding the field syntax and data types; also feel free to skip ahead to the framework-specific syntax reference pages:
+* __Configuration Syntax__: Please visit [our common configuration syntax page](/testrunner-toolkit/configuration/common-syntax) for more technical information regarding the field syntax and data types; also feel free to skip ahead to the framework-specific syntax reference pages:
     * [Cypress Configuration Syntax](/testrunner-toolkit/configuration/cypress)
     * [TestCafe Configuration Syntax](/testrunner-toolkit/configuration/testcafe)
     * [Playwright Configuration Syntax](/testrunner-toolkit/configuration/playwright)
