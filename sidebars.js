@@ -301,7 +301,10 @@ module.exports = {
             label: 'I/O Components',
             collapsed: true,
             items: [
+                'api-testing/io-components',
                 'api-testing/io-components/jdbc',
+                'api-testing/io-components/multipart-upload',
+                'api-testing/how-to/update-input',
             ],
         },
     ],
