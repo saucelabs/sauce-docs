@@ -50,7 +50,7 @@ The following steps outline how to run your tests on your local machine with the
 Please note that if you don't specify a `--test-env` flag when running tests, `saucectl` defaults to `docker` mode.
 
 :::note `docker` Syntax Page
-See the [`docker` syntax reference page](/testrunner-toolkit/configuration/basic#docker) for further details.
+See the [`docker` syntax reference page](/testrunner-toolkit/configuration/common-syntax#docker) for further details.
 :::
 
 ```bash
@@ -75,7 +75,7 @@ Refer to the [framework version support matrix](/testrunner-toolkit#supported-fr
 The configuration field: `fileTransfer`, instructs `saucectl` how to copy the test files into the docker container. There are currently two choices `mount` or `copy`.
 
 :::note `fileTransfer` Syntax
-Please refer to the [`fileTransfer` syntax page](/testrunner-toolkit/configuration/basic#filetransfer) for further detals.
+Please refer to the [`fileTransfer` syntax page](/testrunner-toolkit/configuration/common-syntax#filetransfer) for further detals.
 :::
 
 ```yaml
@@ -188,7 +188,7 @@ From this job link you can review, share, and analyze the test results just as y
 If you plan to run tests against a local app server / app running on `localhost` (either on your host machine or in a CI pipeline) there are specific workflows you must follow.
 
 :::tip Need to Access Custom Node Modules?
-If you have third party, or custom modules that are required test dependencies, you can utilize the **`npm`** field in your `config.yml` in order to include those packages during test execution. Refer to the [syntax reference](/testrunner-toolkit/configuration/basic#npm) for further details.
+If you have third party, or custom modules that are required test dependencies, you can utilize the **`npm`** field in your `config.yml` in order to include those packages during test execution. Refer to the [syntax reference](/testrunner-toolkit/configuration/common-syntax#npm) for further details.
 :::
 
 ### Run Tests in Docker Mode and Send Results to Sauce Labs

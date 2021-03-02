@@ -6,7 +6,7 @@ sidebar_label: Cypress
 
 import Highlight from '../../../src/components/highlight.jsx'
 
-Please refer to the [Basic Configuration Syntax Reference](/testrunner-toolkit/configuration/basic)for information regarding fields such as `apiVersion`, `kind`, `suites`, `sauce`, etc.
+Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration/common-syntax)for information regarding fields such as `apiVersion`, `kind`, `suites`, `sauce`, etc.
 
 ## Example Configuration
 
@@ -98,7 +98,7 @@ The value of your `projectId` correlates directly with the value of the `key` fi
 ## `config`
 
 :::note `suites` Syntax Reference
-The `config` field exists under the `suites` object. See [this page](/testrunner-toolkit/configuration/basic#suites) for more details.
+The `config` field exists under the `suites` object. See [this page](/testrunner-toolkit/configuration/common-syntax#suites) for more details.
 :::
 
 __Description__: Details specific to the cypress test configuration
