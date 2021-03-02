@@ -1,7 +1,7 @@
 ---
-id: basic
-title: "Configuration Syntax: Basic"
-sidebar_label: Basic
+id: common-syntax
+title: Common Configuration Syntax
+sidebar_label: Common Syntax
 ---
 
 import Highlight from '../../../src/components/highlight.jsx'
