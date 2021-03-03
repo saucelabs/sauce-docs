@@ -436,6 +436,12 @@ h3, .h3 {
   border-radius:250px;
 }
 
+/* OpenAPI styles */
+
+.redocusaurus h2,h3,h4 {
+  color: #E2231A;;
+}
+
 
 /* Get Started button styles */
 #__docusaurus > div.main-wrapper > header > div > div > a {
