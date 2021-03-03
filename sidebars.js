@@ -15,6 +15,7 @@ module.exports = {
            items: [
              'basics/acct-team-mgmt-hub',
              'basics/acct-team-mgmt/org-settings',
+             'basics/acct-team-mgmt/real-devices',
 
                {
                  type: 'category',
@@ -68,13 +69,13 @@ module.exports = {
 ],
   "Secure Connections": [
      'secure-connections',
-     'secure-connections/ipsec-vpn',
      {
         type: 'category',
         label: 'Sauce Connect Proxy',
         collapsed: true,
         items: [
           'secure-connections/sauce-connect',
+          'secure-connections/sauce-connect/system-requirements',
           'secure-connections/sauce-connect/installation',
           'secure-connections/sauce-connect/setup-configuration',
           'secure-connections/sauce-connect/environment-variables',
@@ -82,8 +83,10 @@ module.exports = {
           'secure-connections/sauce-connect/security',
           'secure-connections/sauce-connect/troubleshooting',
           'secure-connections/sauce-connect/faq',
+          'secure-connections/sauce-connect/changelog',
           ],
         },
+      'secure-connections/ipsec-vpn',  
       ],
   "Mobile Apps": [
     'mobile-apps',
@@ -219,6 +222,13 @@ module.exports = {
         items: [
           'dev/api',
           'dev/api/accounts',
+          'dev/api/connect',
+          'dev/api/insights',
+          'dev/api/jobs',
+          'dev/api/performance',
+          'dev/api/platform',
+          'dev/api/rdc',
+          'dev/api/storage',
         ],
       },
       {
