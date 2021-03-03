@@ -16,11 +16,11 @@ module.exports = {
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
     },
-    algolia: {
+    /*algolia: {
       appId: process.env.ALGOLIA_APP_ID,
       apiKey: process.env.ALGOLIA_KEY,
       indexName: 'saucelabs',
-    },
+    },*/
     /* Dark and Light Mode Config */
     colorMode: {
       defaultMode: 'light',

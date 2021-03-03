@@ -125,6 +125,7 @@ docker:
   fileTransfer: mount # Defaults to `mount`. Choose between mount|copy.
   # image controls which images to be used for local testing. Change this value is you want to use a custom image.
   # image: saucelabs/stt-cypress-mocha-node:v5.6.0
+rootDir: "./" # Location of directory that you wish to have bundled. Defaults to current directory.
 cypress:
   configFile: "tests/cypress.json"  # We determine related files based on the location of the config file.
   version: 5.6.0
@@ -367,6 +368,21 @@ __Example__:
 ```
 
 > WARNING: using the `latest` tag for docker images is dangerous. For further information, read [this article](https://vsupalov.com/docker-latest-tag/#:~:text=You%20should%20avoid%20using%20the,apart%20from%20the%20image%20ID.).
+
+### `rootDir`
+__Description__: Directory of files that need to be bundled and uploaded (Sauce VM's). Ignores what is specified in `.sauceignore`
+
+__Type__: *object*
+
+__Example__:
+```yaml
+  rootDir: "./" # Just use the current directory
+```
+
+```yaml
+  rootDir: "packages/subpackage" # Some other package from within a monorepo
+```
+
 
 ### `npm`
 __Description__: Details specific to the `npm` configuration. Packages listed will be installed on the environment prior to your tests execution.
