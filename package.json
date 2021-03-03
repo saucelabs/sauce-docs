@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "dev": "cross-env SAUCE_DOCS_DEV=true docusaurus start",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
@@ -17,8 +18,8 @@
     "@docusaurus/preset-classic": "2.0.0-alpha.70",
     "@mdx-js/react": "1.6.21",
     "@saucelabs/theme-github-codeblock": "0.0.4",
-    "docusaurus2-dotenv": "^1.4.0",
     "clsx": "1.1.1",
+    "docusaurus2-dotenv": "^1.4.0",
     "react": "16.8.4",
     "react-dom": "16.8.4"
   },
@@ -35,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "cypress": "^4.12.1"
   }
 }
