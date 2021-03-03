@@ -1,4 +1,4 @@
-module.exports = {
+const docusaurusConfig = {
   title: 'Sauce Labs Documentation',
   tagline: 'Find everything you need to know about manual and automated cross-browser and mobile app testing in the Sauce Labs Continuous Testing Cloud.',
   url: 'https://docs.saucelabs.com',
@@ -16,11 +16,6 @@ module.exports = {
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
     },
-    /*algolia: {
-      appId: process.env.ALGOLIA_APP_ID,
-      apiKey: process.env.ALGOLIA_KEY,
-      indexName: 'saucelabs',
-    },*/
     /* Dark and Light Mode Config */
     colorMode: {
       defaultMode: 'light',
@@ -364,4 +359,14 @@ module.exports = {
       },
     ],
   ],
-};
+}
+
+if (!process.env.SAUCE_DOCS_DEV) {
+  docusaurusConfig.themeConfig.algolia = {
+    appId: process.env.ALGOLIA_APP_ID,
+    apiKey: process.env.ALGOLIA_KEY,
+    indexName: 'saucelabs',
+  }
+}
+
+module.exports = docusaurusConfig;
