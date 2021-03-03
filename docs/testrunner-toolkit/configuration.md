@@ -370,7 +370,7 @@ __Example__:
 > WARNING: using the `latest` tag for docker images is dangerous. For further information, read [this article](https://vsupalov.com/docker-latest-tag/#:~:text=You%20should%20avoid%20using%20the,apart%20from%20the%20image%20ID.).
 
 ### `rootDir`
-__Description__: Directory of files that need to be bundled and uploaded (Sauce VM's). Ignores what is specified in `.sauceignore`
+__Description__: Directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Bundling page](bundling) page for more details
 
 __Type__: *object*
 
