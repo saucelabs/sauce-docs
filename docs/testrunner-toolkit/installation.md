@@ -81,8 +81,8 @@ chmod 700 get_saucectl.sh && \
 ./get_saucectl.sh
 ```
 
-:::warning Windows and mingw
-Mingw is known to interfere with `saucectl`, especially with interactive commands like `saucectl configure` or `saucectl new`.
+:::warning Are you using mingw?
+Mingw on Windows is known to interfere with `saucectl`, especially with interactive commands like `saucectl configure` or `saucectl new`.
 We therefor advise Windows users to simply use `cmd` or `powershell` when interacting with `saucectl`.
 :::
 
