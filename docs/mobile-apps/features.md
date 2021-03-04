@@ -103,15 +103,15 @@ driver.toggleEnrollTouchId(true);
 ```
 
 3. To run your test **locally**, call `npm run test.local.ios.simulator`. To run it **on an Sauce Labs iOS simulator**, call one of the following, based on your location:
-    1. In the US DC: `npm run test.sauce.ios.simulator.us`
-    2. In the EU DC: `npm run test.sauce.ios.simulator.eu`
+    * In the US Data Center: `npm run test.sauce.ios.simulator.us`.
+    * In the EU Data Center: `npm run test.sauce.ios.simulator.eu`.
 
 
 ##### Default Capabilities
 
 Below you will see the default capabilities you'll need to run an automated test on an iOS simulator. See [Using Biometric Login on Sauce Labs](https://github.com/saucelabs-training/demo-js/tree/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login) for a variety of iOS simulator configuration demo scripts.
 
-```
+```sh
 {
     // The defaults you need to have in your config
     deviceName: 'iPhone X Simulator',
@@ -212,7 +212,6 @@ allowTouchIdEnroll: true,
 
 See [Using Biometric Login on Sauce Labs](https://github.com/saucelabs-training/demo-js/tree/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login) for a variety of iOS real device configuration demo scripts.
 
-
 ```
 const {config} = require('./wdio.shared.sauce.conf');
 const testName = `iOS Biometric login real device Sauce UI: ${new Date().getTime()}`;
@@ -220,7 +219,7 @@ const testName = `iOS Biometric login real device Sauce UI: ${new Date().getTime
 // ============
 // Capabilities
 // ============
-// For all capabilities please check
+// For a list of capabilities, see:
 // http://appium.io/docs/en/writing-running-appium/caps/#general-capabilities
 config.capabilities = [
     {
@@ -262,8 +261,6 @@ At this time, Touch ID and Face ID testing is not supported for Android real dev
 *   [Using Biometric Authentication on Automated Tests | Sauce Labs on GitHub](https://github.com/saucelabs/sample-app-mobile/blob/master/docs/APPIUM_AUTOMATION.md)
 
 
-
-
 ## Camera Image Injection
 
 Camera Image Injection – also known as camera mocking – is a Sauce Labs Real Device Cloud (RDC) feature that simulates taking a picture through a mobile app, allowing you to test the app’s camera-based functionality and deliver the best possible user experience.
@@ -295,9 +292,10 @@ See the topics under [Mobile App Testing](/mobile-apps) for RDC system requireme
 *   Front-facing and rear-facing system device cameras
 *   Image file sizes up to 5MB
 *   JPG, JPEG, PNG image file formats.
-*   For Android devices, there are multiple ways to capture an image, as described in the Android [Camera API](https://developer.android.com/guide/topics/media/camera) developer documentation. We support the following:
+*   For Android devices, there are multiple ways to capture an image, as described in the [Android Camera API](https://developer.android.com/guide/topics/media/camera) developer documentation. We support the following:
     *   [ACTION_IMAGE_CAPTURE Intent](https://developer.android.com/reference/android/provider/MediaStore#ACTION_IMAGE_CAPTURE): opens the system camera and notifies the calling app gets when the image is taken
     *   [camera2 API](https://developer.android.com/reference/android/hardware/camera2/package-summary): everything is configured and handled from within the app
+    * [cameraX](https://developer.android.com/training/camerax): leverages the capabilities of camera2, but uses a simpler, use case-based approach that is lifecycle-aware.
     *   [Camera API (deprecated)](https://developer.android.com/reference/android/hardware/Camera) (partially supported): As with camera2, everything is handled in the app itself. QR Code readers often use [Camera#setPreviewCallback](https://developer.android.com/reference/android/hardware/Camera#setPreviewCallback(android.hardware.Camera.PreviewCallback)). We pass the injected image to this method, but the rest of this deprecated API is not supported. UI Elements will not likely display the injected image.
 *   For iOS devices, the camera can be configured with different outputs. We support the following:
     *   [AVCapturePhotoOutput](https://developer.apple.com/documentation/avfoundation/avcapturephotooutput?language=objc): for capturing still images. The results are received via the [AVCapturePhotoCaptureDelegate](https://developer.apple.com/documentation/avfoundation/avcapturephotocapturedelegate?language=objc) and the method [captureOutput:didFinishProcessingPhoto:error:](https://developer.apple.com/documentation/avfoundation/avcapturephotocapturedelegate/2873949-captureoutput?language=objc) The other methods in this delegate are either deprecated or handle live photos, which we don't support.
