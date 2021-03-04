@@ -16,4 +16,5 @@ suites:
   - name: "all chrome"
     browser: "chrome"
     platformName: "Windows 10"
+    config:
       testFiles: [ "**/*.*" ]
