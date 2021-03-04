@@ -8,9 +8,9 @@ The [saucectl command line interface](saucectl) runs tests (Cypress, TestCafe, P
 
 ## Bundling
 
-The Sauce Labs config.yml has a parameter called "rootDir" that specifies the directory that needs to be bundled ([see configuration documentation](configuration.md))
+The Sauce Labs config.yml has a parameter called "rootDir" that tells saucectl where your test files are ([see configuration documentation](configuration.md)). These test files get bundled and uploaded to the Sauce Labs cloud.
 
-(TODO: add a screengrab of the bundling in action)
+![img](../../static/img/saucectl/uploading-project.png)
 
 ## sauceignore
 
