@@ -618,7 +618,7 @@ Below are examples of Appium capabilities for an iPhone project using iOS versio
 
 **Java**
 
-```
+```java
 DesiredCapabilities caps = DesiredCapabilities();
     caps.setCapability("username", "SAUCE_USERNAME");
     caps.setCapability("accessKey", "SAUCE_ACCESS_KEY");
@@ -632,7 +632,7 @@ DesiredCapabilities caps = DesiredCapabilities();
 
 **Python**
 
-```
+```py
 caps = {}
 caps['username'] = "SAUCE_USERNAME"
 caps['accessKey'] = "SAUCE_ACCESS_KEY"
@@ -646,7 +646,7 @@ caps['app'] = "storage:filename=<file-name>"
 
 **node.js**
 
-```
+```js
 caps = {};
 caps['username'] = 'SAUCE_USERNAME';
 caps['accessKey'] = 'SAUCE_ACCESS_KEY';
@@ -660,7 +660,7 @@ caps['app'] = 'storage:filename=<file-name>';
 
 **Ruby**
 
-```
+```rb
 caps = Selenium::WebDriver::Remote::Capabilities()
 caps['username'] = 'SAUCE_USERNAME'
 caps['accessKey'] = 'SAUCE_ACCESS_KEY'
@@ -674,7 +674,7 @@ caps['app'] = 'storage:filename=<file-name>'
 
 **C#**
 
-```
+```csharp
 DesiredCapabilities caps = new DesiredCapabilities();
     caps.SetCapability("username", "SAUCE_USERNAME");
     caps.SetCapability("accessKey", "SAUCE_ACCESS_KEY");
@@ -693,7 +693,7 @@ Below are examples of Appium capabilities for an Samsung Galaxy project using An
 
 **Java**
 
-```
+```java
 DesiredCapabilities caps = DesiredCapabilities();
     caps.setCapability("username", "SAUCE_USERNAME");
     caps.setCapability("accessKey", "SAUCE_ACCESS_KEY");
@@ -707,7 +707,7 @@ DesiredCapabilities caps = DesiredCapabilities();
 
 **Python**
 
-```
+```py
 caps = {}
 caps['username'] = "SAUCE_USERNAME"
 caps['accessKey'] = "SAUCE_ACCESS_KEY"
@@ -720,7 +720,7 @@ caps['app'] = "sauce-storage:<upload_filename>"
 
 **node.js**
 
-```
+```js
 caps = {};
 caps['username'] = 'SAUCE_USERNAME';
 caps['accessKey'] = 'SAUCE_ACCESS_KEY';
@@ -734,7 +734,7 @@ caps['app'] = 'sauce-storage:<upload_filename>';
 
 **Ruby**
 
-```
+```rb
 caps = Selenium::WebDriver::Remote::Capabilities()
 caps['username'] = 'SAUCE_USERNAME'
 caps['accessKey'] = 'SAUCE_ACCESS_KEY'
@@ -748,7 +748,7 @@ caps['app'] = 'sauce-storage:<upload_filename>'
 
 **C#**
 
-```
+```csharp
 DesiredCapabilities caps = new DesiredCapabilities();
     caps.SetCapability("username", "SAUCE_USERNAME");
     caps.SetCapability("accessKey", "SAUCE_ACCESS_KEY");
@@ -768,7 +768,7 @@ DesiredCapabilities caps = new DesiredCapabilities();
 
 **iPhone 6 Real Device**
 
-```
+```sh
 {
 deviceName:'iPhone 6 Device',
 platformName:'iOS',
@@ -780,7 +780,7 @@ app:'sauce-storage:SampleIOSApp.ipa',
 
 **Samsung Galaxy S5 Real Device**
 
-```
+```sh
 {
 deviceName:'Samsung Galaxy S5 Device',
 platformVersion:'4.4',
@@ -794,7 +794,7 @@ app:"http://saucelabs.com/example_files/ContactManager.apk",
 
 **Samsung Galaxy S4**
 
-```
+```sh
 {
 deviceName:'Samsung Galaxy S4 Device',
 platformVersion:'4.4',
