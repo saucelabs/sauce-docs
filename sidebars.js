@@ -331,8 +331,35 @@ module.exports = {
                 },
                 'api-testing/integrations/helper-databases-jdbc',
                 'api-testing/integrations/jenkins',
+                'api-testing/integrations/single-sign-on-with-saml-2-0-beta',
+                ],
+        },
+        {
+            type: 'category',
+            label: 'Learn More',
+            collapsed: true,
+            items: [
+                'api-testing/learn-more/downloader-101',
+                'api-testing/learn-more/improving-your-metrics',
+                'api-testing/learn-more/input-set-and-global-variables',
+                'api-testing/learn-more/planning-your-test',
+                'api-testing/learn-more/the-variables-system-in-api-fortress',
+                'api-testing/learn-more/working-with-the-response-object',
+
             ],
         },
+        {
+            type: 'category',
+            label: 'Logical Components',
+            collapsed: true,
+            items: [
+                'api-testing/logical-components/each',
+                'api-testing/logical-components/flow',
+                'api-testing/logical-components/if',
+                'api-testing/logical-components/tag',
+                'api-testing/logical-components/while',
+            ],
+        }
     ],
     "CI/CD": [
         'ci',

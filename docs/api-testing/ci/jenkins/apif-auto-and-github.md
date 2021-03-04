@@ -15,6 +15,7 @@ APIF-Auto, a command line tool that supports automated API Fortress test executi
 The pipeline script below serves as a template for creating stages in your Jenkins Pipeline for testing your APIs with API Fortress' tests that are stored in Github. If you’d like to take a look at the documentation for APIF-Auto, click [here](https://apifortress.com/doc/command-line-tools/).
 
 > __NOTE__: It’s important to note that this is an **example** of a `Jenkinsfile` (Jenkins Pipeline). Experienced Jenkins users are free to configure their workflow as best suits their needs.
+
 ```bash
 node {  
    def mvnHome  
