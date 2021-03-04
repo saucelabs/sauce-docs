@@ -81,6 +81,11 @@ chmod 700 get_saucectl.sh && \
 ./get_saucectl.sh
 ```
 
+:::warning Windows and mingw
+Mingw is known to interfere with `saucectl`, especially with interactive commands like `saucectl configure` or `saucectl new`.
+We therefor advise Windows users to simply use `cmd` or `powershell` when interacting with `saucectl`.
+:::
+
 ## Connecting to Sauce Labs
 
 You need to retrieve your Sauce Labs `username` and `accessKey` in order post your test results to the Sauce Labs platform. To retrieve your Sauce Labs account credentials navigate to [Account > User Settings](https://app.saucelabs.com/user-settings).
