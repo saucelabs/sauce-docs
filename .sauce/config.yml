@@ -1,19 +1,19 @@
-apiVersion: v1
-metadata:
-  name: Feature XYZ
-  tags:
-    - e2e
-    - technical-content-team
-  build: Release $CI_COMMIT_SHORT_SHA
-files:
-  - ./tests/
-suites:
-  - name: "Saucy Tests"
-    match: ".*.(oas|test).js$"
-    settings:
-      browserName: chrome
-image:
-  base: saucelabs/stt-cypress-mocha-node
-  version: v0.1.10
+apiVersion: v1alpha
+kind: cypress
 sauce:
   region: us-west-1
+  concurrency: 10
+  metadata:
+    name: Testing Sauce Docs
+    tags:
+      - e2e
+      - technical-content-team
+    build: Release $CI_COMMIT_SHORT_SHA
+cypress:
+  version: 5.6.0
+  configFile: "tests/cypress.json"
+suites:
+  - name: "all chrome"
+    browser: "chrome"
+    platformName: "Windows 10"
+      testFiles: [ "**/*.*" ]
