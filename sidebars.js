@@ -359,7 +359,24 @@ module.exports = {
                 'api-testing/logical-components/tag',
                 'api-testing/logical-components/while',
             ],
-        }
+        },
+        {
+            type: 'category',
+            label: 'Mocking / Service Virtualization',
+            collapsed: true,
+            items: [
+                'api-testing/mocking/expressions-in-mocked-apis',
+                'api-testing/mocking/mock-recording-with-kong',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Monitoring',
+            collapsed: true,
+            items: [
+                'api-testing/monitoring/generate-a-status-page',
+            ],
+        },
     ],
     "CI/CD": [
         'ci',

@@ -8,14 +8,6 @@ keywords:
     - while
 ---
 
----
-title: "While"
-date: "2016-06-22"
-categories: 
-  - "logicalcomponents"
-  - "reference"
----
-
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Allows you to run a block of assertions as long as a condition is valid.
