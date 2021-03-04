@@ -2,30 +2,32 @@
 id: environment-variables
 title: Sauce Connect Environment Variables
 sidebar_label: Environment Variables
+hide_table_of_contents: true
 ---
 
-These environment variables can be used in addition to command-line flags to control the behavior of Sauce Connect Proxy. Please note that not all environment variables are supported on all platforms.
+These environment variables can be used in addition to [command-line options](/dev/cli/sauce-connect-proxy) to control the behavior of Sauce Connect Proxy. To learn how to set up environment variables, see [Using Environment Variables for Authentication Credentials](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365921).
 
-When an environment variable is used, it can still be overridden by the command-line. Command-line options – when available – always take precedence. Some command-line arguments can be passed through a config file or an environment variable. When the same argument is passed through multiple methods, the order of precedence is as follows: Command Line Argument > Config File > Environment Variable.
+When an environment variable is used, it can still be overridden by the command-line. Command-line options – when available – always take precedence.
 
-See [Sauce Connect Proxy Command Line Reference](/dev/cli/sauce-connect-proxy) for the full list of CLI options.
+Some command-line arguments can be passed through a config file or an environment variable. When the same argument is passed through multiple methods, the order of precedence is as follows:
 
-To ensure compatibility with these variables, make sure that you're using the latest version of Sauce Connect Proxy ([download here](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863)).
+1. Command Line Argument
+1. Config File
+1. Environment Variable
 
-
-  <table>
+<table>
 
   <tr>
    <td><strong>Environment Variable</strong></td>
    <td><strong>Description</strong></td>
    <td><strong>Platforms</strong></td>
-   <td><strong>Command-Line Option</strong></td>
+   <td><strong>Corresponding CLI Option</strong></td>
   </tr>
   <tr>
    <td><sub><code>
    SAUCE_USERNAME
    </code></sub></td>
-   <td>Sauce Labs username.</td>
+   <td>Sets your Sauce Labs username.</td>
    <td>Windows, Linux, Mac OS X</td>
    <td><a href="/dev/cli/sauce-connect-proxy"><sub><code>--user</code></sub></a></td>
   </tr>
@@ -33,7 +35,7 @@ To ensure compatibility with these variables, make sure that you're using the la
    <td><sub><code>
    SAUCE_ACCESS_KEY
    </code></sub></td>
-   <td>Sauce Labs access key.</td>
+   <td>Sets your Sauce Labs access key.</td>
    <td>Windows, Linux, Mac OS X</td>
    <td><a href="/dev/cli/sauce-connect-proxy"><sub><code>--api-key</code></sub></a></td>
   </tr>
@@ -42,9 +44,9 @@ To ensure compatibility with these variables, make sure that you're using the la
    http_proxy
    </code></sub></td>
    <td rowspan="4" >
-   <p>An HTTP proxy that will be used by Sauce Connect Proxy. It can be formatted as <code>http://hostname:port</code>or <code>hostname:port</code>.</p>
+   <p>Sets an HTTP proxy to be used by Sauce Connect Proxy. It can be formatted as <code>http://hostname:port</code> or <code>hostname:port</code>.</p>
 
-   <p>On Linux and Mac environments, <code>http_proxy</code> and <code>https_proxy</code> variables can contain proxy credentials in the following format: <sub><code>scheme://user:password@host:port</code></sub></p>
+   <p>On Linux and Mac environments, <code>http_proxy</code> and <code>https_proxy</code> variables can contain proxy credentials in the following format: <code>scheme://user:password@host:port</code></p>
    </td>
 
    <td rowspan="4" >Windows, Linux, Mac OS X</td>
@@ -68,8 +70,7 @@ To ensure compatibility with these variables, make sure that you're using the la
   no_proxy
   </code></sub></td>
   <td rowspan="2" >
-   <p>A comma-separated list of hostnames that will not be proxied, even when Sauce Connect is configured to use a proxy. Subdomain wildcarding is supported when the hostname starts with a ".".</p>
-   <p><strong>Examples</strong></p>
+   Sets hostnames that will not be proxied, even when Sauce Connect is configured to use a proxy. Format as a comma-separated list. Subdomain wildcarding is supported when the hostname starts with a <code>.</code>. Examples:
    <ul>
    <li><code>saucelabs.com,foobar.net</code>: Only requests hitting <code>saucelabs.com</code> and <code>foobar.net</code> will not be proxied. All other requests will be proxied.</li>
    <li><code>.example.com</code>: All requests going to any subdomain of <code>example.com</code> will not be proxied (e.g., <code>one.example.com</code>, <code>asdf.example.com</code>)</li>
@@ -88,7 +89,7 @@ To ensure compatibility with these variables, make sure that you're using the la
   </code></sub></td>
 
    <td>
-   Advanced flags for the DNS library Sauce Connect use integer. For more information, see <a href="http://c-ares.haxx.se/ares_init.html">c-ares</a>, a C library.
+   Sets advanced flags for DNS library use with Sauce Connect. For more information, see <a href="http://c-ares.haxx.se/ares_init.html">c-ares Documentation</a>.
    </td>
 
    <td>Windows, Linux, Mac OS X</td>
@@ -97,3 +98,10 @@ To ensure compatibility with these variables, make sure that you're using the la
 
    </tr>
    </table>
+
+>**NOTE**: Not all environment variables are supported on all platforms. For best performance, make sure that you're using the [latest version of Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863).
+
+## Additional Resources
+
+* [Sauce Connect Proxy Command-Line Reference](/dev/cli/sauce-connect-proxy)
+* [Download Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863)

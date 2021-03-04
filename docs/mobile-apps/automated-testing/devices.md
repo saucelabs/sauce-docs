@@ -1,7 +1,7 @@
 ---
 id: devices
 title: Choosing a Device for Mobile App Testing
-sidebar_label: Choosing a Device
+sidebar_label: Choosing Devices
 ---
 
 export const Highlight = ({children, color}) => ( <span style={{
