@@ -1,4 +1,4 @@
-deathclock=3
+deathclock=60
 
 printf "Waiting for file $1 "
 while [ ! -f $1 ];
@@ -9,7 +9,7 @@ do
   fi
 
   sleep 1
-  printf '.' > /dev/tty
+  printf '.'
 
   ((deathclock--))
 done
