@@ -4,7 +4,7 @@ title: Bundling Test Files
 sidebar_label: CLI Reference
 ---
 
-The [saucectl command line interface](saucectl) runs tests (Cypress, TestCafe, Playwright, ...) by bundling up your root directory, sending the bundle to the Sauce Labs cloud (or a Docker container), unpacking the bundle and then running the tests. This page explains how bundling works and how you can reduce the size of your bundle for improved performance.
+The [saucectl command line interface](saucectl) runs tests (Cypress, TestCafe, Playwright, ...) by bundling up your root directory, sending the bundle to the Sauce Labs cloud (or in your own infrastructure via Docker), unpacking the bundle and then running the tests. This page explains how bundling works and how you can reduce the size of your bundle for improved performance.
 
 ## Bundling
 
@@ -14,7 +14,7 @@ The Sauce Labs config.yml has a parameter called "rootDir" that specifies the di
 
 ## sauceignore
 
-The `.sauceignore` file is a file that is generated when you run `saucectl new`. It tells saucectl which files should be excluded from bundling. It works the same way as other ignore files (`.gitignore`, `.hgignore`, `.dockerignore`, etc...).
+The `.sauceignore` file is a file that is generated when you run `saucectl new`. It tells saucectl which files should be excluded from bundling. It works the same way as other ignore files (`.gitignore`, `.hgignore`, `.dockerignore`, etc...). See https://git-scm.com/docs/gitignore for reference.
 
 If your project has files that are not needed to run your tests, add those files to `.sauceignore` to reduce the size of your bundle and improve test speed.
 
