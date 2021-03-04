@@ -376,10 +376,15 @@ __Type__: *object*
 __Example__:
 ```yaml
   npm:
+    registry: https://registry.npmjs.org
     packages:
       lodash: "4.17.20"
-      "@babel/preset-typescript": "7.12.7"
+      "@babel/preset-typescript": "7.12"
+      "@cypress/react": "^5.0.1"
+      
 ```
+
+⚠️ `registry` configuration is only supported in latest cypress docker image. No other frameworks, or Sauce Labs cloud.
 
 ### `suites`
 
@@ -416,6 +421,19 @@ __Example__:
     hello: world
     my_var: $MY_VAR
 ```
+
+#### `tunnel`
+__Description__: Tunnel allows you to specify an existing sauce connect tunnel when running tests inside the Sauce cloud. **Note:** This has no effect when running tests inside docker.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+ tunnel:
+    id: your_tunnel_id
+    parent: parent_owner_of_tunnel # if applicable, specify the owner of the tunnel
+```
+
 
 ## Framework Syntax Reference
 
