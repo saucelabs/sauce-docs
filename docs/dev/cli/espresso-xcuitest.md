@@ -224,7 +224,7 @@ These options are required for use with the `xcuitest` or `espresso` commands. T
    <td><p><sub><code>
    --testsToRun
    </code></sub></p>
-   <p><button class="badge-green">XCUITest Only</button></p>
+   <p><button className="badge-green">XCUITest Only</button></p>
    </td>
    <td>
    <p>For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use <code>iPhone.*Plus</code> to allocate any iPhone Plus device. For more information, see the examples under <a href="#devices"><code>--devices</code></a>. Example: Execute all tests in <code>ClassA</code> and only <code>methodC</code> of <code>ClassB</code>:</p>
@@ -239,7 +239,7 @@ These options are required for use with the `xcuitest` or `espresso` commands. T
   </tr>
   <tr>
    <td><p><sub><code>--e</code></sub></p>
-   <p><button class="badge-green">Espresso Only</button></p>
+   <p><button className="badge-green">Espresso Only</button></p>
    </td>
    <td>
    <p>Provide a list of test options to Espresso. The key-value pairs supported by Espresso are documented here: <a href="https://developer.android.com/studio/test/command-line#AMOptionsSyntax">Android Developers: <code>am instrument</code> options</a>.</p>
@@ -265,7 +265,7 @@ These options are required for use with the `xcuitest` or `espresso` commands. T
    <td><p><sub><code>
    --useTestOrchestrator
    </code></sub></p>
-   <p><button class="badge-green">Espresso Only</button></p>
+   <p><button className="badge-green">Espresso Only</button></p>
    </td>
    <td>
    <p>If set, the instrumentation will start with Test Orchestrator version 1.1.1 in use.</p>

@@ -40,7 +40,7 @@ Minimum requirements for installing Sauce Runner for Real Devices:
 ## Download
 Click here below to download the Sauce Runner for Real Devices .jar file.
 
-<p><button class="badge-download"><a href="https://s3.amazonaws.com/saucelabs-runner/v1.9/runner.jar">Download</a></button></p>
+<p><button className="badge-download"><a href="https://s3.amazonaws.com/saucelabs-runner/v1.9/runner.jar">Download</a></button></p>
 
 
 ## Test Preparation
