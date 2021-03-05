@@ -19,5 +19,6 @@ suites:
     config:
       testFiles: [ "**/*.*" ]
       env:
+        HELLO: world
         BASE_URL: http://localhost:8000
         CYPRESS_BASE_URL: http://localhost:8000
