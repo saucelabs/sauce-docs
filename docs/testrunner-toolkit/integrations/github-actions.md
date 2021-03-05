@@ -62,7 +62,7 @@ jobs:
 
 In the examples below, we illustrate the different run modes that `saucectl` has: Docker and the Sauce Cloud. They determine where the tests are executed. Docker means that tests are executed locally in a container, while Sauce refers to the Sauce Cloud (i.e. Sauce Labs infrastructure).
 If you are running your tests on the Sauce Cloud, you will likely require a tunnel back to where your application is running. A tunnel will enable the remote browser to access your local network.
-For this, we are going to use [Sauce Connect](secure-connections/sauce-connect.md).
+For this, we are going to use [Sauce Connect](/secure-connections/sauce-connect).
 
 > For more detailed information on setting event-driven actions and jobs, please visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
 
