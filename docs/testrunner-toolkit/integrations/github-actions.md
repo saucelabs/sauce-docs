@@ -89,7 +89,7 @@ https://github.com/saucelabs/sauce-docs/blob/master/.github/workflows/deploy.yml
 </TabItem>
 </Tabs>
 
-> You can reference our example workflows [here](https://github.com/saucelabs/testrunner-toolkit/tree/master/.github/workflows) and [here](https://github.com/saucelabs/sauce-docs/blob/master/.github/workflows).
+> You can reference our example workflows [here](https://github.com/saucelabs/testrunner-toolkit/tree/master/.github/workflows).
 
 Now when you commit these files, GitHub will detect the new workflow actions and launch `saucectl` to run your tests.
 
