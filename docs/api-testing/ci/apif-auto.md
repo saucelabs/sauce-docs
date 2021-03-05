@@ -22,7 +22,7 @@ The tool, or rather, pair of tools, are designed to reduce the amount of legwork
 APFCMD allows a user to easily integrate API Fortress testing into other workflows. Example use cases are:
 
 - Executing API Fortress tests from a CI/CD tool
-- Incorporating API Fortress tests in a Git version control plan.
+- Incorporating API Fortress tests in a Git version control plan.
 - Pushing test code from an IDE to the API Fortress platform.
 
 All of these scenarios, and more, can be accomplished with the tool.
@@ -38,7 +38,7 @@ Run allows us to execute tests on the platform and do things with that data. We 
 - **`run-all`** - RUN ALL - This will execute all of the tests in a chosen project.
 - **`run-by-tag`** - RUN BY TAG - This will execute all tests with a selected tag (requires the -t flag to set tag)
 - **`run-by-id`** - RUN BY ID - This will execute a test with a specific ID (requires the -i flag to set id)
-- **`hook`** - HOOK - This is the webhook of the project you are working with. This can be either an API Fortress URL, or the key from a configuration file (set the path to the config file with the **\-c** tag)
+- **`hook`** - HOOK - This is the webhook of the project you are working with. This can be either an API Fortress URL, or the key from a configuration file (set the path to the config file with the **-c**  tag)
 
 To run all of the tests in a specific project, we would use the following command string:
 
@@ -83,19 +83,19 @@ A configuration file is a YAML file that is formatted as follows:
 
 ```yaml
 hooks:
-  - key: cool\_proj1
-    url: https://mastiff.apifortress.com/app/api/rest/v3/A\_WEBHOOK
+  - key: cool_proj1
+    url: https://mastiff.apifortress.com/app/api/rest/v3/A_WEBHOOK
     credentials:
       username: (your username)
       password: (your password)
-  - key: uncool\_proj
-    url: https://mastiff.apifortress.com/app/api/rest/v3/ANOTHER\_WEBHOOK
+  - key: uncool_proj
+    url: https://mastiff.apifortress.com/app/api/rest/v3/ANOTHER_WEBHOOK
     credentials:
       username: (another username)
       password: (another password)
-  - key: unauth\_proj
-    url: https://mastiff.apifortress.com/app/api/rest/v3/JUST\_A\_WEBHOOK\_WITHOUT\_CREDENTIALS
-test\_directory: /tests
+  - key: unauth_proj
+    url: https://mastiff.apifortress.com/app/api/rest/v3/JUST_A_WEBHOOK_WITHOUT_CREDENTIALS
+test_directory: /tests
 ```
 
 Once you create a configuration file, you can pass the path with **`-c`** and the key to the data in place of the normal hook URL. If you also pass credentials, they'll override the credentials in the configuration file. If you don't include credentials in the config file, you can pass them manually or leave them out entirely.

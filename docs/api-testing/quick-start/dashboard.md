@@ -11,7 +11,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 The API Fortress platform offers a full-featured dashboard that centralizes testing management and simplifies collaboration and reporting. Key features of the dashboard allow you to:
 
 ## View Tests
-- View all test logs across teams
+
+View all test logs across teams
   <img src={useBaseUrl('img/api-fortress/2019/01/dash-1.png')} alt="Dashboard Pic 1"/>
 
 ## Test Logs
@@ -37,6 +38,6 @@ Filter logs and alerts by time, endpoint, and more
 
 The following links provide useful information about using the dashboard and its metrics:
 
-- [Improving the metrics view](https://apifortress.com/doc/improving-your-metrics/)
-- [Creating test assertions based on metrics](https://apifortress.com/doc/assertions-for-metrics-performance/)
+- [Improving the metrics view](/api-testing/learn-more/improving-your-metrics)
+- [Creating test assertions based on metrics](/api-testing/how-to/assertions-for-metrics-performance/)
 - [Simplest method to set up a basic monitor](/api-testing/quick-start/easy-monitoring/)
