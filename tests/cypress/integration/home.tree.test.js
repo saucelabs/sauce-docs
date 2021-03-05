@@ -2,7 +2,6 @@
 //TODO Harden Cypress Locators
 context('Home Page Tree Actions', () => {
     beforeEach(() => {
-        cy.log(`hello ${Cypress.env('HELLO')}`)
         cy.visit(`/overview`)
     });
 
