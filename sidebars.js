@@ -149,7 +149,8 @@ module.exports = {
         label: 'Automated Testing',
         collapsed: true,
         items: [
-          'web-apps/automated-testing/cypress'
+          'web-apps/automated-testing/cypress',
+          'web-apps/automated-testing/playwright',
         ],
       },
     ],
