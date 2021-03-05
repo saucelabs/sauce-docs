@@ -9,6 +9,7 @@ sauce:
       - e2e
       - technical-content-team
     build: Release $CI_COMMIT_SHORT_SHA
+    public: public
 cypress:
   version: 5.6.0
   configFile: "tests/cypress.json"
