@@ -155,7 +155,7 @@ Below are some additional topics related to using Playwright with Sauce Labs.
 Please visit the [Configuration page](/testrunner-toolkit/configuration) to learn more about `config.yml` and the specific fields and properties:
 
 * [Common Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference)
-* [Playwrightt Syntax Reference](/testrunner-toolkit/configuration/playwright)
+* [Playwright Syntax Reference](/testrunner-toolkit/configuration/playwright)
 
 ### Running in CI
 
