@@ -60,36 +60,30 @@ jobs:
 
 ## Create the Test Job
 
-In the examples below, the environment variables (`env`) equate to the values configured in GitHub secrets (see above steps). These events only trigger test runs `on` every `pull_request` and/or `push` to the `master` branch.
+In the examples below, we illustrate the different run modes that `saucectl` has: __Docker__ and the __Sauce Cloud__— both determine where tests execute. Docker refers to executing tests locally in a container, while Sauce refers to executing tests on Sauce Cloud (i.e. Sauce Labs infrastructure).
+If you run your tests on the Sauce Cloud, you will likely require a tunnel back to where your application is running. A tunnel enables the remote browser to access your local network.
+For this, we are going to use [Sauce Connect](/secure-connections/sauce-connect).
 
 > For more detailed information on setting event-driven actions and jobs, please visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
 
 <Tabs
-  defaultValue="cypress"
+  defaultValue="Docker"
   values={[
-    {label: 'Cypress', value: 'cypress'},
-    {label: 'Playwright', value: 'playwright'},
-    {label: 'TestCafe', value: 'testcafe'},
+    {label: 'Docker', value: 'Docker'},
+    {label: 'Sauce Cloud', value: 'Sauce Cloud'},
   ]}>
   
-<TabItem value="cypress">
+<TabItem value="Docker">
 
 ```yaml reference
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114
 ```
 
 </TabItem>
-<TabItem value="playwright">
+<TabItem value="Sauce Cloud">
 
 ```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L44-L67
-```
-
-</TabItem>
-<TabItem value="testcafe">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L69-L91
+https://github.com/saucelabs/sauce-docs/blob/master/.github/workflows/deploy.yml#L79-L93
 ```
 
 </TabItem>
