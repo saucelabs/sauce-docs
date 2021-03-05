@@ -208,7 +208,7 @@ If you wish to test the app running on a local app  server with Sauce Labs VMs:
 * Specify a `tunnel-id` (either in the config or using the `--tunnel-id` CLI flag)
 
 :::tip Working Example
-Here is a working example of this use case using [Sauce Connect and GitHub Actions](integrations/github-actions).
+Here is a working example of this use case using [Sauce Connect and GitHub Actions](/testrunner-toolkit/integrations/github-actions).
 :::
 
 :::note Further Details
