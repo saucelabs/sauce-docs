@@ -20,7 +20,7 @@ Example:
 
 ```
 "data":{
-  "created\_time": "1453198835",
+  "created_time": "1453198835",
   "images": {
     "thumbnail": {
       "width": 150,
@@ -34,21 +34,27 @@ Example:
 
 If you want to reach the value of the 'created\_time' attribute:
 
-<table style="border-color: #000000; height: 29px;" border="1" width="560" cellspacing="5" cellpadding="5"><tbody><tr><td>payload.data.created_time</td></tr></tbody></table>
+```js
+payload.data.created_time
+```
 
 If you want to check the 'width' of the images:
 
-<table style="height: 27px; border-color: #000000;" border="1" width="557" cellspacing="5" cellpadding="5"><tbody><tr><td>payload.data.images.thumbnail.width</td></tr></tbody></table>
+```js
+payload.data.images.thumbnail.width
+```
 
 ## Special Characters
 
 The "Total-items" element is a bit tricky, because the minus sign ( - ) would be misunderstood by the Mastiff language and treated as a subtraction operation. For this reason, the 'Dot Notation' requires the square brackets, as in:
 
-<table style="height: 27px; border-color: #000000;" border="1" width="557" cellspacing="5" cellpadding="5"><tbody><tr><td>data['Total-Items']</td></tr></tbody></table>
+```js
+data['Total-Items']
+```
 
 ## XML
 
-The above statements are valid for both JSON and XML. When you have to reference XML attributes, the 'Dot Notation' is valid but the attribute has to be written between the square brackets and preceded by the '@'.
+The above statements are valid for both JSON and XML. When you have to reference XML attributes, the 'Dot Notation' is valid but the attribute has to be written between the square brackets and preceded by the `@`.
 
 :::note
 In XML, the root element is the variable itself so you won't need to reference it explicitly.
@@ -65,7 +71,9 @@ Example:
 
 If we want to check the 'size' attribute, you have to write
 
-<table style="border-color: #000000; height: 29px;" border="1" width="560" cellspacing="5" cellpadding="5"><tbody><tr><td>payload['@size']</td></tr></tbody></table>
+```js
+payload['@size']
+```
 
 ## Functions
 
@@ -80,9 +88,11 @@ For instance:
         <name>Hotel One</name>
 ```
 
-<table style="border-color: #000000; height: 29px;" border="1" width="560" cellspacing="5" cellpadding="5"><tbody><tr><td>payload.HotelSummary.size()</td></tr></tbody></table>
+```js
+payload.HotelSummary.size()
+```
 
-Will count the number of instances of HotelSumary.
+Will count the number of instances of `HotelSummary`.
 
 ## Expressions "everywhere"
 

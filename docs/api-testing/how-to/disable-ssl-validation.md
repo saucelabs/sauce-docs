@@ -18,7 +18,7 @@ This downloader ignores invalid and not matching certificates.
 
 To disable the SSL validation in the downloader do the following steps:  
 
-> __NOTE__: We will assume you're using a docker-compose based deployment, if you are not please reach out to [support](support@apifortress.com).)
+> __NOTE__: We will assume you're using a docker-compose based deployment, if you are not please reach out to [support@apifortress.com](mailto:support@apifortress.com).)
 
 1. First access the machine that runs the downloader service (likely the one that runs the rest of API Fortress as well)
 2. Then navigate to the `downloader/` directory

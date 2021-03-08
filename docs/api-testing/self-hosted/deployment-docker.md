@@ -1,7 +1,7 @@
 ---
-id: on-premises-deployment-using-docker-self-hosted
+id: deployment-docker
 title: "Deployment – Docker (Self-Hosted)"
-sidebar_label: "Deployment – Docker (Self-Hosted)"
+sidebar_label: "Deployment – Docker"
 keywords:
     - api
     - api-fortress

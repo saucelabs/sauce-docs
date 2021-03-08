@@ -1,42 +1,53 @@
 ---
-id: deployment-kubernetes
-title: "Deployment - Kubernetes (Self-Hosted)"
-sidebar_label: "Deployment - Kubernetes"
+id: red-hat-openshift
+title: "Deployment – Red Hat OpenShift (Self-Hosted)"
+sidebar_label: "Deployment – Red Hat OpenShift"
 keywords:
     - api
     - api-fortress
     - deployment
-    - kubernetes
+    - redhat
+    - openshift
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## What You'll Need
 
-- This tutorial assumes that the reader is familiar with some standard procedures in Kubernetes (creating secrets, creating config-maps etc.) If you are not familiar with these processes, please refer to the [Kubernetes documentation](https://kubernetes.io/docs/home/).
+- This tutorial assumes that the reader is familiar with some standard procedures in OpenShift (creating secrets, creating config-maps.) If you are not familiar with these processes, please refer to the [OpenShift documentation](https://docs.openshift.com/).
 - The memory settings configured for each container are to be intended as the **minimum for a production environment.** Wherever applicable, this document will provide settings for a **minimum for a test drive environment** and **optimal for a larger scale production environment**
-- If your cluster is not allowed to communicate  with DockerHub or is incapable of logging in,  you will need to manually pull (from DockerHub) and push (to your private repository) images.
-- This guide, and the provided starter configuration files will assume the deployment will occur in the **apifortress** project/namespace. If this is not the case for your setup, please update all current hostname references to **apifortress**, as in _postgres.apifortress.svc_ or _tools.apifortress.svc_
-- The whole guide and annexed configuration files have been built upon hands-on experience with the Google GCloud Kubernetes service. **Some tweaking may be required if using a different provider**.
+- If your cluster is not allowed to communicate with a server on the internet, the "Create ImageStream" process will need to be performed by manually pulling (from DockerHub) and pushing (to your image streams) images.
+- This guide, and the provided starter configuration files will assume the deployment will occur in the **apifortress** project/namespace. If this is not the case for your setup, please update all current host name references to **apifortress**, as in _postgres.apifortress.svc_ or _tools.apifortress.svc_
 
 ## Starting the Main Services
 
-### Step 1 - Accessing a Private Repository
+### Step 1 - Creating the ImageStream
 
-**Create a secret in Kubernetes** that contains the DockerHub user credentials for the account shared with API Fortress. As the repositories on the APIF-side are private, you must submit the same account that was submitted with the configuration survey. You can find further information here [https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
+1. **Create a secret in OpenShift** that contains the DockerHub user credentials for the account shared with API Fortress. As the repositories on the APIF-side are private, you must submit the same account that was submitted with the configuration survey.
+2. **Create the API Fortress OpenShift image streams** with the provided apifortress-imagestream.yml with:
+   ```bash
+   oc create -f apifortress-imagestream.yml
+   ```
+3. **Configure `apifortress.yml`, `downloader.yml` and `core-server.yml`** to point at the established image stream. Changing the bracketed value in the below example would change the selected imagestream.
+   ```yaml
+   spec:
+         containers:
+         - name: apifortress
+           image: '**\[imagestream-changeit\]**/apifortress/apifortress:16.5.3'
+           resources:
+             limits:
+               memory: 8Gi
+   ```
 
-### Step 2 - Configure `apifortress.yml`
+### Step 2 - Configure apifortress.yml:
 
 1. Ensure that the cluster is capable of supporting the default image memory limits. The **apifortress** container is set for 8GB of memory. The optimal memory setting is 16GB, the minimum memory setting is 4GB;
-2. memorySettings (optional parameter) describe the minimum and maxium **heap memory** the process can use. Xmx should be set to 1/2 of the available memory of the process. You don't need to tweak these values if you don't change the overall available memory. 
-   This is an example of the setting to be placed among the environment variables:
+2. `memorySettings` (optional parameter) describe the minimum and maxium **heap memory** the process can use. Xmx should be set to 1/2 of the available memory of the process. You don't need to tweak these values if you don't change the overall available memory. This is an example of the setting to be placed among the environment variables:
    ```yaml
-     - name: memorySettings
-       value: '-Xms1024m -Xmx4098m'
+       - name: memorySettings
+         value: '-Xms1024m -Xmx4098m'
    ```
-3. **Ensure that any critical key/value pairs have been defined.** The configuration files should be populated with the values submitted with the pre-configuration survey, but for safeties sake a user should ensure that **grailsServerUrl** has been passed the URL that the instance will be reached through, that  **license** has been passed a license key and that **adminEmail**, **adminFullName** and **companyName** have been defined. These values are all found in the **env** section of the `apifortress.yml` file. While it is not critical to deployment, it is **strongly recommended** that the user configures the mailer service as well. 
-   This section in **`env`:**
-   
+3. **Ensure that any critical key/value pairs have been defined.** The configuration files should be populated with the values submitted with the pre-configuration survey, but for safeties sake a user should ensure that **grailsServerUrl** has been passed the URL that the instance will be reached through, that **license** has been passed a license key and that **adminEmail**, **adminFullName** and **companyName** have been defined. These values are all found in the **env** section of the apifortress.yml file. While it is not critical to deployment, it is **strongly recommended** that the user configures the mailer service as well. This section in **env:**
    ```yaml
    env:
      - name: apifortressMailEnabled
@@ -59,42 +70,39 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
    as well as the settings in the **AFMAILER** **Microservice** should be completed to allow the platform to generate emails.
 
-4. **The Load Balancer** is the mechanism for communicating with the platform. This can be replaced with a `NodePort` or `Ingress` if required, according to the configuration of your system.
+4. The `NodePort` is the mechanism for communicating with the platform. This can be replaced with a `LoadBalancer` if required. When creating an OpenShift Route, this is where the Route should point.
    ```yaml
-   # >>> APIFORTRESS loadBalancer service >>>
+   # >>> API Fortress NodePort >>>
    apiVersion: v1
    kind: Service
    metadata:
-    name: apifortress
+     name: apifortress
+     labels:
+       app: apifortress
    spec:
-    type: LoadBalancer
-    selector:
-    app: apifortress
-    ports:
-    - port: 8080
-    loadBalancerIP: '\[cluster-ip-change-it\]'
-    sessionAffinity: ClientIP
+     type: NodePort
+     selector:
+       app: apifortress
+     ports:
+       - port: 8080
+         name: http
+     loadBalancerIP:
+     sessionAffinity: ClientIP
    ---
    ```
 
-5. **Ensure that all the ports exposed** in the descriptor match your expectations. As a default, the dashboard will run on `port 8080` and the liveness probe will test that to determine the service availability.
+### Step 3 - Configure dependencies.yml
 
-### Step 3 - Configure `dependencies.yml`
+Each of the database services in dependencies.yml has a preconfigured definition for the amount of disk space allocated to the service. These values can be edited to match the available disk space that you wish to provide for said services. 
 
-Each of the database services in `dependencies.yml` has a preconfigured definition for the amount of disk space allocated to the service. These values can be edited to match the available disk space that you wish to provide for said services. 
-
-For **MongoDB** the proposed memory setting is 8Gi. The minimum is 1Gi, the optimal is 16Gi. However, for the inner workings of MongoDB, any increase in memory will result in better performance. For **PostgreSQL** the proposed memory setting is 1Gi which is considered also an optimal setting. The minimum is 512Mi.
-
-:::caution
-`volume` claims may need to be tweaked based on your service provider.
-:::
+For **MongoDB** the proposed memory setting is 8Gi. The minimum is 1Gi, the optimal is 16Gi. However, for the inner workings of MongoDB, any increase in memory will result in better performance. 
 
 :::note
 MongoDB will store most of the data produced by the platform, so make sure the disk size is reasonable for your use case
 :::
 
-```yaml
-  volumeClaimTemplates:
+```yaml title="Mongo DB Example"
+volumeClaimTemplates:
   - metadata:
       name: mongovol
     spec:
@@ -103,8 +111,12 @@ MongoDB will store most of the data produced by the platform, so make sure the d
       resources:
         requests:
           storage: 50Gi
+```
 
-  volumeClaimTemplates:
+For **PostgreSQL** the proposed memory setting is 1Gi which is considered also an optimal setting. The minimum is 512Mi.
+
+```yaml title="PostgreSQL Example"
+volumeClaimTemplates:
   - metadata:
       name: psqlvol
     spec:
@@ -120,20 +132,18 @@ MongoDB will store most of the data produced by the platform, so make sure the d
 Start the dependency services by typing:
 
 ```bash
-kubectl create -f dependencies.yml
+oc create -f dependencies.yml
 ```
 
 Once these services have spun up, you can start the main API Fortress platform with:
 
+```bash
+oc create -f apifortress.yml
 ```
-kubectl create -f apifortress.yml
-```
 
-### Step 5 - Verify
+### Step 5 : Verify
 
-Access the platform with the URL provided in the `apifortress.xml` file. Login using the default admin username and the default password (`"foobar"` - change it ASAP). 
-
-You should now be able to access the API Fortress Dashboard.
+Access the platform with theURL provided in the `apifortress.xml` file. Login using the default admin username and the default password (`"foobar"` - change it ASAP). You should now be able to access the API Fortress Dashboard.
 
 ## Configure the Downloader
 
@@ -149,29 +159,27 @@ Choose “Downloaders” from the list of actions and click on the “Add Downlo
 
 ### Step 2 - Configure the Downloader
 
-Fill in the following fields:
-
+Fill in the following fields: 
 * **Name:** Write a recognizable name. 
 * **Location:** A representation of where the downloader is. ie. Chicago 
 * **Latitude / Longitude:** The geographical position of the downloader. 
 * **Last Resort:** Check this to make it the default downloader used. 
-* **URL:** The address of the downloader, followed by port (default `8819`) and path `/api`. In our Kubernetes deployment, our downloader address would be 
-  ```
+* **URL:** The address of the downloader, followed by port (default 8819) and path /api. In our OpenShift deployment, our downloader address would be 
+  ```bash
   https://downloader.apifortress.svc:8819/api
-  ```
+  ``` 
 * **API Key, API Secret:** Write these two values down for use later.
-
 
 ### Step 3 - Move the Key and Secret Values to `downloader.yml`
 
 Edit the  `downloader.yml` file and enter the API Key and API Secret provided by the platform in the previous step.
 
-### Step 4 - Start the Downloader
+#### Step 4 - Start the Downloader
 
 Start the downloader with:
 
-```bash
-kubectl create -f downloader.yml
+```yaml
+oc create -f downloader.yml
 ```
 
 Open the HTTP client from the tools drop-down menu in API Fortress. Attempt to contact a site that is accessible from this server environment. API Fortress should now be able to successfully communicate with other websites.
@@ -228,7 +236,7 @@ Large numbers of simulated users will require large amounts of hardware resource
 
 Create a config-map called 'core-0' from the **core-server-etc** directory.
 
-### Step 5 - Tweak the Memory Settings (if Necessary)
+### Step 5 - Tweak the Memory Settings if Necessary
 
 The memory settings may vary a lot based on the number of virtual users the load agent is meant to support. The default 2Gi is generally OK for up to 50 virtual users. It is to be noted that as the process is memory, CPU and network intensive, better results are achieved by introducing more load agents versus increasing the size of each one. For the very same reason, it's generally pointless to run multiple load agents in the server.
 
@@ -236,11 +244,11 @@ The memory settings may vary a lot based on the number of virtual users the load
 
 Start the load agent service with:
 
-```bash
-kubectl create -f core-server.yml
+```yaml
+oc create -f core-server.yml
 ```
 
-### Step 7 - Verify the deployment
+### Step 7 - Verify the Deployment
 
 Access the Load Testing tool by clicking on the Tools dropdown at the top of the view in API Fortress. The Load Agent that you just deployed should be visible on the right side of the screen.
 
@@ -254,57 +262,27 @@ To overcome this issue you will need to override one configuration file in the T
 
 **We will assume that the gateway will forward the x-forwarded-proto header.**
 
-The file to be added is located in the deployment files you have been provided: `/tomcat_conf/context.xml`
+The file to be added is located in the deployment files you have been provided: (works for both OpenShift and Kubernetes): /tomcat\_conf/context.xml
 
 1. Tweak the file according to your needs
-2. Create a config map for the single file named _tomcat-context_
+2. Create a config map for the single file named tomcat-context
 3. Change the apifortress service in the _apifortress.xml_ file as follows: Add this fragment within the _containers_ element:
-    ```yaml
-    volumeMounts:
+   
+   ```yaml
+   volumeMounts:
      - name: tomcat-context
-     mountPath: /usr/local/tomcat/conf/context.xml
-     subPath: context.xml
-    ```
+   mountPath: /usr/local/tomcat/conf/context.xml
+   subPath: context.xml
+   ```
+   
 4. Add this fragment in the spec element:
-    ```yaml
-    volumes:
+    
+   ```yaml
+   volumes:
      - name: tomcat-context
-     configMap:
-     name: tomcat-context
-    ```
+   configMap:
+     - name: tomcat-context
+   ```
+    
 
 By doing so, we will have API Fortress to accept the original protocol as the actual protocol being used.
-
-## Backing up Your Data
-
-When running a self-hosted/on-premises installation, you will certainly want to run periodic backups of all your data.
-
-In this article, we will provide you the scripts to perform a data dump of API Fortress. You will then need to wire them up in your scheduled operations system, such as `cron`.
-
-:::warning Requirements
-We will assume you have a **running API Fortress installation**, ability to **`sudo`** to root privileges and a general idea of how Kubernetes works.
-:::
-
-If you are using EKS, you can simply take snapshots of the postgres and mongo disks directly through EKS. If you would like to take data dumps via Kubernetes please see the instructions below.
-
-On the machine where you have Kubernetes installed and running, execute the following commands:
-
-```
-kubectl get pods
-```
-
-Now we will start with backing up the postgres disk, please run the following two commands in order:
-
-```
-kubectl exec -ti postgres-0 -- bash -c "pg_dump -U apipulse > apifortress_postgres.sql" 
-kubectl cp postgres-0:apifortress_postgres.sql apifortress_postgres.sql
-```
-
-Next we will back up the mongodb disk, please run the following two commands in order:
-
-```
-kubectl exec -ti mongodb-0 -- mongodump
-kubectl cp mongodb-0:dump dump
-```
-
-Note that the mongodb dumps can become quite large, so we recommend that these dumps be done on a volume disk or use a separate desk that is mounted to all of this that will only be used for backups.

@@ -1,12 +1,13 @@
 ---
-id: on-premises-backing-up-your-data-self-hosted
+id: on-premises-backing-up-your-data
 title: "Backing Up your Data (Self-Hosted)"
-sidebar_label: "Backing Up your Data (Self-Hosted)"
+sidebar_label: Backing Up your Data
 keywords:
     - api
     - api-fortress
-    - self-hosted
-    - docker
+    - backup
+    - selfhosted
+    - onpremises
 ---
 
 When running a self-hosted/on-premises installation, you will certainly want to run periodic backups of all your data.
