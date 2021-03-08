@@ -16,7 +16,7 @@ This page provides a walkthrough on how to run [Playwright](https://playwright.d
 
 ## Configure `saucectl`
 
-Before you begin running playwright tests, you must configure `saucectl` if you plan to view test results on the Sauce Labs dashboard or running tests on the Sauce Labs VMs:      
+Before you begin running playwright tests, you must configure `saucectl`: 
 
 1. Configure your Sauce Labs credentials:
 
