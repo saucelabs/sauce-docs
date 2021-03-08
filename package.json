@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "dev": "cross-env SAUCE_DOCS_DEV=true docusaurus start",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
@@ -35,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "cypress": "^4.12.1"
   }
 }

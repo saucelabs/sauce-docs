@@ -11,75 +11,36 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-<p> <Highlight color="#013a70">ENTERPRISE PLANS ONLY</Highlight> </p>
+Internet Protocol Security VPN (IPSec VPN) is a technology that connects two private networks securely over the public Internet.
 
-Internet Protocol Security VPN (IPSec VPN) is a technology that connects two private networks securely over the public Internet. Sauce Labs offers an IPSec VPN solution that enables secure connections between applications hosted on a private network or local machine, and the Sauce Labs cloud. Topics in this section cover architecture, setup information, and troubleshooting tips.
+Sauce Labs offers an enterprise-grade IPSec VPN solution that enables a secure connection between applications hosted on a customer's private network (or local machine) and Sauce Labs cloud virtual machines and real devices. Topics in this section include architecture, setup information, and troubleshooting tips.
 
 ### What You'll Need
 
-To get started, you'll need to contact your Sauce Labs Sales Engineer or Customer Success Manager, who will guide you through the IPSec VPN tunnel setup and configuration. Once you're up and running with your tunnel, you'll be able to connect to Sauce Labs virtual cloud devices and real cloud devices.
+<p> <Highlight color="#013a70">ENTERPRISE PLANS ONLY</Highlight> </p>
 
-* Authorization to use your organization's IPSec VPN tunnel; see [Tunnel Permissions](/secure-connections/ipsec-vpn#tunnel-permissions) for more.
-* Know your organization's IPSec VPN tunnel name. You can obtain this from your Organization Admin, who controls tunnel settings; see [Organization Security Settings](https://wiki.saucelabs.com/display/DOCS/Security+Settings+for+Organizations) for more.
+* IPSec VPN is an enterprise-only feature. Contact your Sauce Labs Sales Engineer or Customer Success Manager to learn more about how this solution can meet your business needs. We'll guide you through the tunnel setup and configuration process. Once you're up and running, you'll be able to connect to Sauce Labs virtual machines and real cloud devices.
+* If you're an Organization Admin, see [Organization Security Settings](https://wiki.saucelabs.com/display/DOCS/Security+Settings+for+Organizations) for information on configuring tunnel access for users.
+* You'll need authorization (if you don't have it already) to use your organization's IPSec VPN tunnel. Contact your Sauce Labs account Organization Admin(s), who controls access.
+
+#### Verifying Access
+
+To verify that you have access to your organization's IPSec VPN tunnel, head to the **Tunnels** menu. If the tunnel name and details are displayed here, this means you have access.
 
 
-## IPSec VPN Network Architecture
+## High-Level Network Architecture
 
-IPSec VPN allows virtual machines on the Sauce Labs network to access application servers on private networks. The solution consists of a VPN connection and two IPSec tunnel gateways, one running on the customer network, and the other on Sauce Labs. This connection allows secure communication between the gateways, which provide rules for DNS resolution, routing, and security.
+Our IPSec VPN solution consists of a VPN connection and two IPSec tunnel gateways: one running on your network, and the other on Sauce Labs.
+
+This connection allows secure communication between the gateways, which provide rules for DNS resolution, routing, and security.
 
 !["IPSec VPN Network Architecture"](/img/ipsec-vpn/ipsec-diagram.png)
 
-### Security
-We recommend using an enterprise-grade gateway for your IPSec VPN configuration. The tunnel gateway runs a firewall, through which only authorized virtual machines (VMs) can connect.
-
-By default, all VM connections are blocked. The firewall rules are dynamically adjusted to allow connections from new authorized VMs and to block connections from terminated test VMs. Authorized test VMs include:
-
-* VMs created by the IPSec VPN tunnel owner
-* VMs created by accounts with which the tunnel is shared
-
-The firewall allows the following ports and protocols through the IPSec VPN connection:
-
-| Directions | Protocols |
-| :-------------------------- | :---
-| Outbound from Sauce | HTTP (TCP/80), HTTPS (TCP/443)
-| Outbound from Sauce | DNS (UDP/53, TCP/53, TCP/853)
-| Outbound from Sauce | Web Proxy (TCP/8080, TCP/8443)
-| Inbound from customer network, Outbound | ICMP
-| Inbound from customer network | BGP (TCP/179)
-
-To request additional ports and protocols to be opened, contact [Sauce Labs Support](https://saucelabs.com/training-support).
-
-### Routing Options
-
-By default, tunnel gateways use predefined static routes. If you're running a BGP server, the tunnel gateway can learn about new routes on your network. Contact [Sauce Labs Support](https://saucelabs.com/training-support) to update static routes.
-
-Test VMs using the IPSec VPN tunnel will route all their test traffic to the tunnel gateway. The tunnel gateway routes all predefined customer subnets through the IPSec VPN tunnel. All other traffic is routed to the Internet.
-
-The tunnel gateway can be configured with the options `tunnel-domains` and `direct-domains`. Both are mutually exclusive, and provide a list of domain names. The tunnel gateway routes any requests matching `tunnel-domains` through the IPSec VPN tunnel, and any requests that match `direct-domains` are routed directly to the Internet.
-
-The order of precedence is as follows:
-
-1. Route based on `tunnel-domains` and `direct-domains`.
-1. Route based on customer subnets.
-
-We strongly recommend using subnets for routing.
-
-### DNS Resolution
-Requests for predefined user domains are forwarded to the user's DNS servers. All other requests are resolved through public DNS servers.
-
-### Network Protocols
-Sauce Labs IPSec VPN supports HTTP, HTTPS, DNS, WebSockets and Secure WebSockets.
-
-### Self-Signed Certificates
-The tunnel gateway acts as a man-in-the-middle proxy, re-encrypting all SSL connections with Sauce Labs certificate by default. If your tests don't require access to servers with self-signed certificates, we strongly recommended disabling SSL re-encryption.
-
-SSL re-encryption can be disabled for all domains or selected domains with `no-ssl-bump-domains`.
-
-WebSocket servers with self-signed certificates are not supported.
-
 ## Bandwidth Recommendations
 
-We recommend the following as general guidelines, rather than requirements, to ensure that your tunnel can support your desired number of concurrent sessions.
+General guidelines for IPSec VPN tunnels described in the table below ensure that your tunnel can support your desired number of concurrent sessions.
+
+**NOTE**: We set up all IPSec VPN customers with a redundant, High Availability (HA) tunnel pool with two tunnel gateways.
 
 | Number of Concurrent Sessions | Recommended Number of IPSec Tunnels | Recommended Total Bandwidth
 | :-------------------------- | :--- | :---
@@ -93,11 +54,47 @@ Bandwidth recommendations for testing depend on the number of pages downloaded b
 
 Multiple users can run different tests simultaneously through the same tunnel, as long as the number is within the threshold of your concurrency limits/allocations.
 
+## Security
+
+### Tunnel Gateway Security Features
+
+The Sauce Labs infrastructure is configured so that our virtual machines and real devices running tests are fully, securely isolated from each other through traffic filtering. They are prohibited from cross-communicating. This means that a Sauce Labs VM and/or real device being accessed through your tunnel will send only traffic owned by your organization.
+
+The only exception for this rule is tunnel gateway VMs. While VMs and devices are allowed to connect to the internet, Sauce Labs also offers a "lockdown" feature that locks traffic down to that particular user’s tunnels only.
+
+Additionally, Sauce Labs only permits internal services necessary for allowlisting, such as monitoring services or firewall controllers, to communicate with VMs, real devices, and control plane services running on tunnel gateways. Each tunnel gateway VM is customized at the time of provisioning per your specifications and configured to direct all traffic via IPSec VPN.
+
+Tunnel gateway firewalls restrict access so that only your pre-authorized test VMs can connect. Authorized test VMs include:
+
+* Test VMs that run jobs started by IPSec VPN tunnel owner
+* Test VMs that run jobs started by accounts with which the tunnel is shared
+
+### Firewall Ports and Protocols
+
+The firewall allows the following ports and protocols through the IPSec VPN connection:
+
+| Directions | Protocols |
+| :-------------------------- | :---
+| Inbound from customer network | BGP (TCP/179)
+| Inbound and Outbound | ICMP
+| Outbound from Sauce | HTTP (TCP/80, TCP/8080), HTTPS (TCP/443, TCP/8443)
+| Outbound from Sauce | DNS (UDP/53, TCP/53, TCP/853)
+
+To request additional ports and protocols to be opened, contact [Sauce Labs Support](https://saucelabs.com/training-support).
+
+### Self-Signed Certificates
+
+The tunnel gateway acts as a man-in-the-middle proxy, re-encrypting all SSL connections with Sauce Labs certificate by default. If your tests don't require access to servers with self-signed certificates, we strongly recommend disabling SSL re-encryption.
+
+SSL re-encryption can be disabled for all domains or selected domains with `no-ssl-bump-domains`.
+
+WebSocket servers with self-signed certificates are not supported.
+
 ## Testing with IPSec VPN Tunnels
 
-Our IPSec VPN solution provides you with a single, static tunnel, through which you can run manual and automated tests securely on all Sauce Labs virtual and real devices.
+Our IPSec VPN solution provides you with a static, secure connection, through which you can run live and automated tests on all Sauce Labs virtual machines and real devices.
 
-Depending on the type of test you want to run, you may need to include certain desired capabilities in your test script.
+Depending on the type of test you want to run, you may need to include certain desired capabilities in your test script. See below for use case examples.
 
 ### Automated Testing
 To connect to Sauce Labs real and virtual devices, assign your IPSec VPN tunnel to the appropriate [Data Center Endpoint](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) in your test automation script.
@@ -108,23 +105,23 @@ To connect to Sauce Labs real and virtual devices, assign your IPSec VPN tunnel 
 
 * Set the `parentTunnel` capability to the username of your Organization Admin
 
-As an example, let's say the name of your tunnel is `AwesomeTunnel` and your Organization Admin's username is `john.smith`. Here's how you'd define it in Java:
+As an example, let's say the name of your organization's tunnel is `awesometunnel` and your Organization Admin's username is `john.smith`. Here's how you'd set it up in Java:
 
 ```sh
 MutableCapabilities caps = new MutableCapabilities();
-caps.setCapability("tunnelIdentifier", "AwesomeTunnel");
+caps.setCapability("tunnelIdentifier", "awesometunnel");
 caps.setCapability("parentTunnel","johnsmith");
 ```
 
 #### Espresso Tests on Emulators
-Set the `tunnel-identifier` argument for Sauce-Runner-Virtual to the name of your IPSec VPN tunnel.
+* Set the `tunnel-identifier` argument for Sauce-Runner-Virtual to the name of your IPSec VPN tunnel.
 
 ### Live Testing
 For Cross-Browser app testing, head to **Live** > **Cross-Browser** > Click **Sauce Connect Proxy** dropdown > Select your IPSec VPN tunnel.
 
 For mobile device testing, to **Live** > **Mobile-App** > Choose your app from the list > Click **Sauce Connect Proxy** dropdown > Select your IPSec VPN tunnel.
 
-:::caution Note About Public Real Devices
+:::note Note About Public Real Devices
 To ensure compliance with your company's settings and network policy, we recommend checking with your organization admin before running tests on virtual and real devices over an IPSec VPN connection.
 
 To run tests on public real devices in the Sauce Labs cloud using IPSec VPN, your organization admin must switch on **Enable Sauce Connect Proxy/IPSec VPN for Public Cloud Devices**, a [security setting](https://wiki.saucelabs.com/display/DOCS/Security+Settings+for+Organizations) that is disabled by default. The setting enables all users across your organization to run live and automated tests on public devices over IPSec VPN.
@@ -134,63 +131,21 @@ Each time you initiate a test, you'll see a temporary pop-up alert window with a
 
 ## Setting IPSec VPN Tunnel Permissions
 
-IPSec VPN tunnel sharing permissions are established by Sauce Labs on the back end during initial setup and tunnel creation on your network. During this process, your organization can select from two permissions options:
+As part of our initial IPSec VPN tunnel setup and configuration on your network, we'll ask your organization to choose from two sharing settings:
 
-* Restrict IPSec VPN tunnel access to only the Organization Admin; or
-* Share IPSec VPN tunnel access organization-wide with all users
+* **Restricted**: only Organization Admins can access IPSec VPN tunnels
+* **Organization-Wide**: all users in your organization can utilize IPSec VPN tunnels
 
 At this time, we don't support granting permissions to individual users.
 
-To switch between the above permissions settings, your Organization Admin would need to contact Sauce Labs Support and we'll configure it for you.
-
-To verify that you have access to your organization's IPSec VPN tunnel, head to Tunnels. If the tunnel name and details are displayed here, it means you have access.
+If you're an Organization Admin who would like to change your sharing settings, please reach out to our Support Team.
 
 ## Monitoring and Troubleshooting
 To monitor tunnel stability, we recommend pinging the tunnel gateway or checking the status of the VPN connection from the IPSec gateway itself.
 
 ## Additional Resources
+
+* [White Paper: Overview of Sauce Labs Security Processes](https://saucelabs.com/resources/white-papers/overview-of-sauce-labs-security-processes)
+* [Sauce Connect Proxy™ Security Overview](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview)
+
 If you need help with your tunnel(s) or are interested in getting set up, please contact your CSM, SE, or Sauce Labs Support.
-
-## FAQs
-
-**What's the difference between Sauce Connect Proxy and IPSec VPN?**
-
-Sauce Connect Proxy and IPSec VPN accomplish the same thing: establishing a secure connection between applications hosted on a private network and the Sauce Labs cloud. There are a few differences:
-
-* Sauce Connect Proxy allows you to spin up different tunnels anytime, on the fly, while IPSec VPN tunnels are static.
-* Sauce Connect Proxy is based on our proprietary protocol that runs over TLS 1.2, while IPSec VPN is based on an industry standard
-* Sauce Connect Proxy is available for use by any Sauce Labs account, while IPSec VPN is a feature that requires an additional fee
-
-<br/>
-
-**Is there a High Availability option for IPSec VPN?**
-
-Currently, Sauce Labs only supports dual-tunnel mode, with our data center as the single point of failure. High Availability mode with redundant Sauce Labs data centers may be offered in the future.
-
-<br/>
-
-**What devices are available with IPSec VPN?**
-
-You can access all Sauce Labs virtual devices and real devices. See [Testing with IPSec VPN Tunnels](/secure-connections/ipsec-vpn#testing-with-ipsec-vpn-tunnels).
-
-<br/>
-
-**How is an IPSec VPN tunnel secured?**
-
-See [Security](/secure-connections/ipsec-vpn#security).
-<br/>
-
-**How does DNS resolution work with IPSec VPN?**
-
-See [DNS Resolution](/secure-connections/ipsec-vpn#dns-resolution).
-<br/>
-
-**Can I test with internal servers using self-signed certificates through IPSec VPN?**
-
-See [Self-Signed Certificates](/secure-connections/ipsec-vpn#self-signed-certificates).
-<br/>
-
-**Can I limit requests sent through the tunnel?**
-
-See [Routing](/secure-connections/ipsec-vpn#routing-options).
-<br/>

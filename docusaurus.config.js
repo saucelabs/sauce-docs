@@ -1,7 +1,7 @@
-module.exports = {
+const docusaurusConfig = {
   title: 'Sauce Labs Documentation',
   tagline: 'Find everything you need to know about manual and automated cross-browser and mobile app testing in the Sauce Labs Continuous Testing Cloud.',
-  url: 'https://saucelabs.com/docs',
+  url: 'https://docs.saucelabs.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
@@ -9,14 +9,12 @@ module.exports = {
   organizationName: 'saucelabs',
   projectName: 'sauce-docs',
   themeConfig: {
+    googleAnalytics: {
+      trackingID: 'UA-6735579-1',
+    },
     hideableSidebar: true,
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
-    },
-    algolia: {
-      appId: process.env.ALGOLIA_APP_ID,
-      apiKey: process.env.ALGOLIA_KEY,
-      indexName: 'saucelabs',
     },
     /* Dark and Light Mode Config */
     colorMode: {
@@ -340,7 +338,7 @@ module.exports = {
           // Please change this to your repo.
           routeBasePath: '/',
           editUrl:
-            'https://github.com/saucelabs/sauce-docs/edit/master/',
+              'https://github.com/saucelabs/sauce-docs/edit/master/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         },
@@ -361,4 +359,14 @@ module.exports = {
       },
     ],
   ],
-};
+}
+
+if (!process.env.SAUCE_DOCS_DEV) {
+  docusaurusConfig.themeConfig.algolia = {
+    appId: process.env.ALGOLIA_APP_ID,
+    apiKey: process.env.ALGOLIA_KEY,
+    indexName: 'saucelabs',
+  }
+}
+
+module.exports = docusaurusConfig;

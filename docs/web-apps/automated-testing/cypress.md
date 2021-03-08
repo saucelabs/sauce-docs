@@ -117,7 +117,7 @@ The following steps outline how to run your cypress tests on your local machine 
    ```
   
    
-  > You can also troubleshoot any issues with the [--verbose](/dev/cli/saucectl#verbose) flag.
+  > You can also troubleshoot any issues with the [--verbose](/testrunner-toolkit/saucectl#verbose) flag.
 
 2. A Sauce Labs job link appears in the console where you can [verify the results in the Sauce Labs dashboard](#run-tests-on-sauce-labs):
 
@@ -137,11 +137,22 @@ The following steps outline how to run your cypress tests using Sauce Labs virtu
     saucectl run --test-env sauce
     ```
    
-   > For more information regarding the `saucectl` parameters, including how to increase your VM concurrency, please visit the [CLI Reference](/dev/cli/saucectl#test-env) and the [configuration](/testrunner-toolkit/configuration) documentation.
+   > For more information regarding the `saucectl` parameters, including how to increase your VM concurrency, please visit the [CLI Reference](/testrunner-toolkit/saucectl#test-env) and the [configuration](/testrunner-toolkit/configuration) documentation.
 
 6. Watch test runs in real-time, or verify the results in the [Sauce Labs dashboard](https://app.saucelabs.com/dashboard/tests/vdc):
    
    <img src={useBaseUrl('img/cypress/test-results.png')} alt="Cypress Test Results" />
+
+:::warning Running Tests with a Local App
+
+If you plan to run your cypress tests with either of the following scenarios:
+
+* A `localhost` app running on your host machine
+* An app running locally in a CI pipeline
+* An app running on a local app server in a private network
+
+Please review the following [documentation section](/testrunner-toolkit/running-tests#run-tests-against-a-local-app) for further details.
+:::
 
 ## Additional Resources
 
