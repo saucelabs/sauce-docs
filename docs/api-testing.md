@@ -44,9 +44,9 @@ hide_table_of_contents: true
     <h2>CI / CD</h2>
     <p>Browse the continuous integration and continuous delivery documentation to explore how to integrate Sauce Labs API testing into your DevOps pipeline.</p>
     <ul>
-        <li><a href="#">Jenkins</a></li>
-        <li><a href="#">Bamboo</a></li>
-        <li>and <a href="#">More</a></li>
+        <li><a href="/api-testing/ci/jenkins/using-the-api">Jenkins</a></li>
+        <li><a href="/api-testing/ci/connecting-with-bamboo">Bamboo</a></li>
+        <li>and <a href="/api-testing/ci/apif-auto">More</a></li>
     </ul>
     </div>
   </div>
