@@ -1,12 +1,12 @@
 ---
-id: cypress
-title: Cypress on Sauce Labs
-sidebar_label: Cypress
+id: playwright
+title: Playwright on Sauce Labs
+sidebar_label: Playwright
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This page provides a walkthrough on how to run [Cypress](https://docs.cypress.io/guides/overview/why-cypress.html) tests locally and on Sauce Labs.
+This page provides a walkthrough on how to run [Playwright](https://playwright.dev/docs/intro) tests locally and on Sauce Labs.
 
 ## What You'll Need
 
@@ -16,7 +16,7 @@ This page provides a walkthrough on how to run [Cypress](https://docs.cypress.io
 
 ## Configure `saucectl`
 
-Before you begin running cypress tests, you must configure `saucectl` if you plan to view test results on the Sauce Labs dashboard or running tests on the Sauce Labs VMs:      
+Before you begin running playwright tests, you must configure `saucectl`: 
 
 1. Configure your Sauce Labs credentials:
 
@@ -51,19 +51,19 @@ Before you begin running cypress tests, you must configure `saucectl` if you pla
     saucectl new
     ```
 
-3. Choose the `cypress` framework. This command generates the default `cypress` directory, the `cypress.json` file, and an example cypress test:
+3. Choose the `Playwright` framework. This command generates the default `tests/playwright` directory, and an example playwright test:
     
     ```bash
     INF Start New Command
     Choose a framework:
       Puppeteer
-      Playwright
+    ❯ Playwright
       Testcafe
-    ❯ Cypress
+      Cypress
     ```
    
-    :::tip Want to use your existing Cypress tests?
-    If you have existing cypress tests, `saucectl` prompts you to potentially overwriting the `cypress` directory and the `cypress.json` file. 
+    :::tip Want to use your existing Playwright tests?
+    If you have existing Playwright tests, `saucectl` prompts you to overwrite your `tests/playwright/` directory, and other relevant test configuration files.
     
     If you want to edit the configuration manually select "No" and visit the [configuration](/testrunner-toolkit/configuration#configuration-examples) documentation for more details.
     :::
@@ -72,7 +72,7 @@ Before you begin running cypress tests, you must configure `saucectl` if you pla
 
     ```bash
     INF Start New Command
-    Choose a framework: Cypress
+    Choose a framework: Playwright
     Choose the sauce labs region:
     ❯ us-west-1
       eu-central-1
@@ -80,9 +80,9 @@ Before you begin running cypress tests, you must configure `saucectl` if you pla
    
 ## Run Tests Locally
 
-The following steps outline how to run your cypress tests on your local machine with the containerized solution, [Testrunner Toolkit](/testrunner-toolkit):
+The following steps outline how to run your playwright tests on your local machine with the containerized solution, [Testrunner Toolkit](/testrunner-toolkit):
 
-1. Run your cypress tests using `docker` mode:
+1. Run your playwright tests using `docker` mode:
 
     ```bash
     saucectl run --test-env docker
@@ -91,47 +91,39 @@ The following steps outline how to run your cypress tests on your local machine 
    The test results display in the console like so:
    
     ```bash
-    9:49AM INF Running version 0.23.2
-    9:49AM INF Reading config file config=.sauce/config.yml
-    9:49AM INF Starting local runner
-    9:49AM INF Setting up test environment
-    9:49AM INF File mounted from=./tests/ to=/home/seluser/tests
-    9:49AM INF Using credentials from environment variables
-    9:49AM INF Starting tests
+    Run ./saucectl run -c ./.sauce/config.yml
+    00:14:19 INF Running version 0.30.0
+    00:14:19 INF Reading config file config=./.sauce/config.yml
+    00:14:19 INF Running Playwright in Docker
     
-    > sauce-cypress-runner@0.0.0 test /home/seluser
-    > ./bin/cypress
-    
-    It looks like this is your first time using Cypress: 4.9.0
-    
-    [18:49:28]  Verifying Cypress can run /home/seluser/.cache/Cypress/4.9.0/Cypress [started]
-    [18:49:33]  Verified Cypress!       /home/seluser/.cache/Cypress/4.9.0/Cypress [title changed]
-    [18:49:33]  Verified Cypress!       /home/seluser/.cache/Cypress/4.9.0/Cypress [completed]
-    
-    Opening Cypress...
-    
-    ================================================================================
-    
-      (Run Starting)
-   
+    ⠋ Pulling image saucelabs/stt-playwright-node:v1.7.4
+       
+   00:15:42 INF Launching workers. concurrency=1
+   00:15:42 INF Setting up test environment suite="saucy test"
+   00:15:42 INF File mounted from=tests/playwright/ suite="saucy test" to=/home/seluser/playwright
+   00:15:42 INF Using credentials set by environment variables suite="saucy test"
+   ........00:15:50 INF Starting container id=91afa3083b77 img=saucelabs/stt-playwright-node:v1.7.4 suite="saucy test"
+   .........00:15:59 INF Tearing down environment suite="saucy test"
    ```
-  
    
   > You can also troubleshoot any issues with the [--verbose](/testrunner-toolkit/saucectl#verbose) flag.
 
 2. A Sauce Labs job link appears in the console where you can [verify the results in the Sauce Labs dashboard](#run-tests-on-sauce-labs):
 
     ```bash
-    Preparing assets for tests/home.tree.test.js
-    
-    Open job details page: https://app.saucelabs.com/tests/8fb13276b39f40c2b05048776bcaeaf6
+    00:16:00 INF Suites completed: 1/1
+    00:16:00 INF Suite finished. passed=true suite="saucy test" 
+            url=https://app.saucelabs.com/tests/8f332330914d431cb0fe9191615cb144
+    00:16:00 INF Suites expected: 1
+    00:16:00 INF Suites passed: 1
+    00:16:00 INF Suites failed: 0
     ```
    
 ## Run Tests on Sauce Labs
 
-The following steps outline how to run your cypress tests using Sauce Labs virtual machines:
+The following steps outline how to run your playwright tests using Sauce Labs virtual machines:
    
-1. Run your cypress tests with the following `saucectl` parameter:
+1. Run your playwright tests with the following `saucectl` parameter:
 
     ```bash
     saucectl run --test-env sauce
@@ -141,11 +133,11 @@ The following steps outline how to run your cypress tests using Sauce Labs virtu
 
 6. Watch test runs in real-time, or verify the results in the [Sauce Labs dashboard](https://app.saucelabs.com/dashboard/tests/vdc):
    
-   <img src={useBaseUrl('img/cypress/test-results.png')} alt="Cypress Test Results" />
+   <img src={useBaseUrl('img/playwright/test-results.png')} alt="Playwright Test Results" />
 
 :::warning Running Tests with a Local App
 
-If you plan to run your cypress tests with either of the following scenarios:
+If you plan to run your playwright tests with either of the following scenarios:
 
 * A `localhost` app running on your host machine
 * An app running locally in a CI pipeline
@@ -156,14 +148,14 @@ Please review the following [documentation section](/testrunner-toolkit/running-
 
 ## Additional Resources
 
-Below are some additional topics related to using Cypress with Sauce Labs.
+Below are some additional topics related to using Playwright with Sauce Labs.
 
 ### Configuration Details
 
 Please visit the [Configuration page](/testrunner-toolkit/configuration) to learn more about `config.yml` and the specific fields and properties:
 
 * [Common Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference)
-* [Cypress Syntax Reference](/testrunner-toolkit/configuration/cypress)
+* [Playwright Syntax Reference](/testrunner-toolkit/configuration/playwright)
 
 ### Running in CI
 

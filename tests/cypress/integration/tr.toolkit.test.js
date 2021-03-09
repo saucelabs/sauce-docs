@@ -2,7 +2,7 @@
 //TODO Harden Cypress Locators
 context('Testrunner Toolkit Page Tree Actions', () => {
     beforeEach(() => {
-        cy.visit(`http://${Cypress.env('HOST_ADDR')}/testrunner-toolkit`)
+        cy.visit(`/testrunner-toolkit`)
     });
 
     it('Installation Page', () => {
