@@ -131,6 +131,21 @@ __Example__:
 
 > WARNING: using the `latest` tag for docker images is dangerous. For further information, read [this article](https://vsupalov.com/docker-latest-tag/#:~:text=You%20should%20avoid%20using%20the,apart%20from%20the%20image%20ID.).
 
+## `rootDir`
+
+__Description__: Directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Bundling page](/testrunner-toolkit/configuration/bundling) page for more details
+
+__Type__: *object*
+
+__Examples__:
+```yaml
+  rootDir: "./" # Just use the current directory
+```
+
+```yaml
+  rootDir: "packages/subpackage" # Some other package from within a monorepo
+```
+
 ## `npm`
 __Description__: Details specific to the `npm` configuration. Packages listed will be installed on the environment prior to your tests execution.
 
