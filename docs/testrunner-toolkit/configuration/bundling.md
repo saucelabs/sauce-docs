@@ -105,4 +105,4 @@ saucectl run
 
 ### Set NPM Packages in `config.yml`
 
-You can hardcode a list of NPM packages you wish to have installed in your sauce config yml. [See documentation](/testrunner-toolkit/configuration#npm)
+You can hardcode a list of NPM packages you wish to have installed in your sauce config yml. [See documentation](/testrunner-toolkit/configuration/common-syntax#npm)
