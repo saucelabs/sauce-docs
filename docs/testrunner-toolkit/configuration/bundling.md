@@ -1,8 +1,10 @@
 ---
 id: bundling
 title: Bundling Test Files
-sidebar_label: CLI Reference
+sidebar_label: Bundling Test Fils
 ---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The [saucectl command line interface](/testrunner-toolkit/saucectl) runs tests (Cypress, TestCafe, Playwright, ...) by bundling up your root directory, sending the bundle to the Sauce Labs cloud (or in your own infrastructure via Docker), unpacking the bundle, and then running the tests. This page explains how bundling works and how you can reduce the size of your bundle for improved performance.
 
@@ -10,7 +12,7 @@ The [saucectl command line interface](/testrunner-toolkit/saucectl) runs tests (
 
 The Sauce Labs `config.yml` has a parameter called "rootDir" that tells saucectl where your test files are ([see configuration documentation](/testrunner-toolkit/configuration.md)). These test files get bundled and uploaded to the Sauce Labs cloud.
 
-![img](../../static/img/saucectl/uploading-project.png)
+<img src={useBaseUrl('img/saucectl/uploading-project.png')} alt="Uploading a Project" />
 
 ## `sauceignore`
 
