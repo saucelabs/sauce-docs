@@ -4,17 +4,17 @@ title: Bundling Test Files
 sidebar_label: CLI Reference
 ---
 
-The [saucectl command line interface](saucectl) runs tests (Cypress, TestCafe, Playwright, ...) by bundling up your root directory, sending the bundle to the Sauce Labs cloud (or in your own infrastructure via Docker), unpacking the bundle and then running the tests. This page explains how bundling works and how you can reduce the size of your bundle for improved performance.
+The [saucectl command line interface](/testrunner-toolkit/saucectl) runs tests (Cypress, TestCafe, Playwright, ...) by bundling up your root directory, sending the bundle to the Sauce Labs cloud (or in your own infrastructure via Docker), unpacking the bundle, and then running the tests. This page explains how bundling works and how you can reduce the size of your bundle for improved performance.
 
 ## Bundling
 
-The Sauce Labs config.yml has a parameter called "rootDir" that tells saucectl where your test files are ([see configuration documentation](configuration.md)). These test files get bundled and uploaded to the Sauce Labs cloud.
+The Sauce Labs `config.yml` has a parameter called "rootDir" that tells saucectl where your test files are ([see configuration documentation](/testrunner-toolkit/configuration.md)). These test files get bundled and uploaded to the Sauce Labs cloud.
 
 ![img](../../static/img/saucectl/uploading-project.png)
 
-## sauceignore
+## `sauceignore`
 
-The `.sauceignore` file is a file that is generated when you run `saucectl new`. It tells saucectl which files should be excluded from bundling. It works the same way as other ignore files (`.gitignore`, `.hgignore`, `.dockerignore`, etc...). See https://git-scm.com/docs/gitignore for reference.
+The `.sauceignore` file is generated when you run `saucectl new`. It tells saucectl which files to exclude from bundling. It works the same way as other ignore files (`.gitignore`, `.hgignore`, `.dockerignore`, etc...). See [https://git-scm.com/docs/gitignore](https://git-scm.com/docs/gitignore) for reference.
 
 If your project has files that are not needed to run your tests, add those files to `.sauceignore` to reduce the size of your bundle and improve test speed.
 
@@ -49,7 +49,7 @@ node_modules/
 
 By default, `node_modules/` is included in `.sauceignore` so that locally installed node dependencies are not included in the bundle. If node dependencies are needed for tests to run, you have two options: [1. Include `node_modules` with your bundle](#including-node_modules-in-bundle) or [2. Set NPM packages in config.yml](#set-npm-packages-in-configyml)
 
-### Including "node_modules" in bundle
+### Including "node_modules" in Bundle
 
 In your `.sauceignore`, delete or comment out the entry `node_modules/` to make SauceCtl include your `node_modules/` so that your node dependencies are included with your bundle.
 
@@ -98,6 +98,6 @@ npm install @cypress/react
 saucectl run
 ```
 
-### Set NPM packages in config.yml
+### Set NPM Packages in `config.yml`
 
-You can hardcode a list of NPM packages you wish to have installed in your sauce config yml. [See documentation](configuration#npm)
+You can hardcode a list of NPM packages you wish to have installed in your sauce config yml. [See documentation](/testrunner-toolkit/configuration#npm)
