@@ -1,7 +1,7 @@
 ---
 id: bundling
 title: Bundling Test Files
-sidebar_label: Bundling Test Fils
+sidebar_label: Bundling Test Files
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -16,7 +16,7 @@ The Sauce Labs `config.yml` has a parameter called "rootDir" that tells saucectl
 
 ## `sauceignore`
 
-The `.sauceignore` file is generated when you run `saucectl new`. It tells saucectl which files to exclude from bundling. It works the same way as other ignore files (`.gitignore`, `.hgignore`, `.dockerignore`, etc...). See [https://git-scm.com/docs/gitignore](https://git-scm.com/docs/gitignore) for reference.
+The `.sauceignore` file is generated when you run `saucectl new`. It tells saucectl which files to exclude from bundling. It works the same way as other ignore files (`.gitignore`, `.hgignore`, `.dockerignore`, etc...).  See [https://git-scm.com/docs/gitignore](https://git-scm.com/docs/gitignore) for reference.
 
 If your project has files that are not needed to run your tests, add those files to `.sauceignore` to reduce the size of your bundle and improve test speed.
 
@@ -49,7 +49,10 @@ node_modules/
 
 ## Node Dependencies
 
-By default, `node_modules/` is included in `.sauceignore` so that locally installed node dependencies are not included in the bundle. If node dependencies are needed for tests to run, you have two options: [1. Include `node_modules` with your bundle](#including-node_modules-in-bundle) or [2. Set NPM packages in config.yml](#set-npm-packages-in-configyml)
+By default, `node_modules/` is included in `.sauceignore` so that locally installed node dependencies are not included in the bundle. If node dependencies are needed for tests to run, you have two options: 
+
+1. [Include `node_modules` with your bundle](#including-node_modules-in-bundle) or 
+2. [Set NPM packages in config.yml](#set-npm-packages-in-configyml)
 
 ### Including "node_modules" in Bundle
 
