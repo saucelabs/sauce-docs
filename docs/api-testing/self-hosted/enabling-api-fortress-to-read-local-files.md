@@ -1,5 +1,5 @@
 ---
-id: enabling-api-fortress-to-read-local-files-on-premises-only-self-hosted
+id: enabling-api-fortress-to-read-local-files
 title: Enabling API Fortress to Read Local Files
 sidebar_label: Enabling API Fortress to Read Local Files
 keywords:

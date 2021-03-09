@@ -23,9 +23,9 @@ hide_table_of_contents: true
     <h2>API Testing University</h2>
     <p>Browse through the courses to learn more about using the API testing tool.</p>
     <ul>
-        <li><a href="#">API Testing Basics</a></li>
-        <li><a href="#">Best Practices</a></li>
-        <li><a href="#">Writing Your First Test</a></li>
+        <li><a href="https://training.saucelabs.com/codelabs/Module1-APITesting/index.html?index=..%2F..apiTesting#0">API Testing Basics</a></li>
+        <li><a href="https://training.saucelabs.com/codelabs/Module2-APITesting/index.html?index=..%2F..apiTesting#0">Best Practices</a></li>
+        <li><a href="https://training.saucelabs.com/codelabs/Module3-APITesting/index.html?index=..%2F..apiTesting#0">Writing Your First API Test</a></li>
     </ul>
     </div>
   </div>
