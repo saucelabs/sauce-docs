@@ -55,7 +55,7 @@ In your `.sauceignore`, delete or comment out the entry `node_modules/` to make 
 
 ```bash
 # Do NOT exclude node_modules from bundle
-# 
+# node_modules/
 ```
 
 Since node dependencies can be quite large (potentially hundreds of megabytes) you may wish to follow some of these tips to reduce the size
