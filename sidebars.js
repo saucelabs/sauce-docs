@@ -149,7 +149,8 @@ module.exports = {
         label: 'Automated Testing',
         collapsed: true,
         items: [
-          'web-apps/automated-testing/cypress'
+          'web-apps/automated-testing/cypress',
+          'web-apps/automated-testing/playwright',
         ],
       },
     ],
@@ -188,6 +189,7 @@ module.exports = {
               collapsed: true,
               items: [
                   'testrunner-toolkit/configuration',
+                  'testrunner-toolkit/configuration/common-syntax',
                   'testrunner-toolkit/configuration/cypress',
                   'testrunner-toolkit/configuration/playwright',
                   'testrunner-toolkit/configuration/testcafe',
