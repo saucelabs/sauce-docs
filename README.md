@@ -75,6 +75,15 @@ __Table of Contents__
 
 	This command builds the site and serves it on your machine's host (http://localhost:3000).
 
+* Serve the website locally:
+
+   ```
+   yarn run dev
+   ```
+
+	This command builds the site and serves it on your machine's host (http://localhost:3000) and requires no API key.
+
+
 
 ## Contributing
 
