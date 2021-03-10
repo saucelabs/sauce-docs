@@ -2,10 +2,11 @@
 id: device-vitals-mobile
 title: Device Vitals for Mobile Applications
 sidebar_label: Device Vitals for Mobile Applications
+---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
----
+
 Device Vitals is a feature available on Real Devices that collects useful performance data in real time from a device during a live session. Data such as network, CPU, and memory usage helps users understand the general performance of a device and the application under test. Users can view a graph of this performance data in real time as the app is processing.
 
 Performance Metrics for Android/iOS Devices
