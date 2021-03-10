@@ -160,6 +160,16 @@ saucectl run --tunnel-id <tunnel-id> --tunnel-parent <tunnel-parent>
 > __NOTE__: This flag only works in conjunction with the `tunnel-id` flag.
 
 
+### `dry-run`
+<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
+
+__Description__: Simulate a test run without actually running any tests.
+
+__Example__:
+```bash
+saucectl run --dry-run
+```
+
 ### `verbose`
 
 __Description__: Use the `--verbose` flag to troubleshoot potential authentication, connection, and/or container issues.
