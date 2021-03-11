@@ -28,7 +28,7 @@ jobs:
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         run: |-
-          cd webdriver/
+          cd webdriver
           npm install
 
       - uses: actions/cache@v2
@@ -41,8 +41,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      
+      - name: Install Dependencies
+        if: steps.cache-npm-packages.outputs.cache-hit != 'true'
+        run: |-
+          cd webdriver
+          npm install
+          
       - name: Run WDIO Cross-Platform Tests
         run: |-
-          cd webdriver/
-          npx wdio run wdio.conf.js
-
+          cd webdriver
+          npx wdio run ./wdio.conf.js
