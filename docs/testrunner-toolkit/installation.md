@@ -18,7 +18,7 @@ Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifie
 
 ### System Requirements
 
-The system requirements to successfully run `saucectl` vary depending on whether you plan to run it locally via [`docker`](/testrunner-toolkit/running-tests#run-your-first-test), or remotely via [`sauce`](/testrunner-toolkit/running-tests#test-on-sauce-labs). 
+The system requirements to successfully run `saucectl` vary depending on whether you plan to run it locally via [`docker`](/testrunner-toolkit/running-tests#run-your-first-test), or remotely via [`sauce`](/testrunner-toolkit/running-tests#test-on-sauce-labs).
 
 As a rule of thumb, your local system requirements should match the [Docker installation requirements](https://docs.docker.com/engine/install/#supported-platforms). Please use the table below as a quick reference:
 
@@ -29,7 +29,7 @@ As a rule of thumb, your local system requirements should match the [Docker inst
     {label: 'Linux', value: 'linux'},
     {label: 'Windows', value: 'windows'},
   ]}>
-  
+
 <TabItem value="macos">
 
 * Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
@@ -67,12 +67,12 @@ There are multiple ways to install the Sauce Labs Testrunner Toolkit (colloquial
 * ```bash title="Using NPM"
   npm install -g saucectl
   ```
-  
+
 * ```bash title="Using Homebrew (macOS)"
   brew tap saucelabs/saucectl
   brew install saucectl
   ```
-  
+
 If you would like to inspect the content of our one line installer, download it, have a look, and execute it:
 
 ```bash
@@ -94,13 +94,13 @@ SAUCE_USERNAME='valid.username'
 SAUCE_ACCESS_KEY='valid.key'
 ```
 
-> 
+>
 > If you are using a cloud CI/CD tool, we strongly suggest protecting these values through secrets or context variables.
 >
 
 :::tip
 For specific instructions on how to set environment variables visit, the following links:
-* [Set Environment Variables with Windows 10](https://www.architectryan.com/2018/08/31/how-to-change-environment-variables-on-windows-10/) 
+* [Set Environment Variables with Windows 10](https://www.architectryan.com/2018/08/31/how-to-change-environment-variables-on-windows-10/)
 * [Set Environment Variables with MacOS](https://apple.stackexchange.com/questions/106778/how-do-i-set-environment-variables-on-os-x)
 * [Set Environment Variables with Linux](https://askubuntu.com/questions/58814/how-do-i-add-environment-variables)
 :::
@@ -118,3 +118,6 @@ This command prompts you to manually enter your credentials if it cannot detect 
 :::warning Do NOT commit `credentials.yml`
 It should go without saying, but do not publicly expose your `credentials.yml` file over the internet. Make sure you add this file to your `.gitignore` file, as you should only use it locally.
 :::
+
+### Training
+See the tutorial and video on [setting up your Testrunner Toolkit environment](https:/training.saucelabs.com/testrunner/index.html) for more help.

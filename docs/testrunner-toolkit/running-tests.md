@@ -36,7 +36,7 @@ saucectl run
 
 :::note default test location
 Unless you specify a test directory, `saucectl` executes tests based on the framework's default test directory. For example with a cypress test, `saucectl` will attempt to locate `cypress.json`, as well as the default `cypress` directory.
- 
+
 Consult your desired framework's documentation for more information about the default test locations.
 :::
 
@@ -46,7 +46,7 @@ Consult your desired framework's documentation for more information about the de
 * run the tests within the docker container
 * display the test results in the console
 
-Testrunner Toolkit will then execute the test based on the information in `config.yml`. 
+Testrunner Toolkit will then execute the test based on the information in `config.yml`.
 
 ## Test on Sauce Labs
 
@@ -58,7 +58,7 @@ If you wish to run your tests on Sauce Labs VMs, simply run the following comman
 saucectl run --test-env sauce
 ```
 
-If you wish to increase your VM concurrency you can also use the flag `--ccy <vm number>`. 
+If you wish to increase your VM concurrency you can also use the flag `--ccy <vm number>`.
 
 ```bash
 saucectl run --test-env sauce --ccy 2
@@ -116,7 +116,7 @@ If you're running tests on Sauce Labs VMs, but the site under test is protected 
 You can use the `--tunnel-id` flag with `saucectl` in order to use an existing Sauce Connect tunnel with your test session:
 
 ```bash
-saucectl run --tunnel-id <tunnel-id>
+saucectl --test-env sauce run --tunnel-id <tunnel-id>
 ```
 
 > For more information on how to use the `--tunnel-id` flag, please visit the [CLI Reference](/testrunner-toolkit/saucectl#tunnel-id).
@@ -148,9 +148,9 @@ From this job link you can review, share, and analyze the test results just as y
 
 ## Automation Framework Examples
 
-The examples here show how Pipeline testing can be used. Try them and find your own use cases. 
+The examples here show how Pipeline testing can be used. Try them and find your own use cases.
 
-Every __Testrunner__ image comes with a preconfigured setup that allows you to focus on writing tests instead of tweaking with the configurations. Our initial `testrunner` flavors come either with Cypress, Playwright, or TestCafe as an automation framework. 
+Every __Testrunner__ image comes with a preconfigured setup that allows you to focus on writing tests instead of tweaking with the configurations. Our initial `testrunner` flavors come either with Cypress, Playwright, or TestCafe as an automation framework.
 
 
 Below are example snippets in the following frameworks: [Cypress](https://github.com/cypress-io/cypress), [Playwright](https://playwright.dev/#version=v1.0.1&path=docs%2Fcore-concepts.md&q=browser), and [TestCafe](https://devexpress.github.io/testcafe/documentation/reference/test-api/testcontroller/browser.html).
