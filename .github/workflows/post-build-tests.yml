@@ -10,7 +10,7 @@ env:
   working-directory: ./webdriver
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,19 +19,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14.x
-
       - name: Install Dependencies
         run: |
           npm install
         working-directory: ${{env.working-directory}}
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Install Dependencies
-        run: |
-          npm install
-        working-directory: ${{env.working-directory}}
+        
       - name: Run WDIO Cross-Platform Tests
         run: |
           npx wdio run ./wdio.conf.js
