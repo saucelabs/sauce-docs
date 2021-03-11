@@ -1,6 +1,7 @@
 const defaultBrowserSauceOptions = {
     build: `Sauce Docs Post Build Tests-${new Date().getTime()}`,
     screenResolution: '1600x1200',
+    pubic: 'public',
 };
 exports.config = {
     //
