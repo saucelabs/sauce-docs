@@ -53,22 +53,23 @@ Each docker image tag is the 'latest' image that supports the specific framework
 
 | Cypress Version    | Supported Browsers        | Release Notes                                                                                                 | Sauce Cloud Support [[?](testrunner-toolkit/running-tests.md#test-on-sauce-labs)] |
 |--------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| 5.6.0              | Please see release notes. | [saucelabs/sauce-cypress-runner](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v5.7.3)       | Windows 10                                                                        |
+| 6.6.0              | Please see release notes. | [saucelabs/sauce-cypress-runner](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v6.0.1)       | TBD                                                                               |
+| 5.6.0              | Please see release notes. | [saucelabs/sauce-cypress-runner](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v5.9.1)       | Windows 10                                                                        |
 
 </TabItem>
 <TabItem value="playwright">
 
 | Playwright Version | Supported Browsers        | Release Notes                                                                                                 | Sauce Cloud Support [[?](testrunner-toolkit/running-tests.md#test-on-sauce-labs)] |
 |--------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| 1.7.1              | Please see release notes. | [saucelabs/sauce-playwright-runner](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.7.4) |                                                                                   |
+| 1.7.1              | Please see release notes. | [saucelabs/sauce-playwright-runner](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.7.5) | Windows 10                                                                        |
 
 </TabItem>
 <TabItem value="testcafe">
 
 | TestCafe Version   | Supported Browsers        | Release Notes                                                                                                 | Sauce Cloud Support [[?](testrunner-toolkit/running-tests.md#test-on-sauce-labs)] |
 |--------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| 1.11.0              | Please see release notes. | [saucelabs/sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.3.0)    |                                                                                   |
-| 1.10.1              | Please see release notes. | [saucelabs/sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.2.5)    |    Windows 10                                                                               |
+| 1.11.0              | Please see release notes. | [saucelabs/sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.3.0)    | TBD                                                                               |
+| 1.10.1              | Please see release notes. | [saucelabs/sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.2.5)    | Windows 10                                                                        |
 
 </TabItem>
 </Tabs> 
