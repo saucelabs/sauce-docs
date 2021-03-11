@@ -7,6 +7,10 @@ on:
 env:
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
+  
+defaults:
+  run:
+    working-directory: webdriver
 
 jobs:
   build:
@@ -28,8 +32,7 @@ jobs:
 
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
-        run: |-
-          cd webdriver
+        run: |
           npm install
 
       - uses: actions/cache@v2
@@ -45,11 +48,9 @@ jobs:
       
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
-        run: |-
-          cd webdriver
+        run: |
           npm install
           
       - name: Run WDIO Cross-Platform Tests
-        run: |-
-          cd webdriver
+        run: |
           npx wdio run ./wdio.conf.js
