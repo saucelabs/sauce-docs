@@ -23,8 +23,8 @@ jobs:
         id: cache-npm-packages
         with:
           path: |
-            **/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
+            **/webdriver/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/webdriver/package.json') }}
 
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
