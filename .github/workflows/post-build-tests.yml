@@ -48,7 +48,7 @@ jobs:
         run: |
           npm install
         working-directory: ${{env.working-directory}}
-        
       - name: Run WDIO Cross-Platform Tests
         run: |
           npx wdio run ./wdio.conf.js
+        working-directory: ${{env.working-directory}}
