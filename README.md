@@ -1,9 +1,19 @@
-# Sauce Labs Docs ![BETA](https://img.shields.io/badge/beta!-blue?style=for-the-badge)
+<h1 align="center">
+  <p align="center">Sauce Labs Docs</p>
+  <a href="https://docs.saucelabs.com"><img src="/static/img/QA_Bot_EXPORT.png" alt="QA Sauce Bot" width="300"> </a>
+</h1>
 
-<!-- [START badges] -->
-![Sauce Pipeline Browser Tests](https://github.com/saucelabs/sauce-docs/workflows/Sauce%20Pipeline%20Browser%20Tests/badge.svg)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.MD) <a href="https://gitpod.io/#https://github.com/saucelabs/sauce-docs"><img src="https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod" alt="Gitpod Ready-to-Code"/></a>
-<!-- [END badges] -->
+<p align="center">
+  <a href="https://twitter.com/saucelabs"><img src="https://img.shields.io/twitter/follow/saucelabs.svg?style=social" align="right" alt="Twitter Follow"/></a>
+  <a href="CONTRIBUTING.md#pull-requests"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
+  <a href="#license"><img src="https://img.shields.io/github/license/sourcerer-io/hall-of-fame.svg?colorB=ff0000"></a>
+  <a href="https://gitpod.io/#https://github.com/saucelabs/sauce-docs"><img src="https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod" alt="Gitpod Ready-to-Code"/></a>
+  <a href="https://github.com/saucelabs/sauce-docs/workflows/Sauce%20Pipeline%20Browser%20Tests"><img src="https://github.com/saucelabs/sauce-docs/workflows/Sauce%20Pipeline%20Browser%20Tests/badge.svg" alt= "Sauce Pipeline Browser Tests"/></a>
+
+</p>
+
+<p align="center">
+	<a href="https://app.saucelabs.com/u/sauce-docs"><img src=https://app.saucelabs.com/browser-matrix/saucy-docs.svg?auth=e1fb7e1761377a8a8596cb777487e10d2c914142c83f1a45cd038344708f9aae" alt= "Sauce Browser Matrix"/></a>
 
 Welcome to the `sauce-docs`, this website contains all technical documentation about Sauce Labs and its products. This site uses [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
@@ -68,6 +78,15 @@ __Table of Contents__
 	```
 
 	This command builds the site and serves it on your machine's host (http://localhost:3000).
+
+* Serve the website locally:
+
+   ```
+   yarn run dev
+   ```
+
+	This command builds the site and serves it on your machine's host (http://localhost:3000) and requires no API key.
+
 
 
 ## Contributing

@@ -1,11 +1,11 @@
 ---
 id: espresso-xcuitest
-title: Automated Mobile App Testing with Espresso and XCUITest
+title: Mobile App Testing with Espresso and XCUITest
 sidebar_label: Using Espresso and XCUITest
 description: Landing Page for Espresso and XCUITest
 hide_table_of_contents: true
 ---
-Please select the relevant use case for mobile application testing:
+Please select the relevant use case for your mobile app testing:
 
-* [Real Device Testing](/mobile-apps/automated-testing/espresso-xcuitest/real-device-testing)
-* [Virtual Device Testing](/mobile-apps/automated-testing/espresso-xcuitest/virtual-device-testing)
+* [Real Device Testing](/mobile-apps/automated-testing/espresso-xcuitest/real-devices)
+* [Virtual Device Testing](/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices)

@@ -1,10 +1,12 @@
 ---
 id: cypress
 title: "Configuration Syntax: Cypress"
-sidebar_label: cypress.yml
+sidebar_label: Cypress
 ---
 
-Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference)for information regarding fields such as `apiVersion`, `kind`, and `sauce`.
+import Highlight from '../../../src/components/highlight.jsx'
+
+Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration/common-syntax)for information regarding fields such as `apiVersion`, `kind`, `suites`, `sauce`, etc.
 
 ## Example Configuration
 
@@ -28,6 +30,8 @@ cypress:
 suites:
   - name: "saucy test"
     browser: "chrome"
+    browserVersion: "latest" # Can also be a hardcoded version
+    screenResolution: "1920x1080"
     config:
       env:
         hello: world
@@ -91,73 +95,13 @@ The value of your `projectId` correlates directly with the value of the `key` fi
 >
 > For more information about the cypress __Record Key__, please consult this [Cypress Documentation page](https://docs.cypress.io/guides/guides/command-line.html#cypress-run-record-key-lt-record-key-gt).
 
-## `suites`
+## `config`
 
-__Description__: Field for defining test suite details such as the suite `name`, desired `browser`
-/ `platformName`, and `config`.
+:::note `suites` Syntax Reference
+The `config` field exists under the `suites` object. See [this page](/testrunner-toolkit/configuration/common-syntax#suites) for more details.
+:::
 
-__Type__: *object*
-
-__Example__:
-```yaml
-suites:
-  - name: "saucy test"
-    browser: "chrome"
-    config:
-      env:
-        hello: world
-      testFiles: [ "**/*.*" ] # Cypress native glob support.
-```
-
-### `name`
-
-__Description__: Name of the test suite.
-
-__Type__: *string*
-
-__Example__:
-```yaml
-  - name: "saucy test"
-```
-
-### `browser`
-
-__Description__: Browser in which the test runs.
-
-__Type__: *string*
-
-__Example__:
-```yaml
-    browser: "chrome"
-```
-
-### `platformName`
-
-__Description__: Operating system on which the browser and test runs.
-
-__Type__: *string*
-
-__Example__:
-```yaml
-    platformName: "Windows 10"
-```
-
-### `screenResolution`
-
-__Description__: Field where you can change the browser window screen resolution.
-
-__Type__: *string*
-
-__Example__:
-```yaml
-    screenResolution: "2560x1600"  # Available resolutions on sauce for Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
-```
-
-### `config`
-
-__Description__: Details specific to the test configuration, for example: 
-* `testFiles` ( *string array* | *string* | *regex* ): the specific location of test files
-* `env` ( *string* | *int* | *float* | *boolean* ) any ephemeral/environment variables.
+__Description__: Details specific to the cypress test configuration
 
 __Type__: *object*
 
@@ -169,3 +113,27 @@ __Example__:
       testFiles: [ "**/*.*" ]
 ```
 
+### `env`
+
+__Description__: Any ephemeral/environment variables needed to run cypress tests.
+
+__Type__:  *string* | *int* | *float* | *boolean*
+
+__Example__:
+
+```yaml
+      env:
+        hello: world
+```
+
+### `testFiles`
+
+__Description__: The specific location of the cypress test files (if not otherwise specified explicitly in `cypress.json`).
+
+__Type__:  *string array* | *string* | *regex*
+
+__Example__:
+
+```yaml
+      testFiles: [ "**/*.*" ]
+```

@@ -1,8 +1,10 @@
 ---
 id: playwright
 title: "Configuration Syntax: Playwright"
-sidebar_label: playwright.yml
+sidebar_label: Playwright
 ---
+
+import Highlight from "../../../src/components/highlight"
 
 Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference)for information regarding fields such as `apiVersion`, `kind`, and `sauce`.
 
@@ -28,6 +30,9 @@ suites:
   - name: "saucy test"
     platformName: "Windows 10"
     testMatch: '**/*.js'
+    screenResolution: "1920x1080"
+    env:
+      hello: world
 
     params:
       browserName: "firefox"
@@ -102,6 +107,8 @@ __Example__:
 
 ### `platformName`
 
+<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
+
 __Description__: Operating system on which the browser and test runs.
 
 __Type__: *string*
@@ -120,6 +127,33 @@ __Type__: *string* | *regex*
 __Example__:
 ```yaml
     testMatch: '**/*.js'
+```
+
+### `screenResolution`
+
+<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
+
+__Description__: Field where you can change the browser window screen resolution.
+
+__Type__: *string*
+
+__Example__:
+```yaml
+    screenResolution: "1920x1080"
+```
+
+> For all available resolutions please visit [this documentation page](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
+
+### `env`
+
+__Description__: Field where you can pass environment variables.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+    env:
+      hello: world
 ```
 
 ### `params`
