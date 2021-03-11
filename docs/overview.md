@@ -6,9 +6,9 @@ description: Landing Page for Sauce Labs Documentation
 hide_table_of_contents: true
 ---
 
-<div class="box-wrapper" markdown="1">
-  <div class="box box1 card">
-    <div class="container">
+<div className="box-wrapper" markdown="1">
+  <div className="box box1 card">
+    <div className="container">
     <h2>Live Testing</h2>
     <p>Browse through the Live Testing documentation to manually test your application on Sauce Labs Cloud.</p>
     <ul>
@@ -17,8 +17,8 @@ hide_table_of_contents: true
     </ul>
     </div>
   </div>
-  <div class="box box2 card">
-    <div class="container">
+  <div className="box box2 card">
+    <div className="container">
     <h2>Automated Testing</h2>
     <p>Browse through the Automated Testing documentation to see examples of how to execute tests in your preferred automation framework.</p>
     <ul>
@@ -28,8 +28,8 @@ hide_table_of_contents: true
     </ul>
     </div>
   </div>
-  <div class="box box3 card">
-    <div class="container">
+  <div className="box box3 card">
+    <div className="container">
     <h2>Secure Connections</h2>
     <p>Browse the security documentation to learn how to communicate with Sauce Labs Cloud from your private network.</p>
     <ul>
@@ -38,8 +38,8 @@ hide_table_of_contents: true
     </ul>
     </div>
   </div>
-  <div class="box box4 card">
-    <div class="container">
+  <div className="box box4 card">
+    <div className="container">
     <h2>CI / CD</h2>
     <p>Browse the continuous integration and continuous delivery documentation to explore how to integrate Sauce Labs into your DevOps pipeline.</p>
     <ul>

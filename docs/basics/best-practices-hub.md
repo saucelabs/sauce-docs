@@ -5,9 +5,9 @@ sidebar_label: Getting Started
 ---
 Sauce Labs provides several best practices, tips, and tricks to help you run your tests successfully.
 
-<div class="box-wrapper" markdown="1">
-<div class="box box1 card">
-  <div class="container">
+<div className="box-wrapper" markdown="1">
+<div className="box box1 card">
+  <div className="container">
   <h2>Selenium</h2>
   <p></p>
   <ul>
@@ -18,8 +18,8 @@ Sauce Labs provides several best practices, tips, and tricks to help you run you
   </ul>
   </div>
 </div>
-<div class="box box2 card">
-  <div class="container">
+<div className="box box2 card">
+  <div className="container">
   <h2>Sauce Labs</h2>
   <p>
 </p>
