@@ -1,7 +1,6 @@
 const defaultBrowserSauceOptions = {
     build: `Sauce Docs Post Build Tests-${new Date().getTime()}`,
     screenResolution: '1600x1200',
-    pubic: 'public',
 };
 exports.config = {
     //
@@ -72,6 +71,7 @@ exports.config = {
             platformName: 'Windows 10',
             browserVersion: 'latest',
             'sauce:options': {
+                public: 'public',
                 ...defaultBrowserSauceOptions,
             },
         },
@@ -80,6 +80,7 @@ exports.config = {
             platformName: 'Windows 10',
             browserVersion: 'latest',
             'sauce:options': {
+                public: 'public',
                 ...defaultBrowserSauceOptions,
             },
         },
@@ -88,6 +89,7 @@ exports.config = {
             platformName: 'Windows 8.1',
             browserVersion: 'latest',
             'sauce:options': {
+                public: 'public',
                 ...defaultBrowserSauceOptions,
             },
         },
@@ -96,6 +98,7 @@ exports.config = {
             platformName: 'Windows 10',
             browserVersion: '18.17763',
             'sauce:options': {
+                public: 'public',
                 ...defaultBrowserSauceOptions,
             },
         },
@@ -104,6 +107,7 @@ exports.config = {
             platformName: 'Windows 10',
             browserVersion: 'latest',
             'sauce:options': {
+                public: 'public',
                 ...defaultBrowserSauceOptions,
             },
         },
@@ -113,6 +117,7 @@ exports.config = {
             browserName: 'safari',
             platform: 'macOS 10.13',
             version: '11.1',
+            public: 'public',
             ...defaultBrowserSauceOptions,
         },
         // Safari 13
@@ -121,6 +126,7 @@ exports.config = {
             platformName: 'macOS 10.15',
             browserVersion: 'latest',
             'sauce:options': {
+                public: 'public',
                 ...defaultBrowserSauceOptions,
             },
         },
@@ -130,6 +136,7 @@ exports.config = {
             platformName: 'macOS 10.14',
             browserVersion: 'latest',
             'sauce:options': {
+                public: 'public',
                 ...defaultBrowserSauceOptions,
             },
         }
