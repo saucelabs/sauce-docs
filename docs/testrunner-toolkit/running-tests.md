@@ -116,7 +116,7 @@ If you're running tests on Sauce Labs VMs, but the site under test is protected 
 You can use the `--tunnel-id` flag with `saucectl` in order to use an existing Sauce Connect tunnel with your test session:
 
 ```bash
-saucectl --test-env sauce run --tunnel-id <tunnel-id>
+saucectl run --test-env sauce --tunnel-id <tunnel-id>
 ```
 
 > For more information on how to use the `--tunnel-id` flag, please visit the [CLI Reference](/testrunner-toolkit/saucectl#tunnel-id).
