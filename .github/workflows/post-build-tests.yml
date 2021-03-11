@@ -2,7 +2,8 @@ name: Post Build Sauce Labs Tests
 on:
   schedule:
     - cron: '*/59 * * * *'
-
+  workflow_dispatch:
+  
 env:
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
