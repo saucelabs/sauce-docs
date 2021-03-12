@@ -20,17 +20,17 @@ Store apps for up to 60 days
 4. To the right of the page, select **App Upload** to upload a new application.
 **NOTE:** App-Upload UI currently supports Live Testing on Real Devices only. Use the REST API to upload apps for use with virtual devices.
 
-<live-test-mobile-app.png>
+live-test-mobile-app.png
 
 5. You can either drag and drop an application, or browse for the file. We support mobile app *.APK and *IPA files up to 4 GB. Non-app file uploads are not supported in the UI at this time, but can be uploaded through the API.
 
-<app-upload.png>
+app-upload.png
 
 6. To use an app you've previously uploaded, select "Check out the old repository" link at the bottom of the page. This will re-direct you to the legacy TestObject App Management UI with all your previously uploaded.
 
-<old-repository.png>
+old-repository.png
 
 ## Delete Apps with the Delete Button
 The **Delete** button will delete a whole application (e.g., a group of builds belonging to the same app package). Files associated with app identifiers (i.e., belong to the same platform and are accessible to the same team) are indicated by the + symbol next to version number. Also, the version number shown is the most recently updated file, not necessarily the "latest" version of the application.
 
-<latest-version.png>
+latest-version.png
