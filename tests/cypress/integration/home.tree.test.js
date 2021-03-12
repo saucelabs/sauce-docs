@@ -2,7 +2,7 @@
 //TODO Harden Cypress Locators
 context('Home Page Tree Actions', () => {
     beforeEach(() => {
-        cy.visit(`http://${Cypress.env('HOST_ADDR')}/overview`)
+        cy.visit(`/overview`)
     });
 
     // it('Welcome Page', () => {
