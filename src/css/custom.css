@@ -65,7 +65,27 @@ html[data-theme='dark'] {
     --ifm-color-primary: #E2231A;
     --ifm-color-primary-dark: rgb(172, 20, 19);
     --ifm-font-color-base: rgb(255, 255, 255);
+    --ifm-blockquote-color: #f0f0f0;
+    --ifm-alert-color: #f0f0f0 !important;
+    --ifm-navbar-link-color: #464b54;
+    --docsearch-muted-color: #969faf !important;
+    /*--docsearch-searchbox-background: #ebedf0 !important;*/
+    --docsearch-text-color: #fff !important;
+    /*--ifm-color-secondary: #f0f0f0 !important;*/
+    --ra-admonition-color: #fff !important;
+    --ra-admonition-icon-color: #fff !important
 }
+
+html[data-theme='dark'] .alert--secondary {
+    --ifm-alert-color: #f0f0f0 !important;
+    --ra-admonition-color: #fff !important;
+}
+
+
+html[data-theme='light'] {
+    --ifm-alert-color: #474c55;
+}
+
 
 .hero--primary {
     --ifm-hero-background-color: var(--ifm-color-primary-darkest);
@@ -116,8 +136,8 @@ h3, .h3 {
 .navbar__items {
     font-size: 110%;
     font-weight: 500;
-    color:rgb(70, 75, 84);
-    text-decoration-color:rgb(70, 75, 84);
+    color:rgb(70, 75, 84) !important;
+    text-decoration-color:rgb(70, 75, 84) !important;
 }
 
 .navbar__items.navbar__items--right a:nth-child(1) {
@@ -202,7 +222,7 @@ h3, .h3 {
 }
 
 .admonition-note h5 {
-  color: #474c55;
+  /*color: #474c55;*/
   font-weight: bold;
 }
 
@@ -213,7 +233,7 @@ h3, .h3 {
 
 .admonition-tip {
   border-left: 5px solid #01c3a5;
-  color: #474c55;
+  /*color: #474c55;*/
   margin-left: 25px;
   margin-right: 25px;
   margin-top: 10px;
@@ -228,7 +248,7 @@ h3, .h3 {
 }
 
 .admonition-tip h5 {
-  color: #474c55;
+  /*color: #474c55;*/
   font-weight: bold;
 }
 
@@ -239,7 +259,7 @@ h3, .h3 {
 
 .admonition-caution {
   border-left: 5px solid #fbd741;
-  color: #474c55;
+  /*color: #474c55;*/
   margin-left: 50px;
   margin-right: 25px;
   margin-top: 10px;
@@ -254,7 +274,7 @@ h3, .h3 {
 }
 
 .admonition-caution h5 {
-  color: #474c55;
+  /*color: #474c55;*/
   font-weight: bold;
 }
 
@@ -265,7 +285,7 @@ h3, .h3 {
 
 .admonition-warning {
   border-left: 5px solid #ec5c26;;
-  color: #474c55;
+  /*color: #474c55;*/
   margin-left: 50px;
   margin-right: 25px;
   margin-top: 10px;
@@ -280,7 +300,7 @@ h3, .h3 {
 }
 
 .admonition-warning h5 {
-  color: #474c55;
+  /*color: #474c55;*/
   font-weight: bold;
 }
 
