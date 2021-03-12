@@ -86,7 +86,7 @@ module.exports = {
           'secure-connections/sauce-connect/changelog',
           ],
         },
-      'secure-connections/ipsec-vpn',  
+      'secure-connections/ipsec-vpn',
       ],
   "Mobile Apps": [
     'mobile-apps',
@@ -96,8 +96,29 @@ module.exports = {
         collapsed: true,
         items: [
           'mobile-apps/live-testing',
-            ],
-        },
+              {
+                  type: 'category',
+                  label: 'Mobile Real Device Testing',
+                  collapsed: true,
+                  items: [
+                     'mobile-apps/live-testing/mobile-real-device/setting-up-a-test',
+                     'mobile-apps/live-testing/mobile-real-device/live-native-mobile-real',
+                     'mobile-apps/live-testing/mobile-real-device/testing-apple-pay',
+                 ],
+              },
+              {
+                  type: 'category',
+                  label: 'Mobile Virtual Device Testing',
+                  collapsed: true,
+                  items: [
+                     'mobile-apps/live-testing/mobile-virtual-device/setting-up-a-test',
+                     'mobile-apps/live-testing/mobile-virtual-device/live-native-mobile-virtual',
+                 ],
+              },
+              'mobile-apps/live-testing/device-vitals-mobile',
+              'mobile-apps/live-testing/camera-image-injection',
+              'mobile-apps/live-testing/app-storage',
+            ]
         {
           type: 'category',
           label: 'Automated Testing',
