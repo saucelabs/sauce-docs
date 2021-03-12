@@ -31,15 +31,15 @@ To make Apple Pay work on Sauce Labs real private devices:
       2. When the connection is established, open **XCODE**.
       3. Select the device from the device list.
 
-      <img1.png>
+      img1.png
 
          On the **Signing & Capabilities** tab, you will see that the device has not yet been added.
 
-      <img2.png>
+      img2.png
 
       4. Click **Register Device** to add the device to your developer certificate.
 
-      <img3.png>
+      img3.png
 
       5. Once the UDID of the device is added to the developer certificate, you can build the application (manually or automatically):
           1. Select your build scheme and then select **Generic iOS Device**.
@@ -62,11 +62,11 @@ Apple Pay requires that you have set a passcode on your phone, and you can’t a
 ### Add the Testing Account
 1. On the device, go to **Settings** and then click **Sign in to your iPhone**. Sign in using your Apple sandbox tester account.
 
-<img4.png>
+img4.png
 
 2. If prompted, enter the device’s passcode.
 
-<img5.png>
+img5.png
 
   If you weren’t prompted for a passcode, set it by going to **Settings > Face ID & Passcode** and tapping **Turn Passcode On**.
 
@@ -74,30 +74,30 @@ Apple Pay requires that you have set a passcode on your phone, and you can’t a
 Apple test cards can be found on Apple’s [Sandbox Testing](https://developer.apple.com/apple-pay/sandbox-testing/) page.
 1. On your device, go to **Wallet**. If you didn’t set a passcode, Apple will show a notification.
 
-<img6.png>
+img6.png
 
 2. In **Wallet**, tap the plus sign to add a new card. Use the card information on Apple’s [Sandbox Testing](https://developer.apple.com/apple-pay/sandbox-testing/) page.
 
-<img7.png>
+img7.png
 
 3. **Prepare Sauce Labs**. As mentioned before, Sauce Labs uses an enterprise certificate to install an app on public and private devices. But Apple Pay can’t work with the enterprise certificate, so the app needs to be signed with the developer certificate. You need to instruct Sauce Labs to not re-sign the app when it is installed.
 
 ### Disable Re-Signing
 1. In Sauce Labs, in the left navigation, click **Live** and then click **Mobile-App**.
 
-<img8.png>
+img8.png
 
   You will see an overview of the already uploaded apps. If no app has been uploaded, then upload the app. Once uploaded, open the app settings by hovering over the row until you see this:
 
-<img9.png>
+img9.png
 
 2. Click **Settings**.
 
-<img10.png>
+img10.png
 
 3. Under **Default settings**, toggle **Instrumentation** to **Disabled**.
 
-<img11.png>
+img11.png
 
 Disabling this allows the app to use Apple Pay and the developer certificate and provisioning profile that you used when you built the app.
 
@@ -107,7 +107,7 @@ Once the app has been uploaded and re-signing has been disabled, you can start t
 
 5. **Test the app**. View the Sauce Labs Demo Payments app:
 
-<img12.png>
-<img13.png>
-<img14.png>
-<img15.png>
+img12.png
+img13.png
+img14.png
+img15.png
