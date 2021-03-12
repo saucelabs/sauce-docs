@@ -14,7 +14,7 @@ Know if your app is designed to run on internal or otherwise restricted networks
 3. Use the filter options or **Search** field to find the type of real device you want to use in your test, and select it.
 4. To mark a device as a favorite so you can find it easily in the future, click the star next to the device name.
 
-<device-favorite.png>
+device-favorite.png
 
 The default sorting for the device list is **Starred First**.
 
