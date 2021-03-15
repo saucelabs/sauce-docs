@@ -4,6 +4,13 @@ title: Mobile App Testing Features and Functionality
 sidebar_label: Features
 ---
 
+export const Highlight = ({children, color}) => ( <span style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>{children}</span> );
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Gestures
@@ -18,19 +25,22 @@ Learn more:
 
 Sauce Labs provides testing capabilities for mobile app biometric authentication (Face ID and Touch ID). You can chose two authentication options by using the Biometric Authentication Tool in the toolbar during your test session.
 
-* [Support for iOS TouchID on Real Devices](https://wiki.saucelabs.com/display/DOCS/2019/07/01/Support+for+iOS+TouchID+on+Real+Devices)
-
-### Live
-
-**Security Notice**
+:::caution **Security Notice**
 
 KeyStore is normally used to implement and store Touch ID and Face ID user biometrics for mobile apps. As this is a cloud security risk, Sauce Labs does not mock the KeyStore on our real devices for supporting Touch ID and Face ID; the use of KeyStore on our real devices is not supported.
+:::
 
-#### Live iOS App Testing on Real Devices
+### Live Testing
+
+<p> <Highlight color="#009245">Real Devices only</Highlight> </p>
+
+For Live Testing, we provide biometric authentication testing capabilities on Sauce Labs real devices. Emulators and simulators are not supported at this time.
+
+#### iOS Apps
 
 To enable Biometric Authentication for your live iOS real device tests:
 
-1. Click **LIVE** > **Mobile App **to get to Sauce Labs real devices.
+1. Click **LIVE** > **Mobile App** to get to Sauce Labs real devices.
 2. If you haven't already, upload your iOS app .ipa file here.
 3. Hover your mouse over the line item for your app > click **Settings**.
 4. Set** Biometrics Interception** to **Enabled**.
@@ -48,70 +58,47 @@ To initiate a Touch ID or Face ID action in your live test session:
 <br/>
 <img src={useBaseUrl('img/mobile-apps/biometric-auth-2.gif')} alt="Biometric authorization live testing" width="650"/>
 
+<br/>
 
-#### Live Android App Testing on Real Devices
-
-At this time, his feature is not supported for live testing on Android real devices.
-
-To learn about automated testing for Android emulators, see [Biometric Authentication in Automated Mobile App Testing](https://wiki.saucelabs.com/display/DOCS/Biometric+Authentication+in+Automated+Mobile+App+Testing).
+>**NOTE**: At this time, biometric authentication is not supported for Android live testing on real devices.
 
 
-### Automated
+### Automated Testing
 
-You can add biometric authentication (Touch ID or Face ID) in your automation mobile app tests for iOS real devices, iOS simulators, and Android emulators that support it.
+You can add biometric authentication (Touch ID or Face ID) in your automated mobile app tests for iOS real devices, iOS simulators, and Android emulators that support it.
 
->**NOTE**: Not all iOS and Android devices support Touch ID or Face ID. Be prepared to handle test cases for devices where biometrics is not supported.
-
-
-#### What You'll Learn
-
-*   How to perform automated biometric authentication testing on Sauce RDC for iOS
-*   How to perform automated biometric testing in an Android emulator
-*   How to perform automated biometric testing in an iOS simulator
-*   Where to find code samples  
-
-#### What You'll Need
-
-*   A mobile app that supports TouchID or FaceID authentication uploaded to [Application Storage](https://wiki.saucelabs.com/display/DOCS/Application+Storage) (if you don't have one, use our [Swag Labs demo app](https://github.com/saucelabs/sample-app-mobile/blob/master/tests/e2e/spec/extra/touch.face.id.spec.js)).
-*   A Sauce Labs Account ([export your credentials as environment variables](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials) so you don't need to pass them in with every test).
-
-**Security Notice**
-
-KeyStore is normally used to implement and store Touch ID and Face ID user biometrics for mobile apps. As this is a cloud security risk, Sauce Labs does not mock the KeyStore on our real devices for supporting Touch ID and Face ID; the use of KeyStore on our real devices is not supported.
+Not all iOS and Android devices support Touch ID or Face ID. Be prepared to handle test cases for devices where biometrics is not supported.
 
 
-#### Virtual Devices
+#### iOS Simulators
 
-##### iOS Simulators
-
-To enable Touch ID and Face ID on Sauce Labs iOS simulators or on your local machine, you need to set the desired capability `allowTouchIdEnroll`  to true. When the Simulator starts, Touch ID enrollment will be enabled by default.
+To enable Touch ID and Face ID on Sauce Labs iOS simulators or on your local machine, you need to set the desired capability `allowTouchIdEnroll` to true. When the Simulator starts, Touch ID enrollment will be enabled by default.
 
 You can also toggle Touch ID enrollment during a test session by calling, for example, the WebdriverIO client method `driver.toggleEnrollTouchId(true)`. More examples in different programming languages can be found [here](http://appium.io/docs/en/commands/device/simulator/toggle-touch-id-enrollment/#toggle-touch-id-enrollment).
 
-1. Add the `allowTouchIdEnroll` capability in your test script and set it to true.
+1. Add the `allowTouchIdEnroll` capability in your test script and set it to true. Example:
 
-```
+```js
 allowTouchIdEnroll: true,
 ```
 
-2. When starting the device through the capabilities, or when you are running your test runtime, add the `driver.toggleEnrollTouchId` capability and set it to true. A full code spec example is available [here](https://github.com/saucelabs-training/demo-js/blob/master/webdriverio/appium-app/examples/biometric-login/test/specs/touch.face.id.spec.js).
+2. When starting the device through the capabilities, or when you are running your test runtime, add the `driver.toggleEnrollTouchId` capability and set it to true. A full code spec example is available [here](https://github.com/saucelabs-training/demo-js/blob/master/webdriverio/appium-app/examples/biometric-login/test/specs/touch.face.id.spec.js). Example:
 
-**JS Example**
 
-```
+```js
 driver.toggleEnrollTouchId(true);
 ```
 
-3. To run your test **locally**, call `npm run test.local.ios.simulator`. To run it **on an Sauce Labs iOS simulator**, call one of the following, based on your location:
-    1. In the US DC: `npm run test.sauce.ios.simulator.us`
-    2. In the EU DC: `npm run test.sauce.ios.simulator.eu`
+3. To run your test locally, call `npm run test.local.ios.simulator`. To run your test on an Sauce Labs iOS simulator, call one of the following data centers, based on your location:
+    * US Data Center: `npm run test.sauce.ios.simulator.us`
+    * EU Data Center: `npm run test.sauce.ios.simulator.eu`
 
 
-##### Default Capabilities
+#### Default Capabilities
 
 Below you will see the default capabilities you'll need to run an automated test on an iOS simulator. See [Using Biometric Login on Sauce Labs](https://github.com/saucelabs-training/demo-js/tree/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login) for a variety of iOS simulator configuration demo scripts.
 
-```
+```js
 {
     // The defaults you need to have in your config
     deviceName: 'iPhone X Simulator',
@@ -142,12 +129,9 @@ Below you will see the default capabilities you'll need to run an automated test
 
 Android emulators differ from iOS simulators in that:
 
-*   They do not have a one-off capability that enables Touch ID authentication.
-*   By default, you'd need to execute the same steps as you would on a physical mobile device (i.e., enabling a pin and the fingerprint) before you can use it in your tests.
-*   Android versions differ in their methods of enabling Fingerprint, particularly in the Fingerprint wizard steps.
-
-
-##### Setup
+* They do not have a one-off capability that enables Touch ID authentication.
+* By default, you'd need to execute the same steps as you would on a physical mobile device (i.e., enabling a pin and the fingerprint) before you can use it in your tests.
+* Android versions differ in their methods of enabling Fingerprint, particularly in the Fingerprint wizard steps.
 
 To enable biometric authentication on Android emulators:
 
@@ -159,7 +143,7 @@ To enable biometric authentication on Android emulators:
 
 4. When prompted to place your finger on the scanner, emulate the fingerprint using this `adb` command.
 
-```
+```js
 adb -e emu finger touch <finger_id>
 ```
 
@@ -169,15 +153,13 @@ adb -e emu finger touch <finger_id>
 
 7. Return to your Android app, navigate to an action that requires fingerprint authentication, and execute the same command on the app screen.
 
-
-##### Test Script Example
+**Test Script Example**
 
 In this test script example, you'll see that the device API level is called out. Each Android OS version has a corresponding API level, which may need to be reflected in your code. For more information, see [Android Platform codenames, versions, API levels, and NDK releases](https://source.android.com/setup/start/build-numbers#platform-code-names-versions-api-levels-and-ndk-releases).
 
-See [Using Biometric Login on Sauce Labs](https://github.com/saucelabs-training/demo-js/tree/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login) for a variety of Android emulator configuration demo scripts.
+See [Using Biometric Login on Sauce Labs](https://github.com/saucelabs-training/demo-js/tree/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login) for a variety of Android emulator configuration demo scripts. Example:
 
-
-```
+```js
 enableBiometricLogin() {
     if (driver.capabilities.deviceApiLevel < 26) {
         // Open the settings screen
@@ -197,30 +179,26 @@ enableBiometricLogin() {
 }
 ```
 
-#### Real Device Testing
-
-##### iOS Real Devices
+#### iOS Real Devices
 
 To enable Touch ID and Face ID on iOS real devices, add the `allowTouchIdEnroll` capability in your test script and set it to true.
 
-
-```
+```js
 allowTouchIdEnroll: true,
 ```
 
-##### Test Script Example
+**Test Script Example**
 
 See [Using Biometric Login on Sauce Labs](https://github.com/saucelabs-training/demo-js/tree/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login) for a variety of iOS real device configuration demo scripts.
 
-
-```
+```js
 const {config} = require('./wdio.shared.sauce.conf');
 const testName = `iOS Biometric login real device Sauce UI: ${new Date().getTime()}`;
 
 // ============
 // Capabilities
 // ============
-// For all capabilities please check
+// For a list of capabilities, see:
 // http://appium.io/docs/en/writing-running-appium/caps/#general-capabilities
 config.capabilities = [
     {
@@ -247,20 +225,19 @@ exports.config = config;
 
 #### Android Real Devices
 
-At this time, Touch ID and Face ID testing is not supported for Android real devices on Sauce Labs.
+At this time, biometric authentication is not supported for Android real device live testing.
 
 ### Additional Resources
-
-*   The [Sauce Labs Java demo scripts repository](https://github.com/saucelabs-training/demo-js) contains examples for the following scenarios/use cases:
-    *   iOS local simulators
-    *   iOS simulators in the Sauce Labs Simulator Cloud
-    *   iOS real devices in the Legacy RDC cloud
-    *   iOS real devices in the new Sauce Labs UI
-    *   Android local emulators
-    *   Android emulators in the Sauce Labs Emulator Cloud
-*   [Documentation for iOS simulator Face ID | Appium on GitHub](https://github.com/appium/appium-xcuitest-driver/blob/master/docs/touch-id.md)
-*   [Using Biometric Authentication on Automated Tests | Sauce Labs on GitHub](https://github.com/saucelabs/sample-app-mobile/blob/master/docs/APPIUM_AUTOMATION.md)
-
+* The [Sauce Labs Java demo scripts repository](https://github.com/saucelabs-training/demo-js) contains examples for the following scenarios/use cases:
+    * iOS local simulators
+    * iOS simulators in our Sauce Labs Simulator Cloud
+    * iOS real devices in our Legacy RDC platform
+    * iOS real devices in the Sauce Labs UI
+    * Android local emulators
+    * Android emulators in the Sauce Labs Emulator Cloud
+* [Documentation for iOS simulator Face ID | Appium on GitHub](https://github.com/appium/appium-xcuitest-driver/blob/master/docs/touch-id.md)
+* [Support for iOS TouchID on Real Devices](https://wiki.saucelabs.com/display/DOCS/2019/07/01/Support+for+iOS+TouchID+on+Real+Devices)
+* [Using Biometric Authentication on Automated Tests | Sauce Labs on GitHub](https://github.com/saucelabs/sample-app-mobile/blob/master/docs/APPIUM_AUTOMATION.md)
 
 
 
@@ -281,11 +258,9 @@ You'll need to upload your app to Sauce Labs prior to testing. For instructions,
 
 Camera Image Injection is a core feature built into our RDC functionality and available for use with public and private devices. Your mobile app accesses the camera and instead of getting back the picture of the device camera, it'll retrieve your uploaded image for your test. You employ the built-in device camera in your live and automated testing and perform test cases that require taking images with any of the device cameras.
 
-
 ### System Requirements
 
 See the topics under [Mobile App Testing](/mobile-apps) for RDC system requirements.
-
 
 #### Key Specs
 
@@ -295,9 +270,10 @@ See the topics under [Mobile App Testing](/mobile-apps) for RDC system requireme
 *   Front-facing and rear-facing system device cameras
 *   Image file sizes up to 5MB
 *   JPG, JPEG, PNG image file formats.
-*   For Android devices, there are multiple ways to capture an image, as described in the Android [Camera API](https://developer.android.com/guide/topics/media/camera) developer documentation. We support the following:
+*   For Android devices, there are multiple ways to capture an image, as described in the [Android Camera API](https://developer.android.com/guide/topics/media/camera) developer documentation. We support the following:
     *   [ACTION_IMAGE_CAPTURE Intent](https://developer.android.com/reference/android/provider/MediaStore#ACTION_IMAGE_CAPTURE): opens the system camera and notifies the calling app gets when the image is taken
     *   [camera2 API](https://developer.android.com/reference/android/hardware/camera2/package-summary): everything is configured and handled from within the app
+    * [cameraX](https://developer.android.com/training/camerax): leverages the capabilities of camera2, but uses a simpler, use case-based approach that is lifecycle-aware.
     *   [Camera API (deprecated)](https://developer.android.com/reference/android/hardware/Camera) (partially supported): As with camera2, everything is handled in the app itself. QR Code readers often use [Camera#setPreviewCallback](https://developer.android.com/reference/android/hardware/Camera#setPreviewCallback(android.hardware.Camera.PreviewCallback)). We pass the injected image to this method, but the rest of this deprecated API is not supported. UI Elements will not likely display the injected image.
 *   For iOS devices, the camera can be configured with different outputs. We support the following:
     *   [AVCapturePhotoOutput](https://developer.apple.com/documentation/avfoundation/avcapturephotooutput?language=objc): for capturing still images. The results are received via the [AVCapturePhotoCaptureDelegate](https://developer.apple.com/documentation/avfoundation/avcapturephotocapturedelegate?language=objc) and the method [captureOutput:didFinishProcessingPhoto:error:](https://developer.apple.com/documentation/avfoundation/avcapturephotocapturedelegate/2873949-captureoutput?language=objc) The other methods in this delegate are either deprecated or handle live photos, which we don't support.
@@ -362,7 +338,7 @@ In your automated test script, you'll need to input the desired capabilities spe
 
 **Webdriver.io example**
 
-```
+```js
 exports.config = {
   //...
   capabilities: [
@@ -381,7 +357,7 @@ exports.config = {
 
 **Java example**
 
-```
+```java
 var desiredCapabilities = new DesiredCapabilities();
 desiredCapabilities.setCapability("deviceName", "Samsung Galaxy S10");
 desiredCapabilities.setCapability("platformVersionName", "10");
@@ -396,7 +372,7 @@ To change the image, you'll need to send a custom command with a different image
 
 **Webdriver.io example**
 
-```
+```js
 const {readFileSync} = require('fs');
 const {join} = require('path');
 
@@ -409,7 +385,7 @@ driver.execute(`sauce:inject-image=${qrCodeImage}`);
 
 **Java example**
 
-```
+```java
 import java.util.Base64;
 import static org.apache.commons.io.IOUtils.toByteArray;
 
@@ -429,19 +405,18 @@ Here are some common errors you may see in the course of testing with Camera Ima
 
 This error is displayed when you attempt to inject your image before the app fully loads during your initial test session startup. You must wait until your app has fully loaded prior to injecting your image.
 
-
 #### Image injection is not enabled for the application
 
 This error is displayed due to one or more of these reasons:
 
-*   **Enable Image Injection** checkbox is not checked; this needs to be checked.
-*   For Android tests, the debuggable flag (`android:debuggable="true"`) is missing from your application's manifest file.
+*  **Enable Image Injection** checkbox is not checked; this needs to be checked.
+*  For Android tests, the debuggable flag (`android:debuggable="true"`) is missing from your application's manifest file.
 
 
 ### Additional Resources
 
-*   [Sauce Labs Image Injection code examples (GitHub)](https://github.com/saucelabs-training/demo-js/tree/master/webdriverio/appium-app/examples/image-injection)
-*   [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile/releases/tag/2.3.0); try out image injection for yourself using our demo app
-*   [Android Camera API | Google Developer Documentation](https://developer.android.com/guide/topics/media/camera)
+* [Sauce Labs Image Injection code examples (GitHub)](https://github.com/saucelabs-training/demo-js/tree/master/webdriverio/appium-app/examples/image-injection)
+* [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile/releases/tag/2.3.0); try out image injection for yourself using our demo app
+* [Android Camera API | Google Developer Documentation](https://developer.android.com/guide/topics/media/camera)
 
-For support in beta, please reach out to your CSM or SE, or contact Sauce Labs Support.
+For support in beta, please reach out to your CSM or SE.

@@ -1,6 +1,6 @@
 ---
 id: style-guide
-title: Stylde Guide Introduction
+title: Style Guide Introduction
 sidebar_label: Overview
 ---
 
