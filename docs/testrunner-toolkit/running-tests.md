@@ -44,7 +44,7 @@ Consult your desired framework's documentation for more information about the de
 Testrunner Toolkit will then execute the test based on the information in `config.yml`.
 =======
 
-Testrunner Toolkit will then execute the test based on the information in `config.yml`. 
+Testrunner Toolkit will then execute the test based on the information in `config.yml`.
 >>>>>>> master
 
 ## Test on Docker (Local Testing)
@@ -199,7 +199,7 @@ If you have third party, or custom modules that are required test dependencies, 
 
 When you run the commands:
 
-* `saucectl  run` or 
+* `saucectl  run` or
 * `saucectl run --test-env docker`
 
 ensure the `docker` container can access the local app server (e.g. `localhost:<port>/`) from your host machine. After the tests complete the results upload to the Sauce Labs results dashboard.
