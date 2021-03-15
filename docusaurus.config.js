@@ -8,6 +8,9 @@ const docusaurusConfig = {
   favicon: 'img/favicon.ico',
   organizationName: 'saucelabs',
   projectName: 'sauce-docs',
+  scripts: [
+      'https://github.com/saucelabs/sauce-docs/tree/master/src/components/segment.js',
+  ],
   themeConfig: {
     googleAnalytics: {
       trackingID: 'UA-6735579-1',
