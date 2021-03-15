@@ -4,13 +4,13 @@ on:
   pull_request:
   push:
     paths-ignore:
-    - '.github/**'
-    - '.docsearch/**'
+      - '.github/**'
+      - '.docsearch/**'
 
 env:
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
-  SAUCECTL_VERSION: 0.14.0
+  SAUCECTL_VERSION: "0.32.0"
   ALGOLIA_APP_ID: ${{secrets.ALGOLIA_APP_ID}}
   ALGOLIA_KEY: ${{secrets.ALGOLIA_KEY}}
 
@@ -76,22 +76,20 @@ jobs:
         run: |
           npm run build
 
+      - name: Create Tunnel
+        run: |
+          set -e
+          curl -L -s https://saucelabs.com/downloads/sc-4.6.4-linux.tar.gz | sudo tar -xvz
+          sc-4.6.4-linux/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -i proxy-tunnel-$GITHUB_RUN_ID &
       - name: install saucectl
         run: |
-          curl -L -s  https://github.com/saucelabs/saucectl/releases/download/v${SAUCECTL_VERSION}/saucectl_${SAUCECTL_VERSION}_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
+          curl -L -s https://github.com/saucelabs/saucectl/releases/download/v${SAUCECTL_VERSION}/saucectl_${SAUCECTL_VERSION}_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
       - name: saucectl run
         run: |
           # Expose website
           cd build/ && python3 -m http.server 8000 &
 
-          # Run skipping ci-mode
-          export SKIP_CI=true
-          saucectl run --env CYPRESS_HOST_ADDR=`hostname -i`:8000 -c ./.sauce/config.yml
-          EXIT_CODE=${?}
-          kill %1
-
-          exit ${EXIT_CODE}
-
+          saucectl run -c ./.sauce/config.yml --tunnel-id proxy-tunnel-$GITHUB_RUN_ID --test-env sauce
   deploy-staging:
     needs: test
     runs-on: ubuntu-latest
