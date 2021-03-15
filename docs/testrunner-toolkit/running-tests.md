@@ -40,12 +40,8 @@ Consult your desired framework's documentation for more information about the de
 * run the tests within the docker container
 * display the test results in the console
 
-<<<<<<< HEAD
 Testrunner Toolkit will then execute the test based on the information in `config.yml`.
-=======
 
-Testrunner Toolkit will then execute the test based on the information in `config.yml`.
->>>>>>> master
 
 ## Test on Docker (Local Testing)
 
