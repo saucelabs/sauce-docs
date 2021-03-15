@@ -13,26 +13,44 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 In the test creation process, the definition of global and local variables allows you to parametrize the test to allow more flexibility.
 
-The **global** variables are meant to be the ones that are common for the whole test (i.e. api key, domain etc). For adding a global variable click on the _+Add Global Param_ in the Data Set panel and fill the name and value.
+## Add a Global Parameter
 
-<img src={useBaseUrl('img/api-fortress/2017/07/variable.jpg')} alt="variable.jpg"/>
+The **global** parameters are common variables designed to run with the whole test (i.e. api key, domain etc). 
 
-<img src={useBaseUrl('img/api-fortress/2017/07/global.jpg')} alt="global.jpg"/>
+1. For adding a global parameter/varaible click on the _+Add Global Param_ in the **Data Sets** panel:
 
-The variable will be present in the test scope, and will be constant during the test execution.
+   <img src={useBaseUrl('img/api-fortress/2017/07/variable.jpg')} alt="variable.jpg"/>
 
-The **input set**, instead, is a group of input variables representing a scenario (i.e product id). To add in input set, click the _**+** button_ in the Input Set section and add a name for the set. Then click _\+ Add Param_ and add the variable name and value.
+2. Then fill in the name and value:
 
-<img src={useBaseUrl('img/api-fortress/2017/07/inputSet.jpg')} alt="inputSet.jpg"/>
+   <img src={useBaseUrl('img/api-fortress/2017/07/global.jpg')} alt="global.jpg"/>
 
-The unit will be executed once for each input set you have defined. At each iteration, one input set will enter the scope.
+The parameter/variable will be present in the test scope, and remains constant during test execution.
 
-If you define a variable both in the global section and the input set, the value used in the test will be the one defined in the input set.
+## Add an Input Set
 
-The variables can be defined also in the **Vault** (for more info see [here](/api-testing/quick-start/the-vault)) and in the **Schedule** (for more info see [here](/api-testing/quick-start/schedule-a-test)).
+The **input set**, instead, is a group of input variables representing a scenario (i.e product id). 
+
+1. To add in input set, click the _**+** button_ in the **Input Set** section
+3. Then add a name for the set. Then click _+ Add Param_ and add the variable name and value.
+
+   <img src={useBaseUrl('img/api-fortress/2017/07/inputSet.jpg')} alt="inputSet.jpg"/>
+
+The unit executes once for each input set you define. At each iteration, one input set enters the scope.
+
+:::note important!
+If you define a variable in both the Global Parameters section, and in the Input Set section, **the value used in the test will be the one defined in the Input Set**.
+:::
+
+## Using the Vault and Scheduler
+
+You can also define the variables in the [**Vault**](/api-testing/quick-start/the-vault) and in the [**Scheduler**](/api-testing/quick-start/schedule-a-test).
+
+### Priority Order
 
 The priority order is:
 
-- if the same variable is defined in the _Vault_ and in the _composer_ (no matter if it is a global variable or an input set), the one defined in the composer will be used.
-- if the same variable is defined in the composer both as _global_ and _input set_, the value of the input set will be used
+- if the same variable is defined in the _Vault_ and in the [_composer_](/api-testing/quick-start/composer), the one defined in the composer will be used.
+  > it also doesn't matter if it is a global parameter, or an input set
+- if the same variable is defined in the composer both as a  _global param_ and an _input set_, the value of the input set will be used
 - if the same variable is defined in the _Vault_ (or in the composer) and in the _scheduler_, the variable defined in the scheduler will be used for the tests.
