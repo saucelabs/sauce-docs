@@ -129,7 +129,7 @@ suites:
       testFiles: [ "**/login.*" ]
   # MicrosoftEdge
   - name: "Swag Labs Login MicrosoftEdge"
-    browser: "MicrosoftEdge"
+    browser: "microsoftedge"
     platformName: "Windows 10"
     screenResolution: "1400x1050"
     config:
