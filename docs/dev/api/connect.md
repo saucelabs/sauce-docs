@@ -7,7 +7,7 @@ description: Retrieve information about or close your Sauce Connect tunnels.
 
 Use the Sauce Connect REST API methods to monitor and clean up your active proxy tunnels.
 
-<p> <a href="http://saucelabs.com"><button class="download">Download Sauce Connect</button></a> </p>
+To download Sauce Connect, see [Sauce Connect Proxy Installation](secure-connections/sauce-connect/installation.md).
 
 
 `GET	 /rest/v1/<USERNAME>/tunnels`
