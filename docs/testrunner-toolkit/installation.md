@@ -128,6 +128,8 @@ This command prompts you to manually enter your credentials if it cannot detect 
 It should go without saying, but do not publicly expose your `credentials.yml` file over the internet. Make sure you add this file to your `.gitignore` file, as you should only use it locally.
 :::
 
+### Training
+
 See the tutorial and video on [setting up your Testrunner Toolkit environment](https:/training.saucelabs.com/testrunner/index.html) for more help.
 =======
 ## Create a Configuration File 
