@@ -48,21 +48,29 @@ Each docker image tag is the 'latest' image that supports the specific framework
 
 <Tabs 
     defaultValue="cypress"
-    values={[{"label":"Cypress","value":"cypress"},{"label":"Playwright","value":"playwright"},{"label":"TestCafe","value":"testcafe"}]}><TabItem value="cypress">
+    values={[
+      {"label":"Cypress","value":"cypress"},
+      {"label":"Playwright","value":"playwright"},
+      {"label":"TestCafe","value":"testcafe"}
+    ]}>
+    
+<TabItem value="cypress">
 
 |Cypress Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
-|5.7.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
-|0.2.3|Windows 10|Chrome, Firefox, MicrosoftEdge|
+|5.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
+|5.5.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 
 </TabItem>
+
 <TabItem value="playwright">
 
 |Playwright Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
-|1.7.2|Windows 10|Playwright Chromium, Playwright Firefox, Playwright Webkit|
+|1.7.1|Windows 10|Playwright-Chromium, Playwright-Firefox, Playwright-Webkit|
 
 </TabItem>
+
 <TabItem value="puppeteer">
 
 |Puppeteer Version|Supported Platforms|Supported Browsers|
@@ -70,16 +78,18 @@ Each docker image tag is the 'latest' image that supports the specific framework
 
 
 </TabItem>
+
 <TabItem value="testcafe">
 
 |TestCafe Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
-|0.4.0|macOS 11.00|Chrome, Firefox, MicrosoftEdge, Safari|
-||Windows 10|Chrome, Firefox, MicrosoftEdge|
-|0.2.3|Windows 10|Chrome, Firefox, MicrosoftEdge|
+|1.11.0|macOS 11.00|Safari, Chrome, Firefox, MicrosoftEdge|
+|1.10.1|Windows 10|Chrome, Firefox, MicrosoftEdge|
 
 </TabItem>
+
 </Tabs>
+
 
 <!--END_AUTO_GENERATED_TABLE-->
 
