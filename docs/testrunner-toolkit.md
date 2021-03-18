@@ -45,10 +45,15 @@ Each docker image tag is the 'latest' image that supports the specific framework
 <!--START_AUTO_GENERATED_TABLE-->
 
 ### Supported frameworks in Sauce Cloud
-
-<Tabs 
-    defaultValue="cypress"
-    values={[{"label":"Cypress","value":"cypress"},{"label":"Playwright","value":"playwright"},{"label":"TestCafe","value":"testcafe"}]}><TabItem value="cypress">
+<Tabs
+  defaultValue="cypress"
+  values={[
+    {label: 'Cypress', value: 'cypress'},
+    {label: 'Playwright', value: 'playwright'},
+    {label: 'TestCafe', value: 'testcafe'},
+    {label: 'Puppeteer', value: 'puppeteer'},
+  ]}>
+  
 
 |Cypress Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
