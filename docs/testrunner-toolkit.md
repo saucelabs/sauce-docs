@@ -25,12 +25,13 @@ Most importantly, by running these tests through Sauce Labs, you can:
 ## How to Get Started
 
 To get started quickly, please see [this page](/testrunner-toolkit/installation).
-## How it Works
+
+### How it Works
 
 Testrunner Toolkit achieves JavaScript framework testing through the combination of Sauce Labs, Jest, and the
 JavaScript framework of your choice. 
 
-### Supported Frameworks and Browsers
+## Supported Frameworks and Browsers
 
 In the current beta, the toolkit supports the following frameworks: [Cypress](https://github.com/cypress-io/cypress), [Playwright](https://github.com/microsoft/playwright), and [TestCafe](https://github.com/DevExpress/testcafe). The specific framework you use for testing depends on the types of tests you
 need to run, and the environment where you run the tests.
@@ -44,7 +45,7 @@ Each docker image tag is the 'latest' image that supports the specific framework
 <!--CLOUD FRAMEWORKS GO HERE. This markdown is generated from the test-composer project. Do not edit manually -->
 <!--START_AUTO_GENERATED_TABLE-->
 
-### Supported frameworks in Sauce Cloud
+### Supported Frameworks in Sauce Cloud
 
 <Tabs 
     defaultValue="cypress"
@@ -93,7 +94,7 @@ Each docker image tag is the 'latest' image that supports the specific framework
 
 <!--END_AUTO_GENERATED_TABLE-->
 
-### Supported frameworks in Docker Runner
+### Supported Frameworks in Docker Runner
 
 <Tabs
   defaultValue="cypress"
