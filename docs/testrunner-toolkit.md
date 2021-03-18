@@ -67,7 +67,7 @@ Each docker image tag is the 'latest' image that supports the specific framework
 
 |Playwright Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
-|1.7.1|Windows 10|Playwright-Chromium, Playwright-Firefox, Playwright-Webkit|
+|1.7.1|Windows 10|Chromium, Firefox, Webkit|
 
 </TabItem>
 
