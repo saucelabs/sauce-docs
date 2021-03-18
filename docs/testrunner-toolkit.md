@@ -54,6 +54,7 @@ Each docker image tag is the 'latest' image that supports the specific framework
     {label: 'Puppeteer', value: 'puppeteer'},
   ]}>
   
+<TabItem value="cypress">
 
 |Cypress Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
