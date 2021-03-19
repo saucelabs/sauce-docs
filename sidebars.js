@@ -476,7 +476,7 @@ module.exports = {
     ],
     "CI/CD": [
         'ci',
-        'ci/azure'
+        'ci/azure',
         'ci/bamboo',
         'ci/bitbucket',
         'ci/jenkins',
