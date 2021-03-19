@@ -13,7 +13,7 @@ apiVersion: v1alpha
 kind: testcafe
 sauce:
   region: us-west-1
-  concurrency: 1
+  concurrency: 2
   metadata:
     name: Testing Testcafe Support
     tags:
