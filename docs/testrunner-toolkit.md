@@ -25,12 +25,13 @@ Most importantly, by running these tests through Sauce Labs, you can:
 ## How to Get Started
 
 To get started quickly, please see [this page](/testrunner-toolkit/installation).
-## How it Works
+
+### How it Works
 
 Testrunner Toolkit achieves JavaScript framework testing through the combination of Sauce Labs, Jest, and the
 JavaScript framework of your choice. 
 
-### Supported Frameworks and Browsers
+## Supported Frameworks and Browsers
 
 In the current beta, the toolkit supports the following frameworks: [Cypress](https://github.com/cypress-io/cypress), [Playwright](https://github.com/microsoft/playwright), and [TestCafe](https://github.com/DevExpress/testcafe). The specific framework you use for testing depends on the types of tests you
 need to run, and the environment where you run the tests.
@@ -40,6 +41,60 @@ Furthermore, the framework and browser version support depends on the Sauce Labs
 :::note 
 Each docker image tag is the 'latest' image that supports the specific framework version
 :::
+
+<!--CLOUD FRAMEWORKS GO HERE. This markdown is generated from the test-composer project. Do not edit manually -->
+<!--START_AUTO_GENERATED_TABLE-->
+
+### Supported Frameworks in Sauce Cloud
+
+<Tabs 
+    defaultValue="cypress"
+    values={[
+      {"label":"Cypress","value":"cypress"},
+      {"label":"Playwright","value":"playwright"},
+      {"label":"TestCafe","value":"testcafe"}
+    ]}>
+    
+<TabItem value="cypress">
+
+|Cypress Version|Supported Platforms|Supported Browsers|
+|-----|-----|-----|
+|5.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
+|5.5.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
+
+</TabItem>
+
+<TabItem value="playwright">
+
+|Playwright Version|Supported Platforms|Supported Browsers|
+|-----|-----|-----|
+|1.7.1|Windows 10|Chromium, Firefox, Webkit|
+
+</TabItem>
+
+<TabItem value="puppeteer">
+
+|Puppeteer Version|Supported Platforms|Supported Browsers|
+|-----|-----|-----|
+
+
+</TabItem>
+
+<TabItem value="testcafe">
+
+|TestCafe Version|Supported Platforms|Supported Browsers|
+|-----|-----|-----|
+|1.11.0|macOS 11.00|Safari, Chrome, Firefox, MicrosoftEdge|
+|1.10.1|Windows 10|Chrome, Firefox, MicrosoftEdge|
+
+</TabItem>
+
+</Tabs>
+
+
+<!--END_AUTO_GENERATED_TABLE-->
+
+### Supported Frameworks in Docker Runner
 
 <Tabs
   defaultValue="cypress"
@@ -53,22 +108,23 @@ Each docker image tag is the 'latest' image that supports the specific framework
 
 | Cypress Version    | Supported Browsers        | Release Notes                                                                                                 | Sauce Cloud Support [[?](testrunner-toolkit/running-tests.md#test-on-sauce-labs)] |
 |--------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| 5.6.0              | Please see release notes. | [saucelabs/sauce-cypress-runner](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v5.7.3)       | Windows 10                                                                        |
+| 6.6.0              | Please see release notes. | [saucelabs/sauce-cypress-runner](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v6.0.1)       | TBD                                                                               |
+| 5.6.0              | Please see release notes. | [saucelabs/sauce-cypress-runner](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v5.9.1)       | Windows 10                                                                        |
 
 </TabItem>
 <TabItem value="playwright">
 
 | Playwright Version | Supported Browsers        | Release Notes                                                                                                 | Sauce Cloud Support [[?](testrunner-toolkit/running-tests.md#test-on-sauce-labs)] |
 |--------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| 1.7.1              | Please see release notes. | [saucelabs/sauce-playwright-runner](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.7.4) |                                                                                   |
+| 1.7.1              | Please see release notes. | [saucelabs/sauce-playwright-runner](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.7.5) | Windows 10                                                                        |
 
 </TabItem>
 <TabItem value="testcafe">
 
 | TestCafe Version   | Supported Browsers        | Release Notes                                                                                                 | Sauce Cloud Support [[?](testrunner-toolkit/running-tests.md#test-on-sauce-labs)] |
 |--------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| 1.11.0              | Please see release notes. | [saucelabs/sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.3.0)    |                                                                                   |
-| 1.10.1              | Please see release notes. | [saucelabs/sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.2.5)    |    Windows 10                                                                               |
+| 1.11.0              | Please see release notes. | [saucelabs/sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.3.0)    | TBD                                                                               |
+| 1.10.1              | Please see release notes. | [saucelabs/sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.2.5)    | Windows 10                                                                        |
 
 </TabItem>
 </Tabs> 
