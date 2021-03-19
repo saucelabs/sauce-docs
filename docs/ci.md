@@ -17,7 +17,7 @@ Incorporating continuous testing into your CI/CD pipeline means designing your t
         <li><a href="/ci/bitbucket">Bitbucket</a></li>
         <li><a href="/ci/jenkins">Jenkins</a></li>
         <li><a href="/ci/teamcity">TeamCity</a></li>
-        <li><a href="/ci/visual-studio">Visual Studio</a></li>
+        <li><a href="/ci/azure">Visual Studio</a></li>
       </ul></p>
     </div>
   </div>

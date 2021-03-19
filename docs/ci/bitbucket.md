@@ -10,7 +10,7 @@ Bitbucket is Atlassian's cloud service continuous integration tool. Launch your 
 ## What You'll Need
 
 - Sauce Labs account [Sign Up](https://saucelabs.com/signup/trial)
-- The `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` specific to your Sauce Labs account [Find these](docs/basics/acct-team-mgmt/managing-user-info)
+- The `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` specific to your Sauce Labs account [Find these](/basics/acct-team-mgmt/managing-user-info)
 - Bitbucket account [Sign Up](https://bitbucket.org/account/signup/)
 - Bitbucket Pipelines installed on your Bitbucket account [Create pipelines](https://confluence.atlassian.com/bitbucket/bitbucket-pipelines-792496469.html)
 
