@@ -1,7 +1,7 @@
 ---
 id: installation
-title: Testrunner Toolkit Installation
-sidebar_label: Installation
+title: Testrunner Toolkit Installation and Setup
+sidebar_label: Installation and Setup
 ---
 
 import Tabs from '@theme/Tabs';
@@ -18,7 +18,7 @@ Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifie
 
 ### System Requirements
 
-The system requirements to successfully run `saucectl` vary depending on whether you plan to run it locally via [`docker`](/testrunner-toolkit/running-tests#run-your-first-test), or remotely via [`sauce`](/testrunner-toolkit/running-tests#test-on-sauce-labs). 
+The system requirements to successfully run `saucectl` vary depending on whether you plan to run it locally via [`docker`](/testrunner-toolkit/running-tests#run-your-first-test), or remotely via [`sauce`](/testrunner-toolkit/running-tests#test-on-sauce-labs).
 
 As a rule of thumb, your local system requirements should match the [Docker installation requirements](https://docs.docker.com/engine/install/#supported-platforms). Please use the table below as a quick reference:
 
@@ -29,7 +29,7 @@ As a rule of thumb, your local system requirements should match the [Docker inst
     {label: 'Linux', value: 'linux'},
     {label: 'Windows', value: 'windows'},
   ]}>
-  
+
 <TabItem value="macos">
 
 * Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
@@ -67,12 +67,12 @@ There are multiple ways to install the Sauce Labs Testrunner Toolkit (colloquial
 * ```bash title="Using NPM"
   npm install -g saucectl
   ```
-  
+
 * ```bash title="Using Homebrew (macOS)"
   brew tap saucelabs/saucectl
   brew install saucectl
   ```
-  
+
 If you would like to inspect the content of our one line installer, download it, have a look, and execute it:
 
 ```bash
@@ -90,6 +90,10 @@ We therefore advise Windows users to simply use `cmd` or `powershell` when inter
 
 You need to retrieve your Sauce Labs `username` and `accessKey` in order post your test results to the Sauce Labs platform. To retrieve your Sauce Labs account credentials navigate to [Account > User Settings](https://app.saucelabs.com/user-settings).
 
+:::note
+You should run the following commands in the root of your project directory
+:::
+
 ### Using Environment Variables
 
 Sauce Labs recommends as a best practice to set your account credentials as environment variables like so:
@@ -99,13 +103,13 @@ SAUCE_USERNAME='valid.username'
 SAUCE_ACCESS_KEY='valid.key'
 ```
 
-> 
+>
 > If you are using a cloud CI/CD tool, we strongly suggest protecting these values through secrets or context variables.
 >
 
 :::tip
 For specific instructions on how to set environment variables visit, the following links:
-* [Set Environment Variables with Windows 10](https://www.architectryan.com/2018/08/31/how-to-change-environment-variables-on-windows-10/) 
+* [Set Environment Variables with Windows 10](https://www.architectryan.com/2018/08/31/how-to-change-environment-variables-on-windows-10/)
 * [Set Environment Variables with MacOS](https://apple.stackexchange.com/questions/106778/how-do-i-set-environment-variables-on-os-x)
 * [Set Environment Variables with Linux](https://askubuntu.com/questions/58814/how-do-i-add-environment-variables)
 :::
@@ -123,3 +127,56 @@ This command prompts you to manually enter your credentials if it cannot detect 
 :::warning Do NOT commit `credentials.yml`
 It should go without saying, but do not publicly expose your `credentials.yml` file over the internet. Make sure you add this file to your `.gitignore` file, as you should only use it locally.
 :::
+
+### Training
+
+See the tutorial and video on [setting up your Testrunner Toolkit environment](https:/training.saucelabs.com/testrunner/index.html) for more help.
+
+## Create a Configuration File 
+
+:::tip
+If you already have existing tests, skip ahead to the [Running Tests](/testrunner-toolkit/running-tests) section.
+:::
+
+Follow the steps below in order to generate a config file, which in turn creates the necessary test files in your project's root directory.
+
+* a config file (e.g. `.sauce/config.yml`)
+* the `tests` directory and other necessary files (e.g. `cypress.json` and `cypress/`)
+* an example test (e.g. `cypress/integration/example.test.js`)
+
+Run the following command to generate a config file:
+
+```bash
+saucectl new
+```
+
+
+### Choose a Framework
+After running this command, a prompt appears asking you to select the desired framework:
+
+```bash
+8:59AM INF Start New Command
+     Choose a framework:
+     ❯ Cypress
+       Playwright
+       Testcafe
+```
+
+
+### Select a Data Center
+Next, a prompt appears asking you to select the desired [Sauce Labs data center](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints):
+
+```bash
+8:59AM INF Start New Command
+     Choose a framework: Cypress
+     Choose the sauce labs region:
+     ❯ us-west-1
+       eu-central-1
+```
+
+Testrunner Toolkit generates a new config file in your current working directory (`.sauce/config.yml`) and prompts you to execute the `saucectl run` command.
+
+## Next Steps
+
+* __Run a Test__: Visit the [Running Tests](/testrunner-toolkit/running-tests) page for more detailed information about running tests with Testrunner Toolkit.
+* __Configuration Syntax__: Visit the [Configuration](/testrunner-toolkit) page for detailed information on how to modify the `config.yml`, as well as syntax explanations.

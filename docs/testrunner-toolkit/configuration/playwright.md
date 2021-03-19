@@ -15,7 +15,7 @@ apiVersion: v1alpha
 kind: playwright
 sauce:
   region: us-west-1
-  concurrency: 1
+  concurrency: 2
   metadata:
     name: Testing Playwright Support
     tags:
@@ -23,7 +23,7 @@ sauce:
     build: "$BUILD_ID"
 playwright:
   version: ##VERSION##
-  projectPath: tests/
+  rootDir: tests/
 docker:
   fileTransfer: mount
 suites:
@@ -50,7 +50,7 @@ __Example__:
 ```yaml
 playwright:
   version: ##VERSION##
-  projectPath: tests/
+  rootDir: tests/
 ```
 
 ### `version`
@@ -64,7 +64,7 @@ __Example__:
   version: ##VERSION##
 ```
 
-### `projectPath`
+### `rootDir`
 
 __Description__: Absolute path to the test directory and related test files
 
@@ -72,7 +72,7 @@ __Type__: *string*
 
 __Example__:
 ```yaml
-  projectPath: /path/to/tests/
+  rootDir: /path/to/tests/
 ```
 
 ## `suites`
