@@ -15,7 +15,7 @@ apiVersion: v1alpha
 kind: playwright
 sauce:
   region: us-west-1
-  concurrency: 1
+  concurrency: 2
   metadata:
     name: Testing Playwright Support
     tags:
