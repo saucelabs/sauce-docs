@@ -86,7 +86,7 @@ module.exports = {
           'secure-connections/sauce-connect/changelog',
           ],
         },
-      'secure-connections/ipsec-vpn',  
+      'secure-connections/ipsec-vpn',
       ],
   "Mobile Apps": [
     'mobile-apps',
@@ -476,11 +476,11 @@ module.exports = {
     ],
     "CI/CD": [
         'ci',
+        'ci/azure',
         'ci/bamboo',
         'ci/bitbucket',
         'ci/jenkins',
         'ci/teamcity',
-        'ci/visual-studio',
     ],
     "Insights": [
         'insights',
