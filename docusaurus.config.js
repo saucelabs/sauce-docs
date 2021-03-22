@@ -11,7 +11,7 @@ const docusaurusConfig = {
   scripts: [
     {
       src:
-        'https://github.com/saucelabs/sauce-docs/tree/master/src/components/segment.js',
+        'src/component/segment.js',
       async: true,
     },
   ],
