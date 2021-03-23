@@ -20,9 +20,12 @@ The Sauce Labs real device cloud provides you with the ability to run either [li
 
 ## What You'll Need
 
-*   Before you can upload your app and leverage real devices, ensure that you meet the project support and requirements. See [Automated Mobile App Testing Admin Guide](https://wiki.saucelabs.com/display/DOCS/Mobile+Application+Testing+Admin+Guide#mobile-test-admin-real-devices)for further details.
-*   A Sauce Labs account.
-*   The mobile app you wish to test. If you don't have an app and would like to try out our test functionality, feel free to download and use our[ Sauce Labs demo app](https://github.com/saucelabs/sample-app-mobile/releases).
+* Your Sauce Labs username and access key.
+* Ensure that your mobile app and project setup meet our [real device cloud requirements](mobile-apps/automated-testing/devices.md).
+* Have your mobile app file (.ipa for iOS, .apk for Android) and mobile test file on hand.
+* Have your mobile app [uploaded to Sauce Labs](mobile-apps/automated-testing/appium/real-devices#uploading-and-accessing-your-apps-on-real-devices)
+
+If you don't have an app and would like to try out our test functionality, feel free to download and use our [Sauce Labs demo app](https://github.com/saucelabs/sample-app-mobile/releases).
 
 
 ## Uploading and Accessing Your Apps on Real Devices
