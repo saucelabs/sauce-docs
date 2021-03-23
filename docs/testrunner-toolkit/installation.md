@@ -67,6 +67,11 @@ There are multiple ways to install the Sauce Labs Testrunner Toolkit (colloquial
 * ```bash title="Using NPM"
   npm install -g saucectl
   ```
+  
+* ```bash title="Using NPM and SAUCECTL_INSTALL_BINARY"
+  SAUCECTL_INSTALL_BINARY=https://company.domain.com/saucectl_0.32.2_mac_64-bit.tar.gz npm install -g saucectl
+  ```
+Using the `SAUCECTL_INSTALL_BINARY` environment variable, you can control how `saucectl` is installed. You can use it in case you need to download `saucectl` from a known source or in case you use `npx saucectl`.
 
 * ```bash title="Using Homebrew (macOS)"
   brew tap saucelabs/saucectl
