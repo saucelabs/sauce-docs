@@ -178,7 +178,7 @@ Add one of the following commands to your test script:
 
 From here, head to the full list of commands and options at [Sauce Runner for Real Devices CLI Reference](dev/cli/espresso-xcuitest.md).
 
-### Using YAML Configuration File
+### Using a YAML Configuration File
 
 As an alternative to configuring your [Espresso and XCUITest RDC tests](mobile-apps/automated-testing/espresso-xcuitest/real-devices.md) using the [command line interface](/dev/cli/espresso-xcuitest.md), you can create and run a YAML configuration file.
 
