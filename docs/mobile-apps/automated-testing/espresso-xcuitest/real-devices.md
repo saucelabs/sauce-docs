@@ -19,7 +19,7 @@ Our Sauce Runner for Real Devices test runner enables you to integrate Espresso 
 
 * Your Sauce Labs username and access key.
 * Have your mobile app file (.ipa for iOS, .apk for Android) and mobile test file on hand.
-* Have your mobile app [uploaded to Sauce Labs](mobile-apps/automated-testing/appium/real-devices#uploading-and-accessing-your-apps-on-real-devices)
+* Have your mobile app uploaded to Sauce Labs (see [Appium Real Devices > Uploading and Accessing Your Apps on Real Devices](mobile-apps/automated-testing/appium/real-devices.md) for more information.
 
 If you don't have an app and would like to try out our test functionality, feel free to download and use our [Sauce Labs demo app](https://github.com/saucelabs/sample-app-mobile/releases).
 
@@ -177,7 +177,7 @@ From here, head to the full list of commands and options at [Sauce Runner for Re
 
 ### Using YAML Configuration File
 
-As an alternative to configuring your [Espresso and XCUITest RDC tests](mobile-apps/automated-testing/espresso-xcuitest/real-devices.md) using the [command line interface](/dev/cli/espresso-xcuitest.md), you can create and run a YAML configuration file.
+As an alternative to configuring your Espresso and XCUITest RDC tests using the [command line interface](/dev/cli/espresso-xcuitest.md), you can create and run a YAML configuration file.
 
 Add the [`config` command](dev/cli/espresso-xcuitest.md) to your test script. The config command only accepts two parameters: `--path <path to config.yml>` and `--apikey <apikey>`. Here's an example:
 
