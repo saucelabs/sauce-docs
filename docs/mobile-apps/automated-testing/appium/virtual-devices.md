@@ -265,7 +265,7 @@ DesiredCapabilities caps = new DesiredCapabilities();
 <TabItem value="iOS">
 
 iPhone Native App
-```
+```java
 DesiredCapabilities caps = DesiredCapabilities.iphone();
 caps.setCapability("appiumVersion", "1.4.16");
 caps.setCapability("deviceName","iPhone 5");
@@ -277,7 +277,7 @@ caps.setCapability("app","sauce-storage:mapp.zip");
 ```
 
 iPad Native App
-```
+```java
 DesiredCapabilities caps = DesiredCapabilities.iphone();
   caps.setCapability("appiumVersion", "1.4.16");
   caps.setCapability("deviceName","iPad Retina");
@@ -289,7 +289,7 @@ DesiredCapabilities caps = DesiredCapabilities.iphone();
 ```
 
 iPhone Hybrid App
-```
+```java
 DesiredCapabilities caps = DesiredCapabilities.iphone();
     caps.setCapability("appiumVersion", "1.4.16");
     caps.setCapability("deviceName","iPhone Retina (4-inch 64-bit)");
@@ -304,7 +304,7 @@ DesiredCapabilities caps = DesiredCapabilities.iphone();
 <TabItem value="Android">
 
 Android Native App, Android v. 4.3
-```
+```java
 DesiredCapabilities caps = DesiredCapabilities.android();
     caps.setCapability("appiumVersion", "1.4.16");
     caps.setCapability("deviceName","Samsung Galaxy S4 Emulator");
@@ -316,7 +316,7 @@ DesiredCapabilities caps = DesiredCapabilities.android();
 ```
 
 Android Hybrid App, Android v. 4.1
-```
+```java
 DesiredCapabilities caps = DesiredCapabilities.android();
     caps.setCapability("appiumVersion", "1.4.16");
     caps.setCapability("deviceName","Android Emulator");
@@ -335,29 +335,26 @@ DesiredCapabilities caps = DesiredCapabilities.android();
 
 ## Example Appium Test Scripts
 
-These Appium scripts for iOS and Android mobile app tests on emulators and simulators can help streamline your testing process. See [Sauce Labs Training on GitHub]((https://github.com/saucelabs-training/) for a full repository of demo scripts to get you started with automated testing on Sauce Labs.
+These Appium scripts for iOS and Android mobile app tests on emulators and simulators can help streamline your testing process. See [Sauce Labs Training on GitHub](https://github.com/saucelabs-training) for a full repository of demo scripts to get you started with automated testing on Sauce Labs.
 
 Visit the following repositories for Appium iOS and Android app example scripts:
 
-*   [Java for iOS](https://github.com/saucelabs-training/demo-java/tree/master/appium-example/src/test/java/example/ios), [Java for Android](https://github.com/saucelabs-training/demo-java/tree/master/appium-example/src/test/java/example/android)
+*   [Java for iOS](https://github.com/saucelabs-training/demo-java/tree/master/appium-example/src/test/java/example/ios)
+* [Java for Android](https://github.com/saucelabs-training/demo-java/tree/master/appium-example/src/test/java/example/android)
 *   [JavaScript](https://github.com/saucelabs-training/demo-js/tree/master/webdriverio/appium-app/examples)
 *   [Python](https://github.com/saucelabs-training/demo-python/tree/master/appium-examples)
 *   [Ruby](https://github.com/saucelabs-training/demo-ruby/tree/master/appium-examples)
 *   [C#](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/AppiumLatestOnDotNetFramework)
 
-
-## Best Practices and Reporting Test Results
-
-Now that you've been able to get a test running on Sauce, check out [Best Practices for Running Tests](https://wiki.saucelabs.com/display/DOCSDEV/Best+Practices+for+Running+Tests) and available modifications you can make to your tests:
-
-*   [Implement timeouts to control text execution times](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492#TestConfigurationOptions-Timeouts)
-*   [Annotating Tests with the Sauce Labs REST API](https://wiki.saucelabs.com/display/DOCSDEV/Annotating+Tests+with+the+Sauce+Labs+REST+API)
-*   [Annotating Tests with Selenium's JavaScript Executor](https://wiki.saucelabs.com/display/DOCSDEV/Annotating+Tests+with+Selenium%27s+JavaScript+Executor)
-*   [Setting Test Status to Pass or Fail](https://wiki.saucelabs.com/display/DOCSDEV/Setting+Test+Status+to+Pass+or+Fail)
-*   [Use Build IDs and tags to differentiate and identify test runs](https://wiki.saucelabs.com/display/DOCSDEV/Best+Practice%3A+Use+Build+IDs%2C+Tags%2C+and+Names+to+Identify+Your+Tests)
-
-
 ## Additional Resources
 
-*   Create your own test script examples using our [Platform Configurator](https://wiki.saucelabs.com/display/DOCSDEV/Platform+Configurator).
-*   See [Test Configuration Options](https://wiki.saucelabs.com/display/DOCSDEV/Test+Configuration+Options) for our full suite of capabilities and advanced configurations.
+Now that you've been able to get a test running on Sauce, check out our best practices and available modifications you can make to your tests:
+
+* [Best Practices for Running Tests](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647)
+* [Implement timeouts to control text execution times](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492#TestConfigurationOptions-Timeouts)
+*  [Annotating Tests with the Sauce Labs REST API](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365631)
+* [Annotating Tests with Selenium's JavaScript Executor](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365700)
+* [Setting Test Status to Pass or Fail](https://wiki.saucelabs.com/pages/viewpage.action?pageId=63472006)
+* [Use Build IDs and tags to differentiate and identify test runs](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946)
+* [Create your own test script examples using our Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator)
+* [Browse our full suite of test configuration options and advanced configurations.](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492)
