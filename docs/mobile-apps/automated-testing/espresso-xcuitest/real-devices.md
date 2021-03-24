@@ -33,7 +33,7 @@ Minimum requirements for installing Sauce Runner for Real Devices:
 
 To get started, you'll need to download Sauce Runner for Real Devices, which is parameterized for use in your CI/CD environment. This test runner connects your environment to our Real Device Cloud.  
 
-When you launch a test, the runner authenticates access to Espresso and XCUITest testing using the API key inside runner file. Finally, it validates your mobile app and test files before uploading to our real device cloud.
+When you launch a test, the runner authenticates access to Espresso and XCUITest testing using your Sauce Labs `username` and `accessKey` inside the runner file. Finally, it validates your mobile app and test files before uploading to our real device cloud.
 
 Click the button below to download the Sauce Runner for Real Devices .jar file.
 
@@ -42,7 +42,16 @@ Click the button below to download the Sauce Runner for Real Devices .jar file.
 
 ## Quickstart
 
-Here are our recommended steps to get up and running quickly. The code snippets below use Espresso; for XCUITest, swap out the `espresso` command with `xcuitest` and the .apk file names with .ipa file names.
+Here are our recommended steps to get up and running quickly.
+
+<Tabs
+  defaultValue="Espresso"
+  values={[
+    {label: 'Espresso', value: 'Espresso'},
+    {label: 'XCUITest', value: 'XCUITest'},
+  ]}>
+
+<TabItem value="Espresso">
 
 1. Create a new folder for your tests, somewhere on your local machine.
 2. In the folder, drop the command-line client (Sauce Runner for Real Devices), your app, and test app.
@@ -60,6 +69,30 @@ Finished uploading test file 'binaries/android/sample-android-test.apk' to 'US' 
 Starting test run on US data center...
 ```
 7. View your results on Sauce Labs. Go to **Automated** > **Test Results** > select the **Real Devices** radio button.
+
+</TabItem>
+<TabItem value="XCUITest">
+
+1. Create a new folder for your tests, somewhere on your local machine.
+2. In the folder, drop the command-line client (Sauce Runner for Real Devices), your app, and test app.
+3. Log in to [Sauce Labs](https://app.saucelabs.com).
+4. (Optional) Set your Sauce Labs username and access key as environment variables for easy reusability. See [Using Environment Variables for Authentication Credentials](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647#BestPracticesforRunningTests-UseEnvironmentVariablesforAuthenticationCredentials) for more information.
+5. Execute a sample test:
+```sh
+java -jar saucelabs-native-test-runner.jar xcuitest --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESSKEY --datacenter US --app <path-to-app> --test <path-to-test>
+```
+6. Wait for the client to submit the tests. The expected output will be similar to this:
+```java
+Finished uploading app file 'binaries/xcuitest/sample-ios-app.ipa' to 'US' data center.
+Uploading test file 'binaries/xcuitest/sample-ios-test.ipa' to 'US' data center...
+Finished uploading test file 'binaries/xcuitest/sample-ios-test.ipa' to 'US' data center.
+Starting test run on US data center...
+```
+7. View your results on Sauce Labs. Go to **Automated** > **Test Results** > select the **Real Devices** radio button.
+
+</TabItem>
+</Tabs>
+
 
 <br/>
 
@@ -102,7 +135,7 @@ Our XCUITest test runner accepts both .app and .ipa file formats for the `--app`
 
 1. Open your application project in Xcode.
 2. Select your product's device target:
-    1. On an RDC: Select **Generic iOS Device**.
+    1. On a real device: **Generic iOS Device** or **Any iOS Device (arm64)**.
     2. On a simulator: Select any available simulator.
 3. In the **Product** menu, select **Clean**.
 4. In the **Product** menu, select **Build**.
@@ -117,7 +150,7 @@ Our XCUITest test runner accepts both .app and .ipa file formats for the `--app`
 You can use any of the existing methods of distribution for your iOS app, except for the **App Store** type. This means that you can choose any of the three other export methods: **Ad Hoc**, **Enterprise**, or **Development**.
 
 1. Open your app project in Xcode.
-2. Select **Generic iOS Device** as your project's device target.
+2. Select **Generic iOS Device** or **Any iOS Device (arm64)** as your project's device target.
 3. In the **Product** menu, select **Clean**.
 4. In the **Product** menu, select **Archive**. When the archiving process completes, you'll see your app listed under **Archives**.
 5. Select your app and click **Export**.
@@ -137,7 +170,7 @@ You can use any of the existing methods of distribution for your iOS app, except
 **-Runner.app**
 
 1. Open your application project in Xcode.
-2. Select **Generic iOS Device** as your project's device target.
+2. Select **Generic iOS Device** or **Any iOS Device (arm64)** as your project's device target.
 3. Make sure that the your UI tests are part of a **Target Membership** and that those Targets are selected to be built in your Xcode **Build scheme**. _Targets containing UI Tests are typically selected to be built at the "Test" build action._
 <img src={useBaseUrl('img/xcuitest/xcode-build.png')} alt="Xcode Build Options" width="800" />
 
@@ -165,7 +198,7 @@ In Xcode, go to **iOS Deployment Target** and ensure that you've set the same iO
 
 ## Test Configuration Options
 
-There are two ways to configure your parameters for testing on Sauce Runner for Real Devices with Espresso and XCUITest: via CLI or YAML file. Sauce Runner for Real Devices will execute tests based on the parameters you se.
+There are two ways to configure your parameters for testing on Sauce Runner for Real Devices with Espresso and XCUITest: via CLI or YAML file. Sauce Runner for Real Devices will execute tests based on the parameters you set.
 
 ### Using the Command Line Interface
 
@@ -179,10 +212,10 @@ From here, head to the full list of commands and options at [Sauce Runner for Re
 
 As an alternative to configuring your Espresso and XCUITest RDC tests using the [command line interface](/dev/cli/espresso-xcuitest.md), you can create and run a YAML configuration file.
 
-Add the [`config` command](dev/cli/espresso-xcuitest.md) to your test script. The config command only accepts two parameters: `--path <path to config.yml>` and `--apikey <apikey>`. Here's an example:
+Add the [`config` command](dev/cli/espresso-xcuitest.md) to your test script. The config command only accepts two parameters: `--path <your path to config.yml>` and `--accessKey <your_accessKey>`. Here's an example:
 
 ```sh
-JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config --path <path to config.yml> --apikey <apikey>
+JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config --path <path to config.yml> --accessKey <accessKey>
 ```
 
 >**NOTE**: You cannot use [command line options](dev/cli/espresso-xcuitest.md) in your YAML config file. Once you pass the `config` command to the runner, it will prohibit you from using the other configuration options available on the command line.
