@@ -124,7 +124,7 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
 </Tabs>
 
 ## Concurrency
-<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small> , <small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight></small></p>
+<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight> <Highlight color="#25c2a0">testcafe</Highlight> <Highlight color="#25c2a0">playwright</Highlight></small></p>
 
 Saucectl is capable of running test suites in parallel, the degree of concurrency can be controlled via the config:
 

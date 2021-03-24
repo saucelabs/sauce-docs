@@ -13,7 +13,7 @@ apiVersion: v1alpha
 kind: testcafe
 sauce:
   region: us-west-1
-  concurrency: 1
+  concurrency: 2
   metadata:
     name: Testing Testcafe Support
     tags:
@@ -37,7 +37,7 @@ suites:
 docker:
   fileTransfer: mount
 testcafe:
-  projectPath: tests/e2e/testcafe
+  rootDir: tests/e2e/testcafe
   version: 1.11.0
 ```
 
@@ -50,7 +50,7 @@ __Type__: *object*
 __Example__:
 ```yaml
 testcafe:
-  projectPath: tests/
+  rootDir: tests/
   version: ##VERSION##
 ```
 
@@ -65,7 +65,7 @@ __Example__:
   version: ##VERSION##
 ```
 
-### `projectPath`
+### `rootDir`
 
 __Description__: Absolute path to the test directory and related test files.
 
@@ -73,7 +73,7 @@ __Type__: *string*
 
 __Example__:
 ```yaml
-  projectPath: /path/to/tests/
+  rootDir: /path/to/tests/
 ```
 
 ## `suites`
