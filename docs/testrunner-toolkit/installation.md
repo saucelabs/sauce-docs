@@ -169,4 +169,4 @@ The configuration script confirms your setup and prompts you to execute the `sau
 ## Next Steps
 
 * [Run a Test](/testrunner-toolkit/running-tests): Learn how to run tests using TestRunner.
-* [Advanced Configuration](/testrunner-toolkit/configuration): Review the syntax for `saucectl` commends and learn how to modify the `config.yml` for different testing scenarios and syntax.
+* [`saucectl` Syntax Ref](/testrunner-toolkit/configuration): Review the syntax for `saucectl` commands and learn how to adjust for different testing scenarios.

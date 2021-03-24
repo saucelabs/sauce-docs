@@ -1,6 +1,6 @@
 ---
 id: configuration
-title: Testrunner Toolkit Configuration 
+title: Testrunner Toolkit Configuration
 sidebar_label: Getting Started
 ---
 
@@ -15,7 +15,7 @@ The Testrunner Toolkit requires a configuration file to know which tests to run,
 * desired framework `image` and `version`
 * desired `sauce` data center
 
-If you have existing tests and wish to expand or modify the `.sauce/config.yml`, consider the following examples below:
+If you have existing tests and wish to expand or modify the `.sauce/config.yml`, consider the following examples:
 
 ## What You'll Need
 
@@ -47,7 +47,7 @@ docker:
   # fileTransfer controls how test files are transferred to the docker container before tests are run (choice: mount|copy).
   # `mount` will mount files and folders into the container. Changes to these files and folders will be reflected on the
   # host as well (and vice versa). However, you may run into permission issues depending on your docker or host settings.
-  # In this case the usage of `copy` is advised. `copy` will simply copy files and folders into the container.
+  # In this case, use `copy` to simply copy files and folders into the container without altering the originals.
   fileTransfer: mount # Defaults to `mount`. Choose between mount|copy.
   # image controls which images to be used for local testing. Change this value is you want to use a custom image.
   # image: saucelabs/stt-cypress-mocha-node:v5.6.0
@@ -73,7 +73,7 @@ saucectl run -c ./path/to/config.yml
 ```
 
 :::note yaml validation
-If you're having trouble with the `.yml` syntax, it's recommended to use a free online YAML/JSON validator tool like these:
+If you're having trouble with the `.yml` syntax, consider using a free online YAML/JSON validator tool:
 * [YAML Lint](http://www.yamllint.com/)
 * [Code Beautify](https://codebeautify.org/yaml-validator)
 * [JSON Formatter](https://jsonformatter.org/yaml-validator)
@@ -86,7 +86,8 @@ There are also various IDE Plugins that can perform syntax checks and/or auto-co
 :::
 
 ### Framework Examples
-Below are framework-specific configuration examples that exist in the [Testrunner Toolkit repository](https://github.com/saucelabs/testrunner-toolkit/tree/master/.sauce). The repository uses these configurations for its pipeline:
+
+Below are framework-specific configuration examples that exist in the [Testrunner Toolkit repository](https://github.com/saucelabs/testrunner-toolkit/tree/master/.sauce). The repository uses these configurations for its pipeline.
 
 >
 > **NOTE:** The test files need to match `(spec|test)` in their file name so they are automatically detected as `testfiles`.
@@ -126,20 +127,20 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
 ## Concurrency
 <p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight> <Highlight color="#25c2a0">testcafe</Highlight> <Highlight color="#25c2a0">playwright</Highlight></small></p>
 
-Saucectl is capable of running test suites in parallel, the degree of concurrency can be controlled via the config:
+`saucectl` runs test suites in parallel up to the concurrency allowance specified in the config file.
 
 ```yaml
 sauce:
   concurrency: 10
 ```
 
-or the CLI
+Alternatively, you can override the setting in the configuration file for a particular test suite by specifying it as an attribute of the ` saucectl run` command.
+
 ```bash
 saucectl run --test-env sauce --ccy 10
 ```
 
-A setting of `10` would mean that up to 10 test suites would run concurrently.
-If you have more suites than that, any excess will simply be queued until it's their turn to run.
+A setting of `10` runs up to 10 test suites at the same time. If the test has more suites than that, excess suites are queued and run in order at the completion of currently running suites.
 
 When running on Sauce cloud, the maximum concurrency that you can use is limited by your account settings.
 
@@ -151,7 +152,7 @@ If you wish to execute tests on different screen resolutions while using Testrun
 
 __Example__:
 
-```yaml
+```yaml {19-21}
 apiVersion: v1alpha
 kind: cypress
 sauce:
@@ -180,11 +181,11 @@ suites:
 
 ## Additional Information
 
-* __Running Tests__: The next step after you've configured `.sauce/config.yml` appropriately is to begin running tests. Please refer to the [running tests page](/testrunner-toolkit/running-tests) for further details.
-* __Running in CI/CD__: Please visit [our CI integrations page](/testrunner-toolkit/integrations) for more information about how to run your tests in the following CI platforms:  
+* [Run a Test](/testrunner-toolkit/running-tests): Learn how to run tests using TestRunner.
+* [Pipeline Collaboration](/testrunner-toolkit/integrations) Run your tests in your CI platform:  
     * [Jenkins](/testrunner-toolkit/integrations/jenkins)
     * [GitHub Actions](/testrunner-toolkit/integrations/github-actions)
-* __Configuration Syntax__: Please visit [our common configuration syntax page](/testrunner-toolkit/configuration/common-syntax) for more technical information regarding the field syntax and data types; also feel free to skip ahead to the framework-specific syntax reference pages:
-    * [Cypress Configuration Syntax](/testrunner-toolkit/configuration/cypress)
-    * [TestCafe Configuration Syntax](/testrunner-toolkit/configuration/testcafe)
-    * [Playwright Configuration Syntax](/testrunner-toolkit/configuration/playwright)
+* [Configuration Syntax](/testrunner-toolkit/configuration/common-syntax) Review the syntax and data fields for `saucectl` configuration settings that are common to all set ups, or review framework-sensitive configuration settings:
+    * [Cypress Syntax](/testrunner-toolkit/configuration/cypress)
+    * [Playwright Syntax](/testrunner-toolkit/configuration/playwright)
+    * [TestCafe Syntax](/testrunner-toolkit/configuration/testcafe)
