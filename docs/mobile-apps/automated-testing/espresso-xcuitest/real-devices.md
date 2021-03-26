@@ -31,6 +31,14 @@ Minimum requirements for installing Sauce Runner for Real Devices:
 * Have Java 8 or later installed on your local machine. To check, run `java -version` on your local machine.
 
 ## Download
+Click here below to download the Sauce Runner for Real Devices .jar file.
+
+<p><button className="badge-download"><a href="https://s3.amazonaws.com/saucelabs-runner/v1.9/runner.jar">Download</a></button></p>
+
+
+## Test Preparation
+
+### Espresso
 
 To get started, you'll need to download Sauce Runner for Real Devices, which is parameterized for use in your CI/CD environment. This test runner connects your environment to our Real Device Cloud.  
 
