@@ -10,18 +10,16 @@ This page outlines some examples of how to set up your Espresso/XCUItest YAML co
 
 Add the config `command` to your test script. The config command only accepts two parameters: --path `<your path to config.yml>` and `--accessKey <your_accessKey>`. 
 
-**General Usage**:
-
 ```js
 JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config /
---path <path to config.yml> --accessKey <accessKey>
+--path <path to config.yml> --apikey <apikey>
 ```
 
-:::note
-NOTE: You cannot use command line options in your YAML config file. Once you pass the config command to the runner, it will prohibit you from using the other configuration options available on the command line.
+:::warning
+You cannot use CLI options in your YAML config file. Once you pass the `config` command to the runner, it will prohibit you from using the other configuration options available on the command line besides `path` and `apikey`.
 :::
 
-## Device Configuration
+## Device Allocation
 
 ### Minimal Configuration
 
@@ -61,6 +59,8 @@ devices:
   tabletOnly: false
   privateDevicesOnly: false
 ```
+
+## Test Run Specification
 
 ### Run a Subset of Tests 
 

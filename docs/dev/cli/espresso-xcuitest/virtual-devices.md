@@ -4,305 +4,214 @@ title: Sauce Runner Virtual Devices CLI Reference
 sidebar_label: Virtual Devices
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+export const Highlight = ({children, color}) => ( <span style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>{children}</span> );
 
-**Required**
+Sauce Runner for Virtual Devices lets you run tests using the native testing frameworks like Espresso with virtual devices in the Sauce Labs testing cloud. This topic describes the required and optional command parameters you can use to set up your test runs.
 
-<table>
-  <tr>
-   <td><strong>Flag (Short)</strong>
-   </td>
-   <td><strong>Flag (Long)</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
-  </tr>
-  <tr>
-   <td><code>-f</code>
-   </td>
-   <td><sub><code>
-   --test-framework
-   </code></sub></td>
-   <td><p>Specifies the name of the test framework you want to use. At the moment, Espresso is the only supported option.</p><sub>
+## Required
 
-    -f espresso
-    --test-framework=espresso
+These command options are required in order to run native mobile tests with Sauce Runner on virtual devices.
 
-   </sub></td>
-  </tr>
-  <tr>
-   <td><sub><code>-u</code></sub></td>
-   <td><sub><code>
-   --user
-   </code></sub></td>
-   <td><p>Your Sauce Labs username. You can also use the environment variable <code>SAUCE_USERNAME</code> to provide your login information. The command line argument will take precedence over the <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365921">environment variable</a>. Example:</p><sub>
+:::note About the Examples
+All Examples in this page assume knowledge of [Sauce Runner General Usage](/dev/cli/espresso-xcuitest#examples).
+:::
 
-    -u test_user
-    --user=test_user
-    export $SAUCE_USERNAME=test_user
+### `test-framework`
 
-   </sub></td>
-  </tr>
-  <tr>
-   <td><code>-k</code>
-   </td>
-   <td><sub><code>
-   --api-key
-   </code></sub></td>
-   <td><p>Your Sauce Labs API key, which you can find under User Settings in the Sauce Labs interface. You can also use the environment variable <code>SAUCE_ACCESS_KEY</code> to provide your login information. The command line argument will take precedence over the environment variable. Example:</p><sub>
+__Description__: Specifies the name of the test framework you want to use. At the moment, `espresso` is the only supported option.
 
-    -k aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
-    --api-key=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
-    export $SAUCE_ACCESS_KEY=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
+__Shorthand__: `-f`
 
-   </sub></td>
-  </tr>
-  <tr>
-   <td><sub><code>-a</code></sub></td>
-   <td><sub><code>
-   --app
-   </code></sub></td>
-   <td><p>The local path or publicly accessible URL to the location of the application you want to test.</p><sub>
+__Example__:
 
-    -a ./helloworld.apk
-    --app='https://the.bestapp.ai/helloworld.apk'
+```bash
+./sauce-runner-virtual --test-framework=espresso
+```
 
-   </sub></td>
-  </tr>
-  <tr>
-   <td><sub><code>-t</code></sub></td>
-   <td><sub><code>
-   --test-app
-   </code></sub></td>
-   <td><p>The local path or publicly accessible URL to the location of the test package you want to use.</p><sub>
+### `user`
 
-    -t ./app-debug-AndroidTest.apk
-    --test-app='https://the.bestapp.ai/app-debug-AndroidTest.apk'
+__Description__: Your Sauce Labs `username`. You can use the [environment variable `SAUCE_USERNAME`](/basics/best-practices/using-environment-variables) to provide your login information. The command line argument will take precedence over the environment variable.
 
-   </sub></td>
-  </tr>
-  <tr>
-   <td><sub><code>-d</code></sub></td>
-   <td><sub><code>
-   --devices
-   </code></sub></td>
-   <td><p>The type of device you want to use with your test. You can specify two or more device arguments to run tests on multiple devices in parallel, and each device will execute the full test suite. You specify the type of device to use by setting the required <code>deviceName</code> and <code>platformVersion</code> property.</p><sub>
+__Shorthand__: `-u`
 
-   <table>
-  <tr>
-  <td><strong>Property</strong>
-  </td>
-  <td><strong>Required</strong>
-  </td>
-  <td><strong>Description</strong>
-  </td>
- </tr>
- <tr>
-  <td><code>deviceName</code>
-  </td>
-  <td>Yes
-  </td>
-  <td>The name of the device to use. You can use the <a href="https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/">Sauce Labs Platform Configurator</a> to look up the Appium <code>deviceName</code> for supported devices.
-  </td>
- </tr>
- <tr>
-  <td><code>platformVersion</code>
-  </td>
-  <td>Yes
-  </td>
-  <td>The operating system version of the device you want to use. Supported values depend on the device.You can use the <a href="https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/">Sauce Labs Platform Configurator</a> to look up the Appium <code>platformVersion</code> for the device.
-  </td>
- </tr>
- <tr>
-  <td><code>locale</code>
-  </td>
-  <td>No
-  </td>
-  <td>Locale of the device.
-  </td>
- </tr>
- <tr>
-  <td><code>orientation</code>
-  </td>
-  <td>No
-  </td>
-  <td>Orientation of the device. Supported values are:
-<ul><li><code>portrait</code> (default)</li>
-<li><code>landscape</code></li></ul>
-  </td>
- </tr>
-</table></sub>
-<sub><b>Examples</b>
+__Example__:
 
-  ```sh
-# Test on one device
+```bash
+./sauce-runner-virtual --user $SAUCE_USERNAME
+```
+
+### `api-key`
+
+__Description__: Your Sauce Labs API key, which you can find under [User Settings](https://app.saucelabs.com/user-settings) in the Sauce Labs interface. You can also use the [environment variable SAUCE_ACCESS_KEY](/basics/best-practices/using-environment-variables) to provide your login information. The command line argument will take precedence over the environment variable.
+
+__Shorthand__: `-k`
+
+__Example__:
+
+```bash
+./sauce-runner-virtual --user $SAUCE_USERNAME --api-key $SAUCE_ACCESS_KEY
+```
+
+### `app`
+
+__Description__: The local path or publicly accessible URL to the location of the application you want to test.
+
+__Shorthand__: `-a`
+
+__Example__:
+
+```bash
+--app='https://the.bestapp.ai/helloworld.apk'
+```
+
+### `test-app`
+
+__Description__: The local path or publicly accessible URL to the location of the test package you want to use.
+
+__Shorthand__: `-t`
+
+__Example__:
+
+```bash
+--test-app='https://the.bestapp.ai/app-debug-AndroidTest.apk'
+```
+
+### `devices`
+
+__Description__: The type of device you want to use with your test. You can specify two or more device arguments to run tests on multiple devices in parallel, and each device will execute the full test suite. You specify the type of device to use by setting the required `deviceName` and `platformVersion` properties.
+
+__Shorthand__: `-d`
+
+__Properties__:
+
+| Property          | Required | Description                                                                                                                                                                                                                                                                    |
+|-------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `deviceName`      | Yes      | The name of the device to use. You can use the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/) to look up the Appium `deviceName` for supported devices.                                                                   |
+| `platformVersion` | Yes      | The operating system version of the device you want to use. Supported values depend on the device. You can use the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/) to look up the Appium `platformVersion` for the device. |
+| `locale`          | No       | Location of the device.                                                                                                                                                                                                                                                        |
+| `orientation`     | No       | Orientation of the device. Supported values are: <ul> <li>`portrait`(default)</li> <li>`landscape`</li> </ul>                                                                                                                                                                  |
+
+__Examples__:
+
+```bash title="Test on one Device"
 -d 'deviceName=Google Pixel GoogleAPI Emulator,platformVersion=7.0'
+```
 
-# Test on two devices
+```bash title="Test on two Devices"
 --devices='deviceName=LG Nexus 4 GoogleAPI Emulator,platformVersion=4.4' \
 --devices='deviceName=Google Pixel GoogleAPI Emulator,platformVersion=7.0'
-  ```
+```
 
-</sub>
-   </td>
-  </tr>
-</table>
+## Optional
 
+### `exclude-tests` and `include-tests`
 
-**Optional**
+__Description__: Optional parameters to run a subset of tests. You can provide a test filter to either `exclude` or `include` tests. By default, the full test suite is executed.
 
-<table>
-<tr>
- <td><strong>Flag (Short)</strong>
- </td>
- <td><strong>Flag (Long)</strong>
- </td>
- <td><strong>Description</strong>
- </td>
-</tr>
-<tr>
-<td>
-<sub><p><code>-e</code></p>
-     <br/>
-    <p><code>-i</code></p>
-  </sub></td>
- <td><sub><p><code>--exclude-tests</code></p>
-       <code>--include-tests</code></sub></td>
- <td><p>Optional parameter to run a subset of tests. You can provide a test filter to either exclude or include tests. By default, the full test suite is executed.</p><sub>
+__Shorthand__: `-e` | `-i`
 
- <table>
-   <tr>
-    <td><strong>Filter</strong>
-    </td>
-    <td><strong>Description</strong>
-    </td>
-   </tr>
-   <tr>
-    <td><code>class com.example.MyClass#testLogin</code>
-    </td>
-    <td>Filter one test method
-    </td>
-   </tr>
-   <tr>
-    <td>
-    <p><code>class com.example.MyClass#testLogin,</code></p>
-    <p><code>com.example.MyClass#testOrder</code></p>
-    </td>
-    <td>Filter two test methods
-    </td>
-   </tr>
-   <tr>
-    <td><code>class com.example.MyClass</code>
-    </td>
-    <td>Filter a test class
-    </td>
-   </tr>
-   <tr>
-    <td><code>package com.example.testPackage</code>
-    </td>
-    <td>Filter a package
-    </td>
-   </tr>
-   <tr>
-    <td><code>size small|medium|large</code>
-    </td>
-    <td>Filter by size. Tests should be annotated with <code>SmallTest</code>, <code>MediumTest</code> or <code>LargeTest.</code>Cannot be used for exclusion.
-    </td>
-   </tr>
-   <tr>
-    <td><code>annotation com.example.MyAnnotation</code>
-    </td>
-    <td><p>Filter by annotation</p>
+__Filters__:
 
-    # Run only one test method
-      --include-tests='class com.example.MyClass#testLogin'
+| Filter                                | Description                                                                                                                  |
+|---------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| `class com.example.MyClass#testLogin` | Filter one test method                                                                                                       |
+| `com.example.MyClass#testOrder`       | Filter two test methods                                                                                                      |
+| `class com.example.MyClass`           | Filter a test class                                                                                                          |
+| `package com.example.testPackage`     | Filter a package                                                                                                             |
+| `size` `small`\|`medium`\|`large`     | Filter by size. Tests should be annotated with `SmallTest`, `MediumTest`, or `LargeTest`. Cannot be used to `exclude-tests`. |
+| `annotation com.example.MyAnnotation` | Filter by test annotation                                                                                                    |
 
-    # Run all but one test class
-      --exclude-tests='class com.example.MyClass'
-
-    # Run only the large tests
-      --include-tests='size large'
-
-</td>
-</tr>
- </table>
- </sub></td>
-</tr>
-<tr>
- <td><sub><code>-n</code></sub></td>
- <td><sub><code>
- --tunnel-identifier
- </code></sub></td>
- <td><p>Parameter to specify a <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365718">Sauce Connect Proxy tunnel</a> to use with the tests.</p> <sub>
-
- ```sh
- -n dev_tunnel
- --tunnel-identifier=dev_tunnel
- ```
-
- </sub></td>
-</tr>
-<tr>
- <td></td>
- <td><sub><code>
- --data-center
- </code></sub></td>
- <td><p>Optional parameter to specify a Sauce Labs data center. Options are <code>us-west-1</code> and <code>eu-central-1</code>.</p><sub>
-
- ```sh
- --data-center eu-central-1
- ```
- </sub></td>
-</tr>
-<tr>
- <td></td>
- <td><sub><code>
- --skip-download-junit-reports
- </code></sub></td>
- <td><p>Optional parameter to skip the download of the JUnit files at the end of the test suite.</p>
- </td>
-</tr>
-<tr>
- <td><sub><code>-v</code></sub></td>
- <td><sub><code>
- --verbose
- </code></sub></td>
- <td><p>Optional parameter to set the verbosity of console output. Valid options as <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code> and <code>ERROR</code>.</p>
- </td>
-</tr>
-<tr>
- <td><sub><code>-h</code></sub></td>
- <td><sub><code>
- --help
- </code></sub></td>
- <td><p>Print this command line reference to the console.</p>
- </td>
-</tr>
-<tr>
- <td></td>
- <td><sub><code>
- --version
- </code></sub></td>
- <td><p>Version information for Sauce Runner.</p>
- </td>
-</tr>
-</table>
+__Examples__:
 
 
-## Example Scripts
+```bash title="Run only one test method"
+--include-tests='class com.example.MyClass#testLogin'
+```
 
-### Espresso
+```bash title="Run all but one test class"
+--exclude-tests='class com.example.MyClass'
+```
 
-Below is a Sauce Runner for Virtual Devices code example that uses all required parameters. It's testing the application `helloworld.apk` simultaneously on two emulators — Galaxy S8 and Pixel — using the Espresso test suite `espresso-test-suite.apk`.
+```bash  title="Run only the large tests"
+--include-tests='size large'
+```
 
-`Sauce-Runner-Virtual` installs `helloworld.apk` and `espresso-test-suite.apk` on the Sauce emulators and launches the Espresso test suite on both emulators at the same time. `Sauce-Runner-Virtual` exits when all the tests have completed. `Sauce-Runner-Virtual` exits with status code zero if all the tests passed, otherwise it exits with status code 1.
+### `tunnel-identifier`
 
-```sh
-./sauce-runner-virtual \
-   -u test_user \
-   -k 1234-1235 \
-   -f espresso \
-   -a ./helloworld.apk \
-   -t ./espresso-test-suite.apk \
-   -d 'deviceName=Samsung Galaxy S8 HD GoogleAPI Emulator,platformVersion=7.0' \
-   -d 'deviceName=Google Pixel GoogleAPI Emulator,platformVersion=7.1'
-   ```
+__Description__: Parameter to specify a [Sauce Connect Proxy tunnel](/secure-connections/sauce-connect) to use with the tests.
+
+__Shorthand__: `-n`
+
+__Example__: 
+
+```bash
+--tunnel-identifier=dev_tunnel
+```
+
+### `data-center`
+
+__Description__: Specifies a Sauce Labs data center. Options are `us-west-1` and `eu-central-1`.
+                .
+
+__Shorthand__: _NA_
+
+__Example__: 
+
+```bash
+--data-center eu-central-1
+```
+
+### `skip-download-junit-reports`
+
+__Description__: Skips downloading the JUnit reporting files at the end of test suite execution.
+
+__Shorthand__: _NA_
+
+__Example__: 
+
+```bash
+--skip-download-junit-reports
+```
+
+### `verbose`
+
+__Description__: Sets the verbosity of console output. Valid options as `DEBUG`, `INFO`, `WARN` and `ERROR`.
+
+__Shorthand__: `-v`
+
+__Example__: 
+
+```bash
+--verbose
+```
+
+### `version`
+
+__Description__: Returns the version information for Sauce Runner. 
+
+__Shorthand__: _NA_
+
+__Example__: 
+
+```bash
+--version
+```
+
+### `help`
+
+__Description__: Prints this command line reference to the console. 
+
+__Shorthand__: `-h`
+
+__Example__: 
+
+```bash
+--help
+```
