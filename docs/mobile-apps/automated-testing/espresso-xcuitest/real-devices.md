@@ -123,31 +123,33 @@ To set the iOS version in your Xcode Target:
 
 ## Test Configuration Options
 
-There are two ways to configure your parameters for testing on Sauce Runner for Real Devices with Espresso and XCUITest: via CLI or YAML file. Sauce Runner for Real Devices will execute tests based on the parameters you set.
+There are two ways to configure your tests to run on Sauce Runner for Real Devices with Espresso or XCUITest: by using the command-line interface or by a creating YAML file.
 
-### Using the Command Line Interface
+### Using the Command-Line Interface
 
-Add one of the following commands to your test script:
+1. Add one of the following commands to your test script:
   * `xcuitest` Defines XCUITest as the test framework to use for your native iOS app tests
   * `espresso` Defines Espresso as the test framework to use for your native Android app tests
 
-From here, head to the full list of commands and options at [Sauce Runner for Real Devices CLI Reference](dev/cli/espresso-xcuitest.md).
+2. [Click here](dev/cli/espresso-xcuitest.md) to see the full list of commands and options. Sauce Runner for Real Devices will execute tests based on the parameters you set.
 
-### Using YAML Configuration File
+### Using a YAML Config File
 
 As an alternative to configuring your Espresso and XCUITest RDC tests using the [command line interface](/dev/cli/espresso-xcuitest.md), you can create and run a YAML configuration file.
 
-Add the [`config` command](dev/cli/espresso-xcuitest.md) to your test script. The config command only accepts two parameters: `--path <your path to config.yml>` and `--accessKey <your_accessKey>`. Here's an example:
+1. Add the `config` command to your test script.
+2. Add the following parameters: `--path` and `--accessKey`. These are the only parameters accepted by the `config` command. Example:
 
-```sh
-JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config --path <path to config.yml> --accessKey <accessKey>
+```java
+JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config --path <myFile.yml> --accessKey <12345abcde>
 ```
 
->**NOTE**: You cannot use [command line options](dev/cli/espresso-xcuitest.md) in your YAML config file. Once you pass the `config` command to the runner, it will prohibit you from using the other configuration options available on the command line.
+#### XCUITest YAML Example
 
-#### XCUITest Example
+This example YAML file includes all required options for running an XCUITest test suite in conjunction with Sauce Runner for Real Devices:
 
-This snippet includes all the required options for running an XCUITest suite in conjunction with Sauce Runner for Real Devices. It includes the `--devices` option to select devices based on both static and dynamic allocation, and the `--testsToRun` option to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Swift or Objective-C.
+* The `--devices` option: use this to select devices based on both static and dynamic allocation.
+* The `--testsToRun` option: use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Swift or Objective-C.
 
 ```sh
 # Test framework: "xcuitest" in this example
@@ -183,25 +185,24 @@ testname: MyTestName2
 # Specify a device name or regex for dynamic allocation: 'iPhone X', 'iPad.*', etc.
 deviceNameQuery: iPhone 8.*
 
-# Platform Version for a dynamic device query. e.g. '13' for all Devices with major version 13 and
-#  arbitrary minor versions or '13.5.1' for a more specific version
+# Platform Version for a dynamic device query. e.g. '13' for all Devices with major version 13 and arbitrary minor versions or '13.5.1' for a more specific version
 platformVersion: 13
 testname: MyTestName3
 
 # Optional parameters, set to true to enable
+# If 'true', will run only on Private Devices assigned to your account
 phoneOnly: false
 tabletOnly: false
 privateDevicesOnly: false            
-# if 'true', will run only on Private Devices assigned to your account
 
 # Device 4 example: Running subset of tests
 - datacenter: EU
   testname: MyTestName4
 
 # Provide a list of test cases or test classes. If you want to run all tests of a class, provide the class name by itself.
-#  To run a specific class method, provide both the class and method names.  
-#  You may specify multiple testClass parameters. As described above, each testClass will execute serially on the device indicated.
-#  Each testClass must be preceded by a hyphen (e.g., '- testClass'), whereas testMethod parameters must be at the same indentation level as testClass, without the hyphen.
+# To run a specific class method, provide both the class and method names.  
+# You may specify multiple testClass parameters. As described above, each testClass will execute serially on the device indicated.
+# Each testClass must be preceded by a hyphen (e.g., '- testClass'), whereas testMethod parameters must be at the same indentation level as testClass, without the hyphen.
 testsToRun:
 - testClass: SampleTestCase
 - testClass: SampleTestCase2
@@ -209,14 +210,20 @@ testsToRun:
 
 - testClass: SampleTestCase3
   testMethod: testThisMethod
+
 ```
 
-#### Espresso Example
+#### Espresso YAML Example
 
-This snippet includes all the required options for running an Espresso test suite, including the `--devices` option to select devices based on both static and dynamic allocation, and the `--envs` option to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Java or Kotlin.
+This example YAML file includes all required options for running an Espresso test suite in conjunction with Sauce Runner for Real Devices:
+
+* `--devices` option to select devices based on both static and dynamic allocation.
+* `--envs` option to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Java or Kotlin.
 
 ```sh
+# Test framework: "espresso" in this example
 testFramework: espresso
+
 # Path to the app's .apk
 app: ./SampleApp.apk
 
@@ -293,31 +300,46 @@ As an alternative to using the built-in upload behavior of Sauce Runner for Real
 
 Implementing the separation of upload allows you to take control of when to upload a new version, which in turn helps save time by reducing the total amount of file uploads done.
 
-Below are example `curl` commands for uploading your app build and test runners to TestObject.
+Below are example `curl` snippets for uploading your app build and test runners to TestObject.
 
-Example: uploading an iOS app
+<Tabs
+  defaultValue="Upload an iOS App"
+  values={[
+    {label: 'Upload an iOS App', value: 'Upload an iOS App'},
+    {label: 'Upload an Android app', value: 'Upload an Android app'},
+    {label: 'Upload an iOS Test Runner', value: 'Upload an iOS Test Runner'},
+    {label: 'Upload an Android Test Runner', value: 'Upload an Android Test Runner'},
+  ]}>
+
+<TabItem value="Upload an iOS App">
 
 ```sh
 curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest/storage/upload -H "Content-Type: application/octet-stream" --data-binary @/path/to/iOSApp.ipa
 ```
 
-Example: uploading an Android app
+</TabItem>
+<TabItem value="Upload an Android app">
 
 ```sh
 curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest/storage/upload -H "Content-Type: application/octet-stream" --data-binary @/path/to/androidApp.apk
 ```
 
-Example: uploading an iOS test runner
+</TabItem>
+<TabItem value="Upload an iOS Test Runner">
 
 ```sh
 curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest/storage/upload -H "Content-Type: application/octet-stream" -H "App-Type: XCUITEST" --data-binary @/path/to/XCUITests-Runner.ipa
 ```
 
-Example: uploading an Android test runner
+</TabItem>
+<TabItem value="Upload an Android Test Runner">
 
 ```sh
 curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest/storage/upload -H "Content-Type: application/octet-stream" -H "App-Type: ANDROID_INSTRUMENTATION_TEST" --data-binary @/path/to/androidTest.apk
 ```
+
+</TabItem>
+</Tabs>
 
 ## Additional Resources
 
