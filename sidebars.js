@@ -125,6 +125,7 @@ module.exports = {
                     'mobile-apps/automated-testing/espresso-xcuitest/virtual-devices',
                   ],
                 },
+                'mobile-apps/automated-testing/ipa-files',
                 'mobile-apps/automated-testing/microsoft-app-center',
                 'mobile-apps/automated-testing/troubleshooting',
               ],
