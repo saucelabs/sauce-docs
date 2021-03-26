@@ -270,7 +270,7 @@ devices:
 
 __Description__: For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use iPhone.*Plus to allocate any iPhone Plus device.
 
-__Example__: See the examples under [Configuration Options: `devices`](/dev/cli/native-yaml-config#devices).
+__Example__: See the examples under [Configuration Options: `devices`](/dev/cli/espresso-xcuitest/native-yaml-config#devices).
 
 ```js title="CLI"
 --datacenter US --deviceNameQuery 'iPhone 8.*'
