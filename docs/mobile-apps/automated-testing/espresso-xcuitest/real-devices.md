@@ -123,27 +123,26 @@ To set the iOS version in your Xcode Target:
 
 ## Test Configuration Options
 
-There are two ways to configure your parameters for testing on Sauce Runner for Real Devices with Espresso and XCUITest: via CLI or YAML file. Sauce Runner for Real Devices will execute tests based on the parameters you set.
+There are two ways to configure your tests to run on Sauce Runner for Real Devices with Espresso or XCUITest: using the command line or by creating a YAML file.
 
 ### Using the Command Line Interface
 
-Add one of the following commands to your test script:
+1. Add one of the following commands to your test script:
   * `xcuitest` Defines XCUITest as the test framework to use for your native iOS app tests
   * `espresso` Defines Espresso as the test framework to use for your native Android app tests
 
-From here, head to the full list of commands and options at [Sauce Runner for Real Devices CLI Reference](dev/cli/espresso-xcuitest.md).
+2. [Click here](dev/cli/espresso-xcuitest.md) to see the full list of commands and options. Sauce Runner for Real Devices will execute tests based on the parameters you set.
 
 ### Using YAML Configuration File
 
 As an alternative to configuring your Espresso and XCUITest RDC tests using the [command line interface](/dev/cli/espresso-xcuitest.md), you can create and run a YAML configuration file.
 
-Add the [`config` command](dev/cli/espresso-xcuitest.md) to your test script. The config command only accepts two parameters: `--path <your path to config.yml>` and `--accessKey <your_accessKey>`. Here's an example:
+1. Add the `config` command to your test script.
+2. Add the following parameters: `--path` and `--accessKey`. These are the only parameters accepted by the `config` command. Example:
 
-```sh
-JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config --path <path to config.yml> --accessKey <accessKey>
+```java
+JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config --path <myFile.yml> --accessKey <12345abcde>
 ```
-
->**NOTE**: You cannot use [command line options](dev/cli/espresso-xcuitest.md) in your YAML config file. Once you pass the `config` command to the runner, it will prohibit you from using the other configuration options available on the command line.
 
 #### XCUITest Example
 
