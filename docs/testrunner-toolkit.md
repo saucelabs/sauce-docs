@@ -54,16 +54,15 @@ Each docker image tag is the 'latest' image that supports the specific framework
       {"label":"Playwright","value":"playwright"},
       {"label":"TestCafe","value":"testcafe"}
     ]}>
-    
 <TabItem value="cypress">
 
 |Cypress Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
+|6.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |5.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |5.5.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 
 </TabItem>
-
 <TabItem value="playwright">
 
 |Playwright Version|Supported Platforms|Supported Browsers|
@@ -71,7 +70,6 @@ Each docker image tag is the 'latest' image that supports the specific framework
 |1.7.1|Windows 10|Chromium, Firefox, Webkit|
 
 </TabItem>
-
 <TabItem value="puppeteer">
 
 |Puppeteer Version|Supported Platforms|Supported Browsers|
@@ -79,7 +77,6 @@ Each docker image tag is the 'latest' image that supports the specific framework
 
 
 </TabItem>
-
 <TabItem value="testcafe">
 
 |TestCafe Version|Supported Platforms|Supported Browsers|
@@ -88,9 +85,7 @@ Each docker image tag is the 'latest' image that supports the specific framework
 |1.10.1|Windows 10|Chrome, Firefox, MicrosoftEdge|
 
 </TabItem>
-
 </Tabs>
-
 
 <!--END_AUTO_GENERATED_TABLE-->
 
