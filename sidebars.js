@@ -561,7 +561,17 @@ module.exports = {
         collapsed: true,
         items: [
           'dev/cli',
-          'dev/cli/espresso-xcuitest',
+            {
+                type: 'category',
+                label: 'Espresso / XCUITest',
+                collapsed: true,
+                items: [
+                    'dev/cli/espresso-xcuitest',
+                    'dev/cli/espresso-xcuitest/real-devices',
+                    'dev/cli/espresso-xcuitest/virtual-devices',
+                    'dev/cli/espresso-xcuitest/native-yaml-config',
+                ],
+            },
           'dev/cli/sauce-connect-proxy',
         ]
       },
