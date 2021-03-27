@@ -1,8 +1,7 @@
 ---
 id: environment-variables
-title: Sauce Connect Environment Variables
+title: Environment Variables
 sidebar_label: Environment Variables
-hide_table_of_contents: true
 ---
 
 These environment variables can be used in addition to [command-line options](/dev/cli/sauce-connect-proxy) to control the behavior of Sauce Connect Proxy. To learn how to set up environment variables, see [Using Environment Variables for Authentication Credentials](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365921).

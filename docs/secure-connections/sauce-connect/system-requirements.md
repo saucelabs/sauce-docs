@@ -1,6 +1,6 @@
 ---
 id: system-requirements
-title: Sauce Connect Proxy System and Network Requirements
+title: System and Network Requirements
 sidebar_label: System and Network Requirements
 ---
 
