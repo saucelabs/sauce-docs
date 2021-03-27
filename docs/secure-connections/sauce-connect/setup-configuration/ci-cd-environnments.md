@@ -4,7 +4,7 @@ title: Sauce Connect Proxy for CI/CD Environments
 sidebar_label: CI/CD Environments
 ---
 
-## Sauce Connect Proxy Bamboo Configuration
+## Bamboo Configuration
 
 [Atlassian Bamboo](https://www.atlassian.com/software/bamboo) is a continuous integration server that can be used to automate the release management for your software applications, creating a continuous delivery pipeline.
 
@@ -24,8 +24,7 @@ For information on installing and configuring the Sauce Labs Plug-in for Bamboo,
 * [Installing and Configuring the Sauce Labs Plugin for Bamboo](https://wiki.saucelabs.com/display/DOCS/Installing+and+Configuring+the+Sauce+Labs+Plugin+for+Bamboo)
 * [Sauce OnDemand for Bamboo](https://marketplace.atlassian.com/apps/30134/sauce-ondemand-for-bamboo)
 * [Introducing Bamboo Sauce](https://saucelabs.com/blog/introducing-bamboo-sauce-)
-
-## Sauce Connect Proxy Jenkins Configuration
+Jenkins Configuration
 
 Jenkins is an open-source automation server and continuous integration software tool for testing and reporting on isolated changes in a larger code base in real time.
 
