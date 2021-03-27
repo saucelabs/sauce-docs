@@ -108,7 +108,7 @@ Sauce Labs offers the ability to run Espresso and UI Automator tests against our
 
 For information on building .ipa files for your app to use with Sauce Runner for Real Devices, see [Creating .ipa Files for Appium and XCUITest](mobile-apps/automated-testing/ipa-files.md).
 
-Make sure that you set the same iOS version for your app and test runner **iOS Deployment Target**. If they don’t match, your tests will run locally, but fail when you run them against Sauce Labs real devices.
+Make sure that you set the same iOS version for your app and test runner **iOS Deployment Target**. If they donâ€™t match, your tests will run locally, but fail when you run them against Sauce Labs real devices.
 
 To set the iOS version in your Xcode Project:
 1. Select the Project you want to build.
@@ -127,18 +127,20 @@ There are two ways to configure your tests to run on Sauce Runner for Real Devic
 
 ### Using the Command-Line Interface
 
-1. Add one of the following commands to your test script:
+1. Add one of the following commands and add it to your test script:
   * `xcuitest` Defines XCUITest as the test framework to use for your native iOS app tests
   * `espresso` Defines Espresso as the test framework to use for your native Android app tests
 
-2. [Click here](dev/cli/espresso-xcuitest.md) to see the full list of commands and options. Sauce Runner for Real Devices will execute tests based on the parameters you set.
+2. Add the required flags listed [here](dev/cli/espresso-xcuitest.md) (i.e., `--accessKey`, `--app`, `--test`, `--datacenter`).
+
+3. [Click here](dev/cli/espresso-xcuitest.md) to see the full list of optional parameters you can use. Sauce Runner for Real Devices will execute tests based on the parameters you set.
 
 ### Using a YAML Config File
 
-As an alternative to configuring your Espresso and XCUITest RDC tests using the [command line interface](/dev/cli/espresso-xcuitest.md), you can create and run a YAML configuration file.
+As an alternative to configuring your Espresso and XCUITest RDC tests using the command line interface, you can create and run a YAML configuration file.
 
 1. Add the `config` command to your test script.
-2. Add the following parameters: `--path` and `--accessKey`. These are the only parameters accepted by the `config` command. Example:
+2. Add the following parameters: `--path` and `--accessKey`. These are the only parameters accepted by the `config` command. Here's an example snippet:
 
 ```java
 JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config --path <myFile.yml> --accessKey <12345abcde>
@@ -148,8 +150,8 @@ JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config --pa
 
 This example YAML file includes all required options for running an XCUITest test suite in conjunction with Sauce Runner for Real Devices:
 
-* The `--devices` option: use this to select devices based on both static and dynamic allocation.
-* The `--testsToRun` option: use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Swift or Objective-C.
+* `--devices` option: use this to select devices based on both static and dynamic allocation.
+* `--testsToRun` option: use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Swift or Objective-C.
 
 ```sh
 # Test framework: "xcuitest" in this example
@@ -217,8 +219,8 @@ testsToRun:
 
 This example YAML file includes all required options for running an Espresso test suite in conjunction with Sauce Runner for Real Devices:
 
-* `--devices` option to select devices based on both static and dynamic allocation.
-* `--envs` option to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Java or Kotlin.
+* `--devices` option: use this to select devices based on both static and dynamic allocation.
+* `--envs` option: use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Java or Kotlin.
 
 ```sh
 # Test framework: "espresso" in this example
