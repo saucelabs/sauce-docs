@@ -114,6 +114,16 @@ Each docker image tag is the 'latest' image that supports the specific framework
 |1.7.1|Please see release notes.|[saucelabs/sauce-playwright-runner](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.7.5)|
 
 </TabItem>
+
+<TabItem value="puppeteer">
+
+|Puppeteer Version|Supported Browsers|Release Notes|
+|-----|----|----|
+|8.0.0|Please see release notes.|[saucelabs/sauce-puppeteer-runner](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.0.0)|
+|3.0.4|Please see release notes.|[saucelabs/sauce-puppeteer-runner](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v0.3.0)|
+
+</TabItem>
+
 <TabItem value="testcafe">
 
 |TestCafe Version|Supported Browsers|Release Notes|
@@ -163,4 +173,5 @@ Visit the links below to view information and release notes regarding the docker
 
 * [sauce-cypress-runner](https://github.com/saucelabs/sauce-cypress-runner)
 * [sauce-playwright-runner](https://github.com/saucelabs/sauce-playwright-runner)
+* [sauce-puppeteer-runner](https://github.com/saucelabs/sauce-puppeteer-runner)
 * [sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner)
