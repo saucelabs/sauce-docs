@@ -77,10 +77,23 @@ module.exports = {
           'secure-connections/sauce-connect',
           'secure-connections/sauce-connect/system-requirements',
           'secure-connections/sauce-connect/installation',
-          'secure-connections/sauce-connect/setup-configuration',
+
+          {
+               type: 'category',
+               label: 'Setup and Configuration',
+               collapsed: true,
+               items: [
+                 'secure-connections/sauce-connect/setup-configuration/setup-configuration',
+                 'secure-connections/sauce-connect/setup-configuration/basic-setup',
+                 'secure-connections/sauce-connect/setup-configuration/additional-proxies',
+                 'secure-connections/sauce-connect/setup-configuration/high-availability',
+                 'secure-connections/sauce-connect/setup-configuration/specialized-environments',
+                 'secure-connections/sauce-connect/setup-configuration/ci-cd-environments',
+               ]
+          },
           'secure-connections/sauce-connect/environment-variables',
           'secure-connections/sauce-connect/proxy-tunnels',
-          'secure-connections/sauce-connect/security',
+          'secure-connections/sauce-connect/security-authentication',
           'secure-connections/sauce-connect/troubleshooting',
           'secure-connections/sauce-connect/faq',
           'secure-connections/sauce-connect/changelog',
