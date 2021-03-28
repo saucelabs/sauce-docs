@@ -1,5 +1,5 @@
 ---
-id: sepcialized-environments
+id: specialized-environments
 title: Specialized Environment Setup
 sidebar_label: Specialized Environment Setup
 ---

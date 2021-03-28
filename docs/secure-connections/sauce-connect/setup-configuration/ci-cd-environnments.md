@@ -1,6 +1,6 @@
 ---
-id: bamboo
-title: Sauce Connect Proxy for CI/CD Environments
+id: ci-cd-environments
+title: CI/CD Environments
 sidebar_label: CI/CD Environments
 ---
 
