@@ -12,7 +12,9 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-This topic describes the options you can use with Sauce Runner for Real Devices and Sauce Runner for Virtual Devices to run automated Espresso and XCUITest tests on Sauce Labs devices.
+This topic describes the commands and options you can use to run automated Espresso and XCUITest tests on Sauce Labs real devices and virtual devices.
+
+We offer the ability to:
 
 * Run tests in parallel across multiple devices.
 * Run subsets of tests against specific devices.
@@ -22,7 +24,7 @@ This topic describes the options you can use with Sauce Runner for Real Devices 
 ## What You'll Need
 
 * Your Sauce Labs account credentials.
-* Your native mobile app file (both debug and non-debug app) and test file.
+* Your mobile app file (both debug and non-debug app) and test file.
 * For real devices, have the [Sauce Runner for Real Devices](/mobile-apps/automated-testing/espresso-xcuitest/real-devices.md) client installed.
 * For virtual devices, have the [Sauce Runner for Virtual Devices](/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices.md) client installed.
 
@@ -30,7 +32,7 @@ This topic describes the options you can use with Sauce Runner for Real Devices 
 
 Use these commands and options to run XCUITest and Espresso tests on Sauce Labs real devices.
 
->**NOTE**: As an alternative to using the CLI, you can also create a YAML test runner configuration file with YAML-specific options and commands for running your tests. For instructions, see [Sauce Runner for Real Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/espresso-xcuitest/real-devices#test-configuration-options). The commands and options listed below are **not** compatible with the YAML files and its corresponding `config` command. 
+>**NOTE**: As an alternative to using the CLI, you can also create a YAML test runner configuration file with YAML-specific options and commands for running your tests. For instructions, see [Sauce Runner for Real Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/espresso-xcuitest/real-devices#test-configuration-options). The commands and options listed below are **not** compatible with the YAML files and its corresponding `config` command.
 
 ### Required Commands
 

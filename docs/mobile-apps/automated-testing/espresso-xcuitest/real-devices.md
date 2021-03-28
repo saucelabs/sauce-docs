@@ -8,14 +8,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Automated testing functionality is included in the two most common IDEs used for building mobile apps:
+Sauce Labs provides the ability to run your automated tests on our real devices using Espresso and XCUITest, the native app testing frameworks for running user interface (UI) tests on Android devices and iOS devices, respectively.
 
-* _Android Studio_, published by Google, provides automated testing capability for Android app by way of Espresso.
-* _Xcode_, the standard development environment for creating Apple iOS apps, uses XCUITest.
+* Leverage the power of our 2,000+ Android and iOS devices to run mobile app UI tests, without having to leave your Espresso or XCUITest environment.
+* Accelerate test execution with parallel testing.
+* Gain immediate insight with test reporting comprised of video, screenshots, and logs.
 
-Sauce Labs provides the ability to run your automated tests on our real device cloud using Espresso and XCUITest, the native app testing framework for running user interface (UI) tests on Android devices and iOS devices, respectively.
-
-Leverage the power of our 2,000+ Android and iOS devices to run mobile app UI tests, accelerate test execution with parallel testing, and gain immediate insight with test reporting comprised of video, screenshots, and logs.
+For more information about implementing automated testing using Espresso and XCUITest, see our white paper, [Beyond Appium: Testing Using Espresso and XCUITest](https://saucelabs.com/resources/white-papers/beyond-appium-testing-using-espresso-and-xcuitest).
 
 ## What You'll Need
 
@@ -123,7 +122,7 @@ To set the iOS version in your Xcode Target:
 
 ## Test Configuration Options
 
-There are two ways to configure your tests to run on Sauce Runner for Real Devices with Espresso or XCUITest: by using the command-line interface or by a creating YAML file.
+There are two ways to configure tests to run on Sauce Runner for Real Devices with Espresso or XCUITest: command-line interface or YAML configuration file.
 
 ### Using the Command-Line Interface
 
