@@ -11,7 +11,7 @@ class DeveloperResources extends Component {
             <h2>Developer Resources</h2>
           </div>
 
-          <div class="dev-resources__content-container">
+          <div className="dev-resources__content-container">
 
             <div className="dev-resources__image">
               <img src='img/dev-resources-hero.png' />

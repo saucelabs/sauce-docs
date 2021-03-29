@@ -56,3 +56,29 @@ Yes! You can find them here: [Automation Framework Examples](testrunner-toolkit/
 The GitHub repository includes CI/CD examples of `saucectl` using:
 * [GitHub Actions Workflows](https://help.github.com/en/actions) 
 * [CircleCI Pipelines](https://circleci.com/docs/2.0/configuration-reference/) 
+
+## How Do I Use a Proxy ?
+
+If you need to go through a proxy server, you can set it through the following variables.
+- `HTTP_PROXY`: Proxy to use to access HTTP websites
+- `HTTPS_PROXY`: Proxy to use to access HTTPS websites
+
+SauceCtl reaches Sauce Labs infrastructure to get latest docker image available or upload the test package to Sauce Cloud.
+When running in docker-mode, the docker container needs to access the tested website and Sauce Labs to upload results.
+
+Therefore, you may be required to set twice the proxy settings.
+
+
+Example (Windows Powersheel):
+```
+PS> $Env:HTTP_PROXY=http://my.proxy.org:3128/
+PS> $Env:HTTPS_PROXY=http://my.proxy.org:3128/
+PS> saucectl run -e HTTP_PROXY=${Env:HTTP_PROXY} -e HTTPS_PROXY=${Env:HTTPS_PROXY} --test-env docker
+```
+
+Example (Linux/MacOS):
+```
+$> export HTTP_PROXY=http://my.proxy.org:3128/
+$> export HTTPS_PROXY=http://my.proxy.org:3128/
+$> saucectl run -e HTTP_PROXY=${HTTP_PROXY} -e HTTPS_PROXY=${HTTPS_PROXY} --test-env docker
+```

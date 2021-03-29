@@ -11,6 +11,8 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 Internet Protocol Security VPN (IPSec VPN) is a technology that connects two private networks securely over the public Internet.
 
 Sauce Labs offers an enterprise-grade IPSec VPN solution that enables a secure connection between applications hosted on a customer's private network (or local machine) and Sauce Labs cloud virtual machines and real devices. Topics in this section include architecture, setup information, and troubleshooting tips.
@@ -34,7 +36,7 @@ Our IPSec VPN solution consists of a VPN connection and two IPSec tunnel gateway
 
 This connection allows secure communication between the gateways, which provide rules for DNS resolution, routing, and security.
 
-!["IPSec VPN Network Architecture"](/img/ipsec-vpn/ipsec-diagram.png)
+<img src={useBaseUrl('img/ipsec-vpn/ipsec-vpn-architecture.png')} alt="IPSec VPN Network Architecture"/>
 
 ## Bandwidth Recommendations
 
