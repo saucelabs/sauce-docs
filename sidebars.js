@@ -514,6 +514,7 @@ module.exports = {
                   'testrunner-toolkit/configuration/common-syntax',
                   'testrunner-toolkit/configuration/cypress',
                   'testrunner-toolkit/configuration/playwright',
+                  'testrunner-toolkit/configuration/puppeteer',
                   'testrunner-toolkit/configuration/testcafe',
               ],
           },
