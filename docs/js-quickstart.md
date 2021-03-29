@@ -1,6 +1,6 @@
 ---
 id: quickstart
-title: Sauce Labs Cypress, Playwright, and TestCafe
+title: Quickstart for Sauce Labs with Cypress, Playwright, and TestCafe
 sidebar_label: Getting Started
 description: Basic steps for getting going quickly with JavaScript based frameworks using TestRunner Toolkit and SauceCTL
 ---
