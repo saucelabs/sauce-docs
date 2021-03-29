@@ -29,7 +29,6 @@ You must select a device prior to launching a session. By default, the public de
 
 device-grid.png
 
-
 ### Launch a Real Device
 There are two ways to launch a device:
 
@@ -68,7 +67,6 @@ Screen Shot 2020-07-21 at 11.26.13 AM.png
 Android Example Settings
 
 Screen Shot 2020-08-26 at 8.13.17 AM.png
-
 
 Most settings update automatically, however when you make changes to the proxy setting, select **Update** to finish.
 

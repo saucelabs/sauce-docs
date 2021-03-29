@@ -2,7 +2,6 @@
 id: device-vitals-mobile
 title: Device Vitals for Mobile Applications
 sidebar_label: Device Vitals for Mobile Applications
-
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
