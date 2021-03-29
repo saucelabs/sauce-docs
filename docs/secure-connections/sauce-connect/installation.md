@@ -1,6 +1,6 @@
 ---
 id: installation
-title: Sauce Connect Installation and Requirements
+title: Sauce Connect Installation
 sidebar_label: Installation
 ---
 
@@ -117,4 +117,4 @@ See [Sauce Connect Proxy Changelog](/secure-connections/sauce-connect/changelog.
 * [Secure Your Testing Experience - Best Practices for Updating Sauce Connect](https://wiki.saucelabs.com/display/DOCS/2020/12/02/ACTION+REQUIRED%3A+Secure+Your+Testing+Experience+-+Best+Practices+for+Updating+Sauce+Connect)
 * [Video: Setting Up Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#SauceConnectProxy-Video:SettingUpSauceConnectProxy)
 
->**NOTE**: Effective with Sauce Connect Proxy version 4.6.0, we've enabled support for Public Certificates and deprecated support for Private Certificates. See [Sauce Connect Proxy Change Logs](secure-connections/sauce-connect/changelog) for detailed information.
+>**NOTE**: Effective with Sauce Connect Proxy version 4.6.0, we've enabled support for Public Certificates and deprecated support for Private Certificates. See [Sauce Connect Proxy Changelog](secure-connections/sauce-connect/changelog) for more detailed information.

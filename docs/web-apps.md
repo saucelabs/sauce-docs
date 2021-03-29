@@ -5,9 +5,9 @@ sidebar_label: Getting Started
 ---
 It's easy to run automated web application tests in the Sauce Labs device cloud.
 
-<div class="box-wrapper" markdown="1">
-<div class="box box1 card">
-  <div class="container">
+<div className="box-wrapper" markdown="1">
+<div className="box box1 card">
+  <div className="container">
   <h2>Live Testing</h2>
   <p>Use Sauce Labs to live test web apps on a desktop browser, and on native browsers for real and virtual devices.
 </p>
@@ -18,8 +18,8 @@ It's easy to run automated web application tests in the Sauce Labs device cloud.
   </ul>
   </div>
 </div>
-  <div class="box box2 card">
-  <div class="container">
+  <div className="box box2 card">
+  <div className="container">
   <h2>Automated Testing</h2>
   <p>Run automated tests of web apps on desktop and mobile browsers.</p>
   <ul>
@@ -28,8 +28,8 @@ It's easy to run automated web application tests in the Sauce Labs device cloud.
   </ul>
   </div>
   </div>
-  <div class="box box3 card">
-  <div class="container">
+  <div className="box box3 card">
+  <div className="container">
   <h2>Selenium</h2>
   <p>Selenium is designed to automate web browser interaction.</p>
   <ul>
@@ -38,8 +38,8 @@ It's easy to run automated web application tests in the Sauce Labs device cloud.
   </ul>
   </div>
   </div>
-  <div class="box box4 card">
-  <div class="container">
+  <div className="box box4 card">
+  <div className="container">
   <h2>Troubleshooting</h2>
   <p>There are several ways to troubleshoot your manual and automated website tests.</p>
   <ul>
