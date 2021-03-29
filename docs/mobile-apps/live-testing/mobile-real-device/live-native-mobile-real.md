@@ -27,23 +27,24 @@ There is a distinction between **Public Devices** and **Private Devices**.
 ### Select a Real Device
 You must select a device prior to launching a session. By default, the public devices will display in a grid format like so:
 
-<device-grid.png>
+device-grid.png
+
 
 ### Launch a Real Device
 There are two ways to launch a device:
 
 1. Hover over a device thumbnail and click on Details to see the specs for that device. Once you find the desired device, select **Launch**.
 
-<device-details.png>
+device-details.png
 
 2. Hover over a device thumbnail and click on **Launch**.
 
-<Screen Shot 2020-06-22 at 7.35.44 AM.png>
+Screen Shot 2020-06-22 at 7.35.44 AM.png
 
 ## Change Application Settings
 If you wish to change the application settings, you can do so by hovering over the application in **LIVE > Mobile-App**, and selecting the **Settings** icon.
 
-<app-settings.png>
+app-settings.png
 
 You're then presented with the Default Settings page, where **any updated settings will affect all uploaded versions of the application**. Below are some settings you can change:
 
@@ -62,11 +63,12 @@ You're then presented with the Default Settings page, where **any updated settin
 
 iOS Example Settings
 
-<Screen Shot 2020-07-21 at 11.26.13 AM.png>
+Screen Shot 2020-07-21 at 11.26.13 AM.png
 
 Android Example Settings
 
-<Screen Shot 2020-08-26 at 8.13.17 AM.png>
+Screen Shot 2020-08-26 at 8.13.17 AM.png
+
 
 Most settings update automatically, however when you make changes to the proxy setting, select **Update** to finish.
 
@@ -76,12 +78,13 @@ Sometimes you need to conduct A/B Testing, or document and validate feature pari
 1. Select the **Change App** button in the device selection menu.
 2. To change the version of the app, there must be multiple versions of the same app already uploaded to storage. This is indicated by the + symbol next to version number that indicates the most recently updated file.
 
-<latest-version.png>
+latest-version.png
 
 3. Select the + symbol and you will see a list of all the uploaded applications along with their version IDs.
 
-<version-ids.png>
+version-ids.png
 
 4. Select the version of the app, then select a desired device to launch a test session.
 
-<select-device2.png>
+select-device2.png
+
