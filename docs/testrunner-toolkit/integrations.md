@@ -18,5 +18,5 @@ After you confirm the above recommendations, proceed to the guides below:
 
 ## Currently Available Platforms
 
-* [Jenkins](/testrunner-toolkit/integrations/jenkins)
-* [GitHub Actions](/testrunner-toolkit/integrations/github-actions)
+* [CircleCI](/testrunner-toolkit/integrations/circleci)
+* [Jenkins](/testrunner-toolkit/integrations/jenkins)* [GitHub Actions](/testrunner-toolkit/integrations/github-actions)
