@@ -1,7 +1,7 @@
 ---
 id: live-testing
-title: Mobile Live Testing Quickstart
-sidebar_label: Quickstart
+title: Live Testing Mobile Applications
+sidebar_label: Getting Started
 ---
 
-Sauce Labs configuration page.
+Live Testing Mobile Applications
