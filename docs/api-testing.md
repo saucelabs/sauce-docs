@@ -6,9 +6,9 @@ description: Documentation for running API tests with Sauce Labs
 hide_table_of_contents: true
 ---
 
-<div class="box-wrapper" markdown="1">
-  <div class="box box1 card">
-    <div class="container">
+<div className="box-wrapper" markdown="1">
+  <div className="box box1 card">
+    <div className="container">
     <h2>A Quick Start</h2>
     <p>Some quick facts and guides to get started with the platform.</p>
     <ul>
@@ -18,8 +18,8 @@ hide_table_of_contents: true
     </ul>
     </div>
   </div>
-  <div class="box box2 card">
-    <div class="container">
+  <div className="box box2 card">
+    <div className="container">
     <h2>API Testing University</h2>
     <p>Browse through the courses to learn more about using the API testing tool.</p>
     <ul>
@@ -29,8 +29,8 @@ hide_table_of_contents: true
     </ul>
     </div>
   </div>
-  <div class="box box3 card">
-    <div class="container">
+  <div className="box box3 card">
+    <div className="container">
     <h2>APIs and Webhooks</h2>
     <p>Leverage a robust collection of APIs and webhooks to manage everything from execution, test creation, data, and integrations.</p>
     <ul>
@@ -39,7 +39,7 @@ hide_table_of_contents: true
     </ul>
     </div>
   </div>
-  <div class="box box4 card">
+  <div className="box box4 card">
     <div class="container">
     <h2>CI / CD</h2>
     <p>Browse the continuous integration and continuous delivery documentation to explore how to integrate Sauce Labs API testing into your DevOps pipeline.</p>

@@ -188,3 +188,4 @@ suites:
     * [Cypress Configuration Syntax](/testrunner-toolkit/configuration/cypress)
     * [TestCafe Configuration Syntax](/testrunner-toolkit/configuration/testcafe)
     * [Playwright Configuration Syntax](/testrunner-toolkit/configuration/playwright)
+    * [Puppeteer Configuration Syntax](/testrunner-toolkit/configuration/puppeteer)
