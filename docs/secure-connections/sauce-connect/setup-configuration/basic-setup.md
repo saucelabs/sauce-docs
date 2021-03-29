@@ -29,7 +29,7 @@ Sauce Labs recommends setting all of the values above as environment variables t
 Once you've downloaded Sauce Connect Proxy, you can validate that it works on your network by completing the following steps:
 1. Launch a tunnel with the following flags, per the [Sauce Connect Proxy Command Line Reference](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide):
 
-```js
+```
 <code>$ bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i TUNNEL_ID'</code>
 ```
 
@@ -57,31 +57,41 @@ where:
 
 <TabItem value="Java">
 
-```caps.SetCapability("tunnelIdentifier", "TUNNEL_ID");```
+```
+caps.SetCapability("tunnelIdentifier", "TUNNEL_ID");
+```
 
 </TabItem>
 
 <TabItem value="Node.js">
 
-````tunnelIdentifier': 'TUNNEL_ID````
+```
+'tunnelIdentifier': 'TUNNEL_ID'
+```
 
 </TabItem>
 
 <TabItem value="C#">
 
-```caps.SetCapability("tunnelIdentifier", "TUNNEL_ID");```
+```
+caps.SetCapability("tunnelIdentifier", "TUNNEL_ID");
+```
 
 </TabItem>
 
 <TabItem value="Python">
 
-````tunnelIdentifier': 'TUNNEL_ID````
+```
+'tunnelIdentifier': 'TUNNEL_ID'
+```
 
 </TabItem>
 
 <TabItem value="Ruby">
 
-````tunnelIdentifier: 'TUNNEL_ID',````
+```
+'tunnelIdentifier: 'TUNNEL_ID',
+```
 
 </TabItem>
 
@@ -119,7 +129,7 @@ As a best practice, Sauce Labs recommends creating a new tunnel for each test su
 
 ### Basic Network Configuration Diagram
 
-<img src={useBaseUrl('img/sauce-connect/scp-basic-network-config.png')} alt="Basic network configuration diagram" width="400"/>
+<img src={useBaseUrl('img/sauce-connect/scp-basic-network-config.png')} alt="Basic network configuration diagram" width="650"/>
 
 **Diagram Legend**
 
@@ -151,7 +161,9 @@ Launch a new tunnel on the `SC_HOST` with the following flags, per the [Sauce Co
 
 <TabItem value="MacOS/Linux Example">
 
-```$ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i sc-proxy-tunnel```
+```
+$ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i sc-proxy-tunnel
+```
 
 </TabItem>
 
@@ -165,7 +177,9 @@ Launch a new tunnel on the `SC_HOST` with the following flags, per the [Sauce Co
 
 <TabItem value="Windows Example">
 
-```> sc_download\bin\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -x %SAUCE_DC% -i sc-proxy-tunnel```
+```
+> sc_download\bin\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -x %SAUCE_DC% -i sc-proxy-tunnel
+```
 
 </TabItem>
 
@@ -187,31 +201,41 @@ Launch a new tunnel on the `SC_HOST` with the following flags, per the [Sauce Co
 
 <TabItem value="Java">
 
-```caps.SetCapability("tunnelIdentifier", "sc-proxy-tunnel");```
+```
+caps.SetCapability("tunnelIdentifier", "sc-proxy-tunnel");
+```
 
 </TabItem>
 
 <TabItem value="Node.js">
 
-```tunnelIdentifier': 'sc-proxy-tunnel```
+```
+'tunnelIdentifier': 'sc-proxy-tunnel'
+```
 
 </TabItem>
 
 <TabItem value="C#">
 
-```caps.SetCapability("tunnelIdentifier", "sc-proxy-tunnel");```
+```
+caps.SetCapability("tunnelIdentifier", "sc-proxy-tunnel");
+```
 
 </TabItem>
 
 <TabItem value="Python">
 
-```tunnelIdentifier': 'sc-proxy-tunnel```
+```
+'tunnelIdentifier': 'sc-proxy-tunnel'
+```
 
 </TabItem>
 
 <TabItem value="Ruby">
 
-```tunnelIdentifier: 'sc-proxy-tunnel',```
+```
+tunnelIdentifier: 'sc-proxy-tunnel',
+```
 
 </TabItem>
 
@@ -222,7 +246,7 @@ Every Sauce Connect Proxy tunnel spins up a fresh virtual machine (VM) that is u
 
 ### Sauce Connect Proxy Tunnel Startup Diagram
 
-<img src={useBaseUrl('img/sauce-connect/scp-tunnel-startup.png')} alt="Tunnel startup diagram" width="400"/>
+<img src={useBaseUrl('img/sauce-connect/scp-tunnel-startup.png')} alt="Tunnel startup diagram" width="650"/>
 
 1. Sauce Connect Proxy client calls REST API to start a tunnel.
 
@@ -238,7 +262,7 @@ At this point, the tunnel is established between the Sauce Connect Client and th
 
 ### Network Traffic Flow through a Tunnel Diagram
 
-<img src={useBaseUrl('img/sauce-connect/scp-network-traffic-flow.png')} alt="Network traffic flow diagram" width="400"/>
+<img src={useBaseUrl('img/sauce-connect/scp-network-traffic-flow.png')} alt="Network traffic flow diagram" width="650"/>
 
 1. Selenium/Appium test code sends an HTTPS request to the VM or Real Device that was created for this test (for example, `GET [www.saucedemo.com](http://w<span>ww.</span>saucedemo.com/)`).
 
