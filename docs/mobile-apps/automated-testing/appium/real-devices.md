@@ -20,9 +20,11 @@ The Sauce Labs real device cloud provides you with the ability to run either [li
 
 ## What You'll Need
 
-*   Before you can upload your app and leverage real devices, ensure that you meet the project support and requirements. See [Automated Mobile App Testing Admin Guide](https://wiki.saucelabs.com/display/DOCS/Mobile+Application+Testing+Admin+Guide#mobile-test-admin-real-devices)for further details.
-*   A Sauce Labs account.
-*   The mobile app you wish to test. If you don't have an app and would like to try out our test functionality, feel free to download and use our[ Sauce Labs demo app](https://github.com/saucelabs/sample-app-mobile/releases).
+* Your Sauce Labs username and access key.
+* Ensure that your mobile app and project setup meet our [real device cloud requirements](mobile-apps/automated-testing/devices.md).
+* Have your mobile app file (.ipa for iOS, .apk for Android) and mobile test file on hand.
+
+If you don't have an app and would like to try out our test functionality, feel free to download and use our [Sauce Labs demo app](https://github.com/saucelabs/sample-app-mobile/releases).
 
 
 ## Uploading and Accessing Your Apps on Real Devices
@@ -76,7 +78,8 @@ For APIs and authorization credentials, use the Sauce Labs Storage REST API (app
 
 A recommended best practice is to set your credentials as environment variables, like so:
 
-```SAUCE_USERNAME='valid.username'
+```sh
+SAUCE_USERNAME='valid.username'
 SAUCE_ACCESS_KEY='valid.key'
 ```
 
@@ -229,7 +232,7 @@ Some Appium capabilities behave differently when running Appium tests in the rea
 * The `noReset` capability only works if device caching is enabled. By default, it is set to `false`.
 * Some Appium capabilities may not be supported. You can find a list [here](/mobile-apps/automated-testing/appium/real-devices.md#unsupported-appium-capabilities).
 
-Different setups might have slightly different ways of handling capabilities and/or different requirements. You should also check the [examples for your specific setup](https://wiki.saucelabs.com/display/DOCSDEV/Examples+of+Appium+Test+Setups+for+Real+Device+Testing) to make sure you are providing all of the required capabilities.
+Different setups might have slightly different ways of handling capabilities and/or different requirements. Check to make sure you are providing all of the required capabilities.
 :::
 
 **Setting `appiumVersion`**
@@ -851,14 +854,14 @@ Now that you've been able to get a test running on Sauce, there are a few other 
 *   Implement timeouts to control text execution times
 *   Add annotations
 *   Send Pass/Fail results to Sauce Labs
-*   [Use Build IDs and tags to differentiate and identify test runs](https://wiki.saucelabs.com/display/DOCSDEV/Best+Practice%3A+Use+Build+IDs%2C+Tags%2C+and+Names+to+Identify+Your+Tests)
+*   [Use Build IDs and tags to differentiate and identify test runs](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946)
 
-You can find more information under [Best Practices for Running Tests](https://wiki.saucelabs.com/display/DOCSDEV/Best+Practices+for+Running+Tests) and [Setting Test Status to Pass or Fail](https://wiki.saucelabs.com/display/DOCSDEV/Setting+Test+Status+to+Pass+or+Fail).
+You can find more information under [Best Practices for Running Tests](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647) and [Setting Test Status to Pass or Fail](https://wiki.saucelabs.com/pages/viewpage.action?pageId=63472006).
 
 Features specific to our real device cloud include:
 
 *   Support for multiple frameworks (i.e., Appium, Robotium, Espresso, and XCUITest)
-*   [IPSec VPN secure connections to private clouds](https://wiki.saucelabs.com/display/DOCSDEV/IPSec+VPN)
+*   [IPSec VPN](secure-connections/ipsec-vpn.md) secure connections to private clouds
 *   Devices cleaning process between sessions to ensure maximum privacy
 *   Carrier Network Connectivity (devices with SIM cards)
 
@@ -1079,7 +1082,7 @@ The CSV file will contain these performance metrics for iOS devices.
 
 ## Configuring Appium Tests for TestObject (Legacy)
 
-These examples are specifically for use with TestObject, our [legacy real device cloud platform](https://wiki.saucelabs.com/display/DOCSDEV/Legacy+Real+Device+Platform+Resources) (**SAUCE APPS** > **Legacy RDC**).
+These examples are specifically for use with TestObject, our [legacy real device cloud platform](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177), which you can find under **SAUCE APPS** > **Legacy RDC**.
 
 <Tabs
   defaultValue="iOS"
@@ -1094,7 +1097,7 @@ Examples of an iPhone project using iOS version 12.2.
 
 **Java**
 
-```
+```java
 DesiredCapabilities caps = DesiredCapabilities();
     caps.setCapability("testobject_api_key", "project_api_key");
     caps.setCapability("testobject_app_id", "1");
@@ -1107,7 +1110,7 @@ DesiredCapabilities caps = DesiredCapabilities();
 
 **Python**
 
-```
+```py
 caps['browserName'] = ""
 caps['testobject_api_key'] = "project_api_key"
 caps['testobject_app_id'] = "1"
@@ -1119,7 +1122,7 @@ caps['platformName'] = "iOS"
 
 **node.js**
 
-```
+```js
 caps['browserName'] = '';
 caps['testobject_api_key'] = "project_api_key";
 caps['testobject_app_id'] = "1";
@@ -1131,7 +1134,7 @@ caps['platformName'] = 'iOS';
 
 **Ruby**
 
-```
+```rb
 caps = Selenium::WebDriver::Remote::Capabilities()
 caps['testobject_api_key'] = 'project_api_key'
 caps['testobject_app_id'] = '1'
@@ -1144,7 +1147,7 @@ caps['browserName'] = ''
 
 **C#**
 
-```
+```csharp
 DesiredCapabilities caps = new DesiredCapabilities();
     caps.SetCapability("deviceName", "iPhone .*");
     caps.SetCapability("testobject_api_key", "project_api_key");
@@ -1164,7 +1167,7 @@ Examples of an Samsung Galaxy project using Android version 8.1.
 
 **Java**
 
-```
+```java
 DesiredCapabilities caps = DesiredCapabilities();
     caps.setCapability("testobject_api_key", "project_api_key");
     caps.setCapability("testobject_app_id", "1");
@@ -1177,7 +1180,7 @@ DesiredCapabilities caps = DesiredCapabilities();
 
 **Python**
 
-```
+```py
 caps = {}
 caps['testobject_api_key'] = "project_api_key"
 caps['testobject_app_id'] = "1"
@@ -1202,7 +1205,7 @@ caps['platformName'] = 'Android';
 
 **Ruby**
 
-```
+```rb
 caps = Selenium::WebDriver::Remote::Capabilities()
 caps['testobject_api_key'] = 'project_api_key'
 caps['testobject_app_id'] = '1'
@@ -1215,7 +1218,7 @@ caps['platformName'] = 'Android'
 
 **C#**
 
-```
+```csharp
 DesiredCapabilities caps = new DesiredCapabilities();
     caps.SetCapability("testobject_api_key", "project_api_key");
     caps.SetCapability("testobject_app_id", "1");
@@ -1228,9 +1231,3 @@ DesiredCapabilities caps = new DesiredCapabilities();
 
 </TabItem>
 </Tabs>
-
-## Additional Resources
-
-*   [Application and Project Management for Real Devices](https://wiki.saucelabs.com/display/DOCSDEV/Application+and+Project+Management+for+Real+Devices)
-*   [Uploading and Accessing Applications with Real Devices](https://wiki.saucelabs.com/display/DOCSDEV/Uploading+and+Accessing+Applications+with+Real+Devices)
-*   [Security Settings for Organizations](https://wiki.saucelabs.com/display/DOCSDEV/Security+Settings+for+Organizations)

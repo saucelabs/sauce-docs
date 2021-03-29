@@ -63,27 +63,27 @@ You can also find instructions for using the Virtual USB client by running `java
 1. Log in to your Sauce Labs account.
 2. Launch the TestObject real device platform by clicking **Sauce Apps** > **Legacy RDC**.
 3. Click the person icon > Account Settings.
-<img src={useBaseUrl('img/virtual-usb/vusb1.jpg')} alt="Live App Upload UI" width="300" />
+<img src={useBaseUrl('img/virtual-usb/vusb1.jpg')} alt="Virtual USB" width="300" />
 
 4. Grab your User API key. **NOTE**: This API key is entirely separate from the one in the main Sauce Labs interface.
 5. From a command line, launch the client. Choose between the **EU** or the **US** data center, depending on which device you are trying to connect to:
 
-```
+```sh
 java -jar vusb-client.jar server --datacenter <EU/US>
 ```
 
-```
+```sh
 java -jar vusb-client.jar server --datacenter EU
 ```
 
 
 6. Once the server is open, you can now start a session. From another command line window, launch the client again using this command to create a new session:
 
-```
+```sh
 java -jar vusb-client.jar startSession --apiKey <API_KEY> --deviceName <DEVICE_NAME>
 ```
 
-```
+```sh
 java -jar vusb-client.jar startSession --apiKey 37D274BC3A65A34BB3DA4DDF7B77E341 --deviceName Motorola_Moto_Z_real
 ```
 
@@ -92,7 +92,7 @@ This will allow you to allocate a device for your session. That means the device
 
 7. When Virtual USB connects to your live testing session, it will return a success message and a link to watch the device running your test in real time.
 
-```
+```sh
 37D274BC3A65A34BB3DA4DDF7B77E341		Motorola Moto Z		ANDROID		7.0		https://app.testobject.com/#/device/share/9299h0c88a7-e2b6-41bc-9509-5-8a5d765490371e2c9a/view?dc=US
 
 localhost:7000	online
@@ -100,17 +100,17 @@ localhost:7000	online
 
 8. Copy the port number and use it to connect `adb` to your session device using Virtual USB.
 
-```
+```sh
 adb connect localhost:<paste returned port here>
 ```
 
-```
+```sh
 adb connect localhost:7000
 ```
 
 9. At this point, vUSB will be fully connected. You can use Android Studio (or Google Chrome's Remote Debugging) to debug your app, execute automation based on `adb`, or any other tool that is `adb`-compliant. For example, using `adb` shell, you can start the camera of the connected device:
 
-```
+```sh
 adb shell
 am start -a android.media.action.IMAGE_CAPTURE
 ```
@@ -119,7 +119,7 @@ am start -a android.media.action.IMAGE_CAPTURE
 
 1. Make sure you disconnect your device from ADB using `adb disconnect <IPAddress>:<portNumber>`.
 
-```
+```sh
 adb disconnect localhost:7000
 ```
 
@@ -144,11 +144,11 @@ HAR files are useful for inspecting:
 
 3. Now, you don't actually have Chrome open on the device yet. We can issue additional `adb` commands to make that happen:
 
-```
+```sh
 $ ./adb shell am start -n com.android.chrome/com.google.android.apps.chrome.Main
 ```
 
-```
+```sh
 $ ./adb shell am start -a android.intent.action.VIEW -d http://www.saucedemo.com
 ```
 
@@ -181,13 +181,13 @@ Virtual USB versions 1.0-1.2 have been deprecated. We're no longer providing sup
 1. Log in to Sauce Labs and get your User API key from **Sauce Apps** > **Legacy RDC** > **Account Settings** in the TestObject real device cloud platform.
 2. From a command line, launch the Virtual USB client.
 
-```
+```sh
 java -jar client.jar server
 ```
 
 If you're testing on a device in the US Data Center, you should also include the flags:
 
-```
+```sh
 --manualUrl https://us1-manual.app.testobject.com --routerUrl wss://us1.api.testobject.com/api/vusb/forward
 ```
 
@@ -198,7 +198,7 @@ Optionally, use `-v` for verbose logging or `-vv` for super verbose logging.
 
 4. Open a new command line terminal, and query which sessions are running.
 
-```
+```sh
 java -jar client.jar sessions --apiKey <API KEY>
 ```
 
@@ -206,27 +206,27 @@ java -jar client.jar sessions --apiKey <API KEY>
 
 6. Use the live testing  sessionId> to connect the Virtual USB client to the real device in your session: \
 
-```
+```sh
 java -jar client.jar connect --sessionId <session id> --apiKey <API KEY>
 ```
 
-```
+```sh
 java -jar client.jar connect --sessionId bwerg235-5214-4f14-889c-234va9v7a --apiKey 5a0d83ab-0ccb-42ff-a822-efb23d90b55d
 ```
 
 7. When Virtual USB connects to your live testing session, it will return a port number for the connection. Copy the port number  and use it to connect `adb` to your session device using Virtual USB.
 
-```
+```sh
 adb connect localhost:<paste returned port here>
 ```
 
-```
+```sh
 adb connect localhost:7000
 ```
 
 8. At this point, vUSB is fully connected and you can use Android Studio to debug your app, execute automation that is based on `adb`, or use any other tool that is `adb`-compliant. For example, using `adb` shell, you can start the camera of the connected device:
 
-```
+```sh
 adb shell
 am start -a android.media.action.IMAGE_CAPTURE
 ```
@@ -235,7 +235,7 @@ am start -a android.media.action.IMAGE_CAPTURE
 
 1. Make sure you disconnect your device from ADB using `adb disconnect <IPAddress>:<portNumber>`.
 
-```
+```sh
 adb disconnect localhost:7000
 ```
 
