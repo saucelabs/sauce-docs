@@ -31,6 +31,7 @@ To make Apple Pay work on Sauce Labs real private devices:
       2. When the connection is established, open **XCODE**.
       3. Select the device from the device list.
 
+
       img1.png
 
          On the **Signing & Capabilities** tab, you will see that the device has not yet been added.
@@ -40,6 +41,7 @@ To make Apple Pay work on Sauce Labs real private devices:
       4. Click **Register Device** to add the device to your developer certificate.
 
       img3.png
+
 
       5. Once the UDID of the device is added to the developer certificate, you can build the application (manually or automatically):
           1. Select your build scheme and then select **Generic iOS Device**.
@@ -67,6 +69,7 @@ img4.png
 2. If prompted, enter the device’s passcode.
 
 img5.png
+
 
   If you weren’t prompted for a passcode, set it by going to **Settings > Face ID & Passcode** and tapping **Turn Passcode On**.
 
@@ -99,6 +102,7 @@ img10.png
 
 img11.png
 
+
 Disabling this allows the app to use Apple Pay and the developer certificate and provisioning profile that you used when you built the app.
 
 **NOTE:** Disabling re-signing will break the installation of the app on public devices. The app will only be allowed to be installed on private devices that have been added to the developer certificate and provisioning profile.
@@ -111,3 +115,4 @@ img12.png
 img13.png
 img14.png
 img15.png
+

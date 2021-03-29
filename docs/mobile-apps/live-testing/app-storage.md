@@ -34,3 +34,4 @@ old-repository.png
 The **Delete** button will delete a whole application (e.g., a group of builds belonging to the same app package). Files associated with app identifiers (i.e., belong to the same platform and are accessible to the same team) are indicated by the + symbol next to version number. Also, the version number shown is the most recently updated file, not necessarily the "latest" version of the application.
 
 latest-version.png
+
