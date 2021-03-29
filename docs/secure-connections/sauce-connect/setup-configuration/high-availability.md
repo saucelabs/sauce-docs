@@ -25,14 +25,14 @@ The following diagram shows the basic Sauce Connect Proxy setup using High Avail
 
 ### Basic Setup Using High Availability
 
-![Basic setup using High Availability](static/img/sauce-connect/scp-basic-ha.png)
+<img src={useBaseUrl('img/sauce-connect/scp-basic-ha.png')} alt="Basic setup using High Availability" width="400"/>
 
 ## Multiple Network Routes
 In this diagram, we see a setup that allows for multiple network routes when reaching the site(s) under test. There are variations to this, of course. For example, some of the Sauce Connect Proxy instances could be in the same network infrastructure as the site(s) under test. You can also imagine leveraging different virtual routes inside the same physical network. What is gained by setting up tunnels in this manner is redundancy for Sauce Connect Proxy tests, should one network route fail.
 
 ### Multiple Network Routes to Site Under Test (SUT)
 
-![Multiple network routes to Site Under Test (SUT)](static/img/sauce-connect/scp-mult-routes.png)
+<img src={useBaseUrl('img/sauce-connect/scp-mult-routes.png')} alt="Multiple network routes to Site Under Test (SUT)" width="400"/>
 
 ## High Availability Tunnel Settings and Commands
 You can customize your High Availability tests using these options below. For a full list of High Availability commands and other Sauce Connect Proxy options, see the [Sauce Connect Proxy Command Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide).
@@ -43,12 +43,12 @@ Exclusive to our High Availability Sauce Connect Proxy Setup, you can launch mul
 #### Launching Tunnel Pools**
 When using Sauce Connect Proxy (either a single tunnel or High Availability pool) to test your app, you'll need to provide the identifier of the Sauce Connect Proxy tunnel by using the desired capability 'tunnelIdentifier' in your test configuration (e.g. '"tunnelIdentifier": "tunnel_name_here"'). Tunnel identifiers distinguish which tunnel or High Availability tunnel pool will be used to connect to your site under test.
 
-All tunnels in the individual pools need to be started with both the  '--tunnel-identifier <tunnel_name_here>' and '--no-remove-colliding-tunnels' command line options.
+All tunnels in the individual pools need to be started with both the  `--tunnel-identifier <tunnel_name_here>` and `--no-remove-colliding-tunnels` command line options.
 
 #### What are Colliding Tunnels?
 Normally, if you attempt to start multiple tunnels with the same tunnel identifier, only the latest instance of the tunnel with that identifier will stay running. All tunnels with the same identifier started prior to the start of the latest instance will be considered colliding tunnels (tunnels with colliding identifiers) and will shut down.
 
-When creating a tunnel pool, you need to prevent tunnel identifier collision by using Sauce Connect Proxy client command line option '--no-remove-colliding-tunnels' when starting the tunnels for your tunnel pool. Tunnels will then remain active and tests will be distributed among them.
+When creating a tunnel pool, you need to prevent tunnel identifier collision by using Sauce Connect Proxy client command line option `--no-remove-colliding-tunnels` when starting the tunnels for your tunnel pool. Tunnels will then remain active and tests will be distributed among them.
 
 #### Monitoring Tunnel Pools
 When running a tunnel pool, we recommend monitoring your activity in Sauce Labs to ensure your tunnel configuration stability and overall testing efficiency. Here, you can gain insight into all individual tunnels and tunnel pools. You can also check the health of an individual tunnel by running a test on it.
@@ -64,7 +64,9 @@ Once you've confirmed that your network is configured to use High Availability, 
 
 <TabItem value="Linux or Mac OSX">
 
-'''$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-identifier tunnel_name_here --no-remove-colliding-tunnels'''
+```
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-identifier tunnel_name_here --no-remove-colliding-tunnels
+```
 
 </TabItem>
 </Tabs>
@@ -77,7 +79,9 @@ values={[
 
 <TabItem value="Windows">
 
-'''> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --tunnel-identifier tunnel_name_here --no-remove-colliding-tunnels'''
+```
+> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --tunnel-identifier tunnel_name_here --no-remove-colliding-tunnels
+```
 
 </TabItem>
 </Tabs>
@@ -88,7 +92,8 @@ Tunnel pools allow for failover and rolling restart functionality, which improve
 Tunnel pools also abide by general fault tolerance rules. For example, if one tunnel becomes unavailable or shuts down (i.e., due to user shutdown, crash, maintenance, or network partition), you can configure your tunnels to be restored automatically while the test traffic is routed to another tunnel in the pool.
 
 :::note
-Tunnel pools do not self-heal (see [Self-management](https://en.wikipedia.org/wiki/Self-management_(computer_science)) for more information) or restart automatically. If a tunnel stops, you'll need to restart it manually. Other than restarting a stopped or failed tunnel, tunnel pools generally run automatically without user intervention. If you're running a high number of tunnels, you may want to bypass the pool and specify which tunnel to use directly.:::
+Tunnel pools do not self-heal (see [Self-management](https://en.wikipedia.org/wiki/Self-management_(computer_science)) for more information) or restart automatically. If a tunnel stops, you'll need to restart it manually. Other than restarting a stopped or failed tunnel, tunnel pools generally run automatically without user intervention. If you're running a high number of tunnels, you may want to bypass the pool and specify which tunnel to use directly.
+:::
 
 When in High Availability mode, we recommend restarting Sauce Connect Proxy tunnels every 24 hours. The tunnel will stay open until all tests associated with it have completed. At the same time, once the shutdown command has been sent, the tunnel is marked inactive in the eyes of the pool, and no new jobs will use it.
 
