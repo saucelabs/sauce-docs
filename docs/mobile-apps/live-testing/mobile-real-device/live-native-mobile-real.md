@@ -29,6 +29,7 @@ You must select a device prior to launching a session. By default, the public de
 
 device-grid.png
 
+
 ### Launch a Real Device
 There are two ways to launch a device:
 
@@ -68,6 +69,7 @@ Android Example Settings
 
 Screen Shot 2020-08-26 at 8.13.17 AM.png
 
+
 Most settings update automatically, however when you make changes to the proxy setting, select **Update** to finish.
 
 ## Change the App Version for a Live Test on Real Devices
@@ -85,3 +87,4 @@ version-ids.png
 4. Select the version of the app, then select a desired device to launch a test session.
 
 select-device2.png
+

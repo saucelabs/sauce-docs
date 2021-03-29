@@ -16,6 +16,7 @@ Know if your app is designed to run on internal or otherwise restricted networks
 
 device-favorite.png
 
+
 The default sorting for the device list is **Starred First**.
 
 5. For **Test URL**, enter the URL of the website you want to test in the browser.
