@@ -24,7 +24,7 @@ See more detailed instructions [in the documentation](https://docs.saucelabs.com
 
 ## Step 2: Run Your Tests
 
-You can run you Cypress, TestCafe, or Playwright test in two different ways:
+You can run your Cypress, TestCafe, or Playwright test in two different ways:
 
 
 
