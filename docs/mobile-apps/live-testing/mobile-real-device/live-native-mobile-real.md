@@ -85,3 +85,4 @@ version-ids.png
 4. Select the version of the app, then select a desired device to launch a test session.
 
 select-device2.png
+

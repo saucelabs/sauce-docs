@@ -3,6 +3,7 @@ id: setting-up-a-test
 title: Setting Up a Live Test
 sidebar_label: Setting Up a Live Test
 ---
+
 You can run live tests of your websites on a wide variety of operating system, browser, version, and screen resolution configurations.
 
 ## Desktop
@@ -75,3 +76,4 @@ Hover your mouse over the device box, and then click **LAUNCH** to start the tes
 7. To save your current configuration, select the **Save this configuration** check box.  
 8. Click **Start Session**.
 You'll see a loading screen, and then the URL you entered will launch in a live test window using the virtual device you selected.
+
