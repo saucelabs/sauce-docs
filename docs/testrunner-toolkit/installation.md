@@ -67,6 +67,11 @@ There are multiple ways to install the Sauce Labs Testrunner Toolkit (colloquial
 * ```bash title="Using NPM"
   npm install -g saucectl
   ```
+  
+* ```bash title="Using NPM and SAUCECTL_INSTALL_BINARY"
+  SAUCECTL_INSTALL_BINARY=https://company.domain.com/saucectl_0.32.2_mac_64-bit.tar.gz npm install -g saucectl
+  ```
+Using the `SAUCECTL_INSTALL_BINARY` environment variable, you can control how `saucectl` is installed. You can use it in case you need to download `saucectl` from a known source or in case you use `npx saucectl`.
 
 * ```bash title="Using Homebrew (macOS)"
   brew tap saucelabs/saucectl
@@ -128,10 +133,10 @@ This command prompts you to manually enter your credentials if it cannot detect 
 It should go without saying, but do not publicly expose your `credentials.yml` file over the internet. Make sure you add this file to your `.gitignore` file, as you should only use it locally.
 :::
 
-<<<<<<< HEAD
 ### Training
+
 See the tutorial and video on [setting up your Testrunner Toolkit environment](https:/training.saucelabs.com/testrunner/index.html) for more help.
-=======
+
 ## Create a Configuration File 
 
 :::tip
@@ -180,4 +185,3 @@ Testrunner Toolkit generates a new config file in your current working directory
 
 * __Run a Test__: Visit the [Running Tests](/testrunner-toolkit/running-tests) page for more detailed information about running tests with Testrunner Toolkit.
 * __Configuration Syntax__: Visit the [Configuration](/testrunner-toolkit) page for detailed information on how to modify the `config.yml`, as well as syntax explanations.
->>>>>>> master
