@@ -11,7 +11,7 @@ class ImportantLinks extends Component {
             <h2>Important Links</h2>
           </div>
 
-          <div class="dev-resources__content-container">
+          <div className="dev-resources__content-container">
 
             <div className="dev-resources__list">
               <ul>
