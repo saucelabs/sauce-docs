@@ -25,7 +25,7 @@ This page details the required steps in order to run tests with Testrunner Toolk
 Run the following command to execute you first test and to ensure Testrunner works properly:
 
 ```bash
-saucectl run
+saucectl run --test-env docker
 ```
 
 :::note default test location
@@ -129,7 +129,7 @@ suites:
       testFiles: [ "**/login.*" ]
   # MicrosoftEdge
   - name: "Swag Labs Login MicrosoftEdge"
-    browser: "MicrosoftEdge"
+    browser: "microsoftedge"
     platformName: "Windows 10"
     screenResolution: "1400x1050"
     config:

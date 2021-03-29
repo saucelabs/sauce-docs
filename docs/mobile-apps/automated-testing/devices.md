@@ -20,7 +20,6 @@ There are a variety of use cases to consider when you're deciding on the mix of 
 >**NOTE**: If your organization requires a secure, proxied connection to the Sauce Labs Cloud platform, see [Secure Connections](secure-connections.md).
 
 
-
 ## When to Test on Emulators and Simulators
 
 If you need...

@@ -86,7 +86,7 @@ module.exports = {
           'secure-connections/sauce-connect/changelog',
           ],
         },
-      'secure-connections/ipsec-vpn',  
+      'secure-connections/ipsec-vpn',
       ],
   "Mobile Apps": [
     'mobile-apps',
@@ -125,6 +125,7 @@ module.exports = {
                     'mobile-apps/automated-testing/espresso-xcuitest/virtual-devices',
                   ],
                 },
+                'mobile-apps/automated-testing/ipa-files',
                 'mobile-apps/automated-testing/microsoft-app-center',
                 'mobile-apps/automated-testing/troubleshooting',
               ],
@@ -476,11 +477,11 @@ module.exports = {
     ],
     "CI/CD": [
         'ci',
+        'ci/azure',
         'ci/bamboo',
         'ci/bitbucket',
         'ci/jenkins',
         'ci/teamcity',
-        'ci/visual-studio',
     ],
     "Insights": [
         'insights',
@@ -562,6 +563,7 @@ module.exports = {
           'dev/cli',
           'dev/cli/espresso-xcuitest',
           'dev/cli/sauce-connect-proxy',
+          'testrunner-toolkit/saucectl',
         ]
       },
     ],
