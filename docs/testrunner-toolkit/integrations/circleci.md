@@ -50,7 +50,6 @@ In the root of your project directory, create the `.circleci` directory if it do
 
 You can easily execute Saucectl on CircleCI through [saucectl-run](https://circleci.com/developer/orbs/orb/saucelabs/saucectl-run) orb. Add the orb to your current `config.yml` using the following reference to  use it:
 
-The orb need to be referenced this way:
 ```yaml reference
 https://github.com/saucelabs/saucectl-cypress-example/blob/master/.circleci/config.yml#L2-L3
 ```
