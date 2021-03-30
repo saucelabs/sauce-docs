@@ -38,8 +38,6 @@ As a rule of thumb, your local system requirements should match the [Docker inst
 * Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
 * OS: 10.14+ (Mojave, Catalina, or Big Sur)
 
-Browser support depends on the chosen test framework, see [this section](/testrunner-toolkit#supported-frameworks-and-browsers) for more details.
-
 </TabItem>
 <TabItem value="linux">
 

@@ -105,14 +105,14 @@ Below are framework-specific configuration examples that exist in the [Testrunne
 <TabItem value="cypress">
 
 ```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
+https://github.com/saucelabs/saucectl-cypress-example/blob/master/.sauce/config.yml
 ```
 
 </TabItem>
 <TabItem value="playwright">
 
 ```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/playwright.yml
+https://github.com/saucelabs/saucectl-playwright-example/blob/master/.sauce/config.yml
 ```
 
 </TabItem>
@@ -126,7 +126,7 @@ https://github.com/saucelabs/saucectl-puppeteer-example/blob/master/.sauce/confi
 <TabItem value="testcafe">
 
 ```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml
+https://github.com/saucelabs/saucectl-testcafe-example/blob/master/.sauce/config.yml
 ```
 
 </TabItem>
