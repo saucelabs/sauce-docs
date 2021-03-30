@@ -24,29 +24,24 @@ The first step of the integration is to ensure you've added your `SAUCE_USERNAME
 
 The easiest way to add credentials to GitLab is with the UI:
 
-* Log in to GitLab
-* Go to your repository
-* In the left column, select __Settings__, then __CI/CD__
-
+1. Log in to GitLab.
+1. Go to your repository.
+1. In the left column, select __Settings__, then __CI/CD__.
     <img src={useBaseUrl('img/stt/gitlab-settings-cicd.png')} alt="GitLab Secrets" width="450" />
-
-* Look for __Variables__ and click on __expand__.
-
+1. Look for __Variables__ and click on __expand__.
     <img src={useBaseUrl('img/stt/gitlab-settings-variables.png')} alt="GitLab Variables" width="500" />
-
-* Click on __Add Variable__ to create a new secret
-* Enter the following information:
-  * Key: `SAUCE_USERNAME`
-  * Value: 'your-sauce-username'
-  * Type: 'Variable'
-  * Environment Scope: All
-
+1. Click on __Add Variable__ to create a new secret.
+1. Enter the following information:
+    * Key: `SAUCE_USERNAME`
+    * Value: 'your-sauce-username'
+    * Type: 'Variable'
+    * Environment Scope: All
     <img src={useBaseUrl('img/stt/gitlab-variables-username.png')} alt="Add GitLab SAUCE_USERNAME" width="500" />
+1. Repeat the process for your Sauce Labs Access Key.
 
+Credentials are now set!
 
-* Repeat the above steps for your Sauce Labs Access Key
-* Credentials are now set !
-    <img src={useBaseUrl('img/stt/gitlab-variables-complete.png')} alt="Add GitLab SAUCE_USERNAME" width="500" />
+<img src={useBaseUrl('img/stt/gitlab-variables-complete.png')} alt="Add GitLab SAUCE_USERNAME" width="500" />
 
 
 ## Add GitLab-CI Configuration
