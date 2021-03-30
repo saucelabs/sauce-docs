@@ -54,7 +54,7 @@ You can easily execute Saucectl on CircleCI through [saucectl-run](https://circl
 https://github.com/saucelabs/saucectl-cypress-example/blob/master/.circleci/config.yml#L2-L3
 ```
 
-Now, you can use the orb directly as a step of one of your jobs:
+Now you can use the orb directly as a step of one of your jobs:
 ```yaml reference
 https://github.com/saucelabs/saucectl-cypress-example/blob/master/.circleci/config.yml#L13-L15
 ```
