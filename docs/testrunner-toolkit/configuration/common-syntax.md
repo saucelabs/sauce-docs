@@ -27,7 +27,7 @@ __Type__: *string*
 
 __Example__:
 ```yaml
-kind: < cypress | playwright | testcafe >
+kind: < cypress | playwright | testcafe | puppeteer >
 ```
 
 ## `sauce`
