@@ -125,6 +125,7 @@ module.exports = {
                     'mobile-apps/automated-testing/espresso-xcuitest/virtual-devices',
                   ],
                 },
+                'mobile-apps/automated-testing/ipa-files',
                 'mobile-apps/automated-testing/microsoft-app-center',
                 'mobile-apps/automated-testing/troubleshooting',
               ],
@@ -513,6 +514,7 @@ module.exports = {
                   'testrunner-toolkit/configuration/common-syntax',
                   'testrunner-toolkit/configuration/cypress',
                   'testrunner-toolkit/configuration/playwright',
+                  'testrunner-toolkit/configuration/puppeteer',
                   'testrunner-toolkit/configuration/testcafe',
               ],
           },
@@ -562,6 +564,7 @@ module.exports = {
           'dev/cli',
           'dev/cli/espresso-xcuitest',
           'dev/cli/sauce-connect-proxy',
+          'testrunner-toolkit/saucectl',
         ]
       },
     ],
