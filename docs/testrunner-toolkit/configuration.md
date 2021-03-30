@@ -97,6 +97,7 @@ Below are framework-specific configuration examples that exist in the [Testrunne
   values={[
     {label: 'Cypress', value: 'cypress'},
     {label: 'Playwright', value: 'playwright'},
+    {label: 'Puppeteer', value: 'puppeteer'},
     {label: 'TestCafe', value: 'testcafe'},
   ]}>
 
@@ -111,6 +112,13 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml
 
 ```yaml reference
 https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/playwright.yml
+```
+
+</TabItem>
+<TabItem value="puppeteer">
+
+```yaml reference
+https://github.com/saucelabs/saucectl-puppeteer-example/blob/master/.sauce/config.yml
 ```
 
 </TabItem>
@@ -188,3 +196,4 @@ suites:
     * [Cypress Configuration Syntax](/testrunner-toolkit/configuration/cypress)
     * [TestCafe Configuration Syntax](/testrunner-toolkit/configuration/testcafe)
     * [Playwright Configuration Syntax](/testrunner-toolkit/configuration/playwright)
+    * [Puppeteer Configuration Syntax](/testrunner-toolkit/configuration/puppeteer)
