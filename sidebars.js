@@ -565,8 +565,12 @@ module.exports = {
           'dev/cli',
           'dev/cli/espresso-xcuitest',
           'dev/cli/sauce-connect-proxy',
-          'testrunner-toolkit/saucectl',
-        ]
+            {
+                type: 'link',
+                label: 'Sauce CTL', // The label that should be displayed (string).
+                href: '/testrunner-toolkit/saucectl' // The target URL (string).
+            },
+        ],
       },
     ],
     Contributing: [
