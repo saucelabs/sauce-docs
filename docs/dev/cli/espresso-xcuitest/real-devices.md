@@ -17,7 +17,7 @@ This page provides command line references for Sauce Runner, the CLI tool used t
 
 ## Required
 
-These options are required for use with the `xcuitest` or `espresso` commands. They are not compatible with the YAML file `config` command.
+These command executing-from-cucumberflags are required for use with the `xcuitest` or `espresso` commands. They are not compatible with the YAML file `config` command.
 
 :::note About the Examples
 All Examples in this page assume knowledge of [Sauce Runner General Usage](/dev/cli/espresso-xcuitest#examples). Run these commands from the directory where you downloaded the runner, or the actual location of the `runner.jar` file.
@@ -77,7 +77,7 @@ __Examples__:
 
 ## Optional
 
-These commands flags are optional.
+These command flags are optional.
 
 ### `device`
 
