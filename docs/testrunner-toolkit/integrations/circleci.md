@@ -59,7 +59,7 @@ Now, you can use the orb directly as a step of one of your jobs:
 https://github.com/saucelabs/saucectl-cypress-example/blob/master/.circleci/config.yml#L13-L15
 ```
 
-> You can reference the complete `config.yml` [here](https://github.com/saucelabs/saucectl-cypress-example/blob/master/.circleci/config.yml).
+> You can reference a complete [`config.yml` example](https://github.com/saucelabs/saucectl-cypress-example/blob/master/.circleci/config.yml) for more detail.
 
 Commit the updated `config.yml` to your git hosting service provider. Navigate back to the CirceCI dashboard to see your build pass.
 
