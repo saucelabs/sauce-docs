@@ -40,7 +40,9 @@ In your root project directory, create the following directory tree: `.github/wo
 
 Add the following to the top of your file:
 
-> __NOTE__: Setting `env` at the top of the file enables it globally in this workflow, so all jobs have access to these variables.
+:::note
+Setting `env` at the top of the file enables it globally in this workflow, so all jobs have access to these variables.
+:::
 
 ```yaml reference
 https://github.com/saucelabs/saucectl-cypress-example/blob/master/.github/workflows/test.yml#L3-L13
