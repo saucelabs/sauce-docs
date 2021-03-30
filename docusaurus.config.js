@@ -143,11 +143,24 @@ const docusaurusConfig = {
         {
           spec: './static/oas/rdc.json',
           routePath: 'dev/api/rdc/',
-        }
+        },
+        // {
+        //   spec: './static/oas/performance.json',
+        //   routePath: 'dev/api/performance/',
+        // }
+        // {
+        //   spec: './static/oas/accounts.yml',
+        //   routePath: 'dev/api/accounts/',
+        // }
         ],
         theme: {
-          customCss: require.resolve('./src/css/custom.css')
-        } 
+          primaryColor: '#E2231A',
+          typography: {
+            code: {
+              color: '#474c60'
+            }
+          }
+        }
       }
     ],
   ],
