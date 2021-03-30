@@ -18,7 +18,7 @@ These examples can apply to virtually any GitLab deployment, provided that you a
 * The following permissions in GitLab:
     * Ability to manage GitLab repository containing the project.
 
-### Configure Jenkins Credentials
+## Configure GitLab Credentials
 
 The first step of the integration is to ensure you've added your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as a secret in your GitLab instance (Not sure where to find these? They're [here](https://app.saucelabs.com/user-settings)).
 
