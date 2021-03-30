@@ -46,40 +46,20 @@ In order for CirceCi to communicate with Sauce Labs you need to authenticate wit
 
 ## Modify the CirceCI Configuration
 
-In the root of your project directory, create the `.circleci` directory if it doesn't already exist, and open/create `config.yml`. Below are some job snippets of how to configure Testrunner Toolkit with CircleCI:
+In the root of your project directory, create the `.circleci` directory if it doesn't already exist, and open/create `config.yml`. 
 
-<Tabs
-  defaultValue="cypress"
-  values={[
-    {label: 'Cypress', value: 'cypress'},
-    {label: 'Playwright', value: 'playwright'},
-    {label: 'TestCafe', value: 'testcafe'},
-  ]}>
-  
-<TabItem value="cypress">
+You can easily execute Saucectl on CircleCI through [saucectl-run](https://circleci.com/developer/orbs/orb/saucelabs/saucectl-run) orb. Add the orb to your current `config.yml` using the following reference to  use it:
 
 ```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml#L43-L58
+https://github.com/saucelabs/saucectl-cypress-example/blob/master/.circleci/config.yml#L2-L3
 ```
 
-</TabItem>
-<TabItem value="playwright">
-
+Now you can use the orb directly as a step of one of your jobs:
 ```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L60-L76
+https://github.com/saucelabs/saucectl-cypress-example/blob/master/.circleci/config.yml#L13-L15
 ```
 
-</TabItem>
-<TabItem value="testcafe">
-
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml#L96-L112
-```
-
-</TabItem>
-</Tabs>
-
-> You can reference the complete `config.yml` [here](https://github.com/saucelabs/testrunner-toolkit/blob/master/.circleci/config.yml).
+> You can reference a complete [`config.yml` example](https://github.com/saucelabs/saucectl-cypress-example/blob/master/.circleci/config.yml) for more detail.
 
 Commit the updated `config.yml` to your git hosting service provider. Navigate back to the CirceCI dashboard to see your build pass.
 

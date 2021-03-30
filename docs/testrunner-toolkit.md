@@ -54,16 +54,15 @@ Each docker image tag is the 'latest' image that supports the specific framework
       {"label":"Playwright","value":"playwright"},
       {"label":"TestCafe","value":"testcafe"}
     ]}>
-    
 <TabItem value="cypress">
 
 |Cypress Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
+|6.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |5.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |5.5.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 
 </TabItem>
-
 <TabItem value="playwright">
 
 |Playwright Version|Supported Platforms|Supported Browsers|
@@ -71,7 +70,6 @@ Each docker image tag is the 'latest' image that supports the specific framework
 |1.7.1|Windows 10|Chromium, Firefox, Webkit|
 
 </TabItem>
-
 <TabItem value="puppeteer">
 
 |Puppeteer Version|Supported Platforms|Supported Browsers|
@@ -79,7 +77,6 @@ Each docker image tag is the 'latest' image that supports the specific framework
 
 
 </TabItem>
-
 <TabItem value="testcafe">
 
 |TestCafe Version|Supported Platforms|Supported Browsers|
@@ -88,9 +85,7 @@ Each docker image tag is the 'latest' image that supports the specific framework
 |1.10.1|Windows 10|Chrome, Firefox, MicrosoftEdge|
 
 </TabItem>
-
 </Tabs>
-
 
 <!--END_AUTO_GENERATED_TABLE-->
 
@@ -101,33 +96,44 @@ Each docker image tag is the 'latest' image that supports the specific framework
   values={[
     {label: 'Cypress', value: 'cypress'},
     {label: 'Playwright', value: 'playwright'},
+    {label: 'Puppeteer', value: 'puppeteer'},
     {label: 'TestCafe', value: 'testcafe'},
   ]}>
   
 <TabItem value="cypress">
 
-| Cypress Version    | Supported Browsers        | Release Notes                                                                                                 | Sauce Cloud Support [[?](testrunner-toolkit/running-tests.md#test-on-sauce-labs)] |
-|--------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| 6.6.0              | Please see release notes. | [saucelabs/sauce-cypress-runner](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v6.0.1)       | TBD                                                                               |
-| 5.6.0              | Please see release notes. | [saucelabs/sauce-cypress-runner](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v5.9.1)       | Windows 10                                                                        |
+|Cypress Version|Supported Browsers|Release Notes|
+|----|----|----|
+|6.6.0|Please see release notes.|[saucelabs/sauce-cypress-runner](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v6.0.1)|
+|5.6.0|Please see release notes.|[saucelabs/sauce-cypress-runner](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v5.9.1)|
 
 </TabItem>
 <TabItem value="playwright">
 
-| Playwright Version | Supported Browsers        | Release Notes                                                                                                 | Sauce Cloud Support [[?](testrunner-toolkit/running-tests.md#test-on-sauce-labs)] |
-|--------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| 1.7.1              | Please see release notes. | [saucelabs/sauce-playwright-runner](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.7.5) | Windows 10                                                                        |
+|Playwright Version|Supported Browsers|Release Notes|
+|-----|----|----|
+|1.7.1|Please see release notes.|[saucelabs/sauce-playwright-runner](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.7.5)|
 
 </TabItem>
+
+<TabItem value="puppeteer">
+
+|Puppeteer Version|Supported Browsers|Release Notes|
+|-----|----|----|
+|8.0.0|Please see release notes.|[saucelabs/sauce-puppeteer-runner](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.0.0)|
+|3.0.4|Please see release notes.|[saucelabs/sauce-puppeteer-runner](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v0.3.0)|
+
+</TabItem>
+
 <TabItem value="testcafe">
 
-| TestCafe Version   | Supported Browsers        | Release Notes                                                                                                 | Sauce Cloud Support [[?](testrunner-toolkit/running-tests.md#test-on-sauce-labs)] |
-|--------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| 1.11.0              | Please see release notes. | [saucelabs/sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.3.0)    | TBD                                                                               |
-| 1.10.1              | Please see release notes. | [saucelabs/sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.2.5)    | Windows 10                                                                        |
+|TestCafe Version|Supported Browsers|Release Notes|
+|----|----|----|
+|1.11.0|Please see release notes.|[saucelabs/sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.5.0)|
+|1.10.1|Please see release notes.|[saucelabs/sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.2.6)|
 
 </TabItem>
-</Tabs> 
+</Tabs>
 
 ### Workflow Overview
 
@@ -168,4 +174,5 @@ Visit the links below to view information and release notes regarding the docker
 
 * [sauce-cypress-runner](https://github.com/saucelabs/sauce-cypress-runner)
 * [sauce-playwright-runner](https://github.com/saucelabs/sauce-playwright-runner)
+* [sauce-puppeteer-runner](https://github.com/saucelabs/sauce-puppeteer-runner)
 * [sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner)
