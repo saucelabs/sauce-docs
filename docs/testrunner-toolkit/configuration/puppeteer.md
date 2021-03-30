@@ -10,26 +10,8 @@ Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/
 
 ## Example Configuration
 
-```yaml
-apiVersion: v1alpha
-kind: puppeteer
-sauce:
-  region: us-west-1
-  concurrency: 2
-  metadata:
-    name: Testing Puppeteer Support
-    tags:
-      - e2e
-    build: "$BUILD_ID"
-rootDir: ./
-puppeteer:
-  version: ##VERSION##
-docker:
-  fileTransfer: mount
-suites:
-  - name: "chrome"
-    testMatch: ["**/*.test.js"]
-    browser: "chrome"
+```yaml reference
+https://github.com/saucelabs/saucectl-puppeteer-example/blob/master/.sauce/config.yml
 ```
 
 ## `puppeteer`
