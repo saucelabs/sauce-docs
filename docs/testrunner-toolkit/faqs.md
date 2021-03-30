@@ -69,8 +69,7 @@ When running in docker-mode, the docker container needs to access the tested web
 Therefore, you may be required to set twice the proxy settings.
 
 
-Example (Windows Powershell):
-```
+``` title= "Example: Windows Powershell"
 PS> $Env:HTTP_PROXY=http://my.proxy.org:3128/
 PS> $Env:HTTPS_PROXY=http://my.proxy.org:3128/
 PS> saucectl run -e HTTP_PROXY=${Env:HTTP_PROXY} -e HTTPS_PROXY=${Env:HTTPS_PROXY} --test-env docker
