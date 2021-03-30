@@ -514,6 +514,7 @@ module.exports = {
                   'testrunner-toolkit/configuration/common-syntax',
                   'testrunner-toolkit/configuration/cypress',
                   'testrunner-toolkit/configuration/playwright',
+                  'testrunner-toolkit/configuration/puppeteer',
                   'testrunner-toolkit/configuration/testcafe',
               ],
           },
@@ -524,9 +525,10 @@ module.exports = {
               collapsed: true,
               items: [
                   'testrunner-toolkit/integrations',
+                  'testrunner-toolkit/integrations/circleci',
                   'testrunner-toolkit/integrations/jenkins',
                   'testrunner-toolkit/integrations/github-actions',
-
+                  'testrunner-toolkit/integrations/gitlab',
               ],
           },
           'testrunner-toolkit/typescript',
@@ -573,7 +575,12 @@ module.exports = {
                 ],
             },
           'dev/cli/sauce-connect-proxy',
-        ]
+            {
+                type: 'link',
+                label: 'Sauce CTL', // The label that should be displayed (string).
+                href: '/testrunner-toolkit/saucectl' // The target URL (string).
+            },
+        ],
       },
     ],
     Contributing: [
