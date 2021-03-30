@@ -525,9 +525,10 @@ module.exports = {
               collapsed: true,
               items: [
                   'testrunner-toolkit/integrations',
+                  'testrunner-toolkit/integrations/circleci',
                   'testrunner-toolkit/integrations/jenkins',
                   'testrunner-toolkit/integrations/github-actions',
-
+                  'testrunner-toolkit/integrations/gitlab',
               ],
           },
           'testrunner-toolkit/typescript',
