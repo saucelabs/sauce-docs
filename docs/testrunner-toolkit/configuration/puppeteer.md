@@ -1,7 +1,7 @@
 ---
 id: puppeteer
-title: "Configuration Syntax: puppeteer"
-sidebar_label: puppeteer
+title: "Configuration Syntax: Puppeteer"
+sidebar_label: Puppeteer
 ---
 
 import Highlight from "../../../src/components/highlight"
