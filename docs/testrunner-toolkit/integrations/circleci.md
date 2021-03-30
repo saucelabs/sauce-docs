@@ -48,7 +48,7 @@ In order for CirceCi to communicate with Sauce Labs you need to authenticate wit
 
 In the root of your project directory, create the `.circleci` directory if it doesn't already exist, and open/create `config.yml`. 
 
-Saucectl can be easily executed on CircleCI throught [saucectl-run](https://circleci.com/developer/orbs/orb/saucelabs/saucectl-run) orb. You need to add the orb to you current `config.yml` to be able to use it.
+You can easily execute Saucectl on CircleCI through [saucectl-run](https://circleci.com/developer/orbs/orb/saucelabs/saucectl-run) orb. Add the orb to your current `config.yml` using the following reference to  use it:
 
 The orb need to be referenced this way:
 ```yaml reference
