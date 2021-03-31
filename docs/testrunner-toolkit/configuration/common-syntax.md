@@ -79,7 +79,8 @@ __Example__:
 ```
 
 ### `concurrency`
-<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight> <Highlight color="#25c2a0">testcafe</Highlight> <Highlight color="#25c2a0">playwright</Highlight></small></p>
+
+<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight> <Highlight color="#a4cada">testcafe</Highlight> <Highlight color="#45ba4b">playwright</Highlight></small></p>
 
 __Description__: Number of test suites to run concurrently on Sauce Labs Cloud platform.
 
