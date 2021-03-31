@@ -152,7 +152,11 @@ Follow the steps below to generate the following assets in your project's root d
     ```
 1. At the prompt, specify your framework:
     ```bash
-      8:59AM INF Start New Command
+? Choose a framework:  [Use arrows to move, type to filter]
+> Cypress
+  Playwright
+  Puppeteer
+  TestCafe
         Choose a framework:
         ❯ Cypress
           Playwright
