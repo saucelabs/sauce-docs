@@ -53,8 +53,6 @@ saucectl run
 
 ### `ccy`
 
-<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight> <Highlight color="#a4cada">testcafe</Highlight> <Highlight color="#45ba4b">playwright</Highlight></small></p>
-
 __Description__: Increases your Sauce Labs VM concurrency when [running tests remotely on the Sauce Labs Cloud](/testrunner-toolkit/running-tests#test-on-sauce-labs).
                                                                                                                                                                        
 
