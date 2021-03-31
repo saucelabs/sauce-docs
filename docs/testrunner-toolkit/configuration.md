@@ -160,7 +160,8 @@ If you wish to execute tests on different screen resolutions while using Testrun
 
 __Example__:
 
-```yaml {19-21}
+```reference
+https://github.com/saucelabs/saucectl-cypress-example/blob/4141ba08e501ae2be691969a1626c78c18a77aff/.sauce/config.yml#L25
 apiVersion: v1alpha
 kind: cypress
 sauce:
