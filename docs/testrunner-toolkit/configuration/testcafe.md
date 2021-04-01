@@ -8,37 +8,8 @@ Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/
 
 ## Example Configuration
 
-```yaml
-apiVersion: v1alpha
-kind: testcafe
-sauce:
-  region: us-west-1
-  concurrency: 2
-  metadata:
-    name: Testing Testcafe Support
-    tags:
-      - e2e
-      - release team
-      - other tag
-    build: Release $CI_COMMIT_SHORT_SHA
-suites:
-  - name: "saucy test"
-    browserName: "chrome"
-    src:
-      - "*/*.test.js"
-    screenshots:
-      takeOnFails: true
-      fullPage: true
-    platformName: "windows 10"
-    env:
-      hello: world
-    speed: 1
-    screenResolution: "1920x1080"
-docker:
-  fileTransfer: mount
-testcafe:
-  rootDir: tests/e2e/testcafe
-  version: 1.11.0
+```yaml reference
+https://github.com/saucelabs/saucectl-testcafe-example/blob/master/.sauce/config.yml
 ```
 
 ## `testcafe`
@@ -50,7 +21,6 @@ __Type__: *object*
 __Example__:
 ```yaml
 testcafe:
-  rootDir: tests/
   version: ##VERSION##
 ```
 
@@ -65,17 +35,6 @@ __Example__:
   version: ##VERSION##
 ```
 
-### `rootDir`
-
-__Description__: Absolute path to the test directory and related test files.
-
-__Type__: *string*
-
-__Example__:
-```yaml
-  rootDir: /path/to/tests/
-```
-
 ## `suites`
 
 __Description__: Field for defining test suite details such as the suite `name`, desired `browserName`, and test configurations.
@@ -83,16 +42,8 @@ __Description__: Field for defining test suite details such as the suite `name`,
 __Type__: *object*
 
 __Example__:
-```yaml
-suites:
-  - name: "saucy test"
-    platformName: "Windows 10"
-    testMatch: '**/*.js'
-
-    params:
-      browserName: "firefox"
-      headful: false
-      slowMo: 1000
+```yaml reference
+https://github.com/saucelabs/saucectl-testcafe-example/blob/master/.sauce/config.yml#L20-L30
 ```
 
 ### `name`
