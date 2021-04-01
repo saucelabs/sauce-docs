@@ -146,7 +146,7 @@ adb disconnect localhost:7000
 
 2. If open, close your Sauce Labs device view in your browser.
 
-### Launch and Connect Virtual USB to an iOS Device Live Testing Session
+### Connect Virtual USB to an iOS Device Live Testing Session
 
 ```sh
 d87ec06c-3803-4674-a734-05d57bfe723b		iPhone 7 Plus		IOS		14.0.1		https://app.saucelabs.com/live/mobile/dataCenters/US/devices/iPhone_7_Plus_vusb_us2/shared/d87ec06c-3803-4674-a734-05d57bfe723b
