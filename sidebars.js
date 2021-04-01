@@ -489,6 +489,7 @@ module.exports = {
         'insights/history',
         'insights/trends',
         'insights/failure-analysis',
+        'insights/debug',
     ],
     "Performance": [
       'performance',
