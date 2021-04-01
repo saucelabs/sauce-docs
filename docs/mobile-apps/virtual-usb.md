@@ -43,7 +43,11 @@ Click below to download the latest Virtual USB client to the same machine where 
 *   You'll need to exit Xcode/Safari before connecting to an iOS Virtual USB session (or relaunch it after connecting). Otherwise, the device won't show up.
 *   Devices attached to the host locally are not usable while using iOS Virtual USB. When the server is shut down, it asks again for permissions to put the original `/var/run/usbmuxd` socket back into its place, and Xcode/Safari have to be relaunched to show the local devices.
 
-### Launch a Virtual USB Session
+### Start a session with a real device
+
+In order to use Virtual USB you need to have a session with a real device. The chosen device needs to be a private device. There are two ways for obtaining such a session. You can start it with the Virtual USB client or you can start a live testing session on Sauce Labs and reuse it.
+
+### Start and connect a session with the Virtual USB client
 
 :::tip **Accessing Instructions in the Client**
 You can also find instructions for using the Virtual USB client by running `java -jar virtual-usb-client.jar --help`.
@@ -52,7 +56,7 @@ You can also find instructions for using the Virtual USB client by running `java
 
 1. Log in to your Sauce Labs account.
 2. Click **Account** > **User settings**.
-3. Grab your User Access key.a
+3. Grab your User Access key.
 4. From a command line, launch the client. Choose between the **EU** or the **US** data center, depending on which device you are trying to connect to:
 
 ```sh
@@ -74,7 +78,7 @@ java -jar virtual-usb-client.jar startSession --accessKey <ACCESS_KEY> --deviceN
 java -jar virtual-usb-client.jar startSession --accessKey 37D274BC3A65A34BB3DA4DDF7B77E341 --deviceName Motorola_Moto_Z_real --username sauce-labs-user
 ```
 
-This will allow you to allocate a device for your session. That means the device will be in use and not available for other uses until your session is over.
+The device will be in use and not available for other uses until your session is over. This will automatically connect to the
 
 ### Connect to a Live Testing Session
 
@@ -109,9 +113,9 @@ java -jar virtual-usb-client.jar connect --username sauce-labs-user --accessKey 
 ```
 
 
-### Connect Virtual USB to a Real Android Device Live Testing Session 
+### Connect adb to an Android device with Virtual USB
 
-When Virtual USB connects to your live testing session, it will return a success message, and a link to watch the device running your test in real time.
+When Virtual USB connects to your real device, it will return a success message, and a link to watch the device running your test in real time.
 
 ```sh
 37D274BC3A65A34BB3DA4DDF7B77E341		Motorola Moto Z		ANDROID		7.0		https://app.saucelabs.com/live/mobile/dataCenters/US/devices/Motorola_Moto_Z_real/shared/05d4d541-b75c-40dd-bc9e-e28672f0279c
@@ -129,28 +133,36 @@ adb connect localhost:<paste returned port here>
 adb connect localhost:7000
 ```
 
-At this point, vUSB will be fully connected. You can use Android Studio (or Google Chrome's Remote Debugging) to debug your app, execute automation based on `adb`, or any other tool that is `adb`-compliant. For example, using `adb` shell, you can start the camera of the connected device:
+At this point you can use `adb` with your real device. You can use Android Studio (or Google Chrome's Remote Debugging) to debug your app, execute automation based on `adb`, or any other tool that is `adb`-compliant. For example, using `adb` shell, you can start the camera of the connected device:
 
 ```sh
 adb shell
 am start -a android.media.action.IMAGE_CAPTURE
 ```
 
-#### Closing a Virtual USB Connection
+### Connect Virtual USB to an iOS Device
 
-1. Make sure you disconnect your device from ADB using `adb disconnect <IPAddress>:<portNumber>`.
+```sh
+d87ec06c-3803-4674-a734-05d57bfe723b		iPhone 7 Plus		IOS		14.0.1		https://app.saucelabs.com/live/mobile/dataCenters/US/devices/iPhone_7_Plus_vusb_us2/shared/d87ec06c-3803-4674-a734-05d57bfe723b
+localhost:-1	online
+```
+
+This prepares the usbmuxd socket (`/var/usbmuxd`) so that the developer tools like Xcode can interact with the device like they interact with a local device. You need to have the permission to replace `/var/usbmuxd` on your computer.
+
+#### Closing a session created by Virtual USB client
+
+If you created your session with the Virtual USB client you have to close it so that other users can use the device.
+
+1. If you use `adb` make sure you disconnect your device from ADB using `adb disconnect <IPAddress>:<portNumber>`.
 
 ```sh
 adb disconnect localhost:7000
 ```
 
-2. If open, close your Sauce Labs device view in your browser.
-
-### Connect Virtual USB to an iOS Device Live Testing Session
+2. You can close the session either by closing your Sauce Labs device view in your browser or you can run the command
 
 ```sh
-d87ec06c-3803-4674-a734-05d57bfe723b		iPhone 7 Plus		IOS		14.0.1		https://app.saucelabs.com/live/mobile/dataCenters/US/devices/iPhone_7_Plus_vusb_us2/shared/d87ec06c-3803-4674-a734-05d57bfe723b
-localhost:-1	online
+java -jar virtual-usb-client.jar deleteSession --username <USERNAME> --accessKey <ACCESS_KEY> --sessionId <SESSION_ID>
 ```
 
 ### Connecting to the Chrome Inspector
