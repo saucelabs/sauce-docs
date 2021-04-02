@@ -403,21 +403,21 @@ h3, .h3 {
   padding:.2rem;
 }
 
-.sauceLBlue {
+.apiPost {
   background:#57C1E8;
   color:#003A70;
   padding:.2rem;
   font-weight:750;
 }
 
-.sauceGray {
+.apiDelete {
   background:#474C55;
   color:#EDEDEF;
   font-weight:750;
   padding:.2rem;
 }
 
-.sauceGreen {
+.apiGet {
   background:#009245;
   color:white;
   font-weight:750;
@@ -459,7 +459,7 @@ h3, .h3 {
   font-weight:750;
 }
 
-.saucePurple {
+.apiPut {
   background:#7868a6;
   color:#FFFFFF;
   padding:.2rem;
@@ -509,6 +509,19 @@ h3, .h3 {
   color: #E2231A;;
 }
 
+/* API Doc Style Overrides */
+
+#table-api tr, {
+  margin-bottom: 2px;
+  padding: 1px;
+  margin-block-start: 2px;
+}
+
+#table-api p {
+  display: block;
+  margin-block-start: 2px;
+  margin-block-end: 2px;
+}
 
 /* Get Started button styles */
 #__docusaurus > div.main-wrapper > header > div > div > a {

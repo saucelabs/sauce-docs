@@ -7,7 +7,58 @@ description: Manage all aspects of your Sauce Labs organization, team, and membe
 
 The Sauce Labs REST API exposes the following methods related to individual and team account configuration and monitoring.
 
-Refer to [Getting Started](/dev/api) for Authentication and Server information. 
+Refer to [Getting Started](/dev/api) for Authentication and Server information.
+
+## Extended Team Managment API Methods
+
+`POST	 /team-management/v1/membership/`
+
+`GET	 /team-management/v1/teams`
+
+`POST	 /team-management/v1/teams`
+
+`DELETE	 /team-management/v1/teams/<TEAM_ID>`
+
+`GET	 /team-management/v1/teams/<TEAM_ID>`
+
+`PATCH	 /team-management/v1/teams/<TEAM_ID>`
+
+`PUT	 /team-management/v1/teams/<TEAM_ID>`
+
+`GET	 /team-management/v1/teams/<TEAM_ID>/members`
+
+`POST	 /team-management/v1/teams/<TEAM_ID>/reset-access-key`
+
+`GET	 /team-management/v1/users/`
+
+### XTM Create User
+
+<span className="sauceLBlue">POST</span>	 `/team-management/v1/users/`
+
+
+`GET	 /team-management/v1/users/<USERNAME>/`
+
+`PATCH	 /team-management/v1/users/<USERNAME>/`
+
+`PUT	 /team-management/v1/users/<USERNAME>/`
+
+`GET	 /team-management/v1/users/<USERNAME>/access-key/`
+
+`POST	 /team-management/v1/users/<USERNAME>/activate/`
+
+`POST	 /team-management/v1/users/<USERNAME>/deactivate/`
+
+`GET	 /team-management/v1/users/<USERNAME>/permissions/`
+
+`GET	 /team-management/v1/users/<USERNAME>/reset-access-key/`
+
+`POST	 /team-management/v1/users/<USERNAME>/set-admin/`
+
+`POST	 /team-management/v1/users/<USERNAME>/set-member/`
+
+`POST	 /team-management/v1/users/<USERNAME>/set-team-admin/`
+
+`GET	 /team-management/v1/users/<USERNAME>/teams/`
 
 ## Classic Accounts API Methods
 
@@ -17,11 +68,11 @@ Methods in this section perform actions related to a specific user account withi
 
 This method accesses basic account information.
 
-<span className="sauceGreen">GET</span> <code>/rest/v1/users/&#123;username&#125;</code>
+<details><summary><span className="apiGet">GET</span> <code>/rest/v1/users/&#123;username&#125;</code></summary>
 
 #### Parameters
 
-<table>
+<table id="table-api">
   <tbody>
     <tr>
      <td><code>username</code></td>
@@ -37,34 +88,37 @@ curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith
 
 #### Responses
 
-<table>
+<table id="table-api">
 <tbody>
   <tr>
-    <td>200</td>
+    <td><code>200</code></td>
     <td colSpan='2'>Success. User profile returned.</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
-    <td>404</td>
+    <td><code>404</code></td>
     <td colSpan='2'>User not found.</td>
   </tr>
 </tbody>
 </table>
+</details>
+
+---
 
 ### Create a Subaccount
 
 This method creates a subaccount.
 
-:::note Use Extended Team Management
-If your organization uses Extended Team Managment, this method is deprecated. See [Create User](#xtm-create-user).
-:::
+<details><summary><span className="apiPost">POST</span> <code>/rest/v1/users/&#123;username&#125;</code></summary>
 
-<span className="sauceLBlue">POST</span> <code>/rest/v1/users/&#123;username&#125;</code>
+:::note Use Team Management
+If your organization uses Team Management, this method is deprecated. See [Create User](#xtm-create-user).
+:::
 
 #### Parameters
 
-<table>
+<table id="table-api">
   <tbody>
     <tr>
       <td><code>username</code></td>
@@ -137,11 +191,15 @@ curl -X POST -u API_USERNAME:API_ACCESS_KEY \
 </tbody>
 </table>
 
+</details>
+
+---
+
 ### Get List of Subaccounts
 
 This method returns a list of subaccounts associated with the account specified in the request.
 
-<span className="sauceGreen">GET</span> <code>/rest/v1/users/&#123;username&#125;/list-subaccounts</code>
+<details><summary><span className="apiGet">GET</span> <code>/rest/v1/users/&#123;username&#125;/list-subaccounts</code></summary>
 
 #### Parameters
 
@@ -187,11 +245,15 @@ curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/list-suba
 </tbody>
 </table>
 
+</details>
+
+---
+
 ### Get Subaccount Information
 
 This method returns the profile of the subaccount user specified in the request, as well as a list of sibling subaccounts.
 
-<span className="sauceGreen">GET</span> <code>/rest/v1/users/&#123;username&#125;/subaccounts</code>
+<details><summary><span className="apiGet">GET</span> <code>/rest/v1/users/&#123;username&#125;/subaccounts</code></summary>
 
 #### Parameters
 
@@ -226,12 +288,16 @@ curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/subaccoun
 </tbody>
 </table>
 
+</details>
+
+---
+
 
 ### Get List of Sibling Accounts
 
 This method gets a list of accounts that belong to the same parent account as the one specified in the request.
 
-<span className="sauceGreen">GET</span> <code>/rest/v1/users/&#123;username&#125;/list-subaccounts</code>
+<details><summary><span className="apiGet">GET</span> <code>/rest/v1/users/&#123;username&#125;/list-subaccounts</code></summary>
 
 #### Parameters
 
@@ -277,16 +343,20 @@ curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/siblings
 </tbody>
 </table>
 
+</details>
+
+---
+
 
 ### Update Access Key
 
 This method creates a new auto-generated access key for the specified user.
 
+<details><summary><span className="apiPost">POST</span> <code>/rest/v1/users/&#123;username&#125;/accesskey/change</code></summary>
+
 :::warning
 Regenerating an access key invalidates the previous value and any tests containing the prior value will fail, so make sure you edit any tests and credential environment variables with the new value.
 :::
-
-<span className="sauceLBlue">POST</span> <code>/rest/v1/users/&#123;username&#125;/accesskey/change</code>
 
 #### Parameters
 
@@ -320,54 +390,6 @@ curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/accesskey
 </tbody>
 </table>
 
+</details>
 
-## Extended Team Managment API Methods
-
-`POST	 /team-management/v1/membership/`
-
-`GET	 /team-management/v1/teams`
-
-`POST	 /team-management/v1/teams`
-
-`DELETE	 /team-management/v1/teams/<TEAM_ID>`
-
-`GET	 /team-management/v1/teams/<TEAM_ID>`
-
-`PATCH	 /team-management/v1/teams/<TEAM_ID>`
-
-`PUT	 /team-management/v1/teams/<TEAM_ID>`
-
-`GET	 /team-management/v1/teams/<TEAM_ID>/members`
-
-`POST	 /team-management/v1/teams/<TEAM_ID>/reset-access-key`
-
-`GET	 /team-management/v1/users/`
-
-### XTM Create User
-
-<span className="sauceLBlue">POST</span>	 `/team-management/v1/users/`
-
-
-`GET	 /team-management/v1/users/<USERNAME>/`
-
-`PATCH	 /team-management/v1/users/<USERNAME>/`
-
-`PUT	 /team-management/v1/users/<USERNAME>/`
-
-`GET	 /team-management/v1/users/<USERNAME>/access-key/`
-
-`POST	 /team-management/v1/users/<USERNAME>/activate/`
-
-`POST	 /team-management/v1/users/<USERNAME>/deactivate/`
-
-`GET	 /team-management/v1/users/<USERNAME>/permissions/`
-
-`GET	 /team-management/v1/users/<USERNAME>/reset-access-key/`
-
-`POST	 /team-management/v1/users/<USERNAME>/set-admin/`
-
-`POST	 /team-management/v1/users/<USERNAME>/set-member/`
-
-`POST	 /team-management/v1/users/<USERNAME>/set-team-admin/`
-
-`GET	 /team-management/v1/users/<USERNAME>/teams/`
+---
