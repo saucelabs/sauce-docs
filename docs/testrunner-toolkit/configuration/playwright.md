@@ -10,34 +10,8 @@ Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/
 
 ## Example Configuration
 
-```yaml
-apiVersion: v1alpha
-kind: playwright
-sauce:
-  region: us-west-1
-  concurrency: 2
-  metadata:
-    name: Testing Playwright Support
-    tags:
-      - e2e
-    build: "$BUILD_ID"
-playwright:
-  version: ##VERSION##
-  rootDir: tests/
-docker:
-  fileTransfer: mount
-suites:
-  - name: "saucy test"
-    platformName: "Windows 10"
-    testMatch: '**/*.js'
-    screenResolution: "1920x1080"
-    env:
-      hello: world
-
-    params:
-      browserName: "firefox"
-      headful: false
-      slowMo: 1000
+```yaml reference
+https://github.com/saucelabs/saucectl-playwright-example/blob/master/.sauce/config.yml
 ```
 
 ## `playwright`
@@ -50,7 +24,6 @@ __Example__:
 ```yaml
 playwright:
   version: ##VERSION##
-  rootDir: tests/
 ```
 
 ### `version`
@@ -62,17 +35,6 @@ __Type__: *string*
 __Example__:
 ```yaml
   version: ##VERSION##
-```
-
-### `rootDir`
-
-__Description__: Absolute path to the test directory and related test files
-
-__Type__: *string*
-
-__Example__:
-```yaml
-  rootDir: /path/to/tests/
 ```
 
 ## `suites`
@@ -159,7 +121,7 @@ __Example__:
 ### `params`
 
 __Description__: This field is for specific test run parameters, for example:
-* `browserName` ( *string* ) : the browser in which to run tests 
+* `browserName` ( *string* ) : the browser in which to run tests
 * `headful` ( *boolean* ) : whether to run browsers in headless mode
 * `sloMo` ( *int* ) : whether to implement artificially slow load times in milliseconds
 
