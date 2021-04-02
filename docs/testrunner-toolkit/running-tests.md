@@ -17,8 +17,8 @@ This page details the required steps in order to run tests with Testrunner Toolk
 
 ## What You'll Need
 
-* __Install Testrunner Toolkit__: Refer to the requirements listed on the [Installation](/testrunner-toolkit/installation) page.
-* __Set up `config.yml`__: Refer to the configuration details listed on the [Configuration](/testrunner-toolkit/configuration) page.
+* [Install Testrunner Toolkit](/testrunner-toolkit/installation)
+* [Configure Your Test Environment](/testrunner-toolkit/configuration)
 
 ## Verification Test Run
 
@@ -29,12 +29,13 @@ saucectl run --test-env docker
 ```
 
 :::note default test location
-Unless you specify a test directory, `saucectl` executes tests based on the framework's default test directory. For example with a cypress test, `saucectl` will attempt to locate `cypress.json`, as well as the default `cypress` directory.
+Unless you specify a test directory, `saucectl` executes tests based on the framework's default test directory. For example, with Cypress, `saucectl` will attempt to locate `cypress.json`, as well as the default `cypress` directory.
 
 Consult your desired framework's documentation for more information about the default test locations.
 :::
 
 `saucectl` then kicks off a test run and will:
+
 * pull the necessary docker images/layers (e.g. `saucelabs/stt-cypress-mocha-node:v<tag>`)
 * copy/mount your test files to the docker container
 * run the tests within the docker container
@@ -45,7 +46,7 @@ Testrunner Toolkit will then execute the test based on the information in `confi
 
 ## Test on Docker (Local Testing)
 
-The following steps outline how to run your tests on your local machine with the containerized solution. This is the preffered option if you wish to run tests on your local machine, or if you wish to accelerate test execution in CI.
+The following steps outline how to run your tests on your local machine with the containerized solution. This is the preferred option if you wish to run tests on your local machine, or if you wish to accelerate test execution in CI.
 
 Please note that if you don't specify a `--test-env` flag when running tests, `saucectl` defaults to `docker` mode.
 
@@ -59,16 +60,14 @@ saucectl run --test-env docker
 
 ### Specify a Docker Image
 
-You must specify the appropriate Docker image in the `config.yml` in order for your tests to run correctly. For example if you run cypress tests the configuration should look like so:
+You must specify the appropriate Docker image in the `config.yml` in order for your tests to run correctly. For example, if you run cypress tests the configuration should look like so:
 
 ```yaml
 docker:
   image: saucelabs/stt-cypress-mocha-node:v5.6.0
 ```
 
-:::tip Framework Version Support
-Refer to the [framework version support matrix](/testrunner-toolkit#supported-frameworks-and-browsers) to know which image tag correlates with the desired test framework version.
-:::
+Refer to the [framework version support matrix](/testrunner-toolkit#supported-frameworks-and-browsers) for a list of framework-specific images.
 
 ### Transfer Test Files to the Container
 

@@ -40,22 +40,12 @@ In your root project directory, create the following directory tree: `.github/wo
 
 Add the following to the top of your file:
 
-> __NOTE__: Setting `env` at the top of the file enables it globally in this workflow, so all jobs have access to these variables.
+:::note
+Setting `env` at the top of the file enables it globally in this workflow, so all jobs have access to these variables.
+:::
 
-```yaml
-name: Sauce Pipeline Browser Tests
-
-on:
-  pull_request:
-  push:
-    branches:
-      - master
-
-env:
-  SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
-  SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
-
-jobs:
+```yaml reference
+https://github.com/saucelabs/saucectl-cypress-example/blob/master/.github/workflows/test.yml#L3-L13
 ```
 
 ## Create the Test Job
@@ -76,20 +66,20 @@ For this, we are going to use [Sauce Connect](/secure-connections/sauce-connect)
 <TabItem value="Docker">
 
 ```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114
+https://github.com/saucelabs/saucectl-cypress-example/blob/master/.github/workflows/test.yml#L21-L25
 ```
 
 </TabItem>
 <TabItem value="Sauce Cloud">
 
 ```yaml reference
-https://github.com/saucelabs/sauce-docs/blob/master/.github/workflows/deploy.yml#L79-L93
+https://github.com/saucelabs/saucectl-cypress-example/blob/master/.github/workflows/test.yml#L27-L31
 ```
 
 </TabItem>
 </Tabs>
 
-> You can reference our example workflows [here](https://github.com/saucelabs/testrunner-toolkit/tree/master/.github/workflows).
+> You can reference our example workflows [here](https://github.com/saucelabs/saucectl-cypress-example/tree/master/.github/workflows).
 
 Now when you commit these files, GitHub will detect the new workflow actions and launch `saucectl` to run your tests.
 
