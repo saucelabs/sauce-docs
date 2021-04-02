@@ -214,6 +214,23 @@ testsToRun:
 
 ```
 
+__Further Examples__:
+
+* <details><summary>Example 1 - Minimal configuration for all tests</summary>
+  
+  ```yaml reference
+  https://github.com/saucelabs-training/demo-espresso/blob/d0ae60e428bb2f864c979285b9cf90ee63c756eb/real-devices/runner-ex1.yml
+  ```
+  </details>
+    
+* <details><summary>Example 4 - Run in parallel on hard-coded devices</summary>
+  
+  ```yaml reference
+  https://github.com/saucelabs-training/demo-espresso/blob/master/real-devices/runner-ex4.yml
+  ```
+  </details>
+
+
 #### Espresso YAML Example
 
 This example YAML file includes all required options for running an Espresso test suite in conjunction with Sauce Runner for Real Devices:
