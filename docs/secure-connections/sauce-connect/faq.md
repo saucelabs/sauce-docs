@@ -1,6 +1,6 @@
 ---
 id: faq
-title: Sauce Connect Frequently Asked Questions
+title: Frequently Asked Questions
 sidebar_label: FAQ
 ---
 
