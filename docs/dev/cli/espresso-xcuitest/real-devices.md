@@ -102,7 +102,7 @@ __Example__:
 
 __Description__: The list of devices, allocated dynamically or through static description of the device ID, to use in your tests. With the `--devices` option, you can configure Sauce Runner for Real Devices to run tests in parallel across multiple devices using both static and dynamic allocation. As an option, you can run a select set of tests against a specific device using the [`--testsToRun`](#teststorun) command.
 
-__Examples__: See the examples under [Configuration Options: `devices`](/dev/cli/espresso-xcuitest/native-yaml-config#device-configuration).
+__Examples__: See the examples under [Configuration Options: `devices`](/dev/cli/espresso-xcuitest/yaml-config#device-configuration).
 
 ```js title="CLI"
 --datacenter US --devices iPhone_11_13_5_real_us,iPhone_5
@@ -270,7 +270,7 @@ devices:
 
 __Description__: For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use iPhone.*Plus to allocate any iPhone Plus device.
 
-__Example__: See the examples under [Configuration Options: `devices`](/dev/cli/espresso-xcuitest/native-yaml-config#devices).
+__Example__: See the examples under [Configuration Options: `devices`](/dev/cli/espresso-xcuitest/yaml-config#devices).
 
 ```js title="CLI"
 --datacenter US --deviceNameQuery 'iPhone 8.*'
@@ -296,7 +296,7 @@ __Example__: Execute all tests in `ClassA` and only `methodC` of `ClassB`.
 ```yaml title="YAML"
 - datacenter: EU
   testname: MyTestName4
- 
+
   testsToRun:
   - testClass: ClassA
   - testClass: ClassB
@@ -314,7 +314,7 @@ __Examples__:
   ```js title="CLI"
   --e class com.example.android.TestClassA
   ```
-  
+
 2. Execute a specific test in class `TestClassB`:
 
   ```js title-"CLI"
