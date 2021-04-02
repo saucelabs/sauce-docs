@@ -110,29 +110,7 @@ module.exports = {
          label: 'Live Testing',
          collapsed: true,
          items: [
-           'mobile-apps/live-testing',
-
-               {
-                 type: 'category',
-                 label: 'Mobile Real Device Testing',
-                 collapsed: true,
-                 items: [
-                    'mobile-apps/live-testing/mobile-real-device/setting-up-a-test',
-                    'mobile-apps/live-testing/mobile-real-device/live-native-mobile-real',
-                    'mobile-apps/live-testing/mobile-real-device/testing-apple-pay',
-                   ],
-               },
-               {
-                 type: 'category',
-                 label: 'Mobile Virtual Device Testing',
-                 collapsed: true,
-                 items: [
-                    'mobile-apps/live-testing/mobile-virtual-device/setting-up-a-test',
-                    'mobile-apps/live-testing/mobile-virtual-device/live-native-mobile-virtual',
-                   ],
-               },
-               'mobile-apps/live-testing/device-vitals-mobile',
-               'mobile-apps/live-testing/camera-image-injection',
+           'mobile-apps/live-testing/live-mobile-app-testing',
              ],
           },
 
@@ -177,10 +155,7 @@ module.exports = {
         label: 'Live Testing',
         collapsed: true,
         items: [
-          'web-apps/live-testing',
-          'web-apps/live-testing/setting-up-a-test',
-          'web-apps/live-testing/live-testing-desktop',
-          'web-apps/live-testing/live-testing-mobile',
+          'web-apps/live-testing/live-cross-browser-testing',
         ],
       },
       {
