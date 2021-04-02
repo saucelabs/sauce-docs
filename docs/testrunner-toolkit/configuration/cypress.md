@@ -10,32 +10,8 @@ Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/
 
 ## Example Configuration
 
-```yaml
-apiVersion: v1alpha
-kind: cypress
-sauce:
-  region: us-west-1
-  metadata:
-    name: Testing Cypress Support
-    tags:
-      - e2e
-      - release team
-      - other tag
-    build: Release $CI_COMMIT_SHORT_SHA
-docker:
-  fileTransfer: mount
-cypress:
-  configFile: "tests/cypress.json"  # We determine related files based on the location of the config file.
-  version: 5.6.0
-suites:
-  - name: "saucy test"
-    browser: "chrome"
-    browserVersion: "latest" # Can also be a hardcoded version
-    screenResolution: "1920x1080"
-    config:
-      env:
-        hello: world
-      testFiles: [ "**/*.*" ] # Cypress native glob support.
+```yaml reference
+https://github.com/saucelabs/saucectl-cypress-example/blob/master/.sauce/config.yml
 ```
 
 ## `cypress`
@@ -47,7 +23,19 @@ __Type__: *object*
 __Example__:
 ```yaml
 cypress:
+  version: 6.6.0
   configFile: "cypress.json"
+```
+
+### `version`
+
+__Description__: Version of `cypress` to use during tests.
+
+__Type__: *string*
+
+__Example__:
+```yaml
+  version: ##VERSION##
 ```
 
 ### `configFile`
@@ -87,26 +75,29 @@ __Example__:
   key: $MY_SECRET_KEY
 ```
 
-In order for the `record` and `key` fields to work you must add the cypress `"projectId"` in your `cypress.json` file. 
+In order for the `record` and `key` fields to work you must add the cypress `"projectId"` in your `cypress.json` file.
 
 The value of your `projectId` correlates directly with the value of the `key` field; in this case `$MY_SECRET_KEY`.
 
-> Please refer to [this Cypress Documentation page](https://docs.cypress.io/guides/dashboard/projects.html#Project-ID) for further information about how to configure/retrieve the cypress `projectId`.
->
-> For more information about the cypress __Record Key__, please consult this [Cypress Documentation page](https://docs.cypress.io/guides/guides/command-line.html#cypress-run-record-key-lt-record-key-gt).
+:::note
+Please refer to [this Cypress Documentation page](https://docs.cypress.io/guides/dashboard/projects.html#Project-ID) for further information about how to configure/retrieve the cypress `projectId`.
+
+For more information about the cypress __Record Key__, please consult this [Cypress Documentation page](https://docs.cypress.io/guides/guides/command-line.html#cypress-run-record-key-lt-record-key-gt).
+:::
+
 
 ## `config`
-
-:::note `suites` Syntax Reference
-The `config` field exists under the `suites` object. See [this page](/testrunner-toolkit/configuration/common-syntax#suites) for more details.
-:::
 
 __Description__: Details specific to the cypress test configuration
 
 __Type__: *object*
 
 __Example__:
-```yaml
+```yaml {5}
+  suites:
+    - name: "Hello"
+    browser: "firefox"
+    platformName: "Windows 10"
     config:
       env:
         hello: world
