@@ -572,7 +572,7 @@ module.exports = {
                     'dev/cli/espresso-xcuitest',
                     'dev/cli/espresso-xcuitest/real-devices',
                     'dev/cli/espresso-xcuitest/virtual-devices',
-                    'dev/cli/espresso-xcuitest/native-yaml-config',
+                    'dev/cli/espresso-xcuitest/yaml-config',
                 ],
             },
           'dev/cli/sauce-connect-proxy',
