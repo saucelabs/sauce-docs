@@ -96,6 +96,7 @@ Each docker image tag is the 'latest' image that supports the specific framework
   values={[
     {label: 'Cypress', value: 'cypress'},
     {label: 'Playwright', value: 'playwright'},
+    {label: 'Puppeteer', value: 'puppeteer'},
     {label: 'TestCafe', value: 'testcafe'},
   ]}>
   

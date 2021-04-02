@@ -150,7 +150,7 @@ const docusaurusConfig = {
 if (!process.env.SAUCE_DOCS_DEV) {
   docusaurusConfig.themeConfig.algolia = {
     appId: process.env.ALGOLIA_APP_ID,
-    apiKey: process.env.ALGOLIA_KEY,
+    apiKey: process.env.ALGOLIA_KEY || 'demo-key',
     indexName: 'saucelabs',
   }
 }

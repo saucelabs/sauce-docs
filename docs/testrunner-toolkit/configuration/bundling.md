@@ -1,24 +1,20 @@
 ---
 id: bundling
-title: Bundling Test Files
-sidebar_label: Bundling Test Files
+title: Test File Bundling
+sidebar_label: Test File Bundling
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The [saucectl command line interface](/testrunner-toolkit/saucectl) runs tests (Cypress, TestCafe, Playwright, ...) by bundling up your root directory, sending the bundle to the Sauce Labs cloud (or in your own infrastructure via Docker), unpacking the bundle, and then running the tests. This page explains how bundling works and how you can reduce the size of your bundle for improved performance.
-
-## Bundling
-
-The Sauce Labs `config.yml` has a parameter called "rootDir" that tells saucectl where your test files are ([see configuration documentation](/testrunner-toolkit/configuration.md)). These test files get bundled and uploaded to the Sauce Labs cloud.
+The `saucectl` command line bundles your root directory (specified in the `rootDir` parameter of your [configuration file](/testrunner-toolkit/configuration.md)) and transmits it to the Sauce Labs cloud or your own infrastructure via Docker, then unpacks the bundle and runs the tests. This functionality is partly what allows Testrunner to operate in a framework-agnostic capacity. However, you can and should manage the inclusion and exclusion of files that get bundled to optimize performance and ensure security.
 
 <img src={useBaseUrl('img/saucectl/uploading-project.png')} alt="Uploading a Project" />
 
-## `sauceignore`
+## Exclude Files from the Bundle
 
-The `.sauceignore` file is generated when you run `saucectl new`. It tells saucectl which files to exclude from bundling. It works the same way as other ignore files (`.gitignore`, `.hgignore`, `.dockerignore`, etc...).  See [https://git-scm.com/docs/gitignore](https://git-scm.com/docs/gitignore) for reference.
+The `.sauceignore` file is generated when you run `saucectl new`, allowing you to designate certain files to exclude from bundling.
 
-If your project has files that are not needed to run your tests, add those files to `.sauceignore` to reduce the size of your bundle and improve test speed.
+Add any files that are not direct test dependencies to `.sauceignore` to reduce the size of your bundle, improve test speed, and protect sensitive information.
 
 Examples of what can be included in `.sauceignore`:
 
@@ -45,29 +41,32 @@ node_modules/
 # Ignore documentation
 *.rst
 *.md
+
+# Ignore sensitive data
+credentials.yml
 ```
 
-## Node Dependencies
+## Including Node Dependencies
 
-By default, `node_modules/` is included in `.sauceignore` so that locally installed node dependencies are not included in the bundle. If node dependencies are needed for tests to run, you have two options: 
+The default `.sauceignore` file lists `node_modules/` so locally installed node dependencies are excluded from the bundle. If your tests require node dependencies to run, you can either:
 
-1. [Include `node_modules` with your bundle](#including-node_modules-in-bundle) or 
-2. [Set NPM packages in config.yml](#set-npm-packages-in-configyml)
+* [Include `node_modules` with your bundle](#remove-node_modules-from-sauceignore) or
+* [Set NPM packages in config.yml](#set-npm-packages-in-configyml)
 
-### Including "node_modules" in Bundle
+### Remove "node_modules" from `.sauceignore`
 
-In your `.sauceignore`, delete or comment out the entry `node_modules/` to make SauceCtl include your `node_modules/` so that your node dependencies are included with your bundle.
+Delete or comment out `node_modules/` in your `.sauceignore` file to bundle your node dependencies. For example,
 
 ```bash
 # Do NOT exclude node_modules from bundle
 # node_modules/
 ```
 
-Since node dependencies can be quite large (potentially hundreds of megabytes) you may wish to follow some of these tips to reduce the size
+Node dependencies can increase your bundle by potentially hundreds of megabytes, so consider including only the required dependencies rather than the entire `node_modules` directory. The following sections provide some methods for limiting the scope of dependencies you must include.
 
-#### 1. Only install "devDependencies"
+#### Install "devDependencies" Only
 
-You may only need `devDependencies` and not need prod `dependencies`. Try only installing NPM dev dependencies.
+Consider only installing NPM `devDependencies` if your tests do not require all prod `dependencies`.
 
 ```bash
 # Only install dev dependencies
@@ -76,24 +75,24 @@ npm install --only=dev
 saucectl run
 ```
 
-#### 2. Remove unneeded dependencies prior to bundling
+#### Uninstall Nonessential Dependencies
 
-If there are dependencies that aren't needed to run your tests, you can uninstall them prior to bundling
+If your standard install includes dependencies that aren't needed to run your tests, uninstall them prior to bundling.
 
 ```bash
 # Install node dependencies
 npm ci # or "npm install"
 
-# Remove any unneeded dependencies
+# Remove unneeded dependencies
 npm uninstall appium
 npm uninstall express
 
 saucectl run
 ```
 
-#### 3. Only install dependencies that are needed
+#### Install Essential Dependencies Individually
 
-If you only need a few dependencies to run your tests, you can just install those dependencies individually, instead of running `npm install` or `npm ci`
+If you know that your tests require only specific dependencies, install them individually instead of running `npm install` or `npm ci`.
 
 ```bash
 # Install individual dependencies
@@ -105,4 +104,4 @@ saucectl run
 
 ### Set NPM Packages in `config.yml`
 
-You can hardcode a list of NPM packages you wish to have installed in your sauce config yml. [See documentation](/testrunner-toolkit/configuration/common-syntax#npm)
+As an alternative to installing or uninstalling certain dependencies prior to each bundle operation, you can set the list of NPM packages to install in your sauce [configuration file](/testrunner-toolkit/configuration/common-syntax#npm).
