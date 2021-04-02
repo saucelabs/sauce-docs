@@ -51,8 +51,8 @@ Run `java -jar vusb-client.jar --help` to see a list of all available vUSB comma
 
 If you're planning to test on iOS devices, you'll also need to [download the iOS symbols](https://github.com/Zuikyo/iOS-System-Symbols).
 
-2. Launch a command line terminal from the same from the folder where you downloaded the vUSB client.
-3. Enter the below command to launch the vUSB client and connect to your preferred Data Center (type `US` or `EU`). This will get your server up and running.
+2. Launch a command line terminal from the same folder where you downloaded the vUSB client.
+3. Enter the below command line to launch the vUSB client and connect to your preferred Data Center (type `US` or `EU`). This will get your server up and running.
 
 ```java
 java -jar virtual-usb-client-2.0.0.jar server --datacenter EU
@@ -63,22 +63,40 @@ java -jar virtual-usb-client-2.0.0.jar server --datacenter EU
 <img src={useBaseUrl('img/virtual-usb/vusb-privatedevices.jpg')} alt="Virtual USB Private Devices Filters" width="400" />
 
 5. Grab your Sauce Labs credentials (username and access key), which you can find under **Account** > **User settings**.
-6. Next, enter this string into your command line to launch your vUSB session, authenticate your credentials (`username` and `accessKey`), and connect to your desired device:
+6. Open a second command line terminal window, while keeping the first window running in the background. In the new window, run this command line to launch your vUSB session, authenticate your credentials (`username` and `accessKey`), and connect to your desired device:
 
 ```java
 java -jar vusb-client.jar startSession --username john.smith --accessKey ab015c1e-1997-4794-8g52-32f7fe110e03 --deviceName Motorola_Moto_Z_real
 ```
 Your chosen device will be allocated specifically for your test session. It will not available for other users until your session is over.
 
-7. When vUSB connects to your live testing session, it will return a success message along with a link you can click to watch the device running your test in real time.
+7. When vUSB connects to your live testing session, it will return a success message along with a link you can click to watch the device running your test in real time. Here's an example of a success message:
+
+<Tabs
+  defaultValue="Android"
+  values={[
+    {label: 'Android', value: 'Android'},
+    {label: 'iOS', value: 'iOS'},
+  ]}>
+
+<TabItem value="Android">
 
 ```java
 37D274BC3A65A34BB3DA4DDF7B77E341        Motorola Moto Z     ANDROID     7.0     https://app.eu-central-1.saucelabs.com/live/mobile/dataCenters/EU/devices/shared/9299h0c88a7-e2b6-41bc-9509-5-8a5d765490371e2c9a
 
 localhost:7000  online
 ```
+</TabItem>
+<TabItem value="iOS">
 
-If you're testing on iOS, skip to the last step.
+```java
+37D274BC3A65A34BB3DA4DDF7B77E341        iPad 2             Mac         11.00    https://app.eu-central-1.saucelabs.com/live/mobile/dataCenters/EU/devices/shared/9299h0c88a7-e2b6-41bc-9509-5-8a5d765490371e2c9a
+```
+
+</TabItem>
+</Tabs>
+
+>**NOTE**: If you're testing on iOS, skip to the last step.
 
 8. **Android Only**: Copy the port number and use it to connect adb to your session device by running `adb connect` followed by the `<IPAddress>:<portNumber>` from the previous step:
 
@@ -86,14 +104,14 @@ If you're testing on iOS, skip to the last step.
 adb connect localhost:7000
 ```
 
-9. **Android Only**: Now, your vUSB is fully connected. You can use Android Studio (or Google Chrome's Remote Debugging) to debug your app, execute automation based on adb, or any other tool that is adb-compliant. For example, using adb shell, you can start the camera of the connected device:
+9. **Android Only**: Now, your vUSB should be fully connected. You can use Android Studio (or Google Chrome's Remote Debugging) to debug your app, execute automation based on adb, or any other tool that is adb-compliant. For example, using adb shell, you can start the camera of the connected device:
 
 ```java
 adb shell
 am start -a android.media.action.IMAGE_CAPTURE
 ```
 
-10. **Android Only**: Run your desired tests. Remember, you can use the `--help` flag to view a full CLI reference guide for vUSB functionality.
+10. **Android Only**: Run your tests. Remember, you can use the `--help` flag to view a full CLI reference guide for vUSB functionality.
 
 11. **Android Only**: When you're ready to close your vUSB connection/session, disconnect your device from ADB by running `adb disconnect` followed by your `<IPAddress>:<portNumber>`:
 
@@ -107,9 +125,7 @@ adb disconnect localhost:7000
 ## vUSB for TestObject (LEGACY)
 
 :::caution
-Virtual USB for iOS Devices is in Beta. Contact your Customer Success Manager to get access.
-
-Known Limitations:
+Virtual USB for iOS Devices is in Beta. Contact your Customer Success Manager to get access. Known Limitations:
 * You'll need to exit Xcode/Safari before connecting to an iOS Virtual USB session (or relaunch it after connecting). Otherwise, the device won't show up.
 * Devices attached to the host locally are not useable while using iOS Virtual USB. When the server is shut down, it asks again for permissions to put the original `/var/run/usbmuxd` socket back into its place, and Xcode/Safari have to be relaunched to show the local devices.
 :::
