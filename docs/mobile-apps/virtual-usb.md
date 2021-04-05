@@ -18,7 +18,7 @@ import TabItem from '@theme/TabItem';
 
 Virtual USB (vUSB) for Real Devices simulates connecting a real device with a USB cable directly to your local machine during a live or automated testing session. It allows you to interact directly with a device in the Sauce Labs cloud via an integrated development environment (IDE) like Android Studio and Xcode, or browser-based tools like Chrome DevTools and Safari Web Inspector.
 
-With Virtual USB, you can use homegrown developing and testing tools because it integrates into the development environment as if the device was directly connected to the workstation. When you debug your applications, Virtual USB provides the ability to build and deploy an application directly from the IDE. You can also directly monitor device performance metrics such as CPU consumption, device memory, and network data performance.
+With Virtual USB, you can use homegrown development and testing tools because it integrates into the development environment as if the device was directly connected to the workstation. When you debug your applications, Virtual USB provides the ability to build and deploy an application directly from the IDE. You can also directly monitor device performance metrics such as CPU consumption, device memory, and network data performance.
 
 ## What You'll Need
 
@@ -100,7 +100,7 @@ java -jar virtual-usb-client.jar server --datacenter US
 java -jar client.jar sessions --accessKey <ACCESS_KEY> --username <USERNAME>
 ```
 
-5. This command will return a list of open sessions, find the sessionId> and copy it.
+5. This command will return a list of open sessions, find the `sessionId` and copy it.
 
 
 6. Connect to a Live Testing Session
@@ -147,9 +147,9 @@ d87ec06c-3803-4674-a734-05d57bfe723b		iPhone 7 Plus		IOS		14.0.1		https://app.sa
 localhost:-1	online
 ```
 
-This prepares the usbmuxd socket (`/var/usbmuxd`) so that the developer tools like Xcode can interact with the device like they interact with a local device. You need to have the permission to replace `/var/usbmuxd` on your computer.
+This prepares the usbmuxd socket (`/var/usbmuxd`) so that developer tools like Xcode can interact with the remote device just like they interact with a local device. You may need to have administrator permissions to replace `/var/usbmuxd` on your computer.
 
-#### Closing a session created by Virtual USB client
+### Closing a session created by Virtual USB client
 
 If you created your session with the Virtual USB client you have to close it so that other users can use the device.
 
@@ -167,7 +167,7 @@ java -jar virtual-usb-client.jar deleteSession --username <USERNAME> --accessKey
 
 
 
-#### Launch and Connect Virtual USB to a Real Device Live Testing Session
+### Launch and Connect Virtual USB to a Real Device Live Testing Session
 
 1. Log in to Sauce Labs and get your User API key from **Sauce Apps** > **Legacy RDC** > **Account Settings** in the TestObject real device cloud platform.
 2. From a command line, launch the Virtual USB client.
@@ -222,7 +222,7 @@ adb shell
 am start -a android.media.action.IMAGE_CAPTURE
 ```
 
-#### Closing a Virtual USB connection
+### Closing a Virtual USB connection
 
 1. Make sure you disconnect your device from ADB using `adb disconnect <IPAddress>:<portNumber>`.
 
