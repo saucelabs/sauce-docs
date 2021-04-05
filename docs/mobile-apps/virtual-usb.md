@@ -51,7 +51,7 @@ Android only:
 Run `java -jar virtual-usb-client-2.0.0.jar --help` to see a full list of vUSB test configuration commands and options.
 :::
 
-### Download
+### Download vUSB Client
 
 1. Click below to download the latest vUSB client to your local machine where you have your IDE installed.
 
