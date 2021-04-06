@@ -403,22 +403,22 @@ h3, .h3 {
   padding:.2rem;
 }
 
-.apiPost {
-  background:#57C1E8;
-  color:#003A70;
+.apiGet {
+  background:#0080ff;
+  color:white;
   padding:.2rem;
   font-weight:750;
 }
 
 .apiDelete {
-  background:#474C55;
-  color:#EDEDEF;
+  background:#f93e3e;
+  color:white;
   font-weight:750;
   padding:.2rem;
 }
 
-.apiGet {
-  background:#009245;
+.apiPost {
+  background:#49cc90;
   color:white;
   font-weight:750;
   padding:.2rem;
@@ -438,9 +438,9 @@ h3, .h3 {
   font-weight:750;
 }
 
-.saucePink {
-  background:#ff7aac;
-  color:#000000;
+.apiPatch {
+  background:#dcb03b;
+  color: white;
   padding:.2rem;
   font-weight:750;
 }
@@ -460,7 +460,7 @@ h3, .h3 {
 }
 
 .apiPut {
-  background:#7868a6;
+  background:#fca130;
   color:#FFFFFF;
   padding:.2rem;
   font-weight:750;
