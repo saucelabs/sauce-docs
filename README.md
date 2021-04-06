@@ -48,17 +48,15 @@ __Table of Contents__
 * Install the dependencies:
 
 	```
-	yarn install
+	npm install
 	```
-
-    > If you have trouble with `yarn`, you can try `npm install` instead.
 
 ## Local Development
 
 * Start the website:
 
 	```
-	yarn start
+	npm run start
 	```
 
 	This command starts a local development server and open up a browser window (http://localhost:3000). Most changes perform live updates to your server without having to restart.
@@ -66,7 +64,7 @@ __Table of Contents__
 * Build the website:
 
 	```
-	yarn build
+	npm run build
 	```
 
 	This command gathers the static content and places them in a `build` directory; which is compatible with most static content hosting services.
@@ -74,7 +72,7 @@ __Table of Contents__
 * Serve the website:
 
 	```
-	yarn serve
+	npm run serve
 	```
 
 	This command builds the site and serves it on your machine's host (http://localhost:3000).
@@ -82,7 +80,7 @@ __Table of Contents__
 * Serve the website locally:
 
    ```
-   yarn run dev
+   npm run dev
    ```
 
 	This command builds the site and serves it on your machine's host (http://localhost:3000) and requires no API key.
