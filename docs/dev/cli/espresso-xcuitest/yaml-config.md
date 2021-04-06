@@ -1,5 +1,5 @@
 ---
-id: native-yaml-config
+id: yaml-config
 title: Sauce Runner YAML Configuration Examples
 sidebar_label: YAML Configuration
 ---
@@ -8,7 +8,7 @@ This page outlines some examples of how to set up your Espresso/XCUItest YAML co
 
 ## Configuration Setup
 
-Add the config `command` to your test script. The config command only accepts two parameters: --path `<your path to config.yml>` and `--accessKey <your_accessKey>`. 
+Add the config `command` to your test script. The config command only accepts two parameters: --path `<your path to config.yml>` and `--accessKey <your_accessKey>`.
 
 ```js
 JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config /
@@ -62,7 +62,7 @@ devices:
 
 ## Test Run Specification
 
-### Run a Subset of Tests 
+### Run a Subset of Tests
 
 Provide a list of test cases or test classes. If you want to run all tests of a class, provide only the class name. If you want to run a specific method of a class, provide the class name and method name.
 
