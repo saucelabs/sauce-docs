@@ -1,8 +1,15 @@
 ---
 id: virtual-usb
 title: Virtual USB CLI Reference
-sidebar_label: Virtual USB
+sidebar_label: Full Reference
 ---
+
+export const Highlight = ({children, color}) => ( <span style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>{children}</span> );
 
 The following commands and options are specifically use with the Virtual USB (vUSB) client test runner. For more information, see [Virtual USB Testing on Real Mobile Devices](/mobile-apps/virtual-usb).
 
@@ -15,17 +22,17 @@ The formatting for vUSB command lines is as follows: `<main class> [options] [co
 java -jar virtual-usb-client-2.0.0.jar --help
 ```
 
-## Start Server (Required)
+## `server`
 
-### `server` `--datacenter`
+### `--datacenter`
+<p><small><Highlight color="#003A70">Required</Highlight></small></p>
+
 __Description__: connects your local machine to a Sauce Labs Data Center, where your Real Device Cloud tests will run. Possible values: `EU` or `US`.
 
 __Example__:
 ```java
-java -jar virtual-usb-client-2.0.0.jar server --datacenter US
+server --datacenter US
 ```
-
-## Start Server (Optional)
 
 ### `--serverHost`
 __Description__: Virtual USB server host. Default value: `http://127.0.0.1`.
@@ -55,69 +62,165 @@ __Description__: HTTP proxy password.
 __Description__: Starts the usbmuxd server immediately. Default value: `false`.
 
 
-## Start Test Session (Required)
+## `startSession`
 
-### `startSession` `--username` `--accessKey` `--deviceName`
+__Full Example__:
 
-__Description__: provides the server with your authentication credentials, then connects your local machine to your desired device (static allocation).
+```bash
+java -jar virtual-usb-client-2.0.0.jar startSession \
+    --username john.smith \
+    --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxx \
+    --deviceName iPhone_XS \
+    --serverHost http://127.0.0.1 \
+    --serverPort 8080 \
+    --tunnelIdentifier my-tunnel
+```
+
+
+### `--username`
+
+<p><small><Highlight color="#003A70">Required</Highlight></small></p>
+
+__Description__: provides the `server` with your username credentials. then connects your local machine to your desired device (static allocation).
 
 __Example__:
 ```java
-java -jar virtual-usb-client-2.0.0.jar startSession --username john.smith --accessKey ab015c1e-1997-4794-8g52-32f7fe110e03 --deviceName iPhone_XS
+startSession --username john.smith
 ```
 
-## Start Test Session (Optional)
+### `--accessKey`
+
+<p><small><Highlight color="#003A70">Required</Highlight></small></p>
+
+__Description__: provides the `server` with your API credentials.
+
+__Example__:
+```java
+startSession --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxx 
+```
+
+### `--deviceName`
+
+<p><small><Highlight color="#003A70">Required</Highlight></small></p>
+
+__Description__: connects your local machine to the desired device (static allocation).
+
+__Example__:
+```java
+startSession --deviceName iPhone_XS
+```
 
 ### `--serverHost`
+
 __Description__: Virtual USB server host. Default value: `http://127.0.0.1`.
 
+
 ### `--serverPort`
+
 __Description__: Virtual USB server port. Default value: `33657`.
 
+
 ### `--proxyHost`
+
 __Description__: specifies a proxy host to be set on the device.
 
+
 ### `--proxyPassword`
+
 __Description__: specifies a proxy password to be set on the device.
 
+
 ### `--proxyPort`
+
 __Description__: specifies a proxy port to be set on the device. Default value: `0`.
 
+
 ### `--proxyUser`
+
 __Description__: specifies a proxy user to be set on the device.
 
+
 ### `--tunnelIdentifier`
+
 __Description__: specifies a tunnel identifier for Sauce Connect Proxy.
 
-## Disconnect From Device (Required)
-
-### `disconnect` `--sessionId`
-__Description__: provides server with the session ID, then disconnects the device your local machine.
-
 __Example__:
 ```java
-java -jar virtual-usb-client-2.0.0.jar disconnect --sessionId 12345
+startSession --tunnelIdentifier my-tunnel
 ```
 
-## Disconnect From Device (Optional)
+## `disconnect`
+
+__Full Example__:
+
+```java
+java -jar virtual-usb-client-2.0.0.jar disconnect \
+    --sessionId 12345 \
+    --serverHost http://127.0.0.1 \
+    --serverPort 33657 \
+```
+
+### `--sessionId`
+<p><small><Highlight color="#003A70">Required</Highlight></small></p>
+
+__Description__: provides `server` with the session ID, then disconnects the device from your local machine.
+
+__Example__:
+
+```java
+disconnect --sessionId 12345
+```
 
 ### `--serverHost`
+
 __Description__: vUSB-Server host. Default: `http://127.0.0.1`.
 
+
 ### `--serverPort`
+
 __Description__: vUSB-Server port. Default: `33657`.
 
-## Connect to Device (Required)
+## `connect`
 
-### `connect` `--sessionId` `--username` `--accessKey`
-__Description__: provides the server with your user credentials for authentication, then connects your local machine to your desired device (static allocation).
+__Full Example__:
+
+```java
+java -jar virtual-usb-client-2.0.0.jar connect \
+    --sessionId 12345 \
+    --username john.smith \
+    --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+```
+
+### `--sessionId` 
+<p><small><Highlight color="#003A70">Required</Highlight></small></p>
+
+__Description__: provides `server` with the session ID, then connects the device to your local machine.
+
+__Example__:
+
+```java
+connect --sessionId 12345
+```
+
+### `--username` 
+<p><small><Highlight color="#003A70">Required</Highlight></small></p>
+
+__Description__: provides the `server` with your username credentials. then connects the device to your local machine.
 
 __Example__:
 ```java
-java -jar virtual-usb-client-2.0.0.jar connect --sessionId 12345 --username john.smith --accessKey ab015c1e-1997-4794-8g52-32f7fe110e03
+connect --username john.smith
 ```
 
-## Connect to Device (Optional)         
+### `--accessKey`
+<p><small><Highlight color="#003A70">Required</Highlight></small></p>
+
+__Description__: provides the `server` with your API key for authentication, then connects the device to your local machine.
+
+__Example__:
+```java
+connect --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+```        
 
 ### `--serverHost`
 __Description__: Virtual USB server host. Default: `http://127.0.0.1`.
@@ -126,17 +229,47 @@ __Description__: Virtual USB server host. Default: `http://127.0.0.1`.
 __Description__: Virtual USB server port. Default: `33657`.
 
 
-## Delete Session (Required)
+## `deleteSession`
 
-### `deleteSession` `--sessionId` `--username` `--accessKey`
-__Description__: provides the server with your authentication credentials, then reconnects your local machine to your desired device (static allocation).
+__Full Example__:
+
+```java
+java -jar virtual-usb-client-2.0.0.jar deleteSession \
+    --sessionId 12345 \
+    --username john.smith \
+    --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+```
+
+### `--sessionId` 
+<p><small><Highlight color="#003A70">Required</Highlight></small></p>
+
+__Description__: provides `server` with the session ID, then reconnects your local machine to your desired device (static allocation).
+
+__Example__:
+
+```java
+deleteSession --sessionId 12345
+```
+
+### `--username` 
+<p><small><Highlight color="#003A70">Required</Highlight></small></p>
+
+__Description__: provides the `server` with your username credentials, then reconnects your local machine to your desired device (static allocation).
 
 __Example__:
 ```java
-java -jar virtual-usb-client-2.0.0.jar deleteSession --sessionId 12345 --username john.smith --accessKey ab015c1e-1997-4794-8g52-32f7fe110e03
+deleteSession --username john.smith
 ```
 
-## Delete Session (Optional)            
+### `--accessKey`
+<p><small><Highlight color="#003A70">Required</Highlight></small></p>
+
+__Description__: provides the `server` with your API key for authentication, then reconnects your local machine to your desired device (static allocation).
+
+__Example__:
+```java
+deleteSession --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+``` 
 
 ### `--serverHost`
 __Description__: Virtual USB server host. Default value: `http://127.0.0.1`.
@@ -144,17 +277,31 @@ __Description__: Virtual USB server host. Default value: `http://127.0.0.1`.
 ### `--serverPort`
 __Description__: Virtual USB server port. Default value: `33657`.
 
-## List Sessions (Required)
+## `sessions`
 
-### `sessions` `--username` `--accessKey`
-__Description__: returns a list of available, active device sessions.
+__Full Example__:
+
+```java
+java -jar virtual-usb-client-2.0.0.jar sessions \
+    --username john.smith \
+    --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+```
+
+### `--username`
+__Description__: returns a list of available, active device sessions based on `username`.
 
 __Example__:
 ```java
-java -jar virtual-usb-client-2.0.0.jar sessions --username john.smith --accessKey ab015c1e-1997-4794-8g52-32f7fe110e03
+sessions --username john.smith
 ```
 
-## List Sessions (Optional)
+### `--accessKey`
+__Description__: returns a list of available, active device sessions based on `accessKey`.
+
+__Example__:
+```java
+sessions --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+```
 
 ### `--serverHost`
 __Description__: Virtual USB server host. Default value: `http://127.0.0.1`.
@@ -162,7 +309,7 @@ __Description__: Virtual USB server host. Default value: `http://127.0.0.1`.
 ### `--serverPort`
 __Description__: Virtual USB server port. Default value: `33657`.
 
-## Log Options
+## Logging Options
 
 ### `--help`
 __Description__: generates a complete list of Virtual USB commands and options.
