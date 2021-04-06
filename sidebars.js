@@ -576,6 +576,7 @@ module.exports = {
                 ],
             },
           'dev/cli/sauce-connect-proxy',
+          'dev/cli/virtual-usb',
             {
                 type: 'link',
                 label: 'Sauce CTL', // The label that should be displayed (string).
