@@ -126,11 +126,11 @@ module.exports = {
                   ],
                 },
                 'mobile-apps/automated-testing/ipa-files',
-                'mobile-apps/automated-testing/microsoft-app-center',
                 'mobile-apps/automated-testing/troubleshooting',
               ],
            },
      'mobile-apps/app-storage',
+     'mobile-apps/ms-app-center',
      'mobile-apps/features',
      'mobile-apps/virtual-usb',
      'mobile-apps/faq',
@@ -489,6 +489,7 @@ module.exports = {
         'insights/history',
         'insights/trends',
         'insights/failure-analysis',
+        'insights/debug',
     ],
     "Performance": [
       'performance',
@@ -563,10 +564,24 @@ module.exports = {
         collapsed: true,
         items: [
           'dev/cli',
-          'dev/cli/espresso-xcuitest',
+            {
+                type: 'category',
+                label: 'Espresso / XCUITest',
+                collapsed: true,
+                items: [
+                    'dev/cli/espresso-xcuitest',
+                    'dev/cli/espresso-xcuitest/real-devices',
+                    'dev/cli/espresso-xcuitest/virtual-devices',
+                    'dev/cli/espresso-xcuitest/yaml-config',
+                ],
+            },
           'dev/cli/sauce-connect-proxy',
-          'testrunner-toolkit/saucectl',
-        ]
+            {
+                type: 'link',
+                label: 'Sauce CTL', // The label that should be displayed (string).
+                href: '/testrunner-toolkit/saucectl' // The target URL (string).
+            },
+        ],
       },
     ],
     Contributing: [

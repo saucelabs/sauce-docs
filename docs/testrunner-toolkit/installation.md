@@ -151,20 +151,19 @@ Follow the steps below to generate the following assets in your project's root d
     saucectl new
     ```
 1. At the prompt, specify your framework:
-    ```bash
-      8:59AM INF Start New Command
-        Choose a framework:
-        ❯ Cypress
-          Playwright
-          Testcafe
+    ```
+    ? Choose a framework:
+    ❯ Cypress
+      Playwright
+      Puppeteer
+      TestCafe
     ```
 1. Specify your [Sauce Labs data center](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) at the next prompt:
-    ```bash
-      8:59AM INF Start New Command
-        Choose a framework: Cypress
-        Choose the sauce labs region:
-        ❯ us-west-1
-          eu-central-1
+    ```
+    ? Choose a framework: Cypress
+    ? Choose the sauce labs region:
+    ❯ us-west-1
+      eu-central-1
     ```
 
 The configuration script confirms your setup and prompts you to execute the `saucectl run` command to begin testing.
