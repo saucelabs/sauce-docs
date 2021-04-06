@@ -81,3 +81,8 @@ $> export HTTP_PROXY=http://my.proxy.org:3128/
 $> export HTTPS_PROXY=http://my.proxy.org:3128/
 $> saucectl run -e HTTP_PROXY=${HTTP_PROXY} -e HTTPS_PROXY=${HTTPS_PROXY} --test-env docker
 ```
+
+## What is the maximum execution time of TestCafe tests ?
+
+The maximum execution time of TestCafe tests is limited to 30 minutes. 
+
