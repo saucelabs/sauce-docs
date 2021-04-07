@@ -59,9 +59,11 @@ Run `java -jar virtual-usb-client-2.0.0.jar --help` to see a full list of vUSB t
 
 2. Have your Sauce Labs `username` and `accessKey` handy. You can find these under **Account** > **User settings**.
 
-3. Have your `--deviceName` handy. This is the **ID** of the device that you want to use for testing. To find this, go to **Live** > **Cross Browser** > **Mobile Real** > Navigate to your device in the list > click **Details**. The device will be allocated specifically to you while your session is active; it'll be marked **In Use** to users in your organization.
+3. Have your `--deviceName` handy. This is the **ID** of the device that you want to use for testing. To find this, go to **Live** > **Cross Browser** > **Mobile Real** > Navigate to your device in the list > click **Details**. Do not click **Launch**.
 
   <img src={useBaseUrl('img/virtual-usb/vusb-devicename.jpg')} alt="Virtual USB Device Name" width="500" />
+
+  The device you choose will be allocated specifically to you while your session is active. Other users in your organization will see it marked **In Use**.
 
   As a reminder, vUSB only works on private devices (marked with a <img src={useBaseUrl('img/virtual-usb/vusb-private.jpg')} alt="Sauce Labs Private Device Icon" width="15" />). A quick way to find your organization's private devices from the device list is to click **Filters** and toggle **Private Devices**.
 
