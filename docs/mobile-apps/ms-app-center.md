@@ -1,27 +1,28 @@
 ---
-id: microsoft-app-center
+id: ms-app-center
 title: Microsoft App Center Integration
 sidebar_label: MS App Center
 ---
 
-In order to upload your apps from Microsoft App Center to a Sauce Labs data center you must create a [post-build script](https://docs.microsoft.com/en-us/appcenter/build/custom/scripts/#post-build) in Microsoft App Center.
+This topic describes how to migrate your apps from Microsoft App Center to a Sauce Labs data center by creating a [post-build script](https://docs.microsoft.com/en-us/appcenter/build/custom/scripts/#post-build) in Microsoft App Center.
 
->**NOTE**: if you're looking for the legacy solution, see [Legacy Platform App Center Integration](https://wiki.saucelabs.com/pages/viewpage.action?pageId=110205512) page.
-
+>**NOTE**: If you're looking for the legacy solution, see [Legacy Platform App Center Integration](https://wiki.saucelabs.com/pages/viewpage.action?pageId=110205512).
 
 ## What You'll Need
 
-*   [Microsoft App Center Account](https://docs.microsoft.com/en-us/appcenter/)
-*   [A Project Source Code Repository](https://docs.microsoft.com/en-us/appcenter/build/#getting-started)
+* A [Microsoft App Center account](https://docs.microsoft.com/en-us/appcenter/)
+* A [Project Source Code Repository](https://docs.microsoft.com/en-us/appcenter/build/#getting-started)
 
 
 ## Creating the Post-Build Script
 
 1. Once you've linked your project source code to your app center project, create a script called `appcenter-post-build.sh` and add it to your project source code repository.
 
-2. If you're testing a cross-platform application (e.g., a react-native), add the following environment variables `APP_NAME` and `BUILD_NAME`.
+2. If you're testing a cross-platform application (e.g., react-native), add the following environment variables `APP_NAME` and `BUILD_NAME`.
 
-```
+>**NOTE**: If you're building a single project (iOS or Android), ignore steps 2-4 and skip to step 5.
+
+```bash
 #!/usr/bin/env bash
 APP_NAME="your.app.name"
 # You can find this name in the build logs of a previous project
@@ -30,11 +31,9 @@ APP_NAME="your.app.name"
 BUILD_NAME="your.build.name"
 ```
 
->**NOTE**: If you're building a single project (iOS or Android), ignore steps 2-4 and skip to step 5.
-
 3. Set the correct app name based on the application platform.
 
-```
+```bash
 if [[ "$APPCENTER_XCODE_PROJECT" ]]; then
     APP_NAME="iOS.SauceLabs.Mobile.Sample.app.ipa"
     BUILD_NAME="SwagLabsMobileApp.ipa"
@@ -46,7 +45,7 @@ fi
 
 4. You can optionally set a console message to appear in your App Center logs.
 
-```
+```bash
 echo "**************** PUBLISH APP TO SAUCELABS WITH THIS DATA ******************"
 echo "APP NAME                => $APP_NAME"
 echo "BUILD NAME              => $BUILD_NAME"
@@ -58,7 +57,7 @@ echo "PAYLOAD                 => $APPCENTER_OUTPUT_DIRECTORY/$BUILD_NAME"
 
 **Push to US Data Center**
 
-```
+```bash
 curl \
   -F "payload=@$APPCENTER_OUTPUT_DIRECTORY/$BUILD_NAME" \
   -F name=$APP_NAME \
@@ -67,7 +66,7 @@ curl \
 
 **Push to EU Data Center**
 
-```
+```bash
 curl \
   -F "payload=@$APPCENTER_OUTPUT_DIRECTORY/$BUILD_NAME" \
   -F name=$APP_NAME \
