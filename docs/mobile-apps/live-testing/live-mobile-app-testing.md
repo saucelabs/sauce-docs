@@ -22,7 +22,7 @@ To upload an app via the Sauce Labs UI:
 1. In Sauce Labs, in the left panel, click **LIVE** and then click **Mobile App**.
 2. Click **App Upload**. You can either drag and drop an application, or browse for and select the file. We currently support APK and IPA files up to 4 GB. Non-app file uploads are not supported in the UI at this time, but can be uploaded through the API.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-upload.png')} alt="Upload an application" width="650"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-nav.png')} alt="Upload an application" width="650"/>
 
 >**NOTE:** The Sauce Labs UI currently supports live testing on **real devices only**. To test on virtual devices, use the REST API.
 
@@ -39,39 +39,17 @@ To view or change the application settings, on the Mobile App test page, hover o
 <img src={useBaseUrl('img/live-testing/live-mobile-app-settings.png')} alt="Application settings" width="650"/>
 
 **Default Settings**
-| Setting | Description | Description |
+
+| Setting | Options | Description |
 | :--- | :--- | :--- |
 | Device Language |  | Set the device language settings |
-
-| Device Orientation |
-* Default Orientation
-* Landscape
-* Portrait | Set the device orientation |
-
-| Proxy |
-* Disabled
-* Enabled
-* Hostname/Port | |
-
-| Instrumentation |
-* Disabled
-* Enabled | Enable device instrumentation |
-
-| Image Injection |
-* Disabled
-* Enabled | Enable image injection; Bypass Image Restriction - ANDROID ONLY (not supported on applications uploaded to the legacy sauce storage). |
-
-| System Alerts Display |
-* Disabled
-* Enabled | Set a system alerts delay - IOS ONLY |
-
-| Biometrics Interception |
-* Disabled
-* Enabled | Enable biometrics - IOS ONLY |
-
-| Group Folder Redirect |
-* Disabled
-* Enabled | Set a group directory redirect - IOS ONLY |
+| Device Orientation | Default Orientation/Landscape/Portrait | Set the device orientation |
+| Proxy | Disabled/Enabled/Hostname/Port | |
+| Instrumentation | Disabled/Enabled | Enable device instrumentation |
+| Image Injection | Disabled/Enabled | Enable image injection; Bypass Image Restriction - ANDROID ONLY (not supported on applications uploaded to the legacy sauce storage). |
+| System Alerts Display | Disabled/Enabled | Set a system alerts delay - IOS ONLY |
+| Biometrics Interception | Disabled/Enabled | Enable biometrics - IOS ONLY |
+| Group Folder Redirect | Disabled/Enabled | Set a group directory redirect - IOS ONLY |
 
 >**NOTE:** Any changes you make to the application settings will affect all uploaded versions of the application**.
 
@@ -94,7 +72,8 @@ You must select a device prior to launching a session.
 
 2. Use the search box and filters to find the device you want to test on, or select the device in the grid.
 
-#### Public vs. Private Devices
+#### **Public vs. Private Devices**
+
 There is a distinction between **Public Devices** and **Private Devices**.
 
 * Public devices are accessible by anyone with a Sauce Labs account and are subject to availability. If a device is in use, you will see a yellow **Busy** flag across the thumbnail.
@@ -129,14 +108,14 @@ There are three ways to test Apple Pay with Sauce Labs:
 * Using real private devices with an Apple Pay Sandbox Testing account
 * Using real private devices with a real production account and real credit cards
 
-## Apple Certificates
+### Apple Certificates
 Apple certificates are used to ensure security in their systems, and they are much more strict about them than Android. This level of security makes certificates a very complex part of making Apple Pay work with devices in a cloud.
 
 To give you an example, Android apps can be installed without any specific signing on whatever real device you want. With Apple you have two options, or you need to add a remote device to your developer certificate and the provisioning profile, so you are allowed to install the app on that specific device. Or you need to use an enterprise certificate where the Apple device that has that certificate installed allows you to install the app. Similarly, when you install an iOS app on a device, we re-sign the app with a Sauce Labs enterprise certificate so you can install your app on all Sauce Labs public/private devices.
 
 >**NOTE:** Apple Pay has a limitation that it cannot work with an enterprise certificate. You need to use the developer certificate where the device has been added to the provisioning profile in order to make this work. This can only be done for Sauce Labs private devices on which you have disabled the resigning.
 
-## Apple Pay on Real Private Devices
+### Apple Pay on Real Private Devices
 To make Apple Pay work on Sauce Labs real private devices:
 1. **Follow Apple’s steps to enable Apple Pay (see [Setting Up Apple Pay Requirements](https://developer.apple.com/documentation/passkit/apple_pay/setting_up_apple_pay_requirements))**. Apple is strict about certificates, so they require you to follow very specific steps:
   1. Set up Apple Pay integration in your app.
@@ -181,11 +160,11 @@ Apple Pay requires that you have set a passcode on your phone, and you can’t a
 ### Add the Testing Account
 1. On the device, go to **Settings** and then click **Sign in to your iPhone**. Sign in using your Apple sandbox tester account.
 
-<img src={useBaseUrl('img/live-testing/apple-pay-4.png')} alt="Apple Pay setup - sign in to account" width="650"/>
+<img src={useBaseUrl('img/live-testing/apple-pay-4.png')} alt="Apple Pay setup - sign in to account" width="250"/>
 
 2. If prompted, enter the device’s passcode.
 
-<img src={useBaseUrl('img/live-testing/apple-pay-5.png')} alt="Apple Pay setup - passcode" width="650"/>
+<img src={useBaseUrl('img/live-testing/apple-pay-5.png')} alt="Apple Pay setup - passcode" width="250"/>
 
   If you weren’t prompted for a passcode, set it by going to **Settings > Face ID & Passcode** and tapping **Turn Passcode On**.
 
@@ -193,18 +172,18 @@ Apple Pay requires that you have set a passcode on your phone, and you can’t a
 Apple test cards can be found on Apple’s [Sandbox Testing](https://developer.apple.com/apple-pay/sandbox-testing/) page.
 1. On your device, go to **Wallet**. If you didn’t set a passcode, Apple will show a notification.
 
-<img src={useBaseUrl('img/live-testing/apple-pay-6.png')} alt="Apple Pay setup - passcode notification" width="650"/>
+<img src={useBaseUrl('img/live-testing/apple-pay-6.png')} alt="Apple Pay setup - passcode notification" width="250"/>
 
 2. In **Wallet**, tap the plus sign to add a new card. Use the card information on Apple’s [Sandbox Testing](https://developer.apple.com/apple-pay/sandbox-testing/) page.
 
-<img src={useBaseUrl('img/live-testing/apple-pay-7.png')} alt="Apple Pay setup - Add new card" width="650"/>
+<img src={useBaseUrl('img/live-testing/apple-pay-7.png')} alt="Apple Pay setup - Add new card" width="250"/>
 
 3. **Prepare Sauce Labs**. As mentioned before, Sauce Labs uses an enterprise certificate to install an app on public and private devices. But Apple Pay can’t work with the enterprise certificate, so the app needs to be signed with the developer certificate. You need to instruct Sauce Labs to not re-sign the app when it is installed.
 
 ### Disable Re-Signing
 1. In Sauce Labs, in the left navigation, click **Live** and then click **Mobile-App**.
 
-<img src={useBaseUrl('img/live-testing/apple-pay-8.png')} alt="Apple Pay setup - Sauce login" width="650"/>
+<img src={useBaseUrl('img/live-testing/apple-pay-8.png')} alt="Apple Pay setup - Sauce login" width="250"/>
 
   You will see an overview of the already uploaded apps. If no app has been uploaded, then upload the app. Once uploaded, open the app settings by hovering over the row until you see this:
 
@@ -216,7 +195,7 @@ Apple test cards can be found on Apple’s [Sandbox Testing](https://developer.a
 
 3. Under **Default settings**, toggle **Instrumentation** to **Disabled**.
 
-<img src={useBaseUrl('img/live-testing/apple-pay-11.png')} alt="Apple Pay setup - Disable instrumentation" width="650"/>
+<img src={useBaseUrl('img/live-testing/apple-pay-11.png')} alt="Apple Pay setup - Disable instrumentation" width="350"/>
 
 Disabling this allows the app to use Apple Pay and the developer certificate and provisioning profile that you used when you built the app.
 
@@ -226,10 +205,13 @@ Once the app has been uploaded and re-signing has been disabled, you can start t
 
 5. **Test the app**. View the Sauce Labs Demo Payments app:
 
-<img src={useBaseUrl('img/live-testing/apple-pay-12.png')} alt="Apple Pay setup - Demo app" width="650"/>
-<img src={useBaseUrl('img/live-testing/apple-pay-13.png')} alt="Apple Pay setup - Demo app" width="650"/>
-<img src={useBaseUrl('img/live-testing/apple-pay-14.png')} alt="Apple Pay setup - Demo app" width="650"/>
-<img src={useBaseUrl('img/live-testing/apple-pay-15.png')} alt="Apple Pay setup - Demo app" width="650"/>
+<img src={useBaseUrl('img/live-testing/apple-pay-12.png')} alt="Apple Pay setup - Demo app" width="250"/>
+
+<img src={useBaseUrl('img/live-testing/apple-pay-13.png')} alt="Apple Pay setup - Demo app" width="250"/>
+
+<img src={useBaseUrl('img/live-testing/apple-pay-14.png')} alt="Apple Pay setup - Demo app" width="250"/>
+
+<img src={useBaseUrl('img/live-testing/apple-pay-15.png')} alt="Apple Pay setup - Demo app" width="250"/>
 
 ## Device Vitals
 Device Vitals is a feature that collects useful performance data in real time from a device during a live session. Data such as network, CPU, and memory usage helps users understand the general performance of a device and the application under test. Users can view a graph of this performance data in real time as the app is processing.
@@ -267,125 +249,78 @@ Device Vitals for live testing is currently in beta state, which means we are te
 
 <TabItem value="iOS">
 
-Web Tests (on Safari)
-| Device
---------
-Platform | iPhone 11 | iPhone XR | iPhoneXS | iPhone X | iPhone 8 | iPhone 7 | iPhone 6 | iPhone 6 Plus | iPhone 6S Plus | iPhone 5S | iPhone SE | iPad Pro 11 2018 | iPad Pro | iPad Air 2019 | iPad 9.7 2017 | iPad 4 | iPad Mini 2 |
+**Web Tests (on Safari)**
 
+| Device/Platform | iPhone 11 | iPhone XR | iPhoneXS | iPhone X | iPhone 8 | iPhone 7 | iPhone 6 | iPhone 6 Plus | iPhone 6S Plus | iPhone 5S | iPhone SE | iPad Pro 11 2018 | iPad Pro | iPad Air 2019 | iPad 9.7 2017 | iPad 4 | iPad Mini 2 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | iOS 9.3.2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | iOS 10.0.2 |  |  |  |  |  |  |  |  |  | X |  |  |  |  |  |  |  |
-
 | iOS 10.1 |  |  |  |  |  |  |  |  |  |  | X |  |  |  |  |  |  |
-
 | iOS 10.3.3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | X |  |
-
 | iOS 11.4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | iOS 11.4.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | iOS 12.2 |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | iOS 12.4.1 |  | X |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | iOS 13.0 |  |  | X |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | iOS 13.1 | X |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 
-App Tests
-| Device
---------
-Platform | iPhone 11 | iPhone XR | iPhoneXS | iPhone X | iPhone 8 | iPhone 7 | iPhone 6 | iPhone 6 Plus | iPhone 6S Plus | iPhone 5S | iPhone SE | iPad Pro 11 2018 | iPad Pro | iPad Air 2019 | iPad 9.7 2017 | iPad 4 | iPad Mini 2 |
+**App Tests**
 
+| Device/Platform | iPhone 11 | iPhone XR | iPhoneXS | iPhone X | iPhone 8 | iPhone 7 | iPhone 6 | iPhone 6 Plus | iPhone 6S Plus | iPhone 5S | iPhone SE | iPad Pro 11 2018 | iPad Pro | iPad Air 2019 | iPad 9.7 2017 | iPad 4 | iPad Mini 2 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | iOS 9.3.2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | iOS 10.0.2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | iOS 10.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | iOS 10.3.3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | iOS 11.4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | iOS 11.4.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | iOS 12.2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | iOS 12.4.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | iOS 13.0 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | iOS 13.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 
 
 </TabItem>
 <TabItem value="Android">
 
-Web Tests (on Chrome)
-| Device
---------
-Platform | Google Pixel XL | Google Pixel 3 | Google Pixel 3a | Motorola Moto G6 Plus | Huawei P30 | Google Pixel C | HTC U12 Plus | HTC U11 | HTC Desire 12 | Samsung Galaxy S7 | Lenovo Tab 4 | Asus Google Nexus 7 (2013) | LG G6 | LG G5 | LG G4 | Huawei P9 | Amazon Kindle Fire HD 8 |
+**Web Tests (on Chrome)**
 
+| Device/Platform | Google Pixel XL | Google Pixel 3 | Google Pixel 3a | Motorola Moto G6 Plus | Huawei P30 | Google Pixel C | HTC U12 Plus | HTC U11 | HTC Desire 12 | Samsung Galaxy S7 | Lenovo Tab 4 | Asus Google Nexus 7 (2013) | LG G6 | LG G5 | LG G4 | Huawei P9 | Amazon Kindle Fire HD 8 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Android 5.1.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | Android 6.0 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | Android 6.0.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | Android 7.0 |  |  |  |  |  |  |  | X |  |  |  |  |  |  |  |  |  |
-
 | Android 7.1.1 |  |  |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |
-
 | Android 8.0.0 |  |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |  |
-
 | Android 8.1.0 |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | Android 9 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | Android 10 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | Android 11 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 
-App Tests
-| Device
---------
-Platform | Google Pixel XL | Google Pixel 3 | Google Pixel 3a | Motorola Moto G6 Plus | Huawei P30 | Google Pixel C | HTC U12 Plus | HTC U11 | HTC Desire 12 | Samsung Galaxy S7 | Lenovo Tab 4 | Asus Google Nexus 7 (2013) | LG G6 | LG G5 | LG G4 | Huawei P9 | Amazon Kindle Fire HD 8 |
+**App Tests**
 
+| Device/Platform | Google Pixel XL | Google Pixel 3 | Google Pixel 3a | Motorola Moto G6 Plus | Huawei P30 | Google Pixel C | HTC U12 Plus | HTC U11 | HTC Desire 12 | Samsung Galaxy S7 | Lenovo Tab 4 | Asus Google Nexus 7 (2013) | LG G6 | LG G5 | LG G4 | Huawei P9 | Amazon Kindle Fire HD 8 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Android 5.1.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | Android 6.0 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | Android 6.0.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | Android 7.0 |  |  |  |  |  |  |  |  |  |  |  |  | X |  |  |  |  |
-
 | Android 7.1.1 |  |  |  |  |  |  |  |  |  |  | X |  |  |  |  |  |  |
-
 | Android 8.0.0 |  |  |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |
-
 | Android 8.1.0 |  |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |  |
-
 | Android 9 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | Android 10 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
 | Android 11 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 
 </TabItem>
 </Tabs>
 
-## Testing with Camera Image Injection
-Camera Image Injection--also known as camera mocking--is a Sauce Labs Real Device Cloud (RDC) feature that simulates taking a picture through your mobile device app, allowing you to test the app’s camera-based functionality and deliver the best possible user experience.
+## Camera Image Injection
 
-To mimic camera behavior when testing your app, you'll provide the app with an image that mocks the use of the camera. During a Sauce Labs live test, you'll be prompted to upload a photo that will be fed to your app, rather than using your device camera to take the photo.
-
-### What You'll Need
-You'll need to upload your app to Sauce Labs prior to testing (see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing.md#Uploading an App).
-
-### Using Camera Image Injection
 Camera Image Injection is a core feature built into our RDC functionality and available for use with public and private devices. Your mobile app accesses the camera and instead of getting back the picture of the device camera, it'll retrieve your uploaded image for your test. You employ the built-in device camera in your live and automated testing and perform test cases that require taking images with any of the device cameras.
 
-#### Key Specs
+### Key Specs
 **Supported**
 * All iOS and Android devices available in the RDC
 * Front-facing and rear-facing system device cameras
@@ -396,18 +331,21 @@ Camera Image Injection is a core feature built into our RDC functionality and av
 * Ephemeral apps (i.e., app with temporary messages that disappear after a certain timeframe)
 * Testing with emulators, simulators
 
+### What You'll Need
+You'll need to upload your app to Sauce Labs prior to testing (see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing.md).
+
 ### Testing with Camera Image Injection
 1. In Sauce Labs, click **LIVE** and then click **Mobile App**.
 2. On the **App Selection** test page, hover over the test and then click **Settings**.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-settings-nav.png')} alt="Mobile app settings navigation" width="650"/>
 
-3. On the Settings page, ensure that **Image Injection** is enabled and then return to the **App Selection** page.
+3. On the **Settings** page, ensure that **Image Injection** is enabled and then return to the **App Selection** page.
 4. On the **App Selection** test page, hover over the test and then click **Choose Device**.
 5. On the device selection page, hover over a device and then click **Launch**.
 6. When you want to capture an image of the test, in the right toolbar, click the **Camera** icon.
 7. Click **Choose Image** and navigate to the image you want to use.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-camera-nav.png')} alt="Camera image injection navigation" width="650"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-camera-nav.png')} alt="Camera image injection navigation" width="450"/>
 
 8. Activate the camera inside of your app. The device will show your uploaded image in the app as if the image was taken by the device camera. The image will continue to be available, should you go back to the camera during your test session, or you can upload another image and capture it with the camera.
