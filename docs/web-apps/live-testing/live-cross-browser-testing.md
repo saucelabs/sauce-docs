@@ -51,7 +51,7 @@ Once your session launches, you can use your mouse cursor and keyboard to intera
 With Sauce Labs you can run live tests of your web apps using native browsers for Android and iOS on both virtual and real mobile devices.
 
 ### What You'll Need
-Know if your app is designed to run on internal or otherwise restricted networks. If it does and you're testing on real devices, use Sauce Connect Proxy to connect. For more information, see the [Sauce Connect Proxy setup for Real Device Cloud](docs/secure-connections/sauce-connect/setup-configuration/specialized-environments.md).
+Know if your app is designed to run on internal or otherwise restricted networks. If it does and you're testing on real devices, use Sauce Connect Proxy to connect. For more information, see the [Sauce Connect Proxy setup for Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/specialized-environments.md).
 
 ### Real Device
 1. In Sauce Labs, in the left panel, click **Live** and then click **Cross Browser**.
