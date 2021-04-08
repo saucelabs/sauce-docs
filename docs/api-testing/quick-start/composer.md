@@ -32,11 +32,11 @@ Begin using the Composer by selecting from two versions in terms of views. With 
 
 * __Visual__ - The Visual Composer does not require coding expertise, and provides real-time suggestions via predictive text to help you create ideal API tests for your needs. 
 
-  <img src={useBaseUrl('img/api-fortress/2019/06/VisualView.jpg')} alt="Test Composer Visual View Pic"/>
+  <img src={useBaseUrl('img/api-fortress/2019/06/VisualView.png')} alt="Test Composer Visual View Pic"/>
 
 * __Code__ - The Code view is for users who are more comfortable working in code rather than a visual UI. 
 
-  <img src={useBaseUrl('img/api-fortress/2019/06/CodeView.jpg')} alt="Test Composer Code View Pic"/>
+  <img src={useBaseUrl('img/api-fortress/2019/06/CodeView.png')} alt="Test Composer Code View Pic"/>
   
 :::tip API Testing Best Practices
 For more information, visit our [API Testing University](https://training.saucelabs.com/apiTesting/index.html) to research best practices and find detailed guidance.
