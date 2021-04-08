@@ -4,50 +4,36 @@ title: Using Testrunner Toolkit
 sidebar_label: Using Testrunner Toolkit
 ---
 
+<span className="sauceGold">BETA FEATURE</span><p/>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-Sauce Labs Testrunner Toolkit is designed to support native Javascript frameworks through a containerized testing solution that simplifies user set up and speeds up test execution time. 
+Testrunner Toolkit is a containerized testing solution that allows you to get the benefits of the Sauce Labs platform while maintaining your test suites in your favorite JavaScript framework.  
 
+## How it Works
 
-This approach combines the power and expressiveness of different test frameworks with the dashboards, infrastructure, and analytics of Sauce Labs.
-
-
-Most importantly, by running these tests through Sauce Labs, you can:
-
-* Run tests using popular JavaScript frameworks: [Cypress](https://github.com/cypress-io/cypress), [Playwright](https://github.com/microsoft/playwright), and [TestCafe](https://devexpress.github.io/testcafe).
-* Take advantage of low latency provided by a containerized solution
-* Review, share, and evaluate your test assets, such as logs, test results, and test videos 
-* Use our Insights feature to perform deeper analysis of test outcomes
-* Take advantage of other Sauce-specific options as development continues, including VMs, parallelization, and so on
-
-## How to Get Started
-
-To get started quickly, please see [this page](/testrunner-toolkit/installation).
-
-### How it Works
-
-Testrunner Toolkit achieves JavaScript framework testing through the combination of Sauce Labs, Jest, and the
-JavaScript framework of your choice. 
+At the heart of the toolkit is the `saucectl` command line, which performs the underlying business logic to access the tests in your existing JavaScript framework, run them (either in the Sauce Labs CLoud or locally in a Docker image), then securely transmit the test assets to the Sauce Labs platform, where you can review, share, and evaluate your test outcomes at scale.
 
 ## Supported Frameworks and Browsers
 
-In the current beta, the toolkit supports the following frameworks: [Cypress](https://github.com/cypress-io/cypress), [Playwright](https://github.com/microsoft/playwright), and [TestCafe](https://github.com/DevExpress/testcafe). The specific framework you use for testing depends on the types of tests you
-need to run, and the environment where you run the tests.
+The toolkit currently supports:
 
-Furthermore, the framework and browser version support depends on the Sauce Labs docker images. The table below indicates framework and browser support based on the requisite docker image tag.
+* [Cypress](https://github.com/cypress-io/cypress)
+* [Playwright](https://github.com/microsoft/playwright)
+* [TestCafe](https://github.com/DevExpress/testcafe).
 
-:::note 
-Each docker image tag is the 'latest' image that supports the specific framework version
-:::
+The table below provides framework and browser support, which is based on the Sauce Labs docker images provided in the `saucectl` installation. For information about the docker images for each supported framework, see:
 
-<!--CLOUD FRAMEWORKS GO HERE. This markdown is generated from the test-composer project. Do not edit manually -->
-<!--START_AUTO_GENERATED_TABLE-->
+* [sauce-cypress-runner](https://github.com/saucelabs/sauce-cypress-runner)
+* [sauce-playwright-runner](https://github.com/saucelabs/sauce-playwright-runner)
+* [sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner)
+<!-- * [sauce-puppeteer-runner](https://github.com/saucelabs/sauce-puppeteer-runner) -->
 
 ### Supported Frameworks in Sauce Cloud
 
-<Tabs 
+<Tabs
     defaultValue="cypress"
     values={[
       {"label":"Cypress","value":"cypress"},
@@ -87,7 +73,6 @@ Each docker image tag is the 'latest' image that supports the specific framework
 </TabItem>
 </Tabs>
 
-<!--END_AUTO_GENERATED_TABLE-->
 
 ### Supported Frameworks in Docker Runner
 
@@ -99,7 +84,7 @@ Each docker image tag is the 'latest' image that supports the specific framework
     {label: 'Puppeteer', value: 'puppeteer'},
     {label: 'TestCafe', value: 'testcafe'},
   ]}>
-  
+
 <TabItem value="cypress">
 
 |Cypress Version|Supported Browsers|Release Notes|
@@ -135,44 +120,28 @@ Each docker image tag is the 'latest' image that supports the specific framework
 </TabItem>
 </Tabs>
 
-### Workflow Overview
+## How to Get Started
 
-Below are the general steps for executing tests with Testrunner Toolkit. For further information, follow the links below:
+The rest of the Testrunner Toolkit documentation will guide you through the process of installing and configuring the `saucectl` command line, and then using it to run your tests in the way that best suits your current development process. At a high level, you will:
 
-* [Download and Install](testrunner-toolkit/installation.md#installing-testrunner-toolkit) `saucectl`
-* [Authenticate with your Sauce Labs Credentials](testrunner-toolkit/configuration.md#authenticate)
-* [Generate a Configuration File and Tests Directory](testrunner-toolkit/configuration.md#generate-a-configuration-file-and-tests)
-* [Run the Tests](testrunner-toolkit/configuration.md#run-the-test)
-* [Analyze Test Results on Sauce Labs](testrunner-toolkit/configuration.md#analyze-test-results-in-sauce-labs)
+1. [Download and install `saucectl`](testrunner-toolkit/installation).
+1. [Generate and configure your `saucectl` working directory](testrunner-toolkit/configuration).
+1. Run a sample test to verify functionality.
 
-## Common Use Cases
-
-Below are some example user journeys and use cases that Testrunner Toolkit supports.
-
-### Sample Tests
-
-If you're starting from scratch and don't have any tests currently running as a part of your development workflow, `saucectl` will automatically [generate an example test when you choose an automation framework and run the initial command](testrunner-toolkit/configuration.md#choose-a-framework). From there you can modify or expand upon the existing test.
+Once you are confident that `saucectl` is running, you can customize your configurations based on your testing objectives. The following sections offer some common scenarios.
 
 ### Existing Tests
 
-If you already have existing tests in your project (like say in `cypress` for example), you can simply [download and install `saucectl`](testrunner-toolkit/installation#installing-testrunner-toolkit), [modify the existing configuration](testrunner-toolkit/configuration.md#modifying-the-configuration-file), and [run your existing tests](testrunner-toolkit/running-tests.md#automation-framework-examples).
+If you already have existing tests in your project (in `cypress` for example), once you install `saucectl`, you can just directly [modify the default configuration file](testrunner-toolkit/configuration.md#modifying-the-configuration-file), and  then run your existing tests.
 
 ### Pipeline Tests
 
 If you wish to run `saucectl` as part of your DevOps CI toolchain, you can add it in your workflow by following one of our [CI integration guides](testrunner-toolkit/integrations.md).
 
-## Additional Resources
+### Sample Repos
 
-To learn more about the tools associated with this project please see the links below:
+If you would like to see sample tests and configuration files for particular frameworks, you can clone one of our demo repositories for use as a template:
 
-* Jest: [https://jestjs.io/](https://jestjs.io/)
-* Cypress: [https://github.com/cypress-io/cypress](https://github.com/cypress-io/cypress)
-* The Microsoft Playwright project: [https://github.com/microsoft/playwright](https://github.com/microsoft/playwright)
-* TestCafe: [https://devexpress.github.io/testcafe/](https://devexpress.github.io/testcafe/)
-
-Visit the links below to view information and release notes regarding the docker images' contents:
-
-* [sauce-cypress-runner](https://github.com/saucelabs/sauce-cypress-runner)
-* [sauce-playwright-runner](https://github.com/saucelabs/sauce-playwright-runner)
-* [sauce-puppeteer-runner](https://github.com/saucelabs/sauce-puppeteer-runner)
-* [sauce-testcafe-runner](https://github.com/saucelabs/sauce-testcafe-runner)
+* [Cypress Demo](https://github.com/saucelabs/saucectl-cypress-example)
+* [TestCafe Demo](https://github.com/saucelabs/saucectl-testcafe-example)
+* [Playwright Demo](https://github.com/saucelabs/saucectl-playwright-example)

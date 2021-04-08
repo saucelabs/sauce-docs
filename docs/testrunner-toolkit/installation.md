@@ -1,6 +1,6 @@
 ---
 id: installation
-title: Testrunner Toolkit Installation and Setup
+title: Installing `saucectl`
 sidebar_label: Installation and Setup
 description: Run tests on Sauce using any framework in any language.
 ---
@@ -8,22 +8,23 @@ description: Run tests on Sauce using any framework in any language.
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifies user setup, speeds up test execution time and supports native Javascript frameworks like, [Cypress](https://github.com/cypress-io/cypress) and [TestCafe](https://devexpress.github.io/testcafe/), for running end-to-end web tests with [Sauce Labs](https://saucelabs.com/).
+The `saucectl` command line tool orchestrates the communication between Sauce Labs and your test framework.  
 
 ## What You'll Need
 
 * A [Sauce Labs](https://saucelabs.com/) account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
-* Install [Docker](https://docs.docker.com/get-docker/)
-    :::note
-    Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g. `docker info` works in your terminal / command prompt)
-    :::
 * Know which [test framework and browser versions](/testrunner-toolkit#supported-frameworks-and-browsers) you plan to run tests against
+* [Docker](https://docs.docker.com/get-docker/), if you plan to run tests locally
+
+:::note
+Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g. `docker info` works in your terminal / command prompt)
+:::
 
 ### System Requirements
 
-The system requirements to successfully run `saucectl` vary depending on whether you plan to run it locally via [`docker`](/testrunner-toolkit/running-tests#run-your-first-test), or remotely via [`sauce`](/testrunner-toolkit/running-tests#test-on-sauce-labs).
+You can run `saucectl` locally via Docker or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention.
 
-As a rule of thumb, your local system requirements should match the [Docker installation requirements](https://docs.docker.com/engine/install/#supported-platforms). Please use the reference below as a quick reference:
+As a rule of thumb, if you are planning to run in Docker, matching the [Docker installation requirements](https://docs.docker.com/engine/install/#supported-platforms) is likely adequate. Please use the reference below as a quick reference:
 
 <Tabs
   defaultValue="macos"
@@ -54,27 +55,30 @@ As a rule of thumb, your local system requirements should match the [Docker inst
 </Tabs>
 
 :::note
-Browser support depends on the chosen test framework, see [supported frameworks and browsers](/testrunner-toolkit#supported-frameworks-and-browsers) for more details.
+Browser support depends on the chosen [test framework](/testrunner-toolkit#supported-frameworks-and-browsers).
 :::
 
-## Installing Testrunner Toolkit
+## Installing `saucectl`
 
-There are multiple ways to install the Sauce Labs Testrunner Toolkit (colloquially known as `saucectl`):
+You can install `saucectl` using any of the following methods:
 
-* ```bash title="Using curl"
+```bash title="Use NPM"
+ npm install -g saucectl
+ ```
+
+ ```bash title="Using NPM and SAUCECTL_INSTALL_BINARY"
+  SAUCECTL_INSTALL_BINARY=https://company.domain.com/saucectl_0.32.2_mac_64-bit.tar.gz npm install -g saucectl
+  ```
+
+  :::tip
+  Use the `SAUCECTL_INSTALL_BINARY` environment variable to make `saucectl` available from a known source within your control or if you use `npx saucectl` to bypass installation.
+  :::
+
+```bash title="Use curl"
   curl -L https://saucelabs.github.io/saucectl/install | bash
   ```
 
-* ```bash title="Using NPM"
-  npm install -g saucectl
-  ```
-
-* ```bash title="Using NPM and SAUCECTL_INSTALL_BINARY"
-  SAUCECTL_INSTALL_BINARY=https://company.domain.com/saucectl_0.32.2_mac_64-bit.tar.gz npm install -g saucectl
-  ```
-Use the `SAUCECTL_INSTALL_BINARY` environment variable to make `saucectl` available from a known source within your control or if you use `npx saucectl` to bypass installation.
-
-* ```bash title="Using Homebrew (macOS)"
+ ```bash title="Using Homebrew (macOS)"
   brew tap saucelabs/saucectl
   brew install saucectl
   ```
@@ -88,18 +92,26 @@ chmod 700 get_saucectl.sh && \
 ```
 
 :::caution Are you using mingw?
-Mingw on Windows is known to interfere with `saucectl`, especially with interactive commands like `saucectl configure` or `saucectl new`.
-We therefore advise Windows users to simply use `cmd` or `powershell` when interacting with `saucectl`.
+Mingw on Windows is known to interfere with the interactive `saucectl` commands, so Windows users should use `cmd` or `powershell` when interacting with `saucectl`.
 :::
 
-## Connecting to Sauce Labs
+## Associating Your Sauce Labs Account
 
-Your Sauce Labs `username` and `accessKey` are required to post your test results to the Sauce Labs platform. You can obtain your credential values from the [User Settings](https://app.saucelabs.com/user-settings) page in the Sauce Labs app.
+Your Sauce Labs `username` and `accessKey` are required to post your test results to the Sauce Labs platform. These values are available in the [User Settings](https://app.saucelabs.com/user-settings) page in the Sauce Labs app.
 
+You can associate your Sauce Labs account with `saucectl` either by creating environment variables or by generating a `credentials.yml` file.
 
-### Using Environment Variables
+### Use `credentials.yml`
 
-For your convenience, consider setting your account credentials as environment variables. From the root of your project directory, enter the following:
+The `saucectl configure` command prompts you to manually enter your credentials if it cannot detect relevant environment variables, then generates a `credentials.yml` file in a `.sauce` directory in your home folder, which it will reference for subsequent `saucectl` operations that require authentication.
+
+```bash
+saucectl configure
+```
+
+### Use Environment Variables
+
+From the root of your project directory, enter the following to set your credentials as environment variables:
 
 ```bash
 SAUCE_USERNAME='valid.username'
@@ -107,44 +119,19 @@ SAUCE_ACCESS_KEY='valid.key'
 ```
 
 :::warning Protect your Credentials
-If you are using a cloud CI/CD tool, we strongly suggest protecting these values through secrets or context variables.
+Whether you are using environment variables or a credentials file, make sure your authentication data is protected. Use secrets or context variables to mask your environment variables, or add `credentials.yml` to your `gitignore` file to ensure your credentials are not exposed in your commits.
 :::
 
-For detailed instructions on how to set environment variables:
-* [Set Environment Variables with Windows 10](https://www.architectryan.com/2018/08/31/how-to-change-environment-variables-on-windows-10/)
-* [Set Environment Variables with MacOS](https://apple.stackexchange.com/questions/106778/how-do-i-set-environment-variables-on-os-x)
-* [Set Environment Variables with Linux](https://askubuntu.com/questions/58814/how-do-i-add-environment-variables)
 
+## Setting up a Working Directory
 
-### Using the Configure Command
-
-Testrunner Toolkit generally does a good job of detecting the presence of `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`, but to ensure you're properly authenticated, you can run the following optional command:
-
-```bash
-saucectl configure
-```
-
-This command prompts you to manually enter your credentials if it cannot detect any environment variables, then generates a `credentials.yml` file in a `.sauce` directory in your home folder.
-
-:::warning Protect your Credentials
-Add `credentials.yml` to your `.gitignore` file to ensure your credentials are not exposed in your commits.
-:::
-
-### Training
-
-See the tutorial and video on [setting up your Testrunner Toolkit environment](https:/training.saucelabs.com/testrunner/index.html) for more help.
-
-## Create a Configuration File
-
-:::tip
-If you already have existing tests, skip ahead to the [Running Tests](/testrunner-toolkit/running-tests) section.
-:::
-
-Follow the steps below to generate the following assets in your project's root directory:
+This process generates a set of dependencies that allow you to quickly set up a working test. At the end of this process, you will have a root directory with the following assets:
 
 * a config file (e.g. `.sauce/config.yml`)
-* the `tests` directory and other necessary files (e.g. `cypress.json` and `cypress/`)
-* an example test (e.g. `cypress/integration/example.test.js`)
+* a framework directory (e.g., `cypress`) and other relevant files (e.g. `cypress.json`)
+* an example test for the chosen framework (e.g. `cypress/integration/example.test.js`)
+
+If you already have working tests in your framework, you can skip this section and [run your tests](testrunner-toolkit/running-tests) in order to run your existing tests.
 
 1. Run the following command to generate a config file:
     ```bash
@@ -167,6 +154,41 @@ Follow the steps below to generate the following assets in your project's root d
     ```
 
 The configuration script confirms your setup and prompts you to execute the `saucectl run` command to begin testing.
+
+## Running a Sample Test
+
+The previous steps have set up a sample test environment that should allow you to run the example test in that directory to ensure `saucectl` can execute.
+
+```bash
+saucectl run
+```
+
+`saucectl` kicks off the example test in the framework directory you have created (e.g., `cypress/integration/example.test.js`), the output of which may look as follows:
+
+```bash
+$ saucectl run
+13:02:33 INF Running version 0.33.1
+13:02:33 INF Reading config file config=.sauce/config.yml
+13:02:33 INF Ignoring framework version for Docker, using provided image saucelabs/stt-cypress-mocha-node:v5.6.0 (only applicable to docker mode)
+13:02:33 INF Running Cypress in Sauce Labs
+13:02:33 INF Project archived. durationMs=1 size=1030
+13:02:33 INF Project uploaded. durationMs=864 storageId=09159989-ce03-4e96-b35e-a6aefed0ec10
+13:02:34 INF Launching workers. concurrency=2
+13:02:34 INF Starting suite. region=us-west-1 suite="saucy test"
+13:02:36 INF Suite started. suite="saucy test" url=https://app.saucelabs.com/tests/5cd88d35e91e4cddbb73eec7721d1bdc
+13:02:44 INF Suites in progress: 1
+13:02:54 INF Suites in progress: 1
+13:03:04 INF Suites in progress: 1
+13:03:14 INF Suites in progress: 1
+13:03:21 INF Suite finished. passed=true suite="saucy test" url=https://app.saucelabs.com/tests/5cd88d35e91e4cddbb73eec7721d1bdc
+13:03:21 INF ┌───────────────────────┐
+13:03:21 INF  All suites have passed!
+13:03:21 INF └───────────────────────┘
+~ $
+```
+
+Once the test completes, you can view the test assets when you log into your Sauce Labs dashboard.
+
 
 ## Next Steps
 
