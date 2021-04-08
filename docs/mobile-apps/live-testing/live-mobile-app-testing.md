@@ -332,7 +332,7 @@ Camera Image Injection is a core feature built into our RDC functionality and av
 * Testing with emulators, simulators
 
 ### What You'll Need
-You'll need to upload your app to Sauce Labs prior to testing (see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing.md).
+You'll need to upload your app to Sauce Labs prior to testing (see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing.md)).
 
 ### Testing with Camera Image Injection
 1. In Sauce Labs, click **LIVE** and then click **Mobile App**.
