@@ -1,8 +1,15 @@
 ---
 id: virtual-usb
 title: Virtual USB CLI Reference
-sidebar_label: Virtual USB
+sidebar_label: Full Reference
 ---
+
+export const Highlight = ({children, color}) => ( <span style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>{children}</span> );
 
 The following commands and options are specifically use with the Virtual USB (vUSB) client test runner. For more information, see [Virtual USB Testing on Real Mobile Devices](/mobile-apps/virtual-usb).
 
@@ -15,9 +22,11 @@ The formatting for vUSB command lines is as follows: `<main class> [options] [co
 java -jar virtual-usb-client-2.0.0.jar --help
 ```
 
-## Start Server (Required)
+## `server`
 
-### `server` `--datacenter`
+### `--datacenter`
+<p><small><Highlight color="#003A70">Required</Highlight></small></p>
+
 __Description__: connects your local machine to a Sauce Labs Data Center, where your Real Device Cloud tests will run. Possible values: `EU` or `US`.
 
 __Example__:
@@ -162,7 +171,7 @@ __Description__: Virtual USB server host. Default value: `http://127.0.0.1`.
 ### `--serverPort`
 __Description__: Virtual USB server port. Default value: `33657`.
 
-## Log Options
+## Logging Options
 
 ### `--help`
 __Description__: generates a complete list of Virtual USB commands and options.
