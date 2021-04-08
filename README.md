@@ -22,7 +22,8 @@ __Table of Contents__
 1. [Prerequisites](#prerequisites)
 2. [Installation](#installation)
 3. [Local Development](#local-development)
-4. [Contributing](#contributing)
+	1. [Building the Website](#building-the-website)
+5. [Contributing](#contributing)
 
 ## Prerequisites
 
@@ -48,25 +49,33 @@ __Table of Contents__
 * Install the dependencies:
 
 	```
-	yarn install
+	npm install
 	```
-
-    > If you have trouble with `yarn`, you can try `npm install` instead.
 
 ## Local Development
 
-* Start the website:
+* Serve the website locally (without Algolia API Key):
+
+   ```
+   npm run dev
+   ```
+
+	This command builds the site and serves it on your machine's host (http://localhost:3000) and requires no [Algolia API key](https://github.com/saucelabs/sauce-docs/blob/master/docusaurus.config.js#L150-L156).
+	
+* Start the website locally (with Algolia API Key):
 
 	```
-	yarn start
+	npm run start
 	```
 
 	This command starts a local development server and open up a browser window (http://localhost:3000). Most changes perform live updates to your server without having to restart.
 
+### Building the Website
+
 * Build the website:
 
 	```
-	yarn build
+	npm run build
 	```
 
 	This command gathers the static content and places them in a `build` directory; which is compatible with most static content hosting services.
@@ -74,18 +83,10 @@ __Table of Contents__
 * Serve the website:
 
 	```
-	yarn serve
+	npm run serve
 	```
 
 	This command builds the site and serves it on your machine's host (http://localhost:3000).
-
-* Serve the website locally:
-
-   ```
-   yarn run dev
-   ```
-
-	This command builds the site and serves it on your machine's host (http://localhost:3000) and requires no API key.
 
 
 

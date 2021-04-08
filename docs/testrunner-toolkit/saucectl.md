@@ -53,8 +53,6 @@ saucectl run
 
 ### `ccy`
 
-<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight></small></p>
-
 __Description__: Increases your Sauce Labs VM concurrency when [running tests remotely on the Sauce Labs Cloud](/testrunner-toolkit/running-tests#test-on-sauce-labs).
                                                                                                                                                                        
 
@@ -137,7 +135,7 @@ saucectl run --timeout <seconds>
 
 ### `tunnel-id`
 
-<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
+<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small></p>
 
 __Description__: Sets the tunnel id for a given test run and the chosen [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
 
@@ -148,7 +146,7 @@ saucectl run --tunnel-id <tunnel-id>
 
 ### `tunnel-parent`
 
-<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
+<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small></p>
 
 __Description__: Sets the tunnel parent for a given test run and the chosen [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
 
@@ -161,7 +159,8 @@ saucectl run --tunnel-id <tunnel-id> --tunnel-parent <tunnel-parent>
 
 
 ### `dry-run`
-<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
+
+<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small></p>
 
 __Description__: Simulate a test run without actually running any tests.
 
