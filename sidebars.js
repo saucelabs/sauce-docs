@@ -175,6 +175,7 @@ module.exports = {
             'api-testing/quick-start/environments-vault-and-overrides-magic',
             'api-testing/quick-start/setup-connectors',
             'api-testing/quick-start/the-vault',
+            'api-testing/quick-start/using-the-example-snippets',
             'api-testing/quick-start/importing-postman-collections',
             'api-testing/quick-start/load-testing',
             'api-testing/quick-start/mocking-services',
