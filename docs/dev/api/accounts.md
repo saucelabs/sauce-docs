@@ -957,7 +957,7 @@ Replaces all values of the specified user profile with the new set of parameters
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up a user's ID using the [Get Users](#get-users) endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the [Get Users](#get-users) endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1056,7 +1056,120 @@ curl --location --request PUT 'https://api.staging.saucelabs.net/team-management
 
 ### Partially Update a User
 
-`PATCH	 /team-management/v1/users/<USERNAME>/`
+<details><summary><span className="apiPatch">PATCH</span> <code>/team-management/v1/users/&#123;user_id&#125;</code></summary>
+<p/>
+
+Allows you to update individual user values without replacing the entire profile.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>user_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user to update. You can look up a user's ID using the [Get Users](#get-users) endpoint.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>first_name</code></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The user's first name.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>last_name</code></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The user's last name.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>email</code></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The user's contact email address.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>password</code></td>
+      <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A login password for the new user. The password requirements are: </p><p>
+      <ul>
+        <li>1 lowercase letter</li>
+        <li>1 uppercase letter</li>
+        <li>1 digit</li>
+        <li>1 special character</li>
+        <li>8 characters minimum</li>
+        <li>No blank spaces</li>
+      </ul></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>verify_password</code></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A confirmation of the password. If the <code>password</code> parameter is included in the call, this parameter is required and the values for both must match.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+```jsx title="Sample Request"
+curl --location --request PUT 'https://api.staging.saucelabs.net/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic USERNAME:ACCESS_KEY=' \
+--data-raw '{
+    "first_name": "Jimmy"
+}'
+```
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. User updated.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>401</code></td>
+    <td colSpan='2'>Unauthorized.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Bad request.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Failed Response"
+{
+    "id": "e5be7513ba224f6f9463c209cb4c5d83",
+    "username": "jsmith",
+    "email": "jsmith@icloud.com.com",
+    "first_name": "Jimmy",
+    "last_name": "Smith",
+    "is_active": true,
+    "created_at": "2020-10-05T16:21:06.021260Z",
+    "updated_at": "2021-04-09T14:22:43.884794Z",
+    "teams": [...],
+    "roles": [...],
+    "organization": {...}
+    },
+    "is_organization_admin": true,
+    "is_team_admin": false
+}
+```
+</details>
+
+---
+
 
 ### Get a User's Team
 
