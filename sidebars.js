@@ -577,6 +577,34 @@ module.exports = {
             },
           'dev/cli/sauce-connect-proxy',
             {
+                type: 'category',
+                label: 'Virtual USB',
+                collapsed: true,
+                items: [
+                    'dev/cli/virtual-usb',
+                    'dev/cli/virtual-usb/start-server',
+                    'dev/cli/virtual-usb/start-test-session',
+                    'dev/cli/virtual-usb/connect',
+                    'dev/cli/virtual-usb/disconnect',
+                    'dev/cli/virtual-usb/delete',
+                    'dev/cli/virtual-usb/sessions',
+                ],
+            },
+            {
+                type: 'category',
+                label: 'Virtual USB',
+                collapsed: true,
+                items: [
+                    'dev/cli/virtual-usb',
+                    'dev/cli/virtual-usb/start-server',
+                    'dev/cli/virtual-usb/start-test-session',
+                    'dev/cli/virtual-usb/connect',
+                    'dev/cli/virtual-usb/disconnect',
+                    'dev/cli/virtual-usb/delete',
+                    'dev/cli/virtual-usb/sessions',
+                ],
+            },
+            {
                 type: 'link',
                 label: 'Sauce CTL', // The label that should be displayed (string).
                 href: '/testrunner-toolkit/saucectl' // The target URL (string).

@@ -82,6 +82,7 @@ $> export HTTPS_PROXY=http://my.proxy.org:3128/
 $> saucectl run -e HTTP_PROXY=${HTTP_PROXY} -e HTTPS_PROXY=${HTTPS_PROXY} --test-env docker
 ```
 
+
 ## What is the maximum execution time of TestCafe tests?
 
 Execution time for TestCafe tests is limited to a maximum of 30 minutes. If the limit is exceeded, the test terminates and Sauce Control uploads assets (videos, screenshots, logs, etc..) to the Sauce Labs platform.
