@@ -1170,17 +1170,81 @@ curl --location --request PUT 'https://api.staging.saucelabs.net/team-management
 
 ---
 
-
 ### Get a User's Team
 
-`GET	 /team-management/v1/users/<USERNAME>/teams/`
+<details><summary><span className="apiGet">GET</span> <code>/team-management/v1/users/&#123;user_id&#125;/teams/</code></summary>
+<p/>
+
+Returns the number of teams a user belongs to and provides information about each team, including whether it is the default and its concurrency settings.
+
+:::note
+At this time, users may only belong to a maximum of one team.
+:::
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>user_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the [Get Users](#get-users) endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+```jsx title="Sample Request"
+curl --location --request GET 'https://api.staging.saucelabs.net/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/teams/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+```
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. </td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+    "links": {...},
+    "count": 1,
+    "results": [
+        {
+            "id": "************",
+            "name": "Sauce-Docs",
+            "settings": {
+                "virtual_machines": 25,
+                "real_devices": 0,
+                "live_only": false
+            },
+            "group": {},
+            "is_default": false,
+            "org_uuid": "************"
+        }
+    ]
+}
+```
+</details>
+
+---
 
 ### Subscribe a User to a Team
 
 <details><summary><span className="apiPost">POST</span> <code>/team-management/v1/membership/</code></summary>
 <p/>
 
-Add a user as a member of a specific team. Users can only belong to one team, so if the user is a member of another team, this call will remove them from that team. Also, By default, the user will not have team-admin privileges, even if they did on a prior team.
+Set a user's team affiliation. Users are limited to one team affiliation, so if the user is already a member of a different team, this call will remove them from that team. Also, By default, the user will not have team-admin privileges, even if they did on a prior team.
 
 #### Parameters
 
@@ -1197,23 +1261,17 @@ Add a user as a member of a specific team. Users can only belong to one team, so
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The identifier of the team to which the user will be added. You can look up the ID of a team in your organization using the [Get Teams](#get-teams) endpoint.</p></td>
     </tr>
   </tbody>
-  <tbody>
-    <tr>
-     <td><code>organization</code></td>
-     <td><p><small>| PATH | OPTIONAL | STRING |</small></p><p>The identifier of the organization of the team, if it is a different organization than the requesting account.</p></td>
-    </tr>
-  </tbody>
 </table>
 
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/membership/' \
+curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/users/membership/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $$*(())***' \
+--header 'Authorization: Basic USERNAME:ACCESS_KEY' \
 --data-raw '{
-    "user": "58225e095748438b95dfc5daa8f5d762",
-    "team": "725d4b8d4aa046e7b9b81305cfd2e03f"
-  }'
+    "user": "e5be7513ba224f6f9463c209cb4c5d83",
+    "team": "80d69d16ebdb4c018cc9d81ea911761a"
+}'
 ```
 
 #### Responses
@@ -1222,7 +1280,13 @@ curl --location --request POST 'https://api.staging.saucelabs.net/team-managemen
 <tbody>
   <tr>
     <td><code>200</code></td>
-    <td colSpan='2'>Success. Team membership set.</td>
+    <td colSpan='2'>Success. User assigned Org Admin role.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Bad Request.</td>
   </tr>
 </tbody>
 <tbody>
@@ -1235,54 +1299,192 @@ curl --location --request POST 'https://api.staging.saucelabs.net/team-managemen
 
 ```jsx title="Sample Response"
 {
-    "id": 31321,
+    "id": 28099,
     "user": {
-        "id": "58225e095748438b95dfc5daa8f5d762",
-        "username": "jsmith",
-        "email": "jsmith@saucelabs.com",
-        "first_name": "Jonah",
-        "last_name": "Smith",
+        "id": "e5be7513ba224f6f9463c209cb4c5d83",
+        "username": "nancy.sweeney",
+        "email": "nancy.sweeney@saucelabs.com",
+        "first_name": "Casey",
+        "last_name": "Sweeney",
         "is_active": true,
-        "created_at": "2020-11-05T16:47:30.077314Z",
-        "updated_at": "2020-11-05T16:47:35.243781Z",
+        "created_at": "2020-10-05T16:21:06.021260Z",
+        "updated_at": "2021-04-09T14:22:43.884794Z",
         "teams": [
             {
-                "id": "725d4b8d4aa046e7b9b81305cfd2e03f",
-                "name": "qa-docs",
-                "settings": {...},
-                "group": {...},
+                "id": "80d69d16ebdb4c018cc9d81ea911761a",
+                "name": "Sauce-Docs",
+                "settings": {
+                    "virtual_machines": 25,
+                    "real_devices": 0,
+                    "live_only": false
+                },
+                "group": {},
                 "is_default": false,
-                "org_uuid": ""
+                "org_uuid": "***********"
             }
         ],
-        "roles": [
-            {
-                "name": "member",
-                "role": 3
-            }
-        ],
-        "is_staff": false,
+        "roles": [...],
+        "is_staff": true,
         "is_superuser": false,
-        "user_type": "subaccount",
-        "groups": [...],
+        "user_type": "admin",
+        "groups": [],
         "organization": {...},
-        "is_organization_admin": false,
-        "is_team_admin": false
-    },
     "team": {
-        "id": "725d4b8d4aa046e7b9b81305cfd2e03f",
-        "name": "qa-docs",
+        "id": "80d69d16ebdb4c018cc9d81ea911761a",
+        "name": "Sauce-Docs",
         "organization": {...},
         "group": {...},
-        "created_at": "2021-04-02T15:13:38.126016Z",
-        "updated_at": "2021-04-02T15:13:38.126042Z",
+        "created_at": "2020-12-30T17:09:12.473388Z",
+        "updated_at": "2020-12-30T17:09:12.473415Z",
         "settings": {...},
-        "description": "Docs QA Team",
+        "description": "Tech Content API Testing",
         "is_default": false,
-        "links": {...}
+        "links": {}
     },
-    "created_at": "2021-04-05T19:28:18.271147Z",
-    "updated_at": "2021-04-05T19:28:18.271203Z"
+    "created_at": "2020-12-30T17:21:52.344918Z",
+    "updated_at": "2020-12-30T17:21:52.344961Z"
+}
+```
+</details>
+
+---
+
+### Assign a User Org Admin Rights
+
+<details><summary><span className="apiPost">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/set-admin/</code></summary>
+<p/>
+
+Assigns administrator rights to the user within their organization. Organization Admins automatically have Team Admin rights in all the teams in the Organization.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>user_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the [Get Users](#get-users) endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+```jsx title="Sample Request"
+curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-admin/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+```
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. </td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response" {11-16,22}
+{
+    "id": "631dfdc7c20f499e9f9de19680543c35",
+    "username": "jsmith",
+    "email": "jsmith@icloud.com.com",
+    "first_name": "Jim",
+    "last_name": "Smith",
+    "is_active": true,
+    "created_at": "2021-04-06T16:35:02.047237Z",
+    "updated_at": "2021-04-09T15:37:20.278491Z",
+    "teams": [...],
+    "roles": [
+        {
+            "name": "organization admin",
+            "role": 1
+        }
+    ],
+    "is_staff": false,
+    "is_superuser": false,
+    "user_type": "subaccount",
+    "groups": [...],
+    "organization": {...},
+    "is_organization_admin": true,
+    "is_team_admin": false
+}
+```
+</details>
+
+---
+
+### Assign a User Team Admin Rights
+
+<details><summary><span className="apiPost">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/set-team-admin/</code></summary>
+<p/>
+
+Assigns administrator rights to the user within their current team. If the user is currently assigned an Org Admin role, this call would reduce the rights to only those of a Team Admin.
+
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>user_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the [Get Users](#get-users) endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+```jsx title="Sample Request"
+curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-team-admin/' \
+--header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+```
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. </td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response" {11-16,23}
+{
+    "id": "631dfdc7c20f499e9f9de19680543c35",
+    "username": "jsmith",
+    "email": "jsmith@icloud.com.com",
+    "first_name": "Jim",
+    "last_name": "Smith",
+    "is_active": true,
+    "created_at": "2021-04-06T16:35:02.047237Z",
+    "updated_at": "2021-04-09T15:37:20.278491Z",
+    "teams": [...],
+    "roles": [
+        {
+            "name": "team admin",
+            "role": 4
+        }
+    ],
+    "is_staff": false,
+    "is_superuser": false,
+    "user_type": "subaccount",
+    "groups": [...],
+    "organization": {...},
+    "is_organization_admin": false,
+    "is_team_admin": true
 }
 ```
 </details>
@@ -1290,8 +1492,79 @@ curl --location --request POST 'https://api.staging.saucelabs.net/team-managemen
 ---
 
 
+### Remove Admin Rights from User
 
-### Retrieve a User's Access Key
+<details><summary><span className="apiPost">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/set-member/</code></summary>
+<p/>
+
+Assigns the `member` role to the user. If the user is currently assigned any Admin rights, this call removes those rights.
+
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>user_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the [Get Users](#get-users) endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+```jsx title="Sample Request"
+curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-team-admin/' \
+--header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+```
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. </td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response" {11-16,22-23}
+{
+    "id": "631dfdc7c20f499e9f9de19680543c35",
+    "username": "jsmith",
+    "email": "jsmith@icloud.com.com",
+    "first_name": "Jim",
+    "last_name": "Smith",
+    "is_active": true,
+    "created_at": "2021-04-06T16:35:02.047237Z",
+    "updated_at": "2021-04-09T15:37:20.278491Z",
+    "teams": [...],
+    "roles": [
+        {
+            "name": "member",
+            "role": 3
+        }
+    ],
+    "is_staff": false,
+    "is_superuser": false,
+    "user_type": "subaccount",
+    "groups": [...],
+    "organization": {...},
+    "is_organization_admin": false,
+    "is_team_admin": false
+}
+```
+</details>
+
+---
+
+
+### Get a User's Access Key
 
 `GET	 /team-management/v1/users/<USERNAME>/access-key/`
 
@@ -1308,18 +1581,6 @@ curl --location --request POST 'https://api.staging.saucelabs.net/team-managemen
 
 `POST	 /team-management/v1/users/<USERNAME>/deactivate/`
 
-### Assign a User Org Admin Rights
-
-`POST	 /team-management/v1/users/<USERNAME>/set-admin/`
-
-### Assign a User Team Admin Rights
-
-`POST	 /team-management/v1/users/<USERNAME>/set-team-admin/`
-
-
-### Remove Admin Rights from User
-
-`POST	 /team-management/v1/users/<USERNAME>/set-member/`
 
 
 
