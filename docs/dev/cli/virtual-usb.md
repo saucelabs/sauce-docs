@@ -14,7 +14,7 @@ The command line structure for all vUSB requests is as follows:
 
 :::tip
 
-Use --help to view the full list of available commands and options. The synopsis for each command shows its parameters and their usage.:
+You can also view the full list of vUSB commands and options directly in your CLI by running the `--help` flag. The description for each command shows its parameters and their usage:
 ```java
-java -jar virtual-usb-client-2.0.0.jar --help
+java -jar virtual-usb-client --help
 ```
