@@ -587,7 +587,8 @@ module.exports = {
                     'dev/cli/virtual-usb/connect-session',
                     'dev/cli/virtual-usb/disconnect-session',
                     'dev/cli/virtual-usb/delete-session',
-                    'dev/cli/virtual-usb/find-session-id',
+                    'dev/cli/virtual-usb/find-sessionid',
+
                 ],
             },
             {
