@@ -120,7 +120,7 @@ Browser support or each framework is based on the Sauce Labs docker images provi
 
 The rest of the Testrunner Toolkit documentation will guide you through the process of installing and configuring the `saucectl` command line, and then using it to run your tests in the way that best suits your current development process. At a high level, you will:
 
-1. [Download and install `saucectl`](tesstrunner-toolkit/installation).
+1. [Download and install `saucectl`](testrunner-toolkit/installation).
 1. Generate and configure your `saucectl` working directory.
 1. Run a sample test to verify functionality.
 
