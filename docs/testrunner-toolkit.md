@@ -53,7 +53,8 @@ Each docker image tag is the 'latest' image that supports the specific framework
     values={[
       {"label":"Cypress","value":"cypress"},
       {"label":"Playwright","value":"playwright"},
-      {"label":"TestCafe","value":"testcafe"}
+      {"label":"TestCafe","value":"testcafe"},
+      {"label":"Espresso","value":"espresso"}
     ]}>
 <TabItem value="cypress">
 
@@ -83,7 +84,16 @@ Each docker image tag is the 'latest' image that supports the specific framework
 |TestCafe Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
 |1.11.0|macOS 11.00|Safari, Chrome, Firefox, MicrosoftEdge|
+|1.11.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |1.10.1|Windows 10|Chrome, Firefox, MicrosoftEdge|
+
+</TabItem>
+<small><span className='preview'>PREVIEW</span></small>
+<TabItem value="espresso">
+
+|Supported Platforms|
+|-----|
+|Android 5.1+|
 
 </TabItem>
 </Tabs>
