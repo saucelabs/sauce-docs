@@ -517,6 +517,7 @@ module.exports = {
                   'testrunner-toolkit/configuration/playwright',
                   'testrunner-toolkit/configuration/puppeteer',
                   'testrunner-toolkit/configuration/testcafe',
+                  'testrunner-toolkit/configuration/espresso',
               ],
           },
           'testrunner-toolkit/running-tests',
