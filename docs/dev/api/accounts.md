@@ -1566,22 +1566,257 @@ curl --location --request POST 'https://api.staging.saucelabs.net/team-managemen
 
 ### Get a User's Access Key
 
-`GET	 /team-management/v1/users/<USERNAME>/access-key/`
+<details><summary><span className="apiGet">GET</span> <code>/team-management/v1/users/&#123;user_id&#125;/access-key/</code></summary>
+<p/>
+
+Retrieves the Sauce Labs access key for the specified user.
+
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>user_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the [Get Users](#get-users) endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+```jsx title="Sample Request"
+curl --location --request GET 'https://api.staging.saucelabs.net/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/access-key' \
+--header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+```
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. </td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+    "id": "631dfdc7c20f499e9f9de19680543c35",
+    "username": "jsmith",
+    "access_key": "********-****-****-****-************"
+}
+```
+</details>
+
+---
+
 
 ### Reset a User's Access Key
 
-`GET	 /team-management/v1/users/<USERNAME>/reset-access-key/`
+<details><summary><span className="apiPost">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/reset-access-key/</code></summary>
+<p/>
+
+Creates a new auto-generated access key for the specified user.
+
+:::warning
+Regenerating an access key invalidates the previous value and any tests containing the prior value will fail, so make sure you update any tests and credential environment variables with the new value.
+:::
+
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>user_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the [Get Users](#get-users) endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+```jsx title="Sample Request"
+curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/reset-access-key' \
+--header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+```
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. </td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+    "id": "631dfdc7c20f499e9f9de19680543c35",
+    "username": "jsmith",
+    "access_key": "********-****-****-****-************"
+}
+```
+</details>
+
+---
+
+### Deactivate a User
+
+<details><summary><span className="apiPost">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/deactivate/</code></summary>
+<p/>
+
+Suspends the specified user's account, preventing all access to Sauce Labs while deactivated.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>user_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the [Get Users](#get-users) endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+```jsx title="Sample Request"
+curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/deactivate' \
+--header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+```
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. </td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>403</code></td>
+    <td colSpan='2'>Forbidden.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response" {7}
+{
+    "id": "631dfdc7c20f499e9f9de19680543c35",
+    "username": "jsmith",
+    "email": "jsmith@icloud.com.com",
+    "first_name": "Jim",
+    "last_name": "Smith",
+    "is_active": false,
+    "created_at": "2021-04-06T16:35:02.047237Z",
+    "updated_at": "2021-04-12T16:37:31.370711Z",
+    "teams": [...],
+    "roles": [...],
+    "is_staff": false,
+    "is_superuser": false,
+    "user_type": "subaccount",
+    "groups": [...],
+    "organization": {...}
+    },
+    "is_organization_admin": false,
+    "is_team_admin": false
+}
+```
+</details>
+
+---
 
 
 ### Activate a User
 
-`POST	 /team-management/v1/users/<USERNAME>/activate/`
+<details><summary><span className="apiPost">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/activate/</code></summary>
+<p/>
 
-### Deactivate a User
+Re-activates the specified user's account, if it had been previously deactivated.
 
-`POST	 /team-management/v1/users/<USERNAME>/deactivate/`
+#### Parameters
 
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>user_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the [Get Users](#get-users) endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
 
+```jsx title="Sample Request"
+curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/activate' \
+--header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+```
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. </td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>403</code></td>
+    <td colSpan='2'>Forbidden.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response" {7}
+{
+    "id": "631dfdc7c20f499e9f9de19680543c35",
+    "username": "jsmith",
+    "email": "jsmith@icloud.com.com",
+    "first_name": "Jim",
+    "last_name": "Smith",
+    "is_active": true,
+    "created_at": "2021-04-06T16:35:02.047237Z",
+    "updated_at": "2021-04-12T16:37:31.370711Z",
+    "teams": [...],
+    "roles": [...],
+    "is_staff": false,
+    "is_superuser": false,
+    "user_type": "subaccount",
+    "groups": [...],
+    "organization": {...}
+    },
+    "is_organization_admin": false,
+    "is_team_admin": false
+}
+```
+</details>
+
+---
 
 
 
@@ -1591,9 +1826,9 @@ The set of methods defined in this section are applicable to customers who have 
 
 ### Get User
 
-Retrieve the profile of the specified user account.
+<details><summary><span className="apiGet">GET</span> <code>/rest/v1/users/&#123;username&#125;</code></summary><p/>
 
-<details><summary><span className="apiGet">GET</span> <code>/rest/v1/users/&#123;username&#125;</code></summary>
+Retrieves the profile of the specified user account.
 
 #### Parameters
 
@@ -1633,9 +1868,9 @@ curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith
 
 ### Create a Subaccount
 
-This method creates a subaccount.
+<details><summary><span className="apiPost">POST</span> <code>/rest/v1/users/&#123;username&#125;</code></summary><p/>
 
-<details><summary><span className="apiPost">POST</span> <code>/rest/v1/users/&#123;username&#125;</code></summary>
+Creates a new subaccount under the account of the requestor.
 
 :::note Use Team Management
 If your organization uses Team Management, this method is deprecated. See [Create User](#xtm-create-user).
@@ -1722,9 +1957,10 @@ curl -X POST -u API_USERNAME:API_ACCESS_KEY \
 
 ### Get List of Subaccounts
 
-This method returns a list of subaccounts associated with the account specified in the request.
+<details><summary><span className="apiGet">GET</span> <code>/rest/v1/users/&#123;username&#125;/list-subaccounts</code></summary><p/>
 
-<details><summary><span className="apiGet">GET</span> <code>/rest/v1/users/&#123;username&#125;/list-subaccounts</code></summary>
+Returns a list of subaccounts associated with the account specified in the request.
+
 
 #### Parameters
 
@@ -1776,9 +2012,10 @@ curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/list-suba
 
 ### Get Subaccount Information
 
-This method returns the profile of the subaccount user specified in the request, as well as a list of sibling subaccounts.
+<details><summary><span className="apiGet">GET</span> <code>/rest/v1/users/&#123;username&#125;/subaccounts</code></summary><p/>
 
-<details><summary><span className="apiGet">GET</span> <code>/rest/v1/users/&#123;username&#125;/subaccounts</code></summary>
+Returns the profile of the subaccount user specified in the request, as well as a list of sibling subaccounts.
+
 
 #### Parameters
 
@@ -1820,9 +2057,9 @@ curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/subaccoun
 
 ### Get List of Sibling Accounts
 
-This method gets a list of accounts that belong to the same parent account as the one specified in the request.
+<details><summary><span className="apiGet">GET</span> <code>/rest/v1/users/&#123;username&#125;/list-subaccounts</code></summary><p/>
 
-<details><summary><span className="apiGet">GET</span> <code>/rest/v1/users/&#123;username&#125;/list-subaccounts</code></summary>
+Returns a list of accounts that belong to the same parent account as the one specified in the request.
 
 #### Parameters
 
@@ -1875,9 +2112,9 @@ curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/siblings
 
 ### Update Access Key
 
-This method creates a new auto-generated access key for the specified user.
+<details><summary><span className="apiPost">POST</span> <code>/rest/v1/users/&#123;username&#125;/accesskey/change</code></summary><p/>
 
-<details><summary><span className="apiPost">POST</span> <code>/rest/v1/users/&#123;username&#125;/accesskey/change</code></summary>
+This method creates a new auto-generated access key for the specified user.
 
 :::warning
 Regenerating an access key invalidates the previous value and any tests containing the prior value will fail, so make sure you edit any tests and credential environment variables with the new value.
