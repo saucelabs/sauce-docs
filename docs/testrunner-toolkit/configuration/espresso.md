@@ -80,7 +80,9 @@ __Example__:
 
 __Description__: Screen orientation. 
 
-__Type__: *string*
+__Type__: *enum*
+
+__Values__: *portrait*, *ladscape*
 
 __Example__:
 ```yaml
