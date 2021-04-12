@@ -583,25 +583,12 @@ module.exports = {
                 items: [
                     'dev/cli/virtual-usb',
                     'dev/cli/virtual-usb/start-server',
-                    'dev/cli/virtual-usb/start-test-session',
-                    'dev/cli/virtual-usb/connect',
-                    'dev/cli/virtual-usb/disconnect',
-                    'dev/cli/virtual-usb/delete',
-                    'dev/cli/virtual-usb/sessions',
-                ],
-            },
-            {
-                type: 'category',
-                label: 'Virtual USB',
-                collapsed: true,
-                items: [
-                    'dev/cli/virtual-usb',
-                    'dev/cli/virtual-usb/start-server',
-                    'dev/cli/virtual-usb/start-test-session',
-                    'dev/cli/virtual-usb/connect',
-                    'dev/cli/virtual-usb/disconnect',
-                    'dev/cli/virtual-usb/delete',
-                    'dev/cli/virtual-usb/sessions',
+                    'dev/cli/virtual-usb/start-session',
+                    'dev/cli/virtual-usb/connect-session',
+                    'dev/cli/virtual-usb/disconnect-session',
+                    'dev/cli/virtual-usb/delete-session',
+                    'dev/cli/virtual-usb/find-sessionid',
+
                 ],
             },
             {

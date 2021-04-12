@@ -873,6 +873,12 @@ ul.dropdown__menu li a:hover {
       flex: 0 100%;
       padding: 5px 0 5px 0;
     }
+    .preview {
+        background:#01c3a5;
+        color: #FFFFFF;
+        padding:.2rem;
+        font-weight:600;
+    }
     /*.navbar__inner {*/
     /*  width: inherit!important;*/
     /*  display: inline-block;*/

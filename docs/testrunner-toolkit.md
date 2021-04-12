@@ -10,6 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Testrunner Toolkit is a containerized testing solution that allows you to get the benefits of the Sauce Labs platform while maintaining your test suites in your favorite framework.  
 
+
 ## How it Works
 
 At the heart of the toolkit is the `saucectl` command line, which performs the underlying business logic to access the tests in your existing framework, run them (either in the Sauce Labs Cloud or locally in a Docker image), then securely transmit the test assets to the Sauce Labs platform, where you can review, share, and evaluate your test outcomes at scale.
@@ -24,7 +25,6 @@ The toolkit currently supports:
 * [Puppeteer](https://github.com/puppeteer)
 * [Espresso](https://developer.android.com/training/testing/espresso)
 
-
 ### Supported Frameworks in Sauce Cloud
 
 <Tabs
@@ -33,7 +33,7 @@ The toolkit currently supports:
       {"label":"Cypress","value":"cypress"},
       {"label":"Playwright","value":"playwright"},
       {"label":"TestCafe","value":"testcafe"},
-      {"label":"Espresso","value":"espresso"},
+      {"label":"Espresso","value":"espresso"}
     ]}>
 <TabItem value="cypress">
 <small><span className='preview'>PREVIEW</span></small>
@@ -56,7 +56,6 @@ The toolkit currently supports:
 
 |Puppeteer Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
-
 
 </TabItem>
 <TabItem value="testcafe">
