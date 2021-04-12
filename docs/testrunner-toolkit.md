@@ -62,6 +62,7 @@ The toolkit currently supports:
 |TestCafe Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
 |1.11.0|macOS 11.00|Safari, Chrome, Firefox, MicrosoftEdge|
+|1.11.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |1.10.1|Windows 10|Chrome, Firefox, MicrosoftEdge|
 
 </TabItem>
