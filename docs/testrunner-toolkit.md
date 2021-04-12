@@ -4,17 +4,15 @@ title: Using Testrunner Toolkit
 sidebar_label: Using Testrunner Toolkit
 ---
 
-<span className="sauceGold">BETA FEATURE</span><p/>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-Testrunner Toolkit is a containerized testing solution that allows you to get the benefits of the Sauce Labs platform while maintaining your test suites in your favorite JavaScript framework.  
+Testrunner Toolkit is a containerized testing solution that allows you to get the benefits of the Sauce Labs platform while maintaining your test suites in your favorite framework.  
 
 ## How it Works
 
-At the heart of the toolkit is the `saucectl` command line, which performs the underlying business logic to access the tests in your existing JavaScript framework, run them (either in the Sauce Labs Cloud or locally in a Docker image), then securely transmit the test assets to the Sauce Labs platform, where you can review, share, and evaluate your test outcomes at scale.
+At the heart of the toolkit is the `saucectl` command line, which performs the underlying business logic to access the tests in your existing framework, run them (either in the Sauce Labs Cloud or locally in a Docker image), then securely transmit the test assets to the Sauce Labs platform, where you can review, share, and evaluate your test outcomes at scale.
 
 ## Supported Frameworks and Browsers
 
@@ -23,6 +21,8 @@ The toolkit currently supports:
 * [Cypress](https://github.com/cypress-io/cypress)
 * [Playwright](https://github.com/microsoft/playwright)
 * [TestCafe](https://github.com/DevExpress/testcafe)
+* [Puppeteer](https://github.com/puppeteer)
+* [Espresso](https://developer.android.com/training/testing/espresso)
 
 
 ### Supported Frameworks in Sauce Cloud
@@ -32,9 +32,11 @@ The toolkit currently supports:
     values={[
       {"label":"Cypress","value":"cypress"},
       {"label":"Playwright","value":"playwright"},
-      {"label":"TestCafe","value":"testcafe"}
+      {"label":"TestCafe","value":"testcafe"},
+      {"label":"Espresso","value":"espresso"},
     ]}>
 <TabItem value="cypress">
+<small><span className='preview'>PREVIEW</span></small>
 
 |Cypress Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
@@ -66,6 +68,14 @@ The toolkit currently supports:
 |1.10.1|Windows 10|Chrome, Firefox, MicrosoftEdge|
 
 </TabItem>
+<TabItem value="espresso">
+<small><span className='preview'>PREVIEW</span></small>
+
+|Supported Platforms|
+|-----|
+|Android 5.1+|
+
+</TabItem>
 </Tabs>
 
 
@@ -79,6 +89,7 @@ Browser support or each framework is based on the Sauce Labs docker images provi
     {label: 'Cypress', value: 'cypress'},
     {label: 'Playwright', value: 'playwright'},
     {label: 'TestCafe', value: 'testcafe'},
+    {label: 'Puppeteer', value: 'puppeteer'},
   ]}>
 
 <TabItem value="cypress">
@@ -141,3 +152,5 @@ If you would like to see sample tests and configuration files for particular fra
 * [Cypress Demo](https://github.com/saucelabs/saucectl-cypress-example)
 * [TestCafe Demo](https://github.com/saucelabs/saucectl-testcafe-example)
 * [Playwright Demo](https://github.com/saucelabs/saucectl-playwright-example)
+* [Puppeteer Demo](https://github.com/saucelabs/saucectl-puppeteer-example/)
+* [Espresso Demo](https://github.com/saucelabs/saucectl-espresso-example)
