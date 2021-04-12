@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-Sauce Labs Testrunner Toolkit is designed to support native Javascript frameworks through a containerized testing solution that simplifies user set up and speeds up test execution time. 
+Sauce Labs Testrunner Toolkit is designed to support native Javascript and Android frameworks through a containerized testing solution that simplifies user set up and speeds up test execution time. 
 
 
 This approach combines the power and expressiveness of different test frameworks with the dashboards, infrastructure, and analytics of Sauce Labs.
@@ -17,6 +17,7 @@ This approach combines the power and expressiveness of different test frameworks
 Most importantly, by running these tests through Sauce Labs, you can:
 
 * Run tests using popular JavaScript frameworks: [Cypress](https://github.com/cypress-io/cypress), [Playwright](https://github.com/microsoft/playwright), and [TestCafe](https://devexpress.github.io/testcafe).
+* Run tests using popular Android framework [Espresso](https://developer.android.com/training/testing/espresso).
 * Take advantage of low latency provided by a containerized solution
 * Review, share, and evaluate your test assets, such as logs, test results, and test videos 
 * Use our Insights feature to perform deeper analysis of test outcomes
@@ -33,7 +34,7 @@ JavaScript framework of your choice.
 
 ## Supported Frameworks and Browsers
 
-In the current beta, the toolkit supports the following frameworks: [Cypress](https://github.com/cypress-io/cypress), [Playwright](https://github.com/microsoft/playwright), and [TestCafe](https://github.com/DevExpress/testcafe). The specific framework you use for testing depends on the types of tests you
+In the current beta, the toolkit supports the following frameworks: [Cypress](https://github.com/cypress-io/cypress), [Playwright](https://github.com/microsoft/playwright), [TestCafe](https://github.com/DevExpress/testcafe), and [Espresso](https://developer.android.com/training/testing/espresso). The specific framework you use for testing depends on the types of tests you
 need to run, and the environment where you run the tests.
 
 Furthermore, the framework and browser version support depends on the Sauce Labs docker images. The table below indicates framework and browser support based on the requisite docker image tag.
@@ -52,7 +53,8 @@ Each docker image tag is the 'latest' image that supports the specific framework
     values={[
       {"label":"Cypress","value":"cypress"},
       {"label":"Playwright","value":"playwright"},
-      {"label":"TestCafe","value":"testcafe"}
+      {"label":"TestCafe","value":"testcafe"},
+      {"label":"Espresso","value":"espresso"}
     ]}>
 <TabItem value="cypress">
 
@@ -84,6 +86,14 @@ Each docker image tag is the 'latest' image that supports the specific framework
 |1.11.0|macOS 11.00|Safari, Chrome, Firefox, MicrosoftEdge|
 |1.11.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |1.10.1|Windows 10|Chrome, Firefox, MicrosoftEdge|
+
+</TabItem>
+<small><span className='preview'>PREVIEW</span></small>
+<TabItem value="espresso">
+
+|Supported Platforms|
+|-----|
+|Android 5.1+|
 
 </TabItem>
 </Tabs>
@@ -170,6 +180,7 @@ To learn more about the tools associated with this project please see the links 
 * Cypress: [https://github.com/cypress-io/cypress](https://github.com/cypress-io/cypress)
 * The Microsoft Playwright project: [https://github.com/microsoft/playwright](https://github.com/microsoft/playwright)
 * TestCafe: [https://devexpress.github.io/testcafe/](https://devexpress.github.io/testcafe/)
+* Espresso: [https://developer.android.com/training/testing/espresso](https://developer.android.com/training/testing/espresso)
 
 Visit the links below to view information and release notes regarding the docker images' contents:
 
