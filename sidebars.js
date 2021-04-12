@@ -126,11 +126,11 @@ module.exports = {
                   ],
                 },
                 'mobile-apps/automated-testing/ipa-files',
-                'mobile-apps/automated-testing/microsoft-app-center',
                 'mobile-apps/automated-testing/troubleshooting',
               ],
            },
      'mobile-apps/app-storage',
+     'mobile-apps/ms-app-center',
      'mobile-apps/features',
      'mobile-apps/virtual-usb',
      'mobile-apps/faq',
@@ -489,6 +489,7 @@ module.exports = {
         'insights/history',
         'insights/trends',
         'insights/failure-analysis',
+        'insights/debug',
     ],
     "Performance": [
       'performance',
@@ -514,6 +515,7 @@ module.exports = {
                   'testrunner-toolkit/configuration/common-syntax',
                   'testrunner-toolkit/configuration/cypress',
                   'testrunner-toolkit/configuration/playwright',
+                  'testrunner-toolkit/configuration/puppeteer',
                   'testrunner-toolkit/configuration/testcafe',
               ],
           },
@@ -524,9 +526,10 @@ module.exports = {
               collapsed: true,
               items: [
                   'testrunner-toolkit/integrations',
+                  'testrunner-toolkit/integrations/circleci',
                   'testrunner-toolkit/integrations/jenkins',
                   'testrunner-toolkit/integrations/github-actions',
-
+                  'testrunner-toolkit/integrations/gitlab',
               ],
           },
           'testrunner-toolkit/typescript',
@@ -561,9 +564,39 @@ module.exports = {
         collapsed: true,
         items: [
           'dev/cli',
-          'dev/cli/espresso-xcuitest',
+            {
+                type: 'category',
+                label: 'Espresso / XCUITest',
+                collapsed: true,
+                items: [
+                    'dev/cli/espresso-xcuitest',
+                    'dev/cli/espresso-xcuitest/real-devices',
+                    'dev/cli/espresso-xcuitest/virtual-devices',
+                    'dev/cli/espresso-xcuitest/yaml-config',
+                ],
+            },
           'dev/cli/sauce-connect-proxy',
-        ]
+            {
+                type: 'category',
+                label: 'Virtual USB',
+                collapsed: true,
+                items: [
+                    'dev/cli/virtual-usb',
+                    'dev/cli/virtual-usb/start-server',
+                    'dev/cli/virtual-usb/start-session',
+                    'dev/cli/virtual-usb/connect-session',
+                    'dev/cli/virtual-usb/disconnect-session',
+                    'dev/cli/virtual-usb/delete-session',
+                    'dev/cli/virtual-usb/find-sessionid',
+
+                ],
+            },
+            {
+                type: 'link',
+                label: 'Sauce CTL', // The label that should be displayed (string).
+                href: '/testrunner-toolkit/saucectl' // The target URL (string).
+            },
+        ],
       },
     ],
     Contributing: [
