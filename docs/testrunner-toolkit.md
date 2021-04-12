@@ -36,7 +36,6 @@ The toolkit currently supports:
       {"label":"Espresso","value":"espresso"}
     ]}>
 <TabItem value="cypress">
-<small><span className='preview'>PREVIEW</span></small>
 
 |Cypress Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
