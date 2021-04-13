@@ -517,6 +517,7 @@ module.exports = {
                   'testrunner-toolkit/configuration/playwright',
                   'testrunner-toolkit/configuration/puppeteer',
                   'testrunner-toolkit/configuration/testcafe',
+                  'testrunner-toolkit/configuration/espresso',
               ],
           },
           'testrunner-toolkit/running-tests',
@@ -588,6 +589,10 @@ module.exports = {
                     'dev/cli/virtual-usb/disconnect-session',
                     'dev/cli/virtual-usb/delete-session',
                     'dev/cli/virtual-usb/find-sessionid',
+<<<<<<< HEAD
+=======
+
+>>>>>>> 12dad28407030016ffff62e8ed66672e936c6728
                 ],
             },
             {

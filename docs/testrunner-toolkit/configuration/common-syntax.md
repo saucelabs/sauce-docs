@@ -90,6 +90,19 @@ __Example__:
   concurrency: 10
 ```
 
+### `tunnel`
+
+__Description__: Tunnel allows you to specify an existing sauce connect tunnel when running tests inside the Sauce cloud. **Note:** This has no effect when running tests inside docker.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+ tunnel:
+    id: your_tunnel_id
+    parent: parent_owner_of_tunnel # if applicable, specify the owner of the tunnel
+```
+
 ## `docker`
 
 __Description__: Details specific to the desired [Sauce Labs docker images](https://hub.docker.com/u/saucelabs).
@@ -199,20 +212,6 @@ __Example__:
     hello: world
     my_var: $MY_VAR
 ```
-
-### `tunnel`
-
-__Description__: Tunnel allows you to specify an existing sauce connect tunnel when running tests inside the Sauce cloud. **Note:** This has no effect when running tests inside docker.
-
-__Type__: *object*
-
-__Example__:
-```yaml
- tunnel:
-    id: your_tunnel_id
-    parent: parent_owner_of_tunnel # if applicable, specify the owner of the tunnel
-```
-
 
 ### `browser`
 
