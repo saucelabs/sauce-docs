@@ -1,5 +1,5 @@
 ---
-id: best-practices-hub
+id: best-practices
 title: Best Practices
 sidebar_label: Getting Started
 ---
