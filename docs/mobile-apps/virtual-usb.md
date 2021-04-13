@@ -122,9 +122,9 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
 
   or
 
-  **Option 2: Connect to existing live testing session**: The second method is to start a live test directly on Sauce Labs, then use the command terminal to [connect that session](/dev/cli/virtual-usb/connect-session) that session to your vUSB client.
+  **Option 2: Connect to existing live testing session**: The second method is to start a live test directly on Sauce Labs, then use the command terminal to [`connect`](/dev/cli/virtual-usb/connect-session) the test to your vUSB client.
 
-  First, launch your test on Sauce Labs (**Live** > **Cross Browser** > **Mobile Real** > Find your **Private Device** > **Launch**). Next, locate your `--sessionId` by opening a new command line terminal and running the `sessions` command, along with your credentials.
+  First, launch your test on Sauce Labs (**Live** > **Cross Browser** > **Mobile Real** > Find your **Private Device** > **Launch**). Next, locate your `--sessionId` by opening a new command line terminal and running the [`sessions`](/dev/cli/virtual-usb/find-sessionid) command, along with your credentials.
 
   ```java
    java -jar virtual-usb-client.jar sessions --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
