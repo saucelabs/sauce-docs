@@ -4,7 +4,7 @@ title: "Virtual USB CLI: Disconnect Session"
 sidebar_label: Disconnect Session
 ---
 
-The [`disconnect`](https://docs.saucelabs.com/mobile-apps/virtual-usb#close-test) command uses the `--sessionId` of a Virtual USB session started with the [`startSession`](dev/cli/virtual-usb/start-session) command to disconnect the real device from your local machine.
+The [`disconnect`](https://docs.saucelabs.com/mobile-apps/virtual-usb#close-test) command closes out live Virtual USB test sessions that were started originally in Sauce Labs and linked to your Virtual USB client using the [`connect`](dev/cli/virtual-usb/connect-session) command.
 
 ## Required
 
