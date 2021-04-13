@@ -67,6 +67,7 @@ html[data-theme='dark'] {
     --ifm-color-primary-dark: rgb(172, 20, 19);
     --ifm-font-color-base: rgb(255, 255, 255);
     --ifm-blockquote-color: #f0f0f0;
+    --ifm-code-background: #44494F;
     --ifm-alert-color: #f0f0f0 !important;
     --ifm-navbar-link-color: #464b54;
     --docsearch-muted-color: #969faf !important;
