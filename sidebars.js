@@ -68,7 +68,7 @@ module.exports = {
    label: 'Best Practices',
    collapsed: true,
    items: [
-       'basics/best-practices-hub',
+       'basics/best-practices',
        'basics/best-practices/avoiding-dependencies-parallel-tests',
        'basics/best-practices/small-atomic-autonomous',
        'basics/best-practices/using-environment-variables',
