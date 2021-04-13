@@ -18,7 +18,7 @@ __Description__: your Sauce Labs access key for authentication.
 __Description__: the name of the private device that you want to use for testing.
 
 ```java title="Basic Example (required flags only)"
-java -jar virtual-usb-client startSession --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx --deviceName iPhone_XS
+java -jar virtual-usb-client.jar startSession --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx --deviceName iPhone_XS
 ```
 
 ```java title="Response Example"
