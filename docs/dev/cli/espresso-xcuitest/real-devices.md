@@ -26,8 +26,8 @@ These commands and flags are required for use with Sauce Runner for Real Devices
 ### `espresso` or `xcuitest`
 __Description__: defines the test framework you wish to use for your test (choose only one).
 
-### `--apiKey`
-__Description__: the API key for your Sauce Labs real device cloud account.
+### `--accessKey`
+__Description__: the access key for your Sauce Labs account. You can find it under **Account** > **User Settings**.
 
 __Example__:
 
@@ -37,7 +37,7 @@ __Example__:
 
 ### `--app`
 
-__Description__: the path to the `*.ipa` or `*.apk` file of the app under test, or the ID number of an already uploaded app.
+__Description__: the path to the `*.ipa` or `*.apk` file of the app under test, or the ID number of an already uploaded app. In your command line, refer to the location where you have downloaded the <code>runner.jar</code> file and run the command from the folder from where you downloaded the runner.
 
 __Examples__:
 
@@ -51,7 +51,7 @@ app: ExampleTestApp.ipa
 
 ### `--test`
 
-__Description__: The path to the `*.ipa` or `*.apk` file of the test.
+__Description__: the path to the `*.ipa` or `*.apk` file of the test.
 
 __Examples__:
 
@@ -65,7 +65,7 @@ test: ExampleTestApp-Runner.ipa
 
 ### `--datacenter`
 
-__Description__: Specify the data center where test execution takes place.
+__Description__: specifies the Data Center to use in your tests. Possible values: `US` or `EU`.
 
 __Examples__:
 
@@ -112,10 +112,10 @@ These command flags are optional.
 ### `--device`
 
 __Description__: For static allocation of a device, provide the ID for the type of device to use in your tests, such as `iPhone_5_real`.
-To find device ID numbers, go to **Live** > **Mobile-App** > **Choose device**, then search for the device you want to use, then choose **Details** in the device description.
+To find device ID numbers, go to **Live** > **Mobile-App** > **Choose device** > Search for the device you want to use > **Details** > See ID in device description. For more information, see the examples under `--devices`.
 
 :::caution Default Device Allocation
-If you don't specify a `device`/`devices` for your test, one is assigned to your tests based on the AUT (application under test) platform type.
+If you don't specify a `--device`/`--devices` for your test, one is assigned to your tests based on the AUT (application under test) platform type.
 :::
 
 __Example__:
@@ -131,9 +131,9 @@ __Example__:
 
 ### `--devices`
 
-__Description__: The list of devices, allocated dynamically or through static description of the device ID, to use in your tests. With the `--devices` option, you can configure Sauce Runner for Real Devices to run tests in parallel across multiple devices using both static and dynamic allocation. As an option, you can run a select set of tests against a specific device using the [`--testsToRun`](#teststorun) command.
+__Description__: the list of devices, allocated dynamically or through static description of the device ID, to use in your tests. With the `--devices` option, you can configure Sauce Runner for Real Devices to run tests in parallel across multiple devices using both static and dynamic allocation. As an option, you can run a select set of tests against a specific device using the [`--testsToRun`](#teststorun) command.
 
-__Examples__: See the examples under [Configuration Options: `devices`](/dev/cli/espresso-xcuitest/yaml-config#device-configuration).
+__Examples__: See examples under [Configuration Options: `devices`](/dev/cli/espresso-xcuitest/yaml-config#device-configuration).
 
 ```js title="CLI"
 --datacenter US --devices iPhone_11_13_5_real_us,iPhone_5

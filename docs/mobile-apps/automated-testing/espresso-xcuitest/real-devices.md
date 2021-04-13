@@ -80,17 +80,17 @@ Starting test run on US data center...
 1. Create a new folder for your tests, somewhere on your local machine.
 2. In the folder, drop the command-line client (Sauce Runner for Real Devices), your app, and test app.
 3. Execute a sample test:
-```sh
+```java
 java -jar saucelabs-native-test-runner.jar xcuitest --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESSKEY --datacenter US --app <path-to-app> --test <path-to-test>
 ```
 4. Wait for the client to submit the tests. In this step, the test runner will automatically upload the apps you specify. The expected output will be similar to this:
-```java
+```bash
 Finished uploading app file 'binaries/xcuitest/sample-ios-app.ipa' to 'US' data center.
 Uploading test file 'binaries/xcuitest/sample-ios-test.ipa' to 'US' data center...
 Finished uploading test file 'binaries/xcuitest/sample-ios-test.ipa' to 'US' data center.
 Starting test run on US data center...
 ```
-5. View your results on Sauce Labs. Go to **Automated** > **Test Results** > select the **Real Devices** radio button.
+5. View your results on Sauce Labs. Go to **Automated** > **Test Results** > **Real Devices**.
 
 </TabItem>
 </Tabs>
@@ -107,7 +107,7 @@ Sauce Labs offers the ability to run Espresso and UI Automator tests against our
 
 For information on building .ipa files for your app to use with Sauce Runner for Real Devices, see [Creating .ipa Files for Appium and XCUITest](mobile-apps/automated-testing/ipa-files.md).
 
-Make sure that you set the same iOS version for your app and test runner **iOS Deployment Target**. If they donâ€™t match, your tests will run locally, but fail when you run them against Sauce Labs real devices.
+Make sure that you set the same iOS version for your app and test runner **iOS Deployment Target**. If they don't match, your tests will run locally, but fail when you run them against Sauce Labs real devices.
 
 To set the iOS version in your Xcode Project:
 1. Select the Project you want to build.
@@ -217,14 +217,14 @@ testsToRun:
 __Further Examples__:
 
 * <details><summary>Example 1 - Minimal configuration for all tests</summary>
-  
+
   ```yaml reference
   https://github.com/saucelabs-training/demo-espresso/blob/d0ae60e428bb2f864c979285b9cf90ee63c756eb/real-devices/runner-ex1.yml
   ```
   </details>
-    
+
 * <details><summary>Example 4 - Run in parallel on hard-coded devices</summary>
-  
+
   ```yaml reference
   https://github.com/saucelabs-training/demo-espresso/blob/master/real-devices/runner-ex4.yml
   ```

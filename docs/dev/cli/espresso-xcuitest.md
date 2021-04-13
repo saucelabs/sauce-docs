@@ -10,9 +10,13 @@ This page describes the general usage for the [Sauce Runner tool](/mobile-apps/a
 
 Prerequisites for using Sauce Runner with virtual and real devices:
 
-* Your Sauce Labs account credentials
-* Your mobile app file (both debug and non-debug app) and test file
-* Have Sauce Runner for Real Devices or Virtual Devices downloaded and installed
+* Your Sauce Labs account credentials.
+* Your mobile app file (both debug and non-debug app) and test file.
+* Have the [Sauce Runner for Real Devices](/mobile-apps/automated-testing/espresso-xcuitest/real-devices.md) or [Virtual Devices](/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices.md) downloaded and installed.
+
+:::info YAML Configuration for Real Devices
+**REAL DEVICES ONLY**: As an alternative to using the command-line interface, you can create a YAML runner configuration file, which has its own separate command (`config`) and options. YAML flags are **not** compatible with CLI flags. For instructions on YAML file configuration, see [Sauce Runner YAML Configuration](/dev/cli/espresso-xcuitest/yaml-config) and [Sauce Runner for Real Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/espresso-xcuitest/real-devices#test-configuration-options).  
+:::
 
 ## General Usage
 
