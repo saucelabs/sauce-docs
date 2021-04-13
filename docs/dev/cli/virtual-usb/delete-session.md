@@ -4,7 +4,7 @@ title: "Virtual USB CLI: Delete Session"
 sidebar_label: Delete Session
 ---
 
-The [`deleteSession`](https://docs.saucelabs.com/mobile-apps/virtual-usb#close-test) command provides the server with your session ID and user credentials, then deletes your test session from your local machine.
+The [`deleteSession`](https://docs.saucelabs.com/mobile-apps/virtual-usb#close-test) command closes out Virtual USB tests session started in the command line interface using the [`startSession`](dev/cli/virtual-usb/start-session) command.
 
 ## Required
 
@@ -39,7 +39,7 @@ __Description__: Virtual USB server port. Default value: `33657`.
 
 ```bash title="Full Example"
 java -jar virtual-usb-client.jar deleteSession \
-    --sessionId 12345 \
+    --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 \
     --username john.smith \
     --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
     --serverHost http://127.0.0.1 \
