@@ -13,29 +13,31 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-This page provides command line references for Sauce Runner, the CLI tool used to run native mobile tests on real and virtual devices.
+Sauce Runner for Real Devices provides the ability to run Espresso and XCUITest tests on Android and iOS real devices in the Sauce Labs cloud. This topic describes the required and optional command parameters you can use to set up your test runs.
+
+:::note
+All examples in this page assume knowledge of [Sauce Runner General Usage](/dev/cli/espresso-xcuitest). Please review before proceeding.
+:::
 
 ## Required
 
-These command executing-from-cucumberflags are required for use with the `xcuitest` or `espresso` commands. They are not compatible with the YAML file `config` command.
+These commands and flags are required for use with Sauce Runner for Real Devices. They are not compatible with the YAML file `config` command.
 
-:::note About the Examples
-All Examples in this page assume knowledge of [Sauce Runner General Usage](/dev/cli/espresso-xcuitest#examples). Run these commands from the directory where you downloaded the runner, or the actual location of the `runner.jar` file.
-:::
+### `espresso` or `xcuitest`
+__Description__: defines the test framework you wish to use for your test (choose only one).
 
-### `apiKey`
-
-__Description__: The API key for your Sauce Labs real device cloud account.
+### `--apiKey`
+__Description__: the API key for your Sauce Labs real device cloud account.
 
 __Example__:
 
 ```js title="CLI"
---apikey <apikey>
+--apikey 77029389527648BE81600Dxxxxxxxxxx
 ```
 
-### `app`
+### `--app`
 
-__Description__: The path to the `*.ipa` or `*.apk` file of the app under test, or the ID number of an already uploaded app.
+__Description__: the path to the `*.ipa` or `*.apk` file of the app under test, or the ID number of an already uploaded app.
 
 __Examples__:
 
@@ -47,7 +49,7 @@ __Examples__:
 app: ExampleTestApp.ipa
 ```
 
-### `test`
+### `--test`
 
 __Description__: The path to the `*.ipa` or `*.apk` file of the test.
 
@@ -57,11 +59,11 @@ __Examples__:
 --test ExampleTestApp-Runner.ipa
 ```
 
-```js title="YAML"
+```yaml title="YAML"
 test: ExampleTestApp-Runner.ipa
 ```
 
-### `datacenter`
+### `--datacenter`
 
 __Description__: Specify the data center where test execution takes place.
 
@@ -71,15 +73,43 @@ __Examples__:
 --datacenter US
 ```
 
-```yaml title="CLI"
+```yaml title="YAML"
 - datacenter: US
 ```
+
+**Basic Example (required flags only)**
+
+<Tabs
+  defaultValue="Espresso"
+  values={[
+    {label: 'Espresso', value: 'Espresso'},
+    {label: 'XCUITest', value: 'XCUITest'},
+  ]}>
+
+<TabItem value="Espresso">
+
+```java
+java -jar runner.jar espresso --test DummyTestingApp-Runner.apk /
+--app DummyTestingApp.apk --apiKey 77029389527648BE81600Dxxxxxxxxxx --datacenter US
+```
+
+</TabItem>
+<TabItem value="XCUITest">
+
+```java
+java -jar runner.jar xcuitest --test DummyTestingApp-Runner.ipa /
+--app DummyTestingApp.ipa --apiKey 77029389527648BE81600Dxxxxxxxxxx --datacenter US
+```
+
+</TabItem>
+</Tabs>
+
 
 ## Optional
 
 These command flags are optional.
 
-### `device`
+### `--device`
 
 __Description__: For static allocation of a device, provide the ID for the type of device to use in your tests, such as `iPhone_5_real`.
 To find device ID numbers, go to **Live** > **Mobile-App** > **Choose device**, then search for the device you want to use, then choose **Details** in the device description.
@@ -98,7 +128,8 @@ __Example__:
 - datacenter: US
   device: iPhone_11_13_5_real_us
 ```
-### `devices`
+
+### `--devices`
 
 __Description__: The list of devices, allocated dynamically or through static description of the device ID, to use in your tests. With the `--devices` option, you can configure Sauce Runner for Real Devices to run tests in parallel across multiple devices using both static and dynamic allocation. As an option, you can run a select set of tests against a specific device using the [`--testsToRun`](#teststorun) command.
 
@@ -115,7 +146,7 @@ devices:
   device: iPhone_5
 ```
 
-### `testname`
+### `--testname`
 
 __Description__: Set a custom test name to appear on the UI. Default is `Test`.
 
@@ -132,7 +163,7 @@ devices:
   testname: MyTestName
 ```
 
-### `tunnelIdentifier`
+### `--tunnelIdentifier`
 
 __Description__: If you are using Sauce Connect Proxy, provide the identifier of the tunnel you want to use.
 
@@ -146,7 +177,7 @@ __Example__:
 tunnelIdentifier: <your-tunnel-name>
 ```
 
-### `checkFrequency`
+### `--checkFrequency`
 
 __Description__: Interval in seconds to check test results. Default is `30`.
 
@@ -160,9 +191,9 @@ __Example__:
 checkFrequency: 15
 ```
 
-### `timeout`
+### `--timeout`
 
-__Description__: Test timeout in minutes. Test duration cannot exceed 60 minutes. Default is `60`.
+__Description__: sets your test timeout (unit = minutes). Test duration cannot exceed 60 minutes. Default value is `60`.
 
 __Example__:
 
@@ -174,9 +205,9 @@ __Example__:
 timeout: 10
 ```
 
-### `xmlFolder`
+### `--xmlFolder`
 
-__Description__: The folder for the JUnit XML output.
+__Description__: specifies the folder for the JUnit XML output.
 
 __Example__:
 
@@ -188,9 +219,9 @@ __Example__:
 xmlFolder: ./tmp
 ```
 
-### `url`
+### `--url`
 
-__Description__: Provide the URL of an alternative REST endpoint to use.
+__Description__: specifies the URL of an alternative REST endpoint to use.
 
 __Example__: For a list of endpoints, see [Data Center Endpoints](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) for further details.
 
@@ -202,9 +233,9 @@ __Example__: For a list of endpoints, see [Data Center Endpoints](https://wiki.s
 url: <rest-endpoint-url>
 ```
 
-### `platformVersion`
+### `--platformVersion`
 
-__Description__: For dynamic allocation of a device, provide an operating system version to use. For example, use 9 to allocate a device running major version `9` and arbitrary versions of the OS, or `9.3.3` for a specific version.
+__Description__: specifies an operating system version to use for dynamic allocation of a device. For example, use `9` to allocate a device running major version 9 and arbitrary versions of the OS; use `9.3.3` for a specific minor version.
 
 __Example__:
 
@@ -218,9 +249,9 @@ devices:
   platformVersion: 9.3.3
 ```
 
-### `privateDevicesOnly`
+### `--privateDevicesOnly`
 
-__Description__: If set, only private devices will be queried.
+__Description__: if set, only private devices will be queried.
 
 __Example__:
 
@@ -234,9 +265,9 @@ devices:
   privateDevicesOnly: true
 ```
 
-### `phoneOnly`
+### `--phoneOnly`
 
-__Description__: If set, only phones will be queried.
+__Description__: if set, only phones will be queried.
 
 __Examples__:
 
@@ -250,9 +281,9 @@ devices:
   phoneOnly: true
 ```
 
-### `tabletOnly`
+### `--tabletOnly`
 
-__Description__: If set, only tablets will be queried.
+__Description__: if set, only tablets will be queried.
 
 __Example__:
 
@@ -266,11 +297,11 @@ devices:
   tabletOnly: true
 ```
 
-### `deviceNameQuery`
+### `--deviceNameQuery`
 
-__Description__: For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use iPhone.*Plus to allocate any iPhone Plus device.
+__Description__: for dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use iPhone.*Plus to allocate any iPhone Plus device.
 
-__Example__: See the examples under [Configuration Options: `devices`](/dev/cli/espresso-xcuitest/yaml-config#devices).
+__Example__: see the examples under [Configuration Options: `devices`](/dev/cli/espresso-xcuitest/yaml-config#devices).
 
 ```js title="CLI"
 --datacenter US --deviceNameQuery 'iPhone 8.*'
@@ -282,10 +313,10 @@ devices:
   deviceNameQuery: iPhone 8.*
 ```
 
-### `testsToRun`
+### `--testsToRun`
 <p><small><Highlight color="#333333">xcuitest only</Highlight></small></p>
 
-__Description__: For dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use iPhone.*Plus to allocate any iPhone Plus device. For more information, see the examples under --devices.
+__Description__: specifies the device name you would like to dynamically allocate for dynamic allocation of a device. For example, use iPhone.*Plus to allocate any iPhone Plus device. For more information, see the examples under `--devices`.
 
 __Example__: Execute all tests in `ClassA` and only `methodC` of `ClassB`.
 
@@ -302,7 +333,8 @@ __Example__: Execute all tests in `ClassA` and only `methodC` of `ClassB`.
   - testClass: ClassB
     testMethod: methodC
 ```
-### `e`
+
+### `--e`
 <p><small><Highlight color="#946f59">espresso only</Highlight></small></p>
 
 __Description__: Provide a list of test options to Espresso. The key-value pairs supported by Espresso are documented here: [Android Developers—am instrument options](https://developer.android.com/studio/test/command-line#AMOptionsSyntax).
@@ -321,7 +353,7 @@ __Examples__:
   --e class com.example.android.TestClassB#methodName
   ```
 
-### `useTestOrchestrator`
+### `--useTestOrchestrator`
 <p><small><Highlight color="#946f59">espresso only</Highlight></small></p>
 
 __Description__: If set, the instrumentation will start with Test Orchestrator version `1.1.1` in use.
@@ -336,7 +368,7 @@ __Example__:
 --e useTestOrchestrator clearPackageData true class com.example.android.TestClassB#methodName
 ```
 
-### `D`
+### `--D`
 
 __Description__: Specifies a **direct domain** connection for your proxy server and port, so that Sauce Runner can connect to the internet. If the proxy needs authentication, use the optional parameters: `http.proxyUser` and `http.proxyPassword`.
 
