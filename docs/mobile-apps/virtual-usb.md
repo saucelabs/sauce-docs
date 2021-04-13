@@ -45,11 +45,7 @@ Virtual USB (vUSB) is a mobile app debugging tool that simulates connecting a Sa
 ## Virtual USB for Sauce Labs
 
 :::tip CLI Reference
-<<<<<<< HEAD
 See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB test configuration commands and options. You can also view it in the vUSB client by running `java -jar vusb-client.jar --help`.
-=======
-See [Virtual USB CLI Reference](dev/cli/virtual-usb) for a full list of vUSB test configuration commands and options. You can also view it in the vUSB client by running `java -jar vusb-client.jar --help`.
->>>>>>> c0f6df736e4edd9a11c63bd0e77ac92aef2ab440
 :::
 
 ### Download Client
@@ -184,11 +180,7 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb) for a full list of vUSB tes
   11:13:12.347 [KQueueEventLoopGroup-2-2] INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - This will require administrator privileges!
   ```
 
-<<<<<<< HEAD
   This prepares the usbmuxd socket (`/var/usbmuxd`) so that developer tools like Xcode can interact with the remote device just like they interact with a local device. You will need to have administrator permissions to replace `/var/usbmuxd` on your computer and [disable Systems Integrity Protection (SIP) in macOS](https://developer.apple.com/documentation/security/disabling_and_enabling_system_integrity_protection).
-=======
-  This prepares the usbmuxd socket (`/var/usbmuxd`) so that developer tools like Xcode can interact with the remote device just like they interact with a local device. You may need to have administrator permissions to replace `/var/usbmuxd` on your computer.
->>>>>>> c0f6df736e4edd9a11c63bd0e77ac92aef2ab440
 
    </TabItem>
    </Tabs>
@@ -207,7 +199,7 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb) for a full list of vUSB tes
 ### Close Test
 
 10. When you've finished testing, we recommend closing your vUSB session so that other users can use the device. There are a few ways to do this:
-<<<<<<< HEAD
+
     * Close the browser window where the device session is running.
     * If you started your test session with `startSession`, close it out by running the [`deleteSession`](/dev/cli/virtual-usb/delete-session) command, followed by your `--sessionId` and credentials.
 
@@ -227,21 +219,6 @@ If you've lost track of your `--sessionId`, you can recover it using the [`sessi
 java -jar virtual-usb-client.jar disconnect --sessionId 37D274BC3A65A34BB3DA4DDF7B77E341
 ```
 :::
-=======
-   * Close the browser window where the device session is running.
-   * Close your session by running the [`disconnect`](/dev/cli/virtual-usb/disconnect-session) command along with the `--sessionId`, which you can find in the success message. If you've lost track of your `--sessionId`, recover it using the [`sessions`](dev/cli/virtual-usb/find-sessionid) command, which generates a list of your active device sessions.
-   ```java
-   java -jar virtual-usb-client disconnect --sessionId 37D274BC3A65A34BB3DA4DDF7B77E341
-   ```
-   Then, delete your session by running [`deleteSession`](/dev/cli/virtual-usb/delete-session), followed by your `--sessionId` and credentials.
-   ```java
-   java -jar virtual-usb-client deleteSession --sessionId 37D274BC3A65A34BB3DA4DDF7B77E341 --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-   ```
-   * **Android Only**: Disconnect your device from ADB by running `adb disconnect` followed by your `<IPAddress>:<portNumber>`:
-   ```java
-   adb disconnect localhost:7000
-   ```
->>>>>>> c0f6df736e4edd9a11c63bd0e77ac92aef2ab440
 
 ## Virtual USB for TestObject (Legacy)
 

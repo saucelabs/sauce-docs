@@ -1,6 +1,6 @@
 ---
 id: find-sessionid
-title: "Virtual USB CLI: Find Session ID"
+title: "Virtual USB CLI: Find SessionID"
 sidebar_label: Find SessionID
 ---
 
@@ -15,11 +15,7 @@ __Description__: your Sauce Labs username.
 __Description__: your Sauce Labs access key for authentication.
 
 ```java title="Basic Example (required flags only)"
-<<<<<<< HEAD
 java -jar virtual-usb-client.jar sessions --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
-=======
-java -jar virtual-usb-client sessions --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
->>>>>>> 12dad28407030016ffff62e8ed66672e936c6728
 ```
 
 ```java title="Response Example"
