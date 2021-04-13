@@ -72,7 +72,7 @@ module.exports = {
        'basics/best-practices/avoiding-dependencies-parallel-tests',
        'basics/best-practices/small-atomic-autonomous',
        'basics/best-practices/using-environment-variables',
-       'basics/best-practices/using-explcit-waits',
+       'basics/best-practices/using-explicit-waits',
        'basics/best-practices/using-attributes-tests',
        'basics/best-practices/running-speedy-tests',
        'basics/best-practices/handling-authentication',
