@@ -11,7 +11,7 @@ To download Sauce Connect, see [Sauce Connect Installation](secure-connections/s
 
 ## Get Tunnels for a User
 
-<details><summary><span className="apiGet">GET</span> <code>/rest/v1/&#123;username&#125;/tunnels</code></summary>
+<details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/tunnels</code></summary>
 <p/>
 
 Returns a list of IDs for any currently running tunnels launched by the specified user.
@@ -62,7 +62,7 @@ curl --location --request GET 'https://saucelabs.com/rest/v1/jim.smith/tunnels' 
 
 ## Get Tunnel Information
 
-<details><summary><span className="apiGet">GET</span> <code>/rest/v1/&#123;username&#125;/tunnels/&#123;tunnel_id&#125;</code></summary>
+<details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/tunnels/&#123;tunnel_id&#125;</code></summary>
 <p/>
 
 Returns information about the specified tunnel.
@@ -141,7 +141,7 @@ curl --location --request GET 'https://saucelabs.com/rest/v1/jim.smith/tunnels/2
 
 ## Get Current Jobs for a Tunnel
 
-<details><summary><span className="apiGet">GET</span> <code>/rest/v1/&#123;username&#125;/tunnels/&#123;tunnel_id&#125;/num_jobs</code></summary>
+<details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/tunnels/&#123;tunnel_id&#125;/num_jobs</code></summary>
 <p/>
 
 Returns the number of currently running jobs for the specified tunnel.
@@ -199,7 +199,7 @@ curl --location --request GET 'https://saucelabs.com/rest/v1/jim.smith/tunnels/2
 
 ## Stop a Tunnel
 
-<details><summary><span className="apiDelete">DELETE</span> <code>/rest/v1/&#123;username&#125;/tunnels/&#123;tunnel_id&#125;</code></summary>
+<details><summary><span className="api delete">DELETE</span> <code>/rest/v1/&#123;username&#125;/tunnels/&#123;tunnel_id&#125;</code></summary>
 <p/>
 
 Shuts down the specified tunnel.
