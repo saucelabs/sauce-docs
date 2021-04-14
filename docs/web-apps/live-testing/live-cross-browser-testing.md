@@ -143,7 +143,7 @@ If the recorded video after the job shows a steady video stream, this indicates 
 If you're on an older version, this may cause incompatibilities. Update your browser and try again.
 
 #### Check Your Firewall
-Make sure that your machine allows full access for the interactive stream over the required ports (see the [Sauce Connect Proxy FAQ](/secure-connections/sauce-connect/faq.md)).
+Make sure that your machine allows full access for the interactive stream over the required ports (see the [Sauce Connect Proxy FAQ](/secure-connections/sauce-connect/faq)).
 
 #### Confirm That Your Internet Connection is Stable
 We recommend running Sauce tests from a machine with a wired Ethernet connection, to ensure a steady connection. If the connection flickers, this error could be thrown.
