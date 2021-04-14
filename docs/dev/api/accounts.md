@@ -15,7 +15,7 @@ The set of methods defined in this section are applicable to customers who are u
 
 ### Get Teams
 
-<details><summary><span className="apiGet">GET</span> <code>/team-management/v1/teams/</code></summary>
+<details><summary><span className="api get">GET</span> <code>/team-management/v1/teams/</code></summary>
 <p/>
 
 Returns a team count and an array of all teams in the organization of the requesting account.
@@ -83,7 +83,7 @@ curl --location --request GET 'https://api.staging.saucelabs.net/team-management
 
 ### Get a Specific Team
 
-<details><summary><span className="apiGet">GET</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
+<details><summary><span className="api get">GET</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
 <p/>
 
 Returns the full profile of the specified team.
@@ -153,7 +153,7 @@ curl --location --request GET 'https://api.staging.saucelabs.net/team-management
 
 ### Create a Team
 
-<details><summary><span className="apiPost">POST</span> <code>/team-management/v1/teams/</code></summary>
+<details><summary><span className="api post">POST</span> <code>/team-management/v1/teams/</code></summary>
 <p/>
 
 Creates a new team under the organization of the requesting account.
@@ -250,7 +250,7 @@ curl --location --request POST 'https://api.staging.saucelabs.net/team-managemen
 
 ### Delete a Team
 
-<details><summary><span className="apiDelete">DELETE</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
+<details><summary><span className="api delete">DELETE</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
 <p/>
 
 Deletes the specified team from the organization of the requesting account.
@@ -296,7 +296,7 @@ curl --location --request DELETE 'https://api.staging.saucelabs.net/team-managem
 
 ### Update a Team
 
-<details><summary><span className="apiPut">PUT</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
+<details><summary><span className="api put">PUT</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
 <p/>
 
 Replaces all values of the specified team with the new set of parameters passed in the request. To update only certain parameters, see [Partially Update Team](#partially-update-a-team).
@@ -398,7 +398,7 @@ curl --location --request PUT 'https://api.staging.saucelabs.net/team-management
 
 ### Partially Update a Team
 
-<details><summary><span className="apiPatch">PATCH</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
+<details><summary><span className="api patch">PATCH</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
 <p/>
 
 Updates one or more individual editable parameters (such as the concurrency allocation) of the specified team without requiring a full profile update.
@@ -497,7 +497,7 @@ curl --location --request PATCH 'https://api.staging.saucelabs.net/team-manageme
 
 ### List Team Members
 
-<details><summary><span className="apiGet">GET</span> <code>/team-management/v1/teams/&#123;team_id&#125;/members/</code></summary>
+<details><summary><span className="api get">GET</span> <code>/team-management/v1/teams/&#123;team_id&#125;/members/</code></summary>
 <p/>
 
 Returns the number of members in the specified team and lists each member.
@@ -551,7 +551,7 @@ curl --location --request GET 'https://api.staging.saucelabs.net/team-management
 
 ### Reset Access Keys for Entire Team
 
-<details><summary><span className="apiPost">POST</span> <code>/team-management/v1/teams/&#123;team_id&#125;/reset-access-key/</code></summary>
+<details><summary><span className="api post">POST</span> <code>/team-management/v1/teams/&#123;team_id&#125;/reset-access-key/</code></summary>
 <p/>
 
 Globally regenerates new access key values for every member of the specified team.
@@ -605,7 +605,7 @@ curl --location --request POST 'https://api.staging.saucelabs.net/team-managemen
 
 ### Get Users
 
-<details><summary><span className="apiGet">GET</span> <code>/team-management/v1/teams/</code></summary>
+<details><summary><span className="api get">GET</span> <code>/team-management/v1/teams/</code></summary>
 <p/>
 
 Returns a count total and array of of all users in the organization of the requesting account.
@@ -720,7 +720,7 @@ curl --location --request GET 'https://api.staging.saucelabs.net/team-management
 
 ### Get a Specific User
 
-<details><summary><span className="apiGet">GET</span> <code>/team-management/v1/users/&#123;user_id&#125;/</code></summary>
+<details><summary><span className="api get">GET</span> <code>/team-management/v1/users/&#123;user_id&#125;/</code></summary>
 <p/>
 
 Returns the full profile of the specified user.
@@ -786,7 +786,7 @@ curl --location --request GET 'https://api.staging.saucelabs.net/team-management
 
 ### Create a New User
 
-<details><summary><span className="apiPost">POST</span> <code>/team-management/v1/users/</code></summary>
+<details><summary><span className="api post">POST</span> <code>/team-management/v1/users/</code></summary>
 <p/>
 
 Creates a new user in the Sauce Labs platform.
@@ -946,7 +946,7 @@ curl --location --request POST 'https://api.staging.saucelabs.net/team-managemen
 
 ### Update a User
 
-<details><summary><span className="apiPut">PUT</span> <code>/team-management/v1/users/&#123;user_id&#125;</code></summary>
+<details><summary><span className="api put">PUT</span> <code>/team-management/v1/users/&#123;user_id&#125;</code></summary>
 <p/>
 
 Replaces all values of the specified user profile with the new set of parameters passed in the request. To update only certain parameters, see [Partially Update a User](#partially-update-a-user).
@@ -1056,7 +1056,7 @@ curl --location --request PUT 'https://api.staging.saucelabs.net/team-management
 
 ### Partially Update a User
 
-<details><summary><span className="apiPatch">PATCH</span> <code>/team-management/v1/users/&#123;user_id&#125;</code></summary>
+<details><summary><span className="api patch">PATCH</span> <code>/team-management/v1/users/&#123;user_id&#125;</code></summary>
 <p/>
 
 Allows you to update individual user values without replacing the entire profile.
@@ -1172,7 +1172,7 @@ curl --location --request PUT 'https://api.staging.saucelabs.net/team-management
 
 ### Get a User's Team
 
-<details><summary><span className="apiGet">GET</span> <code>/team-management/v1/users/&#123;user_id&#125;/teams/</code></summary>
+<details><summary><span className="api get">GET</span> <code>/team-management/v1/users/&#123;user_id&#125;/teams/</code></summary>
 <p/>
 
 Returns the number of teams a user belongs to and provides information about each team, including whether it is the default and its concurrency settings.
@@ -1241,7 +1241,7 @@ curl --location --request GET 'https://api.staging.saucelabs.net/team-management
 
 ### Subscribe a User to a Team
 
-<details><summary><span className="apiPost">POST</span> <code>/team-management/v1/membership/</code></summary>
+<details><summary><span className="api post">POST</span> <code>/team-management/v1/membership/</code></summary>
 <p/>
 
 Set a user's team affiliation. Users are limited to one team affiliation, so if the user is already a member of a different team, this call will remove them from that team. Also, By default, the user will not have team-admin privileges, even if they did on a prior team.
@@ -1351,7 +1351,7 @@ curl --location --request POST 'https://api.staging.saucelabs.net/team-managemen
 
 ### Assign a User Org Admin Rights
 
-<details><summary><span className="apiPost">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/set-admin/</code></summary>
+<details><summary><span className="api post">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/set-admin/</code></summary>
 <p/>
 
 Assigns administrator rights to the user within their organization. Organization Admins automatically have Team Admin rights in all the teams in the Organization.
@@ -1422,7 +1422,7 @@ curl --location --request POST 'https://api.staging.saucelabs.net/team-managemen
 
 ### Assign a User Team Admin Rights
 
-<details><summary><span className="apiPost">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/set-team-admin/</code></summary>
+<details><summary><span className="api post">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/set-team-admin/</code></summary>
 <p/>
 
 Assigns administrator rights to the user within their current team. If the user is currently assigned an Org Admin role, this call would reduce the rights to only those of a Team Admin.
@@ -1494,7 +1494,7 @@ curl --location --request POST 'https://api.staging.saucelabs.net/team-managemen
 
 ### Remove Admin Rights from User
 
-<details><summary><span className="apiPost">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/set-member/</code></summary>
+<details><summary><span className="api post">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/set-member/</code></summary>
 <p/>
 
 Assigns the `member` role to the user. If the user is currently assigned any Admin rights, this call removes those rights.
@@ -1566,7 +1566,7 @@ curl --location --request POST 'https://api.staging.saucelabs.net/team-managemen
 
 ### Get a User's Access Key
 
-<details><summary><span className="apiGet">GET</span> <code>/team-management/v1/users/&#123;user_id&#125;/access-key/</code></summary>
+<details><summary><span className="api get">GET</span> <code>/team-management/v1/users/&#123;user_id&#125;/access-key/</code></summary>
 <p/>
 
 Retrieves the Sauce Labs access key for the specified user.
@@ -1619,7 +1619,7 @@ curl --location --request GET 'https://api.staging.saucelabs.net/team-management
 
 ### Reset a User's Access Key
 
-<details><summary><span className="apiPost">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/reset-access-key/</code></summary>
+<details><summary><span className="api post">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/reset-access-key/</code></summary>
 <p/>
 
 Creates a new auto-generated access key for the specified user.
@@ -1675,7 +1675,7 @@ curl --location --request POST 'https://api.staging.saucelabs.net/team-managemen
 
 ### Deactivate a User
 
-<details><summary><span className="apiPost">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/deactivate/</code></summary>
+<details><summary><span className="api post">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/deactivate/</code></summary>
 <p/>
 
 Suspends the specified user's account, preventing all access to Sauce Labs while deactivated.
@@ -1748,7 +1748,7 @@ curl --location --request POST 'https://api.staging.saucelabs.net/team-managemen
 
 ### Activate a User
 
-<details><summary><span className="apiPost">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/activate/</code></summary>
+<details><summary><span className="api post">POST</span> <code>/team-management/v1/users/&#123;user_id&#125;/activate/</code></summary>
 <p/>
 
 Re-activates the specified user's account, if it had been previously deactivated.
@@ -1826,7 +1826,7 @@ The set of methods defined in this section are applicable to customers who have 
 
 ### Get User
 
-<details><summary><span className="apiGet">GET</span> <code>/rest/v1/users/&#123;username&#125;</code></summary><p/>
+<details><summary><span className="api get">GET</span> <code>/rest/v1/users/&#123;username&#125;</code></summary><p/>
 
 Retrieves the profile of the specified user account.
 
@@ -1868,7 +1868,7 @@ curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith
 
 ### Create a Subaccount
 
-<details><summary><span className="apiPost">POST</span> <code>/rest/v1/users/&#123;username&#125;</code></summary><p/>
+<details><summary><span className="api post">POST</span> <code>/rest/v1/users/&#123;username&#125;</code></summary><p/>
 
 Creates a new subaccount under the account of the requestor.
 
@@ -1957,7 +1957,7 @@ curl -X POST -u API_USERNAME:API_ACCESS_KEY \
 
 ### Get List of Subaccounts
 
-<details><summary><span className="apiGet">GET</span> <code>/rest/v1/users/&#123;username&#125;/list-subaccounts</code></summary><p/>
+<details><summary><span className="api get">GET</span> <code>/rest/v1/users/&#123;username&#125;/list-subaccounts</code></summary><p/>
 
 Returns a list of subaccounts associated with the account specified in the request.
 
@@ -2012,7 +2012,7 @@ curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/list-suba
 
 ### Get Subaccount Information
 
-<details><summary><span className="apiGet">GET</span> <code>/rest/v1/users/&#123;username&#125;/subaccounts</code></summary><p/>
+<details><summary><span className="api get">GET</span> <code>/rest/v1/users/&#123;username&#125;/subaccounts</code></summary><p/>
 
 Returns the profile of the subaccount user specified in the request, as well as a list of sibling subaccounts.
 
@@ -2057,7 +2057,7 @@ curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/subaccoun
 
 ### Get List of Sibling Accounts
 
-<details><summary><span className="apiGet">GET</span> <code>/rest/v1/users/&#123;username&#125;/list-subaccounts</code></summary><p/>
+<details><summary><span className="api get">GET</span> <code>/rest/v1/users/&#123;username&#125;/list-subaccounts</code></summary><p/>
 
 Returns a list of accounts that belong to the same parent account as the one specified in the request.
 
@@ -2112,7 +2112,7 @@ curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/siblings
 
 ### Update Access Key
 
-<details><summary><span className="apiPost">POST</span> <code>/rest/v1/users/&#123;username&#125;/accesskey/change</code></summary><p/>
+<details><summary><span className="api post">POST</span> <code>/rest/v1/users/&#123;username&#125;/accesskey/change</code></summary><p/>
 
 This method creates a new auto-generated access key for the specified user.
 
