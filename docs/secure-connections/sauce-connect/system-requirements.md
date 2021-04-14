@@ -582,11 +582,6 @@ Here are the Sauce Connect Proxy network requirements for TLS and SSL traffic:
 
 Public key certificates are used to manage the security of Sauce Connect Proxy communication to both the Sauce Labs API and to the Virtual Machine hosting your tests in the Sauce Labs cloud. For information on saucelabs.com certificate authentication, see [Sauce Connect Proxy Certificate Handling](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Certificate+Handling).
 
-
-
-
-
-
 ## Additional Resources
 
 * [Video: Setting Up Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#SauceConnectProxy-Video:SettingUpSauceConnectProxy)
