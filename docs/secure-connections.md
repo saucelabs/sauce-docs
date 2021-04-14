@@ -22,24 +22,26 @@ To determine which solution is best for you, see [Overview of Sauce Labs Securit
 Sauce IPSec Proxy establishes a VPN connection between two IPSec gateways, and a tunnel gateway that allows only your authorized test VMs to connect. Contact your Sauce Labs Sales Engineer or Customer Success Manager for more information.
 
 <div className="box-wrapper" markdown="1">
+
   <div className="box box1 card">
     <div className="container">
-    <h3>[Using IPSec Tunnels](/secure-connections/ipsec-vpn#testing-with-ipsec-vpn-tunnels)</h3>
+    <h3><a href="/secure-connections/ipsec-vpn">Using IPSec Tunnels</a></h3>
     <p>The tunnel gateway is always on for the lifetime of the secure Sauce IPSec Proxy connection, allowing you to run secure and encrypted tests anytime in the Sauce Labs cloud.</p>
     </div>
   </div>
 
   <div className="box box2 card">
     <div className="container">
-    <h3>[Sauce IPSec Proxy Tunnel Network Recommendations](/secure-connections/ipsec-vpn#bandwidth-recommendations)</h3>
+    <h3><a href="/secure-connections/ipsec-vpn#bandwidth-recommendations">Sauce IPSec Proxy Tunnel Network Recommendations</a></h3>
     <p>Depending on the number of tests you’re running, you'll need to utilize either one or two Sauce IPSec Proxy tunnels for best performance.</p>
     </div>
   </div>
-  </div>
+
+</div>
 
   <div className="box boxwidebottom card">
     <div className="container">
-    <h3>[Sharing Sauce IPSec Proxy Tunnels](/secure-connections/ipsec-vpn#tunnel-permissions)</h3>
+    <h3><a href="/secure-connections/ipsec-vpn#setting-tunnel-permissions">Sharing Sauce IPSec Proxy Tunnels</a></h3>
     <p>You can share Sauce IPSec Proxy tunnel access with your entire organization or restrict access to admins only.</p>
     </div>
   </div>
@@ -51,37 +53,37 @@ Sauce IPSec Proxy establishes a VPN connection between two IPSec gateways, and a
   <div className="box-wrapper" markdown="1">
     <div className="box box1 card">
       <div className="container">
-      <h3>[Using Sauce Connect Proxy](/secure-connections/sauce-connect.md)</h3>
+      <h3><a href="/secure-connections/sauce-connect">Using Sauce Connect Proxy</a></h3>
       <p>Review the Sauce Connect Proxy system and network requirements, and then install the Sauce Connect Proxy client.</p>
       </div>
     </div>
     <div className="box box2 card">
       <div className="container">
-      <h3>[Setup and Configuration](/secure-connections/sauce-connect/setup-configuration/setup-configuration.md)</h3>
+      <h3><a href="/secure-connections/sauce-connect/setup-configuration/setup-configuration">Setup and Configuration</a></h3>
       <p>Find the right Sauce Connect Proxy tunnel configuration for you and your organization. Once you’re connected, use our code samples to run your first test.</p>
       </div>
     </div>
     <div className="box box3 card">
       <div className="container">
-      <h3>[Command Line Reference](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide)</h3>
+      <h3><a href="https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide">Command Line Reference</a></h3>
       <p>Browse the security documentation to learn how to communicate with the Sauce Labs cloud from your private network.</p>
       </div>
     </div>
     <div className="box box4 card">
       <div className="container">
-      <h3>[CI/CD Environments](/secure-connections/sauce-connect/setup-configuration/ci-cd-environnments.md)</h3>
+      <h3><a href="/secure-connections/sauce-connect/setup-configuration/ci-cd-environnments">CI/CD Environments</a></h3>
       <p>Streamline your Sauce Connect Proxy automated functional testing by integrating your preferred build provider with Sauce Labs.</p>
       </div>
     </div>
     <div className="box box5 card">
       <div className="container">
-      <h3>[Using Tunnels](/secure-connections/sauce-connect/proxy-tunnels.md)</h3>
+      <h3><a href="/secure-connections/sauce-connect/proxy-tunnels">Using Tunnels</a></h3>
       <p>Best practices for managing tunnels.</p>
       </div>
     </div>
     <div className="box box6 card">
       <div className="container">
-      <h3>[Security and Authentication](/secure-connections/sauce-connect/security-authentication.md)</h3>
+      <h3><a href="/secure-connections/sauce-connect/security-authentication">Security and Authentication</a></h3>
       <p>Settings and tips for configuring Sauce Connect Proxy with your network.</p>
       </div>
     </div>
