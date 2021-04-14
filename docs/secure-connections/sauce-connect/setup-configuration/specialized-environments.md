@@ -8,9 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Real Device Cloud Setup
-:::note
-The content on this page applies to the new RDC on Sauce platform. If you're looking for instructions on how to run Sauce Connect Proxy on our Legacy RDC platform (TestObject), see [Creating a Sauce Connect Tunnel for Legacy Real Device Cloud](https://wiki.saucelabs.com/display/DOCS/Creating+a+Sauce+Connect+Tunnel+for+Legacy+Real+Device+Cloud).
-:::
+>**NOTE:** The content on this page applies to the new RDC on Sauce platform. If you're looking for instructions on how to run Sauce Connect Proxy on our Legacy RDC platform (TestObject), see [Creating a Sauce Connect Tunnel for Legacy Real Device Cloud](https://wiki.saucelabs.com/display/DOCS/Creating+a+Sauce+Connect+Tunnel+for+Legacy+Real+Device+Cloud).
 
 Real Device Cloud on Sauce Labs (RDC on Sauce) offers public and private mobile devices for users looking to expedite automated and live testing for their mobile apps. You can run a high volume of tests across a broad range of real devices without compromising performance, quality, or reliability.
 
@@ -22,9 +20,7 @@ You must know your account details, including:
 * Your Sauce Labs username and access key. In Sauce Labs, click **Account** and then click **User settings**.
 * The Data Center endpoint associated with your geographic location
 
-:::note
-We recommend setting all of the values above as environment variables to protect your username and api key from exposure, and also for future convenience. See [Using Environment Variables for Authentication Credentials](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials) for more information.
-:::
+>**NOTE:** We recommend setting all of the values above as environment variables to protect your username and api key from exposure, and also for future convenience. See [Using Environment Variables for Authentication Credentials](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials) for more information.
 
 ## Security Considerations
 ### Restricting Tunnel Deployment to Organization Admins
@@ -131,9 +127,7 @@ $ /bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x 'ht<span>tps://</sp
 </TabItem>
 </Tabs>
 
-:::note
-Once you establish a Sauce Connect Proxy tunnel for real device testing, you can also use it for virtual devices (and vice versa) since they'll share the same endpoint.
-:::
+>**NOTE:** Once you establish a Sauce Connect Proxy tunnel for real device testing, you can also use it for virtual devices (and vice versa) since they'll share the same endpoint.
 
 ### OnDemand Endpoint Examples for Driver Setup
 To ensure you're testing against the correct data center, you'll need to add the correct OnDemand endpoint when you instantiate a MobileDriver in your automated test:
