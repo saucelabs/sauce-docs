@@ -10,15 +10,15 @@ import TabItem from '@theme/TabItem';
 You can use a pre-run executable script to download files from a public location to the Sauce Labs virtual machine running your tests. This topic contains example scripts for downloading remote files on different operating systems, and details configuring the prerun capability in your tests.
 
 <Tabs
-  defaultValue="macos"
+  defaultValue="macOS"
   values={[
-    {label: 'macOS', value: 'macos'},
-    {label: 'Windows 7, 8, 8.1', value: 'windows'},
-    {label: 'Windows XP', value: 'windowsxp'},
-    {label: 'Linux', value: 'linux'},
+    {label: 'macOS', value: 'macOS'},
+    {label: 'Windows', value: 'Windows'},
+    {label: 'Windows XP', value: 'Windows XP'},
+    {label: 'Linux', value: 'Linux'},
   ]}>
 
-<TabItem value="macos">
+<TabItem value="macOS">
 
 ### OS X 10.6, 10.8, 10.9, 10.10
 This shell script will fetch the file at the URL and save it to **/tmp/file.txt**.
@@ -29,7 +29,7 @@ curl -o /tmp/file.txt http://mywebsite.com/file.txt
 ```
 </TabItem>
 
-<TabItem value="windows">
+<TabItem value="Windows">
 
 ### Windows 7, 8, 8.1
 This batch file accomplishes the same thing as the OS X curl method, but using **bitsadmin.exe** since Windows doesn't ship with curl.
@@ -40,7 +40,7 @@ bitsadmin.exe /transfer "JobName" http://mywebsite.com/file.txt C:\Users\Adminis
 ```
 </TabItem>
 
-<TabItem value="windowsxp">
+<TabItem value="Windows XP">
 
 ### Windows XP
 This batch file creates a VBScript file, **dl.vbs**, which will perform the download, and then runs it:
@@ -73,7 +73,7 @@ cscript.exe C:\dl.vbs
 
 </TabItem>
 
-<TabItem value="linux">
+<TabItem value="Linux">
 
 ### Linux
 This shell script downloads **file.txt** at **mywebsite.com** to the **/tmp** directory.
@@ -89,6 +89,7 @@ wget -O /tmp/file.txt http://mywebsite.com/file.txt
 After you've created the download script, use the prerun capability in your test script to point to its location.
 
 If your script is in a publicly accessible location, you need to add the URL to the prerun capability.
+
 ```js
 capabilities['prerun'] = "http://location.of/curl.sh"
 ```
