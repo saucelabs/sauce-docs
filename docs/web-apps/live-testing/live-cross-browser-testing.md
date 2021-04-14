@@ -3,6 +3,9 @@ id: live-cross-browser-testing
 title: Live Cross Browser Testing
 sidebar_label: Live Cross Browser Testing
 ---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Testing on a Desktop Browser
 You can run live tests of your websites on a wide variety of operating system, browser, version, and screen resolution configurations.
@@ -21,11 +24,11 @@ You can run live tests of your websites on a wide variety of operating system, b
 
 7. Your recent and saved configurations are listed in the right panel, under **Recent** and **Saved**, respectively.
 
-<img src={useBaseUrl('img/live-testing/desktop-recent-saved.jpg')} alt="Recent and saved tests" width="650"/>
+<img src={useBaseUrl('img/live-testing/desktop-recent-saved.jpg')} alt="Recent and saved tests" width="350"/>
 
 8. To save your current configuration, select the **Save this configuration** check box.  
 
-<img src={useBaseUrl('img/live-testing/desktop-saved-config.jpg')} alt="Saved test configuration" width="650"/>
+<img src={useBaseUrl('img/live-testing/desktop-saved-config.jpg')} alt="Saved test configuration" width="350"/>
 
 9. Click **Start Session**.
 You'll see a loading screen, and then the application will launch in a live test window using the configuration you selected.
@@ -51,7 +54,7 @@ Once your session launches, you can use your mouse cursor and keyboard to intera
 With Sauce Labs you can run live tests of your web apps using native browsers for Android and iOS on both virtual and real mobile devices.
 
 ### What You'll Need
-Know if your app is designed to run on internal or otherwise restricted networks. If it does and you're testing on real devices, use Sauce Connect Proxy to connect. For more information, see the [Sauce Connect Proxy setup for Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/specialized-environments.md).
+Know if your app is designed to run on internal or otherwise restricted networks. If it does and you're testing on real devices, use Sauce Connect Proxy to connect. For more information, see the [Sauce Connect Proxy setup for Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/specialized-environments).
 
 ### Real Device
 1. In Sauce Labs, in the left panel, click **Live** and then click **Cross Browser**.
@@ -62,7 +65,7 @@ Know if your app is designed to run on internal or otherwise restricted networks
 3. Use the filter options or **Search** field to find the type of real device you want to use in your test.
 4. To mark a device as a favorite so you can find it easily in the future, click the star next to the device name.
 
-<img src={useBaseUrl('img/live-testing/device-favorite.png')} alt="Favorite a device" width="650"/>
+<img src={useBaseUrl('img/live-testing/device-favorite.png')} alt="Favorite a device" width="350"/>
 
   The default sorting for the device list is **Starred First**.
 
