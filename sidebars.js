@@ -67,7 +67,7 @@ module.exports = {
      ],
   },
 ],
-  "Secure Connections": [
+  "Sauce Trusted Connection": [
      'secure-connections',
      {
         type: 'category',
