@@ -5,6 +5,9 @@ sidebar_label: Accounts
 description: Manage all aspects of your Sauce Labs organization, team, and member accounts.
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 The Sauce Labs REST API exposes the following methods related to individual and team account configuration and monitoring.
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
@@ -31,13 +34,36 @@ Returns a team count and an array of all teams in the organization of the reques
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.staging.saucelabs.net/team-management/v1/teams?name=sauce' \
+curl --location --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams?name=sauce' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw ''
 ```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams?name=sauce' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+--data-raw ''
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -99,11 +125,35 @@ Returns the full profile of the specified team.
   </tbody>
 </table>
 
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.staging.saucelabs.net/team-management/v1/teams/80d69d16ebdb4c018cc9d81ea911761a' \
+curl --location --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/80d69d16ebdb4c018cc9d81ea911761a' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 ```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/80d69d16ebdb4c018cc9d81ea911761a' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -193,11 +243,20 @@ Creates a new team under the organization of the requesting account.
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/teams/' \
+curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw '{
     "name": "A-Team",
     "settings": {
@@ -207,6 +266,26 @@ curl --location --request POST 'https://api.staging.saucelabs.net/team-managemen
     "description": "Docs QA Team"
 }
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+--data-raw '{
+    "name": "A-Team",
+    "settings": {
+        "virtual_machines": "10"
+    },
+    "organization": "*********",
+    "description": "Docs QA Team"
+}
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -266,12 +345,35 @@ Deletes the specified team from the organization of the requesting account.
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
 ```jsx title="Sample Request"
-curl --location --request DELETE 'https://api.staging.saucelabs.net/team-management/v1/teams/06a3981af2a643208847dfd8b7f32bce/' \
+curl --location --request DELETE 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/06a3981af2a643208847dfd8b7f32bce/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw ''
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request DELETE 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/06a3981af2a643208847dfd8b7f32bce/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+--data-raw ''
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -337,10 +439,20 @@ Replaces all values of the specified team with the new set of parameters passed 
 </table>
 
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
 ```jsx title="Sample Request"
-curl --location --request PUT 'https://api.staging.saucelabs.net/team-management/v1/teams/' \
+curl --location --request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw '{
     "name": "Doc-Team",
     "settings": {
@@ -349,6 +461,25 @@ curl --location --request PUT 'https://api.staging.saucelabs.net/team-management
     "description": "Docs Team"
 }
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+--data-raw '{
+    "name": "Doc-Team",
+    "settings": {
+        "virtual_machines": "10"
+    },
+    "description": "Docs Team"
+}
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -438,17 +569,45 @@ Updates one or more individual editable parameters (such as the concurrency allo
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request PATCH 'https://api.staging.saucelabs.net/team-management/v1/teams/' \
+curl --location --request PATCH 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw '{
     "settings": {
         "virtual_machines": "25"
     }
 }
 ```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request PATCH 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+--data-raw '{
+    "settings": {
+        "virtual_machines": "25"
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
 
 #### Responses
 
@@ -513,13 +672,35 @@ Returns the number of members in the specified team and lists each member.
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.staging.saucelabs.net/team-management/v1/teams/b3de7078b79841b59d2e54127269afe3/members' \
+curl --location --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/b3de7078b79841b59d2e54127269afe3/members' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw ''
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/b3de7078b79841b59d2e54127269afe3/members' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+--data-raw ''
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -571,13 +752,35 @@ Regenerating an access key invalidates the previous value and any tests containi
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/teams/b3de7078b79841b59d2e54127269afe3/reset-access-key' \
+curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/b3de7078b79841b59d2e54127269afe3/reset-access-key' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw ''
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/b3de7078b79841b59d2e54127269afe3/reset-access-key' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+--data-raw ''
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -673,12 +876,35 @@ Returns a count total and array of of all users in the organization of the reque
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.staging.saucelabs.net/team-management/v1/users?roles=3&limit=30' \
+curl --location --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users?roles=3&limit=30' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Basic *******************' \
 --data-raw ''
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users?roles=3&limit=30' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic *******************' \
+--data-raw ''
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -736,11 +962,33 @@ Returns the full profile of the specified user.
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.staging.saucelabs.net/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83' \
+curl --location --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -857,10 +1105,21 @@ Creates a new user in the Sauce Labs platform.
   </tbody>
 </table>
 
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/users/' \
+curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw '{
     "first_name": "Jim",
     "last_name": "Smith",
@@ -871,6 +1130,27 @@ curl --location --request POST 'https://api.staging.saucelabs.net/team-managemen
     "team": "b3de7078b79841b59d2e54127269afe3"
 }'
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+--data-raw '{
+    "first_name": "Jim",
+    "last_name": "Smith",
+    "email": "jsmith@icloud.com",
+    "username": "jsmith",
+    "password": "$m1th*RULES",
+    "role": 4,
+    "team": "b3de7078b79841b59d2e54127269afe3"
+}'
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -1000,10 +1280,20 @@ Replaces all values of the specified user profile with the new set of parameters
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
 ```jsx title="Sample Request"
-curl --location --request PUT 'https://api.staging.saucelabs.net/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/' \
+curl --location --request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY=' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY=' \
 --data-raw '{
     "first_name": "James",
     "last_name": "Smith",
@@ -1012,6 +1302,25 @@ curl --location --request PUT 'https://api.staging.saucelabs.net/team-management
     "verify_password": "$m1th*RULEStheworld"
 }'
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY=' \
+--data-raw '{
+    "first_name": "James",
+    "last_name": "Smith",
+    "email": "jsmith@icloud.com",
+    "password": "$m1th*RULEStheworld",
+    "verify_password": "$m1th*RULEStheworld"
+}'
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -1110,14 +1419,39 @@ Allows you to update individual user values without replacing the entire profile
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
 ```jsx title="Sample Request"
-curl --location --request PUT 'https://api.staging.saucelabs.net/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/' \
+curl --location --request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY=' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY=' \
 --data-raw '{
     "first_name": "Jimmy"
 }'
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY=' \
+--data-raw '{
+"first_name": "Jimmy"
+}''
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -1192,11 +1526,33 @@ At this time, users may only belong to a maximum of one team.
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.staging.saucelabs.net/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/teams/' \
+curl --location --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/teams/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/teams/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -1263,16 +1619,41 @@ Set a user's team affiliation. Users are limited to one team affiliation, so if 
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/users/membership/' \
+curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/membership/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw '{
     "user": "e5be7513ba224f6f9463c209cb4c5d83",
     "team": "80d69d16ebdb4c018cc9d81ea911761a"
 }'
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/membership/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+--data-raw '{
+    "user": "e5be7513ba224f6f9463c209cb4c5d83",
+    "team": "80d69d16ebdb4c018cc9d81ea911761a"
+}'
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -1367,11 +1748,33 @@ Assigns administrator rights to the user within their organization. Organization
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-admin/' \
+curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-admin/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-admin/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -1439,10 +1842,31 @@ Assigns administrator rights to the user within their current team. If the user 
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-team-admin/' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-team-admin/' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-team-admin/' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -1511,10 +1935,31 @@ Assigns the `member` role to the user. If the user is currently assigned any Adm
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-team-admin/' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-team-admin/' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-team-admin/' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -1583,10 +2028,31 @@ Retrieves the Sauce Labs access key for the specified user.
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.staging.saucelabs.net/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/access-key' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+curl --location --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/access-key' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/access-key' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -1640,10 +2106,31 @@ Regenerating an access key invalidates the previous value and any tests containi
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/reset-access-key' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/reset-access-key' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/reset-access-key' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -1691,10 +2178,31 @@ Suspends the specified user's account, preventing all access to Sauce Labs while
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/deactivate' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/deactivate' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/deactivate' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -1764,10 +2272,31 @@ Re-activates the specified user's account, if it had been previously deactivated
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.staging.saucelabs.net/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/activate' \
---header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/activate' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/activate' \
+--header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -1843,7 +2372,7 @@ Retrieves the profile of the specified user account.
 
 
 ```jsx title="Sample Request"
-curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith
+curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith
 ```
 
 #### Responses
@@ -1986,7 +2515,7 @@ Returns a list of subaccounts associated with the account specified in the reque
 </table>
 
 ```jsx title="Sample Request"
-curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/list-subaccounts
+curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/list-subaccounts
 ```
 
 #### Responses
@@ -2030,7 +2559,7 @@ Returns the profile of the subaccount user specified in the request, as well as 
 
 
 ```jsx title="Sample Request"
-curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/subaccounts
+curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/subaccounts
 ```
 
 #### Responses
@@ -2085,7 +2614,7 @@ Returns a list of accounts that belong to the same parent account as the one spe
 </table>
 
 ```jsx title="Sample Request"
-curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/siblings
+curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/siblings
 ```
 
 #### Responses
@@ -2132,7 +2661,7 @@ Regenerating an access key invalidates the previous value and any tests containi
 </table>
 
 ```jsx title="Sample Request"
-curl -u USERNAME:ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/accesskey/change
+curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/accesskey/change
 ```
 
 #### Responses
