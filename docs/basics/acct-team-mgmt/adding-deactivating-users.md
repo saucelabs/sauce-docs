@@ -15,10 +15,10 @@ When you add a user manually, you assign the user a user name and password. To a
 ### Adding a User Manually
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.jpg')} alt="Team management navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
 
 2. On the **Users** tab, click the blue plus sign.
-    
+
    <img src={useBaseUrl('img/team-mgmt/add-new-user-nav.jpg')} alt="Add new user - Blue plus sign" width="700"/>
 
 3. On the **Manual Entry** tab, enter an email address, user name, password, and optional first and last name for the new user.
