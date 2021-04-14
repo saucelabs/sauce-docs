@@ -4,7 +4,7 @@ title: "Virtual USB CLI: Start the Server"
 sidebar_label: Start Server
 ---
 
-The `server` command connects your local machine to the Sauce Labs Data Center where your Real Device Cloud private devices are hosted.
+The [`server`](https://docs.saucelabs.com/mobile-apps/virtual-usb#start-server) command connects your local machine to the Sauce Labs Data Center where your Real Device Cloud private devices are hosted. You must start this command in its own separate command line terminal, since it acts as a log running continuously.
 
 ## Required
 
@@ -13,6 +13,14 @@ __Description__: defines the Data Center where your Real Device Cloud private de
 
 ```java title="Basic Example (required flags only)"
 java -jar virtual-usb-client.jar server --datacenter US
+```
+
+```java title="Response Example"
+19:06:10.060 [main] INFO com.saucelabs.vusb.client.Runner - Runner Version 2.0.0
+19:06:11.032 [main] INFO com.saucelabs.vusb.client.server.VirtualUsbServer - Initializing vUSB-Server...
+19:06:11.038 [main] INFO com.saucelabs.vusb.client.server.VirtualUsbServer - vUSB-Server initialized
+19:06:11.039 [main] INFO com.saucelabs.vusb.client.server.rest.WebServer - Starting Virtual USB server on port 33657.
+19:06:11.103 [main] INFO com.saucelabs.vusb.client.server.rest.WebServer - Virtual USB server is up.
 ```
 
 ## Optional
@@ -44,11 +52,11 @@ __Description__: specifies a HTTP proxy user.
 __Description__: specifies a HTTP proxy password.
 
 ### `--startUsbmuxd`
-__Description__: starts the `usbmuxd` server immediately. Default value: `false`.
+__Description__: starts the `usbmuxd` server. Default value: `false`.
 
-```bash title="Full Example (includes some optional flags)"
+```bash title="Full Example (with optional flags)"
 java -jar virtual-usb-client.jar server \
-    --datacenter us-west-1 \
+    --datacenter US \
     --adbPortRange 700 \
     --adbPortMin 1000 \
     --serverHost http://127.0.0.1 \

@@ -1,22 +1,23 @@
 ---
 id: yaml-config
-title: Sauce Runner YAML Configuration Examples
+title: Sauce Runner YAML Configuration
 sidebar_label: YAML Configuration
 ---
 
-This page outlines some examples of how to set up your Espresso/XCUItest YAML configuration as an alternative to using the [Sauce Runner CLI Tool](/dev/cli/espresso-xcuitest).
+This page outlines some examples of how to set up your Espresso/XCUITest YAML configuration as an alternative to using the [Sauce Runner CLI tool](/dev/cli/espresso-xcuitest).
 
 ## Configuration Setup
 
-Add the config `command` to your test script. The config command only accepts two parameters: --path `<your path to config.yml>` and `--accessKey <your_accessKey>`.
+1. Add the `config` command to your test script.
+2. The `config` command only accepts two parameters: `--path <your path to config.yml>` and `--accessKey <your_accessKey>`.
 
-```js
+```java
 JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config /
 --path <path to config.yml> --apikey <apikey>
 ```
 
-:::warning
-You cannot use CLI options in your YAML config file. Once you pass the `config` command to the runner, it will prohibit you from using the other configuration options available on the command line besides `path` and `apikey`.
+:::info
+CLI options are not compatible with YAML config files. Once you pass the `config` YAML command to the runner, it will prohibit you from using all command line configuration options except `--path` and `--accessKey`.
 :::
 
 ## Device Allocation
