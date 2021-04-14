@@ -36,6 +36,7 @@
 /*{"last_published":"2021-01-18 18:46:45 UTC"}*/
 
 @import url('https://use.typekit.net/bte6qhg.css');
+@import "api-override.css";
 
 .tk-museo-sans { font-family: "museo-sans",sans-serif; }
 .tk-museo-sans-rounded { font-family: "museo-sans-rounded",sans-serif; }
@@ -405,27 +406,6 @@ h3, .h3 {
   padding:.2rem;
 }
 
-.apiGet {
-  background:#0080ff;
-  color:white;
-  padding:.2rem;
-  font-weight:750;
-}
-
-.apiDelete {
-  background:#f93e3e;
-  color:white;
-  font-weight:750;
-  padding:.2rem;
-}
-
-.apiPost {
-  background:#49cc90;
-  color:white;
-  font-weight:750;
-  padding:.2rem;
-}
-
 .sauceMint {
   background:#01c3a5;
   color:#000000;
@@ -440,13 +420,6 @@ h3, .h3 {
   font-weight:750;
 }
 
-.apiPatch {
-  background:#dcb03b;
-  color: white;
-  padding:.2rem;
-  font-weight:750;
-}
-
 .sauceOrange {
   background:#ec5c26;
   color:#FFFFFF;
@@ -457,13 +430,6 @@ h3, .h3 {
 .sauceLime {
   background:#98cb3c;
   color:#000000;
-  padding:.2rem;
-  font-weight:750;
-}
-
-.apiPut {
-  background:#fca130;
-  color:#FFFFFF;
   padding:.2rem;
   font-weight:750;
 }
@@ -509,20 +475,6 @@ h3, .h3 {
 
 .redocusaurus h2,h3,h4 {
   color: #E2231A;;
-}
-
-/* API Doc Style Overrides */
-
-#table-api tr, {
-  margin-bottom: 2px;
-  padding: 1px;
-  margin-block-start: 2px;
-}
-
-#table-api p {
-  display: block;
-  margin-block-start: 2px;
-  margin-block-end: 2px;
 }
 
 /* Get Started button styles */
