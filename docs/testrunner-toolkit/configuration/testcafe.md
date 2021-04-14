@@ -146,7 +146,7 @@ __Example__:
 ```
 
 ### `disableScreenshots`
-__Description__: Prevents TestCafe from taking screenshots. [See link in Testcafe](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#disablescreenshots).
+__Description__: Prevents TestCafe from taking screenshots. [TestCafe `disableScreenshots` definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#disablescreenshots).
 
 __Type__: *boolean*
 
@@ -166,9 +166,9 @@ __Example__:
 ```
 
 ### `clientScripts`
-__Description__: Injects scripts into all pages visited during the test. [See link in Testcafe](https://devexpress.github.io/testcafe/documentation/reference/test-api/fixture/clientscripts.html).
+__Description__: Injects scripts into all pages visited during the test. [TestCafe `clientScripts` definition](https://devexpress.github.io/testcafe/documentation/reference/test-api/fixture/clientscripts.html).
 
-__Type__: *object*
+__Type__: *array*
 
 __Example__:
 ```yaml
@@ -176,7 +176,7 @@ __Example__:
 ```
 
 ### `skipJsErrors`
-__Description__: Ignores JavaScript errors on a webpage. [See link in Testcafe](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#skipjserrors).
+__Description__: Ignores JavaScript errors on a webpage. [Testcafe `skipJsErrors` definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#skipjserrors).
 
 __Type__: *boolean*
 
@@ -186,7 +186,7 @@ __Example__:
 ```
 
 ### `quarantineMode`
-__Description__: Enables the quarantine mode for tests that fail. [See link in Testcafe](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#quarantinemode).
+__Description__: Enables the quarantine mode for tests that fail. [Testcafe `quarantineMode` definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#quarantinemode).
 
 __Type__: *boolean*
 
@@ -196,7 +196,7 @@ __Example__:
 ```
 
 ### `skipUncaughtErrors`
-__Description__: Ignores uncaught errors and unhandled promise rejections in test code. [See link in Testcafe](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#skipUncaughtErrors).
+__Description__: Ignores uncaught errors and unhandled promise rejections in test code. [Testcafe `skipUncaughtErrors` definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#skipUncaughtErrors).
 
 __Type__: *boolean*
 
@@ -206,7 +206,7 @@ __Example__:
 ```
 
 ### `selectorTimeout`
-__Description__: Specifies the time (in milliseconds) within which selectors attempt to return a node. [See link in Testcafe](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#selectorTimeout`).
+__Description__: Specifies the time (in milliseconds) within which selectors attempt to return a node. [Testcafe `selectorTimeout` definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#selectorTimeout`).
 
 __Type__: *int*
 
@@ -216,7 +216,7 @@ __Example__:
 ```
 
 ### `assertionTimeout`
-__Description__: Specifies the time (in milliseconds) TestCafe attempts to successfully execute an assertion if a selector property or a client function was passed as an actual value. [See link in Testcafe](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#assertionTimeout).
+__Description__: Specifies the time (in milliseconds) TestCafe attempts to successfully execute an assertion if a selector property or a client function was passed as an actual value. [Testcafe `assertionTimeout` definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#assertionTimeout).
 
 __Type__: *int*
 
@@ -226,7 +226,7 @@ __Example__:
 ```
 
 ### `pageLoadTimeout`
-__Description__: Specifies the time (in milliseconds) passed after the DOMContentLoaded event, within which TestCafe waits for the window.load event to fire. [See link in Testcafe](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#pageLoadTimeout).
+__Description__: Specifies the time (in milliseconds) passed after the DOMContentLoaded event, within which TestCafe waits for the window.load event to fire. [Testcafe `pageLoadTimeout` definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#pageLoadTimeout).
 
 __Type__: *int*
 
@@ -236,7 +236,7 @@ __Example__:
 ```
 
 ### `stopOnFirstFail`
-__Description__: Stops a test run if a test fails. [See link in Testcafe](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#stopOnFirstFail).
+__Description__: Stops a test run if a test fails. [Testcafe `stopOnFirstFail` definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#stopOnFirstFail).
 
 __Type__: *boolean*
 
@@ -246,21 +246,11 @@ __Example__:
 ```
 
 ### `disablePageCaching`
-__Description__: Prevents the browser from caching page content. [See link in Testcafe](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#disablePageCaching).
+__Description__: Prevents the browser from caching page content. [Testcafe `disablePageCaching` definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#disablePageCaching).
 
 __Type__: *boolean*
 
 __Example__:
 ```yaml
   disablePageCaching: true
-```
-
-### `disableScreenshots`
-__Description__: Prevents TestCafe from taking screenshots. [See link in Testcafe](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#disableScreenshots).
-
-__Type__: *boolean*
-
-__Example__:
-```yaml
-  disableScreenshots: true
 ```
