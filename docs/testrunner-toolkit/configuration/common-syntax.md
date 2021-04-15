@@ -190,7 +190,7 @@ defaults:
 
 ### `mode`
 
-__Description__: Specifies whether tests in the project will run on `docker` or `sauce`. This default setting can be overridden by the `mode` value for individual suites.
+__Description__: Specifies whether tests in the project will run on `docker` or `sauce`.
 
 __Type__: *string*
 
