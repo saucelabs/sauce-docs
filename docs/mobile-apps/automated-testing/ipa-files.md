@@ -81,3 +81,19 @@ Our XCUITest test runner accepts both .app and .ipa file formats for the `--app`
 2. Move the -Runner.app to the `Payload` directory.
 3. Compress the Payload directory into an archive (.zip file) and give it a new name with .ipa file format ending.
 4. Your .ipa file is ready to be used in the `--test` parameter of our XCUITest test runner. See [Real Device Testing with Espresso and XCUITest](mobile-apps/automated-testing/espresso-xcuitest/real-devices.md) for more information.
+
+## Creating .ipa Files for XCUITest Testing
+
+This section describes how to build .ipa files for Real Device Testing (see [Real Device Testing with Espresso and XCUITest](/mobile-apps/automated-testing/real-devices)).
+
+Make sure that you set the same iOS version for your app and test runner **iOS Deployment Target**. If they don't match, your tests will run locally, but fail when you run them against Sauce Labs real devices.
+
+To set the iOS version in your Xcode Project:
+1. Select the Project you want to build.
+2. Under **Build Settings**, set the **iOS Deployment Target** to the iOS version you want to use in your test. All target outputs of this project, including the app and your test runner, will be set to the same iOS version.
+
+To set the iOS version in your Xcode Target:
+1. Select the Target for your Project.
+2. Under **Build Settings**, set the iOS Deployment Target to the iOS version you want to use in your test.
+
+>**NOTE**: will also overwrite the **Build Settings** at the Project level to that iOS version. If you use this method, be aware that your Targets can become out of sync with each other and the Project settings, and your tests will break. If you change the iOS version for one target output, you may want to build the Project again to make sure all your targets are in sync.
