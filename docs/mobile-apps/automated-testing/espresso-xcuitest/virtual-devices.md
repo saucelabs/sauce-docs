@@ -69,7 +69,7 @@ If you'd like to try out this functionality but don't have an app on hand, [down
 ## Configure Your Test
 
 :::tip CLI Reference
-See [Sauce Runner for Virtual Devices CLI Reference](dev/cli/espresso-xcuitest/virtual-devices). To view these commands in your CLI, run the `--help` option:
+See [Sauce Runner for Virtual Devices CLI Reference](dev/cli/espresso-xcuitest/virtual-devices.md). To view these commands in your CLI, run the `--help` option:
 ```java
 java -jar saucelabs-native-test-runner.jar --help
 ```

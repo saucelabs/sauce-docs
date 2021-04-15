@@ -84,7 +84,7 @@ Our XCUITest test runner accepts both .app and .ipa file formats for the `--app`
 
 ## Creating .ipa Files for XCUITest Testing
 
-This section describes how to build .ipa files for Real Device Testing (see [Real Device Testing with Espresso and XCUITest](/mobile-apps/automated-testing/real-devices)).
+This section describes how to build .ipa files for Real Device Testing (see [Real Device Testing with Espresso and XCUITest](mobile-apps/automated-testing/espresso-xcuitest/real-devices)).
 
 Make sure that you set the same iOS version for your app and test runner **iOS Deployment Target**. If they don't match, your tests will run locally, but fail when you run them against Sauce Labs real devices.
 
