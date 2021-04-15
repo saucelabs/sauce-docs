@@ -1,12 +1,12 @@
 ---
 id: yaml-config
-title: Sauce Runner YAML Configuration
-sidebar_label: YAML Configuration
+title: Sauce Runner YAML File Configuration
+sidebar_label: YAML Config File
 ---
 
-This page outlines some examples of how to set up your Espresso/XCUITest YAML configuration as an alternative to using the [Sauce Runner CLI tool](/dev/cli/espresso-xcuitest).
+This topic outlines the parameters needed to set up your Espresso and XCUITest YAML configuration as an alternative to using the [Sauce Runner CLI tool](/dev/cli/espresso-xcuitest).
 
-## Configuration Setup
+## Setup
 
 1. Add the `config` command to your test script.
 2. The `config` command only accepts two parameters: `--path <your path to config.yml>` and `--accessKey <your_accessKey>`.
