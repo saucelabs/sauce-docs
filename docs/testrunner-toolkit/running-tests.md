@@ -28,7 +28,7 @@ Unless you specify a test directory, `saucectl` executes tests based on the test
 
 The following steps outline how to run your tests on your local machine with the containerized solution. This is the preferred option if you wish to run tests on your local machine, or if you wish to accelerate test execution in CI.
 
-Please note that if you don't specify a `--test-env` flag when running tests, `saucectl` defaults to `sauce` mode.
+Please note that if you don't specify a `--test-env` flag when running tests, `saucectl` defaults to mode settings in saucectl config file.
 
 :::note `docker` Syntax Page
 See the [`docker` syntax reference page](/testrunner-toolkit/configuration/common-syntax#docker) for further details.
