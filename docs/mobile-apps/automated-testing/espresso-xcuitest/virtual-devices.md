@@ -69,14 +69,14 @@ If you'd like to try out this functionality but don't have an app on hand, [down
 ## Configure Your Test
 
 :::tip CLI Reference
-See [Sauce Runner for Virtual Devices CLI Reference](dev/cli/espresso-xcuitest/virtual-devices.md). To view these commands in your CLI, run the `--help` option:
+See [Sauce Runner for Virtual Devices CLI Reference](/dev/cli/espresso-xcuitest/virtual-devices). To view these commands in your CLI, run the `--help` option:
 ```java
 java -jar saucelabs-native-test-runner.jar --help
 ```
 :::
 <br/>
 
-5. Open a new command line window, then enter the required commands and flags as listed on the [Sauce Runner for Virtual Devices CLI Reference](/dev/cli/espresso-xcuitest/virtual-devices):
+5. Open a new command line window, then enter the [required commands and flags](/dev/cli/espresso-xcuitest/virtual-devices):
 
    ```java title="Required Commands and Flags"
    ./sauce-runner-virtual -f <your test framework (espresso or xcuitest)> -u <your username> -k <your access key> --app <your app file name> --test-app <your test file name> -d ''<your device name>''
@@ -88,7 +88,7 @@ java -jar saucelabs-native-test-runner.jar --help
 
   In this example, Sauce Runner will install the Android app (SauceLabs.Mobile.Sample.Espresso.App.apk) on the Google Pixel emulator and then launch the Espresso test suite (SauceLabs.Mobile.Sample.Espresso.Tests.apk).
 
-  If needed, you can also add [optional parameters]((/dev/cli/espresso-xcuitest/virtual-devices)) to configure Sauce Runner with your Espresso tests. For example, you could add another device to the above code script by adding the line `--d 'deviceName=Samsung Galaxy S8 HD GoogleAPI Emulator,platformVersion=7.0'`.
+  If needed, you can also add [optional parameters](/dev/cli/espresso-xcuitest/virtual-devices) to configure Sauce Runner with your Espresso tests. For example, you could add another device to the above code script by adding the line `--d 'deviceName=Samsung Galaxy S8 HD GoogleAPI Emulator,platformVersion=7.0'`.
 
 ## Run Your Test
 
