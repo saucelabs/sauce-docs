@@ -1,4 +1,4 @@
-/* API badge CSS */
+/* API table and badge CSS */
 
 
 #table-api tr {
@@ -19,7 +19,7 @@
     font-weight:750;
     width: 100%;
     margin: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .get {
