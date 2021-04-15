@@ -190,7 +190,7 @@ defaults:
 
 ### `mode`
 
-__Description__: Specifies whether tests in the project will run on `docker` or `sauce`. This default setting can be overridden by the `mode` value for individual suites or at runtime by the `--test-env` command line parameter.
+__Description__: Specifies whether tests in the project will run on `docker` or `sauce`. This default setting can be overridden by the `mode` value for individual suites.
 
 __Type__: *string*
 
@@ -288,7 +288,7 @@ __Example__:
 
 ### `mode`
 
-__Description__: Allows you to specify whether the individual suite will run on `docker` or `sauce`, potentially overriding the default project mode setting. The suite will always run in the specified mode unless overridden at runtime by the `--test-env` command line parameter.
+__Description__: Allows you to specify whether the individual suite will run on `docker` or `sauce`, potentially overriding the default project mode setting.
 
 __Type__: *string*
 
