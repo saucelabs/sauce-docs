@@ -25,7 +25,7 @@ Sauce Labs offers an enterprise-grade IPSec VPN solution that enables a secure c
 * If you're an organization admin, see [Security Settings](/basics/acct-team-mgmt/org-settings.md) for information on configuring tunnel access for users.
 * You'll need authorization (if you don't have it already) to use your organization's Sauce IPSec Proxy tunnel. Contact your Sauce Labs account organization admin, who controls access.
 
-#### Verifying Access
+#### __Verifying Access__
 
 To verify that you have access to your organization's Sauce IPSec Proxy tunnel, head to the **Tunnels** menu. If the tunnel name and details are displayed here, this means you have access.
 
@@ -101,7 +101,7 @@ Depending on the type of test you want to run, you may need to include certain d
 ### Automated Testing
 To connect to Sauce Labs real and virtual devices, assign your Sauce IPSec Proxy tunnel to the appropriate [Data Center Endpoint](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) in your test automation script.
 
-#### Appium and Selenium
+#### __Appium and Selenium__
 
 * Set the `tunnelIdentifier` desired capability to the name of your organization's Sauce IPSec Proxy tunnel
 
@@ -115,16 +115,28 @@ caps.setCapability("tunnelIdentifier", "awesometunnel");
 caps.setCapability("parentTunnel","johnsmith");
 ```
 
-#### Espresso Tests on Emulators
+#### __Espresso Tests on Emulators__
 * Set the `tunnel-identifier` argument for Sauce-Runner-Virtual to the name of your Sauce IPSec Proxy tunnel.
 
 ### Live Testing
+
+#### __Cross Browser App Testing__
+
 For cross browser app testing, in Sauce Labs, click **LIVE** and then click **Cross Browser**. In the **Sauce Connect Proxy** dropdown, select your Sauce IPSec Proxy tunnel.
+
+#### __Mobile Device Testing__
 
 For mobile device testing, in Sauce Labs, click **LIVE** and then click **Mobile App**. Choose your app from the list, and then, in the **Sauce Connect Proxy** dropdown, select your Sauce IPSec Proxy tunnel.
 
->**NOTE:** To ensure compliance with your company's settings and network policy, we recommend checking with your organization admin before running tests on virtual and real devices over a Sauce IPSec Proxy connection.
-To run tests on public real devices in the Sauce Labs cloud using Sauce IPSec Proxy, your organization admin must switch on **Enable Sauce Connect Proxy/IPSec VPN for Public Cloud Devices** (see [Security Settings](/basics/acct-team-mgmt/org-settings.md)), a security setting that is disabled by default. The setting enables all users across your organization to run live and automated tests on public devices over Sauce IPSec Proxy.
+:::note
+To ensure compliance with your company's settings and network policy, we recommend checking with your organization admin before running tests on virtual and real devices over a Sauce IPSec Proxy connection.
+:::
+
+#### __Public Real Device Testing__
+
+To run tests on public real devices in the Sauce Labs cloud using Sauce IPSec Proxy, your organization admin must switch on **Enable Sauce Connect Proxy/IPSec VPN for Public Cloud Devices** (see [Security Settings](/basics/acct-team-mgmt/org-settings.md)), a security setting that is disabled by default. 
+
+The setting enables all users across your organization to run live and automated tests on public devices over Sauce IPSec Proxy.
 Each time you initiate a test, you'll see a temporary pop-up alert window with a reminder that the utilization of a trusted Sauce IPSec Proxy connection combined with RDC public real device tests may not be compliant with your organization's network policy.
 
 ## Setting Tunnel Permissions
