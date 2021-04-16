@@ -15,11 +15,11 @@ The file will be named "sauce_connect.log." By default, Sauce Connect Proxy gene
 You can enable verbose logging, which increases the logging level of Sauce Connect Proxy, but does not alter where it is sent. Just use the with the `--verbose` command-line. Verbose output will be sent to the Sauce Connect Proxy log file, rather than standard out. To send all logging to stdout, set a value of `-` for the `--logfile` command (i.e., `--logfile -`) when starting Sauce Connect Proxy.
 
 ## Network Configuration with Firewalls and Proxies
-Is there a firewall or proxy server in place between your machine running Sauce Connect Proxy and Sauce Labs (`*.saucelabs.com:443`)? You may need to allow access in your firewall rules or configure Sauce Connect Proxy to use an additional proxy. See [Setup with Additional Proxies](/secure-connections/setup-configuration/additional-proxies)
+Is there a firewall or proxy server in place between your machine running Sauce Connect Proxy and Sauce Labs (`*.saucelabs.com:443`)? You may need to allow access in your firewall rules or configure Sauce Connect Proxy to use an additional proxy. See [Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies)
 
 Sauce Connect Proxy needs to establish outbound connections to both saucelabs.com (`162.222.73.28`) on `port 443` and to a tunnel VM with an IP in the Sauce Labs ranges (`162.222.72.0/21`, `66.85.48.0/21`, `185.94.24.0/22`).
 
-For information on setting up Sauce Connect Proxy within various network environments, see [Security and Authentication](/secure-connections/security-authentication).
+For information on setting up Sauce Connect Proxy within various network environments, see [Security and Authentication](/secure-connections/sauce-connect/security-authentication).
 
 ## Checking Network Connectivity to Sauce Labs
 Make sure that saucelabs.com is accessible from the machine running Sauce Connect Proxy. This can be tested by issuing a ping, telnet or cURL command to saucelabs.com from the machine's command line interface. If any of these commands fail, you should work with your internal network team to resolve them.
@@ -85,7 +85,7 @@ SSL Bumping is enabled by default when you download Sauce Connect Proxy. However
 Cross-Origin Resource Sharing (CORS) errors could be caused by a variety of reasons. We recommend the following solutions:
 
 * Make sure that the ulimit/open file limit of your machine is at least 8000, which is the recommend value for Sauce Connect Proxy use.
-* Start a Sauce Connect Proxy instance using the `-B` all and `-N` flags. For more information about what these flags do for your tunnel, see the [Sauce Connect Proxy Command Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide).
+* Start a Sauce Connect Proxy instance using the `-B` all and `-N` flags. For more information about what these flags do for your tunnel, see the [Sauce Connect Proxy Command Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
 
 ## Additional Support
 If you're still experiencing Sauce Connect Proxy test failures, try the diagnostic steps under Sauce Connect Proxy Debugging and Diagnostics with `--doctor` flag.
