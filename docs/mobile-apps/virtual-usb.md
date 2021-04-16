@@ -200,7 +200,6 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
 
 10. When you've finished testing, we recommend closing your vUSB session so that other users can use the device. There are a few ways to do this:
 
-    * Close the browser window where the device session is running.
     * If you started your test session with `startSession`, close it out by running the [`deleteSession`](/dev/cli/virtual-usb/delete-session) command, followed by your `--sessionId` and credentials.
 
      ```java
@@ -208,10 +207,12 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
      ```
 
     * If you started a test session by connecting to a live session on Sauce Labs, close it out by running the [`disconnect`](/dev/cli/virtual-usb/disconnect-session) command, followed by your `--sessionId`.
-      * **Android Only**: Disconnect your device from ADB by running `adb disconnect` followed by your `<IPAddress>:<portNumber>`:
+      * **Android Only**: You'll also need to disconnect your device from ADB. Run `adb disconnect` followed by your `<IPAddress>:<portNumber>`:
        ```java
        adb disconnect localhost:7000
        ```
+
+    * The third option, regardless of your test setup, is to close the browser window where the device session is running.
 
 :::tip
 If you've lost track of your `--sessionId`, you can recover it using the [`sessions`](dev/cli/virtual-usb/find-sessionid) command to generate a list of your active device sessions.
