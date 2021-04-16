@@ -78,12 +78,15 @@ If you're still experiencing Sauce Connect Proxy test failures, try the diagnost
 ## Debugging and Diagnostics with `--doctor` Flag
 When running Sauce Labs tests with Sauce Connect Proxy, there may be situations in which Sauce Connect Proxy doesn't perform as expected. To make sure everything is in working order, you can run Sauce Connect diagnostic tests by appending the `--doctor` flag to your command line.
 
-:::note While the `--doctor` flag can facilitate debugging, you'll find most valuable troubleshooting information in your verbose logs (which you'd need to enable).
+:::note
+While the `--doctor` flag can facilitate debugging, you'll find most valuable troubleshooting information in your verbose logs (which you'd need to enable).
+:::
 
 ## Running Tests Using the `--doctor` Flag
 To use the `--doctor` flag, you would run the same command for starting the Sauce Connect Proxy, including any additional flags related to your specific tunnel (e.g., `--tunnelidentifier` or `-x` to specify a data center).
 
-:::note When adding the `--doctor` flag to your code, placement matters. Here's the correct order of flags:
+:::note 
+When adding the `--doctor` flag to your code, placement matters. Here's the correct order of flags:
 
 `c -u [Your Sauce Username] -k [Your Sauce Access Key] --doctors`
 :::
@@ -100,52 +103,26 @@ To use the `--doctor` flag, you would run the same command for starting the Sauc
   * https://saucelabs.com/version.json
   * https://saucelabs.com/rest/v1/[Your Sauce Username]/tunnels
 
-:::note Sauce Connect Proxy will exit after these checks are performed. A tunnel will not be started.
+:::note 
+Sauce Connect Proxy will exit after these checks are performed. A tunnel will not be started.
 :::
 
 ## Identifying and Resolving Common Errors with the `--doctor` Flag
 In the table below, you'll find descriptions of the errors that `--doctor` will detect and how to resolve them.
 
-| Error | Resolution |
-| :--- | :--- |
-| failed to fetch PAC file &lt;file&gt; | Indicates the specified PAC file couldn't be downloaded. This may be caused by an incorrect URL, or a network mis-configuration. To troubleshoot this type of issue, try to download the PAC file manually from the machine running Sauce Connect Proxy with cURL or another HTTP client.
-
-To debug the PAC file you can create one locally and pass it to Sauce Connect Proxy using the `--pac` option like this:
-
-```
-$ sc --pac fi<span>le:///</span>path/to/pacfile.js
-```
-
-In Windows, remember to add the drive to the path like this:
-
-```
-$ sc --pac fi<span>le://C:/</span>path/to/pacfile.js
-``` |
-
-| failed to fetch or empty PAC file | Connection to the remote server was successful, but the PAC file was empty or missing. |
-| both `--proxy` and `--pac` are used | Using both may work, but this is unsupported by Sauce Labs and should only be used if directed by the Sauce Labs support. |
-| invalid REST URL | URL specified in the `-x` option is invalid. |
-| failed to find proxy via PAC for &lt;host&gt; | PAC file was downloaded successfully, but no proxy was found for this host. This may be the result of an incorrect PAC file: make sure a proxy is specified for all the hosts. |
-| can't resolve `saucelabs.com`/... tunnel hostname(s) via any DNS server | Please check your firewall and DNS settings.
-
-To troubleshoot this issue, use `dig` or `host` to resolve the domain and verify it is correct:
-
-```
-$ dig saucelabs.com
-``` |
-| your hosts file contains an entry for &lt;host&gt; | If this error occurred, it is likely that your DNS server couldn't resolve saucelabs.com correctly. As a result, Sauce Labs Support might have directed someone at your organization to add the host to /etc/hosts. This is most likely because the DNS system has a special configuration for some hosts.
-
-Please remove this entry from the host file: it's usually `/etc/hosts` on Unix-like systems. With Linux/Mac OS X systems, you can check the hosts file with this command.
-
-```
-$ grep 'saucelabs.com' /etc/hosts
-``` |
-| connecting via &lt;proxy&gt; to http://&lt;url&gt;: &lt;error&gt; or connecting to http://&lt;url&gt;: &lt;error&gt; | URL isn't accessible. If you see this error after other errors in the logs, try to fix the previous errors first.
-
-Please refer to [libcurl error codes](https://curl.se/libcurl/c/libcurl-errors.html) to troubleshoot this issue. |
-| SSL connect failed, socket: .&lt;code_number&gt; code: %d | Secure connection couldn't be established. Please refer to the [OpenSSL manual](https://www.openssl.org/docs/manpages.html) to get more information about the error. |
-| failed to retrieve certificate chain | Some X509 certificates couldn't be imported into the SSL library. This may indicate an issue with DNS, or public CAs being unreachable. |
-| failed to reach https?://google.com | Sauce Connect Proxy client can't reach google.com. This indicates that the client doesn't have full Internet connectivity. It may not be an issue; Sauce Connect Proxy only needs access to saucelabs.com and its tunnels. |
+| Error                                                                                                                    | Resolution                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|--------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| failed to fetch PAC file _&lt;file&gt;_                                                                                  | Indicates the specified PAC file couldn't be downloaded. This may be caused by an incorrect URL, or a network mis-configuration. To troubleshoot this type of issue, try to download the PAC file manually from the machine running Sauce Connect Proxy with cURL or another HTTP client. To debug the PAC file you can create one locally and pass it to Sauce Connect Proxy using the  `--pac` option like this:  ``` sc --pac fi<span>le:///</span>path/to/pacfile.js ```  In Windows, remember to add the drive to the path like this:  ``` sc --pac fi<span>le://C:/</span>path/to/pacfile.js ``` |
+| failed to fetch or empty PAC file                                                                                        | Connection to the remote server was successful, but the PAC file was empty or missing.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| both `--proxy` and `--pac` are used                                                                                      | Using both may work, but this is unsupported by Sauce Labs and should only be used if directed by the Sauce Labs support.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| invalid REST URL                                                                                                         | URL specified in the `-x` option is invalid.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| failed to find proxy via PAC for _&lt;host&gt;_                                                                          | PAC file was downloaded successfully, but no proxy was found for this host. This may be the result of an incorrect PAC file: make sure a proxy is specified for all the hosts.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| can't resolve `saucelabs.com`/... tunnel hostname(s) via any DNS server                                                  | Please check your firewall and DNS settings. To troubleshoot this issue, use `dig` or `host` to resolve the domain and verify it is correct:  ``` dig saucelabs.com ```                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| your hosts file contains an entry for _&lt;host&gt;_                                                                     | If this error occurred, it is likely that your DNS server couldn't resolve saucelabs.com correctly.   As a result, Sauce Labs Support might have directed someone at your organization to add the host to `/etc/hosts`. This is most likely because the DNS system has a special configuration for some hosts.  Please remove this entry from the host file: it's usually `/etc/hosts` on Unix-like systems. With Linux/Mac OS X systems, you can check the hosts file with this command:  ``` grep 'saucelabs.com' /etc/hosts ```                                                                     |
+| connecting via &lt;proxy&gt; to http://&lt;url&gt;: &lt;error&gt;   or   connecting to http://&lt;url&gt;: &lt;error&gt; | URL isn't accessible. If you see this error after other errors in the logs, try to fix the previous errors first.  Please refer to [libcurl error codes](https://curl.se/libcurl/c/libcurl-errors.html) to troubleshoot this issue.                                                                                                                                                                                                                                                                                                                                                                    |
+| SSL connect failed, socket: .&lt;code_number&gt; code: %d                                                                | Secure connection couldn't be established. Please refer to the [OpenSSL manual](https://www.openssl.org/docs/manpages.html) to get more information about the error.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| failed to retrieve certificate chain                                                                                     | Some X509 certificates couldn't be imported into the SSL library. This may indicate an issue with DNS, or public CAs being unreachable.                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| failed to reach https?://google.com                                                                                      | Sauce Connect Proxy client can't reach google.com. This indicates that the client doesn't have full Internet connectivity. It may not be an issue; Sauce Connect Proxy only needs access to saucelabs.com and its tunnels.                                                                                                                                                                                                                                                                                                                                                                             |
 
 ## Additional Support
 If you need more help, please get in touch with our support team at help@saucelabs.com.
