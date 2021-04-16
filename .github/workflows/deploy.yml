@@ -89,7 +89,7 @@ jobs:
           # Expose website
           cd build/ && python3 -m http.server 8000 &
 
-          saucectl run -c ./.sauce/config.yml --tunnel-id proxy-tunnel-$GITHUB_RUN_ID
+          saucectl run -c ./.sauce/config.yml --tunnel-id proxy-tunnel-$GITHUB_RUN_ID --test-env sauce
   deploy-staging:
     needs: test
     runs-on: ubuntu-latest
