@@ -70,9 +70,9 @@ You can install `saucectl` using any of the following methods:
   SAUCECTL_INSTALL_BINARY=https://company.domain.com/saucectl_0.32.2_mac_64-bit.tar.gz npm install -g saucectl
   ```
 
-  :::tip
-  Use the `SAUCECTL_INSTALL_BINARY` environment variable to make `saucectl` available from a known source within your control or if you use `npx saucectl` to bypass installation.
-  :::
+:::tip
+Use the `SAUCECTL_INSTALL_BINARY` environment variable to make `saucectl` available from a known source within your control or if you use `npx saucectl` to bypass installation.
+:::
 
 ```bash title="Use curl"
   curl -L https://saucelabs.github.io/saucectl/install | bash
