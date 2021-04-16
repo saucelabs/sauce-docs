@@ -8,7 +8,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Real Device Cloud Setup
->**NOTE:** The content on this page applies to the new RDC on Sauce platform. If you're looking for instructions on how to run Sauce Connect Proxy on our Legacy RDC platform (TestObject), see [Creating a Sauce Connect Tunnel for Legacy Real Device Cloud](https://wiki.saucelabs.com/display/DOCS/Creating+a+Sauce+Connect+Tunnel+for+Legacy+Real+Device+Cloud).
+
+:::note
+The content on this page applies to the new RDC on Sauce platform. If you're looking for instructions on how to run Sauce Connect Proxy on our Legacy RDC platform (TestObject), see [Creating a Sauce Connect Tunnel for Legacy Real Device Cloud](https://wiki.saucelabs.com/display/DOCS/Creating+a+Sauce+Connect+Tunnel+for+Legacy+Real+Device+Cloud).
+:::
 
 Real Device Cloud on Sauce Labs (RDC on Sauce) offers public and private mobile devices for users looking to expedite automated and live testing for their mobile apps. You can run a high volume of tests across a broad range of real devices without compromising performance, quality, or reliability.
 
@@ -20,7 +23,9 @@ You must know your account details, including:
 * Your Sauce Labs username and access key. In Sauce Labs, click **Account** and then click **User settings**.
 * The Data Center endpoint associated with your geographic location
 
->**NOTE:** We recommend setting all of the values above as environment variables to protect your username and api key from exposure, and also for future convenience. See [Using Environment Variables for Authentication Credentials](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials) for more information.
+:::note
+We recommend setting all of the values above as environment variables to protect your username and api key from exposure, and also for future convenience. See [Using Environment Variables for Authentication Credentials](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials) for more information.
+:::
 
 ## Security Considerations
 ### Restricting Tunnel Deployment to Organization Admins
@@ -58,31 +63,22 @@ Sauce Connect Proxy can have multiple tunnels running simultaneously, as describ
 
 So an example would look like this:
 
-`$ /bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x 'ht<span>tps://</span>us-west-1.saucelabs.com/rest/v1' -i rdc-on-sauce-tunnel-us
+`$ /bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x 'https://us-west-1.saucelabs.com/rest/v1' -i rdc-on-sauce-tunnel-us
 `
 
 2. In your device testing script, specify the tunnel name with `tunnelIdentifier` in your desired capabilities, as shown in this Java example:
 
-<Tabs
-  defaultValue="`tunnelIdentifier` Java Snippet"
-  values={[
-    {label: '`tunnelIdentifier` Java Snippet', value: '`tunnelIdentifier` Java Snippet'},
-  ]}>
-
-<TabItem value="`tunnelIdentifier` Java Snippet">
-
-```final DesiredCapabilities capabilities = new DesiredCapabilities();
+```jsx title="Java Snippet"
+final DesiredCapabilities capabilities = new DesiredCapabilities();
     capabilities.setCapability("username", System.getenv("SAUCE_RDC_USERNAME"));
     capabilities.setCapability("accessKey", System.getenv("SAUCE_RDC_ACCESS_KEY"));
     capabilities.setCapability("platformName", "Android");
     capabilities.setCapability("platformVersion,"  "81.0");
     capabilities.setCapability("deviceName", "Samsung_Galaxy_Note_5_real"); // Will only run on the specified device
     capabilities.setCapability("tunnelIdentifier", "rdc-on-sauce-tunnel-us");
-final AndroidDriver driver = new AndroidDriver(new URL("ht<span>tps://</span>ondemand.us-west-1.saucelabs.com/wd/hub"), capabilities);
+final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub"), capabilities);
 ```
 
-</TabItem>
-</Tabs>
 
 ## Selecting the Right Data Center Endpoint
 By default, Sauce Labs will automatically connect you to the main US-West-1 Data Center. For Sauce Connect, you'll need to instead connect to a Sauce Labs REST API Endpoint (US, EU, or Headless) by adding it to your command line and placing an `-x` flag before it. For a list of these Sauce Connect-specific endpoints, see [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements).
@@ -107,7 +103,7 @@ $ /bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x 'https://saucelabs.
 **Windows Example**
 
 ```
-> \bin\sc -u %SAUCE_RDC_USERNAME% -k %SAUCE_RDC_ACCESS_KEY% -x 'ht<span>tps://</span>saucelabs.com/rest/v1' -i rdc-on-sauce-tunnel-us
+> \bin\sc -u %SAUCE_RDC_USERNAME% -k %SAUCE_RDC_ACCESS_KEY% -x 'https://saucelabs.com/rest/v1' -i rdc-on-sauce-tunnel-us
 ```
 
 </TabItem>
@@ -116,47 +112,44 @@ $ /bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x 'https://saucelabs.
 **Mac OSX / Linux Example**
 
 ```
-$ /bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x 'ht<span>tps://</span>eu-central-1.saucelabs.com/rest/v1' -i rdc-on-sauce-tunnel-eu
+$ /bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x 'https://eu-central-1.saucelabs.com/rest/v1' -i rdc-on-sauce-tunnel-eu
 ```
 
 **Windows Example**
 
 ```
-> \bin\sc -u %SAUCE_RDC_USERNAME% -k %SAUCE_RDC_ACCESS_KEY% -x 'ht<span>tps://</span>eu-central-1.saucelabs.com/rest/v1' -i rdc-on-sauce-tunnel-eu
+> \bin\sc -u %SAUCE_RDC_USERNAME% -k %SAUCE_RDC_ACCESS_KEY% -x 'https://eu-central-1.saucelabs.com/rest/v1' -i rdc-on-sauce-tunnel-eu
 ```
 </TabItem>
 </Tabs>
 
->**NOTE:** Once you establish a Sauce Connect Proxy tunnel for real device testing, you can also use it for virtual devices (and vice versa) since they'll share the same endpoint.
+:::note
+Once you establish a Sauce Connect Proxy tunnel for real device testing, you can also use it for virtual devices (and vice versa) since they'll share the same endpoint.
+:::
 
 ### OnDemand Endpoint Examples for Driver Setup
+
 To ensure you're testing against the correct data center, you'll need to add the correct OnDemand endpoint when you instantiate a MobileDriver in your automated test:
 
 <Tabs
   defaultValue="Java Snippet: Driver Setup for US Data Center"
   values={[
-    {label: 'Java Snippet: Driver Setup for US Data Center', value: ' Java Snippet: Driver Setup for US Data Center'},
+    {label: 'Java Snippet: Driver Setup for US Data Center', value: 'Java Snippet: Driver Setup for US Data Center'},
+    {label: 'Java Snippet: Driver Setup for EU Data Center', value: 'Java Snippet: Driver Setup for EU Data Center'},
   ]}>
 
 <TabItem value="Java Snippet: Driver Setup for US Data Center">
 
 ```
-final AndroidDriver driver = new AndroidDriver(new URL("ht<span>tps://</span>ondemand.us-west-1.saucelabs.com/wd/hub"), capabilities);
+final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub"), capabilities);
 ```
 
 </TabItem>
-</Tabs>
-
-<Tabs
-  defaultValue="Java Snippet: Driver Setup for EU Data Center"
-  values={[
-    {label: 'Java Snippet: Driver Setup for EU Data Center', value: 'Java Snippet: Driver Setup for EU Data Center'},
-  ]}>
 
 <TabItem value="Java Snippet: Driver Setup for EU Data Center">
 
 ```
-final AndroidDriver driver = new AndroidDriver(new URL("ht<span>tps://</span>ondemand.eu-central-1.saucelabs.com/wd/hub"), capabilities);
+final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.eu-central-1.saucelabs.com/wd/hub"), capabilities);
 ```
 
 </TabItem>
