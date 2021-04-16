@@ -39,7 +39,8 @@ See [Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-se
 ### Stopping an Individual Tunnel via the Command Line
 Once Sauce Connect has been terminated (typically via `ctrl-c`), a call will be made from Sauce Connect to the REST API with instructions to terminate the Tunnel VM. Sauce Connect will continue to poll the REST API until the Tunnel VM has been halted and deleted.
 
-:::note If you are using the [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability.md) and attempt to terminate a running test with `ctrl-C`, you will see a message that Sauce Connect Proxy will not terminate until tests have completed. If you want to force Sauce Connect Proxy to terminate before the test finishes, enter 'ctrl-C' again to force it to quit.
+:::note 
+If you are using the [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability.md) and attempt to terminate a running test with `ctrl-C`, you will see a message that Sauce Connect Proxy will not terminate until tests have completed. If you want to force Sauce Connect Proxy to terminate before the test finishes, enter 'ctrl-C' again to force it to quit.
 :::
 
 ### Stopping an Individual Tunnel in Sauce Labs
@@ -54,7 +55,7 @@ To stop an individual tunnel via the command line/prompt, you must send some sor
 1. Start the Sauce Connect Proxy process.
 
 ```
-    $ sc-&lt;VERSION&gt;-&lt;PLATFORM&gt;/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
+    $ sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
 ```
 
 2. Fetch and Save the process IDs for later use.
@@ -65,7 +66,7 @@ $ ps aux | grep bin/sc
 
 Output:
 ```
-$SAUCE_USERNAME   38312   0.1  0.1  4461780  20084 s000  S+    2:58PM   0:00.33 sc-&lt;VERSION&gt;-&lt;PLATFORM&gt;/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
+$SAUCE_USERNAME   38312   0.1  0.1  4461780  20084 s000  S+    2:58PM   0:00.33 sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
 ```
 
 3. Send a `KILL` signal to each `Process ID` (pid):
@@ -74,7 +75,8 @@ $SAUCE_USERNAME   38312   0.1  0.1  4461780  20084 s000  S+    2:58PM   0:00.33 
 $ kill -2 38312
 ```
 
-:::note Windows has no "signals" command the way Linux/Unix/MacOS does, instead they use TaskKill iirc, for example: `taskill /PID 1234`.
+:::note Windows Users
+Windows has no "signals" command the way Linux/Unix/MacOS does, instead they use TaskKill iirc, for example: `taskill /PID 1234`.
 :::
 
 ### Stopping Multiple Tunnels via the Command Line
@@ -87,25 +89,17 @@ Here is an example using Linux commands:
 * `| awk '{print $2}'`: Grabs the `pid`,
 * `| xargs kill -9`: Passes it to `kill -9`.
 
-:::note `xargs kill -9` will immediately disrupt all jobs currently running through that tunnel. If you wish to interrupt the program in order to gracefully shutdown the tunnels use the `xargs kill -2` signal instead. Sauce Labs recommends first trying this command without `xargs kill -9` to ensure you don't unnecessarily delete adjacent running processes.
-:::
+:::warning 
+`xargs kill -9` will immediately disrupt all jobs currently running through that tunnel. If you wish to interrupt the program in order to gracefully shutdown the tunnels use the `xargs kill -2` signal instead.
+
+**Sauce Labs recommends first trying this command without `xargs kill -9` to ensure you don't unnecessarily delete adjacent running processes.**
 
 For more information about acceptable signals and parameters, see the [Linux kill command manual](http://linuxcommand.org/lc3_man_pages/kill1.html).
+:::
 
-<Tabs
-  defaultValue="Example Linux command of killing all running tunnels"
-  values={[
-    {label: 'Example Linux command of killing all running tunnels', value: 'Example Linux command of killing all running tunnels'},
-  ]}>
-
-<TabItem value="Example Linux command of killing all running tunnels">
-
-```
+```jsx title="Example command for killing all running proxy tunnels"
 $ ps aux | grep sc | grep -v grep | awk  '{print $2}' | xargs kill -9
 ```
-
-</TabItem>
-</Tabs>
 
 ## Performance Metrics
 Sauce Connect Proxy has a performance metrics feature that you can use to monitor and measure the data and activities of your Sauce Connect Proxy client. You can access these metrics over an HTTP connection to a local expvar server, which will display the metrics as a JSON file.
@@ -122,7 +116,7 @@ By default, the `expvar server` listens on 'localhost:8888', but you can change 
 You can view performance metrics by using an HTTP client or web browser to access 'http://{SauceConnect IP or Localhost:8888}/debug/vars'. Once you've got access, the performance metrics will typically look like this:
 
 ```
-"cmdline": ["/Users/&lt;USER_ID&gt;/Downloads/sc-&lt;VERSION&gt;-&lt;PLATFORM&gt;/bin/sc","-u","User","-k","<ACCESS_KEY>"],
+"cmdline": ["/Users/<USER_ID>/Downloads/sc-<VERSION>-<PLATFORM>/bin/sc","-u","User","-k","<ACCESS_KEY>"],
 
 "http": {
             "BytesReceived":31290,
@@ -189,15 +183,8 @@ While Sauce Connect Proxy is running, a basic webpage with metrics is made avail
 | `kgpLastStatusChange` | Unix Epoch Timestamp | Timestamp of when the value for kgpIsConnected last changed |
 | `kgpReconnectCount` | Integer | A running count of how many times Sauce Connect Proxy had to re-establish its KGP connection |
 
-<Tabs
-  defaultValue="Example raw output"
-  values={[
-    {label: 'Example raw output', value: 'Example raw output'},
-  ]}>
 
-<TabItem value="Example raw output">
-
-```
+```jsx title="Example Raw Output"
 {
 "cmdline": ["/Users/acampbell/Documents/sc-4.4.6-osx/bin/sc","-u","******","-k","******","--pidfile","currentA","--se-port","4445"],
 "healthMetrics": {"kgpIsConnected": true, "kgpLastStatusChange": 1492568535, "kgpReconnectCount": 0},
@@ -205,8 +192,6 @@ While Sauce Connect Proxy is running, a basic webpage with metrics is made avail
 }
 ```
 
-</TabItem>
-</Tabs>
 
 If you plan to run multiple instances of Sauce Connect Proxy on a single machine and wish to access the health metrics of each tunnel, then you''ll need to assign a unique port to each instance of Sauce Connect Proxy that is running.
 
@@ -218,7 +203,8 @@ For example, if we were to start two instances of Sauce Connect Proxy on the sam
 >./sc --user *** --api-key *** --metrics-address localhost:8001 --se-port 4446 --tunnel-identifier SCP2 --pidfile SCP2
 ```
 
-:::note If you start multiple instances of Sauce Connect Proxy without assigning unique ports, this would not affect their normal operations, however, only the first instance of Sauce Connect Proxy started to the duplicated port would be available.
+:::note 
+If you start multiple instances of Sauce Connect Proxy without assigning unique ports, this would not affect their normal operations, however, only the first instance of Sauce Connect Proxy started to the duplicated port would be available.
 :::
 
 ### Specifying a Custom URL for Client Metrics
@@ -226,15 +212,7 @@ If you wish to customize the URL where metrics are served, you can do so by addi
 
 For example, let's say we want to have the metrics available at `http://tunnelmetrics.com:8080/debug/vars`. In order to accomplish this, add the entry `127.0.0.1 tunnelmetrics.com` to the host file where Sauce Connect Proxy is running.
 
-<Tabs
-  defaultValue="Example host file"
-  values={[
-    {label: 'Example host file', value: 'Example host file'},
-  ]}>
-
-<TabItem value="Example host file">
-
-```
+```jsx title="Example Host File"
 ##
 # Host Database
 #
@@ -246,9 +224,6 @@ For example, let's say we want to have the metrics available at `http://tunnelme
 fe80::1%lo0 localhost
 127.0.0.1 tunnelmetrics.com
 ```
-
-</TabItem>
-</Tabs>
 
 Once the host file has been altered, start Sauce Connect Proxy with the added argument `--metrics-address tunnelmetrics.com:8080`. Then, on the machine hosting Sauce Connect Proxy, you will see the metrics served at `http://tunnelmetrics.com:8080/debug/vars`.
 
@@ -283,25 +258,25 @@ sudo adduser --system --no-create-home --group --disabled-login --home /nonexist
 2. Download Sauce Connect Proxy.
 
 ```
-wget ht<span>tps://</span>saucelabs.com/downloads/sc-&lt;VERSION&gt;-linux.tar.gz
+wget https://saucelabs.com/downloads/sc-<VERSION>-linux.tar.gz
 ```
 
 3. Untar the Sauce Connect Proxy file.
 
 ```
-tar -zxvf sc-&lt;VERSION&gt;-linux.tar.gz
+tar -zxvf sc-<VERSION>-linux.tar.gz
 ```
 
 4. Copy the Sauce Connect Proxy file into a dedicated directory.
 
 ```
-cp sc-&lt;VERSION&gt;-linux/bin/sc /usr/local/bin/sc
+cp sc-<VERSION>-linux/bin/sc /usr/local/bin/sc
 ```
 
 5. Copy the 'systemd' config files.
 
 ```
-cp sc-&lt;VERSION&gt;-linux/config_examples/systemd/ /etc/systemd/system
+cp sc-<VERSION>-linux/config_examples/systemd/ /etc/systemd/system
 ```
 
 6. In the system directory, edit the service file named `sc@.service`.
@@ -387,19 +362,19 @@ cd /usr/local/bin
 2. Download Sauce Connect Proxy.
 
 ```
-wget ht<span>tps://</span>saucelabs.com/downloads/sc-&lt;VERSION&gt;-linux.tar.gz
+wget https://saucelabs.com/downloads/sc-<VERSION>-linux.tar.gz
 ```
 
 3. Untar the Sauce Connect Proxy file.
 
 ```
-tar -zxvf sc-&lt;VERSION&gt;-linux.tar.gz
+tar -zxvf sc-<VERSION>-linux.tar.gz
 ```
 
 4. Copy the Sauce Connect Proxy file into a dedicated directory.
 
 ```
-cp sc-&lt;VERSION&gt;-linux/bin/sc
+cp sc-<VERSION>-linux/bin/sc
 ```
 
 5. Make sure Sauce Connect Proxy is located in the correct directory.
@@ -416,16 +391,8 @@ cd /etc/init
 
 7. In the `/etc/init` directory, create a file `sc.conf` with these contents.
 Change the username and access key in the file to match your own.  
-
-<Tabs
-  defaultValue="sc.conf example file"
-  values={[
-    {label: 'sc.conf example file', value: 'sc.conf example file'},
-  ]}>
-
-<TabItem value="sc.conf example file">
-
-```
+   
+```jsx title="sc.conf example"
 #
 #This Upstart config expects that Sauce Connect is installed at
 #/usr/local/bin/sc. Edit that path if it is installed somewhere else.
@@ -497,9 +464,6 @@ chdir /tmp
 
 exec /usr/local/bin/sc -l $LOGFILE --pidfile $PIDFILE
 ```
-
-</TabItem>
-</Tabs>
 
 8. Reload the service.
 
@@ -581,35 +545,13 @@ One option to start Ephemeral tunnels is to do so from your local workstation.
 
 2. Run the simplest of startup commands to ensure that the tunnel starts:
 
-<Tabs
-  defaultValue="MacOS/Linux Example"
-  values={[
-    {label: 'MacOS/Linux Example', value: 'MacOS/Linux Example'},
-  ]}>
-
-<TabItem value="MacOS/Linux Example">
-
-```
+```jsx title="MacOS/Linux"
 $ bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
 ```
 
-</TabItem>
-</Tabs>
-
-<Tabs
-  defaultValue="Windows Example"
-  values={[
-    {label: 'Windows Example', value: 'Windows Example'},
-  ]}>
-
-<TabItem value="Windows Example">
-
-```
+```jsx title="Windows Example"
 > bin\sc -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY%
 ```
-
-</TabItem>
-</Tabs>
 
 Once you see a tunnel in Sauce Labs, you can start testing against a site that is hosted on your network. You can leave it up for as long as you'd like and test at a fairly reasonable volume. Start it and stop it as needed!
 
@@ -630,7 +572,9 @@ You can also launch Ephemeral tunnels from a continuous integration (CI) build s
 $ /bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
 ```
 
-:::note If you don't specify a Data Center Sauce Connect Proxy uses the US Data Center for 'SAUCE_DC' by default. So for example if you need to run tests on the Sauce Labs EU Data Center, you need to modify the '-x' flag like so:
+:::note 
+If you don't specify a Data Center Sauce Connect Proxy uses the US Data Center for `SAUCE_DC` by default. So for example if you need to run tests on the Sauce Labs EU Data Center, you need to modify the '-x' flag like so:
+:::
 
 ```
 $ /bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -i singleton-eu-tunnel -x ht<span>tp://</span>eu-central-1.saucelabs.com/rest/v1/
@@ -658,29 +602,23 @@ Long-running tunnels go hand in hand with our [High Availability Setup](/secure-
 A single tunnel that you'd start from your laptop or CICD system would look like this on the command line:
 
 ```
-/Users/you/sc-&lt;VERSION&gt;-&lt;PLATFORM&gt;/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACESS_KEY -i my-single-tunnel-- --pidfile /tmp/sc_client.pid
+/Users/you/sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACESS_KEY -i my-single-tunnel-- --pidfile /tmp/sc_client.pid
 ```
 
 **Multiple Tunnels**
 High Availability tunnels would look like this if they were run as part of a script or from the command line:
 
 ```
-$ /Users/you/sc-&lt;VERSION&gt;-&lt;PLATFORM&gt;/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --no-remove-colliding-tunnels -i main-tunnel-pool --se-port 0 --pidfile /tmp/sc_client-1.pid
+$ /Users/you/sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --no-remove-colliding-tunnels -i main-tunnel-pool --se-port 0 --pidfile /tmp/sc_client-1.pid
 
-$ /Users/you/sc-&lt;VERSION&gt;-&lt;PLATFORM&gt;/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --no-remove-colliding-tunnels -i main-tunnel-pool --se-port 0 --pidfile /tmp/sc_client-2.pid
+$ /Users/you/sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --no-remove-colliding-tunnels -i main-tunnel-pool --se-port 0 --pidfile /tmp/sc_client-2.pid
 
-$/ Users/you/sc-&lt;VERSION&gt;-&lt;PLATFORM&gt;/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --no-remove-colliding-tunnels -i main-tunnel-pool --se-port 0 --pidfile /tmp/sc_client-3.pid
+$/ Users/you/sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --no-remove-colliding-tunnels -i main-tunnel-pool --se-port 0 --pidfile /tmp/sc_client-3.pid
 
-$ /Users/you/sc-&lt;VERSION&gt;-&lt;PLATFORM&gt;/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --no-remove-colliding-tunnels -i main-tunnel-pool --se-port 0 --pidfile /tmp/sc_client-4.pid
+$ /Users/you/sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --no-remove-colliding-tunnels -i main-tunnel-pool --se-port 0 --pidfile /tmp/sc_client-4.pid
 ```
 
-<Tabs
-  defaultValue="Code Block Legend"
-  values={[
-    {label: 'Code Block Legend', value: 'Code Block Legend'},
-  ]}>
-
-<TabItem value="Code Block Legend">
+## Code Block Legend
 
 **`--no-remove-colliding-tunnels`**
 
@@ -698,20 +636,20 @@ Enables Sauce Connect Proxy to find the first available port for the Selenium Re
 
 File that auto-generates whenever a process for Sauce Connect Proxy starts. Must be unique per tunnel. To see where the file is saved, you can check your Sauce Connect Proxy Log.
 
-</TabItem>
-</Tabs>
 
 For more information, see the [Sauce Connect Proxy Command Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide).
 
-#### Keeping Your Long-Running Tunnels Fresh
+## Keeping Your Long-Running Tunnels Fresh
+
 Tunnels running for an extended period of time (i.e., more than a day) are actively and continuously used for running Sauce Labs website and mobile app tests throughout their duration. That said, keeping your Sauce Connect Proxy instances up and running for weeks or longer may result in maintenance difficulties, instability or performance degradation.
 
 To keep tunnels working their best, we recommend not letting your tunnels run for more than 24 hours. Your systems administrator would need to write a script to restart Sauce Connect Proxy clients daily or at the time of your choosing. Rolling restarts to refresh the tunnels is preferred--restarting only a portion of your tunnel pool at a time will allow for continuous testing without interruption.
 
-::note If a tunnel fails or is absent, your tests will also fail. You'll be able to see this from Sauce Labs. For a quick reference guide on how to start and stop tunnels, see [Starting and Stopping Tunnels](/secure-connections/sauce-connect/proxy-tunnels.md).
-::
+:::note 
+If a tunnel fails or is absent, your tests will also fail. You'll be able to see this from Sauce Labs. For a quick reference guide on how to start and stop tunnels, see [Starting and Stopping Tunnels](/secure-connections/sauce-connect/proxy-tunnels.md).
+:::
 
-### Combining Ephemeral and Long-Running Tunnels
+## Combining Ephemeral and Long-Running Tunnels
 If needed, you can also start a combination of Ephemeral and Long-Running tunnels (i.e., your teams aren't bound to one type or the other) provided you're staying within your concurrency limit. This may be useful if you're a large enterprise user. As an example, if you have long-running tunnels already going, you can still start up ephemeral on the side.
 
 ## Using the Selenium Relay
