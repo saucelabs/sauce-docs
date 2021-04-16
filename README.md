@@ -14,7 +14,8 @@
 
 <p align="center">
 	<a href="https://app.saucelabs.com/u/saucy-docs"><img src=https://app.saucelabs.com/browser-matrix/saucy-docs.svg?auth=e1fb7e1761377a8a8596cb777487e10d2c914142c83f1a45cd038344708f9aae" alt= "Sauce Browser Matrix"/></a>
-
+</p>
+		
 Welcome to the `sauce-docs`, this website contains all technical documentation about Sauce Labs and its products. This site uses [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
 __Table of Contents__
