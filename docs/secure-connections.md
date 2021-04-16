@@ -71,7 +71,7 @@ Sauce IPSec Proxy establishes a VPN connection between two IPSec gateways, and a
     </div>
     <div className="box box4 card">
       <div className="container">
-      <h3><a href="/secure-connections/sauce-connect/setup-configuration/ci-cd-environnments">CI/CD Environments</a></h3>
+      <h3><a href="/secure-connections/sauce-connect/setup-configuration/ci-cd-environments">CI/CD Environments</a></h3>
       <p>Streamline your Sauce Connect Proxy automated functional testing by integrating your preferred build provider with Sauce Labs.</p>
       </div>
     </div>

@@ -178,7 +178,7 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac &lt;PAC_FILE_
 </TabItem>
 </Tabs>
 
-If you are starting a tunnel for Real Device tests, see [Real Device Cloud Setup](/secure-connections/setup-configuration/specialized-environments).
+If you are starting a tunnel for Real Device tests, see [Real Device Cloud Setup](/secure-connections/sauce-connect/setup-configuration/specialized-environments#real-device-cloud-setup).
 
 ### Network Traffic Flow Diagrams
 The following diagrams illustrate different Sauce Connect Proxy network flow configurations.
