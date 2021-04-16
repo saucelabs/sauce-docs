@@ -22,15 +22,17 @@ For information about user configuration settings, see [Organization Settings](/
 * Know your account details including:
   * The url of the datacenter you need to use. For more information, see [Data Center Endpoints](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints).
   * Your Sauce Labs username and access key, which you can find in Sauce Labs under **Account > User settings**.
+
 :::note
-Sauce Labs recommends setting all of the values above as environment variables to protect your username and api key from exposure, and also for future convenience.:::
+Sauce Labs recommends setting all of the values above as environment variables to protect your username and api key from exposure, and also for future convenience.
+:::
 
 ## Validating Your Basic Setup
 Once you've downloaded Sauce Connect Proxy, you can validate that it works on your network by completing the following steps:
 1. Launch a tunnel with the following flags, per the [Sauce Connect Proxy Command Line Reference](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide):
 
 ```
-<code>$ bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i TUNNEL_ID'</code>
+$ bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i TUNNEL_ID'
 ```
 
 where:
@@ -157,6 +159,7 @@ Launch a new tunnel on the `SC_HOST` with the following flags, per the [Sauce Co
   defaultValue="MacOS/Linux Example"
   values={[
     {label: 'MacOS/Linux Example', value: 'MacOS/Linux Example'},
+    {label: 'Windows Example', value: 'Windows Example'},
   ]}>
 
 <TabItem value="MacOS/Linux Example">
@@ -166,14 +169,6 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i sc-
 ```
 
 </TabItem>
-
-</Tabs>
-
-<Tabs
-  defaultValue="Windows Example"
-  values={[
-    {label: 'Windows Example', value: 'Windows Example'},
-  ]}>
 
 <TabItem value="Windows Example">
 
@@ -264,7 +259,7 @@ At this point, the tunnel is established between the Sauce Connect Client and th
 
 <img src={useBaseUrl('img/sauce-connect/scp-network-traffic-flow.png')} alt="Network traffic flow diagram" width="650"/>
 
-1. Selenium/Appium test code sends an HTTPS request to the VM or Real Device that was created for this test (for example, `GET [www.saucedemo.com](http://w<span>ww.</span>saucedemo.com/)`).
+1. Selenium/Appium test code sends an HTTPS request to the VM or Real Device that was created for this test (for example, `GET [www.saucedemo.com](http://www.saucedemo.com/)`).
 
 2. Test VM or Device sends this request to Tunnel VM in order to access SUT.
 
