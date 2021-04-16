@@ -39,16 +39,15 @@ Once your session launches, you can use your mouse cursor and keyboard to intera
 
 <img src={useBaseUrl('img/live-testing/desktop-test-ui.png')} alt="Desktop test interface" width="650"/>
 
-### Desktop Test Icons
+### Live Desktop Test Interface
 
-| Icon | Description |
-| :--- | :--- |
-| <img src={useBaseUrl('img/live-testing/stop-icon.png')} alt="Stop Session icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/info-icon.png')} alt="Session Info icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/invite-icon.png')} alt="Invite to Session icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/clipboard-icon.png')} alt="Remote clipboard content preview icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/screenshot-icon.png')} alt="Take Screenshot icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/dock-icon.png')} alt="Dock icon" width="50"/> | Centered |
+| Icon | Name | Description |
+| :--- | :--- | :--- |
+| <img src={useBaseUrl('img/live-testing/pin-unpin-icon.png')} alt="Unpin/Pin Toolbar icon" width="35"/> | Unpin/Pin Toolbar | Unpins or pins the live testing toolbar.  |
+| <img src={useBaseUrl('img/live-testing/session-info-icon.png')} alt="Session Info icon" width="35"/> | Session Info | Opens the **Current Session** window, which includes app and device details. |
+| <img src={useBaseUrl('img/live-testing/take-screenshot-icon.png')} alt="Take Screenshot icon" width="35"/> | Take Screenshot | Takes a screenshot of the current device screen. The image is saved on the **Test Details** page. |
+| <img src={useBaseUrl('img/live-testing/invite-session-icon.png')} alt="Invite to Session icon" width="35"/> | Invite to Session | Opens the **Invite someone to watch this session** window. Copy and share the generated link to allow other users to view the test. <br/>**NOTE:** Users must be logged in to be able to view the test. |
+| <img src={useBaseUrl('img/live-testing/clipboard-icon.png')} alt="Clipboard icon" width="35"/> | Clipboard | Opens the **Remote Clipboard** window. |
 
 ## Testing on a Mobile Browser
 With Sauce Labs you can run live tests of your web apps using native browsers for Android and iOS on both virtual and real mobile devices.
@@ -57,7 +56,7 @@ With Sauce Labs you can run live tests of your web apps using native browsers fo
 Know if your app is designed to run on internal or otherwise restricted networks. If it does and you're testing on real devices, use Sauce Connect Proxy to connect. For more information, see the [Sauce Connect Proxy setup for Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/specialized-environments).
 
 ### Real Device
-1. In Sauce Labs, in the left panel, click **Live** and then click **Cross Browser**.
+1. In Sauce Labs, in the left panel, click **LIVE** and then click **Cross Browser**.
 2. Click the **Mobile Real** tab.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-real-nav.png')} alt="Live mobile real device test navigation" width="650"/>
@@ -76,23 +75,112 @@ Know if your app is designed to run on internal or otherwise restricted networks
 
   <img src={useBaseUrl('img/live-testing/mobile-real-test-ui.png')} alt="Mobile real device test interface" width="650"/>
 
-#### Mobile Real Device Test Icons
+### Live Mobile Real Device Test Interface
 
-| Icon | Description |
+| Icon | Name | Description |
+| :--- | :--- | :--- |
+| <img src={useBaseUrl('img/live-testing/pin-unpin-icon.png')} alt="Unpin/Pin Toolbar icon" width="35"/> | Unpin/Pin Toolbar | Unpins or pins the live testing toolbar.  |
+| <img src={useBaseUrl('img/live-testing/session-info-icon.png')} alt="Session Info icon" width="35"/> | Session Info | Opens the **Current Session** window, which includes app and device details. |
+| <img src={useBaseUrl('img/live-testing/take-screenshot-icon.png')} alt="Take Screenshot icon" width="35"/> | Take Screenshot | Takes a screenshot of the current device screen. The image downloads automatically as a .png file. |
+| <img src={useBaseUrl('img/live-testing/share-session-icon.png')} alt="Share Session icon" width="35"/> | Share Session | Opens the **Share Device** window. For a sharable link to the device, click **Get Link**. <br/>**NOTE:** Users must be logged in to be able to view the test.  |
+| <img src={useBaseUrl('img/live-testing/rotate-device-icon.png')} alt="Rotate Device icon" width="35"/> | Rotate Device | Rotates the device between portrait and landscape. |
+| <img src={useBaseUrl('img/live-testing/home-icon.png')} alt="Home icon" width="35"/> | Home | Opens the device home screen. |
+| <img src={useBaseUrl('img/live-testing/more-device-options-icon.png')} alt="More Device Options icon" width="35"/> | More Device Options | **Set Location** - Set the GPS location using coordinates or by dropping a pin on the map. |
+| <img src={useBaseUrl('img/live-testing/restart-app-icon.png')} alt="Restart App icon" width="35"/> | Restart App | Restarts the app. |
+| <img src={useBaseUrl('img/live-testing/switch-app-version-icon.png')} alt="Switch App Version icon" width="35"/> | Switch App Version | Opens the **Switch App Version** window. To change the version of the app you are testing, hover over the version and then click **Choose version**. |
+| <img src={useBaseUrl('img/live-testing/clipboard-icon.png')} alt="Clipboard icon" width="35"/> | Clipboard | Opens the **Paste Content Into Device** window. |
+| <img src={useBaseUrl('img/live-testing/install-dependency-icon.png')} alt="Install Dependency icon" width="35"/> | Install Dependency | Opens the **Install Dependent App** window. |
+| <img src={useBaseUrl('img/live-testing/dev-options-icon.png')} alt="Developer Options icon" width="35"/> | Developer Options | Opens the **Developer Options** panel, which includes the **Device Log**, **Device Vitals**, and **Dev Tools** tabs. |
+
+### Device Log
+
+<img src={useBaseUrl('img/live-testing/device-log.png')} alt="Device Log" width="450"/>
+
+| Icon | Name | Description |
+| :--- | :--- | :--- |
+| <img src={useBaseUrl('img/live-testing/log-level.png')} alt="Log Level" width="85"/> | Log Level | <ul><li>VERBOSE </li><li>DEBUG </li><li>INFO </li><li>WARN </li><li>ERROR </li><li>ASSERT </li></ul> |
+| <img src={useBaseUrl('img/live-testing/search-log-icon.png')} alt="Search Log icon" width="40"/> | Search Log | Opens the **Search log** interface. Enter a term or terms in the search box and select or deselect the following checkboxes as necessary: <ul><li>REGEX </li><li>IGNORE CASE </li><li>INVERT </li></ul> |
+| <img src={useBaseUrl('img/live-testing/pause-log-icon.png')} alt="Pause Log icon" width="40"/> | Pause Log | Pauses the log feed. |
+| <img src={useBaseUrl('img/live-testing/wrap-text-icon.png')} alt="Wrap Text icon" width="40"/> | Wrap Text | Wraps text in the log for easier reading. |
+| <img src={useBaseUrl('img/live-testing/clear-log-icon.png')} alt="Clear Log icon" width="40"/> | Clear Log | Clears the log feed. |
+| <img src={useBaseUrl('img/live-testing/download-log-icon.png')} alt="Download Log icon" width="40"/> | Download Log | Downloads the log as a .txt file. |
+
+### Device Vitals
+Device Vitals is a feature that collects useful performance data in real time from a device during a live session. Data such as network, CPU, and memory usage helps users understand the general performance of a device and the application under test. Users can view a graph of this performance data in real time as the app is processing.
+
+<img src={useBaseUrl('img/live-testing/device-vitals.png')} alt="Device Vitals" width="450"/>
+
+| Icon | Name | Description |
+| :--- | :--- | :--- |
+| <img src={useBaseUrl('img/live-testing/graph-height.png')} alt="Graph Height" width="40"/> | Graph Height | Change the size of the graphs (S, M, L). |
+| <img src={useBaseUrl('img/live-testing/grid-layout-icon.png')} alt="Grid Layout icon" width="40"/> | Grid Layout | Displays graphs side by side. |
+| <img src={useBaseUrl('img/live-testing/row-layout-icon.png')} alt="Row Layout icon" width="40"/> | Row Layout | Displays graphs as as a list. |
+| <img src={useBaseUrl('img/live-testing/download-vitals-icon.png')} alt="Download Vitals icon" width="40"/> | Download Vitals | Downloads the device vitals as a .txt file. |
+
+**Performance Metrics for Android/iOS Devices**
+
+The graph and csv file will contain these performance metrics for devices.
+
+| Metric | Description |
 | :--- | :--- |
-| <img src={useBaseUrl('img/live-testing/stop-icon.png')} alt="Stop Session icon" width="50"/> | Stops the current test and returns you to the test setup screen. |
-| <img src={useBaseUrl('img/live-testing/info-icon.png')} alt="Session Info icon" width="50"/> | Displays information about the current test, including the URL being tested and the the specifications of the device. |
-| <img src={useBaseUrl('img/live-testing/share-icon.png')} alt="Share Device icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/restart-icon.png')} alt="Restart App icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/install-icon.png')} alt="Install Dependent App icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/rotate-icon.png')} alt="Rotate Device icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/home-icon.png')} alt="Press Home icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/paste-icon.png')} alt="Paste Content icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/screenshot-icon.png')} alt="Take Screenshot icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/gps-icon.png')} alt="Set GPS icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/vitals-icon.png')} alt="Device Vitals icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/log-icon.png')} alt="Device Log icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/dock-icon.png')} alt="Dock icon" width="50"/> | Centered |
+| `cpu_total` | System-wide CPU usage in percentage across all CPU cores. 4 cores at max use would be shown as a value of 400% |
+| `cpu_user` | CPU usage for user processes in percentage across all CPU cores. 4 cores at max use would be shown as a value of 400% |
+| `cpu_kernal` | Android OS CPU usage in percentage across all CPU cores. 4 cores at max use would be shown as a value of 400% |
+| `n_threads` | Total threads in use by the app |
+| `memory_size_kb` | Total threads in use by the app |
+| `memory_resident_kb` | Memory currently in use by application in kilobytes |
+| `memory_shared_kb` | Anonymous shared memory currently in use by system shared between application(s) and system |
+| `network_wifi_receive_b` | Data in bytes received over wifi connection |
+| `network_wifi_sent_b` | Data in bytes sent over wifi connection |
+| `network_mobile_receive_b` | Data in bytes received from the mobile carrier network |
+| `network_mobile_sent_b` | Data in bytes sent over mobile carrier network |
+
+>**NOTE:** Device Vitals for live testing is currently in beta state, which means we are testing it on a few devices first. We will roll out to all devices in the coming weeks, please refer to this page for updates. See the full list of combinations available for beta below.
+
+<Tabs
+  defaultValue="iOS"
+  values={[
+    {label: 'iOS', value: 'iOS'},
+    {label: 'Android', value: 'Android'},
+  ]}>
+
+<TabItem value="iOS">
+
+**Web Tests (on Safari)**
+
+| Device/Platform | iPhone 11 | iPhone XR | iPhoneXS | iPhone X | iPhone 8 | iPhone 7 | iPhone 6 | iPhone 6 Plus | iPhone 6S Plus | iPhone 5S | iPhone SE | iPad Pro 11 2018 | iPad Pro | iPad Air 2019 | iPad 9.7 2017 | iPad 4 | iPad Mini 2 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| iOS 9.3.2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| iOS 10.0.2 |  |  |  |  |  |  |  |  |  | X |  |  |  |  |  |  |  |
+| iOS 10.1 |  |  |  |  |  |  |  |  |  |  | X |  |  |  |  |  |  |
+| iOS 10.3.3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | X |  |
+| iOS 11.4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| iOS 11.4.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| iOS 12.2 |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |  |  |
+| iOS 12.4.1 |  | X |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| iOS 13.0 |  |  | X |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| iOS 13.1 | X |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+</TabItem>
+<TabItem value="Android">
+
+**Web Tests (on Chrome)**
+
+| Device/Platform | Google Pixel XL | Google Pixel 3 | Google Pixel 3a | Motorola Moto G6 Plus | Huawei P30 | Google Pixel C | HTC U12 Plus | HTC U11 | HTC Desire 12 | Samsung Galaxy S7 | Lenovo Tab 4 | Asus Google Nexus 7 (2013) | LG G6 | LG G5 | LG G4 | Huawei P9 | Amazon Kindle Fire HD 8 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Android 5.1.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Android 6.0 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Android 6.0.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Android 7.0 |  |  |  |  |  |  |  | X |  |  |  |  |  |  |  |  |  |
+| Android 7.1.1 |  |  |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |
+| Android 8.0.0 |  |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |  |
+| Android 8.1.0 |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |  |  |
+| Android 9 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Android 10 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Android 11 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+</TabItem>
+</Tabs>
 
 ### Virtual Device
 1. In Sauce Labs, in the left panel, click **Live** and then click **Cross Browser**.
@@ -101,23 +189,22 @@ Know if your app is designed to run on internal or otherwise restricted networks
 <img src={useBaseUrl('img/live-testing/live-mobile-virtual-nav.png')} alt="Live mobile virtual device test navigation" width="650"/>
 
 3. In the **URL** field, enter the URL of the website you want to test.
-4. If you are using Sauce Connect Proxy to access the web app you want to test, select the tunnel from the dropdown.
+4. If you are using Sauce Connect Proxy to access the web app you want to test, select the tunnel from the dropdown. For  more information about Sauce Connect Proxy, see [Using Sauce Connect Proxy](/secure-connections/sauce-connect).
 5. In the **Manufacturer**, **Device**, and **OS Version** dropdowns, select the specifications for the virtual device you want to use.
 6. Click **Start Session**.
 You'll see a loading screen, and then the URL you entered will launch in a live test window using the virtual device you selected.
 
 <img src={useBaseUrl('img/live-testing/mobile-virtual-test-ui.png')} alt="Mobile virtual device test interface" width="650"/>
 
-#### Mobile Virtual Device Test Icons
+### Live Mobile Virtual Device Test Interface
 
-| Icon | Description |
-| :--- | :--- |
-| <img src={useBaseUrl('img/live-testing/stop-icon.png')} alt="Stop Session icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/info-icon.png')} alt="Session Info icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/invite-icon.png')} alt="Invite to Session icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/clipboard-icon.png')} alt="Remote clipboard content preview icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/screenshot-icon.png')} alt="Take Screenshot icon" width="50"/> | Centered |
-| <img src={useBaseUrl('img/live-testing/dock-icon.png')} alt="Dock icon" width="50"/> | Centered |
+| Icon | Name | Description |
+| :--- | :--- | :--- |
+| <img src={useBaseUrl('img/live-testing/pin-unpin-icon.png')} alt="Unpin/Pin Toolbar icon" width="35"/> | Unpin/Pin Toolbar | Unpins or pins the live testing toolbar.  |
+| <img src={useBaseUrl('img/live-testing/session-info-icon.png')} alt="Session Info icon" width="35"/> | Session Info | Opens the **Current Session** window, which includes app and device details. |
+| <img src={useBaseUrl('img/live-testing/take-screenshot-icon.png')} alt="Take Screenshot icon" width="35"/> | Take Screenshot | Takes a screenshot of the current device screen. The image is saved on the **Test Details** page. |
+| <img src={useBaseUrl('img/live-testing/invite-session-icon.png')} alt="Invite to Session icon" width="35"/> | Invite to Session | Opens the **Invite someone to watch this session** window. Copy and share the generated link to allow other users to view the test. <br/>**NOTE:** Users must be logged in to be able to view the test. |
+| <img src={useBaseUrl('img/live-testing/clipboard-icon.png')} alt="Clipboard icon" width="35"/> | Clipboard | Opens the **Remote Clipboard** window. |
 
 ## Running Tests in Parallel
 
