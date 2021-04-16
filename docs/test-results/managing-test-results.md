@@ -21,8 +21,7 @@ You can delete any of the tests or builds listed on your **Archives** page.
 2. Click **Delete**.
 3. In the confirmation dialog, click **Yes**.
 
-:::caution
-**Results are Permanently Deleted**
+:::caution **Results are Permanently Deleted**
 Once you delete a test or build result, it's gone forever and cannot be recovered. Be careful when you click **Yes**.  
 :::
 
@@ -45,12 +44,7 @@ Once the results have been logged to the page, you have a couple options for fil
 | Filter | Description |
 | :--- | :--- |
 | Owner | The owner filter allows you to view test results for: * Builds or tests that you have run * All the builds or tests for your organization * Builds or tests run run by one of your selected sub-accounts |
-| Status | The status filter lets you filter tests and builds by:
-Passed
-Failed
-Complete (the test completed but was not assigned a Pass/Fail status)
-Running
-Error |
+| Status | The status filter lets you filter tests and builds by: Passed, Failed, Complete (the test completed but was not assigned a Pass/Fail status), Running, and Error |
 
 ## Search Fields and Operators
 
