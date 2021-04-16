@@ -40,7 +40,7 @@ You can customize your High Availability tests using these options below. For a 
 ### Tunnel Pools
 Exclusive to our High Availability Sauce Connect Proxy Setup, you can launch multiple tunnels as a tunnel pool that's treated as a single tunnel. Be mindful that each tunnel used in a pool will count toward your tunnel concurrency limit.
 
-#### Launching Tunnel Pools**
+#### Launching Tunnel Pools
 When using Sauce Connect Proxy (either a single tunnel or High Availability pool) to test your app, you'll need to provide the identifier of the Sauce Connect Proxy tunnel by using the desired capability 'tunnelIdentifier' in your test configuration (e.g. '"tunnelIdentifier": "tunnel_name_here"'). Tunnel identifiers distinguish which tunnel or High Availability tunnel pool will be used to connect to your site under test.
 
 All tunnels in the individual pools need to be started with both the  `--tunnel-identifier <tunnel_name_here>` and `--no-remove-colliding-tunnels` command line options.
@@ -57,27 +57,21 @@ When running a tunnel pool, we recommend monitoring your activity in Sauce Labs 
 Once you've confirmed that your network is configured to use High Availability, launch Sauce Connect Proxy using one of these commands below. You'll need to run this command on each machine where you want to have access to the tunnel pool.
 
 <Tabs
-  defaultValue="Linux or Mac OSX"
+  defaultValue="maclinux"
   values={[
-    {label: 'Linux or Mac OSX', value: 'Linux or Mac OSX'},
+    {label: 'Linux or Mac OSX', value: 'maclinux'},
+    {label: 'Windows', value: 'windows'},
   ]}>
 
-<TabItem value="Linux or Mac OSX">
+<TabItem value="maclinux">
 
 ```
 $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-identifier tunnel_name_here --no-remove-colliding-tunnels
 ```
 
 </TabItem>
-</Tabs>
 
-<Tabs>
-defaultValue="Windows"
-values={[
-  {label: 'Windows', value: 'Windows'},
-]}>
-
-<TabItem value="Windows">
+<TabItem value="windows">
 
 ```
 > sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --tunnel-identifier tunnel_name_here --no-remove-colliding-tunnels
@@ -91,9 +85,7 @@ Tunnel pools allow for failover and rolling restart functionality, which improve
 
 Tunnel pools also abide by general fault tolerance rules. For example, if one tunnel becomes unavailable or shuts down (i.e., due to user shutdown, crash, maintenance, or network partition), you can configure your tunnels to be restored automatically while the test traffic is routed to another tunnel in the pool.
 
-:::note
-Tunnel pools do not self-heal (see [Self-management](https://en.wikipedia.org/wiki/Self-management_(computer_science)) for more information) or restart automatically. If a tunnel stops, you'll need to restart it manually. Other than restarting a stopped or failed tunnel, tunnel pools generally run automatically without user intervention. If you're running a high number of tunnels, you may want to bypass the pool and specify which tunnel to use directly.
-:::
+>**NOTE:** Tunnel pools do not self-heal (see [Self-management](https://en.wikipedia.org/wiki/Self-management_(computer_science)) for more information) or restart automatically. If a tunnel stops, you'll need to restart it manually. Other than restarting a stopped or failed tunnel, tunnel pools generally run automatically without user intervention. If you're running a high number of tunnels, you may want to bypass the pool and specify which tunnel to use directly.
 
 When in High Availability mode, we recommend restarting Sauce Connect Proxy tunnels every 24 hours. The tunnel will stay open until all tests associated with it have completed. At the same time, once the shutdown command has been sent, the tunnel is marked inactive in the eyes of the pool, and no new jobs will use it.
 
