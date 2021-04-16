@@ -41,9 +41,13 @@ __Description__: Field for defining test suite details such as the suite `name`,
 
 __Type__: *object*
 
-__Example__:
+__Examples__:
 ```yaml reference
 https://github.com/saucelabs/saucectl-testcafe-example/blob/master/.sauce/config.yml#L20-L30
+```
+
+```yaml reference
+https://github.com/saucelabs/saucectl-testcafe-example/blob/vk-add-ios/.sauce/config_ios.yml#L20-L33
 ```
 
 ### `name`
@@ -80,6 +84,23 @@ __Example__:
     - "tests/test_file1.test.js"
     - "tests/integrations"
     - "*/*.test.js"
+```
+
+### `devices`
+
+<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
+
+__Description__: Field for defining device details such as device `name`, `platformName`, `platformVersions`.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+  devices:
+    - name: iPhone 12 Simulator
+      platformName: iOS
+      platformVersions:
+        - "14.3"
 ```
 
 ### `env`
