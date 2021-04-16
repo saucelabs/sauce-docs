@@ -12,7 +12,7 @@ This is a guide for users who have an existing internal network proxy through wh
 * Between the internet and the machine hosting Sauce Connect Proxy
 * Between the machine hosting Sauce Connect and the machine hosting the website or mobile app you want to test
 
-To configure Sauce Connect Proxy to use your proxy or proxies, you will need to include one or more Sauce Connect command-line options (see the [Sauce Connect Proxy Command-Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide)) in your test script.
+To configure Sauce Connect Proxy to use your proxy or proxies, you will need to include one or more Sauce Connect command-line options (see the [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy)) in your test script.
 
 ## Warning About Man-in-the-Middle Proxies
 If you use a Man-in-the-Middle proxy to monitor network traffic, it must be configured to allow the TLS connection and proprietary protocol used by Sauce Connect Proxy to communicate with the Sauce Labs virtual machines that are running your tests. If it will allow only HTTP or HTTPS sessions, it will drop the inbound Sauce Connect Proxy connection.
@@ -49,7 +49,7 @@ When a proxy is auto-detected, Sauce Connect Proxy will route all network traffi
 To set up and run Sauce Connect Proxy for this situation, see [Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
 
 ### Command Line Configuration (Manual)
-If automatic proxy configuration fails, you will need to override the settings or enable proxies when starting Sauce Connect Proxy. There are several [command line arguments](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide) that you can use to configure proxies manually.
+If automatic proxy configuration fails, you will need to override the settings or enable proxies when starting Sauce Connect Proxy. There are several [command line arguments](/dev/cli/sauce-connect-proxy) that you can use to configure proxies manually.
 
 | Flag | Description |
 | :--- | :--- |
@@ -141,7 +141,7 @@ To have Sauce Connect Proxy with your PAC file, use the `--pac &lt;url&gt;` comm
 
 If your PAC file contains multiple proxies, in addition to `-pac`, you'll need to specify the `-p` option to designate which proxy will receive the username and password.
 
->**NOTE:** Sauce Connect Proxy versions older than 4.6.1 do not support the  `-p (--proxy)`  and `-T (--proxy-tunnel)` options combined with `--pac`. See to [Downloading Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Downloading+Sauce+Connect+Proxy) to download the latest version.
+>**NOTE:** Sauce Connect Proxy versions older than 4.6.1 do not support the  `-p (--proxy)`  and `-T (--proxy-tunnel)` options combined with `--pac`. See [Downloading Sauce Connect Proxy](/secure-connections/sauce-connect/installation) to download the latest version.
 
 Here are some examples for starting a Sauce Connect Proxy tunnel using `--pac &lt;url&gt;`:
 
@@ -178,7 +178,7 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac &lt;PAC_FILE_
 </TabItem>
 </Tabs>
 
-If you are starting a tunnel for Real Device tests, see [Real Device Cloud Setup](/secure-connections/setup-configuration/specialized-environments).
+If you are starting a tunnel for Real Device tests, see [Real Device Cloud Setup](/secure-connections/sauce-connect/setup-configuration/specialized-environments).
 
 ### Network Traffic Flow Diagrams
 The following diagrams illustrate different Sauce Connect Proxy network flow configurations.

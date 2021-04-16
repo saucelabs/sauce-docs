@@ -12,8 +12,8 @@ hide_table_of_contents: true
     <h2>Live Testing</h2>
     <p>Browse through the Live Testing documentation to manually test your application on Sauce Labs Cloud.</p>
     <ul>
-        <li><a href="/web-apps/live-testing">Web Applications</a></li>
-        <li><a href="/mobile-apps/live-testing">Mobile Applications</a></li>
+        <li><a href="/web-apps/live-testing/live-cross-browser-testing">Web Applications</a></li>
+        <li><a href="/mobile-apps/live-testing/live-mobile-app-testing">Mobile Applications</a></li>
     </ul>
     </div>
   </div>
