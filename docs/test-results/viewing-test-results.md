@@ -4,6 +4,8 @@ title: Viewing Test Results
 sidebar_label: Viewing Test Results
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 After you run a test, you can view the results on the Test Results page. From there you can:
 
 * Watch a video recording of the test
