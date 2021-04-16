@@ -56,54 +56,14 @@ Error |
 
 You can use any of these filters singly or or combination to search through the tests and builds on your Archive page. The Example column shows how you could construct a search using a specific filter in the Search text field. See Searching for Test Results and Builds on Your Archive Page for examples of how to build structured searches using multiple filters in the Search field.
 
-| Filter | Description | Example |
-| :--- | :--- | :--- |
-
-Text	Search for any mention of the string across test details.	text: Appium
-Name
-
-Search for full or partial test name.
-
-name: SauceTest
-
-Platform
-
-Search for tests that ran on one or multiple operating systems. This field only accepts operating systems currently supported by Sauce Labs.
-
-platform:("OS X 10.10" "Windows 8.1")
-Browser
-
-Search for tests that ran on one or multiple browsers. Only accepts browsers currently supported by Sauce Labs.
-
-browser:("Google Chrome 43" "Internet Explorer 11")
-Date
-
-Search for tests that ran on a specific date or over a specified range. Dates should be in YYYY-MM-DD format.
-
-date:[2014-05-05 TO 2015-05-05]
-
-date: [2014-05-05 TO *]
-
-Status
-
-Search for tests based on their status. Currently there are four possible states: failed, passed, complete, error.
-
-status: failed
-
-Build
-
-Search for tests that belong to a specific build.
-
-build:main and browser:"Internet Explorer 11"
-
-Tag
-
-Search for tests that have one or multiple tags.
-
-tag: Jenkins
-
-Owner
-
-Search for tests that were created by a specific user.
-
-owner: admin
+| Filter   | Description                                                                                                                                                                                                            | Example                                               |
+|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+| Text     | Search for any mention of the string across test details.                                                                                                                                                              | `text: Appium`                                        |
+| Name     | Search for full or partial test name.                                                                                                                                                                                  | `name: SauceTest`                                     |
+| Platform | Search for tests that ran on one or multiple operating systems.   This field only accepts [operating systems currently supported by Sauce Labs](https://saucelabs.com/platforms/?_ga=1.85833371.341070038.1437411028). | `platform:("OS X 10.10" "Windows 8.1")`               |
+| Browser  | Search for tests that ran on one or multiple browsers. Only accepts [browsers currently supported by Sauce Labs](https://saucelabs.com/platform/supported-browsers-devices).                                           | `browser:("Google Chrome 43" "Internet Explorer 11")` |
+| Date     | Search for tests that ran on a specific date or over a specified range. Dates should be in _YYYY-MM-DD_ format.                                                                                                        | `date:[2014-05-05 TO 2015-05-05]`                     |
+| Status   | Search for tests based on their status. Currently there are four possible states: `failed`, `passed`, `complete`, `error`                                                                                              | `status: failed`                                      |
+| Build    | Search for tests that belong to a specific build.                                                                                                                                                                      | `build:main and browser:"Internet Explorer 11"`       |
+| Tag      | Search for tests that have one or multiple tags.                                                                                                                                                                       | `tag: Jenkins`                                        |
+| Owner    | Search for tests that were created by a specific user.                                                                                                                                                                 | `owner: admin`                                        |
