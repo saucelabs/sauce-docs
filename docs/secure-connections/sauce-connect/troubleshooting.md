@@ -21,15 +21,18 @@ Sauce Connect Proxy needs to establish outbound connections to both saucelabs.co
 For information on setting up Sauce Connect Proxy within various network environments, see [Security and Authentication](/secure-connections/sauce-connect/security-authentication).
 
 ## Checking Network Connectivity to Sauce Labs
-Make sure that saucelabs.com is accessible from the machine running Sauce Connect Proxy. This can be tested by issuing a ping, telnet or cURL command to saucelabs.com from the machine's command line interface. If any of these commands fail, you should work with your internal network team to resolve them.
+Make sure that saucelabs.com is accessible from the machine running Sauce Connect Proxy. This can be tested by issuing a ping, telnet or cURL command to saucelabs.com from the machine's command line interface.
+
+If any of these commands fail, you should work with your internal network team to resolve them.
 
 <Tabs
-  defaultValue="ping Method for Checking Network Connectivity"
-  values={[
-    {label: 'ping Method for Checking Network Connectivity', value: 'ping Method for Checking Network Connectivity'},
-  ]}>
+  defaultValue="ping"
+  values={[ 
+    {label: 'ping', value: 'ping'},
+    {label: 'telnet', value: 'telnet'},
+    {label: 'cURL', value: 'curl'},  ]}>
 
-<TabItem value="ping Method for Checking Network Connectivity">
+<TabItem value="ping">
 
 ```
 ping saucelabs.com
@@ -37,43 +40,26 @@ ping saucelabs.com
 
 </TabItem>
 
-</Tabs>
-
-<Tabs
-  defaultValue="telnet Command for Checking Network Connectivity"
-  values={[
-    {label: 'telnet Command for Checking Network Connectivity', value: 'telnet Command for Checking Network Connectivity'},
-  ]}>
-
-<TabItem value="telnet Command for Checking Network Connectivity">
+<TabItem value="telnet">
 
 ```
 telnet saucelabs.com 443
 ```
 
-</TabItem>
-
-</Tabs>
-
 This command should return an IP address of 162.222.73.2.
 
-<Tabs
-  defaultValue="cURL Method for Checking Connectivity"
-  values={[
-    {label: 'cURL Method for Checking Connectivity', value: 'cURL Method for Checking Connectivity'},
-  ]}>
+</TabItem>
 
-<TabItem value="cURL Method for Checking Connectivity">
+<TabItem value="curl">
 
 ```
 curl -v ht<span>tps://</span>saucelabs.com/
 ```
 
-</TabItem>
-
-</Tabs>
-
 This command should return the status message connected to `saucelabs.com`.
+
+</TabItem>
+</Tabs>
 
 ## SSL Bumping
 To combat test failures caused by websites without valid SSL certificates, Sauce Connect Proxy has a security feature called SSL Bumping that automatically re-signs certificates in the course of testing.
