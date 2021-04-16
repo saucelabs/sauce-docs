@@ -3,6 +3,9 @@ id: security-authentication
 title: Security and Authentication
 sidebar_label: Security and Authentication
 ---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Network Security
 Sauce Connect Proxy establishes a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines or real devices that are used for testing.
@@ -14,7 +17,7 @@ Within your infrastructure, Sauce Connect Proxy must be able to reach the applic
 
 We recommend running Sauce Connect Proxy in a firewalled DMZ on a dedicated machine and setting up firewall rules to restrict access from that DMZ to your internal network. Use caution when locating and configuring Sauce Connect in a DMZ.
 
-For more information, see [DMZ (computing)](https://en.wikipedia.org/wiki/DMZ_(computing)) and [Common Mistakes in Network Configurations](/secure-connections/sauce-connect/troubleshooting.md).
+For more information, see [DMZ (computing)](https://en.wikipedia.org/wiki/DMZ_(computing)) and [Common Mistakes in Network Configurations](/secure-connections/sauce-connect/troubleshooting).
 
 ## Securing Sauce Connect Proxy
 There are several ways to secure Sauce Connect Proxy in your network. With our recommended configuration, firewall rules are set so that Sauce Connect Proxy has only one point of access to the customer's internal network--through a single HTTP proxy--and all inbound traffic will be relayed. You'll have a secure setup with fine-grained access control and complete logging.
@@ -161,5 +164,4 @@ SSL Bumping is enabled by default for Sauce Connect Proxy, but there are some si
 #### How to Disable SSL Bumping
 Use the `-B (--no-ssl-bump-domains)` argument when you start Sauce Connect Proxy and specify which domains should not be bumped or specify `all` so that all domains that passed through the tunnel are not bumped.
 
-:::note Keep in mind that when SSL Bumping is disabled, test traffic will not be decrypted, and will pass through directly to the browser running your tests along with the SSL certificate of the site under test. If there are issues with the originating site’s SSL certificate, these may generate SSL errors that interfere with test execution.
-:::
+>**NOTE:** Keep in mind that when SSL Bumping is disabled, test traffic will not be decrypted, and will pass through directly to the browser running your tests along with the SSL certificate of the site under test. If there are issues with the originating site’s SSL certificate, these may generate SSL errors that interfere with test execution.
