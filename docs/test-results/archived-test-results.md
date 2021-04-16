@@ -42,9 +42,7 @@ Use parentheses around a string to find those terms anywhere in the search field
 
 ### Examples of Structured Searches
 
-| Column 1 | Column 2 |
-| :--- | :--- |
-| Left Aligned | Centered |
-
-Find all of the tests that were tagged as Selenium_194 or Selenium_193 that have failed since 03/10/2015	tag:(Selenium_194 Selenium_193) and status:failed and date:[2015-10-03 TO *]
-Find only the IE tests that have failed with the word Main in the title.	name:"Main*" AND browser:"Internet Explorer *"
+| Search Description                                                                                                 | Structured Search                                                              |
+|--------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| Find all of the tests that were tagged as   `Selenium_194`   or   `Selenium_193` that have failed since 03/10/2015 | `tag:(Selenium_194 Selenium_193) AND status:failed and date:[2015-10-03 TO *]` |
+| Find only the IE tests that have failed with the word `Main` in the title.                                         | `name:"Main*" AND browser:"Internet Explorer *"`                               |
