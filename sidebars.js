@@ -597,6 +597,7 @@ module.exports = {
         collapsed: true,
         items: [
           'dev/cli',
+          'dev/cli/sauce-connect-proxy',
             {
                 type: 'category',
                 label: 'Espresso / XCUITest',
@@ -608,7 +609,6 @@ module.exports = {
                     'dev/cli/espresso-xcuitest/yaml-config',
                 ],
             },
-          'dev/cli/sauce-connect-proxy',
             {
                 type: 'category',
                 label: 'Virtual USB',
