@@ -40,7 +40,7 @@ saucectl run --test-env docker
 
 ### Specify a Docker Image
 
-You must specify the appropriate Docker image in the `config.yml` in order for your tests to run correctly. For example, if you run cypress tests the configuration should look like so:
+By default, `saucectl` will get a docker image from sauce infrastructure and run test against it. Meanwhile, you can still specify the Docker image in the `config.yml` if you want to run test in specific docker image. For example, if you run cypress tests the configuration should look like so:
 
 ```yaml
 docker:
