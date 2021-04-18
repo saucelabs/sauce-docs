@@ -92,7 +92,9 @@ java -jar saucelabs-native-test-runner.jar --help
 
 ## Run Your Test
 
-6. In your command line window, execute the above commands and options. This will launch the Sauce Runner connection and begin running your test. Our emulators are capable of running Espresso jobs for up to three hours, however, a one-hour execution time is recommended.
+6. In your command line window, execute the above commands and options. This will launch the Sauce Runner connection and begin running your test.
+
+Wait for the runner to upload both files and execute the tests on Sauce Labs emulator(s). Our emulators are capable of running Espresso jobs for up to three hours, however, a one-hour execution time is recommended.
 
 <details><summary><strong>Click here to view the example response</strong></summary>
 

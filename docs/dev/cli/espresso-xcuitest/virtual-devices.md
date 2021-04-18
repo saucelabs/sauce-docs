@@ -1,6 +1,6 @@
 ---
 id: virtual-devices
-title: Sauce Runner Virtual Devices CLI Reference
+title: Sauce Runner for Virtual Devices CLI Reference
 sidebar_label: Virtual Devices
 ---
 
@@ -12,6 +12,8 @@ export const Highlight = ({children, color}) => ( <span style={{
       color: '#fff',
       padding: '0.2rem',
     }}>{children}</span> );
+
+<p> <Highlight color="#013a70">Emulators only</Highlight> </p>   
 
 Sauce Runner for Virtual Devices provides the ability to run Espresso tests on Android emulators in the Sauce Labs cloud. This topic describes the required and optional command parameters you can use to set up your test runs.
 
