@@ -24,7 +24,7 @@ Disconnected
 
 ## Optional
 
-These flags provide additional configuration options.
+Use these flags to provide additional configuration options.
 
 ### `--serverHost`
 __Description__: specifies a Virtual USB server host. Default: `http://127.0.0.1`.

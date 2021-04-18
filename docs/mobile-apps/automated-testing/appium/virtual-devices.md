@@ -13,18 +13,18 @@ With Sauce Labs, you can run automated Appium tests against many virtual OS and 
 
 ## What You'll Need
 
-*   A Sauce Labs Account.
-*   The mobile app you want to test. If you don't have one, you can use our [Sauce Labs demo mobile app](https://github.com/saucelabs/sample-app-mobile).
-*   Ensure that your system fulfills the project support and requirements prior to uploading your apps or leveraging device emulators and simulators. Review the[ Automated Mobile App Testing Admin Guide](https://wiki.saucelabs.com/display/DOCS/Mobile+Application+Testing+Admin+Guide#mobile-test-admin-emusim) for further details.
+* A Sauce Labs Account.
+* The mobile app you want to test. If you don't have one, you can use our [Sauce Labs demo mobile app](https://github.com/saucelabs/sample-app-mobile).
+* Ensure that your system fulfills the project support and requirements prior to uploading your apps or leveraging device emulators and simulators. Review the[ Automated Mobile App Testing Admin Guide](https://wiki.saucelabs.com/display/DOCS/Mobile+Application+Testing+Admin+Guide#mobile-test-admin-emusim) for further details.
 
 
 ## Uploading Your App to Emulators and Simulators
 
 Before running your automated test, you will need to upload your app – an Android package file (`.apk`) for emulators or an iOS package file (`.zip)` for simulators – to a publicly available source. There are three ways you can upload your app for automated testing:
 
-*   Sauce App Storage
-*   Install from a Remote Location
-*   Legacy Sauce Storage
+* Sauce App Storage
+* Install from a Remote Location
+* Legacy Sauce Storage
 
 For detailed instructions, see [Application Storage](mobile-apps/app-storage.md).
 
@@ -64,7 +64,7 @@ When testing a native mobile app, the value for `browserName` is an empty string
 If the app you want to test has been uploaded to a location other than Sauce Storage, you need to specify this location for `app`, and make sure that this location is accessible to Sauce Labs browsers. For example, `caps.setCapability("app","sauce-storage:mapp.zip");`
 
 
-### Setting automationName for Android Apps
+### Setting `automationName` for Android Apps
 
 If you're testing a native mobile app against Android versions 4.0 - 4.1, or a hybrid mobile against Android versions 4.0 - 4.2, you need to set the capability `"automationName","selendroid"`. These Android versions are only supported via Appium’s bundled version of Selendroid, which utilizes [Instrumentation](http://developer.android.com/reference/android/app/Instrumentation.html). Later versions of Android are supported via Appium’s own UIAutomator library.
 

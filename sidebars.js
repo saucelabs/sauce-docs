@@ -124,7 +124,7 @@ module.exports = {
           collapsed: true,
           items: [
             'mobile-apps/automated-testing',
-            'mobile-apps/automated-testing/devices',
+            'mobile-apps/automated-testing/supported-devices',
                 {
                   type: 'category',
                   label: 'Appium',
@@ -149,10 +149,10 @@ module.exports = {
                 'mobile-apps/automated-testing/troubleshooting',
               ],
            },
-     'mobile-apps/app-storage',
-     'mobile-apps/ms-app-center',
      'mobile-apps/features',
      'mobile-apps/virtual-usb',
+     'mobile-apps/app-storage',
+     'mobile-apps/ms-app-center',
      'mobile-apps/faq',
          ],
     "Web Apps": [
@@ -586,6 +586,15 @@ module.exports = {
         items: [
           'dev/cli',
           'dev/cli/sauce-connect-proxy',
+           {
+               type: 'category',
+               label: 'Appium',
+               collapsed: true,
+               items: [
+                  'dev/cli/appium/real-devices',
+                  'dev/cli/appium/virtual-devices',
+                ],
+            },
             {
                 type: 'category',
                 label: 'Espresso / XCUITest',
@@ -593,8 +602,8 @@ module.exports = {
                 items: [
                     'dev/cli/espresso-xcuitest',
                     'dev/cli/espresso-xcuitest/real-devices',
-                    'dev/cli/espresso-xcuitest/virtual-devices',
                     'dev/cli/espresso-xcuitest/yaml-config',
+                    'dev/cli/espresso-xcuitest/virtual-devices',
                 ],
             },
             {

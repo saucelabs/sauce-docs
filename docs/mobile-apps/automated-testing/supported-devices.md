@@ -1,7 +1,7 @@
 ---
-id: devices
+id: supported-devices
 title: Choosing a Device for Mobile App Testing
-sidebar_label: Choosing Devices
+sidebar_label: Supported Devices
 ---
 
 export const Highlight = ({children, color}) => ( <span style={{
@@ -46,7 +46,7 @@ For the full list of supported real devices, see [Supported Browsers and Devices
 
 If you need...
 
-* Breadth of device types for panel/compatibility testing
+* A breadth of device types for panel/compatibility testing
 * To replicate an issue to match exact model as reported
 * Pixel-perfect display testing
 * To test hardware dependencies like CPU, memory, display, GPS
@@ -85,11 +85,11 @@ Sauce Labs offers access to both public and private device clouds for your real 
 
 Our public cloud contains a wide selection of thoroughly cleaned devices.
 
-*   The devices available on the public cloud are sufficient for your testing coverage
-*   You need to reproduce bugs on a selection of hundreds of iOS and Android devices
-*   You need to upload and spot check apps on devices you don’t have access to
-*   You need to share manual test sessions and devices across teams worldwide
-*   You are looking for a low-cost real device testing option
+* The devices available on the public cloud are sufficient for your testing coverage
+* You need to reproduce bugs on a selection of hundreds of iOS and Android devices
+* You need to upload and spot check apps on devices you don’t have access to
+* You need to share manual test sessions and devices across teams worldwide
+* You are looking for a low-cost real device testing option
 
 
 #### Private Real Device Cloud Use Cases
@@ -98,11 +98,11 @@ Our public cloud contains a wide selection of thoroughly cleaned devices.
 
 Dedicated pool of devices just for your organization.
 
-*   You need a very specific set of devices that aren't supported on the public cloud
-*   Your security team insists on dedicated devices
-*   You require a secure tunnel between your tests and our cloud to test
-*   You want to run automated/parallel tests across multiple devices
-*   You need specific settings which are set on the devices all the time
+* You need a very specific set of devices that aren't supported on the public cloud
+* Your security team insists on dedicated devices
+* You require a secure tunnel between your tests and our cloud to test
+* You want to run automated/parallel tests across multiple devices
+* You need specific settings which are set on the devices all the time
 
 ### Security
 
@@ -110,11 +110,11 @@ Dedicated pool of devices just for your organization.
 
 We use a proprietary process that wipes every device clean at the end of the testing session. Steps in this process include:
 
-*   User accounts and data are cleared from the device
-*   History and user data is cleared from the browser
-*   Network settings are reset
-*   Device settings are reset
-*   The app is uninstalled, and any cached data is deleted
+* User accounts and data are cleared from the device
+* History and user data is cleared from the browser
+* Network settings are reset
+* Device settings are reset
+* The app is uninstalled, and any cached data is deleted
 
 >**NOTE**: While we take these actions after each test session on a public device, users of the public RDC should be aware that Sauce Labs does not factory reset devices in the public RDC between test sessions, and these devices do not have anti-virus software installed on them. It is possible that other users of the public RDC may engage in malicious, careless or unsecure activity, and that sophisticated, persistent malware could therefore be present on any device in the public RDC.
 
@@ -125,6 +125,10 @@ For more information on Sauce Labs security settings, see [Security Settings for
 
 Data Center security related to real devices is described in [Data Center Endpoints](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068).
 
+### Device Allocation
+
+_Dynamic Allocation_ involves providing basic parameters for the platform and operating system, or the type of device you want to use in your tests, and a device with those specifications is selected from the device pool.
+_Static Allocation_, you can specify the device to use in your tests,
 
 ### Dynamic Device Allocation
 
@@ -232,9 +236,9 @@ With _Static Allocation_, you can specify the device to use in your tests, but i
 
 #### `cacheId` Capability
 
-By default, every time you complete a test session, the real device cloud uninstalls your application, performs device cleaning, and de-allocates the device. This means that if you have multiple tests that you want to run on the same device, you will, by default, wait for this cleaning process to complete between every test.
+By default, every time you complete a test session, the real device cloud uninstalls your app, performs device cleaning, and de-allocates the device. This means that if you're running multiple tests on the same device, you would need to wait for this cleaning process to complete between every test.
 
-However, you can use the capability `cacheId` to leave the device allocated to you for 10 seconds after each test completes. If you immediately start another test on the device, you won't need to wait for the allocation and device cleaning process to be repeated. In this case, no device cleaning will take place in between sessions, with the only exception being the application under test and the data it owns.
+To get around this, you can use the capability `cacheId`, which keeps the device allocated to you for 10 seconds after each test completes. If you immediately start another test on the device, you won't need to wait for the allocation and device cleaning process to be repeated. In this case, no device cleaning will take place in between sessions, with the only exception being the application under test and the data it owns.
 
 
 <table>
@@ -267,11 +271,9 @@ However, you can use the capability `cacheId` to leave the device allocated to y
 
 #### Using Device Caching with `noReset`
 
-You can also use the cacheId capability in conjunction with the standard noReset Appium capability. In the default case, where noReset is set to false, your application will be uninstalled and reinstalled after every test. If noReset is set to true, the application you are testing won't be reinstalled after every test run. This might save you further time, but it won't be suitable for test setups that require the application's state to be reset between tests. Note that then cacheId is set, no device cleaning will take place in between sessions, regardless of noReset value.
+You can also use the `cacheId` capability in conjunction with the standard noReset Appium capability. In the default case, where noReset is set to false, your application will be uninstalled and reinstalled after every test. If `noReset` is set to `true`, the application you are testing won't be reinstalled after every test run. This might save you further time, but it won't be suitable for test setups that require the application's state to be reset between tests. Note that then cacheId is set, no device cleaning will take place in between sessions, regardless of noReset value.
 
 >**NOTE**: Our [legacy Real Device Cloud platform](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177) used the capability `testobject_cache_device` – specific to static allocation – to keep the device allocated to you during the cleaning process. This capability has been deprecated and replaced with `cacheId`, which works for both static and dynamic allocation. If you have scripts that use `testobject_cache_device`, they will still work for static allocation, and the 10-second limit on cached devices is still the same.
-
-<br/>
 
 
 ## Additional Resources
