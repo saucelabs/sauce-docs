@@ -178,7 +178,7 @@ __Example__:
 
 ## `defaults`
 
-__Description__: Field for defining default settings.
+__Description__: Field for defining default settings for the project.
 
 __Type__: *object*
 
