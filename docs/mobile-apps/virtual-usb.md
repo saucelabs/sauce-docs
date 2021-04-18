@@ -45,7 +45,7 @@ Virtual USB (vUSB) is a mobile app debugging tool that simulates connecting a Sa
 ## Virtual USB for Sauce Labs
 
 :::tip CLI Reference
-See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB test configuration commands and options. You can also view it in the vUSB client by running `java -jar vusb-client.jar --help`.
+See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB test configuration commands and options. You can also view it in the vUSB client by running `java -jar virtual-usb-client.jar --help`.
 :::
 
 ### Download Client
@@ -175,7 +175,7 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
 
   Make sure you're logged into your Sauce Labs account and click the link above. After doing so, you'll see: 1) an Apple system notification popup, where you'll need to provide Touch ID or password authentication; and 2) information returned in your server logs similar to the example below.
 
-  ```java
+  ```bash
   11:13:12.347 [KQueueEventLoopGroup-2-2] INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - The socket at /var/run/usbmuxd needs to be moved
   11:13:12.347 [KQueueEventLoopGroup-2-2] INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - This will require administrator privileges!
   ```

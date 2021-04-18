@@ -94,16 +94,13 @@ Write your YAML file. See [Sauce Runner YAML Configuration](/dev/cli/espresso-xc
 
 **Espresso YAML File Example**
 
-This example YAML file includes all required options for running an Espresso test suite in conjunction with Sauce Runner for Real Devices:
-
-* `--devices` option: use this to select devices based on both static and dynamic allocation.
-* `--envs` option: use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Java or Kotlin.
-
-**Parallel Test Execution**
-
-This example contains tests on four different Android devices, and will result in four separate test executions in parallel on four different devices. The tests within the section will be assigned to that one device and executed in the order specified.
-
-For each section starting with the `-datacenter` directive, a new parallel test thread will spin up for the device indicated. If you specify multiple test classes or test methods, each will be executed serially, in the order presented in the section, on the device.
+This YAML file example includes:
+* All required parameters for running an Espresso test suite with Sauce Runner for Real Devices, plus the following options:
+  * `--devices` option: use this to select devices based on both static and dynamic allocation.
+  * `--envs` option: use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Java or Kotlin.
+* Parallel Test Execution: four separate parallel tests on four different Android devices.
+  * The tests within the section will be assigned to that one device and executed in the order specified.
+  * For each section starting with the `- datacenter` directive, a new parallel test thread will spin up for the device indicated. If you specify multiple test classes or test methods, each will be executed serially, in the order presented in the section, on the device.
 
 ```bash
 # Test framework: "espresso" in this example
@@ -168,16 +165,13 @@ envs:
 
 **XCUITest YAML File Example**
 
-This example YAML file includes all required options for running an XCUITest test suite in conjunction with Sauce Runner for Real Devices:
-
-* `--devices` option: use this to select devices based on both static and dynamic allocation.
-* `--testsToRun` option: use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Swift or Objective-C.
-
-**Parallel Test Execution**
-
-This example contains tests on four different Android devices, and will result in four separate test executions in parallel on four different devices. The tests within the section will be assigned to that one device and executed in the order specified.
-
-For each section starting with the `-datacenter` directive, a new parallel test thread will spin up for the device indicated. If you specify multiple test classes or test methods, each will be executed serially, in the order presented in the section, on the device.
+This YAML file example includes:
+* All required options for running an XCUITest test suite with Sauce Runner for Real Devices:
+  * `--devices` option: use this to select devices based on both static and dynamic allocation.
+  * `--testsToRun` option: use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Swift or Objective-C.
+* Parallel Test Execution: four separate, parallel test executions on four different iOS devices.
+  * The tests within the section will be assigned to that one device and executed in the order specified.
+  * For each section starting with the `- datacenter` directive, a new parallel test thread will spin up for the device indicated. If you specify multiple test classes or test methods, each will be executed serially, in the order presented in the section, on the device.
 
 ```bash
 # Test framework: "xcuitest" in this example
@@ -259,11 +253,13 @@ testsToRun:
 </TabItem>
 </Tabs>
 
-Save your YAML file.
+Once you're finished writing your YAML file, be sure to save it.
 
 ## Run Your Test
 
-6. Open a new command line window, then add and execute the following [required commands and flags](/dev/cli/espresso-xcuitest/real-devices). This will launch the Sauce Runner connection and begin running your test. Our emulators are capable of running Espresso jobs for up to three hours, however, a one-hour execution time is recommended.
+6. Open a new command line window, then add and execute the following [required commands and flags](/dev/cli/espresso-xcuitest/real-devices). This will launch the Sauce Runner connection and begin running your test.
+
+Wait for the runner to upload both files and execute the tests on Sauce Labs real devices. Our emulators are capable of running Espresso jobs for up to three hours, however, a one-hour execution time is recommended.
 
   ```java title="Required Commands and Flags"
   java -jar runner.jar config --path <your YAML file name> --accessKey <your Sauce access key>
