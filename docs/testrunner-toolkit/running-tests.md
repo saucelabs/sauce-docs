@@ -36,7 +36,7 @@ See the [`docker` syntax reference page](/testrunner-toolkit/configuration/commo
 See the [`mode` syntax reference page](/testrunner-toolkit/configuration/common-syntax#defaults) for further details.
 :::
 
-For example, if you want to run all the suites in docker, the `config.yml` should look like so:
+For example, if you want to run all the suites in docker, set the default `mode` in `config.yml` to `docker`, as in the following example:
 ```yaml
 defaults:
   mode: docker
@@ -44,7 +44,7 @@ defaults:
 
 ### Specify a Docker Image
 
-`saucectl` can provide a default image to run your tests. You can also specify a Docker image in the `config.yml`. For example, if you set a Docker image should look like so:
+`saucectl` can provide a default image to run your tests. You can also specify a Docker image in the `config.yml`, as shown in the following example:
 
 ```yaml
 docker:
@@ -71,7 +71,7 @@ docker:
 
 <p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight></small></p>
 
-If you wish to run your tests on Sauce Labs VMs, simply set mode in `config.yml`:
+If you wish to run your tests on Sauce Labs VMs, set the default `mode` in `config.yml` to `sauce`, as shown in the following example:
 
 ```yaml
 defaults:
@@ -184,7 +184,7 @@ If you have third party, or custom modules that are required test dependencies, 
 
 ### Run Tests in Docker Mode and Send Results to Sauce Labs
 
-Set docker mode in config like following:
+Set the default or suite-specific `mode` in `config.yml` to `docker`:
 
 ```yaml
 defaults:

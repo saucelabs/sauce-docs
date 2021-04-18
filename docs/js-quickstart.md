@@ -34,7 +34,7 @@ You can run your Cypress, TestCafe, or Playwright tests in two different ways:
    mode: docker
  ```
 
-It can also be set on suite level.
+It can also be set on suite level. The suite setting will override the global setting for the relevant suite.
  ```yaml
  suites:
    - name: docker suite
@@ -49,7 +49,7 @@ It can also be set on suite level.
    mode: docker
  ```
 
-It can also be set on suite level.
+It can also be set on suite level. The suite setting will override the global setting for the relevant suite.
  ```yaml
  suites:
    - name: docker suite
