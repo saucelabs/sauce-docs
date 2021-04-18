@@ -5,6 +5,10 @@ sidebar_label: Insights
 description: Retrieve Sauce Labs raw analytics data.
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 Use the Insights REST API methods to retrieve analytics data about your Sauce Labs jobs that you can then use to populate a dashboard that is meaningful for your organization.
 
 ### Get Test Results
