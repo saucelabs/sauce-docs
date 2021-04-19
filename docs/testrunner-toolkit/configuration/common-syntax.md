@@ -27,7 +27,7 @@ __Type__: *string*
 
 __Example__:
 ```yaml
-kind: < cypress | playwright | testcafe | puppeteer >
+kind: < cypress | playwright | testcafe | puppeteer | espresso >
 ```
 
 ## `sauce`
@@ -270,3 +270,4 @@ __Example__:
 * [Cypress](/testrunner-toolkit/configuration/cypress)
 * [Playwright](/testrunner-toolkit/configuration/playwright)
 * [TestCafe](/testrunner-toolkit/configuration/testcafe)
+* [Espresso](/testrunner-toolkit/configuration/espresso)
