@@ -21,9 +21,9 @@ Learn more:
 * [Sauce Labs Mobile App Gestures | GitHub](https://github.com/saucelabs/sample-app-mobile/#gestures)
 * [How To Do Multi-Touch Gestures in Live Testing](https://saucelabs.com/blog/how-to-do-multi-touch-gestures-in-live-testing)
 
-## Biometric Authentication
+## Biometric Authentication (Touch ID/Face ID)
 
-Sauce Labs provides testing capabilities for mobile app biometric authentication (Face ID and Touch ID). You can chose two authentication options by using the Biometric Authentication Tool in the toolbar during your test session.
+Sauce Labs provides testing capabilities for mobile app biometric authentication (Touch ID and Face ID). You can chose two authentication options by using the Biometric Authentication Tool in the toolbar during your test session.
 
 :::caution **Security Notice**
 
@@ -32,7 +32,7 @@ KeyStore is normally used to implement and store Touch ID and Face ID user biome
 
 ### Live Testing
 
-<p> <Highlight color="#009245">Real Devices only</Highlight> </p>
+<p><small><Highlight color="#013a70">Real Devices only</Highlight></small></p>
 
 For Live Testing, we provide biometric authentication testing capabilities on Sauce Labs real devices. Emulators and simulators are not supported at this time.
 
@@ -41,9 +41,9 @@ For Live Testing, we provide biometric authentication testing capabilities on Sa
 To enable Biometric Authentication for your live iOS real device tests:
 
 1. Click **LIVE** > **Mobile App** to get to Sauce Labs real devices.
-2. If you haven't already, upload your iOS app .ipa file here.
-3. Hover your mouse over the line item for your app > click **Settings**.
-4. Set** Biometrics Interception** to **Enabled**.
+2. If you haven't already, upload your iOS app *.ipa file here.
+3. Hover your mouse over the line item for your app > Click **Settings**.
+4. Set **Biometrics Interception** to **Enabled**.
 5. Return to the app menu by clicking **Back to App Selection**.
 6. Start up your live test session by hovering your mouse over your app, then click **Choose Device** > select your device > click **Launch**.
 
