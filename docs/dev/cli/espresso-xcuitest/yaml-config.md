@@ -11,6 +11,10 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 <p> <Highlight color="#013a70">Real Devices Only</Highlight> </p>    
 
 As an alternative to setting up real device tests using the [Sauce Runner for Real Devices CLI](/dev/cli/espresso-xcuitest/real-devices.md), you can also create a runner YAML configuration file. This topic outlines the YAML-specific parameters needed to set up your Espresso and XCUITest tests.
@@ -52,6 +56,38 @@ __Example__:
 ```yaml
 - datacenter: US
 ```
+
+**Basic Example (minimum required options only)**
+
+Minimum configuration example needed to run a test.
+
+<Tabs
+  defaultValue="Espresso"
+  values={[
+    {label: 'Espresso', value: 'Espresso'},
+    {label: 'XCUITest', value: 'XCUITest'},
+  ]}>
+
+<TabItem value="Espresso">
+
+```yaml reference
+https://github.com/saucelabs-training/demo-espresso/blob/master/real-devices/runner-ex1.yml#L8-L29
+```
+
+</TabItem>
+<TabItem value="XCUITest">
+
+```yaml reference
+https://github.com/saucelabs-training/demo-xcuitest/blob/master/real-devices/runner-ex1.yml#L8-L29
+```
+
+</TabItem>
+</Tabs>
+
+
+:::tip
+Go to our [GitHub repository](https://github.com/saucelabs-training/demo-xcuitest/tree/master/real-devices) for example scripts, plus demo apps and tests.
+:::
 
 ## Device Allocation (Optional)
 
@@ -180,9 +216,9 @@ xmlFolder: ./tmp
 
 ### `url`
 
-__Description__: specifies the URL of an alternative REST endpoint to use.
+__Description__: specifies the URL of an alternative REST endpoint to use. For a list of endpoints, see [Data Center Endpoints](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) for further details.
 
-__Example__: For a list of endpoints, see [Data Center Endpoints](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) for further details.
+__Example__:
 
 ```yaml
 url: <rest-endpoint-url>
@@ -240,7 +276,7 @@ devices:
 
 __Description__: for dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use iPhone.*Plus to allocate any iPhone Plus device.
 
-__Example__: see the examples under `devices`.
+__Example__:
 
 ```yaml
 devices:
@@ -255,7 +291,7 @@ __Description__: specifies the device name you would like to dynamically allocat
 
 __Example__: Execute all tests in `ClassA` and only `methodC` of `ClassB`.
 
-```yaml title="YAML"
+```yaml
 - datacenter: EU
   testname: MyTestName4
 
@@ -289,6 +325,6 @@ devices:
 java -jar runner.jar config --path ./MyFile.yml --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
 
->::NOTE**:[Sauce Runner RDC CLI Options](dev/cli/espresso-xcuitest/real-devices) are not compatible here. Once you pass the `config` YAML command to the runner, you can only use the YAML-specific flags, `--path` and `--accessKey`.
+>**NOTE**: [Sauce Runner RDC CLI Options](dev/cli/espresso-xcuitest/real-devices) are not compatible with YAML-specific flags. Once you pass the `config` YAML command to the runner, you can only use `--path` and `--accessKey`.
 
 This will launch your test. To see your results, go to Sauce Labs > **Automated** > **Test Results** > **Real Devices**.
