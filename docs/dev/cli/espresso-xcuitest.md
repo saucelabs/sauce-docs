@@ -24,7 +24,7 @@ Prerequisites for using Sauce Runner with virtual and real devices:
 * Note that the command line structure for all Sauce Runner requests is as follows: `<main class> [options] [command] [command options]`
 
 ```java
-JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar  <command> <command options>
+java -jar runner.jar  <command> <command options>
 ```
 
 :::tip
