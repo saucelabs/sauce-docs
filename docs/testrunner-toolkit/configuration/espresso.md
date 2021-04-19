@@ -51,7 +51,7 @@ __Example__:
 
 ## `devices`
 
-__Description__: Field for defining devices details such as the device name, orientation, and 
+__Description__: Field for defining device details such as the device name, orientation, and 
 formVersions.
 
 __Type__: *object*
