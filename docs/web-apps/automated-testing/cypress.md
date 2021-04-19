@@ -82,10 +82,18 @@ Before you begin running cypress tests, you must configure `saucectl` if you pla
 
 The following steps outline how to run your cypress tests on your local machine with the containerized solution, [Testrunner Toolkit](/testrunner-toolkit):
 
-1. Run your cypress tests using `docker` mode:
+1. Run your cypress tests using `docker` mode by modifying `config.yml`:
 
-    ```bash
-    saucectl run --test-env docker
+    ```yaml
+    defaults:
+      mode: docker
+    ```
+    _or_
+
+    ```yaml
+    suites:
+      - name: saucy test
+        mode: docker
     ```
    
    The test results display in the console like so:
@@ -131,13 +139,21 @@ The following steps outline how to run your cypress tests on your local machine 
 
 The following steps outline how to run your cypress tests using Sauce Labs virtual machines:
    
-1. Run your cypress tests with the following `saucectl` parameter:
+1. Run your cypress tests with the following `saucectl` setting:
 
-    ```bash
-    saucectl run --test-env sauce
+    ```yaml
+    defaults:
+      mode: sauce
+    ```
+    _or_
+
+    ```yaml
+    suites:
+      - name: saucy test
+        mode: sauce
     ```
    
-   > For more information regarding the `saucectl` parameters, including how to increase your VM concurrency, please visit the [CLI Reference](/testrunner-toolkit/saucectl#test-env) and the [configuration](/testrunner-toolkit/configuration) documentation.
+   > For more information regarding the `saucectl` parameters, including how to increase your VM concurrency, please visit the [configuration](/testrunner-toolkit/configuration) documentation.
 
 6. Watch test runs in real-time, or verify the results in the [Sauce Labs dashboard](https://app.saucelabs.com/dashboard/tests/vdc):
    

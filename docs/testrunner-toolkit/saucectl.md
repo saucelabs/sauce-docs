@@ -58,7 +58,7 @@ __Description__: Increases your Sauce Labs VM concurrency when [running tests re
 
 __Example__:
 ```bash
-saucectl run --test-env sauce --ccy 2
+saucectl run --ccy 2
 ```
 
 > __NOTE__: Concurrency with `saucectl` is tied to [the test `suites` field](/testrunner-toolkit/configuration#suites) in your `.sauce/config.yml`. 
