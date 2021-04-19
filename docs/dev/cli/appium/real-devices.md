@@ -11,7 +11,11 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-Below are required and optional capabilities to configure [Appium tests for real devices](mobile-apps/automated-testing/appium/real-devices).
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Below are required and optional capabilities to configure [iOS and Android Appium tests for real devices](mobile-apps/automated-testing/appium/real-devices).
 
 ## Required Capabilities
 
