@@ -336,7 +336,6 @@ curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest/storag
 
 * [Beyond Appium: Testing Using Espresso and XCUITest (white paper)](https://saucelabs.com/resources/white-papers/beyond-appium-testing-using-espresso-and-xcuitest).
 
-
 * [Sauce Labs GitHub repository | Espresso for Real Devices](https://github.com/saucelabs-training/demo-espresso/tree/master/real-devices)
 
 * [Sauce Labs GitHub repository | XCUITest for Real Devices](https://github.com/saucelabs-training/demo-xcuitest/tree/master/real-devices)

@@ -69,6 +69,7 @@ You can add biometric authentication (Touch ID or Face ID) in your automated mob
 
 Not all iOS and Android devices support Touch ID or Face ID. Be prepared to handle test cases for devices where biometrics is not supported.
 
+<br/>
 
 #### iOS Simulators
 
@@ -78,54 +79,32 @@ You can also toggle Touch ID enrollment during a test session by calling, for ex
 
 1. Add the `allowTouchIdEnroll` capability in your test script and set it to true. Example:
 
-```js
-allowTouchIdEnroll: true,
-```
+  ```js
+  allowTouchIdEnroll: true,
+  ```
 
 2. When starting the device through the capabilities, or when you are running your test runtime, add the `driver.toggleEnrollTouchId` capability and set it to true. A full code spec example is available [here](https://github.com/saucelabs-training/demo-js/blob/master/webdriverio/appium-app/examples/biometric-login/test/specs/touch.face.id.spec.js). Example:
 
-
-```js
-driver.toggleEnrollTouchId(true);
-```
+  ```js
+  driver.toggleEnrollTouchId(true);
+  ```
 
 3. To run your test locally, call `npm run test.local.ios.simulator`. To run your test on an Sauce Labs iOS simulator, call one of the following data centers, based on your location:
     * US Data Center: `npm run test.sauce.ios.simulator.us`
     * EU Data Center: `npm run test.sauce.ios.simulator.eu`
 
+4. Try running one of the below example scripts, which demonstrate the default capabilities needed to run automated tests on iOS simulators.
 
-#### Default Capabilities
+  <details><summary><strong>Click here</strong> to see the full iOS simulator test examples</summary>
 
-Below you will see the default capabilities you'll need to run an automated test on an iOS simulator. See [Using Biometric Login on Sauce Labs](https://github.com/saucelabs-training/demo-js/tree/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login) for a variety of iOS simulator configuration demo scripts.
+  ```js reference
+  https://github.com/saucelabs-training/demo-js/blob/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.ios.sauce.sim.conf.js
+  ```
+  </details>
 
-```js
-{
-    // The defaults you need to have in your config
-    deviceName: 'iPhone X Simulator',
-    platformName: 'iOS',
-    platformVersion: '13.2',
-    orientation: 'PORTRAIT',
+<br/>
 
-    // The path to the app in Application Storage
-    app: 'storage:filename=sample-app-ios-sim.zip',
-
-    // Read the reset strategies very well, they differ per platform, see
-    // http://appium.io/docs/en/writing-running-appium/other/reset-strategies/
-    noReset: true,
-    newCommandTimeout: 240,
-
-    // Always default the language to a language you prefer so you know the app language is always as expected
-    language: 'en',
-    locale: 'en',
-
-    // Group builds by build name
-    build: 'your-build-name'
-}
-```
-
->**NOTE**: Refer to our biometric authentication demo repo for the [required default capabilities](https://github.com/saucelabs-training/demo-js/blob/master/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.ios.sauce.sim.conf.js) for each iOS version and feature.
-
-#### Android Emulators
+#### **Android Emulators**
 
 Android emulators differ from iOS simulators in that:
 
@@ -153,11 +132,7 @@ adb -e emu finger touch <finger_id>
 
 7. Return to your Android app, navigate to an action that requires fingerprint authentication, and execute the same command on the app screen.
 
-**Test Script Example**
-
-In this test script example, you'll see that the device API level is called out. Each Android OS version has a corresponding API level, which may need to be reflected in your code. For more information, see [Android Platform codenames, versions, API levels, and NDK releases](https://source.android.com/setup/start/build-numbers#platform-code-names-versions-api-levels-and-ndk-releases).
-
-See [Using Biometric Login on Sauce Labs](https://github.com/saucelabs-training/demo-js/tree/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login) for a variety of Android emulator configuration demo scripts. Example:
+In the script below, you'll see that the device API level is called out; each Android OS version has a corresponding API level, which may need to be reflected in your code. For more information, see [Android Platform codenames, versions, API levels, and NDK releases](https://source.android.com/setup/start/build-numbers#platform-code-names-versions-api-levels-and-ndk-releases).
 
 ```js
 enableBiometricLogin() {
@@ -179,48 +154,23 @@ enableBiometricLogin() {
 }
 ```
 
-#### iOS Real Devices
+Try running one of the below example scripts, which demonstrate the default capabilities needed to run automated tests on Android emulators.
 
-To enable Touch ID and Face ID on iOS real devices, add the `allowTouchIdEnroll` capability in your test script and set it to true.
+  <details><summary><strong>Click here</strong> to see the full Android emulator test examples</summary>
 
-```js
-allowTouchIdEnroll: true,
-```
+  ```js reference
+  https://github.com/saucelabs-training/demo-js/blob/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.android.sauce.emu.conf.js
+  ```
+  </details>
 
-**Test Script Example**
+<br/>
 
-See [Using Biometric Login on Sauce Labs](https://github.com/saucelabs-training/demo-js/tree/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login) for a variety of iOS real device configuration demo scripts.
+#### **iOS Real Devices**
 
-```js
-const {config} = require('./wdio.shared.sauce.conf');
-const testName = `iOS Biometric login real device Sauce UI: ${new Date().getTime()}`;
+To enable Touch ID and Face ID on iOS real devices, add the `allowTouchIdEnroll` capability in your test script and set it to true, as shown in the example below:
 
-// ============
-// Capabilities
-// ============
-// For a list of capabilities, see:
-// http://appium.io/docs/en/writing-running-appium/caps/#general-capabilities
-config.capabilities = [
-    {
-        // Just give an iPhone with FaceID
-        deviceName: 'iPhone XS',
-        platformName: 'iOS',
-        orientation: 'PORTRAIT',
-        // The path to the app
-        app: 'storage:filename=sample-app-ios.ipa',
-        // Keep the device connected between tests so we don't need to wait for the cleaning process
-        cacheId: 'jsy1v49pn10',
-        newCommandTimeout: 240,
-        // Always default the language to a language you prefer so you know the app language is always as expected
-        language: 'en',
-        locale: 'en',
-        // Add a name to the test
-        name: testName,
-        // Enable touchID on RDC
-        allowTouchIdEnroll: true,
-    },
-];
-exports.config = config;
+```js reference
+https://github.com/saucelabs-training/demo-js/blob/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.ios.sauce.real.conf.js
 ```
 
 #### Android Real Devices
@@ -228,7 +178,7 @@ exports.config = config;
 At this time, biometric authentication is not supported for Android real device live testing.
 
 ### Additional Resources
-* The [Sauce Labs Java demo scripts repository](https://github.com/saucelabs-training/demo-js) contains examples for the following scenarios/use cases:
+* [Using Biometric Login on Sauce Labs](https://github.com/saucelabs-training/demo-js/tree/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login) contains Android and iOS device configuration demo scripts for a variety of use cases, including:
     * iOS local simulators
     * iOS simulators in our Sauce Labs Simulator Cloud
     * iOS real devices in our Legacy RDC platform
@@ -237,8 +187,6 @@ At this time, biometric authentication is not supported for Android real device 
     * Android emulators in the Sauce Labs Emulator Cloud
 * [Documentation for iOS simulator Face ID | Appium on GitHub](https://github.com/appium/appium-xcuitest-driver/blob/master/docs/touch-id.md)
 * [Support for iOS TouchID on Real Devices](https://wiki.saucelabs.com/display/DOCS/2019/07/01/Support+for+iOS+TouchID+on+Real+Devices)
-* [Using Biometric Authentication on Automated Tests | Sauce Labs on GitHub](https://github.com/saucelabs/sample-app-mobile/blob/master/docs/APPIUM_AUTOMATION.md)
-
 
 
 ## Camera Image Injection
@@ -412,7 +360,6 @@ This error is displayed due to one or more of these reasons:
 *  **Enable Image Injection** checkbox is not checked; this needs to be checked.
 *  For Android tests, the debuggable flag (`android:debuggable="true"`) is missing from your application's manifest file.
 
-
 ### Additional Resources
 
 * [Sauce Labs Image Injection code examples (GitHub)](https://github.com/saucelabs-training/demo-js/tree/master/webdriverio/appium-app/examples/image-injection)
@@ -420,3 +367,7 @@ This error is displayed due to one or more of these reasons:
 * [Android Camera API | Google Developer Documentation](https://developer.android.com/guide/topics/media/camera)
 
 For support in beta, please reach out to your CSM or SE.
+
+## Virtual USB (RDC)
+
+Virtual USB (vUSB) is a mobile app debugging tool that simulates connecting a Sauce Labs real device directly to your local machine with a USB cable. It integrates into your development environment as if the device is connected directly to your workstation, meaning you can use your choice of homegrown development and testing tools to debug. See [Virtual USB for Sauce Labs Real Devices](mobile-apps/virtual-usb) for more information. 
