@@ -63,7 +63,27 @@ module.exports = {
 
          ],
        },
+       {
+type: 'category',
+label: 'Best Practices',
+collapsed: true,
+items: [
+'basics/best-practices',
+'basics/best-practices/avoiding-dependencies-parallel-tests',
+'basics/best-practices/small-atomic-autonomous',
+'basics/best-practices/using-environment-variables',
+'basics/best-practices/using-explicit-waits',
+'basics/best-practices/using-attributes-tests',
+'basics/best-practices/running-speedy-tests',
+'basics/best-practices/handling-authentication',
+'basics/best-practices/imperative-declarative-testing',
+'basics/best-practices/protecting-test-log-credentials',
+'basics/best-practices/using-maven-manage-dependencies',
+'basics/best-practices/downloading-files-vm-before-testing',
+'basics/best-practices/test-config-annotation',
 
+      ],
+    }, 
      ],
   },
 ],
@@ -104,7 +124,7 @@ module.exports = {
           collapsed: true,
           items: [
             'mobile-apps/automated-testing',
-            'mobile-apps/automated-testing/devices',
+            'mobile-apps/automated-testing/supported-devices',
                 {
                   type: 'category',
                   label: 'Appium',
@@ -129,10 +149,10 @@ module.exports = {
                 'mobile-apps/automated-testing/troubleshooting',
               ],
            },
-     'mobile-apps/app-storage',
-     'mobile-apps/ms-app-center',
      'mobile-apps/features',
      'mobile-apps/virtual-usb',
+     'mobile-apps/app-storage',
+     'mobile-apps/ms-app-center',
      'mobile-apps/faq',
          ],
     "Web Apps": [
@@ -517,6 +537,7 @@ module.exports = {
                   'testrunner-toolkit/configuration/playwright',
                   'testrunner-toolkit/configuration/puppeteer',
                   'testrunner-toolkit/configuration/testcafe',
+                  'testrunner-toolkit/configuration/espresso',
               ],
           },
           'testrunner-toolkit/running-tests',
@@ -564,6 +585,16 @@ module.exports = {
         collapsed: true,
         items: [
           'dev/cli',
+          'dev/cli/sauce-connect-proxy',
+           {
+               type: 'category',
+               label: 'Appium',
+               collapsed: true,
+               items: [
+                  'dev/cli/appium/real-devices',
+                  'dev/cli/appium/virtual-devices',
+                ],
+            },
             {
                 type: 'category',
                 label: 'Espresso / XCUITest',
@@ -571,11 +602,10 @@ module.exports = {
                 items: [
                     'dev/cli/espresso-xcuitest',
                     'dev/cli/espresso-xcuitest/real-devices',
-                    'dev/cli/espresso-xcuitest/virtual-devices',
                     'dev/cli/espresso-xcuitest/yaml-config',
+                    'dev/cli/espresso-xcuitest/virtual-devices',
                 ],
             },
-          'dev/cli/sauce-connect-proxy',
             {
                 type: 'category',
                 label: 'Virtual USB',
@@ -588,7 +618,6 @@ module.exports = {
                     'dev/cli/virtual-usb/disconnect-session',
                     'dev/cli/virtual-usb/delete-session',
                     'dev/cli/virtual-usb/find-sessionid',
-
                 ],
             },
             {

@@ -13,14 +13,22 @@ export const Highlight = ({children, color}) => ( <span style={{
 
 <p> <Highlight color="#eb7734">BETA</Highlight> </p>
 
-Sauce Labs offers the ability to run tests on our virtual device cloud emulators using popular native frameworks such as Espresso, a native testing framework for running user interface tests on Android devices. At this time, XCUITest is not supported.
+Sauce Runner for Virtual Devices provides the ability to run automated Android app UI tests on Sauce Labs emulators from your local Espresso environment.
 
-To get started, you'll need to download Sauce Runner for Virtual Devices to your local machine, then launch it from your command line using the [required and optional parameters](/dev/cli/espresso-xcuitest.md).
+>**NOTE**: At this time, XCUITest is not supported.
+
+## What You'll Need
+
+* Your Sauce Labs username and access key.
+* Your mobile app file and mobile test file. Accepted file types are .ipa for iOS and .apk for Android.
+  * For details on how to build .ipa files for use with Sauce Runner for Real Devices, see [Creating .ipa Files for Appium and XCUITest](mobile-apps/automated-testing/ipa-files.md).
+
+If you'd like to try out this functionality but don't have an app on hand, [download our Sauce Labs demo app file and test file](https://github.com/saucelabs-training/demo-espresso/tree/master/emulators).
 
 ## System Requirements
-* You must have network connectivity to saucelabs.com on `port 443`
-* Your local machine must have 4GB of free RAM
-* You must have a 64-bit operating system, running Windows 7+, Mac OS X 10.11+, or Linux
+* Network connectivity to saucelabs.com on `port 443`.
+* 4GB of free RAM on your local machine.
+* A 64-bit operating system running Windows 7+, Mac OS X 10.11+, or Linux.
 
 ### Supported Espresso Package Versions
 | Package | Minimum Version |
@@ -31,8 +39,8 @@ To get started, you'll need to download Sauce Runner for Virtual Devices to your
 | com.android.support.test:rules | 1.0.2 |
 | junit:junit | 4.12 |
 
-## Download
-Download a Sauce Runner for Virtual Devices package below.
+## Download Runner
+1. To get started, download one of Sauce Runner for Virtual Devices packages to your local machine.
 
 | Download Link | SHA1 Checksum
 | :-------------------------- | :---
@@ -40,43 +48,127 @@ Download a Sauce Runner for Virtual Devices package below.
 | [Windows 7+ 64-bit](https://saucelabs.com/downloads/sauce-runner-virtual-0.1.2-windows.zip) | aece75d0bc5fb68eba45e3c2f0cfdb381933ae78
 | [Linux 64-bit](https://saucelabs.com/downloads/sauce-runner-virtual-0.1.2-linux.zip) | 18bc0a7573ff8182b6f01d2e09353d0b75efa9dd
 
-## Installation
-1. Unzip the download package contents to any folder on your system.
-1. Go to the `sauce-runner-virtual` application. which will be in the `bin` folder.
-1. In a console or terminal window, navigate to and run the application.
-1. Check out [Command Reference for Sauce Runner for Virtual Devices](https://wiki.saucelabs.com/pages/viewpage.action?pageId=72746736) for more information on using Sauce Runner for Virtual Devices.
+## Set Up Project Folder
 
-## Setup and Configuration
-The [Command Reference for Sauce Runner for Virtual Devices](https://wiki.saucelabs.com/pages/viewpage.action?pageId=72746736) contains a list of the options you can use to configure Sauce Runner to run tests with Espresso.
+2. Unzip the download package contents to any folder on your local machine.
 
-## Android Emulator Settings
-Following [Google's recommendation to avoid flakey tests](https://developer.android.com/training/testing/espresso/setup), we disable system animations on emulators during Espresso tests. Specifically the following three system animations are disabled:
+3. Create a new folder for your project and drop the `saucelabs-native-test-runner` application, your app .apk file, and test .apk file here, so that your folder structure looks like this:
+
+  ```bash
+  |_{root / your project folder}
+    |_saucelabs-native-test-runner.jar
+    |_SauceLabs.Mobile.Sample.Espresso.App.apk
+    |_SauceLabs.Mobile.Sample.Espresso.Tests.apk
+  ```
+
+## Gather Your Credentials
+
+4. Find your Sauce Labs `username`, `accessKey`, and the emulator `deviceName` you wish to test on. The list of devices is located under **Live** > **Cross-Browser** > **Mobile Virtual**.
+   * **Set Environment Variables (Optional)**: Setting your Sauce Labs `username` and `accessKey` as [environment variables](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647#BestPracticesforRunningTests-UseEnvironmentVariablesforAuthenticationCredentials) provides an extra layer of security for your credentials when you reference them from within your tests.
+
+## Configure Your Test
+
+:::tip CLI Reference
+See [Sauce Runner for Virtual Devices CLI Reference](/dev/cli/espresso-xcuitest/virtual-devices). To view these commands in your CLI, run the `--help` option:
+```java
+java -jar saucelabs-native-test-runner.jar --help
+```
+:::
+<br/>
+
+5. Open a new command line window, then enter the [required commands and flags](/dev/cli/espresso-xcuitest/virtual-devices):
+
+   ```java title="Required Commands and Flags"
+   ./sauce-runner-virtual -f <your test framework (espresso or xcuitest)> -u <your username> -k <your access key> --app <your app file name> --test-app <your test file name> -d ''<your device name>''
+   ```
+
+   ```java title="Basic Example"
+   ./sauce-runner-virtual -f espresso -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx --app ./SauceLabs.Mobile.Sample.Espresso.App.apk --test-app ./SauceLabs.Mobile.Sample.Espresso.Tests.apk -d 'deviceName=Google Pixel GoogleAPI Emulator,platformVersion=7.1'
+   ```
+
+  In this example, Sauce Runner will install the Android app (SauceLabs.Mobile.Sample.Espresso.App.apk) on the Google Pixel emulator and then launch the Espresso test suite (SauceLabs.Mobile.Sample.Espresso.Tests.apk).
+
+  If needed, you can also add [optional parameters](/dev/cli/espresso-xcuitest/virtual-devices) to configure Sauce Runner with your Espresso tests. For example, you could add another device to the above code script by adding the line `--d 'deviceName=Samsung Galaxy S8 HD GoogleAPI Emulator,platformVersion=7.0'`.
+
+## Run Your Test
+
+6. In your command line window, execute the above commands and options. This will launch the Sauce Runner connection and begin running your test.
+
+Wait for the runner to upload both files and execute the tests on Sauce Labs emulator(s). Our emulators are capable of running Espresso jobs for up to three hours, however, a one-hour execution time is recommended.
+
+<details><summary><strong>Click here to view the example response</strong></summary>
+
+```bash title="Basic Example Response"  
+2021-04-14 13:12:55 - [INFO] Using sauce-runner v0.1.2
+2021-04-14 13:12:55 - [INFO] Selected framework: espresso
+2021-04-14 13:12:55 - [INFO] Using user: john.smith
+2021-04-14 13:12:55 - [INFO] Using apikey: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX0e03
+2021-04-14 13:12:55 - [INFO] Using local App: ./SauceLabs.Mobile.Sample.Espresso.App.apk
+2021-04-14 13:12:55 - [INFO] Using local Test App: ./SauceLabs.Mobile.Sample.Espresso.Tests.apk
+2021-04-14 13:12:55 - [INFO] No include-tests filters specified
+2021-04-14 13:12:55 - [INFO] No exclude-tests filters specified
+2021-04-14 13:12:55 - [INFO] Set device: Google Pixel GoogleAPI Emulator - 7.0
+2021-04-14 13:12:55 - [INFO] Trying to upload file ./SauceLabs.Mobile.Sample.Espresso.App.apk to sauce-storage
+2021-04-14 13:13:20 - [INFO] File uploaded: SauceLabs.Mobile.Sample.Espresso.App.apk(4f040be9f28bc84b58f6fd5af5300c2f) - Size:28830014
+2021-04-14 13:13:20 - [INFO] Trying to upload file ./SauceLabs.Mobile.Sample.Espresso.Tests.apk to sauce-storage
+2021-04-14 13:13:20 - [INFO] File uploaded: SauceLabs.Mobile.Sample.Espresso.Tests.apk(30b317176beed44cf66f2a92387fa073) - Size:521075
+2021-04-14 13:13:20 - [INFO] JUnit reports will be saved locally at the end of the tests
+2021-04-14 13:13:20 - [INFO] Jobs created
+2021-04-14 13:13:25 - [INFO] Getting job status
+2021-04-14 13:13:25 - [INFO] Job status: In progress
+2021-04-14 13:13:25 - [INFO] Google Pixel GoogleAPI Emulator - 7.0 - Status: test queued
+2021-04-14 13:13:40 - [INFO] Getting job status
+2021-04-14 13:13:40 - [INFO] Job status: In progress
+2021-04-14 13:13:40 - [INFO] Google Pixel GoogleAPI Emulator - 7.0 - Status: test queued
+2021-04-14 13:13:55 - [INFO] Getting job status
+2021-04-14 13:13:56 - [INFO] Job status: In progress
+2021-04-14 13:13:56 - [INFO] Google Pixel GoogleAPI Emulator - 7.0 - Status: test session in progress
+2021-04-14 13:13:56 - [INFO] https://saucelabs.com/beta/tests/1ee70f37535f4e81ba19a1ab17ec2839/watch
+2021-04-14 13:14:11 - [INFO] Getting job status
+2021-04-14 13:14:11 - [INFO] Job status: In progress
+2021-04-14 13:14:11 - [INFO] Google Pixel GoogleAPI Emulator - 7.0 - Status: test session in progress
+2021-04-14 13:14:26 - [INFO] Getting job status
+2021-04-14 13:14:26 - [INFO] Job status: Complete
+2021-04-14 13:14:26 - [INFO] Google Pixel GoogleAPI Emulator - 7.0 - Status: test complete
+2021-04-14 13:14:41 - [INFO] Tests results for Google Pixel GoogleAPI Emulator - 7.0
+2021-04-14 13:14:41 - [INFO] com.swaglabsmobileapp.LoginTest.noMatchLogin...pass
+2021-04-14 13:14:41 - [INFO] com.swaglabsmobileapp.LoginTest.noPasswordLogin...pass
+2021-04-14 13:14:41 - [INFO] com.swaglabsmobileapp.LoginTest.noUsernameLogin...pass
+2021-04-14 13:14:41 - [INFO] com.swaglabsmobileapp.LoginTest.lockedUserLogin...pass
+2021-04-14 13:14:41 - [INFO] com.swaglabsmobileapp.LoginTest.successfulLogin...pass
+2021-04-14 13:14:41 - [INFO] com.swaglabsmobileapp.SwagLabsFlow.completeFlow...pass
+2021-04-14 13:14:41 - [INFO] Total time: 25.883
+2021-04-14 13:14:41 - [INFO] Tests passed: 6
+2021-04-14 13:14:41 - [INFO] Tests failed: 0
+2021-04-14 13:14:41 - [INFO] Getting JUnit report for Google Pixel GoogleAPI Emulator - 7.0
+```
+</details>
+<br/>
+
+7. Sauce Runner for Virtual Devices will return the following exit status codes, based on test execution results:
+   * Status Code 0: all the tests passed on all devices.
+   * Status Code 1: this can mean multiple things: one or more tests failed during execution, user error (e.g., invalid path to test files, invalid arguments), Sauce Labs infrastructure error while executing the test. Please refer to your log to identify the problem.
+
+## Closing Your Test
+
+8. Sauce Runner will exit when all the tests have completed.
+
+Go to the [Sauce Labs Training GitHub repository](https://github.com/saucelabs-training/demo-espresso/tree/master/emulators) to browse more example scripts and Espresso test cases on Sauce Labs Emulators.
+
+## Troubleshooting
+
+## System Animations Disabled
+
+To help prevent flakey Espresso tests, we've followed Google's recommendation to [disable system animations on Sauce Labs Android emulators](https://developer.android.com/training/testing/espresso/setup):
 
 * Window animation scale
 * Transition animation scale
 * Animator duration scale
 
-:::note Three-Hour Test Limit
-Recommended maximum execution time for Espresso jobs is one hour, however, the emulators are capable of running Espresso jobs for three hours, and are shutdown after three hours.
-:::
+### Internal Server Error
 
-### Exit Status Codes
-Sauce Runner for Virtual Devices returns the following status codes based on test execution results:
+When testing on Sauce Labs emulators, one possible error is **Internal Server Error**. This happens when an Espresso test suite runs as expected on one Android version, but fails on another version.
 
-| Status Code        | Description           
-| :------------- |:-------------
-| 0  | All the tests passed on all devices.
-| 1  | This status code can mean multiple things, it is important to refer to the logs to identify the problem: <ul><li>One or more tests failed during execution</li><li>User error like an invalid path to test files or invalid arguments</li><li>Sauce Labs infrastructure error while executing the test</li></ul>   
-
-## Troubleshooting
-When testing on Sauce emulators, one error to look out for is Espresso test suites running as expected on one Android version, but failing on another version (e.g., "Internal Server Error").
-
-**Potential Cause**: Application under test requires a minimum Android version or above.
+**Potential Cause**: Minimum Android version not met for your application under test.
 
 **Recommendation**: Check the `minSdkVersion` in `build.gradle` for your application project.
-
-## Additional Resources
-
-* [Sauce Labs GitHub repository | Espresso for Real Devices](https://github.com/saucelabs-training/demo-espresso/tree/master/emulators)
-
-At this time, XCUITest is not supported on Sauce Labs virtual devices.

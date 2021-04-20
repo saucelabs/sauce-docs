@@ -4,7 +4,7 @@ title: "Virtual USB CLI: Disconnect Session"
 sidebar_label: Disconnect Session
 ---
 
-The [`disconnect`](https://docs.saucelabs.com/mobile-apps/virtual-usb#close-test) command uses the `--sessionId` of a Virtual USB session started with the [`startSession`](dev/cli/virtual-usb/start-session) command to disconnect the real device from your local machine.
+The [`disconnect`](https://docs.saucelabs.com/mobile-apps/virtual-usb#close-test) command closes out live Virtual USB test sessions that were started originally in Sauce Labs and linked to your Virtual USB client using the [`connect`](dev/cli/virtual-usb/connect-session) command.
 
 ## Required
 
@@ -20,9 +20,11 @@ java -jar virtual-usb-client.jar disconnect --sessionId d03a1b81-158d-4bb4-bcc9-
 Disconnected
 ```
 
+>**NOTE**: **Android Only**: After completing the above step, you'll also need to [disconnect your device from ADB](/mobile-apps/virtual-usb#close-test) by running `adb disconnect` followed by your `<IPAddress>:<portNumber>`.  
+
 ## Optional
 
-These flags provide additional configuration options.
+Use these flags to provide additional configuration options.
 
 ### `--serverHost`
 __Description__: specifies a Virtual USB server host. Default: `http://127.0.0.1`.

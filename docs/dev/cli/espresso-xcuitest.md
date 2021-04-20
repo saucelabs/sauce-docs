@@ -7,95 +7,77 @@ sidebar_label: General Usage
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+This page describes the general usage for the [Sauce Runner tool](/mobile-apps/automated-testing/espresso-xcuitest), which is required to run Espresso and XCUITest automated mobile app tests on Sauce Labs real devices and virtual devices.
 
-This page describes the general usage for the [Sauce Runner Tool](/mobile-apps/automated-testing/espresso-xcuitest) to run automated tests on Sauce Labs real and virtual devices using native mobile test frameworks—Espresso and XCUITest.
+## What You'll Need
+
+Prerequisites for using Sauce Runner:
+
+* Your Sauce Labs account credentials.
+* Your mobile app file (both debug and non-debug app) and test file.
+* Have the Sauce Runner for Real Devices or Sauce Runner for Virtual Devices downloaded and installed.
+
+## **Required Step**
+
+Open your command line terminal, then do a `cd` to navigate to the specific folder location on your local machine where you downloaded and placed your Sauce Runner file (`runner.jar` for RDC or `sauce-runner-virtual` for VDC). You must run your Runner commands and options from this location in order for it to work.
+
+## CLI Structure
+
+The command line structure for all Sauce Runner requests is as follows: `<main class> [options] [command] [command options]`
+
+<Tabs
+  defaultValue="Real Devices"
+  values={[
+    {label: 'Real Devices', value: 'Real Devices'},
+    {label: 'Virtual Devices', value: 'Virtual Devices'},
+  ]}>
+
+<TabItem value="Real Devices">
+
+```java
+java -jar runner.jar  <command> <command options>
+```
+
+</TabItem>
+<TabItem value="Virtual Devices">
+
+```java
+./sauce-runner-virtual <command> <command options>
+```
+
+</TabItem>
+</Tabs>
 
 ## Use Cases
 
-* Run tests in parallel across multiple devices
-* Run subsets of tests against specific devices
-* Set the options as environment variables that can be referenced in your testing scripts, or pass them as command line parameters, which will take precedence over options set as environment variables
-* Create a [runner configuration file](/mobile-apps/automated-testing/espresso-xcuitest/real-devices.md) with the options and commands for running your tests
+* Run tests in parallel across multiple devices.
+* Run subsets of tests against specific devices.
+* Set the options as environment variables that can be referenced in your testing scripts.
+* Pass options as command line parameters, which will take precedence over options set as environment variables.
+* **Real Devices only**: Create a [YAML runner configuration file](dev/cli/espresso-xcuitest/yaml-config) with the commands and options for running your real device tests, as an alternative to configuring using the [CLI](dev/cli/espresso-xcuitest/real-devices).
 
-## What You'll Need
-Below are the requirements for using Sauce Runner with both virtual and  real devices:
+## `--help` Option
 
-### For Real Devices
-* Your [Sauce Labs Account](https://app.saucelabs.com/user-settings) credentials
-* Your native mobile app file (both debug and non-debug app) and test file
-* Have [Sauce Runner for Real Devices downloaded and installed](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80414342)
-
-### For Virtual Devices
-* Your [Sauce Labs Account](https://app.saucelabs.com/user-settings) credentials
-* Your native mobile app file (both debug and non-debug app) and test file
-* Have [Sauce Runner for Virtual Devices downloaded and installed](https://wiki.saucelabs.com/display/DOCS/Installing+Sauce+Runner+for+Virtual+Devices)
-
-## General Usage
-
-```js
-JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar  <command> <command options>
-```
-
-## Examples
-
-### Real Devices
-
+You can view the Sauce Runner CLI directly in the command line terminal by running the `--help` flag.
 <Tabs
-  defaultValue="espresso"
+  defaultValue="Real Devices"
   values={[
-    {label: 'Espresso', value: 'espresso'},
-    {label: 'XCUITest', value: 'xcuitest'},
+    {label: 'Real Devices', value: 'Real Devices'},
+    {label: 'Virtual Devices', value: 'Virtual Devices'},
   ]}>
 
-<TabItem value="espresso">
+<TabItem value="Real Devices">
 
-```js
-java -jar runner.jar espresso --test DummyTestingApp-Runner.apk /
---app DummyTestingApp.apk --apikey <apikey> --datacenter US
+```java
+java -jar runner.jar  --help
 ```
 
 </TabItem>
-<TabItem value="xcuitest">
+<TabItem value="Virtual Devices">
 
-```js
-java -jar runner.jar xcuitest --test DummyTestingApp-Runner.ipa /
---app DummyTestingApp.ipa --apikey <apikey> --datacenter US
+```java
+./sauce-runner-virtual --help
 ```
 
 </TabItem>
 </Tabs>
-
-
-### Virtual Devices
-
-<Tabs
-  defaultValue="espresso"
-  values={[
-    {label: 'Espresso', value: 'espresso'},
-    {label: 'XCUITest', value: 'xcuitest'},
-  ]}>
-
-<TabItem value="espresso">
-
-```js
-./sauce-runner-virtual \
-   -u test_user \
-   -k 1234-1235 \
-   -f espresso \
-   -a ./helloworld.apk \
-   -t ./espresso-test-suite.apk \
-   -d 'deviceName=Samsung Galaxy S8 HD GoogleAPI Emulator,platformVersion=7.0' \
-   -d 'deviceName=Google Pixel GoogleAPI Emulator,platformVersion=7.1'
-```
-
-</TabItem>
-<TabItem value="xcuitest">
-
-**Coming Soon!**
-
-</TabItem>
-</Tabs>
-
-## Command Line Reference
-* [Real Devices Command Line Reference](/dev/cli/espresso-xcuitest/real-devices)
-* [Virtual Devices Command Line Reference](/dev/cli/espresso-xcuitest/virtual-devices)
