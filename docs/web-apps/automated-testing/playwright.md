@@ -82,10 +82,18 @@ Before you begin running playwright tests, you must configure `saucectl`:
 
 The following steps outline how to run your playwright tests on your local machine with the containerized solution, [Testrunner Toolkit](/testrunner-toolkit):
 
-1. Run your playwright tests using `docker` mode:
+1. Run your playwright tests using `docker` mode by modifying `config.yml` like following:
 
-    ```bash
-    saucectl run --test-env docker
+    ```yaml
+    defaults:
+      mode: docker
+    ```
+    _or_
+
+    ```yaml
+    suites:
+      - name: saucy test
+        mode: docker
     ```
    
    The test results display in the console like so:
@@ -123,13 +131,21 @@ The following steps outline how to run your playwright tests on your local machi
 
 The following steps outline how to run your playwright tests using Sauce Labs virtual machines:
    
-1. Run your playwright tests with the following `saucectl` parameter:
+1. Run your playwright tests with the following `saucectl` settings:
 
-    ```bash
-    saucectl run --test-env sauce
+    ```yaml
+    defaults:
+      mode: sauce
+    ```
+    _or_
+
+    ```yaml
+    suites:
+      - name: saucy test
+        mode: sauce
     ```
    
-   > For more information regarding the `saucectl` parameters, including how to increase your VM concurrency, please visit the [CLI Reference](/testrunner-toolkit/saucectl#test-env) and the [configuration](/testrunner-toolkit/configuration) documentation.
+   > For more information regarding the `saucectl` parameters, including how to increase your VM concurrency, please visit the [configuration](/testrunner-toolkit/configuration) documentation.
 
 6. Watch test runs in real-time, or verify the results in the [Sauce Labs dashboard](https://app.saucelabs.com/dashboard/tests/vdc):
    
