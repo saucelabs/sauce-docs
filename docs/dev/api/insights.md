@@ -156,7 +156,7 @@ curl --location --request GET "https://api.eu-central-1.saucelabs.com/v1/analyti
 <tbody>
   <tr>
     <td><code>400</code></td>
-    <td colSpan='2'>Bad Request. May include additional error message, such as "start and end paramters are required."</td>
+    <td colSpan='2'>Bad Request. May include additional error message, such as "start and end parameters are required."</td>
   </tr>
 </tbody>
 <tbody>
@@ -318,7 +318,7 @@ curl --location --request GET "https://api.eu-central-1.saucelabs.com/v1/analyti
 <tbody>
   <tr>
     <td><code>400</code></td>
-    <td colSpan='2'>Bad Request. May include additional error message, such as "start and end paramters are required."</td>
+    <td colSpan='2'>Bad Request. May include additional error message, such as "start and end parameters are required."</td>
   </tr>
 </tbody>
 <tbody>
@@ -507,7 +507,7 @@ curl --location --request GET "https://api.eu-central-1.saucelabs.com/v1/analyti
 <tbody>
   <tr>
     <td><code>400</code></td>
-    <td colSpan='2'>Bad Request. May include additional error message, such as "start and end paramters are required."</td>
+    <td colSpan='2'>Bad Request. May include additional error message, such as "start and end parameters are required."</td>
   </tr>
 </tbody>
 <tbody>
@@ -707,7 +707,7 @@ curl --location --request GET "https://api.eu-central-1.saucelabs.com/v1/analyti
 <tbody>
   <tr>
     <td><code>400</code></td>
-    <td colSpan='2'>Bad Request. May include additional error message, such as "start and end paramters are required."</td>
+    <td colSpan='2'>Bad Request. May include additional error message, such as "start and end parameters are required."</td>
   </tr>
 </tbody>
 <tbody>
@@ -894,7 +894,7 @@ curl --location --request GET "https://api.eu-central-1.saucelabs.com/v1/analyti
 <tbody>
   <tr>
     <td><code>400</code></td>
-    <td colSpan='2'>Bad Request. May include additional error message, such as "start and end paramters are required."</td>
+    <td colSpan='2'>Bad Request. May include additional error message, such as "start and end parameters are required."</td>
   </tr>
 </tbody>
 <tbody>
