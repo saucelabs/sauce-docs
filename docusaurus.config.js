@@ -20,9 +20,9 @@ const docusaurusConfig = {
       trackingID: 'UA-6735579-1',
     },
     hideableSidebar: true,
-    // prism: {
-    //   additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
-    // },
+    prism: {
+      additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
+    },
     /* Dark and Light Mode Config */
     colorMode: {
       defaultMode: 'light',
@@ -133,38 +133,7 @@ const docusaurusConfig = {
         },
       },
     ],
-    [
-      'redocusaurus',
-      {
-        specs: [{
-          spec: './static/oas/vdc/jobs.yml',
-          routePath: '/dev/api/jobs/',
-        },
-        {
-          spec: './static/oas/rdc.json',
-          routePath: 'dev/api/rdc/',
-        },
-        // {
-        //   spec: './static/oas/performance.json',
-        //   routePath: 'dev/api/performance/',
-        // }
-        // {
-        //   spec: './static/oas/accounts.yml',
-        //   routePath: 'dev/api/accounts/',
-        // }
-        ],
-        theme: {
-          primaryColor: '#E2231A',
-          typography: {
-            code: {
-              color: '#474c60'
-            }
-          }
-        }
-      }
-    ],
   ],
-
   themes: [
     '@saucelabs/theme-github-codeblock',
   ],

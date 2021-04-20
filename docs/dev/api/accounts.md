@@ -808,7 +808,7 @@ curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-mana
 
 ### Get Users
 
-<details><summary><span className="api get">GET</span> <code>/team-management/v1/teams/</code></summary>
+<details><summary><span className="api get">GET</span> <code>/team-management/v1/users/</code></summary>
 <p/>
 
 Returns a count total and array of of all users in the organization of the requesting account.
