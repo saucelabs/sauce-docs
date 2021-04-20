@@ -54,7 +54,7 @@ java -jar runner.jar  <command> <command options>
 * Run subsets of tests against specific devices.
 * Set the options as environment variables that can be referenced in your testing scripts.
 * Pass options as command line parameters, which will take precedence over options set as environment variables.
-* **Real Devices only**: Create a [YAML runner configuration file](dev/cli/espress-xcuitest/yaml-config) with the commands and options for running your real device tests, as an alternative to configuring using the [CLI](dev/cli/espress-xcuitest/real-devices).
+* **Real Devices only**: Create a [YAML runner configuration file](dev/cli/espresso-xcuitest/yaml-config) with the commands and options for running your real device tests, as an alternative to configuring using the [CLI](dev/cli/espresso-xcuitest/real-devices).
 
 ## `--help` Option
 

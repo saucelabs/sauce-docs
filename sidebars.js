@@ -63,15 +63,6 @@ module.exports = {
 
          ],
        },
-       {
-   type: 'category',
-   label: 'Best Practices',
-   collapsed: true,
-   items: [
-       'basics/best-practices',
-
-             ],
-           },
      ],
   },
 ],
