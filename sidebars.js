@@ -69,18 +69,6 @@ module.exports = {
    collapsed: true,
    items: [
        'basics/best-practices',
-       'basics/best-practices/avoiding-dependencies-parallel-tests',
-       'basics/best-practices/small-atomic-autonomous',
-       'basics/best-practices/using-environment-variables',
-       'basics/best-practices/using-explicit-waits',
-       'basics/best-practices/using-attributes-tests',
-       'basics/best-practices/running-speedy-tests',
-       'basics/best-practices/handling-authentication',
-       'basics/best-practices/imperative-declarative-testing',
-       'basics/best-practices/protecting-test-log-credentials',
-       'basics/best-practices/using-maven-manage-dependencies',
-       'basics/best-practices/downloading-files-vm-before-testing',
-       'basics/best-practices/test-config-annotation',
 
              ],
            },

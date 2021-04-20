@@ -366,8 +366,8 @@ This error is displayed due to one or more of these reasons:
 * [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile/releases/tag/2.3.0); try out image injection for yourself using our demo app
 * [Android Camera API | Google Developer Documentation](https://developer.android.com/guide/topics/media/camera)
 
-For support in beta, please reach out to your CSM or SE.
+For support in Beta, please reach out to your CSM or SE.
 
 ## Virtual USB (RDC)
 
-Virtual USB (vUSB) is a mobile app debugging tool that simulates connecting a Sauce Labs real device directly to your local machine with a USB cable. It integrates into your development environment as if the device is connected directly to your workstation, meaning you can use your choice of homegrown development and testing tools to debug. See [Virtual USB for Sauce Labs Real Devices](mobile-apps/virtual-usb) for more information. 
+Virtual USB (vUSB) is a mobile app debugging tool that simulates connecting a Sauce Labs real device directly to your local machine with a USB cable. It integrates into your development environment as if the device is connected directly to your workstation, meaning you can use your choice of homegrown development and testing tools to debug. See [Virtual USB for Sauce Labs Real Devices](mobile-apps/virtual-usb) for more information.
