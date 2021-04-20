@@ -28,7 +28,7 @@ These commands and flags are required for use with Sauce Runner for Real Devices
 ### `espresso` or `xcuitest`
 __Description__: defines the test framework you wish to use for your test (choose only one).
 
-### `--accessKey`
+### `--apiKey`
 __Description__: the access key for your Sauce Labs account. You can find it under **Account** > **User Settings**.
 
 __Example__:
@@ -39,12 +39,19 @@ __Example__:
 
 ### `--app`
 
-__Description__: the path to the `*.ipa` or `*.apk` file of the app under test, or the ID number of an already uploaded app. In your command line, refer to the location where you have downloaded the <code>runner.jar</code> file and run the command from the folder from where you downloaded the runner.
+__Description__: the path to the `*.ipa` or `*.apk` file of the app under test, or the ID number of an already uploaded app. In your command line, refer to the location where you have downloaded the `runner.jar` file and run the command from the folder from where you downloaded the runner.
 
 __Example__:
 
+```bash title="Example Folder Structure"
+|_{root / your project folder}
+  |_runner.jar
+  |_ExampleApp.ipa
+  |_ExampleApp.Tests.ipa
+```
+
 ```js
---app ExampleTestApp.ipa
+--app ExampleApp.ipa
 ```
 
 ### `--test`
@@ -54,7 +61,7 @@ __Description__: the path to the `*.ipa` or `*.apk` file of the test.
 __Example__:
 
 ```js
---test ExampleTestApp-Runner.ipa
+--test ExampleApp.Tests.ipa
 ```
 
 ### `--datacenter`
@@ -79,16 +86,16 @@ __Example__:
 <TabItem value="Espresso">
 
 ```java
-java -jar runner.jar espresso --test DummyTestingApp-Runner.apk /
---app DummyTestingApp.apk --apiKey 77029389527648BE81600Dxxxxxxxxxx --datacenter US
+java -jar runner.jar espresso --test ExampleApp.Tests.apk /
+--app ExampleApp.apk --apiKey 77029389527648BE81600Dxxxxxxxxxx --datacenter US
 ```
 
 </TabItem>
 <TabItem value="XCUITest">
 
 ```java
-java -jar runner.jar xcuitest --test DummyTestingApp-Runner.ipa /
---app DummyTestingApp.ipa --apiKey 77029389527648BE81600Dxxxxxxxxxx --datacenter US
+java -jar runner.jar xcuitest --test ExampleApp.Tests.ipa /
+--app ExampleApp.ipa --apiKey 77029389527648BE81600Dxxxxxxxxxx --datacenter US
 ```
 
 </TabItem>
@@ -102,7 +109,7 @@ Here are some additional configuration options you can use on your command line.
 ### `--device`
 
 __Description__: For static allocation of a device, provide the ID for the type of device to use in your tests, such as `iPhone_5_real`.
-To find device ID numbers, go to **Live** > **Mobile-App** > **Choose device** > Search for the device you want to use > **Details** > See ID in device description. For more information, see the examples under `--devices`.
+To find device ID numbers, go to **Live** > **Mobile-App** > **Choose device** > Search for the device you want to use > **Details** > See ID in device description.
 
 :::caution Default Device Allocation
 If you don't specify a `--device`/`--devices` for your test, one is assigned to your tests based on the AUT (application under test) platform type.
@@ -116,7 +123,7 @@ __Example__:
 
 ### `--devices`
 
-__Description__: the list of devices, allocated dynamically or through static description of the device ID, to use in your tests. With the `--devices` option, you can configure Sauce Runner for Real Devices to run tests in parallel across multiple devices using both static and dynamic allocation. As an option, you can run a select set of tests against a specific device using the [`--testsToRun`](#teststorun) command.
+__Description__: allows you to provide a list of multiple devices to use in your tests. With this option, you can configure Sauce Runner for Real Devices to run tests in parallel across multiple devices using both static allocation (by providing the device ID#) and dynamic allocation. As an option, you can run a select set of tests against a specific device using the [`--testsToRun`](#teststorun) command.
 
 __Example__:
 
@@ -136,7 +143,7 @@ __Example__:
 
 ### `--tunnelIdentifier`
 
-__Description__: If you are using Sauce Connect Proxy, provide the identifier of the tunnel you want to use.
+__Description__: If you're using Sauce Connect Proxy, this allows you to provide the identifier of the tunnel you want to use. You can find the tunnelIdentifier name on Sauce Labs under **Tunnels**, after you've launched the tunnel.
 
 __Example__:
 
@@ -226,9 +233,9 @@ __Example__:
 
 ### `--deviceNameQuery`
 
-__Description__: for dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use iPhone.*Plus to allocate any iPhone Plus device.
+__Description__: allows you to provide the general device name you would like to use for dynamic allocation. For example, `iPhone.*Plus` would allocate any iPhone Plus device.
 
-__Example__: see the examples under `devices`.
+__Example__:
 
 ```js
 --datacenter US --deviceNameQuery 'iPhone 8.*'
@@ -237,7 +244,7 @@ __Example__: see the examples under `devices`.
 ### `--testsToRun`
 <p><small><Highlight color="#333333">XCUITest Only</Highlight></small></p>
 
-__Description__: specifies the device name you would like to dynamically allocate for dynamic allocation of a device. For example, use iPhone.*Plus to allocate any iPhone Plus device. For more information, see the examples under `--devices`.
+__Description__: specifies the device name you would like to dynamically allocate for dynamic allocation of a device. For example, use iPhone.*Plus to allocate any iPhone Plus device.
 
 __Example__: Execute all tests in `ClassA` and only `methodC` of `ClassB`.
 

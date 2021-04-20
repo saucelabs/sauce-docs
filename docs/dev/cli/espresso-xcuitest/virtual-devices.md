@@ -41,7 +41,7 @@ __Shorthand__: `-f`
 
 __Example__:
 
-```bash
+```java
 ./sauce-runner-virtual --test-framework=espresso
 ```
 
