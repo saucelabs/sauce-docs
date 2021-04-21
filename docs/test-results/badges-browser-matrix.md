@@ -41,12 +41,12 @@ __Output Example__:
 
 To set up a Browser Matrix Badge for your saucelabs browser test results, copy this markdown code into your GitHub README:
 
-```jsx title="Markdown Example"
+```js title="Markdown Example"
 [![Sauce Browser Matrix](https://app.saucelabs.com/browser-matrix/SAUCE_USERNAME)](https://app.saucelabs.com/u/SAUCE_USERNAME.svg)
 ```
 
-```jsx title="HTML Example
-<a href="https://app.saucelabs.com/u/SAUCE_USERNAM"><img src=https://app.saucelabs.com/browser-matrix/SAUCE_USERNAM.svg?" alt= "Sauce Browser Matrix"/></a>
+```js title="HTML Example
+<a href="https://app.saucelabs.com/u/SAUCE_USERNAME"><img src=https://app.saucelabs.com/browser-matrix/SAUCE_USERNAME.svg?" alt= "Sauce Browser Matrix"/></a>
 ```
 
 __Output Example__:

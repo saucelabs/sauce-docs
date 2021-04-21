@@ -20,7 +20,7 @@ In the Visibility dropdown, select a sharing option for the test results.
 | Share             | Only people who have the link to the test will be able to view the test results.                                                                                                                                                          |
 
 
-:::note Manually Share a Link
+:::tip Manually Share a Link
 You can also manually build links to Test Results pages and set authentication for accessing them using the methods described in Building Sharable Links to Test Results. To manually share the test results, copy and send the URL of the Test Results page.
 :::
 
@@ -29,11 +29,17 @@ You can generate a sharable link to your test results that limits who can view t
 
 You can also change the visibility of a test (e.g., Public, Private, or Team) directly on the Test Results page. For more information, see Sharing the Results of Sauce Labs Tests.
 
-:::note
-The following information does not currently work for RDC on Sauce Labs.
+:::warning Does Not Work with Legacy RDC Platform
+The following information does not currently work with the legacy RDC platform (TestObject).
 :::
 
-When generating a shareable link, you'll need to know your specific data center. All examples on this page use the US West 1 data center endpoint, app.saucelabs.com. If you're using a different data center, such as EU Central 1, your link should be edited accordingly (e.g., https://app.eu-central-1.saucelabs.com/tests/YOUR_TEST_ID). See Data Center Endpoints for more info.
+When generating a shareable link, you'll need to know your specific data center. All examples on this page use the US West 1 data center endpoint, app.saucelabs.com. If you're using a different data center, such as EU Central 1, your link should be edited accordingly:
+
+```
+https://app.eu-central-1.saucelabs.com/tests/YOUR_TEST_ID).
+```
+
+See [Data Center Endpoints](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) for more info.
 
 ### Linking to Tests that Require a Login to View
 You can create links to your tests that will only work if you're logged in with the account that ran the test.
@@ -46,19 +52,26 @@ To directly access a specific job, you will first need to note the session ID lo
 https://app.saucelabs.com/tests/YOUR_TEST_ID
 ```
 
-As previously mentioned, all examples on this page use the US West 1 data center endpoint. If you're using a different data center, such as EU Central 1, your link should be edited accordingly (e.g., https://app.eu-central-1.saucelabs.com/tests/YOUR_TEST_ID). See Data Center Endpoints for more info.
+As previously mentioned, all examples on this page use the US West 1 data center endpoint. If you're using a different data center, such as EU Central 1, your link should be edited accordingly:
+
+```js
+https://app.eu-central-1.saucelabs.com/tests/YOUR_TEST_ID
+```
+
+See [Data Center Endpoints](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) for more info.
 
 ### Linking to Tests that Don't Require a Login to View
+
 You can also create sharable links that are based on authentication (auth) tokens, meaning the recipient won't have to log in and use your credentials.
 
 Auth tokens are generated on a per-test basis and grant viewers access using an hmac-based algorithm. You can also find hmac implementations for different programming languages.
 
 The digest algorithm to use is MD5. The message and key used to generate the token should be the following:
 
-* Key: sauceUsername:sauceAccessKey
-* Message: test-id
+* Key: `SAUCE_USERNAME`:`SAUCE_ACCESS_KEY`
+* Message: `YOUR_TEST_ID`
 
-The following is an example in Python for generating the token in the Python interpreter for a test with id: 5f9fef27854ca50a3c132ce331cb6034:
+The example below demonstrates how to generate the token in a Python interpreter for a test with the `id`: `5f9fef27854ca50a3c132ce331cb6034`:
 
 ```python
 >>> import hmac
@@ -76,11 +89,12 @@ https://app.saucelabs.com/tests/YOUR_TEST_ID?auth=SAUCE_USERNAME:AUTH_TOKEN.
 ```
 
 ### Setting Your Test Links to Expire
+
 You can extend the links generated with authentication tokens to make them work temporarily for a specific date or specific hour, based on the parameters that you set.
 
-During the hmac generation, set the key like this: SAUCE_USERNAME:SAUCE_ACCESS_KEY:YOUR_DATE_RANGE.
+During the `hmac` generation, set the key like this: `SAUCE_USERNAME`:`SAUCE_ACCESS_KEY`:`YOUR_DATE_RANGE`.
 
-The date range can take two formats: YYYY-MM-DD-HH and YYYY-MM-DD. These should be set in UTC time and will only work during the date or hour you set.
+The date range can take two formats: `YYYY-MM-DD-HH` and `YYYY-MM-DD`. These should be set in UTC time and will only work during the date or hour you set.
 
 ## Embedding Test Results in HTML Pages
 
@@ -89,7 +103,7 @@ Authentication Required
 Both of these configurations will only work for browsers logged in using your account, but you can use authentication tokens to make this work for anonymous viewers. For more information about creating authentication tokens, see Building Sharable Links to Test Results.
 
 ```js
-https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN">
+https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
 ```
 
 ### Embedding Pages for EU DC and Headless DC
@@ -97,14 +111,14 @@ https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN">
 To embed the page for EU DC test, you need to use the app.eu-central-1.saucelabs.com domain.
 
 ```js
-https://app.[eu-central-1|us-east-1].saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN">
+https://app.[eu-central-1|us-east-1].saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
 ```
 
 ### Embedding Full Test Pages
 You can embed test pages in CI test results or other test reports. Using the following format, add the HTML to any page where you need to embed test results, replacing YOUR_JOB_ID with the ID of the job you want:
 
 ```js
-https://app.saucelabs.com/job-embed/YOUR_JOB_ID.js">
+https://app.saucelabs.com/job-embed/YOUR_JOB_ID.js
 ```
 
 ### Embedding the Video Player
@@ -120,5 +134,5 @@ By default, an embedded test iframe has a width of 1024px and a height of 768px.
 For example:
 
 ```js
-https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js?width=100&height=100">
+https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js?width=100&height=100
 ```

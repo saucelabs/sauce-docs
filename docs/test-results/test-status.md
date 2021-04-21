@@ -24,7 +24,7 @@ Watch this video for a demonstration of using the Selenium JavaScript Executor t
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/iaKRGjO-L8Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-###Code Examples
+### Code Examples
 
 The annotation for calling the JavaScript Executor in your test differs slightly for each framework and language, which are provided in the following code snippet examples. Refer to our Sauce Labs Demonstration Code Repositories on GitHub for further information, and more context, on annotating your tests to record the pass/fail status.
 
