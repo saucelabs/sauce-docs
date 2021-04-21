@@ -47,7 +47,7 @@ __Example__:
 
 ### `--user`
 
-__Description__: Your Sauce Labs `username`. You can use the [environment variable `SAUCE_USERNAME`](/basics/best-practices/using-environment-variables) to provide your login information. The command line argument will take precedence over the environment variable.
+__Description__: Your Sauce Labs `username`. You can use the [environment variable `SAUCE_USERNAME`](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647#BestPracticesforRunningTests-UseEnvironmentVariablesforAuthenticationCredentials) to provide your login information. The command line argument will take precedence over the environment variable.
 
 __Shorthand__: `-u`
 
@@ -59,7 +59,7 @@ __Example__:
 
 ### `--api-key`
 
-__Description__: Your Sauce Labs Access Key, which you can find under [User Settings](https://app.saucelabs.com/user-settings) in the Sauce Labs interface. You can also use the [environment variable SAUCE_ACCESS_KEY](/basics/best-practices/using-environment-variables) to provide your login information. The command line argument will take precedence over the environment variable.
+__Description__: Your Sauce Labs Access Key, which you can find under [User Settings](https://app.saucelabs.com/user-settings) in the Sauce Labs interface. You can also use the [environment variable SAUCE_ACCESS_KEY](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647#BestPracticesforRunningTests-UseEnvironmentVariablesforAuthenticationCredentials) to provide your login information. The command line argument will take precedence over the environment variable.
 
 __Shorthand__: `-k`
 
