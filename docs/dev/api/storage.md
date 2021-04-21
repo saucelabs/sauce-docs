@@ -308,21 +308,21 @@ curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v1/storage
 <details><summary><span className="api post">POST</span> <code>/v1/storage/upload</code></summary>
 <p/>
 
-Uploads an application file to Sauce Storage for the purpose of mobile application testing and returns a unique file ID assigned to the app.
+Uploads an application file to Sauce Storage for the purpose of mobile application testing and returns a unique file ID assigned to the app. Sauce Storage supports app files in *.APK, *.IPA, or *.ZIP format, up to 4GB.
 
 #### Parameters
 
 <table id="table-api">
   <tbody>
     <tr>
-     <td><code>file_path</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Any search term (such as build  number or file name) by which you want to filter results.</p></td>
+     <td><code>payload</code></td>
+     <td><p><small>| FORM-FILE | REQUIRED | STRING |</small></p><p>The path to the file you want to upload.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>file_name</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The application type associated with the group, such as <code>android</code> or <code>ios</code>.</p></td>
+     <td><code>name</code></td>
+     <td><p><small>| FORM-TEXT | REQUIRED | STRING |</small></p><p>The portion of the payload value that is the actual file name (including the type extension).</p></td>
     </tr>
   </tbody>
 </table>
@@ -339,16 +339,20 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
+curl --location --request POST 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
 --header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+--form 'payload=@"g16K4P8IX/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
+--form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/upload' \
+curl --location --request POST 'https://api.eu-central-1.saucelabs.com/v1/storage/upload' \
 --header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+--form 'payload=@"g16K4P8IX/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
+--form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
 ```
 
 </TabItem>
@@ -359,8 +363,8 @@ curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v1/storage
 <table id="table-api">
 <tbody>
   <tr>
-    <td><code>200</code></td>
-    <td colSpan='2'>Success.</td>
+    <td><code>201</code></td>
+    <td colSpan='2'>Created.</td>
   </tr>
 </tbody>
 <tbody>
@@ -379,34 +383,32 @@ curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v1/storage
 
 ```jsx title="Sample Response"
 {
-   "item":{
-      "id":"379c301a-199c-4b40-ad45-4a95e5f30a3a",
-      "owner":{
-         "id":"286c0fbb0cb644c4a012d505b8a0a1ac",
-         "org_id":"c064890612424e34a12fca98ce4f32c6"
-      },
-      "name":"Android.SauceLabs.Mobile.Sample.app.2.3.0.apk",
-      "upload_timestamp":1593450387,
-      "etag":"0cf189b1c4c17a56656ada5e2d75cd51",
-      "kind":"android",
-      "group_id":2807,
-      "metadata":{
-         "identifier":"com.swaglabsmobileapp",
-         "name":"Swag Labs Mobile App",
-         "version":"2.3.0",
-         "icon":"<long-serial-number>",
-         "version_code":13,
-         "min_sdk":16,
-         "target_sdk":28
-      },
-      "access":{
-         "team_ids":[
-            "a15e40997f2b44ee9615d9803cb4b439"
-         ],
-         "org_ids":[
-         ]
-      }
-   }
+    "item": {
+        "id": "7a154f05-835f-469a-93cf-880647d3a8ab",
+        "owner": {
+            "id": "******",
+            "org_id": "******"
+        },
+        "name": "iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa",
+        "upload_timestamp": 1619035533,
+        "etag": "184d1c399251e8849edcb0adfc079571",
+        "kind": "ios",
+        "group_id": 64612,
+        "description": null,
+        "metadata": {
+            "identifier": "com.saucelabs.SwagLabsMobileApp",
+            "name": "SwagLabsMobileApp",
+            "version": "12",
+            "is_test_runner": false,
+            "icon": "...",
+            "short_version": "2.7.1",
+            "is_simulator": false,
+            "min_os": "10.0",
+            "target_os": "14.2",
+            "test_runner_plugin_path": null
+        },
+        "access": {...}
+    }
 }
 ```
 </details>
