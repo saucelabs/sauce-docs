@@ -23,11 +23,11 @@ The **Archives** page includes a number of filters you can use to search through
 
 1. In Sauce Labs, in the left panel, click **AUTOMATED** and then click **Archive**.
 
-<img src={useBaseUrl('static/img/test-results/test-results-archive-nav.png')} alt="Test results archive navigation" width="650"/>
+<img src={useBaseUrl('img/test-results/test-results-archive-nav.png')} alt="Test results archive navigation" width="650"/>
 
 2. Click a filter and either select an option from the dropdown or enter a term to search for.
 
-<img src={useBaseUrl('static/img/test-results/test-results-archive-filter.png')} alt="Test results archive search filters" width="650"/>
+<img src={useBaseUrl('img/test-results/test-results-archive-filter.png')} alt="Test results archive search filters" width="650"/>
 
 3. Click **Apply**.
 
