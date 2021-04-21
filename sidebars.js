@@ -144,17 +144,12 @@ module.exports = {
                 'mobile-apps/automated-testing/troubleshooting',
               ],
            },
-<<<<<<< HEAD
-],
-
-=======
      'mobile-apps/features',
      'mobile-apps/virtual-usb',
      'mobile-apps/app-storage',
      'mobile-apps/ms-app-center',
      'mobile-apps/faq',
          ],
->>>>>>> ac97a1b51b1b7f523c41fd8ff24e9c1b77a80927
     "Web Apps": [
       'web-apps',
       {
@@ -517,7 +512,7 @@ module.exports = {
             'test-results/badges-browser-matrix',
         ],
     },
-    
+
     "Insights": [
         'insights',
         'insights/scope',
@@ -601,8 +596,6 @@ module.exports = {
         items: [
           'dev/cli',
           'dev/cli/sauce-connect-proxy',
-<<<<<<< HEAD
-=======
            {
                type: 'category',
                label: 'Appium',
@@ -612,7 +605,6 @@ module.exports = {
                   'dev/cli/appium/virtual-devices',
                 ],
             },
->>>>>>> ac97a1b51b1b7f523c41fd8ff24e9c1b77a80927
             {
                 type: 'category',
                 label: 'Espresso / XCUITest',
