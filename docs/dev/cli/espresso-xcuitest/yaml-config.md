@@ -1,15 +1,6 @@
 ---
 id: yaml-config
-<<<<<<< HEAD
 title: Sauce Runner YAML File Configuration
-sidebar_label: YAML Config File
----
-
-This topic outlines the parameters needed to set up your Espresso and XCUITest YAML configuration as an alternative to using the [Sauce Runner CLI tool](/dev/cli/espresso-xcuitest).
-
-## Setup
-=======
-title: Sauce Runner for Real Devices YAML File Configuration
 sidebar_label: YAML Config File
 ---
 
@@ -23,7 +14,6 @@ export const Highlight = ({children, color}) => ( <span style={{
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
->>>>>>> ac97a1b51b1b7f523c41fd8ff24e9c1b77a80927
 
 <p> <Highlight color="#013a70">Real Devices Only</Highlight> </p>    
 
