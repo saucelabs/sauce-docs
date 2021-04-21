@@ -29,7 +29,7 @@ Deleted session d03a1b81-158d-4bb4-bcc9-074e43dd8465
 
 ## Optional
 
-These flags provide additional configuration options.
+Here are some additional options you can use on the configure your command line.
 
 ### `--serverHost`
 __Description__: Virtual USB server host. Default value: `http://127.0.0.1`.
