@@ -63,27 +63,6 @@ module.exports = {
 
          ],
        },
-       {
-   type: 'category',
-   label: 'Best Practices',
-   collapsed: true,
-   items: [
-       'basics/best-practices',
-       'basics/best-practices/avoiding-dependencies-parallel-tests',
-       'basics/best-practices/small-atomic-autonomous',
-       'basics/best-practices/using-environment-variables',
-       'basics/best-practices/using-explicit-waits',
-       'basics/best-practices/using-attributes-tests',
-       'basics/best-practices/running-speedy-tests',
-       'basics/best-practices/handling-authentication',
-       'basics/best-practices/imperative-declarative-testing',
-       'basics/best-practices/protecting-test-log-credentials',
-       'basics/best-practices/using-maven-manage-dependencies',
-       'basics/best-practices/downloading-files-vm-before-testing',
-       'basics/best-practices/test-config-annotation',
-
-             ],
-           },
      ],
   },
 ],
@@ -140,7 +119,7 @@ module.exports = {
           collapsed: true,
           items: [
             'mobile-apps/automated-testing',
-            'mobile-apps/automated-testing/devices',
+            'mobile-apps/automated-testing/supported-devices',
                 {
                   type: 'category',
                   label: 'Appium',
@@ -165,8 +144,17 @@ module.exports = {
                 'mobile-apps/automated-testing/troubleshooting',
               ],
            },
+<<<<<<< HEAD
 ],
 
+=======
+     'mobile-apps/features',
+     'mobile-apps/virtual-usb',
+     'mobile-apps/app-storage',
+     'mobile-apps/ms-app-center',
+     'mobile-apps/faq',
+         ],
+>>>>>>> ac97a1b51b1b7f523c41fd8ff24e9c1b77a80927
     "Web Apps": [
       'web-apps',
       {
@@ -598,6 +586,18 @@ module.exports = {
         items: [
           'dev/cli',
           'dev/cli/sauce-connect-proxy',
+<<<<<<< HEAD
+=======
+           {
+               type: 'category',
+               label: 'Appium',
+               collapsed: true,
+               items: [
+                  'dev/cli/appium/real-devices',
+                  'dev/cli/appium/virtual-devices',
+                ],
+            },
+>>>>>>> ac97a1b51b1b7f523c41fd8ff24e9c1b77a80927
             {
                 type: 'category',
                 label: 'Espresso / XCUITest',
@@ -605,8 +605,8 @@ module.exports = {
                 items: [
                     'dev/cli/espresso-xcuitest',
                     'dev/cli/espresso-xcuitest/real-devices',
-                    'dev/cli/espresso-xcuitest/virtual-devices',
                     'dev/cli/espresso-xcuitest/yaml-config',
+                    'dev/cli/espresso-xcuitest/virtual-devices',
                 ],
             },
             {

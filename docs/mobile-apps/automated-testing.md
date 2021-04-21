@@ -15,7 +15,7 @@ For information on native mobile app test automation using Sauce Labs emulators,
 
 ## System Requirements and Environment Configuration
 
-For information on platform/support requirements and test environment configuration, see [Choosing a Mobile Device](mobile-apps/automated-testing/devices.md).
+For information on platform/support requirements and test environment configuration, see [Choosing a Mobile Device](mobile-apps/automated-testing/supported-devices.md).
 
 
 ## Getting Started
