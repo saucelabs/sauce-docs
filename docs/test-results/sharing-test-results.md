@@ -4,24 +4,24 @@ title: Sharing Test Results
 sidebar_label: Sharing Test Results
 ---
 
-Once your test has run and generated a Test Details page, you have several options for sharing a link to that page with others.
+Once your test has run and generated a **Test Details** page, you have several options for sharing a link to that page with others.
 
-In Sauce Labs, in the left panel, click Live or Automated, and then click Test Results.
-On the Test Results page, click a test in the list to view the test details.
-In the Visibility dropdown, select a sharing option for the test results.
+1. In Sauce Labs, in the left panel, click Live or Automated, and then click Test Results.
+2. On the Test Results page, click a test in the list to view the test details.
+3. In the Visibility dropdown, select a sharing option for the test results.
 
+<img src={useBaseUrl('static/img/test-results/test-results-visibility.jpg')} alt="Test results sharing visibility" width="650"/>
 
+| Sharing Option | Description |
+| Public | Everyone will be able to view the test results, and they may be listed on public web pages and indexed by search engines. |
+| Public Restricted | Everyone will be able to view the test results, but only you will have log access. By restricting access to the raw Selenium log and the job log, you can prevent sensitive information, such as passwords, from being visible to others. |
+| Private | Only you will be able to view the test results. |
+| Team | All members of your team will be able to view the test results. |
+| Share | Only people who have the link to the test will be able to view the test results. |
 
-Public	Everyone will be able to view the test results, and they may be listed on public web pages and indexed by search engines.
-Public Restricted	Everyone will be able to view the test results, but only you will have log access. By restricting access to the raw Selenium log and the job log, you can prevent sensitive information, such as passwords, from being visible to others.
-Private	Only you will be able to view the test results.
-Team	All members of your team will be able to view the test results.
-Share	Only people who have the link to the test will be able to view the test results.
-To manually share the test results, copy and send the URL of the Test Results page.
+4. To manually share the test results, copy and send the URL of the Test Results page.
 
-
-
-NOTE: You can also manually build links to Test Results pages and set authentication for accessing them using the methods described in Building Sharable Links to Test Results.
+>**NOTE:** You can also manually build links to Test Results pages and set authentication for accessing them using the methods described in Building Sharable Links to Test Results.
 
 ## Building Sharable Links
 You can generate a sharable link to your test results that limits who can view the results by requiring a login or authentication (auth) token. These links will allow recipients to view the results of that test, but the they will not appear on their dashboard.

@@ -5,9 +5,9 @@ sidebar_label: Getting Started
 ---
 The Account area in Sauce Labs provides several options for you to configure your teams, users, and accounts.
 
-<div class="box-wrapper" markdown="1">
-<div class="box box1 card">
-  <div class="container">
+<div className="box-wrapper" markdown="1">
+<div className="box box1 card">
+  <div className="container">
   <h2>Settings and Accounts</h2>
   <p>Sauce Labs offers a number of features to set up additional team members who can share your account.</p>
   <ul>
@@ -18,8 +18,8 @@ The Account area in Sauce Labs provides several options for you to configure you
   </ul>
   </div>
 </div>
-<div class="box box2 card">
-  <div class="container">
+<div className="box box2 card">
+  <div className="container">
   <h2>Billing and Subscriptions</h2>
   <p>Sauce Labs offers several options for managing your billing and subscription information.
 </p>
