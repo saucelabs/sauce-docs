@@ -12,11 +12,11 @@ If you've created a search that you want to use in the future, you can save it b
 
 1. After you've built your search from the filters or written it in the **Search** text field on the **Archives** page, click the star icon next to the text field to save it.
 
-<img src={useBaseUrl('static/img/test-results/test-results-archive-save.png')} alt="Test results archive - Save a search" width="650"/>
+<img src={useBaseUrl('img/test-results/test-results-archive-save.png')} alt="Test results archive - Save a search" width="650"/>
 
 2. Click the expand icon next to the star to view your favorited searches. You can select a favorite search to run it, or remove it by clicking the **Delete** icon.  
 
-<img src={useBaseUrl('static/img/test-results/archive-saved-search.png')} alt="Saved archive search" width="650"/>
+<img src={useBaseUrl('img/test-results/archive-saved-search.png')} alt="Saved archive search" width="650"/>
 
 
 ## Deleting Test and Build Results
