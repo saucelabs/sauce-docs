@@ -1,6 +1,5 @@
 ---
 id: yaml-config
-<<<<<<< HEAD
 title: Sauce Runner YAML File Configuration
 sidebar_label: YAML Config File
 ---
