@@ -515,6 +515,21 @@ module.exports = {
         'ci/jenkins',
         'ci/teamcity',
     ],
+
+    {
+        type: 'category',
+        label: 'Test Results',
+        collapsed: true,
+        items: [
+            'test-results/viewing-test-results',
+            'test-results/managing-test-results',
+            'test-results/sharing-test-results',
+            'test-results/archived-test-results',
+            'test-results/test-status',
+            'test-results/badges-browser-matrix',
+        ],
+    },
+
     "Insights": [
         'insights',
         'insights/scope',
