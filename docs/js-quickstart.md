@@ -26,22 +26,35 @@ The basic steps include:
 
 You can run your Cypress, TestCafe, or Playwright tests in two different ways:
 
- * __Docker Mode__: Install Docker and run a containerized version of your test environment, then pass the results to the Sauce Labs Dashboard using the command:
+ * __Docker Mode__: Install Docker and run a containerized version of your test environment, then set mode in `config.yml`:
  
- ```bash
- saucectl run --test-env docker
+ It can be set as a global setting.
+ ```yaml
+ defaults:
+   mode: docker
+ ```
+
+It can also be set on suite level. The suite setting will override the global setting for the relevant suite.
+ ```yaml
+ suites:
+   - name: docker suite
+     mode: docker
  ```
  
- * __Sauce VM Mode__: Install `saucectl` and pass your entire test suite, including dependencies and configurations, to Sauce Labs Cloud Virtual Machines. Use the following command(s) to run your tests on Sauce Labs VMs:
+ * __Sauce VM Mode__: Install `saucectl` and pass your entire test suite, including dependencies and configurations, to Sauce Labs Cloud Virtual Machines. Update following in `config.yml` to run your tests on Sauce Labs VMs:
 
- ```bash
- saucectl run
- ``` 
-  
- _or_
-  
- ```bash
- saucectl run --test-env sauce
- ``` 
+ It can be set as a global setting.
+ ```yaml
+ defaults:
+   mode: docker
+ ```
+
+It can also be set on suite level. The suite setting will override the global setting for the relevant suite.
+ ```yaml
+ suites:
+   - name: docker suite
+     mode: docker
+ ```
  
+
  > To learn more about running tests please [consult the documentation](https://docs.saucelabs.com/testrunner-toolkit/running-tests), or see an [example with Cypress](https://training.saucelabs.com/codelabs/Module1-Testrunner/index.html?index=../..testrunner#3).
