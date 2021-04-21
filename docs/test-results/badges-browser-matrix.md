@@ -3,6 +3,7 @@ id: badges-browser-matrix
 title: Status Badges and the Browser Matrix Widget
 sidebar_label: Status Badges and the Browser Matrix Widget
 ---
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Status badges and the Sauce Labs browser matrix widget help you keep track of the status of your latest test runs. All you have to do is add either markdown or HTML code to your GitHub README or project site that references your Sauce Labs username and access key, and annotate your tests with the REST API.
