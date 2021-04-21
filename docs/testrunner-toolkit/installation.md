@@ -17,7 +17,7 @@ The `saucectl` command line tool orchestrates the communication between Sauce La
 * [Docker](https://docs.docker.com/get-docker/), if you plan to run tests locally
 
 :::note
-Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g. `docker info` works in your terminal / command prompt)
+Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g., `docker info` works in your terminal / command prompt)
 :::
 
 ### System Requirements
@@ -62,26 +62,26 @@ Browser support depends on the chosen [test framework](/testrunner-toolkit#suppo
 
 You can install `saucectl` using any of the following methods:
 
-```bash title="Use NPM"
- npm install -g saucectl
- ```
+```bash title="Using NPM"
+npm install -g saucectl
+```
 
- ```bash title="Using NPM and SAUCECTL_INSTALL_BINARY"
-  SAUCECTL_INSTALL_BINARY=https://company.domain.com/saucectl_0.32.2_mac_64-bit.tar.gz npm install -g saucectl
-  ```
+```bash title="Using NPM and SAUCECTL_INSTALL_BINARY"
+SAUCECTL_INSTALL_BINARY=https://company.domain.com/saucectl_0.32.2_mac_64-bit.tar.gz npm install -g saucectl
+```
 
 :::tip
 Use the `SAUCECTL_INSTALL_BINARY` environment variable to make `saucectl` available from a known source within your control or if you use `npx saucectl` to bypass installation.
 :::
 
-```bash title="Use curl"
-  curl -L https://saucelabs.github.io/saucectl/install | bash
-  ```
+```bash title="Using curl"
+curl -L https://saucelabs.github.io/saucectl/install | bash
+```
 
- ```bash title="Using Homebrew (macOS)"
-  brew tap saucelabs/saucectl
-  brew install saucectl
-  ```
+```bash title="Using Homebrew (macOS)"
+brew tap saucelabs/saucectl
+brew install saucectl
+```
 
 If you would like to inspect the content of our one line installer, download it, have a look, and execute it:
 
@@ -127,9 +127,9 @@ Whether you are using environment variables or a credentials file, make sure you
 
 This process generates a set of dependencies that allow you to quickly set up a working test. At the end of this process, you will have a root directory with the following assets:
 
-* a config file (e.g. `.sauce/config.yml`)
-* a framework directory (e.g., `cypress`) and other relevant files (e.g. `cypress.json`)
-* an example test for the chosen framework (e.g. `cypress/integration/example.test.js`)
+* a config file (e.g., `.sauce/config.yml`)
+* a framework directory (e.g., `cypress`) and other relevant files (e.g., `cypress.json`)
+* an example test for the chosen framework (e.g., `cypress/integration/example.test.js`)
 
 If you already have working tests in your framework, you can skip this section and [run your tests](testrunner-toolkit/running-tests) in order to run your existing tests.
 

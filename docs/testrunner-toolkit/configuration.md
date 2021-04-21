@@ -145,7 +145,7 @@ sauce:
 Alternatively, you can override the setting in the configuration file for a particular test suite by specifying it as an attribute of the ` saucectl run` command.
 
 ```bash
-saucectl run --test-env sauce --ccy 10
+saucectl run --ccy 10
 ```
 
 A setting of `10` runs up to 10 test suites at the same time. If the test has more suites than that, excess suites are queued and run in order at the completion of currently running suites.
