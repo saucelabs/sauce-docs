@@ -35,10 +35,10 @@ Accelerate and scale your testing and broaden coverage by running automated test
     <p>Integrate your Espresso and XCUITest test automation frameworks with Sauce Labs real devices using our RDC test runner.</p>
     </div>
   </div>
-  <div class="box box4 card">
-    <div class="container">
-    <a href="/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices"><h3>Virtual Device Testing with Espresso</h3></a>
-    <p>Integrate your Espresso test automation framework with Sauce Labs Android emulators using our VDC test runner.</p>
+  <div className="box box4 card">
+    <div className="container">
+    <a href="/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices"><h3>Virtual Device Testing with Espresso and XCUITest</h3></a>
+    <p>Integrate your Espresso and XCUITest test automation frameworks with Sauce Labs virtual devices using our VDC test runner.</p>
     </div>
   </div>
 </div>

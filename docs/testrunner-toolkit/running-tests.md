@@ -28,19 +28,23 @@ Unless you specify a test directory, `saucectl` executes tests based on the test
 
 The following steps outline how to run your tests on your local machine with the containerized solution. This is the preferred option if you wish to run tests on your local machine, or if you wish to accelerate test execution in CI.
 
-Please note that if you don't specify a `--test-env` flag when running tests, `saucectl` defaults to `sauce` mode.
-
 :::note `docker` Syntax Page
 See the [`docker` syntax reference page](/testrunner-toolkit/configuration/common-syntax#docker) for further details.
 :::
 
-```bash
-saucectl run --test-env docker
+:::note `mode` Description
+See the [`mode` syntax reference page](/testrunner-toolkit/configuration/common-syntax#defaults) for further details.
+:::
+
+For example, if you want to run all the suites in docker, set the default `mode` in `config.yml` to `docker`, as in the following example:
+```yaml
+defaults:
+  mode: docker
 ```
 
 ### Specify a Docker Image
 
-You must specify the appropriate Docker image in the `config.yml` in order for your tests to run correctly. For example, if you run cypress tests the configuration should look like so:
+`saucectl` can provide a default image to run your tests. You can also specify a Docker image in the `config.yml`, as shown in the following example:
 
 ```yaml
 docker:
@@ -67,16 +71,24 @@ docker:
 
 <p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight></small></p>
 
-If you wish to run your tests on Sauce Labs VMs, simply run the following command:
+If you wish to run your tests on Sauce Labs VMs, set the default `mode` in `config.yml` to `sauce`, as shown in the following example:
 
-```bash
-saucectl run --test-env sauce
+```yaml
+defaults:
+  mode: sauce
+```
+_or_
+
+```yaml
+suites:
+  - name: saucy test
+    mode: sauce
 ```
 
 If you wish to increase your VM concurrency you can also use the flag `--ccy <vm number>`.
 
 ```bash
-saucectl run --test-env sauce --ccy 2
+saucectl run --ccy 2
 ```
 
 You can also designate `concurrency` in the `config.yml` like so:
@@ -131,7 +143,7 @@ If you're running tests on Sauce Labs VMs, but the site under test is protected 
 You can use the `--tunnel-id` flag with `saucectl` in order to use an existing Sauce Connect tunnel with your test session:
 
 ```bash
-saucectl run --test-env sauce --tunnel-id <tunnel-id>
+saucectl run --tunnel-id <tunnel-id>
 ```
 
 > For more information on how to use the `--tunnel-id` flag, please visit the [CLI Reference](/testrunner-toolkit/saucectl#tunnel-id).
@@ -172,10 +184,19 @@ If you have third party, or custom modules that are required test dependencies, 
 
 ### Run Tests in Docker Mode and Send Results to Sauce Labs
 
-When you run the commands:
+Set the default or suite-specific `mode` in `config.yml` to `docker`:
 
-* `saucectl  run` or
-* `saucectl run --test-env docker`
+```yaml
+defaults:
+  mode: docker
+```
+_or_
+
+```yaml
+suites:
+  - name: saucy test
+    mode: docker
+```
 
 ensure the `docker` container can access the local app server (e.g. `localhost:<port>/`) from your host machine. After the tests complete the results upload to the Sauce Labs results dashboard.
 
