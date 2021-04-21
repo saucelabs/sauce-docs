@@ -100,6 +100,8 @@ module.exports = {
             },
             'secure-connections/ipsec-vpn',
         ],
+
+
         "Mobile Apps": [
             'mobile-apps',
             {
@@ -147,89 +149,6 @@ module.exports = {
             'mobile-apps/app-storage',
             'mobile-apps/ms-app-center',
             'mobile-apps/faq',
-=======
-         ],
-       },
-     ],
-  },
-],
-  "Secure Connections": [
-     'secure-connections',
-     {
-        type: 'category',
-        label: 'Sauce Connect Proxy',
-        collapsed: true,
-        items: [
-          'secure-connections/sauce-connect',
-          'secure-connections/sauce-connect/system-requirements',
-          'secure-connections/sauce-connect/installation',
-          'secure-connections/sauce-connect/setup-configuration',
-          'secure-connections/sauce-connect/environment-variables',
-          'secure-connections/sauce-connect/proxy-tunnels',
-          'secure-connections/sauce-connect/security',
-          'secure-connections/sauce-connect/troubleshooting',
-          'secure-connections/sauce-connect/faq',
-          'secure-connections/sauce-connect/changelog',
-          ],
-        },
-      'secure-connections/ipsec-vpn',
-      ],
-  "Mobile Apps": [
-    'mobile-apps',
-     {
-        type: 'category',
-        label: 'Live Testing',
-        collapsed: true,
-        items: [
-          'mobile-apps/live-testing',
-            ],
-        },
-        {
-          type: 'category',
-          label: 'Automated Testing',
-          collapsed: true,
-          items: [
-            'mobile-apps/automated-testing',
-            'mobile-apps/automated-testing/supported-devices',
-                {
-                  type: 'category',
-                  label: 'Appium',
-                  collapsed: true,
-                  items: [
-                     'mobile-apps/automated-testing/appium',
-                     'mobile-apps/automated-testing/appium/real-devices',
-                     'mobile-apps/automated-testing/appium/virtual-devices',
-                    ],
-                },
-                {
-                  type: 'category',
-                  label: 'Espresso and XCUITest',
-                  collapsed: true,
-                  items: [
-                    'mobile-apps/automated-testing/espresso-xcuitest',
-                    'mobile-apps/automated-testing/espresso-xcuitest/real-devices',
-                    'mobile-apps/automated-testing/espresso-xcuitest/virtual-devices',
-                  ],
-                },
-                'mobile-apps/automated-testing/ipa-files',
-                'mobile-apps/automated-testing/troubleshooting',
-              ],
-           },
-     'mobile-apps/features',
-     'mobile-apps/virtual-usb',
-     'mobile-apps/app-storage',
-     'mobile-apps/ms-app-center',
-     'mobile-apps/faq',
-         ],
-    "Web Apps": [
-      'web-apps',
-      {
-        type: 'category',
-        label: 'Live Testing',
-        collapsed: true,
-        items: [
-          'web-apps/live-testing',
->>>>>>> 47119e331ba2a1ecd856695fe2191fd47ac846c2
         ],
         "Web Apps": [
             'web-apps',
@@ -642,37 +561,16 @@ module.exports = {
             'testrunner-toolkit/faqs',
             'testrunner-toolkit/support',
         ],
-<<<<<<< HEAD
         "Visual": [
             'visual',
         ],
         "Reference": [
             'dev',
-=======
-      },
-      {
-        type: 'category',
-        label: 'CLI Reference',
-        collapsed: true,
-        items: [
-          'dev/cli',
-          'dev/cli/sauce-connect-proxy',
-           {
-               type: 'category',
-               label: 'Appium',
-               collapsed: true,
-               items: [
-                  'dev/cli/appium/real-devices',
-                  'dev/cli/appium/virtual-devices',
-                ],
-            },
->>>>>>> 47119e331ba2a1ecd856695fe2191fd47ac846c2
             {
                 type: 'category',
                 label: 'API Reference',
                 collapsed: true,
                 items: [
-<<<<<<< HEAD
                     'dev/api',
                     'dev/api/accounts',
                     'dev/api/connect',
@@ -682,12 +580,6 @@ module.exports = {
                     'dev/api/platform',
                     'dev/api/rdc',
                     'dev/api/storage',
-=======
-                    'dev/cli/espresso-xcuitest',
-                    'dev/cli/espresso-xcuitest/real-devices',
-                    'dev/cli/espresso-xcuitest/yaml-config',
-                    'dev/cli/espresso-xcuitest/virtual-devices',
->>>>>>> 47119e331ba2a1ecd856695fe2191fd47ac846c2
                 ],
             },
             {
