@@ -1,6 +1,6 @@
 ---
 id: yaml-config
-title: Sauce Runner YAML File Configuration
+title: Sauce Runner for Real Devices YAML File Configuration
 sidebar_label: YAML Config File
 ---
 

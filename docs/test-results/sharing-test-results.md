@@ -14,7 +14,6 @@ Once your test has run and generated a **Test Details** page, you have several o
 2. On the **Test Results** page, click a test in the list to view the test details.
 3. In the **Visibility** dropdown, select a sharing option for the test results.
 
-
 | Option            | Explanation                                                                                                                                                                                                                               |
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Public            | Everyone will be able to view the test results, and they may be listed on public web pages and indexed by search engines.                                                                                                                 |
@@ -25,13 +24,17 @@ Once your test has run and generated a **Test Details** page, you have several o
 
 
 :::tip Manually Share a Link
-You can also manually build links to **Test Results** pages and set authentication for accessing them using the methods described in [Building Sharable Links](/test-results/sharing-test-results#building-sharable-links). To manually share the test results, copy and send the URL of the **Test Results** page.
+You can also manually build links to Test Results pages and set authentication for accessing them using the methods described in Building Sharable Links to Test Results. To manually share the test results, copy and send the URL of the Test Results page.
 :::
 
 ## Building Sharable Links
 You can generate a sharable link to your test results that limits who can view the results by requiring a login or authentication (auth) token. These links will allow recipients to view the results of that test, but the they will not appear on their dashboard.
 
 You can also change the visibility of a test (e.g., Public, Private, or Team) directly on the **Test Results** page.
+
+:::warning Does Not Work with Legacy RDC Platform
+The following information does not currently work with the legacy RDC platform (TestObject).
+:::
 
 :::warning Does Not Work with Legacy RDC Platform
 The following information does not currently work with the legacy RDC platform (TestObject).
@@ -118,15 +121,29 @@ To embed the page for EU DC test, you need to use the `app.eu-central-1.saucelab
 https://app.[eu-central-1|us-east-1].saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
 ```
 
+```js
+https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
+```
+
+### Embedding Pages for EU DC and Headless DC
+
+```js
+https://app.saucelabs.com/job-embed/YOUR_JOB_ID.js
+```
+
+```js
+https://app.[eu-central-1|us-east-1].saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
+```
+
 ### Embedding Full Test Pages
-You can embed test pages in CI test results or other test reports. Using the following format, add the HTML to any page where you need to embed test results, replacing `YOUR_JOB_ID` with the ID of the job you want:
+You can embed test pages in CI test results or other test reports. Using the following format, add the HTML to any page where you need to embed test results, replacing YOUR_JOB_ID with the ID of the job you want:
 
 ```js
 https://app.saucelabs.com/job-embed/YOUR_JOB_ID.js
 ```
 
 ### Embedding the Video Player
-You can also embed videos in CI test results or other test reports. Using the format below, add the HTML to any page where you want to embed job videos, replacing `YOUR_JOB_ID` with the ID of the job you want:
+You can also embed videos in CI test results or other test reports. Using the format below, add the HTML to any page where you want to embed job videos, replacing YOUR_JOB_ID with the ID of the job you want:
 
 ```js
 https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js

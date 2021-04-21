@@ -27,8 +27,7 @@ You can delete any of the tests or builds listed on your **Archives** page.
 2. Click **Delete**.
 3. In the confirmation dialog, click **Yes**.
 
-:::caution
-**Results are Permanently Deleted**
+:::caution **Results are Permanently Deleted**
 Once you delete a test or build result, it's gone forever and cannot be recovered. Be careful when you click **Yes**.  
 :::
 
