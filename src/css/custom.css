@@ -34,8 +34,9 @@
  * © 2009-2020 Adobe Systems Incorporated. All Rights Reserved.
  */
 /*{"last_published":"2021-01-18 18:46:45 UTC"}*/
-
+@import "api-override.css";
 @import url('https://use.typekit.net/bte6qhg.css');
+@import "api-override.css";
 
 .tk-museo-sans { font-family: "museo-sans",sans-serif; }
 .tk-museo-sans-rounded { font-family: "museo-sans-rounded",sans-serif; }
@@ -405,27 +406,6 @@ h3, .h3 {
   padding:.2rem;
 }
 
-.sauceLBlue {
-  background:#57C1E8;
-  color:#003A70;
-  padding:.2rem;
-  font-weight:750;
-}
-
-.sauceGray {
-  background:#474C55;
-  color:#EDEDEF;
-  font-weight:750;
-  padding:.2rem;
-}
-
-.sauceGreen {
-  background:#009245;
-  color:white;
-  font-weight:750;
-  padding:.2rem;
-}
-
 .sauceMint {
   background:#01c3a5;
   color:#000000;
@@ -440,13 +420,6 @@ h3, .h3 {
   font-weight:750;
 }
 
-.preview {
-  background:#01c3a5;
-  color: #FFFFFF;
-  padding:.2rem;
-  font-weight:600;
-}
-
 .sauceOrange {
   background:#ec5c26;
   color:#FFFFFF;
@@ -457,13 +430,6 @@ h3, .h3 {
 .sauceLime {
   background:#98cb3c;
   color:#000000;
-  padding:.2rem;
-  font-weight:750;
-}
-
-.saucePurple {
-  background:#7868a6;
-  color:#FFFFFF;
   padding:.2rem;
   font-weight:750;
 }
@@ -505,6 +471,11 @@ h3, .h3 {
   transform:translate(0, 4px);
 }
 
+/* OpenAPI styles */
+
+/* .redocusaurus h2,h3,h4 {
+  color: #E2231A;;
+} */
 
 /* Get Started button styles */
 #__docusaurus > div.main-wrapper > header > div > div > a {
