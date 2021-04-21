@@ -9,7 +9,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-Use the Insights REST API methods to retrieve analytics data about your Sauce Labs jobs that you can then use to populate a dashboard that is meaningful for your organization.
+Use the Insights API methods to retrieve analytics data about your Sauce Labs jobs that you can then use to populate a dashboard that is meaningful for your organization.
+
+Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ### Get Test Results
 

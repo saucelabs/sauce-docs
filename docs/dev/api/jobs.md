@@ -8,9 +8,11 @@ description: View and manage jobs and builds running on Sauce Labs.
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Jobs REST API methods allows you to review and edit the metadata associated with the tests you are running on Sauce Labs. You can also start and stop tests, delete jobs, and filter lists of jobs by a variety of attributes, such as owner, time period, build, or environment.
+The Jobs API methods allow you to review and edit the metadata associated with the tests you are running on Sauce Labs. You can also stop tests, delete jobs, and filter lists of jobs by a variety of attributes, such as owner, time period, build, or environment.
 
 > **NOTE:** These calls are specific to jobs running in simulation. For methods related to Real Device testing, see [Real Device API Methods](rdc).
+
+Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ## Jobs Methods
 
@@ -1131,11 +1133,6 @@ curl --location --request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1
 </details>
 
 ---
-
-
-`POST	 /rest/v1/<USERNAME>/js-tests`
-
-`POST	 /rest/v1/<USERNAME>/js-tests/status`
 
 ## Builds Methods
 

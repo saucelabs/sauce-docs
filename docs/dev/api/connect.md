@@ -5,11 +5,16 @@ sidebar_label: Sauce Connect
 description: Retrieve information about or close your Sauce Connect tunnels.
 ---
 
-Use the Sauce Connect REST API methods to monitor and clean up your active proxy tunnels.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Use the Sauce Connect API methods to monitor and clean up your active proxy tunnels.
 
 To download Sauce Connect, see [Sauce Connect Installation](secure-connections/sauce-connect/installation.md).
 
-## Get Tunnels for a User
+Refer to [Getting Started](/dev/api) for Authentication and Server information.
+
+### Get Tunnels for a User
 
 <details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/tunnels</code></summary>
 <p/>
@@ -27,12 +32,33 @@ Returns a list of IDs for any currently running tunnels launched by the specifie
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://saucelabs.com/rest/v1/jim.smith/tunnels' \
+curl --location --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jim.smith/tunnels' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Basic USERNAME:ACCESS_KEY' \
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 
@@ -60,7 +86,7 @@ curl --location --request GET 'https://saucelabs.com/rest/v1/jim.smith/tunnels' 
 
 ---
 
-## Get Tunnel Information
+### Get Tunnel Information
 
 <details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/tunnels/&#123;tunnel_id&#125;</code></summary>
 <p/>
@@ -84,12 +110,34 @@ Returns information about the specified tunnel.
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
+curl --location --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Basic USERNAME:ACCESS_KEY' \
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+```
+
+</TabItem>
+</Tabs>
+
 
 #### Responses
 
@@ -139,7 +187,7 @@ curl --location --request GET 'https://saucelabs.com/rest/v1/jim.smith/tunnels/2
 
 ---
 
-## Get Current Jobs for a Tunnel
+### Get Current Jobs for a Tunnel
 
 <details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/tunnels/&#123;tunnel_id&#125;/num_jobs</code></summary>
 <p/>
@@ -163,12 +211,34 @@ Returns the number of currently running jobs for the specified tunnel.
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8/num_jobs' \
+curl --location --request GET 'https://apip.us-west-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8/num_jobs' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Basic USERNAME:ACCESS_KEY' \
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request GET 'https://apip.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8/num_jobs' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+```
+
+</TabItem>
+</Tabs>
+
 
 #### Responses
 
@@ -197,7 +267,7 @@ curl --location --request GET 'https://saucelabs.com/rest/v1/jim.smith/tunnels/2
 
 ---
 
-## Stop a Tunnel
+### Stop a Tunnel
 
 <details><summary><span className="api delete">DELETE</span> <code>/rest/v1/&#123;username&#125;/tunnels/&#123;tunnel_id&#125;</code></summary>
 <p/>
@@ -221,12 +291,33 @@ Shuts down the specified tunnel.
   </tbody>
 </table>
 
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request DELETE 'https://saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
+curl --location --request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Basic USERNAME:ACCESS_KEY' \
 ```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl --location --request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic USERNAME:ACCESS_KEY' \
+```
+
+</TabItem>
+</Tabs>
 
 #### Responses
 

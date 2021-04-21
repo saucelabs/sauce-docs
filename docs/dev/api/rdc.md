@@ -8,7 +8,9 @@ description: Retrieve information related to real device availability, device/pl
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Use the Real Device Cloud (RDC) REST API methods to look up device types and availability in your data center and view current activity on those devices.
+Use the Real Device Cloud (RDC) API methods to look up device types and availability in your data center and view current activity on those devices.
+
+Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ### Get Devices
 

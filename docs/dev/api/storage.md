@@ -9,7 +9,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-Use the Storage REST API methods to upload and manage your application and any file dependencies required for testing.
+Use the Storage API methods to upload and manage your application and any file dependencies required for testing.
+
+Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ### Get App Storage Files
 
@@ -377,7 +379,34 @@ curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v1/storage
 
 ```jsx title="Sample Response"
 {
-Cannot get this request to run.
+   "item":{
+      "id":"379c301a-199c-4b40-ad45-4a95e5f30a3a",
+      "owner":{
+         "id":"286c0fbb0cb644c4a012d505b8a0a1ac",
+         "org_id":"c064890612424e34a12fca98ce4f32c6"
+      },
+      "name":"Android.SauceLabs.Mobile.Sample.app.2.3.0.apk",
+      "upload_timestamp":1593450387,
+      "etag":"0cf189b1c4c17a56656ada5e2d75cd51",
+      "kind":"android",
+      "group_id":2807,
+      "metadata":{
+         "identifier":"com.swaglabsmobileapp",
+         "name":"Swag Labs Mobile App",
+         "version":"2.3.0",
+         "icon":"<long-serial-number>",
+         "version_code":13,
+         "min_sdk":16,
+         "target_sdk":28
+      },
+      "access":{
+         "team_ids":[
+            "a15e40997f2b44ee9615d9803cb4b439"
+         ],
+         "org_ids":[
+         ]
+      }
+   }
 }
 ```
 </details>

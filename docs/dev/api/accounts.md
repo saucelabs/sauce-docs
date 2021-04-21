@@ -8,7 +8,7 @@ description: Manage all aspects of your Sauce Labs organization, team, and membe
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Sauce Labs REST API exposes the following methods related to individual and team account configuration and monitoring.
+The Accounts API exposes the following methods related to individual and team account configuration and monitoring.
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 

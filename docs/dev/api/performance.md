@@ -8,7 +8,9 @@ description: View and  manage front-end performance test data.
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Performance REST API methods allow you to manage your front-end performance testing as programmatic data so you can represent them in a custom dashboard that is meaningful for your organization.
+The Performance API methods allow you to manage your front-end performance testing as programmatic data so you can represent them in a custom dashboard that is meaningful for your organization.
+
+Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 
 ### Get Performance Test Results

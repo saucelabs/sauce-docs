@@ -8,7 +8,9 @@ description: Retrieve information about the Sauce Labs supported automation envi
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Platform REST APIs provide insight into the current state of the Sauce Labs platform in order to either validate your calls in advance or troubleshoot unexpected results.
+The Platform APIs provide insight into the current state of the Sauce Labs platform in order to either validate your calls in advance or troubleshoot unexpected results.
+
+Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ### Get Sauce Labs TestStatus
 
