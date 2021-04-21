@@ -1,7 +1,7 @@
 ---
 id: virtual-usb
 title: Virtual USB Testing on Real Mobile Devices
-sidebar_label: Virtual USB
+sidebar_label: Virtual USB (RDC)
 ---
 
 export const Highlight = ({children, color}) => ( <span style={{
@@ -45,7 +45,7 @@ Virtual USB (vUSB) is a mobile app debugging tool that simulates connecting a Sa
 ## Virtual USB for Sauce Labs
 
 :::tip CLI Reference
-See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB test configuration commands and options. You can also view it in the vUSB client by running `java -jar vusb-client.jar --help`.
+See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB test configuration commands and options. You can also view them directly in the vUSB client by running `java -jar virtual-usb-client.jar --help`.
 :::
 
 ### Download Client
@@ -144,6 +144,8 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
   java -jar virtual-usb-client.jar connect --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 ---username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
   ```
 
+<br/>
+
 7. If your vUSB test session launch is successful, you'll see a success message:
   <Tabs
     defaultValue="Android"
@@ -175,7 +177,7 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
 
   Make sure you're logged into your Sauce Labs account and click the link above. After doing so, you'll see: 1) an Apple system notification popup, where you'll need to provide Touch ID or password authentication; and 2) information returned in your server logs similar to the example below.
 
-  ```java
+  ```bash
   11:13:12.347 [KQueueEventLoopGroup-2-2] INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - The socket at /var/run/usbmuxd needs to be moved
   11:13:12.347 [KQueueEventLoopGroup-2-2] INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - This will require administrator privileges!
   ```
@@ -184,6 +186,7 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
 
    </TabItem>
    </Tabs>
+<br/>   
 
 8. **Android only**: Link ADB to your test session device by running `adb connect`, followed by the port number:
 
@@ -195,6 +198,12 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
 ### Test and Debug
 
 9. Now, you can debug and run tests on your app. For guidance and ideas, see the [Example Use Cases](https://docs.saucelabs.com/mobile-apps/virtual-usb#example-use-cases).
+
+:::caution **Known iOS Limitation**
+If you're starting a remote debug session with Xcode, and connecting to an iOS device for the first time, please note that your vUSB session may be very slow to start.
+* **Cause**: Xcode is attempting to download the iOS device symbols over the vUSB tunnel, causing the lag.
+* **What to Do**: Go to your command terminal window where you started the server, where your log is running. You should see a log message that indicating that symbols are being downloaded. Continue to monitor this until it's complete, then resume testing.
+:::
 
 ### Close Test
 
@@ -225,20 +234,15 @@ java -jar virtual-usb-client.jar disconnect --sessionId 37D274BC3A65A34BB3DA4DDF
 
 Below are instructions on how to launch a vUSB real device session in TestObject, our legacy real device platform.
 
-### Known Limitations
+:::caution Known iOS Limitations
+<span className="sauceDBlue">Beta</span>
 
-#### **Android**
+In TestObject, vUSB for iOS is available in Beta. Contact your CSM to request access. Here are its known limitations:
 
-The `adb-reverse` command is not supported.
+You'll need to exit Xcode/Safari before connecting to an iOS vUSB session (or relaunch it after connecting). Otherwise, the device won't show up.
 
-#### **iOS**
-<span className="sauceDBlue">BETA</span>
-
-In TestObject, vUSB for iOS is available in Beta. Contact your Customer Success Manager to request access. Here are the known limitations:
-
-* You'll need to exit Xcode/Safari before connecting to an iOS vUSB session (or relaunch it after connecting). Otherwise, the device won't show up.
-
-* Devices attached to the host locally are not useable while using iOS vUSB. When the server is shut down, it asks again for permissions to put the original `/var/run/usbmuxd` socket back into its place, and Xcode/Safari have to be relaunched to show the local devices.
+Devices attached to the host locally are not useable while using iOS vUSB. When the server is shut down, it asks again for permissions to put the original `/var/run/usbmuxd` socket back into its place, and Xcode/Safari have to be relaunched to show the local devices.
+:::
 
 The below instructions apply to Android only.
 
@@ -309,6 +313,10 @@ The below instructions apply to Android only.
 ### Test and Debug
 
 9. Now, you can debug and run tests on your app. For guidance and ideas, see the [Example Use Cases](https://docs.saucelabs.com/mobile-apps/virtual-usb#example-use-cases).
+
+:::caution Known Android Limitation
+The `adb-reverse` command is not supported.
+:::
 
 ### Close Test
 

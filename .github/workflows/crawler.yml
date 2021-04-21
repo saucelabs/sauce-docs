@@ -1,14 +1,9 @@
 name: Update Search Index
 
 on:
-  pull_request:
-  push:
-    branches:
-      - 'master'
-    paths:
-      - 'docs/**'
-      - '.docsearch/**'
-      - '.github/**'
+  schedule:
+    - cron: '*/59 * * * *'
+  workflow_dispatch:
 
 jobs:
   run-docsearch:

@@ -1,6 +1,6 @@
 ---
 id: api
-title: About the Sauce REST API
+title: About the Sauce REST APIs
 sidebar_label: Getting Started
 description: Introduction to basic principles of authentication, request/response structure, response codes and errors.
 ---
@@ -12,24 +12,25 @@ import TabItem from '@theme/TabItem';
 Sauce Labs exposes a set of REST API endpoints that allow you to perform operations, manage accounts, and retrieve data programmatically so you can use the Sauce platform in the way that best suits your business logic.
 
 :::tip
-You cab check the current accessibility of any Sauce Labs system on the [Sauce Labs System Status](https://status.saucelabs.com/) page.
+You can check the current accessibility of any Sauce Labs system on the [Sauce Labs System Status](https://status.saucelabs.com/) page.
 :::
 
 
-## Accessing the API
+## Accessing the APIs
 
-The Sauce Labs REST API is organized around REST and each endpoint is structured as a resource-oriented URL that accepts inline query parameters and form-encoded request bodies, then returns JSON-encoded responses.
+The Sauce Labs APIs are organized around REST and each endpoint is structured as a resource-oriented URL that accepts inline query parameters and form-encoded request bodies, then returns JSON-encoded responses.
 
 Each endpoint is constructed from a `{base-url}` prefix that is based on the data center associated with the Sauce Labs account for which the request is relevant, plus the latests version for the given method. The following table provide the base URLs for each data center.
 
 |Data Center|API Base URL|
 |---|-------|
-|US|`api.us-west-1.saucelabs.com/`|
-|Europe|`api.eu-central-1.saucelabs.com/`|
+|None|`https://saucelabs.com/`|
+|US|`https://api.us-west-1.saucelabs.com/`|
+|Europe|`https://api.eu-central-1.saucelabs.com/`|
 
 ### Versioning
 
-The API is versioned by URL, each of which may be in a different stage of release. The currently published version of each endpoint is reflected in the base URL, as demonstrated in the following two endpoints:
+The API is versioned by URL, each of which may be in a different stage of release. The currently published version of each endpoint is reflected in the URL itself, as demonstrated in the following two endpoints:
 
 * `https://api.us-west-1.saucelabs.com/rest/v1.2/users/<USERNAME>/concurrency`
 * `https://api.us-west-1.saucelabs.com/rest/v1/users/<USERNAME>/activity`
