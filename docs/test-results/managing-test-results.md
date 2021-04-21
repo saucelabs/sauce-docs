@@ -9,9 +9,13 @@ sidebar_label: Managing Test Results
 If you've created a search that you want to use in the future, you can save it by adding it to your favorites.
 
 1. After you've built your search from the filters or written it in the Search text field on the Archives page, click the Star icon next to the text field to save it.
-2. Click the expand icon next to the Star to view your favorited searches. You can select a favorite search to run it, or remove it by clicking the Delete icon.  
 
-ArchivesUIfavorites.png
+<img src={useBaseUrl('static/img/test-results/test-results-archive-save.png')} alt="Test results archive - Save a search" width="650"/>
+
+2. Click the expand icon next to the star to view your favorited searches. You can select a favorite search to run it, or remove it by clicking the Delete icon.  
+
+<img src={useBaseUrl('static/img/test-results/archive-saved-search.png')} alt="Saved archive search" width="650"/>
+
 
 ## Deleting Test and Build Results
 
@@ -45,12 +49,7 @@ Once the results have been logged to the page, you have a couple options for fil
 | Filter | Description |
 | :--- | :--- |
 | Owner | The owner filter allows you to view test results for: * Builds or tests that you have run * All the builds or tests for your organization * Builds or tests run run by one of your selected sub-accounts |
-| Status | The status filter lets you filter tests and builds by:
-Passed
-Failed
-Complete (the test completed but was not assigned a Pass/Fail status)
-Running
-Error |
+| Status | The status filter lets you filter tests and builds by: <ul><li>Passed</li><li>Failed</li><li>Complete (the test completed but was not assigned a Pass/Fail status)</li><li>Running</li><li>Error</li></ul> |
 
 ## Search Fields and Operators
 
@@ -58,52 +57,12 @@ You can use any of these filters singly or or combination to search through the 
 
 | Filter | Description | Example |
 | :--- | :--- | :--- |
-
-Text	Search for any mention of the string across test details.	text: Appium
-Name
-
-Search for full or partial test name.
-
-name: SauceTest
-
-Platform
-
-Search for tests that ran on one or multiple operating systems. This field only accepts operating systems currently supported by Sauce Labs.
-
-platform:("OS X 10.10" "Windows 8.1")
-Browser
-
-Search for tests that ran on one or multiple browsers. Only accepts browsers currently supported by Sauce Labs.
-
-browser:("Google Chrome 43" "Internet Explorer 11")
-Date
-
-Search for tests that ran on a specific date or over a specified range. Dates should be in YYYY-MM-DD format.
-
-date:[2014-05-05 TO 2015-05-05]
-
-date: [2014-05-05 TO *]
-
-Status
-
-Search for tests based on their status. Currently there are four possible states: failed, passed, complete, error.
-
-status: failed
-
-Build
-
-Search for tests that belong to a specific build.
-
-build:main and browser:"Internet Explorer 11"
-
-Tag
-
-Search for tests that have one or multiple tags.
-
-tag: Jenkins
-
-Owner
-
-Search for tests that were created by a specific user.
-
-owner: admin
+| Text | Search for any mention of the string across test details. | `text: Appium` |
+| Name | Search for full or partial test name. | `name: SauceTest` |
+| Platform | Search for tests that ran on one or multiple operating systems. This field only accepts operating systems currently supported by Sauce Labs. | `platform:("OS X 10.10" "Windows 8.1")` |
+| Browser | Search for tests that ran on one or multiple browsers. Only accepts browsers currently supported by Sauce Labs. | `browser:("Google Chrome 43" "Internet Explorer 11")` |
+| Date | Search for tests that ran on a specific date or over a specified range. Dates should be in YYYY-MM-DD format. | `date:[2014-05-05 TO 2015-05-05]`<br/>`date: [2014-05-05 TO *]` |
+| Status | Search for tests based on their status. Currently there are four possible states: failed, passed, complete, error. | `status: failed` |
+| Build | Search for tests that belong to a specific build. | `build:main and browser:"Internet Explorer 11"` |
+| Tag | Search for tests that have one or multiple tags. | `tag: Jenkins` |
+| Owner | Search for tests that were created by a specific user. | `owner: admin` |
