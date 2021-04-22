@@ -153,7 +153,7 @@ When launching a Sauce Connect Proxy tunnel for automated web and mobile app tes
 ### Example: Automated Test with Sauce Connect Proxy Tunnel Identifiers
 Below is an example of how to designate tunnels based on the `tunnelIdentifier` option so that it works properly with an automated test.
 
-Launch a new tunnel on the `SC_HOST` with the following flags, per the [Sauce Connect Proxy Command Line Reference](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide):
+Launch a new tunnel on the `SC_HOST` with the following flags, per the [Sauce Connect Proxy Command Line Reference](/dev/cli/sauce-connect-proxy):
 
 <Tabs
   defaultValue="MacOS/Linux Example"
