@@ -29,7 +29,7 @@ Sauce Labs recommends setting all of the values above as environment variables t
 
 ## Validating Your Basic Setup
 Once you've downloaded Sauce Connect Proxy, you can validate that it works on your network by completing the following steps:
-1. Launch a tunnel with the following flags, per the [Sauce Connect Proxy Command Line Reference](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide):
+1. Launch a tunnel with the following flags, per the [Sauce Connect Proxy Command Line Reference](/dev/cli/sauce-connect-proxy):
 
 ```
 $ bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i TUNNEL_ID'
