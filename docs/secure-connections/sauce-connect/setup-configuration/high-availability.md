@@ -35,7 +35,7 @@ In this diagram, we see a setup that allows for multiple network routes when rea
 <img src={useBaseUrl('img/sauce-connect/scp-mult-routes.png')} alt="Multiple network routes to Site Under Test (SUT)" width="400"/>
 
 ## High Availability Tunnel Settings and Commands
-You can customize your High Availability tests using these options below. For a full list of High Availability commands and other Sauce Connect Proxy options, see the [Sauce Connect Proxy Command Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide).
+You can customize your High Availability tests using these options below. For a full list of High Availability commands and other Sauce Connect Proxy options, see the [Sauce Connect Proxy Command Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
 
 ### Tunnel Pools
 Exclusive to our High Availability Sauce Connect Proxy Setup, you can launch multiple tunnels as a tunnel pool that's treated as a single tunnel. Be mindful that each tunnel used in a pool will count toward your tunnel concurrency limit.
