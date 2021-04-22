@@ -94,6 +94,7 @@ Browser support or each framework is based on the Sauce Labs docker images provi
 
 |Cypress Version|Supported Browsers|
 |----|----|
+|7.1.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.0.3)|
 |6.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v6.0.1)|
 |5.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v5.9.1)|
 
@@ -102,6 +103,7 @@ Browser support or each framework is based on the Sauce Labs docker images provi
 
 |Playwright Version|Supported Browsers|
 |-----|----|
+|1.10.0|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.10.0)|
 |1.7.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.7.5)|
 
 </TabItem>
@@ -119,6 +121,7 @@ Browser support or each framework is based on the Sauce Labs docker images provi
 
 |TestCafe Version|Supported Browsers|
 |----|----|
+|1.14.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.6.1)|
 |1.11.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.5.0)|
 |1.10.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.2.6)|
 
