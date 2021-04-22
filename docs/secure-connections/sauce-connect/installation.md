@@ -1,6 +1,6 @@
 ---
 id: installation
-title: Sauce Connect Installation
+title: Installation
 sidebar_label: Installation
 ---
 
