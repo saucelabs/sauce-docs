@@ -47,7 +47,7 @@ https://github.com/saucelabs/saucectl-testcafe-example/blob/master/.sauce/config
 ```
 
 ```yaml reference
-https://github.com/saucelabs/saucectl-testcafe-example/blob/vk-add-ios/.sauce/config_ios.yml#L20-L33
+https://github.com/saucelabs/saucectl-testcafe-example/blob/master/.sauce/config.yml#L39-L52
 ```
 
 ### `name`
