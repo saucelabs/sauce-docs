@@ -146,7 +146,7 @@ final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.us-west
 
 </TabItem>
 
-<TabItem value="Java Snippet: Driver Setup for EU Data Center">
+<TabItem value="EU Data Center">
 
 ```
 final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.eu-central-1.saucelabs.com/wd/hub"), capabilities);
