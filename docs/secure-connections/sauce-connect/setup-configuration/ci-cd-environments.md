@@ -21,7 +21,7 @@ Note that this plug-in also has a set of environment variables that are specific
 ### More Information
 For information on installing and configuring the Sauce Labs plug-in for Bamboo, see the following sections:
 
-* [Installing and Configuring the Sauce Labs Plugin for Bamboo](https://wiki.saucelabs.com/display/DOCS/Installing+and+Configuring+the+Sauce+Labs+Plugin+for+Bamboo)
+* [Installing and Configuring the Sauce Labs Plugin for Bamboo](https://docs.saucelabs.com/ci/bamboo/index.html#installing-the-plugin)
 * [Sauce OnDemand for Bamboo](https://marketplace.atlassian.com/apps/30134/sauce-ondemand-for-bamboo)
 * [Introducing Bamboo Sauce](https://saucelabs.com/blog/introducing-bamboo-sauce-)
 
