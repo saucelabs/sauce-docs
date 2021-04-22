@@ -52,8 +52,8 @@ Sauce Connect Proxy can have multiple tunnels running simultaneously, as describ
 
 1. Start Sauce Command Proxy from the command line, providing an `-i (--tunnel-identifer)` to start a new tunnel with that identifier (see [Sauce Connect Proxy Command Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide) for more information).
 
-`bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x $SAUCE_DC_ENDPOINT -i $TUNNEL_ID
-`
+```bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x $SAUCE_DC_ENDPOINT -i $TUNNEL_ID
+```
 
 `SAUCE_RDC_USERNAME` refers to your Sauce Labs username, where:
 
@@ -63,8 +63,8 @@ Sauce Connect Proxy can have multiple tunnels running simultaneously, as describ
 
 So an example would look like this:
 
-`$ /bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x 'https://us-west-1.saucelabs.com/rest/v1' -i rdc-on-sauce-tunnel-us
-`
+```$ /bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x 'https://us-west-1.saucelabs.com/rest/v1' -i rdc-on-sauce-tunnel-us
+```
 
 2. In your device testing script, specify the tunnel name with `tunnelIdentifier` in your desired capabilities, as shown in this Java example:
 
