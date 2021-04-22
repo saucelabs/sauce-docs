@@ -138,7 +138,7 @@ To ensure you're testing against the correct data center, you'll need to add the
     {label: 'Java Snippet: Driver Setup for EU Data Center', value: 'Java Snippet: Driver Setup for EU Data Center'},
   ]}>
 
-<TabItem value="Java Snippet: Driver Setup for US Data Center">
+<TabItem value="US Data Center">
 
 ```
 final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub"), capabilities);
