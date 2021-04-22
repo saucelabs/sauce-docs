@@ -27,7 +27,7 @@ __Type__: *string*
 
 __Example__:
 ```yaml
-kind: < cypress | playwright | testcafe | puppeteer >
+kind: < cypress | playwright | testcafe | puppeteer | espresso >
 ```
 
 ## `sauce`
@@ -176,6 +176,29 @@ __Example__:
 
 ⚠️ `registry` configuration is only supported in latest cypress docker image. No other frameworks, or Sauce Labs cloud.
 
+## `defaults`
+
+__Description__: Field for defining default settings for the project.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+defaults:
+  - mode: "sauce"
+```
+
+### `mode`
+
+__Description__: Specifies whether tests in the project will run on `docker` or `sauce`.
+
+__Type__: *string*
+
+__Example__:
+```yaml
+  mode: "sauce"
+```
+
 ## `suites`
 
 __Description__: Field for defining test suite details such as the suite `name`, desired `browser`
@@ -263,6 +286,17 @@ __Example__:
     screenResolution: "1920x1080"
 ```
 
+### `mode`
+
+__Description__: Allows you to specify whether the individual suite will run on `docker` or `sauce`, potentially overriding the default project mode setting.
+
+__Type__: *string*
+
+__Example__:
+```yaml
+  mode: "sauce"
+```
+
 > For all available resolutions please visit [this documentation page](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
 
 ## Framework Syntax Reference
@@ -270,3 +304,4 @@ __Example__:
 * [Cypress](/testrunner-toolkit/configuration/cypress)
 * [Playwright](/testrunner-toolkit/configuration/playwright)
 * [TestCafe](/testrunner-toolkit/configuration/testcafe)
+* [Espresso](/testrunner-toolkit/configuration/espresso)

@@ -1,28 +1,116 @@
 ---
 id: yaml-config
-title: Sauce Runner YAML File Configuration
+title: Sauce Runner for Real Devices YAML File Configuration
 sidebar_label: YAML Config File
 ---
 
-This topic outlines the parameters needed to set up your Espresso and XCUITest YAML configuration as an alternative to using the [Sauce Runner CLI tool](/dev/cli/espresso-xcuitest).
+export const Highlight = ({children, color}) => ( <span style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>{children}</span> );
 
-## Setup
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-1. Add the `config` command to your test script.
-2. The `config` command only accepts two parameters: `--path <your path to config.yml>` and `--accessKey <your_accessKey>`.
+<p> <Highlight color="#013a70">Real Devices Only</Highlight> </p>    
 
-```java
-JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar config /
---path <path to config.yml> --apikey <apikey>
-```
+As an alternative to setting up real device tests using the [Sauce Runner for Real Devices CLI](/dev/cli/espresso-xcuitest/real-devices.md), you can also create a runner YAML configuration file. This topic outlines the YAML-specific parameters needed to set up your Espresso and XCUITest tests.
 
-:::info
-CLI options are not compatible with YAML config files. Once you pass the `config` YAML command to the runner, it will prohibit you from using all command line configuration options except `--path` and `--accessKey`.
+:::note
+All examples in this page assume knowledge of [Sauce Runner General Usage](/dev/cli/espresso-xcuitest.md). Please review before proceeding.
 :::
 
-## Device Allocation
+## Required
 
-### Minimal Configuration
+The below flags are required when writing your YAML file.
+
+### `app`
+
+__Description__: the path to the `*.ipa` or `*.apk` file of the app under test, or the ID number of an already uploaded app. In your command line, refer to the location where you have downloaded the <code>runner.jar</code> file and run the command from the folder from where you downloaded the runner.
+
+__Example__:
+
+```yaml
+app: ExampleTestApp.ipa
+```
+
+### `test`
+
+__Description__: the path to the `*.ipa` or `*.apk` file of the test.
+
+__Examples__:
+
+```yaml
+test: ExampleTestApp-Runner.ipa
+```
+
+### `--datacenter`
+
+__Description__: specifies the Data Center to use in your tests. Possible values: `US` or `EU`.
+
+__Example__:
+
+```yaml
+- datacenter: US
+```
+
+**Basic Example (minimum required options only)**
+
+Minimum configuration example needed to run a test.
+
+<Tabs
+  defaultValue="Espresso"
+  values={[
+    {label: 'Espresso', value: 'Espresso'},
+    {label: 'XCUITest', value: 'XCUITest'},
+  ]}>
+
+<TabItem value="Espresso">
+
+```yaml reference
+https://github.com/saucelabs-training/demo-espresso/blob/master/real-devices/runner-ex1.yml#L8-L29
+```
+
+</TabItem>
+<TabItem value="XCUITest">
+
+```yaml reference
+https://github.com/saucelabs-training/demo-xcuitest/blob/master/real-devices/runner-ex1.yml#L8-L29
+```
+
+</TabItem>
+</Tabs>
+
+
+:::tip
+Go to our [GitHub repository](https://github.com/saucelabs-training/demo-xcuitest/tree/master/real-devices) for example scripts, plus demo apps and tests.
+:::
+
+## Device Allocation (Optional)
+
+Here are some additional options you can use to configure your YAML file.
+
+### `device`
+
+__Description__: For static allocation of a device, provide the ID for the type of device to use in your tests, such as `iPhone_5_real`.
+
+To find device ID numbers, go to **Live** > **Mobile-App** > **Choose device** > Search for the device you want to use > **Details** > See ID in device description. For more information, see the examples under `--devices`.
+
+:::caution Default Device Allocation
+If you don't specify a `--device`/`--devices` for your test, one is assigned to your tests based on the AUT (application under test) platform type.
+:::
+
+__Example__:
+
+```yaml
+- datacenter: US
+  device: iPhone_11_13_5_real_us
+```
+
+**Minimal Configuration**:
 
 Defines a list of devices on which the tests should be executed. Only specify a DC (either `EU` or `US`).
 
@@ -31,7 +119,7 @@ devices:
 - datacenter: EU
 ```
 
-### Static Allocation
+**Static Allocation**:
 
 Specify a device descriptor for static allocation, for example `iPhone_8_real_us`.
 
@@ -41,8 +129,7 @@ devices:
   device: iPhone_8_real_us
 ```
 
-
-### Dynamic Allocation
+**Dynamic Allocation**:
 
 Specify a device name or regex for dynamic allocation (e.g.,`iPhone 5`, `iPad.*`).
 
@@ -61,7 +148,160 @@ devices:
   privateDevicesOnly: false
 ```
 
-## Test Run Specification
+### `devices`
+
+__Description__: the list of devices, allocated dynamically or through static description of the device ID, to use in your tests. With the `--devices` option, you can configure Sauce Runner for Real Devices to run tests in parallel across multiple devices using both static and dynamic allocation. As an option, you can run a select set of tests against a specific device using the `--testsToRun` command.
+
+__Examples__:
+
+```yaml
+devices:
+- datacenter: US
+  device: iPhone_11_13_5_real_us
+  device: iPhone_5
+```
+
+### `testname`
+
+__Description__: Set a custom test name to appear on the UI. Default is `Test`.
+
+__Examples__:
+
+```yaml
+devices:
+- datacenter: US
+  device: iPhone_11_13_5_real_us
+  testname: MyTestName
+```
+
+### `tunnelIdentifier`
+
+__Description__: If you are using Sauce Connect Proxy, provide the identifier of the tunnel you want to use.
+
+__Example__:
+
+```yaml
+tunnelIdentifier: <your-tunnel-name>
+```
+
+### `checkFrequency`
+
+__Description__: Interval in seconds to check test results. Default is `30`.
+
+__Example__:
+
+```yaml
+checkFrequency: 15
+```
+
+### `timeout`
+
+__Description__: sets your test timeout (unit = minutes). Test duration cannot exceed 60 minutes. Default value is `60`.
+
+__Example__:
+
+```yaml
+timeout: 10
+```
+
+### `xmlFolder`
+
+__Description__: specifies the folder for the JUnit XML output.
+
+__Example__:
+
+```yaml
+xmlFolder: ./tmp
+```
+
+### `url`
+
+__Description__: specifies the URL of an alternative REST endpoint to use. For a list of endpoints, see [Data Center Endpoints](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) for further details.
+
+__Example__:
+
+```yaml
+url: <rest-endpoint-url>
+```
+
+### `platformVersion`
+
+__Description__: specifies an operating system version to use for dynamic allocation of a device. For example, use `9` to allocate a device running major version 9 and arbitrary versions of the OS; use `9.3.3` for a specific minor version.
+
+__Example__:
+
+```yaml
+devices:
+- datacenter: US
+  platformVersion: 9.3.3
+```
+
+### `privateDevicesOnly`
+
+__Description__: if set, only private devices will be queried.
+
+__Example__:
+
+```yaml
+devices:
+- datacenter: US
+  privateDevicesOnly: true
+```
+
+### `phoneOnly`
+
+__Description__: if set, only phones will be queried.
+
+__Examples__:
+
+```yaml
+devices:
+- datacenter: US
+  phoneOnly: true
+```
+
+### `--tabletOnly`
+
+__Description__: if set, only tablets will be queried.
+
+__Example__:
+
+```yaml
+devices:
+- datacenter: US
+  tabletOnly: true
+```
+
+### `deviceNameQuery`
+
+__Description__: for dynamic allocation of a device, provide the device name you would like to dynamically allocate. For example, use iPhone.*Plus to allocate any iPhone Plus device.
+
+__Example__:
+
+```yaml
+devices:
+- datacenter: US
+  deviceNameQuery: iPhone 8.*
+```
+
+### `testsToRun`
+<p><small><Highlight color="#333333">xcuitest only</Highlight></small></p>
+
+__Description__: specifies the device name you would like to dynamically allocate for dynamic allocation of a device. For example, use iPhone.*Plus to allocate any iPhone Plus device. For more information, see the examples under `--devices`.
+
+__Example__: Execute all tests in `ClassA` and only `methodC` of `ClassB`.
+
+```yaml
+- datacenter: EU
+  testname: MyTestName4
+
+  testsToRun:
+  - testClass: ClassA
+  - testClass: ClassB
+    testMethod: methodC
+```
+
+## Test Run Specification (Optional)
 
 ### Run a Subset of Tests
 
@@ -75,3 +315,16 @@ devices:
   - testClass: SampleTestCase2
     testMethod: testItWorks
 ```
+
+## Executing Your YAML File
+
+1. Open a new command line terminal window.
+2. Add the `config` command, followed by the `--path <your path to your .yml file>` and `--accessKey <your Sauce access key>` parameters.
+
+```java
+java -jar runner.jar config --path ./MyFile.yml --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+```
+
+>**NOTE**: [Sauce Runner RDC CLI Options](dev/cli/espresso-xcuitest/real-devices) are not compatible with YAML-specific flags. Once you pass the `config` YAML command to the runner, you can only use `--path` and `--accessKey`.
+
+This will launch your test. To see your results, go to Sauce Labs > **Automated** > **Test Results** > **Real Devices**.

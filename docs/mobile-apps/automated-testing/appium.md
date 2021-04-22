@@ -8,8 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This page is intended to provide you with a quick overview of how Appium works to get started with mobile application testing. For full documentation of Appium, with more examples in popular scripting languages, check out the [Appium.io website](http://appium.io).
-
+This page is intended to provide you with a quick overview of how Appium works so that you can get started with mobile application testing.
 
 ## Overview
 Appium was originally developed by Dan Cueller as a way to take advantage of the UIAutomation framework for Apple iOS to run tests against native mobile applications. Using the same syntax as [Selenium](https://www.selenium.dev), it shares similarities with Selenium's ability to automate interaction with a website through a mobile browser. Although Appium can test websites on a mobile device, it is more commonly used for testing native and hybrid mobile applications for both iOS and Android.
@@ -29,36 +28,29 @@ Appium has a client-server architecture.
 
 >**NOTE**: Appium Desktop is currently unsupported by the Appium core team.
 
-## The Seven Basic Steps of Testing with Appium
+## Creating an Appium Test
 
-There are seven basic steps in creating an Appium test script for your application under test (AUT):
+There are the basic steps for creating an Appium test script for your app under test (AUT):
 
-1. [Set the location of the application (e.g., Sauce Storage, AWS, GitHub)](/mobile-apps/automated-testing/appium#1-locating-the-mobile-application).
-2. [Create an Appium driver instance which points to a running Appium server (e.g., the servers on Sauce Labs)](/mobile-apps/automated-testing/appium#2-creating-a-webdriver-instance).
-3. [Locate an element within the application (e.g., a login button or link)](/mobile-apps/automated-testing/appium#3-locating-application-elements).
-4. [Perform an action on the element (e.g., tap the login button)](/mobile-apps/automated-testing/appium#4-performing-actions-on-the-application-elements).
-5. [Anticipate the application response to the action (e.g., successfully logged in)](/mobile-apps/automated-testing/appium#5-anticipating-the-application-response).
-6. [Run tests and record test results. (e.g., log whether test passed, failed, or returned an error)](/mobile-apps/automated-testing/appium#6-running-tests-and-recording-results).
-7. [Conclude the test (e.g., shut down connection to Sauce Labs)](/mobile-apps/automated-testing/appium#7-concluding-the-tests).
+### 1. Set your app location (e.g., Sauce Storage, AWS, GitHub)
+When you write an Appium test script, the most basic component is the [DesiredCapabilities object](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365693). This sets the parameters of your test, such as the mobile platform and operating system you want to test against.
 
-
-
-### 1. Locating the Mobile Application
-When you write an Appium test script, the most basic component is the [DesiredCapabilities object](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365693), which sets the parameters of your test, such as the mobile platform and operating system you want to test against. Within that object, one of the [required capabilities](https://wiki.saucelabs.com/pages/viewpage.action?pageId=63475214) is Application Path, or the app desired capability. One of the advantages of the Appium architecture is that the application you want to test can be hosted anywhere, from a local path to any other web host on the network, since the Appium server will send the commands it receives from the client to any application path you specify. Practically, you have three options. 
+Within that object, one of the [required capabilities](https://wiki.saucelabs.com/pages/viewpage.action?pageId=63475214) is Application Path, or the app desired capability. One of the advantages of the Appium architecture is that the application you want to test can be hosted anywhere, from a local path to any other web host on the network, since the Appium server will send the commands it receives from the client to any application path you specify. Practically, you have three options. 
 
 See [Application Storage](/mobile-apps/app-storage.md).
 
 <br/>
 
-### 2. Creating a WebDriver Instance
-The WebDriver instance is the starting point for all uses of the Mobile JSON Wire Protocol.
+### 2. Create a WebDriver Instance
 
-You create an instance of the WebDriver interface using a constructor for either Android or iOS. For mobile native application tests, you set both the platform and browser to test against by setting the `browserName` desired capability. 
+Create an Appium driver instance which points to a running Appium server (e.g., the servers on Sauce Labs). The WebDriver instance is the starting point for all uses of the Mobile JSON Wire Protocol.
+
+You'll need to create an instance of the WebDriver interface using a constructor for either Android or iOS. For mobile native application tests, you set both the platform and browser to test against by setting the `browserName` desired capability. 
 
 Once you have created an instance of the WebDriver interface, you use this instance to invoke methods, such as tap and swipe, to access other interfaces used in basic test steps. You do so by assigning the instance to a variable when you create it, and by using that variable to invoke methods.
 
 #### WebDriver Examples
-These psuedo-code examples illustrate how to instantiate iOS and Android WebDriver objects in the various Appium language bindings.
+These pseudo-code examples illustrate how to instantiate iOS and Android WebDriver objects in the various Appium language bindings.
 
 
 <Tabs
@@ -176,7 +168,9 @@ var driver = new AndroidDriver<IWebElement>(new Uri(sauceURL));
 
 <br/>
 
-### 3. Locating Application Elements
+### 3. Locate App Elements
+
+Next, locate an element within your app (e.g., login button or link).
 In order to find elements in a mobile environment, Appium implements a number of locator strategies that are specific to, or adaptations for, the particulars of a mobile device. Three are available for both Android and iOS:
 
 <Tabs
@@ -190,7 +184,6 @@ In order to find elements in a mobile environment, Appium implements a number of
 
 <TabItem value="accessibility ID">
 
-#### accessibility ID
 The `accessibility ID` locator strategy is designed to read a unique identifier for a UI element. This has the benefit of not changing during localization or any other process that might change text. In addition, it can be an aid in creating cross-platform tests, if elements that are functionally the same have the same accessibility id.
 
 * For iOS, this is the accessibility identifier laid out by Apple [here](https://developer.apple.com/documentation/uikit/uiaccessibilityidentification).
@@ -208,8 +201,6 @@ driver.find_element_by_accessibility_id('my_accessibility_identifier')
 </TabItem>
 <TabItem value="class name">
 
-#### class name
-
 The `class name` strategy is a string representing a UI element on the current view.
 
 * For iOS it is the full name of a UIAutomation class, and will begin with UIA-, such as UIATextField for a text field. A full reference can be found here.
@@ -224,16 +215,12 @@ driver.find_element_by_class_name('android.widget.DatePicker')
 </TabItem>
 <TabItem value="id">
 
-#### id
-
 In the mobile environment, `id`s are not, as in WebDriver, CSS ids, but rather some form of native identifier.
 
 * For iOS the situation is complicated. Appium will first search for an accessibility id that matches. If there is none found, a string match will be attempted on the element labels. Finally, if the id passed in is a localization key, it will search the localized string.
 * For Android, the id is the element’s android:id.
 
-Example: Locate elements for username and password
-
-This example (Java) invokes the findElement method on the driver variable, using the name attribute to locate the username and password text input elements, and (optionally) the id attribute to locate the form element.
+This Java example (Java) below locate elements for username and password. It invokes the `findElement` method on the driver variable, using the name attribute to locate the username and password text input elements, and (optionally) the `id` attribute to locate the form element.
 
 ```java
 import org.openqa.selenium.By;
@@ -243,8 +230,6 @@ WebElement emailInput = driver.findElement(By.id("fbemail"));
 
 </TabItem>
 <TabItem value="xpath">
-
-#### xpath
 
 The `xpath` locator strategy is also available in the WebDriver protocol, and exposes the functionality of [XPath language](https://www.w3.org/TR/xpath20/) to locate elements within a mobile view. An XML representation of the view is created in Appium, and searches are made against that image.
 
@@ -258,40 +243,40 @@ driver.find_element_by_xpath('//UIAApplication[1]/UIAWindow[1]/UIATextField[1]')
 </TabItem>
 </Tabs>
 
-#### Best Practices for Identifying Application Elements
+#### **Best Practices for Identifying Application Elements**
 
-It is always best to use an element locator that uniquely identifies the element, like an id or an accessibility id. Class names and xpath are best used only when IDs are not available. Multiple elements can have the same class name, and using xpath searches through the entire markup to find the element, which can slow down your tests.
+We recommend using an element locator that uniquely identifies the element, like an `id` or an `accessibility id`. `Class name` and `xpath` are best used only when IDs are not available. Multiple elements can have the same class name, and using xpath searches through the entire markup to find the element, which can slow down your tests.
 
 <br/>
 
-### 4. Performing Actions on the Application Elements
+### 4. Perform Action(s) on the App Elements (e.g., tap the login button)
 
 Once you've identified the mobile elements you want your test to interact with, the next step is to interact with them. You perform an action on a mobile element by invoking an interaction method on an instance of the WebElement interface.
 
 The WebElement interface declares basic interaction methods including:
 
-* The `sendKeys` method, to enter text
-* The `clear` method, to clear entered text
-* The `submit` method, to submit a form 
+* The `sendKeys` method, to enter text.
+* The `clear` method, to clear entered text.
+* The `submit` method, to submit a form.
 
 #### Example
 
 This example first invokes the `sendKeys` method to enter text in the username and password elements, and then invokes the submit method to submit the login form. Enter a username and password:
 
-```sh
+```java
 emailInput.sendKeys("SauceIsAwesome@email.com");
 ```
 
 #### Submit the Form
 The submit method can be invoked either on any text input element on a form, or on the form element itself. Submit Text Element:
 
-```sh
+```java
 emailInput.submit();
 ```
 
 <br/>
 
-### 5. Anticipating the Application Response
+### 5. Anticipate App Response to the Action (e.g., successfully logged in)
 
 When you click a **Submit** button, you know that you have to wait a second or two for your action to reach the server, and for the server to respond, before you do anything else.
 
@@ -338,7 +323,8 @@ WebDriverWait wait = new WebDriverWait(driver, 10); WebElement messageElement = 
 
 <br/>
 
-### 6. Running Tests and Recording Results
+### 6. Run Tests and Record Your Results (e.g., log whether test passed, failed, or returned an error)
+
 Running tests and recording test results is the ultimate purpose of your test script: you run tests in an automated test script in order to evaluate function and performance in the AUT, without requiring human interaction.
 
 #### Test Frameworks
@@ -361,7 +347,7 @@ Recording of test results can be done in various ways, supported by the test fra
 
 The following example runs a test by asserting that the login response message is equal to an expected success message:
 
-```sh
+```java
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
@@ -373,7 +359,7 @@ assertEquals (message, successMsg);
 
 <br/>
 
-### 7. Concluding the Tests
+### 7. Concluding the Tests (i.e., shut down connection to Sauce Labs)
 
 #### The `quit` Method
 You conclude a test by invoking the _`quit` method_ on an instance of the WebDriver interface (e.g., on the driver variable). 
@@ -430,13 +416,10 @@ public class SampleSauceTest {
 }
 ```
 
-
 ## Additional Resources
 
-There are many additional resources available if you want to dive into more detail with Appium and mobile application testing.
-
-* [Appium Bootcamp by Dave Haeffner and Matthew Edwards](https://wiki.saucelabs.com/pages/viewpage.action?pageId=63480380)
-* [Official Appium website and documentation](http://appium.io)
+* [Appium Bootcamp](https://wiki.saucelabs.com/pages/viewpage.action?pageId=63480380), by Dave Haeffner and Matthew Edwards
+* [Official Appium website](http://appium.io): documentation and test script examples
 * [An Introduction to Appium](https://youtu.be/1J0aXDbjiUE?list=PLSIUOFhnxEiCODb8XQB-RUQ0RGNZ2yW7d), presented by Jonathan Lipps of Sauce Labs and the Appium project given at the 2013 Google Test Automation Conference
 * [A talk on the mobile JSON wire protocol](https://confengine.com/selenium-conf-2015/proposal/1319/the-mobile-json-wire-protocol), presented by Jonathan Lipps at the 2015 Selenium Conference
 * [An in-depth tutorial](http://stackshare.io/sauce-labs/mobile-automation-with-appium-and-sauce-labs), by Jonathan Lipps covering Appium basics using Ruby and Sauce Labs

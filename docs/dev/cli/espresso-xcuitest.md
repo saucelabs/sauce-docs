@@ -4,42 +4,80 @@ title: Sauce Runner CLI Introduction
 sidebar_label: General Usage
 ---
 
-This page describes the general usage for the [Sauce Runner tool](/mobile-apps/automated-testing/espresso-xcuitest), which is required to run Espresso and XCUITest automated mobile app tests on Sauce Labs real and virtual devices.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+This page describes the general usage for the [Sauce Runner tool](/mobile-apps/automated-testing/espresso-xcuitest), which is required to run Espresso and XCUITest automated mobile app tests on Sauce Labs real devices and virtual devices.
 
 ## What You'll Need
 
-Prerequisites for using Sauce Runner with virtual and real devices:
+Prerequisites for using Sauce Runner:
 
 * Your Sauce Labs account credentials.
 * Your mobile app file (both debug and non-debug app) and test file.
-* Have the [Sauce Runner for Real Devices](/mobile-apps/automated-testing/espresso-xcuitest/real-devices.md) or [Virtual Devices](/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices.md) downloaded and installed.
+* Have the Sauce Runner for Real Devices or Sauce Runner for Virtual Devices downloaded and installed.
 
-:::info YAML Configuration for Real Devices
-**REAL DEVICES ONLY**: As an alternative to using the command-line interface, you can create a YAML runner configuration file, which has its own separate command (`config`) and options. YAML flags are **not** compatible with CLI flags. For instructions on YAML file configuration, see [Sauce Runner YAML Configuration](/dev/cli/espresso-xcuitest/yaml-config) and [Sauce Runner for Real Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/espresso-xcuitest/real-devices#test-configuration-options).  
-:::
+## **Required Step**
 
-## General Usage
+Open your command line terminal, then do a `cd` to navigate to the specific folder location on your local machine where you downloaded and placed your Sauce Runner file (`runner.jar` for RDC or `sauce-runner-virtual` for VDC). You must run your Runner commands and options from this location in order for it to work.
 
-* **Required step**: open your command line terminal and navigate to your local directory location where you downloaded Sauce Runner (the `runner.jar` file).
-* Note that the command line structure for all Sauce Runner requests is as follows: `<main class> [options] [command] [command options]`
+## CLI Structure
+
+The command line structure for all Sauce Runner requests is as follows: `<main class> [options] [command] [command options]`
+
+<Tabs
+  defaultValue="Real Devices"
+  values={[
+    {label: 'Real Devices', value: 'Real Devices'},
+    {label: 'Virtual Devices', value: 'Virtual Devices'},
+  ]}>
+
+<TabItem value="Real Devices">
 
 ```java
-JAVA_HOME=$(/usr/libexec/java_home --version 8) java -jar runner.jar  <command> <command options>
+java -jar runner.jar  <command> <command options>
 ```
 
-:::tip
+</TabItem>
+<TabItem value="Virtual Devices">
 
-You can also view the Sauce Runner CLI directly in the command line terminal by running the `--help` flag.
 ```java
-java -jar runner.jar --help
+./sauce-runner-virtual <command> <command options>
 ```
-:::
 
+</TabItem>
+</Tabs>
 
 ## Use Cases
 
-* Run tests in parallel across multiple devices
-* Run subsets of tests against specific devices
-* Set the options as environment variables that can be referenced in your testing scripts
-* Pass options as command line parameters, which will take precedence over options set as environment variables
-* Create a [runner configuration file](/mobile-apps/automated-testing/espresso-xcuitest/real-devices.md) with the options and commands for running your tests
+* Run tests in parallel across multiple devices.
+* Run subsets of tests against specific devices.
+* Set the options as environment variables that can be referenced in your testing scripts.
+* Pass options as command line parameters, which will take precedence over options set as environment variables.
+* **Real Devices only**: Create a [YAML runner configuration file](dev/cli/espresso-xcuitest/yaml-config) with the commands and options for running your real device tests, as an alternative to configuring using the [CLI](dev/cli/espresso-xcuitest/real-devices).
+
+## `--help` Option
+
+You can view the Sauce Runner CLI directly in the command line terminal by running the `--help` flag.
+<Tabs
+  defaultValue="Real Devices"
+  values={[
+    {label: 'Real Devices', value: 'Real Devices'},
+    {label: 'Virtual Devices', value: 'Virtual Devices'},
+  ]}>
+
+<TabItem value="Real Devices">
+
+```java
+java -jar runner.jar  --help
+```
+
+</TabItem>
+<TabItem value="Virtual Devices">
+
+```java
+./sauce-runner-virtual --help
+```
+
+</TabItem>
+</Tabs>
