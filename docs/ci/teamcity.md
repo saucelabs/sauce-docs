@@ -9,7 +9,7 @@ description: Use our plugin to run your Sauce Labs tests within your TeamCity pi
 
 ## Installing the Plugin
 
-1. Download the [Sauce OnDemand Plugin for TeamCity](https://saucelabs.com/downloads/teamcity/release/com/saucelabs/teamcity/build/1.49/build-1.49.zip) ZIP file.
+1. Download the [Sauce OnDemand Plugin for TeamCity](https://saucelabs.com/downloads/teamcity/release/com/saucelabs/teamcity/build/1.50/build-1.50.zip) ZIP file.
 1. Copy the ZIP into your TeamCity `~/.BuildServer/plugins` directory and extract the files.
 1. Restart TeamCity.
 
