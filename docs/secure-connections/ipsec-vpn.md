@@ -42,7 +42,7 @@ This connection allows secure communication between the gateways, which provide 
 
 General guidelines for Sauce IPSec Proxy tunnels described in the table below ensure that your tunnel can support your desired number of concurrent sessions.
 
-**NOTE**: We set up all Sauce IPSec Proxy customers with a redundant, High Availability (HA) tunnel pool with two tunnel gateways.
+> **NOTE**: We set up all Sauce IPSec Proxy customers with a redundant, High Availability (HA) tunnel pool with two tunnel gateways.
 
 | Number of Concurrent Sessions | Recommended Number of IPSec Tunnels | Recommended Total Bandwidth
 | :-------------------------- | :--- | :---
