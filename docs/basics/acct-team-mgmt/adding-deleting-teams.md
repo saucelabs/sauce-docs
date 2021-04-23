@@ -6,14 +6,14 @@ sidebar_label: Adding and Deleting Teams
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><button class="badge-blue">ENTERPRISE PLANS ONLY</button></p>
+<p><button className="badge-blue">ENTERPRISE PLANS ONLY</button></p>
 If you are an organization admin, you can create and delete teams and assign concurrency limits to each team.
 
 ## Adding Teams
 
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.jpg')} alt="Team management navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
 
 2. On the **Teams** tab, click the blue plus sign.
 
