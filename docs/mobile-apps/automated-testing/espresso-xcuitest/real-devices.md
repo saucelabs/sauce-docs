@@ -81,7 +81,14 @@ If needed, you can also add optional parameters. See [Sauce Runner for Real Devi
 
 ### Using a YAML Config File
 
-Write your YAML file. See [Sauce Runner YAML Configuration](/dev/cli/espresso-xcuitest/yaml-config) for a list of available parameters.
+Below are some examples of how to write your YAML file. See [Sauce Runner YAML Configuration](/dev/cli/espresso-xcuitest/yaml-config) for a full list of available parameters. This YAML file example includes all required parameters for running Espresso and XCUITest test suite with Sauce Runner for Real Devices, plus the following options:
+  * `devices`: use this to specify a group of devices via dynamic allocation (using regex) and/or static allocation (regex plus exact device ID). See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
+  * `testsToRun` (XCUITest only): use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Swift or Objective-C.
+  * `envs` (Espresso only): use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Java or Kotlin.
+
+Both examples show parallel test execution: four separate parallel tests on four different Android/XCUITest devices.
+ * The tests within the section will be assigned to that one device and executed in the order specified.
+ * For each section starting with the `- datacenter` directive, a new parallel test thread will spin up for the device indicated. If you specify multiple test classes or test methods, each will be executed serially, in the order presented in the section, on the device.
 
 <Tabs
   defaultValue="Espresso"
@@ -92,163 +99,52 @@ Write your YAML file. See [Sauce Runner YAML Configuration](/dev/cli/espresso-xc
 
 <TabItem value="Espresso">
 
-**Espresso YAML File Example**
+Espresso YAML File Example
 
-This YAML file example includes:
-* All required parameters for running an Espresso test suite with Sauce Runner for Real Devices, plus the following options:
-  * `--devices` option: use this to select devices based on both static and dynamic allocation.
-  * `--envs` option: use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Java or Kotlin.
-* Parallel Test Execution: four separate parallel tests on four different Android devices.
-  * The tests within the section will be assigned to that one device and executed in the order specified.
-  * For each section starting with the `- datacenter` directive, a new parallel test thread will spin up for the device indicated. If you specify multiple test classes or test methods, each will be executed serially, in the order presented in the section, on the device.
-
-```bash
-# Test framework: "espresso" in this example
-testFramework: espresso
-
-# Path to the app's .apk
-app: ./SampleApp.apk
-
-# Path to the .apk file containing the test bundle
-test: ./SampleAppUITests-tests.apk
-
-# Path where XML test reports will be saved.
-xmlFolder: ./
-
-# Define a list of devices on which the tests should be executed
-devices:
-
-# Device 1 example
-# Only specify a DC (either EU or US). This will execute all test methods on the first random Android
-#   device which your account is eligible to use
-- datacenter: EU
-
-# Device 2 example: Static Allocation - this test will only run if the named device is available
-- datacenter: US
-
-# Specify the specific device name for static allocation
-device: Samsung_Galaxy_S8_real
-
-# set test name (optional) - this is the name that will appear in the Sauce Labs UI (and API results)
-testname: MyTestName3
-
-# Device 3 example: Dynamic Allocation
-- datacenter: US
-
-# Specify a device name or regex for dynamic allocation: 'Samsung Galaxy S7', 'Samsung Galaxy.*', etc.
-deviceNameQuery: Samsung Galaxy S7
-
-# Platform Version for a dynamic device query. e.g. '7' for all Devices with major version 7 and arbitrary minor versions or '7.1.2' for a more specific version
-platformVersion: 7.1
-
-# Optional parameters, set to true to enable. If 'true', will run only on Private Devices assigned to your account
-phoneOnly: false
-tabletOnly: false
-privateDevicesOnly: false             
-
-testname: MyTestName3
-
-# Device 4 example: Running subset of tests.
-- datacenter: EU
-testname: MyTestName4
-
-# Provide a list of test options to espresso
-# The key-value pairs supported by espresso are documented here: https://developer.android.com/studio/test/command-line#AMOptionsSyntax
-# In the example below the test would execute all test methods defined in the class com.example.android.TestClassA
-envs:
-- key: class
-  value: com.example.android.TestClassA
-```
-
-</TabItem>
-<TabItem value="XCUITest">
-
-**XCUITest YAML File Example**
-
-This YAML file example includes:
-* All required options for running an XCUITest test suite with Sauce Runner for Real Devices:
-  * `--devices` option: use this to select devices based on both static and dynamic allocation.
-  * `--testsToRun` option: use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Swift or Objective-C.
-* Parallel Test Execution: four separate, parallel test executions on four different iOS devices.
-  * The tests within the section will be assigned to that one device and executed in the order specified.
-  * For each section starting with the `- datacenter` directive, a new parallel test thread will spin up for the device indicated. If you specify multiple test classes or test methods, each will be executed serially, in the order presented in the section, on the device.
-
-```bash
-# Test framework: "xcuitest" in this example
-testFramework: xcuitest
-
-# Path to the .ipa or .app file (must have the same name as the App created in Sauce Labs)
-app: ./SampleApp.ipa
-
-# Path to the test -Runner app's .ipa or .app file
-test: ./SampleAppUITests-Runner.ipa
-
-# Path where XML test reports will be saved
-xmlFolder: ./
-
-# A list of devices to be used for this test run
-devices:
-
-# Device 1 example: this will execute every test in the .ipa file on a random iOS device
-# Only specify a DC (either EU or US)
-- datacenter: EU
-
-# Device 2 example: Static Allocation - this test will only run if the named device is available
-- datacenter: US
-# Specify the specific device name for static allocation
-device: iPhone_11_13_5_real_us
-
-# set test name (optional) - this is the name that will appear in the Sauce Labs UI (and API results)
-testname: MyTestName2
-
-# Device 3 example: Dynamic Allocation
-- datacenter: US
-
-# Specify a device name or regex for dynamic allocation: 'iPhone X', 'iPad.*', etc.
-deviceNameQuery: iPhone 8.*
-
-# Platform Version for a dynamic device query. e.g. '13' for all Devices with major version 13 and arbitrary minor versions or '13.5.1' for a more specific version
-platformVersion: 13
-testname: MyTestName3
-
-# Optional parameters, set to true to enable
-# If 'true', will run only on Private Devices assigned to your account
-phoneOnly: false
-tabletOnly: false
-privateDevicesOnly: false            
-
-# Device 4 example: Running subset of tests
-- datacenter: EU
-  testname: MyTestName4
-
-# Provide a list of test cases or test classes. If you want to run all tests of a class, provide the class name by itself.
-# To run a specific class method, provide both the class and method names.  
-# You may specify multiple testClass parameters. As described above, each testClass will execute serially on the device indicated.
-# Each testClass must be preceded by a hyphen (e.g., '- testClass'), whereas testMethod parameters must be at the same indentation level as testClass, without the hyphen.
-testsToRun:
-- testClass: SampleTestCase
-- testClass: SampleTestCase2
-  testMethod: testItWorks
-
-- testClass: SampleTestCase3
-  testMethod: testThisMethod
+```yaml reference
+https://github.com/saucelabs-training/demo-espresso/blob/d0ae60e428bb2f864c979285b9cf90ee63c756eb/real-devices/runner-ex1.yml#L8-L29
 ```
 
 **More Examples**:
 
-* <details><summary>Minimal configuration for all tests</summary>
+<details><summary>Parallel execution using dynamic devices</summary>
 
-  ```yaml reference
-  https://github.com/saucelabs-training/demo-espresso/blob/d0ae60e428bb2f864c979285b9cf90ee63c756eb/real-devices/runner-ex1.yml
-  ```
-  </details>
+```yaml reference
+https://github.com/saucelabs-training/demo-espresso/blob/e9fd3e9f9c61c36e0fe6374fe280f26f2dbf9d3a/real-devices/runner-ex5.yml#L8-L50
+```
+</details>
 
-* <details><summary>Run in parallel on hard-coded devices</summary>
+<details><summary>Run in parallel on hard-coded devices</summary>
 
-  ```yaml reference
-  https://github.com/saucelabs-training/demo-espresso/blob/master/real-devices/runner-ex4.yml
-  ```
-  </details>
+```yaml reference
+https://github.com/saucelabs-training/demo-espresso/blob/e9fd3e9f9c61c36e0fe6374fe280f26f2dbf9d3a/real-devices/runner-ex4.yml#L8-L49
+```
+</details>
+
+</TabItem>
+<TabItem value="XCUITest">
+
+XCUITest YAML File Example
+
+```yaml reference
+https://github.com/saucelabs-training/demo-xcuitest/blob/master/real-devices/runner-ex1.yml#L8-L29
+```
+
+**More Examples**:
+
+<details><summary>Parallel execution using dynamic devices</summary>
+
+```yaml reference
+https://github.com/saucelabs-training/demo-xcuitest/blob/master/real-devices/runner-ex5.yml#L8-L54
+```
+</details>
+
+<details><summary>Run in parallel on hard-coded devices</summary>
+
+```yaml reference
+https://github.com/saucelabs-training/demo-xcuitest/blob/master/real-devices/runner-ex4.yml#L8-L53
+```
+</details>
 
 </TabItem>
 </Tabs>
