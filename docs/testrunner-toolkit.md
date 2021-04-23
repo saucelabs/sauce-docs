@@ -28,6 +28,7 @@ The toolkit currently supports:
 ### Supported Frameworks in Sauce Cloud
 
 <Tabs
+    groupId="platforms"
     defaultValue="cypress"
     values={[
       {"label":"Cypress","value":"cypress"},
@@ -67,7 +68,7 @@ The toolkit currently supports:
 
 </TabItem>
 <TabItem value="espresso">
-<small><span className='preview'>PREVIEW</span></small>
+<div className="corner-ribbon">PREVIEW</div>
 
 |Supported Platforms|
 |-----|
@@ -82,6 +83,7 @@ The toolkit currently supports:
 Browser support or each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available release notes.
 
 <Tabs
+  groupId="platforms"
   defaultValue="cypress"
   values={[
     {label: 'Cypress', value: 'cypress'},
