@@ -113,7 +113,7 @@ java -jar runner.jar xcuitest --test ExampleApp.Tests.ipa /
 
 ## Optional
 
-Here are some additional configuration options you can use on your command line.
+Here are some additional command line configuration options.
 
 ### `--device`
 
@@ -125,17 +125,17 @@ __Description__: specifies the exact device to use in your tests by providing th
 
 ### `--devices`
 
-__Description__:  specify the list of devices you want to test on, using static or dynamic allocation, to run tests in parallel. See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
-  * ***Static Allocation***: specify an exact device by setting `deviceName` to the Device ID. When using this, there's no need to specify the `platformName` and `platformVersion` because they'll be set by default (i.e., if you include these separately included in your test script, they will be ignored).
+__Description__: define a list of devices on which the tests should be executed, using static and/or dynamic allocation, to run tests in parallel. See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
+  * ***Static Allocation***: specify an exact device by setting  to the Device ID. When using this, there's no need to specify the `platformName` and `platformVersion` because they'll be set by default (i.e., if you include these separately included in your test script, they will be ignored).
   ```java title="Example"
-  --devices iPhone_11_13_5_real_us
+  --datacenter EU --devices iPhone_11_13_5_real_us --testname MyTestName
   ```
-  * ***Dynamic Allocation***: specifying basic device name parameters using [regular expressions (regex)](https://en.wikipedia.org/wiki/Regular_expression) to dynamically allocate a device.
+  * ***Dynamic Allocation***: specify basic device name parameters using [regular expressions (regex)](https://en.wikipedia.org/wiki/Regular_expression) to dynamically allocate a device.
   ```java title="Example"
-  --devices iPhone.*
+  --datacenter EU --devices iPhone.* --testname MyTestName
   ```
 
-As an option, you can run a select set of tests against a specific device using the `--testsToRun` command.
+As an option, you can combine this with the `--testsToRun` command to run a select set of tests against a specific device. See [`--testsToRun`](#--testsToRun) for examples.
 
 :::caution Default Device Allocation
 If you don't specify a `--device`/`--devices` for your test, one will be assigned to your tests based on your AUT (application under test) platform type.
@@ -150,6 +150,97 @@ __Description__: sets a custom test name to appear on the UI. Default is `Test`.
 ```java title="Example"
 --datacenter US --device iPhone_11_13_5_real_us --testname MyTestName
 ```
+<br/>
+
+### `--platformVersion`
+
+__Description__: specifies an operating system version to use. For ***Dynamic Allocation***. For example, use `9` to allocate a device running major version 9 and arbitrary versions of the OS; use `9.3.3` for a specific minor version.
+
+```java title="Example"
+--platformVersion 9.3.3
+```
+<br/>
+
+### `--privateDevicesOnly`
+
+__Description__: if set, only private devices will be queried.
+
+```java title="Example"
+--datacenter US --privateDevicesOnly true
+```
+<br/>
+
+### `--phoneOnly`
+
+__Description__: if set, only phones will be queried.
+
+```java title="Example"
+--datacenter US --phoneOnly true
+```
+<br/>
+
+### `--tabletOnly`
+
+__Description__: if set, only tablets will be queried.
+
+```js title="Example"
+--datacenter US --tabletOnly true
+```
+<br/>
+
+### `--deviceNameQuery`
+
+__Description__: find a find by specifying a regular expression (regex) to dynamically allocate a device. It looks for available devices using wildcard names, giving you the ability to run a specified test on a pool of devices that are configured the same but have different names for parallel processing. For ***Dynamic Allocation***; see [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
+
+Allocates any iPhone Plus device:
+
+```js title="Example"
+--datacenter US --deviceNameQuery 'iPhone 8.*'
+```
+
+Allocates any Samsung Galaxy device:
+
+```js title="Example"
+--datacenter US --deviceNameQuery 'Samsung Galaxy.*'
+```
+
+Allocates any device with Samsung Galaxy S7 in the name (i.e., Samsung Galaxy S7, Samsung Galaxy S7 Edge):
+
+```js title="Example"
+--datacenter US --deviceNameQuery 'Samsung Galaxy 7'
+```
+
+<br/>
+
+### `--testsToRun`
+<p><small><Highlight color="#333333">XCUITest Only</Highlight></small></p>
+
+__Description__: specify a comma-separated list of test cases or test classes on which you'd like to run tests.
+
+* If you want to run all tests of a class, provide only the classname.
+* If you want to run a specific method of a class, provide the class name and method name separated with a `/` (i.e., `--testsToRun ClassA,ClassB/methodC` runs all tests in `ClassA` and only `methodC` of `ClassB`). This executes all tests in `ClassA` and only `methodC` of `ClassB`:
+
+```js title="Example"
+--datacenter EU --testname MyTestName4 --testsToRun ClassA,ClassB/methodC
+```
+<br/>
+
+### `--e`
+<p><small><Highlight color="#946f59">Espresso Only</Highlight></small></p>
+
+__Description__: specify a list of test options to Espresso. The key-value pairs supported by Espresso are documented here: [Android Developers—am instrument options](https://developer.android.com/studio/test/command-line#AMOptionsSyntax).
+
+1. Execute all tests in class `TestClassA`:
+
+  ```js title="Example"
+  --e class com.example.android.TestClassA
+  ```
+
+2. Execute a specific test in class `TestClassB`:
+
+  ```js title="Example"
+  --e class com.example.android.TestClassB#methodName
+  ```
 <br/>
 
 ### `--tunnelIdentifier`
@@ -195,82 +286,6 @@ __Description__: specifies the URL of an alternative REST endpoint to use. For a
 ```java title="Example"
 --url <rest-endpoint-url>
 ```
-<br/>
-
-### `--platformVersion`
-
-__Description__: specifies an operating system version to use. For ***Dynamic Allocation***. For example, use `9` to allocate a device running major version 9 and arbitrary versions of the OS; use `9.3.3` for a specific minor version.
-
-```java title="Example"
---platformVersion 9.3.3
-```
-<br/>
-
-### `--privateDevicesOnly`
-
-__Description__: if set, only private devices will be queried.
-
-```java title="Example"
---datacenter US --privateDevicesOnly true
-```
-<br/>
-
-### `--phoneOnly`
-
-__Description__: if set, only phones will be queried.
-
-```java title="Example"
---datacenter US --phoneOnly true
-```
-<br/>
-
-### `--tabletOnly`
-
-__Description__: if set, only tablets will be queried.
-
-```js title="Example"
---datacenter US --tabletOnly true
-```
-<br/>
-
-### `--deviceNameQuery`
-
-__Description__: allows you to specify the general device name you'd like to use. For ***Dynamic Allocation***. For example, specifying `iPhone.*Plus` will allocate any iPhone Plus device.
-
-```js title="Example"
---datacenter US --deviceNameQuery 'iPhone 8.*'
-```
-<br/>
-
-### `--testsToRun`
-<p><small><Highlight color="#333333">XCUITest Only</Highlight></small></p>
-
-__Description__: specify a comma-separated list of test cases or test classes on which you'd like to run tests.
-
-* If you want to run all tests of a class, provide only the classname.
-* If you want to run a specific method of a class, provide the class name and method name separated with a `/` (i.e., `--testsToRun ClassA,ClassB/methodC` runs all tests in `ClassA` and only `methodC` of `ClassB`). This executes all tests in `ClassA` and only `methodC` of `ClassB`:
-
-```js title="Example"
---datacenter EU --testname MyTestName4 --testsToRun ClassA,ClassB/methodC
-```
-<br/>
-
-### `--e`
-<p><small><Highlight color="#946f59">Espresso Only</Highlight></small></p>
-
-__Description__: specifies a list of test options to Espresso. The key-value pairs supported by Espresso are documented here: [Android Developers—am instrument options](https://developer.android.com/studio/test/command-line#AMOptionsSyntax).
-
-1. Execute all tests in class `TestClassA`:
-
-  ```js title="Example"
-  --e class com.example.android.TestClassA
-  ```
-
-2. Execute a specific test in class `TestClassB`:
-
-  ```js title="Example"
-  --e class com.example.android.TestClassB#methodName
-  ```
 <br/>
 
 ### `--useTestOrchestrator`

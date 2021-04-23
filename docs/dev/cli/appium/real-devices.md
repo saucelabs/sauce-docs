@@ -52,8 +52,8 @@ __Description__: specifies the operating system platform version to use in your 
   * Major versions (e.g., `"4"`): by setting a major version, you'd have access to all devices running incremental versions (`"4.1"`, `"4.2"`, `"4.2.1"`, "`4.4.4"`). This also extends to minor and point versions (e.g., specifying `"4.4"` will match `"4.4.0"`, `"4.4.1"`).
 
 ### `deviceName`
-__Description__: specify the name of the device you want to test on, using either static or dynamic allocation, for individual or parallel tests. See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions:
-  * ***Static Allocation***: specify an exact device by setting `deviceName` to the Device ID. When using this, there's no need to specify the `platformName` and `platformVersion` because they'll be set by default (i.e., if you include these separately included in your test script, they will be ignored).
+__Description__: specify the name of the device you want to test on, using either static or dynamic allocation, for individual or parallel tests. See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
+  * ***Static Allocation***: specify an exact device for your test by setting `deviceName` to the Device ID. When using this, there's no need to specify the `platformName` and `platformVersion` because they'll be set by default (i.e., if you include these separately included in your test script, they will be ignored).
   ```java title="Java Example"
   capabilities.setCapability("deviceName", "iPhone_11_13_5_real_us");
   ```
@@ -152,16 +152,13 @@ __Description__: As described in [Appium Issue 4597](https://github.com/appium/a
 __Data Type__: Boolean
 __Description__: By default, applications are installed on devices in the Sauce Labs real device cloud with autoGrantPermissions capability set to true. As long as the API number of the device is equal to 23 or higher, you can disable this by explicitly setting autoGrantPermissions to false.
 
-
 ### `enableAnimations`
-
 __Data Type__: Boolean
 __Description__: By default, animations are disabled on real devices. You can enable animations for private devices only with the enableAnimations capability.
 >***NOTE***: This capability will only work if `privateDevicesOnly` is set to `true`.
 
 
 ### `cacheId`
-
 __Description__: use this capability to keep a device allocated to you during the 10-second device cleaning process that occurs by default after each test completes. If you immediately start another test on the device, you won't need to wait for the allocation and device cleaning process to be repeated. In this case, no device cleaning will take place in between sessions, with the only exception being the app under test and the data it owns. This works for both [***static*** and ***dynamic allocation***](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation).
 
 By default, each time you complete a test session, the Real Device Cloud uninstalls your app, performs device cleaning, and de-allocates the device. This means that if you wanted to run multiple tests on the same device, you would need to wait for this cleaning process to complete between every test.
