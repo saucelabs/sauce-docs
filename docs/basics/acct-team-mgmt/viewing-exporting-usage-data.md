@@ -6,7 +6,7 @@ sidebar_label: Viewing and Exporting Usage Data
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><button class="badge-blue">ENTERPRISE PLANS ONLY</button></p>
+<p><button className="badge-blue">ENTERPRISE PLANS ONLY</button></p>
 
 If you're the owner of the overall Sauce Labs account, you can view usage information for all accounts on the **Organization Management** page. If you're an individual user, you can view your usage information on the **My Account** page.
 
@@ -93,7 +93,7 @@ You can export a .csv file that contains the usage information for selected acco
 
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.jpg')} alt="Team management navigation" width="500"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
 
 2. On the **User** tab, select the checkboxes of the users whose usage information you want to export.
 3. Next to **Users Selected**, click the download button.

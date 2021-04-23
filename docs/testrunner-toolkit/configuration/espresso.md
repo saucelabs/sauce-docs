@@ -51,7 +51,8 @@ __Example__:
 
 ## `devices`
 
-__Description__: Field for defining devices details such as the device name, orientation, and platformVersions.
+__Description__: Field for defining device details such as the device name, orientation, and 
+formVersions.
 
 __Type__: *object*
 
@@ -82,7 +83,7 @@ __Description__: Screen orientation.
 
 __Type__: *enum*
 
-__Values__: *portrait*, *ladscape*
+__Values__: *portrait*, *landscape*
 
 __Example__:
 ```yaml

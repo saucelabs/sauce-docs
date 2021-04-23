@@ -6,14 +6,14 @@ sidebar_label: Managing User Information
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><button class="badge-blue">ENTERPRISE PLANS ONLY</button></p>
+<p><button className="badge-blue">ENTERPRISE PLANS ONLY</button></p>
 
 ## Updating User Information
 Organization admins can update the name, email address, user name, role, and team assignment for any user in their organization. Team admins can update that information for users on their team. If you invite a user via email, you will need to edit their concurrency limit and other account details after they have accepted your invitation and created an account.
 
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.jpg')} alt="Team management navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
 
 2. On the **Users** tab, click the user name of the user whose information you want to edit.
 

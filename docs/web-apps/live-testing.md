@@ -1,7 +1,7 @@
 ---
 id: live-testing
-title: Web Live Testing Quickstart
-sidebar_label: Quickstart
+title: Live Testing Web Applications
+sidebar_label: Getting Started
 ---
 
-Sauce Labs Web live testing quickstart guide.
+Live Testing Web Applications
