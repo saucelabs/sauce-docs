@@ -18,8 +18,6 @@ export const Highlight = ({children, color}) => ( <span style={{
 Sauce Runner for Virtual Devices provides the ability to run Espresso tests on Android emulators in the Sauce Labs cloud. This topic describes the required and optional command parameters you can use to set up your test runs.
 
 >**NOTE**: All code examples in this page assume knowledge of [Sauce Runner General Usage](/dev/cli/espresso-xcuitest). Please review before proceeding.
-:::
-
 
 ## Required
 

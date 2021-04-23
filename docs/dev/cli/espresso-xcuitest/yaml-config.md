@@ -95,71 +95,53 @@ Here are some additional options you can use to configure your YAML file.
 
 ### `device`
 
-__Description__: For static allocation of a device, provide the ID for the type of device to use in your tests, such as `iPhone_5_real`.
+__Description__: specifies the exact device to use in your tests by providing the Device ID. See [Static Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
 
-To find device ID numbers, go to **Live** > **Mobile-App** > **Choose device** > Search for the device you want to use > **Details** > See ID in device description. For more information, see the examples under `--devices`.
+__Examples__:
 
-:::caution Default Device Allocation
-If you don't specify a `--device`/`--devices` for your test, one is assigned to your tests based on the AUT (application under test) platform type.
-:::
+* ***Minimal Configuration***: defines a list of devices on which the tests should be executed. Only specify a DC (either `EU` or `US`).
 
-__Example__:
+  ```yaml
+  devices:
+  - datacenter: EU
+  ```
 
-```yaml
-- datacenter: US
-  device: iPhone_11_13_5_real_us
-```
+* ***Static Allocation***: specify a device descriptor for static allocation, for example `iPhone_8_real_us`.
 
-**Minimal Configuration**:
+  ```yaml
+  devices:
+  - datacenter: US
+    device: iPhone_8_real_us
+  ```
 
-Defines a list of devices on which the tests should be executed. Only specify a DC (either `EU` or `US`).
+* ***Dynamic Allocation***: specify a device name or regex for dynamic allocation (e.g.,`iPhone 5`, `iPad.*`).
 
-```yaml
-devices:
-- datacenter: EU
-```
-
-**Static Allocation**:
-
-Specify a device descriptor for static allocation, for example `iPhone_8_real_us`.
-
-```yaml
-devices:
-- datacenter: US
-  device: iPhone_8_real_us
-```
-
-**Dynamic Allocation**:
-
-Specify a device name or regex for dynamic allocation (e.g.,`iPhone 5`, `iPad.*`).
-
-:::tip Version Specificity
-You can set the platform version for a dynamic device query for all devices such as major version `9` or you can specify an arbitrary minor version such as `9.3.3`.
-:::
-
-```yaml
-devices:
-- datacenter: US
-  deviceNameQuery: iPhone 5
-  platformVersion: 11.4
-  # Optional parameters
-  phoneOnly: false
-  tabletOnly: false
-  privateDevicesOnly: false
-```
+  ```yaml
+  devices:
+  - datacenter: US
+    deviceNameQuery: iPhone 5
+    platformVersion: 11.4
+    # Optional parameters
+    phoneOnly: false
+    tabletOnly: false
+    privateDevicesOnly: false
+  ```
 
 ### `devices`
 
-__Description__: the list of devices, allocated dynamically or through static description of the device ID, to use in your tests. With the `--devices` option, you can configure Sauce Runner for Real Devices to run tests in parallel across multiple devices using both static and dynamic allocation. As an option, you can run a select set of tests against a specific device using the `--testsToRun` command.
+__Description__: use this option to specify a group of devices on which to run parallel tests with static allocation (exact Device ID) or dynamic allocation (using regex). For detailed instructions, see [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation). As an option, you can run a select set of tests against a specific device using [`testsToRun`](#`testsToRun`).
 
 __Examples__:
 
 ```yaml
 devices:
 - datacenter: US
-  device: iPhone_11_13_5_real_us
-  device: iPhone_5
+  devices: iPhone_11_13_5_real_us,iPhone_5
 ```
+
+:::caution Default Device Allocation
+If you don't specify a `--device`/`--devices` for your test, one is assigned to your tests based on the AUT (application under test) platform type.
+:::
 
 ### `testname`
 

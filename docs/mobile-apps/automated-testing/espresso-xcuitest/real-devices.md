@@ -96,8 +96,8 @@ Write your YAML file. See [Sauce Runner YAML Configuration](/dev/cli/espresso-xc
 
 This YAML file example includes:
 * All required parameters for running an Espresso test suite with Sauce Runner for Real Devices, plus the following options:
-  * `--devices` option: use this to select devices based on both static and dynamic allocation.
-  * `--envs` option: use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Java or Kotlin.
+  * `devices` option: use this to select devices based on both static and dynamic allocation.
+  * `envs` option: use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Java or Kotlin.
 * Parallel Test Execution: four separate parallel tests on four different Android devices.
   * The tests within the section will be assigned to that one device and executed in the order specified.
   * For each section starting with the `- datacenter` directive, a new parallel test thread will spin up for the device indicated. If you specify multiple test classes or test methods, each will be executed serially, in the order presented in the section, on the device.
@@ -165,10 +165,10 @@ envs:
 
 **XCUITest YAML File Example**
 
-This YAML file example includes:
+This example file below includes:
 * All required options for running an XCUITest test suite with Sauce Runner for Real Devices:
-  * `--devices` option: use this to select devices based on both static and dynamic allocation.
-  * `--testsToRun` option: use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Swift or Objective-C.
+  * `devices`: use this to specify a group of devices via dynamic allocation (using regex) and/or static allocation (regex plus exact device ID). See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
+  * `testsToRun`: use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Swift or Objective-C.
 * Parallel Test Execution: four separate, parallel test executions on four different iOS devices.
   * The tests within the section will be assigned to that one device and executed in the order specified.
   * For each section starting with the `- datacenter` directive, a new parallel test thread will spin up for the device indicated. If you specify multiple test classes or test methods, each will be executed serially, in the order presented in the section, on the device.
