@@ -155,6 +155,7 @@ Regardless of the test frameworks you're using (Appium, Espresso, XCUITest), you
   The first example below finds all iPhone devices except 5 and 5S, and the second example finds any device that starts with the display name "Google".
   ```java title="Appium Examples"
   capabilities.setCapability("deviceName", "^(iPhone.*)(?!5|5S)$");
+  capabilities.setCapability("deviceName", "^((?!.Google_Pixel_XL_real_us.).)*$");
   capabilities.setCapability("deviceName", "Google.*");
   ```
 
