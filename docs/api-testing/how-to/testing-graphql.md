@@ -8,7 +8,7 @@ keywords:
     - graphql
 ---
 
-GraphQL is a fantastic tool for creating versatile, eminently flexible servers. With API Fortress, testing GraphQL queries is as easy as testing regular REST endpoints.
+GraphQL is a fantastic tool for creating versatile, eminently flexible servers. With API Fortress, testing GraphQL queries is as easy as testing regular REST endpoints.
 
 API Fortress provides a demonstration GraphQL environment at: [GraphServerlet](https://graphserverlet.herokuapp.com/graphql)
 
@@ -22,12 +22,12 @@ If we're sending a query request to our GraphQL server, we would format our POST
 
 ```json
 {
- "query": "query (\\$id: Int!) { course(id: \\$id) { id, title, author, description, topic, url }}", 
+ "query": "query (\$id: Int!) { course(id: \$id) { id, title, author, description, topic, url }}", 
  "variables": { "id": 1} 
 }
 ```
 
-The above object says the following: we are querying for a specific course by ID, and wish our response body to contain the ID, Title, Author, Description, Topic, and URL of that entry. If we send this body as a POST to our test GraphQL environment, our response will look like this:
+The above object says the following: we are querying for a specific course by ID, and wish our response body to contain the ID, Title, Author, Description, Topic, and URL of that entry. If we send this body as a POST to our test GraphQL environment, our response will look like this:
 
 ```json
 {
@@ -55,7 +55,7 @@ A Mutation is also passed as a POST body to the GraphQL endpoint in question:
 
 ```json
 {
- "query": "mutation (\\$id: Int!, \\$topic: String!) { updateCourseTopic(id: \\$id, topic: \\$topic) { title, topic }}", 
+ "query": "mutation (\$id: Int!, \$topic: String!) { updateCourseTopic(id: \$id, topic: \$topic) { title, topic }}", 
  "variables": { "id": 1, "topic" : "Ruby" } 
 }
 ```
