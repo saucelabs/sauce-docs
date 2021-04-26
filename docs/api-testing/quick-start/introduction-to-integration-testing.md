@@ -7,7 +7,11 @@ description: "Integration testing is a core feature of the API Fortress platform
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Integration testing is a core feature of the API Fortress platform. Watch our video about how to write an [Integration Test](https://www.youtube.com/watch?v=eQ8WFGFHq4I&feature=youtu.be). Follow along with the demo video in the API Fortress platform here: [Quick Integration Demo](https://mastiff.apifortress.com/app/web/composer/wiz?pid=238&wizardId=5ad4b72fbbb0fb20d15023ca).
+Integration testing is a core feature of the API Fortress platform. Watch our video about how to write an [Integration Test](https://www.youtube.com/watch?v=eQ8WFGFHq4I&feature=youtu.be). 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eQ8WFGFHq4I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+> Follow along with the demo video in the API Fortress platform here: [Quick Integration Demo](https://mastiff.apifortress.com/app/web/composer/wiz?pid=238&wizardId=5ad4b72fbbb0fb20d15023ca).
 
 Integration testing is critical to creating a strong API testing strategy. Microservices are built to work together, and an integration test allows you to create end-to-end tests that resemble common user flows. While only testing individual endpoints is a good start, this method will miss a large number of problems that occur when all services need to work together.
 
@@ -25,11 +29,13 @@ Next, we need to use this token to make further calls to the application.
 
 ## Setting a Variable
 
-First, we need to assign the token to a variable. Variables are used to store data temporarily for a test. You can use the API Fortress Vault for more permanent variables ([learn more i about variables here](https://apifortress.com/doc/vault/)). We do this so we don’t have to manually invoke or set a variable every time it is needed. Next, add a `“Set”` component, and enter the information as seen in the image below.
+First, we need to assign the token to a variable. Variables are used to store data temporarily for a test. You can use the API Fortress Vault for more permanent variables ([learn more about variables here](/api-testing/quick-start/the-vault#variable-section)). 
+
+We do this so we don’t have to manually invoke or set a variable every time it is needed. Next, add a `“Set”` component, and enter the information as seen in the image below.
 
 <img src={useBaseUrl('img/api-fortress/2018/04/Screen-Shot-2018-04-12-at-12.31.27-PM.png')} alt="Set Variable"/>
 
-Now, call the variable `“access\_token”` and assign the value to ${payload.Token}. The response body from the original post call was saved to a variable called “payload.” The key to access the token is named `“Token”`, so you may find it by calling `“payloadToken”`. Be sure to wrap this all in `${}` so that API Fortress knows to interpret what’s between the brackets instead of using it literally.
+Now, call the variable `“access_token”` and assign the value to ${payload.Token}. The response body from the original post call was saved to a variable called “payload.” The key to access the token is named `“Token”`, so you may find it by calling `“payloadToken”`. Be sure to wrap this all in `${}` so that API Fortress knows to interpret what’s between the brackets instead of using it literally.
 
 ## Making Follow-up Calls
 
@@ -39,7 +45,7 @@ This API has a cart function that requires a user token in order to add items to
 
 <img src={useBaseUrl('img/api-fortress/2018/04/Screen-Shot-2018-04-12-at-12.38.22-PM.png')} alt="Follow Up Calls"/>
 
-Use a PUT request to the cart endpoint to update the cart. Set the `“usertoken”` header to `${access\_token}`. This is the same notation as before. The request body is a JSON object that the server will recognize as items and quantities. That part isn’t important for the purposes of this demonstration.
+Use a PUT request to the cart endpoint to update the cart. Set the `“usertoken”` header to `${access_token}`. This is the same notation as before. The request body is a JSON object that the server will recognize as items and quantities. That part isn’t important for the purposes of this demonstration.
 
 ## Further Explanation
 
