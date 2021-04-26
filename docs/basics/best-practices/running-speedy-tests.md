@@ -19,10 +19,10 @@ It's a reality that tests run on Sauce Labs will always have some latency, compa
 ## Sauce Connect
 If you are using Sauce Connect, reduce the unnecessary traffic that goes through the Sauce Connect tunnel; this will help the test run faster. Here are some suggested methods:
 
-1. In your test, determine the URLs that are publicly available over the internet and list their domains with the **-D, --direct-domains** flag when you start the Sauce Connect tunnel. The  **-D, --direct-domains** flag takes a comma-separated list of domains which will be relayed directly through the internet, instead of through the tunnel.
-2. Determine those resources in your application that are not necessary for your test verifications (for example, images or advertisements). List the domains for these resources using the **-F, --fast-fail-regexps** flag when you start the Sauce Connect tunnel. The **-F, --fast-fail-regexps** flag takes a comma-separated list of domains and any requests matching one of these will be dropped instantly, not going through the tunnel. This will allow your application to load faster.
+1. In your test, determine the URLs that are publicly available over the internet and list their domains with the **`-D, --direct-domains`** flag when you start the Sauce Connect tunnel. The  **`-D, --direct-domains`** flag takes a comma-separated list of domains which will be relayed directly through the internet, instead of through the tunnel.
+2. Determine those resources in your application that are not necessary for your test verifications (for example, images or advertisements). List the domains for these resources using the **`-F, --fast-fail-regexps`** flag when you start the Sauce Connect tunnel. The **`-F, --fast-fail-regexps`** flag takes a comma-separated list of domains and any requests matching one of these will be dropped instantly, not going through the tunnel. This will allow your application to load faster.
 
-For more information about all the flags you can use with Sauce Connect, see [Sauce Connect Proxy Command-Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide).
+For more information about all the flags you can use with Sauce Connect, see [Sauce Connect Proxy Command-Line Quick Reference Guide](dev/cli/sauce-connect-proxy).
 
 ## Optimize Your Test Scripts
 The main thing you can do to decrease latency is to break your test down into small, atomic, autonomous tests (see [Running Small, Atomic, Autonomous Tests](/basics/best-practices/small-atomic-autonomous) for more information).
