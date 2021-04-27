@@ -264,7 +264,7 @@ __Example__:
 
 <p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small></p>
 
-__Description__: Operating system on which the browser and test runs.
+__Description__: Operating system on which the browser and test runs. This value is optional and will be defaulted to a sensible platform. Set this value explicitly if you'd like to have greater control over where your tests should run.
 
 __Type__: *string*
 

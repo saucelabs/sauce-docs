@@ -15,19 +15,17 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Virtual USB (vUSB) is a mobile app debugging tool that simulates connecting a Sauce Labs real device directly to your local machine with a USB cable. It integrates into your development environment as if the device is connected directly to your workstation, meaning you can use your choice of homegrown development and testing tools to debug.
+Virtual USB (vUSB) is a mobile (app) debugging tool that simulates connecting a Sauce Labs real device directly to your local machine with a USB cable. It integrates into your development environment as if the device is connected directly to your workstation, meaning you can use your choice of homegrown development and testing tools to debug.
 
 * Build and deploy apps directly from any IDE (e.g., Android Studio, Xcode).
 * Make the most out of your early stage development.
 * Use a mix of live and automated testing as it fits your use case.
-* Monitor device performance metrics such as CPU consumption, device memory, and network data performance.
+* Monitor device performance metrics such as CPU consumption, device memory, and network data performance (depending on what the IDE/your tools offer).
 * Interact with your app manually in a live test session using browser-based developer tools (e.g., Chrome DevTools, Safari Web Inspector).
-
->**NOTE**: This topic provides vUSB instructions for Sauce Labs and for TestObject, our [legacy RDC platform](https://wiki.saucelabs.com/display/DOCS/Legacy+Real+Device+Platform+Resources). To take advantage of our latest features, we recommend using Sauce Labs. For information on upcoming and available real device cloud features, refer to our [feature preview doc](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721844).
 
 ## What You'll Need
 
-<p><Highlight color="#013a70">ENTERPRISE PLANS ONLY</Highlight></p>
+<p><Highlight color="#013a70">Enterprise Plans Only</Highlight></p>
 
 * For security reasons, you'll need to have [Sauce Labs Private Devices](https://saucelabs.com/platform/real-device-cloud) enabled as part of your [enterprise pricing plan](https://saucelabs.com/solutions/enterprise) to use Virtual USB. This feature allocates a dedicated pool of Sauce Labs real devices to your organization only.
 * Windows, macOS, or Linux operating system.
@@ -42,6 +40,7 @@ Virtual USB (vUSB) is a mobile app debugging tool that simulates connecting a Sa
   * Android Studio 4 or higher.
 * If you need to use [Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy), you'll need to have the client installed first.
 
+
 ## Virtual USB for Sauce Labs
 
 :::tip CLI Reference
@@ -50,7 +49,7 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
 
 ### Download Client
 
-1. Click below to download the latest vUSB client to your local machine where you have your IDE installed.
+1. Click below to download the latest vUSB client to your local machine where you have your IDE installed/set up.
 
   <p> <a href="https://saucelabs-vusb.s3-eu-west-1.amazonaws.com/v2.0.0/virtual-usb-client.jar"><button class="download">Download vUSB</button></a> </p>
 
@@ -62,7 +61,7 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
 
   <img src={useBaseUrl('img/virtual-usb/vusb-devicename.jpg')} alt="Virtual USB Device Name" width="500" />
 
-  The device you choose will be allocated specifically to you while your session is active. Other users in your organization will see it marked **In Use**.
+  The device you choose will be allocated specifically to you while your session is active. Other users in your organization will see it marked **Busy**.
 
   As a reminder, vUSB only works on private devices (marked with a <img src={useBaseUrl('img/virtual-usb/vusb-private.jpg')} alt="Sauce Labs Private Device Icon" width="17" />). A quick way to find your organization's private devices from the device list is to click **Filters** and toggle **Private Devices**.
 
@@ -74,27 +73,107 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
 
 4. On your local machine, launch a command line terminal window and use `cd` to navigate to the folder where you downloaded the vUSB client.
 
-5. In the terminal, enter the [`server`](/dev/cli/virtual-usb/start-server) command, followed by `--datacenter US` (Sauce Labs U.S. Data Center) or `--datacenter EU` (Sauce Labs Europe Data Center). This establishes the connection from your local machine to our Real Device Cloud, where your private devices are hosted.
+5. In your terminal, enter the [`server`](/dev/cli/virtual-usb/start-server) command, followed by `--datacenter US` or `--datacenter EU`, to specify the Sauce Labs U.S. or E.U. Data Center. This establishes the connection from your local machine to our Real Device Cloud, where your private devices are hosted.
   ```java
   java -jar virtual-usb-client.jar server --datacenter US
   ```
 
-  >**NOTE**: It's important that you run this command in its own unique terminal, separate from terminals used in forthcoming steps, since it acts as a log. It will run continuously throughout your session, logging your activity (i.e., connecting with different real devices). Do not close it. Optionally, you can specify `-v` for verbose logging or `-vv` for super verbose logging.
+  Once you've executed the above command line, it becomes a session data log, running continuously in the background. Do not close it, and keep it separate from terminals you'll use in forthcoming steps.
 
-  **Set Up a Local Server Proxy (Optional)**
+  #### **Optional: Set Verbose Logging**
+  If you'd like to set verbose or very verbose logging, you can specify `-v` or `-vv`, respectively. Example:
+  ```java
+  java -jar virtual-usb-client.jar server --datacenter US -v
+  ```
 
-  You can launch a proxy tunnel or device proxy tunnel using the [proxy flags compatible with the `server` command](dev/cli/virtual-usb/start-server).
+  #### **Optional: Set Up a Local Server Proxy**
 
-  **Set Environment Variables (Optional)**
+  If you need to use a proxy to get access to external resources, you can launch a proxy tunnel or device proxy tunnel using the [proxy flags compatible with the `server` command](dev/cli/virtual-usb/start-server). This is not the same as starting a [Sauce Connect Tunnel](/secure-connections/sauce-connect).
+
+  #### **Optional: Set Environment Variables**
 
   Setting your Sauce Labs `username` and `accessKey` as [environment variables](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647#BestPracticesforRunningTests-UseEnvironmentVariablesforAuthenticationCredentials) provides an extra layer of security for your credentials when you reference them from within your tests.
 
 
 ### Start Test Session
 
-6. In this step, you'll establish the connection to your device and start a vUSB test session. There are two ways to do do this:
+6. In this step, you'll establish the connection to your device and start a vUSB test session. This needs to be done in a separate terminal session. This terminal session will only log if a connection is successful or not. During the session with the device(s) the logs can be found in the terminal that you'll have started in the previous step.
 
-  **Option 1: Start new session with the vUSB client from the command line**: Open a new command line terminal window and run the [`startSession`](/dev/cli/virtual-usb/start-session) command, followed by your `username`, `accessKey`, and `--deviceName`:
+  There are two ways to start a test session:
+
+  #### **Method 1 (Recommended): Connect to existing live testing session**
+  Start a live test directly on Sauce Labs, then use the command terminal to [`connect`](/dev/cli/virtual-usb/connect-session) the test to your vUSB client.
+
+  First, launch your test on Sauce Labs (**Live** > **Cross Browser** > **Mobile Real** > Find your **Private Device** > **Launch**). Next, locate your `--sessionId` by opening a new command line terminal and running the [`sessions`](/dev/cli/virtual-usb/find-sessionid) command, along with your credentials.
+
+  ```java
+  java -jar virtual-usb-client.jar sessions --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  ```
+
+  If [Sauce Connect Proxy](/secure-connections/sauce-connect) is required to access your corporate network or your local machine for secure test data, you'll need to select a **SAUCE CONNECT PROXY** from the dropdown before launching your device.
+  <img src={useBaseUrl('img/virtual-usb/vusb-sc-ui.jpg')} alt="Sauce Connect tunnel dropdown in UI" width="600" />
+
+  This will return a list of your active test sessions.
+  ```java
+  List of active sessions
+  d03a1b81-158d-4bb4-bcc9-074e43dd8465   Samsung Galaxy S10  ANDROID  10
+  c7729c7a-56a9-46cf-ba96-958709a86b4f   iPhone XS           IOS      14.3
+  e21abb6f-a08e-4685-ba6e-8c6586dd4264   iPhone SE 2020      IOS      14.3
+  ```
+
+  Copy the `--sessionId` of your desired test, then run that along with the [`connect`](/dev/cli/virtual-usb/connect-session) command and your credentials.
+
+  ```java
+  java -jar virtual-usb-client.jar connect --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 ---username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  ```
+
+  > **NOTE:** Method 1 is recommended for the following reasons:
+  > - All menu options to control the device are available with Method 1 and **NOT** with Method 2.
+  > - Interactions and gestures on an iOS device session are much faster in comparison to Method 2.
+
+  If your vUSB test session launch is successful, you'll see a success message:
+  <Tabs
+    defaultValue="Android"
+    values={[
+      {label: 'Android', value: 'Android'},
+      {label: 'iOS', value: 'iOS'},
+    ]}>
+
+  <TabItem value="Android">
+
+  The expected output will be a **port number**, which you'll need when you want to connect the device to ADB (see Step 7).
+
+  ```java
+  localhost:7000  online
+  ```
+
+  </TabItem>
+  <TabItem value="iOS">
+
+  ```java
+  localhost:-1  online
+  ```
+
+  After this, you'll see:
+  <ol>
+    <li>an Apple system notification popup, where you'll need to provide Touch ID or password authentication</li>
+    <li>information returned in your server logs similar to the example below.</li>
+  </ol>  
+
+  ```bash
+  11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - The socket at /var/run/usbmuxd needs to be moved
+  11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - This will require administrator privileges!
+  ```
+
+  This prepares the usbmuxd socket (`/var/usbmuxd`) so that developer tools like Xcode can interact with the remote device just like they interact with a local device. You will need to have administrator permissions to replace `/var/usbmuxd` on your computer and [disable Systems Integrity Protection (SIP) in macOS](https://developer.apple.com/documentation/security/disabling_and_enabling_system_integrity_protection).
+
+   </TabItem>
+   </Tabs>
+
+  or
+
+  #### **Method 2: Start new session with vUSB client from command line**
+  Open a new command line terminal window and run the [`startSession`](/dev/cli/virtual-usb/start-session) command, followed by your `username`, `accessKey`, and `--deviceName`:
 <Tabs
   defaultValue="Android"
   values={[
@@ -120,33 +199,7 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
 
   To use Sauce Connect Proxy: launch a tunnel in the Sauce Connect client, then add your [`--tunnel-identifier`](https://docs.saucelabs.com/dev/cli/virtual-usb/start-session#--tunnelidentifier), which the vUSB client will use to retrieve and secure test data. You can also set up a device proxy using [proxy command options](/dev/cli/virtual-usb/start-session).
 
-  or
-
-  **Option 2: Connect to existing live testing session**: The second method is to start a live test directly on Sauce Labs, then use the command terminal to [`connect`](/dev/cli/virtual-usb/connect-session) the test to your vUSB client.
-
-  First, launch your test on Sauce Labs (**Live** > **Cross Browser** > **Mobile Real** > Find your **Private Device** > **Launch**). Next, locate your `--sessionId` by opening a new command line terminal and running the [`sessions`](/dev/cli/virtual-usb/find-sessionid) command, along with your credentials.
-
-  ```java
-   java -jar virtual-usb-client.jar sessions --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-   ```
-
-  This will return a list of your active test sessions.
-  ```java
-  List of active sessions
-  d03a1b81-158d-4bb4-bcc9-074e43dd8465   Samsung Galaxy S10  ANDROID  10
-  c7729c7a-56a9-46cf-ba96-958709a86b4f   iPhone XS           IOS      14.3
-  e21abb6f-a08e-4685-ba6e-8c6586dd4264   iPhone SE 2020      IOS      14.3
-  ```
-
-  Copy the `--sessionId` of your desired test, then run that along with the [`connect`](/dev/cli/virtual-usb/connect-session) command and your credentials.
-
-  ```java
-  java -jar virtual-usb-client.jar connect --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 ---username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-  ```
-
-<br/>
-
-7. If your vUSB test session launch is successful, you'll see a success message:
+  If your vUSB test session launch is successful, you'll see a success message:
   <Tabs
     defaultValue="Android"
     values={[
@@ -157,6 +210,7 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
   <TabItem value="Android">
 
   The expected output will be your **`--sessionId`**, a **port number**, and a **link**. Click the link to see your device in action, running your tests in real time. You must be logged into Sauce Labs for the link to work.
+  The **port number** is needed when you want to connect the device to ADB (see step 7).
 
   ```java
   d03a1b81-158d-4bb4-bcc9-074e43dd8465  Motorola Moto Z    ANDROID   7.0   https://app.us-west-1.saucelabs.com/live/mobile/dataCenters/US/devices/shared/9299h0c88a7-e2b6-41bc-9509-5-8a5d765490371e2c9a
@@ -175,7 +229,7 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
   localhost:-1  online
   ```
 
-  Make sure you're logged into your Sauce Labs account and click the link above. After doing so, you'll see: 1) an Apple system notification popup, where you'll need to provide Touch ID or password authentication; and 2) information returned in your server logs similar to the example below.
+  Make sure you're logged into your Sauce Labs account prior to clicking the link above. After doing so, you'll see: 1) an Apple system notification popup, where you'll need to provide Touch ID or password authentication; and 2) information returned in your server logs similar to the example below.
 
   ```bash
   11:13:12.347 [KQueueEventLoopGroup-2-2] INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - The socket at /var/run/usbmuxd needs to be moved
@@ -188,7 +242,7 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
    </Tabs>
 <br/>   
 
-8. **Android only**: Link ADB to your test session device by running `adb connect`, followed by the port number:
+7. **Android only**: Link ADB to your test session device by running `adb connect`, followed by the port number:
 
   ```java
   adb connect localhost:7000
@@ -197,157 +251,64 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
 
 ### Test and Debug
 
-9. Now, you can debug and run tests on your app. For guidance and ideas, see the [Example Use Cases](https://docs.saucelabs.com/mobile-apps/virtual-usb#example-use-cases).
+8. Now, you can debug and run tests on your app. For guidance and ideas, see the [Example Use Cases](https://docs.saucelabs.com/mobile-apps/virtual-usb#example-use-cases).
+
+:::caution **Known Android Limitation**
+The `adb-reverse` command is not supported.
+:::
+
+<br/>
 
 :::caution **Known iOS Limitation**
 If you're starting a remote debug session with Xcode, and connecting to an iOS device for the first time, please note that your vUSB session may be very slow to start.
 * **Cause**: Xcode is attempting to download the iOS device symbols over the vUSB tunnel, causing the lag.
-* **What to Do**: Go to your command terminal window where you started the server, where your log is running. You should see a log message that indicating that symbols are being downloaded. Continue to monitor this until it's complete, then resume testing.
+* **What to Do**: Go to `~/Library/Developer/Xcode/iOS DeviceSupport/` and see for the used iOS version of the phone if the symbols are downloaded. The total used space per OS should be more than 1GB. If they are less than 1MB then delete the folder and restart XCODE again so it can refetch them.
 :::
 
 ### Close Test
 
 10. When you've finished testing, we recommend closing your vUSB session so that other users can use the device. There are a few ways to do this:
 
-    * If you started your test session with `startSession`, close it out by running the [`deleteSession`](/dev/cli/virtual-usb/delete-session) command, followed by your `--sessionId` and credentials.
+    * If you started a test session by connecting to a live session on Sauce Labs (Option 1), close it out by running the [`disconnect`](/dev/cli/virtual-usb/disconnect-session) command, followed by your `--sessionId`.
+      * **Android Only**: You'll also need to disconnect your device from ADB. Run `adb disconnect` followed by your `<IPAddress>:<portNumber>`:
+       ```java
+       adb disconnect localhost:7000
+       ```
+
+    * If you started your test session with `startSession` (option 2), close it out by running the [`deleteSession`](/dev/cli/virtual-usb/delete-session) command, followed by your `--sessionId` and credentials.
 
      ```java
      java -jar virtual-usb-client.jar deleteSession --sessionId 37D274BC3A65A34BB3DA4DDF7B77E341 --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
      ```
-
-    * If you started a test session by connecting to a live session on Sauce Labs, close it out by running the [`disconnect`](/dev/cli/virtual-usb/disconnect-session) command, followed by your `--sessionId`.
-      * **Android Only**: You'll also need to disconnect your device from ADB. Run `adb disconnect` followed by your `<IPAddress>:<portNumber>`:
+     * **Android Only**: You'll also need to disconnect your device from ADB. Run `adb disconnect` followed by your `<IPAddress>:<portNumber>`:
        ```java
        adb disconnect localhost:7000
        ```
 
     * The third option, regardless of your test setup, is to close the browser window where the device session is running.
 
-:::tip
-If you've lost track of your `--sessionId`, you can recover it using the [`sessions`](dev/cli/virtual-usb/find-sessionid) command to generate a list of your active device sessions.
-```java
-java -jar virtual-usb-client.jar disconnect --sessionId 37D274BC3A65A34BB3DA4DDF7B77E341
-```
-:::
-
-## Virtual USB for TestObject (Legacy)
-
-Below are instructions on how to launch a vUSB real device session in TestObject, our legacy real device platform.
-
-:::caution Known iOS Limitations
-<span className="sauceDBlue">Beta</span>
-
-In TestObject, vUSB for iOS is available in Beta. Contact your CSM to request access. Here are its known limitations:
-
-You'll need to exit Xcode/Safari before connecting to an iOS vUSB session (or relaunch it after connecting). Otherwise, the device won't show up.
-
-Devices attached to the host locally are not useable while using iOS vUSB. When the server is shut down, it asks again for permissions to put the original `/var/run/usbmuxd` socket back into its place, and Xcode/Safari have to be relaunched to show the local devices.
-:::
-
-The below instructions apply to Android only.
-
-### Download Client
-
-1. Click below to download the vUSB client to the same machine where you have your IDE (e.g., Android Studio) installed.
-
-<p> <a href="https://s3-eu-west-1.amazonaws.com/saucelabs-vusb/v1.8/vusb-client.jar"><button class="download">Download vUSB</button></a> </p>
-
-### Gather Credentials
-
-2. Launch TestObject by logging in to your Sauce Labs account, then clicking **Sauce Apps** > **Legacy RDC**.
-
-3. Have your TestObject username and API key handy. To find these, click the person icon > **Account Settings**. Please note that your TestObject credentials are entirely separate from your Sauce Labs username and access key.
-<img src={useBaseUrl('img/virtual-usb/vusb1.jpg')} alt="TestObject person icon" width="300" />
-
-### Start Server
-
-4. On your local machine, launch a command line terminal window and use `cd` to navigate to the folder where you downloaded the vUSB client.
-
-5. Enter the `server` command, followed by the flag for the Data Center where your private devices are hosted. This establishes the connection from your local machine to our Real Device Cloud.
-
-  <Tabs
-    defaultValue="US Data Center"
-    values={[
-      {label: 'US Data Center', value: 'US Data Center'},
-      {label: 'EU Data Center', value: 'EU Data Center'},
-    ]}>
-
-  <TabItem value="US Data Center">
-
+  :::tip
+  If you've lost track of your `--sessionId`, you can recover it using the [`sessions`](dev/cli/virtual-usb/find-sessionid) command to generate a list of your active device sessions.
   ```java
-  java -jar vusb-client.jar server --datacenter US
+  java -jar virtual-usb-client.jar disconnect --sessionId 37D274BC3A65A34BB3DA4DDF7B77E341
   ```
-
-  </TabItem>
-  <TabItem value="EU Data Center">
-
-  ```java
-  java -jar vusb-client.jar server --datacenter EU
-  ```
-
-  </TabItem>
-  </Tabs>
-
-### Start Test Session
-
-6. From a new command line terminal window, separate from the one used in the previous step, launch the client and create a new session using the `startSession` command.
-
-  ```java
-  java -jar vusb-client.jar startSession --apiKey 37D274BC3A65A34BB3DA4DDF7B77E341 --deviceName Motorola_Moto_Z_real
-  ```
-
-7. If your vUSB test session launch is successful, it will return a success message with a **session ID**, **port number**, and a **link** to watch the device running your test in real time. Make sure you're logged into Sauce Labs before clicking the link.
-
-  ```java
-  37D274BC3A65A34BB3DA4DDF7B77E341		Motorola Moto Z		ANDROID		7.0		https://app.testobject.com/#/device/share/9299h0c88a7-e2b6-41bc-9509-5-8a5d765490371e2c9a/view?dc=US
-
-  localhost:7000	online
-  ```
-
-8. Copy the **port number** and use it to connect `adb` to your session device using Virtual USB.
-
-  ```java
-  adb connect localhost:7000
-  ```
-
-### Test and Debug
-
-9. Now, you can debug and run tests on your app. For guidance and ideas, see the [Example Use Cases](https://docs.saucelabs.com/mobile-apps/virtual-usb#example-use-cases).
-
-:::caution Known Android Limitation
-The `adb-reverse` command is not supported.
-:::
-
-### Close Test
-
-10. When you've finished testing, we recommend closing your vUSB session so that other users can use the device. There are two ways to do this: close the browser window in which the device is running or disconnect your device from ADB by running `adb disconnect` along with your `<IPAddress>:<portNumber>`:
-
-   ```java
-   adb disconnect localhost:7000
-   ```
+  :::
 
 ## Example Use Cases
 
 ### Exploratory Testing
 
-Introduce breakpoints and then do exploratory testing.
+Introduce breakpoints in your IDE and then do exploratory testing.
 
 ### Android Debugging
 
-You can execute automated adb-based tests using Android Studio, Google Chrome's Remote Debugging, or any other adb-compliant debugging tool. As an example, you can start the camera of the connected device using adb shell:
+#### Android Studio Debugging
+To for example profile your Android app you can follow the instructions as mentioned [here](https://developer.android.com/studio/profile). This can result in the following data.
 
-```java
-adb shell
-am start -a android.media.action.IMAGE_CAPTURE
-```
+<img src={useBaseUrl('img/virtual-usb/vusb-android-profiling.png')} alt="Virtual USB Android Studio Profiling" />
 
-### iOS Debugging
-
-You can use developer tools within any major browser (e.g., Chrome DevTools, Safari Web Inspector), to debug your iOS apps.
-
-### Generate HAR File for Analysis
-
-This section demonstrates how to connect your test device to Chrome Inspector and export an [Http ARchive (HAR)](https://en.wikipedia.org/wiki/HAR_(file_format)) file to your local machine from a live testing session. Chrome Inspector's suite of developer tools provides a powerful way to work with your web pages while leveraging our real devices.
+#### Chrome DevTools Web Debugging
+This example demonstrates how to connect your test device to Chrome Inspector and export an [Http ARchive (HAR)](https://en.wikipedia.org/wiki/HAR_(file_format)) file to your local machine from a live testing session. Chrome Inspector's suite of developer tools provides a powerful way to work with your web pages while leveraging our real devices.
 
 HAR files are useful for identifying performance issues, network traffic, and other information, such as:
 
@@ -388,6 +349,44 @@ HAR files are useful for identifying performance issues, network traffic, and ot
 For more tips on working with HAR Files, check out [Visualize HAR Files with the Sauce Labs React Network Viewer Component](https://opensource.saucelabs.com/blog/react_network_viewer).
 :::
 
-## Changelog
+#### ADB commands
+You can execute `adb` commands on the device connected over vUSB as you would normally also use. This is a simple example to capture a screenshot and pull it to your local machine.
 
-For version release notes, see [Android Virtual USB Changelog](https://wiki.saucelabs.com/pages/viewpage.action?pageId=86575598) and [iOS Virtual USB Changelog](https://wiki.saucelabs.com/pages/viewpage.action?pageId=99652031).
+```bash
+#Create a temporary folder to save a screenshot.
+mkdir tmp
+#Capture a screenshot and save to /sdcard/screen.png on your Android divice.
+adb shell screencap -p /sdcard/screen.png
+
+#Grab the screenshot from /sdcard/screen.png to /tmp/screen.png on your PC.
+adb pull /sdcard/screen.png /tmp/screen.png
+
+#Delete /sdcard/screen.png
+adb shell rm /sdcard/screen.png
+
+#open the screenshot on your PC.
+open /tmp/screen.png
+```
+
+### iOS Debugging
+You can use, or Xcode to deploy and debug your iOS apps, or use the developer tools within Safari to debug your website.
+
+#### XCODE debugging
+> **NOTE:** To do proper debugging the symbols need to be downloaded to your local machine, if they are not downloaded (yet), then this can take a few minutes.
+
+To for example profile your app you can go to the XCODE **Menu bar** > **Product** > **Profile**. It will automatically profile the app and a new menu is shown as seen below
+
+<img src={useBaseUrl('img/virtual-usb/vusb-ios-profiling.png')} alt="Virtual USB Profiling" />
+
+Select for example the **Energy Log** and start recording which can result in the following screen.
+
+<img src={useBaseUrl('img/virtual-usb/vusb-energy-logs.png')} alt="Virtual USB Energy Logs" />
+
+#### Safari Web Debugging
+If you want to debug Safari then open Safari, go to the Safari **Menu bar** > **Develop** > **Select your device** > **Select the view** you want to debug. In our example we want to debug the [Sauce Swag Labs demo website](https://www.saucedemo.com).
+
+<img src={useBaseUrl('img/virtual-usb/vusb-safari-debug.png')} alt="Virtual USB Energy Logs" />
+
+## Legacy (TestObject)
+
+For instructions on using vUSB with [TestObject (Legacy RDC)](https://wiki.saucelabs.com/display/DOCS/Legacy+Real+Device+Platform+Resources), see [Virtual USB for TestObject](https://wiki.saucelabs.com/x/0yJWB). TestObject reaches end-of-life September 1, 2021.

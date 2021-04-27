@@ -35,8 +35,8 @@
  */
 /*{"last_published":"2021-01-18 18:46:45 UTC"}*/
 @import "api-override.css";
+@import "fw-badge-override.css";
 @import url('https://use.typekit.net/bte6qhg.css');
-@import "api-override.css";
 
 .tk-museo-sans { font-family: "museo-sans",sans-serif; }
 .tk-museo-sans-rounded { font-family: "museo-sans-rounded",sans-serif; }
@@ -440,6 +440,46 @@ h3, .h3 {
   padding:.2rem;
   font-weight:750;
 }
+
+.preview {
+    background:#01c3a5;
+    color: #FFFFFF;
+    padding:.2rem;
+    font-weight:600;
+}
+
+/*Playing with ribbons*/
+
+.corner-ribbon{
+  width: 110px;
+  background: #01c3a5;
+  font-size: 10pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  position:relative;
+  overflow:hidden;
+  top: 5px;
+  left: -15px;
+  text-align: center;
+  line-height: 25px;
+  color: #f0f0f0;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(-35deg);
+  display: flex;
+  justify-content: center;
+  border-radius: 3px
+}
+
+/* Custom styles */
+
+.corner-ribbon.sticky{
+  position: fixed;
+}
+
+.corner-ribbon.shadow{
+  box-shadow: 0 0 3px rgba(0,0,0,.3);
+}
+
 
 /* Download Button below */
 
@@ -845,12 +885,7 @@ ul.dropdown__menu li a:hover {
       flex: 0 100%;
       padding: 5px 0 5px 0;
     }
-    .preview {
-        background:#01c3a5;
-        color: #FFFFFF;
-        padding:.2rem;
-        font-weight:600;
-    }
+
     /*.navbar__inner {*/
     /*  width: inherit!important;*/
     /*  display: inline-block;*/
