@@ -23,8 +23,6 @@ Virtual USB (vUSB) is a mobile app debugging tool that simulates connecting a Sa
 * Monitor device performance metrics such as CPU consumption, device memory, and network data performance.
 * Interact with your app manually in a live test session using browser-based developer tools (e.g., Chrome DevTools, Safari Web Inspector).
 
->**NOTE**: For instructions on using vUSB with [TestObject](https://wiki.saucelabs.com/display/DOCS/Legacy+Real+Device+Platform+Resources), our legacy RDC platform, see [Virtual USB for TestObject](https://wiki.saucelabs.com/x/0yJWB).
-
 ## What You'll Need
 
 <p><Highlight color="#013a70">Enterprise Plans Only</Highlight></p>
@@ -294,6 +292,10 @@ HAR files are useful for identifying performance issues, network traffic, and ot
 :::tip
 For more tips on working with HAR Files, check out [Visualize HAR Files with the Sauce Labs React Network Viewer Component](https://opensource.saucelabs.com/blog/react_network_viewer).
 :::
+
+## Legacy (TestObject)
+
+For instructions on using vUSB with [TestObject (Legacy RDC)](https://wiki.saucelabs.com/display/DOCS/Legacy+Real+Device+Platform+Resources), see [Virtual USB for TestObject](https://wiki.saucelabs.com/x/0yJWB). TestObject will reach end-of-life September 1, 2021.
 
 ## Changelog
 
