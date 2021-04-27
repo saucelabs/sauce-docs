@@ -297,6 +297,63 @@ __Example__:
   mode: "sauce"
 ```
 
+## `artifacts`
+
+__Description__: Allows you to define configuration relative to artifacts.
+
+__Type__: *object*
+
+### `download`
+
+__Description__: Allows you to define configuration relative to artifacts downloads.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+    browser: "chrome"
+```
+
+#### `when`
+
+__Description__: Defines when to download the artifacts.
+
+__Type__: *string*
+
+__Values__:
+- `always`: Artficats will always be downloaded.
+- `never`: Artifacts will never be downloaded.
+- `pass`: Artifacts will be downloaded only if suite pass.
+- `fail`: Artifacts will be downloaded only if suite fails.
+
+__Example__:
+```yaml
+    when: always
+```
+
+#### `match`
+
+__Description__: Defines the list of name patterns which artifacts must match to be downloaded. Wildcard character (`*`) can be used.
+
+__Type__: *string[]*
+
+__Example__:
+```yaml
+    - junit.xml
+    - *.log
+```
+
+#### `directory`
+
+__Description__: Defines the folder where artifacts will be downloaded. Each suite will has its own subdirectory.
+
+__Type__: *string*
+
+__Example__:
+```yaml
+    directory: ./artifacts/
+```
+
 > For all available resolutions please visit [this documentation page](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
 
 ## Framework Syntax Reference
