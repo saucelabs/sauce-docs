@@ -4,13 +4,6 @@ title: Sauce CTL
 sidebar_label: CLI Reference
 ---
 
-export const Highlight = ({children, color}) => ( <span style={{
-      backgroundColor: color,
-      borderRadius: '2px',
-      color: '#fff',
-      padding: '0.2rem',
-    }}>{children}</span> );
-
 This page provides command line references for `saucectl`, the CLI tool used with [Testrunner Toolkit](testrunner-toolkit.md). 
 
 > Please refer to the repository [README](https://github.com/saucelabs/saucectl) for installation, development, and contribution requirements.
@@ -113,7 +106,7 @@ saucectl run --suite <suite_name>
 
 ### `test-env`
 
-<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight></small></p>
+<p><small>supported frameworks: <span class="highlight cypress">cypress</span></small></p>
 
 __Description__: Specifies the test execution environment:
 * test locally with `docker` containers 
@@ -135,7 +128,7 @@ saucectl run --timeout <seconds>
 
 ### `tunnel-id`
 
-<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small></p>
+<p><small><span class="highlight sauce-cloud">sauce cloud only</span></small></p>
 
 __Description__: Sets the tunnel id for a given test run and the chosen [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
 
@@ -146,7 +139,7 @@ saucectl run --tunnel-id <tunnel-id>
 
 ### `tunnel-parent`
 
-<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small></p>
+<p><small><span class="highlight sauce-cloud">sauce cloud only</span></small></p>
 
 __Description__: Sets the tunnel parent for a given test run and the chosen [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
 
@@ -160,7 +153,7 @@ saucectl run --tunnel-id <tunnel-id> --tunnel-parent <tunnel-parent>
 
 ### `dry-run`
 
-<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small></p>
+<p><small><span class="highlight sauce-cloud">sauce cloud only</span></small></p>
 
 __Description__: Simulate a test run without actually running any tests.
 
