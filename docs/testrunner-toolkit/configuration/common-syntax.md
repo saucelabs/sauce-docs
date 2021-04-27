@@ -362,7 +362,7 @@ __Example__:
 
 #### `directory`
 
-__Description__: Defines the folder where artifacts will be downloaded. Each suite will has its own subdirectory.
+__Description__: Defines the folder where artifacts will be downloaded. Each suite will have its own subdirectory.
 
 __Type__: *string*
 
