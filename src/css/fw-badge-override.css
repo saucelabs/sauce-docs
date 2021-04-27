@@ -1,0 +1,25 @@
+.highlight {
+    border-radius: 2px;
+    color: #fff;
+    padding: 0.2rem;
+}
+
+.cypress {
+    background-color:#29c38e;
+}
+
+.playwright {
+    background-color:#45ba4b;
+}
+
+.testcafe {
+    background-color:#1a212e;
+}
+
+.puppeteer {
+    background-color:#40b5a4;
+}
+
+.sauce-cloud {
+    background-color:#ad1415;
+}
