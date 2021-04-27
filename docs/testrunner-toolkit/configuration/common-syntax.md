@@ -338,7 +338,7 @@ __Description__: Defines when to download the artifacts.
 __Type__: *string*
 
 __Values__:
-- `always`: Artficats will always be downloaded.
+- `always`: Artfiacts will always be downloaded.
 - `never`: Artifacts will never be downloaded.
 - `pass`: Artifacts will be downloaded only if suite pass.
 - `fail`: Artifacts will be downloaded only if suite fails.
