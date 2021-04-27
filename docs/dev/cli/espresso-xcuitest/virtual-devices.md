@@ -27,12 +27,12 @@ All Examples in this page assume knowledge of [Sauce Runner General Usage](/dev/
 
 __Description__: Specifies the name of the test framework you want to use. At the moment, `espresso` is the only supported option.
 
-__Shorthand__: `-f`
+__Shorthand__: `./sauce-runner-virtual --test-framework=espresso`
 
 __Example__:
 
 ```bash
-./sauce-runner-virtual --test-framework=espresso
+./sauce-runner-virtual -f espresso
 ```
 
 ### `user`
@@ -149,7 +149,7 @@ __Description__: Parameter to specify a [Sauce Connect Proxy tunnel](/secure-con
 
 __Shorthand__: `-n`
 
-__Example__: 
+__Example__:
 
 ```bash
 --tunnel-identifier=dev_tunnel
@@ -162,7 +162,7 @@ __Description__: Specifies a Sauce Labs data center. Options are `us-west-1` and
 
 __Shorthand__: _NA_
 
-__Example__: 
+__Example__:
 
 ```bash
 --data-center eu-central-1
@@ -174,7 +174,7 @@ __Description__: Skips downloading the JUnit reporting files at the end of test 
 
 __Shorthand__: _NA_
 
-__Example__: 
+__Example__:
 
 ```bash
 --skip-download-junit-reports
@@ -186,7 +186,7 @@ __Description__: Sets the verbosity of console output. Valid options as `DEBUG`,
 
 __Shorthand__: `-v`
 
-__Example__: 
+__Example__:
 
 ```bash
 --verbose
@@ -194,11 +194,11 @@ __Example__:
 
 ### `version`
 
-__Description__: Returns the version information for Sauce Runner. 
+__Description__: Returns the version information for Sauce Runner.
 
 __Shorthand__: _NA_
 
-__Example__: 
+__Example__:
 
 ```bash
 --version
@@ -206,11 +206,11 @@ __Example__:
 
 ### `help`
 
-__Description__: Prints this command line reference to the console. 
+__Description__: Prints this command line reference to the console.
 
 __Shorthand__: `-h`
 
-__Example__: 
+__Example__:
 
 ```bash
 --help
