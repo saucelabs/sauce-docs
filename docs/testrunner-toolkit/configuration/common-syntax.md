@@ -286,6 +286,9 @@ __Example__:
     screenResolution: "1920x1080"
 ```
 
+> For all available resolutions please visit [this documentation page](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
+
+
 ### `mode`
 
 __Description__: Allows you to specify whether the individual suite will run on `docker` or `sauce`, potentially overriding the default project mode setting.
@@ -303,6 +306,16 @@ __Description__: Allows you to define configuration relative to artifacts.
 
 __Type__: *object*
 
+__Example__:
+```yaml
+artifacts:
+  download:
+    when: always
+    match:
+      - junit.xml
+    directory: ./artifacts/
+```
+
 ### `download`
 
 __Description__: Allows you to define configuration relative to artifacts downloads.
@@ -311,7 +324,11 @@ __Type__: *object*
 
 __Example__:
 ```yaml
-    browser: "chrome"
+  download:
+    when: always
+    match:
+      - junit.xml
+    directory: ./artifacts/
 ```
 
 #### `when`
@@ -353,8 +370,6 @@ __Example__:
 ```yaml
     directory: ./artifacts/
 ```
-
-> For all available resolutions please visit [this documentation page](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
 
 ## Framework Syntax Reference
 
