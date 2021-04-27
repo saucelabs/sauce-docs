@@ -23,8 +23,6 @@ Virtual USB (vUSB) is a mobile (app) debugging tool that simulates connecting a 
 * Monitor device performance metrics such as CPU consumption, device memory, and network data performance (depending on what the IDE/your tools offer).
 * Interact with your app manually in a live test session using browser-based developer tools (e.g., Chrome DevTools, Safari Web Inspector).
 
->**NOTE**: For instructions on using vUSB with [TestObject](https://wiki.saucelabs.com/display/DOCS/Legacy+Real+Device+Platform+Resources), our legacy RDC platform, see [Virtual USB for TestObject](https://wiki.saucelabs.com/x/0yJWB).
-
 ## What You'll Need
 
 <p><Highlight color="#013a70">Enterprise Plans Only</Highlight></p>
@@ -98,7 +96,7 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
 
 ### Start Test Session
 
-6. In this step, you'll establish the connection to your device and start a vUSB test session. This needs to be done in a separate terminal session. This terminal session will only log if a connection is successful or not. During the session with the device(s) the logs can be found in the terminal which has been started in **step 4:** [**Start Server**](/mobile-apps/virtual-usb#start-server). 
+6. In this step, you'll establish the connection to your device and start a vUSB test session. This needs to be done in a separate terminal session. This terminal session will only log if a connection is successful or not. During the session with the device(s) the logs can be found in the terminal which has been started in **step 4:** [**Start Server**](/mobile-apps/virtual-usb#start-server).
 
   There are two ways to start a test session:
 
@@ -140,7 +138,7 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
     ]}>
 
   <TabItem value="Android">
-  
+
   The expected output will be a **port number**. This is needed when you want to connect the device to ADB, see step 7.
 
   ```java
@@ -154,7 +152,7 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
   localhost:-1  online
   ```
 
-  After this, you'll see: 
+  After this, you'll see:
   <ol>
     <li>an Apple system notification popup, where you'll need to provide Touch ID or password authentication</li>
     <li>information returned in your server logs similar to the example below.</li>
@@ -304,7 +302,7 @@ Introduce breakpoints in your IDE and then do exploratory testing.
 ### Android Debugging
 
 #### Android Studio Debugging
-To for example profile your Android app you can follow the instructions as mentioned [here](https://developer.android.com/studio/profile). This can result in the following data. 
+To for example profile your Android app you can follow the instructions as mentioned [here](https://developer.android.com/studio/profile). This can result in the following data.
 
 <img src={useBaseUrl('img/virtual-usb/vusb-android-profiling.png')} alt="Virtual USB Android Studio Profiling" />
 
@@ -365,7 +363,7 @@ adb pull /sdcard/screen.png /tmp/screen.png
 #Delete /sdcard/screen.png
 adb shell rm /sdcard/screen.png
 
-#open the screenshot on your PC. 
+#open the screenshot on your PC.
 open /tmp/screen.png
 ```
 
@@ -387,3 +385,7 @@ Select for example the **Energy Log** and start recording which can result in th
 If you want to debug Safari then open Safari, go to the Safari **Menu bar** > **Develop** > **Select your device** > **Select the view** you want to debug. In our example we want to debug the [Sauce Swag Labs demo website](https://www.saucedemo.com).
 
 <img src={useBaseUrl('img/virtual-usb/vusb-safari-debug.png')} alt="Virtual USB Energy Logs" />
+
+## Legacy (TestObject)
+
+For instructions on using vUSB with [TestObject (Legacy RDC)](https://wiki.saucelabs.com/display/DOCS/Legacy+Real+Device+Platform+Resources), see [Virtual USB for TestObject](https://wiki.saucelabs.com/x/0yJWB). TestObject reaches end-of-life September 1, 2021.
