@@ -170,11 +170,16 @@ __Description__: As described in [Appium Issue 4597](https://github.com/appium/a
 
 __Data Type__: Boolean.
 
+<<<<<<< HEAD
 __Description__: By default, applications are installed on devices in the Sauce Labs real device cloud with autoGrantPermissions capability set to `true`. As long as the API number of the device is equal to 23 or higher, you can disable this by explicitly setting `autoGrantPermissions` to false.
 
 ### `enableAnimations`
 __Data Type__: Boolean.
 
+=======
+### `enableAnimations`
+__Data Type__: Boolean
+>>>>>>> 64de3a420b6fbb3726a5a86117f3f1961472cc48
 __Description__: By default, animations are disabled on real devices. You can enable animations for private devices only with the enableAnimations capability.
 >***NOTE***: This capability will only work if `privateDevicesOnly` is set to `true`.
 

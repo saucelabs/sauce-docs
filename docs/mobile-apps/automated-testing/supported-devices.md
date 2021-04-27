@@ -182,14 +182,21 @@ Specifying basic parameters for the platform, operating system, and/or type of d
 
 <TabItem value="Appium (Android)">
 
+<<<<<<< HEAD
 Dynamic allocation example 1: Finds any device that starts with the display name "Google".
+=======
+Dynamic allocation example - finds any device that starts with the display name "Google".
+>>>>>>> 64de3a420b6fbb3726a5a86117f3f1961472cc48
 
 ```java
 capabilities.setCapability("deviceName", "Google.*");
 ```
 
+<<<<<<< HEAD
 Excludes a specific device.
 
+=======
+>>>>>>> 64de3a420b6fbb3726a5a86117f3f1961472cc48
 ```java
 capabilities.setCapability("deviceName", "^((?!.Google_Pixel_XL_real_us.).)*$");
 ```
