@@ -106,7 +106,7 @@ saucectl run --suite <suite_name>
 
 ### `test-env`
 
-<p xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"><small>supported frameworks: <span class="highlight cypress">cypress</span></small></p>
+<p><small>supported frameworks: <span class="highlight cypress">cypress</span></small></p>
 
 __Description__: Specifies the test execution environment:
 * test locally with `docker` containers 
