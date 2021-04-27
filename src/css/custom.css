@@ -35,8 +35,8 @@
  */
 /*{"last_published":"2021-01-18 18:46:45 UTC"}*/
 @import "api-override.css";
+@import "fw-badge-override.css";
 @import url('https://use.typekit.net/bte6qhg.css');
-@import "api-override.css";
 
 .tk-museo-sans { font-family: "museo-sans",sans-serif; }
 .tk-museo-sans-rounded { font-family: "museo-sans-rounded",sans-serif; }
