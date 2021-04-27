@@ -28,9 +28,7 @@ The basic process to test with cookies is:
 3. Open the site or web app you want to test.
 4. Run your tests.
 
-**NOTE:** You must be on the same domain that the cookie is valid for in order for this to work.
-
-**NOTE:** If the homepage of the site you want to test takes a long time to load, you can try accessing a smaller page (like the 404 page) where you can inject the cookie before accessing the homepage.
+>**NOTE:** You must be on the same domain that the cookie is valid for in order for this to work. If the homepage of the site you want to test takes a long time to load, you can try accessing a smaller page (like the 404 page) where you can inject the cookie before accessing the homepage.
 
 ### Code Sample
 You can find additional examples for Java, Python, Ruby, and Perl on the official [Selenium Commands and Operations](https://www.selenium.dev/documentation/en/) page.
@@ -101,7 +99,7 @@ If using Sauce Storage for your pre-run executable send the following desired ca
 
  The 64bit version of AutoIT works on IE11, and not on IE9. The 32bit version works with both browser versions.
 
- ## Using **--auth** with **Sauce Connect ProxyPUBLISHED**
+## Using **--auth** with **Sauce Connect ProxyPUBLISHED**
 
 This approach to authentication works by configuring [Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy) to send authentication details to any URL requesting them. It works for all requests, even those where you're asked for credentials in response to a click or form submission.
 
