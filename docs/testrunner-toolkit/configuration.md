@@ -145,7 +145,7 @@ sauce:
 Alternatively, you can override the setting in the configuration file for a particular test suite by specifying it as an attribute of the ` saucectl run` command.
 
 ```bash
-saucectl run --test-env sauce --ccy 10
+saucectl run --ccy 10
 ```
 
 A setting of `10` runs up to 10 test suites at the same time. If the test has more suites than that, excess suites are queued and run in order at the completion of currently running suites.
@@ -161,31 +161,7 @@ If you wish to execute tests on different screen resolutions while using Testrun
 __Example__:
 
 ```reference
-https://github.com/saucelabs/saucectl-cypress-example/blob/4141ba08e501ae2be691969a1626c78c18a77aff/.sauce/config.yml#L25
-apiVersion: v1alpha
-kind: cypress
-sauce:
-  region: us-west-1
-  metadata:
-    name: Testing Cypress Support
-    tags:
-      - e2e
-      - release team
-      - other tag
-    build: Release $CI_COMMIT_SHORT_SHA
-cypress:
-  version: 5.6.0
-  configFile: "tests/e2e/cypress.json"  # We determine related files based on the location of the config file.
-suites:
-  - name: "saucy test"
-    browser: "chrome"
-    platformName: "Windows 10"
-    screenResolution: "1920x1080"  # Available resolutions on Windows: '800x600', '1024x768', '1152x864', '1280x768', '1280x800', '1280x960', '1280x1024', '1400x1050', '1440x900', '1600x1200', '1680x1050', '1920x1080', '1920x1200', '2560x1600'
-    config:
-      env:
-        hello: world
-        my_var: $MY_VAR
-      testFiles: [ "**/*.*" ] # Cypress native glob support.
+https://github.com/saucelabs/saucectl-cypress-example/blob/4141ba08e501ae2be691969a1626c78c18a77aff/.sauce/config.yml
 ```
 
 ## Additional Information

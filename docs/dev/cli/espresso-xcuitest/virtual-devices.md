@@ -1,6 +1,6 @@
 ---
 id: virtual-devices
-title: Sauce Runner Virtual Devices CLI Reference
+title: Sauce Runner for Virtual Devices CLI Reference
 sidebar_label: Virtual Devices
 ---
 
@@ -13,31 +13,39 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-Sauce Runner for Virtual Devices lets you run tests using the native testing frameworks like Espresso with virtual devices in the Sauce Labs testing cloud. This topic describes the required and optional command parameters you can use to set up your test runs.
+<p> <Highlight color="#013a70">Emulators only</Highlight> </p>   
+
+Sauce Runner for Virtual Devices provides the ability to run Espresso tests on Android emulators in the Sauce Labs cloud. This topic describes the required and optional command parameters you can use to set up your test runs.
+
+>**NOTE**: All code examples in this page assume knowledge of [Sauce Runner General Usage](/dev/cli/espresso-xcuitest). Please review before proceeding.
 
 ## Required
 
-These command options are required in order to run native mobile tests with Sauce Runner on virtual devices.
+:::tip
 
-:::note About the Examples
-All Examples in this page assume knowledge of [Sauce Runner General Usage](/dev/cli/espresso-xcuitest#examples).
+You can also view the vUSB CLI directly in the command line terminal by running the `-h` (`--help`) flag.
+```java
+./sauce-runner-virtual --help
+```
 :::
 
-### `test-framework`
+These command flags are required in order to run native mobile tests with Sauce Runner on virtual devices.
 
-__Description__: Specifies the name of the test framework you want to use. At the moment, `espresso` is the only supported option.
+### `--test-framework`
+
+__Description__: Specifies the name of the test framework you want to use. At the moment, `espresso` is the only supported option and value.
 
 __Shorthand__: `./sauce-runner-virtual --test-framework=espresso`
 
 __Example__:
 
-```bash
-./sauce-runner-virtual -f espresso
+```java
+./sauce-runner-virtual --test-framework=espresso
 ```
 
-### `user`
+### `--user`
 
-__Description__: Your Sauce Labs `username`. You can use the [environment variable `SAUCE_USERNAME`](/basics/best-practices/using-environment-variables) to provide your login information. The command line argument will take precedence over the environment variable.
+__Description__: Your Sauce Labs `username`. You can use the [environment variable `SAUCE_USERNAME`](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647#BestPracticesforRunningTests-UseEnvironmentVariablesforAuthenticationCredentials) to provide your login information. The command line argument will take precedence over the environment variable.
 
 __Shorthand__: `-u`
 
@@ -47,9 +55,9 @@ __Example__:
 ./sauce-runner-virtual --user $SAUCE_USERNAME
 ```
 
-### `api-key`
+### `--api-key`
 
-__Description__: Your Sauce Labs API key, which you can find under [User Settings](https://app.saucelabs.com/user-settings) in the Sauce Labs interface. You can also use the [environment variable SAUCE_ACCESS_KEY](/basics/best-practices/using-environment-variables) to provide your login information. The command line argument will take precedence over the environment variable.
+__Description__: Your Sauce Labs Access Key, which you can find under [User Settings](https://app.saucelabs.com/user-settings) in the Sauce Labs interface. You can also use the [environment variable SAUCE_ACCESS_KEY](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647#BestPracticesforRunningTests-UseEnvironmentVariablesforAuthenticationCredentials) to provide your login information. The command line argument will take precedence over the environment variable.
 
 __Shorthand__: `-k`
 
@@ -59,7 +67,7 @@ __Example__:
 ./sauce-runner-virtual --user $SAUCE_USERNAME --api-key $SAUCE_ACCESS_KEY
 ```
 
-### `app`
+### `--app`
 
 __Description__: The local path or publicly accessible URL to the location of the application you want to test.
 
@@ -71,7 +79,7 @@ __Example__:
 --app='https://the.bestapp.ai/helloworld.apk'
 ```
 
-### `test-app`
+### `--test-app`
 
 __Description__: The local path or publicly accessible URL to the location of the test package you want to use.
 
@@ -83,7 +91,7 @@ __Example__:
 --test-app='https://the.bestapp.ai/app-debug-AndroidTest.apk'
 ```
 
-### `devices`
+### `--devices`
 
 __Description__: The type of device you want to use with your test. You can specify two or more device arguments to run tests on multiple devices in parallel, and each device will execute the full test suite. You specify the type of device to use by setting the required `deviceName` and `platformVersion` properties.
 
@@ -108,12 +116,28 @@ __Examples__:
 --devices='deviceName=LG Nexus 4 GoogleAPI Emulator,platformVersion=4.4' \
 --devices='deviceName=Google Pixel GoogleAPI Emulator,platformVersion=7.0'
 ```
+<br/>
+
+### Full Example
+
+**Basic Setup (minimum required options only)**
+
+```bash reference
+https://github.com/saucelabs-training/demo-espresso/blob/master/emulators/runner-ex1.sh#L6-L13
+```
+
+:::tip
+Go to our [GitHub repository](https://github.com/saucelabs-training/demo-espresso/tree/master/emulators) for example scripts, plus demo apps and tests.
+:::
 
 ## Optional
 
-### `exclude-tests` and `include-tests`
+These flags provide additional configuration options.
 
-__Description__: Optional parameters to run a subset of tests. You can provide a test filter to either `exclude` or `include` tests. By default, the full test suite is executed.
+### `--exclude-tests`
+### `--include-tests`
+
+__Description__: Optional parameters to run a subset of tests. You can provide a test filter to either exclude or include tests. By default, the full test suite is executed.
 
 __Shorthand__: `-e` | `-i`
 
@@ -130,7 +154,6 @@ __Filters__:
 
 __Examples__:
 
-
 ```bash title="Run only one test method"
 --include-tests='class com.example.MyClass#testLogin'
 ```
@@ -143,24 +166,25 @@ __Examples__:
 --include-tests='size large'
 ```
 
-### `tunnel-identifier`
+<br/>
 
-__Description__: Parameter to specify a [Sauce Connect Proxy tunnel](/secure-connections/sauce-connect) to use with the tests.
+### `--tunnel-identifier`
+
+__Description__: specify a [Sauce Connect Proxy tunnel](/secure-connections/sauce-connect) to use with the tests.
 
 __Shorthand__: `-n`
 
 __Example__:
 
-```bash
+```java
 --tunnel-identifier=dev_tunnel
 ```
 
-### `data-center`
+### `--data-center`
 
-__Description__: Specifies a Sauce Labs data center. Options are `us-west-1` and `eu-central-1`.
-                .
+__Description__: specify a Sauce Labs Data Center. Possible values are `us-west-1` and `eu-central-1`.
 
-__Shorthand__: _NA_
+__Shorthand__: n/a
 
 __Example__:
 
@@ -168,11 +192,11 @@ __Example__:
 --data-center eu-central-1
 ```
 
-### `skip-download-junit-reports`
+### `--skip-download-junit-reports`
 
-__Description__: Skips downloading the JUnit reporting files at the end of test suite execution.
+__Description__: skips downloading the JUnit reporting files at the end of test suite execution.
 
-__Shorthand__: _NA_
+__Shorthand__: n/a
 
 __Example__:
 
@@ -180,9 +204,9 @@ __Example__:
 --skip-download-junit-reports
 ```
 
-### `verbose`
+### `--verbose`
 
-__Description__: Sets the verbosity of console output. Valid options as `DEBUG`, `INFO`, `WARN` and `ERROR`.
+__Description__: sets the verbosity of console output. Valid options as `DEBUG`, `INFO`, `WARN` and `ERROR`.
 
 __Shorthand__: `-v`
 
@@ -192,26 +216,39 @@ __Example__:
 --verbose
 ```
 
-### `version`
+### `--version`
 
+<<<<<<< HEAD
 __Description__: Returns the version information for Sauce Runner.
+=======
+__Description__: returns the version information for Sauce Runner.
+>>>>>>> 900a9008495a0f223185d485d79c315ff14d2e25
 
-__Shorthand__: _NA_
+__Shorthand__: n/a
 
 __Example__:
 
-```bash
---version
+```java
+./sauce-runner-virtual --version
 ```
 
-### `help`
+### `--help`
 
+<<<<<<< HEAD
 __Description__: Prints this command line reference to the console.
+=======
+__Description__: prints this command line reference to the console.
+>>>>>>> 900a9008495a0f223185d485d79c315ff14d2e25
 
 __Shorthand__: `-h`
 
 __Example__:
 
+<<<<<<< HEAD
 ```bash
 --help
+=======
+```java
+./sauce-runner-virtual --help
+>>>>>>> 900a9008495a0f223185d485d79c315ff14d2e25
 ```
