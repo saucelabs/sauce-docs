@@ -510,7 +510,6 @@ module.exports = {
               collapsed: true,
               items: [
                   'testrunner-toolkit/configuration',
-                  'testrunner-toolkit/configuration/bundling',
                   'testrunner-toolkit/configuration/common-syntax',
                   'testrunner-toolkit/configuration/cypress',
                   'testrunner-toolkit/configuration/playwright',

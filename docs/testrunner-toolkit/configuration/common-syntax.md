@@ -145,7 +145,7 @@ __Example__:
 
 ## `rootDir`
 
-__Description__: Directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Bundling page](/testrunner-toolkit/configuration/bundling) page for more details
+__Description__: Directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Tailoring Your Test File Bundle](/testrunner-toolkit/configuration#tailoring-your-test-file-bundle) for more details.
 
 __Type__: *object*
 
@@ -171,7 +171,7 @@ __Example__:
       lodash: "4.17.20"
       "@babel/preset-typescript": "7.12"
       "@cypress/react": "^5.0.1"
-      
+
 ```
 
 ⚠️ `registry` configuration is only supported in latest cypress docker image. No other frameworks, or Sauce Labs cloud.
