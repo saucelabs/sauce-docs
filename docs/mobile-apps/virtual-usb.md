@@ -361,7 +361,7 @@ adb shell screencap -p /sdcard/screen.png
 #Grab the screenshot from /sdcard/screen.png to /tmp/screen.png on your PC.
 adb pull /sdcard/screen.png /tmp/screen.png
 
-#Delete /sdcard/screen.png
+#Delete /sdcard/screen.png.
 adb shell rm /sdcard/screen.png
 
 #open the screenshot on your PC.
