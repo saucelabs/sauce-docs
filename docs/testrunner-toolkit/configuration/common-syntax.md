@@ -171,10 +171,31 @@ __Example__:
       lodash: "4.17.20"
       "@babel/preset-typescript": "7.12"
       "@cypress/react": "^5.0.1"
-
 ```
 
-⚠️ `registry` configuration is only supported in latest cypress docker image. No other frameworks, or Sauce Labs cloud.
+### `registry`
+
+__Description__: Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/testrunner-toolkit/running-tests#running-tests-on-sauce-labs-with-sauce-connect).
+
+__Type__: *string*
+
+__Example__:
+```yaml
+  registry: https://registry.npmjs.org
+
+### `packages`
+
+__Description__: Specifies npm packages that are required to run tests and should, therefore, be included in the bundle. See [Including Node Dependencies](/testrunner-toolkit/configuration/bundling#including-node-dependencies).
+
+__Type__: *object*
+
+__Example__:
+```yaml
+  packages:
+    lodash: "4.17.20"
+    "@babel/preset-typescript": "7.12"
+    "@cypress/react": "^5.0.1"
+```
 
 ## `defaults`
 
