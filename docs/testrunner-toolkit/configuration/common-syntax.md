@@ -340,7 +340,7 @@ __Type__: *string*
 __Values__:
 - `always`: Artfiacts will always be downloaded.
 - `never`: Artifacts will never be downloaded.
-- `pass`: Artifacts will be downloaded only if suite pass.
+- `pass`: Artifacts will be downloaded only if the suite passes.
 - `fail`: Artifacts will be downloaded only if suite fails.
 
 __Example__:
