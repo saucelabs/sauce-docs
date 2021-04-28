@@ -140,7 +140,7 @@ Once you are confident that `saucectl` is running, you can customize your config
 
 ### Existing Tests
 
-If you already have existing tests in your project (in `cypress` for example), once you install `saucectl`, you can just directly [modify the default configuration file](testrunner-toolkit/configuration.md#modifying-the-configuration-file), and  then run your existing tests.
+If you already have existing tests in your project (in `cypress` for example), once you install `saucectl`, you can just directly [modify the default configuration file](testrunner-toolkit/configuration), and  then run your existing tests.
 
 ### Pipeline Tests
 

@@ -1,6 +1,6 @@
 ---
 id: installation
-title: Installing `saucectl`
+title: Installing saucectl
 sidebar_label: Installation and Setup
 description: Run tests on Sauce using any framework in any language.
 ---
@@ -131,7 +131,7 @@ This process generates a set of dependencies that allow you to quickly set up a 
 * a framework directory (e.g., `cypress`) and other relevant files (e.g., `cypress.json`)
 * an example test for the chosen framework (e.g., `cypress/integration/example.test.js`)
 
-If you already have working tests in your framework, you can skip this section and [run your tests](testrunner-toolkit/running-tests) in order to run your existing tests.
+If you already have working tests in your framework, you can skip this section and [run your tests](/running-tests) in order to run your existing tests.
 
 1. Run the following command to generate a config file:
     ```bash
