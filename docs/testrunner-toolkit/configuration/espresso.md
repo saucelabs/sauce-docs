@@ -103,3 +103,81 @@ __Example__:
     - "11.0"
     - "10.0"
 ```
+
+## `testOptions`
+
+__Description__: Field for defining filters for tests such as the class, size, package, notClass, and 
+annotation.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+testOptions:
+  class:
+    - com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
+  notClass:
+    - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest  
+  size: small
+  package: com.example.android.testing.androidjunitrunnersample
+  annotation: com.android.buzz.MyAnnotation
+```
+
+### `class`
+
+__Description__: Field for defining filter by selected classes.
+
+__Type__: *array*
+
+__Example__:
+```yaml
+  class:
+    - com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
+```
+
+### `notClass`
+
+__Description__: Field for defining filter by skipping selected classes.
+
+__Type__: *array*
+
+__Example__:
+```yaml
+  notClass:
+    - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest
+```
+
+### `size`
+
+__Description__: Field for defining filter by specific test size.
+
+__Type__: *enum*
+
+__Values__: *small*, *medium*, *large*
+
+__Example__:
+```yaml
+  size: small
+```
+
+### `package`
+
+__Description__: Field for defining filter by selected package.
+
+__Type__: *string*
+
+__Example__:
+```yaml
+  package: com.example.android.testing.androidjunitrunnersample
+```
+
+### `annotation`
+
+__Description__: Field for defining filter by selected annotation.
+
+__Type__: *string*
+
+__Example__:
+```yaml
+  annotation: com.android.buzz.MyAnnotation
+```
