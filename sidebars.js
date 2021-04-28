@@ -360,7 +360,6 @@ module.exports = {
                     'api-testing/learn-more/planning-your-test',
                     'api-testing/learn-more/the-variables-system-in-api-fortress',
                     'api-testing/learn-more/working-with-the-response-object',
-
                 ],
             },
             {
@@ -534,7 +533,6 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'testrunner-toolkit/configuration',
-                    'testrunner-toolkit/configuration/bundling',
                     'testrunner-toolkit/configuration/common-syntax',
                     'testrunner-toolkit/configuration/cypress',
                     'testrunner-toolkit/configuration/playwright',

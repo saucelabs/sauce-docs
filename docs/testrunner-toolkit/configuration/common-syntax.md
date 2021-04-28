@@ -145,7 +145,7 @@ __Example__:
 
 ## `rootDir`
 
-__Description__: Directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Bundling page](/testrunner-toolkit/configuration/bundling) page for more details
+__Description__: Directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Tailoring Your Test File Bundle](/testrunner-toolkit/configuration#tailoring-your-test-file-bundle) for more details.
 
 __Type__: *object*
 
