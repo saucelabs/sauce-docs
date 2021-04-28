@@ -360,7 +360,6 @@ module.exports = {
                     'api-testing/learn-more/planning-your-test',
                     'api-testing/learn-more/the-variables-system-in-api-fortress',
                     'api-testing/learn-more/working-with-the-response-object',
-
                 ],
             },
             {
