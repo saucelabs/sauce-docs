@@ -286,6 +286,9 @@ __Example__:
     screenResolution: "1920x1080"
 ```
 
+> For all available resolutions please visit [this documentation page](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
+
+
 ### `mode`
 
 __Description__: Allows you to specify whether the individual suite will run on `docker` or `sauce`, potentially overriding the default project mode setting.
@@ -297,7 +300,76 @@ __Example__:
   mode: "sauce"
 ```
 
-> For all available resolutions please visit [this documentation page](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
+## `artifacts`
+
+__Description__: Specifies how to manage test artifacts, such as logs, videos, and screenshots.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+artifacts:
+  download:
+    when: always
+    match:
+      - junit.xml
+    directory: ./artifacts/
+```
+
+### `download`
+
+__Description__: Specifies the settings related to downloading artifacts from tests run by `saucectl`.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+  download:
+    when: always
+    match:
+      - junit.xml
+    directory: ./artifacts/
+```
+
+#### `when`
+
+__Description__: Specifies when and under what circumstances artifacts will be downloaded.
+
+__Type__: *string*
+
+__Values__:
+- `always`: Artfiacts will always be downloaded.
+- `never`: Artifacts will never be downloaded.
+- `pass`: Artifacts will be downloaded only if the suite passes.
+- `fail`: Artifacts will be downloaded only if the suite fails.
+
+__Example__:
+```yaml
+    when: always
+```
+
+#### `match`
+
+__Description__: Allows you to specify particular files or file types to download based on whether they match the name pattern provided. Supports the wildcard character `*`.
+
+__Type__: *string[]*
+
+__Example__:
+```yaml
+    - junit.xml
+    - *.log
+```
+
+#### `directory`
+
+__Description__: Specifies the path to the folder location in which artifacts will be downloaded. Each suite will have its own subdirectory.
+
+__Type__: *string*
+
+__Example__:
+```yaml
+    directory: ./artifacts/
+```
 
 ## Framework Syntax Reference
 
