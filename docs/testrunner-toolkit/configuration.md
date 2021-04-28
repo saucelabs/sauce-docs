@@ -74,6 +74,11 @@ If you need to go through a proxy server, you can set it through the following v
 * `HTTP_PROXY`: Proxy to use to access HTTP websites
 * `HTTPS_PROXY`: Proxy to use to access HTTPS websites
 
+:::note
+At this time, these proxy settings are not supported for Playwright.
+:::
+
+
 ### Docker Proxy Considerations
 
 When running in docker-mode, `saucectl` still must reach the Sauce Labs platform get latest docker image available or upload the test package to Sauce Cloud, and the docker container needs to access the tested website and Sauce Labs to upload results.
@@ -216,6 +221,3 @@ npm:
     "@babel/preset-typescript": "7.12"
     "@cypress/react": "^5.0.1"
 ```
-:::note
-The `registry` parameter is only supported in Cypress running in Docker.
-:::

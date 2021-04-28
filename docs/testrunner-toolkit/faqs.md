@@ -30,13 +30,13 @@ All images are hosted on Docker Hub.
 
 * [Base image](https://hub.docker.com/r/saucelabs/testrunner-image/tags)
 is called `testrunner`. It contains the tooling necessary to record videos, VNC etc., plus Chrome, and a Firefox version.
-* [Base image + Playwright](https://hub.docker.com/r/saucelabs/stt-playwright-jest-node/tags)
-contains `saucectl` with different versions of Playwright.
+* [Base image + Playwright](https://hub.docker.com/r/saucelabs/stt-playwright-node/tags)
+contains supported versions of Playwright.
 * [Base image + Puppeteer](https://hub.docker.com/r/saucelabs/stt-puppeteer-jest-node/tags)
-contains `saucectl` with different versions of Puppeteer.
+contains supported versions of Puppeteer.
 * [Base image + TestCafe](https://hub.docker.com/r/saucelabs/stt-testcafe-node/tags)
-contains `saucectl` with different versions of TestCafe.
-* [Base image + Cypress](https://hub.docker.com/r/saucelabs/stt-cypress-mocha-node/tags) contains `saucectl` with different versions of Cypress.
+contains supported versions of TestCafe.
+* [Base image + Cypress](https://hub.docker.com/r/saucelabs/stt-cypress-mocha-node/tags) contains supported versions of Cypress.
 
 ## Are There any Test Code Samples?
 
