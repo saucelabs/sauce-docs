@@ -253,16 +253,16 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
 
 8. Now, you can debug and run tests on your app. For guidance and ideas, see the [Example Use Cases](https://docs.saucelabs.com/mobile-apps/virtual-usb#example-use-cases).
 
-:::caution **Known Android Limitation**
-The `adb-reverse` command is not supported.
+:::caution iOS Limitation
+To do proper debugging, the iOS device symbols will need to be downloaded to your local machine. This happens automatically when you're connecting to a Sauce Labs iOS device for the first time via a remote debug vUSB session with Xcode. **Xcode will attempt to download the iOS device symbols over the vUSB tunnel, causing a lag that can last up to a few minutes.**
+  * **What to Do**: Go to `~/Library/Developer/Xcode/iOS DeviceSupport/` and check the used iOS version of the phone to see if the symbols have been downloaded. The total used space per OS should be more than 1GB. If they are less than 1MB, delete the folder and restart Xcode again so it can re-fetch them.
+This a one-time action that you won't need to do again for future tests.
 :::
 
 <br/>
 
-:::caution **Known iOS Limitation**
-If you're starting a remote debug session with Xcode, and connecting to an iOS device for the first time, please note that your vUSB session may be very slow to start.
-* **Cause**: Xcode is attempting to download the iOS device symbols over the vUSB tunnel, causing the lag.
-* **What to Do**: Go to `~/Library/Developer/Xcode/iOS DeviceSupport/` and see for the used iOS version of the phone if the symbols are downloaded. The total used space per OS should be more than 1GB. If they are less than 1MB then delete the folder and restart XCODE again so it can refetch them.
+:::caution Android Limitation
+**The `adb-reverse` command is not supported.**
 :::
 
 ### Close Test
@@ -369,24 +369,29 @@ open /tmp/screen.png
 ```
 
 ### iOS Debugging
-You can use, or Xcode to deploy and debug your iOS apps, or use the developer tools within Safari to debug your website.
+To deploy and debug your iOS apps, you can use Xcode. To debug your website, we recommend using the developer tools within Safari.
 
-#### XCODE debugging
-> **NOTE:** To do proper debugging the symbols need to be downloaded to your local machine, if they are not downloaded (yet), then this can take a few minutes.
+#### **Xcode Debugging**
+> **NOTE**: Before debugging with Xcode, please read the known limitations under [Test and Debug](https://docs.saucelabs.com/mobile-apps/virtual-usb#test-and-debug).
 
-To for example profile your app you can go to the XCODE **Menu bar** > **Product** > **Profile**. It will automatically profile the app and a new menu is shown as seen below
+To profile your app: from your Xcode nav, select **Product** > **Profile**. It will automatically profile the app and generate a new menu, as shown below.
 
 <img src={useBaseUrl('img/virtual-usb/vusb-ios-profiling.png')} alt="Virtual USB Profiling" />
 
-Select for example the **Energy Log** and start recording which can result in the following screen.
+<br/><br/>
+
+In this example below, **Energy Log** has been selected and recording has been started. This can result in the following screen.
 
 <img src={useBaseUrl('img/virtual-usb/vusb-energy-logs.png')} alt="Virtual USB Energy Logs" />
 
-#### Safari Web Debugging
-If you want to debug Safari then open Safari, go to the Safari **Menu bar** > **Develop** > **Select your device** > **Select the view** you want to debug. In our example we want to debug the [Sauce Swag Labs demo website](https://www.saucedemo.com).
+#### **Safari Web Debugging**
+
+To debug with Safari: Open Safari > From the nav, select **Develop** > **Select your device** > **Select the view** you want to debug. In our example, we want to debug the [Sauce Swag Labs demo website](https://www.saucedemo.com).
 
 <img src={useBaseUrl('img/virtual-usb/vusb-safari-debug.png')} alt="Virtual USB Energy Logs" />
 
 ## Legacy (TestObject)
 
-For instructions on using vUSB with [TestObject (Legacy RDC)](https://wiki.saucelabs.com/display/DOCS/Legacy+Real+Device+Platform+Resources), see [Virtual USB for TestObject](https://wiki.saucelabs.com/x/0yJWB). TestObject reaches end-of-life September 1, 2021.
+For instructions on using vUSB with [TestObject (Legacy RDC)](https://wiki.saucelabs.com/display/DOCS/Legacy+Real+Device+Platform+Resources), see [Virtual USB for TestObject](https://wiki.saucelabs.com/x/0yJWB).
+
+TestObject will reach end-of-life September 1, 2021; read more [here](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721169).
