@@ -333,7 +333,7 @@ __Example__:
 
 #### `when`
 
-__Description__: Defines when to download the artifacts.
+__Description__: Specifies when and under what circumstances artifacts will be downloaded.
 
 __Type__: *string*
 
