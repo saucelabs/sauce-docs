@@ -318,7 +318,7 @@ artifacts:
 
 ### `download`
 
-__Description__: Allows you to define configuration relative to artifacts downloads.
+__Description__: Specifies the settings related to downloading artifacts from tests run by `saucectl`.
 
 __Type__: *object*
 
