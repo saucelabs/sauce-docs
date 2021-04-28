@@ -188,7 +188,7 @@ __Example__:
 
 ### `packages`
 
-__Description__: Specifies npm packages which are required.
+__Description__: Specifies npm packages that are required to run tests and should, therefore, be included in the bundle. See [Including Node Dependencies](testrunner-toolkit/configuration#including-node-dependencies).
 
 __Type__: *object*
 
