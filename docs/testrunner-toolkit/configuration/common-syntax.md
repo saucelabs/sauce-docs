@@ -350,7 +350,7 @@ __Example__:
 
 #### `match`
 
-__Description__: Defines the list of name patterns which artifacts must match to be downloaded. Wildcard character (`*`) can be used.
+__Description__: Allows you to specify particular files or file types to download based on whether they match the name pattern provided. Wildcard character (`*`) is supported.
 
 __Type__: *string[]*
 
