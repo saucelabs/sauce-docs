@@ -46,7 +46,7 @@ saucectl run --ccy 10
 
 A setting of `10` runs up to 10 test suites at the same time. If the test has more suites than that, excess suites are queued and run in order as currently running suites complete and new slots are available.
 
-When running on Sauce cloud, the maximum concurrency that you can use is defined by your account settings.
+When running on Sauce Cloud, the maximum concurrency that you can use is defined by your account settings.
 
 ## Sauce Connect
 
@@ -64,7 +64,7 @@ When you launch a tunnel, you can accept the tunnel identifier name that Sauce L
 bin/sc -u {SL-username} -k {SL-access_key} -i {tunnel_identifier}
 ```
 
-This is the identifer `saucectl` expects as the `id` value in the config file, even though the Sauce Labs UI refers to this values as the `Tunnel Name`.
+This is the identifier `saucectl` expects as the `id` value in the config file, even though the Sauce Labs UI refers to this values as the `Tunnel Name`.
 :::
 
 ## Setting up a Proxy
@@ -81,7 +81,7 @@ At this time, these proxy settings are not supported for Playwright.
 
 ### Docker Proxy Considerations
 
-When running in docker-mode, `saucectl` still must reach the Sauce Labs platform get latest docker image available or upload the test package to Sauce Cloud, and the docker container needs to access the tested website and Sauce Labs to upload results.
+When running in docker-mode, `saucectl` still must reach the Sauce Labs platform get the latest docker image available or upload the test package to Sauce Cloud, and the docker container needs to access the tested website and Sauce Labs to upload results.
 
 Therefore, you may be required to set the proxy twice, as shown in the following examples:
 
