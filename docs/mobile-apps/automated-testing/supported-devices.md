@@ -1,6 +1,6 @@
 ---
 id: supported-devices
-title: Choosing a Device for Mobile App Testing
+title: Using Real and Virtual Mobile Devices for Testing
 sidebar_label: Supported Devices
 ---
 
@@ -12,6 +12,8 @@ export const Highlight = ({children, color}) => ( <span style={{
     }}>{children}</span> );
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Get the most out of your live and automated testing by including a healthy mix of emulators, simulators, and real devices as your mobile testing platforms. Why? Because there are aspects of the mobile experience that you can't test on emulators or simulators, such as location-based apps that use manufacturer-specific device sensors, memory consumption, and CPU usage.
 
@@ -76,13 +78,12 @@ The Sauce Labs Real Device Cloud (RDC) provides you with the ability to run live
 
 For the full list of supported real devices, see [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices).
 
-
 ### Public vs. Private Real Devices
 
 Sauce Labs offers access to both public and private device clouds for your real device testing. Review the use cases below to see which option will suit your testing needs. Learn more [here](https://saucelabs.com/platform/real-device-cloud).
 
 
-#### Public Real Device Cloud Uses Cases
+#### Use Cases: Public Devices
 
 Our public cloud contains a wide selection of thoroughly cleaned devices.
 
@@ -92,8 +93,7 @@ Our public cloud contains a wide selection of thoroughly cleaned devices.
 * You need to share manual test sessions and devices across teams worldwide.
 * You are looking for a low-cost real device testing option.
 
-
-#### Private Real Device Cloud Use Cases
+#### Use Cases: Private Device
 
 <p> <Highlight color="#013a70">Enterprise Plans Only</Highlight> </p>
 
@@ -125,21 +125,102 @@ For more information on Sauce Labs security settings, see [Security Settings for
 
 Data Center security related to real devices is described in [Data Center Endpoints](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068).
 
-### Device Allocation
+### Static and Dynamic Device Allocation
 
-You can configure your real device tests in two ways:
+Regardless of the test frameworks you're using (Appium, Espresso, XCUITest), you can configure your real device tests using static and dynamic device allocation. While the syntax may be different (i.e., `--device`, `deviceName`), the functionality is the same across all frameworks.
 
-* ***Static Device Allocation***: specifying the exact device to use in your tests.
-* ***Dynamic Device Allocation***: providing basic parameters for the platform, operating system, and/or type of device you want to use in your tests, so that a device(s) with those specifications is selected from the device pool.
+#### ***Static Device Allocation***
+Specifying the exact device to use in your tests by providing the Device ID, which you can find under **Live** > **Mobile-App** > **Choose device** > Find Your Device > **Details**.
+<img src={useBaseUrl('img/mobile-apps/samsung-galaxyA10.jpg')} alt="Sauce Labs Device ID example" width="450"/>
+
+<Tabs
+  defaultValue="Espresso"
+  values={[
+    {label: 'Espresso', value: 'Espresso'},
+    {label: 'Appium', value: 'Appium'},
+  ]}>
+
+<TabItem value="Espresso">
+
+Static allocation example — exact device names are provided.
+
+```java
+--devices iPhone_11_13_5_real_us,iPhone_5
+--device Samsung_Galaxy_S20_real
+```
+
+</TabItem>
+<TabItem value="Appium">
+
+Static allocation example — exact device name is provided.
+
+```java
+capabilities.setCapability("deviceName", "Google_Pixel_4");
+```
+
+</TabItem>
+</Tabs>
+<br/>
+
+#### ***Dynamic Device Allocation***
+Specifying basic parameters for the platform, operating system, and/or type of device you want to use in your tests using [regular expressions (regex)](https://en.wikipedia.org/wiki/Regular_expression). A device(s) with your specifications will be selected from the real device pool.
+
+| Regex Input | Dynamic Allocation Action
+| :--- | :---
+| `"iPhone.*" ,  "iPhone .*"` | Allocates any iPhone.
+| `".*nexus.*"` | Allocates any device with the word "nexus" in its display name.  
+| `"iPhone [67]"` or `"iPhone [6-7]"` | Both will allocate either an iPhone 7 or iPhone 6 device.
+| `"iPhone [67]S"` or `"iPhone [6-7]S"` | Both will allocate either an iPhone 7S or iPhone 6S device.
+| `"iPhone 7.*"` | Allocates any device that starts with the display name "iPhone 7" (e.g., iPhone 7, iPhone 7S).
+
+<Tabs
+  defaultValue="Appium (Android)"
+  values={[
+    {label: 'Appium (Android)', value: 'Appium (Android)'},
+    {label: 'Appium (iOS)', value: 'Appium (iOS)'},
+  ]}>
+
+<TabItem value="Appium (Android)">
+
+<<<<<<< HEAD
+Dynamic allocation example 1: Finds any device that starts with the display name "Google".
+=======
+Dynamic allocation example - finds any device that starts with the display name "Google".
+>>>>>>> 64de3a420b6fbb3726a5a86117f3f1961472cc48
+
+```java
+capabilities.setCapability("deviceName", "Google.*");
+```
+
+<<<<<<< HEAD
+Excludes a specific device.
+
+=======
+>>>>>>> 64de3a420b6fbb3726a5a86117f3f1961472cc48
+```java
+capabilities.setCapability("deviceName", "^((?!.Google_Pixel_XL_real_us.).)*$");
+```
+
+</TabItem>
+<TabItem value="Appium (iOS)">
+
+Dynamic allocation example - finds all iPhone devices except 5 and 5S.
+
+```java
+capabilities.setCapability("deviceName", "^(iPhone.*)(?!5|5S)$");
+```
+
+</TabItem>
+</Tabs>
+
+>**NOTE**: A matching device must be present in your account in order for the test to run. Regex values are not case-sensitive (i.e., `"iphone .*S"` and `"IPHONe .*s"` are the same).
 
 ## Additional Resources
 
-* [Appium Testing on the Sauce Labs Real Device Cloud](/mobile-apps/automated-testing/appium/real-devices)
-
-* [Espresso and XCUITest Testing on the Sauce Labs Real Device Cloud](mobile-apps/automated-testing/espresso-xcuitest/real-devices)
-
+* [Appium Testing on Real Devices](/mobile-apps/automated-testing/appium/real-devices)
+  * [CLI Reference](dev/cli/appium/real-devices)
+* [Espresso and XCUITest Testing on Real Devices](mobile-apps/automated-testing/espresso-xcuitest/real-devices)
+  * [CLI Reference](dev/cli/espresso-xcuitest/real-devices)
 * [Sauce Labs Blog: How to Choose Mobile Devices for Testing](https://saucelabs.com/blog/how-to-choose-mobile-devices-for-testing)
-
 * [Better Together: Using Real Devices, Simulators, and Emulators for Mobile Testing](https://saucelabs.com/blog/better-together-real-devices-emulators-simulators-for-mobile-testing)
-
 * [Mobile Testing Basics: Live Testing vs. Automated Testing](https://saucelabs.com/blog/mobile-testing-basics-manual-vs-automated-testing)

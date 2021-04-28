@@ -1,7 +1,7 @@
 ---
 id: system-requirements
-title: Sauce Connect Proxy System and Network Requirements
-sidebar_label: System Requirements
+title: System and Network Requirements
+sidebar_label: System and Network Requirements
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -25,10 +25,10 @@ As an important step prior to downloading Sauce Connect Proxy, you or your syste
 2. Use cURL (or equivalent tool) to reach your Site Under Test. If you are relying on API to support a website or mobile app, you can cURL that as well. You should get a `200 OK HTTP` response. If you do NOT see a `200 OK HTTP` response, then Sauce Connect Proxy will not be able to reach it either.
 
 3. Use cURL (or equivalent tool) to reach the below URLs, as needed:
-  * [https://saucelabs.com](https://saucelabs.com/)
-  * [https://eu-central-1.saucelabs.com](https://eu-central-1.saucelabs.com/)
-  * [https://us1.api.testobject.com/sc](https://us1.api.testobject.com/sc/)
-  * [https://eu1.api.testobject.com/sc](https://eu1.api.testobject.com/sc/)
+   * [https://saucelabs.com](https://saucelabs.com/)
+   * [https://eu-central-1.saucelabs.com](https://eu-central-1.saucelabs.com/)
+   * [https://us1.api.testobject.com/sc](https://us1.api.testobject.com/sc/)
+   * [https://eu1.api.testobject.com/sc](https://eu1.api.testobject.com/sc/)
 
 If you can get a `200 OK` response from all URLs above, you are ready to start Sauce Connect! As an alternative, you can use [Nethelp](https://github.com/mdsauce/nethelp) to quickly connect to multiple resources and save the output.
 
@@ -69,7 +69,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>EC2 m4.large
    </td>
-   <td>8GB
+   <td>8 GB
    </td>
    <td>2
    </td>
@@ -83,7 +83,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>EC2 m4.xlarge
    </td>
-   <td>16GB
+   <td>16 GB
    </td>
    <td>4
    </td>
@@ -97,7 +97,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>EC2 m4.xlarge
    </td>
-   <td>16GB
+   <td>16 GB
    </td>
    <td>4
    </td>
@@ -111,7 +111,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>EC2 m4.xlarge
    </td>
-   <td>16GB
+   <td>16 GB
    </td>
    <td>4
    </td>
@@ -125,7 +125,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>EC2 m4.xlarge
    </td>
-   <td>16GB
+   <td>16 GB
    </td>
    <td>4
    </td>
@@ -139,7 +139,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>EC2 m4.xlarge
    </td>
-   <td>16GB
+   <td>16 GB
    </td>
    <td>4
    </td>
@@ -174,11 +174,11 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>EC2 m5.large
    </td>
-   <td>7.5GB
+   <td>7.5 GB
    </td>
    <td>2
    </td>
-   <td>3.5Gbps
+   <td>3.5 Gbps
    </td>
    <td>1
    </td>
@@ -188,11 +188,11 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>EC2 m5.large
    </td>
-   <td>7.5GB
+   <td>7.5 GB
    </td>
    <td>2
    </td>
-   <td>3.5Gbps
+   <td>3.5 Gbps
    </td>
    <td>2
    </td>
@@ -202,11 +202,11 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>EC2 m5.large
    </td>
-   <td>7.5GB
+   <td>7.5 GB
    </td>
    <td>2
    </td>
-   <td>3.5Gbps
+   <td>3.5 Gbps
    </td>
    <td>4
    </td>
@@ -216,11 +216,11 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>EC2 m5.large
    </td>
-   <td>7.5GB
+   <td>7.5 GB
    </td>
    <td>2
    </td>
-   <td>3.5Gbps
+   <td>3.5 Gbps
    </td>
    <td>8
    </td>
@@ -265,7 +265,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>GCE n1-standard-2
    </td>
-   <td>7.5GB
+   <td>7.5 GB
    </td>
    <td>2
    </td>
@@ -279,7 +279,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>GCE n1-standard-4
    </td>
-   <td>15GB
+   <td>15 GB
    </td>
    <td>4
    </td>
@@ -293,7 +293,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>GCE n1-standard-4
    </td>
-   <td>15GB
+   <td>15 GB
    </td>
    <td>4
    </td>
@@ -307,7 +307,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>GCE n1-standard-4
    </td>
-   <td>15GB
+   <td>15 GB
    </td>
    <td>4
    </td>
@@ -321,7 +321,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>GCE n1-standard-4
    </td>
-   <td>15GB
+   <td>15 GB
    </td>
    <td>4
    </td>
@@ -335,7 +335,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>GCE n1-standard-4
    </td>
-   <td>15GB
+   <td>15 GB
    </td>
    <td>4
    </td>
@@ -371,11 +371,11 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>GCE n1-standard-2
    </td>
-   <td>7.5GB
+   <td>7.5 GB
    </td>
    <td>2
    </td>
-   <td>3.5Gbps
+   <td>3.5 Gbps
    </td>
    <td>1
    </td>
@@ -385,11 +385,11 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>GCE n1-standard-2
    </td>
-   <td>7.5GB
+   <td>7.5 GB
    </td>
    <td>2
    </td>
-   <td>3.5Gbps
+   <td>3.5 Gbps
    </td>
    <td>2
    </td>
@@ -403,7 +403,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>2
    </td>
-   <td>3.5Gbps
+   <td>3.5 Gbps
    </td>
    <td>4
    </td>
@@ -413,11 +413,11 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>GCE n1-standard-2
    </td>
-   <td>7.5GB
+   <td>7.5 GB
    </td>
    <td>2
    </td>
-   <td>3.5Gbps
+   <td>3.5 Gbps
    </td>
    <td>8
    </td>
@@ -430,7 +430,7 @@ Select a cloud provider from the tables below to view the recommended system req
 
 Tips for optimizing your tests running through Sauce Connect tunnels:
 
-*  If you're running **100 or more parallel tests**, we recommend a minimum network bandwidth of 750Mbps to support the high volume of network traffic.
+*  If you're running **100 or more parallel tests**, we recommend a minimum network bandwidth of 750 Mbps to support the high volume of network traffic.
 *  If you're running **200 or more parallel tests**, we recommend launching more than one tunnel and using the [High Availability Sauce Connect Proxy Setup](https://wiki.saucelabs.com/display/DOCS/High+Availability+Sauce+Connect+Proxy+Setup).
 *  When running a high volume of parallel tests on Unix-based operating systems, you may need to increase your [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) (for example, `ulimit -n 8192`).
 *  For best performance, stability, and security, we recommend using a dedicated server (see [Sauce Connect Proxy Network Security](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+and+Network+Security)).
@@ -461,9 +461,9 @@ When your tests are running through a Sauce Connect tunnel, the client on your n
 2. To connect with the site or app under test: Communication to the sites or apps you specify in your tests.
 
 
-### Whitelisting for Restricted Networks
+### Allow-listing for Restricted Networks
 
-If you're testing in a restricted network setting, you may need to whitelist the Sauce Labs domains below to allow outbound communication to Sauce Labs Selenium and Appium endpoints. Whitelisting for inbound traffic coming into your network is not necessary. To check if your setup is successful, see [Validating Your Basic Sauce Connect Proxy Setup](https://wiki.saucelabs.com/display/DOCS/Basic+Sauce+Connect+Proxy+Setup#BasicSauceConnectProxySetup-ValidatingYourBasicSauceConnectProxySetup).
+If you're testing in a restricted network setting, you may need to allow-list the Sauce Labs domains below to allow outbound communication to Sauce Labs Selenium and Appium endpoints. Allow-listing for inbound traffic coming into your network is not necessary. To check if your setup is successful, see [Validating Your Basic Sauce Connect Proxy Setup](https://wiki.saucelabs.com/display/DOCS/Basic+Sauce+Connect+Proxy+Setup#BasicSauceConnectProxySetup-ValidatingYourBasicSauceConnectProxySetup).
 
 You'll need to use the set of domains for your corresponding Sauce Labs Data Center: US Data Center (US-West-1**), Headless Data Center (US-East-1), or European Data Center (EU-Central-1). The Data Center you're connected to is indicated in your navigation menu.
 
@@ -478,12 +478,12 @@ The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select y
 <Tabs
   defaultValue="US West 1"
   values={[
-    {label: 'US West 1', value: 'US West 1'},
-    {label: 'EU Central 1', value: 'EU Central 1'},
-    {label: 'Headless US East 1', value: 'Headless US East 1'},
+    {label: 'US-West-1', value: 'US-West-1'},
+    {label: 'EU-Central-1', value: 'EU-Central-1'},
+    {label: 'Headless US-East', value: 'Headless US-East'},
   ]}>
 
-<TabItem value="US West 1">
+<TabItem value="US-West-1">
 
 |Virtual Device Cloud/Real Device Cloud + Sauce Connect |
 | :-------- |
@@ -494,7 +494,7 @@ The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select y
 |`https://us1.api.testobject.com/sc/rest/v1` |
 
 </TabItem>
-<TabItem value="EU Central 1">
+<TabItem value="EU-Central-1">
 
 |Virtual Device Cloud/Real Device Cloud + Sauce Connect|
 | :-------- |
@@ -505,7 +505,7 @@ The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select y
 |`https://eu1.api.testobject.com/sc/rest/v1`|
 
 </TabItem>
-<TabItem value="Headless US East 1">
+<TabItem value="Headless US-East">
 
 |Headless + Sauce Connect|
 | :-------- |
@@ -524,12 +524,12 @@ The following domains must be whitelisted for outbound communication from you ne
 <Tabs
   defaultValue="US West 1"
   values={[
-    {label: 'US West 1', value: 'US West 1'},
-    {label: 'US East 1', value: 'EU Central 1'},
-    {label: 'Headless US East 1', value: 'Headless US East 1'},
+    {label: 'US-West-1', value: 'US-West-1'},
+    {label: 'US East 1', value: 'EU-Central-1'},
+    {label: 'Headless US-East', value: 'Headless US-East'},
   ]}>
 
-<TabItem value="US West 1">
+<TabItem value="US-West-1">
 
 | Virtual Device Cloud/Real Device Cloud + Sauce Connect |
 | :-------- |
@@ -540,7 +540,7 @@ The following domains must be whitelisted for outbound communication from you ne
 | `*.sjc1.mrdc.miso.saucelabs.com` |
 
 </TabItem>
-<TabItem value="EU Central 1">
+<TabItem value="EU-Central-1">
 
 | Virtual Device Cloud/Real Device Cloud + Sauce Connect |
 | :----- |
@@ -551,7 +551,7 @@ The following domains must be whitelisted for outbound communication from you ne
 | `*.txl1.mrdc.miso.saucelabs.com` |
 
 </TabItem>
-<TabItem value="Headless US East 1">
+<TabItem value="Headless US-East">
 
 |Headless + Sauce Connect|
 | :-------- |
@@ -581,11 +581,6 @@ Here are the Sauce Connect Proxy network requirements for TLS and SSL traffic:
 ## Certificate Management
 
 Public key certificates are used to manage the security of Sauce Connect Proxy communication to both the Sauce Labs API and to the Virtual Machine hosting your tests in the Sauce Labs cloud. For information on saucelabs.com certificate authentication, see [Sauce Connect Proxy Certificate Handling](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Certificate+Handling).
-
-
-
-
-
 
 ## Additional Resources
 

@@ -13,7 +13,7 @@ Organization admins can update the name, email address, user name, role, and tea
 
 1. In Sauce Labs, click **Account** and then click **Team Management**.
 
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.jpg')} alt="Team management navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
 
 2. On the **Users** tab, click the user name of the user whose information you want to edit.
 
