@@ -350,7 +350,7 @@ __Example__:
 
 #### `match`
 
-__Description__: Allows you to specify particular files or file types to download based on whether they match the name pattern provided. Wildcard character (`*`) is supported.
+__Description__: Allows you to specify particular files or file types to download based on whether they match the name pattern provided. Supports the wildcard character `*`.
 
 __Type__: *string[]*
 
@@ -362,7 +362,7 @@ __Example__:
 
 #### `directory`
 
-__Description__: Specifies the path to the folder location in which artifacts will be downloaded. Each suite will have its own subdirectory.
+__Description__: Specifies the path to the folder location in which artifacts will be downloaded to. Each suite will have its own subdirectory.
 
 __Type__: *string*
 
