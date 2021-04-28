@@ -184,7 +184,9 @@ __Example__:
   registry: https://registry.npmjs.org
 ```
 
-⚠️ `registry` can also be private internal npm registry source. It works along with [Sauce Connect](/testrunner-toolkit/running-tests#run-tests-on-sauce-labs-with-sauce-connect) to get access to your private internet from Sauce Cloud.
+>
+> **NOTE:** `registry` can also be private internal npm registry source. It works along with [Sauce Connect](/testrunner-toolkit/running-tests#run-tests-on-sauce-labs-with-sauce-connect) to get access to your private internet from Sauce Cloud.
+>
 
 ### `packages`
 
