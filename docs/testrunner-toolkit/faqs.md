@@ -8,7 +8,7 @@ Below are list of frequently asked questions regarding some of the business and 
 
 ## How Does Sauce Control Work?
 
-Native testing is achieved through the combination of Sauce Labs, Jest, and the framework of your choice, giving you the power and expressiveness of different test frameworks with the dashboards, infrastructure, and analytics of [Sauce Labs](https://saucelabs.com/).
+Native testing is achieved through the coordination between Sauce Labs and the framework of your choice, giving you the power and expressiveness of different test frameworks with the dashboards, infrastructure, and analytics of [Sauce Labs](https://saucelabs.com/).
 
 The specific framework you use for testing should be based on the types of tests you
 need to run and the environment in which you are running them. Sauce Control also supports

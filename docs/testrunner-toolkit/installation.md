@@ -119,7 +119,7 @@ SAUCE_ACCESS_KEY='valid.key'
 ```
 
 :::warning Protect your Credentials
-Whether you are using environment variables or a credentials file, make sure your authentication data is protected. Use secrets or context variables to mask your environment variables, or add `credentials.yml` to your `sauceignore` file to ensure your credentials are not exposed in your commits.
+Whether you are using environment variables or a credentials file, make sure your authentication data is protected. Use secrets or context variables to mask your environment variables, or add `credentials.yml` to your `gitignore` file to ensure your credentials are not exposed in your commits.
 :::
 
 
