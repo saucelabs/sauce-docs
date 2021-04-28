@@ -302,7 +302,7 @@ __Example__:
 
 ## `artifacts`
 
-__Description__: Allows you to define configuration relative to artifacts.
+__Description__: Specifies how to manage test artifacts, such as logs, videos, and screenshots.
 
 __Type__: *object*
 
