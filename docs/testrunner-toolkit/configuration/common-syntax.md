@@ -341,7 +341,7 @@ __Values__:
 - `always`: Artfiacts will always be downloaded.
 - `never`: Artifacts will never be downloaded.
 - `pass`: Artifacts will be downloaded only if the suite passes.
-- `fail`: Artifacts will be downloaded only if suite fails.
+- `fail`: Artifacts will be downloaded only if the suite fails.
 
 __Example__:
 ```yaml
