@@ -175,18 +175,13 @@ __Example__:
 
 ### `registry`
 
-__Description__: Specifies npm registry source.
+__Description__: Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/testrunner-toolkit/running-tests#running-tests-on-sauce-labs-with-sauce-connect).
 
 __Type__: *string*
 
 __Example__:
 ```yaml
   registry: https://registry.npmjs.org
-```
-
->
-> **NOTE:** `registry` can also be private internal npm registry source. It works along with [Sauce Connect](/testrunner-toolkit/running-tests#run-tests-on-sauce-labs-with-sauce-connect) to get access to your private internet from Sauce Cloud.
->
 
 ### `packages`
 
