@@ -90,7 +90,7 @@ __Shorthand__: `-c`
 
 ### `--no-ssl-bump-domains`
 
-__Description__: Disables [SSL Bumping functionality](secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping). Specifying this option will prevent your tests from being interrupted with security warnings by automatically re-signing self-signed and invalid SSL certificates not trusted by stock browsers.
+__Description__: Disables [SSL Bumping functionality](https://docs.saucelabs.com/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping). Specifying this option will prevent your tests from being interrupted with security warnings by automatically re-signing self-signed and invalid SSL certificates not trusted by stock browsers.
 
 Use this option when you start Sauce Connect Proxy and [specify the domains in comma-separated list](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy#formatting-domains-in-your-commands)that you don't want bumped or SSL re-encrypted. You can also specify all, which prevents all domains passing through the tunnel from being bumped.
 
@@ -120,7 +120,7 @@ __Shorthand__: `-D`
 
 ### `--tunnel-domains [...]`
 
-__Description__:  This option does the inverse of --direct-domains; it sends domains that you request through the Sauce Connect Proxy tunnel. Be sure to format your domains as a <a href="https://docs.saucelabs.com/dev/cli/sauce-connect-proxy#formatting-domains-in-your-commands">comma-separated list</a>.
+__Description__:  This option does the inverse of --direct-domains; it sends domains that you request through the Sauce Connect Proxy tunnel. Be sure to format your domains as a <a href="https://docs.saucelabs.com/dev/cli/sauce-connect-proxy#formatting-domains-in-your-command-lines">comma-separated list</a>.
 
 __Shorthand__: `-t`
 
@@ -429,3 +429,4 @@ Here are some guidelines to follow when formatting domains:
 * [Sauce Connect Proxy Setup and Configuration](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Setup+and+Configuration)
 * [Sauce Connect Proxy Network Security](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+and+Network+Security)
 * [Sauce Connect Proxy Changelog](secure-connections/sauce-connect/changelog)
+
