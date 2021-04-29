@@ -81,9 +81,9 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
   Once you've executed the above command line, it becomes a session data log, running continuously in the background. Do not close it, and keep it separate from terminals you'll use in forthcoming steps.
 
   #### **Optional: Set Verbose Logging**
-  If you'd like to set verbose or very verbose logging, you can specify `-v` or `-vv`, respectively. Example:
+  If you'd like to set verbose or very verbose logging, you can specify `-v` or `-vv` as the first argument, respectively. Example:
   ```java
-  java -jar virtual-usb-client.jar server --datacenter US -v
+  java -jar virtual-usb-client.jar -v server --datacenter US
   ```
 
   #### **Optional: Set Up a Local Server Proxy**
