@@ -171,6 +171,7 @@ __Example__:
       lodash: "4.17.20"
       "@babel/preset-typescript": "7.12"
       "@cypress/react": "^5.0.1"
+    strictSSL: false
 ```
 
 ### `registry`
@@ -182,6 +183,7 @@ __Type__: *string*
 __Example__:
 ```yaml
   registry: https://registry.npmjs.org
+```
 
 ### `packages`
 
@@ -195,6 +197,17 @@ __Example__:
     lodash: "4.17.20"
     "@babel/preset-typescript": "7.12"
     "@cypress/react": "^5.0.1"
+```
+
+### `strictSSL`
+
+__Description__: Whether or not to do SSL key validation when making requests to the registry via https. If this value is not set, npm will set it to `true` by default.
+
+__Type__: *boolean*
+
+__Example__:
+```yaml
+    strictSSL: false
 ```
 
 ## `defaults`
