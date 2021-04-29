@@ -40,15 +40,16 @@ The toolkit currently supports:
 
 |Cypress Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
+|7.1.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |6.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |5.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
-|5.5.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 
 </TabItem>
 <TabItem value="playwright">
 
 |Playwright Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
+|1.10.0|Windows 10|Chromium, Firefox, Webkit|
 |1.7.1|Windows 10|Chromium, Firefox, Webkit|
 
 </TabItem>
