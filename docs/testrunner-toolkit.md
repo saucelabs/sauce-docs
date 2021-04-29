@@ -60,12 +60,50 @@ The toolkit currently supports:
 </TabItem>
 <TabItem value="testcafe">
 
-|TestCafe Version|Supported Platforms|Supported Browsers|
-|-----|-----|-----|
-|1.11.0|macOS 11.00|Safari, Chrome, Firefox, MicrosoftEdge|
-|1.11.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
-|1.11.0|iOS 14.3|Safari|
-|1.10.1|Windows 10|Chrome, Firefox, MicrosoftEdge|
+<table id="table-fw">
+  <tr>
+    <th>TestCafe Version</th>
+    <th>Supported Platforms</th>
+    <th>Supported Browsers</th>
+  </tr>
+  <tbody>
+  <tr>
+    <td rowspan='3'>1.14.0</td>
+    <td><b>macOS:</b> 11.0</td>
+    <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  <tr>
+    <td><b>Windows:</b> 10</td>
+    <td>Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  <tr>
+    <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+    <td>Safari</td>
+  </tr>
+  </tbody>
+  <tbody>
+  <tr>
+    <td rowspan='3'>1.11.0</td>
+    <td><b>macOS:</b> 11.0</td>
+    <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  <tr>
+    <td><b>Windows:</b> 10</td>
+    <td>Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  <tr>
+    <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+    <td>Safari</td>
+  </tr>
+  </tbody>
+  <tbody>
+  <tr>
+    <td>1.10.1</td>
+    <td><b>Windows:</b> 10</td>
+    <td>Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  </tbody>
+</table>
 
 </TabItem>
 <TabItem value="espresso">
