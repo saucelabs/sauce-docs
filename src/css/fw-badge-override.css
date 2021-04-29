@@ -23,3 +23,17 @@
 .sauce-cloud {
     background-color:#ad1415;
 }
+
+/* Support FW table style */
+
+#table-fw tr:nth-child(even){
+  background: transparent;
+}
+
+#table-fw tbody:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+#table-fw tbody:nth-child(odd) {
+  background-color: #FFFFFF;
+}
