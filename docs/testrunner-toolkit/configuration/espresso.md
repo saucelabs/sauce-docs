@@ -106,8 +106,7 @@ __Example__:
 
 ## `testOptions`
 
-__Description__: Field for defining filters for tests such as the class, size, package, notClass, and 
-annotation.
+__Description__: A set of parameters allowing you to select tests for the suite based on matching attributes.
 
 __Type__: *object*
 
@@ -125,7 +124,7 @@ testOptions:
 
 ### `class`
 
-__Description__: Field for defining filter by selected classes.
+__Description__: Instructs `saucectl` to only run the specified classes for this test suite.
 
 __Type__: *array*
 
@@ -137,7 +136,7 @@ __Example__:
 
 ### `notClass`
 
-__Description__: Field for defining filter by skipping selected classes.
+__Description__: Instructs `saucectl` to run all classes for the suite *except* those specified here.
 
 __Type__: *array*
 
@@ -149,7 +148,7 @@ __Example__:
 
 ### `size`
 
-__Description__: Field for defining filter by specific test size.
+__Description__: Instructs `saucectl` to run only tests that are annotated with the matching size value. 
 
 __Type__: *enum*
 
@@ -162,7 +161,7 @@ __Example__:
 
 ### `package`
 
-__Description__: Field for defining filter by selected package.
+__Description__: Instructs `saucectl` to run only tests in the specified package.
 
 __Type__: *string*
 
@@ -173,7 +172,7 @@ __Example__:
 
 ### `annotation`
 
-__Description__: Field for defining filter by selected annotation.
+__Description__: Instructs `saucectl` to run only tests that match a custom annotation that you have set. 
 
 __Type__: *string*
 
