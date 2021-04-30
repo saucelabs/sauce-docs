@@ -29,24 +29,32 @@ espresso:
 
 ### `app`
 
-__Description__: Path to the application.
+__Description__: Path to the application. It supports expanded enviornment variable.
 
 __Type__: *string*
 
-__Example__:
+__Examples__:
 ```yaml
   app: ./apps/calc.apk
 ```
 
+```yaml
+  app: $APP
+```
+
 ### `testApp`
 
-__Description__: Path to the testing application.
+__Description__: Path to the testing application. It supports expanded enviornment variable.
 
 __Type__: *string*
 
-__Example__:
+__Examples__:
 ```yaml
   testApp: ./apps/calc-success.apk
+```
+
+```yaml
+  testApp: $TEST_APP
 ```
 
 ## `devices`
