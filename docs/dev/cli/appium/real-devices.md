@@ -95,7 +95,7 @@ __Description__: <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageI
 ### `newCommandTimeout`
 __Data Type__: Float
 
-__Description__: Automated tests time out by default after 60 seconds of inactivity. You can increase this to 90 seconds with the newCommandTimeout desired capability.
+__Description__: enables you to increase inactivity timeout to 90 seconds. By default, tests time out after 60 seconds of inactivity.
 
 ### `commandTimeout`
 __Data Type__: Float
@@ -125,17 +125,21 @@ __Data Type__: Boolean.
 __Description__: use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For ***Dynamic Allocation***.
 
 ### `automationName`
+<p><small><Highlight color="#946f59">Android/Espresso Only</Highlight></small></p>
+
 __Data Type__: String.
 
-__Description__: You can pass an automation value to use native automation frameworks (supported for Android native apps only). UiAutomator2 example:
+__Description__: pass an automation value to use native automation frameworks (supported for Android native apps only). UiAutomator2 example:
 ```java
 capabilities.setCapability("automationName", "uiautomator2");
 ```
 
 ### `cacheId`
-__Data Type__: String.
+__Data Type__: Randomized String.
 
-__Description__: specifying this capability along with the device name will allocate the device to you for 10 seconds after a test finishes. You can then re-use the same device in your next test. However the value for cacheId must be the same for all test methods that you want to run on the cached device. In addition, the application and project ID used for the tests must remain the same, along with the values for these capabilities:
+__Description__: use this capability to keep a device allocated to you during the 10-second device cleaning process that occurs by default after each test completes, allowing you to start another test on the same device immediately between sessions. The device will be cleaned, but your app under test and its data will remain.
+
+The value for `cacheId` must be the same for all test methods that you want to run on the cached device. In addition, the app and project ID used for the tests must remain the same, along with the values for these capabilities:
 * `deviceName`
 * `platformName`
 * `platformVersion`
@@ -146,13 +150,21 @@ __Description__: specifying this capability along with the device name will allo
 * `autoGrantPermissions`
 * `appiumVersion`
 
+Suitable for test setups that require the app's state to be reset between tests. Can be used for both [***static*** and ***dynamic allocation***](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation).
+
 We recommend reviewing [Device Management for Real Devices](mobile-apps/automated-testing/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
+
+>**NOTE**: `cacheId` has replaced the `testobject_cache_device` capability that was used in TestObject (Legacy RDC).
 
 
 ### `noReset`
 __Data Type__: Boolean.
 
-__Description__: You can also use the cacheId capability in conjunction with the standard `noReset` Appium capability. In the default case, where noReset is set to false, your application will be uninstalled and reinstalled after every test. If `noReset` is set to true, the application you are testing won't be reinstalled after every test run. This might save you further time, and is suitable for test setups that require the application's state to be reset between tests. Note that then cacheId is set, no device cleaning will take place in between sessions, regardless of noReset value.
+__Description__: set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it `cacheId`.
+
+:::caution Known iOS Limitation
+On iOS devices, `noReset` value is permanently set to `true`. Even if you input `noReset:false`, the outcome will still be `true`.
+:::
 
 
 ### `recordDeviceVitals`
@@ -170,26 +182,17 @@ __Description__: As described in [Appium Issue 4597](https://github.com/appium/a
 
 __Data Type__: Boolean.
 
-<<<<<<< HEAD
 __Description__: By default, applications are installed on devices in the Sauce Labs real device cloud with autoGrantPermissions capability set to `true`. As long as the API number of the device is equal to 23 or higher, you can disable this by explicitly setting `autoGrantPermissions` to false.
 
 ### `enableAnimations`
 __Data Type__: Boolean.
 
-=======
+
 ### `enableAnimations`
 __Data Type__: Boolean
->>>>>>> 64de3a420b6fbb3726a5a86117f3f1961472cc48
-__Description__: By default, animations are disabled on real devices. You can enable animations for private devices only with the enableAnimations capability.
->***NOTE***: This capability will only work if `privateDevicesOnly` is set to `true`.
 
+__Description__: By default, animations are disabled on real devices. You can enable animations for private devices only with the enableAnimations capability. To use this capability, you'll need to add `privateDevicesOnly` and set to `true`.
 
-### `cacheId`
-__Description__: use this capability to keep a device allocated to you during the 10-second device cleaning process that occurs by default after each test completes. If you immediately start another test on the device, you won't need to wait for the allocation and device cleaning process to be repeated. In this case, no device cleaning will take place in between sessions, with the only exception being the app under test and the data it owns. This works for both [***static*** and ***dynamic allocation***](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation).
-
-By default, each time you complete a test session, the Real Device Cloud uninstalls your app, performs device cleaning, and de-allocates the device. This means that if you wanted to run multiple tests on the same device, you would need to wait for this cleaning process to complete between every test.
-
->**NOTE**: `cacheId` has replaced the [TestObject platform](https://wiki.saucelabs.com/display/DOCS/Legacy+Device+Platform+User+Migration+Guide) capability `testobject_cache_device`. If you have scripts that use `testobject_cache_device`, they will still work for (static allocation only) on TestObject. The 10-second limit on cached devices is still the same.
 
 ## Override Settings Capabilities (Optional)
 
@@ -198,26 +201,26 @@ These are custom capabilities developed by Sauce Labs that you can use to overri
 ### `resigningEnabled`
 __Data Type__: Boolean.
 
-__Description__: Enables the resigning (iOS) or instrumentation (Android) of apps on the Sauce Labs side, which enables the usage of the other capabilities listed in this table.
+__Description__: Enables the resigning (iOS) or instrumentation (Android) of apps on the Sauce Labs side, allowing the usage of the other capabilities listed in this section.
 
 ### `sauceLabsImageInjectionEnabled`
 __Data Type__: Boolean.
 
-__Description__: Enables the image injection feature.
+__Description__: enables the [camera image injection](https://docs.saucelabs.com/mobile-apps/features#camera-image-injection) feature.
 
 ### `sauceLabsBypassScreenshotRestriction`
 <p><small><Highlight color="#946f59">Espresso/Android Only</Highlight></small></p>
 
 __Data Type__: Boolean.
 
-__Description__: Bypasses the restriction on taking screenshots for secure screens (i.e., secure text entry).
+__Description__: bypasses the restriction on taking screenshots for secure screens (i.e., secure text entry).
 
 ### `allowTouchIdEnroll`
 <p><small><Highlight color="#333333">XCUITest/iOS Only</Highlight></small></p>
 
 __Data Type__: Boolean.
 
-__Description__: Enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).
+__Description__: enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).
 
 ### `groupFolderRedirectEnabled`
 <p><small><Highlight color="#333333">XCUITest/iOS Only</Highlight></small></p>
