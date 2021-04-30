@@ -103,3 +103,80 @@ __Example__:
     - "11.0"
     - "10.0"
 ```
+
+## `testOptions`
+
+__Description__: A set of parameters allowing you to select tests for the suite based on matching attributes.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+testOptions:
+  class:
+    - com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
+  notClass:
+    - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest  
+  size: small
+  package: com.example.android.testing.androidjunitrunnersample
+  annotation: com.android.buzz.MyAnnotation
+```
+
+### `class`
+
+__Description__: Instructs `saucectl` to only run the specified classes for this test suite.
+
+__Type__: *array*
+
+__Example__:
+```yaml
+  class:
+    - com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
+```
+
+### `notClass`
+
+__Description__: Instructs `saucectl` to run all classes for the suite *except* those specified here.
+
+__Type__: *array*
+
+__Example__:
+```yaml
+  notClass:
+    - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest
+```
+
+### `size`
+
+__Description__: Instructs `saucectl` to run only tests that are annotated with the matching size value. 
+
+__Type__: *enum*
+
+__Values__: *small*, *medium*, *large*
+
+__Example__:
+```yaml
+  size: small
+```
+
+### `package`
+
+__Description__: Instructs `saucectl` to run only tests in the specified package.
+
+__Type__: *string*
+
+__Example__:
+```yaml
+  package: com.example.android.testing.androidjunitrunnersample
+```
+
+### `annotation`
+
+__Description__: Instructs `saucectl` to run only tests that match a custom annotation that you have set. 
+
+__Type__: *string*
+
+__Example__:
+```yaml
+  annotation: com.android.buzz.MyAnnotation
+```
