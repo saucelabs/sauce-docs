@@ -343,7 +343,7 @@ __Example__:
 
 ### `--no-remove-colliding-tunnels`
 
-__Description__: Use this option to prevent the removal of [colliding tunnels](https://docs.saucelabs.com/secure-connections/sauce-connect/setup-configuration/high-availability#what-are-colliding-tunnels), which would otherwisr happen by default Sauce Connect Proxy starts up. ***Colliding tunnels*** are tunnels with the same tunnel ID name. This includes unnamed (default) tunnels. Jobs will be distributed across all tunnels, enabling load balancing and high availability.
+__Description__: Use this option to prevent the removal of [colliding tunnels](https://docs.saucelabs.com/secure-connections/sauce-connect/setup-configuration/high-availability#what-are-colliding-tunnels), which would otherwise happen by default when Sauce Connect Proxy starts up. ***Colliding tunnels*** are tunnels with the same tunnel ID name. This includes unnamed (default) tunnels. Jobs will be distributed across all tunnels, enabling load balancing and high availability.
 
 __Shorthand__: n/a  
 <br/>
