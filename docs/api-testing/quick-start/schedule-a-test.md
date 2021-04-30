@@ -41,7 +41,7 @@ Click **+ Create New Run** on the left side of the screen to create a new schedu
 
 **Pause Toggle** - This will prevent the run from triggering if clicked. 
 
-**Try Second Execution Toggle** - When this checkbox is selected, another execution will run after 2m 30s if the initial execution fails.
+**Try Second Execution Toggle  ** - When this checkbox is selected, another execution will run after 2m 30s if the initial execution fails.
 
 **Downloader** – This dropdown allows you to choose which datacenter the request will be made from. You can select one or more than one.
 

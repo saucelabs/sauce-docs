@@ -6,6 +6,12 @@ sidebar_label: TestCafe
 
 Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference)for information regarding fields such as `apiVersion`, `kind`, and `sauce`.
 
+## TestCafe Considerations
+
+Execution time for TestCafe tests is limited to a maximum of 30 minutes. If the limit is exceeded, the test terminates and Sauce Control uploads assets (videos, screenshots, logs, etc..) to the Sauce Labs platform.
+
+Consider breaking up longer TestCafe tests to optimize performance and ensure you do not exceed this time limit.
+
 ## Example Configuration
 
 ```yaml reference

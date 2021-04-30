@@ -145,7 +145,7 @@ __Example__:
 
 ## `rootDir`
 
-__Description__: Directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Bundling page](/testrunner-toolkit/configuration/bundling) page for more details
+__Description__: Directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Tailoring Your Test File Bundle](/testrunner-toolkit/configuration#tailoring-your-test-file-bundle) for more details.
 
 __Type__: *object*
 
@@ -171,10 +171,31 @@ __Example__:
       lodash: "4.17.20"
       "@babel/preset-typescript": "7.12"
       "@cypress/react": "^5.0.1"
-      
 ```
 
-⚠️ `registry` configuration is only supported in latest cypress docker image. No other frameworks, or Sauce Labs cloud.
+### `registry`
+
+__Description__: Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/testrunner-toolkit/running-tests#running-tests-on-sauce-labs-with-sauce-connect).
+
+__Type__: *string*
+
+__Example__:
+```yaml
+  registry: https://registry.npmjs.org
+
+### `packages`
+
+__Description__: Specifies npm packages that are required to run tests and should, therefore, be included in the bundle. See [Including Node Dependencies](/testrunner-toolkit/configuration/bundling#including-node-dependencies).
+
+__Type__: *object*
+
+__Example__:
+```yaml
+  packages:
+    lodash: "4.17.20"
+    "@babel/preset-typescript": "7.12"
+    "@cypress/react": "^5.0.1"
+```
 
 ## `defaults`
 
@@ -286,6 +307,9 @@ __Example__:
     screenResolution: "1920x1080"
 ```
 
+> For all available resolutions please visit [this documentation page](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
+
+
 ### `mode`
 
 __Description__: Allows you to specify whether the individual suite will run on `docker` or `sauce`, potentially overriding the default project mode setting.
@@ -297,7 +321,76 @@ __Example__:
   mode: "sauce"
 ```
 
-> For all available resolutions please visit [this documentation page](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
+## `artifacts`
+
+__Description__: Specifies how to manage test artifacts, such as logs, videos, and screenshots.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+artifacts:
+  download:
+    when: always
+    match:
+      - junit.xml
+    directory: ./artifacts/
+```
+
+### `download`
+
+__Description__: Specifies the settings related to downloading artifacts from tests run by `saucectl`.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+  download:
+    when: always
+    match:
+      - junit.xml
+    directory: ./artifacts/
+```
+
+#### `when`
+
+__Description__: Specifies when and under what circumstances artifacts will be downloaded.
+
+__Type__: *string*
+
+__Values__:
+- `always`: Artfiacts will always be downloaded.
+- `never`: Artifacts will never be downloaded.
+- `pass`: Artifacts will be downloaded only if the suite passes.
+- `fail`: Artifacts will be downloaded only if the suite fails.
+
+__Example__:
+```yaml
+    when: always
+```
+
+#### `match`
+
+__Description__: Allows you to specify particular files or file types to download based on whether they match the name pattern provided. Supports the wildcard character `*`.
+
+__Type__: *string[]*
+
+__Example__:
+```yaml
+    - junit.xml
+    - *.log
+```
+
+#### `directory`
+
+__Description__: Specifies the path to the folder location in which artifacts will be downloaded. Each suite will have its own subdirectory.
+
+__Type__: *string*
+
+__Example__:
+```yaml
+    directory: ./artifacts/
+```
 
 ## Framework Syntax Reference
 

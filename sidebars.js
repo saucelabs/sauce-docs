@@ -535,7 +535,6 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'testrunner-toolkit/configuration',
-                    'testrunner-toolkit/configuration/bundling',
                     'testrunner-toolkit/configuration/common-syntax',
                     'testrunner-toolkit/configuration/cypress',
                     'testrunner-toolkit/configuration/playwright',
@@ -559,7 +558,6 @@ module.exports = {
             },
             'testrunner-toolkit/typescript',
             'testrunner-toolkit/saucectl',
-            'testrunner-toolkit/faqs',
             'testrunner-toolkit/support',
         ],
         "Visual": [

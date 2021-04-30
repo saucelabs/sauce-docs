@@ -226,7 +226,7 @@ __Description__: specify a comma-separated list of test cases or test classes on
 <br/>
 
 ### `--e`
-<p><small><Highlight color="#946f59">Espresso Only</Highlight></small></p>
+<p><small><Highlight color="#946f59">Android/Espresso Only</Highlight></small></p>
 
 __Description__: specify a list of test options to Espresso. The key-value pairs supported by Espresso are documented here: [Android Developers—am instrument options](https://developer.android.com/studio/test/command-line#AMOptionsSyntax).
 
@@ -290,7 +290,7 @@ __Description__: specifies the URL of an alternative REST endpoint to use. For a
 
 ### `--useTestOrchestrator`
 
-<p><small><Highlight color="#946f59">Espresso Only</Highlight></small></p>
+<p><small><Highlight color="#946f59">Android/Espresso Only</Highlight></small></p>
 
 __Description__: if set, the instrumentation will start with Test Orchestrator version `1.1.1` in use.
 
