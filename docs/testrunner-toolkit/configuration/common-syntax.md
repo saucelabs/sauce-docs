@@ -4,8 +4,6 @@ title: Common Configuration Syntax
 sidebar_label: Common Syntax
 ---
 
-import Highlight from '../../../src/components/highlight.jsx'
-
 The section below provides details and explanations regarding the common syntax/fields of `.sauce/config.yml`.
 
 ## `apiVersion`
@@ -182,6 +180,7 @@ __Type__: *string*
 __Example__:
 ```yaml
   registry: https://registry.npmjs.org
+```
 
 ### `packages`
 
@@ -270,7 +269,7 @@ __Example__:
 
 ### `browserVersion`
 
-<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small></p>
+<p><small><span class="highlight sauce-cloud">Sauce Cloud only</span></small></p>
 
 __Description__: Version of the browser in which the test runs.
 
@@ -283,7 +282,7 @@ __Example__:
 
 ### `platformName`
 
-<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small></p>
+<p><small><span class="highlight sauce-cloud">Sauce Cloud only</span></small></p>
 
 __Description__: Operating system on which the browser and test runs. This value is optional and will be defaulted to a sensible platform. Set this value explicitly if you'd like to have greater control over where your tests should run.
 
@@ -296,7 +295,7 @@ __Example__:
 
 ### `screenResolution`
 
-<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small></p>
+<p><small><span class="highlight sauce-cloud">Sauce Cloud only</span></small></p>
 
 __Description__: Field where you can change the browser window screen resolution.
 
@@ -307,7 +306,9 @@ __Example__:
     screenResolution: "1920x1080"
 ```
 
-> For all available resolutions please visit [this documentation page](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
+:::note
+For all available resolutions please see [Sauce Labs Custom Testing Options](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
+:::
 
 
 ### `mode`

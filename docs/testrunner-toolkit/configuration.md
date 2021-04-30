@@ -29,7 +29,7 @@ While you can use multiple files of different names or locations to specify your
 
 ## Concurrency
 
-<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight> <Highlight color="#25c2a0">testcafe</Highlight> <Highlight color="#25c2a0">playwright</Highlight></small></p>
+<p><small>supported frameworks: <span class="highlight cypress">Cypress</span> <span class="highlight testcafe">TestCafe</span> <span class="highlight playwright">Playwright</span></small></p>
 
 You can configure `saucectl` to run test suites in parallel up to the concurrency specified in the config file.
 
