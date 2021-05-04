@@ -6,7 +6,6 @@ sidebar_label: Getting Started
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Highlight from '../../src/components/highlight.jsx'
 
 
 The initial [installation and setup](testrunner-toolkit/installation) of `saucectl` generates a `config.yml` file based on the framework and region you selected during setup. By default, `saucectl` will look for this file each time you engage the CLI in order to determine where to find your tests and how and where to run them.

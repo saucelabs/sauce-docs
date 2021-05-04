@@ -106,7 +106,7 @@ saucectl run --suite <suite_name>
 
 ### `test-env`
 
-<p><small>supported frameworks: <span class="highlight cypress">cypress</span></small></p>
+<p><small>supported frameworks: <span class="highlight cypress">Cypress</span></small></p>
 
 __Description__: Specifies the test execution environment:
 * test locally with `docker` containers
