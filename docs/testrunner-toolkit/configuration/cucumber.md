@@ -4,8 +4,6 @@ title: "Cucumber"
 sidebar_label: Cucumber
 ---
 
-import Highlight from '../../../src/components/highlight.jsx'
-
 Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration/common-syntax)for information regarding fields such as `apiVersion`, `kind`, `suites`, `sauce`, etc.
 
 ## Example Configuration for Espresso with Cucumber 
