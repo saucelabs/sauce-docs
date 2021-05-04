@@ -171,6 +171,7 @@ __Example__:
       lodash: "4.17.20"
       "@babel/preset-typescript": "7.12"
       "@cypress/react": "^5.0.1"
+    strictSSL: false
 ```
 
 ### `registry`
@@ -182,10 +183,11 @@ __Type__: *string*
 __Example__:
 ```yaml
   registry: https://registry.npmjs.org
+```
 
 ### `packages`
 
-__Description__: Specifies npm packages that are required to run tests and should, therefore, be included in the bundle. See [Including Node Dependencies](/testrunner-toolkit/configuration/bundling#including-node-dependencies).
+__Description__: Specifies npm packages that are required to run tests and should, therefore, be included in the bundle. See [Including Node Dependencies](/testrunner-toolkit/configuration#including-node-dependencies).
 
 __Type__: *object*
 
@@ -195,6 +197,17 @@ __Example__:
     lodash: "4.17.20"
     "@babel/preset-typescript": "7.12"
     "@cypress/react": "^5.0.1"
+```
+
+### `strictSSL`
+
+__Description__: Instructs npm to perform SSL key validation when making requests to the registry via https (`true`) or not (`false`). Defaults to `true` when not set.
+
+__Type__: *boolean*
+
+__Example__:
+```yaml
+    strictSSL: false
 ```
 
 ## `defaults`
