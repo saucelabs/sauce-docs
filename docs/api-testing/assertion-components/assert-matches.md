@@ -22,7 +22,7 @@ This assertion is used to check if the element value described by the expression
 | Comment | String | No |
 
 
-* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](https://apifortress.com/doc/expression/) for more details.
+* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](/api-testing/reference/expression/) for more details.
 * __Type__: The data type of the value. The possible values are: 
     * _regex_: if you want to evaluate the field as a regular expression (specified in regex value); 
     * _US Zipcode_: checks if the field is a valid US Zipcode; 
