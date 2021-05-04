@@ -16,7 +16,7 @@ Below, we walk through how to quickly create a test using an e-commerce API. Let
 * An API Fortress Account
 
 :::caution Confirm your Email Address 
-You should receive an email with your login credentials from the platform. If you haven’t, please email us at [support@apifortress.com](mailto:support@apifortress.com). If you’d like to trial mocking or load testing, please contact support or your API Fortress representative.
+You should receive an email with your login credentials from the platform. If you haven’t, please email us at [support@saucelabs.com](mailto:support@saucelabs.com). If you’d like to trial mocking or load testing, please contact support or your API Fortress representative.
 :::
 
 
@@ -134,4 +134,3 @@ At this stage, this test is only a draft. You should take a moment to verify eac
   ) so that you may generate more tests.
 * Learn how to schedule a test [here](/api-testing/quick-start/schedule-a-test).  
 * Learn about data and notifications connectors [here](/api-testing/quick-start/setup-connectors/). Simple solutions to plug into the systems you use today (e.g DataDog or New Relic).
-
