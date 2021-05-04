@@ -541,6 +541,7 @@ module.exports = {
                     'testrunner-toolkit/configuration/puppeteer',
                     'testrunner-toolkit/configuration/testcafe',
                     'testrunner-toolkit/configuration/espresso',
+                    'testrunner-toolkit/configuration/cucumber',
                 ],
             },
             'testrunner-toolkit/running-tests',
