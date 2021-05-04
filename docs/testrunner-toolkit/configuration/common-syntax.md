@@ -201,7 +201,7 @@ __Example__:
 
 ### `strictSSL`
 
-__Description__: Whether or not to do SSL key validation when making requests to the registry via https. If this value is not set, npm will set it to `true` by default.
+__Description__: Instructs npm to perform SSL key validation when making requests to the registry via https (`true`) or not (`false`). Defaults to `true` when not set.
 
 __Type__: *boolean*
 
