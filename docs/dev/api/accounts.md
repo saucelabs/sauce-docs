@@ -262,7 +262,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
         "virtual_machines": "10"
     },
     "organization": "<org-id>",
-    "description": "Docs QA Team"
+    "description": "I love it when a plan comes together..."
 }' | jq
 ```
 
