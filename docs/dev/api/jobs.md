@@ -76,9 +76,10 @@ values={[
 
 <TabItem value="us">
 
-```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jsmith/jobs?from=1616262316&to=1618940716' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+```jsx title="cURL with jq Example"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
+"https://api.us-west-1.saucelabs.com/rest/v1/$SAUCE_USERNAME/jobs?from=1616262316&to=1618940716" \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
