@@ -1308,16 +1308,16 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY=' \
 --data-raw '{
-    "first_name": "James",
+    "first_name": "Hannibal",
     "last_name": "Smith",
     "email": "jsmith@icloud.com",
     "password": "$m1th*RULEStheworld",
     "verify_password": "$m1th*RULEStheworld"
-}'
+}' | jq
 ```
 
 </TabItem>
