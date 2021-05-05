@@ -4,7 +4,6 @@ title: "Configuration Syntax: Cypress"
 sidebar_label: Cypress
 ---
 
-import Highlight from '../../../src/components/highlight.jsx'
 
 Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration/common-syntax)for information regarding fields such as `apiVersion`, `kind`, `suites`, `sauce`, etc.
 
