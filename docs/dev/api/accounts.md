@@ -251,18 +251,19 @@ values={[
 
 <TabItem value="us">
 
-```jsx title="Sample Request"
-curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
+```jsx title="cURL with jq Example"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
+--location --request POST \
+'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw '{
     "name": "A-Team",
     "settings": {
         "virtual_machines": "10"
     },
-    "organization": "*********",
+    "organization": "<org-id>",
     "description": "Docs QA Team"
-}
+}' | jq
 ```
 
 </TabItem>
