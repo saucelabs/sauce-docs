@@ -42,11 +42,11 @@ values={[
 
 <TabItem value="us">
 
-```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams?name=sauce' \
+```jsx title="cURL with jq Example"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
---data-raw ''
+--data-raw '' | jq
 ```
 
 </TabItem>
