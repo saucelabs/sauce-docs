@@ -559,7 +559,6 @@ module.exports = {
             },
             'testrunner-toolkit/typescript',
             'testrunner-toolkit/saucectl',
-            'testrunner-toolkit/support',
         ],
         "Visual": [
             'visual',
