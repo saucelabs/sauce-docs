@@ -38,10 +38,9 @@ __Data Type__: String.
 __Description__: This capability refers to the location of your mobile app. If you're running a mobile browser test, this capability can be left blank.
 <br/>
 
-### Appium Endpoint
+**Data Center Endpoint**
 __Data Type__: String.
-
-__Description__: specifies the specific regional Sauce Labs Data Center where your desired device is located. There are currently two options for real devices:
+__Description__: specifies the specific regional Sauce Labs Data Center (US or EU) where your desired device is located. There are currently two options for Appium real device testing:
 
 * US RDC: https://ondemand.us-west-1.saucelabs.com
 * EU RDC: https://ondemand.eu-central-1.saucelabs.com
@@ -58,9 +57,9 @@ __Description__: specify the type of mobile platform to use in your tests (i.e.,
 __Data Type__: String.
 
 __Description__: specifies the operating system platform version to use in your tests. This is a substring match. For ***Dynamic Allocation***. You can specify:
-
   * Incremental versions (e.g., `"4.1"`)
   * Major versions (e.g., `"4"`): by setting a major version, you'd have access to all devices running incremental versions (`"4.1"`, `"4.2"`, `"4.2.1"`, "`4.4.4"`). This also extends to minor and point versions (e.g., specifying `"4.4"` will match `"4.4.0"`, `"4.4.1"`).
+<br/>
 
 <br/>
 
@@ -82,24 +81,25 @@ __Description__: specify the name of the device you want to test on, using eithe
 __Data Type__: String.
 
 __Description__: The version of Appium you want to use in your tests. If you leave this capability blank, or omit it completely, Sauce Labs will defer to the default Appium version installed on our platform.
+<br/>
 
 <br/>
 
 ### `name`
 __Data Type__: String.
-
-__Description__: A name for your test, to <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946">make it easier to find individual tests</a>.
+__Description__: A name for your test, to [make it easier to find individual tests](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946).
 <br/>
 
 ### `build`
 __Data Type__: String.
-__Description__: If you're running several tests within a test suite, you can <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946">add a build tag to group these tests together</a>.
+__Description__: If you're running several tests within a test suite, you can [add a build tag to group these tests together](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946).
+
 <br/>
 
 ### `tag`
 __Data Type__: String.
+__Description__: [Tags are useful for collaborating with teams](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946) and also for filtering results on your Sauce Labs **Test Results** and **Archive** pages.
 
-__Description__: <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946">Tags are useful for collaborating with teams</a> and also for filtering results on your Sauce Labs <strong>Test Results</strong> and <strong>Archive</strong> pages.
 <br/>
 
 ### `newCommandTimeout`
@@ -172,7 +172,6 @@ Suitable for test setups that require the app's state to be reset between tests.
 We recommend reviewing [Device Management for Real Devices](mobile-apps/automated-testing/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
 >**NOTE**: `cacheId` has replaced the `testobject_cache_device` capability that was used in TestObject (Legacy RDC).
-
 <br/>
 
 ### `noReset`
@@ -183,6 +182,7 @@ __Description__: set `noReset` to `true` to keep a device allocated to you durin
 :::caution Known iOS Limitation
 On iOS devices, `noReset` value is permanently set to `true`. Even if you input `noReset:false`, the outcome will still be `true`.
 :::
+
 <br/>
 
 ### `recordDeviceVitals`
@@ -206,10 +206,11 @@ __Description__: By default, applications are installed on devices in the Sauce 
 <br/>
 
 ### `enableAnimations`
+
 __Data Type__: Boolean
 
 __Description__: By default, animations are disabled on real devices. You can enable animations for private devices only with the enableAnimations capability. To use this capability, you'll need to add `privateDevicesOnly` and set to `true`.
-
+<br/>
 
 ## Override Settings Capabilities (Optional)
 
@@ -223,7 +224,6 @@ __Description__: Enables the resigning (iOS) or instrumentation (Android) of app
 
 ### `sauceLabsImageInjectionEnabled`
 __Data Type__: Boolean.
-
 __Description__: enables the [camera image injection](https://docs.saucelabs.com/mobile-apps/features#camera-image-injection) feature.
 <br/>
 
@@ -241,6 +241,8 @@ __Description__: bypasses the restriction on taking screenshots for secure scree
 __Data Type__: Boolean.
 
 __Description__: enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).
+<br/>
+
 <br/>
 
 ### `groupFolderRedirectEnabled`
