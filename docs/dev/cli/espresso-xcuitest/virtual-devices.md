@@ -19,7 +19,12 @@ Sauce Runner for Virtual Devices provides the ability to run Espresso tests on A
 
 >**NOTE**: All code examples in this page assume knowledge of [Sauce Runner General Usage](/dev/cli/espresso-xcuitest). Please review before proceeding.
 
-## Required
+## What You'll Need
+
+* Your Sauce Labs account credentials.
+* Your mobile app file (both debug and non-debug app) and test file.
+* Have the Sauce Runner for Real Devices or Sauce Runner for Virtual Devices downloaded and installed to your local machine.
+* Prior to using the CLI Reference below, navigate (`cd`) to the specific folder directory on your local machine where you downloaded and placed your Sauce Runner file (i.e., `sauce-runner-virtual`).
 
 :::tip
 
@@ -28,6 +33,8 @@ You can also view the vUSB CLI directly in the command line terminal by running 
 ./sauce-runner-virtual --help
 ```
 :::
+
+## Required
 
 These command flags are required in order to run native mobile tests with Sauce Runner on virtual devices.
 
