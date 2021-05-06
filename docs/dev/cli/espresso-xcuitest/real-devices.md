@@ -19,13 +19,12 @@ Sauce Runner for Real Devices provides the ability to run Espresso and XCUITest 
 
 >**NOTE**: All examples in this page assume knowledge of [Sauce Runner General Usage](/dev/cli/espresso-xcuitest). Please review before proceeding.
 
-<br/>
-
 ## What You'll Need
 
-On order to use Sauce Runner for virtual devices, you'll need to run your commands and options from the location on your local machine where you downloaded and placed the runner file (i.e., `runner.jar`). Open your command line terminal, then do a `cd` to navigate to the specific folder location. 
-
-## Required
+* Your Sauce Labs account credentials.
+* Your mobile app file (both debug and non-debug app) and test file.
+* Have the Sauce Runner for Real Devices downloaded and installed to your local machine.
+* Prior to using the CLI Reference below, navigate (`cd`) to the specific folder directory on your local machine where you downloaded and placed your Sauce Runner file (i.e., `runner.jar`).
 
 :::tip
 
@@ -35,6 +34,7 @@ java -jar runner.jar --help
 ```
 :::
 
+## Required
 
 These commands and flags are required for use with Sauce Runner for Real Devices. They are not compatible for use with Real Device Cloud [YAML file configuration](dev/cli/espresso-xcuitest/yaml-config).
 
