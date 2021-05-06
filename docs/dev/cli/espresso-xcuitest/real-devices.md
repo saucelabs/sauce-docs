@@ -21,6 +21,10 @@ Sauce Runner for Real Devices provides the ability to run Espresso and XCUITest 
 
 <br/>
 
+## What You'll Need
+
+On order to use Sauce Runner for virtual devices, you'll need to run your commands and options from the location on your local machine where you downloaded and placed the runner file (i.e., `runner.jar`). Open your command line terminal, then do a `cd` to navigate to the specific folder location. 
+
 ## Required
 
 :::tip

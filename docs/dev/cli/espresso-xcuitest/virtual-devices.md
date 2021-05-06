@@ -19,6 +19,11 @@ Sauce Runner for Virtual Devices provides the ability to run Espresso tests on A
 
 >**NOTE**: All code examples in this page assume knowledge of [Sauce Runner General Usage](/dev/cli/espresso-xcuitest). Please review before proceeding.
 
+## What You'll Need
+
+You need to run your commands and options from the location where you downloaded the Runner file. Open your command line terminal, then do a `cd` to navigate to the specific folder location on your local machine where you downloaded and placed your Sauce Runner file (i.e., `sauce-runner-virtual`). 
+
+
 ## Required
 
 :::tip
