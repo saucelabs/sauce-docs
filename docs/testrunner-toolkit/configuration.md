@@ -6,7 +6,6 @@ sidebar_label: Getting Started
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Highlight from '../../src/components/highlight.jsx'
 
 
 The initial [installation and setup](testrunner-toolkit/installation) of `saucectl` generates a `config.yml` file based on the framework and region you selected during setup. By default, `saucectl` will look for this file each time you engage the CLI in order to determine where to find your tests and how and where to run them.
@@ -29,7 +28,7 @@ While you can use multiple files of different names or locations to specify your
 
 ## Concurrency
 
-<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight> <Highlight color="#25c2a0">testcafe</Highlight> <Highlight color="#25c2a0">playwright</Highlight></small></p>
+<p><small>supported frameworks: <span class="highlight cypress">Cypress</span> <span class="highlight testcafe">TestCafe</span> <span class="highlight playwright">Playwright</span></small></p>
 
 You can configure `saucectl` to run test suites in parallel up to the concurrency specified in the config file.
 

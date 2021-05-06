@@ -68,8 +68,7 @@ $ bin/sc -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx -x https://eu-cent
 
 ### `--tunnel-identifier [id]`
 
-__Description__: assigns an ID to a Sauce Connect Proxy tunnel. Future jobs will use this tunnel only when explicitly specified by the tunnelIdentifier Capability in a Selenium client.
- **Required**: Your ID must be ASCII.
+__Description__: assigns an ID to a Sauce Connect Proxy tunnel. Future jobs will use this tunnel only when explicitly specified by the tunnelIdentifier Capability in a Selenium client. **Required**: Your ID must be ASCII.
 
 For information on using `--tunnel-identifier` to run several Sauce Connect Proxy tunnels simultaneously, see [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). To learn about the syntax for setting `--tunnelIdentifier` as a capability, see [Test Configuration Options](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492).
 
@@ -252,6 +251,7 @@ __Shorthand__: n/a
 ### `--doctor`
 
 __Description__: Performs checks to detect possible misconfiguration or problems. Check out [Sauce Connect Proxy Debugging and Diagnostics with `--doctor` flag](https://docs.saucelabs.com/secure-connections/sauce-connect/troubleshooting#debugging-and-diagnostics-with---doctor-flag) for more information about the errors that `--doctor` will detect and how to resolve them. Please note that when using the `--doctor` flag, place it at the end of your command for best results.
+
 
 __Shorthand__: n/a
 <br/>

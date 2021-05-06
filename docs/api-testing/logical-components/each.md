@@ -21,7 +21,7 @@ Allows you to iterate over a collection of elements and execute the piece of cod
 __Expression__: The path of the collection you want to iterate on.
 
 :::note
-See the [Expression page](https://apifortress.com/doc/expression/) for more details.
+See the [Expression page](/api-testing/reference/expression) for more details.
 :::
 
 ## Examples

@@ -106,6 +106,7 @@ __Data Type__: Float
 __Description__: enables you to increase inactivity timeout to 90 seconds. By default, tests time out after 60 seconds of inactivity.
 <br/>
 
+
 ### `commandTimeout`
 __Data Type__: Float
 
@@ -172,7 +173,6 @@ Suitable for test setups that require the app's state to be reset between tests.
 We recommend reviewing [Device Management for Real Devices](mobile-apps/automated-testing/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
 >**NOTE**: `cacheId` has replaced the `testobject_cache_device` capability that was used in TestObject (Legacy RDC).
-
 <br/>
 
 ### `noReset`
@@ -183,7 +183,6 @@ __Description__: set `noReset` to `true` to keep a device allocated to you durin
 :::caution Known iOS Limitation
 On iOS devices, `noReset` value is permanently set to `true`. Even if you input `noReset:false`, the outcome will still be `true`.
 :::
-<br/>
 
 ### `recordDeviceVitals`
 __Data Type__: Boolean.
@@ -206,6 +205,7 @@ __Description__: By default, applications are installed on devices in the Sauce 
 <br/>
 
 ### `enableAnimations`
+
 __Data Type__: Boolean
 
 __Description__: By default, animations are disabled on real devices. You can enable animations for private devices only with the enableAnimations capability. To use this capability, you'll need to add `privateDevicesOnly` and set to `true`.
@@ -228,6 +228,7 @@ __Data Type__: Boolean.
 __Description__: enables the [camera image injection](https://docs.saucelabs.com/mobile-apps/features#camera-image-injection) feature.
 <br/>
 
+
 ### `sauceLabsBypassScreenshotRestriction`
 <p><small><Highlight color="#946f59">Espresso/Android Only</Highlight></small></p>
 
@@ -242,6 +243,7 @@ __Description__: bypasses the restriction on taking screenshots for secure scree
 __Data Type__: Boolean.
 
 __Description__: enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).
+
 <br/>
 
 ### `groupFolderRedirectEnabled`

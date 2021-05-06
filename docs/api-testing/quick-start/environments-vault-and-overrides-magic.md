@@ -35,19 +35,23 @@ In the following example, we are storing the actual domains in the Vault, decidi
 
 ```bash
 VAULT:
-production\_domain: example.com
-staging\_domain: staging\_example.com
+production_domain: example.com
+staging_domain: staging_example.com
 
 GLOBALS:
-domain: ${production\_domain}
+domain: ${production_domain}
 
 ENVIRONMENTS Name: staging
-domain: ${staging\_domain}
+domain: ${staging_domain}
 ```
 
 If run without environment selection or overrides, the test will hit the production domain. If run with the staging environment, the test will hit the staging domain. The Environments will not know the actual domain, therefore the actual data management will happen within the Vault.
 
-**Known Issue**: The double evaluation will not work on query params. As a workaround, in the test before performing the call, introduce a `SET` component to resolve the variable as in: `<set var=”apikey” value=”${apikey}”/>`
+**Known Issue**: The double evaluation will not work on query params. As a workaround, in the test before performing the call, introduce a `SET` component to resolve the variable as in: 
+
+```
+<set var=”apikey” value=”${apikey}”/>
+```
 
 ## Environments loading
 
@@ -55,15 +59,13 @@ If you begin using environments heavily, you may soon realize that the integrati
 
 For this reason, we have introduced a special override variable that allows you to ask API Fortress to load a specific environment when invoking a test using the API.
 
-The `apif\_env` variable, passed as an override, will cause the system to load a specific environment.
+The `apif_env` variable, passed as an override, will cause the system to load a specific environment.
 
-__Example__:
-
-```bash
-apif\_env: staging
+```bash title="Example Variable"
+apif_env: staging
 ```
 
-This will load the “staging” environment and all its override variables.
+This will load the `staging` environment and all its override variables.
 
 :::warning
 As you become acquainted with the platform, you may be tempted to use all of these features at once before you’ve achieved sufficient expertise. We should warn you that you may not be prepared for the overall complexity that may occur as a consequence, especially if you double-reference variables.
