@@ -39,13 +39,12 @@ __Description__: This capability refers to the location of your mobile app. If y
 <br/>
 
 **Data Center Endpoint**
-
 __Data Type__: String.
-
 __Description__: specifies the specific regional Sauce Labs Data Center (US or EU) where your desired device is located. There are currently two options for Appium real device testing:
 
 * US RDC: https://ondemand.us-west-1.saucelabs.com
 * EU RDC: https://ondemand.eu-central-1.saucelabs.com
+
 <br/>
 
 ### `platformName`
@@ -60,6 +59,8 @@ __Data Type__: String.
 __Description__: specifies the operating system platform version to use in your tests. This is a substring match. For ***Dynamic Allocation***. You can specify:
   * Incremental versions (e.g., `"4.1"`)
   * Major versions (e.g., `"4"`): by setting a major version, you'd have access to all devices running incremental versions (`"4.1"`, `"4.2"`, `"4.2.1"`, "`4.4.4"`). This also extends to minor and point versions (e.g., specifying `"4.4"` will match `"4.4.0"`, `"4.4.1"`).
+<br/>
+
 <br/>
 
 ### `deviceName`
@@ -82,22 +83,23 @@ __Data Type__: String.
 __Description__: The version of Appium you want to use in your tests. If you leave this capability blank, or omit it completely, Sauce Labs will defer to the default Appium version installed on our platform.
 <br/>
 
+<br/>
 
 ### `name`
 __Data Type__: String.
-
 __Description__: A name for your test, to [make it easier to find individual tests](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946).
 <br/>
 
 ### `build`
 __Data Type__: String.
 __Description__: If you're running several tests within a test suite, you can [add a build tag to group these tests together](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946).
+
 <br/>
 
 ### `tag`
 __Data Type__: String.
-
 __Description__: [Tags are useful for collaborating with teams](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946) and also for filtering results on your Sauce Labs **Test Results** and **Archive** pages.
+
 <br/>
 
 ### `newCommandTimeout`
@@ -105,7 +107,6 @@ __Data Type__: Float
 
 __Description__: enables you to increase inactivity timeout to 90 seconds. By default, tests time out after 60 seconds of inactivity.
 <br/>
-
 
 ### `commandTimeout`
 __Data Type__: Float
@@ -121,7 +122,6 @@ __Data Type__: Boolean.
 __Description__: use this capability to select only tablet devices for testing by setting it to `"true"`. For ***Dynamic Allocation***.
 <br/>
 
-
 ### `phoneOnly`
 __Data Type__: Boolean.
 
@@ -133,7 +133,6 @@ __Data Type__: Boolean.
 
 __Description__: if your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For ***Dynamic Allocation***.
 <br/>
-
 
 ### `carrierConnectivityOnly`
 __Data Type__: Boolean.
@@ -184,6 +183,8 @@ __Description__: set `noReset` to `true` to keep a device allocated to you durin
 On iOS devices, `noReset` value is permanently set to `true`. Even if you input `noReset:false`, the outcome will still be `true`.
 :::
 
+<br/>
+
 ### `recordDeviceVitals`
 __Data Type__: Boolean.
 
@@ -221,13 +222,10 @@ __Data Type__: Boolean.
 __Description__: Enables the resigning (iOS) or instrumentation (Android) of apps on the Sauce Labs side, allowing the usage of the other capabilities listed in this section.
 <br/>
 
-
 ### `sauceLabsImageInjectionEnabled`
 __Data Type__: Boolean.
-
 __Description__: enables the [camera image injection](https://docs.saucelabs.com/mobile-apps/features#camera-image-injection) feature.
 <br/>
-
 
 ### `sauceLabsBypassScreenshotRestriction`
 <p><small><Highlight color="#946f59">Espresso/Android Only</Highlight></small></p>
@@ -243,6 +241,7 @@ __Description__: bypasses the restriction on taking screenshots for secure scree
 __Data Type__: Boolean.
 
 __Description__: enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).
+<br/>
 
 <br/>
 
@@ -269,7 +268,6 @@ The following Appium capabilities are not yet supported for real devices. If you
 * `installApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
 * `removeApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
 * `Edit Timezone`: Appium does not provide a capability to edit the timezone of a device in automated testing on real devices. See [Test Configuration Options](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492) for information about timezone capabilities in virtual device testing.
-
 
 ## Additional Resources
 

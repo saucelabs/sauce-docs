@@ -9,17 +9,9 @@ import TabItem from '@theme/TabItem';
 
 This page describes the general usage for the [Sauce Runner tool](/mobile-apps/automated-testing/espresso-xcuitest), which is required to run Espresso and XCUITest automated mobile app tests on Sauce Labs real devices and virtual devices.
 
-## What You'll Need
-
-Prerequisites for using Sauce Runner:
-
-* Your Sauce Labs account credentials.
-* Your mobile app file (both debug and non-debug app) and test file.
-* Have the Sauce Runner for Real Devices or Sauce Runner for Virtual Devices downloaded and installed on your local machine.
-
 ## CLI Structure
 
-The command line structure for all Sauce Runner requests is as follows: `<main class> [options] [command] [command options]`:
+The command line structure for all Sauce Runner requests is as follows: `<main class> [options] [command] [command options]`.
 
 <Tabs
   defaultValue="Real Devices"
