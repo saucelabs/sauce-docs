@@ -173,7 +173,7 @@ Certain Appium capabilities behave differently when running Appium tests on our 
 * [Some Appium capabilities are not supported](dev/cli/appium/real-devices).
 * Emulator-only capabilities will not work.
 * The `app` capability will be always be overwritten; it will point to the app file you uploaded to our system.
-* The `noReset` capability will only work if device caching is enabled. By default, it is set to `false`.
+* The `noReset` capability will only work if device caching is enabled. 
 * Different setups may have different ways of handling capabilities and/or different requirements. Check to make sure you're providing all of the required capabilities.
 :::
 

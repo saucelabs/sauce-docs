@@ -47,8 +47,8 @@ You may also reference the specification file with a URL. Selecting the URL fiel
 Once you have chosen the file type and the method, click the Save button and you will be redirected to the next step where the available endpoints are listed in a dropdown. Choose the one that you wish to test and click "Continue." The test will then be created. You can now make any further adjustments, save and publish them for later use and scheduling.
 
 > __Note__: For `RAML`, we suggest uploading the entire zip file. Here's an example video of building tests from a `RAML` file.
->
-> TO DO: Insert Video
+
+<iframe width="520" height="315" src="https://apifortress.com/doc/wp-content/uploads/2017/03/Create-from-RAML.webm" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Mass Generate Tests From a Spec File  
 
