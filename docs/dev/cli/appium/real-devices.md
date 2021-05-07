@@ -66,7 +66,7 @@ __Description__: specifies the operating system platform version to use in your 
 <br/>
 
 ### `deviceName`
-__Description__: specify the name of the device you want to test on, using either static or dynamic allocation, for individual or parallel tests. See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
+__Description__: specify the name of the device you want to test on, using either static or dynamic allocation, for individual or parallel tests. See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
   * ***Static Allocation***: specify an exact device for your test by setting `deviceName` to the Device ID. When using this, there's no need to specify the `platformName` and `platformVersion` because they'll be set by default (i.e., if you include these separately included in your test script, they will be ignored).
   ```java title="Java Example"
   capabilities.setCapability("deviceName", "iPhone_11_13_5_real_us");
@@ -170,9 +170,9 @@ The value for `cacheId` must be the same for all test methods that you want to r
 * `autoGrantPermissions`
 * `appiumVersion`
 
-Suitable for test setups that require the app's state to be reset between tests. Can be used for both [***static*** and ***dynamic allocation***](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation).
+Suitable for test setups that require the app's state to be reset between tests. Can be used for both [***static*** and ***dynamic allocation***](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation).
 
-We recommend reviewing [Device Management for Real Devices](mobile-apps/automated-testing/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
+We recommend reviewing [Device Management for Real Devices](mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
 >**NOTE**: `cacheId` has replaced the `testobject_cache_device` capability that was used in TestObject (Legacy RDC).
 <br/>
