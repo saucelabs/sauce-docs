@@ -154,7 +154,9 @@ capabilities.setCapability("automationName", "uiautomator2");
 ### `cacheId`
 __Data Type__: Randomized String.
 
-__Description__: use this capability to keep a device allocated to you during the 10-second device cleaning process that occurs by default after each test completes, allowing you to start another test on the same device immediately between sessions. The device will be cleaned, but your app under test and its data will remain.
+__Description__: use this capability to keep a device allocated to you between test sessions, bypassing the device cleaning process and session exit that occurs by default after each test completes. Normally, you'd need to start over and reopen another device. You'll need to launch your next test within **10 seconds** of your previous test ending to ensure that the same device will be allocated for the test (not cleaned or reset)
+
+Your app under test and its data will remain as-is on the device.
 
 The value for `cacheId` must be the same for all test methods that you want to run on the cached device. In addition, the app and project ID used for the tests must remain the same, along with the values for these capabilities:
 * `deviceName`
@@ -178,10 +180,10 @@ We recommend reviewing [Device Management for Real Devices](mobile-apps/automate
 ### `noReset`
 __Data Type__: Boolean.
 
-__Description__: set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it `cacheId`.
+__Description__: set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
 
 :::caution Known iOS Limitation
-On iOS devices, `noReset` value is permanently set to `true`. Even if you input `noReset:false`, the outcome will still be `true`.
+On iOS devices, the `noReset` value is permanently set to `true` and cannot be overridden using `noReset:false`. If you check your Appium logs, you'll see that the value is `true`, even though the default setting technically is false. We've done this intentionally to ensure that your post-test iOS device cleaning process is optimal and secure.
 :::
 <br/>
 
