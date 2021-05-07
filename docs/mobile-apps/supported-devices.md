@@ -1,7 +1,7 @@
 ---
 id: supported-devices
 title: Using Real and Virtual Mobile Devices for Testing
-sidebar_label: Supported Devices
+sidebar_label: Supported Mobile Devices
 ---
 
 export const Highlight = ({children, color}) => ( <span style={{
@@ -19,17 +19,17 @@ Get the most out of your live and automated testing by including a healthy mix o
 
 There are a variety of use cases to consider when you're deciding on the mix of emulators, simulators, and real devices to use in your testing.
 
-[Full list of Sauce Labs supported devices and browsers](https://saucelabs.com/platform/supported-browsers-devices).
+For a full list of Sauce Labs supported devices and browsers, [learn more here](https://saucelabs.com/platform/supported-browsers-devices).
 
 ## When to Test on Emulators and Simulators
 
 If you need...
 
-* Massive concurrency
-* To reduce build times
-* To save costs
-* Immediate availability
-* Extremely low error rates for your test environment
+* Massive concurrency.
+* To reduce build times.
+* To save costs.
+* Immediate availability.
+* Extremely low error rates for your test environment.
 
 ### System Requirements
 
@@ -40,52 +40,37 @@ If you need...
 | **Versions supported** | iOS versions 10.3 and higher | Android versions 5.0 and higher |
 | **Tips** | <p>If you're using Sauce Storage, get the returned location, which will look something like sauce-storage:myApplication.zip.</p><p>In your [test capabilities](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options), specify the location of the .zip file, or the `sauce-storage:myApplication.zip` URL as described in [App Storage](mobile-apps/app-storage.md).</p> | <p>This StackOverflow article contains instructions on how to build an .apk file in Eclipse.</p><p>In your test capabilities, specify the location of the .apk file, or the `sauce-storage:app.apk` URL as described in [Sauce Storage](mobile-apps/app-storage.md).</p> |
 
-For the full list of supported real devices, see [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices).
-
 
 ## When to Test on Real Devices
 
 If you need...
 
-* A breadth of device types for panel/compatibility testing
-* To replicate an issue to match exact model as reported
-* Pixel-perfect display testing
-* To test hardware dependencies like CPU, memory, display, GPS
-* To test native ARM Libraries
+* A breadth of device types for panel/compatibility testing.
+* To replicate an issue to match exact model as reported.
+* Pixel-perfect display testing.
+* To test hardware dependencies like CPU, memory, display, GPS.
+* To test native ARM Libraries.
 * To test on a custom OS (e.g., Samsung TouchWiz, OnePlus OxygenOS)
-* To test on a native framework like Espresso and Robotium
-* To test scenarios that require network connectivity (e.g., phone calls, send SMS messages)
+* To test on a native framework like Espresso and Robotium.
+* To test scenarios that require network connectivity (e.g., phone calls, send SMS messages).
 
 ### Supported Features
 
-The Sauce Labs Real Device Cloud (RDC) provides you with the ability to run live and automated tests across Android and iOS devices. Some of the features that are specific to our RDC include:
+The Sauce Labs Real Device Cloud (RDC) provides you with the ability to run live and automated tests across Android and iOS devices. [Learn more here](https://saucelabs.com/platform/real-device-cloud).
 
-* Manual testing on real devices.
-* Choice of public real devices or private real devices unique to your organization.
+RDC-specific features include:
+
+* Manual, interactive testing on real devices.
+* Testing with real devices on the public device cloud (these devices are cleaned between user test sessions for optimal security).
+* Testing on a pool of private real devices allocated specifically to your organization.
 * Support for Appium, Robotium, Espresso, and XCUITest frameworks.
-* Support on hundreds of device/OS combinations.
+* Support on thousands of device/OS combinations.
 * IPSec VPN secure connections to private device clouds.
-* Devices cleaning process between sessions to ensure maximum privacy.
-* Carrier Network Connectivity (devices with SIM cards).
+* Carrier network connectivity (devices with SIM cards).
 
-### System Requirements
+### Public Device Cloud
 
-| | iOS Mobile Apps | Android Mobile Apps |
-:-------:| :-------:| :----:|
-|  | <img src={useBaseUrl('img/mobile-apps/apple-logo.png')} alt="Apple logo" width="50"/> | <img src={useBaseUrl('img/mobile-apps/android-logo.png')} alt="Android logo" width="50"/> |
-| **Requirements** | <p>Your iOS app must be:</p><p>Formatted as an .ipa file. Refer to the documentation on how to [create an .ipa file](/mobile-apps/automated-testing/espresso-xcuitest/real-devices.md)</p><p>Uploaded and hosted in [Sauce Labs storage](/mobile-apps/app-storage.md) or installed from a remote location.</p> | <p>Your Android app must be:</p><p>Built into an .apk package/archive file.</p><p>Configured to have [internet permissions](http://developer.android.com/reference/android/Manifest.permission.html#INTERNET)</p><p>Uploaded and hosted in [Sauce Labs storage](/mobile-apps/app-storage.md) or installed from a remote location.</p>|
-| **Versions supported** | iOS versions 9.3.6 and higher | Android versions 5.0 and higher |
-
-For the full list of supported real devices, see [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices).
-
-### Public vs. Private Real Devices
-
-Sauce Labs offers access to both public and private device clouds for your real device testing. Review the use cases below to see which option will suit your testing needs. Learn more [here](https://saucelabs.com/platform/real-device-cloud).
-
-
-#### Use Cases: Public Devices
-
-Our public cloud contains a wide selection of thoroughly cleaned devices.
+Our public cloud, available to all users regardless of pricing plan, contains a wide selection of thoroughly cleaned devices. They are subject to availability. On the mobile device selection screen, if a device is in use, it'll be [marked with a **Busy** flag](https://docs.saucelabs.com/mobile-apps/live-testing/live-mobile-app-testing#selecting-a-real-device). Here are some use cases:
 
 * The devices available on the public cloud are sufficient for your testing coverage.
 * You need to reproduce bugs on a selection of hundreds of iOS and Android devices.
@@ -93,17 +78,28 @@ Our public cloud contains a wide selection of thoroughly cleaned devices.
 * You need to share manual test sessions and devices across teams worldwide.
 * You are looking for a low-cost real device testing option.
 
-#### Use Cases: Private Device
+### Private Device Cloud
 
 <p> <Highlight color="#013a70">Enterprise Plans Only</Highlight> </p>
 
-Dedicated pool of devices just for your organization.
+This is dedicated pool of devices just for your organization. On the mobile device selection screen, your private devices are [marked with a person silhouette icon](https://docs.saucelabs.com/mobile-apps/live-testing/live-mobile-app-testing#selecting-a-real-device). Here are some use cases:
 
-* You need a very specific set of devices that aren't supported on the public cloud.
+* You need to use a very specific set of devices that aren't supported on the public cloud.
 * Your security team insists on dedicated devices.
 * You require a secure tunnel between your tests and our cloud to test.
 * You want to run automated/parallel tests across multiple devices.
 * You need specific settings which are set on the devices all the time.
+* You need to establish a secure [IPSec VPN connection](/secure-connections/ipsec-vpn).
+
+### System Requirements
+
+| | iOS Mobile Apps | Android Mobile Apps |
+:-------:| :-------:| :----:|
+|  | <img src={useBaseUrl('img/mobile-apps/apple-logo.png')} alt="Apple logo" width="50"/> | <img src={useBaseUrl('img/mobile-apps/android-logo.png')} alt="Android logo" width="50"/> |
+| **Requirements** | <p>Your iOS app must be:</p><p>Formatted as an .ipa file. Refer to the documentation on [how to create an .ipa file](/mobile-apps/automated-testing/espresso-xcuitest/real-devices.md)</p><p>Uploaded and hosted in [Sauce Labs storage](/mobile-apps/app-storage.md) or installed from a remote location.</p> | <p>Your Android app must be:</p><p>Built into an .apk package/archive file.</p><p>Configured to have [internet permissions](http://developer.android.com/reference/android/Manifest.permission.html#INTERNET)</p><p>Uploaded and hosted in [Sauce Labs storage](/mobile-apps/app-storage.md) or installed from a remote location.</p>|
+| **Versions supported** | iOS versions 9.3.6 and higher | Android versions 5.0 and higher |
+
+For the full list of supported real devices, see [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices).
 
 ### Security
 

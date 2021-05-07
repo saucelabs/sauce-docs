@@ -104,6 +104,7 @@ module.exports = {
 
         "Mobile Apps": [
             'mobile-apps',
+            'mobile-apps/supported-devices',
             {
                 type: 'category',
                 label: 'Live Testing',
@@ -119,7 +120,6 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'mobile-apps/automated-testing',
-                    'mobile-apps/automated-testing/supported-devices',
                     {
                         type: 'category',
                         label: 'Appium',
