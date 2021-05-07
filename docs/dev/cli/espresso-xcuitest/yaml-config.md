@@ -95,7 +95,7 @@ Here are some additional options you can use to configure your YAML file.
 
 ### `device`
 
-__Description__: specifies the exact device to use in your tests by providing the Device ID. See [Static Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
+__Description__: specifies the exact device to use in your tests by providing the Device ID. See [Static Device Allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
 
 __Examples__:
 
@@ -129,7 +129,7 @@ __Examples__:
 
 ### `devices`
 
-__Description__: use this option to specify a group of devices on which to run parallel tests with static allocation (exact Device ID) or dynamic allocation (using regex). For detailed instructions, see [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation). As an option, you can run a select set of tests against a specific device using [`testsToRun`](#`testsToRun`).
+__Description__: use this option to specify a group of devices on which to run parallel tests with static allocation (exact Device ID) or dynamic allocation (using regex). For detailed instructions, see [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation). As an option, you can run a select set of tests against a specific device using [`testsToRun`](#`testsToRun`).
 
 __Examples__:
 
