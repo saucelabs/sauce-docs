@@ -11,22 +11,11 @@ Virtual USB (vUSB) is an app debugging tool that simulates connecting a Sauce La
 * Your Sauce Labs account credentials.
 * Your mobile app file.
 * Have the Virtual USB client downloaded and installed.
-
-## **Required Step**
-
-Open your command line terminal, then do a `cd` to navigate to the specific folder location on your local machine where you downloaded and placed your Virtual USB client (`virtual-usb-client.jar`). You must run your Runner commands and options from this location in order for it to work.
+* Prior to using the vUSB CLI, navigate (`cd`) to the specific folder directory on your local machine where you downloaded and placed your Virtual USB client (`virtual-usb-client.jar`).
 
 ## CLI Structure
 
-The command line structure for all vUSB requests is as follows:
-
-`<main class> [options] [command] [command options]`.
-
-<br/>
-
-## Use Cases
-
-See [Virtual USB for Real Devices](mobile-apps/virtual-usb).
+The command line structure for all vUSB requests is as follows: `<main class> [options] [command] [command options]`.
 
 ## `--help` Option
 
@@ -34,3 +23,7 @@ You can also view the vUSB CLI directly in the command line terminal by running 
 ```java
 java -jar virtual-usb-client.jar --help
 ```
+
+## Use Cases
+
+See [Virtual USB for Real Devices](mobile-apps/virtual-usb).
