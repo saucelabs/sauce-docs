@@ -15,13 +15,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Get the most out of your live and automated testing by including a healthy mix of emulators, simulators, and real devices as your mobile testing platforms. Why? Because there are aspects of the mobile experience that you can't test on emulators or simulators, such as location-based apps that use manufacturer-specific device sensors, memory consumption, and CPU usage.
+Get the most out of your live and automated testing by including a healthy mix of emulators, simulators, and real devices. Why? Some things you can test on emulators or simulators, while there are aspects of the mobile experience you'd need to test on real devices, such as location-based apps that use manufacturer-specific device sensors, memory consumption, and CPU usage.
 
 There are a variety of use cases to consider when you're deciding on the mix of emulators, simulators, and real devices to use in your testing.
 
-For a full list of Sauce Labs supported devices and browsers, [learn more here](https://saucelabs.com/platform/supported-browsers-devices).
+We support thousands of device/OS combinations and test automation frameworks such as Appium, Espresso, XCUITest, and Robotium. For a full list of Sauce Labs supported devices, operating systems, and browsers, [learn more here](https://saucelabs.com/platform/supported-browsers-devices).
 
 ## When to Test on Emulators and Simulators
+
+### Use Cases
 
 If you need...
 
@@ -43,30 +45,21 @@ If you need...
 
 ## When to Test on Real Devices
 
+The Sauce Labs Real Device Cloud (RDC) provides you with the ability to run live and automated tests across Android and iOS devices. [Learn more here](https://saucelabs.com/platform/real-device-cloud).
+
+### Use Cases
+
 If you need...
 
 * A breadth of device types for panel/compatibility testing.
+* Manual, interactive testing on actual physical devices.
 * To replicate an issue to match exact model as reported.
 * Pixel-perfect display testing.
 * To test hardware dependencies like CPU, memory, display, GPS.
 * To test native ARM Libraries.
 * To test on a custom OS (e.g., Samsung TouchWiz, OnePlus OxygenOS)
 * To test on a native framework like Espresso and Robotium.
-* To test scenarios that require network connectivity (e.g., phone calls, send SMS messages).
-
-### Supported Features
-
-The Sauce Labs Real Device Cloud (RDC) provides you with the ability to run live and automated tests across Android and iOS devices. [Learn more here](https://saucelabs.com/platform/real-device-cloud).
-
-RDC-specific features include:
-
-* Manual, interactive testing on real devices.
-* Testing with real devices on the public device cloud (these devices are cleaned between user test sessions for optimal security).
-* Testing on a pool of private real devices allocated specifically to your organization.
-* Support for Appium, Robotium, Espresso, and XCUITest frameworks.
-* Support on thousands of device/OS combinations.
-* IPSec VPN secure connections to private device clouds.
-* Carrier network connectivity (devices with SIM cards).
+* To test scenarios that require carrier network connectivity (e.g., making phone calls and sending SMS messages to devices with SIM cards).
 
 ### Public Device Cloud
 
@@ -86,10 +79,9 @@ This is dedicated pool of devices just for your organization. On the mobile devi
 
 * You need to use a very specific set of devices that aren't supported on the public cloud.
 * Your security team insists on dedicated devices.
-* You require a secure tunnel between your tests and our cloud to test.
-* You want to run automated/parallel tests across multiple devices.
+* You want to run automated parallel tests across multiple devices simultaneously.
 * You need specific settings which are set on the devices all the time.
-* You need to establish a secure [IPSec VPN connection](/secure-connections/ipsec-vpn).
+* You need to establish a secure [IPSec VPN connection](/secure-connections/ipsec-vpn) between your network and the Sauce Labs cloud.
 
 ### System Requirements
 
@@ -129,7 +121,8 @@ Real Device Cloud Data Center security is described in [Data Center Endpoints](h
 
 Regardless of the test frameworks you're using (Appium, Espresso, XCUITest), you can configure your real device tests using static and dynamic device allocation. While the syntax may be different (i.e., `--device`, `deviceName`), the functionality is the same across all frameworks.
 
-#### ***Static Device Allocation***
+#### **Static Device Allocation**
+
 Specifying the exact device to use in your tests by providing the Device ID, which you can find under **Live** > **Mobile-App** > **Choose device** > Find Your Device > **Details**.
 <img src={useBaseUrl('img/mobile-apps/samsung-galaxyA10.jpg')} alt="Sauce Labs Device ID example" width="450"/>
 
@@ -162,7 +155,8 @@ capabilities.setCapability("deviceName", "Google_Pixel_4");
 </Tabs>
 <br/>
 
-#### ***Dynamic Device Allocation***
+#### **Dynamic Device Allocation**
+
 Specifying basic parameters for the platform, operating system, and/or type of device you want to use in your tests using [regular expressions (regex)](https://en.wikipedia.org/wiki/Regular_expression). A device(s) with your specifications will be selected from the real device pool.
 
 | Regex Input | Dynamic Allocation Action
@@ -188,7 +182,6 @@ Dynamic allocation example - finds any device that starts with the display name 
 capabilities.setCapability("deviceName", "Google.*");
 ```
 
-<<<<<<< HEAD
 Excludes a specific device.
 
 ```java
