@@ -4,7 +4,6 @@ title: "Configuration Syntax: Playwright"
 sidebar_label: Playwright
 ---
 
-import Highlight from "../../../src/components/highlight"
 
 Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference)for information regarding fields such as `apiVersion`, `kind`, and `sauce`.
 
@@ -69,7 +68,7 @@ __Example__:
 
 ### `platformName`
 
-<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
+<p><small><span class="highlight sauce-cloud">Sauce Cloud only</span></small></p>
 
 __Description__: Operating system on which the browser and test runs.
 
@@ -93,7 +92,7 @@ __Example__:
 
 ### `screenResolution`
 
-<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
+<p><small><span class="highlight sauce-cloud">Sauce Cloud only</span></small></p>
 
 __Description__: Field where you can change the browser window screen resolution.
 
@@ -104,7 +103,9 @@ __Example__:
     screenResolution: "1920x1080"
 ```
 
-> For all available resolutions please visit [this documentation page](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
+:::note
+For all available resolutions please see [Sauce Labs Custom Testing Options](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
+:::
 
 ### `env`
 

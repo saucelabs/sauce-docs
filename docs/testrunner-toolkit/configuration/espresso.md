@@ -4,7 +4,6 @@ title: "Configuration Syntax: Espresso"
 sidebar_label: Espresso
 ---
 
-import Highlight from '../../../src/components/highlight.jsx'
 
 Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration/common-syntax)for information regarding fields such as `apiVersion`, `kind`, `suites`, `sauce`, etc.
 
@@ -59,7 +58,7 @@ __Examples__:
 
 ## `devices`
 
-__Description__: Field for defining device details such as the device name, orientation, and 
+__Description__: Field for defining device details such as the device name, orientation, and
 formVersions.
 
 __Type__: *object*
@@ -76,7 +75,7 @@ devices:
 
 ### `name`
 
-__Description__: Name of the device. All supported devices can be found by following this [link](https://app.saucelabs.com/live/web-testing/virtual) 
+__Description__: Name of the device. All supported devices can be found by following this [link](https://app.saucelabs.com/live/web-testing/virtual)
 
 __Type__: *string*
 
@@ -87,7 +86,7 @@ __Example__:
 
 ### `orientation`
 
-__Description__: Screen orientation. 
+__Description__: Screen orientation.
 
 __Type__: *enum*
 
@@ -156,7 +155,7 @@ __Example__:
 
 ### `size`
 
-__Description__: Instructs `saucectl` to run only tests that are annotated with the matching size value. 
+__Description__: Instructs `saucectl` to run only tests that are annotated with the matching size value.
 
 __Type__: *enum*
 
@@ -180,7 +179,7 @@ __Example__:
 
 ### `annotation`
 
-__Description__: Instructs `saucectl` to run only tests that match a custom annotation that you have set. 
+__Description__: Instructs `saucectl` to run only tests that match a custom annotation that you have set.
 
 __Type__: *string*
 
