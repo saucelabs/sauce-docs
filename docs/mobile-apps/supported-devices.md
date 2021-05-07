@@ -19,7 +19,7 @@ Get the most out of your live and automated testing by including a healthy mix o
 
 There are a variety of use cases to consider when you're deciding on the mix of emulators, simulators, and real devices to use in your testing.
 
-We support thousands of device/OS combinations and test automation frameworks such as Appium, Espresso, XCUITest, ans Robotium. For a full list of Sauce Labs supported devices, operating systems, and browsers, [learn more here](https://saucelabs.com/platform/supported-browsers-devices).
+We support thousands of device/OS combinations and test automation frameworks such as Appium, Espresso, XCUITest, and Robotium. For a full list of Sauce Labs supported devices, operating systems, and browsers, [learn more here](https://saucelabs.com/platform/supported-browsers-devices).
 
 ## When to Test on Emulators and Simulators
 
