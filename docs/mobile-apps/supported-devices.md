@@ -122,6 +122,7 @@ Real Device Cloud Data Center security is described in [Data Center Endpoints](h
 Regardless of the test frameworks you're using (Appium, Espresso, XCUITest), you can configure your real device tests using static and dynamic device allocation. While the syntax may be different (i.e., `--device`, `deviceName`), the functionality is the same across all frameworks.
 
 #### **Static Device Allocation**
+
 Specifying the exact device to use in your tests by providing the Device ID, which you can find under **Live** > **Mobile-App** > **Choose device** > Find Your Device > **Details**.
 <img src={useBaseUrl('img/mobile-apps/samsung-galaxyA10.jpg')} alt="Sauce Labs Device ID example" width="450"/>
 
@@ -155,6 +156,7 @@ capabilities.setCapability("deviceName", "Google_Pixel_4");
 <br/>
 
 #### **Dynamic Device Allocation**
+
 Specifying basic parameters for the platform, operating system, and/or type of device you want to use in your tests using [regular expressions (regex)](https://en.wikipedia.org/wiki/Regular_expression). A device(s) with your specifications will be selected from the real device pool.
 
 | Regex Input | Dynamic Allocation Action
@@ -180,7 +182,6 @@ Dynamic allocation example - finds any device that starts with the display name 
 capabilities.setCapability("deviceName", "Google.*");
 ```
 
-<<<<<<< HEAD
 Excludes a specific device.
 
 ```java
