@@ -15,7 +15,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Get the most out of your live and automated testing by including a healthy mix of emulators, simulators, and real devices as your mobile testing platforms. Why? Some things you can test on emulators or simulators, while there are aspects of the mobile experience you'd need to test on real devices, such as location-based apps that use manufacturer-specific device sensors, memory consumption, and CPU usage.
+Get the most out of your live and automated testing by including a healthy mix of emulators, simulators, and real devices as your mobile testing platforms. Why? There are some aspects of the mobile experience you can test on emulators or simulators, and others that you'd need to test on real devices, such as location-based apps that use manufacturer-specific device sensors, memory consumption, and CPU usage.
 
 There are a variety of use cases to consider when you're deciding on the mix of emulators, simulators, and real devices to use in your testing.
 
