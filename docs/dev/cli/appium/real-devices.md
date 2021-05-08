@@ -237,7 +237,7 @@ __Description__: bypasses the restriction on taking screenshots for secure scree
 <br/>
 
 ### `allowTouchIdEnroll`
-<p><small><Highlight color="#333333">XCUITest/iOS Only</Highlight></small></p>
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
 
 __Data Type__: Boolean.
 
@@ -245,7 +245,7 @@ __Description__: enables the interception of biometric input, allowing the test 
 <br/>
 
 ### `groupFolderRedirectEnabled`
-<p><small><Highlight color="#333333">XCUITest/iOS Only</Highlight></small></p>
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
 
 __Data Type__: Boolean.
 
@@ -253,7 +253,7 @@ __Description__: Enables the use of the app's private app container directory in
 <br/>
 
 ### `systemAlertsDelayEnabled`
-<p><small><Highlight color="#333333">XCUITest/iOS Only</Highlight></small></p>
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
 
 __Data Type__: Boolean.
 
