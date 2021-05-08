@@ -120,6 +120,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'mobile-apps/automated-testing',
+                          
                     {
                         type: 'category',
                         label: 'Appium',
