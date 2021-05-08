@@ -217,7 +217,7 @@ Allocates any device with Samsung Galaxy S7 in the name (i.e., Samsung Galaxy S7
 <br/>
 
 ### `--testsToRun`
-<p><small><Highlight color="#333333">XCUITest/iOS Only</Highlight></small></p>
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
 
 __Description__: specify a comma-separated list of test cases or test classes on which you'd like to run tests.
 
