@@ -35,7 +35,7 @@ __Value Type__: string.
 
 __Example__: `"browserVersion": "latest"`
 
-:::tip Default to Latest Version of Chrome or Firefox
+:::tip Default to Latest Version of Chrome, Firefox, or Microsoft Edge
 
 If you want to use the latest stable version of Google Chrome or Firefox that Sauce supports, you can use `"browserVersion": "latest"`. You can also use `"browserVersion": "latest-1"` or `"browserVersion": "latest-2"`, etc. to request the next most recent versions of a browser. For example, if the latest stable version of Chrome is 73, you can request `"latest-2"` to use Chrome 71.
 :::
@@ -77,7 +77,7 @@ The default version of ChromeDriver when no value is specified depends on the ve
 
 __Value Type__: string.
 
-__Example__: `"chromedriverVersion": "2.45"`
+__Example__: `"chromedriverVersion": "89"`
 <br/>
 
 ### `geckodriverVersion`   
