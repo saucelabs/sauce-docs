@@ -82,7 +82,7 @@ If needed, you can also add optional parameters. See [Sauce Runner for Real Devi
 ### Using a YAML Config File
 
 Below are some examples of how to write your YAML file. See [Sauce Runner YAML Configuration](/dev/cli/espresso-xcuitest/yaml-config) for a full list of available parameters. This YAML file example includes all required parameters for running Espresso and XCUITest test suite with Sauce Runner for Real Devices, plus the following options:
-  * `devices`: use this to specify a group of devices via dynamic allocation (using regex) and/or static allocation (regex plus exact device ID). See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
+  * `devices`: use this to specify a group of devices via dynamic allocation (using regex) and/or static allocation (regex plus exact device ID). See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
   * `testsToRun` (XCUITest only): use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Swift or Objective-C.
   * `envs` (Espresso only): use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Java or Kotlin.
 

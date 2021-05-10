@@ -63,8 +63,10 @@ __Description__: specifies the operating system platform version to use in your 
 
 <br/>
 
+<br/>
+
 ### `deviceName`
-__Description__: specify the name of the device you want to test on, using either static or dynamic allocation, for individual or parallel tests. See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
+__Description__: specify the name of the device you want to test on, using either static or dynamic allocation, for individual or parallel tests. See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
   * ***Static Allocation***: specify an exact device for your test by setting `deviceName` to the Device ID. When using this, there's no need to specify the `platformName` and `platformVersion` because they'll be set by default (i.e., if you include these separately included in your test script, they will be ignored).
   ```java title="Java Example"
   capabilities.setCapability("deviceName", "iPhone_11_13_5_real_us");
@@ -87,19 +89,18 @@ __Description__: The version of Appium you want to use in your tests. If you lea
 
 ### `name`
 __Data Type__: String.
+
 __Description__: A name for your test, to [make it easier to find individual tests](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946).
 <br/>
 
 ### `build`
 __Data Type__: String.
 __Description__: If you're running several tests within a test suite, you can [add a build tag to group these tests together](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946).
-
 <br/>
 
 ### `tag`
 __Data Type__: String.
 __Description__: [Tags are useful for collaborating with teams](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946) and also for filtering results on your Sauce Labs **Test Results** and **Archive** pages.
-
 <br/>
 
 ### `newCommandTimeout`
@@ -154,7 +155,9 @@ capabilities.setCapability("automationName", "uiautomator2");
 ### `cacheId`
 __Data Type__: Randomized String.
 
-__Description__: use this capability to keep a device allocated to you during the 10-second device cleaning process that occurs by default after each test completes, allowing you to start another test on the same device immediately between sessions. The device will be cleaned, but your app under test and its data will remain.
+__Description__: use this capability to keep a device allocated to you between test sessions, bypassing the device cleaning process and session exit that occurs by default after each test completes. Normally, you'd need to start over and reopen another device. You'll need to launch your next test within **10 seconds** of your previous test ending to ensure that the same device will be allocated for the test (not cleaned or reset)
+
+Your app under test and its data will remain as-is on the device.
 
 The value for `cacheId` must be the same for all test methods that you want to run on the cached device. In addition, the app and project ID used for the tests must remain the same, along with the values for these capabilities:
 * `deviceName`
@@ -167,9 +170,9 @@ The value for `cacheId` must be the same for all test methods that you want to r
 * `autoGrantPermissions`
 * `appiumVersion`
 
-Suitable for test setups that require the app's state to be reset between tests. Can be used for both [***static*** and ***dynamic allocation***](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation).
+Suitable for test setups that require the app's state to be reset between tests. Can be used for both [***static*** and ***dynamic allocation***](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation).
 
-We recommend reviewing [Device Management for Real Devices](mobile-apps/automated-testing/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
+We recommend reviewing [Device Management for Real Devices](mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
 >**NOTE**: `cacheId` has replaced the `testobject_cache_device` capability that was used in TestObject (Legacy RDC).
 <br/>
@@ -177,10 +180,10 @@ We recommend reviewing [Device Management for Real Devices](mobile-apps/automate
 ### `noReset`
 __Data Type__: Boolean.
 
-__Description__: set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it `cacheId`.
+__Description__: set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
 
 :::caution Known iOS Limitation
-On iOS devices, `noReset` value is permanently set to `true`. Even if you input `noReset:false`, the outcome will still be `true`.
+On iOS devices, the `noReset` value is permanently set to `true` and cannot be overridden using `noReset:false`. If you check your Appium logs, you'll see that the value is `true`, even though the default setting technically is false. We've done this intentionally to ensure that your post-test iOS device cleaning process is optimal and secure.
 :::
 
 <br/>
@@ -206,9 +209,7 @@ __Description__: By default, applications are installed on devices in the Sauce 
 <br/>
 
 ### `enableAnimations`
-
 __Data Type__: Boolean
-
 __Description__: By default, animations are disabled on real devices. You can enable animations for private devices only with the enableAnimations capability. To use this capability, you'll need to add `privateDevicesOnly` and set to `true`.
 <br/>
 
@@ -236,17 +237,15 @@ __Description__: bypasses the restriction on taking screenshots for secure scree
 <br/>
 
 ### `allowTouchIdEnroll`
-<p><small><Highlight color="#333333">XCUITest/iOS Only</Highlight></small></p>
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
 
 __Data Type__: Boolean.
 
 __Description__: enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).
 <br/>
 
-<br/>
-
 ### `groupFolderRedirectEnabled`
-<p><small><Highlight color="#333333">XCUITest/iOS Only</Highlight></small></p>
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
 
 __Data Type__: Boolean.
 
@@ -254,7 +253,7 @@ __Description__: Enables the use of the app's private app container directory in
 <br/>
 
 ### `systemAlertsDelayEnabled`
-<p><small><Highlight color="#333333">XCUITest/iOS Only</Highlight></small></p>
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
 
 __Data Type__: Boolean.
 

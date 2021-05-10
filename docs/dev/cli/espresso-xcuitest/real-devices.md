@@ -121,7 +121,7 @@ Here are some additional command line configuration options.
 
 ### `--device`
 
-__Description__: specifies the exact device to use in your tests by providing the Device ID. See [Static Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions. For ***Static Allocation***.
+__Description__: specifies the exact device to use in your tests by providing the Device ID. See [Static Device Allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation) for detailed instructions. For ***Static Allocation***.
 
 ```java title="Example"
 --datacenter US --device iPhone_11_13_5_real_us
@@ -129,7 +129,7 @@ __Description__: specifies the exact device to use in your tests by providing th
 
 ### `--devices`
 
-__Description__: define a list of devices on which the tests should be executed, using static and/or dynamic allocation, to run tests in parallel. See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
+__Description__: define a list of devices on which the tests should be executed, using static and/or dynamic allocation, to run tests in parallel. See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
   * ***Static Allocation***: specify an exact device by setting  to the Device ID. When using this, there's no need to specify the `platformName` and `platformVersion` because they'll be set by default (i.e., if you include these separately included in your test script, they will be ignored).
   ```java title="Example"
   --datacenter EU --devices iPhone_11_13_5_real_us --testname MyTestName
@@ -194,7 +194,7 @@ __Description__: if set, only tablets will be queried.
 
 ### `--deviceNameQuery`
 
-__Description__: find a find by specifying a regular expression (regex) to dynamically allocate a device. It looks for available devices using wildcard names, giving you the ability to run a specified test on a pool of devices that are configured the same but have different names for parallel processing. For ***Dynamic Allocation***; see [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
+__Description__: find a find by specifying a regular expression (regex) to dynamically allocate a device. It looks for available devices using wildcard names, giving you the ability to run a specified test on a pool of devices that are configured the same but have different names for parallel processing. For ***Dynamic Allocation***; see [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
 
 Allocates any iPhone Plus device:
 
@@ -217,7 +217,7 @@ Allocates any device with Samsung Galaxy S7 in the name (i.e., Samsung Galaxy S7
 <br/>
 
 ### `--testsToRun`
-<p><small><Highlight color="#333333">XCUITest/iOS Only</Highlight></small></p>
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
 
 __Description__: specify a comma-separated list of test cases or test classes on which you'd like to run tests.
 
