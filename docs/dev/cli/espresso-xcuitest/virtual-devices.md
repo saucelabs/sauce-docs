@@ -16,6 +16,7 @@ export const Highlight = ({children, color}) => ( <span style={{
 :::warning Now Available on saucectl
 **Espresso testing for virtual devices is now supported on `saucectl`, our CLI tool used with Testrunner Toolkit. For details, see:**
 
+* **[About `saucectl`](/testrunner-toolkit)**
 * **[`saucectl` Installation](/testrunner-toolkit/installation)**
 * **[`saucectl` CLI Reference](/testrunner-toolkit/saucectl)**
 :::

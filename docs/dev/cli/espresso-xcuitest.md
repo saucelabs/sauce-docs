@@ -10,6 +10,7 @@ import TabItem from '@theme/TabItem';
 :::warning Espresso for VDC Now Available on saucectl
 **Espresso testing for virtual devices is now supported on `saucectl`, our CLI tool used with Testrunner Toolkit. For details, see:**
 
+* **[About `saucectl`](/testrunner-toolkit)**
 * **[`saucectl` Installation](/testrunner-toolkit/installation)**
 * **[`saucectl` CLI Reference](/testrunner-toolkit/saucectl)**
 :::
@@ -23,19 +24,7 @@ This page describes the general usage for the [Sauce Runner tool](/mobile-apps/a
 
 The command line structure for all Sauce Runner requests is as follows: `<main class> [options] [command] [command options]`.
 
-**Real Devices CLI Structure**
-
-```java
-java -jar runner.jar  <command> <command options>
-```
-
-**Virtual Devices CLI Structure**
-
-```java
-./sauce-runner-virtual <command> <command options>
-```
-
-**Use Cases**
+#### **Use Cases**
 
 * Run tests in parallel across multiple devices.
 * Run subsets of tests against specific devices.
