@@ -13,7 +13,17 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-<p> <Highlight color="#013a70">Emulators only</Highlight> </p>   
+:::warning Now Available on saucectl
+**Espresso testing for virtual devices is now supported on `saucectl`, our CLI tool used with Testrunner Toolkit. For details, see:**
+
+* **[About `saucectl`](/testrunner-toolkit)**
+* **[`saucectl` Installation](/testrunner-toolkit/installation)**
+* **[`saucectl` CLI Reference](/testrunner-toolkit/saucectl)**
+:::
+
+<br/>
+<br/>
+<br/>
 
 Sauce Runner for Virtual Devices provides the ability to run Espresso tests on Android emulators in the Sauce Labs cloud. This topic describes the required and optional command parameters you can use to set up your test runs.
 

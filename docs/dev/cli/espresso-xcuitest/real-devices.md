@@ -13,8 +13,6 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-<p> <Highlight color="#013a70">Real Devices Only</Highlight> </p>   
-
 Sauce Runner for Real Devices provides the ability to run Espresso and XCUITest tests on Android and iOS real devices in the Sauce Labs cloud. This topic describes the required and optional command parameters you can use to set up your test runs.
 
 >**NOTE**: All examples in this page assume knowledge of [Sauce Runner General Usage](/dev/cli/espresso-xcuitest). Please review before proceeding.
@@ -217,7 +215,7 @@ Allocates any device with Samsung Galaxy S7 in the name (i.e., Samsung Galaxy S7
 <br/>
 
 ### `--testsToRun`
-<p><small><Highlight color="#333333">XCUITest/iOS Only</Highlight></small></p>
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
 
 __Description__: specify a comma-separated list of test cases or test classes on which you'd like to run tests.
 
