@@ -74,4 +74,12 @@ Except for the TestCafe image, these `.ts` files cannot run directly on any Test
    saucectl run
    ```
    
-    For further information, please refer to the working example of this TypeScript demonstration in the [Sauce Labs Puppeteer Runner](https://github.com/saucelabs/sauce-puppeteer-runner/tree/master/tests/fixtures/typescript) repository.
+
+### Sample Repos
+
+If you would like to see sample tests and configuration files for particular frameworks, you can clone one of our demo repositories for use as a template:
+
+* [Cypress Demo](https://github.com/saucelabs/saucectl-cypress-example)
+* [TestCafe Demo](https://github.com/saucelabs/saucectl-testcafe-example)
+* [Playwright Demo](https://github.com/saucelabs/saucectl-playwright-example)
+* [Puppeteer Demo](https://github.com/saucelabs/saucectl-puppeteer-example/)
