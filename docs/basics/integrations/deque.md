@@ -104,7 +104,9 @@ exports.config = config;
 ### Sauce Labs Configs
 Specify the Sauce Labs data center location in which you want to run your tests with the `region` property. 
    
-Available short handles for regions are:
+The available data center locations are: United States West and European Central. 
+
+The short-hand values that this script accepts are:
    * `us` - *default*
    * `eu`
 
