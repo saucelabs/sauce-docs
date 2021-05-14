@@ -6,6 +6,12 @@ sidebar_label: TestCafe
 
 Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference)for information regarding fields such as `apiVersion`, `kind`, and `sauce`.
 
+## TestCafe Considerations
+
+Execution time for TestCafe tests is limited to a maximum of 30 minutes. If the limit is exceeded, the test terminates and Sauce Control uploads assets (videos, screenshots, logs, etc..) to the Sauce Labs platform.
+
+Consider breaking up longer TestCafe tests to optimize performance and ensure you do not exceed this time limit.
+
 ## Example Configuration
 
 ```yaml reference
@@ -41,9 +47,13 @@ __Description__: Field for defining test suite details such as the suite `name`,
 
 __Type__: *object*
 
-__Example__:
+__Examples__:
 ```yaml reference
 https://github.com/saucelabs/saucectl-testcafe-example/blob/master/.sauce/config.yml#L20-L30
+```
+
+```yaml reference
+https://github.com/saucelabs/saucectl-testcafe-example/blob/master/.sauce/config.yml#L39-L52
 ```
 
 ### `name`
@@ -80,6 +90,23 @@ __Example__:
     - "tests/test_file1.test.js"
     - "tests/integrations"
     - "*/*.test.js"
+```
+
+### `devices`
+
+<p><small><span class="highlight sauce-cloud">Sauce Cloud only</span></small></p>
+
+__Description__: Field for defining device details such as device `name`, `platformName`, `platformVersions`.
+
+__Type__: *object*
+
+__Example__:
+```yaml
+  devices:
+    - name: iPhone 12 Simulator
+      platformName: iOS
+      platformVersions:
+        - "14.3"
 ```
 
 ### `env`
@@ -121,7 +148,7 @@ __Example__:
 
 ### `platformName`
 
-<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
+<p><small><span class="highlight sauce-cloud">Sauce Cloud only</span></small></p>
 
 __Description__: Operating system on which the browser and test runs.
 
@@ -134,7 +161,7 @@ __Example__:
 
 ### `screenResolution`
 
-<p><small><Highlight color="#ad1415">sauce cloud only</Highlight></small><a href="/testrunner-toolkit/running-tests#test-on-sauce-labs">ℹ</a></p>
+<p><small><span class="highlight sauce-cloud">Sauce Cloud only</span></small></p>
 
 __Description__: Set browser window screen resolution.
 

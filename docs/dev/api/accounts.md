@@ -12,9 +12,7 @@ The Accounts API exposes the following methods related to individual and team ac
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
-## Extended Team Management API Methods
-
-The set of methods defined in this section are applicable to customers who are utilizing the Sauce Labs Extended Team Management tool for grouping users into teams and allocating total concurrency. If your company has not updated to Extended Team Management, refer to the [Classic Account API](#classic-accounts-api-methods) section of this guide.
+## Team Methods
 
 ### Get Teams
 
@@ -44,22 +42,20 @@ values={[
 
 <TabItem value="us">
 
-```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams?name=sauce' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
---data-raw ''
+```jsx title="cURL with jq Example"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams?name=sauce' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
 
 <TabItem value="eu">
 
-```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams?name=sauce' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
---data-raw ''
+```jsx title="cURL with jq Example"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams?name=sauce' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
@@ -136,20 +132,20 @@ values={[
 
 <TabItem value="us">
 
-```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/80d69d16ebdb4c018cc9d81ea911761a' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+```jsx title="cURL with jq Example"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
 
 <TabItem value="eu">
 
-```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/80d69d16ebdb4c018cc9d81ea911761a' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+```jsx title="cURL with jq Example"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
@@ -254,34 +250,34 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw '{
     "name": "A-Team",
     "settings": {
         "virtual_machines": "10"
     },
-    "organization": "*********",
+    "organization": "<org-id>",
     "description": "Docs QA Team"
-}
+}' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \ 
+--request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw '{
     "name": "A-Team",
     "settings": {
         "virtual_machines": "10"
     },
-    "organization": "*********",
+    "organization": "<org-id>",
     "description": "Docs QA Team"
-}
+}' | jq
 ```
 
 </TabItem>
@@ -356,20 +352,20 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request DELETE 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/06a3981af2a643208847dfd8b7f32bce/' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
---data-raw ''
+--data-raw '' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request DELETE 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/06a3981af2a643208847dfd8b7f32bce/' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
---data-raw ''
+--data-raw '' | jq
 ```
 
 </TabItem>
@@ -450,32 +446,32 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw '{
     "name": "Doc-Team",
     "settings": {
         "virtual_machines": "10"
     },
     "description": "Docs Team"
-}
+}' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw '{
     "name": "Doc-Team",
     "settings": {
         "virtual_machines": "10"
     },
     "description": "Docs Team"
-}
+}' | jq
 ```
 
 </TabItem>
@@ -580,14 +576,14 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request PATCH 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PATCH 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw '{
     "settings": {
         "virtual_machines": "25"
     }
-}
+}' | jq
 ```
 
 </TabItem>
@@ -595,14 +591,14 @@ curl --location --request PATCH 'https://api.us-west-1.saucelabs.com/team-manage
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request PATCH 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PATCH 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw '{
     "settings": {
         "virtual_machines": "25"
     }
-}
+}' | jq
 ```
 
 </TabItem>
@@ -683,20 +679,20 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/b3de7078b79841b59d2e54127269afe3/members' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>/members' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
---data-raw ''
+--data-raw '' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/b3de7078b79841b59d2e54127269afe3/members' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>/members' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
---data-raw ''
+--data-raw '' | jq
 ```
 
 </TabItem>
@@ -763,20 +759,20 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/b3de7078b79841b59d2e54127269afe3/reset-access-key' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>/reset-access-key' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
---data-raw ''
+--data-raw '' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/b3de7078b79841b59d2e54127269afe3/reset-access-key' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>/reset-access-key' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
---data-raw ''
+--data-raw '' | jq
 ```
 
 </TabItem>
@@ -805,6 +801,8 @@ curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-mana
 </details>
 
 ---
+
+## User Methods
 
 ### Get Users
 
@@ -887,20 +885,20 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users?roles=3&limit=30' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users?roles=3&limit=30' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic *******************' \
---data-raw ''
+--data-raw '' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users?roles=3&limit=30' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users?roles=3&limit=30' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic *******************' \
---data-raw ''
+--data-raw '' | jq
 ```
 
 </TabItem>
@@ -973,18 +971,18 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
@@ -1117,36 +1115,36 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw '{
-    "first_name": "Jim",
+    "first_name": "John",
     "last_name": "Smith",
     "email": "jsmith@icloud.com",
     "username": "jsmith",
     "password": "$m1th*RULES",
     "role": 4,
-    "team": "b3de7078b79841b59d2e54127269afe3"
-}'
+    "team": "<team-id>"
+}' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw '{
-    "first_name": "Jim",
+    "first_name": "John",
     "last_name": "Smith",
     "email": "jsmith@icloud.com",
     "username": "jsmith",
     "password": "$m1th*RULES",
     "role": 4,
-    "team": "b3de7078b79841b59d2e54127269afe3"
-}'
+    "team": "<team-id>"
+}' | jq
 ```
 
 </TabItem>
@@ -1291,32 +1289,32 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY=' \
 --data-raw '{
-    "first_name": "James",
+    "first_name": "Hannibal",
     "last_name": "Smith",
     "email": "jsmith@icloud.com",
     "password": "$m1th*RULEStheworld",
     "verify_password": "$m1th*RULEStheworld"
-}'
+}' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY=' \
 --data-raw '{
-    "first_name": "James",
+    "first_name": "Hannibal",
     "last_name": "Smith",
     "email": "jsmith@icloud.com",
     "password": "$m1th*RULEStheworld",
     "verify_password": "$m1th*RULEStheworld"
-}'
+}' | jq
 ```
 
 </TabItem>
@@ -1430,24 +1428,24 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY=' \
 --data-raw '{
     "first_name": "Jimmy"
-}'
+}' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY=' \
 --data-raw '{
-"first_name": "Jimmy"
-}''
+    "first_name": "Jimmy"
+}' | jq
 ```
 
 </TabItem>
@@ -1537,18 +1535,18 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/teams/' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/teams/' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/teams/' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/teams/' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
@@ -1630,26 +1628,26 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/membership/' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/membership/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw '{
-    "user": "e5be7513ba224f6f9463c209cb4c5d83",
-    "team": "80d69d16ebdb4c018cc9d81ea911761a"
-}'
+    "user": "<user-id>",
+    "team": "<team-id>"
+}' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/membership/' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/membership/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
 --data-raw '{
-    "user": "e5be7513ba224f6f9463c209cb4c5d83",
-    "team": "80d69d16ebdb4c018cc9d81ea911761a"
-}'
+    "user": "<user-id>",
+    "team": "<team-id>"
+}' | jq
 ```
 
 </TabItem>
@@ -1759,18 +1757,18 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-admin/' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/set-admin/' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-admin/' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/set-admin/' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
@@ -1853,16 +1851,18 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-team-admin/' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/set-team-admin/' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-team-admin/' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/set-team-admin/' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
@@ -1946,16 +1946,18 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-team-admin/' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/set-team-admin/' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/e5be7513ba224f6f9463c209cb4c5d83/set-team-admin/' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/set-team-admin/' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
@@ -2039,16 +2041,18 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/access-key' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/access-key' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/access-key' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/access-key' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
@@ -2081,7 +2085,6 @@ curl --location --request GET 'https://api.eu-central-1.saucelabs.com/team-manag
 </details>
 
 ---
-
 
 ### Reset a User's Access Key
 
@@ -2117,16 +2120,18 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/reset-access-key' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/reset-access-key' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/reset-access-key' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/reset-access-key' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
@@ -2189,16 +2194,18 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/deactivate' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/deactivate' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/deactivate' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/deactivate' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
@@ -2283,16 +2290,18 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/activate' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/activate' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/631dfdc7c20f499e9f9de19680543c35/activate' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/activate' \
+--header 'Content-Type: application/json' | jq
 ```
 
 </TabItem>
@@ -2343,344 +2352,6 @@ curl --location --request POST 'https://api.eu-central-1.saucelabs.com/team-mana
     "is_team_admin": false
 }
 ```
-</details>
-
----
-
-
-
-## Classic Accounts API Methods
-
-The set of methods defined in this section are applicable to customers who have not yet migrated to the Sauce Labs Extended Team Management tool for grouping users into teams and allocating total concurrency.
-
-### Get User
-
-<details><summary><span className="api get">GET</span> <code>/rest/v1/users/&#123;username&#125;</code></summary><p/>
-
-Retrieves the profile of the specified user account.
-
-#### Parameters
-
-<table id="table-api">
-  <tbody>
-    <tr>
-     <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs account to retrieve.</p></td>
-    </tr>
-  </tbody>
-</table>
-
-
-```jsx title="Sample Request"
-curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith
-```
-
-#### Responses
-
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>200</code></td>
-    <td colSpan='2'>Success. User profile returned.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>404</code></td>
-    <td colSpan='2'>User not found.</td>
-  </tr>
-</tbody>
-</table>
-</details>
-
----
-
-### Create a Subaccount
-
-<details><summary><span className="api post">POST</span> <code>/rest/v1/users/&#123;username&#125;</code></summary><p/>
-
-Creates a new subaccount under the account of the requestor.
-
-:::note Use Team Management
-If your organization uses Team Management, this method is deprecated. See [Create User](#xtm-create-user).
-:::
-
-#### Parameters
-
-<table id="table-api">
-  <tbody>
-    <tr>
-      <td><code>username</code></td>
-      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs account under which you will create the sub-account.</p></td>  
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>username</code></td>
-      <td><p><small>| QUERY | REQUIRED | STRING |</small></p><p>The username for the new sub-account.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-     <tr>
-      <td><code>password</code></td>
-      <td><p><small>| QUERY | REQUIRED | STRING |</small></p><p>A login password for the new sub-account.</p></td>
-     </tr>
-  </tbody>
-  <tbody>
-     <tr>
-      <td><code>email</code></td>
-      <td><p><small>| QUERY | REQUIRED | STRING |</small></p><p>The email address of the new user.</p></td>
-     </tr>
-  </tbody>
-  <tbody>
-     <tr>
-      <td><code>name</code></td>
-      <td><p><small>| QUERY | REQUIRED | STRING |</small></p><p>The full name of the owner of the new sub-account, provided in the format &#60;first&#62;-&#60;last&#62;</p></td>
-     </tr>
-  </tbody>
-  <tbody>
-     <tr>
-      <td><code>concurrency</code></td>
-      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>The number of tests the account can run at the same time.</p></td>
-     </tr>
-  </tbody>
-</table>
-
-```jsx title="Sample Request"
-curl -X POST -u API_USERNAME:API_ACCESS_KEY \
--H 'Content-Type: application/json' \
--d '{
- "username": "jsmith",
- "password": "J$mithp@ss10",
- "name": "James-Smith",
- "email": "jsmith@home.com"
-}
-```
-
-#### Responses
-
-<table>
-<tbody>
-  <tr>
-    <td>200</td>
-    <td colSpan='2'>Success. Subaccount created.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td>404</td>
-    <td colSpan='2'>User not found.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td>400</td>
-    <td colSpan='2'>Invalid input.</td>
-  </tr>
-</tbody>
-</table>
-
-</details>
-
----
-
-### Get List of Subaccounts
-
-<details><summary><span className="api get">GET</span> <code>/rest/v1/users/&#123;username&#125;/list-subaccounts</code></summary><p/>
-
-Returns a list of subaccounts associated with the account specified in the request.
-
-
-#### Parameters
-
-<table>
-  <tbody>
-    <tr>
-     <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs account to which the list of subaccounts belong.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>from</code></td>
-      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Sets the starting record number for the results.Ex: <code>from=100</code></p></td>  
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>limit</code></td>
-      <td><p><small>| QUERY | OPTIONAL | INTEGER; MAX: 100 |</small></p><p>Sets the maximum number of results to return.</p></td>
-    </tr>
-  </tbody>
-</table>
-
-```jsx title="Sample Request"
-curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/list-subaccounts
-```
-
-#### Responses
-
-<table>
-<tbody>
-  <tr>
-    <td>200</td>
-    <td colSpan='2'>Success.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td>404</td>
-    <td colSpan='2'>User not found.</td>
-  </tr>
-</tbody>
-</table>
-
-</details>
-
----
-
-### Get Subaccount Information
-
-<details><summary><span className="api get">GET</span> <code>/rest/v1/users/&#123;username&#125;/subaccounts</code></summary><p/>
-
-Returns the profile of the subaccount user specified in the request, as well as a list of sibling subaccounts.
-
-
-#### Parameters
-
-<table>
-  <tbody>
-    <tr>
-     <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs subaccount to retrieve.</p></td>
-    </tr>
-  </tbody>
-</table>
-
-
-```jsx title="Sample Request"
-curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/subaccounts
-```
-
-#### Responses
-
-<table>
-<tbody>
-  <tr>
-    <td>200</td>
-    <td colSpan='2'>Success.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td>404</td>
-    <td colSpan='2'>User not found.</td>
-  </tr>
-</tbody>
-</table>
-
-</details>
-
----
-
-
-### Get List of Sibling Accounts
-
-<details><summary><span className="api get">GET</span> <code>/rest/v1/users/&#123;username&#125;/list-subaccounts</code></summary><p/>
-
-Returns a list of accounts that belong to the same parent account as the one specified in the request.
-
-#### Parameters
-
-<table>
-  <tbody>
-    <tr>
-     <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs subaccount to which the returned list are siblings.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>page</code></td>
-      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Limits the number of pages to return.Ex: <code>page=1</code></p></td>  
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>per_page</code></td>
-      <td><p><small>| QUERY | OPTIONAL | INTEGER; MAX: 50 |</small></p><p>Sets the maximum number of results to return on each page.</p></td>
-    </tr>
-  </tbody>
-</table>
-
-```jsx title="Sample Request"
-curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/siblings
-```
-
-#### Responses
-
-<table>
-<tbody>
-  <tr>
-    <td>200</td>
-    <td colSpan='2'>Success. Returns an array of sibling accounts showing username and user ID.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td>404</td>
-    <td colSpan='2'>User not found.</td>
-  </tr>
-</tbody>
-</table>
-
-</details>
-
----
-
-
-### Update Access Key
-
-<details><summary><span className="api post">POST</span> <code>/rest/v1/users/&#123;username&#125;/accesskey/change</code></summary><p/>
-
-This method creates a new auto-generated access key for the specified user.
-
-:::warning
-Regenerating an access key invalidates the previous value and any tests containing the prior value will fail, so make sure you edit any tests and credential environment variables with the new value.
-:::
-
-#### Parameters
-
-<table>
-  <tbody>
-    <tr>
-     <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs account for which a new access key is requested.</p></td>
-    </tr>
-  </tbody>
-</table>
-
-```jsx title="Sample Request"
-curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY https://saucelabs.com/rest/v1/users/jsmith/accesskey/change
-```
-
-#### Responses
-
-<table>
-<tbody>
-  <tr>
-    <td>200</td>
-    <td colSpan='2'>Success. Returns the new access key value.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td>404</td>
-    <td colSpan='2'>User not found.</td>
-  </tr>
-</tbody>
-</table>
-
 </details>
 
 ---

@@ -20,7 +20,7 @@ This topic describes automated Appium testing on the Sauce Labs Real Device Clou
 ## What You'll Need
 
 * Your Sauce Labs username and access key.
-* Ensure that your mobile app and project setup meet our [real device cloud requirements](mobile-apps/automated-testing/supported-devices.md).
+* Ensure that your mobile app and project setup meet our [real device cloud requirements](mobile-apps/supported-devices).
 * Have your mobile app file (.ipa for iOS, .apk for Android) and mobile test file on hand.
 
 If you don't have an app and would like to try out our test functionality, feel free to download and use our [Sauce Labs demo app](https://github.com/saucelabs/sample-app-mobile/releases).
@@ -44,7 +44,7 @@ There may be situations where you want to install an app from a downloadable rem
 
 Please review the following guidelines below before uploading your app:
 
-1. Make sure your app meets the <a href="/mobile-apps/automated-testing/supported-devices">requirements</a> for Android and iOS Mobile App Testing.
+1. Make sure your app meets the [requirements](mobile-apps/supported-devices) for Android and iOS Mobile App Testing.
 2. Upload your app to the hosting location.
 3. Ensure Sauce Labs has READ access to the app URL.
 4. In your Appium test script, enter the URL for the app as the "app" desired capability. Example Java Snippet:
@@ -173,7 +173,7 @@ Certain Appium capabilities behave differently when running Appium tests on our 
 * [Some Appium capabilities are not supported](dev/cli/appium/real-devices).
 * Emulator-only capabilities will not work.
 * The `app` capability will be always be overwritten; it will point to the app file you uploaded to our system.
-* The `noReset` capability will only work if device caching is enabled. By default, it is set to `false`.
+* The `noReset` capability will only work if device caching is enabled. 
 * Different setups may have different ways of handling capabilities and/or different requirements. Check to make sure you're providing all of the required capabilities.
 :::
 

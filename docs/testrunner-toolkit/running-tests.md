@@ -7,7 +7,6 @@ sidebar_label: Running Tests
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Highlight from '../../src/components/highlight.jsx'
 
 This page details the different options for using the `saucectl run` command to execute your tests in the JavaScript framework of your choice:
 
@@ -69,7 +68,7 @@ docker:
 
 ## Test on Sauce Labs
 
-<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight></small></p>
+<p><small>supported frameworks: <span class="highlight cypress">Cypress</span></small></p>
 
 If you wish to run your tests on Sauce Labs VMs, set the default `mode` in `config.yml` to `sauce`, as shown in the following example:
 
@@ -105,7 +104,7 @@ Please note that VM concurrency depends on the suite number rather than the numb
 
 ### Cross-Browser Tests
 
-<p><small>supported frameworks: <Highlight color="#25c2a0">cypress</Highlight></small></p>
+<p><small>supported frameworks: <span class="highlight cypress">Cypress</span></small></p>
 
 When you run tests on Sauce Labs VMs you have access to a wide range of OS + browser combinations. In order to test against multiple different browsers, you can indicate the desired combinations in the `suites` > `browser` field:
 

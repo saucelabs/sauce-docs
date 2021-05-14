@@ -24,6 +24,7 @@ Currently the only browser that can be automated in our Android emulators is the
 #### **How do I use XCUITest-driver on Appium 1.6.0 with iOS 9.x tests?**
 
 Appium 1.6.0 will default to using `automationName: XCUITest` for iOS 10.x tests, and `automationName: UIAutomation` for iOS 9.x tests. However, if you specify `automationName: XCUITest` in the device capabilities for the test, you can get XCUITest for iOS 9.x tests.
+<br/>
 
 ## Real Devices
 
@@ -33,7 +34,7 @@ Appium 1.6.0 will default to using `automationName: XCUITest` for iOS 10.x tests
 
 Our devices are real, physical devices. They are standard, commercially available devices and not modified or rooted. We use virtual networking computer (VNC) to transmit mouse and keyboard events on the devices. The VNC server on the devices relays back the content of the screen of the devices in real time.
 
-#### **What does the top device lists by country, and how reliable are they?**
+#### **What aware the top device lists by country, and how reliable are they?**
 
 The top lists indicate the ten most common devices by country. We gather information from an external provider who analyses mobile web traffic data from thousands of websites worldwide. The lists are generally reliable, but by using the "web traffic" metric for device distribution numbers, high-end devices and tablets might be overrepresented. Older and low-cost devices often have a smaller screen and a poorer performance, and are less used for surfing the web than top devices. This is why the  "web-traffic" metric might underrepresent the overall distribution of these devices.
 
@@ -41,7 +42,7 @@ The top lists indicate the ten most common devices by country. We gather informa
 
 When you compare the most popular devices of your users with our top lists you probably will see differences. A reason for this might be that our lists represent all mobile users, where your users may differ in certain aspects from the overall population of mobile users. For example, a food recipe app probably attracts a different user group than an outdoor navigation app, and these user groups probably also prefer different device models.
 
-#### **How long does it take until I can test on the latest devices on the cloud?**
+#### **How long does it take Sauce to provide testing support on the latest and greatest devices and operating systems?**
 
 We strive to support the latest releases within 48 hours to ensure your website and apps work flawlessly across all platforms.
 
@@ -51,12 +52,16 @@ Yes -- see [Camera Image Injection](https://wiki.saucelabs.com/pages/viewpage.ac
 
 #### **Is it possible to test push notifications?**
 
-Yes. For Android, it works automatically. For iOS, you'll need to disable resigning before testing to enable notifications testing. Disabling resigning is a feature to be used on private devices only and will require you to start keeping track of the iOS device UDIDs (Unique Device Identifier) by maintaining them in your own Apple Developer profile used at app build time.
+Yes.
+
+For Android real devices, it works automatically.
+
+For iOS real devices, you'll need to disable resigning before testing to enable notifications testing. Disabling resigning is a feature to be used on private devices only and will require you to start keeping track of the iOS device UDIDs (Unique Device Identifier) by maintaining them in your own Apple Developer profile used at app build time.
 
 
 ### Security
 
-#### **Is my app safe in the Real Device Cloud cloud?**
+#### **Is my app safe in the Real Device Cloud?**
 
 Our Real Device Cloud servers are located in the Europe and US at certified data centers. The communication is SSL secured. We try to ensure as much safety as a cloud service can provide. The Real Device Cloud will never abuse your data, and we [respect your data privacy](http://testobject.com/privacy) at all times. For very high security requirements, we also provide a [private cloud solution](http://testobject.com/enterprise).
 
@@ -74,7 +79,7 @@ It is of great importance for us to make sure that no other user can have access
 
 #### **Do you support SSO (Single Sign-On)?**
 
-Yes, we support OAuth login via LinkedIn, Google and GitHub.
+Yes. We support OAuth login via LinkedIn, Google and GitHub.
 
 
 ### Automated Testing
