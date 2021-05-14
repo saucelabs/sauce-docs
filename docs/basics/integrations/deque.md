@@ -128,3 +128,8 @@ Save the file and run the following command from the main project directory:
 ```bash
 npm install && npm test
 ```
+
+## Additional Resources
+* [Deque Saucelabs Integration Documentation](https://www.deque.com/saucelabs/get-started/)
+* [Deque `axe-core` Example WebDriverIO Project](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/webdriverio)
+* [Sauce Labs / Deque Marketing Blog Post](https://saucelabs.com/news/sauce-labs-and-deque-systems-join-forces-to-help-enterprises-ensure-digital-accessibility)
