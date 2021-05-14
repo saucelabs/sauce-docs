@@ -35,11 +35,13 @@ __Description__: The Sauce Labs Access Key you use to authenticate your tests. Y
 
 ### `app`
 __Data Type__: String.
+
 __Description__: This capability refers to the location of your mobile app. If you're running a mobile browser test, this capability can be left blank.
 <br/>
 
 **Data Center Endpoint**
 __Data Type__: String.
+
 __Description__: specifies the specific regional Sauce Labs Data Center (US or EU) where your desired device is located. There are currently two options for Appium real device testing:
 
 * US RDC: https://ondemand.us-west-1.saucelabs.com
@@ -61,12 +63,8 @@ __Description__: specifies the operating system platform version to use in your 
   * Major versions (e.g., `"4"`): by setting a major version, you'd have access to all devices running incremental versions (`"4.1"`, `"4.2"`, `"4.2.1"`, "`4.4.4"`). This also extends to minor and point versions (e.g., specifying `"4.4"` will match `"4.4.0"`, `"4.4.1"`).
 <br/>
 
-<br/>
-
-<br/>
-
 ### `deviceName`
-__Description__: specify the name of the device you want to test on, using either static or dynamic allocation, for individual or parallel tests. See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
+__Description__: specify the name of the device you want to test on, using either static or dynamic allocation, for individual or parallel tests. See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
   * ***Static Allocation***: specify an exact device for your test by setting `deviceName` to the Device ID. When using this, there's no need to specify the `platformName` and `platformVersion` because they'll be set by default (i.e., if you include these separately included in your test script, they will be ignored).
   ```java title="Java Example"
   capabilities.setCapability("deviceName", "iPhone_11_13_5_real_us");
@@ -95,11 +93,13 @@ __Description__: A name for your test, to [make it easier to find individual tes
 
 ### `build`
 __Data Type__: String.
+
 __Description__: If you're running several tests within a test suite, you can [add a build tag to group these tests together](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946).
 <br/>
 
 ### `tag`
 __Data Type__: String.
+
 __Description__: [Tags are useful for collaborating with teams](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946) and also for filtering results on your Sauce Labs **Test Results** and **Archive** pages.
 <br/>
 
@@ -153,7 +153,7 @@ capabilities.setCapability("automationName", "uiautomator2");
 <br/>
 
 ### `cacheId`
-__Data Type__: Randomized String.
+__Data Type__: randomized string.
 
 __Description__: use this capability to keep a device allocated to you between test sessions, bypassing the device cleaning process and session exit that occurs by default after each test completes. Normally, you'd need to start over and reopen another device. You'll need to launch your next test within **10 seconds** of your previous test ending to ensure that the same device will be allocated for the test (not cleaned or reset)
 
@@ -170,9 +170,9 @@ The value for `cacheId` must be the same for all test methods that you want to r
 * `autoGrantPermissions`
 * `appiumVersion`
 
-Suitable for test setups that require the app's state to be reset between tests. Can be used for both [***static*** and ***dynamic allocation***](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation).
+Suitable for test setups that require the app's state to be reset between tests. Can be used for both [***static*** and ***dynamic allocation***](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation).
 
-We recommend reviewing [Device Management for Real Devices](mobile-apps/automated-testing/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
+We recommend reviewing [Device Management for Real Devices](mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
 >**NOTE**: `cacheId` has replaced the `testobject_cache_device` capability that was used in TestObject (Legacy RDC).
 <br/>
@@ -209,7 +209,8 @@ __Description__: By default, applications are installed on devices in the Sauce 
 <br/>
 
 ### `enableAnimations`
-__Data Type__: Boolean
+__Data Type__: Boolean.
+
 __Description__: By default, animations are disabled on real devices. You can enable animations for private devices only with the enableAnimations capability. To use this capability, you'll need to add `privateDevicesOnly` and set to `true`.
 <br/>
 
@@ -225,6 +226,7 @@ __Description__: Enables the resigning (iOS) or instrumentation (Android) of app
 
 ### `sauceLabsImageInjectionEnabled`
 __Data Type__: Boolean.
+
 __Description__: enables the [camera image injection](https://docs.saucelabs.com/mobile-apps/features#camera-image-injection) feature.
 <br/>
 
@@ -237,7 +239,7 @@ __Description__: bypasses the restriction on taking screenshots for secure scree
 <br/>
 
 ### `allowTouchIdEnroll`
-<p><small><Highlight color="#333333">XCUITest/iOS Only</Highlight></small></p>
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
 
 __Data Type__: Boolean.
 
@@ -245,7 +247,7 @@ __Description__: enables the interception of biometric input, allowing the test 
 <br/>
 
 ### `groupFolderRedirectEnabled`
-<p><small><Highlight color="#333333">XCUITest/iOS Only</Highlight></small></p>
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
 
 __Data Type__: Boolean.
 
@@ -253,7 +255,7 @@ __Description__: Enables the use of the app's private app container directory in
 <br/>
 
 ### `systemAlertsDelayEnabled`
-<p><small><Highlight color="#333333">XCUITest/iOS Only</Highlight></small></p>
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
 
 __Data Type__: Boolean.
 
