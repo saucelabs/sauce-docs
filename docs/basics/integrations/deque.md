@@ -26,7 +26,7 @@ Clone or download the [example project](https://github.com/saucelabs/axe-wdio):
 ```bash
 git clone https://github.com/saucelabs/axe-wdio.git
 ```
-From the main project directory, change the following lines in `wdio.saucelabs.conf.js`:
+From the main project directory, edit `wdio.saucelabs.conf.js` to set your Sauce Labs account values for the highlighted config in the following sample:
 
 ```js {10-12}
 const {config} = require('./wdio.conf');
