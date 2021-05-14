@@ -13,15 +13,16 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-<p> <Highlight color="#013a70">Real Devices Only</Highlight> </p>   
-
 Sauce Runner for Real Devices provides the ability to run Espresso and XCUITest tests on Android and iOS real devices in the Sauce Labs cloud. This topic describes the required and optional command parameters you can use to set up your test runs.
 
 >**NOTE**: All examples in this page assume knowledge of [Sauce Runner General Usage](/dev/cli/espresso-xcuitest). Please review before proceeding.
 
-<br/>
+## What You'll Need
 
-## Required
+* Your Sauce Labs account credentials.
+* Your mobile app file (both debug and non-debug app) and test file.
+* Have the Sauce Runner for Real Devices downloaded and installed to your local machine.
+* Prior to using the CLI Reference below, navigate (`cd`) to the specific folder directory on your local machine where you downloaded and placed your Sauce Runner file (i.e., `runner.jar`).
 
 :::tip
 
@@ -31,6 +32,7 @@ java -jar runner.jar --help
 ```
 :::
 
+## Required
 
 These commands and flags are required for use with Sauce Runner for Real Devices. They are not compatible for use with Real Device Cloud [YAML file configuration](dev/cli/espresso-xcuitest/yaml-config).
 
@@ -117,7 +119,7 @@ Here are some additional command line configuration options.
 
 ### `--device`
 
-__Description__: specifies the exact device to use in your tests by providing the Device ID. See [Static Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions. For ***Static Allocation***.
+__Description__: specifies the exact device to use in your tests by providing the Device ID. See [Static Device Allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation) for detailed instructions. For ***Static Allocation***.
 
 ```java title="Example"
 --datacenter US --device iPhone_11_13_5_real_us
@@ -125,7 +127,7 @@ __Description__: specifies the exact device to use in your tests by providing th
 
 ### `--devices`
 
-__Description__: define a list of devices on which the tests should be executed, using static and/or dynamic allocation, to run tests in parallel. See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
+__Description__: define a list of devices on which the tests should be executed, using static and/or dynamic allocation, to run tests in parallel. See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
   * ***Static Allocation***: specify an exact device by setting  to the Device ID. When using this, there's no need to specify the `platformName` and `platformVersion` because they'll be set by default (i.e., if you include these separately included in your test script, they will be ignored).
   ```java title="Example"
   --datacenter EU --devices iPhone_11_13_5_real_us --testname MyTestName
@@ -190,7 +192,7 @@ __Description__: if set, only tablets will be queried.
 
 ### `--deviceNameQuery`
 
-__Description__: find a find by specifying a regular expression (regex) to dynamically allocate a device. It looks for available devices using wildcard names, giving you the ability to run a specified test on a pool of devices that are configured the same but have different names for parallel processing. For ***Dynamic Allocation***; see [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
+__Description__: find a find by specifying a regular expression (regex) to dynamically allocate a device. It looks for available devices using wildcard names, giving you the ability to run a specified test on a pool of devices that are configured the same but have different names for parallel processing. For ***Dynamic Allocation***; see [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
 
 Allocates any iPhone Plus device:
 
@@ -213,7 +215,7 @@ Allocates any device with Samsung Galaxy S7 in the name (i.e., Samsung Galaxy S7
 <br/>
 
 ### `--testsToRun`
-<p><small><Highlight color="#333333">XCUITest/iOS Only</Highlight></small></p>
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
 
 __Description__: specify a comma-separated list of test cases or test classes on which you'd like to run tests.
 

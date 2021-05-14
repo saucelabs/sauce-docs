@@ -104,6 +104,7 @@ module.exports = {
 
         "Mobile Apps": [
             'mobile-apps',
+            'mobile-apps/supported-devices',
             {
                 type: 'category',
                 label: 'Live Testing',
@@ -119,7 +120,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'mobile-apps/automated-testing',
-                    'mobile-apps/automated-testing/supported-devices',
+                          
                     {
                         type: 'category',
                         label: 'Appium',
@@ -360,6 +361,8 @@ module.exports = {
                     'api-testing/learn-more/planning-your-test',
                     'api-testing/learn-more/the-variables-system-in-api-fortress',
                     'api-testing/learn-more/working-with-the-response-object',
+                    'api-testing/learn-more/the-working-copy-published-tests',
+
                 ],
             },
             {
@@ -539,6 +542,7 @@ module.exports = {
                     'testrunner-toolkit/configuration/puppeteer',
                     'testrunner-toolkit/configuration/testcafe',
                     'testrunner-toolkit/configuration/espresso',
+                    'testrunner-toolkit/configuration/cucumber',
                 ],
             },
             'testrunner-toolkit/running-tests',
@@ -556,7 +560,6 @@ module.exports = {
             },
             'testrunner-toolkit/typescript',
             'testrunner-toolkit/saucectl',
-            'testrunner-toolkit/support',
         ],
         "Visual": [
             'visual',

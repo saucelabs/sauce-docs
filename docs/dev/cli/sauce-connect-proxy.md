@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 Below is a list of required and optional flags to use on your Sauce Connect command line to specify parameters. See [Basic Setup for Sauce Connect Proxy](/secure-connections/sauce-connect/setup-configuration/basic-setup) for detailed setup instructions and use cases.
 
 :::tip
-You can also view these options directly in the command line terminal by running the `--help` flag.
+View these options directly in the command line terminal by running the `--help` flag.
 :::
 
 ## Required
@@ -32,7 +32,9 @@ __Shorthand__: `-k`
 
 ### Data Center Endpoint
 
-__Description__: You'll also need to add the Data Center endpoint for your Sauce Connect tests; either US or EU. Please note that Sauce Connect endpoints are different from the regular device cloud endpoints. See our [Data Center Endpoints](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) list for more info.
+__Description__: depending on the Data Center location of the device you're testing on (US or EU), you may need to add a [Data Center Endpoint](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068).
+
+__Examples__:
 
 <Tabs
   defaultValue="US Data Center"
@@ -43,22 +45,20 @@ __Description__: You'll also need to add the Data Center endpoint for your Sauce
 
 <TabItem value="US Data Center">
 
-Full example that includes all required commands plus the Data Center endpoint:
+No endpoint needed. Connection to the US Data Center occurs by default. So your only required options would be username and access key.
 
 ```bash
-$ bin/sc -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx https://saucelabs.com/rest/v1/
+$ bin/sc -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
 
 </TabItem>
 <TabItem value="EU Data Center">
 
-Full example that includes all required commands plus the Data Center endpoint:
+To connect to the EU Data Center, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the EU Data Center endpoint:
 
 ```bash
 $ bin/sc -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx -x https://eu-central-1.saucelabs.com/rest/v1
 ```
-
->**NOTE**: Connecting to the EU Data Center requires one extra step: placing `-x` immediately before the endpoint URL.
 
 </TabItem>
 </Tabs>
@@ -68,9 +68,11 @@ $ bin/sc -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx -x https://eu-cent
 
 ### `--tunnel-identifier [id]`
 
-__Description__: assigns an ID to a Sauce Connect Proxy tunnel. Future jobs will use this tunnel only when explicitly specified by the tunnelIdentifier Capability in a Selenium client. **Required**: Your ID must be ASCII.
+__Description__: assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is very strongly recommended. Future jobs will use this tunnel only when explicitly specified by the `tunnelIdentifier` Capability in a Selenium client.
 
 For information on using `--tunnel-identifier` to run several Sauce Connect Proxy tunnels simultaneously, see [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). To learn about the syntax for setting `--tunnelIdentifier` as a capability, see [Test Configuration Options](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492).
+
+Your ID must be ASCII.
 
 __Shorthand__: `-i`
 
@@ -250,7 +252,8 @@ __Shorthand__: n/a
 
 ### `--doctor`
 
-__Description__: Performs checks to detect possible misconfiguration or problems. Check out [Sauce Connect Proxy Debugging and Diagnostics with `--doctor` flag](https://docs.saucelabs.com/secure-connections/sauce-connect/troubleshooting#debugging-and-diagnostics-with---doctor-flag) for more information about the errors that --doctor will detect and how to resolve them. Please note that when using the --doctor flag, place it at the end of your command for best results.
+__Description__: Performs checks to detect possible misconfiguration or problems. Check out [Sauce Connect Proxy Debugging and Diagnostics with `--doctor` flag](https://docs.saucelabs.com/secure-connections/sauce-connect/troubleshooting#debugging-and-diagnostics-with---doctor-flag) for more information about the errors that `--doctor` will detect and how to resolve them. Please note that when using the `--doctor` flag, place it at the end of your command for best results.
+
 
 __Shorthand__: n/a
 <br/>
@@ -342,7 +345,7 @@ __Example__:
 
 ### `--no-remove-colliding-tunnels`
 
-__Description__: Use this option to prevent removal of [colliding tunnels](https://docs.saucelabs.com/secure-connections/sauce-connect/setup-configuration/high-availability#what-are-colliding-tunnels), which are removed when Sauce Connect Proxy starts up. <em>Colliding tunnels</em> are tunnels with the same tunnel ID name. This includes unnamed (default) tunnels. Jobs will be distributed across all tunnels, enabling load balancing and high availability.
+__Description__: Use this option to prevent the removal of [colliding tunnels](https://docs.saucelabs.com/secure-connections/sauce-connect/setup-configuration/high-availability#what-are-colliding-tunnels), which would otherwise happen by default when Sauce Connect Proxy starts up. ***Colliding tunnels*** are tunnels with the same tunnel ID name. This includes unnamed (default) tunnels. Jobs will be distributed across all tunnels, enabling load balancing and high availability.
 
 __Shorthand__: n/a  
 <br/>

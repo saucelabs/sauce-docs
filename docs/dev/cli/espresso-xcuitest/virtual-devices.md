@@ -13,13 +13,28 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-<p> <Highlight color="#013a70">Emulators only</Highlight> </p>   
+:::warning Now Available on saucectl
+**Espresso testing for virtual devices is now supported on `saucectl`, our CLI tool used with Testrunner Toolkit. For details, see:**
+
+* **[About `saucectl`](/testrunner-toolkit)**
+* **[`saucectl` Installation](/testrunner-toolkit/installation)**
+* **[`saucectl` CLI Reference](/testrunner-toolkit/saucectl)**
+:::
+
+<br/>
+<br/>
+<br/>
 
 Sauce Runner for Virtual Devices provides the ability to run Espresso tests on Android emulators in the Sauce Labs cloud. This topic describes the required and optional command parameters you can use to set up your test runs.
 
 >**NOTE**: All code examples in this page assume knowledge of [Sauce Runner General Usage](/dev/cli/espresso-xcuitest). Please review before proceeding.
 
-## Required
+## What You'll Need
+
+* Your Sauce Labs account credentials.
+* Your mobile app file (both debug and non-debug app) and test file.
+* Have the Sauce Runner for Real Devices or Sauce Runner for Virtual Devices downloaded and installed to your local machine.
+* Prior to using the CLI Reference below, navigate (`cd`) to the specific folder directory on your local machine where you downloaded and placed your Sauce Runner file (i.e., `sauce-runner-virtual`).
 
 :::tip
 
@@ -28,6 +43,8 @@ You can also view the vUSB CLI directly in the command line terminal by running 
 ./sauce-runner-virtual --help
 ```
 :::
+
+## Required
 
 These command flags are required in order to run native mobile tests with Sauce Runner on virtual devices.
 

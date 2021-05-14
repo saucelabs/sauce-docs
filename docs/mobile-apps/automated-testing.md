@@ -6,17 +6,11 @@ description: Landing Page for Automated Mobile App Testing
 hide_table_of_contents: true
 ---
 
-For information on native mobile app test automation using Sauce Labs emulators, simulators, and real devices, see the following sections:
+This section covers native mobile app test automation using Sauce Labs emulators, simulators, and real devices.
 
-*   [Environment Configuration](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365795#MobileApplicationTesting-EnvironmentConfiguration)
-*   [Getting Started](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365795#MobileApplicationTesting-GettingStarted)
-*   [More Information](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365795#MobileApplicationTesting-MoreInformation)
+## System Requirements
 
-
-## System Requirements and Environment Configuration
-
-For information on platform/support requirements and test environment configuration, see [Choosing a Mobile Device](mobile-apps/automated-testing/supported-devices.md).
-
+For information on platform requirements and test environment configuration, see [Supported Mobile Devices](mobile-apps/supported-devices).
 
 ## Getting Started
 
