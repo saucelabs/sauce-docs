@@ -97,7 +97,7 @@ https://app.saucelabs.com/tests/YOUR_TEST_ID?auth=SAUCE_USERNAME:AUTH_TOKEN.
 
 ### Setting Your Test Links to Expire
 
-You can extend the links generated with authentication tokens to make them work temporarily for a specific date or specific hour, based on the parameters that you set.
+You can extend the links generated with authentication tokens to make them work temporarily for one day (the day the URL is generated) or a specific hour during that day, based on the parameters that you set.
 
 During the `hmac` generation, set the key like this: `SAUCE_USERNAME`:`SAUCE_ACCESS_KEY`:`YOUR_DATE_RANGE`.
 
