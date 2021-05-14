@@ -101,7 +101,7 @@ exports.config = config;
 
 ```
 
-### Sauce Labs Regions
+### Sauce Labs Configs
 Specify the Sauce Labs data center location in which you want to run your tests with the `region` property. 
    
 Available short handles for regions are:
