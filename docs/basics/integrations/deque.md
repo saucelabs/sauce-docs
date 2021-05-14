@@ -16,8 +16,10 @@ keywords:
 ## What You'll Need
 * [A Sauce Labs Account](https://saucelabs.com/sign-up)
 * [A Deque Account (Optional)](https://axe.deque.com/plans)
+* [Install Git](https://git-scm.com/downloads)
+* [Install Node/NPM](https://nodejs.org/en/download/)
 
-## Set Your Credentials
+## Project Setup
 
 Clone or download the [example project](https://github.com/saucelabs/axe-wdio):
 
