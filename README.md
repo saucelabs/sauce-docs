@@ -9,12 +9,12 @@
   <a href="#license"><img src="https://img.shields.io/github/license/sourcerer-io/hall-of-fame.svg?colorB=ff0000"></a>
   <a href="https://gitpod.io/#https://github.com/saucelabs/sauce-docs"><img src="https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod" alt="Gitpod Ready-to-Code"/></a>
   <a href="https://github.com/saucelabs/sauce-docs/workflows/Sauce%20Pipeline%20Browser%20Tests"><img src="https://github.com/saucelabs/sauce-docs/workflows/Sauce%20Pipeline%20Browser%20Tests/badge.svg" alt= "Sauce Pipeline Browser Tests"/></a>
-  <a href="https://app.saucelabs.com/u/saucy-docs"><img src=https://app.saucelabs.com/buildstatus/saucy-docs?auth=e1fb7e1761377a8a8596cb777487e10d2c914142c83f1a45cd038344708f9aae" alt= "Sauce Test Status"/></a>
+  <img src=https://app.saucelabs.com/buildstatus/saucy-docs?auth=e1fb7e1761377a8a8596cb777487e10d2c914142c83f1a45cd038344708f9aae" alt= "Sauce Test Status"/>
 	  
 </p>
 
 <p align="center">
-	<a href="https://app.saucelabs.com/u/saucy-docs"><img src=https://app.saucelabs.com/browser-matrix/saucy-docs.svg?auth=e1fb7e1761377a8a8596cb777487e10d2c914142c83f1a45cd038344708f9aae" alt= "Sauce Browser Matrix"/></a>
+	<img src=https://app.saucelabs.com/browser-matrix/saucy-docs.svg?auth=e1fb7e1761377a8a8596cb777487e10d2c914142c83f1a45cd038344708f9aae" alt= "Sauce Browser Matrix"/>
 </p>
 		
 Welcome to the `sauce-docs`, this website contains all technical documentation about Sauce Labs and its products. This site uses [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
