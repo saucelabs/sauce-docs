@@ -143,14 +143,11 @@ The [saucectl-cypress-example](https://github.com/saucelabs/saucectl-cypress-exa
 
 ### Modify the Configuration File
 
-Please visit the [Configuration page](/testrunner-toolkit/configuration) to learn more about `config.yml` and the specific fields and properties:
+whether you are using `config.yml` or a custom configuration file, `saucectl` supports a wide array of [custom configurations](/testrunner-toolkit/configuration) to ensure your tests are run according to your business needs.
 
-* [Common Syntax Reference](/testrunner-toolkit/configuration/common-syntax)
-* [Cypress Syntax Reference](/testrunner-toolkit/configuration/cypress)
+* [Settings Common to all Frameworks](/testrunner-toolkit/configuration/common-syntax)
+* [Cypress Specific Settings](/testrunner-toolkit/configuration/cypress)
 
 ### Run Tests in CI
 
-Please visit [our CI integrations page](/testrunner-toolkit/integrations) for more information about how to run your tests in the following CI platforms:
-
-* [Jenkins](/testrunner-toolkit/integrations/jenkins)
-* [GitHub Actions](/testrunner-toolkit/integrations/github-actions)
+Are you using [Jenkins](/testrunner-toolkit/integrations/jenkins) or [GitHub Actions](/testrunner-toolkit/integrations/github-actions) to run your development pipeline? You can integrate your `saucectl` project, too.
