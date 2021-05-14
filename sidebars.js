@@ -537,12 +537,27 @@ module.exports = {
                 items: [
                     'testrunner-toolkit/configuration',
                     'testrunner-toolkit/configuration/common-syntax',
-                    'testrunner-toolkit/configuration/cypress',
+                    {
+                        type: 'catagory',
+                        label: 'Cypress',
+                        collapsed: true,
+                        items: [
+                            'testrunner-toolkit/configuration/cypress',
+                            'testrunner-toolkit/configuration/cypress/cucumber',
+                        ]
+                    },
                     'testrunner-toolkit/configuration/playwright',
                     'testrunner-toolkit/configuration/puppeteer',
                     'testrunner-toolkit/configuration/testcafe',
-                    'testrunner-toolkit/configuration/espresso',
-                    'testrunner-toolkit/configuration/cucumber',
+                    {
+                        type: 'catagory',
+                        label: 'Espresso',
+                        collapsed: true,
+                        items: [
+                            'testrunner-toolkit/configuration/espresso',
+                            'testrunner-toolkit/configuration/espresso/cucumber',
+                        ]
+                    },
                 ],
             },
             'testrunner-toolkit/running-tests',
