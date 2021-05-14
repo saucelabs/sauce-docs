@@ -19,10 +19,10 @@ keywords:
 
 ## Set Your Credentials
 
-Clone or download the [example project](#):
+Clone or download the [example project](https://github.com/saucelabs/axe-wdio):
 
 ```bash
-git clone <github-url>
+git clone https://github.com/saucelabs/axe-wdio.git
 ```
 From the main project directory, change the following lines in `wdio.saucelabs.conf.js`:
 
