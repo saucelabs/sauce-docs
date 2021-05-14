@@ -15,8 +15,7 @@ keywords:
 
 ## What You'll Need
 * [A Sauce Labs Account](https://saucelabs.com/sign-up)
-* Access to the Deque/axe™ integration
-* [A Deque Account](https://axe.deque.com/plans)
+* [A Deque Account (Optional)](https://axe.deque.com/plans)
 
 ## Set Your Credentials
 
