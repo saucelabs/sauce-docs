@@ -551,7 +551,7 @@ module.exports = {
                         collapsed: true,
                         items: [
                             'testrunner-toolkit/configuration/cypress',
-                            'testrunner-toolkit/configuration/cypress/cucumber',
+                            'testrunner-toolkit/configuration/cypress/cyp-cucumber',
                         ]
                     },
                     'testrunner-toolkit/configuration/playwright',
