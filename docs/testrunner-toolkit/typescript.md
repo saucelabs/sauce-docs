@@ -67,7 +67,7 @@ Consider the `tests` directory structure below:
    
    By default `saucectl` will pickup any `.js` files located in the designated directory, however with the `suites` field you can set more granular control with regular expressions.
 
-5. Finally, run `saucectl` to execute your TypeScript tests:
+5. Finally, run `saucectl` to execute your transpiled tests:
    
    ```bash
    saucectl run
