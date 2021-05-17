@@ -1,6 +1,6 @@
 ---
 id: cyp-cucumber
-title: "Cucumber"
+title: Cucumber with Cypress
 sidebar_label: Cucumber
 ---
 
