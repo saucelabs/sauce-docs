@@ -563,7 +563,7 @@ module.exports = {
                         collapsed: true,
                         items: [
                             'testrunner-toolkit/configuration/espresso',
-                            'testrunner-toolkit/configuration/espresso/espcucumber',
+                            'testrunner-toolkit/configuration/espresso/esp-cucumber',
                         ]
                     },
                 ],
