@@ -546,7 +546,7 @@ module.exports = {
                     'testrunner-toolkit/configuration',
                     'testrunner-toolkit/configuration/common-syntax',
                     {
-                        type: 'catagory',
+                        type: 'category',
                         label: 'Cypress',
                         collapsed: true,
                         items: [
