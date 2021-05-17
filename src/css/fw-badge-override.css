@@ -24,6 +24,10 @@
     background-color:#ad1415;
 }
 
+.beta {
+    background-color:#003A70;
+}
+
 /* Support FW table style */
 
 #table-fw tr:nth-child(even){
