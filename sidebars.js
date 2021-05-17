@@ -558,7 +558,7 @@ module.exports = {
                     'testrunner-toolkit/configuration/puppeteer',
                     'testrunner-toolkit/configuration/testcafe',
                     {
-                        type: 'catagory',
+                        type: 'category',
                         label: 'Espresso',
                         collapsed: true,
                         items: [
