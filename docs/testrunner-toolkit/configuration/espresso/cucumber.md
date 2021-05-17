@@ -1,6 +1,6 @@
 ---
 id: esp-cucumber
-title: "Cucumber"
+title: Cucumber with Espresso
 sidebar_label: Cucumber
 ---
 
