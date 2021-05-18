@@ -64,6 +64,8 @@ $ bin/sc -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx -x https://eu-cent
 </Tabs>
 <br/>
 
+See the **Tunnels** page for quick start info.
+
 ## Optional
 
 ### `--tunnel-identifier [id]`
