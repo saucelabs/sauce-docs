@@ -1,7 +1,7 @@
 ---
 id: ipa-files
 title: Creating .ipa Files for Appium and XCUITest
-sidebar_label: Creating .ipa Files
+sidebar_label: iOS .ipa Files
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

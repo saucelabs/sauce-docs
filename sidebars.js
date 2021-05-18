@@ -63,6 +63,14 @@ module.exports = {
 
                         ],
                     },
+                    {
+                        type: 'category',
+                        label: 'Integrations',
+                        collapsed: true,
+                        items: [
+                            'basics/integrations/deque',
+                        ],
+                    },
                 ],
             },
         ],
@@ -105,6 +113,7 @@ module.exports = {
         "Mobile Apps": [
             'mobile-apps',
             'mobile-apps/supported-devices',
+            'mobile-apps/app-storage',
             {
                 type: 'category',
                 label: 'Live Testing',
@@ -120,7 +129,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'mobile-apps/automated-testing',
-                          
+
                     {
                         type: 'category',
                         label: 'Appium',
@@ -147,7 +156,6 @@ module.exports = {
             },
             'mobile-apps/features',
             'mobile-apps/virtual-usb',
-            'mobile-apps/app-storage',
             'mobile-apps/ms-app-center',
             'mobile-apps/faq',
         ],
@@ -588,6 +596,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'dev/cli',
+                    'dev/cli/test-configuration-options',
                     'dev/cli/sauce-connect-proxy',
                     {
                         type: 'category',
