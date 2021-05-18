@@ -32,7 +32,9 @@ __Shorthand__: `-k`
 
 ### Data Center Endpoint
 
-__Description__: add one of our Sauce Connect Data Center endpoints (US or EU). Sauce Connect endpoints are different from ondemand endpoints. See [Data Center Endpoints](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) for more info.
+__Description__: depending on the Data Center location of the device you're testing on (US or EU), you may need to add a [Data Center Endpoint](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068).
+
+__Examples__:
 
 <Tabs
   defaultValue="US Data Center"
@@ -43,34 +45,36 @@ __Description__: add one of our Sauce Connect Data Center endpoints (US or EU). 
 
 <TabItem value="US Data Center">
 
-Full example that includes all required commands plus the Data Center endpoint:
+No endpoint needed. Connection to the US Data Center occurs by default. So your only required options would be username and access key.
 
 ```bash
-$ bin/sc -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx https://saucelabs.com/rest/v1/
+$ bin/sc -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
 
 </TabItem>
 <TabItem value="EU Data Center">
 
-Full example that includes all required commands plus the Data Center endpoint:
+To connect to the EU Data Center, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the EU Data Center endpoint:
 
 ```bash
 $ bin/sc -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx -x https://eu-central-1.saucelabs.com/rest/v1
 ```
 
->**NOTE**: Connecting to the EU Data Center requires one extra step: placing `-x` immediately before the endpoint URL.
-
 </TabItem>
 </Tabs>
 <br/>
+
+See the **Tunnels** page for quick start info.
 
 ## Optional
 
 ### `--tunnel-identifier [id]`
 
-__Description__: assigns an ID to a Sauce Connect Proxy tunnel. Future jobs will use this tunnel only when explicitly specified by the tunnelIdentifier Capability in a Selenium client. **Required**: Your ID must be ASCII.
+__Description__: assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is very strongly recommended. Future jobs will use this tunnel only when explicitly specified by the `tunnelIdentifier` Capability in a Selenium client.
 
 For information on using `--tunnel-identifier` to run several Sauce Connect Proxy tunnels simultaneously, see [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). To learn about the syntax for setting `--tunnelIdentifier` as a capability, see [Test Configuration Options](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492).
+
+Your ID must be ASCII.
 
 __Shorthand__: `-i`
 
