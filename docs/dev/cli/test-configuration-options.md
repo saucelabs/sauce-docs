@@ -20,21 +20,22 @@ We always recommend using the latest released version of Selenium, but to ensure
 
 Below are the W3C WebDriver primary test configuration settings for Sauce Labs desktop browser tests.
 
+---
 ### `browserName`
-__Description__: identifies the user agent.
+__Description__: identifies the user agent. <br/>
+__Value Type__: string. <br/>
+__Example__:
+```java
+"browserName": "firefox"
+```
 
-__Value Type__: string.
-
-__Example__: `"browserName": "firefox"`
-<br/>
-
+---
 ### `browserVersion`
-__Description__: identifies the version of the browser you want to use in your test.
-
-__Value Type__: string.
-
-__Example__: `"browserVersion": "latest"`
-
+__Description__: identifies the version of the browser you want to use in your test.<br/>
+__Value Type__: string.<br/>
+```java title="Example"
+"browserVersion": "latest"`
+```
 :::tip Default to Latest Version of Chrome or Firefox
 
 If you want to use the latest stable version of Google Chrome or Firefox that Sauce supports, you can use `"browserVersion": "latest"`. You can also use `"browserVersion": "latest-1"` or `"browserVersion": "latest-2"`, etc. to request the next most recent versions of a browser. For example, if the latest stable version of Chrome is 73, you can request `"latest-2"` to use Chrome 71.
@@ -46,56 +47,69 @@ Microsoft Edge has two version numbers, the browser application version and the 
 
 It is the EdgeHTML version that should be specified here, such as `"browserVersion": "18.17763"`.
 :::
-<br/>
 
+---
 ### `platformName`
-__Description__: The name of the operating system the browser or mobile device should be running on.
-
-__Value Type__: string.
-
+__Description__: The name of the operating system the browser or mobile device should be running on.<br/>
+__Value Type__: string.<br/>
 __Example__: `"platformName": "macOS 10.13"`
+
+---
 
 ## Desktop Browser W3C Capabilities (Optional)
 Below are more Sauce-compatible W3C WebDriver specification capabilities. To view their descriptions, see the [W3C WebDriver Capabilities site](https://www.w3.org/TR/webdriver/#capabilities):
 
-### `acceptInsecureCerts`
-### `pageLoadStrategy`
-### `proxy`
-### `timeouts`
-### `strictFileInteractability`
-### `unhandledPromptBehavior`
+<table>
+  <tr>
+   <td>
+    <h3><code>acceptInsecureCerts</code></h3>
+   </td>
+   <td>
+    <h3><code>pageLoadStrategy</code></h3>
+   </td>
+ </tr>
+  <tr>
+   <td>
+    <h3><code>proxy</code></h3>
+   </td>
+   <td>
+    <h3><code>timeouts</code></h3>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <h3><code>strictFileInteractability</code></h3>
+   </td>
+   <td>
+    <h3><code>unhandledPromptBehavior</code></h3>
+   </td>
+  </tr>
+</table>
 
 
 ## Desktop Browser W3C Capabilities: Sauce-Specific (Optional)
 
 These options apply to specific browsers and can be added to the `sauce:options` block of your test session creation code.
 
+---
 ### `chromedriverVersion`
-__Description__: allows you to specify the ChromeDriver version you want to use for your tests. We support the ChromeDriver version 1 series (i.e., 26.0.1383.0). The version 2 series (i.e., 2.45) and the latest convention where each Chrome version comes with its own matching ChromeDriver version (from Chrome 73 onwards).
-
-The default version of ChromeDriver when no value is specified depends on the version of Chrome used. See [ChromeDriver Versions and Downloads](http://chromedriver.chromium.org/downloads/version-selection) for more information.
-
-__Value Type__: string.
-
+__Description__: allows you to specify the ChromeDriver version you want to use for your tests. We support the ChromeDriver version 1 series (i.e., 26.0.1383.0). The version 2 series (i.e., 2.45) and the latest convention where each Chrome version comes with its own matching ChromeDriver version (from Chrome 73 onwards). The default version of ChromeDriver when no value is specified depends on the version of Chrome used. See [ChromeDriver Versions and Downloads](http://chromedriver.chromium.org/downloads/version-selection) for more information.<br/>
+__Value Type__: string.<br/>
 __Example__: `"chromedriverVersion": "2.45"`
-<br/>
 
+---
 ### `geckodriverVersion`   
 
 __Description__: allows you to specify the Firefox GeckoDriver version. For Firefox version 80 and above, geckodriver defaults to latest driver version 0.27.0 when no version is specified.
 
-For a list of geckodriver versions, see [geckodriver Supported Platforms](https://firefox-source-docs.mozilla.org/testing/geckodriver/Support.html).
-
-__Value Type__: string.
-
+For a list of geckodriver versions, see [geckodriver Supported Platforms](https://firefox-source-docs.mozilla.org/testing/geckodriver/Support.html).<br/>
+__Value Type__: string.<br/>
 __Example__: "geckodriverVersion": "0.27.0"
-<br/>
 
+---
 ### `iedriverVersion`
 
-__Description__: allows you to specify the Internet Explorer Driver version. If no version is specified, it defaults to 2.53.1.
-
-The versions of Internet Explorer Driver we have available correspond to major Selenium releases - we do not have all the minor point releases (e.g., 3.12.0.4) available.
+__Description__: allows you to specify the Internet Explorer Driver version. If no version is specified, it defaults to 2.53.1. The versions of Internet Explorer Driver we have available correspond to major Selenium releases - we do not have all the minor point releases (e.g., 3.12.0.4) available.
 
 We recommend setting the Selenium Version (see above) to correspond with the Internet Explorer Driver version you select.
 
@@ -173,18 +187,14 @@ Sauce Labs supports launching 64-bit IE on our 64-bit VMs: Windows 7, Windows 8,
 *   `3.150.1`
 
 </details>
-<br/>
 
-__Value Type__: string.
-
+__Value Type__: string.<br/>
 __Example__: `"iedriverVersion": "3.141.0"`
-<br/>
 
+---
 ### `seleniumVersion`
 
-__Description__: allows you to specify the version of Selenium you want to use for your test.
-
-For Firefox, the default version of Selenium when no value is specified depends on the version of Firefox.
+__Description__: allows you to specify the version of Selenium you want to use for your test. For Firefox, the default version of Selenium when no value is specified depends on the version of Firefox.
 
 <details><summary><strong>Firefox and Selenium versions</strong></summary>
 
@@ -380,12 +390,11 @@ Pre-11.0: 2.48.0
 
 You can set the Selenium version for your tests by using the `seleniumVersion` desired capability (e.g., `'seleniumVersion' = '3.8.1'`)
 :::
-
-__Value Type__: string.
-
-__Example__: `"seleniumVersion": "2.46.0"`
 <br/>
+__Value Type__: string.<br/>
+__Example__: `"seleniumVersion": "2.46.0"`
 
+---
 ### `avoidProxy`
 __Description__: allows you to avoiding the Selenium Proxy. By default, Sauce routes traffic from some WebDriver browsers (Edge, Internet Explorer, and Safari) through the Selenium HTTP proxy server so that HTTPS connections with self-signed certificates work everywhere. The Selenium proxy server can cause problems for some users. If that's the case for you, you can configure Sauce to avoid using the proxy server and have browsers communicate directly with your servers.
 
