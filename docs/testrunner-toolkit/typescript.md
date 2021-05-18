@@ -78,7 +78,7 @@ Consider the `tests` directory structure below:
 
 If you would like to see sample tests and configuration files for particular frameworks, you can clone one of our demo repositories for use as a template:
 
-* [Cypress Demo](https://github.com/saucelabs/saucectl-cypress-example/examples/typescript)
-* [TestCafe Demo](https://github.com/saucelabs/saucectl-testcafe-example/examples/typescript)
-* [Playwright Demo](https://github.com/saucelabs/saucectl-playwright-example/examples/typescript)
-* [Puppeteer Demo](https://github.com/saucelabs/saucectl-puppeteer-example/examples/typescript)
+* [Cypress Demo](https://github.com/saucelabs/saucectl-cypress-example/tree/master/examples/typescript)
+* [TestCafe Demo](https://github.com/saucelabs/saucectl-testcafe-example/tree/master/examples/typescript)
+* [Playwright Demo](https://github.com/saucelabs/saucectl-playwright-example/tree/master/examples/typescript)
+* [Puppeteer Demo](https://github.com/saucelabs/saucectl-puppeteer-example/tree/master/examples/typescript)
