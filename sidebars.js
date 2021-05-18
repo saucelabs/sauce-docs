@@ -113,6 +113,7 @@ module.exports = {
         "Mobile Apps": [
             'mobile-apps',
             'mobile-apps/supported-devices',
+            'mobile-apps/app-storage',
             {
                 type: 'category',
                 label: 'Live Testing',
@@ -128,7 +129,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'mobile-apps/automated-testing',
-                          
+
                     {
                         type: 'category',
                         label: 'Appium',
@@ -155,7 +156,6 @@ module.exports = {
             },
             'mobile-apps/features',
             'mobile-apps/virtual-usb',
-            'mobile-apps/app-storage',
             'mobile-apps/ms-app-center',
             'mobile-apps/faq',
         ],
@@ -545,12 +545,27 @@ module.exports = {
                 items: [
                     'testrunner-toolkit/configuration',
                     'testrunner-toolkit/configuration/common-syntax',
-                    'testrunner-toolkit/configuration/cypress',
+                    {
+                        type: 'category',
+                        label: 'Cypress',
+                        collapsed: true,
+                        items: [
+                            'testrunner-toolkit/configuration/cypress',
+                            'testrunner-toolkit/configuration/cypress/cyp-cucumber',
+                        ]
+                    },
                     'testrunner-toolkit/configuration/playwright',
                     'testrunner-toolkit/configuration/puppeteer',
                     'testrunner-toolkit/configuration/testcafe',
-                    'testrunner-toolkit/configuration/espresso',
-                    'testrunner-toolkit/configuration/cucumber',
+                    {
+                        type: 'category',
+                        label: 'Espresso',
+                        collapsed: true,
+                        items: [
+                            'testrunner-toolkit/configuration/espresso',
+                            'testrunner-toolkit/configuration/espresso/esp-cucumber',
+                        ]
+                    },
                 ],
             },
             'testrunner-toolkit/running-tests',
@@ -596,6 +611,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'dev/cli',
+                    'dev/cli/test-configuration-options',
                     'dev/cli/sauce-connect-proxy',
                     {
                         type: 'category',
