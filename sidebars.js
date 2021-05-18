@@ -63,6 +63,14 @@ module.exports = {
 
                         ],
                     },
+                    {
+                        type: 'category',
+                        label: 'Integrations',
+                        collapsed: true,
+                        items: [
+                            'basics/integrations/deque',
+                        ],
+                    },
                 ],
             },
         ],
