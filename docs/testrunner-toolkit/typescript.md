@@ -13,7 +13,7 @@ Refer to the requirements listed on the [Installation](/testrunner-toolkit/insta
 
 ## The Problem
 
-Consider the `tests` directory structure below:
+If you are using Playwright or Puppeteer with TypeScript, you will have a `tests` directory like something below which cannot be used:
 
 ```bash
 .
@@ -25,6 +25,7 @@ Consider the `tests` directory structure below:
 ```
 
 ## The Solution
+Compile your TypreScript files into JavaScript
 
 1. Ensure you already have `typescript` installed:
     
