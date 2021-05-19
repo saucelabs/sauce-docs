@@ -8,7 +8,7 @@ keywords:
     - licensekey
 ---
 
-If you need an updated API Fortress license please reach out to your account manager or [sales@apifortress.com](mailto:sales@apifortress.com)
+If you need an updated API Fortress license please reach out to your account manager or [sales@saucelabs.com](mailto:sales@saucelabs.com)
 
 The below instructions will show you where to replace the license key in the configuration file:
 

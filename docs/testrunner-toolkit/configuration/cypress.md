@@ -4,7 +4,6 @@ title: "Configuration Syntax: Cypress"
 sidebar_label: Cypress
 ---
 
-import Highlight from '../../../src/components/highlight.jsx'
 
 Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration/common-syntax)for information regarding fields such as `apiVersion`, `kind`, `suites`, `sauce`, etc.
 
@@ -49,8 +48,6 @@ __Example__:
   configFile: "cypress.json"
 ```
 
-> For further information regarding cypress configurations, please consult the [Cypress documentation](https://docs.cypress.io/guides/references/configuration.html#Options).
-
 ### `record`
 
 __Description__: Record video of tests running.
@@ -75,15 +72,12 @@ __Example__:
   key: $MY_SECRET_KEY
 ```
 
-In order for the `record` and `key` fields to work you must add the cypress `"projectId"` in your `cypress.json` file.
-
-The value of your `projectId` correlates directly with the value of the `key` field; in this case `$MY_SECRET_KEY`.
+The `record` and `key` fields depend on the cypress `"projectId"` being set in your `cypress.json` file because the value of your `projectId` correlates directly with the value of the `key` field. See [Cypress Project-ID Documentation](https://docs.cypress.io/guides/dashboard/projects.html#Project-ID) for details about how to configure/retrieve the cypress `projectId` or [Cypress Record-Key Documentation](https://docs.cypress.io/guides/guides/command-line.html#cypress-run-record-key-lt-record-key-gt) for details about configuring Record-Key parameters.
 
 :::note
-Please refer to [this Cypress Documentation page](https://docs.cypress.io/guides/dashboard/projects.html#Project-ID) for further information about how to configure/retrieve the cypress `projectId`.
-
-For more information about the cypress __Record Key__, please consult this [Cypress Documentation page](https://docs.cypress.io/guides/guides/command-line.html#cypress-run-record-key-lt-record-key-gt).
+For additional information regarding cypress configurations, please consult the [Cypress documentation](https://docs.cypress.io/guides/references/configuration.html#Options).
 :::
+
 
 
 ## `config`

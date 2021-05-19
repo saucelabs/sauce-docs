@@ -63,6 +63,14 @@ module.exports = {
 
                         ],
                     },
+                    {
+                        type: 'category',
+                        label: 'Integrations',
+                        collapsed: true,
+                        items: [
+                            'basics/integrations/deque',
+                        ],
+                    },
                 ],
             },
         ],
@@ -104,6 +112,8 @@ module.exports = {
 
         "Mobile Apps": [
             'mobile-apps',
+            'mobile-apps/supported-devices',
+            'mobile-apps/app-storage',
             {
                 type: 'category',
                 label: 'Live Testing',
@@ -119,7 +129,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'mobile-apps/automated-testing',
-                    'mobile-apps/automated-testing/supported-devices',
+
                     {
                         type: 'category',
                         label: 'Appium',
@@ -141,12 +151,10 @@ module.exports = {
                         ],
                     },
                     'mobile-apps/automated-testing/ipa-files',
-                    'mobile-apps/automated-testing/troubleshooting',
                 ],
             },
             'mobile-apps/features',
             'mobile-apps/virtual-usb',
-            'mobile-apps/app-storage',
             'mobile-apps/ms-app-center',
             'mobile-apps/faq',
         ],
@@ -360,6 +368,7 @@ module.exports = {
                     'api-testing/learn-more/planning-your-test',
                     'api-testing/learn-more/the-variables-system-in-api-fortress',
                     'api-testing/learn-more/working-with-the-response-object',
+                    'api-testing/learn-more/the-working-copy-published-tests',
 
                 ],
             },
@@ -534,13 +543,28 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'testrunner-toolkit/configuration',
-                    'testrunner-toolkit/configuration/bundling',
                     'testrunner-toolkit/configuration/common-syntax',
-                    'testrunner-toolkit/configuration/cypress',
+                    {
+                        type: 'category',
+                        label: 'Cypress',
+                        collapsed: true,
+                        items: [
+                            'testrunner-toolkit/configuration/cypress',
+                            'testrunner-toolkit/configuration/cypress/cyp-cucumber',
+                        ]
+                    },
                     'testrunner-toolkit/configuration/playwright',
                     'testrunner-toolkit/configuration/puppeteer',
                     'testrunner-toolkit/configuration/testcafe',
-                    'testrunner-toolkit/configuration/espresso',
+                    {
+                        type: 'category',
+                        label: 'Espresso',
+                        collapsed: true,
+                        items: [
+                            'testrunner-toolkit/configuration/espresso',
+                            'testrunner-toolkit/configuration/espresso/esp-cucumber',
+                        ]
+                    },
                 ],
             },
             'testrunner-toolkit/running-tests',
@@ -558,8 +582,6 @@ module.exports = {
             },
             'testrunner-toolkit/typescript',
             'testrunner-toolkit/saucectl',
-            'testrunner-toolkit/faqs',
-            'testrunner-toolkit/support',
         ],
         "Visual": [
             'visual',
@@ -588,6 +610,8 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'dev/cli',
+                    'dev/cli/error-messages',
+                    'dev/cli/test-configuration-options',
                     'dev/cli/sauce-connect-proxy',
                     {
                         type: 'category',
