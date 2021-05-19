@@ -20,22 +20,27 @@ We always recommend using the latest released version of Selenium, but to ensure
 
 Below are the W3C WebDriver primary test configuration settings for Sauce Labs desktop browser tests.
 
----
 ### `browserName`
-__Description__: identifies the user agent. <br/>
-__Value Type__: string. <br/>
+__Description__: identifies the user agent.
+
+__Value Type__: string.
+
 __Example__:
-```java
+```
 "browserName": "firefox"
 ```
+<br/>
 
----
 ### `browserVersion`
-__Description__: identifies the version of the browser you want to use in your test.<br/>
-__Value Type__: string.<br/>
-```java title="Example"
-"browserVersion": "latest"`
+__Description__: identifies the version of the browser you want to use in your test.
+
+__Value Type__: string.
+
+__Example__:
 ```
+"browserVersion": "latest"
+```
+
 :::tip Default to Latest Version of Chrome or Firefox
 
 If you want to use the latest stable version of Google Chrome or Firefox that Sauce supports, you can use `"browserVersion": "latest"`. You can also use `"browserVersion": "latest-1"` or `"browserVersion": "latest-2"`, etc. to request the next most recent versions of a browser. For example, if the latest stable version of Chrome is 73, you can request `"latest-2"` to use Chrome 71.
@@ -47,69 +52,65 @@ Microsoft Edge has two version numbers, the browser application version and the 
 
 It is the EdgeHTML version that should be specified here, such as `"browserVersion": "18.17763"`.
 :::
+<br/>
 
----
 ### `platformName`
-__Description__: The name of the operating system the browser or mobile device should be running on.<br/>
-__Value Type__: string.<br/>
-__Example__: `"platformName": "macOS 10.13"`
+__Description__: The name of the operating system the browser or mobile device should be running on.
 
----
+__Value Type__: string.
+
+__Example__:
+```
+"platformName": "macOS 10.13"
+```
 
 ## Desktop Browser W3C Capabilities (Optional)
 Below are more Sauce-compatible W3C WebDriver specification capabilities. To view their descriptions, see the [W3C WebDriver Capabilities site](https://www.w3.org/TR/webdriver/#capabilities):
 
-<table>
-  <tr>
-   <td>
-    <h3><code>acceptInsecureCerts</code></h3>
-   </td>
-   <td>
-    <h3><code>pageLoadStrategy</code></h3>
-   </td>
- </tr>
-  <tr>
-   <td>
-    <h3><code>proxy</code></h3>
-   </td>
-   <td>
-    <h3><code>timeouts</code></h3>
-   </td>
-  </tr>
-  <tr>
-   <td>
-    <h3><code>strictFileInteractability</code></h3>
-   </td>
-   <td>
-    <h3><code>unhandledPromptBehavior</code></h3>
-   </td>
-  </tr>
-</table>
+### `acceptInsecureCerts`
+### `pageLoadStrategy`
+### `proxy`
+### `timeouts`
+### `strictFileInteractability`
+### `unhandledPromptBehavior`
 
 
 ## Desktop Browser W3C Capabilities: Sauce-Specific (Optional)
 
 These options apply to specific browsers and can be added to the `sauce:options` block of your test session creation code.
 
----
 ### `chromedriverVersion`
-__Description__: allows you to specify the ChromeDriver version you want to use for your tests. We support the ChromeDriver version 1 series (i.e., 26.0.1383.0). The version 2 series (i.e., 2.45) and the latest convention where each Chrome version comes with its own matching ChromeDriver version (from Chrome 73 onwards). The default version of ChromeDriver when no value is specified depends on the version of Chrome used. See [ChromeDriver Versions and Downloads](http://chromedriver.chromium.org/downloads/version-selection) for more information.<br/>
-__Value Type__: string.<br/>
-__Example__: `"chromedriverVersion": "2.45"`
+__Description__: allows you to specify the ChromeDriver version you want to use for your tests. We support the ChromeDriver version 1 series (i.e., 26.0.1383.0). The version 2 series (i.e., 2.45) and the latest convention where each Chrome version comes with its own matching ChromeDriver version (from Chrome 73 onwards).
 
----
+The default version of ChromeDriver when no value is specified depends on the version of Chrome used. See [ChromeDriver Versions and Downloads](http://chromedriver.chromium.org/downloads/version-selection) for more information.
+
+__Value Type__: string.
+
+__Example__:
+```
+"chromedriverVersion": "2.45"
+```
+<br/>
+
 ### `geckodriverVersion`   
 
 __Description__: allows you to specify the Firefox GeckoDriver version. For Firefox version 80 and above, geckodriver defaults to latest driver version 0.27.0 when no version is specified.
 
-For a list of geckodriver versions, see [geckodriver Supported Platforms](https://firefox-source-docs.mozilla.org/testing/geckodriver/Support.html).<br/>
-__Value Type__: string.<br/>
-__Example__: "geckodriverVersion": "0.27.0"
+For a list of geckodriver versions, see [geckodriver Supported Platforms](https://firefox-source-docs.mozilla.org/testing/geckodriver/Support.html).
 
----
+__Value Type__: string.
+
+__Example__:
+```
+"geckodriverVersion": "0.27.0"
+```
+<br/>
+
 ### `iedriverVersion`
 
-__Description__: allows you to specify the Internet Explorer Driver version. If no version is specified, it defaults to 2.53.1. The versions of Internet Explorer Driver we have available correspond to major Selenium releases - we do not have all the minor point releases (e.g., 3.12.0.4) available.
+__Description__: allows you to specify the Internet Explorer Driver version. If no version is specified, it defaults to 2.53.1.
+
+The versions of Internet Explorer Driver we have available correspond to major Selenium releases - we do not have all the minor point releases (e.g., 3.12.0.4) available.
 
 We recommend setting the Selenium Version (see above) to correspond with the Internet Explorer Driver version you select.
 
@@ -187,14 +188,21 @@ Sauce Labs supports launching 64-bit IE on our 64-bit VMs: Windows 7, Windows 8,
 *   `3.150.1`
 
 </details>
+<br/>
 
-__Value Type__: string.<br/>
-__Example__: `"iedriverVersion": "3.141.0"`
+__Value Type__: string.
 
----
+__Example__:
+```
+"iedriverVersion": "3.141.0"
+```
+<br/>
+
 ### `seleniumVersion`
 
-__Description__: allows you to specify the version of Selenium you want to use for your test. For Firefox, the default version of Selenium when no value is specified depends on the version of Firefox.
+__Description__: allows you to specify the version of Selenium you want to use for your test.
+
+For Firefox, the default version of Selenium when no value is specified depends on the version of Firefox.
 
 <details><summary><strong>Firefox and Selenium versions</strong></summary>
 
@@ -390,11 +398,15 @@ Pre-11.0: 2.48.0
 
 You can set the Selenium version for your tests by using the `seleniumVersion` desired capability (e.g., `'seleniumVersion' = '3.8.1'`)
 :::
-<br/>
-__Value Type__: string.<br/>
-__Example__: `"seleniumVersion": "2.46.0"`
 
----
+__Value Type__: string.
+
+__Example__:
+```
+"seleniumVersion": "2.46.0"
+```
+<br/>
+
 ### `avoidProxy`
 __Description__: allows you to avoiding the Selenium Proxy. By default, Sauce routes traffic from some WebDriver browsers (Edge, Internet Explorer, and Safari) through the Selenium HTTP proxy server so that HTTPS connections with self-signed certificates work everywhere. The Selenium proxy server can cause problems for some users. If that's the case for you, you can configure Sauce to avoid using the proxy server and have browsers communicate directly with your servers.
 
@@ -404,7 +416,10 @@ This flag is not compatible with Sauce Connect Proxy.
 
 __Value Type__: boolean.
 
-__Example__: `"avoidProxy": true`
+__Example__:
+```
+"avoidProxy": true
+```
 <br/>
 
 ### `extendedDebugging`
@@ -413,13 +428,19 @@ __Description__: Enable Extended Debugging, which records HAR files for some bro
 See [Debugging Tests with JavaScript Console Logs and HAR Files (Extended Debugging)](https://wiki.saucelabs.com/pages/viewpage.action?pageId=70072943) for more information.
 
 __Value Type__: boolean
-__Example__: `"extendedDebugging": true`
+__Example__:
+```
+"extendedDebugging": true
+```
 <br/>
 
 ### `capturePerformance`
 __Description__: enable Performance Capture feature. Sauce Performance Testing can be enabled by setting both extendedDebugging and capturePerformance to `true`. Default value is `false`. See Getting Started with Sauce Front-End Performance for more information.
 __Value Type__: boolean
-__Example__: `"capturePerformance": true`
+__Example__:
+```
+"capturePerformance": true
+```
 <br/>
 
 ### `webdriver.remote.quietExceptions`
@@ -427,8 +448,10 @@ __Description__: enable WebDriver's automatic screen shots. Selenium WebDriver c
 
 __Value Type__: boolean
 
-__Example__: `"webdriver.remote.quietExceptions": false`
-
+__Example__:
+```
+"webdriver.remote.quietExceptions": false
+```
 
 ## Mobile App Capabilities: Appium Settings (Required)
 
@@ -454,7 +477,10 @@ If you're testing a mobile native or hybrid app, the value for this capability s
 
 __Value Type__: string.
 
-__Example__: `"browserName": "Safari"`
+__Example__:
+```
+"browserName": "Safari"
+```
 <br/>
 
 ### `deviceName`
@@ -472,7 +498,10 @@ Each Android emulator skin will have a different configuration depending on the 
 
 __Value Type__: string.
 
-__Example__: `"deviceName": "Google Nexus 7 HD Emulator"`
+__Example__:
+```
+"deviceName": "Google Nexus 7 HD Emulator"
+```
 <br/>
 
 ### `platformVersion`
@@ -480,7 +509,10 @@ __Description__: allows you to set the mobile OS platform version that you want 
 
 __Value Type__: string.
 
-__Example__: `"platformVersion": "9.1"`
+__Example__:
+```
+"platformVersion": "9.1"
+```
 <br/>
 
 ### `platformName`
@@ -488,7 +520,10 @@ __Description__: allows you to set the mobile operating system platform name you
 
 __Value Type__: string.
 
-__Example__: `"platformName": "iOS"`
+__Example__:
+```
+"platformName": "iOS"
+```
 <br/>
 
 ### `app`
@@ -498,7 +533,10 @@ This option is required only for testing mobile native apps or hybrid web apps.
 
 __Value Type__: string.
 
-__Example__: `"app": "storage:filename=my_app.zip"`
+__Example__:
+```
+"app": "storage:filename=my_app.zip"
+```
 <br/>
 
 ### `automationName`
@@ -506,7 +544,10 @@ __Description__: allows you to set the automation engine that will be used. Poss
 
 __Value Type__: string.
 
-__Example__: `"automationName": "UiAutomator2"`
+__Example__:
+```
+"automationName": "UiAutomator2"
+```
 <br/>
 
 ### `appPackage`
@@ -522,7 +563,10 @@ Appium automatically determines the package to launch; you'll only need to use t
 
 __Value Type__: string.
 
-__Example__: `"appPackage": "com.example.android.myApp, com.android.settings"`
+__Example__:
+```
+"appPackage": "com.example.android.myApp, com.android.settings"
+```
 <br/>
 
 ### `appActivity`
@@ -543,7 +587,10 @@ Appium automatically determines the activity to launch; you'll only need to use 
 
 __Value Type__: string.
 
-__Example__: `"appActivity": ".MainActivity"`
+__Example__:
+```
+"appActivity": ".MainActivity"
+```
 <br/>
 
 ### `autoAcceptAlerts`
@@ -554,7 +601,10 @@ __Description__: setting this option will automatically accept any unexpected br
 
 __Value Type__: boolean
 
-__Example__: `"autoAcceptAlerts": true`
+__Example__:
+```
+"autoAcceptAlerts": true
+```
 <br/>
 
 ## Mobile App Capabilities: Sauce-Specific (Optional)
@@ -575,7 +625,10 @@ You can find the release notes for each Appium version at the [Appium GitHub rep
 
 __Value Type__: string.
 
-__Example__: `"appiumVersion": "1.5.3"`
+__Example__:
+```
+"appiumVersion": "1.5.3"
+```
 <br/>
 
 ### `deviceType`
@@ -583,7 +636,10 @@ __Description__: the type of device type to emulate. Options are: `tablet` and `
 
 __Value Type__: string.
 
-__Example__: `"deviceType": "tablet"`
+__Example__:
+```
+"deviceType": "tablet"
+```
 <br/>
 
 ### `deviceOrientation`
@@ -591,7 +647,10 @@ __Description__: the device orientation in which the simulator/device will be re
 
 __Value Type__: string.
 
-__Example__: `"deviceOrientation": "portrait"`
+__Example__:
+```
+"deviceOrientation": "portrait"
+```
 <br/>
 
 ## Desktop and Mobile Capabilities: Sauce-Specific (Optional)
@@ -607,7 +666,10 @@ __Description__: use this to record test names for jobs and make it easier to fi
 
 __Value Type__: string.
 
-__Example__: `"name": "my example name"`
+__Example__:
+```
+"name": "my example name"
+```
 <br/>
 
 ### `build`
@@ -615,7 +677,10 @@ __Description__: use this to associate jobs with a build number or app version, 
 
 __Value Type__: string.
 
-__Example__: `"build": "build-1234"`
+__Example__:
+```
+"build": "build-1234"
+```
 <br/>
 
 ### `tags`
@@ -623,7 +688,10 @@ __Description__: User-defined tags for grouping and filtering jobs in the Dashbo
 
 __Value Type__: list.
 
-__Example__: `"tags": ["tag1","tag2","tag3"]`
+__Example__:
+```
+"tags": ["tag1","tag2","tag3"]
+```
 <br/>
 
 ### `custom-data`
@@ -666,7 +734,10 @@ Available visibility modes are:
 
 __Value Type__: string.
 
-__Example__: `"public": "team"`
+__Example__:
+```
+"public": "team"
+```
 <br/>
 
 #### **Sauce Connect Tunnel Settings**
@@ -680,7 +751,10 @@ __Description__: If you're using Sauce Connect Proxy to test an application that
 
 __Value Type__: string.
 
-__Example__: `"tunnelIdentifier": "MyTunnel01"`
+__Example__:
+```
+"tunnelIdentifier": "MyTunnel01"
+```
 <br/>
 
 ### `parentTunnel`  
@@ -708,7 +782,10 @@ Disabling video recording can be useful for debugging failing tests as well as h
 
 __Value Type__: boolean.
 
-__Example__: `"recordVideo": false`
+__Example__:
+```
+"recordVideo": false
+```
 <br/>
 
 ### `videoUploadOnPass`
@@ -716,7 +793,10 @@ __Description__: disables video upload for passing tests. As an alternative to `
 
 __Value Type__: boolean
 
-__Example__: `"videoUploadOnPass": false`
+__Example__:
+```
+"videoUploadOnPass": false
+```
 <br/>
 
 ### `recordScreenshots`
@@ -724,7 +804,10 @@ __Description__: disables step-by-step screenshots. Sauce Labs captures step-by-
 
 __Value Type__: boolean
 
-__Example__: `"recordScreenshots": false`
+__Example__:
+```
+"recordScreenshots": false
+```
 <br/>
 
 ### `recordLogs`
@@ -734,7 +817,10 @@ Selenium logs will still be recorded. This option only disables recording of the
 
 __Value Type__: boolean
 
-__Example__: `"recordLogs": false`
+__Example__:
+```
+"recordLogs": false
+```
 <br/>
 
 #### **Timeout Settings**
@@ -754,7 +840,10 @@ While our test VMs respect the `maxDuration` capability when it's set in tests, 
 
 __Value Type__: integer.
 
-__Example__: `"maxDuration": 1800`
+__Example__:
+```
+"maxDuration": 1800
+```
 <br/>
 
 ### `commandTimeout`
@@ -762,7 +851,10 @@ __Description__: sets command timeout. As a safety measure to prevent Selenium c
 
 __Value Type__: integer.
 
-__Example__: `"commandTimeout": 300`
+__Example__:
+```
+"commandTimeout": 300
+```
 <br/>
 
 ### `idleTimeout`
@@ -770,7 +862,10 @@ __Description__: sets idle test timeout. As a safety measure to prevent tests fr
 
 __Value Type__: integer.
 
-__Example__: `"idleTimeout": 90`
+__Example__:
+```
+"idleTimeout": 90
+```
 <br/>
 
 #### **Pre-Run Executables**
@@ -850,7 +945,10 @@ When we run out of available virtual machines, or when you hit your concurrency 
 
 __Value Type__: integer.
 
-__Example__: `"priority": 0`
+__Example__:
+```
+"priority": 0
+```
 <br/>
 
 ### `screenResolution`
@@ -872,7 +970,10 @@ __Description__: allows you to specify the screen resolution to be used during y
 
 __Value Type__: string.
 
-__Example__: `"screenResolution": "1280x1024"`
+__Example__:
+```
+"screenResolution": "1280x1024"
+```
 <br/>
 
 ### `timeZone`
@@ -890,4 +991,10 @@ __Description__: allows you to set a custom time zone for your test. If the `tim
 
 __Value Type__: string.
 
-__Examples__: `"timeZone": "Los_Angeles"`, `"timeZone": "New_York"`, `"timeZone": "Honolulu"`, `"timeZone": "Alaska"`
+__Examples__:
+```
+`"timeZone": "Los_Angeles"`,
+`"timeZone": "New_York"`,
+`"timeZone": "Honolulu"`,
+`"timeZone": "Alaska"`
+```
