@@ -20,7 +20,7 @@ This topic describes automated Appium testing on the Sauce Labs Real Device Clou
 ## What You'll Need
 
 * Your Sauce Labs username and access key.
-* Ensure that your mobile app and project setup meet our [real device cloud requirements](mobile-apps/automated-testing/supported-devices.md).
+* Ensure that your mobile app and project setup meet our [real device cloud requirements](mobile-apps/supported-devices).
 * Have your mobile app file (.ipa for iOS, .apk for Android) and mobile test file on hand.
 
 If you don't have an app and would like to try out our test functionality, feel free to download and use our [Sauce Labs demo app](https://github.com/saucelabs/sample-app-mobile/releases).
@@ -44,7 +44,7 @@ There may be situations where you want to install an app from a downloadable rem
 
 Please review the following guidelines below before uploading your app:
 
-1. Make sure your app meets the <a href="/mobile-apps/automated-testing/supported-devices">requirements</a> for Android and iOS Mobile App Testing.
+1. Make sure your app meets the [requirements](mobile-apps/supported-devices) for Android and iOS Mobile App Testing.
 2. Upload your app to the hosting location.
 3. Ensure Sauce Labs has READ access to the app URL.
 4. In your Appium test script, enter the URL for the app as the "app" desired capability. Example Java Snippet:
@@ -173,35 +173,43 @@ Certain Appium capabilities behave differently when running Appium tests on our 
 * [Some Appium capabilities are not supported](dev/cli/appium/real-devices).
 * Emulator-only capabilities will not work.
 * The `app` capability will be always be overwritten; it will point to the app file you uploaded to our system.
-* The `noReset` capability will only work if device caching is enabled. By default, it is set to `false`.
+* The `noReset` capability will only work if device caching is enabled.
 * Different setups may have different ways of handling capabilities and/or different requirements. Check to make sure you're providing all of the required capabilities.
 :::
 
-#### **Set `appiumVersion`**
+#### **Setting Your `appiumVersion`**
 
 If you omit the `appiumVersion` in your test configuration, your test will be running with our default Appium version. We recommend that you specify one of the newer Appium versions that provides a more extended API and fixes to known bugs.
 
-#### **Check the Appium Version for Your Test**
+#### **Checking the Appium Version for Your Test**
 1. Log in to Sauce Labs.
 2. Go to **Test Details**.
 3. Find and select the test that you ran using Appium.
 4. Click the **Metadata** tab.
 5. Look for the **Logs** row and select **Appium Log**. The first line should indicate the Appium version. For example, `2019-05-05T17:45:07.541Z - info: Welcome to Appium v1.10.1`.
 
-#### **Set the `browserName`**
+#### **Setting the `browserName`**
 
 When testing a native mobile app, the value for `browserName` is an empty string, as in `caps.setCapability("browserName", "");`.
 
-#### **Set the Location of Your Mobile App**
+#### **Setting the Location of Your Mobile App**
 
 If the app you want to test has been uploaded to a location other than Sauce Storage, you need to specify this location for `app`, and make sure that this location is accessible to Sauce Labs browsers. For example, `caps.setCapability("app","sauce-storage:mapp.zip");`.
 
-#### **Set the `automationName` for Android Apps**
+#### **Setting the `automationName` for Android Apps**
 
 If you're testing a native mobile app against Android versions 4.0-4.1, or a hybrid mobile against Android versions 4.0 - 4.2, you need to set the capability `"automationName","selendroid"`.
 
 These Android versions are only supported via Appium’s bundled version of Selendroid, which utilizes [Instrumentation](http://developer.android.com/reference/android/app/Instrumentation.html). Later versions of Android are supported via Appium’s own UiAutomator library.
 
+#### **Enabling Location Services for iOS Devices**
+
+If you want to enable location services on an iOS simulator - to test GPS-dependent apps, for example - set these capabilities in your Appium script:
+
+```java
+locationServicesEnabled=true
+locationServicesAuthorized=true
+```
 
 ## Example Configuration Code Snippets
 
