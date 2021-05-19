@@ -151,7 +151,6 @@ module.exports = {
                         ],
                     },
                     'mobile-apps/automated-testing/ipa-files',
-                    'mobile-apps/automated-testing/troubleshooting',
                 ],
             },
             'mobile-apps/features',
@@ -574,6 +573,7 @@ module.exports = {
         ],
         "Reference": [
             'dev',
+            'dev/common-error-messages',
             {
                 type: 'category',
                 label: 'API Reference',
