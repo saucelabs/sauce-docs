@@ -7,7 +7,7 @@ description: Basic steps for getting going quickly with JavaScript based framewo
 
 ## Step 1: Install SauceCTL and the TestRunner Toolkit
 
-You can configure the [Sauce Testrunner Toolkit](https://docs.saucelabs.com/testrunner-toolkit) along with Docker, _or_ run [`saucectl`](https://docs.saucelabs.com/testrunner-toolkit/saucectl) on Sauce Labs VMs. 
+You can configure the [Sauce Testrunner Toolkit](https://docs.saucelabs.com/testrunner-toolkit) along with Docker, _or_ run [`saucectl`](https://docs.saucelabs.com/testrunner-toolkit/saucectl) on Sauce Labs VMs.
 
 The basic steps include:
 
@@ -24,10 +24,10 @@ The basic steps include:
 
 ## Step 2: Run Your Tests
 
-You can run your Cypress, TestCafe, or Playwright tests in two different ways:
+You can run your Cypress, TestCafe, or Playwright tests using `saucectl run` in two different ways:
 
  * __Docker Mode__: Install Docker and run a containerized version of your test environment, then set mode in `config.yml`:
- 
+
  It can be set as a global setting.
  ```yaml
  defaults:
@@ -40,7 +40,7 @@ It can also be set on suite level. The suite setting will override the global se
    - name: docker suite
      mode: docker
  ```
- 
+
  * __Sauce VM Mode__: Install `saucectl` and pass your entire test suite, including dependencies and configurations, to Sauce Labs Cloud Virtual Machines. Update following in `config.yml` to run your tests on Sauce Labs VMs:
 
  It can be set as a global setting.
@@ -55,6 +55,6 @@ It can also be set on suite level. The suite setting will override the global se
    - name: docker suite
      mode: docker
  ```
- 
+
 
  > To learn more about running tests please [consult the documentation](https://docs.saucelabs.com/testrunner-toolkit/running-tests), or see an [example with Cypress](https://training.saucelabs.com/codelabs/Module1-Testrunner/index.html?index=../..testrunner#3).
