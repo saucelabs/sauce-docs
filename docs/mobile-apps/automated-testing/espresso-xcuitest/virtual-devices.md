@@ -11,11 +11,19 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-<p> <Highlight color="#eb7734">BETA</Highlight> </p>
+:::warning Now Available on saucectl
+**Espresso testing for virtual devices is now supported on `saucectl`, our CLI tool used with Testrunner Toolkit. For details, see:**
 
-Sauce Runner for Virtual Devices provides the ability to run automated Android app UI tests on Sauce Labs emulators from your local Espresso environment.
+* **[About `saucectl`](/testrunner-toolkit)**
+* **[`saucectl` Installation](/testrunner-toolkit/installation)**
+* **[`saucectl` CLI Reference](/testrunner-toolkit/saucectl)**
+:::
 
->**NOTE**: At this time, XCUITest is not supported.
+<br/>
+<br/>
+<br/>
+
+Sauce Runner for Virtual Devices provides the ability to run automated Android app UI tests on Sauce Labs emulators from your local Espresso environment. At this time, XCUITest is not supported.
 
 ## What You'll Need
 

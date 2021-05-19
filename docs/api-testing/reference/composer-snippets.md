@@ -8,7 +8,7 @@ keywords:
     - composer-snippets
 ---
 
-A snippet is a fragment of test, stored in the Vault, that can be reused in multiple tests.
+A snippet is a fragment of test, stored in [the Vault](/api-testing/quick-start/the-vault), that can be reused in multiple tests.
 
 ## Create a Snippet
 
@@ -25,3 +25,11 @@ That is it! The fragment of the code is created and ready to be use in every tes
 For each snippet, two actions are available: 
 1. **Paste Snippet**: Allows you to paste the entire component inside the test, allowing you to edit as needed. The pasted components will lose any reference to the original snippet. 
 2. **Invoke Snippet**: This creates a **Call** component that will invoke the snippet. If the snippet changes, all the tests containing the Call component to that snippet will inherit the changes.
+
+## Update a Snippet
+
+In order to update a snippet,
+
+1. Open the Snippet from [the Vault](/api-testing/quick-start/the-vault)
+2. Click on any of the fields and begin typing to edit the details
+3. Changes are saved automagically.

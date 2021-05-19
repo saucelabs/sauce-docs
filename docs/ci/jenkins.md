@@ -293,14 +293,30 @@ Alternatively, you can configure your project so you can choose specific operati
 
 Jenkins populates the `SELENIUM_PLATFORM`, `SELENIUM_VERSION`, `SELENIUM_BROWSER`, and `SELENIUM_DRIVER` environment variables for each combination you specified and runs the tests in parallel.
 
-## Publishing Test Status to Sauce Labs
+## Reporting between Sauce Labs and Jenkins
+
+<p><span className="sauceDBlue">VIRTUAL CLOUD ONLY</span></p>
+
+The following sections describe how to share information about your Sauce Labs tests in both the Sauce Labs site and your Jenkins dashboard.
+
+### Capture Build Details
+
+Set the `SAUCE_BUILD_NAME` environment variable as the value of the `build` desired capability to set the Sauce build name at runtime. This enables you to access your test reports by build in the Sauce Labs dashboard and also view them on the Jenkins **Build Details** page.
+
+```java title="Jave Build Capabilities Example"
+DesiredCapabilities capabilities = new DesiredCapabilities();
+// ...
+capabilities.setCapability("build", System.getenv("SAUCE_BUILD_NAME");
+```
+
+### Publish Test Status to Sauce Labs
 
 The Sauce plugin for Jenkins will also mark the Sauce jobs as passed or failed, but you need to configure Jenkins to parse the test results.
 
 1. From the **Configure** page of your project, select the **Post-Build Actions** tab.
 1. Select **Run Sauce Labs Test Publisher**.
 
-## Outputting the Jenkins Session ID to stdout
+### Output the Jenkins Session ID to stdout
 
 As part of the post-build activities, the Sauce plugin will parse the test result files in an attempt to associate test results with Sauce jobs. It does this by identifying lines in the stdout or stderr that have this format:
 `SauceOnDemandSessionID=<session id> job-name=<some job name>`

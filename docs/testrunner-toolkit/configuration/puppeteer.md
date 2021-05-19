@@ -4,7 +4,6 @@ title: "Configuration Syntax: Puppeteer"
 sidebar_label: Puppeteer
 ---
 
-import Highlight from "../../../src/components/highlight"
 
 Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/configuration#common-syntax-reference) for information regarding fields such as `apiVersion`, `kind`, and `sauce`.
 
