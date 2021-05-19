@@ -1,6 +1,6 @@
 ---
-id: cucumber
-title: "Cucumber"
+id: esp-cucumber
+title: Cucumber with Espresso
 sidebar_label: Cucumber
 ---
 
@@ -10,10 +10,4 @@ Please refer to the [Common Configuration Syntax Reference](/testrunner-toolkit/
 
 ```yaml reference
 https://github.com/saucelabs/saucectl-espresso-example/blob/master/examples/cucumber/.sauce/config.yml
-```
-
-## Example Configuration for Cypress with Cucumber 
-
-```yaml reference
-https://github.com/saucelabs/saucectl-cypress-example/blob/master/examples/cucumber/.sauce/config.yml
 ```
