@@ -254,5 +254,6 @@ __Shorthand__: `-h`
 
 __Example__:
 
-```bash
---help
+```java
+./sauce-runner-virtual --help
+```
