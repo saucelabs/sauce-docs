@@ -1,7 +1,7 @@
 # Dependencies
 /node_modules
 package-lock.json
-yran.lock
+yarn.lock
 
 # Log files
 logs
