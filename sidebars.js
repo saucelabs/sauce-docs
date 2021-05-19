@@ -151,7 +151,6 @@ module.exports = {
                         ],
                     },
                     'mobile-apps/automated-testing/ipa-files',
-                    'mobile-apps/automated-testing/troubleshooting',
                 ],
             },
             'mobile-apps/features',
@@ -611,6 +610,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'dev/cli',
+                    'dev/cli/error-messages',
                     'dev/cli/test-configuration-options',
                     'dev/cli/sauce-connect-proxy',
                     {
