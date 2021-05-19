@@ -37,7 +37,7 @@ You can run your Cypress, TestCafe, or Playwright tests using `saucectl run` in 
 It can also be set on suite level. The suite setting will override the global setting for the relevant suite.
  ```yaml
  suites:
-   - name: docker suite
+   - name: saucy test suite
      mode: docker
  ```
 
@@ -46,14 +46,14 @@ It can also be set on suite level. The suite setting will override the global se
  It can be set as a global setting.
  ```yaml
  defaults:
-   mode: docker
+   mode: sauce
  ```
 
 It can also be set on suite level. The suite setting will override the global setting for the relevant suite.
  ```yaml
  suites:
-   - name: docker suite
-     mode: docker
+   - name: saucy test suite
+     mode: sauce
  ```
 
 
