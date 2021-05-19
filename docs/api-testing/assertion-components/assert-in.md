@@ -21,7 +21,7 @@ This assertion is used to check if the element described by the expression match
 | Stop test if fails | 'true' or 'false' | No |
 | Comment | String | No |
 
-* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](https://apifortress.com/doc/expression/) for more details.
+* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](/api-testing/reference/expression/) for more details.
 * __Value__: The value we want to compare the expression to.
 * __Type__: The data type of the value. This attribute is optional. If no type is defined the values will be compared as strings. If the type is set the values will evaluated with the chosen comparator (ex: ‘integer’ as a whole number, ‘float’ as a decimal number).
 * __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.

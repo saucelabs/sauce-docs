@@ -9,21 +9,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The API Fortress Composer offers unparalleled flexibility and ease-of-use with everything at your fingertips to build tests in minutes and eliminate many duplicate tasks. Users of all skill levels may begin using the Composer with little or no training to quickly generate sophisticated functional tests. These tests may easily be reused as end-to-end integration tests and load (stress) tests. In turn, load tests may easily be reused as monitors for performance testing.  
 
-:::note Special Note about End-to-End Tests / Integration Tests
-
-Creating a series of independent tests that:
-
-* each hit one endpoint
-* and run in a specific order
-
-isn't a proper testing methodology. 
-
-It doesn't allow for optimal testing of how each API interacts with each other. For that reason, the API Fortress composer is very flexible and allows you to create a single "test" that can handle a series of API calls. 
-
-For example __Search__ > __Add to Cart__ > __Checkout__ can and should all be inside of one smart test, and not three separate tests.  
-
-Read the following page to learn more about [Integration / Multistep Testing](/api-testing/quick-start/introduction-to-integration-testing) 
- 
+:::note Learn more about End-to-End Tests / Integration Tests
+Read the following page to learn more about [Integration / Multistep Testing](/api-testing/quick-start/introduction-to-integration-testing)  
 :::
 
 ## Visual vs. Code View
@@ -32,13 +19,15 @@ Begin using the Composer by selecting from two versions in terms of views. With 
 
 * __Visual__ - The Visual Composer does not require coding expertise, and provides real-time suggestions via predictive text to help you create ideal API tests for your needs. 
 
-  <img src={useBaseUrl('img/api-fortress/2019/06/VisualView.jpg')} alt="Test Composer Visual View Pic"/>
+  <img src={useBaseUrl('img/api-fortress/2019/06/VisualView.png')} alt="Test Composer Visual View Pic"/>
 
 * __Code__ - The Code view is for users who are more comfortable working in code rather than a visual UI. 
 
-  <img src={useBaseUrl('img/api-fortress/2019/06/CodeView.jpg')} alt="Test Composer Code View Pic"/>
+  <img src={useBaseUrl('img/api-fortress/2019/06/CodeView.png')} alt="Test Composer Code View Pic"/>
   
-For more information, visit our [API Testing University](#) to research best practices and find detailed guidance.
+:::tip API Testing Best Practices
+For more information, visit our [API Testing University](https://training.saucelabs.com/apiTesting/index.html) to research best practices and find detailed guidance.
+:::
 
 ## Test Composer UI
 

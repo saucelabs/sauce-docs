@@ -4,7 +4,7 @@ title: Sauce CTL
 sidebar_label: CLI Reference
 ---
 
-This page provides command line references for `saucectl`, the CLI tool used with [Testrunner Toolkit](testrunner-toolkit.md). 
+This page provides command line references for `saucectl`, the CLI tool used with [Testrunner Toolkit](testrunner-toolkit.md).
 
 > Please refer to the repository [README](https://github.com/saucelabs/saucectl) for installation, development, and contribution requirements.
 
@@ -23,7 +23,7 @@ saucectl configure
 
 __Description__: Prompts you to choose one of the [supported frameworks](/testrunner-toolkit#supported-frameworks-and-browsers). Based on the chosen framework, this command also generates:
 
-* a configuration file (e.g. `./sauce/config.yml`) 
+* a configuration file (e.g. `./sauce/config.yml`)
 * a test directory (e.g. `cypress/`)
 * an example test (e.g. `example.test.js`)
 
@@ -47,14 +47,14 @@ saucectl run
 ### `ccy`
 
 __Description__: Increases your Sauce Labs VM concurrency when [running tests remotely on the Sauce Labs Cloud](/testrunner-toolkit/running-tests#test-on-sauce-labs).
-                                                                                                                                                                       
+
 
 __Example__:
 ```bash
 saucectl run --ccy 2
 ```
 
-> __NOTE__: Concurrency with `saucectl` is tied to [the test `suites` field](/testrunner-toolkit/configuration#suites) in your `.sauce/config.yml`. 
+> __NOTE__: Concurrency with `saucectl` is tied to [the test `suites` field](/testrunner-toolkit/configuration#suites) in your `.sauce/config.yml`.
 > For example if you have ten `.spec` files split across two tests `suites`, and you set `--ccy` to `10`, the max concurrency is `2`.
 
 ### `ci-build-id`
@@ -106,10 +106,10 @@ saucectl run --suite <suite_name>
 
 ### `test-env`
 
-<p><small>supported frameworks: <span class="highlight cypress">cypress</span></small></p>
+<p><small>supported frameworks: <span class="highlight cypress">Cypress</span></small></p>
 
 __Description__: Specifies the test execution environment:
-* test locally with `docker` containers 
+* test locally with `docker` containers
 * test remotely on `sauce` virtual machines
 
 __Example__:
@@ -128,7 +128,7 @@ saucectl run --timeout <seconds>
 
 ### `tunnel-id`
 
-<p><small><span class="highlight sauce-cloud">sauce cloud only</span></small></p>
+<p><small><span class="highlight sauce-cloud">Sauce Cloud only</span></small></p>
 
 __Description__: Sets the tunnel id for a given test run and the chosen [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
 
@@ -139,7 +139,7 @@ saucectl run --tunnel-id <tunnel-id>
 
 ### `tunnel-parent`
 
-<p><small><span class="highlight sauce-cloud">sauce cloud only</span></small></p>
+<p><small><span class="highlight sauce-cloud">Sauce Cloud only</span></small></p>
 
 __Description__: Sets the tunnel parent for a given test run and the chosen [Testrunner framework](testrunner-toolkit/running-tests.md#automation-framework-examples).
 
@@ -153,7 +153,7 @@ saucectl run --tunnel-id <tunnel-id> --tunnel-parent <tunnel-parent>
 
 ### `dry-run`
 
-<p><small><span class="highlight sauce-cloud">sauce cloud only</span></small></p>
+<p><small><span class="highlight sauce-cloud">Sauce Cloud only</span></small></p>
 
 __Description__: Simulate a test run without actually running any tests.
 

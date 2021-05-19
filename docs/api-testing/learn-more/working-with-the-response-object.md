@@ -57,7 +57,6 @@ Use the Assert-Less component
 <img src={useBaseUrl('img/api-fortress/2017/03/metric-test-1.png')} alt="metric-test-1.png"/>
 
 <img src={useBaseUrl('img/api-fortress/2017/03/metric-test-2.png')} alt="metric-test-2.png"/>
-__
 
 :::note 
 Latency is defined as time to first byte. Fetch is the total download time of the payload.
