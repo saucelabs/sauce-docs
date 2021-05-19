@@ -63,6 +63,10 @@ module.exports = {
 
                         ],
                     },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 118db8ee2f9be57e79aced307be4f0dac11f3aef
                     {
                         type: 'category',
                         label: 'Integrations',
