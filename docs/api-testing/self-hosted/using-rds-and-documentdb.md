@@ -14,12 +14,26 @@ API Fortress supports the use of one or both RDS and DocumentDB instead of the d
 ## RDS
 
 Once Deployed a PostgreSQL 9.5 series RDS instance, the configuration is straight forward. All that is required is to change the PostgreSQL settings in the configuration. Postgres is solely used by the dashboard service.  
-  
-The involved configuration keys are:  
-`psqlhost`  
-`psqlUsername`  
-`psqlPassword`  
-The database name MUST BE "apipulse".  
+
+:::warning PostGres 9.5 EOL
+Amazon no longer supports PostGres 9.5, to use the current PostGres 12 in AWS you will need to change your API Fortress image to:
+
+```sh
+apifortress/apifortress:20.2.0-POSTGRES-PATCH
+```
+:::
+
+The involved configuration keys are:
+
+```
+psqlhost  
+psqlUsername  
+psqlPassword
+```
+
+:::caution Database Name Requirement
+The database name MUST BE `apipulse`  
+:::
 
 ## DocumentDB
 

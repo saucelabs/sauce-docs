@@ -9,7 +9,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 If you possess [Postman API Collections](https://www.postman.com/collection/), you can import them directly into API Fortress.
 
-> Note: The import Postman collection only supports exports in V2 and beyond. V1 has been deprecated by Postman and is not supported by API Fortress.
+:::warning V1 Import Feature Deprecated 
+The import Postman collection only supports exports in V2 and beyond. V1 has been deprecated by Postman and is not supported by API Fortress.
+:::
 
 ## Importing a Collection
 

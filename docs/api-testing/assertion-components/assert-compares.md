@@ -19,7 +19,7 @@ Allows you to compare two payloads in terms of text, structure or values.
 | Level | error, warning | No |
 | Stop test if fails | True, false | No |
 
-* __Expression 1__: the first payload you want to compare. 
+* __Expression 1__: the first payload you want to compare. See [Expression](/api-testing/reference/expression/) for more details.
 * __Expression 2__: the second payload you want to compare. 
 * __Mode__: the comparator you wish to use. 
     * **Text** compares the text of the two payloads as plain text

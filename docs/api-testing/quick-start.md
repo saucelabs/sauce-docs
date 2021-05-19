@@ -1,77 +1,136 @@
 ---
 id: quick-start
-title: Create a Test Quickly
-sidebar_label: Create a Test Quickly
+title: Create Your First Test
+sidebar_label: Creating a Test
 description: Learn how to quickly generate a test in API Fortress. By using the payload from an API call or from a specification file.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Introduction
+This page is a quickstart guide for getting up and running with the API Fortress tool. API Fortress may be deployed in our hosted cloud or self-hosted/on-premises via a container behind your firewall. Maintain complete test data ownership. [Learn more about the differences between the two types of deployments](/api-testing/self-hosted/on-prem-platform). 
 
-You should have received an email with your login credentials from the platform. If you haven’t, please email us at [support@apifortress.com](mailto:support@apifortress.com).  
-  
-If you’d like to trial mocking or load testing, please contact support or your API Fortress representative.  
-  
-**NOTE:** API Fortress may be deployed in our hosted cloud or self-hosted/on-premises via a container behind your firewall. Maintain complete test data ownership. Learn more about the differences between the two types of deployments. 
+Below, we walk through how to quickly create a test using an e-commerce API. Let's get started!
 
-Below, we will show you how to quickly create a test using an e-commerce API.
+## What You'll Need
 
-Let's get started!
+* An API Fortress Account
 
-### Step 1: Create a Project
+:::caution Confirm your Email Address 
+You should receive an email with your login credentials from the platform. If you haven’t, please email us at [support@saucelabs.com](mailto:support@saucelabs.com). If you’d like to trial mocking or load testing, please contact support or your API Fortress representative.
+:::
 
-When you first log in, you are introduced to the Company Dashboard. The company already contains a project called Examples with some example tests. Click "Create Project".
+
+## Step 1: Create a Project
+
+When you first log in, you are introduced to the Company Dashboard. The company already contains a project called Examples with some example tests. 
+
+Select **Create Project** and then create a project name.
 
 <img src={useBaseUrl('img/api-fortress/2019/06/Screen-Shot-2019-06-10-at-3.45.11-PM.png')} alt="Create a Project UI"/>
 
-### Step 2: Create a Test
+## Step 2: Create a Test
+
+After you name your project, select **Create Test** and name your test.
 
 <img src={useBaseUrl('img/api-fortress/2019/06/Screen-Shot-2019-06-10-at-3.46.42-PM.png')} alt="Create a Test UI"/>
 
-### Step 3: Choose Your Test Creation Method
-
-Once you have named your test you will be redirected to the Interstitial page. There are two avenues that you may take in building a test from here. First, you must decide if you want to build a test manually, API Fortress is very capable of building a test draft for you. This can be done from a Spec File, an Apiary account, or using the "Generate Test" button. Since this is a quick start guide, we will show you how to use the "Generate Test" button. 
-
-To build using a Spec file see [Build from Spec](/api-testing/quick-start/build-from-spec).
+Once you finish naming your test, you should see the _Interstitial Page_. 
 
 <img src={useBaseUrl('img/api-fortress/2019/06/Screen-Shot-2019-06-10-at-4.21.22-PM.png')} alt="Create a Test UI"/>
 
-### Step 4: Create a Test Using the Generate Test button
+There are two avenues that you may take in building a test from here: 
 
-Click on Compose.
+* Generate a test manually 
+* Build from a spec file
 
-<img src={useBaseUrl('img/api-fortress/2019/06/Screen-Shot-2019-06-10-at-4.54.09-PM.png')} alt="Click compose"/>
+If you want to build a test manually, API Fortress is capable of building a test draft for you using the **Generate Test** button. You can also create a test by building from a spec file, or an Apiary account. 
 
-Next, you will be presented with a tutorial on the Visual Composer. The final screen of the tutorial provides you with more instructions on how to create a test. Close the tutorial and open the Console by clicking on HTTP Client button in the left panel.
+For the purposes of this quickstart guide, we will show you how to use the **Generate Test** button. 
 
-<img src={useBaseUrl('img/api-fortress/2019/06/Screen-Shot-2019-06-10-at-4.59.14-PM.png')} alt="Click HTTP Client"/>
+:::tip Build Test from a Spec File
+To build a test using a spec file see: [Build from Spec](/api-testing/quick-start/build-from-spec).
+:::
 
-For this example we will use our own test API. It's a simple GET request, so you can leave the dropdown as it is and enter the following url:  
-[https://mastiff.apifortress.com/app/api/examples/retail/product?id=611](https://mastiff.apifortress.com/app/api/exmples/retail/product?id=611)
+## Step 3: Create an HTTP Request
 
-After completion click the Send button, and the response payload appears.
+In order to generate a test based on the HTTP response payload, we need to add a sample HTTP request using an example test API.
 
-<img src={useBaseUrl('img/api-fortress/2019/06/Screen-Shot-2019-06-10-at-5.02.25-PM.png')} alt="Send Button"/>
+1. Select **Compose** in the left-hand portion of the Interstitial page.
 
-Now click the "Generate Test" button at the top left corner of the console to generate a test draft.
+   <img src={useBaseUrl('img/api-fortress/2019/06/Screen-Shot-2019-06-10-at-4.54.09-PM.png')} alt="Click compose"/>
 
-<img src={useBaseUrl('img/api-fortress/2019/06/Screen-Shot-2019-06-10-at-5.05.44-PM.png')} alt="Generate Test"/>
+   :::tip Visual Composer Tutorial
+   You will be presented with a tutorial on the Visual Composer. The final screen of the tutorial provides you with further instructions on how to create a test. Feel free to explore the tutorial and then close the window in order to return to the _Console_.
+   :::
+   
+1.  Select the **HTTP Client** button in the left panel.
 
-The following screens will allow you to choose whether you want to create the input set based on the data provided in the request, and if you want Magic to generate the assertions. The final screen summarizes what was done. Press Continue on each screen.
+   <img src={useBaseUrl('img/api-fortress/2019/06/Screen-Shot-2019-06-10-at-4.59.14-PM.png')} alt="Click HTTP Client"/>
+ 
+1. Copy and paste the following url in the empty _Request url_ form at the bottom of the page:
+   
+   ```http request
+   http://demoapi.apifortress.com/api/retail/product
+   ```
+   
+   > The above test API is a simple `GET` request, so leave the dropdown as is.
 
-<img src={useBaseUrl('img/api-fortress/2017/01/generationProcess.png')} alt="Generation Process"/>
+1. Select the **Send** button to generate the response payload. Here's what it looks like in the UI:
 
-At this stage, the test should be considered a draft. You should take a moment to verify each object, and/or add more logic to it. API Fortress has a lot of tools that allow for comprehensive continuous integration testing. Magic Test Generation is great at understanding datatypes and structure, which is often 90% of the work. 
+   <img src={useBaseUrl('img/api-fortress/2019/06/sendRequest.png')} alt="Send a Request"/>
+   
+   You should receive the following response code in the Body tab:
+   
+   ```json
+   {
+      Status: 401,
+      Message: "Unauthorized Token"
+   }
+   ```
+   
+   Normally this means you need to add an auth token/header, but for this particular demo api we can sidestep this requirement with a simple header.
 
-For an example of adding more intelligence to a test, please see the _Additional Topics_ at the bottom.
+1. Under the Headers tab add the following values: `key:ABC123`, here's what it looks like in the UI:
 
-<img src={useBaseUrl('img/api-fortress/2019/06/Screen-Shot-2019-06-10-at-5.37.58-PM.png')} alt="Visual Output"/>
+   <img src={useBaseUrl('img/api-fortress/2019/06/addHeader.png')} alt="Add a Header"/>
+   
+   Select the __Send__ button one more time and after the response payload appears, select __Save__, name your request, then select **Save Request**.
+   
+   <img src={useBaseUrl('img/api-fortress/2019/06/Screen Shot 2021-04-05 at 5.29.32 PM.png')} alt="Save Button"/>
+   
+## Step 4: Use the Generate Test Button
 
-All done!
+Now select the **Generate Test** button to generate a test draft.
 
-## Additional Topics
+<img src={useBaseUrl('img/api-fortress/2019/06/generateTestButton.png')} alt="Generate Test"/>
 
-* Learn how to schedule a test [here](api-testing/quick-start/schedule-a-test).  
+The following screens allow you to choose whether you want to create the input set based on the data provided in the request, and if you want Magic to generate the assertions. The final screen summarizes what was done. Select **Continue** on each screen.
+
+| <p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/screen1.png')} width="100%" alt="Screen 1"/></p> <p align="center"><small>Screen 1</small></p> | <p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/screen2.png')} width="100%" alt="Screen 2"/></p> <p align="center"><small>Screen 2</small></p>             |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <strong><p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/screen3.png')} width="100%" alt="Screen 3"/></p> <p align="center"><small>Screen 3</small></p></strong> | <strong><p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/finalScreen.png')} width="100%" alt="Final Screen"/></p> <p align="center"><small>Final Screen</small></p></strong> |
+
+After you successfully generate your first test, the generated test appears in the Visual Editor:
+
+
+<p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/visual.png')} width="75%" alt="Screen 2"/></p>
+<p align="center"><small>Visual Editor</small></p>               
+
+The values for `${protocol}${domain}${endpoint}`, directly correlate with the values generated from the **Generate Test** button in the `HTTP Client` tool. You can find these values by selecting __Input Sets__ in the left hand side of the UI:
+
+<p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/inputSets.png')} width="25%" alt="Screen 1"/></p> 
+<p align="center"><small>Global Parameters & Input Set</small></p>
+
+Congratulations! You've just created your first test!
+
+## Next Steps
+
+At this stage, this test is only a draft. You should take a moment to verify each object, and/or add more logic to it. API Fortress has a lot of tools that allow for comprehensive continuous integration testing. Magic Test Generation is great at understanding datatypes and structure, which is often 90% of the work.
+
+### Additional Topics
+
+* Check out the [Example Snippets](/api-testing/quick-start/using-the-example-snippets) provided by the API Fortress Dashboard.
+* Learn how to [import Postman Collections](/api-testing/quick-start/importing-postman-collections
+  ) so that you may generate more tests.
+* Learn how to schedule a test [here](/api-testing/quick-start/schedule-a-test).  
 * Learn about data and notifications connectors [here](/api-testing/quick-start/setup-connectors/). Simple solutions to plug into the systems you use today (e.g DataDog or New Relic).
-
