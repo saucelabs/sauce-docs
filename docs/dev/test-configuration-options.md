@@ -11,7 +11,7 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-In this topic, you'll find a list of Sauce Labs test configuration options. You can use the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to generate the correct configuration of testing options for your choice of Appium or Selenium tests in your preferred programming language.
+In this topic, you'll find a list of Sauce Labs test configuration options. You can use the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to generate the correct configuration of testing options for your choice of Appium or Selenium tests in your preferred programming language. 
 
 We always recommend using the latest released version of Selenium, but to ensure W3C WebDriver compliance, make sure to use Selenium version 3.11 or later. Sauce Labs determines W3C sessions with the presence of `sauce:options` capabilities and [generic W3C WebDriver-compliant capabilities](https://www.w3.org/TR/webdriver1/#capabilities). See [W3C Capabilities Support](https://wiki.saucelabs.com/pages/viewpage.action?pageId=78414463) for more information.
 
@@ -22,37 +22,19 @@ Below are the W3C WebDriver primary test configuration settings for Sauce Labs d
 
 ### `browserName`
 __Description__: identifies the user agent.
-<<<<<<< HEAD
 __Value Type__: string.
-=======
-
-__Value Type__: string.
-
->>>>>>> 804cfedfe0ba2a693149baed282d454d7b830bbc
 __Example__:
 ```
 "browserName": "firefox"
 ```
-<br/>
 
 ### `browserVersion`
-<<<<<<< HEAD
 __Description__: identifies the version of the browser you want to use in your test.<br/>
 __Value Type__: string.<br/>
 __Example__:
 ```
 "browserVersion": "latest"
 ```
-=======
-__Description__: identifies the version of the browser you want to use in your test.
-
-__Value Type__: string.
-
-__Example__:
-```
-"browserVersion": "latest"
-```
->>>>>>> 804cfedfe0ba2a693149baed282d454d7b830bbc
 
 :::tip Default to Latest Version of Chrome or Firefox
 
@@ -65,18 +47,12 @@ Microsoft Edge has two version numbers, the browser application version and the 
 
 It is the EdgeHTML version that should be specified here, such as `"browserVersion": "18.17763"`.
 :::
-<br/>
 
 ### `platformName`
-<<<<<<< HEAD
-__Description__: The name of the operating system the browser or mobile device should be running on.<br/>
-__Value Type__: string.<br/>
-=======
 __Description__: The name of the operating system the browser or mobile device should be running on.
 
 __Value Type__: string.
 
->>>>>>> 804cfedfe0ba2a693149baed282d454d7b830bbc
 __Example__:
 ```
 "platformName": "macOS 10.13"
