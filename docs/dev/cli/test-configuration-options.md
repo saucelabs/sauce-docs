@@ -22,20 +22,15 @@ Below are the W3C WebDriver primary test configuration settings for Sauce Labs d
 
 ### `browserName`
 __Description__: identifies the user agent.
-
 __Value Type__: string.
-
 __Example__:
 ```
 "browserName": "firefox"
 ```
-<br/>
 
 ### `browserVersion`
-__Description__: identifies the version of the browser you want to use in your test.
-
-__Value Type__: string.
-
+__Description__: identifies the version of the browser you want to use in your test.<br/>
+__Value Type__: string.<br/>
 __Example__:
 ```
 "browserVersion": "latest"
@@ -52,13 +47,11 @@ Microsoft Edge has two version numbers, the browser application version and the 
 
 It is the EdgeHTML version that should be specified here, such as `"browserVersion": "18.17763"`.
 :::
-<br/>
 
+---
 ### `platformName`
-__Description__: The name of the operating system the browser or mobile device should be running on.
-
-__Value Type__: string.
-
+__Description__: The name of the operating system the browser or mobile device should be running on.<br/>
+__Value Type__: string.<br/>
 __Example__:
 ```
 "platformName": "macOS 10.13"
