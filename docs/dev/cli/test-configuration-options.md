@@ -22,13 +22,9 @@ Below are the W3C WebDriver primary test configuration settings for Sauce Labs d
 
 ### `browserName`
 __Description__: identifies the user agent.
-<<<<<<< HEAD
-__Value Type__: string.
-=======
 
 __Value Type__: string.
 
->>>>>>> 804cfedfe0ba2a693149baed282d454d7b830bbc
 __Example__:
 ```
 "browserName": "firefox"
@@ -36,14 +32,6 @@ __Example__:
 <br/>
 
 ### `browserVersion`
-<<<<<<< HEAD
-__Description__: identifies the version of the browser you want to use in your test.<br/>
-__Value Type__: string.<br/>
-__Example__:
-```
-"browserVersion": "latest"
-```
-=======
 __Description__: identifies the version of the browser you want to use in your test.
 
 __Value Type__: string.
@@ -52,7 +40,6 @@ __Example__:
 ```
 "browserVersion": "latest"
 ```
->>>>>>> 804cfedfe0ba2a693149baed282d454d7b830bbc
 
 :::tip Default to Latest Version of Chrome or Firefox
 
@@ -68,15 +55,11 @@ It is the EdgeHTML version that should be specified here, such as `"browserVersi
 <br/>
 
 ### `platformName`
-<<<<<<< HEAD
-__Description__: The name of the operating system the browser or mobile device should be running on.<br/>
-__Value Type__: string.<br/>
-=======
+
 __Description__: The name of the operating system the browser or mobile device should be running on.
 
 __Value Type__: string.
 
->>>>>>> 804cfedfe0ba2a693149baed282d454d7b830bbc
 __Example__:
 ```
 "platformName": "macOS 10.13"
