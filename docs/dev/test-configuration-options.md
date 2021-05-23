@@ -11,7 +11,7 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-In this topic, you'll find a list of Sauce Labs test configuration options. You can use the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to generate the correct configuration of testing options for your choice of Appium or Selenium tests in your preferred programming language. 
+In this topic, you'll find a list of Sauce Labs test configuration options. You can use the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to generate the correct configuration of testing options for your choice of Appium or Selenium tests in your preferred programming language.
 
 We always recommend using the latest released version of Selenium, but to ensure W3C WebDriver compliance, make sure to use Selenium version 3.11 or later. Sauce Labs determines W3C sessions with the presence of `sauce:options` capabilities and [generic W3C WebDriver-compliant capabilities](https://www.w3.org/TR/webdriver1/#capabilities). See [W3C Capabilities Support](https://wiki.saucelabs.com/pages/viewpage.action?pageId=78414463) for more information.
 
@@ -22,31 +22,25 @@ Below are the W3C WebDriver primary test configuration settings for Sauce Labs d
 
 ### `browserName`
 __Description__: identifies the user agent.
-__Value Type__: string.
-__Example__:
-```
+
+__Value Type__: string
+```java
 "browserName": "firefox"
 ```
 
 ### `browserVersion`
-__Description__: identifies the version of the browser you want to use in your test.<br/>
-__Value Type__: string.<br/>
+__Description__: identifies the version of the browser you want to use in your test.
+
+To use the latest stable version of Chrome or Firefox that we support, you can use `"browserVersion": "latest"`. You can also use `"browserVersion": "latest-1"` or `"browserVersion": "latest-2"`, etc. to request the next most recent versions of a browser. For example, if the latest stable version of Chrome is 73, you can request `"latest-2"` to use Chrome 71.
+
+For Microsoft Edge, it has two version numbers: the browser application version and the EdgeHTML rendering engine version. For example, the current stable release of Edge as of November 2019 has the browser application version 44.17763 and the EdgeHTML version 18.17763. For more details, see the [Microsoft Edge Wikipedia page](https://en.wikipedia.org/wiki/Microsoft_Edge). It is the EdgeHTML version that should be specified here (i.e., `"browserVersion": "18.17763"`).
+
+__Value Type__: string.
+
 __Example__:
-```
+```java
 "browserVersion": "latest"
 ```
-
-:::tip Default to Latest Version of Chrome or Firefox
-
-If you want to use the latest stable version of Google Chrome or Firefox that Sauce supports, you can use `"browserVersion": "latest"`. You can also use `"browserVersion": "latest-1"` or `"browserVersion": "latest-2"`, etc. to request the next most recent versions of a browser. For example, if the latest stable version of Chrome is 73, you can request `"latest-2"` to use Chrome 71.
-:::
-
-:::tip Microsoft Edge versions
-
-Microsoft Edge has two version numbers, the browser application version and the EdgeHTML rendering engine version. For example, the current stable release of Edge as of November 2019 has the browser application version 44.17763 and the EdgeHTML version 18.17763. For more details, see the [Microsoft Edge Wikipedia page](https://en.wikipedia.org/wiki/Microsoft_Edge).
-
-It is the EdgeHTML version that should be specified here, such as `"browserVersion": "18.17763"`.
-:::
 
 ### `platformName`
 __Description__: The name of the operating system the browser or mobile device should be running on.
@@ -54,7 +48,7 @@ __Description__: The name of the operating system the browser or mobile device s
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "platformName": "macOS 10.13"
 ```
 
@@ -81,7 +75,7 @@ The default version of ChromeDriver when no value is specified depends on the ve
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "chromedriverVersion": "2.45"
 ```
 <br/>
@@ -95,7 +89,7 @@ For a list of geckodriver versions, see [geckodriver Supported Platforms](https:
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "geckodriverVersion": "0.27.0"
 ```
 <br/>
@@ -187,7 +181,7 @@ Sauce Labs supports launching 64-bit IE on our 64-bit VMs: Windows 7, Windows 8,
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "iedriverVersion": "3.141.0"
 ```
 <br/>
@@ -335,8 +329,6 @@ For Firefox, the default version of Selenium when no value is specified depends 
 
 When testing with Chrome and Internet Explorer, Selenium Version is not used to determine the version of the ChromeDriver or IEDriver that is used. For these browsers, you should set the driver version as described for the **Chrome Driver Version** and **Internet Explorer Driver Version** options.
 
-:::tip Default Selenium Version
-
 By default, Sauce Labs will use the following version of Selenium, depending on your selected combination of browser and operating system. While Selenium 3 is not yet fully implemented as a default version, it is supported for all Chrome and Firefox browsers on Mac and Windows platforms, for Safari 10+ on macOS 10.12 Sierra, and for Microsoft Edge and IE browsers version 10 and above. Currently Sauce Labs supports Selenium 3.4.0+ for Firefox and Safari and Selenium 3.5.0+ for Microsoft Edge and Chrome.
 
 <details><summary><strong>Default Selenium version</strong></summary>
@@ -390,14 +382,11 @@ Pre-11.0: 2.48.0
 </details>
 <br/>
 
-You can set the Selenium version for your tests by using the `seleniumVersion` desired capability (e.g., `'seleniumVersion' = '3.8.1'`)
-:::
-
 __Value Type__: string.
 
 __Example__:
-```
-"seleniumVersion": "2.46.0"
+```java
+'seleniumVersion' = '3.8.1'
 ```
 <br/>
 
@@ -411,7 +400,7 @@ This flag is not compatible with Sauce Connect Proxy.
 __Value Type__: boolean.
 
 __Example__:
-```
+```java
 "avoidProxy": true
 ```
 <br/>
@@ -423,7 +412,7 @@ See [Debugging Tests with JavaScript Console Logs and HAR Files (Extended Debugg
 
 __Value Type__: boolean
 __Example__:
-```
+```java
 "extendedDebugging": true
 ```
 <br/>
@@ -432,7 +421,7 @@ __Example__:
 __Description__: enable Performance Capture feature. Sauce Performance Testing can be enabled by setting both extendedDebugging and capturePerformance to `true`. Default value is `false`. See Getting Started with Sauce Front-End Performance for more information.
 __Value Type__: boolean
 __Example__:
-```
+```java
 "capturePerformance": true
 ```
 <br/>
@@ -443,7 +432,7 @@ __Description__: enable WebDriver's automatic screen shots. Selenium WebDriver c
 __Value Type__: boolean
 
 __Example__:
-```
+```java
 "webdriver.remote.quietExceptions": false
 ```
 
@@ -457,22 +446,14 @@ If you are not using the official Appium bindings, make sure to prefix all Appiu
 
 __Description__: The mobile web browser that will be automated in the simulator, emulator or device.
 
-:::tip For Web Apps
+For Web Apps: If you're running a test on an Android emulator, you'll need to specify `"Browser"` (the Android stock browser for older Android versions) and `"Chrome"` (for newer Android versions). For iOS simulators, you'll need to specify `"Safari"`.
 
-If you're running a test on an Android emulator, you'll need to specify `"Browser"` (the Android stock browser for older Android versions) and `"Chrome"` (for newer Android versions).
-
-For iOS simulators, you'll need to specify `"Safari"`.
-:::
-
-:::tip For Mobile Native and Hybrid Apps
-
-If you're testing a mobile native or hybrid app, the value for this capability should be an empty string.
-:::
+For Mobile Native and Hybrid Apps: If you're testing a mobile native or hybrid app, the value for this capability should be an empty string.
 
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "browserName": "Safari"
 ```
 <br/>
@@ -480,20 +461,14 @@ __Example__:
 ### `deviceName`
 __Description__: allows you to set the name of the simulator, emulator, or device you want to use in the test.
 
-:::tip Generic Android Emulator
-
-For Android emulator tests, you can request a generic Android emulator by using the option `"deviceName":"Android Emulator"`. If you want to use an Android emulator that looks and feels like a specific Android phone or tablet (e.g., Google Nexus 7 HD Emulator or a Samsung Galaxy S4), you need to specify the exact Android emulator skin to use (e.g., `"deviceName":"Samsung Galaxy S4 Emulator"`).
-:::
-
-:::tip Emulator Skins and Configurations
+For generic Android Emulator tests, you can request a generic Android emulator by using the option `"deviceName":"Android Emulator"`. If you want to use an Android emulator that looks and feels like a specific Android phone or tablet (e.g., Google Nexus 7 HD Emulator or a Samsung Galaxy S4), you need to specify the exact Android emulator skin to use (e.g., `"deviceName":"Samsung Galaxy S4 Emulator"`).
 
 Each Android emulator skin will have a different configuration depending on the phone or tablet that it emulates. For example, all the skins have different resolutions, screen dimensions, pixel densities, memory, etc. You can use our [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator?src=sidebar#/) to get a list of the available Android emulator skins for the various Android emulator versions.
-:::
 
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "deviceName": "Google Nexus 7 HD Emulator"
 ```
 <br/>
@@ -504,7 +479,7 @@ __Description__: allows you to set the mobile OS platform version that you want 
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "platformVersion": "9.1"
 ```
 <br/>
@@ -515,7 +490,7 @@ __Description__: allows you to set the mobile operating system platform name you
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "platformName": "iOS"
 ```
 <br/>
@@ -528,7 +503,7 @@ This option is required only for testing mobile native apps or hybrid web apps.
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "app": "storage:filename=my_app.zip"
 ```
 <br/>
@@ -539,7 +514,7 @@ __Description__: allows you to set the automation engine that will be used. Poss
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "automationName": "UiAutomator2"
 ```
 <br/>
@@ -548,17 +523,17 @@ __Example__:
 
 <p><small><Highlight color="#946f59">Android Only</Highlight></small></p>
 
-__Description__: Application Package. The Java package of the Android app you want to run.
+__Description__: enables you to specify the Java package of the Android app you want to run.
 
 :::tip Automatic Package Detection
 
-Appium automatically determines the package to launch; you'll only need to use this desired capability if you want to specify a package different from the default one.
+Appium automatically determines the package to launch; you'll only need to use this capability if you want to specify a package different from the default one.
 :::
 
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "appPackage": "com.example.android.myApp, com.android.settings"
 ```
 <br/>
@@ -567,12 +542,7 @@ __Example__:
 
 <p><small><Highlight color="#946f59">Android Only</Highlight></small></p>
 
-__Description__: allows you to set the name for the Android activity you want to launch from your package.
-
-:::tip Don't Forget the Dot!
-
-This capability needs to be preceded by a dot (e.g., `.MainActivity`).
-:::
+__Description__: allows you to set the name for the Android activity you want to launch from your package. This capability must be preceded by a dot (e.g., `.MainActivity`).
 
 :::tip Automatic Activity Detection
 
@@ -582,7 +552,7 @@ Appium automatically determines the activity to launch; you'll only need to use 
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "appActivity": ".MainActivity"
 ```
 <br/>
@@ -596,7 +566,7 @@ __Description__: setting this option will automatically accept any unexpected br
 __Value Type__: boolean
 
 __Example__:
-```
+```java
 "autoAcceptAlerts": true
 ```
 <br/>
@@ -606,21 +576,16 @@ __Example__:
 Below are some additional options that you can use in your Appium tests. They can be added to the `sauce:options` block of your session creation code.
 
 ### `appiumVersion`
-__Description__: the Appium driver version you want to use.
+__Description__: enables you to specify the Appium driver version you want to use.
 
-:::tip Default Appium Version
-
-It is recommended to use the default Appium Version.
-
-If you don’t select an Appium Version, this capability will automatically default to the latest version of Appium that is compatible with your selected OS. If you prefer to use a different version of Appium for your test, enter the version number you want as the value for the appiumVersion capability.
+We recommend using the default Appium Version. If you don’t select an Appium Version, this capability will automatically default to the latest version of Appium that is compatible with your selected OS. If you prefer to use a different version of Appium for your test, enter the version number you want as the value for the appiumVersion capability.
 
 You can find the release notes for each Appium version at the [Appium GitHub repository](https://github.com/appium/appium/releases). In order for you to have a window of time to check the compatibility of your test suites with the latest Appium version, it won't be set as the default version on Sauce until one week after the version release.
-:::
 
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "appiumVersion": "1.5.3"
 ```
 <br/>
@@ -631,7 +596,7 @@ __Description__: the type of device type to emulate. Options are: `tablet` and `
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "deviceType": "tablet"
 ```
 <br/>
@@ -642,7 +607,7 @@ __Description__: the device orientation in which the simulator/device will be re
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "deviceOrientation": "portrait"
 ```
 <br/>
@@ -661,7 +626,7 @@ __Description__: use this to record test names for jobs and make it easier to fi
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "name": "my example name"
 ```
 <br/>
@@ -672,7 +637,7 @@ __Description__: use this to associate jobs with a build number or app version, 
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "build": "build-1234"
 ```
 <br/>
@@ -683,7 +648,7 @@ __Description__: User-defined tags for grouping and filtering jobs in the Dashbo
 __Value Type__: list.
 
 __Example__:
-```
+```java
 "tags": ["tag1","tag2","tag3"]
 ```
 <br/>
@@ -729,7 +694,7 @@ Available visibility modes are:
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "public": "team"
 ```
 <br/>
@@ -746,7 +711,7 @@ __Description__: If you're using Sauce Connect Proxy to test an application that
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "tunnelIdentifier": "MyTunnel01"
 ```
 <br/>
@@ -777,7 +742,7 @@ Disabling video recording can be useful for debugging failing tests as well as h
 __Value Type__: boolean.
 
 __Example__:
-```
+```java
 "recordVideo": false
 ```
 <br/>
@@ -788,7 +753,7 @@ __Description__: disables video upload for passing tests. As an alternative to `
 __Value Type__: boolean
 
 __Example__:
-```
+```java
 "videoUploadOnPass": false
 ```
 <br/>
@@ -799,7 +764,7 @@ __Description__: disables step-by-step screenshots. Sauce Labs captures step-by-
 __Value Type__: boolean
 
 __Example__:
-```
+```java
 "recordScreenshots": false
 ```
 <br/>
@@ -812,7 +777,7 @@ Selenium logs will still be recorded. This option only disables recording of the
 __Value Type__: boolean
 
 __Example__:
-```
+```java
 "recordLogs": false
 ```
 <br/>
@@ -835,7 +800,7 @@ While our test VMs respect the `maxDuration` capability when it's set in tests, 
 __Value Type__: integer.
 
 __Example__:
-```
+```java
 "maxDuration": 1800
 ```
 <br/>
@@ -846,7 +811,7 @@ __Description__: sets command timeout. As a safety measure to prevent Selenium c
 __Value Type__: integer.
 
 __Example__:
-```
+```java
 "commandTimeout": 300
 ```
 <br/>
@@ -857,7 +822,7 @@ __Description__: sets idle test timeout. As a safety measure to prevent tests fr
 __Value Type__: integer.
 
 __Example__:
-```
+```java
 "idleTimeout": 90
 ```
 <br/>
@@ -940,7 +905,7 @@ When we run out of available virtual machines, or when you hit your concurrency 
 __Value Type__: integer.
 
 __Example__:
-```
+```java
 "priority": 0
 ```
 <br/>
@@ -965,7 +930,7 @@ __Description__: allows you to specify the screen resolution to be used during y
 __Value Type__: string.
 
 __Example__:
-```
+```java
 "screenResolution": "1280x1024"
 ```
 <br/>
@@ -986,7 +951,7 @@ __Description__: allows you to set a custom time zone for your test. If the `tim
 __Value Type__: string.
 
 __Examples__:
-```
+```java
 `"timeZone": "Los_Angeles"`,
 `"timeZone": "New_York"`,
 `"timeZone": "Honolulu"`,

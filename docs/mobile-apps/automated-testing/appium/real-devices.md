@@ -168,7 +168,7 @@ This section describes parameters that we recommend using to configure your Appi
 
 :::caution Please Read
 
-Certain Appium capabilities behave differently when running Appium tests on our RDC versus a local Appium server. On our RDC:
+Certain Appium capabilities behave differently when running Appium tests on our Real Device Cloud versus a local Appium server. On our Real Device Cloud:
 
 * [Some Appium capabilities are not supported](dev/cli/appium/real-devices).
 * Emulator-only capabilities will not work.
