@@ -588,8 +588,8 @@ module.exports = {
         ],
         "Reference": [
             'dev',
-            'dev/cli/test-configuration-options',
-            'dev/cli/error-messages',
+            'dev/test-configuration-options',
+            'dev/error-messages',
             {
                 type: 'category',
                 label: 'API Reference',
