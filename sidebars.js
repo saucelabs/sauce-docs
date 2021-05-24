@@ -590,6 +590,7 @@ module.exports = {
             'dev',
             'dev/test-configuration-options',
             'dev/error-messages',
+            'dev/glossary',
             {
                 type: 'category',
                 label: 'API Reference',

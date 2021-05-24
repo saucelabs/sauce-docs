@@ -55,7 +55,7 @@ If you're already using [storage](https://wiki.saucelabs.com/pages/viewpage.acti
 * Your upload to [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137) has succeeded.
 * Your upload to [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137) was within the last week, since Sauce Storage is cleaned out on a weekly basis.
 * Your uploaded app has the same MD5 hash as it does on your machine.
-* You're starting the `app` desired capability with `sauce-storage:`. There shouldn't be a leading `http`.
+* You're starting the `app` capability with `sauce-storage:`. There shouldn't be a leading `http`.
 * You're using the exact name you provided via the rest API, not the original filename. For example, if you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `sauce storage:new_app_name.apk`.
 
 
@@ -111,7 +111,7 @@ There are a few potential causes for this error:
 
 * Make sure you have internet connectivity.
 * Make sure your script includes `driver.quit()` or `browser.stop()` to conclude the test.
-* If your test needs more than 90 seconds to send a new command to the browser, use the `idleTimeout` desired capability to modify Sauce's wait time for further commands. For more information, see the **Timeouts** section of [Test Configuration Options](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options).
+* If your test needs more than 90 seconds to send a new command to the browser, use the `idleTimeout` capability to modify Sauce's wait time for further commands. For more information, see the **Timeouts** section of [Test Configuration Options](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options).
 
 ## Test Exceeded Maximum Duration of 1800 Seconds
 
@@ -128,7 +128,7 @@ You'll see this error when your test suite is still running in a session that ha
 
 * Check for infinite loops in your test.
 * If you suspect that the error is related to latency in the Sauce network or testing infrastructure, consider breaking your test suite up into [small, autonomous, atomic tests](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365933).
-* If your test needs more than 1800 seconds to complete, you can use the `maxDuration` desired capability to make Sauce wait longer for your test to complete. You can find more information about this desired capability in the Timeouts section of the [Test Configuration Options](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492) topic.
+* If your test needs more than 1800 seconds to complete, you can use the `maxDuration` capability to make Sauce wait longer for your test to complete. You can find more information about this capability in the Timeouts section of the [Test Configuration Options](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492) topic.
 
 
 ## User Terminated
@@ -186,7 +186,7 @@ Your tests are requesting a Sauce Connect tunnel opened by one of the accounts a
 
 **Cause**
 
-When requesting a new Sauce Labs job, you provided the `parentTunnel` desired capability. Sauce Labs attempted to find an account above you in your account hierarchy, running a Sauce Connect tunnel, configured to be shared with subaccounts. We did not find a matching account, for one of the following reasons:
+When requesting a new Sauce Labs job, you provided the `parentTunnel` capability. Sauce Labs attempted to find an account above you in your account hierarchy, running a Sauce Connect tunnel, configured to be shared with subaccounts. We did not find a matching account, for one of the following reasons:
 
 *   You are requesting an account that does not exist.
 *   You are requesting an account that is not on your team or an admin account.
@@ -197,7 +197,7 @@ When requesting a new Sauce Labs job, you provided the `parentTunnel` desired ca
 
 **How to Resolve**
 
-Reach out to the person who administers the account that you set as the `parentTunnel` desired capability; this person sets the tunnel sharing permissions. Ask them to confirm the following:
+Reach out to the person who administers the account that you set as the `parentTunnel` capability; this person sets the tunnel sharing permissions. Ask them to confirm the following:
 
 *   They have an open Sauce Connect tunnel (they can check on the **Tunnels** page).
 *   They opened a tunnel with the `--shared-tunnel` option (see [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy) for more information).
@@ -205,7 +205,7 @@ Reach out to the person who administers the account that you set as the `parentT
 
 Restarting the Sauce Connect tunnel may be required.
 
-Alternatively, you can remove the `parentTunnel `desired capability from your tests. If you need Sauce Connect to run your tests, you will need to set up an alternative tunnel.
+Alternatively, you can remove the `parentTunnel` capability from your tests. If you need Sauce Connect to run your tests, you will need to set up an alternative tunnel.
 
 
 ## The New Session Request was Cancelled before a Sauce Labs Virtual Machine was Found
@@ -249,7 +249,7 @@ There are a few potential causes for this error.
 
 **How to Resolve**
 
-*   If the issue is Selenium needing more than five minutes to run your command, you can use the commandTimeout desired capability to have Sauce wait longer for your command to execute. You can find out more about this desired capability in the **Timeouts** section of the [Test Configuration Options](/dev/test-configuration-options) topic.
+*   If the issue is Selenium needing more than five minutes to run your command, you can use the `commandTimeout` capability to have Sauce wait longer for your command to execute. You can find out more about this capability in the **Timeouts** section of the [Test Configuration Options](/dev/test-configuration-options) topic.
 *   If the cause is a browser crash, the easiest way to check is to watch the video of the test. If this is the case, you may be able to resolve the error by removing memory-hungry commands from your test script, like fetching the page source or taking screenshots with Selenium.
 
 
@@ -292,7 +292,7 @@ For random, rarely occurring issues, we recommend ignoring this error and re-run
 
 *   Try breaking up your tests into [smaller, more atomic, more independent chunks](https://wiki.saucelabs.com/display/DOCS/Best+Practices%3A+Use+Small%2C+Atomic%2C+Autonomous+Tests). We recommend that tests should take no longer than five minutes to run.
 *   If you suspect the problem is with your app's memory requirements, lowering the screen resolution may lower the rendering requirements.
-*   Try removing any pre-run executables from your desired capabilities to see if that resolves the problem.
+*   Try removing any pre-run executables from your capabilities to see if that resolves the problem.
 *   Once you've done all of the above, raise a support ticket.
 
 
@@ -305,7 +305,7 @@ The combination of browser, version, and operating system you want to use in you
 
 **Cause**
 
-*   You may have set an invalid combination of browser/version/operating system for the desired capabilities of your test. For example, Safari/Windows 8 would be an invalid combination.
+*   You may have set an invalid combination of browser/version/operating system for the capabilities of your test. For example, Safari/Windows 8 would be an invalid combination.
 *   You may have selected a combination or component of the combination that is not supported by Sauce Labs.
 * You may have selected a version of Selenium to test with that is too old to support the browser you selected. In that case, your error message will look more like this:
   ```zh
@@ -314,9 +314,9 @@ The combination of browser, version, and operating system you want to use in you
 
 **How to Resolve**
 
-*   Use the [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator?src=sidebar#/) to set the desired capabilities of your test.
+*   Use the [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to set the capabilities of your test.
 *   Check [our list of supported platforms, operating systems, and browsers](https://saucelabs.com/platform/supported-browsers-devices) to make sure your selections are valid.
-*   Use a higher version of Selenium in the desired capabilities of your test, or leave the Selenium version blank to default to the latest version.
+*   Use a higher version of Selenium in the capabilities of your test, or leave the Selenium version blank to default to the latest version.
 
 
 ## The Sauce Labs Virtual Machine Failed to Start the Browser or Device
@@ -334,8 +334,8 @@ The Sauce Labs virtual machine was unable to start the browser or device specifi
 **How to Resolve**
 
 *   You can usually resolve this error by choosing a new version of Selenium or Appium for your test, or leaving the version blank to default to the latest version.
-*   You can also check the Desired Capabilities of your test to make sure you haven't set an incompatible platform/operating system/browser combination.
-*   Use the [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator?src=sidebar#/) to set the capabilities for your test.
+*   Check your test capabilities to make sure you haven't set an incompatible platform/operating system/browser combination.
+*   Use the [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to set the capabilities of your test.
 
 
 ## The Virtual Machine's Disk has Filled Up
