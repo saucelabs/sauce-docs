@@ -7,6 +7,38 @@ hide_table_of_contents: true
 
 Test your iOS and Android native mobile apps and hybrid apps on emulators, simulators, and real devices in the Sauce Labs Cloud.
 
+## Uploading Your App
+
+<div>
+  <div className="box boxwidetop card">
+    <div className="container">
+    <a href="/mobile-apps/app-storage"><h3>Application Storage</h3></a>
+    <p>Upload your mobile app to Sauce Labs to start testing on virtual devices and real devices.</p>
+    </div>
+  </div>
+</div>
+
+## Live Testing  
+
+Debug faster, facilitate collaboration, increase mobile device coverage, and combine with automated testing to improve your speed-to-market with our Live (manual) testing solution.
+
+
+<div className="box-wrapper" markdown="1">
+
+  <div className="box box1 card">
+    <div className="container">
+    <a href="/mobile-apps/live-testing/live-mobile-app-testing"><h3>Live Mobile Application Testing</h3></a>
+    <p>Learn about testing your mobile apps manually and interactively on a variety of Android and iOS real mobile devices.</p>
+    </div>
+  </div>
+  <div className="box box2 card">
+    <div className="container">
+    <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=115061210"><h3>Live Testing Best Practices</h3></a>
+    <p>Review our best practices for testing manually on Sauce Labs virtual emulators/simulators and real devices.</p>
+    </div>
+  </div>
+</div>
+
 ## Automated Testing
 
 Accelerate and scale your testing and broaden coverage by running automated tests on Sauce Labs mobile devices (real and virtual) through your preferred test UI framework (Appium, Espresso, or XCUITest).
@@ -14,7 +46,7 @@ Accelerate and scale your testing and broaden coverage by running automated test
 <div>
   <div className="box boxwidetop card">
     <div className="container">
-    <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=92677311"><h3>Real Devices vs. Virtual Devices</h3></a>
+    <a href="/mobile-apps/supported-devices"><h3>Real Devices vs. Virtual Devices</h3></a>
     <p>Understand the benefits and use cases for Sauce Labs real and virtual devices.</p>
     </div>
   </div>
@@ -22,12 +54,12 @@ Accelerate and scale your testing and broaden coverage by running automated test
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
-    <a href="https://wiki.saucelabs.com/display/DOCS/Automated+Testing+with+Emulators+and+Simulators"><h3>Virtual Device Testing with Appium</h3></a>The topics in this section cover how to run automated mobile app tests in Appium on Sauce Labs emulators and simulators.
+    <a href="/mobile-apps/automated-testing/appium/virtual-devices"><h3>Virtual Device Testing with Appium</h3></a>The topics in this section cover how to run automated mobile app tests in Appium on Sauce Labs emulators and simulators.
     </div>
   </div>
   <div className="box box2 card">
     <div className="container">
-    <a href="https://wiki.saucelabs.com/display/DOCS/Automated+Testing+with+Real+Devices"><h3>Real Device Testing with Appium</h3></a>Learn how to run automated mobile app tests on Sauce Labs real devices using Appium.
+    <a href="/mobile-apps/automated-testing/appium/real-devices"><h3>Real Device Testing with Appium</h3></a>Learn how to run automated mobile app tests on Sauce Labs real devices using Appium.
     </div>
   </div>
   <div className="box box3 card">
@@ -44,40 +76,13 @@ Accelerate and scale your testing and broaden coverage by running automated test
   </div>
 </div>
 
-## Live Testing  
-
-Debug faster, facilitate collaboration, increase mobile device coverage, and combine with automated testing to improve your speed-to-market with our Live (manual) testing solution.
-
-<div>
-  <div className="box boxwidetop card">
-    <div className="container">
-    <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=115061210"><h3>Live Testing Best Practices</h3></a>
-    <p>Review our best practices for testing manually on Sauce Labs virtual emulators/simulators and real devices.</p>
-    </div>
-  </div>
-</div>
-<div className="box-wrapper" markdown="1">
-  <div className="box box1 card">
-    <div className="container">
-    <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137"><h3>App Storage</h3></a>
-    <p>Upload your mobile app to Sauce Labs to start Live testing on real devices.</p>
-    </div>
-  </div>
-  <div className="box box2 card">
-    <div className="container">
-    <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=80414316"><h3>Real Device Testing</h3></a>
-    <p>Learn how to test your native mobile apps interactively on Sauce Labs real devices.</p>
-    </div>
-  </div>
-</div>
-
 ## TestObject (Legacy RDC)
 
 <div>
   <div className="box boxwidetop card">
     <div className="container">
     <a href="https://wiki.saucelabs.com/display/DOCS/Legacy+Real+Device+Platform+Resources"><h3>Legacy Real Device Platform Resources</h3></a>
-    <p><strong>TestObject will reach end-of-life September 1, 2021.</strong> We've been gradually moving TestObject functionality to Sauce Labs as part of our Unified Platform efforts. See <a href="https://wiki.saucelabs.com/display/DOCS/Legacy+Device+Platform+User+Migration+Guide">TestObject-to-Sauce Migration Guide</a> and <a href="https://wiki.saucelabs.com/display/DOCS/Real+Device+Testing+in+Sauce+Labs+Feature+Preview">Real Device Testing in Sauce Labs Feature Preview</a> for more.</p>
+    <p><strong>TestObject will reach end-of-life September 1, 2021.</strong></p>
     </div>  
   </div>
 </div>
