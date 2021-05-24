@@ -588,6 +588,9 @@ module.exports = {
         ],
         "Reference": [
             'dev',
+            'dev/test-configuration-options',
+            'dev/error-messages',
+            'dev/glossary',
             {
                 type: 'category',
                 label: 'API Reference',
@@ -610,8 +613,6 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'dev/cli',
-                    'dev/cli/error-messages',
-                    'dev/cli/test-configuration-options',
                     'dev/cli/sauce-connect-proxy',
                     {
                         type: 'category',
