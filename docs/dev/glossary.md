@@ -131,7 +131,7 @@ A network that houses the set of Sauce Labs services relevant to your license ty
 
 A virtual machine used to mimic the software, operating system, and certain device features (e.g., camera, touch ID, GPS) of the Android mobile application that you're testing in Sauce Labs. Can be used to test multiple browser/device combinations and use cases.
 
-See also: _[simulator](#cimulator), [real device testing](#real-device-testing)_.
+See also: _[simulator](#simulator), [real device testing](#real-device-testing)_.
 
 
 ### Enterprise
@@ -147,7 +147,7 @@ See also: _[simulator](#cimulator), [real device testing](#real-device-testing)_
 
 A Sauce Labs Insights tool that analyzes failures that occur during test runs and reveals any common root causes so that you can debug as quickly as possible. More information: [Using Failure Analysis](https://wiki.saucelabs.com/display/DOCS/Using+Failure+Analysis).
 
-See also: _[Insights](#Insights)_.
+See also: _[Insights](#insights)_.
 
 
 ### Failure Pattern
