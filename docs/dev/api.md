@@ -63,6 +63,53 @@ The API is versioned by URL, each of which may be in a different stage of releas
 
 Unspecified method requests default to `GET`. All other supported request types (`PUT`; `POST`; `DELETE`: `PATCH`) require setting the `Content-Type` header to `application/json`.
 
+## Errors
+
+Sauce Labs uses conventional HTTP response codes to indicate the success or failure of an API request. In general, codes in the `2xx` range indicate success, while codes in the `4xx` range indicate an error that caused the request to be denied. Codes in the `5xx` range indicate an error reaching the Sauce Labs server (which is rare). The following table provides a summary of response codes returned by the APIs.
+
+|Code|Description|
+|---|---|
+|`200` - OK|The request was processed successfully. Typically returned for `GET` or `DELETE` requests that do not create or update records.|
+|`201` - OK|The request was processed successfully. Typically returned for `POST`, `PUT`, or `PATCH` requests that pass data values for the purpose of creating or updating records.|
+|`400` - Bad Request|The request was not acceptable, often due to missing or improperly formatted parameters. This code may be accompanied by additional information in the form of a body payload or a message attribute of the response code.|
+|`401` - Unauthorized|The authentication credentials were missing or not valid.|
+|`403` - Forbidden|The authenticated user does not have permission to perform the request.|
+|`404` - Not Found|The requested resource does not exist. This can refer to the endpoint itself (check for typos in the request URL), or the requested data (the job ID does not match any existing records, for example). This code may be accompanied by additional information in the form of a body payload or message attribute of the response code.|
+|`429` - Too many requests|The number of requests has exceeded the [rate limit](#rate limits) for the API.|
+|`500` - Server Error|The Sauce Labs server was not responsive.|
+
+Following are some sample error responses that include additional detail.
+
+```json title="404 Typo in Request URL Error Response"
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Not Found</title>
+</head>
+
+<body>
+	<h1>Not Found</h1>
+	<p>The requested resource was not found on this server.</p>
+</body>
+
+</html>
+```
+
+```json title="404 User ID Not Found Error Response"
+{
+    "detail": "Not found."
+}
+```
+
+```json title="400 Missing Required Parameter Error Response"
+{
+    "verify_password": [
+        "This field is required."
+    ]
+}
+```
+
 
 ## Rate Limits
 
