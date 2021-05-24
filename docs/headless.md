@@ -74,8 +74,8 @@ You can run Sauce Headless tests in a variety of programming languages and test 
 
 __TestNG Example__
 
-1. Head to [Sauce Labs Training: Java Headless Example Scripts](https://github.com/saucelabs-training/demo-java/tree/master/headless) on GitHub and review the `README.md` page to ensure you have the prerequisite software.
-2. Download or clone [this sample script](https://github.com/saucelabs-training/demo-java/blob/master/headless/src/test/java/SampleHeadlessSauceTest.java) from the repo.
+1. Head to [Sauce Labs Training: Java](https://github.com/saucelabs-training/demo-java#project-setup) on GitHub and review **Project Setup** in the `README.md` page to ensure you have the environment setup.
+2. Download or clone [this sample script](https://github.com/saucelabs-training/demo-java/blob/master/selenium-examples/src/test/java/com/saucedemo/SampleHeadlessSauceTest.java) from the repo.
 3. Resolve dependencies with Maven:
 ```sh
 $ mvn dependency:resolve
