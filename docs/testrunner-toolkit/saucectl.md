@@ -57,15 +57,6 @@ saucectl run --ccy 2
 > __NOTE__: Concurrency with `saucectl` is tied to [the test `suites` field](/testrunner-toolkit/configuration#suites) in your `.sauce/config.yml`.
 > For example if you have ten `.spec` files split across two tests `suites`, and you set `--ccy` to `10`, the max concurrency is `2`.
 
-### `ci-build-id`
-
-__Description__: Overrides the build ID that is otherwise determined based on the CI provider. The config file hash will still be used in addition to this provided CI build ID.
-
-__Example__:
-```sh
-saucectl run --ci-build-id <value>
-```
-
 ### `config`
 
 __Description__: Run tests from a specific configuration file.
@@ -104,26 +95,15 @@ __Example__:
 saucectl run --suite <suite_name>
 ```
 
-### `test-env`
-
-<p><small>supported frameworks: <span class="highlight cypress">Cypress</span></small></p>
-
-__Description__: Specifies the test execution environment:
-* test locally with `docker` containers
-* test remotely on `sauce` virtual machines
-
-__Example__:
-```bash
-saucectl run --test-env <sauce | docker>
-```
-
 ### `timeout`
 
-__Description__: Sets the timeout for test runs.
+__Description__: Sets the limit of how long saucectl can run in total (no limit by default).
 
 __Example__:
 ```bash
-saucectl run --timeout <seconds>
+saucectl run --timeout <duration>
+saucectl run --timeout 10s
+saucectl run --timeout 30m
 ```
 
 ### `tunnel-id`

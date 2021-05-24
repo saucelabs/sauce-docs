@@ -77,8 +77,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jsmith/jobs?from=1616262316&to=1618940716' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jsmith/jobs?from=1616262316&to=1618940716' | jq
 ```
 
 </TabItem>
@@ -86,8 +86,8 @@ curl --location --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jsmit
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jsmith/jobs?from=1616262316&to=1618940716' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jsmith/jobs?from=1616262316&to=1618940716' | jq
 ```
 
 </TabItem>
@@ -182,8 +182,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jsmith/jobs/eed5eb4999d840f89f67f8b6d60a2da3' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jsmith/jobs/eed5eb4999d840f89f67f8b6d60a2da3' | jq
 ```
 
 </TabItem>
@@ -191,8 +191,8 @@ curl --location --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jsmit
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jsmith/jobs/eed5eb4999d840f89f67f8b6d60a2da3' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jsmith/jobs/eed5eb4999d840f89f67f8b6d60a2da3' | jq
 ```
 
 </TabItem>
@@ -336,9 +336,9 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request PUT 'https://api.us-west-1.saucelabs.com/rest/v1/walkerlj0/jobs/a2f60bf3ea5f43fa90126f82c0ba2cf6' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/rest/v1/walkerlj0/jobs/a2f60bf3ea5f43fa90126f82c0ba2cf6' \
+--header 'Content-Type: application/json'
 --data-raw '{
     "name": "Cypress Training Test",
     "tags": [
@@ -360,9 +360,9 @@ curl --location --request PUT 'https://api.us-west-1.saucelabs.com/rest/v1/walke
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request PUT 'https://api.eu-central-1.saucelabs.com/rest/v1/walkerlj0/jobs/a2f60bf3ea5f43fa90126f82c0ba2cf6' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/rest/v1/walkerlj0/jobs/a2f60bf3ea5f43fa90126f82c0ba2cf6' \
+--header 'Content-Type: application/json'
 --data-raw '{
     "name": "Cypress Training Test",
     "tags": [
@@ -484,8 +484,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request PUT 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/ec92ec2e200d40b8a75a4f6c06e2226f/stop' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/ec92ec2e200d40b8a75a4f6c06e2226f/stop' | jq
 ```
 
 </TabItem>
@@ -493,8 +493,8 @@ curl --location --request PUT 'https://api.us-west-1.saucelabs.com/rest/v1/nancy
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request PUT 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/ec92ec2e200d40b8a75a4f6c06e2226f/stop' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/ec92ec2e200d40b8a75a4f6c06e2226f/stop' | jq
 ```
 
 </TabItem>
@@ -581,8 +581,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/jobs/a521fd8a78c4426fb10ab765ab1f6831' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/jobs/a521fd8a78c4426fb10ab765ab1f6831' | jq
 ```
 
 </TabItem>
@@ -590,8 +590,8 @@ curl --location --request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1.1/jobs/a521fd8a78c4426fb10ab765ab1f6831' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1.1/jobs/a521fd8a78c4426fb10ab765ab1f6831' | jq
 ```
 
 </TabItem>
@@ -649,8 +649,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/nancy.sweeney/jobs' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/nancy.sweeney/jobs' | jq
 ```
 
 </TabItem>
@@ -658,8 +658,8 @@ curl --location --request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/nancy.sweeney/jobs' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/nancy.sweeney/jobs' | jq
 ```
 
 </TabItem>
@@ -723,8 +723,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets' | jq
 ```
 
 </TabItem>
@@ -732,8 +732,8 @@ curl --location --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/nancy
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets' | jq
 ```
 
 </TabItem>
@@ -817,8 +817,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets/performance.json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets/performance.json' | jq
 ```
 
 </TabItem>
@@ -826,8 +826,8 @@ curl --location --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/nancy
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets/performance.json' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets/performance.json' | jq
 ```
 
 </TabItem>
@@ -1045,8 +1045,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets' | jq
 ```
 
 </TabItem>
@@ -1054,8 +1054,8 @@ curl --location --request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1/na
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets' | jq
 ```
 
 </TabItem>
@@ -1168,8 +1168,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jsmith/builds' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jsmith/builds' | jq
 ```
 
 </TabItem>
@@ -1177,8 +1177,8 @@ curl --location --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jsmit
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jsmith/builds' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jsmith/builds' | jq
 ```
 
 </TabItem>
