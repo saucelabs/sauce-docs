@@ -2,6 +2,7 @@
 id: mobile-apps
 title: Mobile App Testing
 sidebar_label: Getting Started
+hide_table_of_contents: true
 ---
 
 Test your iOS and Android native mobile apps and hybrid apps on emulators, simulators, and real devices in the Sauce Labs Cloud.
