@@ -314,7 +314,7 @@ The combination of browser, version, and operating system you want to use in you
 
 **How to Resolve**
 
-*   Use the [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator?src=sidebar#/) to set the capabilities of your test.
+*   Use the [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to set the capabilities of your test.
 *   Check [our list of supported platforms, operating systems, and browsers](https://saucelabs.com/platform/supported-browsers-devices) to make sure your selections are valid.
 *   Use a higher version of Selenium in the capabilities of your test, or leave the Selenium version blank to default to the latest version.
 
@@ -334,8 +334,8 @@ The Sauce Labs virtual machine was unable to start the browser or device specifi
 **How to Resolve**
 
 *   You can usually resolve this error by choosing a new version of Selenium or Appium for your test, or leaving the version blank to default to the latest version.
-*   You can also check the capabilities of your test to make sure you haven't set an incompatible platform/operating system/browser combination.
-*   Use the [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator?src=sidebar#/) to set the capabilities for your test.
+*   Check your test capabilities to make sure you haven't set an incompatible platform/operating system/browser combination.
+*   Use the [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to set the capabilities of your test.
 
 
 ## The Virtual Machine's Disk has Filled Up
