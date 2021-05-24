@@ -1,7 +1,7 @@
 ---
 id: virtual-usb
 title: Virtual USB Testing on Real Mobile Devices
-sidebar_label: Virtual USB (RDC)
+sidebar_label: Virtual USB (Real Devices)
 ---
 
 export const Highlight = ({children, color}) => ( <span style={{

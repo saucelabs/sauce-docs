@@ -37,7 +37,7 @@ There are two main contexts/branches for the storage API:
 
 >**NOTE**: [Data center-specific endpoints](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) should be used whenever possible.
 
-## Accepted File Types
+## Accepted File Types 
 Application Storage recognizes *.apk files as Android apps and *.ipa files as iOS apps. For iOS apps, can also upload a *.zip file, which will be parsed to determine whether a valid *.app bundle exists.
 
 You can also upload and store other file types for generic use, such as a pre-run executable, package, or binary. Some of the formats for this type of use case include:
