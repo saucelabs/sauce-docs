@@ -22,7 +22,7 @@ The basic steps include:
     *   Add `.sauceignore `, `.sauce `and `.sauce/config.yml` for your framework using examples above, to your project
     *   Update `config.yml` with test suite information including location and dependencies
 
- > For more detailed instructions please [consult the documentation](https://docs.saucelabs.com/testrunner-toolkit/installation), or see [the Cypress on Sauce Course](https://training.staging.saucelabs.net/saucectl/)
+ > For more detailed instructions please [consult the documentation](https://docs.saucelabs.com/testrunner-toolkit/installation), or see [the Cypress on Sauce Course](https://training.saucelabs.com/saucectl/)
 
 
 ## Step 2: Run Your Tests
