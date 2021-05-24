@@ -35,11 +35,11 @@ If you are a paying customer, please open a [Sauce Labs support ticket](http://s
 
 **Description**
 
-The capabilities you've supplied include a URL to a mobile application to install and test. This may be a URL pointing to [App Storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137), or a hosted app online. When we started your test, we were unable to correctly download a valid application from that URL. We may have been able to download something, but that something was not a valid application.
+The capabilities you've supplied include a URL to a mobile application to install and test. This may be a URL pointing to [Application Storage](/mobile-apps/app-storage), or a hosted app online. When we started your test, we were unable to correctly download a valid application from that URL. We may have been able to download something, but that something was not a valid application.
 
 **Cause(s)**
 
-* You've specified an app hosted in [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137), but there is nothing stored for your account with the given name.
+* You've specified an app hosted in [storage](/mobile-apps/app-storage), but there is nothing stored for your account with the given name.
 * You've specified an app hosted online, but the URL you've used can't be contacted by Sauce Labs.
 * You've specified an app hosted in your corporate network which can't be accessed via the Internet.
 * You're not providing the full path to the app file itself.
@@ -53,7 +53,7 @@ We recommend avoiding all problems with apps hosted internally by uploading [sto
 If you're already using [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137), check:
 
 * Your upload to [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137) has succeeded.
-* Your upload to [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137) was within the last week, since Sauce Storage is cleaned out on a weekly basis.
+* Your upload to [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137) was within the last 60 days.
 * Your uploaded app has the same MD5 hash as it does on your machine.
 * You're starting the `app` capability with `sauce-storage:`. There shouldn't be a leading `http`.
 * You're using the exact name you provided via the rest API, not the original filename. For example, if you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `sauce storage:new_app_name.apk`.
@@ -111,7 +111,7 @@ There are a few potential causes for this error:
 
 * Make sure you have internet connectivity.
 * Make sure your script includes `driver.quit()` or `browser.stop()` to conclude the test.
-* If your test needs more than 90 seconds to send a new command to the browser, use the `idleTimeout` capability to modify Sauce's wait time for further commands. For more information, see the **Timeouts** section of [Test Configuration Options](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options).
+* If your test needs more than 90 seconds to send a new command to the browser, use the `idleTimeout` capability to modify Sauce's wait time for further commands. For more information, [Test Configuration Options > Timeouts section](/dev/test-configuration-options).
 
 ## Test Exceeded Maximum Duration of 1800 Seconds
 
@@ -128,7 +128,7 @@ You'll see this error when your test suite is still running in a session that ha
 
 * Check for infinite loops in your test.
 * If you suspect that the error is related to latency in the Sauce network or testing infrastructure, consider breaking your test suite up into [small, autonomous, atomic tests](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365933).
-* If your test needs more than 1800 seconds to complete, you can use the `maxDuration` capability to make Sauce wait longer for your test to complete. You can find more information about this capability in the Timeouts section of the [Test Configuration Options](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492) topic.
+* If your test needs more than 1800 seconds to complete, you can use the `maxDuration` capability to make Sauce wait longer for your test to complete. You can find more information about this capability under [Test Configuration Options > Timeouts section](/dev/test-configuration-options).
 
 
 ## User Terminated
@@ -218,7 +218,7 @@ Your test runner opened a network connection and requested a new Sauce Labs sess
 
 This error has a few potential causes:
 
-* You're running too many tests at a time. In your [Account profile page](https://saucelabs.com/account), check the number of **Concurrent VMs** associated with your account, which is the maximum number of tests you can run at a time, based on your subscription level. If your account can run two concurrent VMs, and you're launching 10 tests, eight will be "queued" until one of your tests finishes and a slot frees up. However, if this takes a long time, your test runner may choose to end the queued jobs after a few minutes instead of waiting.  
+* You're running too many tests at a time. Go to **Account** > **User Settings** and check the number of **Concurrent VMs** associated with your account, which is the maximum number of tests you can run at a time, based on your subscription level. If your account can run two concurrent VMs, and you're launching 10 tests, eight will be "queued" until one of your tests finishes and a slot frees up. However, if this takes a long time, your test runner may choose to end the queued jobs after a few minutes instead of waiting.  
 
 *   High job wait times. Check our [Systems Status page](http://status.saucelabs.com) and [Sauce Labs Ops (@SauceOps) on Twitter](https://twitter.com/sauceops) for up-to-the-minute news about any issues within the service. If something causes demand for certain VMs to stack up, your jobs may be queued and (as above) terminated by your test runner.
 
@@ -249,7 +249,7 @@ There are a few potential causes for this error.
 
 **How to Resolve**
 
-*   If the issue is Selenium needing more than five minutes to run your command, you can use the `commandTimeout` capability to have Sauce wait longer for your command to execute. You can find out more about this capability in the **Timeouts** section of the [Test Configuration Options](/dev/test-configuration-options) topic.
+*   If the issue is Selenium needing more than five minutes to run your command, you can use the `commandTimeout` capability to have Sauce wait longer for your command to execute. You can find out more about this capability under [Test Configuration Options > Timeouts section](/dev/test-configuration-options).
 *   If the cause is a browser crash, the easiest way to check is to watch the video of the test. If this is the case, you may be able to resolve the error by removing memory-hungry commands from your test script, like fetching the page source or taking screenshots with Selenium.
 
 
