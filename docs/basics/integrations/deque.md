@@ -9,6 +9,9 @@ keywords:
 - how-to
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 <p><small><span class="highlight beta">BETA</span></small></p>
 
 [Deque's axe™](https://www.deque.com/axe/) is one of the world's leading digital accessibility toolkits. The `axe-core` library provided by Deque allows you to inject functionality into your tests in order to scan content and return an `a11y` score. 
@@ -73,10 +76,9 @@ exports.config = {
 }
 ```
 
+### WebdriverIO Instance
 
-### WebDriverIO Instance
-
-In the `wdio.conf` file, create an object called `axeWdio`. This object creates a new `AxeWebdriverIO` instance which accepts the current browser object from WDIO as an argument.
+In the `wdio.conf.js` file, create an object called `axeWdio`. This object creates a new `AxeWebdriverIO` instance which accepts the current browser object from WDIO as an argument.
 
 ```js
 before: function (capabilities, specs, browser) {
@@ -92,6 +94,50 @@ Next, we need to inject an `axe-core` command into the current page so that it s
 browser.addCommand('getAxeResults', function (name) {
     return axeWdio.analyze()
 })
+```
+
+When the `analyze()` command is called, `axe-core` then scans the current document content.
+
+The final step is to define a local variable to store the violations (critical, moderate, and/or minor) and return the `result`:
+
+```js
+browser.addCommand('getAxeResults', function (name) {
+    return axeWdio.analyze()
+        .then(async (result) => {
+            const { violations = [] } = result
+            console.info(`Test: ${name} - Violations: ${violations.length}`)
+            return result
+        })
+        .catch(err => {
+            console.log(err)
+        })
+})
+```
+
+:::note Full Example
+You can view the full `wdio.conf.js` example [here](https://github.com/saucelabs/axe-wdio/blob/main/mocha-wdio/wdio.conf.js)
+:::
+
+## Sauce Labs Setup
+
+It's recommended that you create a separate configuration to manage the Sauce Labs configuration details. In our example we will create a file called `wdio.saucelabs.conf.js`.
+
+For example:
+
+```js
+const {config} = require('./wdio.conf');
+
+config.user = "yourUserName";
+config.key = "yourAccessKey";
+config.region = "yourRegion -> us / eu";
+
+config.capabilities = [
+    
+];
+
+config.services = config.services.concat('sauce');
+
+exports.config = config;
 ```
 
 ### Sauce Labs Credentials
@@ -123,11 +169,98 @@ config.region = process.env.REGION || 'us';
 Visit the [WebDriverIO documentation](https://webdriver.io/docs/sauce-service.html) for further details.
 :::
 
+### Set Browser Options
+In order to test on multiple different browsers and platforms, add the configuration options in the `capabilities` object. 
 
-## Run the Test
-Save the file and run the following command from the main project directory:
-```bash
-npm install && npm test
+For example:
+
+<Tabs
+defaultValue="chrome"
+values={[
+    {label: 'Chrome', value: 'chrome'},
+    {label: 'Firefox', value: 'firefox'},
+    {label: 'Safari', value: 'safari'},
+    {label: 'Edge', value: 'edge'},
+]}>
+
+<TabItem value="chrome">
+
+```js
+    {
+        browserName: 'googlechrome',
+        platformName: 'Windows 10',
+        browserVersion: 'latest',
+    },
+```
+
+</TabItem>
+<TabItem value="firefox">
+
+```js
+    {
+        browserName: 'firefox', 
+        platformName: 'Windows 10',
+        browserVersion: 'latest',
+    },
+```
+
+</TabItem>
+<TabItem value="safari">
+
+```js
+    {
+        browserName: 'safari', 
+        platformName: 'macOS 10.15',
+        browserVersion: 'latest',
+    },
+```
+
+</TabItem>
+<TabItem value="edge">
+
+```js
+    {
+        browserName: 'MicrosoftEdge',
+        platformName: 'Windows 10',
+        browserVersion: 'latest',
+    },
+```
+
+</TabItem>
+</Tabs>
+
+### Set Sauce-Specific Options
+
+It's a best practice to set the test options that refer only to Sauce Labs features. For example, declare this at the top of `wdio.saucelabs.conf.js`:
+
+```js
+const defaultBrowserSauceOptions = {
+    build: `Best Practices: Sauce Labs Desktop Web build-${new Date().getTime()}`,
+    screenResolution: '1600x1200',
+};
+```
+
+and call it in the `sauce:options` test option, as a part of the `capabilities` object, like in this example below:
+
+```js {6-7}
+config.capabilities = [
+    {
+        browserName: 'googlechrome',
+        platformName: 'Windows 10',
+        browserVersion: 'latest',
+        'sauce:options': {
+            ...defaultBrowserSauceOptions,
+        },
+    },
+...
+];
+```
+
+## Running the Test
+Now in your actual tests, all you need to do is call the following to get the `axe-core` test results:
+
+```js
+browser.getAxeResults()
 ```
 
 ## Additional Resources
