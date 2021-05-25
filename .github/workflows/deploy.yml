@@ -128,7 +128,7 @@ jobs:
       - name: Deploy to Bucket
         run: |-
           cd build
-          gsutil -m rsync -R . ${{ secrets.GCS_BUCKET }}
+          gsutil -m rsync -R -d . ${{ secrets.GCS_BUCKET }}
 
   deploy-production:
     needs: deploy-staging
@@ -168,4 +168,4 @@ jobs:
       - name: Deploy to Bucket
         run: |-
           cd build
-          gsutil -m rsync -R . ${{ secrets.GCS_PROD_BUCKET }}
+          gsutil -m rsync -R -d . ${{ secrets.GCS_PROD_BUCKET }}
