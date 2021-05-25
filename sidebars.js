@@ -8,6 +8,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'sauce-basics',
+                    'basics/platform-configurator',
                     {
                         type: 'category',
                         label: 'Account and Team Management',
@@ -588,7 +589,6 @@ module.exports = {
         ],
         "Reference": [
             'dev',
-            'dev/test-configuration-options',
             'dev/error-messages',
             'dev/glossary',
             {
@@ -613,6 +613,8 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'dev/cli',
+                    'dev/cli/test-configuration-options',
+                    'dev/cli/w3c-webdriver-capabilities',
                     'dev/cli/sauce-connect-proxy',
                     {
                         type: 'category',
