@@ -8,6 +8,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'sauce-basics',
+                    'basics/platform-configurator',
                     {
                         type: 'category',
                         label: 'Account and Team Management',
