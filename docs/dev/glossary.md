@@ -51,7 +51,7 @@ A Sauce Labs feature that enables you to mimic camera behavior when testing appl
 
 ### Capabilities (Caps)
 
-A section of code required in automated test scripts to specify test parameters (e.g., OS, browser, API, device) used to configure the environment for your Selenium, Appium, and Sauce Labs tests. More information: [Test Configuration Options](dev/test-configuration-options).
+A section of code required in automated test scripts to specify test parameters (e.g., OS, browser, API, device) used to configure the environment for your Selenium, Appium, and Sauce Labs tests. More information: [Test Configuration Options](dev/cli/test-configuration-options).
 
 See also: _[platform configurator](#platform-configurator)_.
 
