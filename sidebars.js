@@ -8,6 +8,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'sauce-basics',
+                    'basics/platform-configurator',
                     {
                         type: 'category',
                         label: 'Account and Team Management',
@@ -151,7 +152,6 @@ module.exports = {
                         ],
                     },
                     'mobile-apps/automated-testing/ipa-files',
-                    'mobile-apps/automated-testing/troubleshooting',
                 ],
             },
             'mobile-apps/features',
@@ -545,12 +545,27 @@ module.exports = {
                 items: [
                     'testrunner-toolkit/configuration',
                     'testrunner-toolkit/configuration/common-syntax',
-                    'testrunner-toolkit/configuration/cypress',
+                    {
+                        type: 'category',
+                        label: 'Cypress',
+                        collapsed: true,
+                        items: [
+                            'testrunner-toolkit/configuration/cypress',
+                            'testrunner-toolkit/configuration/cypress/cyp-cucumber',
+                        ]
+                    },
                     'testrunner-toolkit/configuration/playwright',
                     'testrunner-toolkit/configuration/puppeteer',
                     'testrunner-toolkit/configuration/testcafe',
-                    'testrunner-toolkit/configuration/espresso',
-                    'testrunner-toolkit/configuration/cucumber',
+                    {
+                        type: 'category',
+                        label: 'Espresso',
+                        collapsed: true,
+                        items: [
+                            'testrunner-toolkit/configuration/espresso',
+                            'testrunner-toolkit/configuration/espresso/esp-cucumber',
+                        ]
+                    },
                 ],
             },
             'testrunner-toolkit/running-tests',
@@ -574,6 +589,8 @@ module.exports = {
         ],
         "Reference": [
             'dev',
+            'dev/error-messages',
+            'dev/glossary',
             {
                 type: 'category',
                 label: 'API Reference',
@@ -597,6 +614,7 @@ module.exports = {
                 items: [
                     'dev/cli',
                     'dev/cli/test-configuration-options',
+                    'dev/cli/w3c-webdriver-capabilities',
                     'dev/cli/sauce-connect-proxy',
                     {
                         type: 'category',

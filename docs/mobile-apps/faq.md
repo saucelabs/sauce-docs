@@ -20,7 +20,6 @@ Yes - see [Espresso and XCUITest Testing for Virtual Devices](/mobile-apps/autom
 
 Currently the only browser that can be automated in our Android emulators is the stock browser (i.e., Chrome).
 
-
 #### **How do I use XCUITest-driver on Appium 1.6.0 with iOS 9.x tests?**
 
 Appium 1.6.0 will default to using `automationName: XCUITest` for iOS 10.x tests, and `automationName: UIAutomation` for iOS 9.x tests. However, if you specify `automationName: XCUITest` in the device capabilities for the test, you can get XCUITest for iOS 9.x tests.
@@ -48,22 +47,23 @@ We strive to support the latest releases within 48 hours to ensure your website 
 
 #### **Is it possible to test the camera behavior using your mobile devices?**
 
-Yes -- see [Camera Image Injection](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102717708).
+Yes. See [Camera Image Injection](https://docs.saucelabs.com/mobile-apps/features#camera-image-injection).
 
 #### **Is it possible to test push notifications?**
 
-Yes.
-
-For Android real devices, it works automatically.
-
-For iOS real devices, you'll need to disable resigning before testing to enable notifications testing. Disabling resigning is a feature to be used on private devices only and will require you to start keeping track of the iOS device UDIDs (Unique Device Identifier) by maintaining them in your own Apple Developer profile used at app build time.
+* **Android Real Devices** - Yes. It works automatically with no action required.
+* **iOS Real Devices** - Yes. Prior to testing, you'll need to disable resigning; this enables notifications testing. Disabling resigning is a feature available for [private devices only](https://docs.saucelabs.com/mobile-apps/supported-devices#private-device-cloud). To disable resigning, go to **Live** > **Mobile App** > Locate your iOS mobile app from your list of uploaded app > Click **Settings** > Toggle **Instrumentation** so that it says **Disabled**. You'll need to start keeping track of the iOS device UDIDs (Unique Device Identifier) by maintaining them in your own Apple Developer profile used at app build time.
+* **Android emulators** - not supported.
+* **iOS simulators** - not supported.
 
 
 ### Security
 
 #### **Is my app safe in the Real Device Cloud?**
 
-Our Real Device Cloud servers are located in the Europe and US at certified data centers. The communication is SSL secured. We try to ensure as much safety as a cloud service can provide. The Real Device Cloud will never abuse your data, and we [respect your data privacy](http://testobject.com/privacy) at all times. For very high security requirements, we also provide a [private cloud solution](http://testobject.com/enterprise).
+Our Real Device Cloud servers are located in the Europe and US at certified data centers. The communication is SSL secured. We try to ensure as much safety as a cloud service can provide. The Real Device Cloud will never abuse your data, and we respect your data privacy at all times.
+
+For very high security requirements, we also provide a [private cloud solution](https://docs.saucelabs.com/mobile-apps/supported-devices#private-device-cloud).
 
 
 #### **Can other users access my data?**
@@ -103,12 +103,14 @@ Yes, but only on iOS 10 and iOS 9 (note these OS versions have different default
 
 #### **How do I upload an iOS app?**
 
-You need to export your app as an IPA file for Ad Hoc Deployment as described in [Creating an ipa File](https://wiki.saucelabs.com/display/DOCS/Creating+an+ipa+File). You can upload your IPA manually to create a project, then upload subsequent versions either manually or through our REST API, as described in [Uploading Your App to Real Device Storage with the REST API](https://wiki.saucelabs.com/pages/viewpage.action?pageId=92677295).
+You'll need to export your app as an .ipa file for Ad Hoc Deployment as described in [Creating .ipa Files](/mobile-apps/automated-testing/ipa-files).
+
+You can upload your .ipa manually to create a project, then upload subsequent versions either manually or through our REST API, as described in [Uploading Your App to Real Device Storage with the REST API](/mobile-apps/app-storage).
 
 
-#### **Can I upload multiple APKs for testing?**
+#### **Can I upload multiple .apk files for testing?**
 
-Yes. You can upload more than one APK using the “dependency app” functionality.
+Yes. You can upload more than one .apk using the “dependency app” functionality.
 
 
 #### **Can I choose different browsers on a device?**
@@ -123,7 +125,9 @@ No. On iOS, we re-sign with our own certificate. On Android, there are no extra 
 
 #### **If I run a test on the public real device cloud, can I run it over ssh or a VPN?**
 
-No. Private cloud accounts have the option today to use an [IPSec VPN](/secure-connections/ipsec-vpn.md), which must be specially set up by Sauce Labs. Sauce Connect is supported for both private and public clouds.
+No. Private cloud accounts have the option to use an [IPSec VPN](/secure-connections/ipsec-vpn.md), which we'd setup and customize specifically for your network.
+
+Sauce Connect is supported for both private and public clouds.
 
 
 #### **Should anything be present on the device from an earlier test?**
@@ -243,12 +247,14 @@ The number of concurrent test sessions in your plan tells you:
 
 #### **If I run a test and all the devices of the selected model are "Unavailable," how long will the test be queued?**
 
-15 minutes by default. But you can increase it up to 30 minutes through [the testobject_session_creation_timeout desired capability](https://wiki.saucelabs.com/display/DOCS/Appium+Capabilities+for+Real+Device+Testing#AppiumCapabilitiesforRealDeviceTesting-SessionCreationTimeout). You can also shorten it, but putting it to less than 2 minutes is probably a bad idea. At less than 2 minutes, you may see tests not starting because the session may not have time to be initialized.
+15 minutes by default. You can increase it up to 30 minutes using a timeout capability. See See [Test Configuration Options](/dev/cli/test-configuration-options) and [Appium for Real Devices CLI Reference](/dev/cli/appium/real-devices).
+
+You can also shorten it, but putting it to less than two minutes is probably a bad idea. At less than two minutes, you may see tests not starting because the session may not have time to be initialized.
 
 
 #### **If I have a concurrency of five and I start 10 tests, will the Real Device Cloud queue five of the tests to run later?**
 
-Yes. The five other tests will try to get the requested devices for the next 15 minutes. That’s the default time -- it can be increased to 30 minutes through [the testobject_session_creation_timeout desired capability](https://wiki.saucelabs.com/display/DOCS/Appium+Capabilities+for+Real+Device+Testing#AppiumCapabilitiesforRealDeviceTesting-SessionCreationTimeout).
+Yes. The five other tests will try to get the requested devices for the next 15 minutes. That’s the default time -- it can be increased to 30 minutes through a timeout command. See [Test Configuration Options](/dev/cli/test-configuration-options) and [Appium for Real Devices CLI Reference](/dev/cli/appium/real-devices).
 
 
 ## Pricing Plans and Billing

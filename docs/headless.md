@@ -72,26 +72,28 @@ You can run Sauce Headless tests in a variety of programming languages and test 
 
 <TabItem value="java">
 
-__TestNG Example__
+__TestNG Example Walkthrough__
 
-1. Head to [Sauce Labs Training: Java Headless Example Scripts](https://github.com/saucelabs-training/demo-java/tree/master/headless) on GitHub and review the `README.md` page to ensure you have the prerequisite software.
-2. Download or clone [this sample script](https://github.com/saucelabs-training/demo-java/blob/master/headless/src/test/java/SampleHeadlessSauceTest.java) from the repo.
+1. Head to [Sauce Labs Training: Java Example Scripts](https://github.com/saucelabs-training/demo-java) on GitHub and review the README page to ensure you have the prerequisite software.
+2. Download or clone [this headless sample script](https://github.com/saucelabs-training/demo-java/blob/master/selenium-examples/src/test/java/com/saucedemo/SampleHeadlessSauceTest.java) from our GitHub repo.
 3. Resolve dependencies with Maven:
-```sh
-$ mvn dependency:resolve
-```
+  ```bash
+  $ mvn dependency:resolve
+  ```
 4. Export your Sauce Labs username and access key:
-```sh
-export SAUCE_USERNAME=my-sauce-username
-export SAUCE_ACCESS_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx2cy8f4
-```
-5. Run the following commands:
-```sh
-$ cd headless/
-$ mvn clean test -Dtest=SampleHeadlessSauceTest
-```
-6. Confirm that you can see the following output (or something similar) in the console:
-```sh
+  ```bash
+  export SAUCE_USERNAME=my-sauce-username
+  export SAUCE_ACCESS_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx2cy8f4
+  ```
+5. Run the following command:
+  ```bash
+  $ cd headless/
+  $ mvn clean test -Dtest=SampleHeadlessSauceTest
+  ```
+
+<details><summary><strong>Click here to see a successful output example</strong></summary>
+
+```bash
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
@@ -111,74 +113,121 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time:  17.308 s
 ```
-Additional resources: [Sauce Labs Java Demonstration Scripts](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365798).
+
+</details>
 
 </TabItem>
 <TabItem value="python">
 
-__Pytest Example__
+__Pytest Example Walkthrough__
 
-1. Head to [Sauce Labs Training: Python](https://github.com/saucelabs-training/demo-python) on GitHub and review the `README.md` page to ensure you have the prerequisite software.
-2. Download or clone [this headless sample script](https://github.com/saucelabs-training/demo-python/blob/master/headless-examples/test_demo.py) from the repo.
+1. Head to [Sauce Labs Training: Python Example Scripts](https://github.com/saucelabs-training/demo-python) on GitHub and review the README page to ensure you have the prerequisite software.
+
+2. Download or clone [this headless sample script](https://github.com/saucelabs-training/demo-python/blob/main/examples/headless/test_demo.py) from the repo.
 3. Install the following modules:
-```sh
-pip install pytest pytest-xdist
-```
+  ```bash
+  pip install pytest pytest-xdist
+  ```
 4. Export your Sauce Labs username and access key:
-```python
-export SAUCE_USERNAME=my-sauce-username
-export SAUCE_ACCESS_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx2cy8f4
-```
+  ```bash
+  export SAUCE_USERNAME=my-sauce-username
+  export SAUCE_ACCESS_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx2cy8f4
+  ```
 5. Run the following command:
-```python
-pytest -n8 test_demo.py
-```
-6. Confirm that you can see the following output (or something similar) in the console:
+  ```bash
+  pytest -n8 test_demo.py
+  ```
 
-```python
-platform darwin -- Python 3.7.1, pytest-4.4.0, py-1.7.0, pluggy-0.12.0
-rootdir: /path/to/python/headless-examples
-plugins: forked-1.0.2, xdist-1.28.0
-gw0 [4] / gw1 [4] / gw2 [4] / gw3 [4] / gw4 [4] / gw5 [4] / gw6 [4] / gw7 [4]
-....   
-```
+ <details><summary>Click here to see a successful output example</summary>
 
-Additional resources: [Sauce Labs Python Demonstration Scripts](https://wiki.saucelabs.com/display/DOCS/Python+Demonstration+Scripts).
+ ```bash
+ platform darwin -- Python 3.7.1, pytest-4.4.0, py-1.7.0, pluggy-0.12.0
+ rootdir: /path/to/python/headless-examples
+ plugins: forked-1.0.2, xdist-1.28.0
+ gw0 [4] / gw1 [4] / gw2 [4] / gw3 [4] / gw4 [4] / gw5 [4] / gw6 [4] / gw7 [4]
+ ....   
+ ```
+
+ </details>
 
 </TabItem>
 <TabItem value="node">
 
-__Mocha-Chai Example__
+__WebdriverIO Example Walkthrough__
 
-1. Head to [Sauce Labs Training: NodeJS](https://github.com/saucelabs-training/demo-js) on GitHub and review the `README.md` page to ensure you have the prerequisite software.
-2. Download or clone [this headless Chrome test sample script](https://github.com/saucelabs-training/demo-js/blob/master/headless-examples/test/headless-chrome-test.js) or [Firefox test sample script](https://github.com/saucelabs-training/demo-js/blob/master/headless-examples/test/headless-firefox-test.jsfrom) the repo.
+1. Head to [Sauce Labs Training: JavaScript Example Scripts](https://github.com/saucelabs-training/demo-js) on GitHub and review the README page to ensure you have the prerequisite software.
+2. Download or clone one of [our headless test scripts](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio/webdriver/examples/headless) from the repo.
 3. Navigate to the headless-examples directory and install node package dependencies:
-```sh
-$ cd headless-examples/
-$ npm install
-```
+  ```bash
+  $ cd headless-examples/
+  $ npm install
+  ```
 4. Export your Sauce Labs username and access key:
-```sh
-export SAUCE_USERNAME=my-sauce-username
-export SAUCE_ACCESS_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx2cy8f4
-```
+  ```bash
+  export SAUCE_USERNAME=my-sauce-username
+  export SAUCE_ACCESS_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx2cy8f4
+  ```
 5. Run the following command:
-```javascript
-$ npm test test/headless-chrome-test.js
-```
-6. Confirm that you can see the following output (or something similar) in the console:
+  ```bash
+  $ npm test test/headless-chrome-test.js
+  ```
 
-```javascript
-mocha "test/headless-chrome-test.js"
+</TabItem>
 
- headless chrome test
-Page Title is: Swag Labs
-   ✓ get-title-test (2594ms)
+<TabItem value="ruby">
 
- 1 passing (13s)                                                              
-```
+**Rspec Example Walkthrough**
 
-Additional resources: [Sauce Labs Node.js Demonstration Scripts](https://wiki.saucelabs.com/display/DOCS/Node.js+Demonstration+Scripts).
+1. Head to [Sauce Labs Training: Ruby Example Scripts](https://github.com/saucelabs-training/demo-ruby) on GitHub and review the README page to ensure you have the prerequisite software.
+
+  <details><summary><strong>Example Headless Script for Ruby</strong></summary>
+
+  ```ruby reference
+  https://github.com/saucelabs-training/demo-ruby/blob/master/selenium-examples/rspec/spec/spec_helper.rb
+  ```
+
+  </details>
+
+2. Setup Gemfile. Run `install bundler` so that you can update and resolve dependencies:
+  ```bash
+  $ gem install bundler
+  ```
+
+3. Execute the `bundle` command to install the required gems:
+  ```bash
+  $ bundle install --path .bundle
+  ```
+
+4. Export your Sauce Labs username and access key:
+  ```bash
+  export SAUCE_USERNAME=my-sauce-username
+  export SAUCE_ACCESS_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx2cy8f4
+  ```
+
+5. Run the following command to have rspec search and execute 'specs' in your project directories:
+  ```bash
+  $ bundle exec rspec
+  ```
+  You can also use `Run Configurations` in your IDE. For directions on how to setup Run/Debug Configurations refer to Documentation:
+   * [Aptana Studio Documentation](https://github.com/aptana/studio3-ruby)
+   * [RubyMine Documentation](https://www.jetbrains.com/ruby/learn/)
+   * [Komodo Edit Documentation](https://community.komodoide.com/manual)
+   * [NetBeans Documentation](https://netbeans.apache.org//kb/)
+
+</TabItem>
+<TabItem value="csharp">
+
+__NUnit Example Walkthrough__
+
+Head to [Sauce Labs Training: C# Example Scripts](https://github.com/saucelabs-training/demo-csharp) on GitHub and review the README page to ensure you have the prerequisite software.
+
+  <details><summary><strong>Example Headless Script for C#</strong></summary>
+
+  ```csharp reference
+  https://github.com/saucelabs-training/demo-csharp/blob/bf16d3342b663d02014c53a66b1164b6c86970b8/SauceExamples/SeleniumNunit/SimpleExamples/SimpleHeadlessTest.cs
+  ```
+
+  </details>
 
 </TabItem>
 </Tabs>
@@ -186,7 +235,7 @@ Additional resources: [Sauce Labs Node.js Demonstration Scripts](https://wiki.sa
 ## Data Center Endpoints for Headless
 The containers used for Sauce Headless testing are hosted in the Sauce Labs East Coast data center, which is entirely separate from our data centers in the West Coast and in the EU. You'll need to connect to the [US-East Data Center](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) to access the web UI, Selenium endpoint, and Sauce Connect Proxy endpoint for headless testing.
 
-The US-East IP addresses should be reachable from your network. If there's an issue, see the Whitelisting for Restricted Networks section of [System and Network Requirements for Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365793).
+The US-East IP addresses should be reachable from your network. If there's an issue, see the Whitelisting for Restricted Networks section of [Sauce Connect Proxy](/secure-connections/sauce-connect/system-requirements).
 
 >**NOTE**: Cross-Browser VMs are not available at this time in US-East.
 
@@ -199,9 +248,9 @@ Information about your Headless testing jobs is accessible by logging into the h
 If you want to use a Sauce Connect Proxy tunnel for your Sauce Headless tests, you'll need to start it from here in the UI.
 
 ## Headless Testing with Sauce Connect Proxy
-If you're testing website that's on your local machine or behind a corporate firewall, we recommend using [Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365718).
+If you're testing website that's on your local machine or behind a corporate firewall, we recommend using [Sauce Connect Proxy](/secure-connections/sauce-connect).
 
-To use Sauce Connect Proxy in conjunction with your Sauce Headless tests, be sure you have the [latest version](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863) on your machine. You'll need to start a new, separate tunnel from the one used for the Virtual and Real Device Cloud, by connecting to the [Sauce Headless-specific endpoint](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068).
+To use Sauce Connect Proxy in conjunction with your Sauce Headless tests, be sure you have the [latest version](/secure-connections/sauce-connect/installation) on your machine. You'll need to start a new, separate tunnel from the one used for the Virtual and Real Device Cloud, by connecting to the [Sauce Headless-specific endpoint](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068).
 
 
 ## Video Tutorial: Running Headless Tests
