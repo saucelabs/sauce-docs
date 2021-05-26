@@ -11,20 +11,35 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-This page includes a list of valid Sauce Labs test configuration options.
+This page includes a list of valid test configuration options for tests run on Sauce Labs.
 See the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator)
-to generate the basic code necessary for executing a test. Those settings as well as all valid parameters are described below.
+to generate the basic code necessary for executing a test. Those settings as well as all valid parameters are 
+described below.
 
-We always recommend using the latest released version of Selenium, but to ensure W3C WebDriver compliance, make sure to use Selenium version 3.11 or later. Sauce Labs determines W3C sessions with the presence of `sauce:options` capabilities and [generic W3C WebDriver-compliant capabilities](https://www.w3.org/TR/webdriver1/#capabilities). See [W3C Capabilities Support](https://wiki.saucelabs.com/pages/viewpage.action?pageId=78414463) for more information.
+:::note
+Each browser vendor also supplies a list of browser specific capabilities that you can also use. These will be
+set in the applicable browser Options class in Selenium.
+* [Chrome Capabilities](https://chromedriver.chromium.org/capabilities)
+* [Microsoft Edge Capabilities](https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options)
+* [Firefox Capabilities](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions)
+* [Internet Explorer Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/ie/InternetExplorerDriver.html)
+* [Safari Capabilities](https://developer.apple.com/documentation/webkit/about_webdriver_for_safari)
+:::
 
 
 ## WebDriver W3C Capabilities (Required)
+Sauce Labs determines W3C sessions with the presence of `sauce:options`
+capabilities and [generic W3C WebDriver-compliant capabilities](https://www.w3.org/TR/webdriver1/#capabilities).
+See [W3C Capabilities Support](https://wiki.saucelabs.com/pages/viewpage.action?pageId=78414463) for more information.
+
+:::tip Use the latest version of the Selenium library in your code for the most up to date support.
+:::
 
 Below are the W3C WebDriver primary test configuration settings for Sauce Labs desktop browser tests and mobile tests.
 
 ### `browserName`
 __Description__: identifies the user agent. See the [WebDriver
-W3C Editor website](https://w3c.github.io/webdriver/#dfn-browser-name) for more info.
+W3C Specification](https://w3c.github.io/webdriver/#dfn-browser-name) for more info.
 
 >**NOTE**: This setting also applies to emulators, simulators and real devices when automating with a mobile browser. It must be set when [App Name](#app) is not set.
 * For Android v5 and below, the value needs to be `"Browser"`, v6 and above, it is `"Chrome"`.
@@ -39,7 +54,7 @@ __Example__:
 ```
 
 ### `browserVersion`
-__Description__: identifies the version of the browser you want to use in your test. See the [WebDriver W3C Editor website](https://w3c.github.io/webdriver/#dfn-browser-version) for more info.
+__Description__: identifies the version of the browser you want to use in your test. See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-browser-version) for more info.
 
 To use the latest stable version of Chrome or Firefox that we support, you can use `"browserVersion": "latest"`. You can also use `"browserVersion": "latest-1"` or `"browserVersion": "latest-2"`, etc. to request the next most recent versions of a browser.
 
@@ -57,7 +72,7 @@ __Example__:
 ```
 
 ### `platformName`
-__Description__: The name of the operating system the browser or mobile device should be running on. See the [WebDriver W3C Editor website](https://w3c.github.io/webdriver/#dfn-platform-name) for more info.
+__Description__: The name of the operating system the browser or mobile device should be running on. See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-platform-name) for more info.
 
 __Value Type__: string.
 
@@ -67,25 +82,90 @@ __Example__:
 ```
 
 ## Browser W3C Capabilities (Optional)
-Below are more Sauce-compatible W3C WebDriver specification capabilities. To view their descriptions, see the [W3C WebDriver Capabilities site](https://www.w3.org/TR/webdriver/#capabilities).
+Below are more Sauce-compatible W3C WebDriver specification capabilities. 
+To view their descriptions, see the [WebDriver W3C Specification Capabilities](https://www.w3.org/TR/webdriver/#capabilities).
 
 ### `acceptInsecureCerts`
-See the [WebDriver W3C Editor website](https://w3c.github.io/webdriver/#dfn-insecure-tls-certificates) for more info.
+__Description__: Indicates whether untrusted and self-signed TLS certificates are implicitly trusted on navigation for 
+the duration of the session. The default value is `false`.
+
+See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-insecure-tls-certificates) for more info.
+
+__Value Type__: boolean.
+
+__Example__:
+```java
+"acceptInsecureCerts": true
+```
 
 ### `pageLoadStrategy`
-See the [WebDriver W3C Editor website](https://w3c.github.io/webdriver/#dfn-page-load-strategy) for more info.
+__Description__: Defines the current session’s page load strategy. The allowed values and their associated required
+document readiness state may be found on the 
+[WebbDriver W3C Specification Page Load Strategies Table](https://w3c.github.io/webdriver/#dfn-table-of-page-load-strategies).
+
+See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-page-load-strategy) for more info.
+
+__Value Type__: string.
+
+__Example__:
+```java
+"pageLoadStrategy": "eager"
+```
 
 ### `proxy`
-See the [WebDriver W3C Editor website](https://w3c.github.io/webdriver/#dfn-proxy-configuration) for more info.
+__Description__: Defines the current session’s proxy configuration.
+
+See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-proxy-configuration) for more info.
+
+__Value Type__: object.
+
+__Example__:
+```java
+"proxy": {"proxyType": "manual",
+          "httpProxy": "myproxy.com:3128"}
+```
 
 ### `timeouts`
-See the [WebDriver W3C Editor website](https://w3c.github.io/webdriver/#dfn-session-script-timeout) for more info.
+__Description__: Describes the timeouts imposed on certain session operations. Applicable timeouts can be found
+on the [WebDriver W3C Specification Timeouts Table](https://w3c.github.io/webdriver/#timeouts)
+
+See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-session-script-timeout) for more info.
+
+__Value Type__: object.
+
+__Example__:
+```java
+"timeouts": {"script": 20000,
+             "pageLoad": 400000,
+             "implicit: 1000}
+```
 
 ### `strictFileInteractability`
-See the [WebDriver W3C Editor website](https://w3c.github.io/webdriver/#dfn-strict-file-interactability) for more info.
+__Description__: Defines the current session’s strict file interactability. 
+This indicates that interactabilty checks will be applied to File type input elements. The default is `false`.
+
+See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-strict-file-interactability) for more info.
+
+__Value Type__: boolean.
+
+__Example__:
+```java
+"strictFileInteractability": true
+```
 
 ### `unhandledPromptBehavior`
-See the [WebDriver W3C Editor website](https://w3c.github.io/webdriver/#dfn-unhandled-prompt-behavior) for more info.
+__Description__: Describes the current session’s user prompt handler. The allowed options may be found in the 
+[WebDriver W3C Specification User Prompt Handler Table](https://w3c.github.io/webdriver/#dfn-user-prompt-handler)
+The default value is `"dismiss and notify"`.
+
+See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-unhandled-prompt-behavior) for more info.
+
+__Value Type__: string.
+
+__Example__:
+```java
+"unhandledPromptBehavior": "ignore"
+```
 
 ## Desktop Browser Capabilities: Sauce-Specific (Optional)
 
@@ -163,7 +243,8 @@ initializing a session with valid W3C syntax.
 
 :::tip Always use the latest version.
 
-The Selenium developers are very conscientious about backward compatibility support, so we recommend always using the latest available version of Selenium unless you find a specific, known issue.
+The Selenium developers are very conscientious about backward compatibility support, 
+so we recommend always using the latest available version of Selenium unless you find a specific, known issue.
 :::
 
 __Value Type__: string.
@@ -388,7 +469,8 @@ __Example__:
 
 ## Desktop and Mobile Capabilities: Sauce-Specific (Optional)
 
-The following are Sauce Labs-specific options you can set for any test run on the Sauce Labs platform. These can be added to the `sauce:options` block of your session creation code.
+The following are Sauce Labs-specific options you can set for any test run on the Sauce Labs platform. 
+These can be added to the `sauce:options` block of your session creation code.
 
 ### `name`
 __Description__: use this to record test names for jobs and make it easier to find individual tests.
@@ -402,7 +484,8 @@ __Example__:
 <br/>
 
 ### `build`
-__Description__: use this to associate jobs with a build number or app version, which is then displayed on both the Dashboard and Archives view.
+__Description__: use this to associate jobs with a build number or app version, which is then displayed on 
+both the Dashboard and Archives view.
 
 __Value Type__: string.
 
@@ -421,6 +504,39 @@ __Example__:
 ```java
 "tags": ["tag1","tag2","tag3"]
 ```
+<br/>
+
+### `username`
+__Description__: use this to set your Sauce Labs username for the test. This value can be found
+in your [user settings page](https://app.saucelabs.com/user-settings).
+
+__Value Type__: string.
+
+__Example__:
+```java
+"username": "sauce-example-user"
+```
+
+:::note
+You can either set `"username"` in capabilities or specify it in the URL you direct your tests to. For
+[Visual Tests](#visual), this must be set in capabilities.
+:::
+<br/>
+
+### `accessKey`
+__Description__: use this to set your Sauce Labs access key for the test. This value can be found 
+in your [user settings page](https://app.saucelabs.com/user-settings).
+
+__Value Type__: string.
+
+__Example__:
+```java
+"accessKey": "00000000-0000-0000-0000-000000000000"
+```
+:::note
+You can either set `"accessKey"` in capabilities or specify it in the URL you direct your tests to. For
+[Visual Tests](#visual), this must be set in capabilities.
+:::
 <br/>
 
 ### `custom-data`
@@ -707,3 +823,12 @@ __Description__: the number of seconds Sauce will wait for your executable to fi
 The default is 90 seconds and the maximum is 360 seconds.
 
 __Value Type__: integer.
+
+
+## Visual Testing
+
+Visual Testing is run on Sauce Labs servers, but the URL gets sent to `"https://hub.screener.io"`.
+That means that [`username`](#username) and [`accessKey`](#accesskey) values are required.
+
+Check out the complete Sauce Labs [Visual Testing with WebDriver Documentation](https://screener.io/v2/docs/visual-e2e).
+Also read up on all of the valid [Visual Options](https://screener.io/v2/docs/visual-e2e/visual-options) 
