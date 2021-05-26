@@ -204,7 +204,7 @@ __Example__:
 
 #### `private`
 
-__Description__: Request a device from a private pool.
+__Description__: Request that the matching device is from your organization's private pool.
 
 __Type__:  *bool*
 
