@@ -113,13 +113,11 @@ __Example__:
 
 ## `devices`
 
-__Description__: Field for defining devices request.
+__Description__: Field for requesting a real device for the test.
 
-A real device can be selected using two different manner:
-- Specific device selection, through device IDs
-- Filtered device selection, with several contraints such as `name`, `platformVersion`, etc...
+You can request a specific device using its ID, or you can specify a set of criteria to choose the first available device that matches the specifications.
 
-When an ID is specified, it is prioritary on other settings.
+When an ID is specified, it supersedes the other settings.
 
 __Type__: *[]object*
 
