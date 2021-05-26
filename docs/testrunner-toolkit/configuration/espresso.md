@@ -181,7 +181,7 @@ __Type__: *object*
 
 __Description__: Request a device that is connected to cellular network.
 
-__Type__:  *string*
+__Type__:  *bool*
 
 __Example__:
 
