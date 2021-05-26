@@ -58,7 +58,7 @@ __Examples__:
 
 ## `emulators`
 
-__Description__: Field for defining emulators details such as the name, orientation, and
+__Description__: Field for defining emulator details such as the name, orientation, and
 platformVersions.
 
 __Type__: *object*
