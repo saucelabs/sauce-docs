@@ -192,7 +192,7 @@ __Example__:
 
 #### `deviceType`
 
-__Description__:  Request a device from a specific kind. Values:  `ANY`, `TABLET`, `PHONE`.
+__Description__:  Request that the matching device is a specific type of device. Values:  `ANY`, `TABLET`, or `PHONE`.
 
 __Type__:  *string*
 
