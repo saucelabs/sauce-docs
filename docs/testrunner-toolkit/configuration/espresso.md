@@ -56,16 +56,16 @@ __Examples__:
   testApp: $TEST_APP
 ```
 
-## `devices`
+## `emulators`
 
-__Description__: Field for defining device details such as the device name, orientation, and
-formVersions.
+__Description__: Field for defining emulators details such as the name, orientation, and
+platformVersions.
 
 __Type__: *object*
 
 __Example__:
 ```yaml
-devices:
+emulators:
   - name: "Android GoogleApi Emulator"
     orientation: portrait
     platformVersions:
@@ -110,6 +110,112 @@ __Example__:
     - "11.0"
     - "10.0"
 ```
+
+## `devices`
+
+__Description__: Field for defining devices request.
+
+A real device can be selected using two different manner:
+- Specific device selection, through device IDs
+- Filtered device selection, with several contraints such as `name`, `platformVersion`, etc...
+
+When an ID is specified, it is prioritary on other settings.
+
+__Type__: *[]object*
+
+__Example__:
+```yaml
+devices:
+  - name: "Google Pixel.*"
+    platformVersion: 8.1
+  - id: Google_Pixel_2_real_us
+```
+
+### `id`
+
+__Description__: Request a specific device by its id.
+
+__Type__:  *string*
+
+__Example__:
+
+```yaml
+        id: Google_Pixel_2_real_us
+```
+
+### `name`
+
+__Description__:  Request a device by its name.
+
+__Type__:  *string*
+
+__Example__:
+
+Using complete name:
+```yaml
+      - name: Google Pixel 4 XL
+```
+
+Using pattern matching:
+```yaml
+        name: Google Pixel.*
+```
+
+### `platformVersion`
+
+__Description__: Request a device with a specific platform version.
+
+__Type__:  *string*
+
+__Example__:
+
+```yaml
+        platformVersion: 8.1
+```
+
+### `options`
+
+__Description__:  Device request options.
+
+__Type__: *object*
+
+#### `carrierConnectivity`
+
+__Description__: Request a device that is connected to cellular network.
+
+__Type__:  *string*
+
+__Example__:
+
+```yaml
+       carrierConnectivity: true
+
+```
+
+#### `deviceType`
+
+__Description__:  Request a device from a specific kind. Values:  `ANY`, `TABLET`, `PHONE`.
+
+__Type__:  *string*
+
+__Example__:
+
+```yaml
+        deviceTypecarrierConnectivity: TABLET
+```
+
+#### `private`
+
+__Description__: Request a device from a private pool.
+
+__Type__:  *bool*
+
+__Example__:
+
+```yaml
+        private: true
+```
+
 
 ## `testOptions`
 
