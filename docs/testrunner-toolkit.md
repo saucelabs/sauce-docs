@@ -40,6 +40,7 @@ The toolkit currently supports:
 
 |Cypress Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
+|7.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |7.1.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |6.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |5.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
@@ -49,6 +50,7 @@ The toolkit currently supports:
 
 |Playwright Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
+|1.11.1|Windows 10|Chromium, Firefox, Webkit|
 |1.10.0|Windows 10|Chromium, Firefox, Webkit|
 |1.7.1|Windows 10|Chromium, Firefox, Webkit|
 
@@ -68,6 +70,11 @@ The toolkit currently supports:
     <th>Supported Browsers</th>
   </tr>
   <tbody>
+  <tr>
+    <td rowspan='3'>1.14.2</td>
+    <td><b>macOS:</b> 11.0</td>
+    <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
   <tr>
     <td rowspan='3'>1.14.0</td>
     <td><b>macOS:</b> 11.0</td>
