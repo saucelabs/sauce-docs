@@ -92,7 +92,7 @@ To ensure W3C WebDriver compliance, you'll need to:
   }
   ```
 
-For more information on W3C WebDriver-compliant capabilities, head to the [official W3C Website](https://www.w3.org/TR/webdriver1/#capabilities). For information on `sauce:options` capabilities as well as all valid Sauce parameters, see [Test Configuration Options](/dev/cli/test-configuration-options).
+For more information on W3C WebDriver-compliant capabilities, head to the [official W3C Website](https://www.w3.org/TR/webdriver1/#capabilities). For information on `sauce:options` capabilities as well as all valid Sauce parameters, see [Test Configuration Options](/dev/test-configuration-options).
 
 <details><summary><strong>Click here</strong> to see a full list of <code>sauce:options</code> capabilities.</summary>
 
