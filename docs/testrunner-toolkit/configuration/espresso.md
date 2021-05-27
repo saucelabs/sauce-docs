@@ -161,7 +161,7 @@ Using pattern matching:
 
 ### `platformVersion`
 
-__Description__: Request a device with a specific platform version.
+__Description__: Request that the device matches a specific platform version.
 
 __Type__:  *string*
 
