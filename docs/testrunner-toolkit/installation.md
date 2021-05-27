@@ -22,9 +22,7 @@ Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e
 
 ### System Requirements
 
-You can run `saucectl` locally via Docker or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention.
-
-As a rule of thumb, if you are planning to run in Docker, matching the [Docker installation requirements](https://docs.docker.com/engine/install/#supported-platforms) is likely adequate. Please use the reference below as a quick reference:
+You can run `saucectl` locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms) or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention. The following reference serves as a general guide:
 
 <Tabs
   defaultValue="macos"
@@ -36,20 +34,20 @@ As a rule of thumb, if you are planning to run in Docker, matching the [Docker i
 
 <TabItem value="macos">
 
-* Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
 * OS: 10.14+ (Mojave, Catalina, or Big Sur)
+* Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
 
 </TabItem>
 <TabItem value="linux">
 
-* Docker: [Server](https://docs.docker.com/engine/install/#server)
 * OS/Distros: [CentOS](https://docs.docker.com/engine/install/centos/), [Debian](https://docs.docker.com/engine/install/debian/), [Fedora](https://docs.docker.com/engine/install/fedora/), [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+* Docker: [Server](https://docs.docker.com/engine/install/#server)
 
 </TabItem>
 <TabItem value="windows">
 
-* Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
 * OS: Windows 10 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
+* Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
 
 </TabItem>
 </Tabs>
