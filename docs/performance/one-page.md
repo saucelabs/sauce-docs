@@ -290,7 +290,7 @@ The following values can be used with the `-m` parameter of either the `run` or 
 |`domContentLoaded`|The point at which visual content is fully rendered and backend scripts begin to execute.|seconds|
 |`estimatedInputLatency`|The amount of time the page takes to respond to user input.|milliseconds|
 |`firstContentfulPaint`|The time from when the page starts loading to when any part of the page's content is rendered on the screen. In this context, "content" can be text, images, elements, or canvas (non-white) elements. This does not mean that the page is fully rendered.|seconds|
-|`firstMeaningfulPaint`|<button className="badge-red">DEPRECATED</button> The amount of time it takes for a page's primary body of content to rendeR. This metric is replaced by `largestContentfulPaint`.|seconds|
+|`firstMeaningfulPaint`|<span className="sauceRed">DEPRECATED</span> The amount of time it takes for a page's primary body of content to rendeR. This metric is replaced by `largestContentfulPaint`.|seconds|
 |`firstPaint`|The time it takes to render the first pixel on the page once the URL has been called.|seconds|
 |`firstVisualChange`|The time it takes for anything to be visually painted in the viewport. Calculated by video analysis, this is an alternative metric to firstPaint that is browser agnostic.|seconds|
 |`largestContentfulPaint`|The amount of time it takes for the page's largest visual element to display. This metric is considered a more accurate reflection of when the main content of a page has loaded.|seconds|

@@ -8,6 +8,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'sauce-basics',
+                    'basics/platform-configurator',
                     {
                         type: 'category',
                         label: 'Account and Team Management',
@@ -63,6 +64,14 @@ module.exports = {
 
                         ],
                     },
+                    {
+                        type: 'category',
+                        label: 'Integrations',
+                        collapsed: true,
+                        items: [
+                            'basics/integrations/deque',
+                        ],
+                    },
                 ],
             },
         ],
@@ -105,6 +114,7 @@ module.exports = {
         "Mobile Apps": [
             'mobile-apps',
             'mobile-apps/supported-devices',
+            'mobile-apps/app-storage',
             {
                 type: 'category',
                 label: 'Live Testing',
@@ -120,7 +130,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'mobile-apps/automated-testing',
-                          
+
                     {
                         type: 'category',
                         label: 'Appium',
@@ -142,12 +152,10 @@ module.exports = {
                         ],
                     },
                     'mobile-apps/automated-testing/ipa-files',
-                    'mobile-apps/automated-testing/troubleshooting',
                 ],
             },
             'mobile-apps/features',
             'mobile-apps/virtual-usb',
-            'mobile-apps/app-storage',
             'mobile-apps/ms-app-center',
             'mobile-apps/faq',
         ],
@@ -537,12 +545,27 @@ module.exports = {
                 items: [
                     'testrunner-toolkit/configuration',
                     'testrunner-toolkit/configuration/common-syntax',
-                    'testrunner-toolkit/configuration/cypress',
+                    {
+                        type: 'category',
+                        label: 'Cypress',
+                        collapsed: true,
+                        items: [
+                            'testrunner-toolkit/configuration/cypress',
+                            'testrunner-toolkit/configuration/cypress/cyp-cucumber',
+                        ]
+                    },
                     'testrunner-toolkit/configuration/playwright',
                     'testrunner-toolkit/configuration/puppeteer',
                     'testrunner-toolkit/configuration/testcafe',
-                    'testrunner-toolkit/configuration/espresso',
-                    'testrunner-toolkit/configuration/cucumber',
+                    {
+                        type: 'category',
+                        label: 'Espresso',
+                        collapsed: true,
+                        items: [
+                            'testrunner-toolkit/configuration/espresso',
+                            'testrunner-toolkit/configuration/espresso/esp-cucumber',
+                        ]
+                    },
                 ],
             },
             'testrunner-toolkit/running-tests',
@@ -566,6 +589,10 @@ module.exports = {
         ],
         "Reference": [
             'dev',
+            'dev/glossary',
+            'dev/test-configuration-options',
+            'dev/w3c-webdriver-capabilities',
+            'dev/error-messages',
             {
                 type: 'category',
                 label: 'API Reference',

@@ -3,7 +3,7 @@ id: setting-up-single-sign-on
 title: Setting Up Single Sign-On
 sidebar_label: Setting Up Single Sign-On
 ---
-<p><button className="badge-blue">ENTERPRISE PLANS ONLY</button></p>
+<p><span className="sauceDBlue">ENTERPRISE PLANS ONLY</span></p>
 Sauce Labs supports Identity Provider (Idp)-initiated Single Sign-On (SSO). This feature allows your authorized employees to access Sauce Labs in a moderated fashion, as an alternative to using credentials. SSO is available to invoiced accounts, and can only be implemented by the organization admin of the account. If you are an invoice customer, the following sections will guide you on how to set up SSO.  
 
 ## What You'll Need

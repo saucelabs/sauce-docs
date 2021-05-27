@@ -6,7 +6,7 @@ sidebar_label: Viewing and Exporting Usage Data
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><button className="badge-blue">ENTERPRISE PLANS ONLY</button></p>
+<p><span className="sauceDBlue">ENTERPRISE PLANS ONLY</span></p>
 
 If you're the owner of the overall Sauce Labs account, you can view usage information for all accounts on the **Organization Management** page. If you're an individual user, you can view your usage information on the **My Account** page.
 
