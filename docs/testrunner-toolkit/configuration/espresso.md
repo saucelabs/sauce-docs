@@ -173,7 +173,7 @@ __Example__:
 
 ### `options`
 
-__Description__:  Device request options.
+__Description__:  Further specify certain device attributes within the pool of devices that match the `name` and `version` criteria.
 
 __Type__: *object*
 
