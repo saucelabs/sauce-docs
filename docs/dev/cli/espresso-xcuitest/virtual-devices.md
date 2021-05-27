@@ -235,7 +235,7 @@ __Example__:
 
 ### `--version`
 
-__Description__: Returns the version information for Sauce Runner.
+__Description__: returns the version information for Sauce Runner.
 
 __Shorthand__: n/a
 
@@ -247,8 +247,7 @@ __Example__:
 
 ### `--help`
 
-__Description__: Prints this command line reference to the console.
-
+__Description__: prints this command line reference to the console.
 
 __Shorthand__: `-h`
 
