@@ -131,7 +131,7 @@ devices:
 
 ### `id`
 
-__Description__: Request a specific device by its id.
+__Description__: Request a specific device by its id. You can look up device IDs in the Sauce Labs app or using our [Get Devices API request](https://docs.saucelabs.com/dev/api/rdc#get-devices).
 
 __Type__:  *string*
 
