@@ -73,16 +73,16 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/v1/storage/files' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/v1/storage/files' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/files' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/files' | jq
 ```
 
 </TabItem>
@@ -204,16 +204,16 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/v1/storage/groups' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/v1/storage/groups' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/groups' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/groups' | jq
 ```
 
 </TabItem>
@@ -339,8 +339,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
 --form 'payload=@"g16K4P8IX/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
 --form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
 ```
@@ -349,8 +349,8 @@ curl --location --request POST 'https://api.us-west-1.saucelabs.com/v1/storage/u
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.eu-central-1.saucelabs.com/v1/storage/upload' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/v1/storage/upload' \
 --form 'payload=@"g16K4P8IX/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
 --form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
 ```
@@ -445,16 +445,16 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/v1/storage/download/43732d5b-5275-4a79-a936-197e4b9cd2d4' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/v1/storage/download/43732d5b-5275-4a79-a936-197e4b9cd2d4' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/download/43732d5b-5275-4a79-a936-197e4b9cd2d4' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/download/43732d5b-5275-4a79-a936-197e4b9cd2d4' | jq
 ```
 
 </TabItem>
@@ -524,8 +524,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request PUT 'https://api.us-west-1.saucelabs.com/v1/storage/files/43732d5b-5275-4a79-a936-197e4b9cd2d4' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/v1/storage/files/43732d5b-5275-4a79-a936-197e4b9cd2d4' \
 --header 'Content-Type: text/html' \
 --data-raw '{
     "item": {
@@ -538,8 +538,8 @@ curl --location --request PUT 'https://api.us-west-1.saucelabs.com/v1/storage/fi
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request PUT 'https://api.eu-central-1.saucelabs.com/v1/storage/files/43732d5b-5275-4a79-a936-197e4b9cd2d4' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/v1/storage/files/43732d5b-5275-4a79-a936-197e4b9cd2d4' \
 --header 'Content-Type: text/html' \
 --data-raw '{
     "item": {
@@ -639,16 +639,16 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request DELETE 'https://api.us-west-1.saucelabs.com/v1/storage/files/43732d5b-5275-4a79-a936-197e4b9cd2d4' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.us-west-1.saucelabs.com/v1/storage/files/43732d5b-5275-4a79-a936-197e4b9cd2d4' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request DELETE 'https://api.eu-central-1.saucelabs.com/v1/storage/files/43732d5b-5275-4a79-a936-197e4b9cd2d4' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.eu-central-1.saucelabs.com/v1/storage/files/43732d5b-5275-4a79-a936-197e4b9cd2d4' | jq
 ```
 
 </TabItem>
@@ -737,16 +737,16 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request DELETE 'https://api.us-west-1.saucelabs.com/v1/storage/groups/64612' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.us-west-1.saucelabs.com/v1/storage/groups/64612' | jq
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request DELETE 'https://api.eu-central-1.saucelabs.com/v1/storage/groups/64612' \
---header 'Authorization: Basic $SAUCE_USERNAME:$SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.eu-central-1.saucelabs.com/v1/storage/groups/64612' | jq
 ```
 
 </TabItem>
