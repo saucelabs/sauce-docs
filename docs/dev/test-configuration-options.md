@@ -744,6 +744,10 @@ __Examples__:
 "timeZone": "Los_Angeles", "timeZone": "New_York", "timeZone": "Honolulu", "timeZone": "Alaska"
 ```
 
+:::note
+Many sites determine location based on the IP address of the server, in which case changing the system's time
+zone won't have an affect. If you need a site to parse a different location, you might need to use a proxy.
+:::
 <br/>
 
 ### Pre-Run Executables
