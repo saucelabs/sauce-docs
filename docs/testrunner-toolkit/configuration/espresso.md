@@ -179,7 +179,7 @@ __Type__: *object*
 
 #### `carrierConnectivity`
 
-__Description__: Request a device that is connected to cellular network.
+__Description__: Request that the matching device is also connected to a cellular network.
 
 __Type__:  *bool*
 
