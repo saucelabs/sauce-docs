@@ -1,7 +1,7 @@
 ---
 id: headless
 title: Sauce Headless Testing in the Cross-Browser Cloud
-sidebar_label: Using Headless
+qsidebar_label: Using Headless
 ---
 
 export const Highlight = ({children, color}) => ( <span style={{
