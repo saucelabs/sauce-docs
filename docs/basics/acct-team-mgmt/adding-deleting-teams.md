@@ -6,7 +6,7 @@ sidebar_label: Adding and Deleting Teams
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><button className="badge-blue">ENTERPRISE PLANS ONLY</button></p>
+<p><span className="sauceDBlue">ENTERPRISE PLANS ONLY</span></p>
 If you are an organization admin, you can create and delete teams and assign concurrency limits to each team.
 
 ## Adding Teams

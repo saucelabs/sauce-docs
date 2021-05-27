@@ -6,7 +6,7 @@ sidebar_label: Managing User Information
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><button className="badge-blue">ENTERPRISE PLANS ONLY</button></p>
+<p><span className="sauceDBlue">ENTERPRISE PLANS ONLY</span></p>
 
 ## Updating User Information
 Organization admins can update the name, email address, user name, role, and team assignment for any user in their organization. Team admins can update that information for users on their team. If you invite a user via email, you will need to edit their concurrency limit and other account details after they have accepted your invitation and created an account.
