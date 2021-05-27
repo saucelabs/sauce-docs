@@ -111,7 +111,7 @@ There are a few potential causes for this error:
 
 * Make sure you have internet connectivity.
 * Make sure your script includes `driver.quit()` or `browser.stop()` to conclude the test.
-* If your test needs more than 90 seconds to send a new command to the browser, use the `idleTimeout` capability to modify Sauce's wait time for further commands. For more information, [Test Configuration Options > Timeouts section](/dev/cli/test-configuration-options).
+* If your test needs more than 90 seconds to send a new command to the browser, use the `idleTimeout` capability to modify Sauce's wait time for further commands. For more information, [Test Configuration Options > Timeouts section](/dev/test-configuration-options).
 
 ## Test Exceeded Maximum Duration of 1800 Seconds
 
@@ -128,7 +128,7 @@ You'll see this error when your test suite is still running in a session that ha
 
 * Check for infinite loops in your test.
 * If you suspect that the error is related to latency in the Sauce network or testing infrastructure, consider breaking your test suite up into [small, autonomous, atomic tests](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365933).
-* If your test needs more than 1800 seconds to complete, you can use the `maxDuration` capability to make Sauce wait longer for your test to complete. You can find more information about this capability under [Test Configuration Options > Timeouts section](/dev/cli/test-configuration-options).
+* If your test needs more than 1800 seconds to complete, you can use the `maxDuration` capability to make Sauce wait longer for your test to complete. You can find more information about this capability under [Test Configuration Options > Timeouts section](/dev/test-configuration-options).
 
 
 ## User Terminated
@@ -249,7 +249,7 @@ There are a few potential causes for this error.
 
 **How to Resolve**
 
-*   If the issue is Selenium needing more than five minutes to run your command, you can use the `commandTimeout` capability to have Sauce wait longer for your command to execute. You can find out more about this capability under [Test Configuration Options > Timeouts section](/dev/cli/test-configuration-options).
+*   If the issue is Selenium needing more than five minutes to run your command, you can use the `commandTimeout` capability to have Sauce wait longer for your command to execute. You can find out more about this capability under [Test Configuration Options > Timeouts section](/dev/test-configuration-options).
 *   If the cause is a browser crash, the easiest way to check is to watch the video of the test. If this is the case, you may be able to resolve the error by removing memory-hungry commands from your test script, like fetching the page source or taking screenshots with Selenium.
 
 
