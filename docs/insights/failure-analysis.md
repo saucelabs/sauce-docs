@@ -6,7 +6,7 @@ description: Use the machine learning power of Sauce Failure Analytics to uncove
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><button className="badge-blue">ENTERPRISE PLANS ONLY</button></p>
+<p><span className="sauceDBlue">ENTERPRISE ONLY</span></p>
 
 Failure Analysis is designed to help you optimize test efficiency and efficacy. The proprietary machine learning algorithms  review pass/fail data along with Selenium and Appium command logs to unearth common failures and their impact on the test suite as a whole. It then presents a report with tabs that aggregate patterns that are predictive of failure, helping you avoid similar or duplicate failures in future tests. Using Failure Analysis:
 

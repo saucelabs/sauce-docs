@@ -26,7 +26,7 @@ To access General settings:
 | Require Full Name for Users  | With this option enabled, users must enter both a first name and a last name when creating their accounts.  |
 
 ## Security Settings
-<p><button className="badge-blue">ENTERPRISE PLANS ONLY</button></p>
+<p><span className="sauceDBlue">ENTERPRISE PLANS ONLY</span></p>
 Sauce Labs security settings allow organization admins to manage how users in their enterprise can run tests.
 
 To access Security settings:
