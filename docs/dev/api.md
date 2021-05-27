@@ -24,9 +24,33 @@ Each endpoint is constructed from a `{base-url}` prefix that is based on the dat
 
 |Data Center|API Base URL|
 |---|-------|
-|None|`https://saucelabs.com/`|
 |US|`https://api.us-west-1.saucelabs.com/`|
 |Europe|`https://api.eu-central-1.saucelabs.com/`|
+
+### Authentication
+
+The Sauce Labs API uses API keys to authenticate requests. You can view and manage your API key in the [User Seettings](https://app.saucelabs.com/user-settings) page of the Sauce Labs app.
+
+Authentication to the API is performed via [HTTP Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication). Provide your username and API key as the basic auth username and password values, respectively. All requests must be made over HTTPS. Calls made over HTTP or without proper authentication will fail.
+
+You can provide your authentication credentials as inline parameters of your request or using a Basic Header.
+
+```curl "Inline Authenticated Request Example"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams'
+```
+
+```curl "Header Authenticated Request Example"
+curl -L -X GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/' -H 'Authorization: Basic' -U <SAUCE_USERNAME> -K <SAUCE_ACCESS_KEY>
+```
+
+The request examples throughout the API documentation utilize variables for the authentication credentials. Consider setting your credentials as environment variables using the following commands so you can simply copy the request samples and run them without having to manually pass your credentials for each call.
+
+```jsx "Set Credential Environment Variables"
+$ export SAUCE_USERNAME=<your.user.name>
+$ export SAUCE_ACCESS_KEY=<your access key>
+```
+
 
 ### Versioning
 
@@ -39,143 +63,53 @@ The API is versioned by URL, each of which may be in a different stage of releas
 
 Unspecified method requests default to `GET`. All other supported request types (`PUT`; `POST`; `DELETE`: `PATCH`) require setting the `Content-Type` header to `application/json`.
 
-### Authentication
+## Errors
 
-The Sauce Labs REST API uses [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). You can pass the `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` authentication credentials as inline parameters in the URL, or include an Authorization Header to the request.
+Sauce Labs uses conventional HTTP response codes to indicate the success or failure of an API request. In general, codes in the `2xx` range indicate success, while codes in the `4xx` range indicate an error that caused the request to be denied. Codes in the `5xx` range indicate an error reaching the Sauce Labs server (which is rare). The following table provides a summary of response codes returned by the APIs.
 
-The following pseudocode examples illustrate how to authenticate the Sauce Labs REST API:
-<Tabs
-  defaultValue="curl"
-  values={[
-    {label: 'cURL', value: 'curl'},
-    {label: 'Java', value: 'java'},
-    {label: 'C#', value: 'csharp'},
-    {label: 'node.js', value: 'node'},
-    {label: 'Python', value: 'python'},
-    {label: 'Ruby', value: 'ruby'},
-  ]}>
+|Code|Description|
+|---|---|
+|`200` - OK|The request was processed successfully. Typically returned for `GET` or `DELETE` requests that do not create or update records.|
+|`201` - OK|The request was processed successfully. Typically returned for `POST`, `PUT`, or `PATCH` requests that pass data values for the purpose of creating or updating records.|
+|`400` - Bad Request|The request was not acceptable, often due to missing or improperly formatted parameters. This code may be accompanied by additional information in the form of a body payload or a message attribute of the response code.|
+|`401` - Unauthorized|The authentication credentials were missing or not valid.|
+|`403` - Forbidden|The authenticated user does not have permission to perform the request.|
+|`404` - Not Found|The requested resource does not exist. This can refer to the endpoint itself (check for typos in the request URL), or the requested data (the job ID does not match any existing records, for example). This code may be accompanied by additional information in the form of a body payload or message attribute of the response code.|
+|`429` - Too many requests|The number of requests has exceeded the [rate limit](#rate limits) for the API.|
+|`500` - Server Error|The Sauce Labs server was not responsive.|
 
-<TabItem value="curl">
+Following are some sample error responses that include additional detail.
 
-```curl title="Inline Parameter Authentication"
-curl -XGET 'https://<SAUCE_USERNAME>:<SAUCE_ACCESS_KEY>@api.us-west-1.saucelabs.com/team-management/v1/users'
+```json title="404 Typo in Request URL Error Response"
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Not Found</title>
+</head>
+
+<body>
+	<h1>Not Found</h1>
+	<p>The requested resource was not found on this server.</p>
+</body>
+
+</html>
 ```
 
-```curl title="Auth Header Authentication"
-curl -L -X GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/' -H 'Authorization: Basic' -U <SAUCE_USERNAME> -K <SAUCE_ACCESS_KEY>
-```
-
-</TabItem>
-<TabItem value="java">
-
-```java
-String username = System.getenv("SAUCE_USERNAME");
-String accessKey = System.getenv("SAUCE_ACCESS_KEY");
-String statusURL = "https://saucelabs.com/rest/v1/info/status"
-
-CredentialsProvider provider = new BasicCredentialsProvider();
-UsernamePasswordCredentials credentials
- = new UsernamePasswordCredentials(username, accessKey);
-provider.setCredentials(AuthScope.ANY, credentials);
-
-HttpClient client = HttpClientBuilder.create()
-  .setDefaultCredentialsProvider(provider)
-  .build();
-
-HttpResponse response = client.execute()
-  new HttpGet(statusURL);
-int statusCode = response.getStatusLine()
-  .getStatusCode();
-
-assertThat(statusCode, equalTo(HttpStatus.SC_OK));
-```
-
-</TabItem>
-<TabItem value="csharp">
-
-```csharp title=".NET 4.5 HTTPClient Example"
-static async void HTTP_GET() {
-    var SAUCEURL = "https://saucelabs.com/rest/v1/info/status";
-    var sauceUsername = Environment.GetEnvironmentVariable("SAUCE_USERNAME");
-    var sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY");
-
-    Console.WriteLine("GET: + " + SAUCEURL);
-
-    HttpClient client = new HttpClient();
-
-    var byteArray = Encoding.ASCII.GetBytes(sauceUsername + ":" + sauceAcccessKey);
-    client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-
-    HttpResponseMessage response = await client.GetAsync(SAUCEURL);
-    Console.WriteLine("Response StatusCode: " + (int)response.StatusCode);
+```json title="404 User ID Not Found Error Response"
+{
+    "detail": "Not found."
 }
 ```
 
-</TabItem>
-<TabItem value="node">
-
-```javascript
-let username = process.env.SAUCE_USERNAME;
-let accessKey = process.env.SAUCE_ACCESS_KEY;
-
-let sauceURL = 'https://' + username + ':' + accessKey + '@saucelabs.com/rest/v1/info/status';
-
-const axios = require("axios");
-const testAPI = async () => {
-    try {
-        response = await axios.get(sauceURL);
-        console.log(response.data);
-    }
-    catch (error)
-    {
-        console.log(error);
-    }
-};
+```json title="400 Missing Required Parameter Error Response"
+{
+    "verify_password": [
+        "This field is required."
+    ]
+}
 ```
 
-</TabItem>
-<TabItem value="python">
-
-```python
-from requests.auth import HTTPBasicAuth
-import os
-
-sauce_username = os.environ["SAUCE_USERNAME"]
-sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
-sauce_url = "https://saucelabs.com/rest/v1/info/status"
-
-requests.get(sauce_url, auth=HTTPBasicAuth(sauce_username, sauce_access_key))
-```
-
-</TabItem>
-<TabItem value="ruby">
-
-```ruby
-require 'net/http'
-require 'net/https'
-require 'uri'
-
-sauce_username = ENV['SAUCE_USERNAME']
-sauce_access_key = ENV['SAUCE_ACCESS_KEY']
-
-sauce_uri = URI('https://saucelabs.com/rest/v1/info/status')
-
-Net::HTTP.start(uri.host, uri.port,
-    :use_ssl => uri.scheme == 'https',
-    :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
-
-    request = Net::HTTP::Get.new uri.request_uri
-    request.basic_auth sauce_username, sauce_access_key
-
-    response = http.request request # Net::HTTPResponse object
-
-    puts response
-    puts response.body
-end
-```
-
-</TabItem>
-</Tabs>
 
 ## Rate Limits
 
@@ -197,3 +131,16 @@ Requests received after the rate limit is reached return a [429 response code](h
 | All unauthenticated request endpoints | 2 requests per minute ||
 
 For more information about rate limiting check out this blog post: [Announcing New Rest API Usage Limits](https://saucelabs.com/blog/announcing-new-rest-api-rate-limits).
+
+## JQ Response Formatting
+
+The request samples throughout the API documentation are appended with `| jq` in order to return the response in a more readable format. You can install JQ using NPM or Brew:
+
+```
+npm install jq
+```
+```
+brew install jq
+```
+
+Alternatively, you can remove the `|jq` reference from your requests and the response will be returned as raw JSON.
