@@ -113,7 +113,7 @@ __Example__:
 
 ## `devices`
 
-__Description__: Field for requesting a real device for the test.
+__Description__: Field for requesting real devices for the test.
 
 You can request a specific device using its ID, or you can specify a set of criteria to choose the first available device that matches the specifications.
 
