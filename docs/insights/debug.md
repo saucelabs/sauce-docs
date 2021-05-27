@@ -104,7 +104,7 @@ The following use cases are supported for the `sauce:intercept` command.
 
 Configure `sauce:intercept` to redirect an outgoing request to an alternate URL.
 
-**Command Parameters**
+##### Command Parameters
 
 <table id="table-fw">
   <tbody>
@@ -121,7 +121,7 @@ Configure `sauce:intercept` to redirect an outgoing request to an alternate URL.
   </tbody>
 </table>
 
-**Examples**
+##### Examples
 
 <Tabs
     groupId="lang"
@@ -156,7 +156,7 @@ browser.interceptRequest({
 
 Configure `sauce:intercept` to return the specified response.
 
-**Command Parameters**
+##### Command Parameters
 
 <table id="table-fw">
   <tbody>
@@ -178,7 +178,7 @@ Configure `sauce:intercept` to return the specified response.
   </tbody>
 </table>
 
-**Examples**
+##### Examples
 
 <Tabs
     groupId="lang"
@@ -233,7 +233,7 @@ browser.interceptRequest({
 
 Configure `sauce:intercept` to return the specified error.
 
-**Command Parameters**
+##### Command Parameters
 
 <table id="table-fw">
   <tbody>
@@ -264,7 +264,7 @@ Configure `sauce:intercept` to return the specified error.
   </tbody>
 </table>
 
-**Examples**
+##### Examples
 
 <Tabs
     groupId="lang"
@@ -302,7 +302,7 @@ Use the JavascriptExecutor throttle commands to simulate different connectivity 
 
 Mobile devices have less CPU power than most desktops and laptops (or a VM's default configuration). Use CPU Throttling to simulate how your app will run on slower systems.
 
-**Command Parameters**
+##### Command Parameters
 
 <table id="table-fw">
   <tbody>
@@ -313,7 +313,7 @@ Mobile devices have less CPU power than most desktops and laptops (or a VM's def
   </tbody>
 </table>
 
-**Examples**
+##### Examples
 
 <Tabs
     groupId="lang"
@@ -344,7 +344,7 @@ browser.throttleCPU(4)
 
 With network conditioning you can test your site on a variety of network connections, including Edge, 3G, and even offline. You can throttle the data throughput, including the maximum download and upload throughput, and use latency manipulation to enforce a minimum delay in connection round-trip time (RTT).
 
-**Command Parameters**
+##### Command Parameters
 
 <table id="table-fw">
   <tbody>
@@ -430,7 +430,7 @@ With network conditioning you can test your site on a variety of network connect
   </tbody>
 </table>
 
-**Examples**
+##### Examples
 
 <Tabs
     groupId="lang"
