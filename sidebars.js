@@ -589,8 +589,10 @@ module.exports = {
         ],
         "Reference": [
             'dev',
-            'dev/error-messages',
             'dev/glossary',
+            'dev/test-configuration-options',
+            'dev/w3c-webdriver-capabilities',
+            'dev/error-messages',
             {
                 type: 'category',
                 label: 'API Reference',
@@ -613,8 +615,6 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'dev/cli',
-                    'dev/cli/test-configuration-options',
-                    'dev/cli/w3c-webdriver-capabilities',
                     'dev/cli/sauce-connect-proxy',
                     {
                         type: 'category',

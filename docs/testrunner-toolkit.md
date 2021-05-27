@@ -146,6 +146,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |Playwright Version|Supported Browsers|
 |-----|----|
+|1.11.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.12.0)|
 |1.11.0|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.11.0)|
 |1.10.0|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.10.0)|
 |1.7.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.7.5)|
@@ -156,6 +157,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |Puppeteer Version|Supported Browsers|
 |-----|----|
+|9.1.1|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.1.0)|
 |8.0.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.0.0)|
 |3.0.4|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v0.3.0)|
 
@@ -165,6 +167,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |TestCafe Version|Supported Browsers|
 |----|----|
+|1.14.2|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.7.0)|
 |1.14.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.6.1)|
 |1.11.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.5.0)|
 |1.10.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.2.6)|
