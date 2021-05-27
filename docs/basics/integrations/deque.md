@@ -114,10 +114,6 @@ browser.addCommand('getAxeResults', function (name) {
 })
 ```
 
-:::note Full Example
-You can view the full `wdio.conf.js` example [here](https://github.com/saucelabs/axe-wdio/blob/main/mocha-wdio/wdio.conf.js)
-:::
-
 ## Sauce Labs Setup
 
 It's recommended that you create a separate configuration to manage the Sauce Labs configuration details. In our example we will create a file called `wdio.saucelabs.conf.js`.
