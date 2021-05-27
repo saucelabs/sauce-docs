@@ -40,41 +40,13 @@ Add the following dependencies to your `package.json` file:
 * `sauce-service` for the WebdriverIO plugin service
 
 ```js
-"@axe-core/webdriverio": "4.1.2-alpha.106"
+"@axe-core/webdriverio": "4.2.1"
 "@wdio/sauce-service"
 ```
 
 ## Create the Configuration
 
-Next, create a `wdio.conf.js` in your root project directory with the following details:
-
-```js
-exports.config = {
-    runner: 'local',
-    specs: [
-        './test/specs/**/*.js'
-    ],
-    exclude: [],
-    maxInstances: 10,
-    capabilities: [{
-        maxInstances: 5,
-        browserName: 'chrome',
-        acceptInsecureCerts: true
-    }],
-    logLevel: 'error',
-    baseUrl: 'https://app.eu-central-1.saucelabs.com/',
-    waitforTimeout: 10000,
-    connectionRetryTimeout: 120000,
-    connectionRetryCount: 3,
-    services: ['chromedriver'],
-    framework: 'mocha',
-    reporters: ['spec'],
-    mochaOpts: {
-        ui: 'bdd',
-        timeout: 60000
-    },
-}
-```
+Next, create a `wdio.conf.js` in your root project directory, see the [WebdriverIO documentation](https://webdriver.io/docs/gettingstarted#set-up) for further details. 
 
 ### WebdriverIO Instance
 
@@ -114,9 +86,69 @@ browser.addCommand('getAxeResults', function (name) {
 })
 ```
 
+### Set Local Driver Capabilities
+Before you test on Sauce Labs, ensure your axe™ accessibility tests return the desired `a11y` results. The best course of action is to test against local drivers such as chrome, firefox, safari, etc.
+
+Here are some examples of how to instantiate a local driver through the `capabilities` object:
+
+<Tabs
+defaultValue="chrome"
+values={[
+{label: 'Chrome', value: 'chrome'},
+{label: 'Firefox', value: 'firefox'},
+]}>
+
+<TabItem value="chrome">
+
+```js
+    capabilities: [{
+        browserName: 'chrome', 
+        'goog:chromeOptions': {
+            args: [
+                '--no-sandbox', 
+                '--disable-infobars',
+            ],
+        },
+    },
+];
+```
+
+</TabItem>
+<TabItem value="firefox">
+
+```js
+    capabilities: [{
+        browserName: 'firefox',
+        specs: [
+            'test/ffOnly/*'
+        ],
+        'mox:firefoxOptions': {
+            args: [
+                '--headless'
+            ],
+        },
+    },
+];
+```
+</TabItem>
+</Tabs>
+
+
+For further information please read the following:
+
+* [WebdriverIO Documentation for setting up Driver Binaries](https://webdriver.io/docs/driverbinaries/#geckodriver)
+* [WebdriverIO Documentation for the config file](https://webdriver.io/docs/configurationfile)
+
+### Running the Test
+Now in your actual tests, all you need to do is call the following to get the `axe-core` test results:
+
+```js
+browser.getAxeResults()
+```
+
 ## Sauce Labs Setup
 
-It's recommended that you create a separate configuration to manage the Sauce Labs configuration details. In our example we will create a file called `wdio.saucelabs.conf.js`.
+It's recommended that you create a separate `.conf.js` file in order to manage the Sauce Labs configuration details.
 
 For example:
 
@@ -146,7 +178,7 @@ config.key = "yourAccessKey";
 config.region = "yourRegion -> us / eu";
 ```
 
-You can retrieve your Sauce Labs account credentials with [this link](https://app.saucelabs.com/user-settings). This `region` property is used for both Virtual Machine Cloud and Real Device Cloud tests, and the acceptable values are:
+You can retrieve your Sauce Labs account credentials with [this link](https://app.saucelabs.com/user-settings). The `region` property is used for both Virtual Machine Cloud and Real Device Cloud tests, and the acceptable values are:
 
 * `us` - *default*
 * `eu`
@@ -165,18 +197,19 @@ config.region = process.env.REGION || 'us';
 Visit the [WebDriverIO documentation](https://webdriver.io/docs/sauce-service.html) for further details.
 :::
 
-### Set Browser Options
-In order to test on multiple different browsers and platforms, add the configuration options in the `capabilities` object. 
+### Set Sauce Labs Capabilities
 
-For example:
+In order to test on Sauce Labs with multiple different browsers and platforms, add the following configuration options in the `capabilities` object.
+
+Here are some examples:
 
 <Tabs
 defaultValue="chrome"
 values={[
-    {label: 'Chrome', value: 'chrome'},
-    {label: 'Firefox', value: 'firefox'},
-    {label: 'Safari', value: 'safari'},
-    {label: 'Edge', value: 'edge'},
+{label: 'Chrome', value: 'chrome'},
+{label: 'Firefox', value: 'firefox'},
+{label: 'Safari', value: 'safari'},
+{label: 'Edge', value: 'edge'},
 ]}>
 
 <TabItem value="chrome">
@@ -225,9 +258,11 @@ values={[
 </TabItem>
 </Tabs>
 
-### Set Sauce-Specific Options
+:::tip Browers and OS support on Sauce Labs
+For a full list of supported browsers/platforms visit [this page](https://saucelabs.com/platform/supported-browsers-devices).
+:::
 
-It's a best practice to set the test options that refer only to Sauce Labs features. For example, declare this at the top of `wdio.saucelabs.conf.js`:
+It's also a best practice to set test options that are specific to Sauce Labs features. For example, declare this at the top of your configuration:
 
 ```js
 const defaultBrowserSauceOptions = {
@@ -252,14 +287,8 @@ config.capabilities = [
 ];
 ```
 
-## Running the Test
-Now in your actual tests, all you need to do is call the following to get the `axe-core` test results:
-
-```js
-browser.getAxeResults()
-```
-
 ## Additional Resources
 * [Deque Saucelabs Integration Documentation](https://www.deque.com/saucelabs/get-started/)
 * [Deque `axe-core` Example WebDriverIO Project](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/webdriverio)
+* [Documentation about the chainable `axe` API for WebdriverIO](https://www.npmjs.com/package/@axe-core/webdriverio)
 * [Sauce Labs / Deque Marketing Blog Post](https://saucelabs.com/news/sauce-labs-and-deque-systems-join-forces-to-help-enterprises-ensure-digital-accessibility)
