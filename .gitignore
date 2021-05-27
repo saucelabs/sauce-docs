@@ -1,6 +1,8 @@
 # Dependencies
 /node_modules
 package-lock.json
+yarn.lock
+
 # Log files
 logs
 npm-debug.log*
