@@ -700,8 +700,6 @@ __Example__:
 ### `commandTimeout`
 __Description__: sets command timeout in seconds. As a safety measure to prevent Selenium crashes from making your tests run indefinitely, we limit how long Selenium can take to run a command in our browsers. This is set to 300 seconds by default. The maximum command timeout value allowed is 600 seconds.
 
-<br/>
-
 __Value Type__: integer.
 
 __Example__:
