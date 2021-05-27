@@ -11,20 +11,33 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-This page includes a list of valid Sauce Labs test configuration options.
-See the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator)
-to generate the basic code necessary for executing a test. Those settings as well as all valid parameters are described below.
+This page includes a list of valid test configuration options for tests run on Sauce Labs.
 
-We always recommend using the latest released version of Selenium, but to ensure W3C WebDriver compliance, make sure to use Selenium version 3.11 or later. Sauce Labs determines W3C sessions with the presence of `sauce:options` capabilities and [generic W3C WebDriver-compliant capabilities](https://www.w3.org/TR/webdriver1/#capabilities). See [W3C Capabilities Support](https://wiki.saucelabs.com/pages/viewpage.action?pageId=78414463) for more information.
+See the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to generate the basic code necessary for executing a test. Those settings as well as all valid parameters are described below.
+
+:::note
+Each browser vendor also supplies a list of browser-specific capabilities that you can also use. These will be set in the applicable browser Options class in Selenium.
+* [Chrome Capabilities](https://chromedriver.chromium.org/capabilities)
+* [Microsoft Edge Capabilities](https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options)
+* [Firefox Capabilities](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions)
+* [Internet Explorer Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/ie/InternetExplorerDriver.html)
+* [Safari Capabilities](https://developer.apple.com/documentation/webkit/about_webdriver_for_safari)
+:::
 
 
 ## WebDriver W3C Capabilities (Required)
+
+Sauce Labs determines W3C sessions with the presence of `sauce:options`
+capabilities and [generic W3C WebDriver-compliant capabilities](https://www.w3.org/TR/webdriver1/#capabilities). See [W3C Capabilities Support](/dev/w3c-webdriver-capabilities) for more information.
+
+:::tip Use the latest version of the Selenium library in your code for the most up to date support.
+:::
 
 Below are the W3C WebDriver primary test configuration settings for Sauce Labs desktop browser tests and mobile tests.
 
 ### `browserName`
 __Description__: identifies the user agent. See the [WebDriver
-W3C Editor website](https://w3c.github.io/webdriver/#dfn-browser-name) for more info.
+W3C Specification](https://w3c.github.io/webdriver/#dfn-browser-name) for more info.
 
 >**NOTE**: This setting also applies to emulators, simulators and real devices when automating with a mobile browser. It must be set when [App Name](#app) is not set.
 * For Android v5 and below, the value needs to be `"Browser"`, v6 and above, it is `"Chrome"`.
@@ -39,7 +52,7 @@ __Example__:
 ```
 
 ### `browserVersion`
-__Description__: identifies the version of the browser you want to use in your test. See the [WebDriver W3C Editor website](https://w3c.github.io/webdriver/#dfn-browser-version) for more info.
+__Description__: identifies the version of the browser you want to use in your test. See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-browser-version) for more info.
 
 To use the latest stable version of Chrome or Firefox that we support, you can use `"browserVersion": "latest"`. You can also use `"browserVersion": "latest-1"` or `"browserVersion": "latest-2"`, etc. to request the next most recent versions of a browser.
 
@@ -57,7 +70,7 @@ __Example__:
 ```
 
 ### `platformName`
-__Description__: The name of the operating system the browser or mobile device should be running on. See the [WebDriver W3C Editor website](https://w3c.github.io/webdriver/#dfn-platform-name) for more info.
+__Description__: The name of the operating system the browser or mobile device should be running on. See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-platform-name) for more info.
 
 __Value Type__: string.
 
@@ -67,25 +80,88 @@ __Example__:
 ```
 
 ## Browser W3C Capabilities (Optional)
-Below are more Sauce-compatible W3C WebDriver specification capabilities. To view their descriptions, see the [W3C WebDriver Capabilities site](https://www.w3.org/TR/webdriver/#capabilities).
+Below are more Sauce-compatible W3C WebDriver specification capabilities. To view their descriptions, see the [W3C WebDriver Specification Capabilities](https://www.w3.org/TR/webdriver/#capabilities).
 
 ### `acceptInsecureCerts`
-See the [WebDriver W3C Editor website](https://w3c.github.io/webdriver/#dfn-insecure-tls-certificates) for more info.
+__Description__: Indicates whether untrusted and self-signed TLS certificates are implicitly trusted on navigation for
+the duration of the session. The default value is `false`.
+
+See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-insecure-tls-certificates) for more info.
+
+__Value Type__: boolean.
+
+__Example__:
+```java
+"acceptInsecureCerts": true
+```
 
 ### `pageLoadStrategy`
-See the [WebDriver W3C Editor website](https://w3c.github.io/webdriver/#dfn-page-load-strategy) for more info.
+__Description__: Defines the current session’s page load strategy. The allowed values and their associated required document readiness state may be found on the [WebDriver W3C Specification Page Load Strategies Table](https://w3c.github.io/webdriver/#dfn-table-of-page-load-strategies).
+
+See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-page-load-strategy) for more info.
+
+__Value Type__: string.
+
+__Example__:
+```java
+"pageLoadStrategy": "eager"
+```
 
 ### `proxy`
-See the [WebDriver W3C Editor website](https://w3c.github.io/webdriver/#dfn-proxy-configuration) for more info.
+__Description__: Defines the current session’s proxy configuration.
+
+See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-proxy-configuration) for more info.
+
+__Value Type__: object.
+
+__Example__:
+```java
+"proxy": {"proxyType": "manual",
+          "httpProxy": "myproxy.com:3128"}
+```
 
 ### `timeouts`
-See the [WebDriver W3C Editor website](https://w3c.github.io/webdriver/#dfn-session-script-timeout) for more info.
+__Description__: Describes the timeouts imposed on certain session operations. Applicable timeouts can be found
+on the [WebDriver W3C Specification Timeouts Table](https://w3c.github.io/webdriver/#timeouts)
+
+See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-session-script-timeout) for more info.
+
+__Value Type__: object.
+
+__Example__:
+
+```java
+"timeouts": {"script": 20000,
+             "pageLoad": 400000,
+             "implicit": 1000}
+```
+<br/>
 
 ### `strictFileInteractability`
-See the [WebDriver W3C Editor website](https://w3c.github.io/webdriver/#dfn-strict-file-interactability) for more info.
+__Description__: Defines the current session’s strict file interactability. This indicates that interactabilty checks will be applied to File type input elements. The default is `false`.
+
+See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-strict-file-interactability) for more info.
+
+__Value Type__: boolean.
+
+__Example__:
+```java
+"strictFileInteractability": true
+```
+<br/>
 
 ### `unhandledPromptBehavior`
-See the [WebDriver W3C Editor website](https://w3c.github.io/webdriver/#dfn-unhandled-prompt-behavior) for more info.
+__Description__: Describes the current session’s user prompt handler. The allowed options may be found in the  [WebDriver W3C Specification User Prompt Handler Table](https://w3c.github.io/webdriver/#dfn-user-prompt-handler). The default value is `"dismiss and notify"`.
+
+See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-unhandled-prompt-behavior) for more info.
+
+__Value Type__: string.
+
+__Example__:
+```java
+"unhandledPromptBehavior": "ignore"
+```
+<br/>
 
 ## Desktop Browser Capabilities: Sauce-Specific (Optional)
 
@@ -158,10 +234,9 @@ __Example__:
 
 __Description__: allows you to specify the version of Selenium you want to use for your test.
 
-Sauce Labs defaults to different versions depending on how old the browser or platform is and whether the user is
-initializing a session with valid W3C syntax.
+Sauce Labs defaults to different versions depending on how old the browser or platform is and whether the user is initializing a session with valid W3C syntax.
 
-:::tip Always use the latest version.
+:::tip Always use the latest version
 
 The Selenium developers are very conscientious about backward compatibility support, so we recommend always using the latest available version of Selenium unless you find a specific, known issue.
 :::
@@ -191,10 +266,7 @@ __Example__:
 ### `extendedDebugging`
 __Description__: enables [Extended Debugging features](/insights/debug/index.html).
 
-This applies to Firefox and Chrome only. It records HAR files and console logs for both of these browsers
-In Chrome it also enables network interception, network and cpu throttling as well as access to network logs
-during the session. It is required to be true for [`capturePerformance`](#captureperformance)
-The default value is `false`.
+This applies to Firefox and Chrome only. It records HAR files and console logs for both of these browsers. In Chrome, it also enables network interception, network and cpu throttling as well as access to network logs during the session. It is required to be true for [`capturePerformance`](#captureperformance). The default value is `false`.
 
 __Value Type__: boolean.
 
@@ -423,6 +495,38 @@ __Example__:
 ```
 <br/>
 
+### `username`
+__Description__: use this to set your Sauce Labs username for the test. This value can be found in your [user settings page](https://app.saucelabs.com/user-settings).
+
+:::note
+You can either set `"username"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](https://docs.saucelabs.com/dev/test-configuration-options#visual-testing)), this must be set in capabilities.
+:::
+
+__Value Type__: string.
+
+__Example__:
+```java
+"username": "sauce-example-user"
+```
+
+<br/>
+
+### `accessKey`
+__Description__: use this to set your Sauce Labs access key for the test. This value can be found in your [user settings page](https://app.saucelabs.com/user-settings).
+
+:::note
+You can either set `"accessKey"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](https://docs.saucelabs.com/dev/test-configuration-options#visual-testing), this must be set in capabilities.
+:::
+
+__Value Type__: string.
+
+__Example__:
+```java
+"accessKey": "00000000-0000-0000-0000-000000000000"
+```
+
+<br/>
+
 ### `custom-data`
 __Description__: user-defined custom data that will accept any valid JSON object, limited to 64KB in size.
 
@@ -471,8 +575,8 @@ __Example__:
 
 ### `tunnelIdentifier`
 __Description__: If you're using [Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/sauce-connect/index.html) to test an application that is behind a firewall or on your local machine that has been created with a `--tunnel-identifier` value, you must provide that identifier in order to use the tunnel.
-See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup)
-for more information.
+
+See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information.
 
 __Value Type__: string.
 
@@ -485,8 +589,7 @@ __Example__:
 ### `parentTunnel`  
 __Description__: for using shared tunnels in your organization.
 
-This capability will let the test job use any shared tunnels available from the specified parent
-account (i.e., any account that is upstream in the hierarchy).
+This capability will let the test job use any shared tunnels available from the specified parent account (i.e., any account that is upstream in the hierarchy).
 
 See [Using Sauce Connect Tunnel Identifiers](/secure-connections/sauce-connect/setup-configuration/high-availability) for more information.
 
@@ -500,15 +603,13 @@ __Example__:
 ```
 
 >**NOTE**: If you're using a shared tunnel, you'll need to specify both `tunnelIdentifier` and `parentTunnel`.
-:::
 
 <br/>
 
 ### `recordVideo`
 __Description__: use this to disable video recording. By default, Sauce Labs records a video of every test you run.
 
-Disabling video recording can be useful for debugging failing tests as well as having a visual confirmation
-that a certain feature works (or still works). However, there is an added wait time for screen recording during a test run.
+Disabling video recording can be useful for debugging failing tests as well as having a visual confirmation that a certain feature works (or still works). However, there is an added wait time for screen recording during a test run.
 
 __Value Type__: boolean.
 
@@ -532,11 +633,9 @@ __Example__:
 <br/>
 
 ### `recordScreenshots`
-__Description__: disables step-by-step screenshots.
-In addition to capturing video, Sauce Labs captures step-by-step screenshots of every test you run.
+__Description__: disables step-by-step screenshots. In addition to capturing video, Sauce Labs captures step-by-step screenshots of every test you run.
 
-Most users find it very useful to get a quick overview of what happened without having to watch the complete video.
-However, this feature may add some extra time to your tests.
+Most users find it very useful to get a quick overview of what happened without having to watch the complete video. However, this feature may add some extra time to your tests.
 
 __Value Type__: boolean.
 
@@ -568,8 +667,7 @@ These settings apply to all tests run on Virtual device cloud (desktop browsers,
 The following are Sauce Labs-specific options that apply only for desktop sessions, emulators and simulators. These can be added to the `sauce:options` block of your session creation code.
 
 ### `maxDuration`
-__Description__: sets maximum test duration in seconds.
-As a safety measure to prevent tests from running indefinitely, the default is 1,800 seconds (30 minutes), and the maximum is 10,800 seconds (three hours).
+__Description__: sets maximum test duration in seconds. As a safety measure to prevent tests from running indefinitely, the default is 1,800 seconds (30 minutes), and the maximum is 10,800 seconds (three hours).
 
 :::caution Tests Should Not Exceed 30 Minutes
 
@@ -588,8 +686,7 @@ __Example__:
 <br/>
 
 ### `commandTimeout`
-__Description__: sets command timeout in seconds.
-As a safety measure to prevent Selenium crashes from making your tests run indefinitely, we limit how long Selenium can take to run a command in our browsers. This is set to 300 seconds by default. The maximum command timeout value allowed is 600 seconds.
+__Description__: sets command timeout in seconds. As a safety measure to prevent Selenium crashes from making your tests run indefinitely, we limit how long Selenium can take to run a command in our browsers. This is set to 300 seconds by default. The maximum command timeout value allowed is 600 seconds.
 
 __Value Type__: integer.
 
@@ -600,9 +697,7 @@ __Example__:
 <br/>
 
 ### `idleTimeout`
-__Description__: sets idle test timeout in seconds.
-
-As a safety measure to prevent tests from running too long after something has gone wrong, we limit how long a browser can wait for a test to send a new command. This is set to 90 seconds by default and limited to a maximum value of 1000 seconds.
+__Description__: sets idle test timeout in seconds. As a safety measure to prevent tests from running too long after something has gone wrong, we limit how long a browser can wait for a test to send a new command. This is set to 90 seconds by default and limited to a maximum value of 1000 seconds.
 
 __Value Type__: integer.
 
@@ -615,7 +710,7 @@ __Example__:
 ### `priority`
 __Description__: setting to prioritize jobs. If you have multiple new jobs waiting to start (i.e., across a collection of sub-accounts), jobs with a lower priority number take precedence over jobs with a higher number.
 
-So, for example, if you have multiple jobs simultaneously waiting to start, we'll first attempt to find resources to start all the jobs with priority 0, then all the jobs with priority 1, etc.
+So, for example, if you have multiple jobs simultaneously waiting to start, we'll first attempt to find resources to start all the jobs with priority `0`, then all the jobs with priority `1`, etc.
 
 When we run out of available virtual machines, or when you hit your concurrency limit, any jobs not yet started will wait. Within each priority level, jobs that have been waiting the longest take precedence.
 
@@ -630,12 +725,12 @@ __Example__:
 ### `timeZone`
 __Description__: allows you to set a custom time zone for your test. If the `timeZone` name has two or more or words, you'll need to separate the words with either a space or an underscore (i.e., Los Angeles would be `Los_Angeles`). We support location names (not their paths), as shown in the example below.
 
-* **For Desktop VMs**: can be configured with custom time zones.
+  * **For Desktop VMs**: can be configured with custom time zones.
   This feature should work on all operating systems, however time zones on Windows VMs are approximate.
   The time zone will usually default to whatever local time zone is on your selected data center, but this cannot be guaranteed.
   You can find a complete list of time zones [here](https://en.wikipedia.org/wiki/Lists_of_time_zones).
-* **For iOS Devices**: you can use this capability to change the time on the Mac OS X VM, which will be picked up by the iOS simulator.
-* **For Android Devices**: this capability is not supported for Android devices, but for Android 7.2 or later, there is a workaround. Use the following ADB command to grant Appium notification read permission in order to use the time zone capability:
+  * **For iOS Devices**: you can use this capability to change the time on the Mac OS X VM, which will be picked up by the iOS simulator.
+  * **For Android Devices**: this capability is not supported for Android devices, but for Android 7.2 or later, there is a workaround. Use the following ADB command to grant Appium notification read permission in order to use the time zone capability:
   ```java
   adb shell cmd notification allow_listener io.appium.settings/io.appium.settings.NLService
   ```
@@ -653,7 +748,7 @@ __Examples__:
 
 ### Pre-Run Executables
 
-Pre-run executables have a primary key ([`prerun`](#prerun-primary-key)), and four secondary keys:
+Pre-run executables have a primary key ([`prerun`](#prerun-primary-key)) and four secondary keys:
 * [`executable`](#executable-secondary-key)
 * [`args`](#args-secondary-key)
 * [`background`](#background-secondary-key)
@@ -707,3 +802,12 @@ __Description__: the number of seconds Sauce will wait for your executable to fi
 The default is 90 seconds and the maximum is 360 seconds.
 
 __Value Type__: integer.
+<br/>
+
+## Visual Testing
+
+[Visual Testing](/visual) is run on Sauce Labs servers, but the URL gets sent to `"https://hub.screener.io"`.
+
+This means that [`username`](#username) and [`accessKey`](#accesskey) values are required.
+
+Check out the complete Sauce Labs [Visual Testing with WebDriver Documentation](https://screener.io/v2/docs/visual-e2e). Also, we recommend reading up on all of the valid [Visual Options](https://screener.io/v2/docs/visual-e2e/visual-options).
