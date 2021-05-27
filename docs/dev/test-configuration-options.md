@@ -70,7 +70,11 @@ __Example__:
 ```
 
 ### `platformName`
-__Description__: The name of the operating system the browser or mobile device should be running on. See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-platform-name) for more info.
+__Description__: identifies the name of the operating system the browser or mobile device should be running on.
+
+You can use this for [dynamic device allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation). Values are not case-sensitive (i.e., `"ios"` is the same as `"iOS"`).
+
+See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-platform-name) for more info.
 
 __Value Type__: string.
 
@@ -315,7 +319,10 @@ If you are not using the official Appium bindings, make sure to prefix all Appiu
 
 ### `app`
 __Description__: allows you to set the path to an .ipa, .apk or .zip file containing the app you want to test.
+
 This could be the location of your app in [Application Storage](mobile-apps/app-storage) (e.g., `storage:filename=myapp.zip`) or the URL to a remote location where your app is located (e.g., `http://myappurl.zip`).
+
+If you're running a mobile browser test, this capability can be left blank.
 
 __Value Type__: string.
 
@@ -326,9 +333,11 @@ __Example__:
 <br/>
 
 ### `deviceName`
-__Description__: allows you to set the name of the simulator, emulator, or device you want to use in the test.
+__Description__: allows you to set the name of the simulator, emulator, or real device you want to use in the test.
 
-For Android emulator tests, you can request a generic Android emulator by using the option `"deviceName":"Android Emulator"`. If you want to use an Android emulator that looks and feels like a specific Android phone or tablet (e.g., Google Nexus 7 HD Emulator or a Samsung Galaxy S4), you need to specify the exact Android emulator skin to use (e.g., `"appium:deviceName":"Samsung Galaxy S4 Emulator"`).
+You can use this to set up a test with either [static or dynamic allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation), and run individual or parallel tests.
+* Dynamic allocation example: for an Android emulator test, you can request a generic Android emulator by using the option `"deviceName":"Android Emulator"`.
+* Static allocation example: if you want to use an Android emulator that looks and feels like a specific Android phone or tablet (e.g., Google Nexus 7 HD Emulator or a Samsung Galaxy S4), you need to specify the exact Android emulator skin to use (e.g., `"appium:deviceName":"Samsung Galaxy S4 Emulator"`).
 
 Each Android emulator skin will have a different configuration depending on the phone or tablet that it emulates. For example, all the skins have different resolutions, screen dimensions, pixel densities, memory, etc. You can use our [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator?src=sidebar#/) to get a list of the available Android emulator skins for the various Android emulator versions.
 
@@ -343,6 +352,8 @@ __Example__:
 ### `platformVersion`
 __Description__: allows you to set the mobile OS platform version that you want to use in your test.
 
+You can use this for [dynamic device allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation) to specify incremental versions (e.g., `"4.1"`) or major versions (e.g., `"4"`). By setting a major version, you'd have access to all devices running incremental versions (`"4.1"`, `"4.2"`, `"4.2.1"`, "`4.4.4"`). This also extends to minor and point versions (e.g., specifying `"4.4"` will match `"4.4.0"`, `"4.4.1"`).
+
 __Value Type__: string.
 
 __Example__:
@@ -353,6 +364,7 @@ __Example__:
 <br/>
 
 ### `automationName`
+<p><small><Highlight color="#946f59">Android/Espresso Only</Highlight></small></p>
 __Description__: allows you to set the automation engine that will be used. Possible values are: `Appium`, `UiAutomator2`, `Selendroid`. Default value is Appium.
 
 __Value Type__: string.
@@ -474,7 +486,7 @@ __Example__:
 <br/>
 
 ### `build`
-__Description__: use this to associate jobs with a build number or app version, which is then displayed on both the Dashboard and Archives view.
+__Description__: use this to associate multiple jobs with a build number or app version, which will then be displayed on both the **Test Results** dashboard and **Archive** view.
 
 __Value Type__: string.
 
@@ -485,7 +497,7 @@ __Example__:
 <br/>
 
 ### `tags`
-__Description__: User-defined tags for grouping and filtering jobs in the Dashboard and Archives view.
+__Description__: user-defined tags for grouping and filtering jobs on the **Test Results** dashboard and **Archive** view. Tags can facilitate team collaboration.
 
 __Value Type__: list.
 
@@ -496,7 +508,7 @@ __Example__:
 <br/>
 
 ### `username`
-__Description__: use this to set your Sauce Labs username for the test. This value can be found in your [user settings page](https://app.saucelabs.com/user-settings).
+__Description__: use this to set your Sauce Labs username for the test. You can find this value under **Account** > **User Settings**.
 
 :::note
 You can either set `"username"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](https://docs.saucelabs.com/dev/test-configuration-options#visual-testing)), this must be set in capabilities.
@@ -512,7 +524,7 @@ __Example__:
 <br/>
 
 ### `accessKey`
-__Description__: use this to set your Sauce Labs access key for the test. This value can be found in your [user settings page](https://app.saucelabs.com/user-settings).
+__Description__: use this to set your Sauce Labs access key for the test. You can find this value under **Account** > **User Settings**.
 
 :::note
 You can either set `"accessKey"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](https://docs.saucelabs.com/dev/test-configuration-options#visual-testing), this must be set in capabilities.
@@ -687,6 +699,8 @@ __Example__:
 
 ### `commandTimeout`
 __Description__: sets command timeout in seconds. As a safety measure to prevent Selenium crashes from making your tests run indefinitely, we limit how long Selenium can take to run a command in our browsers. This is set to 300 seconds by default. The maximum command timeout value allowed is 600 seconds.
+
+<br/>
 
 __Value Type__: integer.
 
