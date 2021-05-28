@@ -13,8 +13,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## What You'll Need
 
-* A [Sauce Labs](https://app.saucelabs.com/) account
-
+* A [Sauce Labs](https://saucelabs.com/) account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
+* [Download and install `saucectl`](/testrunner-toolkit/installation#installing-testrunner-toolkit)
+    * Ensure you've met the prerequisites outlined in the [Testrunner Toolkit documentation](/testrunner-toolkit/installation#what-youll-need)
 
 ## Quick Start
 
