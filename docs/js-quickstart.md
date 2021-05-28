@@ -32,11 +32,11 @@ By default your Cypress, TestCafe, or Playwright tests test suites are run on Sa
 ### `saucectl run`
 
 
-You have the option to run your tests in Docker mode or in a combination of _Docker mode_ and _Sauce mode_. To change these settings
+> _Puppeteer is only supported in Docker Mode and will run in Docker mode automatically. See the [tutorial](https://training.staging.saucelabs.net/saucectl/) and [documentation](https://docs.saucelabs.com/testrunner-toolkit/running-tests) to learn more_
+
+By default tests are run in _Sauce mode_. To change these settings:
 
 Set mode in `config.yml`:
-
-
 
 *   Set it as a global setting
 
@@ -45,15 +45,11 @@ Set mode in `config.yml`:
       mode: sauce
     ```
 
-
 *   Set it on the suite level (override)
 
     ```
-    Suites:
+    suites:
      - name: saucy test suite
        mode: docker
 
     ```
-
-
-> _Puppeteer is only supported in Docker Mode and will run in Docker mode automatically. See the [tutorial](https://training.staging.saucelabs.net/saucectl/) and [documentation](https://docs.saucelabs.com/testrunner-toolkit/running-tests) to learn more_
