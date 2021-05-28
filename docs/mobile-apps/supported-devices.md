@@ -123,8 +123,10 @@ Regardless of the test frameworks you're using (Appium, Espresso, XCUITest), you
 
 #### **Static Device Allocation**
 
-Specifying the exact device to use in your tests by providing the Device ID, which you can find under **Live** > **Mobile-App** > **Choose device** > Find Your Device > **Details**.
+This is specifying an exact device for your test by setting `deviceName` to the Device ID, which you can find under **Live** > **Mobile-App** > **Choose device** > Find Your Device > **Details**.
 <img src={useBaseUrl('img/mobile-apps/samsung-galaxyA10.jpg')} alt="Sauce Labs Device ID example" width="450"/>
+
+When using this, there's no need to specify the `platformName` and `platformVersion` because they'll be set by default (i.e., if you include these separately included in your test script, they will be ignored).
 
 <Tabs
   defaultValue="Espresso"
@@ -145,10 +147,14 @@ Static allocation example — exact device names are provided.
 </TabItem>
 <TabItem value="Appium">
 
-Static allocation example — exact device name is provided.
+Static allocation examples — exact device name are provided.
 
 ```java
 capabilities.setCapability("deviceName", "Google_Pixel_4");
+```
+
+```java
+capabilities.setCapability("deviceName", "iPhone_11_13_5_real_us");
 ```
 
 </TabItem>
@@ -157,7 +163,7 @@ capabilities.setCapability("deviceName", "Google_Pixel_4");
 
 #### **Dynamic Device Allocation**
 
-Specifying basic parameters for the platform, operating system, and/or type of device you want to use in your tests using [regular expressions (regex)](https://en.wikipedia.org/wiki/Regular_expression). A device(s) with your specifications will be selected from the real device pool.
+This is specifying basic parameters for the platform, operating system, and/or type of device you want to use in your tests using [regular expressions (regex)](https://en.wikipedia.org/wiki/Regular_expression) to dynamically allocate a device. A device(s) with your specifications will be selected from the real device pool.
 
 | Regex Input | Dynamic Allocation Action
 | :--- | :---
@@ -191,10 +197,14 @@ capabilities.setCapability("deviceName", "^((?!.Google_Pixel_XL_real_us.).)*$");
 </TabItem>
 <TabItem value="Appium (iOS)">
 
-Dynamic allocation example - finds all iPhone devices except 5 and 5S.
+Dynamic allocation examples - finds all iPhone devices except 5 and 5S, and find all Google Pixel devices, respectively.
 
 ```java
 capabilities.setCapability("deviceName", "^(iPhone.*)(?!5|5S)$");
+```
+
+```java
+capabilities.setCapability("deviceName", "Google Pixel.*");
 ```
 
 </TabItem>
@@ -205,7 +215,7 @@ capabilities.setCapability("deviceName", "^(iPhone.*)(?!5|5S)$");
 ## Additional Resources
 
 * [Appium Testing on Real Devices](/mobile-apps/automated-testing/appium/real-devices)
-  * [CLI Reference](dev/cli/appium/real-devices)
+  * [Test Configuration Options](dev/test-configuration-options)
 * [Espresso and XCUITest Testing on Real Devices](mobile-apps/automated-testing/espresso-xcuitest/real-devices)
   * [CLI Reference](dev/cli/espresso-xcuitest/real-devices)
 * [Sauce Labs Blog: How to Choose Mobile Devices for Testing](https://saucelabs.com/blog/how-to-choose-mobile-devices-for-testing)
