@@ -168,7 +168,7 @@ __Type__:  *string*
 __Example__:
 
 ```yaml
-        platformVersion: 8.1
+        platformVersion: 8.*
 ```
 
 ### `options`
