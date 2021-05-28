@@ -28,7 +28,7 @@ This page includes a list of valid test configuration options for tests run on S
 
 
 
-## WebDriver W3C Capabilities (Required)
+## WebDriver W3C Capabilities– Required
 
 Sauce Labs determines W3C sessions with the presence of `sauce:options`
 capabilities and [generic W3C WebDriver-compliant capabilities](https://www.w3.org/TR/webdriver1/#capabilities). See [W3C Capabilities Support](/dev/w3c-webdriver-capabilities) for more information.
@@ -82,7 +82,7 @@ __Example__:
 "platformName": "macOS 10.13", "platformName": "iOS", "platformName": "Android"
 ```
 
-## Browser W3C Capabilities (Optional)
+## Browser W3C Capabilities – Optional
 Below are more Sauce-compatible W3C WebDriver specification capabilities. To view their descriptions, see the [W3C WebDriver Specification Capabilities](https://www.w3.org/TR/webdriver/#capabilities).
 
 ### `acceptInsecureCerts`
@@ -166,7 +166,7 @@ __Example__:
 ```
 <br/>
 
-## Desktop Browser Capabilities: Sauce-Specific (Optional)
+## Desktop Browser Capabilities: Sauce-Specific – Optional
 
 These options apply to specific browsers and can be added to the `sauce:options` block of your test session creation code.
 
@@ -305,7 +305,7 @@ __Example__:
 "screenResolution": "1280x1024"
 ```
 
-## Mobile App Capabilities: Appium Settings (Required)
+## Mobile App Capabilities: Appium Settings – Required
 
 These common Appium test configuration settings can be added with an `appium:` prefix in your test session creation code.
 
@@ -418,7 +418,7 @@ __Example__:
 ```
 <br/>
 
-## Mobile App Capabilities: Sauce-Specific (Optional)
+## Mobile App Capabilities: Sauce-Specific – Optional
 
 Below are some additional options that you can use in your Appium tests. They can be added to the `sauce:options` block of your session creation code.
 
@@ -461,7 +461,7 @@ __Example__:
 ```
 <br/>
 
-## Desktop and Mobile Capabilities: Sauce-Specific (Optional)
+## Desktop and Mobile Capabilities: Sauce-Specific – Optional
 
 The following are Sauce Labs-specific options you can set for any test run on the Sauce Labs platform. These can be added to the `sauce:options` block of your session creation code.
 
@@ -665,7 +665,7 @@ __Example__:
 
 These settings apply to all tests run on Virtual device cloud (desktop browsers, emulators, and simulators). They can be added to the `sauce:options` block of your session creation code.
 
-## Virtual Device Capabilities: Sauce-Specific (Optional)
+## Virtual Device Capabilities: Sauce-Specific – Optional
 
 The following are Sauce Labs-specific options that apply only for desktop sessions, emulators and simulators. These can be added to the `sauce:options` block of your session creation code.
 
