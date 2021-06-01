@@ -249,7 +249,6 @@ __Example__:
 
 __Description__: prints this command line reference to the console.
 
-
 __Shorthand__: `-h`
 
 __Example__:
