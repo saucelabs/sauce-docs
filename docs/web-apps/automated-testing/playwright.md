@@ -16,7 +16,7 @@ This page provides a walkthrough on how to run [Playwright](https://playwright.d
 
 ## Quick Start
 
-You can run a working Cypress sample test in under ten minutes!
+You can run a working Playwright sample test in under ten minutes!
 
 ### Install `saucectl`
 
