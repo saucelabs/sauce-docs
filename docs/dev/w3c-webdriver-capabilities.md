@@ -178,15 +178,14 @@ By default, Sauce Labs uses older versions of Firefox, IE, and Safari. This is i
 
 ### `chromeOptions()`
 
-For tests on Google Chrome versions 74 and lower, the `chromeOptions()` W3C WebDriver capability must be set as an experimental option. ChromeDriver version 75 [runs in W3C WebDriver standard compliant mode by default](http://chromedriver.chromium.org/downloads), so setting this capability won't be necessary in the future. Here's an example:
+For tests on Google Chrome versions 74 and lower, the `chromeOptions()` W3C WebDriver capability must be set as an experimental option. ChromeDriver version 75 [runs in W3C WebDriver standard compliant mode by default](http://chromedriver.chromium.org/downloads), so setting this capability won't be necessary in the future. `w3c` must be set as a boolean value (e.g., `true` in Java and `True` in Python) – not a string (e.g., "true").
+
+__Example:__
 
 ```java
 ChromeOptions chOpts = new ChromeOptions();
 chOpts.setExperimentalOption("w3c", true);
 ```
-
->**NOTE**: `w3c` must be set as a boolean value (e.g., `true` in Java and `True` in Python) – not a string (e.g., "true").
-
 
 ## Verifying Your Capabilities for W3C WebDriver Compliance
 
@@ -208,24 +207,24 @@ There are some changes to specific Selenium language bindings you should be awar
 When using Selenium version 3.11 or higher, we recommend inputting the W3C WebDriver-compliant `DriverOptions()` class, which is used to manage options specific to each browser web driver.
 
 <Tabs
-  defaultValue="W3C DriverOptions()"
+  defaultValue="DriverOptions()"
   values={[
-    {label: 'W3C DriverOptions()', value: 'W3C DriverOptions()'},
-    {label: 'Legacy DesiredCapabilities()', value: 'Legacy DesiredCapabilities()'},
+    {label: 'DriverOptions()', value: 'DriverOptions()'},
+    {label: 'DesiredCapabilities()', value: 'DesiredCapabilities()'},
   ]}>
 
-<TabItem value="W3C DriverOptions()">
+<TabItem value="DriverOptions()">
 
-__Example__:
+Here's an example using `DriverOptions()` (W3C WebDriver-compliant):
 
 ```java
 FireFoxOptions mozOpts = new FirefoxOptions();
 ```
 
 </TabItem>
-<TabItem value="Legacy DesiredCapabilities()">
+<TabItem value="DesiredCapabilities()">
 
-__Example__:
+Here's an example using `DesiredCapabilities()` (legacy):
 
 ```java
 DesiredCapabilities caps = new DesiredCapabilities.firefox();
@@ -247,15 +246,15 @@ We recommend setting your capabilities using the W3C Webdriver-compliant `Mutabl
 `MutableCapabilities()` implements all interfaces, including `DriverOptions()` and `DesiredCapabilities()`. For more information, see the [`DriverOptions` class Selenium documentation](https://www.selenium.dev/selenium/docs/api/dotnet/html/T_OpenQA_Selenium_DriverOptions.htm).
 
 <Tabs
-  defaultValue="W3C MutableCapabilities()"
+  defaultValue="MutableCapabilities()"
   values={[
-    {label: 'W3C MutableCapabilities()', value: 'W3C MutableCapabilities()'},
-    {label: 'Legacy DesiredCapabilities()', value: 'Legacy DesiredCapabilities()'},
+    {label: 'MutableCapabilities()', value: 'MutableCapabilities()'},
+    {label: 'DesiredCapabilities()', value: 'DesiredCapabilities()'},
   ]}>
 
-<TabItem value="W3C MutableCapabilities()">
+<TabItem value="MutableCapabilities()">
 
-__Example__:
+Here's an example using `MutableCapabilities()` (W3C WebDriver-compliant):
 
 ```java
 MutableCapabilities sauceCaps = new MutableCapabilities();
@@ -273,9 +272,9 @@ WebDriver driver = new RemoteWebDriver(new URL("https://ondemand.saucelabs.com/w
 ```
 
 </TabItem>
-<TabItem value="Legacy DesiredCapabilities()">
+<TabItem value="DesiredCapabilities()">
 
-__Example__:
+Here's an example using `DesiredCapabilities()` (legacy):
 
 ```java
 DesiredCapabilities caps = new DesiredCapabilities();
@@ -294,7 +293,7 @@ WebDriver driver = new RemoteWebDriver(new URL("https://ondemand.saucelabs.com/w
 
 ## Instantiating WebDriver with W3C WebDriver-Compliant Capabilities
 
-Select a code snippet below in the programming language of your choice, then follow the instructions. You can find more sample code in the [Sauce Labs training repository on GitHub](https://github.com/saucelabs-training/w3c-examples).
+Select a code snippet below in the programming language of your choice, then follow the instructions. You can find more sample code in our [GitHub training repository](https://github.com/saucelabs-training/w3c-examples).
 
 <Tabs
   defaultValue="Java"
@@ -310,8 +309,20 @@ Select a code snippet below in the programming language of your choice, then fol
 
 #### **TestNG Example Walkthrough**
 
-1. Download or clone the [script from GitHub](https://github.com/saucelabs-training/demo-java/blob/master/w3c-examples/w3c-testng/src/test/java/TestNGW3CChromeTest.java).
-2. Ensure you have the [prerequisite software](https://github.com/saucelabs-training/demo-java/#prerequisites).
+1. Ensure you have the [prerequisite software](https://github.com/saucelabs-training/demo-java/#prerequisites) to run a Java test on Sauce.
+2. Download or clone one of the below example test scripts from our GitHub repo:
+
+  <details><summary><strong>Click here</strong> to see TestNG example test scripts.</summary>
+
+  ```java reference
+  https://github.com/saucelabs-training/demo-java/blob/master/w3c-examples/w3c-testng/src/test/java/TestNGW3CChromeTest.java
+  ```
+
+  ```java reference
+  https://github.com/saucelabs-training/w3c-examples/blob/master/java/testng/W3CChromeTest.java
+  ```
+  </details>
+
 3. Resolve any dependencies:
   ```bash
   $ mvn dependency:resolve
@@ -326,12 +337,17 @@ Select a code snippet below in the programming language of your choice, then fol
   $ mvn clean test -Dtest=TestNGW3CChromeTest
   ```
 
-example
-
 **JUnit Jupiter Example Walkthrough**
 
-1. Download or clone the script from this GitHub repository.
-2. Ensure you have the prerequisite software.
+1. Ensure you have the [prerequisite software](https://github.com/saucelabs-training/demo-java/#prerequisites) to run a Java test on Sauce.
+2. Download or clone the below example test script from our GitHub repo:
+  <details><summary><strong>Click here</strong> to see the JUnit Jupiter example test script.</summary>
+
+  ```java reference
+
+  https://github.com/saucelabs-training/w3c-examples/blob/master/java/junit5/W3CChromeTest.java
+  ```
+  </details>
 3. Resolve any dependencies:
   ```bash
   $ mvn dependency:resolve
@@ -346,14 +362,19 @@ example
   $ mvn clean test -Dtest=JUnit5W3CChromeTest
   ```
 
-example
-
 </TabItem>
 <TabItem value="Python">
 
 **PyTest Example Walkthrough**
-1. Download or clone the script from the Sauce Labs GitHub repository.
-2. Ensure you have the prerequisite software.
+1. Ensure you have the [prerequisite software](https://github.com/saucelabs-training/demo-python) to run a Python test on Sauce.
+2. Download or clone the below test script from our GitHub repo:
+  <details><summary><strong>Click here</strong> to see an example PyTest test script.</summary>
+
+  ```py reference
+
+  https://github.com/saucelabs-training/w3c-examples/blob/master/python/test_pytest_chrome.py
+  ```
+  </details>
 3. Resolve any dependencies:
   ```bash
   $ pip install -r w3c-examples/requirements.txt
@@ -370,8 +391,15 @@ example
 
 **unittest Example Walkthrough**
 
-1. Download or clone the script from the Sauce Labs GitHub repository.
-2. Ensure you have the prerequisite software.
+1. Ensure you have the [prerequisite software](https://github.com/saucelabs-training/demo-python) to run a Python test on Sauce.
+2. Download or clone the below test script from our GitHub repo:
+  <details><summary><strong>Click here</strong> to see an example unittest test script.</summary>
+
+  ```py reference
+
+  https://github.com/saucelabs-training/w3c-examples/blob/master/python/test_unittest_chrome.py
+  ```
+  </details>
 3. Install any dependencies:
   ```bash
   $ pip install -r w3c-examples/requirements.txt
@@ -381,19 +409,25 @@ example
   export SAUCE_USERNAME=my-sauce-username
   export SAUCE_ACCESS_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx2cy8f4
   ```
-5. Run the following commands:
-```py
-$ python -m unittest w3c-examples/unittest/*.py
-```
+5. Run the following command:
+  ```py
+  $ python -m unittest w3c-examples/unittest/*.py
+  ```
+
 </TabItem>
 <TabItem value="NodeJS">
 
 **WebdriverIO Example Walkthrough**
 
-1. Download or clone the script from this GitHub repository.
+1. Ensure you have the [prerequisite software](https://github.com/saucelabs-training/demo-js) to run a WebdriverIO test on Sauce.
+2. Download or clone the below test script from our GitHub repo:
+  <details><summary><strong>Click here</strong> to see an example WebdriverIO test script.</summary>
 
-2. Ensure you have the prerequisite software.
+  ```js reference
 
+  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/examples/w3c/test/configs/wdio.saucelabs.conf.js
+  ```
+  </details>
 3. Install node package dependencies:
   ```bash
   $ npm --prefix ./w3c-example install ./w3c-example
@@ -412,8 +446,16 @@ $ python -m unittest w3c-examples/unittest/*.py
 <TabItem value="Ruby">
 
 **Rspec Example Walkthrough**
-1. Download or clone the script from the Sauce Labs GitHub repository.
-2. Ensure you have the prerequisite software.
+
+1. Ensure you have the [prerequisite software](https://github.com/saucelabs-training/demo-ruby) to run a Ruby test on Sauce.
+2. Download or clone the below test script from our GitHub repo:
+  <details><summary><strong>Click here</strong> to see an example Ruby test script.</summary>
+
+  ```ruby reference
+
+  https://github.com/saucelabs-training/w3c-examples/blob/master/ruby/rspec/chrome_example_spec.rb
+  ```
+  </details>
 3. Install gemfile/package dependencies:
   ```bash
   $ gem install bundler
@@ -435,15 +477,21 @@ $ python -m unittest w3c-examples/unittest/*.py
 
 **NUnit Example Walkthrough**
 
-1. Download or clone the script from the Sauce Labs GitHub repository.
-2. Ensure you have the prerequisite software.
+1. Ensure you have the [prerequisite software](https://github.com/saucelabs-training/demo-csharp) to run a C# test on Sauce.
+2. Download or clone the below test script from our GitHub repo:
+  <details><summary><strong>Click here</strong> to see an example C# test script.</summary>
+
+  ```csharp reference
+  https://github.com/saucelabs-training/w3c-examples/blob/master/csharp/NUnitExamples.cs
+  ```
+  </details>
 3. In Visual Studio, open the solution.
 4. Export your Sauce Labs Username and Access Key:
   ```bash
   export SAUCE_USERNAME=my-sauce-username
   export SAUCE_ACCESS_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx2cy8f4
   ```
-5. In Visual Studio Test Explorer, run tests in `Selenium3.Nunit.Scripts.SimpleExamples.W3CExamplesOnSelenium3.cs`.
+5. In Visual Studio Test Explorer, run tests in <small>`Selenium3.Nunit.Scripts.SimpleExamples.W3CExamplesOnSelenium3.cs`</small>.
 
 </TabItem>
 </Tabs>
@@ -463,9 +511,11 @@ The following desired capabilities were received:
  'platform': 'Windows'}
 ```
 
-To fix this particular error, you'd need to change `platform` to `platformName` and then change `version` to `browserVersion`:
+Solution:
+1. Change `platform` to `platformName`.
+1. Change `version` to `browserVersion`.
 
-```java title="Solution"
+```java
 browserName: 'chrome',
 platformName: 'Windows',
 browserVersion: '80'
