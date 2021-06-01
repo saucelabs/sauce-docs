@@ -64,7 +64,6 @@ module.exports = {
 
                         ],
                     },
-
                     {
                         type: 'category',
                         label: 'Integrations',
