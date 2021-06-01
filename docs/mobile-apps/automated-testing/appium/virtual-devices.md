@@ -363,6 +363,3 @@ Once you've been able to get a test running on Sauce, check out our best practic
 * [Using Build IDs and tags to differentiate and identify test runs](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946)
 * [Create your own test script examples using our Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator)
 * [Browse our full suite of test configuration options and advanced configurations.](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492)
-
-## Training
-Lean how to run Appium Android tests on an Emulator in the [Automation Quickstart Course](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#0).
