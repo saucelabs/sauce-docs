@@ -19,10 +19,10 @@
     "@mdx-js/react": "1.6.21",
     "@saucelabs/theme-github-codeblock": "0.0.4",
     "clsx": "1.1.1",
-    "core-js": "3.1.4",
     "docusaurus2-dotenv": "^1.4.0",
     "react": "16.8.4",
     "react-dom": "16.8.4",
+    "core-js": "3.1.4",
     "redocusaurus": "^0.2.2"
   },
   "browserslist": {
