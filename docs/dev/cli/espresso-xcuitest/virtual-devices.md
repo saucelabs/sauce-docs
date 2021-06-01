@@ -52,7 +52,7 @@ These command flags are required in order to run native mobile tests with Sauce 
 
 __Description__: Specifies the name of the test framework you want to use. At the moment, `espresso` is the only supported option and value.
 
-__Shorthand__: `./sauce-runner-virtual --test-framework=espresso`
+__Shorthand__: `-f`
 
 __Example__:
 
@@ -235,11 +235,8 @@ __Example__:
 
 ### `--version`
 
-<<<<<<< HEAD
+
 __Description__: Returns the version information for Sauce Runner.
-=======
-__Description__: returns the version information for Sauce Runner.
->>>>>>> 900a9008495a0f223185d485d79c315ff14d2e25
 
 __Shorthand__: n/a
 
@@ -251,21 +248,13 @@ __Example__:
 
 ### `--help`
 
-<<<<<<< HEAD
+
 __Description__: Prints this command line reference to the console.
-=======
-__Description__: prints this command line reference to the console.
->>>>>>> 900a9008495a0f223185d485d79c315ff14d2e25
 
 __Shorthand__: `-h`
 
 __Example__:
 
-<<<<<<< HEAD
-```bash
---help
-=======
 ```java
 ./sauce-runner-virtual --help
->>>>>>> 900a9008495a0f223185d485d79c315ff14d2e25
 ```
