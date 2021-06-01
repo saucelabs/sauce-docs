@@ -40,7 +40,7 @@ Incorporating continuous testing into your CI/CD pipeline means designing your t
       <ul>
         <li><a href="https://saucelabs.com/resources/articles/automated-testing-in-cicd-a-continuous-integration-server-integration-primer">Automated Testing in CI/CD Primer White Paper</a></li>
         <li><a href="https://saucelabs.com/blog/choosing-a-ci-cd-tool">Choosing a CI/CD Tool Blog</a></li>
-        <li><a href="https://training.saucelabs.com/codelabs/Module2-Testrunner/index.html?index=..%2F..saucectl#4">Sauce School CI/CD Training Module</a></li>
+        <li>Sauce School CI/CD Training Module (coming soon)</li>
       </ul></p>
     </div>
   </div>
