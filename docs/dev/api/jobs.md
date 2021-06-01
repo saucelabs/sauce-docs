@@ -1012,7 +1012,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Delete Job Assets
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;/assets</code></summary>
+<details><summary><span className="api delete">DELETE</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;/assets</code></summary>
 <p/>
 
 Sauce Labs retains job asset files for 30 days, after which, they are purged, but you can delete the asset files for a job before that, if desired. This request deletes all of the asset files associated with a job. Deleting a single asset file is not supported at this time.
