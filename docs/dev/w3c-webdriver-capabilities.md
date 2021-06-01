@@ -15,8 +15,70 @@ Please note that some extended capabilities are not backwards-compatible with Se
 We early adopted the W3C WebDriver specification when it achieved the W3C standard level as the automation protocol for web browsers. As browser vendors update to support W3C WebDriver and shift away from JSON Wire Protocol (JWP), it’s important to update your tests accordingly.
 
 
-## Sauce Labs Web Protocol Support
+## What You'll Need
 
+To ensure W3C WebDriver compliance:
+* Use Selenium version 3.11 or higher.
+* Switch completely from using JWP desired capabilities (legacy) to W3C WebDriver capabilities.
+  * Take note of their different naming conventions. For example, W3C uses `platformName`, while legacy JWP uses `platform`. W3C uses `browserVersion`, while legacy JWP uses `version`. We recommend reviewing the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities).
+  * Do not mix JWP with W3C (you'll get an [error](https://docs.saucelabs.com/dev/w3c-webdriver-capabilities#common-errors)).
+* Include our custom `sauce:options` W3C WebDriver-compliant capabilities (e.g., `name`, `build`) in your Sauce Labs test scripts.
+  * Here's an example:
+   ```java
+   browserName: 'firefox',
+   platformName: 'macOS 10.15',
+   browserVersion: 'latest'
+   sauce:options: {
+     name: 'My test name',
+     build: 'My build',
+     username: "SAUCE_USERNAME",
+     accessKey: "SAUCE_ACCESS_KEY"
+     seleniumVersion: "3.141.59"
+   }
+   ```
+
+  <details><summary><strong>Click here to see a full list of <code>sauce:options</code> capabilities.</strong> For detailed information, see <a href="/dev/test-configuration-options">Test Configuration Options</a>.</summary>
+
+  * `accessKey`
+  * `appiumVersion`
+  * `avoidProxy`
+  * `build`
+  * `captureHtml`
+  * `chromedriverVersion`
+  * `commandTimeout`
+  * `crmuxdriverVersion`
+  * `customData`
+  * `disablePopupHandler`
+  * `extendedDebugging`
+  * `firefoxAdapterVersion`
+  * `firefoxProfileUrl`
+  * `idleTimeout`
+  * `iedriverVersion`
+  * `maxDuration`
+  * `name`
+  * `parentTunnel`
+  * `passed`
+  * `prerun`
+  * `preventRequeue`
+  * `priority`
+  * `proxyHost`
+  * `public`
+  * `recordLogs`
+  * `recordScreenshots`
+  * `recordVideo`
+  * `restrictedPublicInfo`
+  * `screenResolution`
+  * `seleniumVersion`
+  * `source`
+  * `tags`
+  * `timeZone`
+  * `tunnelIdentifier`
+  * `username`
+  * `videoUploadOnPass`
+
+  </details>
+
+## Sauce Labs Web Protocol Support
 
 <table>
   <tr>
@@ -69,114 +131,18 @@ We early adopted the W3C WebDriver specification when it achieved the W3C standa
   </tr>
 </table>
 
+## W3C WebDriver Compliance
 
-## What You'll Need
-
-To ensure W3C WebDriver compliance, you'll need to:
-
-* Use Selenium version 3.11 or higher.
-* Switch completely from using the legacy JWP desired capabilities to the new W3C WebDriver capabilities. Note that their naming conventions differ – for example:
-  * W3C uses `platformName`, while legacy JWP uses `platform`
-  * W3C uses `browserVersion`, while legacy JWP uses `version`
-*  Include our custom `sauce:options` capabilities (e.g., `name`, `build`) in your Sauce Labs test scripts, as seen in this example:
-  ```java
-  browserName: 'firefox',
-  platformName: 'macOS 10.15',
-  browserVersion: 'latest'
-  sauce:options: {
-    name: 'My test name',
-    build: 'My build',
-    username: "SAUCE_USERNAME",
-    accessKey: "SAUCE_ACCESS_KEY"
-    seleniumVersion: "3.141.59"
-  }
-  ```
-
-For more information on W3C WebDriver-compliant capabilities, head to the [official W3C Website](https://www.w3.org/TR/webdriver1/#capabilities). For information on `sauce:options` capabilities as well as all valid Sauce parameters, see [Test Configuration Options](/dev/test-configuration-options).
-
-<details><summary><strong>Click here</strong> to see a full list of <code>sauce:options</code> capabilities.</summary>
-
-* `accessKey`
-* `appiumVersion`
-* `avoidProxy`
-* `build`
-* `captureHtml`
-* `chromedriverVersion`
-* `commandTimeout`
-* `crmuxdriverVersion`
-* `customData`
-* `disablePopupHandler`
-* `extendedDebugging`
-* `firefoxAdapterVersion`
-* `firefoxProfileUrl`
-* `idleTimeout`
-* `iedriverVersion`
-* `maxDuration`
-* `name`
-* `parentTunnel`
-* `passed`
-* `prerun`
-* `preventRequeue`
-* `priority`
-* `proxyHost`
-* `public`
-* `recordLogs`
-* `recordScreenshots`
-* `recordVideo`
-* `restrictedPublicInfo`
-* `screenResolution`
-* `seleniumVersion`
-* `source`
-* `tags`
-* `timeZone`
-* `tunnelIdentifier`
-* `username`
-* `videoUploadOnPass`
-
-</details>
-<br/>
-
-
-## Quickstart
-
-Below are a couple of mobile and web test script examples you can use to get up and running quickly:
-
-<Tabs
-  defaultValue="Desktop Web"
-  values={[
-    {label: 'Desktop Web', value: 'Desktop Web'},
-    {label: 'Appium Web', value: 'Appium Web'},
-  ]}>
-
-<TabItem value="Desktop Web">
-
-```js reference
-https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/examples/w3c/test/configs/wdio.saucelabs.conf.js
-```
-
-</TabItem>
-<TabItem value="Appium Web">
-
-```js reference
-https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-web/examples/w3c/test/configs/wdio.saucelabs.conf.js
-```
-
-</TabItem>
-</Tabs>
-
-
-## W3C WebDriver Browser Compatibility
+### Browser Compatibility
 
 The following browser versions are compatible with the W3C WebDriver protocol:
-
-*   Firefox version 53 and higher
-*   Google Chrome version 61 and higher
-*   Internet Explorer 11
+* Firefox version 53 and higher.
+* Google Chrome version 61 and higher.
+* Internet Explorer 11.
 
 By default, Sauce Labs uses older versions of Firefox, IE, and Safari. This is important to know since newer commands and configurations may not be supported in those versions.
 
-
-### `chromeOptions()`
+#### **`chromeOptions()`**
 
 For tests on Google Chrome versions 74 and lower, the `chromeOptions()` W3C WebDriver capability must be set as an experimental option. ChromeDriver version 75 [runs in W3C WebDriver standard compliant mode by default](http://chromedriver.chromium.org/downloads), so setting this capability won't be necessary in the future. `w3c` must be set as a boolean value (e.g., `true` in Java and `True` in Python) – not a string (e.g., "true").
 
@@ -185,11 +151,11 @@ __Example:__
 ```java
 ChromeOptions chOpts = new ChromeOptions();
 chOpts.setExperimentalOption("w3c", true);
-```
+```  
 
-## Verifying Your Capabilities for W3C WebDriver Compliance
+### Verifying Your Tests for Compliance
 
-Here's how to verify if your Sauce Labs tests are running under the new W3C WebDriver protocol:
+To confirm that your Sauce Labs tests are adhering the new W3C WebDriver protocol:
 
 1. Go to **Test Details** and click on the line item for your test.
 2. Click the **Commands** tab.
@@ -198,11 +164,11 @@ Here's how to verify if your Sauce Labs tests are running under the new W3C WebD
 <img src={useBaseUrl('img/test-results/test-results-w3c.jpg')} alt="Check W3C compliance in your test results" />
 
 
-## W3C WebDriver-Compliant Language Changes in Selenium 3.11+
+### Language Changes in Selenium 3.11+
 
 There are some changes to specific Selenium language bindings you should be aware of when migrating to the W3C WebDriver protocol.
 
-### `DriverOptions()`
+#### **`DriverOptions()`**
 
 When using Selenium version 3.11 or higher, we recommend inputting the W3C WebDriver-compliant `DriverOptions()` class, which is used to manage options specific to each browser web driver.
 
@@ -239,7 +205,7 @@ to `DesiredCapabilities.firefox()"
 </TabItem>
 </Tabs>
 
-### `MutableCapabilities()`
+#### **`MutableCapabilities()`**
 
 We recommend setting your capabilities using the W3C Webdriver-compliant `MutableCapabilities()` class over the legacy `DesiredCapabilities()`.
 
@@ -291,9 +257,9 @@ WebDriver driver = new RemoteWebDriver(new URL("https://ondemand.saucelabs.com/w
 </TabItem>
 </Tabs>
 
-## Instantiating WebDriver with W3C WebDriver-Compliant Capabilities
+## Instantiating WebDriver
 
-Select a code snippet below in the programming language of your choice, then follow the instructions. You can find more sample code in our [GitHub training repository](https://github.com/saucelabs-training/w3c-examples).
+To instantiate WebDriver with W3C WebDriver-compliant capabilities, select a code snippet below in the programming language of your choice and then follow the instructions. You can find more sample code in our [GitHub training repository](https://github.com/saucelabs-training/w3c-examples).
 
 <Tabs
   defaultValue="Java"
@@ -495,6 +461,26 @@ Select a code snippet below in the programming language of your choice, then fol
 
 </TabItem>
 </Tabs>
+
+### Quickstart
+
+Below are mobile and web test script examples you can use to get up and running quickly:
+
+<details><summary><strong>Click here</strong> to see a Desktop Web test script example</summary>
+
+```js reference
+https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/examples/w3c/test/configs/wdio.saucelabs.conf.js
+```
+
+</details>
+
+<details><summary><strong>Click here</strong> to see an Appium Web test script example</summary>
+
+```js reference
+https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-web/examples/w3c/test/configs/wdio.saucelabs.conf.js
+```
+
+</details>
 
 ## Common Errors
 
