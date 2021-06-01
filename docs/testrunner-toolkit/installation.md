@@ -121,37 +121,15 @@ Whether you are using environment variables or a credentials file, make sure you
 :::
 
 
-## Setting up a Working Directory
+## Sample Repos
 
-This process generates a set of dependencies that allow you to quickly set up a working test. At the end of this process, you will have a root directory with the following assets:
+If you would like to see sample tests and configuration files for particular frameworks, you can clone one of our demo repositories for use as a template:
 
-* a config file (e.g., `.sauce/config.yml`)
-* a framework directory (e.g., `cypress`) and other relevant files (e.g., `cypress.json`)
-* an example test for the chosen framework (e.g., `cypress/integration/example.test.js`)
-
-If you already have working tests in your framework, you can skip this section and [run your tests](/testrunner-toolkit/running-tests) in order to run your existing tests.
-
-1. Run the following command to generate a config file:
-    ```bash
-    saucectl new
-    ```
-1. At the prompt, specify your framework:
-    ```
-    ? Choose a framework:
-    ❯ Cypress
-      Playwright
-      Puppeteer
-      TestCafe
-    ```
-1. Specify your [Sauce Labs data center](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) at the next prompt:
-    ```
-    ? Choose a framework: Cypress
-    ? Choose the sauce labs region:
-    ❯ us-west-1
-      eu-central-1
-    ```
-
-The configuration script confirms your setup and prompts you to execute the `saucectl run` command to begin testing.
+* [Cypress Demo](https://github.com/saucelabs/saucectl-cypress-example)
+* [TestCafe Demo](https://github.com/saucelabs/saucectl-testcafe-example)
+* [Playwright Demo](https://github.com/saucelabs/saucectl-playwright-example)
+* [Puppeteer Demo](https://github.com/saucelabs/saucectl-puppeteer-example/)
+* [Espresso Demo](https://github.com/saucelabs/saucectl-espresso-example)
 
 ## Running a Sample Test
 
