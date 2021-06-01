@@ -35,7 +35,7 @@ The toolkit currently supports:
       {"label":"Cypress","value":"cypress"},
       {"label":"Playwright","value":"playwright"},
       {"label":"TestCafe","value":"testcafe"},
-      {"label":"Espresso","value":"espresso"}
+      {"label":"Espresso","value":"espresso"},
       {"label":"XCUITest","value":"xcuitest"}
     ]}>
 <TabItem value="cypress">
