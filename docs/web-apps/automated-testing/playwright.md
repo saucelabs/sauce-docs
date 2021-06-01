@@ -20,7 +20,7 @@ You can run a working Playwright sample test in under ten minutes!
 
 ### Install `saucectl`
 
-Begin by installing the `saucectl` CLI in the root directory of your existing Cypress project or your intended directory.
+Begin by installing the `saucectl` CLI in the root directory of your existing Playwright project or your intended directory.
 
 ```
 npm install -g saucectl
