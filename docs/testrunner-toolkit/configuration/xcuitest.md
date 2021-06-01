@@ -21,7 +21,7 @@ __Type__: *object*
 
 __Example__:
 ```yaml
-xcuit:
+xcuitest:
   app: ./apps/xcuitest/calc.apk
   testApp: ./apps/xcuitest/calc-success.apk
 ```
