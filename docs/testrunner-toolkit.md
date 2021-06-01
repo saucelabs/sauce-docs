@@ -24,6 +24,7 @@ The toolkit currently supports:
 * [TestCafe](https://github.com/DevExpress/testcafe)
 * [Puppeteer](https://github.com/puppeteer)
 * [Espresso](https://developer.android.com/training/testing/espresso)
+* [XCUITest](https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/09-ui_testing.html)
 
 ### Supported Frameworks in Sauce Cloud
 
@@ -35,6 +36,7 @@ The toolkit currently supports:
       {"label":"Playwright","value":"playwright"},
       {"label":"TestCafe","value":"testcafe"},
       {"label":"Espresso","value":"espresso"}
+      {"label":"XCUITest","value":"xcuitest"}
     ]}>
 <TabItem value="cypress">
 
@@ -132,6 +134,14 @@ The toolkit currently supports:
 |Android 5.1+|
 
 </TabItem>
+<TabItem value="xcuitest">
+<div className="corner-ribbon">PREVIEW</div>
+
+|Supported Platforms|
+|-----|
+|iOS 10+|
+
+</TabItem>
 </Tabs>
 
 
@@ -219,3 +229,4 @@ If you would like to see sample tests and configuration files for particular fra
 * [Playwright Demo](https://github.com/saucelabs/saucectl-playwright-example)
 * [Puppeteer Demo](https://github.com/saucelabs/saucectl-puppeteer-example/)
 * [Espresso Demo](https://github.com/saucelabs/saucectl-espresso-example)
+* [XCUITest Demo](https://github.com/saucelabs/saucectl-xcuitest-example)
