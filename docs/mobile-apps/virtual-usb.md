@@ -124,7 +124,7 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
   Copy the `--sessionId` of your desired test, then run that along with the [`connect`](/dev/cli/virtual-usb/connect-session) command and your credentials.
 
   ```java
-  java -jar virtual-usb-client.jar connect --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 ---username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  java -jar virtual-usb-client.jar connect --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
   ```
 
   > **NOTE:** Method 1 is recommended for the following reasons:
