@@ -66,6 +66,14 @@ module.exports = {
                     },
                     {
                         type: 'category',
+                        label: 'Test Configuration',
+                        collapsed: true,
+                        items: [
+                            'basics/test-config',
+                        ],
+                    },
+                    {
+                        type: 'category',
                         label: 'Integrations',
                         collapsed: true,
                         items: [
