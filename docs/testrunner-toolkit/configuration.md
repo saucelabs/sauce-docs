@@ -118,7 +118,7 @@ The `saucectl` command line bundles your root directory (`rootDir` parameter of 
 
 ### Excluding Files from the Bundle
 
-The `.sauceignore` allows you to designate certain files to be excluded from bundling.
+The `.sauceignore` file allows you to designate certain files to be excluded from bundling.
 
 Add any files that are not direct test dependencies to `.sauceignore` to reduce the size of your bundle, improve test speed, and protect sensitive information.
 
