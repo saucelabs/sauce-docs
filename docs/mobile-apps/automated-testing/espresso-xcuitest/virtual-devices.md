@@ -29,7 +29,7 @@ Sauce Runner for Virtual Devices provides the ability to run automated Android a
 
 * Your Sauce Labs username and access key.
 * Your mobile app file and mobile test file. Accepted file types are .ipa for iOS and .apk for Android.
-  * For details on how to build .ipa files for use with Sauce Runner for Real Devices, see [Creating .ipa Files for Appium and XCUITest](mobile-apps/automated-testing/ipa-files.md).
+  * For details on how to build .ipa files for use with Sauce Runner for Real Devices, see [Creating .ipa Files for Appium and XCUITest](mobile-apps/creating-ipa-files.md).
 
 If you'd like to try out this functionality but don't have an app on hand, [download our Sauce Labs demo app file and test file](https://github.com/saucelabs-training/demo-espresso/tree/master/emulators).
 
