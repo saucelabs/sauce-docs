@@ -56,16 +56,16 @@ __Examples__:
   testApp: $TEST_APP
 ```
 
-## `devices`
+## `emulators`
 
-__Description__: Field for defining device details such as the device name, orientation, and
-formVersions.
+__Description__: Field for defining emulator details such as the name, orientation, and
+platformVersions.
 
 __Type__: *object*
 
 __Example__:
 ```yaml
-devices:
+emulators:
   - name: "Android GoogleApi Emulator"
     orientation: portrait
     platformVersions:
@@ -110,6 +110,110 @@ __Example__:
     - "11.0"
     - "10.0"
 ```
+
+## `devices`
+
+__Description__: Field for requesting real devices for the test.
+
+You can request a specific device using its ID, or you can specify a set of criteria to choose the first available device that matches the specifications.
+
+When an ID is specified, it supersedes the other settings.
+
+__Type__: *[]object*
+
+__Example__:
+```yaml
+devices:
+  - name: "Google Pixel.*"
+    platformVersion: 8.1
+  - id: Google_Pixel_2_real_us
+```
+
+### `id`
+
+__Description__: Request a specific device by its id. You can look up device IDs in the Sauce Labs app or using our [Get Devices API request](https://docs.saucelabs.com/dev/api/rdc#get-devices).
+
+__Type__:  *string*
+
+__Example__:
+
+```yaml
+        id: Google_Pixel_2_real_us
+```
+
+### `name`
+
+__Description__:  Request a device by its name.
+
+__Type__:  *string*
+
+__Example__:
+
+Using complete name:
+```yaml
+      - name: Google Pixel 4 XL
+```
+
+Using pattern matching:
+```yaml
+        name: Google Pixel.*
+```
+
+### `platformVersion`
+
+__Description__: Request that the device matches a specific platform version. You can use the `*` wildcard to denote flexibility.
+
+__Type__:  *string*
+
+__Example__:
+
+```yaml
+        platformVersion: 8.*
+```
+
+### `options`
+
+__Description__:  Further specify certain device attributes within the pool of devices that match the `name` and `version` criteria.
+
+__Type__: *object*
+
+#### `carrierConnectivity`
+
+__Description__: Request that the matching device is also connected to a cellular network.
+
+__Type__:  *bool*
+
+__Example__:
+
+```yaml
+       carrierConnectivity: true
+
+```
+
+#### `deviceType`
+
+__Description__:  Request that the matching device is a specific type of device. Values:  `ANY`, `TABLET`, or `PHONE`.
+
+__Type__:  *string*
+
+__Example__:
+
+```yaml
+        deviceTypecarrierConnectivity: TABLET
+```
+
+#### `private`
+
+__Description__: Request that the matching device is from your organization's private pool.
+
+__Type__:  *bool*
+
+__Example__:
+
+```yaml
+        private: true
+```
+
 
 ## `testOptions`
 

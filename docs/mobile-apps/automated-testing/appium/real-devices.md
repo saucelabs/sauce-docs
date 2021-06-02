@@ -164,13 +164,13 @@ EU Data Center (Windows)
 
 ## Configuring Appium Tests for Real Devices
 
-This section describes parameters that we recommend using to configure your Appium tests on Sauce Labs real devices. See [Appium for Real Devices CLI Reference](dev/cli/appium/real-devices) for the full list of required and optional parameters.
+This section describes parameters that we recommend using to configure your Appium tests on Sauce Labs real devices. See [Test Configuration Options](dev/test-configuration-options) for the full list of required and optional parameters.
 
 :::caution Please Read
 
 Certain Appium capabilities behave differently when running Appium tests on our Real Device Cloud versus a local Appium server. On our Real Device Cloud:
 
-* [Some Appium capabilities are not supported](dev/cli/appium/real-devices).
+* Some Appium capabilities are not supported.
 * Emulator-only capabilities will not work.
 * The `app` capability will be always be overwritten; it will point to the app file you uploaded to our system.
 * The `noReset` capability will only work if device caching is enabled.
