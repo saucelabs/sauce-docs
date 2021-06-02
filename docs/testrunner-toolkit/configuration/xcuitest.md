@@ -22,8 +22,8 @@ __Type__: *object*
 __Example__:
 ```yaml
 xcuitest:
-  app: ./apps/xcuitest/calc.apk
-  testApp: ./apps/xcuitest/calc-success.apk
+  app: ./apps/xcuitest/SauceLabs.Mobile.Sample.XCUITest.App.ipa
+  testApp: ./apps/xcuitest/SwagLabsMobileAppUITests-Runner.app
 ```
 
 ### `app`
