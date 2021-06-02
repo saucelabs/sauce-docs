@@ -44,7 +44,7 @@ Virtual USB (vUSB) is a mobile (app) debugging tool that simulates connecting a 
 ## Virtual USB for Sauce Labs
 
 :::tip CLI Reference
-See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB test configuration commands and options. You can also view them directly in the vUSB client by running `java -jar virtual-usb-client.jar --help`.
+See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB test configuration commands and options. You can also view them directly in the vUSB client by running `java -jar virtual-usb-client.jar --help`.
 :::
 
 ### Download Client
@@ -88,7 +88,7 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
 
   #### **Optional: Set Up a Local Server Proxy**
 
-  If you need to use a proxy to get access to external resources, you can launch a proxy tunnel or device proxy tunnel using the [proxy flags compatible with the `server` command](dev/cli/virtual-usb/start-server). This is not the same as starting a [Sauce Connect Tunnel](/secure-connections/sauce-connect).
+  If you need to use a proxy to get access to external resources, you can launch a proxy tunnel or device proxy tunnel using the [proxy flags compatible with the `server` command](/dev/cli/virtual-usb/start-server). This is not the same as starting a [Sauce Connect Tunnel](/secure-connections/sauce-connect).
 
   #### **Optional: Set Environment Variables**
 
@@ -124,7 +124,7 @@ See [Virtual USB CLI Reference](dev/cli/virtual-usb.md) for a full list of vUSB 
   Copy the `--sessionId` of your desired test, then run that along with the [`connect`](/dev/cli/virtual-usb/connect-session) command and your credentials.
 
   ```java
-  java -jar virtual-usb-client.jar connect --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 ---username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  java -jar virtual-usb-client.jar connect --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
   ```
 
   > **NOTE:** Method 1 is recommended for the following reasons:
@@ -288,7 +288,7 @@ This a one-time action that you won't need to do again for future tests.
     * The third option, regardless of your test setup, is to close the browser window where the device session is running.
 
   :::tip
-  If you've lost track of your `--sessionId`, you can recover it using the [`sessions`](dev/cli/virtual-usb/find-sessionid) command to generate a list of your active device sessions.
+  If you've lost track of your `--sessionId`, you can recover it using the [`sessions`](/dev/cli/virtual-usb/find-sessionid) command to generate a list of your active device sessions.
   ```java
   java -jar virtual-usb-client.jar disconnect --sessionId 37D274BC3A65A34BB3DA4DDF7B77E341
   ```
