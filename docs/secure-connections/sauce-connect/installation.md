@@ -21,69 +21,6 @@ This topic describes where and how to Sauce Connect Proxy to your local machine.
 
 1. Click the one of the links below (Windows, Mac OS X, or Linux) to download Sauce Connect to your local machine. Latest Version: 4.6.4.
    <ScTable></ScTable>
-[comment]: <> (<table>)
-
-[comment]: <> (  <tr>)
-
-[comment]: <> (   <td><strong>Sauce Connect Proxy Download Link</strong>)
-
-[comment]: <> (   </td>)
-
-[comment]: <> (   <td><strong>SHA1 Checksum</strong>)
-
-[comment]: <> (   </td>)
-
-[comment]: <> (  </tr>)
-
-[comment]: <> (  <tr>)
-
-[comment]: <> (   <td><a href="https://saucelabs.com/downloads/sc-4.6.4-osx.zip">Download Sauce Connect v4.6.4 for Mac OS 10.8+</a>)
-
-[comment]: <> (   </td>)
-
-[comment]: <> (   <td><code>dd1a04ef3c095cc2bdcedd31a3a3a469d8d382e1</code>)
-
-[comment]: <> (   </td>)
-
-[comment]: <> (  </tr>)
-
-[comment]: <> (  <tr>)
-
-[comment]: <> (   <td><a href="https://saucelabs.com/downloads/sc-4.6.4-win32.zip">Download Sauce Connect v4.6.4 for Windows 7+</a>)
-
-[comment]: <> (   </td>)
-
-[comment]: <> (   <td><code>9142b9692852cf43e7877ad250d4bf47cb0c6547</code>)
-
-[comment]: <> (   </td>)
-
-[comment]: <> (  </tr>)
-
-[comment]: <> (  <tr>)
-
-[comment]: <> (   <td><a href="https://saucelabs.com/downloads/sc-4.6.4-linux.tar.gz">Download Sauce Connect v4.6.4 for Linux</a>)
-
-[comment]: <> (   </td>)
-
-[comment]: <> (   <td><code>992e2cb0d91e54b27a4f5bbd2049f3b774718115</code>)
-
-[comment]: <> (   </td>)
-
-[comment]: <> (  </tr>)
-
-[comment]: <> (  <tr>)
-
-[comment]: <> (   <td><a href="https://saucelabs.com/downloads/sc-4.6.4-linux32.tar.gz">Download Sauce Connect v4.6.4 for Linux 32-bit</a>)
-
-[comment]: <> (   </td>)
-
-[comment]: <> (   <td><code>bd26829205a11026714e2c1b29c067dd2ced538e</code>)
-
-[comment]: <> (   </td>)
-
-[comment]: <> (  </tr>)
-
-[comment]: <> (</table>)
 
 2. Extract contents of the **.zip** or **.gz** download.
 
