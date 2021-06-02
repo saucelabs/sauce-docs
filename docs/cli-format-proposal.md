@@ -9,34 +9,36 @@ sidebar_label: CLI Format Proposal
 Consensus: Line between commands makes it easier to read. Solution: make these changes using a CSS style.
 
 ---
-### `edgedriverVersion`
+## `edgedriverVersion` (H2 level)
 
-##### **Description**: allows you to specify the Microsoft Edge driver version you want to use for your tests.
+###### **Description**: allows you to specify the Microsoft Edge driver version you want to use for your tests.
 
-##### **Value Type**: string
+###### **Value Type**: string
 
-##### **Example**:
+###### **Example**:
 
 ```java
 "edgedriverVersion": "90.0.818.51"
 ```
 
 ---
-### `geckodriverVersion`
+### `geckodriverVersion` (H3 level)
 
-##### **Description**: allows you to specify the Firefox GeckoDriver version. The default geckodriver version varies based on the version of Firefox specified.
-##### **Value Type**: string
-##### **Example**:
+###### **Description**: allows you to specify the Firefox GeckoDriver version. The default geckodriver version varies based on the version of Firefox specified.
+###### **Value Type**: string
+###### **Example**:
 ```java
 "geckodriverVersion": "0.27.0"
 ```
 ---
-### `seleniumVersion`
+#### `seleniumVersion` (H4 level)
 
-__Description__: allows you to specify the version of Selenium you want to use for your test.
+<p class="cli"><b>Description</b>: Allows you to specify the version of Selenium you want to use for your test. </p>
 
-__Value Type__: string.<br/>
-__Example__:
+<p class="cli"><b>Value Type</b>: <i>string</i></p>
+
+<p class="cli"><b>Example</b>:</p>
+
 ```java
 "seleniumVersion": "3.141.1"
 ```
@@ -49,4 +51,4 @@ Update style for H4 tag so it looks like a heading (currently it's same size as 
 ### Heading 3
 #### heading 4
 
-For heading 4, because it is not _that_ much bigger than the body text, I have also added some spacing below that sets it apart a bit, but perhaps there is somethign we can do to further distinguish it, style-wise?
+For heading 4, because it is not _that_ much bigger than the body text, I have also added some spacing below that sets it apart a bit, but perhaps there is something we can do to further distinguish it, style-wise?
