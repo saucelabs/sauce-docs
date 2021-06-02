@@ -566,6 +566,7 @@ module.exports = {
                             'testrunner-toolkit/configuration/espresso/esp-cucumber',
                         ]
                     },
+                    'testrunner-toolkit/configuration/xcuitest',
                 ],
             },
             'testrunner-toolkit/running-tests',
