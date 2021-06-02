@@ -13,8 +13,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## What You'll Need
 
-* A [Sauce Labs](https://app.saucelabs.com/) account
-
+* A [Sauce Labs](https://saucelabs.com/) account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
+* [Download and install `saucectl`](/testrunner-toolkit/installation#installing-testrunner-toolkit)
+    * Ensure you've met the prerequisites outlined in the [Testrunner Toolkit documentation](/testrunner-toolkit/installation#what-youll-need)
 
 ## Quick Start
 
@@ -41,18 +42,7 @@ npm install -g saucectl
 
 ### Set up Your Cypress Project
 
-Using `saucectl` to run your Cypress tests and view them in the Sauce Labs app requires a directory structure that includes the Cypress project and the Sauce configuration keys. Follow the steps below to dynamically build the directory.
-
-1. Run the `new` command:
-    ```
-    saucectl new
-    ```
-1. At the framework prompt, choose `Cypress`.
-1. At the region prompt, choose the Sauce Labs data center applicable to your account.
-
-At this point, `saucectl` generates a project that includes everything required to run a sample Cypress test through `saucectl`.
-
-If it detects a Cypress project already in the directory, `saucectl` will prompt you whether to overwrite any duplicates, such as the `cypress` folder and `cypress.json`. You can choose `No` to these questions to preserve your existing Cypress directory structure and files, and then manually [edit the `saucectl` configuration](/testrunner-toolkit/configuration) to run those tests.
+Using `saucectl` to run your Cypress tests and view them in the Sauce Labs app requires a directory structure that includes the Cypress project and the Sauce configuration keys. Please clone our [cypress example repository](https://github.com/saucelabs/saucectl-cypress-example).
 
 ### Run Tests
 
