@@ -9,6 +9,7 @@ module.exports = {
                 items: [
                     'sauce-basics',
                     'basics/platform-configurator',
+                    'basics/test-config',
                     {
                         type: 'category',
                         label: 'Account and Team Management',
@@ -62,14 +63,6 @@ module.exports = {
                             'basics/sso/config-adfs',
                             'basics/sso/config-okta',
 
-                        ],
-                    },
-                    {
-                        type: 'category',
-                        label: 'Test Configuration',
-                        collapsed: true,
-                        items: [
-                            'basics/test-config',
                         ],
                     },
                     {
