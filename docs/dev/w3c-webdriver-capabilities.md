@@ -8,19 +8,19 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Sauce Labs now supports the [W3C WebDriver-compliant capabilities and protocol](https://www.w3.org/TR/webdriver) featured in Selenium versions 3.11 and higher.
+Sauce Labs now supports the [W3C WebDriver-compliant capabilities and protocol](https://www.w3.org/TR/webdriver) featured in Selenium versions 3.11 and higher. This doc will help ensure that your tests are W3C WebDriver-compliant and can successfully execute on Sauce Labs.
 
-Please note that some extended capabilities are not backwards-compatible with Selenium versions below 4.0. This doc will help ensure that your tests are W3C WebDriver-compliant and can successfully execute on Sauce Labs.
+We early adopted the W3C WebDriver specification when it achieved the W3C standard level as the automation protocol for web browsers. As browser vendors update to support W3C WebDriver protocol and shift away from JSON Wire Protocol (JWP), this can bring increased stability in your Selenium tests across different browsers. It’s important to update your tests accordingly.
 
-We early adopted the W3C WebDriver specification when it achieved the W3C standard level as the automation protocol for web browsers. As browser vendors update to support W3C WebDriver and shift away from JSON Wire Protocol (JWP), it’s important to update your tests accordingly.
+>**NOTE**: Some extended capabilities are not backwards-compatible with Selenium versions below 4.0.
 
 
 ## What You'll Need
 
 To ensure W3C WebDriver compliance:
 * Use Selenium version 3.11 or higher.
-* Switch completely from using JWP desired capabilities (legacy) to W3C WebDriver capabilities.
-  * Take note of their different naming conventions. For example, W3C uses `platformName`, while legacy JWP uses `platform`. W3C uses `browserVersion`, while legacy JWP uses `version`. We recommend reviewing the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities).
+* Switch completely from using the older JWP to the newer W3C protocol.
+  * Familiarize yourself with the name changes with the new W3C protocol capabilities. For example, W3C uses `platformName`, while JWP uses `platform`. W3C uses `browserVersion`, while JWP uses `version`. We recommend reviewing the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities).
   * Do not mix JWP with W3C (you'll get an [error](https://docs.saucelabs.com/dev/w3c-webdriver-capabilities#common-errors)).
 * Include our custom `sauce:options` W3C WebDriver-compliant capabilities (e.g., `name`, `build`) in your Sauce Labs test scripts.
   * Here's an example:
@@ -168,35 +168,31 @@ To confirm that your Sauce Labs tests are adhering the new W3C WebDriver protoco
 
 There are some changes to specific Selenium language bindings you should be aware of when migrating to the W3C WebDriver protocol.
 
-#### **`DriverOptions()`**
+#### ** W3C `DriverOptions()`**
 
-When using Selenium version 3.11 or higher, we recommend inputting the W3C WebDriver-compliant `DriverOptions()` class, which is used to manage options specific to each browser web driver.
+When using Selenium version 3.11 or higher, we recommend inputting the W3C WebDriver-compliant `DriverOptions()` class, which is used to manage options specific to each browser web driver. Below are some examples.
 
 <Tabs
-  defaultValue="DriverOptions()"
+  defaultValue="W3C DriverOptions()"
   values={[
-    {label: 'DriverOptions()', value: 'DriverOptions()'},
-    {label: 'DesiredCapabilities()', value: 'DesiredCapabilities()'},
+    {label: 'W3C DriverOptions()', value: 'W3C DriverOptions()'},
+    {label: 'JWP DesiredCapabilities()', value: 'JWP DesiredCapabilities()'},
   ]}>
 
-<TabItem value="DriverOptions()">
-
-Here's an example using `DriverOptions()` (W3C WebDriver-compliant):
+<TabItem value="W3C DriverOptions()">
 
 ```java
 FireFoxOptions mozOpts = new FirefoxOptions();
 ```
 
 </TabItem>
-<TabItem value="DesiredCapabilities()">
-
-Here's an example using `DesiredCapabilities()` (legacy):
+<TabItem value="JWP DesiredCapabilities()">
 
 ```java
 DesiredCapabilities caps = new DesiredCapabilities.firefox();
 ```
 
->**NOTE**: Using legacy formatting in a Selenium 3.11+ script will yield the following message:
+>**NOTE**: Using JWP legacy formatting in a Selenium 3.11+ script, like in the example above, will yield the following message:
 ```
 "INFO: Using `new FirefoxOptions()` is preferred
 to `DesiredCapabilities.firefox()"
@@ -204,23 +200,22 @@ to `DesiredCapabilities.firefox()"
 
 </TabItem>
 </Tabs>
+<br/>
 
-#### **`MutableCapabilities()`**
+#### **W3C `MutableCapabilities()`**
 
-We recommend setting your capabilities using the W3C Webdriver-compliant `MutableCapabilities()` class over the legacy `DesiredCapabilities()`.
+We recommend setting your capabilities using the W3C Webdriver-compliant `MutableCapabilities()` class over the legacy `DesiredCapabilities()`. `MutableCapabilities()` implements all interfaces, including `DriverOptions()` and `DesiredCapabilities()`. Below are some examples.
 
-`MutableCapabilities()` implements all interfaces, including `DriverOptions()` and `DesiredCapabilities()`. For more information, see the [`DriverOptions` class Selenium documentation](https://www.selenium.dev/selenium/docs/api/dotnet/html/T_OpenQA_Selenium_DriverOptions.htm).
+For more information, see the [`DriverOptions` class Selenium documentation](https://www.selenium.dev/selenium/docs/api/dotnet/html/T_OpenQA_Selenium_DriverOptions.htm).
 
 <Tabs
-  defaultValue="MutableCapabilities()"
+  defaultValue="W3C MutableCapabilities()"
   values={[
-    {label: 'MutableCapabilities()', value: 'MutableCapabilities()'},
-    {label: 'DesiredCapabilities()', value: 'DesiredCapabilities()'},
+    {label: 'W3C MutableCapabilities()', value: 'W3C MutableCapabilities()'},
+    {label: 'JWP DesiredCapabilities()', value: 'JWP DesiredCapabilities()'},
   ]}>
 
-<TabItem value="MutableCapabilities()">
-
-Here's an example using `MutableCapabilities()` (W3C WebDriver-compliant):
+<TabItem value="W3C MutableCapabilities()">
 
 ```java
 MutableCapabilities sauceCaps = new MutableCapabilities();
@@ -238,9 +233,7 @@ WebDriver driver = new RemoteWebDriver(new URL("https://ondemand.saucelabs.com/w
 ```
 
 </TabItem>
-<TabItem value="DesiredCapabilities()">
-
-Here's an example using `DesiredCapabilities()` (legacy):
+<TabItem value="JWP DesiredCapabilities()">
 
 ```java
 DesiredCapabilities caps = new DesiredCapabilities();
@@ -252,6 +245,12 @@ caps.setCapability("platform", "Windows 10");
 caps.setCapability("version", "latest");
 
 WebDriver driver = new RemoteWebDriver(new URL("https://ondemand.saucelabs.com/wd/hub"), caps);
+```
+
+>**NOTE**: Using JWP legacy formatting in a Selenium 3.11+ script, like in the example above, will yield the following message:
+```
+"INFO: Using `new FirefoxOptions()` is preferred
+to `DesiredCapabilities.firefox()"
 ```
 
 </TabItem>
@@ -278,11 +277,7 @@ To instantiate WebDriver with W3C WebDriver-compliant capabilities, select a cod
 1. Ensure you have the [prerequisite software](https://github.com/saucelabs-training/demo-java/#prerequisites) to run a Java test on Sauce.
 2. Download or clone one of the below example test scripts from our GitHub repo:
 
-  <details><summary><strong>Click here</strong> to see TestNG example test scripts.</summary>
-
-  ```java reference
-  https://github.com/saucelabs-training/demo-java/blob/master/w3c-examples/w3c-testng/src/test/java/TestNGW3CChromeTest.java
-  ```
+  <details><summary><strong>Click here</strong> to see an example TestNG test script.</summary>
 
   ```java reference
   https://github.com/saucelabs-training/w3c-examples/blob/master/java/testng/W3CChromeTest.java
@@ -466,7 +461,7 @@ To instantiate WebDriver with W3C WebDriver-compliant capabilities, select a cod
 
 Below are mobile and web test script examples you can use to get up and running quickly:
 
-<details><summary><strong>Click here</strong> to see a Desktop Web test script example</summary>
+<details><summary><strong>Click here</strong> to see a Desktop Web test script example.</summary>
 
 ```js reference
 https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/examples/w3c/test/configs/wdio.saucelabs.conf.js
@@ -474,7 +469,7 @@ https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/ex
 
 </details>
 
-<details><summary><strong>Click here</strong> to see an Appium Web test script example</summary>
+<details><summary><strong>Click here</strong> to see an Appium Web test script example.</summary>
 
 ```js reference
 https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-web/examples/w3c/test/configs/wdio.saucelabs.conf.js
