@@ -9,6 +9,7 @@ module.exports = {
                 items: [
                     'sauce-basics',
                     'basics/platform-configurator',
+                    'basics/test-config',
                     {
                         type: 'category',
                         label: 'Account and Team Management',
