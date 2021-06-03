@@ -418,11 +418,13 @@ public class SampleSauceTest {
         capabilities.setCapability("appiumVersion", "1.16.0");
         WebDriver driver = new AndroidDriver<WebElement>( new URL("http://SAUCE_USERNAME:SAUCE_ACCESS_KEY@ondemand.us-west-1.saucelabs.com/wd/hub"), capabilities);
 
-        WebElement emailInput = driver.findElement(By.id("fbemail"));
-        emailInput.sendKeys("SauceIsAwesome@email.com");
-        assertEquals(emailInput.getText(), "SauceIsAwesome@email.com");
-
-        driver.quit();
+        try {
+            WebElement emailInput = driver.findElement(By.id("fbemail"));
+            emailInput.sendKeys("SauceIsAwesome@email.com");
+            assertEquals(emailInput.getText(), "SauceIsAwesome@email.com");
+        } finally {
+            driver.quit();
+        }
     }
 }
 ```
