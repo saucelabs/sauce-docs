@@ -176,6 +176,7 @@ module.exports = {
                 items: [
                     'web-apps/automated-testing/cypress',
                     'web-apps/automated-testing/playwright',
+                    'web-apps/automated-testing/pre-run-executables',
                 ],
             },
         ],
