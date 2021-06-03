@@ -590,9 +590,9 @@ module.exports = {
         "Reference": [
             'dev',
             'dev/glossary',
+            'dev/error-messages',
             'dev/test-configuration-options',
             'dev/w3c-webdriver-capabilities',
-            'dev/error-messages',
             {
                 type: 'category',
                 label: 'API Reference',
@@ -616,15 +616,6 @@ module.exports = {
                 items: [
                     'dev/cli',
                     'dev/cli/sauce-connect-proxy',
-                    {
-                        type: 'category',
-                        label: 'Appium',
-                        collapsed: true,
-                        items: [
-                            'dev/cli/appium/real-devices',
-                            'dev/cli/appium/virtual-devices',
-                        ],
-                    },
                     {
                         type: 'category',
                         label: 'Espresso / XCUITest',
