@@ -1,14 +1,17 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Table from "./Table";
-import axios from 'axios';
-
-// const getData = () => {
-//     axios({
-//         url: '',
-//     }).then(response => {
+// import axios from 'axios';
 //
-//     })
-// }
+// const getData = async () => {
+//     return await axios.get(
+//         `https://saucelabs.com/versions.json`
+//     ).then(response => {
+//         console.log(response.data);
+//         return response.data;
+//     }).catch(err => console.log(err));
+// };
+//
+// getData();
 const ScTable = () => {
     const theadData = ["Platform", "Download Link", "SHA1 Checksum"];
     const tbodyData = [
