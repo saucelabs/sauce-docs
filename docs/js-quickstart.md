@@ -11,7 +11,7 @@ You can configure the [Sauce Testrunner Toolkit](https://docs.saucelabs.com/test
 
 The basic steps include:
 
- * Install SauceCTL with `npm i -g saucectl`
+ * [Install saucectl](https://docs.saucelabs.com/testrunner-toolkit/installation#installing-saucectl) with `npm i -g saucectl`
 
  * Set your Sauce username and access key with `saucectl configure`
 
