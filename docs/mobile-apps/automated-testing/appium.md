@@ -359,8 +359,7 @@ Because of the wide variations in recording technique, this beginning section om
 The following example runs a test by asserting that the login response message is equal to an expected success message:
 
 ```java
-import junit.framework.Assert;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Assertions.assertEquals;
 
 WebElement messageElement     = driver.findElement(By.id("loginResponse"));
 String message                = messageElement.getText();
@@ -404,7 +403,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import io.appium.java_client.android.AndroidDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
-import junit.framework.Assert;
+import org.junit.jupiter.api.Assertions.assertEquals;
 public class SampleSauceTest {
 
     public static void  main() throws MalformedURLException {
