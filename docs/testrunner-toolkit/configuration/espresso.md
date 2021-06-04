@@ -231,6 +231,9 @@ testOptions:
   size: small
   package: com.example.android.testing.androidjunitrunnersample
   annotation: com.android.buzz.MyAnnotation
+  numShards: 4
+  shardIndex: 1
+  clearPackageData: true
 ```
 
 ### `class`
@@ -290,4 +293,37 @@ __Type__: *string*
 __Example__:
 ```yaml
   annotation: com.android.buzz.MyAnnotation
+```
+
+### `numShards`
+
+__Description__: `numShards` sets the number of separate shards to create. This option works for both emulators and RDC. For more shard tests, click [here](https://developer.android.com/training/testing/junit-runner#sharding-tests) to read more.
+
+__Type__: *int*
+
+__Example__:
+```yaml
+  numShards: 4
+```
+
+### `shardIndex`
+
+__Description__: `shardIndex` specifies which shard to run. This option works for both emulators and RDC. For more shard tests, click [here](https://developer.android.com/training/testing/junit-runner#sharding-tests) to read more.
+
+__Type__: *int*
+
+__Example__:
+```yaml
+  shardIndex: 1
+```
+
+### `clearPackageData`
+
+__Description__: Removes all shared state from your device's CPU and memory after each test.
+
+__Type__: *bool*
+
+__Example__:
+```yaml
+  clearPackageData: true
 ```
