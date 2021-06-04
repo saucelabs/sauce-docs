@@ -297,7 +297,7 @@ __Example__:
 
 ### `numShards`
 
-__Description__: `numShards` sets the number of separate shards to create. This option works for both emulators and RDC. For more shard tests, click [here](https://developer.android.com/training/testing/junit-runner#sharding-tests) to read more.
+__Description__: Sets the number of separate shards to create. Read more about shard tests on the [Android developer site](https://developer.android.com/training/testing/junit-runner#sharding-tests).
 
 __Type__: *int*
 
@@ -308,7 +308,7 @@ __Example__:
 
 ### `shardIndex`
 
-__Description__: `shardIndex` specifies which shard to run. This option works for both emulators and RDC. For more shard tests, click [here](https://developer.android.com/training/testing/junit-runner#sharding-tests) to read more.
+__Description__: Specifies which shard to run. Read more about shard tests on the [Android developer site](https://developer.android.com/training/testing/junit-runner#sharding-tests).
 
 __Type__: *int*
 
