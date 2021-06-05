@@ -20,7 +20,7 @@ Before running a browser or device test with Sauce Labs, you need to write your 
 Once your test is finished, you can annotate the job with a name, tags, and pass/fail status using the Sauce Labs REST API, or Selenium's JavaScript executor.
 
 ## Getting Ready to Test
-Test configuration refers to setting the desired capabilities of your test within the test script itself. There are [required capabilities for both Selenium and Appium tests](/basics/test-config.md#capabilities-for-selenium-and-appium-tests), as well as an extensive set of [optional capabilities](/dev/test-configuration-options.md) (some of which are exclusive to Sauce Labs). You can use our [Platform Configurator](/basics/platform-configurator.md) to create the required desired capabilities for your test scripts, or use one of our [sample test frameworks](https://github.com/saucelabs-training) to set up the desired capabilities for parallel testing across multiple platform/operating systems.
+Test configuration refers to setting the desired capabilities of your test within the test script itself. There are [required capabilities for both Selenium and Appium tests](/basics/test-config-annotation/test-config.md#capabilities-for-selenium-and-appium-tests), as well as an extensive set of [optional capabilities](/dev/test-configuration-options.md) (some of which are exclusive to Sauce Labs). You can use our [Platform Configurator](/basics/platform-configurator.md) to create the required desired capabilities for your test scripts, or use one of our [sample test frameworks](https://github.com/saucelabs-training) to set up the desired capabilities for parallel testing across multiple platform/operating systems.
 
 ## Capabilities for Selenium and Appium Tests
 
