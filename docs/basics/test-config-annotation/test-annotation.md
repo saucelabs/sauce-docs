@@ -80,8 +80,8 @@ One of the most difficult aspects of troubleshooting Selenium tests can be match
 
 For example, in the command log on the left, it's hard to immediately see which command is responsible for following a link to the page, which one submitted a comment, and which one asserted that the comment was valid. In the screenshot on the right, each set of commands has been provided with a context.
 
-<img src={useBaseUrl('img/test-config-js-context1.png>')} alt="Context for Selenium commands - before" width="650"/>
-<img src={useBaseUrl('img/test-config-js-context2.png>')} alt="Context for Selenium commands - after" width="650"/>
+<img src={useBaseUrl('img/test-config-js-context1.png')} alt="Context for Selenium commands - before" width="250"/>
+<img src={useBaseUrl('img/test-config-js-context2.png')} alt="Context for Selenium commands - after" width="250"/>
 
 #### Code Example
 In your `TestBase.java` script, assign a context with each step of the test is set using the `sauce:context` method.
