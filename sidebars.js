@@ -9,7 +9,7 @@ module.exports = {
                 items: [
                     'sauce-basics',
                     'basics/platform-configurator',
-                    'basics/test-config',
+
                     {
                         type: 'category',
                         label: 'Account and Team Management',
@@ -62,6 +62,16 @@ module.exports = {
                             'basics/sso/setting-up-single-sign-on',
                             'basics/sso/config-adfs',
                             'basics/sso/config-okta',
+
+                        ],
+                    },
+                    {
+                        type: 'category',
+                        label: 'Test Configuration and Annotation',
+                        collapsed: true,
+                        items: [
+                            'basics/test-config-annotation/test-config',
+                            'basics/test-config-annotation/test-annotation',
 
                         ],
                     },
