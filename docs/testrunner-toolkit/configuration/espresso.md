@@ -319,7 +319,7 @@ __Example__:
 
 ### `clearPackageData`
 
-__Description__: Removes all shared state from your device's CPU and memory after each test.
+__Description__: Removes all shared states from the testing device's CPU and memory at the completion of each test.
 
 __Type__: *bool*
 
