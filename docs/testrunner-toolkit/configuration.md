@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-The initial [installation and setup](testrunner-toolkit/installation) of `saucectl` generates a `config.yml` file based on the framework and region you selected during setup. By default, `saucectl` will look for this file each time you engage the CLI in order to determine where to find your tests and how and where to run them.
+The initial [installation and setup](/testrunner-toolkit/installation) of `saucectl` generates a `config.yml` file based on the framework and region you selected during setup. By default, `saucectl` will look for this file each time you engage the CLI in order to determine where to find your tests and how and where to run them.
 
 The configuration file is flexible enough to allow for any customizations and definitions that are required for any of the supported frameworks. The following sections describe some of the most common configurations.
 
@@ -27,8 +27,6 @@ While you can use multiple files of different names or locations to specify your
 
 
 ## Concurrency
-
-<p><small>supported frameworks: <span class="highlight cypress">Cypress</span> <span class="highlight testcafe">TestCafe</span> <span class="highlight playwright">Playwright</span></small></p>
 
 You can configure `saucectl` to run test suites in parallel up to the concurrency specified in the config file.
 
