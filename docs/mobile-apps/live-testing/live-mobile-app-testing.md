@@ -15,7 +15,7 @@ With Sauce Labs, you can test your mobile applications on a variety of real Andr
 * A mobile app to test. If you don't have one, you can use the [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile).
 
 ### Uploading an App
-You can upload your app via the Sauce Labs UI or via the REST API. For information about uploading via the API, see [Upload Files with the REST API](https://wiki.saucelabs.com/display/DOCS/Application+Storage#ApplicationStorage-UploadFileswiththeRESTAPI).
+You can upload your app via the Sauce Labs UI or via the REST API. For information about uploading via the API, see [Upload Files with the REST API](/mobile-apps/app-storage/index.html#uploading-apps-via-rest-api).
 
 To upload an app via the Sauce Labs UI:
 
@@ -242,7 +242,7 @@ To make Apple Pay work on Sauce Labs real private devices:
   1. Manually adding the device and its UDID to the device list for your developer certificate.
   **NOTE:** Your device list can be found on Apple’s [Certificates, Identifiers & Profiles page](https://developer.apple.com/account/resources/) for your developer account, and you can get the UDID of your private device by contacting your Sauce Labs CSM.
   2. Using the Sauce Labs Virtual USB solution:
-      1. Start a session with Virtual USB (see [Testing with Virtual USB on Real Devices](/mobile-apps/virtual-usb.md) for more information).
+      1. Start a session with Virtual USB (see [Testing with Virtual USB on Real Devices](/mobile-apps/virtual-usb) for more information).
       2. When the connection is established, open **XCODE**.
       3. Select the device from the device list.
 
@@ -348,7 +348,7 @@ Camera Image Injection is a core feature built into our RDC functionality and av
 * Testing with emulators, simulators
 
 ### What You'll Need
-You'll need to upload your app to Sauce Labs prior to testing (see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing.md)).
+You'll need to upload your app to Sauce Labs prior to testing (see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing)).
 
 ### Testing with Camera Image Injection
 1. In Sauce Labs, click **LIVE** and then click **Mobile App**.
