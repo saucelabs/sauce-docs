@@ -15,7 +15,7 @@ With Sauce Labs, you can test your mobile applications on a variety of real Andr
 * A mobile app to test. If you don't have one, you can use the [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile).
 
 ### Uploading an App
-You can upload your app via the Sauce Labs UI or via the REST API. For information about uploading via the API, see [Upload Files with the REST API](/mobile-apps/app-storage/index.html#uploading-apps-via-rest-api).
+You can upload your app via the Sauce Labs UI or via the REST API. For information about uploading via the API, see [Upload Files with the REST API](/mobile-apps/app-storage).
 
 To upload an app via the Sauce Labs UI:
 
