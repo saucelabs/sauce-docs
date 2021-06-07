@@ -148,7 +148,7 @@ Sauce Connect Proxy must be on the same network as the website or mobile app bei
 ## Using Tunnel Identifiers
 When launching a Sauce Connect Proxy tunnel for automated web and mobile app tests, you have two options:
 * Launch a Sauce Connect tunnel as-is, without identifying it. That default, unnamed tunnel will automatically be used for all automated tests. This can be useful for small organizations with a limited number of tests.
-* Assign a name known as a tunnel identifier. To accomplish this, you'll need to launch a tunnel with the `-i (--tunnel-identifier)` command to assign the tunnel identifier(s) when starting up Sauce Connect Proxy. Then, you'll need to use the `tunnelIdentifier` option in the desired capabilities of your automated tests (see [Sauce Connect Proxy Tunnel Settings](/basics/test-config-and-annotation/test-annotation) for more information). This will trigger your tests to request a specific tunnel to run your tests through that tunnel.
+* Assign a name known as a tunnel identifier. To accomplish this, you'll need to launch a tunnel with the `-i (--tunnel-identifier)` command to assign the tunnel identifier(s) when starting up Sauce Connect Proxy. Then, you'll need to use the `tunnelIdentifier` option in the desired capabilities of your automated tests (see [Sauce Connect Proxy Tunnel Settings](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+and+Annotation) for more information). This will trigger your tests to request a specific tunnel to run your tests through that tunnel.
 
 ### Example: Automated Test with Sauce Connect Proxy Tunnel Identifiers
 Below is an example of how to designate tunnels based on the `tunnelIdentifier` option so that it works properly with an automated test.
