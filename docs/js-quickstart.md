@@ -42,7 +42,7 @@ If you are adding tests to the example test project, you will need update the [p
         browser: "chrome"
         platformName: "Windows 10"
         config:
-          testFiles: [ "**/logintest.*"
+          testFiles: [ "**/logintest.*" ]
 ```
 
 
