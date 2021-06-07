@@ -1,5 +1,7 @@
 ---
 id: integrations
-title: Integrations
+title: Visual E2E Testing Integrations
 sidebar_label: Integrations
 ---
+
+x
