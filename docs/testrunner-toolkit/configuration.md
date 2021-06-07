@@ -22,7 +22,7 @@ saucectl run -c ./path/to/{config-file}.yml
 If you are using multiple frameworks or need to configure different sets of tests to run separately, it might be useful to have individual configuration files that you can simply direct `saucectl` to reference as necessary.
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the [`saucectl` syntax](/configuration/common-syntax). If you are less comfortable with YAML, any of a wide variety of free online YAML/JSON validator tools may be helpful.
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the [`saucectl` syntax](/testrunner-toolkit/configuration/common-syntax). If you are less comfortable with YAML, any of a wide variety of free online YAML/JSON validator tools may be helpful.
 :::
 
 
