@@ -11,9 +11,9 @@ You can configure the [Sauce Testrunner Toolkit](https://docs.saucelabs.com/test
 
 The basic steps include:
 
- * Install saucectl with `npm i -g saucectl`
+ * [Install saucectl](https://docs.saucelabs.com/testrunner-toolkit/installation#installing-saucectl) with `npm i -g saucectl`
 
- * Set your Sauce username and access key with `saucectl configure`
+ * Set your [Sauce username and access key](https://docs.saucelabs.com/testrunner-toolkit/installation#use-credentialsyml) with `saucectl configure`
  * Download an example test suite
     * [Cypress](https://github.com/saucelabs/saucectl-cypress-example)
     * [TestCafe](https://github.com/saucelabs/saucectl-testcafe-example)
@@ -32,6 +32,19 @@ By Default, Cypress, Playwright, and TestCafe tests are run in _Sauce Mode_ usin
 ```
 saucectl run
 ```
+
+If you are adding tests to the example test project, you will need update the [project configuration](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress) in `.sauce/config.yml` to specify which tests are run, and which environment:
+
+
+```
+    suites:
+      - name: "Swag Labs Login Chrome"
+        browser: "chrome"
+        platformName: "Windows 10"
+        config:
+          testFiles: [ "**/logintest.*" ]
+```
+
 
 > _Puppeteer is only supported in Docker mode and will run on Docker automatically. See the [tutorial](https://training.staging.saucelabs.net/saucectl/) and [documentation](https://docs.saucelabs.com/testrunner-toolkit/running-tests) to learn more._
 
