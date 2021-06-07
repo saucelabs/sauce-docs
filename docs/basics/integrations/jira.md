@@ -1,6 +1,6 @@
 ---
 id: jira
-title: Jira Integration
+title: Jira Cloud Integration
 sidebar_label: Jira
 description: Link your Sauce Labs account with your Jira account to create an issue directly from the Sauce Labs app.
 keywords:
@@ -77,5 +77,5 @@ Once you have successfully connected your Sauce Labs and Jira accounts, you can 
 If the job you are viewing already has Jira issues associated with it, the number of previously filed issues appears in parentheses next to the Jira Issue button. When you click the button, you can select an existing issue to open the issue in your Jira account in another tab of your browser. There, you can edit the issue as you normally would.
 
 :::note
-Automatically attaching assets from your Sauce Labs job to your Jira issue is not yet supported.
+Attaching assets from your Sauce Labs job to your Jira issue is not yet supported.
 :::
