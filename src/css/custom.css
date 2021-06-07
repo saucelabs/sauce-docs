@@ -100,6 +100,11 @@ html[data-theme='dark'] .tabs__item--active {
     border-bottom-color: #57C1E8;
 }
 
+html[data-theme='dark'] .alert a {
+  color: #ffffff;
+  decoration: underline;
+}
+
 
 html[data-theme='light'] {
     --ifm-alert-color: #474c55;
