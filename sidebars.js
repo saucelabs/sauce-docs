@@ -593,7 +593,15 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'visual/e2e-testing/setup',
-                    'visual/e2e-testing/integrations',
+                    {
+                        type: 'category',
+                        label: 'Integrations',
+                        collapsed: true,
+                        items: [
+                          'visual/e2e-testing/integrations/selenium-webdriver',
+                          'visual/e2e-testing/integrations/continuous-integration',
+                        ],
+                    },
                     'visual/e2e-testing/dashboard-workflow',
                     'visual/e2e-testing/settings',
                     'visual/e2e-testing/recording-tests',
