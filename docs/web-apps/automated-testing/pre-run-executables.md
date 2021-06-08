@@ -89,16 +89,6 @@ defaults write com.apple.Safari WarnAboutFraudulentWebsites false
 
 [The disable_fraud script](https://gist.githubusercontent.com/saucyallison/3a73a4e0736e556c990d/raw/d26b0195d48b404628fc12342cb97f1fc5ff58ec/disable_fraud.sh) used in the preceding examples is hosted as a Gist on GitHub.
 
-### Setting the `prerun` Capability
-You can host this script in your own repository, or in temporary Sauce Storage, and refer to it within the `prerun` capability of your tests as described in the [Test Configuration Options](/dev/test-configuration-options#pre-run-executables) topic. This Python example refers to the GitHub Gist location:
-
-```
-desired_capabilities['prerun'] = {
-  'executable':'https://gist.githubusercontent.com/saucyallison/3a73a4e0736e556c990d/raw/d26b0195d48b404628fc12342cb97f1fc5ff58ec/disable_fraud.sh',
-    'background': 'false'
-}
-```
-
 ## Downloading Files to a VM Prior to Testing
 
 You can use a pre-run executable script to download files from a public location to the Sauce Labs virtual machine running your tests. This topic contains example scripts for downloading remote files on different operating systems, and details configuring the prerun capability in your tests.
@@ -245,8 +235,9 @@ driver.quit()
 
 If your test script is written in Java, you will need to create a JSON object if you want to include multiple arguments, such as `--silent, -a` with the `prerun` capability.
 
->**NOTE:** The JSONObject Class/Library
+:::note The JSONObject Class/Library
 Make sure your test script imports the JSONObject class/library so you can create the JSON object.
+:::
 
 ```
 JSONObject obj = new JSONObject();
