@@ -188,7 +188,9 @@ capabilities['prerun'] = "http://location.of/curl.sh"
 ```
 
 ## Editing the VM's Host File
->**NOTE:** Editing the Host file of the virtual machine will not work if [Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy) is in use. If you are using Sauce Connect Proxy, the Host file of the machine running Sauce Connect Proxy will be referenced and you can make the desired changes there.
+:::note
+Editing the Host file of the virtual machine will not work if [Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy) is in use because the Host file of the machine running Sauce Connect Proxy is referenced, so make the desired changes there, instead.
+:::
 
 An example of configuring a Sauce Labs virtual machine with a pre-run executable is editing the host file in the virtual machine, so when the driver tries to access a particular domain, like google.com, it will be redirected to a new IP address, for example 162.222.75.243 ([saucelabs.com](http://saucelabs.com/)). As with other `prerun` configurations, the basic steps are:
 
