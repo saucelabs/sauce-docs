@@ -33,6 +33,7 @@ This example script disables the warning that Safari pops up when using basic HT
 ```bash title="disable_fraud.sh"
 #!/bin/bash
 defaults write com.apple.Safari WarnAboutFraudulentWebsites false
+```
 
 :::note Match File Types to Your Operating System
 When creating your executable file, take into account the operating system you'll use for your tests. For example, Bash commands won't work on Windows machines, which instead require a `.bat` or `.com` file.
