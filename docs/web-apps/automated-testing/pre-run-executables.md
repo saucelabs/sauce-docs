@@ -202,7 +202,7 @@ An example of configuring a Sauce Labs virtual machine with a pre-run executable
 ### Host File Script
 Here are examples of the host file script, `EditDNS`, in both OS X/Linux and Windows versions.
 
-OS X/Linux Host File Script
+```bash OS X/Linux Host File Script
 #!/bin/bash
 echo "162.222.75.243 www.google.com" >> /etc/hosts
 Windows Host File
