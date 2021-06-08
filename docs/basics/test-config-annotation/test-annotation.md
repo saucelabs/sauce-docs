@@ -16,7 +16,7 @@ export const Highlight = ({children, color}) => ( <span style={{
     }}>{children}</span> );
 
 
-Test annotation refers to adding information to your tests after they have completed, such as setting a name, build number, tag, and Pass/Fail status. These annotations are useful for managing your tests and builds (for example, when searching and sorting tests in your [Archives](/test-results/archived-test-results#searching-for-test-results)). You can add annotations with our [REST API](/basics/test-config-annotation/test-annotation#sauce-labs-rest-api) or the [Selenium JavaScript Executor](/basics/test-config-annotation/test-annotation#selenium-javascript-executor). You can also use [sample test frameworks](https://github.com/saucelabs-training) to automatically add annotations to your tests.
+Test annotation refers to adding information to your tests after they have completed, such as setting a name, build number, tag, and Pass/Fail status. These annotations are useful for managing your tests and builds (for example, when searching and sorting tests in your [Archives](/test-results/archived-test-results)). You can add annotations with our [REST API](/basics/test-config-annotation/test-annotation#sauce-labs-rest-api) or the [Selenium JavaScript Executor](/basics/test-config-annotation/test-annotation#selenium-javascript-executor). You can also use [sample test frameworks](https://github.com/saucelabs-training) to automatically add annotations to your tests.
 
 ## Selenium JavaScript Executor
 Selenium's JavascriptExecutor lets you use JavaScript commands in your test scripts to perform actions in the browser. We've developed a set of custom JavascriptExecutor methods you can use to annotate tests and record pass/fail status. You can also use these methods to track information in your Selenium log for debugging.
@@ -29,8 +29,10 @@ Here's a Java code sample setting a job's name to "My test":
 ```
 
 ### Methods
->**NOTE:** Appium JS-Executor methods for Real Device Testing in Sauce Labs are limited and are indicated with the following badge:
+:::note
+Appium JS-Executor methods for Real Device Testing in Sauce Labs are limited and are indicated with the following badge:
 <p><span className="sauceDBlue">SUPPORTED ON RDC</span></p>
+:::
 
 | Method | Description |
 |---|---|
@@ -48,7 +50,9 @@ Here's a Java code sample setting a job's name to "My test":
 |`"sauce:performanceDisable"`|Pauses performance metrics collection.|
 
 
->**NOTE:** Spacing in the methods is sensitive, i.e., some methods require a space following  sauce: (`stop`, `start`, `disable`, `enable`, `break`, and `job-info`), while other methods do not.
+:::note
+Spacing in the methods is sensitive, i.e., some methods require a space following  sauce: (`stop`, `start`, `disable`, `enable`, `break`, and `job-info`), while other methods do not.
+:::
 
 ### Setting Pass/Fail
 Setting the pass/fail status of your tests is important for getting the most out of your [insights](/insights.md), as Selenium has only three built-in states: In Progress, Error, and Complete.
@@ -143,8 +147,10 @@ public class TextInputTest extends TestBase {
 ## Sauce Labs REST API
 You can manage your tests more effectively from your Dashboard and Archives with annotations. The Sauce Labs REST API includes an [update_job](/dev/api/jobs.md) method that you can use to set a name, tags, pass/fail status, and custom data for your test after it runs. To automate test annotation with this method, you'll want to create a simple set of functions to perform the put request for you. We've developed a [Java library](https://github.com/saucelabs/saucerest-java) to do just that, with examples for [Python](https://gist.github.com/1644439) and [Ruby](https://gist.github.com/DylanLacey/5218959) on GitHub.
 
->**NOTE:** Adding Pass/Fail Status and Build Numbers to Test Results with Frameworks<br/>
+:::note
+Adding Pass/Fail Status and Build Numbers to Test Results with Frameworks<br/>
 In addition to using the REST API to set these annotations once your test completes, you can use [one of the Sauce Labs test framework examples](https://github.com/saucelabs-training) to set these and other annotations for you automatically as part of the test execution.
+:::
 
 ## Desired Capabilities for Annotation
 You can set the following [test configuration options](/basics/test-config-annotation/test-config) to keep track of your jobs:
@@ -194,9 +200,13 @@ By assigning unique attributes (such as test name, tags, and build ID) in your t
 
 You can set these capabilities to be any combination of letters and numbers. To differentiate between builds, it's also a good practice to add a timestamp or CI job/build number at the end of your build tag.
 
->**NOTE:** The build name and tags capabilities are not supported in automated real device testing at this time, please check back for future updates with regards to this functionality.
+:::note
+The build name and tags capabilities are not supported in automated real device testing at this time, please check back for future updates with regards to this functionality.
+:::
 
->**NOTE:** While it's technically possible to use the same build name for multiple test runs, this will cause all of your test results to appear incorrectly as part of a single run. This, in turn, will cause your test results for those builds to be inaccurate.
+:::note
+While it's technically possible to use the same build name for multiple test runs, this will cause all of your test results to appear incorrectly as part of a single run. This, in turn, will cause your test results for those builds to be inaccurate.
+:::
 
 ### Code Examples: Build, Tags, and Name
 <Tabs
