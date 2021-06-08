@@ -23,8 +23,9 @@ You can configure your Sauce testing jobs to use  pre-run executables with the `
 
 Pre-run executables are commonly used to change browser settings and VM configurations before a test starts. This page provides a few examples of these scripts, and covers setting `prerun` as a desired capability during [test configuration](/dev/test-configuration-options#pre-run-executables).
 
->**NOTE:** Root and Administrative Permissions on Sauce Labs Virtual Machines
-sudo access is not allowed on Linux/Mac virtual machines. Administrative access is not allowed on Windows VMs.
+:::note Root and Administrative Permissions on Sauce Labs Virtual Machines
+`sudo` access is not allowed on Linux/Mac virtual machines. Administrative access is not allowed on Windows VMs.
+:::
 
 ### Writing a Configuration Script
 This example script disables the warning that Safari pops up when using basic HTTP authentication to access a website.
