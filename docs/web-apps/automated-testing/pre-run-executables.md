@@ -245,8 +245,9 @@ driver.quit()
 
 If your test script is written in Java, you will need to create a JSON object if you want to include multiple arguments, such as `--silent, -a` with the `prerun` capability.
 
->**NOTE:** The JSONObject Class/Library
-Make sure your test script imports the JSONObject class/library so you can create the JSON object.
+:::note The JSONObject Class/Library
+Make sure your test script imports the `JSONObject` class/library so you can create the JSON object.
+:::
 
 ```
 JSONObject obj = new JSONObject();
