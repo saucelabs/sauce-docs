@@ -86,7 +86,7 @@ This script clears the Warn when visiting a fraudulent website option in Safari'
 defaults write com.apple.Safari WarnAboutFraudulentWebsites false
 ```
 
-[This script](https://gist.githubusercontent.com/saucyallison/3a73a4e0736e556c990d/raw/d26b0195d48b404628fc12342cb97f1fc5ff58ec/disable_fraud.sh) is hosted as a Gist on GitHub.
+[The disable_fraud script](https://gist.githubusercontent.com/saucyallison/3a73a4e0736e556c990d/raw/d26b0195d48b404628fc12342cb97f1fc5ff58ec/disable_fraud.sh) used in the preceding examples is hosted as a Gist on GitHub.
 
 ### Setting the `prerun` Capability
 You can host this script in your own repository, or in temporary Sauce Storage, and refer to it within the prerun capability of your tests as described in the [Test Configuration Options](https://wiki.saucelabs.com/display/DOCSDEV/Test+Configuration+Options#TestConfigurationOptions-Pre-runExecutables) topic. This Python example refers to the GitHub Gist location:
