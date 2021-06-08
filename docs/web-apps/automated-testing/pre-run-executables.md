@@ -75,7 +75,9 @@ One of the arguments that can be added to the `prerun` capability in your test c
 ## Setting Basic Authentication in Safari
 In Safari, when you try to navigate to a URL that uses basic HTTP authentication, a warning dialog pops up that will derail your automated tests unless you can resolve it. You can execute a short shell script as a pre-run executable to configure Safari to not show this message.
 
->**NOTE:** You can only use this for Safari versions up to and including 10.x.
+:::note
+You can only use this for Safari versions up to and including 10.x.
+:::
 
 This script clears the Warn when visiting a fraudulent website option in Safari's preferences, so that your automated tests that use basic authentication over HTTP will execute without triggering the warning.
 
