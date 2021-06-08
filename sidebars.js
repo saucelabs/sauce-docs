@@ -71,6 +71,7 @@ module.exports = {
                         collapsed: true,
                         items: [
                             'basics/integrations/deque',
+                            'basics/integrations/tosca',
                         ],
                     },
                 ],
