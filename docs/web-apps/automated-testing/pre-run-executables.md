@@ -258,8 +258,9 @@ System.out.print(obj);
 
 If your test script is written in C#, you will need to create a Dictionary object with the `prerun` capability as JSON Objects do not work well with C# projects.
 
->**NOTE:** The C# Dictionary Object
-When creating the Dictionary object, make sure to make it the TKey is of value "string" and the TValue is of value "object"
+:::note The C# Dictionary Object
+When creating the Dictionary object, make sure the TKey is of value "string" and the TValue is of value "object"
+:::
 
 ```
 var obj = new Dictionary<string, object>();
