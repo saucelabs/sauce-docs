@@ -15,41 +15,126 @@ As a best practice, we recommend setting your Sauce Labs authentication credenti
 
 ## Setting Up Environment Variables on macOS and Linux Systems
 1. In Terminal mode, enter `vi ~/.bash_profile`, and then press **Enter**.
-Press i to insert text into your profile file.
-Enter these lines:
+2. Press i to insert text into your profile file.
+3. Enter these lines:
 
+```
 export SAUCE_USERNAME="your Sauce username"
 export SAUCE_ACCESS_KEY="your Sauce access key"
-Press Escape.
-Hold Shift and press Z twice (z z) to save your file and quit vi.
+```
 
-In the terminal, enter source ~/.bash_profile.
+4. Press **Esc**.
+5. Hold **Shift** and press **Z** twice (shift+Z+Z) to save your file and quit vi.
+6. In the terminal, enter `source ~/.bash_profile`.
 
-Setting Up Environment Variables on Windows Systems
-Click Start on the task bar.
-For Search programs and fields, enter Environment Variables.
-Click Edit the environment variables.
-This will open the System Properties dialog.
-Click Environment Variables.
-This will open the Environment Variables dialog.
-In the User variables section, click New.
-This will open the New System Variable dialog.
-For Variable name, enter SAUCE_USERNAME.
-For Variable value, enter your Sauce username.
-Click OK.
-Repeat 4 - 8 to set up the SAUCE_ACCESS_KEY.
-Referencing Environment Variables in Test Scripts
-Once you've set up the environment variables for your credentials, you need to reference them within the test scripts that you want to run on Sauce. You can find examples of test scripts that use environment variables for authentication in the demo directory for each language in the Sauce Labs Training repo on GitHub.
+## Setting Up Environment Variables on Windows Systems
+1. Click **Start** on the task bar.
+2. In the Search programs and fields box, enter **Environment Variables**.
+3. Click **Edit the environment variables**. This will open the **System Properties** dialog.
+4. Click **Environment Variables**. This will open the **Environment Variables** dialog.
+5. In the **User variables** section, click **New**. This will open the **New System Variable** dialog.
+6. For **Variable name**, enter **SAUCE_USERNAME**.
+7. For **Variable value**, enter your Sauce username.
+8. Click **OK**.
+9. Repeat 4 - 8 to set up the **SAUCE_ACCESS_KEY**.
+
+## Referencing Environment Variables in Test Scripts
+Once you've set up the environment variables for your credentials, you need to reference them within the test scripts that you want to run on Sauce. You can find examples of test scripts that use environment variables for authentication in the demo directory for each language in the [Sauce Labs Training repo](https://github.com/saucelabs-training) on GitHub.
 
 Below are examples of how to set environment variables in a given language/framework:
 
-Java
-C# Example
-NodeJS
-Ruby
-Python
-JUnit
-TestNG
+<Tabs
+  defaultValue="java"
+  values={[
+    {label: 'Java', value: 'java'},
+    {label: 'C#', value: 'c#'},
+    {label: 'NodeJS', value: 'nodejs'},
+    {label: 'Ruby', value: 'ruby'},
+    {label: 'Python', value: 'python'},
+  ]}>
+
+<TabItem value="java">
+
+### JUnit
+```
 String sauceUserName = System.getenv("SAUCE_USERNAME");
 String sauceAccessKey = System.getenv("SAUCE_ACCESS_KEY");
- Click here to view the full example
+```
+For a full example, see the [Sauce Labs Java repository](https://github.com/saucelabs-training/demo-java/tree/master/selenium-junit4-examples).
+
+### TestNG
+```
+String sauceUserName = System.getenv("SAUCE_USERNAME");
+String sauceAccessKey = System.getenv("SAUCE_ACCESS_KEY");
+```
+
+For a full example, see the [Sauce Labs Java repository](https://github.com/saucelabs-training/demo-java/tree/master/selenium-testng-examples).
+
+</TabItem>
+
+<TabItem value="c#">
+
+### NUnit
+```
+var sauceUserName =
+    Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);     
+var sauceAccessKey =
+    Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+```
+
+For a full example, see the [Sauce Labs Java repository](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/SeleniumNunit).
+
+</TabItem>
+
+<TabItem value="nodejs">
+
+### WebdriverIO
+```
+let username = process.env.SAUCE_USERNAME,
+    accessKey = process.env.SAUCE_ACCESS_KEY,
+
+```
+For a full example, see the [Sauce Labs Java repository](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio).
+
+### Protractor-Jasmine
+```
+exports.config = {
+    sauceUser: process.env.SAUCE_USERNAME,
+    sauceKey: process.env.SAUCE_ACCESS_KEY,
+```
+For a full example, see the [Sauce Labs Java repository](https://github.com/saucelabs-training/demo-js/tree/main/protractor).
+
+</TabItem>
+
+<TabItem value="ruby">
+
+### RSpec
+```
+username: ENV['SAUCE_USERNAME'],
+accessKey: ENV['SAUCE_ACCESS_KEY']
+```
+For a full example, see the [Sauce Labs Java repository](https://github.com/saucelabs-training/demo-ruby/tree/master/selenium-examples/rspec).
+
+</TabItem>
+
+<TabItem value="python">
+
+### PyTest
+```
+sauce_username = os.environ["SAUCE_USERNAME"]
+sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
+```
+For a full example, see the [Sauce Labs Java repository](https://github.com/saucelabs-training/demo-python/tree/main/examples).
+
+### unittest
+```
+sauce_username = os.environ["SAUCE_USERNAME"]
+sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
+
+```
+For a full example, see the [Sauce Labs Java repository](https://github.com/saucelabs-training/demo-python/tree/main/examples).
+
+
+</TabItem>
+
+</Tabs>
