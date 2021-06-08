@@ -16,7 +16,7 @@ There are different ways to deal with these situations, depending on the type of
 * With Chrome, there is a [long list of switches](http://peter.sh/experiments/chromium-command-line-switches/) that you can set to change browser behavior, which you can pass as arguments to the [Chrome WebDriver](https://sites.google.com/a/chromium.org/chromedriver/capabilities).
 * Unfortunately, neither Safari or Internet Explorer have a built-in way to edit user settings, which is where pre-run executables come into play.
 
-A pre-run executable is simply a script that you download to the Sauce Labs virtual machine and run prior to a test to change settings for Safari, Internet Explorer, or any other browser, or to configure the virtual machine that your tests will run on. Other topics in this section, for example, demonstrate how to [Set Basic Authentication in Safari](https://wiki.saucelabs.com/display/DOCSDEV/Setting+Basic+Authentication+in+Safari+with+a+Pre-Run+Executable) and [Edit the Virtual Machine's Host File](https://wiki.saucelabs.com/display/DOCSDEV/Editing+the+Virtual+Machine%27s+Host+File).
+A pre-run executable is simply a script that you download to the Sauce Labs virtual machine and run prior to a test to change settings for Safari, Internet Explorer, or any other browser, or to configure the virtual machine that your tests will run on.
 
 ## Setting Up Pre-Run Executables
 You can configure your Sauce testing jobs to use  pre-run executables with the `prerun` capability as described in [Test Configuration Options](https://wiki.saucelabs.com/display/DOCSDEV/Test+Configuration+Options#TestConfigurationOptions-Pre-runExecutables).
