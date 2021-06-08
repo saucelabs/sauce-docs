@@ -41,7 +41,7 @@ When creating your executable file, take into account the operating system you'l
 ### Storing a Configuration Script
 Your script can be stored in GitHub or in [Sauce Storage](https://wiki.saucelabs.com/display/DOCS/Temporary+Storage+Methods). You can also use [Gist](https://gist.github.com/) to easily host your executable file. Make sure to use the link containing the raw file contents.
 
-###Set the `prerun` Capability
+### Set the `prerun` Capability
 This example sets `prerun` to point to `myscriptstorage.com`, which hosts the script `disable_fraud.sh` used as an example in step 1.
 
 ```
