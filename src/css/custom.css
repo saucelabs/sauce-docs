@@ -91,6 +91,14 @@ html[data-theme='dark'] .table-of-contents__link--active {
     color: #57C1E8;
 }
 
+html[data-theme='dark'] .table-of-contents__link--active code {
+    color: #57C1E8;
+}
+
+html[data-theme='dark'] .table-of-contents__link:hover code {
+    color: #57C1E8;
+}
+
 html[data-theme='dark'] .table-of-contents__link:hover {
     color: #57C1E8;
 }
