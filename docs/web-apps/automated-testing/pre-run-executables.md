@@ -30,11 +30,9 @@ Pre-run executables are commonly used to change browser settings and VM configur
 ### Writing a Configuration Script
 This example script disables the warning that Safari pops up when using basic HTTP authentication to access a website.
 
-**disable_fraud.sh**
-```
+```bash title="disable_fraud.sh"
 #!/bin/bash
 defaults write com.apple.Safari WarnAboutFraudulentWebsites false
-```
 
 >**NOTE:** Match File Types to Your Operating System
 When creating your executable file, take into account the operating system you'll use for your tests. For example, Bash commands won't work on Windows machines, which instead require a `.bat` or `.com` file.
