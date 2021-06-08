@@ -300,6 +300,7 @@ When you save the script, it will be an **.au3** file, and you will need to comp
             "args": [ "--silent", "-a", "-q" ], "background": true }
 ```
 If using Sauce Storage for your pre-run executable send the following desired capability:
+
 ```js
 "prerun": { "executable": "sauce-storage:executable.exe",
             "args": [ "--silent", "-a", "-q" ], "background": true }
