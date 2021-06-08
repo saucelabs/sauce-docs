@@ -34,8 +34,9 @@ This example script disables the warning that Safari pops up when using basic HT
 #!/bin/bash
 defaults write com.apple.Safari WarnAboutFraudulentWebsites false
 
->**NOTE:** Match File Types to Your Operating System
+:::note Match File Types to Your Operating System
 When creating your executable file, take into account the operating system you'll use for your tests. For example, Bash commands won't work on Windows machines, which instead require a `.bat` or `.com` file.
+:::
 
 ### Storing a Configuration Script
 Your script can be stored in GitHub or in [Sauce Storage](https://wiki.saucelabs.com/display/DOCS/Temporary+Storage+Methods). You can also use [Gist](https://gist.github.com/) to easily host your executable file. Make sure to use the link containing the raw file contents.
