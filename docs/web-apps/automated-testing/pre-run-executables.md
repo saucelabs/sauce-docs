@@ -192,28 +192,30 @@ An example of configuring a Sauce Labs virtual machine with a pre-run executable
 ### Host File Script
 Here are examples of the host file script, `EditDNS`, in both OS X/Linux and Windows versions.
 
-```bash OS X/Linux Host File Script
+#### bash OS X/Linux Host File Script
+
+```
 #!/bin/bash
 echo "162.222.75.243 www.google.com" >> /etc/hosts
-Windows Host File
+```
+
+#### Windows Host File Script
+```
 @echo off
 echo 162.222.75.243 www.google.com > %temp%\temphosts.txt
 type C:\WINDOWS\system32\drivers\etc\hosts >> %temp%\temphosts.txt
 copy /Y %temp%\temphosts.txt C:\WINDOWS\system32\drivers\etc\hosts
+```
 
 ## Creating JSON Objects for Multiple Arguments
 
 If your test script is written in Java, you will need to create a JSON object if you want to include multiple arguments, such as `--silent, -a` with the `prerun` capability.
 
 :::note The JSONObject Class/Library
-<<<<<<< HEAD
-Make sure your test script imports the JSONObject class/library so you can create the JSON object.
-=======
 Make sure your test script imports the `JSONObject` class/library so you can create the JSON object.
->>>>>>> 6f45430a6d0884836b8cbd13ad67cef4a1739db0
 :::
 
-```
+```js
 JSONObject obj = new JSONObject();
 obj.put("executable","http://url.to/your/executable.exe");
 LinkedList<String> list = new LinkedList<String>();
