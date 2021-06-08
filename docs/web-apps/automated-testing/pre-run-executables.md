@@ -19,7 +19,7 @@ There are different ways to deal with these situations, depending on the type of
 A pre-run executable is simply a script that you download to the Sauce Labs virtual machine and run prior to a test to change settings for Safari, Internet Explorer, or any other browser, or to configure the virtual machine that your tests will run on.
 
 ## Setting Up Pre-Run Executables
-You can configure your Sauce testing jobs to use  pre-run executables with the `prerun` capability as described in [Test Configuration Options](https://wiki.saucelabs.com/display/DOCSDEV/Test+Configuration+Options#TestConfigurationOptions-Pre-runExecutables).
+You can configure your Sauce testing jobs to use  pre-run executables with the `prerun` capability as described in [Test Configuration Options](/dev/test-configuration-options#pre-run-executables).
 
 Pre-run executables are commonly used to change browser settings and VM configurations before a test starts. This page provides a few examples these scripts, and covers setting `prerun` as a desired capability during test configuration. You can find more information on the `prerun` capability in [Test Configuration Options](https://wiki.saucelabs.com/display/DOCSDEV/Test+Configuration+Options#TestConfigurationOptions-Pre-runExecutables).
 
