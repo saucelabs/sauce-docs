@@ -187,12 +187,12 @@ An example of configuring a Sauce Labs virtual machine with a pre-run executable
 
 1. Write a script with the URL redirect to the new IP address.
 1. Upload the script to a publicly accessible location, like GitHub or Sauce Storage
-1. Set the [`prerun` capability](https://wiki.saucelabs.com/display/DOCSDEV/Test+Configuration+Options#TestConfigurationOptions-Pre-runExecutables) in your test script to load the script as host file in the Sauce Labs virtual machine.
+1. Set the [`prerun` capability](/dev/test-configuration-options#pre-run-executables) in your test script to load the script as host file in the Sauce Labs virtual machine.
 
 ### Host File Script
 Here are examples of the host file script, `EditDNS`, in both OS X/Linux and Windows versions.
 
-OS X/Linux Host File Script
+```bash OS X/Linux Host File Script
 #!/bin/bash
 echo "162.222.75.243 www.google.com" >> /etc/hosts
 Windows Host File
@@ -201,42 +201,16 @@ echo 162.222.75.243 www.google.com > %temp%\temphosts.txt
 type C:\WINDOWS\system32\drivers\etc\hosts >> %temp%\temphosts.txt
 copy /Y %temp%\temphosts.txt C:\WINDOWS\system32\drivers\etc\hosts
 
-## Setting the `prerun` Capability in Your Test Script
-Having created and uploaded your host file script, you now need to refer to it using the prerun capability in your script, as shown in this Python example.
-
-```
-#!/usr/bin/python
-# -*- coding: UTF-8 -*-
-
-from selenium import webdriver
-
-desired_capabilities = webdriver.DesiredCapabilities.CHROME
-desired_capabilities['version'] = 'latest'
-desired_capabilities['platform'] = 'macOS 10.14'
-desired_capabilities['name'] = 'Editing the DNS'
-desired_capabilities['prerun'] = {'executable':'https://raw.githubusercontent.com/albedithdiaz/sauceSupport/master/preRunScripts/EditHostFile.sh', 'background': False }
-
-
-
-remote_url = 'http://SAUCE_USERNAME:SAUCE_ACCESS_KEY@ondemand.saucelabs.com/wd/hub'
-
-
-driver = webdriver.Remote(command_executor = remote_url, desired_capabilities = desired_capabilities)
-driver.implicitly_wait(30)
-
-driver.get('http://www.saucedemo.com')
-title = driver.title
-assert "Swag Labs" in title
-
-driver.quit()
-```
-
 ## Creating JSON Objects for Multiple Arguments
 
 If your test script is written in Java, you will need to create a JSON object if you want to include multiple arguments, such as `--silent, -a` with the `prerun` capability.
 
 :::note The JSONObject Class/Library
+<<<<<<< HEAD
 Make sure your test script imports the JSONObject class/library so you can create the JSON object.
+=======
+Make sure your test script imports the `JSONObject` class/library so you can create the JSON object.
+>>>>>>> 6f45430a6d0884836b8cbd13ad67cef4a1739db0
 :::
 
 ```
