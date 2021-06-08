@@ -510,7 +510,7 @@ module.exports = {
             'ci/teamcity',
         ],
         "Test Results": [
-            'test-results-hub',
+            'test-results',
             'test-results/viewing-test-results',
             'test-results/managing-test-results',
             'test-results/sharing-test-results',
