@@ -197,7 +197,7 @@ An example of configuring a Sauce Labs virtual machine with a pre-run executable
 
 1. Write a script with the URL redirect to the new IP address.
 1. Upload the script to a publicly accessible location, like GitHub or Sauce Storage
-1. Set the [`prerun` capability](https://wiki.saucelabs.com/display/DOCSDEV/Test+Configuration+Options#TestConfigurationOptions-Pre-runExecutables) in your test script to load the script as host file in the Sauce Labs virtual machine.
+1. Set the [`prerun` capability](/dev/test-configuration-options#pre-run-executables) in your test script to load the script as host file in the Sauce Labs virtual machine.
 
 ### Host File Script
 Here are examples of the host file script, `EditDNS`, in both OS X/Linux and Windows versions.
