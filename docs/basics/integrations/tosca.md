@@ -31,7 +31,7 @@ Below is a guide to set up the Sauce Labs integration. This integration allows y
   Selecting the appropriate data center in which to run your tests is important. Please read the following [documentation](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) to learn more about setting your tests configuration options to the correct data center location.
   :::
 
-If you're using a proxy for your tests you must also point the upstream address to the Sauce Labs data center endpoint.
+If you are using a proxy for your tests you must also point the upstream address to the Sauce Labs data center endpoint.
 
 
 ## Test Events
