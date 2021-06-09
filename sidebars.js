@@ -9,6 +9,7 @@ module.exports = {
                 items: [
                     'sauce-basics',
                     'basics/platform-configurator',
+                    'basics/test-config',
                     {
                         type: 'category',
                         label: 'Account and Team Management',
@@ -176,6 +177,7 @@ module.exports = {
                 items: [
                     'web-apps/automated-testing/cypress',
                     'web-apps/automated-testing/playwright',
+                    'web-apps/automated-testing/pre-run-executables',
                 ],
             },
         ],
@@ -566,6 +568,7 @@ module.exports = {
                             'testrunner-toolkit/configuration/espresso/esp-cucumber',
                         ]
                     },
+                    'testrunner-toolkit/configuration/xcuitest',
                 ],
             },
             'testrunner-toolkit/running-tests',
@@ -586,13 +589,49 @@ module.exports = {
         ],
         "Visual": [
             'visual',
+            {
+                type: 'category',
+                label: 'E2E Testing',
+                collapsed: true,
+                items: [
+                    'visual/e2e-testing/setup',
+                    {
+                        type: 'category',
+                        label: 'Integrations',
+                        collapsed: true,
+                        items: [
+                          'visual/e2e-testing/integrations/selenium-webdriver',
+                          'visual/e2e-testing/integrations/continuous-integration',
+                        ],
+                    },
+                    'visual/e2e-testing/dashboard-workflow',
+                    'visual/e2e-testing/settings',
+                    'visual/e2e-testing/recording-tests',
+                    'visual/e2e-testing/secure-connections',
+                    'visual/e2e-testing/acct-team-mgmt',
+                ],
+            },
+            {
+                type: 'category',
+                label: 'Component Testing',
+                collapsed: true,
+                items: [
+                  'visual/component-testing/setup',
+                  'visual/component-testing/integrations',
+                  'visual/component-testing/dashboard-workflow',
+                  'visual/component-testing/settings',
+                  'visual/component-testing/interactions-testing-api',
+                  'visual/component-testing/supported-browsers-devices',
+                  'visual/component-testing/acct-team-mgmt',
+                ],
+            },
         ],
         "Reference": [
             'dev',
             'dev/glossary',
+            'dev/error-messages',
             'dev/test-configuration-options',
             'dev/w3c-webdriver-capabilities',
-            'dev/error-messages',
             {
                 type: 'category',
                 label: 'API Reference',
@@ -616,15 +655,6 @@ module.exports = {
                 items: [
                     'dev/cli',
                     'dev/cli/sauce-connect-proxy',
-                    {
-                        type: 'category',
-                        label: 'Appium',
-                        collapsed: true,
-                        items: [
-                            'dev/cli/appium/real-devices',
-                            'dev/cli/appium/virtual-devices',
-                        ],
-                    },
                     {
                         type: 'category',
                         label: 'Espresso / XCUITest',

@@ -19,19 +19,6 @@ __Example__:
 saucectl configure
 ```
 
-### `new`
-
-__Description__: Prompts you to choose one of the [supported frameworks](/testrunner-toolkit#supported-frameworks-and-browsers). Based on the chosen framework, this command also generates:
-
-* a configuration file (e.g. `./sauce/config.yml`)
-* a test directory (e.g. `cypress/`)
-* an example test (e.g. `example.test.js`)
-
-__Example__:
-```bash
-saucectl new
-```
-
 ### `run`
 
 __Description__: Executes tests based on information in the configuration file ([`.sauce/config.yml`](/testrunner-toolkit/configuration)).
