@@ -9,6 +9,7 @@ module.exports = {
                 items: [
                     'sauce-basics',
                     'basics/platform-configurator',
+                    'basics/test-config',
                     {
                         type: 'category',
                         label: 'Account and Team Management',
@@ -176,6 +177,7 @@ module.exports = {
                 items: [
                     'web-apps/automated-testing/cypress',
                     'web-apps/automated-testing/playwright',
+                    'web-apps/automated-testing/pre-run-executables',
                 ],
             },
         ],
