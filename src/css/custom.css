@@ -91,6 +91,14 @@ html[data-theme='dark'] .table-of-contents__link--active {
     color: #57C1E8;
 }
 
+html[data-theme='dark'] .table-of-contents__link--active code {
+    color: #57C1E8;
+}
+
+html[data-theme='dark'] .table-of-contents__link:hover code {
+    color: #57C1E8;
+}
+
 html[data-theme='dark'] .table-of-contents__link:hover {
     color: #57C1E8;
 }
@@ -98,6 +106,11 @@ html[data-theme='dark'] .table-of-contents__link:hover {
 html[data-theme='dark'] .tabs__item--active {
     color: #57C1E8;
     border-bottom-color: #57C1E8;
+}
+
+html[data-theme='dark'] .alert a {
+  color: #ffffff;
+  decoration: underline;
 }
 
 
