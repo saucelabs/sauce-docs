@@ -1,6 +1,7 @@
 # Dependencies
 /node_modules
 package-lock.json
+
 # Log files
 logs
 npm-debug.log*
