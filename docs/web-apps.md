@@ -12,9 +12,7 @@ It's easy to run automated web application tests in the Sauce Labs device cloud.
   <p>Use Sauce Labs to live test web apps on a desktop browser, and on native browsers for real and virtual devices.
 </p>
   <ul>
-      <li><a href="https://wiki.saucelabs.com/display/DOCS/Live+Web+App+Testing+on+Mobile+Browsers+with+Virtual+and+Real+Devices">Testing on Mobile Browsers</a></li>
-      <li><a href="https://wiki.saucelabs.com/display/DOCS/Live+Web+App+Testing+on+Desktop+Browsers">Testing on Desktop Browsers</a></li>
-      <li><a href="https://wiki.saucelabs.com/display/DOCS/Best+Practices+for+Live+Testing">Best Practices for Live Testing</a></li>
+      <li><a href="https://docs.saucelabs.com/web-apps/live-testing/live-cross-browser-testing">Live Cross Browser Testing</a></li>
   </ul>
   </div>
 </div>
