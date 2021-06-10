@@ -82,7 +82,7 @@ var sauceAccessKey =
     Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
 ```
 
-For a full example, see the [Sauce Labs Java repository](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/SeleniumNunit).
+For a full example, see the [Sauce Labs C# repository](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/SeleniumNunit).
 
 </TabItem>
 
@@ -94,7 +94,7 @@ let username = process.env.SAUCE_USERNAME,
     accessKey = process.env.SAUCE_ACCESS_KEY,
 
 ```
-For a full example, see the [Sauce Labs Java repository](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio).
+For a full example, see the [Sauce Labs JS repository](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio).
 
 ### Protractor-Jasmine
 ```
@@ -102,7 +102,7 @@ exports.config = {
     sauceUser: process.env.SAUCE_USERNAME,
     sauceKey: process.env.SAUCE_ACCESS_KEY,
 ```
-For a full example, see the [Sauce Labs Java repository](https://github.com/saucelabs-training/demo-js/tree/main/protractor).
+For a full example, see the [Sauce Labs JS repository](https://github.com/saucelabs-training/demo-js/tree/main/protractor).
 
 </TabItem>
 
@@ -113,7 +113,7 @@ For a full example, see the [Sauce Labs Java repository](https://github.com/sauc
 username: ENV['SAUCE_USERNAME'],
 accessKey: ENV['SAUCE_ACCESS_KEY']
 ```
-For a full example, see the [Sauce Labs Java repository](https://github.com/saucelabs-training/demo-ruby/tree/master/selenium-examples/rspec).
+For a full example, see the [Sauce Labs Ruby repository](https://github.com/saucelabs-training/demo-ruby/tree/master/selenium-examples/rspec).
 
 </TabItem>
 
@@ -124,7 +124,7 @@ For a full example, see the [Sauce Labs Java repository](https://github.com/sauc
 sauce_username = os.environ["SAUCE_USERNAME"]
 sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
 ```
-For a full example, see the [Sauce Labs Java repository](https://github.com/saucelabs-training/demo-python/tree/main/examples).
+For a full example, see the [Sauce Labs Python repository](https://github.com/saucelabs-training/demo-python/tree/main/examples).
 
 ### unittest
 ```
@@ -132,7 +132,7 @@ sauce_username = os.environ["SAUCE_USERNAME"]
 sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
 
 ```
-For a full example, see the [Sauce Labs Java repository](https://github.com/saucelabs-training/demo-python/tree/main/examples).
+For a full example, see the [Sauce Labs Python repository](https://github.com/saucelabs-training/demo-python/tree/main/examples).
 
 
 </TabItem>
