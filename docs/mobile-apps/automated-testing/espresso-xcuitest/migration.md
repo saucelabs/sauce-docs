@@ -1,14 +1,16 @@
 ---
-id: espresso-xcuitest
-title: Mobile App Testing with Espresso and XCUITest
-sidebar_label: Espresso and XCUITest
-description: Run Espresso and XCUITest projects on Sauce Labs.
+id: migration
+title: Migrating to Espresso and XCUITest on Sauce
+sidebar_label: Legacy Migration
+description: Convert your TestObject Espresso and XCUItest setup to Sauce Labs testing.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs uses its framework agnostic test orchestrator [`saucectl`](/testrunner-toolkit) to execute Espresso and XCUITest tests based on one or more configuration files that instruct `saucectl` to run your tests exactly the way you specify. Results get published in your Sauce Labs dashboard, where you can compare 30 days of results across different environments and frameworks all in one view.
+If you have been using Test Object to run your mobile automation tests on Espresso and XCUITest, use this guide to transition to Sauce Labs.
+
+Sauce Labs uses its framework agnostic test orchestrator [`saucectl`](/testrunner-toolkit) to execute tests according to the direction you specify in your configuration file.
 
 ## What You'll Need
 
@@ -47,25 +49,16 @@ Clone or download the [Espresso](https://github.com/saucelabs/saucectl-espresso-
 
 ## Configuration
 
-Each demo repo includes a sample `config.yml` file (in the `<root>/.sauce` directory) that is preconfigured to run the example test, which is also included in the repo.
+Each demo repo includes a sample `config.yml` file (in the `<root>/.sauce` directory) that is preconfigured to run the example test that is also included in the repo.
 
-Modify the `config.yml` file to run your existing tests.
+Modify the `config.yml` file to run your existing tests, refering to the [Commands Map](#legacy-and-saucectl-commands-map) to determine which CLI commands and/or YAML configuration properties to use based on your former Test Object configurations.
 
-* **Test Object Migration:** refer to the [Commands Map](#legacy-and-saucectl-commands-map) to determine which CLI commands and/or YAML configuration properties to use based on your Test Object configurations.
-* **New Accounts:** see the `saucectl` configuration documentation for [Espresso](/testrunner-toolkit/configuration/espresso) and [XCUITest](/testrunner-toolkit/configuration/espresso).
-
-:::tip Alternative Config Files
-You can create multiple configuration files to support different frameworks or different test setups and then reference the applicable configuration file at runtime using the CLI command:
-
-```
-saucectl run -c ./path/to/<configFile>.yml
-```
-:::
+For additional information, see the `saucectl` configuration documentation for [Espresso](/testrunner-toolkit/configuration/espresso) and [XCUITest](/testrunner-toolkit/configuration/espresso).
 
 
-### Legacy to `saucectl` Commands Map
+### Legacy and `saucectl` Commands Map
 
-`saucectl` configures and runs your Espresso and XCUITest tests entirely from the CLI and YAML configuration settings. The following tables provide a list of testing actions, mapping the Test Object configuration settings to the equivalent settings in `saucectl`. These maps are separated by CLI commands and YAML properties for ease of navigation.
+`saucectl` configures and runs your Espresso and XCUITest tests entirely from the CLI and YAML configuration settings. The following tables provide a list of testing actions and maps the Test Object configuration settings to the equivalent settings in `saucectl`. These maps are separated by CLI commands and YAML properties for ease of navigation.
 
 :::note
 Both Test Object and Sauce Labs utilize CLI commands and YAML configuration files to define the many ways in which you can run your tests. Some actions can be set using either a CLI command _or_ a YAML property, while other actions can only be configured by one or the other.
