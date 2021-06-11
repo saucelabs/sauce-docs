@@ -41,7 +41,7 @@ Clone or download the [Espresso](https://github.com/saucelabs/saucectl-espresso-
     ```
     saucectl configure
     ```
-1. Enter your Sauce Labs `USERNAME` and `ACCESS_KEY` at the prompts.
+1. Enter your Sauce Labs `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` at the prompts.
 1. Add the resulting `credentials.yml` file in the `.sauce` folder of your project directory to your `.gitignore` file to protect it from unintended exposure.
 
 
