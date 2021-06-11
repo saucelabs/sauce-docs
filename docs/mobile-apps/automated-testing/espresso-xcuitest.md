@@ -136,7 +136,7 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Provide a name for the test. | `testname:` | `suites.name:` |
 | Specify a particular device to run the test on. | `device:` | `suites.devices.id:` |
 | Indicate device selection to be dynamic. | `devices:` | `suites.devices:` |
-| Choose a device running a particular platform version. | `devices.platformVersion:` | `suites.devices.platformVersion:` |
+| Choose a device running a particular platform version. | `devices.platformVersion:` | `suites[].devices[].platformVersion:` |
 | Choose devices from a private pool only. | `privateDevicesOnly:` | `suites.devices.options.private:` |
 | Choose a phone device only. | `phoneOnly:` | `suites.devices.options.deviceType: PHONE` |
 | Choose a tablet device only. | tabletOnly: | `suites.devices.options.deviceType: TABLET` |
