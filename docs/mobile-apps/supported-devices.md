@@ -88,7 +88,7 @@ This is dedicated pool of devices just for your organization. On the mobile devi
 | | iOS Mobile Apps | Android Mobile Apps |
 :-------:| :-------:| :----:|
 |  | <img src={useBaseUrl('img/mobile-apps/apple-logo.png')} alt="Apple logo" width="50"/> | <img src={useBaseUrl('img/mobile-apps/android-logo.png')} alt="Android logo" width="50"/> |
-| **Requirements** | <p>Your iOS app must be:</p><p>Formatted as an .ipa file. Refer to the documentation on [how to create an .ipa file](/mobile-apps/automated-testing/espresso-xcuitest/real-devices.md)</p><p>Uploaded and hosted in [Sauce Labs storage](/mobile-apps/app-storage.md) or installed from a remote location.</p> | <p>Your Android app must be:</p><p>Built into an .apk package/archive file.</p><p>Configured to have [internet permissions](http://developer.android.com/reference/android/Manifest.permission.html#INTERNET)</p><p>Uploaded and hosted in [Sauce Labs storage](/mobile-apps/app-storage.md) or installed from a remote location.</p>|
+| **Requirements** | <p>Your iOS app must be:</p><p>Formatted as an .ipa file. Refer to the documentation on [how to create an .ipa file](/mobile-apps/automated-testing/ipa-files)</p><p>Uploaded and hosted in [Sauce Labs storage](/mobile-apps/app-storage.md) or installed from a remote location.</p> | <p>Your Android app must be:</p><p>Built into an .apk package/archive file.</p><p>Configured to have [internet permissions](http://developer.android.com/reference/android/Manifest.permission.html#INTERNET)</p><p>Uploaded and hosted in [Sauce Labs storage](/mobile-apps/app-storage.md) or installed from a remote location.</p>|
 | **Versions supported** | iOS versions 9.3.6 and higher | Android versions 5.0 and higher |
 
 For the full list of supported real devices, see [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices).
@@ -210,14 +210,15 @@ capabilities.setCapability("deviceName", "Google Pixel.*");
 </TabItem>
 </Tabs>
 
->**NOTE**: A matching device must be present in your account in order for the test to run. Regex values are not case-sensitive (i.e., `"iphone .*S"` and `"IPHONe .*s"` are the same).
+:::note
+A matching device must be present in your account in order for the test to run. Regex values are not case-sensitive (i.e., `"iphone .*S"` and `"IPHONe .*s"` are the same).
+:::
 
 ## Additional Resources
 
 * [Appium Testing on Real Devices](/mobile-apps/automated-testing/appium/real-devices)
   * [Test Configuration Options](dev/test-configuration-options)
-* [Espresso and XCUITest Testing on Real Devices](mobile-apps/automated-testing/espresso-xcuitest/real-devices)
-  * [CLI Reference](dev/cli/espresso-xcuitest/real-devices)
+* [Espresso and XCUITest Testing](/mobile-apps/automated-testing/espresso-xcuitest)
 * [Sauce Labs Blog: How to Choose Mobile Devices for Testing](https://saucelabs.com/blog/how-to-choose-mobile-devices-for-testing)
 * [Better Together: Using Real Devices, Simulators, and Emulators for Mobile Testing](https://saucelabs.com/blog/better-together-real-devices-emulators-simulators-for-mobile-testing)
 * [Mobile Testing Basics: Live Testing vs. Automated Testing](https://saucelabs.com/blog/mobile-testing-basics-manual-vs-automated-testing)
