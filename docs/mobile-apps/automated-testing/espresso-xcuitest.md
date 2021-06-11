@@ -156,7 +156,7 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Remove shared states between tests. | Must use CLI | `suites.testOptions.clearPackageData` (Espresso Only) |
 | Set up a proxy connection. | Must use CLI | Must use CLI |
 | Specify the concurrency to use for the test execution (up to account max). | Not supported | `sauce.concurrency:` |
-| Specify an alternative path and file to use as the configuration file. | Must use CLIL | Must use CLI |
+| Specify an alternative path and file to use as the configuration file. | Must use CLI | Must use CLI |
 | Set environment variable values on which other settings depend (such as proxy host/port values). | Not supported | `suites.env:` |
 | Simulate a test without actually executing. | Not supported | Must use CLI |
 | Return additional output for troubleshooting purposes. | Not supported | Must use CLI |
