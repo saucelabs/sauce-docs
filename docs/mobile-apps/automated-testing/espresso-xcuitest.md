@@ -154,7 +154,7 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Specify a folder to direct the JUnit XML output. | `xmlFolder:` | Not supported |
 | Specify an alternative REST endpoint (Is this TO only? Covered by region in SL?? | `url:` | Not supported |
 | Remove shared states between tests. | Must use CLI | `suites.testOptions.clearPackageData` (Espresso Only) |
-| Set up a proxy connection. | Must use CLIL | Must use CLI |
+| Set up a proxy connection. | Must use CLI | Must use CLI |
 | Specify the concurrency to use for the test execution (up to account max). | Not supported | `sauce.concurrency:` |
 | Specify an alternative path and file to use as the configuration file. | Must use CLIL | Must use CLI |
 | Set environment variable values on which other settings depend (such as proxy host/port values). | Not supported | `suites.env:` |
