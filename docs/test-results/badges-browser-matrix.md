@@ -93,7 +93,7 @@ Follow the instructions below to run the sample demo that exists in the [saucela
 git clone https://github.com/saucelabs-training/demo-sauce-status-badge.git
 ```
 
-2. Set your Sauce Labs Credentials as environment variables (see _______)
+2. Set your Sauce Labs Credentials as environment variables (for more information, see Using Environment Variables).
 
 3. Add the username for the badge and matrix URLs like so:
   * Build Status Badge Example URL:
