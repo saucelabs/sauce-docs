@@ -1,9 +1,12 @@
 ---
-id: test-configuration-options
-title: Test Configuration Options
-sidebar_label: Test Configuration Options
+id: test-config
+title: Test Configuration
+sidebar_label: Test Configuration
 ---
-This page includes a list of valid test configuration options (capabilities) for tests run on Sauce Labs.
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
@@ -12,30 +15,67 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-See the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to generate the code for setting the capabilities to execute a test.
+Before running a browser or device test with Sauce Labs, you need to write your test script to launch the platform/operating system/browser combination you want, and specify the location of the app for testing. You'll also want to configure other options, such as the path to your app.
 
-_Depending on which environment you are running tests in, different options, also known as **Capabilities**, should be set_. There are different sets of capabilities for different environments, which can be combined. These configurations are added to the [Capabilities](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_Capabilities.html) or [Options](https://www.selenium.dev/documentation/en/driver_idiosyncrasies/driver_specific_capabilities/) classes. Some of these setting are required for a test to run in a given environment, while some are optional.
+Once your test is finished, you can annotate the job with a name, tags, and pass/fail status using the Sauce Labs REST API, or Selenium's JavaScript executor.
 
-* **[W3C Capabilities:](#browser-w3c-capabilities--optional)** Required for any test using Selenium or Appium to communicate with the browser. W3C capabilities are universal capabilities for any test, and are usually combined with additional capabilities
-* **[Sauce Labs Capabilities:](#desktop-and-mobile-capabilities-sauce-specific--optional)** Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the URL](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) and should pass the test name and status as capabilities to the remote webdriver.
-* **Appium Capabilities:** Required for any test using Appium, either testing web browsers or apps
-  * **[Mobile App Capabilities:](#mobile-app-capabilities-appium-settings--required)** Required if you are running a test on a mobile app
-  * **Mobile Web Capabilities:** If you are using Appium to test a web app, you need to set the `deviceName`, `platformName` `platformVersion`, and `automationName` the same way you would for a mobile app test, along with settings for the browser.
-* **[Browser Capabilities:](#desktop-browser-capabilities-sauce-specific--optional)** You can set different kinds of capabilities for web browsers you are testing on Sauce Labs. Each browser also has it's own set of pre-defined options you can set to help you test. You can add these in regular capabilities or options, or use the browser-defined capabilities (browser options classes) to configure your browser tests:
-  * [Chrome Capabilities](https://chromedriver.chromium.org/capabilities)
-  * [Microsoft Edge Capabilities](https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options)
-  * [Firefox Capabilities](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions)
-  * [Internet Explorer Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/ie/InternetExplorerDriver.html)
-  * [Safari Capabilities](https://developer.apple.com/documentation/webkit/about_webdriver_for_safari)
+See [Test Configuration Options](/dev/test-configuration-options.md) for a list of valid test configuration options for tests run on Sauce Labs.
+
+## Getting Ready to Test
+Test configuration refers to setting the desired capabilities of your test within the test script itself. There are [required capabilities for both Selenium and Appium tests](/basics/test-config-annotation/test-config), as well as an extensive set of [optional capabilities](/dev/test-configuration-options) (some of which are exclusive to Sauce Labs). You can use our [Platform Configurator](/basics/platform-configurator) to create the required desired capabilities for your test scripts, or use one of our [sample test frameworks](https://github.com/saucelabs-training) to set up the desired capabilities for parallel testing across multiple platform/operating systems.
+
+## Capabilities for Selenium and Appium Tests
+
+You can configure the environment for your Appium and Selenium tests by specifying a set of desired capabilities. Our Platform Configurator can set desired capabilities for testing in the scripting language of your choice. Test Configuration Options provides a complete list of all Selenium, Appium, and Sauce Labs testing capabilities.
+
+### Required Selenium Test Configuration Settings
+
+| Setting | Description | Key | Value Type | Example |
+|---|---|---|---|---|
+|Browser Name|The name of the browser test against.|`browserName`|string|`"browserName": "firefox"`|
+|Browser Version|The version of the browser you want to use in your test.|`browserVersion`|string|`"browserVersion": "latest"` <br/><p><strong>NOTE</strong>: If you want to use the latest stable version of Google Chrome or Firefox that Sauce supports, you can use `"browserVersion": "latest"`. You can also use `"browserVersion": "latest-1"` or `"browserVersion": "latest-2"`, etc. to request the next most recent versions of a browser. For example, if the latest stable version of Chrome is 73, you can request `"latest-2"` to use Chrome 71.</p><br/><p><strong>NOTE</strong>: Microsoft Edge has two version numbers, the browser application version and the EdgeHTML rendering engine version. For example, the current stable release of Edge as of November 2019 has the browser application version 44.17763 and the EdgeHTML version 18.17763. The Wikipedia page on Microsoft Edge covers this in more detail: https://en.wikipedia.org/wiki/Microsoft_Edge. It is the EdgeHTML version that should be specified here, such as `"browserVersion": "18.17763"`.</p>|
+|Platform Name|Which operating system the browser or mobile device should be running on.|`platformName`|string|`"platformName": "macOS 10.13"`|
+
+### Required Appium Test Configuration Settings
+
+| Setting | Description | Key | Value Type | Example |
+|---|---|---|---|---|
+|Browser Name|The mobile web browser that will be automated in the simulator, emulator or device.|`browserName`|string|`"browserName": "Safari"`<br/><br/><p><strong>NOTE</strong>: If you're running a test on an Android emulator, you'll need to specify `"Browser"` (the Android stock browser for older Android versions) and `"Chrome"` (for newer Android versions).<br/> For iOS simulators, you'll need to specify `"Safari"`.<br/></p><p><strong>NOTE</strong>: If you're testing a mobile native or hybrid app, the value for this capability should be an empty string.</p>|
+|Device Name|The name of the simulator, emulator, or device you want to use in the test.|`deviceName`|string|`"deviceName": "Google Nexus 7 HD Emulator"`<br/><br/><p><strong>NOTE</strong>: For an Android emulator test you can request a generic Android emulator by using the option `"deviceName":"Android Emulator"`. If you want to use an Android emulator that looks and feels like a specific Android phone or tablet, for example a Google Nexus 7 HD Emulator or a Samsung Galaxy S4, then instead of `"deviceName":"Android Emulator"`, you need to specify the exact Android emulator skin to use, for example, `"deviceName":"Samsung Galaxy S4 Emulator"`.</p><p><strong>NOTE</strong>: Each Android emulator skin will have a different configuration depending on the phone or tablet that it emulates. For example, all the skins have different resolutions, screen dimensions, pixel densities, memory, etc. You can use the [Platform Configurator](/basics/platform-configurator) to get a list of the available Android emulator skins for the various Android emulator versions.</p>|
+|Platform Version|The mobile operating system version that you want to use in your test.|`platformVersion`|string|`"platformVersion": "9.1"`|
+|Platform Name|The mobile operating system platform you want to use in your test.|`platformName`|string|`"platformName": "iOS"`|
+|Application Path|The path to a `.ipa`, `.apk`, or `.zip` file containing the app to test. This could be the location of your app in [Sauce application storage](/mobile-apps/app-storage) (e.g., storage:filename=myapp.zip) or the URL to a remote location where your app is located (e.g., http://myappurl.zip).|`app`|string|`"app": "storage:filename=my_app.zip"`<br/><br/><p><strong>NOTE</strong>: This capability is required only for testing mobile native apps or web apps.</p>|
+|Automation Engine|The automation engine that will be used. Options are:<br/><ul><li>Appium</li><li>UiAutomator2</li><li>Selendroid</li></ul>The default is Appium.|`automationName`|string|`"automationName": "UiAutomator2"`|
+|Application Package<p><span className="sauceDBlue">ANDROID ONLY</span></p>|The Java package of the Android app you want to run.|`appPackage`|string|`"appPackage": "com.example.android.myApp, com.android.settings"`<br/><br/><p><strong>NOTE</strong>: Appium automatically determines the package to launch; you'll only need to use this desired capability if you want to specify a package different from the default one.</p>|
+|Android Activity<p><span className="sauceDBlue">ANDROID ONLY</span></p>|The name for the Android activity you want to launch from your package.|`appActivity`|string|`"appActivity": ".MainActivity"`<br/><br/><p><strong>NOTE</strong>: This capability needs to be preceded by a . (dot). For example, `.MainActivity` instead of `MainActivity`.</p><br/><p><strong>NOTE</strong>: Appium automatically determines the activity to launch; you'll only need to use this desired capability if you want to specify an activity different from the default one.</p>|
+|Auto Accept Alerts<p><span className="sauceDBlue">IOS ONLY</span></p>|Setting this option will automatically accept any unexpected browser alerts that come up during your test, such as when Safari pops up the alert "Safari would like to use your current location (Don't Allow/Allow)."|`autoAcceptAlerts`|boolean|`"autoAcceptAlerts": true`|
+<<<<<<< HEAD:docs/basics/test-config.md
+=======
 
 
+## Test Configuration Options
 
-## WebDriver W3C Capabilities – Required
+The following includes a list of valid test configuration options for tests run on Sauce Labs.
+
+See the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to generate the basic code necessary for executing a test. Those settings as well as all valid parameters are described below.
+
+:::note
+Each browser vendor also supplies a list of browser-specific capabilities that you can also use. These will be set in the applicable browser Options class in Selenium.
+* [Chrome Capabilities](https://chromedriver.chromium.org/capabilities)
+* [Microsoft Edge Capabilities](https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options)
+* [Firefox Capabilities](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions)
+* [Internet Explorer Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/ie/InternetExplorerDriver.html)
+* [Safari Capabilities](https://developer.apple.com/documentation/webkit/about_webdriver_for_safari)
+:::
+
+
+## WebDriver W3C Capabilities (Required)
 
 Sauce Labs determines W3C sessions with the presence of `sauce:options`
 capabilities and [generic W3C WebDriver-compliant capabilities](https://www.w3.org/TR/webdriver1/#capabilities). See [W3C Capabilities Support](/dev/w3c-webdriver-capabilities) for more information.
 
-:::tip Use the latest version of the Selenium library in your code for the most up to date support.
+:::tip
+Use the latest version of the Selenium library in your code for the most up to date support.
 :::
 
 Below are the W3C WebDriver primary test configuration settings for Sauce Labs desktop browser tests and mobile tests.
@@ -44,7 +84,10 @@ Below are the W3C WebDriver primary test configuration settings for Sauce Labs d
 __Description__: identifies the user agent. See the [WebDriver
 W3C Specification](https://w3c.github.io/webdriver/#dfn-browser-name) for more info.
 
->**NOTE**: This setting also applies to emulators, simulators and real devices when automating with a mobile browser. It must be set when [App Name](#app) is not set.
+:::note
+This setting also applies to emulators, simulators and real devices when automating with a mobile browser. It must be set when [App Name](#app) is not set.
+:::
+
 * For Android v5 and below, the value needs to be `"Browser"`, v6 and above, it is `"Chrome"`.
 * For iOS, the value needs to be `"Safari"`.
 * For mobile native or hybrid apps, the value needs to be an empty string.
@@ -65,7 +108,9 @@ For example, if the latest stable version of Chrome is 73, you can request `"lat
 
 See the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) for valid options.
 
->**NOTE**: This setting cannot be used for mobile browsers, as your test will use the default browser installed for the given Appium version.
+:::note
+This setting cannot be used for mobile browsers, as your test will use the default browser installed for the given Appium version.
+:::
 
 __Value Type__: string.
 
@@ -88,7 +133,7 @@ __Example__:
 "platformName": "macOS 10.13", "platformName": "iOS", "platformName": "Android"
 ```
 
-## Browser W3C Capabilities – Optional
+## Browser W3C Capabilities (Optional)
 Below are more Sauce-compatible W3C WebDriver specification capabilities. To view their descriptions, see the [W3C WebDriver Specification Capabilities](https://www.w3.org/TR/webdriver/#capabilities).
 
 ### `acceptInsecureCerts`
@@ -172,7 +217,7 @@ __Example__:
 ```
 <br/>
 
-## Desktop Browser Capabilities: Sauce-Specific – Optional
+## Desktop Browser Capabilities: Sauce-Specific (Optional)
 
 These options apply to specific browsers and can be added to the `sauce:options` block of your test session creation code.
 
@@ -181,7 +226,8 @@ __Description__: allows you to specify the ChromeDriver version you want to use 
 
 For a list of chromedriver versions, see [chromedriver versions list](https://chromedriver.storage.googleapis.com/index.html).
 
-:::tip Use this for specifying a specific point release.
+:::tip
+Use this for specifying a specific point release.
 
 If you find a bug that you determine is driver related, you can specify the latest point release of the chrome driver that matches the browser version.
 
@@ -245,7 +291,8 @@ __Description__: allows you to specify the version of Selenium you want to use f
 
 Sauce Labs defaults to different versions depending on how old the browser or platform is and whether the user is initializing a session with valid W3C syntax.
 
-:::tip Always use the latest version
+:::tip
+Always use the latest version
 
 The Selenium developers are very conscientious about backward compatibility support, so we recommend always using the latest available version of Selenium unless you find a specific, known issue.
 :::
@@ -262,7 +309,9 @@ __Example__:
 __Description__: allows the browser to communicate directly with servers without going through a proxy. By default, Sauce routes traffic from Internet Explorer and Safari through an HTTP proxy server so that HTTPS connections with self-signed certificates will work.
 The proxy server can cause problems for some users, and this setting allows you to avoid it.
 
->**NOTE**: Any test run with a Sauce Connect tunnel has to use the proxy and this flag will be ignored.
+:::note
+Any test run with a Sauce Connect tunnel has to use the proxy and this flag will be ignored.
+:::
 
 __Value Type__: boolean.
 
@@ -302,7 +351,9 @@ __Example__:
 __Description__: allows you to specify the screen resolution to be used during your test session.
 Default screen resolution for Sauce tests is 1024x768.
 
->**NOTE**: You cannot set screen resolution on Windows 7 with IE 9.
+:::note
+You cannot set screen resolution on Windows 7 with IE 9.
+:::
 
 __Value Type__: string.
 
@@ -311,13 +362,15 @@ __Example__:
 "screenResolution": "1280x1024"
 ```
 
-## Mobile App Capabilities: Appium Settings – Required
+## Mobile App Capabilities: Appium Settings (Required)
 
 These common Appium test configuration settings can be added with an `appium:` prefix in your test session creation code.
 
 If you are not using the official Appium bindings, make sure to prefix all Appium capabilities with `appium:` to make them W3C WebDriver-compliant. For more information about Appium-specific options, see the [Appium Server Capabilities page of the Appium.io website](http://appium.io/docs/en/writing-running-appium/caps).
 
->**NOTE**: [`browserName`](#browsername) and [`platformName`](#platformname) are frequently used in Appium tests, but are W3C capabilities so they are not prepended with `appium:`
+:::note
+[`browserName`](#browsername) and [`platformName`](#platformname) are frequently used in Appium tests, but are W3C capabilities so they are not prepended with `appium:`
+:::
 
 <br/>
 
@@ -344,7 +397,7 @@ You can use this to set up a test with either [static or dynamic allocation](htt
 * Dynamic allocation example: for an Android emulator test, you can request a generic Android emulator by using the option `"deviceName":"Android Emulator"`.
 * Static allocation example: if you want to use an Android emulator that looks and feels like a specific Android phone or tablet (e.g., Google Nexus 7 HD Emulator or a Samsung Galaxy S4), you need to specify the exact Android emulator skin to use (e.g., `"appium:deviceName":"Samsung Galaxy S4 Emulator"`).
 
-Each Android emulator skin will have a different configuration depending on the phone or tablet that it emulates. For example, all the skins have different resolutions, screen dimensions, pixel densities, memory, etc. You can use our [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator?src=sidebar#/) to get a list of the available Android emulator skins for the various Android emulator versions.
+Each Android emulator skin will have a different configuration depending on the phone or tablet that it emulates. For example, all the skins have different resolutions, screen dimensions, pixel densities, memory, etc. You can use our [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to get a list of the available Android emulator skins for the various Android emulator versions.
 
 __Value Type__: string.
 
@@ -432,7 +485,7 @@ __Example__:
 ```
 <br/>
 
-## Mobile App Capabilities: Sauce-Specific – Optional
+## Mobile App Capabilities: Sauce-Specific (Optional)
 
 Below are some additional options that you can use in your Appium tests. They can be added to the `sauce:options` block of your session creation code.
 
@@ -475,7 +528,7 @@ __Example__:
 ```
 <br/>
 
-## Desktop and Mobile Capabilities: Sauce-Specific – Optional
+## Desktop and Mobile Capabilities: Sauce-Specific (Optional)
 
 The following are Sauce Labs-specific options you can set for any test run on the Sauce Labs platform. These can be added to the `sauce:options` block of your session creation code.
 
@@ -561,7 +614,7 @@ __Example__:
 <br/>
 
 ### `public`
-__Description__: We support several test/job result visibility levels, which control who can view the test details. The visibility level for a test can be set manually from the test results page, but also programmatically when starting a test or with our REST API. For more information about sharing test results, see the topics under [Sharing the Results of Sauce Labs Tests](https://wiki.saucelabs.com/display/DOCS/Sharing+the+Results+of+Sauce+Labs+Tests).
+__Description__: We support several test/job result visibility levels, which control who can view the test details. The visibility level for a test can be set manually from the test results page, but also programmatically when starting a test or with our REST API. For more information about sharing test results, see the topics under [Sharing Test Results](/test-results/sharing-test-results).
 
 Available visibility modes are:
 * **public**:
@@ -591,7 +644,7 @@ __Example__:
 <br/>
 
 ### `tunnelIdentifier`
-__Description__: If you're using [Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/sauce-connect/index.html) to test an application that is behind a firewall or on your local machine that has been created with a `--tunnel-identifier` value, you must provide that identifier in order to use the tunnel.
+__Description__: If you're using [Sauce Connect Proxy](/secure-connections/sauce-connect) to test an application that is behind a firewall or on your local machine that has been created with a `--tunnel-identifier` value, you must provide that identifier in order to use the tunnel.
 
 See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information.
 
@@ -619,7 +672,9 @@ __Example__:
 "parentTunnel": "<username of parent>"
 ```
 
->**NOTE**: If you're using a shared tunnel, you'll need to specify both `tunnelIdentifier` and `parentTunnel`.
+:::note
+If you're using a shared tunnel, you'll need to specify both `tunnelIdentifier` and `parentTunnel`.
+:::
 
 <br/>
 
@@ -679,7 +734,7 @@ __Example__:
 
 These settings apply to all tests run on Virtual device cloud (desktop browsers, emulators, and simulators). They can be added to the `sauce:options` block of your session creation code.
 
-## Virtual Device Capabilities: Sauce-Specific – Optional
+## Virtual Device Capabilities: Sauce-Specific (Optional)
 
 The following are Sauce Labs-specific options that apply only for desktop sessions, emulators and simulators. These can be added to the `sauce:options` block of your session creation code.
 
@@ -781,7 +836,7 @@ __Example__:
 
 ### `prerun` (primary key)
 
-__Description__: use this to define pre-run executables. You can provide a URL to an executable file, which will be downloaded and executed to configure the VM before the test starts. For faster performance, you may want to upload the executable to your [Sauce Application Storage](/mobile-apps/app-storage) space. This capability takes a JSON object with four main keys. See [Using Pre-Run Executables to Configure Browsers and VMs](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365697) for more information.
+__Description__: use this to define pre-run executables. You can provide a URL to an executable file, which will be downloaded and executed to configure the VM before the test starts. For faster performance, you may want to upload the executable to your [Sauce Application Storage](/mobile-apps/app-storage) space. This capability takes a JSON object with four main keys. See [Using Pre-Run Executables to Configure Browsers and VMs](https://wiki.saucelabs.com/display/DOCS/Using+Pre-Run+Executables+to+Configure+Browsers+and+Virtual+Machines) for more information.
 
 * Running AutoIt Scripts: If you want to run an AutoIt script during your test, compile it as an .exe, send it using this capability, and set background to true to allow AutoIt to continue running throughout the full duration of your test.
 * Using Multiple Pre-Run Executables: If you need to send multiple pre-run executables, the best way is to bundle them into a single executable file, such as a self-extracting zip file.
@@ -828,3 +883,4 @@ __Value Type__: integer.
 This means that [`username`](#username) and [`accessKey`](#accesskey) values are required.
 
 Check out the complete Sauce Labs [Visual Testing with WebDriver Documentation](https://screener.io/v2/docs/visual-e2e). Also, we recommend reading up on all of the valid [Visual Options](https://screener.io/v2/docs/visual-e2e/visual-options).
+>>>>>>> e9adcaeb94ac309ed07ff7fb16de631206489b8e:docs/basics/test-config-annotation/test-config.md
