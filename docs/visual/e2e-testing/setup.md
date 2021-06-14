@@ -6,6 +6,10 @@ sidebar_label: Project Setup
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+Here's how to set up your first Visual E2E Testing project:
+
+1. When you first log in to Screener, you'll be asked to create a new project to add your tests to. Click the **Add New Project** dialog:
+
 The following steps show how to set up and test your first Project using Screener Pages.
 
 ## Setting Up Your Project
