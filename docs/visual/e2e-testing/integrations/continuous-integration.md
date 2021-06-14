@@ -89,7 +89,7 @@ Contact our Support Team if you need help integrating Screener into your CI, or 
 
 **circle.yml**
 
-```yaml
+```
 dependencies:
   override:
     # Install Screener CI Script
@@ -100,7 +100,7 @@ test:
   override:
     # Run Screener Tests
     - ./screener-ci.sh $SCREENER_API_KEY $SCREENER_GROUP_ID $CIRCLE_BUILD_NUM
-```    
+```
 
 </TabItem>
 <TabItem value="Jenkins">
@@ -134,7 +134,39 @@ test:
     screener-ci.bat %SCREENER_API_KEY% %SCREENER_GROUP_ID% %BUILD_NUMBER%
     ```
 5. Click **Save**.
+  
+#### **Linux/macOS Setup Instructions:**
+  
+Create a new job in Jenkins (Freestyle project)
+Configure the job:
+Under the "Build" heading, click "Add build step" and select "Execute shell"
+Copy the commands below, and paste into the "Command" textarea
+This step assumes Screener Environment Variables have already been set in Jenkins (can use [EnvInject plugin](https://wiki.jenkins-ci.org/display/JENKINS/EnvInject+Plugin)). Or replace the Screener Environment Variables below with actual values.
 
+Click "Save".
+
+```curl
+# Install Screener CI Script
+curl -O https://s3-us-west-2.amazonaws.com/screener-files/ci/v2.1/screener-ci.zip
+unzip -o screener-ci.zip
+```
+
+Windows Setup Instructions:
+
+>**NOTE**: The Windows script depends on cURL being installed, and in the PATH. Or add the curl.exe file into the Jenkins workspace job folder.
+
+1. Create a new job in Jenkins (Freestyle project)
+2. Configure the job:
+  * Under the "Build" heading, click "Add build step" and select "Execute Windows batch command"
+  * Copy the commands below, and paste into the "Command" text area.
+    This step assumes Screener Environment Variables have already been set in Jenkins (can use [EnvInject plugin](https://wiki.jenkins-ci.org/display/JENKINS/EnvInject+Plugin)). Or replace the Screener Environment Variables below with actual values.
+3. Click "Save".
+
+```curl
+curl -O http://s3-us-west-2.amazonaws.com/screener-files/ci/v2.1/screener-ci.bat
+screener-ci.bat %SCREENER_API_KEY% %SCREENER_GROUP_ID% %BUILD_NUMBER%
+```
+  
 </TabItem>
 <TabItem value="Travis CI">
 
@@ -155,8 +187,7 @@ script:
 <TabItem value="Other">
 
 #### **Linux/macOS Setup Instructions**
-
-
+  
 ```cURL
 # Install Screener CI Script
 curl -O https://s3-us-west-2.amazonaws.com/screener-files/ci/v2.1/screener-ci.zip
@@ -169,7 +200,6 @@ unzip -o screener-ci.zip
 <br/>
 
 #### **Windows Setup Instructions**
-
 
 The Windows script depends on [cURL](https://curl.haxx.se/download.html) being installed, and in the PATH.
 

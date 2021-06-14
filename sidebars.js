@@ -9,6 +9,7 @@ module.exports = {
                 items: [
                     'sauce-basics',
                     'basics/platform-configurator',
+                    'basics/environment-variables',
 
                     {
                         type: 'category',
@@ -72,6 +73,16 @@ module.exports = {
                         items: [
                             'basics/test-config-annotation/test-config',
                             'basics/test-config-annotation/test-annotation',
+
+                        ],
+                    },
+                    {
+                        type: 'category',
+                        label: 'Data Center Endpoints',
+                        collapsed: true,
+                        items: [
+                            'basics/data-center-endpoints/data-center-endpoints',
+                            'basics/data-center-endpoints/aust-early-access',
 
                         ],
                     },
@@ -521,6 +532,7 @@ module.exports = {
             'ci/teamcity',
         ],
         "Test Results": [
+            'test-results',
             'test-results/viewing-test-results',
             'test-results/managing-test-results',
             'test-results/sharing-test-results',
@@ -643,6 +655,7 @@ module.exports = {
             'dev/error-messages',
             'dev/test-configuration-options',
             'dev/w3c-webdriver-capabilities',
+            'dev/data-center-maint',
             {
                 type: 'category',
                 label: 'API Reference',
