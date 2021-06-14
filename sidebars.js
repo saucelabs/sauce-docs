@@ -606,6 +606,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'visual/e2e-testing/setup',
+                    'visual/e2e-testing/integrations',
                     {
                         type: 'category',
                         label: 'Integrations',
