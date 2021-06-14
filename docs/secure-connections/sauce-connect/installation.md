@@ -11,8 +11,8 @@ This topic describes where and how to Sauce Connect Proxy to your local machine.
 
 ## What You’ll Need
 
-* Review [Sauce Connect basics](https://wiki.saucelabs.com/display/DOCS/Getting+Started+with+Sauce+Connect+Proxy?src=sidebar).
-* Review [System Requirements](/secure-connections/sauce-connect.md). Includes information about deployment options.
+* Review [Using Sauce Connect Proxy](/secure-connections/sauce-connect.md).
+* Review [System and Network Requirements](/secure-connections/sauce-connect/system-requirements.md), which includes information about deployment options.
 * For macOS Catalina 10.15+ compatibility, enable your Mac to allow apps from the App Store and identified developers.
     1. Go to **System Preferences** > **Security & Privacy** > **General** tab.
     2. Under the header **Allow apps downloaded from**, select the option **App Store and identified developers**.
@@ -24,7 +24,7 @@ This topic describes where and how to Sauce Connect Proxy to your local machine.
 
 2. Extract contents of the **.zip** or **.gz** download.
 
-3. Open the download folder (e.g., sc-4.6.4-osx). You'll find the following contents:
+3. Open the download folder (e.g., sc-4.6.5-osx). You'll find the following contents:
 <img src={useBaseUrl('img/sauce-connect/sc-download.png')} alt="Sauce Connect download file contents" width="350" margin-bottom="50px"/>
 
 * **bin directory**
@@ -80,10 +80,5 @@ The location will vary, depending on your operating system. For Mac OS X and Lin
 ## Changelog
 
 See [Sauce Connect Proxy Changelog](/secure-connections/sauce-connect/changelog.md).
-
-## Additional Resources
-
-* [Secure Your Testing Experience - Best Practices for Updating Sauce Connect](https://wiki.saucelabs.com/display/DOCS/2020/12/02/ACTION+REQUIRED%3A+Secure+Your+Testing+Experience+-+Best+Practices+for+Updating+Sauce+Connect)
-* [Video: Setting Up Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#SauceConnectProxy-Video:SettingUpSauceConnectProxy)
 
 >**NOTE**: Effective with Sauce Connect Proxy version 4.6.0, we've enabled support for Public Certificates and deprecated support for Private Certificates. See [Sauce Connect Proxy Changelog](secure-connections/sauce-connect/changelog) for more detailed information.

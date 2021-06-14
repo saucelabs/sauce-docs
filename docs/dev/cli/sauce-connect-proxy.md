@@ -247,7 +247,7 @@ __Shorthand__: `-z`
 
 ### `--max-logsize [bytes]`
 
-__Description__: Rotates log file after reaching bytes size. Disabled by default.
+__Description__: After reaching the max bytes size, creates a new log and appends an order number to the previous log. Disabled by default.
 
 __Shorthand__: n/a
 <br/>

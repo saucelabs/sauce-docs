@@ -36,10 +36,6 @@ You can also change the visibility of a test (e.g., Public, Private, or Team) di
 The following information does not currently work with the legacy RDC platform (TestObject).
 :::
 
-:::warning Does Not Work with Legacy RDC Platform
-The following information does not currently work with the legacy RDC platform (TestObject).
-:::
-
 When generating a shareable link, you'll need to know your specific data center. All examples on this page use the US West 1 data center endpoint, app.saucelabs.com. If you're using a different data center, such as EU Central 1, your link should be edited accordingly:
 
 ```
@@ -97,7 +93,7 @@ https://app.saucelabs.com/tests/YOUR_TEST_ID?auth=SAUCE_USERNAME:AUTH_TOKEN.
 
 ### Setting Your Test Links to Expire
 
-You can extend the links generated with authentication tokens to make them work temporarily for a specific date or specific hour, based on the parameters that you set.
+You can extend the links generated with authentication tokens to make them work temporarily for one day (the day the URL is generated) or a specific hour during that day, based on the parameters that you set.
 
 During the `hmac` generation, set the key like this: `SAUCE_USERNAME`:`SAUCE_ACCESS_KEY`:`YOUR_DATE_RANGE`.
 
