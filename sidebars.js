@@ -77,6 +77,16 @@ module.exports = {
                     },
                     {
                         type: 'category',
+                        label: 'Data Center Endpoints',
+                        collapsed: true,
+                        items: [
+                            'basics/data-center-endpoints/data-center-endpoints',
+                            'basics/data-center-endpoints/aust-early-access',
+
+                        ],
+                    },
+                    {
+                        type: 'category',
                         label: 'Integrations',
                         collapsed: true,
                         items: [
