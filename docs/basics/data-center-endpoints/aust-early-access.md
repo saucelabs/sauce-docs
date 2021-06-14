@@ -1,7 +1,7 @@
 ---
-id: data-center-endpoints
-title: Data Center Endpoints
-sidebar_label: Data Center Endpoints
+id: aust-early-access
+title: Early Access Australian Data Center
+sidebar_label: Australian Data Center
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
