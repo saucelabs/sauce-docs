@@ -653,6 +653,7 @@ module.exports = {
             'dev/error-messages',
             'dev/test-configuration-options',
             'dev/w3c-webdriver-capabilities',
+            'dev/data-center-maint',
             {
                 type: 'category',
                 label: 'API Reference',
