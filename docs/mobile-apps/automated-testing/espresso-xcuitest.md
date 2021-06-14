@@ -21,7 +21,7 @@ Sauce Labs uses its framework agnostic test orchestrator [`saucectl`](/testrunne
 
 ### 1. Install `saucectl`
 
-Begin by installing the `saucectl` CLI in the root directory of your existing mobile application automated testing project or your intended directory.
+Begin by installing the `saucectl` CLI so it has access to your local project.
 
 ```bash
 curl -L https://saucelabs.github.io/saucectl/install | bash
@@ -42,7 +42,7 @@ Clone or download the [Espresso](https://github.com/saucelabs/saucectl-espresso-
     saucectl configure
     ```
 1. Enter your Sauce Labs `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` at the prompts.
-1. Add the resulting `credentials.yml` file in the `.sauce` folder of your project directory to your `.gitignore` file to protect it from unintended exposure.
+1. `saucectl` creates a `credentials.yml` file in a `.sauce` folder of your home directory.
 
 
 ## Configuration
@@ -133,31 +133,32 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Provide the location of the app to be tested. | `app:` | `espresso.app:`<br/>`xcuitest.app:` |
 | Provide the location of the test app. | `test:` | `espresso.testApp:`<br/>`xcuitest.testApp:` |
 | Identify the data center in which the real devices to test are located. | `devices.datacenter:` | `sauce.region:` |
-| Provide a name for the test. | `testname:` | `suites.name:` |
-| Specify a particular device to run the test on. | `device:` | `suites.devices.id:` |
-| Indicate device selection to be dynamic. | `devices:` | `suites.devices:` |
+| Provide a name for the test. | `testname:` | `suites[].name:` |
+| Specify a particular device to run the test on. | `device:` | `suites[].devices[].id:` |
+| Indicate device selection to be dynamic. | `devices:` | `suites[].devices[]:` |
 | Choose a device running a particular platform version. | `devices.platformVersion:` | `suites[].devices[].platformVersion:` |
-| Choose devices from a private pool only. | `privateDevicesOnly:` | `suites.devices.options.private:` |
-| Choose a phone device only. | `phoneOnly:` | `suites.devices.options.deviceType: PHONE` |
-| Choose a tablet device only. | tabletOnly: | `suites.devices.options.deviceType: TABLET` |
-| Ensure the device is connected to a cellular network. | Not supported | `suites.devices.options.carrierConnectivity` |
-| Choose any device where the name matches the regex. | `devices.deviceNameQuery:` | `suites.devices.name:` |
-| Specify which test class to run. | `testsToRun.testClass:` | `suites.testOptions.class:` |
-| Specify which methods to run. | `testsToRun.testMethod:` | `suites.testOptions.class: class/Method` (XCUITest Only) |
-| Exclude certain classes from the test. | Not supported | `suites.testOptions.notClass:` (Espresso Only) |
-| Run only tests matching the specified size. | Not supported | `suites.testOptions.size:` (Espresso Only) |
-| Specify which package to run. | Not supported | `suites.testOptions.package:`  (Espresso Only) |
-| Run only tests matching the specified annotation.  | Not supported | `suites.testOptions.annotation:`  (Espresso Only) |
+| Choose devices from a private pool only. | `privateDevicesOnly:` | `suites[].devices[].options.private:` |
+| Choose a phone device only. | `phoneOnly:` | `suites[].devices.options.deviceType: PHONE` |
+| Choose a tablet device only. | tabletOnly: | `suites[].devices[].options.deviceType: TABLET` |
+| Ensure the device is connected to a cellular network. | Not supported | `suites[].devices[].options.carrierConnectivity` |
+| Choose any device where the name matches the regex. | `devices.deviceNameQuery:` | `suites[].devices[].name:` |
+| Specify which test class to run. | `testsToRun.testClass:` | `suites[].testOptions.class:` |
+| Specify which methods to run. | `testsToRun.testMethod:` | `suites[].testOptions.class: class/Method` (XCUITest Only) |
+| Exclude certain classes from the test. | Not supported | `suites[].testOptions.notClass:` (Espresso Only) |
+| Run only tests matching the specified size. | Not supported | `suites[].testOptions.size:` (Espresso Only) |
+| Specify which package to run. | Not supported | `suites[].testOptions.package:`  (Espresso Only) |
+| Run only tests matching the specified annotation.  | Not supported | `suites[].testOptions.annotation:`  (Espresso Only) |
+| Break the test into separate shards. | Not supported | `suites[].testOptions.numShards:`  (Espresso Only) |
 | Identify a running Sauce Connect tunnel to use for secure connectivity to the cloud. | `tunnelIdentifier:` | `sauce.tunnel.id:` |
 | Specify how often (seconds) the runner should check for test results. | `checkFrequency:` | Not supported |
 | Specify the maximum length of time (minutes) the test can run. | `timeout:` | Must use CLI |
 | Specify a folder to direct the JUnit XML output. | `xmlFolder:` | Not supported |
 | Specify an alternative REST endpoint (Is this TO only? Covered by region in SL?? | `url:` | Not supported |
-| Remove shared states between tests. | Must use CLI | `suites.testOptions.clearPackageData` (Espresso Only) |
+| Remove shared states between tests. | Must use CLI | `suites[].testOptions.clearPackageData` (Espresso Only) |
 | Set up a proxy connection. | Must use CLI | Must use CLI |
 | Specify the concurrency to use for the test execution (up to account max). | Not supported | `sauce.concurrency:` |
 | Specify an alternative path and file to use as the configuration file. | Must use CLI | Must use CLI |
-| Set environment variable values on which other settings depend (such as proxy host/port values). | Not supported | `suites.env:` |
+| Set environment variable values on which other settings depend (such as proxy host/port values). | Not supported | `suites[].env:` |
 | Simulate a test without actually executing. | Not supported | Must use CLI |
 | Return additional output for troubleshooting purposes. | Not supported | Must use CLI |
 | Provide a name for the job as it will appear in the Sauce Labs UI. | Not supported | `sauce.metadata.name` |

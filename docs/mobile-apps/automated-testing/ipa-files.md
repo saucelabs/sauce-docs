@@ -60,9 +60,7 @@ You can use any of the existing methods of distribution for your iOS app, except
 
 ## Creating an XCUITest Package
 
-`saucectl` supports both .app and .ipa file formats [Testing with XCUITest](/mobile-apps/automated-testing/espresso-xcuitest).
-
-### .app
+`saucectl v0.47.0+` supports archiving from .app to .ipa [Testing with XCUITest](/mobile-apps/automated-testing/espresso-xcuitest).
 
 1. Open your application project in Xcode.
 2. Select **Generic iOS Device** or **Any iOS Device (arm64)** as your project's device target.
@@ -71,12 +69,6 @@ You can use any of the existing methods of distribution for your iOS app, except
 
 4. Generate your test package by selecting **Product** > **Build For** > **Testing**.
 5. Navigate to your Xcode project's **Products** directory and find the generated **.app** files.
-
-### .ipa (Optional)
-
-1. Create an empty directory name **Payload**.
-1. Move the `<AppName>.app` to the **Payload** directory.
-1. Compress the **Payload** directory into an archive (.zip file) and rename it using .ipa file format ending.
 
 
 ## Creating .ipa Files for XCUITest Testing
