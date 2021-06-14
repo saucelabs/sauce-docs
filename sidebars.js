@@ -9,6 +9,7 @@ module.exports = {
                 items: [
                     'sauce-basics',
                     'basics/platform-configurator',
+
                     {
                         type: 'category',
                         label: 'Account and Team Management',
@@ -61,6 +62,16 @@ module.exports = {
                             'basics/sso/setting-up-single-sign-on',
                             'basics/sso/config-adfs',
                             'basics/sso/config-okta',
+
+                        ],
+                    },
+                    {
+                        type: 'category',
+                        label: 'Test Configuration and Annotation',
+                        collapsed: true,
+                        items: [
+                            'basics/test-config-annotation/test-config',
+                            'basics/test-config-annotation/test-annotation',
 
                         ],
                     },
@@ -176,6 +187,7 @@ module.exports = {
                 items: [
                     'web-apps/automated-testing/cypress',
                     'web-apps/automated-testing/playwright',
+                    'web-apps/automated-testing/pre-run-executables',
                 ],
             },
         ],
@@ -566,6 +578,7 @@ module.exports = {
                             'testrunner-toolkit/configuration/espresso/esp-cucumber',
                         ]
                     },
+                    'testrunner-toolkit/configuration/xcuitest',
                 ],
             },
             'testrunner-toolkit/running-tests',
@@ -593,6 +606,15 @@ module.exports = {
                 items: [
                     'visual/e2e-testing/setup',
                     'visual/e2e-testing/integrations',
+                    {
+                        type: 'category',
+                        label: 'Integrations',
+                        collapsed: true,
+                        items: [
+                          'visual/e2e-testing/integrations/selenium-webdriver',
+                          'visual/e2e-testing/integrations/continuous-integration',
+                        ],
+                    },
                     'visual/e2e-testing/dashboard-workflow',
                     'visual/e2e-testing/settings',
                     'visual/e2e-testing/recording-tests',
