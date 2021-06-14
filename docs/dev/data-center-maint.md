@@ -12,7 +12,7 @@ Saucelabs.com and the Sauce Labs testing service in the US and EU will be down f
 
 | Region | Date | Time |
 |---|---|---|
-| US & EU | January 9, 2021 | 10am - 12pm PST, 7pm - 9pm CET  |
+| US and EU | January 9, 2021 | 10am - 12pm PST, 7pm - 9pm CET  |
 | US  | February 20, 2021	  | 10am - 12pm PST  |
 | EU  | February 27, 2021  | 7pm - 9pm CET  |
 | US  | April 3, 2021  | 10am - 12pm PDT  |
