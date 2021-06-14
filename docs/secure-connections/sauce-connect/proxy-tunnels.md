@@ -29,7 +29,7 @@ If you're using Sauce Connect Proxy to build a tunnel between your application a
 If you're using a continuous integration platform like Jenkins, you can use the Sauce OnDemand plugin to launch and tear down your Sauce Connect Proxy instance. For more information, see [Setting Up CI Platform Integrations with Sauce Plugins](https://wiki.saucelabs.com/display/DOCS/Setting+Up+CI+Platform+Integrations+with+Sauce+Plugins)
 
 ## Starting and Stopping Tunnels
-Every Sauce Connect Proxy tunnel spins up a fresh virtual machine (VM) that is used only for your tests. Once the tunnel is closed, VMs are destroyed. As a best practice, we recommend you create a new tunnel for each test suite or build and tear it down at the end of your test.
+Every Sauce Connect Proxy tunnel spins up a fresh virtual machine (VM) that is used only for your tests. Once the tunnel is closed, VMs are destroyed. As a best practice, we recommend you create a new tunnel for each test suite or build and tear it down at the end of your test. For information about user roles and permissions, see [User Roles](/basics/acct-team-mgmt/managing-user-info).
 
 ### Starting a New Tunnel via Command Line
 You can launch a new tunnel from the command line of the machine where the Sauce Connect Proxy client is installed by copying the **Run Command**, which will include your authentication credentials. You can also add any Sauce Connect Proxy parameters you want to use in configuring your tunnel.
@@ -39,7 +39,7 @@ See [Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-se
 ### Stopping an Individual Tunnel via the Command Line
 Once Sauce Connect has been terminated (typically via `ctrl-c`), a call will be made from Sauce Connect to the REST API with instructions to terminate the Tunnel VM. Sauce Connect will continue to poll the REST API until the Tunnel VM has been halted and deleted.
 
-:::note 
+:::note
 If you are using the [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability.md) and attempt to terminate a running test with `ctrl-C`, you will see a message that Sauce Connect Proxy will not terminate until tests have completed. If you want to force Sauce Connect Proxy to terminate before the test finishes, enter 'ctrl-C' again to force it to quit.
 :::
 
@@ -89,7 +89,7 @@ Here is an example using Linux commands:
 * `| awk '{print $2}'`: Grabs the `pid`,
 * `| xargs kill -9`: Passes it to `kill -9`.
 
-:::warning 
+:::warning
 `xargs kill -9` will immediately disrupt all jobs currently running through that tunnel. If you wish to interrupt the program in order to gracefully shutdown the tunnels use the `xargs kill -2` signal instead.
 
 **Sauce Labs recommends first trying this command without `xargs kill -9` to ensure you don't unnecessarily delete adjacent running processes.**
@@ -203,7 +203,7 @@ For example, if we were to start two instances of Sauce Connect Proxy on the sam
 >./sc --user *** --api-key *** --metrics-address localhost:8001 --se-port 4446 --tunnel-identifier SCP2 --pidfile SCP2
 ```
 
-:::note 
+:::note
 If you start multiple instances of Sauce Connect Proxy without assigning unique ports, this would not affect their normal operations, however, only the first instance of Sauce Connect Proxy started to the duplicated port would be available.
 :::
 
@@ -391,7 +391,7 @@ cd /etc/init
 
 7. In the `/etc/init` directory, create a file `sc.conf` with these contents.
 Change the username and access key in the file to match your own.  
-   
+
 ```jsx title="sc.conf example"
 #
 #This Upstart config expects that Sauce Connect is installed at
@@ -572,7 +572,7 @@ You can also launch Ephemeral tunnels from a continuous integration (CI) build s
 $ /bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
 ```
 
-:::note 
+:::note
 If you don't specify a Data Center Sauce Connect Proxy uses the US Data Center for `SAUCE_DC` by default. So for example if you need to run tests on the Sauce Labs EU Data Center, you need to modify the '-x' flag like so:
 :::
 
@@ -645,7 +645,7 @@ Tunnels running for an extended period of time (i.e., more than a day) are activ
 
 To keep tunnels working their best, we recommend not letting your tunnels run for more than 24 hours. Your systems administrator would need to write a script to restart Sauce Connect Proxy clients daily or at the time of your choosing. Rolling restarts to refresh the tunnels is preferred--restarting only a portion of your tunnel pool at a time will allow for continuous testing without interruption.
 
-:::note 
+:::note
 If a tunnel fails or is absent, your tests will also fail. You'll be able to see this from Sauce Labs. For a quick reference guide on how to start and stop tunnels, see [Starting and Stopping Tunnels](/secure-connections/sauce-connect/proxy-tunnels.md).
 :::
 
