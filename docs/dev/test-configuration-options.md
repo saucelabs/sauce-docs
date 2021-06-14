@@ -3,6 +3,7 @@ id: test-configuration-options
 title: Test Configuration Options
 sidebar_label: Test Configuration Options
 ---
+This page includes a list of valid test configuration options (capabilities) for tests run on Sauce Labs.
 
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
@@ -11,21 +12,25 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-This page includes a list of valid test configuration options for tests run on Sauce Labs.
+See the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to generate the code for setting the capabilities to execute a test.
 
-See the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to generate the basic code necessary for executing a test. Those settings as well as all valid parameters are described below.
+_Depending on which environment you are running tests in, different options, also known as **Capabilities**, should be set_. There are different sets of capabilities for different environments, which can be combined. These configurations are added to the [Capabilities](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_Capabilities.html) or [Options](https://www.selenium.dev/documentation/en/driver_idiosyncrasies/driver_specific_capabilities/) classes. Some of these setting are required for a test to run in a given environment, while some are optional.
 
-:::note
-Each browser vendor also supplies a list of browser-specific capabilities that you can also use. These will be set in the applicable browser Options class in Selenium.
-* [Chrome Capabilities](https://chromedriver.chromium.org/capabilities)
-* [Microsoft Edge Capabilities](https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options)
-* [Firefox Capabilities](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions)
-* [Internet Explorer Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/ie/InternetExplorerDriver.html)
-* [Safari Capabilities](https://developer.apple.com/documentation/webkit/about_webdriver_for_safari)
-:::
+* **[W3C Capabilities:](#browser-w3c-capabilities--optional)** Required for any test using Selenium or Appium to communicate with the browser. W3C capabilities are universal capabilities for any test, and are usually combined with additional capabilities
+* **[Sauce Labs Capabilities:](#desktop-and-mobile-capabilities-sauce-specific--optional)** Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the URL](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) and should pass the test name and status as capabilities to the remote webdriver.
+* **Appium Capabilities:** Required for any test using Appium, either testing web browsers or apps
+  * **[Mobile App Capabilities:](#mobile-app-capabilities-appium-settings--required)** Required if you are running a test on a mobile app
+  * **Mobile Web Capabilities:** If you are using Appium to test a web app, you need to set the `deviceName`, `platformName` `platformVersion`, and `automationName` the same way you would for a mobile app test, along with settings for the browser.
+* **[Browser Capabilities:](#desktop-browser-capabilities-sauce-specific--optional)** You can set different kinds of capabilities for web browsers you are testing on Sauce Labs. Each browser also has it's own set of pre-defined options you can set to help you test. You can add these in regular capabilities or options, or use the browser-defined capabilities (browser options classes) to configure your browser tests:
+  * [Chrome Capabilities](https://chromedriver.chromium.org/capabilities)
+  * [Microsoft Edge Capabilities](https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options)
+  * [Firefox Capabilities](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions)
+  * [Internet Explorer Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/ie/InternetExplorerDriver.html)
+  * [Safari Capabilities](https://developer.apple.com/documentation/webkit/about_webdriver_for_safari)
 
 
-## WebDriver W3C Capabilities (Required)
+
+## WebDriver W3C Capabilities – Required
 
 Sauce Labs determines W3C sessions with the presence of `sauce:options`
 capabilities and [generic W3C WebDriver-compliant capabilities](https://www.w3.org/TR/webdriver1/#capabilities). See [W3C Capabilities Support](/dev/w3c-webdriver-capabilities) for more information.
@@ -83,7 +88,7 @@ __Example__:
 "platformName": "macOS 10.13", "platformName": "iOS", "platformName": "Android"
 ```
 
-## Browser W3C Capabilities (Optional)
+## Browser W3C Capabilities – Optional
 Below are more Sauce-compatible W3C WebDriver specification capabilities. To view their descriptions, see the [W3C WebDriver Specification Capabilities](https://www.w3.org/TR/webdriver/#capabilities).
 
 ### `acceptInsecureCerts`
@@ -167,7 +172,7 @@ __Example__:
 ```
 <br/>
 
-## Desktop Browser Capabilities: Sauce-Specific (Optional)
+## Desktop Browser Capabilities: Sauce-Specific – Optional
 
 These options apply to specific browsers and can be added to the `sauce:options` block of your test session creation code.
 
@@ -306,7 +311,7 @@ __Example__:
 "screenResolution": "1280x1024"
 ```
 
-## Mobile App Capabilities: Appium Settings (Required)
+## Mobile App Capabilities: Appium Settings – Required
 
 These common Appium test configuration settings can be added with an `appium:` prefix in your test session creation code.
 
@@ -427,7 +432,7 @@ __Example__:
 ```
 <br/>
 
-## Mobile App Capabilities: Sauce-Specific (Optional)
+## Mobile App Capabilities: Sauce-Specific – Optional
 
 Below are some additional options that you can use in your Appium tests. They can be added to the `sauce:options` block of your session creation code.
 
@@ -470,7 +475,7 @@ __Example__:
 ```
 <br/>
 
-## Desktop and Mobile Capabilities: Sauce-Specific (Optional)
+## Desktop and Mobile Capabilities: Sauce-Specific – Optional
 
 The following are Sauce Labs-specific options you can set for any test run on the Sauce Labs platform. These can be added to the `sauce:options` block of your session creation code.
 
@@ -674,7 +679,7 @@ __Example__:
 
 These settings apply to all tests run on Virtual device cloud (desktop browsers, emulators, and simulators). They can be added to the `sauce:options` block of your session creation code.
 
-## Virtual Device Capabilities: Sauce-Specific (Optional)
+## Virtual Device Capabilities: Sauce-Specific – Optional
 
 The following are Sauce Labs-specific options that apply only for desktop sessions, emulators and simulators. These can be added to the `sauce:options` block of your session creation code.
 
