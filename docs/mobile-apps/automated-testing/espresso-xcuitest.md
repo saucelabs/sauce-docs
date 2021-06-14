@@ -33,7 +33,7 @@ Espresso requires `saucectl` version 0.36.0 or later and XCUITest requires `sauc
 
 ### 2. Check out the demo repositories
 
-Clone or download the [Espresso](https://github.com/saucelabs/saucectl-espresso-example) and [XCUITest](https://github.com/saucelabs/saucectl-xcuitest-example) example repos, as applicable to your project, to obtain the `saucectl` directory structure and example files for use as templates.
+Clone or download the [Espresso](https://github.com/saucelabs/saucectl-espresso-example) and/or [XCUITest](https://github.com/saucelabs/saucectl-xcuitest-example) example repos, as applicable to your project, to obtain the `saucectl` directory structure and example files for use as templates.
 
 ### 3. Link your Sauce Labs account
 
@@ -87,7 +87,7 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Pass account credentials (Test Object). | `--apikey` | [Create Credentials file](/testrunner-toolkit/installation#associating-your-sauce-labs-account) |
 | Provide the location of the app to be tested. | `--app` | Must use YAML |
 | Provide the location of the test app. | `--test` | Must use YAML |
-| Identify the data center in which the real devices to test are located. | `--datacenter` | `--region` |
+| Identify your applicable data center. | `--datacenter` | `--region` |
 | Specify a particular device to run the test on. | `--device` | Must use YAML |
 | Indicate device selection to be dynamic. | `--devices` | Must use YAML |
 | Provide a name for the test. | `--testname` | `--suite` |
@@ -132,16 +132,20 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Specify the framework. | Must use CLI | `kind:` |
 | Provide the location of the app to be tested. | `app:` | `espresso.app:`<br/>`xcuitest.app:` |
 | Provide the location of the test app. | `test:` | `espresso.testApp:`<br/>`xcuitest.testApp:` |
-| Identify the data center in which the real devices to test are located. | `devices.datacenter:` | `sauce.region:` |
+| Identify your applicable data center. | `devices.datacenter:` | `sauce.region:` |
 | Provide a name for the test. | `testname:` | `suites[].name:` |
-| Specify a particular device to run the test on. | `device:` | `suites[].devices[].id:` |
-| Indicate device selection to be dynamic. | `devices:` | `suites[].devices[]:` |
-| Choose a device running a particular platform version. | `devices.platformVersion:` | `suites[].devices[].platformVersion:` |
-| Choose devices from a private pool only. | `privateDevicesOnly:` | `suites[].devices[].options.private:` |
-| Choose a phone device only. | `phoneOnly:` | `suites[].devices.options.deviceType: PHONE` |
-| Choose a tablet device only. | tabletOnly: | `suites[].devices[].options.deviceType: TABLET` |
-| Ensure the device is connected to a cellular network. | Not supported | `suites[].devices[].options.carrierConnectivity` |
-| Choose any device where the name matches the regex. | `devices.deviceNameQuery:` | `suites[].devices[].name:` |
+| Specify a virtual machine emulator. (Espresso Only) | `-d` (one value)<br/> `--devices[]` | `suites[].emulators[]:` |
+| Specify the emulator(s) to run the test on. (Espresso Only) | `deviceName=name` | `suites[].emulators[].name:` |
+| Specify the test orientation for the emulator. (Espresso Only) | `orientation=portrait|landscape` | `suites[].emulators[].orientation:` |
+| Specify the emulator platform versions to apply. (Espresso Only) | `platformVersion=version#` | `suites[].emulators[].platformVersions[]:` |
+| Specify a real device to run the test on. | `device:` | `suites[].devices[].id:` |
+| Indicate real device selection to be dynamic. | `devices:` | `suites[].devices[]:` |
+| Choose a real device running a particular platform version. | `devices.platformVersion:` | `suites[].devices[].platformVersion:` |
+| Choose real devices from a private pool only. | `privateDevicesOnly:` | `suites[].devices[].options.private:` |
+| Choose a phone real device only. | `phoneOnly:` | `suites[].devices.options.deviceType: PHONE` |
+| Choose a tablet real device only. | tabletOnly: | `suites[].devices[].options.deviceType: TABLET` |
+| Ensure the real device is connected to a cellular network. | Not supported | `suites[].devices[].options.carrierConnectivity` |
+| Choose any real device where the name matches the regex. | `devices.deviceNameQuery:` | `suites[].devices[].name:` |
 | Specify which test class to run. | `testsToRun.testClass:` | `suites[].testOptions.class:` |
 | Specify which methods to run. | `testsToRun.testMethod:` | `suites[].testOptions.class: class/Method` (XCUITest Only) |
 | Exclude certain classes from the test. | Not supported | `suites[].testOptions.notClass:` (Espresso Only) |
