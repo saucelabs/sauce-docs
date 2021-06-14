@@ -3,7 +3,6 @@ id: data-center-endpoints
 title: Data Center Endpoints
 sidebar_label: Data Center Endpoints
 ---
-
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
