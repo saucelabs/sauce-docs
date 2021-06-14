@@ -62,7 +62,6 @@ saucectl run --artifacts.download.when always
 
 __Description__: Associates tests with a build.
 
-
 __Example__:
 ```bash
 saucectl run --build myBuildID
@@ -127,7 +126,6 @@ __Example__:
 ```bash
 saucectl run --tags e2e,team2
 ```
-
 
 ### `timeout`
 
