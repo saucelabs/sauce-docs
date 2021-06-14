@@ -38,7 +38,7 @@ Follow the steps outlined here to modify your existing test builds to utilize an
 
  Throughout your test files, replace your TestObject credentials with your Sauce Labs credentials.
 
-  We recommend using [Environment Variables for Authentication](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials) in order to reduce hard coding and protect your personal information from exposure.
+  We recommend using [Environment Variables for Authentication](/basics/environment-variables) in order to reduce hard coding and protect your personal information from exposure.
 
 
 ### Step 2: Replace Remote URL Endpoint
