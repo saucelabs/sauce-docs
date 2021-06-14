@@ -161,18 +161,10 @@ module.exports = {
                             'mobile-apps/automated-testing/appium',
                             'mobile-apps/automated-testing/appium/real-devices',
                             'mobile-apps/automated-testing/appium/virtual-devices',
+                            'mobile-apps/automated-testing/appium/migration',
                         ],
                     },
-                    {
-                        type: 'category',
-                        label: 'Espresso and XCUITest',
-                        collapsed: true,
-                        items: [
-                            'mobile-apps/automated-testing/espresso-xcuitest',
-                            'mobile-apps/automated-testing/espresso-xcuitest/real-devices',
-                            'mobile-apps/automated-testing/espresso-xcuitest/virtual-devices',
-                        ],
-                    },
+                    'mobile-apps/automated-testing/espresso-xcuitest',
                     'mobile-apps/automated-testing/ipa-files',
                 ],
             },
@@ -679,17 +671,6 @@ module.exports = {
                 items: [
                     'dev/cli',
                     'dev/cli/sauce-connect-proxy',
-                    {
-                        type: 'category',
-                        label: 'Espresso / XCUITest',
-                        collapsed: true,
-                        items: [
-                            'dev/cli/espresso-xcuitest',
-                            'dev/cli/espresso-xcuitest/real-devices',
-                            'dev/cli/espresso-xcuitest/yaml-config',
-                            'dev/cli/espresso-xcuitest/virtual-devices',
-                        ],
-                    },
                     {
                         type: 'category',
                         label: 'Virtual USB',
