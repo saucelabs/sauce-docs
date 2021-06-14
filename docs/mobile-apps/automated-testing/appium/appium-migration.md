@@ -58,7 +58,7 @@ If you're using [Sauce Connect Proxy](/secure-connections/sauce-connect), our [R
 Not all device model and operating system combinations will carry over from the TestObject platform to Sauce Labs. You may need to adjust your device capabilities in your test configuration.
 
 #### **Device Allocations**
-To ensure your preferred [device allocations](https://wiki.saucelabs.com/display/DOCS/Mobile+Application+Testing+Admin+Guide) will still work when you move from TestObject to Sauce Labs, view the list of available devices for your region by logging into the Sauce Labs platform and going to **Live** > **Cross-Browser** > **Mobile Real**. For a full, non-region specific list of supported devices and platforms, see [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices).
+To ensure your preferred [device allocations](/mobile-apps/automated-testing/appium/real-devices#configuring-appium-tests-for-real-devices) will still work when you move from TestObject to Sauce Labs, view the list of available devices for your region by logging into the Sauce Labs platform and going to **Live** > **Cross-Browser** > **Mobile Real**. For a full, non-region specific list of supported devices and platforms, see [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices).
 
 If you switch your Sauce Labs Data Center in the UI, you may see a different set of devices. Each Data Center stores a different set of mobile real devices.
 
