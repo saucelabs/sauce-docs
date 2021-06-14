@@ -66,6 +66,7 @@ The URL hostname and authorization credentials for APIs are different for each D
 #### Running Tests on EU-Central
 If you use any of the following and your DC is EU-Central, you need to make changes to your tests and/or framework to run those tests in the EU DC.
 
+|||
 |---|---|
 | Java with JUnit or TestNG  | Set `SAUCE_REST_ENDPOINT=https://eu-central-1.saucelabs.com/` as a system/environment variable, otherwise test status will not be set. |
 | Protractor | Update to version 5.4.2 or later of Protractor and set `sauceRegion: 'eu'` in your `config` file. |
@@ -112,12 +113,12 @@ URLs vary based on the services you're using, your DC, and the types of tests yo
 ### US Data Center
 | Name | Details |
 |---|---|
-| US OnDemand Endpoints |   |
+| **US OnDemand Endpoints** |   |
 | Desktop Browser and Virtual Device Cloud | `https://ondemand.us-west-1.saucelabs.com/wd/hub` |
 | RDC on Sauce | `https://ondemand.us-west-1.saucelabs.com/` |
 | Legacy RDC/Test Object | `https://us1.appium.testobject.com/wd/hub` |
 | Team Management | `https://api.us-west-1.saucelabs.com/team-management/v1/` |
-| US REST API |   |
+| **US REST API** |   |
 | Virtual Devices and Desktops | `https://api.us-west-1.saucelabs.com/v1` |
 | RDC on Sauce | `https://api.us-west-1.saucelabs.com/v1/rdc` |
 | Real Devices on Test Object | `https://app.testobject.com/api/rest/` |
@@ -125,18 +126,18 @@ URLs vary based on the services you're using, your DC, and the types of tests yo
 | IP Ranges | 162.222.72.0/21<br/>66.85.48.0/21  |
 
 ### EU Data Center
-:::
-Depending on the framework or driver you use, you might need to make additional changes to your tests to run them in the EU-Central DC. See [Running Tests on EU-Central](https://docs.saucelabs.com/basics/data-center-endpoints#RunningTestsonEUCentral) for details.
+:::note
+Depending on the framework or driver you use, you might need to make additional changes to your tests to run them in the EU-Central DC. See Running Tests on EU-Central for details.
 :::
 
 | Name | Details |
 |---|---|
-| EU OnDemand Endpoints |   |
+| **EU OnDemand Endpoints** |   |
 | Desktop Browser and Virtual Device Cloud | `https://ondemand.eu-central-1.saucelabs.com/wd/hub` |
 | RDC on Sauce | `https://ondemand.eu-central-1.saucelabs.com/` |
 | Legacy RDC/Test Object | `https://eu1.appium.testobject.com/wd/hub` |
 | Team Management | `https://api.eu-central-1.saucelabs.com/team-management/v1/` |
-| EU REST API |   |
+| **EU REST API** |   |
 | Virtual Devices and Desktops | `https://api.eu-central-1.saucelabs.com/v1` |
 | RDC on Sauce | `https://api.eu-central-1.saucelabs.com/v1/rdc` |
 | Real Devices on Test Object | `https://app.testobject.com/api/rest/` |
@@ -148,11 +149,11 @@ For more information on Sauce Headless, including full test walkthroughs, see [S
 
 | Name | Details |
 |---|---|
-| Headless OnDemand Endpoints |   |
+| **Headless OnDemand Endpoints** |   |
 | Desktop Browser and Virtual Device Cloud | `https://ondemand.us-east-1.saucelabs.com/wd/hub` |
 | RDC on Sauce | N/A |
 | Legacy RDC/Test Object | N/A |
-| Headless REST API |   |
+| **Headless REST API** |   |
 | Virtual Devices and Desktops | `https://us-east-1.saucelabs.com/rest/v1` |
 | RDC on Sauce | N/A |
 | Real Devices on Test Object | N/A |
