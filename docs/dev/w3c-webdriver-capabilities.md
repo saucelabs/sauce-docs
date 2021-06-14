@@ -485,6 +485,26 @@ https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-web/e
 </TabItem>
 </Tabs>
 
+### Quickstart
+
+Below are mobile and web test script examples you can use to get up and running quickly:
+
+<details><summary><strong>Click here</strong> to see a Desktop Web test script example.</summary>
+
+```js reference
+https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/examples/w3c/test/configs/wdio.saucelabs.conf.js
+```
+
+</details>
+
+<details><summary><strong>Click here</strong> to see an Appium Web test script example.</summary>
+
+```js reference
+https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-web/examples/w3c/test/configs/wdio.saucelabs.conf.js
+```
+
+</details>
+
 ## Common Errors
 
 W3C WebDriver-compliant capabilities and JWP Capabilities are not compatible. Using both in the same test script will result in a system error when spinning up a WebDriver session:
