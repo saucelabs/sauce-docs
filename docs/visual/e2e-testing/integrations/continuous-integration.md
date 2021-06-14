@@ -17,8 +17,12 @@ Screener provides a CI Script that integrates into your CI tool. This script wai
 <<<<<<< HEAD
 The CI Script has three required parameters:
 =======
+<<<<<<< HEAD
+The CI Script has three required parameters:
+=======
 The CI Script has 3 required parameters:
 >>>>>>> 5863786b339d00421ee73dedf05fe4cc06c55b3c
+>>>>>>> dd7cd7e43086ce671c66316478e1e350d150af87
 
 <table>
   <tr>
@@ -94,10 +98,15 @@ Contact our Support Team if you need help integrating Screener into your CI, or 
 <<<<<<< HEAD
 **circle.yml**
 
+=======
+<<<<<<< HEAD
+**circle.yml**
+
 ```yaml
 =======
 circle.yml
 >>>>>>> 5863786b339d00421ee73dedf05fe4cc06c55b3c
+>>>>>>> dd7cd7e43086ce671c66316478e1e350d150af87
 dependencies:
   override:
     # Install Screener CI Script
@@ -106,21 +115,30 @@ dependencies:
 
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 
 >>>>>>> 5863786b339d00421ee73dedf05fe4cc06c55b3c
+>>>>>>> dd7cd7e43086ce671c66316478e1e350d150af87
 test:
   override:
     # Run Screener Tests
     - ./screener-ci.sh $SCREENER_API_KEY $SCREENER_GROUP_ID $CIRCLE_BUILD_NUM
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 ```
 =======
 >>>>>>> 5863786b339d00421ee73dedf05fe4cc06c55b3c
+>>>>>>> dd7cd7e43086ce671c66316478e1e350d150af87
 
 </TabItem>
 <TabItem value="Jenkins">
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> dd7cd7e43086ce671c66316478e1e350d150af87
 #### **Linux/macOS Setup Instructions**
 
 1. Create a new job in Jenkins (Freestyle project).
@@ -150,14 +168,24 @@ test:
     screener-ci.bat %SCREENER_API_KEY% %SCREENER_GROUP_ID% %BUILD_NUMBER%
     ```
 5. Click **Save**.
+<<<<<<< HEAD
+
+#### **Linux/macOS Setup Instructions:**
+=======
 =======
 Linux/macOS Setup Instructions:
+>>>>>>> dd7cd7e43086ce671c66316478e1e350d150af87
 Create a new job in Jenkins (Freestyle project)
 Configure the job:
 Under the "Build" heading, click "Add build step" and select "Execute shell"
 Copy the commands below, and paste into the "Command" textarea
 This step assumes Screener Environment Variables have already been set in Jenkins (can use [EnvInject plugin](https://wiki.jenkins-ci.org/display/JENKINS/EnvInject+Plugin)). Or replace the Screener Environment Variables below with actual values.
+<<<<<<< HEAD
+Click "Save".
+
+=======
 Click "Save"
+>>>>>>> dd7cd7e43086ce671c66316478e1e350d150af87
 # Install Screener CI Script
 curl -O https://s3-us-west-2.amazonaws.com/screener-files/ci/v2.1/screener-ci.zip
 unzip -o screener-ci.zip
@@ -177,7 +205,10 @@ Windows Setup Instructions:
 curl -O http://s3-us-west-2.amazonaws.com/screener-files/ci/v2.1/screener-ci.bat
 screener-ci.bat %SCREENER_API_KEY% %SCREENER_GROUP_ID% %BUILD_NUMBER%
 ```
+<<<<<<< HEAD
+=======
 >>>>>>> 5863786b339d00421ee73dedf05fe4cc06c55b3c
+>>>>>>> dd7cd7e43086ce671c66316478e1e350d150af87
 
 </TabItem>
 <TabItem value="Travis CI">
@@ -186,8 +217,13 @@ screener-ci.bat %SCREENER_API_KEY% %SCREENER_GROUP_ID% %BUILD_NUMBER%
 #### **.travis.yml**
 
 =======
+<<<<<<< HEAD
+#### **.travis.yml**
+
+=======
 .travis.yml
 >>>>>>> 5863786b339d00421ee73dedf05fe4cc06c55b3c
+>>>>>>> dd7cd7e43086ce671c66316478e1e350d150af87
 ```yaml
 install:
   # Install Screener CI Script
@@ -205,8 +241,12 @@ script:
 <<<<<<< HEAD
 #### **Linux/macOS Setup Instructions**
 =======
+<<<<<<< HEAD
+#### **Linux/macOS Setup Instructions**
+=======
 Linux/macOS
 >>>>>>> 5863786b339d00421ee73dedf05fe4cc06c55b3c
+>>>>>>> dd7cd7e43086ce671c66316478e1e350d150af87
 
 ```cURL
 # Install Screener CI Script
@@ -217,6 +257,13 @@ unzip -o screener-ci.zip
 ./screener-ci.sh $SCREENER_API_KEY $SCREENER_GROUP_ID $BUILD_NUMBER
 ```
 <<<<<<< HEAD
+
+<br/>
+
+#### **Windows Setup Instructions**
+
+=======
+<<<<<<< HEAD
 <br/>
 
 #### **Windows Setup Instructions**
@@ -224,6 +271,7 @@ unzip -o screener-ci.zip
 
 Windows
 >>>>>>> 5863786b339d00421ee73dedf05fe4cc06c55b3c
+>>>>>>> dd7cd7e43086ce671c66316478e1e350d150af87
 
 The Windows script depends on [cURL](https://curl.haxx.se/download.html) being installed, and in the PATH.
 

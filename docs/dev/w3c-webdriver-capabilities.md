@@ -327,6 +327,7 @@ To instantiate WebDriver with W3C WebDriver-compliant capabilities, select a cod
 <TabItem value="Python">
 
 **PyTest Example Walkthrough**
+
 1. Ensure you have the [prerequisite software](https://github.com/saucelabs-training/demo-python) to run a Python test on Sauce.
 2. Download or clone the below test script from our GitHub repo:
   <details><summary><strong>Click here</strong> to see an example PyTest test script.</summary>
@@ -453,6 +454,33 @@ To instantiate WebDriver with W3C WebDriver-compliant capabilities, select a cod
   export SAUCE_ACCESS_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx2cy8f4
   ```
 5. In Visual Studio Test Explorer, run tests in <small>`Selenium3.Nunit.Scripts.SimpleExamples.W3CExamplesOnSelenium3.cs`</small>.
+
+</TabItem>
+</Tabs>
+
+## Quickstart
+
+Below are mobile and web test script examples you can use to get up and running quickly:
+
+<Tabs
+  defaultValue="Desktop Web"
+  values={[
+    {label: 'Desktop Web', value: 'Desktop Web'},
+    {label: 'Appium Web', value: 'Appium Web'},
+  ]}>
+
+<TabItem value="Desktop Web">
+
+```js reference
+https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/examples/w3c/test/configs/wdio.saucelabs.conf.js
+```
+
+</TabItem>
+<TabItem value="Appium Web">
+
+```js reference
+https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-web/examples/w3c/test/configs/wdio.saucelabs.conf.js
+```
 
 </TabItem>
 </Tabs>
