@@ -36,10 +36,6 @@ You can also change the visibility of a test (e.g., Public, Private, or Team) di
 The following information does not currently work with the legacy RDC platform (TestObject).
 :::
 
-:::warning Does Not Work with Legacy RDC Platform
-The following information does not currently work with the legacy RDC platform (TestObject).
-:::
-
 When generating a shareable link, you'll need to know your specific data center. All examples on this page use the US West 1 data center endpoint, app.saucelabs.com. If you're using a different data center, such as EU Central 1, your link should be edited accordingly:
 
 ```
