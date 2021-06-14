@@ -19,6 +19,8 @@ Before running a browser or device test with Sauce Labs, you need to write your 
 
 Once your test is finished, you can annotate the job with a name, tags, and pass/fail status using the Sauce Labs REST API, or Selenium's JavaScript executor.
 
+See [Test Configuration Options](/dev/test-configuration-options.md) for a list of valid test configuration options for tests run on Sauce Labs.
+
 ## Getting Ready to Test
 Test configuration refers to setting the desired capabilities of your test within the test script itself. There are [required capabilities for both Selenium and Appium tests](/basics/test-config-annotation/test-config), as well as an extensive set of [optional capabilities](/dev/test-configuration-options) (some of which are exclusive to Sauce Labs). You can use our [Platform Configurator](/basics/platform-configurator) to create the required desired capabilities for your test scripts, or use one of our [sample test frameworks](https://github.com/saucelabs-training) to set up the desired capabilities for parallel testing across multiple platform/operating systems.
 
@@ -47,6 +49,8 @@ You can configure the environment for your Appium and Selenium tests by specifyi
 |Application Package<p><span className="sauceDBlue">ANDROID ONLY</span></p>|The Java package of the Android app you want to run.|`appPackage`|string|`"appPackage": "com.example.android.myApp, com.android.settings"`<br/><br/><p><strong>NOTE</strong>: Appium automatically determines the package to launch; you'll only need to use this desired capability if you want to specify a package different from the default one.</p>|
 |Android Activity<p><span className="sauceDBlue">ANDROID ONLY</span></p>|The name for the Android activity you want to launch from your package.|`appActivity`|string|`"appActivity": ".MainActivity"`<br/><br/><p><strong>NOTE</strong>: This capability needs to be preceded by a . (dot). For example, `.MainActivity` instead of `MainActivity`.</p><br/><p><strong>NOTE</strong>: Appium automatically determines the activity to launch; you'll only need to use this desired capability if you want to specify an activity different from the default one.</p>|
 |Auto Accept Alerts<p><span className="sauceDBlue">IOS ONLY</span></p>|Setting this option will automatically accept any unexpected browser alerts that come up during your test, such as when Safari pops up the alert "Safari would like to use your current location (Don't Allow/Allow)."|`autoAcceptAlerts`|boolean|`"autoAcceptAlerts": true`|
+<<<<<<< HEAD:docs/basics/test-config.md
+=======
 
 
 ## Test Configuration Options
@@ -879,3 +883,4 @@ __Value Type__: integer.
 This means that [`username`](#username) and [`accessKey`](#accesskey) values are required.
 
 Check out the complete Sauce Labs [Visual Testing with WebDriver Documentation](https://screener.io/v2/docs/visual-e2e). Also, we recommend reading up on all of the valid [Visual Options](https://screener.io/v2/docs/visual-e2e/visual-options).
+>>>>>>> e9adcaeb94ac309ed07ff7fb16de631206489b8e:docs/basics/test-config-annotation/test-config.md
