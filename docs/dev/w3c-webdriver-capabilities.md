@@ -17,11 +17,10 @@ We early adopted the W3C WebDriver specification when it achieved the W3C standa
 
 ## What You'll Need
 
-To ensure W3C WebDriver compliance:
+To ensure W3C WebDriver compliance, the following steps are required:
 * Use Selenium version 3.11 or higher.
-* Switch completely from using the older JWP to the newer W3C protocol.
-  * Familiarize yourself with the name changes with the new W3C protocol capabilities. For example, W3C uses `platformName`, while JWP uses `platform`. W3C uses `browserVersion`, while JWP uses `version`. We recommend reviewing the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities).
-  * Do not mix JWP with W3C (you'll get an [error](https://docs.saucelabs.com/dev/w3c-webdriver-capabilities#common-errors)).
+* Switch completely from using the older JWP to the newer W3C protocol. Mixing JWP with W3C will result in an [error](https://docs.saucelabs.com/dev/w3c-webdriver-capabilities#common-errors).
+* Learn the name changes effective with the W3C protocol capabilities. For example, W3C uses `platformName`, while JWP uses `platform`. W3C uses `browserVersion`, while JWP uses `version`. We recommend reviewing our [Test Configuration Options](/dev/test-configuration-options) and the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities).
 * Include our custom `sauce:options` W3C WebDriver-compliant capabilities (e.g., `name`, `build`) in your Sauce Labs test scripts.
   * Here's an example:
    ```java
@@ -37,7 +36,7 @@ To ensure W3C WebDriver compliance:
    }
    ```
 
-  <details><summary><strong>Click here to see a full list of <code>sauce:options</code> capabilities.</strong> For detailed information, see <a href="/dev/test-configuration-options">Test Configuration Options</a>.</summary>
+  <details><summary><strong>Click here</strong> to see a full list of <a href="/dev/test-configuration-options"><code>sauce:options</code> capabilities</a>.</summary>
 
   * `accessKey`
   * `appiumVersion`
