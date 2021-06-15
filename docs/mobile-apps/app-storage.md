@@ -51,6 +51,6 @@ You can also upload and store other file types for generic use, such as a pre-ru
 
 ## Team Management Sync
 
-A Sauce Labs admin (either an org admin or a team admin) can control access to individual applications with Team Management Sync to files or specific binary/script files. By default, all uploaded files are shared with the same team. Members can only access files that are shared with the team where you contribute/participate. Organization admins have access to all files in your organization.
+By default, all uploaded files are shared with the same team. Members can only access files that are shared with the team where you contribute/participate. Organization admins have access to all files in your organization.
 
 To manage access to your organization, go to **Account** > **Team Management**.
