@@ -19,7 +19,7 @@ Before running a browser or device test with Sauce Labs, you need to write your 
 
 Once your test is finished, you can annotate the job with a name, tags, and pass/fail status using the Sauce Labs REST API, or Selenium's JavaScript executor.
 
-See [Test Configuration Options](/dev/test-configuration-options.md) for a list of valid test configuration options for tests run on Sauce Labs.
+See [Test Configuration Options](/dev/test-configuration-options) for a list of valid test configuration options for tests run on Sauce Labs.
 
 ## Getting Ready to Test
 Test configuration refers to setting the desired capabilities of your test within the test script itself. There are [required capabilities for both Selenium and Appium tests](/basics/test-config-annotation/test-config), as well as an extensive set of [optional capabilities](/dev/test-configuration-options) (some of which are exclusive to Sauce Labs). You can use our [Platform Configurator](/basics/platform-configurator) to create the required desired capabilities for your test scripts, or use one of our [sample test frameworks](https://github.com/saucelabs-training) to set up the desired capabilities for parallel testing across multiple platform/operating systems.
@@ -57,7 +57,7 @@ You can configure the environment for your Appium and Selenium tests by specifyi
 
 The following includes a list of valid test configuration options for tests run on Sauce Labs.
 
-See the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to generate the basic code necessary for executing a test. Those settings as well as all valid parameters are described below.
+See the [Sauce Labs Platform Configurator](/basics/platform-configurator) to generate the basic code necessary for executing a test. Those settings as well as all valid parameters are described below.
 
 :::note
 Each browser vendor also supplies a list of browser-specific capabilities that you can also use. These will be set in the applicable browser Options class in Selenium.
@@ -106,7 +106,7 @@ To use the latest stable version of Chrome or Firefox that we support, you can u
 
 For example, if the latest stable version of Chrome is 73, you can request `"latest-2"` to use Chrome 71.Note that the latest version for Safari browsers will depend on the chosen `"platformName"`.
 
-See the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) for valid options.
+See the [Sauce Labs Platform Configurator](/basics/platform-configurator) for valid options.
 
 :::note
 This setting cannot be used for mobile browsers, as your test will use the default browser installed for the given Appium version.
@@ -322,7 +322,7 @@ __Example__:
 <br/>
 
 ### `extendedDebugging`
-__Description__: enables [Extended Debugging features](/insights/debug/index.html).
+__Description__: enables [Extended Debugging features](/insights/debug).
 
 This applies to Firefox and Chrome only. It records HAR files and console logs for both of these browsers. In Chrome, it also enables network interception, network and cpu throttling as well as access to network logs during the session. It is required to be true for [`capturePerformance`](#captureperformance). The default value is `false`.
 
@@ -393,11 +393,11 @@ __Example__:
 ### `deviceName`
 __Description__: allows you to set the name of the simulator, emulator, or real device you want to use in the test.
 
-You can use this to set up a test with either [static or dynamic allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation), and run individual or parallel tests.
+You can use this to set up a test with either [static or dynamic allocation](/mobile-apps/supported-devices), and run individual or parallel tests.
 * Dynamic allocation example: for an Android emulator test, you can request a generic Android emulator by using the option `"deviceName":"Android Emulator"`.
 * Static allocation example: if you want to use an Android emulator that looks and feels like a specific Android phone or tablet (e.g., Google Nexus 7 HD Emulator or a Samsung Galaxy S4), you need to specify the exact Android emulator skin to use (e.g., `"appium:deviceName":"Samsung Galaxy S4 Emulator"`).
 
-Each Android emulator skin will have a different configuration depending on the phone or tablet that it emulates. For example, all the skins have different resolutions, screen dimensions, pixel densities, memory, etc. You can use our [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to get a list of the available Android emulator skins for the various Android emulator versions.
+Each Android emulator skin will have a different configuration depending on the phone or tablet that it emulates. For example, all the skins have different resolutions, screen dimensions, pixel densities, memory, etc. You can use our [Platform Configurator](/basics/platform-configurator) to get a list of the available Android emulator skins for the various Android emulator versions.
 
 __Value Type__: string.
 
@@ -410,7 +410,7 @@ __Example__:
 ### `platformVersion`
 __Description__: allows you to set the mobile OS platform version that you want to use in your test.
 
-You can use this for [dynamic device allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation) to specify incremental versions (e.g., `"4.1"`) or major versions (e.g., `"4"`). By setting a major version, you'd have access to all devices running incremental versions (`"4.1"`, `"4.2"`, `"4.2.1"`, "`4.4.4"`). This also extends to minor and point versions (e.g., specifying `"4.4"` will match `"4.4.0"`, `"4.4.1"`).
+You can use this for [dynamic device allocation](/mobile-apps/supported-devices) to specify incremental versions (e.g., `"4.1"`) or major versions (e.g., `"4"`). By setting a major version, you'd have access to all devices running incremental versions (`"4.1"`, `"4.2"`, `"4.2.1"`, "`4.4.4"`). This also extends to minor and point versions (e.g., specifying `"4.4"` will match `"4.4.0"`, `"4.4.1"`).
 
 __Value Type__: string.
 
@@ -569,7 +569,7 @@ __Example__:
 __Description__: use this to set your Sauce Labs username for the test. You can find this value under **Account** > **User Settings**.
 
 :::note
-You can either set `"username"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](https://docs.saucelabs.com/dev/test-configuration-options#visual-testing)), this must be set in capabilities.
+You can either set `"username"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](/dev/test-configuration-options), this must be set in capabilities.
 :::
 
 __Value Type__: string.
@@ -585,7 +585,7 @@ __Example__:
 __Description__: use this to set your Sauce Labs access key for the test. You can find this value under **Account** > **User Settings**.
 
 :::note
-You can either set `"accessKey"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](https://docs.saucelabs.com/dev/test-configuration-options#visual-testing), this must be set in capabilities.
+You can either set `"accessKey"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](/dev/test-configuration-options), this must be set in capabilities.
 :::
 
 __Value Type__: string.
@@ -836,7 +836,7 @@ __Example__:
 
 ### `prerun` (primary key)
 
-__Description__: use this to define pre-run executables. You can provide a URL to an executable file, which will be downloaded and executed to configure the VM before the test starts. For faster performance, you may want to upload the executable to your [Sauce Application Storage](/mobile-apps/app-storage) space. This capability takes a JSON object with four main keys. See [Using Pre-Run Executables to Configure Browsers and VMs](https://wiki.saucelabs.com/display/DOCS/Using+Pre-Run+Executables+to+Configure+Browsers+and+Virtual+Machines) for more information.
+__Description__: use this to define pre-run executables. You can provide a URL to an executable file, which will be downloaded and executed to configure the VM before the test starts. For faster performance, you may want to upload the executable to your [Sauce Application Storage](/mobile-apps/app-storage) space. This capability takes a JSON object with four main keys. See [Using Pre-Run Executables to Configure Browsers and VMs](/web-apps/automated-testing/pre-run-executables) for more information.
 
 * Running AutoIt Scripts: If you want to run an AutoIt script during your test, compile it as an .exe, send it using this capability, and set background to true to allow AutoIt to continue running throughout the full duration of your test.
 * Using Multiple Pre-Run Executables: If you need to send multiple pre-run executables, the best way is to bundle them into a single executable file, such as a self-extracting zip file.
