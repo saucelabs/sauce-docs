@@ -186,7 +186,7 @@ name:'S5 real device google.com'
 This following includes tips and examples of how to configure your mobile native application tests with Appium. For more detailed descriptions about the capabilities of Appium tests, check out the [Server Capabilities](http://appium.io/slate/en/master/?python#appium-server-capabilities) section of the official Appium website. All examples are for Java, but you can use the [Platform Configurator](/basics/platform-configurator) to set the capabilities in the language of your choice.
 
 ### Mobile Native Application Test Configuration Tips
-#### Setting appiumVersion
+#### Setting `appiumVersion`
 If you omit the `appiumVersion` in your test configuration, your test will be running with our default Appium version. Sauce recommends that you specify one of the newer Appium versions that provides a more extended API and fixes to known bugs.
 
 #### Checking the Appium Version for Your Test
