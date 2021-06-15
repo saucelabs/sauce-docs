@@ -99,7 +99,7 @@ Some command-line arguments can be passed through a config file or an environmen
    </tr>
    </table>
 
->**NOTE**: Not all environment variables are supported on all platforms. For best performance, make sure that you're using the [latest version of Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863).
+>**NOTE**: Not all environment variables are supported on all platforms. For best performance, make sure that you're using the [latest version of Sauce Connect Proxy](/secure-connections/sauce-connect/installation).
 
 ## Additional Resources
 

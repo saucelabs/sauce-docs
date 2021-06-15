@@ -9,7 +9,8 @@ module.exports = {
                 items: [
                     'sauce-basics',
                     'basics/platform-configurator',
-                    'basics/test-config',
+                    'basics/environment-variables',
+
                     {
                         type: 'category',
                         label: 'Account and Team Management',
@@ -62,6 +63,26 @@ module.exports = {
                             'basics/sso/setting-up-single-sign-on',
                             'basics/sso/config-adfs',
                             'basics/sso/config-okta',
+
+                        ],
+                    },
+                    {
+                        type: 'category',
+                        label: 'Test Configuration and Annotation',
+                        collapsed: true,
+                        items: [
+                            'basics/test-config-annotation/test-config',
+                            'basics/test-config-annotation/test-annotation',
+
+                        ],
+                    },
+                    {
+                        type: 'category',
+                        label: 'Data Center Endpoints',
+                        collapsed: true,
+                        items: [
+                            'basics/data-center-endpoints/data-center-endpoints',
+                            'basics/data-center-endpoints/aust-early-access',
 
                         ],
                     },
@@ -140,18 +161,10 @@ module.exports = {
                             'mobile-apps/automated-testing/appium',
                             'mobile-apps/automated-testing/appium/real-devices',
                             'mobile-apps/automated-testing/appium/virtual-devices',
+                            'mobile-apps/automated-testing/appium/migration',
                         ],
                     },
-                    {
-                        type: 'category',
-                        label: 'Espresso and XCUITest',
-                        collapsed: true,
-                        items: [
-                            'mobile-apps/automated-testing/espresso-xcuitest',
-                            'mobile-apps/automated-testing/espresso-xcuitest/real-devices',
-                            'mobile-apps/automated-testing/espresso-xcuitest/virtual-devices',
-                        ],
-                    },
+                    'mobile-apps/automated-testing/espresso-xcuitest',
                     'mobile-apps/automated-testing/ipa-files',
                 ],
             },
@@ -511,6 +524,7 @@ module.exports = {
             'ci/teamcity',
         ],
         "Test Results": [
+            'test-results',
             'test-results/viewing-test-results',
             'test-results/managing-test-results',
             'test-results/sharing-test-results',
@@ -595,6 +609,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'visual/e2e-testing/setup',
+                    'visual/e2e-testing/integrations',
                     {
                         type: 'category',
                         label: 'Integrations',
@@ -632,6 +647,7 @@ module.exports = {
             'dev/error-messages',
             'dev/test-configuration-options',
             'dev/w3c-webdriver-capabilities',
+            'dev/data-center-maint',
             {
                 type: 'category',
                 label: 'API Reference',
@@ -655,17 +671,6 @@ module.exports = {
                 items: [
                     'dev/cli',
                     'dev/cli/sauce-connect-proxy',
-                    {
-                        type: 'category',
-                        label: 'Espresso / XCUITest',
-                        collapsed: true,
-                        items: [
-                            'dev/cli/espresso-xcuitest',
-                            'dev/cli/espresso-xcuitest/real-devices',
-                            'dev/cli/espresso-xcuitest/yaml-config',
-                            'dev/cli/espresso-xcuitest/virtual-devices',
-                        ],
-                    },
                     {
                         type: 'category',
                         label: 'Virtual USB',
