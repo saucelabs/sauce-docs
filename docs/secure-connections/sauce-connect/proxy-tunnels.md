@@ -29,7 +29,7 @@ If you're using Sauce Connect Proxy to build a tunnel between your application a
 If you're using a continuous integration platform like Jenkins, you can use the Sauce OnDemand plugin to launch and tear down your Sauce Connect Proxy instance. For more information, see [Setting Up CI Platform Integrations with Sauce Plugins](/ci)
 
 ## Starting and Stopping Tunnels
-Every Sauce Connect Proxy tunnel spins up a fresh virtual machine (VM) that is used only for your tests. Once the tunnel is closed, VMs are destroyed. As a best practice, we recommend you create a new tunnel for each test suite or build and tear it down at the end of your test.
+Every Sauce Connect Proxy tunnel spins up a fresh virtual machine (VM) that is used only for your tests. Once the tunnel is closed, VMs are destroyed. As a best practice, we recommend you create a new tunnel for each test suite or build and tear it down at the end of your test. For information about user roles and permissions, see [User Roles](/basics/acct-team-mgmt/managing-user-info).
 
 ### Starting a New Tunnel via Command Line
 You can launch a new tunnel from the command line of the machine where the Sauce Connect Proxy client is installed by copying the **Run Command**, which will include your authentication credentials. You can also add any Sauce Connect Proxy parameters you want to use in configuring your tunnel.

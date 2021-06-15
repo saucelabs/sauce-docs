@@ -15,12 +15,18 @@ After you run a test, you can view the results on the Test Results page. From th
 
 ## Live Test Results
 
+Sauce Labs provides live test results for both real and virtual devices.
+
 To view live test results:
 1. In Sauce Labs, in the left panel, click **LIVE** and then click **Test Results.**
 
 <img src={useBaseUrl('img/test-results/test-results-live-nav.png')} alt="Live test results navigation" width="650"/>
 
-2. On the **Test Results** page, click a test in the list to view the test details.
+2. On the **Test Results** page, click the **Virtual Cloud** or **Real Devices** radio button to view the relevant device results.
+
+<img src={useBaseUrl('img/test-results/test-results-live-devices.png')} alt="Live test results - Virtual or real devices" width="650"/>
+
+3. In the **Test Results** results list, click a test to view its details.
 
 <img src={useBaseUrl('img/test-results/test-results-details-live.png')} alt="Live test results details" width="650"/>
 
@@ -30,9 +36,11 @@ To view automated test results:
 
 <img src={useBaseUrl('img/test-results/test-results-auto-nav.png')} alt="Automated test results navigation" width="650"/>
 
-2. On the **Test Results** page, click a test in the list to view the test details.
+2. On the **Test Results** page, click the **Virtual Cloud** or **Real Devices** radio button to view the relevant device results.
 
-3. To view and manage the results of past tests and builds, in Sauce Labs, in the left panel, click **AUTOMATED** and then click **Archive**. Here you can use status badges on your code repository or a web page to keep track of your latest test runs (see [Status Badges and the Browser Matrix Wizard](/test-results/badges-browser-matrix) for more information).
+3. In the **Test Results** results list, click a test to view its details.
+
+4. To view and manage the results of past tests and builds, in Sauce Labs, in the left panel, click **AUTOMATED** and then click **Archive**. Here you can use status badges on your code repository or a web page to keep track of your latest test runs (see [Status Badges and the Browser Matrix Wizard](/test-results/badges-browser-matrix) for more information).
 
 <img src={useBaseUrl('img/test-results/test-results-archive.png')} alt="Test results archive" width="650"/>
 
