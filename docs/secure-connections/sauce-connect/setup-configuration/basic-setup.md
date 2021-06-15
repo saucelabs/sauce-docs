@@ -182,7 +182,7 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i sc-
 
 * Ensure that your network configuration allows for communication between the `SC Host`, the Tunnel VM, and the SUT (site under test). See the basic network configuration diagram for further explanation.
 * Select an example from [Sauce Labs Demonstration Scripts](https://wiki.saucelabs.com/display/DOCS/Sauce+Labs+Demonstration+Scripts) and follow the instructions to configure the test in your dev environment.
-* Navigate to the desired test script and add the following [Test Configuration Option](/basics/test-config) in the [`sauce:options`](/dev/w3c-webdriver-capabilities) capability:
+* Navigate to the desired test script and add the following [Test Configuration Option](/dev/test-configuration-options) in the [`sauce:options`](/dev/w3c-webdriver-capabilities) capability:
 
 <Tabs
   defaultValue="Java"
