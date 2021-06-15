@@ -54,7 +54,7 @@ Once the results have been logged to the page, you have a couple options for fil
 
 ## Search Fields and Operators
 
-You can use any of these filters singly or or combination to search through the tests and builds on your **Archive** page. The **Example** column shows how you could construct a search using a specific filter in the **Search** text field. See [Searching for Test Results](/test-results/archived-test-results#searching-for-test-results) for examples of how to build structured searches using multiple filters in the Search field.
+You can use any of these filters singly or or combination to search through the tests and builds on your **Archive** page. The **Example** column shows how you could construct a search using a specific filter in the **Search** text field. See [Searching for Test Results](/test-results/archived-test-results) for examples of how to build structured searches using multiple filters in the Search field.
 
 | Filter   | Description                                                                                                                                                                                                            | Example                                               |
 |----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
