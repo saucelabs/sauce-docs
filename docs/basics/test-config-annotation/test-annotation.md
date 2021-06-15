@@ -16,7 +16,7 @@ export const Highlight = ({children, color}) => ( <span style={{
     }}>{children}</span> );
 
 
-Test annotation refers to adding information to your tests after they have completed, such as setting a name, build number, tag, and Pass/Fail status. These annotations are useful for managing your tests and builds (for example, when searching and sorting tests in your [Archives](/test-results/archived-test-results)). You can add annotations with our [REST API](/basics/test-config-annotation/test-annotation#sauce-labs-rest-api) or the [Selenium JavaScript Executor](/basics/test-config-annotation/test-annotation#selenium-javascript-executor). You can also use [sample test frameworks](https://github.com/saucelabs-training) to automatically add annotations to your tests.
+Test annotation refers to adding information to your tests after they have completed, such as setting a name, build number, tag, and Pass/Fail status. These annotations are useful for managing your tests and builds (for example, when searching and sorting tests in your [Archives](/test-results/archived-test-results)). You can add annotations with our [REST API](/basics/test-config-annotation/test-annotation) or the [Selenium JavaScript Executor](/basics/test-config-annotation/test-annotation). You can also use [sample test frameworks](https://github.com/saucelabs-training) to automatically add annotations to your tests.
 
 ## Selenium JavaScript Executor
 Selenium's JavascriptExecutor lets you use JavaScript commands in your test scripts to perform actions in the browser. We've developed a set of custom JavascriptExecutor methods you can use to annotate tests and record pass/fail status. You can also use these methods to track information in your Selenium log for debugging.
@@ -57,7 +57,7 @@ Spacing in the methods is sensitive, i.e., some methods require a space followin
 ### Setting Pass/Fail
 Setting the pass/fail status of your tests is important for getting the most out of your [insights](/insights.md), as Selenium has only three built-in states: In Progress, Error, and Complete.
 
-You should update your tests to record pass/fail status with our [REST API](/basics/test-config-annotation/test-annotation#sauce-labs-rest-api) on completion, using a test framework, or the `sauce:job-result` method.
+You should update your tests to record pass/fail status with our [REST API](/basics/test-config-annotation/test-annotation) on completion, using a test framework, or the `sauce:job-result` method.
 
 ### Code Example
 This code is from a sample Java test script using TestNG. You can find the full version in our [Test Frameworks repository](https://github.com/saucelabs-sample-test-frameworks/Java-TestNG-Selenium).
@@ -145,7 +145,7 @@ public class TextInputTest extends TestBase {
     }
 ```
 ## Sauce Labs REST API
-You can manage your tests more effectively from your Dashboard and Archives with annotations. The Sauce Labs REST API includes an [update_job](/dev/api/jobs.md) method that you can use to set a name, tags, pass/fail status, and custom data for your test after it runs. To automate test annotation with this method, you'll want to create a simple set of functions to perform the put request for you. We've developed a [Java library](https://github.com/saucelabs/saucerest-java) to do just that, with examples for [Python](https://gist.github.com/1644439) and [Ruby](https://gist.github.com/DylanLacey/5218959) on GitHub.
+You can manage your tests more effectively from your Dashboard and Archives with annotations. The Sauce Labs REST API includes an [update_job](/dev/api/jobs) method that you can use to set a name, tags, pass/fail status, and custom data for your test after it runs. To automate test annotation with this method, you'll want to create a simple set of functions to perform the put request for you. We've developed a [Java library](https://github.com/saucelabs/saucerest-java) to do just that, with examples for [Python](https://gist.github.com/1644439) and [Ruby](https://gist.github.com/DylanLacey/5218959) on GitHub.
 
 :::note
 Adding Pass/Fail Status and Build Numbers to Test Results with Frameworks<br/>
