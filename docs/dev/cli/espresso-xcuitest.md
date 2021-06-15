@@ -8,7 +8,7 @@ hide_table_of_contents: true
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::warning Espresso for VDC Now Available on saucectl
+:::warning Espresso for emulators Now Available on saucectl
 **Espresso testing for virtual devices is now supported on `saucectl`, our CLI tool used with Testrunner Toolkit. For details, see:**
 
 * **[About `saucectl`](/testrunner-toolkit)**

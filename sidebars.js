@@ -8,6 +8,9 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'sauce-basics',
+                    'basics/platform-configurator',
+                    'basics/environment-variables',
+
                     {
                         type: 'category',
                         label: 'Account and Team Management',
@@ -60,6 +63,26 @@ module.exports = {
                             'basics/sso/setting-up-single-sign-on',
                             'basics/sso/config-adfs',
                             'basics/sso/config-okta',
+
+                        ],
+                    },
+                    {
+                        type: 'category',
+                        label: 'Test Configuration and Annotation',
+                        collapsed: true,
+                        items: [
+                            'basics/test-config-annotation/test-config',
+                            'basics/test-config-annotation/test-annotation',
+
+                        ],
+                    },
+                    {
+                        type: 'category',
+                        label: 'Data Center Endpoints',
+                        collapsed: true,
+                        items: [
+                            'basics/data-center-endpoints/data-center-endpoints',
+                            'basics/data-center-endpoints/aust-early-access',
 
                         ],
                     },
@@ -138,18 +161,10 @@ module.exports = {
                             'mobile-apps/automated-testing/appium',
                             'mobile-apps/automated-testing/appium/real-devices',
                             'mobile-apps/automated-testing/appium/virtual-devices',
+                            'mobile-apps/automated-testing/appium/migration',
                         ],
                     },
-                    {
-                        type: 'category',
-                        label: 'Espresso and XCUITest',
-                        collapsed: true,
-                        items: [
-                            'mobile-apps/automated-testing/espresso-xcuitest',
-                            'mobile-apps/automated-testing/espresso-xcuitest/real-devices',
-                            'mobile-apps/automated-testing/espresso-xcuitest/virtual-devices',
-                        ],
-                    },
+                    'mobile-apps/automated-testing/espresso-xcuitest',
                     'mobile-apps/automated-testing/ipa-files',
                 ],
             },
@@ -175,6 +190,7 @@ module.exports = {
                 items: [
                     'web-apps/automated-testing/cypress',
                     'web-apps/automated-testing/playwright',
+                    'web-apps/automated-testing/pre-run-executables',
                 ],
             },
         ],
@@ -508,6 +524,7 @@ module.exports = {
             'ci/teamcity',
         ],
         "Test Results": [
+            'test-results',
             'test-results/viewing-test-results',
             'test-results/managing-test-results',
             'test-results/sharing-test-results',
@@ -565,6 +582,7 @@ module.exports = {
                             'testrunner-toolkit/configuration/espresso/esp-cucumber',
                         ]
                     },
+                    'testrunner-toolkit/configuration/xcuitest',
                 ],
             },
             'testrunner-toolkit/running-tests',
@@ -585,12 +603,51 @@ module.exports = {
         ],
         "Visual": [
             'visual',
+            {
+                type: 'category',
+                label: 'E2E Testing',
+                collapsed: true,
+                items: [
+                    'visual/e2e-testing/setup',
+                    'visual/e2e-testing/integrations',
+                    {
+                        type: 'category',
+                        label: 'Integrations',
+                        collapsed: true,
+                        items: [
+                          'visual/e2e-testing/integrations/selenium-webdriver',
+                          'visual/e2e-testing/integrations/continuous-integration',
+                        ],
+                    },
+                    'visual/e2e-testing/dashboard-workflow',
+                    'visual/e2e-testing/settings',
+                    'visual/e2e-testing/recording-tests',
+                    'visual/e2e-testing/secure-connections',
+                    'visual/e2e-testing/acct-team-mgmt',
+                ],
+            },
+            {
+                type: 'category',
+                label: 'Component Testing',
+                collapsed: true,
+                items: [
+                  'visual/component-testing/setup',
+                  'visual/component-testing/integrations',
+                  'visual/component-testing/dashboard-workflow',
+                  'visual/component-testing/settings',
+                  'visual/component-testing/interactions-testing-api',
+                  'visual/component-testing/supported-browsers-devices',
+                  'visual/component-testing/acct-team-mgmt',
+                ],
+            },
         ],
         "Reference": [
             'dev',
-            'dev/test-configuration-options',
-            'dev/error-messages',
             'dev/glossary',
+            'dev/error-messages',
+            'dev/test-configuration-options',
+            'dev/w3c-webdriver-capabilities',
+            'dev/data-center-maint',
             {
                 type: 'category',
                 label: 'API Reference',
@@ -614,26 +671,6 @@ module.exports = {
                 items: [
                     'dev/cli',
                     'dev/cli/sauce-connect-proxy',
-                    {
-                        type: 'category',
-                        label: 'Appium',
-                        collapsed: true,
-                        items: [
-                            'dev/cli/appium/real-devices',
-                            'dev/cli/appium/virtual-devices',
-                        ],
-                    },
-                    {
-                        type: 'category',
-                        label: 'Espresso / XCUITest',
-                        collapsed: true,
-                        items: [
-                            'dev/cli/espresso-xcuitest',
-                            'dev/cli/espresso-xcuitest/real-devices',
-                            'dev/cli/espresso-xcuitest/yaml-config',
-                            'dev/cli/espresso-xcuitest/virtual-devices',
-                        ],
-                    },
                     {
                         type: 'category',
                         label: 'Virtual USB',

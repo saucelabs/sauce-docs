@@ -24,6 +24,7 @@ The toolkit currently supports:
 * [TestCafe](https://github.com/DevExpress/testcafe)
 * [Puppeteer](https://github.com/puppeteer)
 * [Espresso](https://developer.android.com/training/testing/espresso)
+* [XCUITest](https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/09-ui_testing.html)
 
 ### Supported Frameworks in Sauce Cloud
 
@@ -34,12 +35,14 @@ The toolkit currently supports:
       {"label":"Cypress","value":"cypress"},
       {"label":"Playwright","value":"playwright"},
       {"label":"TestCafe","value":"testcafe"},
-      {"label":"Espresso","value":"espresso"}
+      {"label":"Espresso","value":"espresso"},
+      {"label":"XCUITest","value":"xcuitest"}
     ]}>
 <TabItem value="cypress">
 
 |Cypress Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
+|7.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |7.1.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |6.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |5.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
@@ -49,6 +52,7 @@ The toolkit currently supports:
 
 |Playwright Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
+|1.11.1|Windows 10|Chromium, Firefox, Webkit|
 |1.10.0|Windows 10|Chromium, Firefox, Webkit|
 |1.7.1|Windows 10|Chromium, Firefox, Webkit|
 
@@ -67,6 +71,21 @@ The toolkit currently supports:
     <th>Supported Platforms</th>
     <th>Supported Browsers</th>
   </tr>
+  <tbody>
+  <tr>
+    <td rowspan='3'>1.14.2</td>
+    <td><b>macOS:</b> 11.0</td>
+    <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  <tr>
+    <td><b>Windows:</b> 10</td>
+    <td>Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  <tr>
+    <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+    <td>Safari</td>
+  </tr>
+  </tbody>
   <tbody>
   <tr>
     <td rowspan='3'>1.14.0</td>
@@ -115,6 +134,14 @@ The toolkit currently supports:
 |Android 5.1+|
 
 </TabItem>
+<TabItem value="xcuitest">
+<div className="corner-ribbon">PREVIEW</div>
+
+|Supported Platforms|
+|-----|
+|iOS 10+|
+
+</TabItem>
 </Tabs>
 
 
@@ -146,6 +173,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |Playwright Version|Supported Browsers|
 |-----|----|
+|1.11.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.12.0)|
 |1.11.0|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.11.0)|
 |1.10.0|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.10.0)|
 |1.7.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.7.5)|
@@ -156,6 +184,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |Puppeteer Version|Supported Browsers|
 |-----|----|
+|9.1.1|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.1.0)|
 |8.0.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.0.0)|
 |3.0.4|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v0.3.0)|
 
@@ -165,6 +194,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |TestCafe Version|Supported Browsers|
 |----|----|
+|1.14.2|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.7.0)|
 |1.14.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.6.1)|
 |1.11.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.5.0)|
 |1.10.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.2.6)|
@@ -199,3 +229,4 @@ If you would like to see sample tests and configuration files for particular fra
 * [Playwright Demo](https://github.com/saucelabs/saucectl-playwright-example)
 * [Puppeteer Demo](https://github.com/saucelabs/saucectl-puppeteer-example/)
 * [Espresso Demo](https://github.com/saucelabs/saucectl-espresso-example)
+* [XCUITest Demo](https://github.com/saucelabs/saucectl-xcuitest-example)

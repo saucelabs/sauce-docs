@@ -22,9 +22,7 @@ Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e
 
 ### System Requirements
 
-You can run `saucectl` locally via Docker or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention.
-
-As a rule of thumb, if you are planning to run in Docker, matching the [Docker installation requirements](https://docs.docker.com/engine/install/#supported-platforms) is likely adequate. Please use the reference below as a quick reference:
+You can run `saucectl` locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms) or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention. The following reference serves as a general guide:
 
 <Tabs
   defaultValue="macos"
@@ -36,20 +34,20 @@ As a rule of thumb, if you are planning to run in Docker, matching the [Docker i
 
 <TabItem value="macos">
 
-* Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
 * OS: 10.14+ (Mojave, Catalina, or Big Sur)
+* Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
 
 </TabItem>
 <TabItem value="linux">
 
-* Docker: [Server](https://docs.docker.com/engine/install/#server)
 * OS/Distros: [CentOS](https://docs.docker.com/engine/install/centos/), [Debian](https://docs.docker.com/engine/install/debian/), [Fedora](https://docs.docker.com/engine/install/fedora/), [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+* Docker: [Server](https://docs.docker.com/engine/install/#server)
 
 </TabItem>
 <TabItem value="windows">
 
-* Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
 * OS: Windows 10 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
+* Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
 
 </TabItem>
 </Tabs>
@@ -123,37 +121,15 @@ Whether you are using environment variables or a credentials file, make sure you
 :::
 
 
-## Setting up a Working Directory
+## Sample Repos
 
-This process generates a set of dependencies that allow you to quickly set up a working test. At the end of this process, you will have a root directory with the following assets:
+If you would like to see sample tests and configuration files for particular frameworks, you can clone one of our demo repositories for use as a template:
 
-* a config file (e.g., `.sauce/config.yml`)
-* a framework directory (e.g., `cypress`) and other relevant files (e.g., `cypress.json`)
-* an example test for the chosen framework (e.g., `cypress/integration/example.test.js`)
-
-If you already have working tests in your framework, you can skip this section and [run your tests](/testrunner-toolkit/running-tests) in order to run your existing tests.
-
-1. Run the following command to generate a config file:
-    ```bash
-    saucectl new
-    ```
-1. At the prompt, specify your framework:
-    ```
-    ? Choose a framework:
-    ❯ Cypress
-      Playwright
-      Puppeteer
-      TestCafe
-    ```
-1. Specify your [Sauce Labs data center](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) at the next prompt:
-    ```
-    ? Choose a framework: Cypress
-    ? Choose the sauce labs region:
-    ❯ us-west-1
-      eu-central-1
-    ```
-
-The configuration script confirms your setup and prompts you to execute the `saucectl run` command to begin testing.
+* [Cypress Demo](https://github.com/saucelabs/saucectl-cypress-example)
+* [TestCafe Demo](https://github.com/saucelabs/saucectl-testcafe-example)
+* [Playwright Demo](https://github.com/saucelabs/saucectl-playwright-example)
+* [Puppeteer Demo](https://github.com/saucelabs/saucectl-puppeteer-example/)
+* [Espresso Demo](https://github.com/saucelabs/saucectl-espresso-example)
 
 ## Running a Sample Test
 
@@ -167,23 +143,60 @@ saucectl run
 
 ```bash
 $ saucectl run
-13:02:33 INF Running version 0.33.1
-13:02:33 INF Reading config file config=.sauce/config.yml
-13:02:33 INF Ignoring framework version for Docker, using provided image saucelabs/stt-cypress-mocha-node:v5.6.0 (only applicable to docker mode)
-13:02:33 INF Running Cypress in Sauce Labs
-13:02:33 INF Project archived. durationMs=1 size=1030
-13:02:33 INF Project uploaded. durationMs=864 storageId=09159989-ce03-4e96-b35e-a6aefed0ec10
-13:02:34 INF Launching workers. concurrency=2
-13:02:34 INF Starting suite. region=us-west-1 suite="saucy test"
-13:02:36 INF Suite started. suite="saucy test" url=https://app.saucelabs.com/tests/5cd88d35e91e4cddbb73eec7721d1bdc
-13:02:44 INF Suites in progress: 1
-13:02:54 INF Suites in progress: 1
-13:03:04 INF Suites in progress: 1
-13:03:14 INF Suites in progress: 1
-13:03:21 INF Suite finished. passed=true suite="saucy test" url=https://app.saucelabs.com/tests/5cd88d35e91e4cddbb73eec7721d1bdc
-13:03:21 INF ┌───────────────────────┐
-13:03:21 INF  All suites have passed!
-13:03:21 INF └───────────────────────┘
+Running version v0.44.0
+16:36:13 INF Reading config file config=.sauce/config.yml
+16:37:09 INF Running Cypress in Sauce Labs
+
+                                        (.
+                                       #.
+                                       #.
+                           .####################
+                         #####////////*******/######
+                       .##///////*****************###/
+                      ,###////*********************###
+                      ####//***********************####
+                       ###/************************###
+                        ######********************###. ##
+                           (########################  ##     ##
+                                   ,######(#*         ##*   (##
+                               /############*          #####
+                           (########(  #########(    ###
+                         .#######,    */  ############
+                      ,##########  %#### , ########*
+                    *### .#######/  ##  / ########
+                   ###   .###########//###########
+               ######     ########################
+             (#(    *#(     #######.    (#######
+                    ##,    /########    ########
+                           *########    ########
+
+   _____        _    _  _____ ______    _____ _      ____  _    _ _____
+  / ____|  /\  | |  | |/ ____|  ____|  / ____| |    / __ \| |  | |  __ \
+ | (___   /  \ | |  | | |    | |__    | |    | |   | |  | | |  | | |  | |
+  \___ \ / /\ \| |  | | |    |  __|   | |    | |   | |  | | |  | | |  | |
+  ____) / ____ \ |__| | |____| |____  | |____| |___| |__| | |__| | |__| |
+ |_____/_/    \_\____/ \_____|______|  \_____|______\____/ \____/|_____/
+16:37:09 INF Project archived. durationMs=11 size=5504
+16:37:10 INF Project uploaded. durationMs=362 storageId=8b0772e8-af16-43d1-8a0d-197ac9648563
+16:37:10 INF Launching workers. concurrency=2
+16:37:10 INF Starting suite. region=us-west-1 suite="Firefox in sauce"
+16:37:10 INF Starting suite. region=us-west-1 suite="Chrome using global mode setting"
+16:37:13 INF Suite started. browser=firefox platform="Windows 10" suite="Firefox in sauce" url=https://app.saucelabs.com/tests/d278cc6adec647f1bab92f00585445f7
+16:37:15 INF Suite started. browser=chrome platform="Windows 10" suite="Chrome using global mode setting" url=https://app.saucelabs.com/tests/4ed757d4f78242299be2cbc5d61dc9ba
+16:37:20 INF Suites in progress: 2
+16:37:30 INF Suites in progress: 2
+16:37:40 INF Suites in progress: 2
+16:37:50 INF Suites in progress: 2
+16:37:58 INF Suite finished. passed=true suite="Firefox in sauce" url=https://app.saucelabs.com/tests/d278cc6adec647f1bab92f00585445f7
+16:38:00 INF Suites in progress: 1
+16:38:01 INF Suite finished. passed=true suite="Chrome using global mode setting" url=https://app.saucelabs.com/tests/4ed757d4f78242299be2cbc5d61dc9ba
+
+       Name                                Duration    Status    Browser    Platform
+────────────────────────────────────────────────────────────────────────────────────────
+  ✔    Firefox in sauce                         48s    passed    firefox    Windows 10
+  ✔    Chrome using global mode setting         50s    passed    chrome     Windows 10
+────────────────────────────────────────────────────────────────────────────────────────
+  ✔    All tests have passed                  1m38s
 ~ $
 ```
 

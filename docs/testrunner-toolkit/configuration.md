@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-The initial [installation and setup](testrunner-toolkit/installation) of `saucectl` generates a `config.yml` file based on the framework and region you selected during setup. By default, `saucectl` will look for this file each time you engage the CLI in order to determine where to find your tests and how and where to run them.
+The initial [installation and setup](/testrunner-toolkit/installation) of `saucectl` generates a `config.yml` file based on the framework and region you selected during setup. By default, `saucectl` will look for this file each time you engage the CLI in order to determine where to find your tests and how and where to run them.
 
 The configuration file is flexible enough to allow for any customizations and definitions that are required for any of the supported frameworks. The following sections describe some of the most common configurations.
 
@@ -22,13 +22,11 @@ saucectl run -c ./path/to/{config-file}.yml
 If you are using multiple frameworks or need to configure different sets of tests to run separately, it might be useful to have individual configuration files that you can simply direct `saucectl` to reference as necessary.
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the [`saucectl` syntax](configuration/common-syntax). If you are less comfortable with YAML, any of a wide variety of free online YAML/JSON validator tools may be helpful.
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the [`saucectl` syntax](/testrunner-toolkit/configuration/common-syntax). If you are less comfortable with YAML, any of a wide variety of free online YAML/JSON validator tools may be helpful.
 :::
 
 
 ## Concurrency
-
-<p><small>supported frameworks: <span class="highlight cypress">Cypress</span> <span class="highlight testcafe">TestCafe</span> <span class="highlight playwright">Playwright</span></small></p>
 
 You can configure `saucectl` to run test suites in parallel up to the concurrency specified in the config file.
 
@@ -118,7 +116,7 @@ The `saucectl` command line bundles your root directory (`rootDir` parameter of 
 
 ### Excluding Files from the Bundle
 
-The `.sauceignore` file is generated when you run `saucectl new`, allowing you to designate certain files to exclude from bundling.
+The `.sauceignore` file allows you to designate certain files to be excluded from bundling.
 
 Add any files that are not direct test dependencies to `.sauceignore` to reduce the size of your bundle, improve test speed, and protect sensitive information.
 

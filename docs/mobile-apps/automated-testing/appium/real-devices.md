@@ -60,7 +60,9 @@ In some cases, you may need to upload / install your app to a private device and
 * Ensure the hosted app URL is available to the machine running the automated test.
 * Ensure that you've enabled the **Require Sauce Connect/VPN** setting in your [organization's security settings](https://wiki.saucelabs.com/pages/viewpage.action?pageId=69108863).
 
->**NOTE**: Each session is a "fresh" installation of your app, meaning, you will not be able to access information about previous versions of your app.
+:::note
+Each session is a "fresh" installation of your app, meaning, you will not be able to access information about previous versions of your app.
+:::
 
 </TabItem>
 <TabItem value="Using the REST API">
@@ -118,7 +120,9 @@ To connect to the real device cloud in your automated Appium tests, you'll need 
 $ curl -F "payload=@/Users/$SAUCE_USERNAME/Downloads/$FILE_NAME.ipa" -F "name=$FILE_NAME.ipa" -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY"  'https://api.us-west-1.saucelabs.com/v1/storage/upload'
 ```
 
->**NOTE**: For more detailed information on how to access the app in your automated test builds and use the Storage API, see [App Storage](/mobile-apps/app-storage.md).
+:::note
+For more detailed information on how to access the app in your automated test builds and use the Storage API, see [App Storage](/mobile-apps/app-storage.md).
+:::
 
 Below are some additional examples using the EU and US endpoints.
 
@@ -164,13 +168,13 @@ EU Data Center (Windows)
 
 ## Configuring Appium Tests for Real Devices
 
-This section describes parameters that we recommend using to configure your Appium tests on Sauce Labs real devices. See [Appium for Real Devices CLI Reference](dev/cli/appium/real-devices) for the full list of required and optional parameters.
+This section describes parameters that we recommend using to configure your Appium tests on Sauce Labs real devices. See [Test Configuration Options](dev/test-configuration-options) for the full list of required and optional parameters.
 
 :::caution Please Read
 
 Certain Appium capabilities behave differently when running Appium tests on our Real Device Cloud versus a local Appium server. On our Real Device Cloud:
 
-* [Some Appium capabilities are not supported](dev/cli/appium/real-devices).
+* Some Appium capabilities are not supported.
 * Emulator-only capabilities will not work.
 * The `app` capability will be always be overwritten; it will point to the app file you uploaded to our system.
 * The `noReset` capability will only work if device caching is enabled.
@@ -522,6 +526,12 @@ _Dynamic Allocation_ involves providing basic parameters for the platform and op
    </td>
   </tr>
   <tr>
+   <td><code>publicDevicesOnly</code>
+   </td>
+   <td><p>If you have access to both private and public devices, you can request allocation of public devices only with "true".</p>
+   </td>
+  </tr>
+  <tr>
    <td><code>tabletOnly</code>
    </td>
    <td><p>Select only tablet devices with "true".</p>
@@ -578,6 +588,7 @@ To get around this, you can use the capability `cacheId`, which keeps the device
 <li><code>tabletOnly</code></li>
 <li><code>phoneOnly</code></li>
 <li><code>privateDevicesOnly</code></li>
+<li><code>publicDevicesOnly</code></li>
 <li><code>automationName</code></li>
 <li><code>autoGrantPermissions</code></li>
 <li><code>appiumVersion</code></li>

@@ -69,6 +69,9 @@ html[data-theme='dark'] {
     --ifm-font-color-base: rgb(255, 255, 255);
     --ifm-blockquote-color: #f0f0f0;
     --ifm-code-background: #44494F;
+    --ifm-link-color: #ffffff;
+    --ifm-link-decoration: underline;
+    --ifm-menu-color-active: #57C1E8;
     --ifm-alert-color: #f0f0f0 !important;
     --ifm-navbar-link-color: #464b54;
     --docsearch-muted-color: #969faf !important;
@@ -82,6 +85,32 @@ html[data-theme='dark'] {
 html[data-theme='dark'] .alert--secondary {
     --ifm-alert-color: #f0f0f0 !important;
     --ra-admonition-color: #fff !important;
+}
+
+html[data-theme='dark'] .table-of-contents__link--active {
+    color: #57C1E8;
+}
+
+html[data-theme='dark'] .table-of-contents__link--active code {
+    color: #57C1E8;
+}
+
+html[data-theme='dark'] .table-of-contents__link:hover code {
+    color: #57C1E8;
+}
+
+html[data-theme='dark'] .table-of-contents__link:hover {
+    color: #57C1E8;
+}
+
+html[data-theme='dark'] .tabs__item--active {
+    color: #57C1E8;
+    border-bottom-color: #57C1E8;
+}
+
+html[data-theme='dark'] .alert a {
+  color: #ffffff;
+  decoration: underline;
 }
 
 
