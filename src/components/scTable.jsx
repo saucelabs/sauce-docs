@@ -1,7 +1,9 @@
 import React, {useEffect} from "react";
 import Table from "./Table";
+
 const ScTable = () => {
     const theadData = ["Platform", "Download Link", "SHA1 Checksum"];
+    // const tbodyData = [];
     const tbodyData = [
         {
             id: "1",
