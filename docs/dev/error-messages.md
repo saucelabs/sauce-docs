@@ -15,7 +15,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Below are some Sauce Labs automated testing common error messages and how to fix them.
 
-## Abuse Job
+## Mobile and Web App Testing
+
+### Abuse Job
 
 **Description**
 
@@ -30,43 +32,13 @@ Sauce Labs takes measures to safeguard our price and performance for our paying 
 If you are a paying customer, please open a [Sauce Labs support ticket](http://support.saucelabs.com/) to request your ban be reviewed. Sauce Labs will not reverse abuse bans for Free or Open Sauce users.
 
 
-## Failed to Download Mobile Application
-<p> <Highlight color="#013a70">Mobile App Testing Only</Highlight> </p>
-
-**Description**
-
-The capabilities you've supplied include a URL to a mobile application to install and test. This may be a URL pointing to [Application Storage](/mobile-apps/app-storage), or a hosted app online. When we started your test, we were unable to correctly download a valid application from that URL. We may have been able to download something, but that something was not a valid application.
-
-**Cause(s)**
-
-* You've specified an app hosted in [storage](/mobile-apps/app-storage), but there is nothing stored for your account with the given name.
-* You've specified an app hosted online, but the URL you've used can't be contacted by Sauce Labs.
-* You've specified an app hosted in your corporate network which can't be accessed via the Internet.
-* You're not providing the full path to the app file itself.
-* The site serving your application requires authentication.
-
-
-**How to Resolve**
-
-We recommend avoiding all problems with apps hosted internally by uploading to [storage](/mobile-apps/app-storage) instead.
-
-If you're already using storage, check:
-
-* Your upload to storage has succeeded.
-* Your upload to storage was within the last 60 days.
-* Your uploaded app has the same MD5 hash as it does on your machine.
-* You're starting the `app` capability with `sauce-storage:`. There shouldn't be a leading `http`.
-* You're using the exact name you provided via the rest API, not the original filename. For example, if you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `sauce storage:new_app_name.apk`.
-
-
-## Internal Server Error
+### Internal Server Error
 
 **Description**
 
 This is a rare but known error. It indicates that the OnDemand portion of the Sauce Labs service lost its connection with the Virtual Machine running a test. Because the connection with the VM was lost, the details of the test (logs, video, metadata) will also be lost.  
 
 The error is expected to occur no more often than 0.1% (1 out of 1000 tests) over a sustained period of time. The same test, when run a second time, is very likely (999 out of 1000 times) to succeed.
-
 
 **Cause(s)**
 
@@ -92,28 +64,7 @@ If the error rate is over 0.1% for a short period of time, check our [Systems St
 If the error rate is over 0.1% for a sustained period of time (days or weeks), contact help@saucelabs.com. We'll try to identify a pattern to the errors (for example, is it particular to one type of browser, OS, or test). Note that this is the least likely explanation.
 
 
-## Test Didn't See a New Command for 90 Seconds
-<p> <Highlight color="#013a70">Web App Testing Only</Highlight> </p>
-
-**Description**
-
-You'll see this error when Sauce Labs doesn't receive a new command from your Selenium script in more than 90 seconds (the default duration for a timeout).
-
-**Cause(s)**
-
-There are a few potential causes for this error:
-
-* The most common cause is that your script crashed, was forcefully interrupted, or you lost internet connectivity.
-* If your tests don't include a session ending request, such as a call to `driver.quit()` or `browser.stop()`, they will will keep running forever, consuming all test minutes available in your account. This error is thrown after 90 seconds as a means of preventing this.
-* A less common, but still possible cause, is that your test legitimately needs more than 90 seconds to send a new command to the browser. This happens most often when a network or disk IO error occurs between Selenium API calls in your tests (for example, for DB queries, local file reads, or changes).
-
-**How to Resolve**
-
-* Make sure you have internet connectivity.
-* Make sure your script includes `driver.quit()` or `browser.stop()` to conclude the test.
-* If your test needs more than 90 seconds to send a new command to the browser, use the `idleTimeout` capability to modify Sauce's wait time for further commands. For more information, [Test Configuration Options > Timeouts section](/dev/test-configuration-options).
-
-## Test Exceeded Maximum Duration of 1800 Seconds
+### Test Exceeded Maximum Duration of 1800 Seconds
 
 **Description**
 
@@ -131,7 +82,7 @@ You'll see this error when your test suite is still running in a session that ha
 * If your test needs more than 1800 seconds to complete, you can use the `maxDuration` capability to make Sauce wait longer for your test to complete. You can find more information about this capability under [Test Configuration Options > Timeouts section](/dev/test-configuration-options).
 
 
-## User Terminated
+### User Terminated
 
 **Description**
 
@@ -146,7 +97,7 @@ Your test was manually interrupted using the **Cancel** or **Breakpoint** button
 Don't push the buttons!
 
 
-## You've Exceeded Your Sauce Labs Concurrency Limit
+### You've Exceeded Your Sauce Labs Concurrency Limit
 
 **Description**
 
@@ -161,7 +112,7 @@ Each Sauce Labs account has a maximum number of tests it's allowed to have open 
 Run fewer tests or [upgrade your account](https://saucelabs.com/pricing) to run more.
 
 
-## A Failure Occurred While Trying to Upload the Video
+### A Failure Occurred While Trying to Upload the Video
 
 **Description**
 
@@ -178,7 +129,7 @@ Check our [Systems Status page](http://status.saucelabs.com/) to see if we have 
 If you experience this issue repeatedly while there is no listed issue, reach out to [support.saucelabs.com](https://support.saucelabs.com/) for assistance.
 
 
-## Invalid Parent Tunnel
+### Invalid Parent Tunnel
 
 **Description**
 
@@ -194,7 +145,6 @@ When requesting a new Sauce Labs job, you provided the `parentTunnel` capability
 *   You are requesting an account that is not running any Sauce Connect tunnels.
 *   You are requesting an account for which Sauce Connect tunnels have been shut down (by the user _or_ an error).
 
-
 **How to Resolve**
 
 Reach out to the person who administers the account that you set as the `parentTunnel` capability; this person sets the tunnel sharing permissions. Ask them to confirm the following:
@@ -208,7 +158,7 @@ Restarting the Sauce Connect tunnel may be required.
 Alternatively, you can remove the `parentTunnel` capability from your tests. If you need Sauce Connect to run your tests, you will need to set up an alternative tunnel.
 
 
-## The New Session Request was Cancelled before a Sauce Labs Virtual Machine was Found
+### The New Session Request was Cancelled before a Sauce Labs Virtual Machine was Found
 
 **Description**
 
@@ -227,11 +177,11 @@ This error has a few potential causes:
 
 **How to Resolve**
 
-*   Make sure you're launching an appropriate number of jobs for your account.
-*   If you see this error with iOS Simulator tests, please make sure the timeouts in your test runner/framework are set to a sufficient duration to allow iOS Simulator tests to start up. We recommend a minimum of 2 minutes.
+* Make sure you're launching an appropriate number of jobs for your account.
+* If you see this error with iOS Simulator tests, please make sure the timeouts in your test runner/framework are set to a sufficient duration to allow iOS Simulator tests to start up. We recommend a minimum of 2 minutes.
 
 
-## Selenium Didn't Complete Your Last Request on Time
+### Selenium Didn't Complete Your Last Request on Time
 
 **Description**
 
@@ -253,7 +203,7 @@ There are a few potential causes for this error.
 *   If the cause is a browser crash, the easiest way to check is to watch the video of the test. If this is the case, you may be able to resolve the error by removing memory-hungry commands from your test script, like fetching the page source or taking screenshots with Selenium.
 
 
-## Test Assets Have Expired
+### Test Assets Have Expired
 
 Assets for this test are no longer available on Sauce Labs servers.
 
@@ -269,8 +219,96 @@ Sauce Labs data retention policy states that test assets, including videos, scre
 
 If you find that you regularly need to examine test assets after the 30-day retention period, Sauce Labs recommends that you download your job assets if this is an information that you must keep in your records.
 
-## The Connection with Your Virtual Machine was Lost and Your Job Can't Complete
-<p> <Highlight color="#013a70">Web App Testing Only</Highlight> </p>
+
+### The Sauce Labs Virtual Machine Failed to Start the Browser or Device
+
+**Description**
+
+The Sauce Labs virtual machine was unable to start the browser or device specified for your test.
+
+**Causes**
+
+*   If you're running a Selenium test, this usually means that you're specifying a Selenium version that isn't compatible with the browser/version/OS you selected.
+*   If you're running an Appium test, this usually means that you're specifying a Appium version that isn't compatible with the browser/version/OS you selected.
+*   You may have requested an incompatible platform/OS/browser combination.
+
+**How to Resolve**
+
+*   You can usually resolve this error by choosing a new version of Selenium or Appium for your test, or leaving the version blank to default to the latest version.
+*   Check your test capabilities to make sure you haven't set an incompatible platform/operating system/browser combination.
+*   Use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to set the capabilities of your test.
+
+
+### The Virtual Machine's Disk has Filled Up
+
+**Description**
+
+The Virtual Machine hosting the browser or device running your tests has run out of space on its virtual disk.
+
+**Cause**
+
+Our VMs have virtual disks that, just like hardware disks, can fill up. We make sure that our virtual machines have at least 3G free when we start a job, but sometimes complex/long-running tests fill up the guest machine's allocated space. This causes Selenium to crash, which ends your test.
+
+This isn't always restricted to the tests, either; an app under test which consumes a large amount of memory, which suffers from significant JS memory leaks or which opens a lot of tabs can cause this issue.
+
+**How to Resolve**
+
+Break out your long tests into shorter tests and/or make sure that your tests are not filling up a lot of disk space on the VM. Our [best practices topic on small, atomic, autonomous tests](https://community.saucelabs.com/general-delivery-discussion-6/best-practices-use-small-atomic-autonomous-tests-154) has some tips that can help with this problem.
+
+
+## Mobile App Testing Only
+
+### Failed to Download Mobile Application
+
+**Description**
+
+The capabilities you've supplied include a URL to a mobile application to install and test. This may be a URL pointing to [Application Storage](/mobile-apps/app-storage), or a hosted app online. When we started your test, we were unable to correctly download a valid application from that URL. We may have been able to download something, but that something was not a valid application.
+
+**Cause(s)**
+
+* You've specified an app hosted in [storage](/mobile-apps/app-storage), but there is nothing stored for your account with the given name.
+* You've specified an app hosted online, but the URL you've used can't be contacted by Sauce Labs.
+* You've specified an app hosted in your corporate network which can't be accessed via the Internet.
+* You're not providing the full path to the app file itself.
+* The site serving your application requires authentication.
+
+**How to Resolve**
+
+We recommend avoiding all problems with apps hosted internally by uploading to [storage](/mobile-apps/app-storage) instead.
+
+If you're already using storage, check:
+
+* Your upload to storage has succeeded.
+* Your upload to storage was within the last 60 days.
+* Your uploaded app has the same MD5 hash as it does on your machine.
+* You're starting the `app` capability with `sauce-storage:`. There shouldn't be a leading `http`.
+* You're using the exact name you provided via the rest API, not the original filename. For example, if you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `sauce storage:new_app_name.apk`.
+
+
+## Web App Testing Only
+
+### Test Didn't See a New Command for 90 Seconds
+
+**Description**
+
+You'll see this error when Sauce Labs doesn't receive a new command from your Selenium script in more than 90 seconds (the default duration for a timeout).
+
+**Cause(s)**
+
+There are a few potential causes for this error:
+
+* The most common cause is that your script crashed, was forcefully interrupted, or you lost internet connectivity.
+* If your tests don't include a session ending request, such as a call to `driver.quit()` or `browser.stop()`, they will will keep running forever, consuming all test minutes available in your account. This error is thrown after 90 seconds as a means of preventing this.
+* A less common, but still possible cause, is that your test legitimately needs more than 90 seconds to send a new command to the browser. This happens most often when a network or disk IO error occurs between Selenium API calls in your tests (for example, for DB queries, local file reads, or changes).
+
+**How to Resolve**
+
+* Make sure you have internet connectivity.
+* Make sure your script includes `driver.quit()` or `browser.stop()` to conclude the test.
+* If your test needs more than 90 seconds to send a new command to the browser, use the `idleTimeout` capability to modify Sauce's wait time for further commands. For more information, [Test Configuration Options > Timeouts section](/dev/test-configuration-options).
+
+
+### The Connection with Your Virtual Machine was Lost and Your Job Can't Complete
 
 **Description**
 
@@ -296,8 +334,7 @@ For random, rarely occurring issues, we recommend ignoring this error and re-run
 *   Once you've done all of the above, raise a support ticket.
 
 
-## The Requested Combination of Browser, Version, and Operating System is Not Supported
-<p> <Highlight color="#013a70">Web App Testing Only</Highlight> </p>
+### The Requested Combination of Browser, Version, and Operating System is Not Supported
 
 **Description**
 
@@ -317,39 +354,3 @@ The combination of browser, version, and operating system you want to use in you
 *   Use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to set the capabilities of your test.
 *   Check [our list of supported platforms, operating systems, and browsers](https://saucelabs.com/platform/supported-browsers-devices) to make sure your selections are valid.
 *   Use a higher version of Selenium in the capabilities of your test, or leave the Selenium version blank to default to the latest version.
-
-
-## The Sauce Labs Virtual Machine Failed to Start the Browser or Device
-
-**Description**
-
-The Sauce Labs virtual machine was unable to start the browser or device specified for your test.
-
-**Causes**
-
-*   If you're running a Selenium test, this usually means that you're specifying a Selenium version that isn't compatible with the browser/version/OS you selected.
-*   If you're running an Appium test, this usually means that you're specifying a Appium version that isn't compatible with the browser/version/OS you selected.
-*   You may have requested an incompatible platform/OS/browser combination.
-
-**How to Resolve**
-
-*   You can usually resolve this error by choosing a new version of Selenium or Appium for your test, or leaving the version blank to default to the latest version.
-*   Check your test capabilities to make sure you haven't set an incompatible platform/operating system/browser combination.
-*   Use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to set the capabilities of your test.
-
-
-## The Virtual Machine's Disk has Filled Up
-
-**Description**
-
-The Virtual Machine hosting the browser or device running your tests has run out of space on its virtual disk.
-
-**Cause**
-
-Our VMs have virtual disks that, just like hardware disks, can fill up. We make sure that our virtual machines have at least 3G free when we start a job, but sometimes complex/long-running tests fill up the guest machine's allocated space. This causes Selenium to crash, which ends your test.
-
-This isn't always restricted to the tests, either; an app under test which consumes a large amount of memory, which suffers from significant JS memory leaks or which opens a lot of tabs can cause this issue.
-
-**How to Resolve**
-
-Break out your long tests into shorter tests and/or make sure that your tests are not filling up a lot of disk space on the VM. Our [best practices topic on small, atomic, autonomous tests](https://community.saucelabs.com/general-delivery-discussion-6/best-practices-use-small-atomic-autonomous-tests-154) has some tips that can help with this problem.
