@@ -51,7 +51,7 @@ If you'd like to try out this functionality but don't have an app on hand, [down
 ## Gather Your Credentials
 
 4. Find your Sauce Labs `username`, `accessKey`, and the emulator `deviceName` you wish to test on. The list of devices is located under **Live** > **Cross-Browser** > **Mobile Real**.
-  * **Set Environment Variables (Optional)**: Setting your Sauce Labs `username` and `accessKey` as [environment variables](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647#BestPracticesforRunningTests-UseEnvironmentVariablesforAuthenticationCredentials) provides an extra layer of security for your credentials when you reference them from within your tests.
+  * **Set Environment Variables (Optional)**: Setting your Sauce Labs `username` and `accessKey` as [environment variables](/basics/environment-variables) provides an extra layer of security for your credentials when you reference them from within your tests.
 
 ## Configure Your Test
 
@@ -179,59 +179,17 @@ Wait for the runner to upload both files and execute the tests on Sauce Labs rea
 
 Go to the [Sauce Labs Training GitHub repository](https://github.com/saucelabs-training/demo-espresso/tree/master/real-devices) to browse more example scripts and Espresso test cases on Sauce Labs Emulators.
 
-## Legacy RDC (TestObject)
+## TestObject (Legacy RDC)
 
-As an alternative to using the built-in upload behavior of Sauce Runner for Real Devices, you can separate the upload of your app and test files via the [TestObject](https://wiki.saucelabs.com/display/DOCS/Legacy+Real+Device+Platform+Resources) Storage API.
+:::warning
+TestObject, our [Legacy Real Device Platform](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177), reaches end-of-life September 1, 2021.
 
-Implementing the separation of upload allows you to take control of when to upload a new version, which in turn helps save time by reducing the total amount of file uploads done.
-
-Below are example `curl` snippets for uploading your app build and test runners to TestObject.
-
-<Tabs
-  defaultValue="Upload an iOS App"
-  values={[
-    {label: 'Upload an iOS App', value: 'Upload an iOS App'},
-    {label: 'Upload an Android app', value: 'Upload an Android app'},
-    {label: 'Upload an iOS Test Runner', value: 'Upload an iOS Test Runner'},
-    {label: 'Upload an Android Test Runner', value: 'Upload an Android Test Runner'},
-  ]}>
-
-<TabItem value="Upload an iOS App">
-
-```sh
-curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest/storage/upload -H "Content-Type: application/octet-stream" --data-binary @/path/to/iOSApp.ipa
-```
-
-</TabItem>
-<TabItem value="Upload an Android app">
-
-```sh
-curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest/storage/upload -H "Content-Type: application/octet-stream" --data-binary @/path/to/androidApp.apk
-```
-
-</TabItem>
-<TabItem value="Upload an iOS Test Runner">
-
-```sh
-curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest/storage/upload -H "Content-Type: application/octet-stream" -H "App-Type: XCUITEST" --data-binary @/path/to/XCUITests-Runner.ipa
-```
-
-</TabItem>
-<TabItem value="Upload an Android Test Runner">
-
-```sh
-curl -u "username:APP_APIKEY" -X POST https://app.testobject.com/api/rest/storage/upload -H "Content-Type: application/octet-stream" -H "App-Type: ANDROID_INSTRUMENTATION_TEST" --data-binary @/path/to/androidTest.apk
-```
-
-</TabItem>
-</Tabs>
+Please migrate all of your apps and tests from TestObject to Sauce Labs by August 31, 2021.
+:::
 
 ## Additional Resources
 
 * [Espresso and XCUITest CLI Reference](dev/cli/espresso-xcuitest.md)
-
 * [Beyond Appium: Testing Using Espresso and XCUITest (white paper)](https://saucelabs.com/resources/white-papers/beyond-appium-testing-using-espresso-and-xcuitest).
-
 * [Sauce Labs GitHub repository | Espresso for Real Devices](https://github.com/saucelabs-training/demo-espresso/tree/master/real-devices)
-
 * [Sauce Labs GitHub repository | XCUITest for Real Devices](https://github.com/saucelabs-training/demo-xcuitest/tree/master/real-devices)

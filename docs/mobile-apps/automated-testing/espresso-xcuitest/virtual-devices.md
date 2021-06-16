@@ -72,7 +72,7 @@ If you'd like to try out this functionality but don't have an app on hand, [down
 ## Gather Your Credentials
 
 4. Find your Sauce Labs `username`, `accessKey`, and the emulator `deviceName` you wish to test on. The list of devices is located under **Live** > **Cross-Browser** > **Mobile Virtual**.
-   * **Set Environment Variables (Optional)**: Setting your Sauce Labs `username` and `accessKey` as [environment variables](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647#BestPracticesforRunningTests-UseEnvironmentVariablesforAuthenticationCredentials) provides an extra layer of security for your credentials when you reference them from within your tests.
+   * **Set Environment Variables (Optional)**: Setting your Sauce Labs `username` and `accessKey` as [environment variables](/basics/environment-variables) provides an extra layer of security for your credentials when you reference them from within your tests.
 
 ## Configure Your Test
 

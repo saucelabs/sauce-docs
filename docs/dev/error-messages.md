@@ -48,12 +48,12 @@ The capabilities you've supplied include a URL to a mobile application to instal
 
 **How to Resolve**
 
-We recommend avoiding all problems with apps hosted internally by uploading [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137) instead.
+We recommend avoiding all problems with apps hosted internally by uploading to [storage](/mobile-apps/app-storage) instead.
 
-If you're already using [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137), check:
+If you're already using storage, check:
 
-* Your upload to [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137) has succeeded.
-* Your upload to [storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137) was within the last 60 days.
+* Your upload to storage has succeeded.
+* Your upload to storage was within the last 60 days.
 * Your uploaded app has the same MD5 hash as it does on your machine.
 * You're starting the `app` capability with `sauce-storage:`. There shouldn't be a leading `http`.
 * You're using the exact name you provided via the rest API, not the original filename. For example, if you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `sauce storage:new_app_name.apk`.
@@ -127,7 +127,7 @@ You'll see this error when your test suite is still running in a session that ha
 **How to Resolve**
 
 * Check for infinite loops in your test.
-* If you suspect that the error is related to latency in the Sauce network or testing infrastructure, consider breaking your test suite up into [small, autonomous, atomic tests](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365933).
+* If you suspect that the error is related to latency in the Sauce network or testing infrastructure, consider breaking your test suite up into [small, autonomous, atomic tests](https://saucelabs.com/blog/test-coverage-with-atomic-tests-part-5).
 * If your test needs more than 1800 seconds to complete, you can use the `maxDuration` capability to make Sauce wait longer for your test to complete. You can find more information about this capability under [Test Configuration Options > Timeouts section](/dev/test-configuration-options).
 
 
@@ -276,7 +276,7 @@ If you find that you regularly need to examine test assets after the 30-day rete
 
 You'll see this error when our infrastructure loses communication with the VM being used for your test and can't regain that connection after a reasonable time. If you only get this message rarely and randomly, it is probably a fluke on our end caused by an infrastructure blip.
 
-However, if you are experiencing this error repeatedly for a specific test or set of tests, there may be an issue on your end that's causing the failure. For example, if the error regularly appears after a specific Selenium command, there could be something wrong with the test that is causing Selenium to crash. We have also seen issues with [pre-run executables](https://wiki.saucelabs.com/display/DOCS/Using+Pre-Run+Executables+for+Website+Tests).
+However, if you are experiencing this error repeatedly for a specific test or set of tests, there may be an issue on your end that's causing the failure. For example, if the error regularly appears after a specific Selenium command, there could be something wrong with the test that is causing Selenium to crash. We have also seen issues with [pre-run executables](/web-apps/automated-testing/pre-run-executables/index.html).
 
 **Cause**
 
@@ -290,7 +290,7 @@ However, if you are experiencing this error repeatedly for a specific test or se
 
 For random, rarely occurring issues, we recommend ignoring this error and re-running your test. For repeat occurrences:
 
-*   Try breaking up your tests into [smaller, more atomic, more independent chunks](https://wiki.saucelabs.com/display/DOCS/Best+Practices%3A+Use+Small%2C+Atomic%2C+Autonomous+Tests). We recommend that tests should take no longer than five minutes to run.
+*   Try breaking up your tests into [smaller, more atomic, more independent chunks](https://saucelabs.com/blog/test-coverage-with-atomic-tests-part-5). We recommend that tests should take no longer than five minutes to run.
 *   If you suspect the problem is with your app's memory requirements, lowering the screen resolution may lower the rendering requirements.
 *   Try removing any pre-run executables from your capabilities to see if that resolves the problem.
 *   Once you've done all of the above, raise a support ticket.
@@ -314,7 +314,7 @@ The combination of browser, version, and operating system you want to use in you
 
 **How to Resolve**
 
-*   Use the [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to set the capabilities of your test.
+*   Use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to set the capabilities of your test.
 *   Check [our list of supported platforms, operating systems, and browsers](https://saucelabs.com/platform/supported-browsers-devices) to make sure your selections are valid.
 *   Use a higher version of Selenium in the capabilities of your test, or leave the Selenium version blank to default to the latest version.
 
@@ -335,7 +335,7 @@ The Sauce Labs virtual machine was unable to start the browser or device specifi
 
 *   You can usually resolve this error by choosing a new version of Selenium or Appium for your test, or leaving the version blank to default to the latest version.
 *   Check your test capabilities to make sure you haven't set an incompatible platform/operating system/browser combination.
-*   Use the [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to set the capabilities of your test.
+*   Use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to set the capabilities of your test.
 
 
 ## The Virtual Machine's Disk has Filled Up
@@ -352,4 +352,4 @@ This isn't always restricted to the tests, either; an app under test which consu
 
 **How to Resolve**
 
-Break out your long tests into shorter tests and/or make sure that your tests are not filling up a lot of disk space on the VM. Our [best practices topic on small, atomic, autonomous tests](https://wiki.saucelabs.com/display/DOCS/Best+Practices%3A+Use+Small%2C+Atomic%2C+Autonomous+Tests) has some tips that can help with this problem.
+Break out your long tests into shorter tests and/or make sure that your tests are not filling up a lot of disk space on the VM. Our [best practices topic on small, atomic, autonomous tests](https://saucelabs.com/blog/test-coverage-with-atomic-tests-part-5) has some tips that can help with this problem.
