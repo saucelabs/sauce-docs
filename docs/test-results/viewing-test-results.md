@@ -47,7 +47,9 @@ To view automated test results:
 ## Screenshots, Commands, Logs, and Metadata
 You can review a variety of data about the tests you have run.
 
->**NOTE:** Your test assets, including videos, screenshots, and logs, are retained for 30 days. Test parameters and metadata are available indefinitely.
+:::note
+Your test assets, including videos, screenshots, and logs, are retained for 30 days. Test parameters and metadata are available indefinitely.
+:::
 
 1. In Sauce Labs, in the left panel, click **AUTOMATED** or **LIVE** and then click **Test Results**.
 2. Click the test whose results you want to view.

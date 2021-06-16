@@ -85,7 +85,9 @@ Tunnel pools allow for failover and rolling restart functionality, which improve
 
 Tunnel pools also abide by general fault tolerance rules. For example, if one tunnel becomes unavailable or shuts down (i.e., due to user shutdown, crash, maintenance, or network partition), you can configure your tunnels to be restored automatically while the test traffic is routed to another tunnel in the pool.
 
->**NOTE:** Tunnel pools do not self-heal (see [Self-management](https://en.wikipedia.org/wiki/Self-management_(computer_science)) for more information) or restart automatically. If a tunnel stops, you'll need to restart it manually. Other than restarting a stopped or failed tunnel, tunnel pools generally run automatically without user intervention. If you're running a high number of tunnels, you may want to bypass the pool and specify which tunnel to use directly.
+:::note
+Tunnel pools do not self-heal (see [Self-management](https://en.wikipedia.org/wiki/Self-management_(computer_science)) for more information) or restart automatically. If a tunnel stops, you'll need to restart it manually. Other than restarting a stopped or failed tunnel, tunnel pools generally run automatically without user intervention. If you're running a high number of tunnels, you may want to bypass the pool and specify which tunnel to use directly.
+:::
 
 When in High Availability mode, we recommend restarting Sauce Connect Proxy tunnels every 24 hours. The tunnel will stay open until all tests associated with it have completed. At the same time, once the shutdown command has been sent, the tunnel is marked inactive in the eyes of the pool, and no new jobs will use it.
 

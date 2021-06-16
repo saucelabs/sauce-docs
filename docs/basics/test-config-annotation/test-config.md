@@ -22,7 +22,7 @@ Once your test is finished, you can annotate the job with a name, tags, and pass
 See [Test Configuration Options](/dev/test-configuration-options) for a list of valid test configuration options for tests run on Sauce Labs.
 
 ## Getting Ready to Test
-Test configuration refers to setting the desired capabilities of your test within the test script itself. There are [required capabilities for both Selenium and Appium tests](/basics/test-config-annotation/test-config), as well as an extensive set of [optional capabilities](/dev/test-configuration-options) (some of which are exclusive to Sauce Labs). You can use our [Platform Configurator](/basics/platform-configurator) to create the required desired capabilities for your test scripts, or use one of our [sample test frameworks](https://github.com/saucelabs-training) to set up the desired capabilities for parallel testing across multiple platform/operating systems.
+Test configuration refers to setting the desired capabilities of your test within the test script itself. There are [required capabilities for both Selenium and Appium tests](/basics/test-config-annotation/test-config), as well as an extensive set of [optional capabilities](/dev/test-configuration-options) (some of which are exclusive to Sauce Labs). You can use our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to create the required desired capabilities for your test scripts, or use one of our [sample test frameworks](https://github.com/saucelabs-training) to set up the desired capabilities for parallel testing across multiple platform/operating systems.
 
 ## Capabilities for Selenium and Appium Tests
 
@@ -183,7 +183,7 @@ name:'S5 real device google.com'
 ```
 
 ### Examples for Mobile Native Application Tests
-This following includes tips and examples of how to configure your mobile native application tests with Appium. For more detailed descriptions about the capabilities of Appium tests, check out the [Server Capabilities](http://appium.io/slate/en/master/?python#appium-server-capabilities) section of the official Appium website. All examples are for Java, but you can use the [Platform Configurator](/basics/platform-configurator) to set the capabilities in the language of your choice.
+This following includes tips and examples of how to configure your mobile native application tests with Appium. For more detailed descriptions about the capabilities of Appium tests, check out the [Server Capabilities](http://appium.io/slate/en/master/?python#appium-server-capabilities) section of the official Appium website. All examples are for Java, but you can use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to set the capabilities in the language of your choice.
 
 ### Mobile Native Application Test Configuration Tips
 #### Setting `appiumVersion`
