@@ -127,7 +127,7 @@ You'll see this error when your test suite is still running in a session that ha
 **How to Resolve**
 
 * Check for infinite loops in your test.
-* If you suspect that the error is related to latency in the Sauce network or testing infrastructure, consider breaking your test suite up into [small, autonomous, atomic tests](https://saucelabs.com/blog/test-coverage-with-atomic-tests-part-5).
+* If you suspect that the error is related to latency in the Sauce network or testing infrastructure, consider breaking your test suite up into [small, autonomous, atomic tests](https://community.saucelabs.com/general-delivery-discussion-6/best-practices-use-small-atomic-autonomous-tests-154).
 * If your test needs more than 1800 seconds to complete, you can use the `maxDuration` capability to make Sauce wait longer for your test to complete. You can find more information about this capability under [Test Configuration Options > Timeouts section](/dev/test-configuration-options).
 
 
@@ -290,7 +290,7 @@ However, if you are experiencing this error repeatedly for a specific test or se
 
 For random, rarely occurring issues, we recommend ignoring this error and re-running your test. For repeat occurrences:
 
-*   Try breaking up your tests into [smaller, more atomic, more independent chunks](https://saucelabs.com/blog/test-coverage-with-atomic-tests-part-5). We recommend that tests should take no longer than five minutes to run.
+*   Try breaking up your tests into [smaller, more atomic, more independent chunks](https://community.saucelabs.com/general-delivery-discussion-6/best-practices-use-small-atomic-autonomous-tests-154). We recommend that tests should take no longer than five minutes to run.
 *   If you suspect the problem is with your app's memory requirements, lowering the screen resolution may lower the rendering requirements.
 *   Try removing any pre-run executables from your capabilities to see if that resolves the problem.
 *   Once you've done all of the above, raise a support ticket.
@@ -352,4 +352,4 @@ This isn't always restricted to the tests, either; an app under test which consu
 
 **How to Resolve**
 
-Break out your long tests into shorter tests and/or make sure that your tests are not filling up a lot of disk space on the VM. Our [best practices topic on small, atomic, autonomous tests](https://saucelabs.com/blog/test-coverage-with-atomic-tests-part-5) has some tips that can help with this problem.
+Break out your long tests into shorter tests and/or make sure that your tests are not filling up a lot of disk space on the VM. Our [best practices topic on small, atomic, autonomous tests](https://community.saucelabs.com/general-delivery-discussion-6/best-practices-use-small-atomic-autonomous-tests-154) has some tips that can help with this problem.

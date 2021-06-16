@@ -605,7 +605,7 @@ You can also use the `cacheId` capability in conjunction with the standard noRes
 
 ## Additional Test Configuration Options
 
-Once you're up and running with your real device tests, check out our [Best Practices and Tips](https://wiki.saucelabs.com/pages/viewpage.action?pageId=53018759) for making the most of your testing. Here are some examples:
+Once you're up and running with your real device tests, check out our [Best Practices](https://community.saucelabs.com/search?q=best+practice&search_type=tag;) for making the most of your testing. Here are some examples:
 
 * [Test Configuration Options](/dev/test-configuration-options)
 * [Implement timeouts to control text execution times](https://docs.saucelabs.com/dev/test-configuration-options#timeouts)
