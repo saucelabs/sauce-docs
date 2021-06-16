@@ -173,7 +173,7 @@ Wait for the runner to upload both files and execute the tests on Sauce Labs rea
   Starting test run on US data center...
   ```
 
-  The maximum execution time for a single XCUITest test is one hour. As a best practice, we recommend designing your tests as [small, atomic, autonomous](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365933), and setting maximum execution times in minutes or seconds, so you can get the most efficiency for your builds.
+  The maximum execution time for a single XCUITest test is one hour. As a best practice, we recommend designing your tests as [small, atomic, autonomous](https://community.saucelabs.com/general-delivery-discussion-6/best-practices-use-small-atomic-autonomous-tests-154), and setting maximum execution times in minutes or seconds, so you can get the most efficiency for your builds.
 
 8. Once the test suite has completed, you can view your test results on Sauce Labs under **Automated** > **Test Results** > **Real Devices**. Test results for each device rolled into a single set of artifacts (e.g., videos, logs) and you can download these artifacts via the API.
 
