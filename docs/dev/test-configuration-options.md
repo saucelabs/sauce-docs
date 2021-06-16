@@ -821,6 +821,219 @@ The default is 90 seconds and the maximum is 360 seconds.
 __Value Type__: integer.
 <br/>
 
+
+## Appium Real Device Cloud - Dynamic Allocation - Required
+
+Below are capabilities required for dynamically allocating [iOS and/or Android real devices for your tests](mobile-apps/automated-testing/appium/real-devices).
+
+
+<table>
+  <tr>
+   <td><strong>Capability</strong>
+   </td>
+   <td><strong>Capability Explanation</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>platformName</code>
+   </td>
+   <td><p>Defines the type of mobile platform to use in your tests (i.e., Android or iOS). The values for capabilities are not case-sensitive, so <code>android</code> is the same as <code>Android</code>, and <code>ios</code> is the same as <code>iOS</code>.</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code>platformVersion</code>
+   </td>
+   <td><p>The platform version to use in your tests, for example "4" or "4.1". This is a substring match. You can specify both major versions and incremental versions of an operating system.</p><p>For example, if you set only a major version 4, you also have access to all devices running incremental versions (e.g., "4.1"," 4.2", "4.2.1", "4.4.4").</p><p>This also extends to minor and point versions. For example, if you specify "11.4", it will match "11.4.0", "11.4.1".</p>
+
+   </td>
+  </tr>
+  <tr>
+   <td><code>deviceName</code>
+   </td>
+   <td><p>The display name of the device to use, such as "Samsung S7". You can also use regular expressions for setting the <code>deviceName</code>. Some examples:</p>
+
+<p>To allocate any iPhone:</p><sub>
+
+    "iPhone.*", "iPhone .*"
+</sub>
+<p>To allocate any device with the word "nexus" in its display name.</p><sub>
+
+    ".*nexus.*"
+</sub>
+<p>To allocate either "iPhone 7" or "iPhone 6" device.</p><sub>
+
+    "iPhone [67]" or "iPhone [6-7]"
+</sub>
+<p>To allocate either "iPhone 7S" or "iPhone 6S" device.</p><sub>
+
+    "iPhone [67]S" or "iPhone [6-7]S"
+</sub>
+<p>To allocate "iPhone 7" or "iPhone 7S", or any device that starts with the display name "iPhone 7".</p><sub>
+
+    "iPhone 7.*"
+</sub>
+<p><strong>NOTE</strong>: Regular expressions are not case sensitive.</p>
+   </td>
+  </tr>
+</table>
+
+## Appium Real Device Cloud - Dynamic Allocation - Optional
+
+Below are optional capabilities for dynamically allocating [iOS and/or Android real devices for your tests](mobile-apps/automated-testing/appium/real-devices).
+
+
+### `tabletOnly`
+__Data Type__: Boolean.
+
+__Description__: use this capability to select only tablet devices for testing by setting it to `"true"`. For ***Dynamic Allocation***.
+<br/>
+
+### `phoneOnly`
+__Data Type__: Boolean.
+
+__Description__: use this capability to select only phone devices by setting it to `"true"`. For ***Dynamic Allocation***.
+<br/>
+
+### `privateDevicesOnly`
+__Data Type__: Boolean.
+
+__Description__: if your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For ***Dynamic Allocation***.
+<br/>
+
+### `publicDevicesOnly`
+__Data Type__: Boolean.
+
+__Description__: if your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For ***Dynamic Allocation***.
+<br/>
+
+### `carrierConnectivityOnly`
+__Data Type__: Boolean.
+
+__Description__: use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For ***Dynamic Allocation***.
+<br/>
+
+### `cacheId`
+__Data Type__: randomized string.
+
+__Description__: use this capability to keep a device allocated to you between test sessions, bypassing the device cleaning process and session exit that occurs by default after each test completes. Normally, you'd need to start over and reopen another device. You'll need to launch your next test within **10 seconds** of your previous test ending to ensure that the same device will be allocated for the test (not cleaned or reset)
+
+Your app under test and its data will remain as-is on the device.
+
+The value for `cacheId` must be the same for all test methods that you want to run on the cached device. In addition, the app and project ID used for the tests must remain the same, along with the values for these capabilities:
+* `deviceName`
+* `platformName`
+* `platformVersion`
+* `tabletOnly`
+* `phoneOnly`
+* `privateDevicesOnly`
+* `automationName`
+* `autoGrantPermissions`
+* `appiumVersion`
+
+Suitable for test setups that require the app's state to be reset between tests. Can be used for both [**static allocation and dynamic allocation**](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation).
+
+We recommend reviewing [Device Management for Real Devices](mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
+
+>**NOTE**: `cacheId` has replaced the `testobject_cache_device` capability that was used in TestObject (Legacy RDC).
+
+<br/>
+
+### `noReset`
+__Data Type__: Boolean.
+
+__Description__: set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
+
+:::caution Known iOS Limitation
+On iOS devices, the `noReset` value is permanently set to `true` and cannot be overridden using `noReset:false`. If you check your Appium logs, you'll see that the value is `true`, even though the default setting technically is false. We've done this intentionally to ensure that your post-test iOS device cleaning process is optimal and secure.
+:::
+
+<br/>
+
+### `recordDeviceVitals`
+__Data Type__: Boolean.
+
+__Description__: Device vitals are a collection of the mobile device performance data taken in real time during test execution. Vitals includes CPU utilization, memory consumption, network usage for both wifi and carrier connectivity where applicable, file operation and more. Measuring device vitals during test execution provides insights for analyzing app performance during operation.
+<br/>
+
+### `crosswalkApplication`
+
+__Data Type__: Boolean.
+
+__Description__: As described in [Appium Issue 4597](https://github.com/appium/appium/issues/4597) and [ChromeDriver Issue 2375613002](https://codereview.chromium.org/2375613002), mobile tests using Crosswalk will fail because because of attempts to connect to the wrong socket on the device. Sauce Labs has developed a patched version of ChromeDriver that will work with Crosswalk. You can specify to use this patched version with the `crosswalkApplication` capability.
+<br/>
+
+### `autoGrantPermissions`
+
+__Data Type__: Boolean.
+
+__Description__: By default, applications are installed on devices in the Sauce Labs real device cloud with autoGrantPermissions capability set to `true`. As long as the API number of the device is equal to 23 or higher, you can disable this by explicitly setting `autoGrantPermissions` to false.
+<br/>
+
+### `enableAnimations`
+__Data Type__: Boolean.
+
+__Description__: Use this capability to enable animations for real devices by setting it to `true`. By default, animations are disabled.
+<br/>
+
+Override Settings Capabilities (Optional)
+
+These are custom capabilities developed by Sauce Labs that you can use to override settings that are enabled during app configuration.
+
+### `resigningEnabled`
+__Data Type__: Boolean.
+
+__Description__: Enables the resigning (iOS) or instrumentation (Android) of apps on the Sauce Labs side, allowing the usage of the other capabilities listed in this section.
+<br/>
+
+### `sauceLabsImageInjectionEnabled`
+__Data Type__: Boolean.
+
+__Description__: enables the [camera image injection](https://docs.saucelabs.com/mobile-apps/features#camera-image-injection) feature.
+<br/>
+
+### `sauceLabsBypassScreenshotRestriction`
+<p><small><Highlight color="#946f59">Espresso/Android Only</Highlight></small></p>
+
+__Data Type__: Boolean.
+
+__Description__: bypasses the restriction on taking screenshots for secure screens (i.e., secure text entry).
+<br/>
+
+### `allowTouchIdEnroll`
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
+
+__Data Type__: Boolean.
+
+__Description__: enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).
+<br/>
+
+### `groupFolderRedirectEnabled`
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
+
+__Data Type__: Boolean.
+
+__Description__: Enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.
+<br/>
+
+### `systemAlertsDelayEnabled`
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
+
+__Data Type__: Boolean.
+
+__Description__: Delays system alerts, such as alerts asking for permission to access the camera, to prevent app crashes at startup.
+<br/>
+
+
+## Appium Real Device Cloud - Unsupported Capabilities
+
+The following Appium capabilities are not yet supported for real devices. If you have any questions or concerns about unsupported capabilities, please contact your Customer Success Manager or Sauce Labs Support.
+
+* `installApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
+* `removeApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
+* `Edit Timezone`: Appium does not provide a capability to edit the timezone of a device in automated testing on real devices.
+  * See [Virtual Device Capabilities](https://docs.saucelabs.com/dev/test-configuration-options/index.html#virtual-device-capabilities-sauce-specific--optional) for information about timezone capabilities in virtual device testing.
+
+
 ## Visual Testing
 
 [Visual Testing](/visual) is run on Sauce Labs servers, but the URL gets sent to `"https://hub.screener.io"`.
@@ -828,3 +1041,8 @@ __Value Type__: integer.
 This means that [`username`](#username) and [`accessKey`](#accesskey) values are required.
 
 Check out the complete Sauce Labs [Visual Testing with WebDriver Documentation](https://screener.io/v2/docs/visual-e2e). Also, we recommend reading up on all of the valid [Visual Options](https://screener.io/v2/docs/visual-e2e/visual-options).
+
+
+## Additional Resources
+
+* [Appium Example Test Scripts](https://github.com/saucelabs-training)
