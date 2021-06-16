@@ -12,12 +12,12 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-See the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to generate the code for setting the capabilities to execute a test.
+See the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/ to generate the code for setting the capabilities to execute a test.
 
 _Depending on which environment you are running tests in, different options, also known as **Capabilities**, should be set_. There are different sets of capabilities for different environments, which can be combined. These configurations are added to the [Capabilities](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_Capabilities.html) or [Options](https://www.selenium.dev/documentation/en/driver_idiosyncrasies/driver_specific_capabilities/) classes. Some of these setting are required for a test to run in a given environment, while some are optional.
 
 * **[W3C Capabilities:](#browser-w3c-capabilities--optional)** Required for any test using Selenium or Appium to communicate with the browser. W3C capabilities are universal capabilities for any test, and are usually combined with additional capabilities
-* **[Sauce Labs Capabilities:](#desktop-and-mobile-capabilities-sauce-specific--optional)** Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the URL](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) and should pass the test name and status as capabilities to the remote webdriver.
+* **[Sauce Labs Capabilities:](#desktop-and-mobile-capabilities-sauce-specific--optional)** Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the endpoint URL](/basics/data-center-endpoints/data-center-endpoints) and should pass the test name and status as capabilities to the remote webdriver.
 * **Appium Capabilities:** Required for any test using Appium, either testing web browsers or apps
   * **[Mobile App Capabilities:](#mobile-app-capabilities-appium-settings--required)** Required if you are running a test on a mobile app
   * **Mobile Web Capabilities:** If you are using Appium to test a web app, you need to set the `deviceName`, `platformName` `platformVersion`, and `automationName` the same way you would for a mobile app test, along with settings for the browser.
@@ -63,7 +63,7 @@ To use the latest stable version of Chrome or Firefox that we support, you can u
 
 For example, if the latest stable version of Chrome is 73, you can request `"latest-2"` to use Chrome 71.Note that the latest version for Safari browsers will depend on the chosen `"platformName"`.
 
-See the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) for valid options.
+See the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) for valid options.
 
 >**NOTE**: This setting cannot be used for mobile browsers, as your test will use the default browser installed for the given Appium version.
 
@@ -344,7 +344,7 @@ You can use this to set up a test with either [static or dynamic allocation](htt
 * Dynamic allocation example: for an Android emulator test, you can request a generic Android emulator by using the option `"deviceName":"Android Emulator"`.
 * Static allocation example: if you want to use an Android emulator that looks and feels like a specific Android phone or tablet (e.g., Google Nexus 7 HD Emulator or a Samsung Galaxy S4), you need to specify the exact Android emulator skin to use (e.g., `"appium:deviceName":"Samsung Galaxy S4 Emulator"`).
 
-Each Android emulator skin will have a different configuration depending on the phone or tablet that it emulates. For example, all the skins have different resolutions, screen dimensions, pixel densities, memory, etc. You can use our [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator?src=sidebar#/) to get a list of the available Android emulator skins for the various Android emulator versions.
+Each Android emulator skin will have a different configuration depending on the phone or tablet that it emulates. For example, all the skins have different resolutions, screen dimensions, pixel densities, memory, etc. You can use our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to get a list of the available Android emulator skins for the various Android emulator versions.
 
 __Value Type__: string.
 
@@ -561,7 +561,7 @@ __Example__:
 <br/>
 
 ### `public`
-__Description__: We support several test/job result visibility levels, which control who can view the test details. The visibility level for a test can be set manually from the test results page, but also programmatically when starting a test or with our REST API. For more information about sharing test results, see the topics under [Sharing the Results of Sauce Labs Tests](https://wiki.saucelabs.com/display/DOCS/Sharing+the+Results+of+Sauce+Labs+Tests).
+__Description__: We support several test/job result visibility levels, which control who can view the test details. The visibility level for a test can be set manually from the test results page, but also programmatically when starting a test or with our REST API. For more information about sharing test results, see the topics under [Sharing the Results of Sauce Labs Tests](/test-results/sharing-test-results).
 
 Available visibility modes are:
 * **public**:
@@ -781,7 +781,7 @@ __Example__:
 
 ### `prerun` (primary key)
 
-__Description__: use this to define pre-run executables. You can provide a URL to an executable file, which will be downloaded and executed to configure the VM before the test starts. For faster performance, you may want to upload the executable to your [Sauce Application Storage](/mobile-apps/app-storage) space. This capability takes a JSON object with four main keys. See [Using Pre-Run Executables to Configure Browsers and VMs](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365697) for more information.
+__Description__: use this to define pre-run executables. You can provide a URL to an executable file, which will be downloaded and executed to configure the VM before the test starts. For faster performance, you may want to upload the executable to your [Sauce Application Storage](/mobile-apps/app-storage) space. This capability takes a JSON object with four main keys. See [Using Pre-Run Executables to Configure Browsers and VMs](/web-apps/automated-testing/pre-run-executables) for more information.
 
 * Running AutoIt Scripts: If you want to run an AutoIt script during your test, compile it as an .exe, send it using this capability, and set background to true to allow AutoIt to continue running throughout the full duration of your test.
 * Using Multiple Pre-Run Executables: If you need to send multiple pre-run executables, the best way is to bundle them into a single executable file, such as a self-extracting zip file.

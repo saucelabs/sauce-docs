@@ -188,7 +188,7 @@ At this time, biometric authentication is not supported for Android real device 
     * Android local emulators
     * Android emulators in the Sauce Labs Emulator Cloud
 * [Documentation for iOS simulator Face ID | Appium on GitHub](https://github.com/appium/appium-xcuitest-driver/blob/master/docs/touch-id.md)
-* [Support for iOS TouchID on Real Devices](https://wiki.saucelabs.com/display/DOCS/2019/07/01/Support+for+iOS+TouchID+on+Real+Devices)
+* [Support for iOS TouchID on Real Devices](https://docs.saucelabs.com/mobile-apps/features/index.html#biometric-authentication-touch-idface-id)
 
 
 ## Camera Image Injection
@@ -203,7 +203,7 @@ Appium only; not available for Espresso and XCUITest frameworks at this time.
 
 ### What You'll Need
 
-You'll need to upload your app to Sauce Labs prior to testing. For instructions, see [Uploading your App to Real Devices using the User Interface](https://wiki.saucelabs.com/display/DOCS/Uploading+your+Application+to+Real+Devices+using+the+User+Interface).
+You'll need to upload your app to Sauce Labs prior to testing. For instructions, see [Uploading your App to Real Devices using the User Interface](/mobile-apps/app-storage).
 
 
 ### Using Camera Image Injection
