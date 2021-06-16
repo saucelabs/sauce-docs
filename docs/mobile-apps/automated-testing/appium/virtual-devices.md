@@ -29,7 +29,7 @@ With Sauce Labs, you can run automated Appium tests for your native and hybrid m
 
 ## Set Your Test Credentials
 
-2. After you've uploaded your app, open a new test script. Add your Sauce Labs credentials (`username` and `accessKey`). We also recommend [exporting your Sauce Labs credentials to environment variables](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365921).
+2. After you've uploaded your app, open a new test script. Add your Sauce Labs credentials (`username` and `accessKey`). We also recommend [exporting your Sauce Labs credentials to environment variables](/basics/environment-variables).
   ```bash title="macOS/Linux Example"
   export SAUCE_USERNAME=********
   export SAUCE_ACCESS_KEY=*******
@@ -39,7 +39,7 @@ With Sauce Labs, you can run automated Appium tests for your native and hybrid m
 
 3. The next step is to configure your app using Appium capabilities compatible with Sauce Labs emulators and simulators. Test configuration will depend on your testing use case.
 
-  Authentication of the Sauce Labs platform, as well as advanced [Test Configuration Options](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492), requires the use of the W3C WebDriver-compliant [`sauce:options`](https://wiki.saucelabs.com/pages/viewpage.action?pageId=78414463) capability. Here are some tips for configuring Appium for your tests:
+  Authentication of the Sauce Labs platform, as well as advanced [Test Configuration Options](/dev/test-configuration-options), requires the use of the W3C WebDriver-compliant [`sauce:options`](/dev/w3c-webdriver-capabilities) capability. Here are some tips for configuring Appium for your tests:
 
 ### Set Your `appiumVersion`
 
@@ -355,14 +355,14 @@ These Appium scripts for iOS and Android mobile app tests on emulators and simul
 
 Once you've been able to get a test running on Sauce, check out our best practices and available modifications you can make to your tests:
 
-* [Best Practices for Running Tests](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647)
-* [Implement timeouts to control text execution times](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492#TestConfigurationOptions-Timeouts)
-*  [Annotating Tests with the Sauce Labs REST API](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365631)
-* [Annotating Tests with Selenium's JavaScript Executor](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365700)
-* [Setting Test Status to Pass or Fail](https://wiki.saucelabs.com/pages/viewpage.action?pageId=63472006)
-* [Using Build IDs and tags to differentiate and identify test runs](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946)
-* [Create your own test script examples using our Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator)
-* [Browse our full suite of test configuration options and advanced configurations.](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492)
+* [Best Practices for Running Tests](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647).
+* [Implement timeouts to control text execution times](https://docs.saucelabs.com/dev/test-configuration-options#virtual-device-capabilities-sauce-specific--optional).
+*  [Annotating Tests with the Sauce Labs REST API](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation#sauce-labs-rest-api).
+* [Annotating Tests with Selenium's JavaScript Executor](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation#selenium-javascript-executor).
+* [Setting Test Status to Pass or Fail](/test-results/test-status).
+* [Using Build IDs and tags to differentiate and identify test runs](/basics/test-config-annotation/test-annotation).
+* [Create your own test script examples using our Platform Configurator](https://saucelabs.com/platform/platform-configurator#/).
+* [Browse our full suite of test configuration options and advanced configurations](/dev/test-configuration-options).
 
 ## Training
 Lean how to run Appium Android tests on an Emulator in the [Automation Quickstart Course](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#0).

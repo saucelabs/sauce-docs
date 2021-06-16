@@ -58,7 +58,7 @@ In some cases, you may need to upload / install your app to a private device and
 
 * Upload your app to an internal git repository, or private hosting solution with the necessary permissions (e.g. Amazon S3 with a strict bucket policy).
 * Ensure the hosted app URL is available to the machine running the automated test.
-* Ensure that you've enabled the **Require Sauce Connect/VPN** setting in your [organization's security settings](https://wiki.saucelabs.com/pages/viewpage.action?pageId=69108863).
+* Ensure that you've enabled the **Require Sauce Connect/VPN** setting in your [organization's security settings](/basics/acct-team-mgmt/org-settings).
 
 :::note
 Each session is a "fresh" installation of your app, meaning, you will not be able to access information about previous versions of your app.
@@ -69,7 +69,7 @@ Each session is a "fresh" installation of your app, meaning, you will not be abl
 
 **Uploading Mobile Apps with the Sauce Labs REST API**
 
-Below are some examples of how to use the Sauce Labs REST API to upload your mobile app to our App Storage and get your real device project started. See also: [Mobile App Testing API](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80416665).
+Below are some examples of how to use the Sauce Labs REST API to upload your mobile app to our App Storage and get your real device project started. See also: [Mobile App Testing API](/dev/api).
 
 **REST API Authentication**
 
@@ -112,7 +112,7 @@ void setUp() throws MalformedURLException {
 
 **App Storage and Data Center Endpoints**
 
-Below are some examples of how to use the Sauce Labs REST API to upload your mobile app to Sauce Storage. For details related to authorization credentials, see [Data Center Endpoints](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068).
+Below are some examples of how to use the Sauce Labs REST API to upload your mobile app to Sauce Storage. For details related to authorization credentials, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
 
 To connect to the real device cloud in your automated Appium tests, you'll need to use include either the EU or US storage endpoint in your test script. This example (macOS / Linux) how to upload an app to App Storage in the US-West Data Center:
 
@@ -603,17 +603,15 @@ To get around this, you can use the capability `cacheId`, which keeps the device
 
 You can also use the `cacheId` capability in conjunction with the standard noReset Appium capability. In the default case, where noReset is set to false, your application will be uninstalled and reinstalled after every test. If `noReset` is set to `true`, the application you are testing won't be reinstalled after every test run. This might save you further time, but it won't be suitable for test setups that require the application's state to be reset between tests. Note that then cacheId is set, no device cleaning will take place in between sessions, regardless of noReset value.
 
->**NOTE**: Our [legacy Real Device Cloud platform](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177) used the capability `testobject_cache_device` – specific to static allocation – to keep the device allocated to you during the cleaning process. This capability has been deprecated and replaced with `cacheId`, which works for both static and dynamic allocation. If you have scripts that use `testobject_cache_device`, they will still work for static allocation, and the 10-second limit on cached devices is still the same.
-
 ## Additional Test Configuration Options
 
 Once you're up and running with your real device tests, check out our [Best Practices and Tips](https://wiki.saucelabs.com/pages/viewpage.action?pageId=53018759) for making the most of your testing. Here are some examples:
 
-* [Test Configuration Options](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492)
-* [Implement timeouts to control text execution times](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492#TestConfigurationOptions-Timeouts)
-* [Add test annotations](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365693)
-* [Setting test status to pass or fail](https://wiki.saucelabs.com/pages/viewpage.action?pageId=63472006)
-* [Use Build IDs and tags to differentiate and identify test runs](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365946)
+* [Test Configuration Options](/dev/test-configuration-options)
+* [Implement timeouts to control text execution times](https://docs.saucelabs.com/dev/test-configuration-options#timeouts)
+* [Add test annotations](/basics/test-config-annotation/test-annotation)
+* [Setting test status to pass or fail](/test-results/test-status)
+* [Use Build IDs and tags to differentiate and identify test runs](/basics/test-config-annotation/test-annotation)
 
 ## Full Example Scripts
 
@@ -842,260 +840,7 @@ The CSV file will contain these performance metrics for iOS devices.
 ## TestObject (Legacy RDC)
 
 :::warning
-This information applies specifically to TestObject, our [Legacy Real Device Platform](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177).
+TestObject, our [Legacy Real Device Platform](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177), reaches end-of-life September 1, 2021.
 
-For APIs and authorization credentials, use the Legacy Real Device Cloud REST API (app.testobject.com) and [TestObject Data Center Endpoints](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068).
+Please migrate all of your apps and tests from TestObject to Sauce Labs by August 31, 2021.
 :::
-
-### Uploading Using TestObject
-
-**Creating a Real Device Project on TestObject**
-
-When you create a project, you'll need to provide information about the website or app you want to test, and the device settings you want to use in your tests. You can also create versions of the project to reflect changes in the app or website throughout your development process.
-
-**Versioning Real Device Projects on TestObject**
-
-Once you've created a real device project, you can create versions of it. Each of these versions will be stored in your project, and you can run tests against the current Active version, or a previous version.
-
-**TestObject API Examples**
-
-<Tabs
-  defaultValue="US Data Center"
-  values={[
-    {label: 'US Data Center', value: 'US Data Center'},
-    {label: 'EU Data Center', value: 'EU Data Center'},
-  ]}>
-
-<TabItem value="US Data Center">
-
-Mac OSX / Linux
-
-```bash
-$ curl -u "$TEST_OBJECT_USERNAME:$TEST_OBJECT_API_KEY" -X POST \
-"https://app.testobject.com:443/api/storage/upload" -H \
-"Content-Type: application/octet-stream" --data-binary @/path/to/Android.SauceLabs.Mobile.Sample.app.x.x.x.apk
-```
-
-Windows
-
-```bash
-> curl -u "%TEST_OBJECT_USERNAME%:%TEST_OBJECT_API_KEY%" -X POST \
-"https://app.testobject.com:443/api/storage/upload" -H \
-"Content-Type: application/octet-stream" --data-binary @\path\to\Android.SauceLabs.Mobile.Sample.app.x.x.x.apk
-```
-
-</TabItem>
-<TabItem value="EU Data Center">
-
-Mac OSX / Linux
-
-```bash
-$ curl -u "$TEST_OBJECT_USERNAME:$TEST_OBJECT_API_KEY" -X POST \
-"https://app.testobject.com:443/api/storage/upload" -H \
-"Content-Type: application/octet-stream" --data-binary @/path/to/Android.SauceLabs.Mobile.Sample.app.x.x.x.apk
-```
-
-Windows
-
-```bash
-> curl -u "%TEST_OBJECT_USERNAME%:%TEST_OBJECT_API_KEY%" -X POST \
-"https://app.testobject.com:443/api/storage/upload" -H \
-"Content-Type: application/octet-stream" --data-binary @\path\to\Android.SauceLabs.Mobile.Sample.app.x.x.x.apk
-```
-
-</TabItem>
-</Tabs>
-
-### Code Snippets
-
-These code snippets show how to configure Appium Tests for TestObject, our [legacy real device cloud platform](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177), which you can find under **SAUCE APPS** > **Legacy RDC**.
-
-<Tabs
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'node.js', value: 'node.js'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
-
-<TabItem value="Java">
-
-Example: iPhone project using iOS version 12.2.
-
-```java
-DesiredCapabilities caps = DesiredCapabilities();
-    caps.setCapability("testobject_api_key", "project_api_key");
-    caps.setCapability("testobject_app_id", "1");
-    caps.setCapability("deviceName","iPhone .*");
-    caps.setCapability("deviceOrientation", "portrait");
-    caps.setCapability("platformVersion","12.2");
-    caps.setCapability("platformName", "iOS");
-    caps.setCapability("browserName", "");
-```
-
-</TabItem>
-<TabItem value="Python">
-
-Example: iPhone project using iOS version 12.2.
-
-```py
-caps['browserName'] = ""
-caps['testobject_api_key'] = "project_api_key"
-caps['testobject_app_id'] = "1"
-caps['deviceName'] = "iPhone .*"
-caps['deviceOrientation'] = "portrait"
-caps['platformVersion'] = "12.2"
-caps['platformName'] = "iOS"
-```
-
-</TabItem>
-<TabItem value="node.js">
-
-Example: iPhone project using iOS version 12.2.
-
-```js
-caps['browserName'] = '';
-caps['testobject_api_key'] = "project_api_key";
-caps['testobject_app_id'] = "1";
-caps['deviceName'] = 'iPhone .*';
-caps['deviceOrientation'] = 'portrait';
-caps['platformVersion'] = '12.2';
-caps['platformName'] = 'iOS';
-```
-
-</TabItem>
-<TabItem value="Ruby">
-
-Example: iPhone project using iOS version 12.2.
-
-```rb
-caps = Selenium::WebDriver::Remote::Capabilities()
-caps['testobject_api_key'] = 'project_api_key'
-caps['testobject_app_id'] = '1'
-caps['deviceName'] = 'iPhone .*'
-caps['deviceOrientation'] = 'portrait'
-caps['platformVersion'] = '12.2'
-caps['platformName'] = 'iOS'
-caps['browserName'] = ''
-```
-
-</TabItem>
-<TabItem value="C#">
-
-Example: iPhone project using iOS version 12.2.
-
-```csharp
-DesiredCapabilities caps = new DesiredCapabilities();
-    caps.SetCapability("deviceName", "iPhone .*");
-    caps.SetCapability("testobject_api_key", "project_api_key");
-    caps.SetCapability("testobject_app_id", "1");
-    caps.SetCapability("deviceOrientation", "portrait");
-    caps.SetCapability("platformVersion", "12.2");
-    caps.SetCapability("platformName", "iOS");
-    caps.SetCapability("browserName", "");
-```    
-
-</TabItem>
-</Tabs>
-
-
-<Tabs
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'node.js', value: 'node.js'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
-
-<TabItem value="Java">
-
-Example: Samsung Galaxy project using Android version 8.1.
-
-```java
-DesiredCapabilities caps = DesiredCapabilities();
-    caps.setCapability("testobject_api_key", "project_api_key");
-    caps.setCapability("testobject_app_id", "1");
-    caps.setCapability("deviceName","Samsung.*Galaxy.*");
-    caps.setCapability("deviceOrientation", "portrait");
-    caps.setCapability("browserName", "");
-    caps.setCapability("platformVersion","8.1");
-    caps.setCapability("platformName","Android");
-```
-
-</TabItem>
-<TabItem value="Python">
-
-Example: Samsung Galaxy project using Android version 8.1.
-
-```py
-caps = {}
-caps['testobject_api_key'] = "project_api_key"
-caps['testobject_app_id'] = "1"
-caps['deviceName'] = "Samsung.*Galaxy.*"
-caps['deviceOrientation'] = "portrait"
-caps['platformVersion'] = "8.1"
-caps['platformName'] = "Android"
-```
-
-</TabItem>
-<TabItem value="node.js">
-
-Example: Samsung Galaxy project using Android version 8.1.
-
-```js
-caps = {};
-caps['testobject_api_key'] = 'project_api_key';
-caps['testobject_app_id'] = '1';
-caps['deviceName'] = 'Samsung.*Galaxy.*';
-caps['deviceOrientation'] = 'portrait';
-caps['browserName'] = '';
-caps['platformVersion'] = '8.1';
-caps['platformName'] = 'Android';
-```
-
-</TabItem>
-<TabItem value="Ruby">
-
-Example: Samsung Galaxy project using Android version 8.1.
-
-```rb
-caps = Selenium::WebDriver::Remote::Capabilities()
-caps['testobject_api_key'] = 'project_api_key'
-caps['testobject_app_id'] = '1'
-caps['deviceName'] = 'Samsung.*Galaxy.*'
-caps['deviceOrientation'] = 'portrait'
-caps['browserName'] = ''
-caps['platformVersion'] = '8.1'
-caps['platformName'] = 'Android'
-```
-
-</TabItem>
-<TabItem value="C#">
-
-Example: Samsung Galaxy project using Android version 8.1.
-
-```csharp
-DesiredCapabilities caps = new DesiredCapabilities();
-    caps.SetCapability("testobject_api_key", "project_api_key");
-    caps.SetCapability("testobject_app_id", "1");
-    caps.SetCapability("deviceName", "Samsung.*Galaxy.*");
-    caps.SetCapability("deviceOrientation", "portrait");
-    caps.SetCapability("browserName", "");
-    caps.SetCapability("platformVersion", "8.1");
-    caps.SetCapability("platformName", "Android");
-```
-
-</TabItem>
-</Tabs>
-
-## Additional Resources
-
-:::Tip
-Sauce Labs provides access to our real device cloud and virtual device cloud (emulators, simulators) in the same place. This allows you to use the same features – APIs, endpoints, reporting, secure tunnels, analytics, and more – for both clouds.
-:::
-
-* [Best Practices for Running Tests](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647)
