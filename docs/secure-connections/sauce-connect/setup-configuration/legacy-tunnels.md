@@ -41,6 +41,7 @@ where:
   d. `TUNNEL_ID` refers to the tunnel identifier (see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability)).
 
 So an example would look like this:
+
 <Tabs
   defaultValue="us"
   values={[
@@ -48,7 +49,7 @@ So an example would look like this:
     {label: 'EU Data Center', value: 'eu'},
   ]}>
 
-<TabItem value="tab1">
+<TabItem value="us">
 
 **Mac OSX/Linux Example**
 
@@ -63,7 +64,7 @@ $ /bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x 'https://us1.api.t
 ```
 
 </TabItem>
-<TabItem value="tab2">
+<TabItem value="eu">
 
 **Mac OSX/Linux Example**
 
@@ -75,11 +76,11 @@ $ /bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x 'https://eu1.api.t
 
 ```
 > \bin\sc -u %TEST_OBJECT_USERNAME% -k %TEST_OBJECT_API_KEY% -x 'https://eu1.api.testobject.com/sc/rest/v1' -i test-object-rdc-tunnel-eu
-
 ```
 
 </TabItem>
 </Tabs>
+
 
 
 2. In your device testing script, specify the tunnel name with `tunnelIdentifier` in your desired capabilities, as shown in this Java example:
