@@ -11,7 +11,8 @@ export default class scTable extends React.Component {
     }
     getData = async() => {
         try{
-            const url = process.env.REACT_APP_SC_URL;
+            // const url = process.env.REACT_APP_SC_URL;
+            const url = `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions`
             let i = 0;
             const res = await axios.get(url);
             const version = res.data.latest_version;
