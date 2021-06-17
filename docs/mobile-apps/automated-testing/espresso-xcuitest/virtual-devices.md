@@ -116,9 +116,9 @@ Wait for the runner to upload both files and execute the tests on Sauce Labs emu
 2021-04-14 13:12:55 - [INFO] No include-tests filters specified
 2021-04-14 13:12:55 - [INFO] No exclude-tests filters specified
 2021-04-14 13:12:55 - [INFO] Set device: Google Pixel GoogleAPI Emulator - 7.0
-2021-04-14 13:12:55 - [INFO] Trying to upload file ./SauceLabs.Mobile.Sample.Espresso.App.apk to sauce-storage
+2021-04-14 13:12:55 - [INFO] Trying to upload file ./SauceLabs.Mobile.Sample.Espresso.App.apk to storage
 2021-04-14 13:13:20 - [INFO] File uploaded: SauceLabs.Mobile.Sample.Espresso.App.apk(4f040be9f28bc84b58f6fd5af5300c2f) - Size:28830014
-2021-04-14 13:13:20 - [INFO] Trying to upload file ./SauceLabs.Mobile.Sample.Espresso.Tests.apk to sauce-storage
+2021-04-14 13:13:20 - [INFO] Trying to upload file ./SauceLabs.Mobile.Sample.Espresso.Tests.apk to storage
 2021-04-14 13:13:20 - [INFO] File uploaded: SauceLabs.Mobile.Sample.Espresso.Tests.apk(30b317176beed44cf66f2a92387fa073) - Size:521075
 2021-04-14 13:13:20 - [INFO] JUnit reports will be saved locally at the end of the tests
 2021-04-14 13:13:20 - [INFO] Jobs created
