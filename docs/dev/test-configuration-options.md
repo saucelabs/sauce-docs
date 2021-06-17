@@ -16,26 +16,26 @@ See the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platfo
 
 _Depending on which environment you are running tests in, different options, also known as **Capabilities**, should be set_. There are different sets of capabilities for different environments, which can be combined. These configurations are added to the [Capabilities](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_Capabilities.html) or [Options](https://www.selenium.dev/documentation/en/driver_idiosyncrasies/driver_specific_capabilities/) classes. Some of these setting are required for a test to run in a given environment, while some are optional.
 
-* **[W3C Capabilities:](#browser-w3c-capabilities--optional)** Required for any test using Selenium or Appium to communicate with the browser. W3C capabilities are universal capabilities for any test, and are usually combined with additional capabilities
-* **[Sauce Labs Capabilities:](#desktop-and-mobile-capabilities-sauce-specific--optional)** Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the endpoint URL](/basics/data-center-endpoints/data-center-endpoints) and should pass the test name and status as capabilities to the remote webdriver.
+* **[W3C Capabilities](#browser-w3c-capabilities--optional)**: Required for any test using Selenium or Appium to communicate with the browser. W3C capabilities are universal capabilities for any test, and are usually combined with additional capabilities
+* **[Sauce Labs Capabilities](#desktop-and-mobile-capabilities-sauce-specific--optional)**: Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the endpoint URL](/basics/data-center-endpoints/data-center-endpoints) and should pass the test name and status as capabilities to the remote webdriver.
 * **Appium Capabilities:** Required for any test using Appium, either testing web browsers or apps
-  * **[Mobile App Capabilities:](#mobile-app-capabilities-appium-settings--required)** Required if you are running a test on a mobile app
+  * **[Mobile App Capabilities](#mobile-app-capabilities-appium-settings--required)**: Required if you are running a test on a mobile app
   * **Mobile Web Capabilities:** If you are using Appium to test a web app, you need to set the `deviceName`, `platformName` `platformVersion`, and `automationName` the same way you would for a mobile app test, along with settings for the browser.
-* **[Browser Capabilities:](#desktop-browser-capabilities-sauce-specific--optional)** You can set different kinds of capabilities for web browsers you are testing on Sauce Labs. Each browser also has it's own set of pre-defined options you can set to help you test. You can add these in regular capabilities or options, or use the browser-defined capabilities (browser options classes) to configure your browser tests:
+* **[Browser Capabilities](#desktop-browser-capabilities-sauce-specific--optional)**: You can set different kinds of capabilities for web browsers you are testing on Sauce Labs. Each browser also has it's own set of pre-defined options you can set to help you test. You can add these in regular capabilities or options, or use the browser-defined capabilities (browser options classes) to configure your browser tests:
   * [Chrome Capabilities](https://chromedriver.chromium.org/capabilities)
   * [Microsoft Edge Capabilities](https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options)
   * [Firefox Capabilities](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions)
   * [Internet Explorer Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/ie/InternetExplorerDriver.html)
   * [Safari Capabilities](https://developer.apple.com/documentation/webkit/about_webdriver_for_safari)
 
-
-
+ 
 ## WebDriver W3C Capabilities – Required
 
 Sauce Labs determines W3C sessions with the presence of `sauce:options`
 capabilities and [generic W3C WebDriver-compliant capabilities](https://www.w3.org/TR/webdriver1/#capabilities). See [W3C Capabilities Support](/dev/w3c-webdriver-capabilities) for more information.
 
-:::tip Use the latest version of the Selenium library in your code for the most up to date support.
+:::tip
+Use the latest version of the Selenium library in your code for the most up-to-date support.
 :::
 
 Below are the W3C WebDriver primary test configuration settings for Sauce Labs desktop browser tests and mobile tests.
