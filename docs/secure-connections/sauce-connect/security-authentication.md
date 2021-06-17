@@ -69,7 +69,7 @@ Having our own cloud enables us to provide our services faster, and with higher 
 
 For an overview of the services offered by Sauce Labs, our methods for securing the transmission of test data and results, and our security policies and procedures, see our white paper, [Overview of Sauce Labs Security Processes](https://wiki.saucelabs.com/download/attachments/65603985/An%20Overview%20of%20Sauce%20Labs%20Security%20Processes%20062020.pdf?version=2&modificationDate=1612763216702&api=v2).
 
-## Authentication Using --auth
+## Authentication Using `--auth`
 This approach to authentication works by configuring Sauce Connect Proxy to send authentication details to any URL requesting them. It works for all requests, even those where you're asked for credentials in response to a click or form submission.
 
 For each URL where you need to bypass HTTP authentication, add this to your Sauce Connect Proxy startup command:
