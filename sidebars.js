@@ -188,9 +188,19 @@ module.exports = {
                 label: 'Automated Testing',
                 collapsed: true,
                 items: [
+                    {
+                      type: 'category',
+                      label: 'Selenium',
+                      collapsed: true,
+                      items: [
+                        'web-apps/automated-testing/selenium',
+                        'web-apps/automated-testing/selenium/pre-run-executables',
+                        'web-apps/automated-testing/selenium/sample-scripts',
+                      ]
+                    },
                     'web-apps/automated-testing/cypress',
                     'web-apps/automated-testing/playwright',
-                    'web-apps/automated-testing/pre-run-executables',
+
                 ],
             },
         ],
