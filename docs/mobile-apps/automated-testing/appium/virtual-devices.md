@@ -19,13 +19,12 @@ With Sauce Labs, you can run automated Appium tests for your native and hybrid m
 
 ## Upload Your App to Emulators and Simulators
 
-1. To begin, you'll need to upload your app to a publicly available source. Accepted file types are *.zip iOS package files for simulators and *.apk Android package files for emulators. There are three ways you can upload your app for automated testing:
+1. To begin, you'll need to upload your app to a publicly available source. Accepted file types are *.zip iOS package files for simulators and *.apk Android package files for emulators. There are two ways you can upload your app for automated testing:
 
-   * Sauce App Storage
+   * Sauce Labs App Storage
    * Install from a Remote Location
-   * Legacy (TestObject) Sauce Storage
 
-  For step-by-step instructions on uploading your app, see [Application Storage](mobile-apps/app-storage.md).
+  For step-by-step instructions on uploading your app, see [App Storage](mobile-apps/app-storage.md).
 
 ## Set Your Test Credentials
 
@@ -67,9 +66,9 @@ With Sauce Labs, you can run automated Appium tests for your native and hybrid m
 
 ### Set the Location of Your Mobile App
 
-7. If the app you want to test has been uploaded to a location other than Sauce Storage, you'll need to specify this location for `app`, and make sure that this location is accessible to Sauce Labs browsers. For example:
+7. If the app you want to test has been uploaded to a location other than our App Storage, you'll need to specify this location for `app`, and make sure that this location is accessible to Sauce Labs browsers. For example:
   ```java
-  caps.setCapability("app","sauce-storage:mapp.zip");
+  caps.setCapability("app","storage:filename=mapp.zip");
   ```
 
 ### Set `automationName` for Android Apps
@@ -280,7 +279,7 @@ caps.setCapability("deviceOrientation", "portrait");
 caps.setCapability("platformVersion","14.3");
 caps.setCapability("platformName", "iOS");
 caps.setCapability("browserName", "");
-caps.setCapability("app","sauce-storage:mapp.zip");
+caps.setCapability("app","storage:filename=mapp.zip");
 ```
 
 iPad Native App
@@ -292,7 +291,7 @@ DesiredCapabilities caps = DesiredCapabilities.iphone();
   caps.setCapability("platformVersion","14.3");
   caps.setCapability("platformName", "iOS");
   caps.setCapability("browserName", "");
-  caps.setCapability("app","sauce-storage:myapp.zip");
+  caps.setCapability("app","storage:filename=myapp.zip");
 ```
 
 iPhone Hybrid App,
@@ -304,7 +303,7 @@ DesiredCapabilities caps = DesiredCapabilities.iphone();
     caps.setCapability("platformVersion","7.1");
     caps.setCapability("platformName", "iOS");
     caps.setCapability("browserName", "");
-    caps.setCapability("app","sauce-storage:myapp.zip");
+    caps.setCapability("app","storage:filename=myapp.zip");
 ```
 
 </TabItem>
@@ -320,7 +319,7 @@ DesiredCapabilities caps = DesiredCapabilities.android();
     caps.setCapability("browserName", "");
     caps.setCapability("platformVersion","4.3");
     caps.setCapability("platformName","Android");
-    caps.setCapability("app","sauce-storage:myapp.zip");
+    caps.setCapability("app","storage:filename=myapp.zip");
 ```
 
 Android Hybrid App, Android version 4.1.
@@ -334,7 +333,7 @@ DesiredCapabilities caps = DesiredCapabilities.android();
     caps.setCapability("browserName", "");
     caps.setCapability("platformVersion","4.1");
     caps.setCapability("platformName","Android");
-    caps.setCapability("app","sauce-storage:myapp.zip");
+    caps.setCapability("app","storage:filename=myapp.zip");
     caps.setCapability("automationName","Selendroid");
 ```
 

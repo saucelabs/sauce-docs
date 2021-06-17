@@ -203,7 +203,7 @@ When testing a native mobile application, the value for browserName is an empty 
 
 #### Setting the Location of the Mobile App
 
-If the application you want to test has been uploaded to a location other than Sauce Storage, you need to specify this location for app, and make sure that this location is accessible to Sauce Labs browsers. For example, `caps.setCapability("app","sauce-storage:mapp.zip");`
+If the application you want to test has been uploaded to a location other than our App Storage, you need to specify this location for app, and make sure that this location is accessible to Sauce Labs browsers. For example, `caps.setCapability("app","storage:filename=mapp.zip");`
 
 #### Setting `automationName` for Android Apps
 
@@ -226,7 +226,7 @@ caps.setCapability("deviceOrientation", "portrait");
 caps.setCapability("platformVersion","8.4");
 caps.setCapability("platformName", "iOS");
 caps.setCapability("browserName", "");
-caps.setCapability("app","sauce-storage:mapp.zip");
+caps.setCapability("app","storage:filename=mapp.zip");
 ```
 
 #### iPad Simulator Native Application
@@ -238,7 +238,7 @@ caps.setCapability("deviceOrientation", "portrait");
 caps.setCapability("platformVersion","9.2");
 caps.setCapability("platformName", "iOS");
 caps.setCapability("browserName", "");
-caps.setCapability("app","sauce-storage:myapp.zip");
+caps.setCapability("app","storage:filename=myapp.zip");
 ```
 
 #### iPhone Simulator Hybrid Application
@@ -250,7 +250,7 @@ caps.setCapability("deviceOrientation", "portrait");
 caps.setCapability("platformVersion","8.4");
 caps.setCapability("platformName", "iOS");
 caps.setCapability("browserName", "");
-caps.setCapability("app","sauce-storage:myapp.zip");
+caps.setCapability("app","storage:filename=myapp.zip");
 ```
 
 #### Android Native Application, Android v. 4.3
@@ -262,7 +262,7 @@ caps.setCapability("deviceOrientation", "portrait");
 caps.setCapability("browserName", "");
 caps.setCapability("platformVersion","4.3");
 caps.setCapability("platformName","Android");
-caps.setCapability("app","sauce-storage:myapp.zip");
+caps.setCapability("app","storage:filename=myapp.zip");
 ```
 
 #### Android Hybrid Application, Android v. 4.1
@@ -275,6 +275,6 @@ caps.setCapability("deviceOrientation", "portrait");
 caps.setCapability("browserName", "");
 caps.setCapability("platformVersion","4.1");
 caps.setCapability("platformName","Android");
-caps.setCapability("app","sauce-storage:myapp.zip");
+caps.setCapability("app","storage:filename=myapp.zip");
 caps.setCapability("automationName","Selendroid");
 ```

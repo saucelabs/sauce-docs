@@ -274,15 +274,15 @@ The capabilities you've supplied include a URL to a mobile application to instal
 
 **How to Resolve**
 
-We recommend avoiding all problems with apps hosted internally by uploading to [storage](/mobile-apps/app-storage) instead.
+We recommend avoiding all problems with apps hosted internally by uploading to [Sauce Labs App Storage](/mobile-apps/app-storage) instead.
 
-If you're already using storage, check:
+If you're already using storage, check to make sure that:
 
 * Your upload to storage has succeeded.
 * Your upload to storage was within the last 60 days.
 * Your uploaded app has the same MD5 hash as it does on your machine.
-* You're starting the `app` capability with `sauce-storage:`. There shouldn't be a leading `http`.
-* You're using the exact name you provided via the rest API, not the original filename. For example, if you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `sauce storage:new_app_name.apk`.
+* You're starting the `app` capability with `storage:filename`. There shouldn't be a leading `http`.
+* You're using the exact name you provided via the rest API, not the original filename. For example, if you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `storage:filename=new_app_name.apk`.
 
 
 ## Web App Testing Only

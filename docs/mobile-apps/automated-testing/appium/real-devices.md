@@ -77,10 +77,10 @@ For specific instructions on how to set environment variables, visit the followi
 
 ### Supported Use Cases for Sauce Labs Real Device Testing
 
-* Execute Appium tests against a private real device hosted in the U.S., using your Sauce Labs username and access key
-* Use Sauce Storage, for Appium testing, as you usually do for emulators and simulators tests
-* Analyze Appium test executions, on Sauce Labs similar to the way you do it for desktop, emulators and simulators
-* Consume Real Device Cloud (RDC) API similar to the way you do for emulators and simulators (with applicable RDC settings)
+* Execute Appium tests against a private real device hosted in the U.S., using your Sauce Labs username and access key.
+* Use our App Storage for Appium testing as you usually do for emulators and simulators tests.
+* Analyze Appium test executions, on Sauce Labs similar to the way you do it for desktop, emulators and simulators.
+* Consume Real Device Cloud (RDC) API similar to the way you do for emulators and simulators (with applicable RDC settings).
 
 **Example Test Script**
 
@@ -99,7 +99,7 @@ void setUp() throws MalformedURLException {
 
 ### App Storage and Data Center Endpoints
 
-Below are some examples of how to use the Sauce Labs REST API to upload your mobile app to Sauce Storage. For details related to authorization credentials, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
+Below are some examples of how to use the Sauce Labs REST API to upload your mobile app to our App Storage. For details related to authorization credentials, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
 
 To connect to the real device cloud in your automated Appium tests, you'll need to use include either the EU or US storage endpoint in your test script. This example (macOS / Linux) how to upload an app to App Storage in the US-West Data Center:
 
@@ -192,7 +192,7 @@ When testing a native mobile app, the value for `browserName` is an empty string
 
 #### **Setting the Location of Your Mobile App**
 
-If the app you want to test has been uploaded to a location other than Sauce Storage, you need to specify this location for `app`, and make sure that this location is accessible to Sauce Labs browsers. For example, `caps.setCapability("app","sauce-storage:mapp.zip");`.
+If the app you want to test has been uploaded to a location other than our App Storage, you need to specify this location for `app`, and make sure that this location is accessible to Sauce Labs browsers. For example, `caps.setCapability("app","storage:filename=mapp.zip");`.
 
 #### **Setting the `automationName` for Android Apps**
 
@@ -326,7 +326,7 @@ DesiredCapabilities caps = DesiredCapabilities();
     caps.setCapability("browserName", "");
     caps.setCapability("platformVersion","8.1");
     caps.setCapability("platformName","Android");
-    caps.setCapability("app", "sauce-storage:<upload_filename>");
+    caps.setCapability("app", "storage:filename=<file-name>");
 ```
 
 </TabItem>
@@ -340,7 +340,7 @@ caps['deviceName'] = "Samsung.*Galaxy.*"
 caps['deviceOrientation'] = "portrait"
 caps['platformVersion'] = "8.1"
 caps['platformName'] = "Android"
-caps['app'] = "sauce-storage:<upload_filename>"
+caps['app'] = "storage:filename=<file-name>"
 ```
 
 </TabItem>
@@ -355,7 +355,7 @@ caps['deviceOrientation'] = 'portrait';
 caps['browserName'] = '';
 caps['platformVersion'] = '8.1';
 caps['platformName'] = 'Android';
-caps['app'] = 'sauce-storage:<upload_filename>';
+caps['app'] = 'storage:filename=<file-name>';
 ```
 
 </TabItem>
@@ -370,7 +370,7 @@ caps['deviceOrientation'] = 'portrait'
 caps['browserName'] = ''
 caps['platformVersion'] = '8.1'
 caps['platformName'] = 'Android'
-caps['app'] = 'sauce-storage:<upload_filename>'
+caps['app'] = 'storage:filename=<file-name>'
 ```
 
 </TabItem>
@@ -385,7 +385,7 @@ DesiredCapabilities caps = new DesiredCapabilities();
     caps.SetCapability("browserName", "");
     caps.SetCapability("platformVersion", "8.1");
     caps.SetCapability("platformName", "Android");
-    caps.SetCapability("app", "sauce-storage:<upload_filename>");
+    caps.SetCapability("app", "storage:filename=<file-name>");
 ```
 
 </TabItem>
@@ -401,7 +401,7 @@ DesiredCapabilities caps = new DesiredCapabilities();
 deviceName:'iPhone 6 Device',
 platformName:'iOS',
 platformVersion:'8.4',
-app:'sauce-storage:SampleIOSApp.ipa',
+app:'storage:filename=SampleIOSApp.ipa',
 "appium-version":"1.4.16"
 }
 ```
