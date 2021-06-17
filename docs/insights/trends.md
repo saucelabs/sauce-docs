@@ -59,7 +59,7 @@ As the figure below shows, more than 3,500 tests were run on Windows 7 for Chrom
 
 There are no errors, indicating that this is a robust set of tests, but a large number of tests ran to completion without reporting a Pass or Fail status. Hovering over one of the bars in the graph shows that these no-status completions account for about 65% of the tests in every time increment.
 
-While the tests themselves perform well, it's difficult to judge how well the site functions when completed tests do not offer a definitive outcome. To provide a better baseline for cross-browser comparison, [annotate](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+and+Annotation) these tests with relevant status using the Jobs API or the Selenium Javascript Executor.
+While the tests themselves perform well, it's difficult to judge how well the site functions when completed tests do not offer a definitive outcome. To provide a better baseline for cross-browser comparison, [annotate](/basics/test-config-annotation/test-annotation) these tests with relevant status using the Jobs API or the Selenium Javascript Executor.
 
 #### Chrome 55
 
