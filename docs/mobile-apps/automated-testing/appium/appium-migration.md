@@ -71,7 +71,7 @@ Validate that the Appium capabilities you've used on TestObject will still work 
 Any mobile apps in TestObject storage will no longer be accessible after TestObject reaches end-of-life. Please upload these to Sauce Application Storage.
 
 *   For instructions on uploading your mobile apps (.apk or .ipa files) to Sauce Labs, see [Application Storage](/mobile-apps/app-storage).
-*   Update all app references in your test code capabilities. For example, in the `app` capability, you must use `storage:<app-id>` or `storage:filename=<some-app.apk>`, rather than `sauce-storage:<myapp.apk>` as you would in TestObject. See [Using Appium for Automated Mobile App Testing](/mobile-apps/automated-testing/appium) for more information.
+*   Update all app references in your test code capabilities. For example, in the `app` capability, you must use `storage:<app-id>` or `storage:filename=<some-app.apk>`, rather than `storage:filename=<myapp.apk>` as you would in TestObject. See [Using Appium for Automated Mobile App Testing](/mobile-apps/automated-testing/appium) for more information.
 *  Migrate your [MicroSoft App Center Integration](/mobile-apps/ms-app-center) to a Sauce Labs Data Center using a post-build script.
 
 
