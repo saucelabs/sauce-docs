@@ -42,7 +42,9 @@ This connection allows secure communication between the gateways, which provide 
 
 General guidelines for Sauce IPSec Proxy tunnels described in the table below ensure that your tunnel can support your desired number of concurrent sessions.
 
-> **NOTE**: We set up all Sauce IPSec Proxy customers with a redundant, High Availability (HA) tunnel pool with two tunnel gateways.
+:::note
+We set up all Sauce IPSec Proxy customers with a redundant, High Availability (HA) tunnel pool with two tunnel gateways.
+:::
 
 | Number of Concurrent Sessions | Recommended Number of IPSec Tunnels | Recommended Total Bandwidth
 | :-------------------------- | :--- | :---
@@ -99,7 +101,7 @@ The Sauce IPSec Proxy solution provides you with a static, secure connection, th
 Depending on the type of test you want to run, you may need to include certain desired capabilities in your test script. See below for use case examples.
 
 ### Automated Testing
-To connect to Sauce Labs real and virtual devices, assign your Sauce IPSec Proxy tunnel to the appropriate [Data Center Endpoint](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) in your test automation script.
+To connect to Sauce Labs real and virtual devices, assign your Sauce IPSec Proxy tunnel to the appropriate [Data Center Endpoint](/basics/data-center-endpoints/data-center-endpoints) in your test automation script.
 
 #### __Appium and Selenium__
 

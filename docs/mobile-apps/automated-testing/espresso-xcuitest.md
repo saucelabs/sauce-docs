@@ -51,7 +51,7 @@ Each demo repo includes a sample `config.yml` file (in the `<root>/.sauce` direc
 
 Modify the `config.yml` file to run your existing tests.
 
-* **Test Object Migration:** refer to the [Commands Map](#legacy-and-saucectl-commands-map) to determine which CLI commands and/or YAML configuration properties to use based on your Test Object configurations.
+* **Test Object Migration:** refer to the [Commands Map](#legacy-to-saucectl-commands-map) to determine which CLI commands and/or YAML configuration properties to use based on your Test Object configurations.
 * **New Accounts:** see the `saucectl` configuration documentation for [Espresso](/testrunner-toolkit/configuration/espresso) and [XCUITest](/testrunner-toolkit/configuration/xcuitest).
 
 :::tip Alternative Config Files
