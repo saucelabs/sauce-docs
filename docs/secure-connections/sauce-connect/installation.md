@@ -19,7 +19,7 @@ This topic describes where and how to Sauce Connect Proxy to your local machine.
 
 ## Downloading Sauce Connect Proxy
 
-1. Click the one of the links below (Windows, Mac OS X, or Linux) to download Sauce Connect to your local machine. Latest Version: 4.6.4.
+1. Click the one of the links below (Windows, Mac OS X, or Linux) to download Sauce Connect to your local machine.
    <ScTable></ScTable>
 
 2. Extract contents of the **.zip** or **.gz** download.
