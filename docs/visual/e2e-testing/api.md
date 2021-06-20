@@ -11,20 +11,20 @@ import TabItem from '@theme/TabItem';
 
 In order to use the REST API with Visual E2E Testing, you'll need:
 
-* Your project's **API Key**, which you can obtain on your Project Dashboard:
-
-  To access the API, each request must have a custom header named x-api-key, along with the value of the API key. An example custom header is as follows:
-  ```
+* Your project's **API Key**, which you can obtain on your Project Dashboard. To access the API, each request must have a custom header named x-api-key, along with the value of the API key. An example custom header is as follows:
+  ```bash
   x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4
   ```
 * Your **Project ID**, which is available from the **Project** dropdown menu.
 * The **Base URL**: all endpoints below should be prefixed with https://screener.io.
-* You may also need your **Test Group ID**, which is available from the Test Group's Project Dashboard.
+
+Depending on your test case, you may also need your **Test Group ID**, which is available from the Test Group's Project Dashboard.
 
 
 ## Available Actions
 
 ### Run Test Group
+
 Runs all tests in a Test Group. If there is no available test concurrency, then the test(s) will be queued.
 
 Useful for automatically running Screener tests on a schedule, such as part of a Cron job. Email notifications will be sent to subscribers when changes are found.
@@ -60,7 +60,7 @@ curl --header 'x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4' --data '' https:
 
 #### **Endpoint**
 
-```
+```bash
 GET /api/projects
 ```
 
@@ -76,6 +76,7 @@ GET /api/projects
 ```
 
 #### **Curl Example**
+
 ```bash
 curl --header 'x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4' https://screener.io/api/projects
 ```
