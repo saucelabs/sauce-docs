@@ -29,8 +29,8 @@ Runs all tests in a Test Group. If there is no available test concurrency, then 
 
 Useful for automatically running Screener tests on a schedule, such as part of a Cron job. Email notifications will be sent to subscribers when changes are found.
 
-* This API endpoint is for running Screener tests only (i.e. tests created using Screener Pages or Recorder). To run WebDriver tests, please refer to [our WebDriver doc](/visual/integrations/selenium-webdriver).
-* This API endpoint only kicks off a test run; it does not wait for tests to finish, nor does it report results. To pass/fail builds based on Screener results, please refer to our [Continuous Integration doc](/visual/integrations/continuous-integration).
+* This API endpoint is for running Screener tests only (i.e. tests created using Screener Pages or Recorder). To run WebDriver tests, please refer to [our WebDriver doc](/visual/e2e-testing/integrations/selenium-webdriver).
+* This API endpoint only kicks off a test run; it does not wait for tests to finish, nor does it report results. To pass/fail builds based on Screener results, please refer to our [Continuous Integration doc](/visual/e2e-testing/integrations/continuous-integration).
 
 #### **Endpoint**
 
