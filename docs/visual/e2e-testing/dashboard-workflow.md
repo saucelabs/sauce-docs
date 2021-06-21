@@ -68,6 +68,10 @@ Clicking on the top-left arrow will open the Changes List:
 Each change category has a checkbox which allows toggling whether to display the changes or not. This is useful for focusing in on particular types of changes. Changes are categorized into: Structure, Style, Layout and Content.
 :::
 
+<img src={useBaseUrl('img/visual/e2e-state-changes.png')} alt="E2E State Changes" />
+
 
 ### Update Status
-After reviewing the diff, you can Accept or Reject the changes by clicking on the Status dropdown:
+After reviewing the diff, you can **Accept** or **Reject** the changes by clicking on the Status dropdown.
+
+<img src={useBaseUrl('img/visual/e2e-state-accept-reject.png')} alt="E2E State Accept or Reject" />
