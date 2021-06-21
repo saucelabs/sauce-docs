@@ -115,7 +115,7 @@ In addition to whitelisting these sites, consult the  list of domains at the Rap
 #### OCSP Tunnel Certificate Validation
 This feature lets the Sauce Connect client validate that the tunnel endpoint's public certificate has not been revoked. OCSP relies on Public Key Infrastructure and needs to make additional HTTP requests to OCSP servers associated with the tunnel endpoint’s certificate chain.
 
-You can set your own parameters (e.g., logging, bypassing OCSP checks) by using OCSP command-line options (see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy)). Additionally, OCSP supports the following flags: `--kgp-host`, `--kgp-port`, `--proxy`, `--pac`, `--no-autodetect`, `--proxy-tunnel`, `--tunnel-cainfo`, `--tunnel-capath`.
+You can set your own parameters (e.g., logging, bypassing OCSP checks) by using OCSP command-line options (see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy)). Additionally, OCSP supports the following flags: `--proxy`, `--pac`, `--no-autodetect`, `--proxy-tunnel`, `--tunnel-cainfo`, `--tunnel-capath`.
 
 ### Connecting to the Sauce Labs REST API
 Connections to the Sauce Labs API go through `https://saucelabs.com`. The way in which Sauce Connect Proxy is able to access the certificates to secure the connection depends on the operating system of the machine where Sauce Connect is installed.
