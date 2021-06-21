@@ -10,9 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Selenium WebDriver
 
-Integrate Screener into your existing Selenium WebDriver functional tests.
-
-The following explains how to integrate Screener into your Selenium WebDriver tests, using the language/library of your choice. Any programming language that Selenium WebDriver supports can be used with Screener without needing you to install any additional libraries or SDKs.
+This doc explains how to integrate Screener into your existing Selenium WebDriver functional tests, using the language/library of your choice. Any programming language that Selenium WebDriver supports can be used with Screener without needing you to install any additional libraries or SDKs.
 
 It takes only a few minutes to integrate Screener into your existing Selenium WebDriver scripts:
 

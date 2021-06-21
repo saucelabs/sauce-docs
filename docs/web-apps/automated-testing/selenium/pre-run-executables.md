@@ -56,7 +56,7 @@ This example accesses the same script from Sauce Storage:
 
 ```
 desired_capabilities['prerun'] = {
-    'executable':'sauce-storage:disable_fraud.sh',
+    'executable':'storage:filename=disable_fraud.sh',
     'background': 'false'
 }
 ```
@@ -274,7 +274,7 @@ When you save the script, it will be an **.au3** file, and you will need to comp
 If using Sauce Storage for your pre-run executable send the following desired capability:
 
 ```js
-"prerun": { "executable": "sauce-storage:executable.exe",
+"prerun": { "executable": "storage:filename=executable.exe",
             "args": [ "--silent", "-a", "-q" ], "background": true }
 ```
 ### 64 v. 32-bit Version of AutoIT

@@ -519,5 +519,5 @@ sauce:options: {
 ## Additional Resources
 
 *   [Sauce Labs Supports the W3C WebDriver Protocol](https://saucelabs.com/selenium-4): run compliant tests on every browser.
-*   [Test Configuration Options](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options): Sauce Labs capabilities for Selenium and Appium.
+*   [Test Configuration Options](/dev/test-configuration-options): Sauce Labs capabilities for Selenium and Appium.
 *   [Useable code examples for your tests](https://github.com/saucelabs-training/w3c-examples): public GitHub repo with language-specific bindings that leverage our new `sauce:options` capability.

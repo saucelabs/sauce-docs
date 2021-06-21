@@ -17,7 +17,7 @@ See: _[Insights](#insights)_.
 
 ### Appium
 
-An open source mobile UI automation framework that uses the Selenium WebDriver protocol to control interaction with native apps, mobile web apps, and hybrid apps in your tests. Appium acts as a wrapper that translates Selenium WebDriver commands into iOS and Android commands. With Sauce Labs, you can use Appium to test mobile apps on emulators, simulators, and real devices. More information: [Appium Bootcamp by Dave Haeffner and Matthew Edwards](https://wiki.saucelabs.com/display/DOCS/Appium+Bootcamp+by+Dave+Haeffner+and+Matthew+Edwards).
+An open source mobile UI automation framework that uses the Selenium WebDriver protocol to control interaction with native apps, mobile web apps, and hybrid apps in your tests. Appium acts as a wrapper that translates Selenium WebDriver commands into iOS and Android commands. With Sauce Labs, you can use Appium to test mobile apps on emulators, simulators, and real devices.
 
 See also: _[selenium](#selenium)_, _[webdriver](#webdriver)_.
 
@@ -38,7 +38,7 @@ A testing method where you use separate software to control the execution of tes
 
 ### Build
 
-1. A suite of individual Sauce Labs tests on various parts (e.g., page objects) of a website or app using any platform/browser combination, bundled together in the same session. A build is defined when you add the same build number to the code for tests in that suite. More information: [Best Practice: Use Build IDs, Tags, and Names to Identify Your Tests](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Build+IDs%2C+Tags%2C+and+Names+to+Identify+Your+Tests).
+1. A suite of individual Sauce Labs tests on various parts (e.g., page objects) of a website or app using any platform/browser combination, bundled together in the same session. A build is defined when you add the same build number to the code for tests in that suite. More information: [Best Practice: Use Build IDs, Tags, and Names to Identify Your Tests](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation/index.html#use-build-ids-tags-and-names-to-identify-your-tests).
 
 2. The process by which source code is compiled and converted into an executable or binary pre-release version of your software program. Builds are often comprised of multiple smaller builds.
 
@@ -121,7 +121,7 @@ A method of testing where you can verify the consistency of your web or mobile a
 
 ### Data Center (DC)
 
-A network that houses the set of Sauce Labs services relevant to your license type and your company's needs (i.e., geographic location, real vs. virtual device, and optional other services). To run a Sauce Labs test, you must connect to one or more data centers by including the appropriate endpoint URL(s) in your test script. More information: [Data Center Endpoints](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints).
+A network that houses the set of Sauce Labs services relevant to your license type and your company's needs (i.e., geographic location, real vs. virtual device, and optional other services). To run a Sauce Labs test, you must connect to one or more data centers by including the appropriate endpoint URL(s) in your test script. More information: [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
 
 
 ## **E**
@@ -145,7 +145,7 @@ See also: _[simulator](#simulator), [real device testing](#real-device-testing)_
 
 ### Failure Analysis
 
-A Sauce Labs Insights tool that analyzes failures that occur during test runs and reveals any common root causes so that you can debug as quickly as possible. More information: [Using Failure Analysis](https://wiki.saucelabs.com/display/DOCS/Using+Failure+Analysis).
+A Sauce Labs Insights tool that analyzes failures that occur during test runs and reveals any common root causes so that you can debug as quickly as possible. More information: [Using Failure Analysis](/insights/failure-analysis).
 
 See also: _[Insights](#insights)_.
 
@@ -287,7 +287,7 @@ See also: _[team admin](#team-admin), [team management](#team-management)_.
 
 1. The practice of running multiple tests simultaneously.
 
-2. When signing up for a self-service license, this is equivalent to your account's concurrency settings. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect/system-requirements), [Using Frameworks to Run Tests in Parallel](https://wiki.saucelabs.com/display/DOCS/Using+Frameworks+to+Run+Tests+in+Parallel).
+2. When signing up for a self-service license, this is equivalent to your account's concurrency settings. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect/system-requirements), [Using Frameworks to Run Tests in Parallel](https://docs.saucelabs.com/web-apps/automated-testing/selenium#using-frameworks-to-run-tests-in-parallel).
 
     See also: _[concurrency limit](#concurrency-limit)_.
 
@@ -316,7 +316,7 @@ A text file generated by Sauce Connect Proxy that records your tunnel's process 
 
 ### Platform Configurator
 
-A Sauce Labs tool where you can select your capabilities and generate code snippets to copy and paste into your automated testing scripts. More information: [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator).
+A Sauce Labs tool where you can select your capabilities and generate code snippets to copy and paste into your automated testing scripts. More information: [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/).
 
 See also: _[capabilities](#capabilities)_.
 
@@ -642,7 +642,7 @@ A Sauce Labs automated visual testing method that integrates with your WebDriver
 
 ### W3C WebDriver Protocol
 
-A platform- and language-neutral wire protocol that enables out-of-process programs to remotely instruct the behavior of web browsers. With Sauce Labs and all major browser vendors now supporting the W3C standard, automated Selenium tests will run with more stability and consistency between different browsers and devices. More information: [W3C Capabilities Support](https://wiki.saucelabs.com/display/DOCS/W3C+Capabilities+Support).
+A platform- and language-neutral wire protocol that enables out-of-process programs to remotely instruct the behavior of web browsers. With Sauce Labs and all major browser vendors now supporting the W3C standard, automated Selenium tests will run with more stability and consistency between different browsers and devices. More information: [W3C Capabilities Support](/dev/w3c-webdriver-capabilities).
 
 
 ### WebDriver
