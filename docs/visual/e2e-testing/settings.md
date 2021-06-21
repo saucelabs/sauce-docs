@@ -1,8 +1,10 @@
 ---
-id: notification-settings
-title: Notification Settings for Visual E2E Testing
-sidebar_label: Notification Settings
+id: settings
+title: Settings for Visual E2E Testing
+sidebar_label: Settings
 ---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Learn about the different notifications that are available when a test run is completed. Notifications are only sent out when UI changes are found so users are not swamped with emails.
 
