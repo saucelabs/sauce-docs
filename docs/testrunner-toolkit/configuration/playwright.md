@@ -104,7 +104,7 @@ __Example__:
 ```
 
 :::note
-For all available resolutions please see [Sauce Labs Custom Testing Options](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
+For all available resolutions please see [Sauce Labs Custom Testing Options](/basics/test-config-annotation/test-config).
 :::
 
 ### `env`

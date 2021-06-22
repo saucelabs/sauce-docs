@@ -2909,6 +2909,6 @@
   },
   "externalDocs":{
     "description":"Sauce Labs Docs",
-    "url":"https://wiki.saucelabs.com/display/DOCS/Real+Device+Testing"
+    "url":"https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices"
   }
 }

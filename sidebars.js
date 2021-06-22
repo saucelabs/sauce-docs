@@ -198,9 +198,42 @@ module.exports = {
                         'web-apps/automated-testing/selenium/sample-scripts',
                       ]
                     },
-                    'web-apps/automated-testing/cypress',
-                    'web-apps/automated-testing/playwright',
-
+                    {
+                      type: 'category',
+                      label: 'Cypress',
+                      collapsed: true,
+                      items: [
+                        'web-apps/automated-testing/cypress',
+                        'testrunner-toolkit/configuration/cypress',
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'Playwright',
+                      collapsed: true,
+                      items: [
+                        'web-apps/automated-testing/playwright',
+                        'testrunner-toolkit/configuration/playwright',
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'TestCafe',
+                      collapsed: true,
+                      items: [
+                        'web-apps/automated-testing/testcafe',
+                        'testrunner-toolkit/configuration/testcafe',
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'Puppeteer',
+                      collapsed: true,
+                      items: [
+                        'web-apps/automated-testing/puppeteer',
+                        'testrunner-toolkit/configuration/puppeteer',
+                      ]
+                    },
                 ],
             },
         ],
@@ -561,7 +594,7 @@ module.exports = {
         "Headless": [
             'headless',
         ],
-        "Testrunner Toolkit": [
+        "SauceCTL": [
             'testrunner-toolkit',
             'testrunner-toolkit/installation',
             {
