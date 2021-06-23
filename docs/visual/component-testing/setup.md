@@ -8,15 +8,14 @@ sidebar_label: Setup
 
 Get automated Visual Testing across your React, Vue or Angular components with [Storybook](https://storybook.js.org/) and Screener.
 
-Follow the steps below to setup Screener with Storybook, or use the [New Project Wizard](https://screener.io/v2/new).
+Follow the steps below to set up Screener with Storybook, or use the [New Project Wizard](https://screener.io/v2/new).
 
 
 ## What You'll Need
 
-* Ensure that you have Storybook [installed](https://storybook.js.org/basics/quick-start-guide/).
-* You have [written some stories](https://storybook.js.org/basics/writing-stories/) for your components.
-* You can successfully view your stories when running the Storybook Dev server
-(npm run storybook).
+* Have Storybook [installed](https://storybook.js.org/basics/quick-start-guide/).
+* Have [some stories written](https://storybook.js.org/basics/writing-stories/) for your components.
+* Ensure that you can successfully view your stories when running the Storybook Dev server (`npm run storybook`).
 
 ## Install Screener Package
 
@@ -32,14 +31,14 @@ npm install --save-dev screener-storybook
 2. Follow the wizard steps to generate your Screener Config code.
 3. Save the code into a file named `screener.config.js` in the root directory of your application.
 
-We recommend securing your API Key by storing it as an environment variable. For example, store it in an environment variable called `SCREENER_API_KEY`, and then reference it in your `screener.config.js` file with: `process.env.SCREENER_API_KEY`.
+We recommend securing your API Key by storing it as an environment variable (i.e., store it in an environment variable called `SCREENER_API_KEY`, then reference it in your `screener.config.js` file with `process.env.SCREENER_API_KEY`).
 
 For additional configuration options, view the [repository documentation](https://github.com/screener-io/screener-storybook#config-options.)
 
 
 ## Add Screener Script
 
-Add the following NPM script to your package.json file:
+Add the following NPM script to your `package.json` file:
 
 ```java
 "scripts": {
