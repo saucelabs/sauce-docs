@@ -4,14 +4,17 @@ title: Configuring your Cypress Tests
 sidebar_label: Configuration
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-`saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your Cypress tests, simply modify the properties of the YAML file accordingly. The page defines each of the configuration properties specific to running Cypress tests.
+`saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your Cypress tests, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running Cypress tests.
 
 ## Setting an Alternative Configuration File
 
 By default, `saucectl` looks for the `config.yml` file in the `.sauce` folder of your project root, but you can actually specify a different file, or if you are using multiple frameworks or need to configure different sets of tests to run separately, you may choose to have multiple configuration files that you can direct `saucectl` to reference as necessary.
 
-Run the following command to direct `saucectl` to use any configuration file you choose:
+Use the following configuration at runtime to direct `saucectl` to use any configuration file you choose:
 
 ```bash
 saucectl run -c ./path/to/{config-file}.yml
@@ -44,13 +47,7 @@ apiVersion: v1alpha
 ## `kind`
 <p><small>| REQUIRED | STRING/ENUM |</small></p>
 
-Specifies which framework is associated with the automation tests configured in this specification. Valid values are:
-
-* `cypress`
-* `playwright`
-* `testcafe`
-* `puppeteer`
-* `espresso`
+Specifies which framework is associated with the automation tests configured in this specification.
 
 ```yaml
 kind: cypress
@@ -74,7 +71,7 @@ defaults:
 Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally on `docker`. You can override this setting for individual suites using the `mode` setting within the [`suites`](#suites) object. If not set, the default value is `sauce`.
 
 ```yaml
-  mode: "sauce"
+  mode: sauce
 ```
 ---
 
@@ -489,7 +486,7 @@ A set of any ephemeral/environment variables needed to run the tests in this sui
 #### `testFiles`
 <p><small>| OPTIONAL | STRING/ARRAY/REGEX |</small></p>
 
-The path to the Cypress test files to run for this suite, if not otherwise specified explicitly in `cypress.json`. Regex values are supported to indicate all files of a certain type or in a certain directory, etc.
+One or more paths to the Cypress test files to run for this suite, if not otherwise specified explicitly in `cypress.json`. Regex values are supported to indicate all files of a certain type or in a certain directory, etc.
 
 ```yaml
       testFiles: [ "**/*.*" ]

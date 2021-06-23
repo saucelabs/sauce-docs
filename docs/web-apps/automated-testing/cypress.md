@@ -115,7 +115,7 @@ You can set your Sauce Labs credentials as [environment variables](/basics/envir
 
 ### Step 4: Run Tests
 
-Use the `run` command to execute the sample test included with the `saucectl` installation.
+Use the `run` command to execute the sample test included with the `saucectl` example.
 
 ```
 saucectl run
@@ -129,4 +129,8 @@ The results and test assets are immediately available in the [Sauce Labs dashboa
 
 ## Set up Your Own Tests
 
-The demo repo provides an easy baseline for seeing `saucectl` work, but if you already have a Cypress tests, you can customize `saucectl` to run those tests just by modifying the `config.yml` file. See [Configuring Your Cypress Tests](/testrunner-toolkit/configuration/cypress) for details.
+The demo repo provides an easy baseline for seeing `saucectl` work, but if you already have Cypress tests, you can customize `saucectl` to run those tests just by modifying the `config.yml` file. See [Configuring Your Cypress Tests](/testrunner-toolkit/configuration/cypress) for details.
+
+:::tip Try Cypress with Cucumber
+`saucectl` supports Cypress using Cucumber, and the Cypress demo repo includes an [example Cucumber setup](https://github.com/saucelabs/saucectl-cypress-example/tree/master/examples/cucumber)
+:::
