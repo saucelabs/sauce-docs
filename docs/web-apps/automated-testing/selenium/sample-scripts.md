@@ -61,7 +61,7 @@ https://github.com/saucelabs-training/demo-java/blob/master/selenium-examples/sr
 Visit the [Sauce Labs JavaScript Demonstration Repo](https://github.com/saucelabs-training/demo-js) for prerequisites, setup instructions, a variety of sample scripts using different frameworks, and many other resources related to writing and running scripts in JavaScript.
 
 ```js reference
-https://github.com/saucelabs-training/demo-js/blob/main/nightwatch/webdriver/examples/update-sauce/tests/specs/login.spec.js
+https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/examples/typescript/test/specs/example.e2e.ts
 ```
 
 
