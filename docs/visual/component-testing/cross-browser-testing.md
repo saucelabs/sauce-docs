@@ -39,17 +39,17 @@ module.exports = {
 ```
 
 Run Cross-Browser Tests On Specific Branch
-To speed up builds, you may want to run Cross-Browser Testing only when committing into a particular branch. For example, when merging PRs into master branch.
+To speed up builds, you may want to run Cross-Browser Testing only when committing into a particular branch. For example, when merging PRs into the main branch.
 
-Here is a CircleCI example that only runs cross browser tests when committing into master branch:
+Here is a CircleCI example that only runs cross browser tests when committing into the main branch:
 
 ```java
 var config = {
   // regular screener config
 };
 
-// only run cross browser tests when merging into 'master' branch
-if (process.env.CIRCLE_BRANCH === 'master') {
+// only run cross browser tests when merging into 'main' branch
+if (process.env.CIRCLE_BRANCH === 'main') {
   config.browsers = [
     {
       browserName: 'chrome'
