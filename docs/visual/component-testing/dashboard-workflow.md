@@ -4,50 +4,80 @@ title: Dashboard and Workflow
 sidebar_label: Dashboard and Workflow
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Review Flow
 
 Learn the Screener workflow for reviewing UIs. Each UI state under test has one of the following statuses:
 
-New	A new UI state that has not been reviewed yet.
-Changed	A UI state that has changed visually when compared to its accepted baseline.
-Accepted	A UI state that is visually the same as its baseline
-OR has been reviewed and accepted by a team member.
-Rejected	A UI state that has been reviewed, found to have defects, and rejected by a team member.
+| UI State | Description
+| :-- | :--
+| New	| A new UI state that has not been reviewed yet.
+| Changed	| A UI state that has changed visually when compared to its accepted baseline.
+| Accepted | A UI state that is visually the same as its baseline OR has been reviewed and accepted by a team member.
+| Rejected | A UI state that has been reviewed, found to have defects, and rejected by a team member.
 
-1. Start Reviewing
-When a test has Changed or New UI states, it will show a Review button:
+### 1. Start Reviewing.
 
+When a test has **Changed** or **New** UI states, it will show a Review button:
 
+<img src={useBaseUrl('img/visual/component-review-button.png')} alt="Component Review Button" />
 
-Clicking on the Review button will display a list of your UI states filtered to only those needing review.
+Clicking on the **Review** button will display a list of your UI states filtered to only those needing review. Click on the first UI state to start reviewing:
 
-Click on the first UI state to start reviewing:
+<img src={useBaseUrl('img/visual/component-review-state.png')} alt="Component Review State" />
 
+### 2. Review UI State.
 
-
-
-2. Review UI State
 You will be presented with screenshots of the selected UI state:
-
-
+<img src={useBaseUrl('img/visual/component-review-screenshots.png')} alt="Component Review Screenshot" />
 
 If a baseline exists, a side-by-side view will be displayed with the baseline screenshot on the left-hand side and the current screenshot from the latest build on the right-hand side.
 
 Changed UI states will include highlights of visual changes directly overlayed on the screenshots.
 
-ProTipIgnoring
-Learn how to ignore changes.
+#### Optional: Ignore Changes
 
-ProTipChange Details
-Learn how to view change details.
+Screener gives the ability to easily ignore specific visual changes during the Review Flow. An example of where this could be useful, is ignoring content that continuously changes on each test run (such as dates).
+
+To ignore a visual change:
+1. Click on its highlight to open the Change List side panel.
+2. Find the change in the Change List, and click Ignore.
+3. Changes to this element will now be ignored in future tests.
 
 
-3. Accept or Reject
+How to Undo Ignore:
+1. Follow the same steps above.
+2. Find the ignored change.
+3. Click "Undo Ignore".
+
+#### Optional: Ignore Areas
+
+Screener gives the ability to have areas excluded from the visual test. An example of where this could be useful, is a third-party widget or ads.
+
+To ignore a visual area, you have two options. You can either:
+
+Add a special class name to your application's HTML code on the element you want to ignore. The class name is `qa-screener-ignore`. Then the element, and everything contained within it, will be ignored.
+
+OR, edit your `screener.config.js` file, and add an ignore option with its value set to a comma-delimited string of CSS Selectors that represent areas to be ignored.
+
+Example of second option:
+
+```bash
+// screener.config.js
+module.exports = {
+  ...
+
+  ignore: '.qa-ignore-date, .qa-ignore-ad'
+}
+```
+
+
+### 3. Accept or Reject
 After reviewing the UI state, you can either:
 
-Accept it if the screenshots are as expected, which will set the current as the new baseline.
-or Reject it if defects are found which need to be fixed.
+**Accept** it if the screenshots are as expected, which will set the current as the new baseline.
+or **Reject** it if defects are found which need to be fixed.
 Use the status dropdown to accept or reject:
 
 
@@ -57,7 +87,7 @@ ProTipUse Keyboard Shortcuts to accept / reject
 To Accept, press:	Shift + Up Arrow
 To Reject, press:	Shift + Down Arrow
 
-4. Continue Reviewing
+### 4. Continue Reviewing
 Continue reviewing the remaining UI states by clicking on the next/previous arrows:
 
 
@@ -70,7 +100,7 @@ ProTipAccept All
 Use the Accept All button to quickly set all filtered UI states to accepted.
 
 
-5. Review Complete
+### 5. Review Complete
 When all UI states have been reviewed, the filtered state list will be empty:
 
 The build status will be updated to Success when all UI states have been accepted.

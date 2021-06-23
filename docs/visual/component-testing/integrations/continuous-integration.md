@@ -31,7 +31,7 @@ module.exports = {
 
 Optionally integrate into your [GitHub PR workflow](/visual/component-testing/integrations/github).
 
-We recommend securing your API Key by storing it as an environment variable. For example, store it in an environment variable called `SCREENER_API_KEY`, and then reference it in your `screener.config.js` file with: `process.env.SCREENER_API_KEY`.
+We recommend securing your API Key by storing it as an environment variable (i.e., store it in an environment variable called `SCREENER_API_KEY`, then reference it in your `screener.config.js` file with `process.env.SCREENER_API_KEY`).
 
 ## Examples
 
