@@ -12,7 +12,7 @@ hide_table_of_contents: true
     <h2>Live Testing</h2>
     <p>Browse through the Live Testing documentation to manually test your application on Sauce Labs Cloud.</p>
     <ul>
-        <li><a href="/web-apps/live-testing">Web Applications</a></li>
+        <li><a href="/web-apps/live-testing/live-cross-browser-testing">Web Applications</a></li>
         <li><a href="/mobile-apps/live-testing/live-mobile-app-testing/">Mobile Applications</a></li>
     </ul>
     </div>
@@ -30,7 +30,7 @@ hide_table_of_contents: true
   </div>
   <div className="box box3 card">
     <div className="container">
-    <h2>Secure Connections</h2>
+    <h2>Sauce Trusted Connection</h2>
     <p>Browse the security documentation to learn how to communicate with Sauce Labs Cloud from your private network.</p>
     <ul>
         <li><a href="/secure-connections/sauce-connect">Sauce Connect Proxy</a></li>

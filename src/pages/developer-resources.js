@@ -19,12 +19,11 @@ class DeveloperResources extends Component {
 
             <div className="dev-resources__list">
               <ul>
-                <li><a href="/testrunner-toolkit">Testrunner Toolkit</a></li>
-                <li><a href="https://github.com/saucelabs-training">Sample Frameworks</a></li>
-                <li><a href="https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/">Platform Conﬁgurator</a></li>
-                <li><a href="https://github.com/saucelabs-training">Sample Scripts</a></li>
-                <li><a href="/dev/api">API Reference Guide</a></li>
-                <li><a href="/dev/cli">CLI Reference Guide</a></li>
+                <li><a href="https://docs.saucelabs.com/testrunner-toolkit/saucectl">Testrunner Toolkit</a></li>
+                <li><a href="https://saucelabs.com/platform/platform-configurator">Platform Conﬁgurator</a></li>
+                <li><a href="https://github.com/saucelabs-training">Sample Scripts and Frameworks</a></li>
+                <li><a href="https://docs.saucelabs.com/dev/api">API Reference Guide</a></li>
+                <li><a href="https://docs.saucelabs.com/dev/cli">CLI Reference Guide</a></li>
               </ul>
             </div>
           </div>

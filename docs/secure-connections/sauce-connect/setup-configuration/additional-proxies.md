@@ -247,7 +247,8 @@ At this point, the tunnel is established between the Sauce Connect Proxy client 
 7. Tunnel VM sends response to Test VM.
 8. Test VM sends results back to Selenium/Appium Test cloud.
 
->**NOTE:** Throughout the lifetime of a tunnel, Sauce Connect Proxy client sends status information to Sauce Labs REST API via your proxy.
+:::note Throughout the lifetime of a tunnel, Sauce Connect Proxy client sends status information to Sauce Labs REST API via your proxy.
+:::
 
 ### Setting Up with Third Party Proxies
 

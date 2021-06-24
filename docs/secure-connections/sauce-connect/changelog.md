@@ -5,8 +5,8 @@ sidebar_label: Changelog
 ---
 
 :::note
-
-All Sauce Connect Proxy versions below 4.6.0, which were supporting Private Certificates, have reached end of life and are no longer available for download. To align with security best practices, Sauce Connect Proxy is only supporting certificates signed by Public Certificate Authorities. For best performance, and to take advantage of these security enhancements, please upgrade to the latest version. If you're using Sauce Connect in conjunction with [Jenkins](https://wiki.saucelabs.com/display/DOCS/Setting+Up+Sauce+Labs+with+Jenkins), be sure to use the most recent version of the Jenkins plugin.
+All Sauce Connect Proxy versions below 4.6.0, which were supporting Private Certificates, have reached end of life and are no longer available for download. To align with security best practices, Sauce Connect Proxy is only supporting certificates signed by Public Certificate Authorities. For best performance, and to take advantage of these security enhancements, please upgrade to the latest version. If you're using Sauce Connect in conjunction with [Jenkins](/secure-connections/sauce-connect/setup-configuration/ci-cd-environments), be sure to use the most recent version of the Jenkins plugin.
+:::
 
 <table>
   <tr>
@@ -54,7 +54,7 @@ Release Date: Feb 1, 2021.
 
 **Decluttered Basic sc client Logs**: We've moved the PROXY log level to be in sync with the Sauce Connect client (sc client) log level and set HTTP requests logging to be less verbose.
 
-**Command-line option `--pac-auth` now also works with `-T`**: You can now combine the use of the `--pac-auth` and `-T` commands. More info [here](/dev/cli/sauce-connect-proxy.md).
+**Command-line option `--pac-auth` now also works with `-T`**: You can now combine the use of the `--pac-auth` and `-T` commands. More info [here](/dev/cli/sauce-connect-proxy).
 
 ### Internal Tooling and Improvements
 
@@ -98,7 +98,7 @@ Release Date: December 9, 2020.
 
 * You can now start tunnels using `--cainfo` and `--capath` command-line options at tunnel startup. These options were previously only used by `Doctor`.
     * If you have your certificates in a non-default system location, you no longer need to use the `--no-http-cert-verify` workaround.
-    * If you're using MITM, you no longer need to enable [SSL Bumping](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+and+SSL+Certificate+Bumping) for connections to Sauce Labs REST.
+    * If you're using MITM, you no longer need to enable [SSL Bumping](/secure-connections/sauce-connect/security-authentication) for connections to Sauce Labs REST.
 
 * We've removed `Doctor` attempts to resolve non-existent maki hosts   
   * Attempts to run domain name resolution check for hard-coded defunct maki hosts created confusing errors; removed these checks.
@@ -144,9 +144,9 @@ We are changing how we manage SSL certificates to improve assurance and compatib
    * Certificates will be read from the macOS Keychain Access automatically.
    * Alternatively, if the Homebrew OpenSSL package is installed, you can use the default `cert.pem` file, `--tunnel-cainfo /usr/local/etc/openssl/cert.pem`.
 
-**OCSP tunnel certificate validation**: This feature lets the sc client validate that the tunnel endpoint's public certificate has not been revoked. OCSP relies on Public Key Infrastructure and needs to make additional HTTP requests to OCSP servers associated with the tunnel endpoint’s certificate chain. This is configurable via our new [OCSP-specific command-line options](/dev/cli/sauce-connect-proxy) and [existing flags compatible with OCSP](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365729#SauceConnectProxyCertificateHandling-OCSPTunnelCertificateValidation).
+**OCSP tunnel certificate validation**: This feature lets the sc client validate that the tunnel endpoint's public certificate has not been revoked. OCSP relies on Public Key Infrastructure and needs to make additional HTTP requests to OCSP servers associated with the tunnel endpoint’s certificate chain. This is configurable via our new [OCSP-specific command-line options](/dev/cli/sauce-connect-proxy) and [existing flags compatible with OCSP](/secure-connections/sauce-connect/security-authentication).
 
-**Selenium Relay is no longer enabled by default**: You can still [enable this feature](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide) on a specified port using the `--se-port` option.
+**Selenium Relay is no longer enabled by default**: You can still [enable this feature](/dev/cli/sauce-connect-proxy) on a specified port using the `--se-port` option.
 
 **App Notarization - macOS Catalina support**: Effective with this release, all Sauce Connect Proxy executables will be Apple-notarized to support the more stringent security standards introduced by macOS Catalina.
 

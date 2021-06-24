@@ -19,19 +19,6 @@ __Example__:
 saucectl configure
 ```
 
-### `new`
-
-__Description__: Prompts you to choose one of the [supported frameworks](/testrunner-toolkit#supported-frameworks-and-browsers). Based on the chosen framework, this command also generates:
-
-* a configuration file (e.g. `./sauce/config.yml`)
-* a test directory (e.g. `cypress/`)
-* an example test (e.g. `example.test.js`)
-
-__Example__:
-```bash
-saucectl new
-```
-
 ### `run`
 
 __Description__: Executes tests based on information in the configuration file ([`.sauce/config.yml`](/testrunner-toolkit/configuration)).
@@ -43,6 +30,42 @@ saucectl run
 ```
 
 ## Flags
+
+### `artifacts.download.directory`
+
+__Description__: Specifies the location where to download test artifacts to.
+
+__Example__:
+```bash
+saucectl run --artifacts.download.directory ./artifacts
+```
+
+### `artifacts.download.match`
+
+__Description__: Specifies which test artifacts to download.
+
+__Example__:
+```bash
+saucectl run --artifacts.download.match console.log,another.log
+```
+
+### `artifacts.download.when`
+
+__Description__: Specifies when to download test artifacts (default "never"). Choose between `always`, `fail`, `never` and `pass`. 
+
+__Example__:
+```bash
+saucectl run --artifacts.download.when always
+```
+
+### `build`
+
+__Description__: Associates tests with a build.
+
+__Example__:
+```bash
+saucectl run --build myBuildID
+```
 
 ### `ccy`
 
@@ -93,6 +116,15 @@ __Description__: Specifies a test suite to execute by name.
 __Example__:
 ```bash
 saucectl run --suite <suite_name>
+```
+
+### `tags`
+
+__Description__: Adds tags to tests.
+
+__Example__:
+```bash
+saucectl run --tags e2e,team2
 ```
 
 ### `timeout`

@@ -53,32 +53,53 @@ In the examples below, the `environment` variables are the GitHub secrets config
     {label: 'Cypress', value: 'cypress'},
     {label: 'Playwright', value: 'playwright'},
     {label: 'TestCafe', value: 'testcafe'},
+    {label: 'Puppeteer', value: 'puppeteer'},
+    {label: 'Espresso', value: 'espresso'},
+    {label: 'XCUITest', value: 'xcuitest'},
   ]}>
 
 <TabItem value="cypress">
 
 ```bash reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.cypress
+https://github.com/saucelabs/saucectl-cypress-example/blob/master/Jenkinsfile
 ```
 
 </TabItem>
 <TabItem value="playwright">
 
 ```sh reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.playwright
+https://github.com/saucelabs/saucectl-playwright-example/blob/master/Jenkinsfile
 ```
 
 </TabItem>
 <TabItem value="testcafe">
 
 ```bash reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.testcafe
+https://github.com/saucelabs/saucectl-testcafe-example/blob/master/Jenkinsfile
 ```
 
 </TabItem>
-</Tabs>
+<TabItem value="puppeteer">
 
-> You can view some of our public examples [here](https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/).
+```bash reference
+https://github.com/saucelabs/saucectl-puppeteer-example/blob/master/Jenkinsfile
+```
+
+</TabItem>
+<TabItem value="espresso">
+
+```bash reference
+https://github.com/saucelabs/saucectl-espresso-example/blob/master/Jenkinsfile
+```
+
+</TabItem>
+<TabItem value="xcuitest">
+
+```bash reference
+https://github.com/saucelabs/saucectl-xcuitest-example/blob/master/Jenkinsfile
+```
+</TabItem>
+</Tabs>
 
 <!--### Run the Pipeline Tests-->
 

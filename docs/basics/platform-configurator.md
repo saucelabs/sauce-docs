@@ -4,7 +4,7 @@ title: Configuring Your Tests with the Platform Configurator
 sidebar_label: Platform Configurator
 ---
 
-The [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) is a tool developed by Sauce Labs to help you correctly configure test capabilities required for your Appium and Selenium tests.
+The [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) is a tool developed by Sauce Labs to help you correctly configure test capabilities required for your Appium and Selenium tests.
 
 1. Select the **API** you want to use in your test, Appium or Selenium.
 The option you choose here will determine the other configuration options you can set.

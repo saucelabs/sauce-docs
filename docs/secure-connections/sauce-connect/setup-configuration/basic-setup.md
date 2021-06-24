@@ -20,8 +20,8 @@ For information about user configuration settings, see [Organization Settings](/
   * If you're using virtual machines or devices, see the instructions below.
   * If you're testing real devices, see [Setting Up for Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/specialized-environments).
 * Know your account details including:
-  * The url of the datacenter you need to use. For more information, see [Data Center Endpoints](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints).
-  * Your Sauce Labs username and access key, which you can find in Sauce Labs under **Account > User settings**.
+  * The url of the datacenter you need to use. For more information, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
+  * Your Sauce Labs username and access key, which you can find in Sauce Labs under **ACCOUNT > User settings**.
 
 :::note
 Sauce Labs recommends setting all of the values above as environment variables to protect your username and api key from exposure, and also for future convenience.
@@ -44,7 +44,7 @@ where:
 
 2. Select an appropriate test script. Options might include:
   * One of your existing tests, if available.
-  * An example from [Sauce Labs Demonstration Scripts](https://wiki.saucelabs.com/display/DOCS/Sauce+Labs+Demonstration+Scripts). Follow the instructions to configure the test before proceeding to step 3 below.
+  * An example from [Sauce Labs Demonstration Scripts](https://github.com/saucelabs-training). Follow the instructions to configure the test before proceeding to step 3 below.
 3. If you are using an tunnel identifier, add the following to the desired capabilities of  the test:
 
 <Tabs
@@ -148,7 +148,7 @@ Sauce Connect Proxy must be on the same network as the website or mobile app bei
 ## Using Tunnel Identifiers
 When launching a Sauce Connect Proxy tunnel for automated web and mobile app tests, you have two options:
 * Launch a Sauce Connect tunnel as-is, without identifying it. That default, unnamed tunnel will automatically be used for all automated tests. This can be useful for small organizations with a limited number of tests.
-* Assign a name known as a tunnel identifier. To accomplish this, you'll need to launch a tunnel with the `-i (--tunnel-identifier)` command to assign the tunnel identifier(s) when starting up Sauce Connect Proxy. Then, you'll need to use the `tunnelIdentifier` option in the desired capabilities of your automated tests (see [Sauce Connect Proxy Tunnel Settings](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-IdentifiedTunnels) for more information). This will trigger your tests to request a specific tunnel to run your tests through that tunnel.
+* Assign a name known as a tunnel identifier. To accomplish this, you'll need to launch a tunnel with the `-i (--tunnel-identifier)` command to assign the tunnel identifier(s) when starting up Sauce Connect Proxy. Then, you'll need to use the `tunnelIdentifier` option in the desired capabilities of your automated tests (see [Using Tunnel Identifiers](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information). This will trigger your tests to request a specific tunnel to run your tests through that tunnel.
 
 ### Example: Automated Test with Sauce Connect Proxy Tunnel Identifiers
 Below is an example of how to designate tunnels based on the `tunnelIdentifier` option so that it works properly with an automated test.
@@ -181,8 +181,8 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i sc-
 </Tabs>
 
 * Ensure that your network configuration allows for communication between the `SC Host`, the Tunnel VM, and the SUT (site under test). See the basic network configuration diagram for further explanation.
-* Select an example from [Sauce Labs Demonstration Scripts](https://wiki.saucelabs.com/display/DOCS/Sauce+Labs+Demonstration+Scripts) and follow the instructions to configure the test in your dev environment.
-* Navigate to the desired test script and add the following [Test Configuration Option](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options) in the [`sauce:options`](https://wiki.saucelabs.com/display/DOCS/W3C+Capabilities+Support#W3CCapabilitiesSupport-UpdatingWebDriverCapabilities) capability:
+* Select an example from [Sauce Labs Demonstration Scripts](https://github.com/saucelabs-training) and follow the instructions to configure the test in your dev environment.
+* Navigate to the desired test script and add the following [Test Configuration Option](/dev/test-configuration-options) in the [`sauce:options`](/dev/w3c-webdriver-capabilities) capability:
 
 <Tabs
   defaultValue="Java"

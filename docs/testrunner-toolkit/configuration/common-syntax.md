@@ -36,7 +36,7 @@ apiVersion: v1alpha
 
 ## `kind`
 
-__Description__: The framework of your automation tests. This value is set during the `saucectl new` setup script based on the value you choose at the command line prompt.
+__Description__: The framework of your automation tests.
 
 __Type__: *enum* Valid values are:
 

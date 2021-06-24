@@ -24,7 +24,7 @@ You must know your account details, including:
 * The Data Center endpoint associated with your geographic location
 
 :::note
-We recommend setting all of the values above as environment variables to protect your username and api key from exposure, and also for future convenience. See [Using Environment Variables for Authentication Credentials](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials) for more information.
+We recommend setting all of the values above as environment variables to protect your username and api key from exposure, and also for future convenience. See [Using Environment Variables for Authentication Credentials](/basics/environment-variables) for more information.
 :::
 
 ## Security Considerations
@@ -45,12 +45,12 @@ To work around this, you'll need to edit your hosts file on the machine on which
 For tips on editing your hosts file, see [How To Edit Hosts File In Linux, Windows, or Mac](https://phoenixnap.com/kb/how-to-edit-hosts-file-in-windows-mac-or-linux)
 
 ### SSL Bumping
-While rare, there are some test cases that will require you to disable SSL Bumping when using Sauce Connect Proxy in order to avoid certificate issues. For more information, see [Sauce Connect Proxy and SSL Certificate Bumping](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+and+SSL+Certificate+Bumping).
+While rare, there are some test cases that will require you to disable SSL Bumping when using Sauce Connect Proxy in order to avoid certificate issues. For more information, see [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication).
 
 ## Selecting the Tunnel to Use
 Sauce Connect Proxy can have multiple tunnels running simultaneously, as described in [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). You can select which tunnel to use in a real device test in the same way as you would any other type of automated test.
 
-1. Start Sauce Command Proxy from the command line, providing an `-i (--tunnel-identifer)` to start a new tunnel with that identifier (see [Sauce Connect Proxy Command Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide) for more information).
+1. Start Sauce Command Proxy from the command line, providing an `-i (--tunnel-identifer)` to start a new tunnel with that identifier (see [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy.md) for more information).
 
 ```bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x $SAUCE_DC_ENDPOINT -i $TUNNEL_ID
 ```
@@ -161,4 +161,4 @@ If your tunnel launch fails with message "Failed to check for existing tunnels,"
 ## Headless Sauce Connect Proxy Setup
 Sauce Headless is a lightweight infrastructure that allows developers to run early pipeline component tests and sanity checks at scale. It is a container-based architecture for the Virtual Machines that host our headless browsers.
 
-For instructions on how to set up Sauce Connect tunnels with your Sauce Headless tests, see [Getting Started With Sauce Headless](https://wiki.saucelabs.com/display/DOCS/Getting+Started+with+Sauce+Headless).
+For instructions on how to set up Sauce Connect Proxy tunnels with your Sauce Headless tests, see [Getting Started With Sauce Headless](/headless).
