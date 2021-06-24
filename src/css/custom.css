@@ -157,6 +157,42 @@ h3, .h3 {
     font-size: 20px;
     margin-bottom: 8px !important;
 }
+h4, .h4 {
+    padding-bottom: 5px;
+    font-size: 18px;
+    margin-bottom: 20px !important;
+    font-weight: 750;
+}
+/* h4, .h4 {
+    padding-bottom: 5px;
+    font-size: 18px;
+    margin-bottom: 20px !important;
+    position:relative;
+} */
+/* h4::before {
+  content: "";
+  position: absolute;
+  left: 6%;
+  bottom: 5px;
+  width: 150px;
+  height: 10px;
+  transform: skew(-12deg) translateX(-25%);
+  background: rgba(197,210,214,0.5);
+  z-index: -1;
+} */
+h6, .h6 {
+    padding-bottom: 2px;
+    font-size: 16px;
+    margin-bottom: 2px !important;
+    margin-top: 5px !important;
+}
+
+.cli {
+    padding-bottom: 2px;
+    font-size: 16px;
+    margin-bottom: 2px !important;
+    margin-top: 5px !important;
+}
 
 .docusaurus-highlight-code-line {
     background-color: rgb(91, 72, 77);

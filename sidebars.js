@@ -189,9 +189,52 @@ module.exports = {
                 label: 'Automated Testing',
                 collapsed: true,
                 items: [
-                    'web-apps/automated-testing/cypress',
-                    'web-apps/automated-testing/playwright',
-                    'web-apps/automated-testing/pre-run-executables',
+                    {
+                      type: 'category',
+                      label: 'Selenium',
+                      collapsed: true,
+                      items: [
+                        'web-apps/automated-testing/selenium',
+                        'web-apps/automated-testing/selenium/pre-run-executables',
+                        'web-apps/automated-testing/selenium/sample-scripts',
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'Cypress',
+                      collapsed: true,
+                      items: [
+                        'web-apps/automated-testing/cypress',
+                        'testrunner-toolkit/configuration/cypress',
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'Playwright',
+                      collapsed: true,
+                      items: [
+                        'web-apps/automated-testing/playwright',
+                        'testrunner-toolkit/configuration/playwright',
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'TestCafe',
+                      collapsed: true,
+                      items: [
+                        'web-apps/automated-testing/testcafe',
+                        'testrunner-toolkit/configuration/testcafe',
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'Puppeteer',
+                      collapsed: true,
+                      items: [
+                        'web-apps/automated-testing/puppeteer',
+                        'testrunner-toolkit/configuration/puppeteer',
+                      ]
+                    },
                 ],
             },
         ],
@@ -552,40 +595,10 @@ module.exports = {
         "Headless": [
             'headless',
         ],
-        "Testrunner Toolkit": [
+        "SauceCTL": [
             'testrunner-toolkit',
             'testrunner-toolkit/installation',
-            {
-                type: 'category',
-                label: 'Configuration',
-                collapsed: true,
-                items: [
-                    'testrunner-toolkit/configuration',
-                    'testrunner-toolkit/configuration/common-syntax',
-                    {
-                        type: 'category',
-                        label: 'Cypress',
-                        collapsed: true,
-                        items: [
-                            'testrunner-toolkit/configuration/cypress',
-                            'testrunner-toolkit/configuration/cypress/cyp-cucumber',
-                        ]
-                    },
-                    'testrunner-toolkit/configuration/playwright',
-                    'testrunner-toolkit/configuration/puppeteer',
-                    'testrunner-toolkit/configuration/testcafe',
-                    {
-                        type: 'category',
-                        label: 'Espresso',
-                        collapsed: true,
-                        items: [
-                            'testrunner-toolkit/configuration/espresso',
-                            'testrunner-toolkit/configuration/espresso/esp-cucumber',
-                        ]
-                    },
-                    'testrunner-toolkit/configuration/xcuitest',
-                ],
-            },
+            'testrunner-toolkit/configuration',
             'testrunner-toolkit/running-tests',
             {
                 type: 'category',

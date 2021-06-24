@@ -22,7 +22,7 @@ Sauce Performance is a pre-integrated tool within the Sauce portfolio that is av
 
 ## Sauce Performance Requirements and Recommendations
 
-Consider the following guidelines to optimize your performance testing implementation. Also review our [Front End Performance Testing Best Practices](https://wiki.saucelabs.com/display/DOCS/Front+End+Performance+Testing+Best+Practices) white paper for more guidance about your performance test strategy.
+Consider the following guidelines to optimize your performance testing implementation. Also review our [Front End Performance Testing Best Practices](https://saucelabs.com/assets/3we4HgHTuTo2MqfslOTPRo/53e1cb42d6d01478c30f4bb3838299eb/Best_Practices_for_Front-End_Performance_Testing_WP.pdf) white paper for more guidance about your performance test strategy.
 
 ### Chrome Browser Required
 
