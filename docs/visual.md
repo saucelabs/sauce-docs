@@ -16,7 +16,7 @@ Know exactly where and what has changed so that you can deliver a consistent and
   <ul>
       <li><a href="/visual/e2e-testing/setup">Quick Start</a></li>
       <li><a href="/visual/e2e-testing/dashboard-workflow">Workflow</a></li>
-      <li><a href="/visual/e2e-testing/integrations/selenium-webdriver">WebDriver Integration and Commands</a></li>
+      <li><a href="/visual/e2e-testing/integrations/selenium-webdriver">Selenium WebDriver Integration</a></li>
   </ul>
   </div>
 </div>
@@ -28,7 +28,7 @@ Know exactly where and what has changed so that you can deliver a consistent and
   <ul>
       <li><a href="/visual/component-testing/setup">Quick Start</a></li>
       <li><a href="/visual/component-testing/dashboard-workflow">Workflow</a></li>
-      <li><a href="/visual/component-testing/interactions-testing">Story Integration and Commands</a></li>
+      <li><a href="/visual/component-testing/testing-interactions">Story Integration</a></li>
   </ul>
   </div>
 </div>

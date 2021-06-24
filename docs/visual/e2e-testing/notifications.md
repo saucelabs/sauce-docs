@@ -1,7 +1,7 @@
 ---
-id: settings
-title: Settings for Visual E2E Testing
-sidebar_label: Settings
+id: notifications
+title: Visual E2E Testing Notifications
+sidebar_label: Notifications
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -11,7 +11,6 @@ Learn about the different notifications that are available when a test run is co
 ## Email Notifications
 When a test run finds UI changes, an email notification is sent out containing a link to the test results. In the Dashboard, you can subscribe/unsubscribe to email notifications for a Test Group by toggling the checkbox.
 <img src={useBaseUrl('img/visual/e2e-email-subscribe.png')} alt="E2E Email Subscribe"/>
-
 
 
 ## Slack Notifications
@@ -50,9 +49,9 @@ If you want to reduce the number of notifications being sent, and trigger notifi
 
 ## HipChat Notifications
 
-To add Hipchat notifications, you will need to add a webhook similar to the Slack example above.
+To add HipChat notifications, you will need to add a webhook similar to the Slack example above.
 
-First, in your Hipchat **Home** page, click on **Group Admin** in the top menu (you will need to have group admin permissions). Next, in the **Group Admin** page, click on the **API** tab.
+First, in your HipChat **Home** page, click on **Group Admin** in the top menu (you will need to have group admin permissions). Next, in the **Group Admin** page, click on the **API** tab.
 
 <img src={useBaseUrl('img/visual/e2e-hipchat-settings-menu.png')} alt="E2E HipChat"/>
 
@@ -61,13 +60,13 @@ You may be asked to enter your password. Next, in the **API Auth Tokens** page, 
 <img src={useBaseUrl('img/visual/e2e-hipchat-api-token.png')} alt="E2E HipChat API Token"/>
 
 
-Next, find the room ID for the chat room you want your test notifications posted to. Go back to the Hipchat user home page, then click the **Rooms** tab. From the list of rooms, click on the room name. Copy the room ID (API ID).
+Next, find the room ID for the chat room you want your test notifications posted to. Go back to the HipChat user home page, then click the **Rooms** tab. From the list of rooms, click on the room name. Copy the room ID (API ID).
 <img src={useBaseUrl('img/visual/e2e-hipchat-room-id.png')} alt="E2E HipChat Room"/>
 
 In Screener, add a Screener webhook. You will need to navigate to the Dashboard page. Click on **Webhooks**:
 <img src={useBaseUrl('img/visual/e2e-overview-activity-webhook-menu.png')} alt="E2E Overview Webhook Menu"/>
 
-Add the Hipchat URL:
+Add the HipChat URL:
 
 ```bash
 https://api.hipchat.com/v1/rooms/message?format=json&auth_token=[hipchat-api-token]&room_id=[hipchat-room-api-id]
@@ -77,4 +76,4 @@ Click **Add Webhook**, then click **Save**.
 
 <img src={useBaseUrl('img/visual/e2e-add-webhook.png')} alt="E2E Add Webhook"/>
 
-That's it! When a test run finds UI changes, you will now receive a notification in your Hipchat room with a link that takes you to the Screener test results.
+That's it! When a test run finds UI changes, you will now receive a notification in your HipChat room with a link that takes you to the Screener test results.
