@@ -124,27 +124,28 @@ metadata:
 ### `concurrency`
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-The maximum number of suites to execute concurrently. A setting of `10` runs up to 10 test suites at the same time. If the test defines more suites than that, excess suites are queued and run in order as currently running suites complete and new slots are available.
+Sets the maximum number of suites to execute at the same time. If the test defines more suites than the max, excess suites are queued and run in order as each suite completes.
 
 ```yaml
-  concurrency: 10
+  concurrency: 5
 ```
 
 Alternatively, you can override the file setting at runtime by setting the concurrency flag as an inline parameter of the `saucectl run` command:
 
 ```bash
-saucectl run --ccy 10
+saucectl run --ccy 5
 ```
 ---
 
 ## `docker`
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT |<span class="highlight docker">Docker only</span> |</small></p>
 
 The set of properties defining the specific Docker image and type your are using, if you are running any tests locally.
 
 ```yaml
 docker:
   fileTransfer: copy
+  image: saucelabs/stt-puppeteer-jest-node:<vX.X.X>
 ```
 ---
 
@@ -158,6 +159,21 @@ Method in which to transfer test files into the docker container. Valid values a
 ```yaml
   fileTransfer: copy
 ```
+---
+
+### `image`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies which docker image and version to use when running tests. Valid values are in the format:
+`saucelabs/<framework-node>:<vX.X.X>`. See [Supported Testing Platforms](/web-apps/automated-testing/puppeteer#supported-testing-platforms) for Docker release notes related to Puppeteer.
+
+```yaml
+  image: saucelabs/stt-puppeteer-jest-node:< vX.X.X >
+```
+
+:::caution
+Avoid using the `latest` tag for docker images, as advised in [this article](https://vsupalov.com/docker-latest-tag/#:~:text=You%20should%20avoid%20using%20the,apart%20from%20the%20image%20ID.).
+:::
 ---
 
 ## `rootDir`
@@ -290,7 +306,7 @@ puppeteer:
 ### `version`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The version of Puppeteer that is compatible with the tests defined in this file.
+The version of Puppeteer that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/puppeteer#supported-testing-platforms) for the list of Puppeteer versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
   version: 9.1.1
@@ -303,7 +319,6 @@ The version of Puppeteer that is compatible with the tests defined in this file.
 The set of properties providing details about the test suites to run. May contain multiple suite definitions. See the full [example config](#example-configuration) for an illustration of multiple suite definitions.
 
 ---
-
 
 ### `name`
 <p><small>| REQUIRED | STRING |</small></p>
@@ -334,36 +349,6 @@ The name of the browser in which to run this test suite.
 
 ```yaml
     browser: "chrome"
-```
----
-
-### `browserVersion`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-The version of the browser to use for this test suite.
-
-```yaml
-    browserVersion: "85.0"
-```
----
-
-### `platformName`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-A specific operating system and version on which to run the specified browser and test suite. Defaults to a platform that is supported by `saucectl` for the chosen browser.
-
-```yaml
-    platformName: "Windows 10"
-```
----
-
-### `screenResolution`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Specifies a browser window screen resolution, which may be useful if you are attempting to simulate a browser on a particular device type. See [Test Configurations](/basics/test-config-annotation/test-config) for a list of available resolution values.
-
-```yaml
-    screenResolution: "1920x1080"
 ```
 ---
 

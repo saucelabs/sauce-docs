@@ -124,16 +124,20 @@ metadata:
 ### `concurrency`
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-For test suites running on Sauce, the maximum number of suites to execute concurrently. A setting of `10` runs up to 10 test suites at the same time. If the test defines more suites than that, excess suites are queued and run in order as currently running suites complete and new slots are available. This value is limited by your Sauce Labs account settings.
+Sets the maximum number of suites to execute at the same time. If the test defines more suites than the max, excess suites are queued and run in order as each suite completes.
+
+:::caution
+For tests running on Sauce, set this value to equal or less than your Sauce concurrency allowance, as setting a higher value may result in jobs dropped by the server.
+:::
 
 ```yaml
-  concurrency: 10
+  concurrency: 5
 ```
 
 Alternatively, you can override the file setting at runtime by setting the concurrency flag as an inline parameter of the `saucectl run` command:
 
 ```bash
-saucectl run --ccy 10
+saucectl run --ccy 5
 ```
 ---
 
@@ -160,7 +164,7 @@ This is the identifier `saucectl` expects as the `id` property, even though the 
 ---
 
 ## `docker`
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT | <span class="highlight docker">Docker only</span> |</small></p>
 
 The set of properties defining the specific Docker image and type your are using, if you are running any tests locally.
 
@@ -330,7 +334,7 @@ testcafe:
 ### `version`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The version of TestCafe that is compatible with the tests defined in this file.
+The version of TestCafe that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/testcafe#supported-testing-platforms) for the list of TestCafe versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
   version: 1.14.2
