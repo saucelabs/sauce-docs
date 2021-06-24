@@ -2,6 +2,7 @@
 id: continuous-integration
 title: Continuous Integration with Visual Component Testing
 sidebar_label: Continuous Integration
+hide_table_of_contents: true
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -10,28 +11,26 @@ import TabItem from '@theme/TabItem';
 
 Get continuous visual test automation by integrating Screener into your Continuous Integration (CI) process. Screener will automatically run tests, and pass or fail your builds depending on visual regressions found.
 
-Setup Steps
+## Setup Steps
 
-1. After Screener is installed into your project, simply add the following command to your CI pipeline script:
-
-```bash
-npm run test-storybook
-```
-
+1. After Screener is installed into your project, add the following command to your CI pipeline script:
+  ```bash
+  npm run test-storybook
+  ```
 2. Set the `baseBranch` option in your `screener.config.js` file to the name of your base branch ([Learn Why](https://screener.io/v2/docs/baseline-branch)):
+  ```java
+  // screener.config.js
+  module.exports = {
+    ...
 
-```bash
-// screener.config.js
-module.exports = {
-  ...
+    baseBranch: 'master'
+  }
+  ```
 
-  baseBranch: 'master'
-}
-```
+### Additional Options
 
-Optionally integrate into your [GitHub PR workflow](/visual/component-testing/integrations/github).
-
-We recommend securing your API Key by storing it as an environment variable. For example, store it in an environment variable called `SCREENER_API_KEY`, and then reference it in your `screener.config.js` file with: `process.env.SCREENER_API_KEY`.
+* Integrate into your [GitHub PR workflow](/visual/component-testing/integrations/github).
+* We recommend securing your API Key by storing it as an environment variable (i.e., store it in an environment variable called `SCREENER_API_KEY`, then reference it in your `screener.config.js` file with `process.env.SCREENER_API_KEY`).
 
 ## Examples
 
@@ -55,8 +54,8 @@ Screener will automatically pull the build number and branch name from the follo
   values={[
     {label: 'CircleCI', value: 'CircleCI'},
     {label: 'Travis CI', value: 'Travis CI'},
-    {label: 'Bitbucket Pipelines', value: 'Bitbucket Pipelines'},
-    {label: 'Github Actions', value: 'Github Actions'},
+    {label: 'Bitbucket', value: 'Bitbucket'},
+    {label: 'GitHub', value: 'GitHub'},
     {label: 'Other', value: 'Other'},
   ]}>
 
@@ -91,7 +90,7 @@ script:
 ```
 
 </TabItem>
-<TabItem value="Bitbucket Pipelines">
+<TabItem value="Bitbucket">
 
 **bitbucket-pipelines.yml**
 
@@ -107,9 +106,9 @@ pipelines:
 ```        
 
 </TabItem>
-<TabItem value="Github Actions">
+<TabItem value="GitHub">
 
-**.github/workflows/github-actions.yml
+**.github/workflows/github-actions.yml**
 
 ```yaml
 on: [push]
@@ -128,7 +127,7 @@ jobs:
 
 **General Example**
 
-```
+```bash
 npm install
 
 # Run Screener visual component tests
@@ -140,4 +139,4 @@ npm run test-storybook
 
 
 
-If you need help integrating Screener into your CI, or if you would like to see an example not listed here, contact our Support Team.
+If you need help integrating Screener into your CI, or would like to see an example not listed here, [contact our Support Team](https://saucelabs.com/training-support).
