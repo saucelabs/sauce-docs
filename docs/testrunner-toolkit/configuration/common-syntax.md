@@ -23,7 +23,7 @@ Some sets of parameters include settings that vary by framework. In those cases,
 :::
 
 ## `apiVersion`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| REQUIRED | STRING |</small></p>
 
 Identifies the version of `saucectl` that is compatible with this configuration.
 
