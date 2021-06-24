@@ -85,7 +85,7 @@ sauce:
       - release team
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
-    concurrency: 10
+  concurrency: 10
 ```
 ---
 
