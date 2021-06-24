@@ -165,5 +165,3 @@ The following Appium capabilities are not yet supported for real devices. If you
 ## RDC - Additional Resources
 
 * [Example Appium Test Scripts](https://github.com/saucelabs-training)
-* [Sauce Labs Test Configuration Options for Appium](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492)
-* [Sauce Labs Real Devices FAQ](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80414315)

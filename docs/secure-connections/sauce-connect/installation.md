@@ -112,4 +112,6 @@ The location will vary, depending on your operating system. For Mac OS X and Lin
 
 See [Sauce Connect Proxy Changelog](/secure-connections/sauce-connect/changelog).
 
->**NOTE**: Effective with Sauce Connect Proxy version 4.6.0, we've enabled support for Public Certificates and deprecated support for Private Certificates. See [Sauce Connect Proxy Changelog](/secure-connections/sauce-connect/changelog) for more detailed information.
+:::note
+Effective with Sauce Connect Proxy version 4.6.0, we've enabled support for Public Certificates and deprecated support for Private Certificates. See [Sauce Connect Proxy Changelog](/secure-connections/sauce-connect/changelog) for more detailed information.
+:::
