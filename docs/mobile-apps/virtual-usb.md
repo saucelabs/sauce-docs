@@ -38,7 +38,7 @@ Virtual USB (vUSB) is a mobile (app) debugging tool that simulates connecting a 
 * If you're testing an Android app:
   * Android Debug Bridge (ADB) version higher than 1.0.39.
   * Android Studio 4 or higher.
-* If you need to use [Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy), you'll need to have the client installed first.
+* If you need to use [Sauce Connect Proxy](/secure-connections/sauce-connect), you'll need to have the client installed first.
 
 
 ## Virtual USB for Sauce Labs
@@ -92,7 +92,7 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
 
   #### **Optional: Set Environment Variables**
 
-  Setting your Sauce Labs `username` and `accessKey` as [environment variables](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647#BestPracticesforRunningTests-UseEnvironmentVariablesforAuthenticationCredentials) provides an extra layer of security for your credentials when you reference them from within your tests.
+  Setting your Sauce Labs `username` and `accessKey` as [environment variables](/basics/environment-variables) provides an extra layer of security for your credentials when you reference them from within your tests.
 
 
 ### Start Test Session
@@ -390,8 +390,10 @@ To debug with Safari: Open Safari > From the nav, select **Develop** > **Select 
 
 <img src={useBaseUrl('img/virtual-usb/vusb-safari-debug.png')} alt="Virtual USB Energy Logs" />
 
-## Legacy (TestObject)
+## TestObject (Legacy RDC)
 
-For instructions on using vUSB with [TestObject (Legacy RDC)](https://wiki.saucelabs.com/display/DOCS/Legacy+Real+Device+Platform+Resources), see [Virtual USB for TestObject](https://wiki.saucelabs.com/x/0yJWB).
+:::warning
+TestObject, our [Legacy Real Device Platform](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177), reaches end-of-life September 1, 2021.
 
-TestObject will reach end-of-life September 1, 2021; read more [here](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721169).
+Please migrate all of your apps and tests from TestObject to Sauce Labs by August 31, 2021.
+:::

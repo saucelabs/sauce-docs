@@ -283,7 +283,7 @@ __Description__: specifies the folder for the JUnit XML output.
 
 ### `--url`
 
-__Description__: specifies the URL of an alternative REST endpoint to use. For a list of endpoints, see [Data Center Endpoints](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) for further details.
+__Description__: specifies the URL of an alternative REST endpoint to use. See [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints) for further details.
 
 ```java title="Example"
 --url <rest-endpoint-url>
@@ -318,4 +318,4 @@ __Description__: specifies a **direct domain** connection for your proxy server 
 
 * [Example Espresso Test Scripts](https://github.com/saucelabs-training/demo-espresso)
 * [Example XCUITest Test Scripts](https://github.com/saucelabs-training/demo-xcuitest)
-* [Sauce Labs Real Devices FAQ](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80414315)
+* [Sauce Labs Real Devices FAQ](/mobile-apps/faq)
