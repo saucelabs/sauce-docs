@@ -182,7 +182,7 @@ Method in which to transfer test files into the docker container. Valid values a
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies which docker image and version to use when running tests. Valid values are in the format:
-`saucelabs/<framework-node>:<vX.X.X>`. See [Supported Testing Platforms](/web-apps/automated-testing/cypress#supported-testing-platforms) for Docker release notes related to Cypress.
+`saucelabs/<framework-node>:<vX.X.X>`. See [Supported Testing Platforms](/testrunner-toolkit#supported-frameworks-in-docker-runner) for Docker release notes related to each framework.
 
 ```yaml
   image: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node >:< vX.X.X >
