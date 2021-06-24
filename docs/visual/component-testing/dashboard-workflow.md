@@ -106,7 +106,6 @@ Follow these setup steps to enable in your project:
 
 ## Viewing UI Change Details
 
-Changed UI states will include highlights of visual changes directly overlayed on the screenshots.
 
 Screener automatically organizes these changes into four categories:
 
