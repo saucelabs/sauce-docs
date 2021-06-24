@@ -34,7 +34,7 @@ https://github.com/saucelabs/saucectl-playwright-example/blob/master/.sauce/conf
 Each of the properties supported for running Playwright tests through `saucectl` is defined below.
 
 ## `apiVersion`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| REQUIRED | STRING |</small></p>
 
 Identifies the version of `saucectl` that is compatible with this configuration.
 
@@ -60,7 +60,7 @@ Specifies any default settings for the project.
 
 ```yaml
 defaults:
-  - mode: sauce
+  mode: sauce
 ```
 ---
 
@@ -89,7 +89,7 @@ sauce:
       - release team
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
-    concurrency: 10
+  concurrency: 10
 ```
 ---
 
@@ -137,7 +137,7 @@ saucectl run --ccy 10
 ---
 
 ### `tunnel`
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
 
 `saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection when running your tests on Sauce Labs. To do so, launch a tunnel; then provide the identifier in this property.
 
@@ -366,7 +366,7 @@ A property containing one or more environment variables that may be referenced i
 ---
 
 ### `platformName`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| OPTIONAL | STRING | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
 
 A specific operating system and version on which to run the specified browser and test suite. Defaults to a platform that is supported by `saucectl` for the chosen browser.
 
@@ -376,7 +376,7 @@ A specific operating system and version on which to run the specified browser an
 ---
 
 ### `screenResolution`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| OPTIONAL | STRING | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
 
 Specifies a browser window screen resolution, which may be useful if you are attempting to simulate a browser on a particular device type. See [Test Configurations](/basics/test-config-annotation/test-config) for a list of available resolution values.
 

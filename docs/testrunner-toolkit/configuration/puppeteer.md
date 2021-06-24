@@ -35,7 +35,7 @@ https://github.com/saucelabs/saucectl-puppeteer-example/blob/master/.sauce/confi
 Each of the properties supported for running Puppeteer tests through `saucectl` is defined below.
 
 ## `apiVersion`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| REQUIRED | STRING |</small></p>
 
 Identifies the version of `saucectl` that is compatible with this configuration.
 
@@ -61,7 +61,7 @@ Specifies any default settings for the project.
 
 ```yaml
 defaults:
-  - mode: docker
+  mode: docker
 ```
 ---
 
@@ -90,7 +90,7 @@ sauce:
       - release team
       - other tag
     build: GitHub Run $GITHUB_RUN_ID
-    concurrency: 5
+  concurrency: 5
 ```
 ---
 
@@ -328,7 +328,7 @@ A property containing one or more environment variables that may be referenced i
 ---
 
 ### `browser`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| REQUIRED | STRING |</small></p>
 
 The name of the browser in which to run this test suite.
 
@@ -548,5 +548,5 @@ If your Puppeteer tests are in TypeScript, you need to transpile your Typescript
    ```yaml
    suites:
      - name: "basic test"
-       testMatch: 'tests/*.js'
+       testMatch: ['tests/*.js']
    ```

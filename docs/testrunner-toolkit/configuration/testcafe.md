@@ -34,7 +34,7 @@ https://github.com/saucelabs/saucectl-testcafe-example/blob/master/.sauce/config
 Each of the properties supported for running TestCafe tests through `saucectl` is defined below.
 
 ## `apiVersion`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| REQUIRED | STRING |</small></p>
 
 Identifies the version of `saucectl` that is compatible with this configuration.
 
@@ -61,7 +61,7 @@ Specifies any default settings for the project.
 
 ```yaml
 defaults:
-  - mode: sauce
+  mode: sauce
 ```
 ---
 
@@ -90,7 +90,7 @@ sauce:
       - release team
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
-    concurrency: 10
+  concurrency: 10
 ```
 ---
 
@@ -138,7 +138,7 @@ saucectl run --ccy 10
 ---
 
 ### `tunnel`
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
 
 `saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection when running your tests on Sauce Labs. To do so, launch a tunnel; then provide the identifier in this property.
 
@@ -367,7 +367,7 @@ A property containing one or more environment variables that may be referenced i
 ---
 
 ### `browserName`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| REQUIRED | STRING |</small></p>
 
 The name of the browser in which to run this test suite.
 

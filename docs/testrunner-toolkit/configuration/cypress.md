@@ -90,7 +90,7 @@ sauce:
       - release team
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
-    concurrency: 10
+  concurrency: 10
 ```
 ---
 
@@ -138,7 +138,7 @@ saucectl run --ccy 10
 ---
 
 ### `tunnel`
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
 
 `saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection when running your tests on Sauce Labs. To do so, launch a tunnel; then provide the identifier in this property.
 
@@ -406,7 +406,7 @@ A property containing one or more environment variables that may be referenced i
 ---
 
 ### `browser`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| REQUIRED | STRING |</small></p>
 
 The name of the browser in which to run this test suite.
 
@@ -426,7 +426,7 @@ The version of the browser to use for this test suite.
 ---
 
 ### `platformName`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| OPTIONAL | STRING | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
 
 A specific operating system and version on which to run the specified browser and test suite. Defaults to a platform that is supported by `saucectl` for the chosen browser.
 
@@ -436,7 +436,7 @@ A specific operating system and version on which to run the specified browser an
 ---
 
 ### `screenResolution`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| OPTIONAL | STRING | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
 
 Specifies a browser window screen resolution, which may be useful if you are attempting to simulate a browser on a particular device type. See [Test Configurations](/basics/test-config-annotation/test-config) for a list of available resolution values.
 
@@ -484,7 +484,7 @@ A set of any ephemeral/environment variables needed to run the tests in this sui
 ---
 
 #### `testFiles`
-<p><small>| OPTIONAL | STRING/ARRAY/REGEX |</small></p>
+<p><small>| REQUIRED | STRING/ARRAY/REGEX |</small></p>
 
 One or more paths to the Cypress test files to run for this suite, if not otherwise specified explicitly in `cypress.json`. Regex values are supported to indicate all files of a certain type or in a certain directory, etc.
 
