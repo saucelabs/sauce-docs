@@ -1,16 +1,24 @@
 ---
 id: configuration
-title: Configuring Sauce Control
-sidebar_label: Getting Started
+title: Configuring SauceCTL
+sidebar_label: Configuration
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-The initial [installation and setup](/testrunner-toolkit/installation) of `saucectl` generates a `config.yml` file based on the framework and region you selected during setup. By default, `saucectl` will look for this file each time you engage the CLI in order to determine where to find your tests and how and where to run them.
+The initial [installation and setup](/testrunner-toolkit/installation) of `saucectl` generates a `config.yml` file based on the framework and region you select during setup. By default, `saucectl` will look for this file each time you engage the CLI in order to determine where to find your tests and how and where to run them.
 
-The configuration file is flexible enough to allow for any customizations and definitions that are required for any of the supported frameworks. The following sections describe some of the most common configurations.
+The configuration file is flexible enough to allow for any customizations and definitions that are required for any of the supported frameworks. The following sections describe some of the most common configurations. For information about configuring individual framework projects, see:
+
+* [Configure Cypress](/testrunner-toolkit/configuration/cypress)
+* [Configure Playwright](/testrunner-toolkit/configuration/playwright)
+* [Configure TestCafe](/testrunner-toolkit/configuration/testcafe)
+* [Configure Puppeteer](/testrunner-toolkit/configuration/puppeteer)
+* [Configure Espresso](/testrunner-toolkit/configuration/espresso)
+* [Configure XCUITest](/testrunner-toolkit/configuration/xcuitest)
+
 
 ## Setting an Alternative Configuration File
 

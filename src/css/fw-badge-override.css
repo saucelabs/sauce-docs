@@ -28,6 +28,10 @@
     background-color:#003A70;
 }
 
+.docker {
+    background-color:#1993ef;
+}
+
 /* Support FW table style */
 
 #table-fw tr:nth-child(even){
