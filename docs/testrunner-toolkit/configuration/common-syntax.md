@@ -491,7 +491,7 @@ A specific operating system and version on which to run the specified browser an
 ---
 
 ### `screenResolution`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| OPTIONAL | STRING |  <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
 
 Specifies a browser window screen resolution, which may be useful if you are attempting to simulate a browser on a particular device type. See [Test Configurations](/basics/test-config-annotation/test-config) for a list of available resolution values.
 
