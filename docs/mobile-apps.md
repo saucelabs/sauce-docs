@@ -33,7 +33,7 @@ Debug faster, facilitate collaboration, increase mobile device coverage, and com
   </div>
   <div className="box box2 card">
     <div className="container">
-    <a href="https://wiki.saucelabs.com/display/DOCS/Best+Practices+for+Live+Testing"><h3>Live Testing Best Practices</h3></a>
+    <a href="/mobile-apps/live-testing/live-mobile-app-testing"><h3>Live Testing Best Practices</h3></a>
     <p>Review our best practices for testing manually on Sauce Labs virtual emulators/simulators and real devices.</p>
     </div>
   </div>

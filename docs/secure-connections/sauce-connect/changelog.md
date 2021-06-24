@@ -4,7 +4,9 @@ title: Sauce Connect Proxy Changelog
 sidebar_label: Changelog
 ---
 
->**NOTE:** All Sauce Connect Proxy versions below 4.6.0, which were supporting Private Certificates, have reached end of life and are no longer available for download. To align with security best practices, Sauce Connect Proxy is only supporting certificates signed by Public Certificate Authorities. For best performance, and to take advantage of these security enhancements, please upgrade to the latest version. If you're using Sauce Connect in conjunction with [Jenkins](/secure-connections/sauce-connect/setup-configuration/ci-cd-environments), be sure to use the most recent version of the Jenkins plugin.
+:::note
+All Sauce Connect Proxy versions below 4.6.0, which were supporting Private Certificates, have reached end of life and are no longer available for download. To align with security best practices, Sauce Connect Proxy is only supporting certificates signed by Public Certificate Authorities. For best performance, and to take advantage of these security enhancements, please upgrade to the latest version. If you're using Sauce Connect in conjunction with [Jenkins](/secure-connections/sauce-connect/setup-configuration/ci-cd-environments), be sure to use the most recent version of the Jenkins plugin.
+:::
 
 <table>
   <tr>

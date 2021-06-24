@@ -43,7 +43,7 @@ The server also includes a [desktop application](http://appium.io/downloads) tha
 Here are the basic steps for creating an Appium test script for your application under test (AUT):
 
 ### 1. Set your app location
-When you write an Appium test script, the most basic component is the [capabilities object](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365693). This is where you set your test parameters, such as the mobile platform and operating system you want to test against.
+When you write an Appium test script, the most basic component is the [capabilities object](/basics/test-config-annotation/test-annotation). This is where you set your test parameters, such as the mobile platform and operating system you want to test against.
 
 Within that object, one of the [required capabilities](/dev/test-configuration-options) is the `app` capability: the path to your application (e.g., Sauce Storage, AWS, GitHub). One of the advantages of the Appium architecture is that the application you want to test can be hosted anywhere, from a local path to any other web host on the network, since the Appium server will send the commands it receives from the client to any application path you specify. Practically, you have three options. 
 
