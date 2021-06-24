@@ -185,7 +185,7 @@ Specifies which docker image and version to use when running tests. Valid values
 `saucelabs/<framework-node>:<vX.X.X>`. See [Supported Testing Platforms](/testrunner-toolkit#supported-frameworks-in-docker-runner) for Docker release notes related to each framework.
 
 ```yaml
-  image: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node >:< vX.X.X >
+  image: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node | stt-puppeteer-jest-node >:< vX.X.X >
 ```
 
 :::caution
