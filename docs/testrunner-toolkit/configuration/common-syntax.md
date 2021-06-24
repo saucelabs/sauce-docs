@@ -461,7 +461,7 @@ A property containing one or more environment variables that may be referenced i
 ---
 
 ### `browser`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| REQUIRED | STRING |</small></p>
 
 The name of the browser in which to run this test suite.
 
