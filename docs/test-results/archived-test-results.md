@@ -33,7 +33,7 @@ The **Archives** page includes a number of filters you can use to search through
 
 ### Special Filter Criteria and Operators
 
-Some filters include additional options and the ability to use special operators. See [Search Filters and Operators](/test-results/managing-test-results#search-fields-and-operators) for more information.  
+Some filters include additional options and the ability to use special operators. See [Search Filters and Operators](/test-results/managing-test-results) for more information.  
 
 ## Creating Structured Searches
 

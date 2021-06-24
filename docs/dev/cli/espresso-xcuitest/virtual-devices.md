@@ -62,7 +62,7 @@ __Example__:
 
 ### `--user`
 
-__Description__: Your Sauce Labs `username`. You can use the [environment variable `SAUCE_USERNAME`](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647#BestPracticesforRunningTests-UseEnvironmentVariablesforAuthenticationCredentials) to provide your login information. The command line argument will take precedence over the environment variable.
+__Description__: Your Sauce Labs `username`. You can use the [environment variable `SAUCE_USERNAME`](/basics/environment-variables to provide your login information. The command line argument will take precedence over the environment variable.
 
 __Shorthand__: `-u`
 
@@ -74,7 +74,7 @@ __Example__:
 
 ### `--api-key`
 
-__Description__: Your Sauce Labs Access Key, which you can find under [User Settings](https://app.saucelabs.com/user-settings) in the Sauce Labs interface. You can also use the [environment variable SAUCE_ACCESS_KEY](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647#BestPracticesforRunningTests-UseEnvironmentVariablesforAuthenticationCredentials) to provide your login information. The command line argument will take precedence over the environment variable.
+__Description__: Your Sauce Labs Access Key, which you can find under [User Settings](https://app.saucelabs.com/user-settings) in the Sauce Labs interface. You can also use the [environment variable SAUCE_ACCESS_KEY](/basics/environment-variables) to provide your login information. The command line argument will take precedence over the environment variable.
 
 __Shorthand__: `-k`
 
@@ -118,8 +118,8 @@ __Properties__:
 
 | Property          | Required | Description                                                                                                                                                                                                                                                                    |
 |-------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `deviceName`      | Yes      | The name of the device to use. You can use the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/) to look up the Appium `deviceName` for supported devices.                                                                   |
-| `platformVersion` | Yes      | The operating system version of the device you want to use. Supported values depend on the device. You can use the [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/) to look up the Appium `platformVersion` for the device. |
+| `deviceName`      | Yes      | The name of the device to use. You can use the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to look up the Appium `deviceName` for supported devices.                                                                   |
+| `platformVersion` | Yes      | The operating system version of the device you want to use. Supported values depend on the device. You can use the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to look up the Appium `platformVersion` for the device. |
 | `locale`          | No       | Location of the device.                                                                                                                                                                                                                                                        |
 | `orientation`     | No       | Orientation of the device. Supported values are: <ul> <li>`portrait`(default)</li> <li>`landscape`</li> </ul>                                                                                                                                                                  |
 
@@ -235,7 +235,6 @@ __Example__:
 
 ### `--version`
 
-
 __Description__: Returns the version information for Sauce Runner.
 
 __Shorthand__: n/a
@@ -247,7 +246,6 @@ __Example__:
 ```
 
 ### `--help`
-
 
 __Description__: Prints this command line reference to the console.
 

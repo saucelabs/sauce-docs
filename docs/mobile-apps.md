@@ -33,7 +33,7 @@ Debug faster, facilitate collaboration, increase mobile device coverage, and com
   </div>
   <div className="box box2 card">
     <div className="container">
-    <a href="https://wiki.saucelabs.com/pages/viewpage.action?pageId=115061210"><h3>Live Testing Best Practices</h3></a>
+    <a href="/mobile-apps/live-testing/live-mobile-app-testing"><h3>Live Testing Best Practices</h3></a>
     <p>Review our best practices for testing manually on Sauce Labs virtual emulators/simulators and real devices.</p>
     </div>
   </div>
@@ -62,17 +62,11 @@ Accelerate and scale your testing and broaden coverage by running automated test
     <a href="/mobile-apps/automated-testing/appium/real-devices"><h3>Real Device Testing with Appium</h3></a>Learn how to run automated mobile app tests on Sauce Labs real devices using Appium.
     </div>
   </div>
-  <div className="box box3 card">
-    <div className="container">
-    <a href="/mobile-apps/automated-testing/espresso-xcuitest/real-devices"><h3>Real Device Testing with Espresso and XCUITest</h3></a>
-    <p>Integrate your Espresso and XCUITest test automation frameworks with Sauce Labs real devices using our RDC test runner.</p>
-    </div>
-  </div>
-  <div className="box box4 card">
-    <div className="container">
-    <a href="/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices"><h3>Virtual Device Testing with Espresso and XCUITest</h3></a>
-    <p>Integrate your Espresso and XCUITest test automation frameworks with Sauce Labs virtual devices using our VDC test runner.</p>
-    </div>
+</div>
+<div className="box boxwidebottom card">
+  <div className="container">
+  <a href="/mobile-apps/automated-testing/espresso-xcuitest"><h3>Testing with Espresso and XCUITest</h3></a>
+  <p>Integrate your Espresso and XCUITest test automation frameworks with Sauce Labs.</p>
   </div>
 </div>
 

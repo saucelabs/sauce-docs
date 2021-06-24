@@ -15,7 +15,7 @@ With Sauce Labs, you can test your mobile applications on a variety of real Andr
 * A mobile app to test. If you don't have one, you can use the [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile).
 
 ### Uploading an App
-You can upload your app via the Sauce Labs UI or via the REST API. For information about uploading via the API, see [Upload Files with the REST API](https://wiki.saucelabs.com/display/DOCS/Application+Storage#ApplicationStorage-UploadFileswiththeRESTAPI).
+You can upload your app via the Sauce Labs UI or via the REST API. For information about uploading via the API, see [Upload Files with the REST API](/mobile-apps/app-storage).
 
 To upload an app via the Sauce Labs UI:
 
@@ -24,7 +24,9 @@ To upload an app via the Sauce Labs UI:
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-nav.png')} alt="Upload an application" width="650"/>
 
->**NOTE:** The Sauce Labs UI currently supports live testing on **real devices only**. To test on virtual devices, use the REST API.
+:::note
+The Sauce Labs UI currently supports live testing on **real devices only**. To test on virtual devices, use the REST API.
+:::
 
 ### Deleting an App
 Deleting an app in Sauce Labs will delete the whole application (i.e., the group of builds belonging to the same app package). Files associated with app identifiers (i.e., belonging to the same platform and accessible to the same team) are indicated by the + symbol next to version number. Also, the version number shown is the most recently updated file, not necessarily the latest version of the application.
@@ -56,7 +58,9 @@ To easily copy a test's file name or ID, hover over the test and then click the 
 | Biometrics Interception <br/><p><span className="sauceDBlue">iOS Only</span></p> | Enable/disable biometrics. Enabling allows you to choose authentication options if your mobile app requires a biometric authentication, such as Touch ID or Face ID. |
 | Group Folder Redirect <br/><p><span className="sauceDBlue">iOS Only</span></p> | Enable/disable a group directory redirect. Enabling allows you to use your app's private app container directory instead of the shared app group container directory. When your app gets resigned, the shared directory is not accessible. |
 
->**NOTE:** Any changes you make to the application settings will affect all uploaded versions of the application.
+:::note
+Any changes you make to the application settings will affect all uploaded versions of the application.
+:::
 
 **Example Settings - iOS**
 
@@ -158,7 +162,8 @@ The graph and csv file will contain these performance metrics for devices.
 | `network_mobile_receive_b` | Data in bytes received from the mobile carrier network |
 | `network_mobile_sent_b` | Data in bytes sent over mobile carrier network |
 
->**NOTE:** Device Vitals for live testing is currently in beta state, which means we are testing it on a few devices first. We will roll out to all devices in the coming weeks, please refer to this page for updates. See the full list of combinations available for beta below.
+:::note Device Vitals for live testing is currently in beta state, which means we are testing it on a few devices first. We will roll out to all devices in the coming weeks, please refer to this page for updates. See the full list of combinations available for beta below.
+:::
 
 <Tabs
   defaultValue="iOS"
@@ -230,7 +235,9 @@ Apple certificates are used to ensure security in their systems, and they are mu
 
 To give you an example, Android apps can be installed without any specific signing on whatever real device you want. With Apple you have two options, or you need to add a remote device to your developer certificate and the provisioning profile, so you are allowed to install the app on that specific device. Or you need to use an enterprise certificate where the Apple device that has that certificate installed allows you to install the app. Similarly, when you install an iOS app on a device, we re-sign the app with a Sauce Labs enterprise certificate so you can install your app on all Sauce Labs public/private devices.
 
->**NOTE:** Apple Pay has a limitation that it cannot work with an enterprise certificate. You need to use the developer certificate where the device has been added to the provisioning profile in order to make this work. This can only be done for Sauce Labs private devices on which you have disabled the resigning.
+:::note
+Apple Pay has a limitation that it cannot work with an enterprise certificate. You need to use the developer certificate where the device has been added to the provisioning profile in order to make this work. This can only be done for Sauce Labs private devices on which you have disabled the resigning.
+:::
 
 ### Apple Pay on Real Private Devices
 To make Apple Pay work on Sauce Labs real private devices:
@@ -242,7 +249,7 @@ To make Apple Pay work on Sauce Labs real private devices:
   1. Manually adding the device and its UDID to the device list for your developer certificate.
   **NOTE:** Your device list can be found on Apple’s [Certificates, Identifiers & Profiles page](https://developer.apple.com/account/resources/) for your developer account, and you can get the UDID of your private device by contacting your Sauce Labs CSM.
   2. Using the Sauce Labs Virtual USB solution:
-      1. Start a session with Virtual USB (see [Testing with Virtual USB on Real Devices](/mobile-apps/virtual-usb.md) for more information).
+      1. Start a session with Virtual USB (see [Testing with Virtual USB on Real Devices](/mobile-apps/virtual-usb) for more information).
       2. When the connection is established, open **XCODE**.
       3. Select the device from the device list.
 
@@ -316,7 +323,9 @@ Apple test cards can be found on Apple’s [Sandbox Testing](https://developer.a
 
 Disabling this allows the app to use Apple Pay and the developer certificate and provisioning profile that you used when you built the app.
 
->**NOTE:** Disabling re-signing will break the installation of the app on public devices. The app will only be allowed to be installed on private devices that have been added to the developer certificate and provisioning profile.
+:::note
+Disabling re-signing will break the installation of the app on public devices. The app will only be allowed to be installed on private devices that have been added to the developer certificate and provisioning profile.
+:::
 
 Once the app has been uploaded and re-signing has been disabled, you can start the device and let Sauce Labs install the application on the device.
 
@@ -348,7 +357,7 @@ Camera Image Injection is a core feature built into our RDC functionality and av
 * Testing with emulators, simulators
 
 ### What You'll Need
-You'll need to upload your app to Sauce Labs prior to testing (see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing.md)).
+You'll need to upload your app to Sauce Labs prior to testing (see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing)).
 
 ### Testing with Camera Image Injection
 1. In Sauce Labs, click **LIVE** and then click **Mobile App**.

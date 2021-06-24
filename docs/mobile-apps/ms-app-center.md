@@ -6,8 +6,6 @@ sidebar_label: MS App Center
 
 This topic describes how to migrate your apps from Microsoft App Center to a Sauce Labs Data Center by creating a [post-build script](https://docs.microsoft.com/en-us/appcenter/build/custom/scripts/#post-build) in Microsoft App Center.
 
->**NOTE**: If you're looking for the Legacy RDC (TestObject) solution, see [Legacy Platform App Center Integration](https://wiki.saucelabs.com/pages/viewpage.action?pageId=110205512).
-
 ## What You'll Need
 
 * A Sauce Labs account
@@ -53,5 +51,5 @@ This topic describes how to migrate your apps from Microsoft App Center to a Sau
      ```
 
 :::tip
-Use the [App Storage](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721137) API to retrieve a specific build or obtain information regarding the build that ran during this operation.
+Use the [App Storage](/mobile-apps/app-storage) API to retrieve a specific build or obtain information regarding the build that ran during this operation.
 :::
