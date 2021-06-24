@@ -32,7 +32,7 @@ __Shorthand__: `-k`
 
 ### Data Center Endpoint
 
-__Description__: depending on the Data Center location of the device you're testing on (US or EU), you may need to add a [Data Center Endpoint](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068).
+__Description__: depending on the Data Center location of the device you're testing on (US or EU), you may need to add a [Data Center Endpoint](/basics/data-center-endpoints/data-center-endpoints).
 
 __Examples__:
 
@@ -72,7 +72,7 @@ See the **Tunnels** page for quick start info.
 
 __Description__: assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is very strongly recommended. Future jobs will use this tunnel only when explicitly specified by the `tunnelIdentifier` Capability in a Selenium client.
 
-For information on using `--tunnel-identifier` to run several Sauce Connect Proxy tunnels simultaneously, see [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). To learn about the syntax for setting `--tunnelIdentifier` as a capability, see [Test Configuration Options](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492).
+For information on using `--tunnel-identifier` to run several Sauce Connect Proxy tunnels simultaneously, see [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). To learn about the syntax for setting `--tunnelIdentifier` as a capability, see [Test Configuration Options](/dev/test-configuration-options).
 
 Your ID must be ASCII.
 
@@ -142,7 +142,7 @@ __Shorthand__: `-v`
 
 ### `--fast-fail-regexps [...]`
 
-__Description__:  Tests for application and site degradation based on missing assets or resources. It can be used to simulate non-loading of scripts, styles, or other resources. Use this option followed by a comma-separated list of regular expressions. Requests with URLs matching one of these will get dropped instantly and will not go through the tunnel. See Using [Sauce Connect Proxy to Test Graceful Degradation](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365877#SauceConnectProxyFAQs-HowcanIuseSauceConnectProxytotestgratefuldegradation) for an example.
+__Description__:  Tests for application and site degradation based on missing assets or resources. It can be used to simulate non-loading of scripts, styles, or other resources. Use this option followed by a comma-separated list of regular expressions. Requests with URLs matching one of these will get dropped instantly and will not go through the tunnel. See Using [Sauce Connect Proxy to Test Graceful Degradation](https://docs.saucelabs.com/secure-connections/sauce-connect/faq#how-can-i-use-sauce-connect-proxy-to-test-graceful-degradation) for an example.
 
 __Shorthand__: `-F`
 <br/>
@@ -216,7 +216,7 @@ __Shorthand__: `-s`
 
 ### `--rest-url [arg]`
 
-__Description__: Allows you to connect to a different Sauce Labs cloud (e.g., EU Virtual Device and Desktop Cloud or US Real Device Cloud) other than the default, US-West-1. For a full list of Sauce Connect Proxy endpoints, see [Data Center Endpoints](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints).
+__Description__: Allows you to connect to a different Sauce Labs cloud (e.g., EU Virtual Device and Desktop Cloud or US Real Device Cloud) other than the default, US-West-1. For a full list of Sauce Connect Proxy endpoints, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
 
 __Shorthand__: `-x`
 <br/>
@@ -230,7 +230,7 @@ __Shorthand__: `-f`
 
 ### `--auth [host:port:user:pwd]`
 
-__Description__: Performs basic authentication when a URL on host:port asks for a username and password. This option can be used multiple times. For examples, see [Using `--auth` with Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=65607085).
+__Description__: Performs basic authentication when a URL on host:port asks for a username and password. This option can be used multiple times. For examples, see [Using `--auth` with Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/sauce-connect/security-authentication/index.html#authentication-using---auth).
 
 Sauce Connect Proxy's `--auth` flag will only send the header Authorization with a type of 'Basic'. If a resource responds with the header WWW-Authenticate of a type any other than 'Basic,' your authentication will fail and return a non-200 HTTP response.
 HTTP Header Injection is disabled for SSL domains that are not re-encrypted by Sauce Connect Proxy, which means performing basic authentication in this way is disabled for all HTTPS domains passed to `--no-ssl-bump-domains` argument.
@@ -247,7 +247,7 @@ __Shorthand__: `-z`
 
 ### `--max-logsize [bytes]`
 
-__Description__: Rotates log file after reaching bytes size. Disabled by default.
+__Description__: After reaching the max bytes size, creates a new log and appends an order number to the previous log. Disabled by default.
 
 __Shorthand__: n/a
 <br/>
@@ -423,15 +423,15 @@ Here are some guidelines to follow when formatting domains:
 * Make sure your comma-separated list of domains doesn't include any spaces.
   * Example, `mydomain.com,saucelabs.com,mysite.com`
 * Prefix domain names with `*.` or simply `.` to match all its subdomains.
-  * Example: You could refer to both `wiki.saucelabs.com` and `my.saucelabs.com` with "`*.saucelabs.com"` or` ".saucelabs.com"`. Enclose the argument in quotes to prevent shell expansion of asterisk.
+  * Example: You could refer to `docs.saucelabs.com` and `my.saucelabs.com` as "`*.saucelabs.com"` or` ".saucelabs.com"`. Enclose the argument in quotes to prevent shell expansion of asterisk.
 * If you don't want any domains to be SSL re-encrypted, you can specify `all` with the argument (i.e., `-B all` or `--no-ssl-bump-domains all`)
 * WebSockets domains are not compatible with SSL bumping, so you'll need to disable SSL Bumping for them
 
 
 ## Additional Resources
 
-* [Downloading Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863)
+* [Downloading Sauce Connect Proxy](/secure-connections/sauce-connect/installation)
 * [Sauce Connect Proxy Environment Variables](/secure-connections/sauce-connect/environment-variables)
-* [Sauce Connect Proxy Setup and Configuration](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Setup+and+Configuration)
-* [Sauce Connect Proxy Network Security](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+and+Network+Security)
+* [Sauce Connect Proxy Setup and Configuration](/secure-connections/sauce-connect/setup-configuration/setup-configuration)
+* [Sauce Connect Proxy Network Security](/secure-connections/sauce-connect/security-authentication)
 * [Sauce Connect Proxy Changelog](secure-connections/sauce-connect/changelog)

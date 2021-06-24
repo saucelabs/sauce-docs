@@ -5,9 +5,9 @@ sidebar_label: Environment Variables
 hide_table_of_contents: true
 ---
 
-These environment variables can be used in addition to [command-line options](/dev/cli/sauce-connect-proxy) to control the behavior of Sauce Connect Proxy. To learn how to set up environment variables, see [Using Environment Variables for Authentication Credentials](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365921).
+These environment variables can be used in addition to [command-line options](/dev/cli/sauce-connect-proxy) to control the behavior of Sauce Connect Proxy. To learn how to set up environment variables, see [Using Environment Variables for Authentication Credentials](/basics/environment-variables).
 
-When an environment variable is used, it can still be overridden by the command-line. Command-line options – when available – always take precedence.
+When an environment variable is used, it can still be overridden by the command-line. Command-line options--when available--always take precedence.
 
 Some command-line arguments can be passed through a config file or an environment variable. When the same argument is passed through multiple methods, the order of precedence is as follows:
 
@@ -99,7 +99,9 @@ Some command-line arguments can be passed through a config file or an environmen
    </tr>
    </table>
 
->**NOTE**: Not all environment variables are supported on all platforms. For best performance, make sure that you're using the [latest version of Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=96832863).
+:::note
+Not all environment variables are supported on all platforms. For best performance, make sure that you're using the [latest version of Sauce Connect Proxy](/secure-connections/sauce-connect/installation).
+:::
 
 ## Additional Resources
 

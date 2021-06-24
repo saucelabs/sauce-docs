@@ -431,16 +431,16 @@ Select a cloud provider from the tables below to view the recommended system req
 Tips for optimizing your tests running through Sauce Connect tunnels:
 
 *  If you're running **100 or more parallel tests**, we recommend a minimum network bandwidth of 750 Mbps to support the high volume of network traffic.
-*  If you're running **200 or more parallel tests**, we recommend launching more than one tunnel and using the [High Availability Sauce Connect Proxy Setup](https://wiki.saucelabs.com/display/DOCS/High+Availability+Sauce+Connect+Proxy+Setup).
+*  If you're running **200 or more parallel tests**, we recommend launching more than one tunnel and using the [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
 *  When running a high volume of parallel tests on Unix-based operating systems, you may need to increase your [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) (for example, `ulimit -n 8192`).
-*  For best performance, stability, and security, we recommend using a dedicated server (see [Sauce Connect Proxy Network Security](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+and+Network+Security)).
+*  For best performance, stability, and security, we recommend using a dedicated server (see [Sauce Connect Proxy Network Security](/secure-connections/sauce-connect/security-authentication)).
 
 
 ## Setting Up Sauce Connect on Your Test Device Network
 
 Sauce Connect Proxy must be set up on the same network as your test devices. It does not, however, need to be set up on the same machine as the website or app you're testing.
 
-[What Not to Do: Common Mistakes in Sauce Connect Proxy Network Configurations](https://wiki.saucelabs.com/display/DOCS/What+Not+to+Do%3A+Common+Mistakes+in+Sauce+Connect+Proxy+Network+Configurations) illustrates some examples of network architectures in which Sauce Connect will not be able to create a tunnel or will be too slow to carry out effective testing.  
+[What Not to Do: Common Mistakes in Sauce Connect Proxy Network Configurations](/secure-connections/sauce-connect/troubleshooting) illustrates some examples of network architectures in which Sauce Connect will not be able to create a tunnel or will be too slow to carry out effective testing.  
 
 
 ## Configuring Your Network to Use Sauce Connect
@@ -463,17 +463,17 @@ When your tests are running through a Sauce Connect tunnel, the client on your n
 
 ### Allow-listing for Restricted Networks
 
-If you're testing in a restricted network setting, you may need to allow-list the Sauce Labs domains below to allow outbound communication to Sauce Labs Selenium and Appium endpoints. Allow-listing for inbound traffic coming into your network is not necessary. To check if your setup is successful, see [Validating Your Basic Sauce Connect Proxy Setup](https://wiki.saucelabs.com/display/DOCS/Basic+Sauce+Connect+Proxy+Setup#BasicSauceConnectProxySetup-ValidatingYourBasicSauceConnectProxySetup).
+If you're testing in a restricted network setting, you may need to allow-list the Sauce Labs domains below to allow outbound communication to Sauce Labs Selenium and Appium endpoints. Allow-listing for inbound traffic coming into your network is not necessary. To check if your setup is successful, see [Validating Your Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
 
 You'll need to use the set of domains for your corresponding Sauce Labs Data Center: US Data Center (US-West-1**), Headless Data Center (US-East-1), or European Data Center (EU-Central-1). The Data Center you're connected to is indicated in your navigation menu.
 
 <img src={useBaseUrl('img/sauce-connect/data-center-ui.jpg')} alt="Sauce Connect download file contents" width="600" margin-bottom="50px"/>
 
-For more information on our Data Centers and how to choose the right one for you, see [Data Center Endpoints](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints).
+For more information on our Data Centers and how to choose the right one for you, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
 
 ### REST API Endpoints
 
-The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select your relevant [Data Center](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints):
+The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select your relevant [Data Center](/basics/data-center-endpoints/data-center-endpoints):
 
 <Tabs
   defaultValue="US West 1"
@@ -519,7 +519,7 @@ The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select y
 
 #### Sauce Connect Tunnel Service Domains
 
-The following domains must be whitelisted for outbound communication from you network in order to make connections to Sauce Connect tunnels. Select your relevant [Data Center](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints):
+The following domains must be whitelisted for outbound communication from you network in order to make connections to Sauce Connect tunnels. Select your relevant [Data Center](/basics/data-center-endpoints/data-center-endpoints):
 
 <Tabs
   defaultValue="US West 1"
@@ -580,8 +580,4 @@ Here are the Sauce Connect Proxy network requirements for TLS and SSL traffic:
 
 ## Certificate Management
 
-Public key certificates are used to manage the security of Sauce Connect Proxy communication to both the Sauce Labs API and to the Virtual Machine hosting your tests in the Sauce Labs cloud. For information on saucelabs.com certificate authentication, see [Sauce Connect Proxy Certificate Handling](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Certificate+Handling).
-
-## Additional Resources
-
-* [Video: Setting Up Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#SauceConnectProxy-Video:SettingUpSauceConnectProxy)
+Public key certificates are used to manage the security of Sauce Connect Proxy communication to both the Sauce Labs API and to the Virtual Machine hosting your tests in the Sauce Labs cloud. For information on saucelabs.com certificate authentication, see [Sauce Connect Proxy Certificate Handling](/secure-connections/sauce-connect/security-authentication).

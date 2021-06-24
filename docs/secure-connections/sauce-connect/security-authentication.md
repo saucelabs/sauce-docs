@@ -39,7 +39,7 @@ By using the `--proxy` or `--pac` command line options, `sc` can be configured t
 
 We recommend the use of an HTTP proxy that is familiar to the customer's security team. The proxy should be configured to allow access only to a whitelisted set of URL domains or URL prefixes used for testing. Access should be logged. Note that logs can be inspected by an Intrusion Detection System for malware signatures and other signs of suspicious activity.
 
-For more information, see [Sauce Connect Command Line Reference](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide) and [Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
+For more information, see [Sauce Connect Command Line Reference](/dev/cli/sauce-connect-proxy) and [Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
 
 **Recommended Sauce Connect Proxy Configuration**
 
@@ -90,7 +90,7 @@ You can use this option multiple times in a row, like so:
 --auth mysite.com:80:awesometester:supersekrit --auth myothersite.com:443:awesometester:supersekrit --auth mythirdsite.com:80:awesometester:supersekrit
 ```
 
-For more information, see [Basic HTTP Authentication](https://wiki.saucelabs.com/display/DOCS/Basic+HTTP+Authentication) and [Best Practice: Use Environment Variables for Authentication Credentials](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials).
+For more information, see [Best Practice: Handling Authentication](https://community.saucelabs.com/general-delivery-discussion-6/best-practice-handling-authentication-164) and [Using Environment Variables for Authentication Credentials](/basics/environment-variables).
 
 ## Certificate Handling
 The security of Sauce Connect Proxy communication to both the Sauce Labs API and the virtual machine hosting your tests in the Sauce Labs cloud is managed through [public key certificates](https://en.wikipedia.org/wiki/Public_key_certificate).
@@ -115,7 +115,7 @@ In addition to whitelisting these sites, consult the  list of domains at the Rap
 #### OCSP Tunnel Certificate Validation
 This feature lets the Sauce Connect client validate that the tunnel endpoint's public certificate has not been revoked. OCSP relies on Public Key Infrastructure and needs to make additional HTTP requests to OCSP servers associated with the tunnel endpoint’s certificate chain.
 
-You can set your own parameters (e.g., logging, bypassing OCSP checks) by using OCSP command-line options (see the [Sauce Connect Proxy Command-Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide)). Additionally, OCSP supports the following flags: `--kgp-host`, `--kgp-port`, `--proxy`, `--pac`, `--no-autodetect`, `--proxy-tunnel`, `--tunnel-cainfo`, `--tunnel-capath`.
+You can set your own parameters (e.g., logging, bypassing OCSP checks) by using OCSP command-line options (see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy)). Additionally, OCSP supports the following flags: `--proxy`, `--pac`, `--no-autodetect`, `--proxy-tunnel`, `--tunnel-cainfo`, `--tunnel-capath`.
 
 ### Connecting to the Sauce Labs REST API
 Connections to the Sauce Labs API go through `https://saucelabs.com`. The way in which Sauce Connect Proxy is able to access the certificates to secure the connection depends on the operating system of the machine where Sauce Connect is installed.
@@ -164,4 +164,6 @@ SSL Bumping is enabled by default for Sauce Connect Proxy, but there are some si
 #### How to Disable SSL Bumping
 Use the `-B (--no-ssl-bump-domains)` argument when you start Sauce Connect Proxy and specify which domains should not be bumped or specify `all` so that all domains that passed through the tunnel are not bumped.
 
->**NOTE:** Keep in mind that when SSL Bumping is disabled, test traffic will not be decrypted, and will pass through directly to the browser running your tests along with the SSL certificate of the site under test. If there are issues with the originating site’s SSL certificate, these may generate SSL errors that interfere with test execution.
+:::note
+Keep in mind that when SSL Bumping is disabled, test traffic will not be decrypted, and will pass through directly to the browser running your tests along with the SSL certificate of the site under test. If there are issues with the originating site’s SSL certificate, these may generate SSL errors that interfere with test execution.
+:::
