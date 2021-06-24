@@ -133,7 +133,7 @@ saucectl run --ccy 10
 ---
 
 ### `tunnel`
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT |  <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
 
 `saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection when running your tests on Sauce Labs. To do so, launch a tunnel; then provide the identifier in this property.
 
