@@ -227,12 +227,11 @@ testOptions:
   class:
     - com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
   notClass:
-    - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest  
+    - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest
   size: small
   package: com.example.android.testing.androidjunitrunnersample
   annotation: com.android.buzz.MyAnnotation
   numShards: 4
-  shardIndex: 1
   clearPackageData: true
 ```
 
@@ -304,17 +303,6 @@ __Type__: *int*
 __Example__:
 ```yaml
   numShards: 4
-```
-
-### `shardIndex`
-
-__Description__: Specifies which shard to run. Read more about shard tests on the [Android developer site](https://developer.android.com/training/testing/junit-runner#sharding-tests).
-
-__Type__: *int*
-
-__Example__:
-```yaml
-  shardIndex: 1
 ```
 
 ### `clearPackageData`
