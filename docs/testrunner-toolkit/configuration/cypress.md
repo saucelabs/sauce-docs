@@ -34,7 +34,7 @@ https://github.com/saucelabs/saucectl-cypress-example/blob/master/.sauce/config.
 Each of the properties supported for running Cypress tests through `saucectl` is defined below.
 
 ## `apiVersion`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| REQUIRED | STRING |</small></p>
 
 Identifies the version of `saucectl` that is compatible with this configuration.
 
