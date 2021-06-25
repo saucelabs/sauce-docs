@@ -29,7 +29,7 @@ Sauce Runner for Virtual Devices provides the ability to run automated Android a
 
 * Your Sauce Labs username and access key.
 * Your mobile app file and mobile test file. Accepted file types are .ipa for iOS and .apk for Android.
-  * For details on how to build .ipa files for use with Sauce Runner for Real Devices, see [Creating .ipa Files for Appium and XCUITest](mobile-apps/automated-testing/ipa-files.md).
+  * For details on how to build .ipa files for use with Sauce Runner for Real Devices, see [Creating .ipa Files for Appium and XCUITest](mobile-apps/creating-ipa-files.md).
 
 If you'd like to try out this functionality but don't have an app on hand, [download our Sauce Labs demo app file and test file](https://github.com/saucelabs-training/demo-espresso/tree/master/emulators).
 
@@ -72,7 +72,7 @@ If you'd like to try out this functionality but don't have an app on hand, [down
 ## Gather Your Credentials
 
 4. Find your Sauce Labs `username`, `accessKey`, and the emulator `deviceName` you wish to test on. The list of devices is located under **Live** > **Cross-Browser** > **Mobile Virtual**.
-   * **Set Environment Variables (Optional)**: Setting your Sauce Labs `username` and `accessKey` as [environment variables](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365647#BestPracticesforRunningTests-UseEnvironmentVariablesforAuthenticationCredentials) provides an extra layer of security for your credentials when you reference them from within your tests.
+   * **Set Environment Variables (Optional)**: Setting your Sauce Labs `username` and `accessKey` as [environment variables](/basics/environment-variables) provides an extra layer of security for your credentials when you reference them from within your tests.
 
 ## Configure Your Test
 
@@ -116,9 +116,9 @@ Wait for the runner to upload both files and execute the tests on Sauce Labs emu
 2021-04-14 13:12:55 - [INFO] No include-tests filters specified
 2021-04-14 13:12:55 - [INFO] No exclude-tests filters specified
 2021-04-14 13:12:55 - [INFO] Set device: Google Pixel GoogleAPI Emulator - 7.0
-2021-04-14 13:12:55 - [INFO] Trying to upload file ./SauceLabs.Mobile.Sample.Espresso.App.apk to sauce-storage
+2021-04-14 13:12:55 - [INFO] Trying to upload file ./SauceLabs.Mobile.Sample.Espresso.App.apk to storage
 2021-04-14 13:13:20 - [INFO] File uploaded: SauceLabs.Mobile.Sample.Espresso.App.apk(4f040be9f28bc84b58f6fd5af5300c2f) - Size:28830014
-2021-04-14 13:13:20 - [INFO] Trying to upload file ./SauceLabs.Mobile.Sample.Espresso.Tests.apk to sauce-storage
+2021-04-14 13:13:20 - [INFO] Trying to upload file ./SauceLabs.Mobile.Sample.Espresso.Tests.apk to storage
 2021-04-14 13:13:20 - [INFO] File uploaded: SauceLabs.Mobile.Sample.Espresso.Tests.apk(30b317176beed44cf66f2a92387fa073) - Size:521075
 2021-04-14 13:13:20 - [INFO] JUnit reports will be saved locally at the end of the tests
 2021-04-14 13:13:20 - [INFO] Jobs created

@@ -40,7 +40,7 @@ When creating your executable file, take into account the operating system you'l
 :::
 
 ### Storing a Configuration Script
-Your script can be stored in GitHub or in [Sauce Storage](https://wiki.saucelabs.com/display/DOCS/Temporary+Storage+Methods). You can also use [Gist](https://gist.github.com/) to easily host your executable file. Make sure to use the link containing the raw file contents.
+Your script can be stored in GitHub or in [Sauce Storage](/mobile-apps/app-storage/). You can also use [Gist](https://gist.github.com/) to easily host your executable file. Make sure to use the link containing the raw file contents.
 
 ### Set the `prerun` Capability
 This example sets `prerun` to point to `myscriptstorage.com`, which hosts the script `disable_fraud.sh` used as an example in step 1.
@@ -56,7 +56,7 @@ This example accesses the same script from Sauce Storage:
 
 ```
 desired_capabilities['prerun'] = {
-    'executable':'sauce-storage:disable_fraud.sh',
+    'executable':'storage:filename=disable_fraud.sh',
     'background': 'false'
 }
 ```
@@ -180,7 +180,7 @@ capabilities['prerun'] = "http://location.of/curl.sh"
 
 ## Editing the VM's Host File
 :::note
-Editing the Host file of the virtual machine will not work if [Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy) is in use because the Host file of the machine running Sauce Connect Proxy is referenced, so make the desired changes there, instead.
+Editing the Host file of the virtual machine will not work if [Sauce Connect Proxy](/secure-connections/sauce-connect) is in use because the Host file of the machine running Sauce Connect Proxy is referenced, so make the desired changes there, instead.
 :::
 
 An example of configuring a Sauce Labs virtual machine with a pre-run executable is editing the host file in the virtual machine, so when the driver tries to access a particular domain, like google.com, it will be redirected to a new IP address, for example 162.222.75.243 ([saucelabs.com](http://saucelabs.com/)). As with other `prerun` configurations, the basic steps are:
@@ -274,7 +274,7 @@ When you save the script, it will be an **.au3** file, and you will need to comp
 If using Sauce Storage for your pre-run executable send the following desired capability:
 
 ```js
-"prerun": { "executable": "sauce-storage:executable.exe",
+"prerun": { "executable": "storage:filename=executable.exe",
             "args": [ "--silent", "-a", "-q" ], "background": true }
 ```
 ### 64 v. 32-bit Version of AutoIT

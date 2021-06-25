@@ -69,7 +69,7 @@ capabilities: {
 
 Running a Screener Test using the CI Script will automatically trigger a test run against the Test Group ID passed into it.
 
->**NOTE**: If you do not want Screener to fail your build, you can alternatively trigger a Screener test run [via our API](/visual/e2e-testing/rest-api) and receive email notifications when visual changes are found.
+>**NOTE**: If you do not want Screener to fail your build, you can alternatively trigger a Screener test run [via our API](/visual/e2e-testing/api) and receive email notifications when visual changes are found.
 
 ## CI Tool Examples
 
@@ -134,9 +134,9 @@ test:
     screener-ci.bat %SCREENER_API_KEY% %SCREENER_GROUP_ID% %BUILD_NUMBER%
     ```
 5. Click **Save**.
-  
+
 #### **Linux/macOS Setup Instructions:**
-  
+
 Create a new job in Jenkins (Freestyle project)
 Configure the job:
 Under the "Build" heading, click "Add build step" and select "Execute shell"
@@ -166,7 +166,7 @@ Windows Setup Instructions:
 curl -O http://s3-us-west-2.amazonaws.com/screener-files/ci/v2.1/screener-ci.bat
 screener-ci.bat %SCREENER_API_KEY% %SCREENER_GROUP_ID% %BUILD_NUMBER%
 ```
-  
+
 </TabItem>
 <TabItem value="Travis CI">
 
@@ -187,7 +187,7 @@ script:
 <TabItem value="Other">
 
 #### **Linux/macOS Setup Instructions**
-  
+
 ```cURL
 # Install Screener CI Script
 curl -O https://s3-us-west-2.amazonaws.com/screener-files/ci/v2.1/screener-ci.zip

@@ -103,7 +103,7 @@ Yes, but only on iOS 10 and iOS 9 (note these OS versions have different default
 
 #### **How do I upload an iOS app?**
 
-You'll need to export your app as an .ipa file for Ad Hoc Deployment as described in [Creating .ipa Files](/mobile-apps/automated-testing/ipa-files).
+You'll need to export your app as an .ipa file for Ad Hoc Deployment as described in [Creating .ipa Files](/mobile-apps/creating-ipa-files).
 
 You can upload your .ipa manually to create a project, then upload subsequent versions either manually or through our REST API, as described in [Uploading Your App to Real Device Storage with the REST API](/mobile-apps/app-storage).
 
@@ -137,7 +137,7 @@ No. If there is, our automated cleaning process didn’t work as intended. If th
 
 #### **My app is only available within our internal network. Can I use real devices for my testing?**
 
-You can add an exception for the Real Device Cloud to your network's whitelist for the appropriate domains described in the Whitelisting for Restricted Networks in [System and Network Requirements for Sauce Connect Proxy](https://wiki.saucelabs.com/pages/viewpage.action?pageId=48365793).
+You can add an exception for the Real Device Cloud to your network's whitelist for the appropriate domains described in the Whitelisting for Restricted Networks in [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect/system-requirements).
 
 
 #### **I see the error `Not Yet Implemented Exception` when scrolling in an Appium web test on Android. Why?**
