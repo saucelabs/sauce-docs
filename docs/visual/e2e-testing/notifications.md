@@ -14,36 +14,35 @@ When a test run finds UI changes, an email notification is sent out containing a
 
 
 ## Slack Notifications
-To add Screener notifications to your Slack channels: Start by setting up an [incoming webhook integration](https://my.slack.com/services/new/incoming-webhook/) in your Slack team.
+To add Screener notifications to your Slack channels:
 
-On the [incoming webhook configuration](https://my.slack.com/services/new/incoming-webhook/) page, choose a channel to send notifications. Then click **Add Incoming Webhooks Integration**:
-<img src={useBaseUrl('img/visual/e2e-slack-config-integrations.png')} alt="E2E Slack Configuration"/>
+1. Set up an [incoming webhook integration](https://my.slack.com/services/new/incoming-webhook/) in your Slack team.
 
+2. On the [incoming webhook configuration](https://my.slack.com/services/new/incoming-webhook/) page, choose a channel to send notifications > Click **Add Incoming Webhooks Integration**.
 
-After submitting, you will be taken to a new page which has your unique Webhook URL, found under **Setup Instructions**. Copy the Webhook URL:
-<img src={useBaseUrl('img/visual/e2e-slack-webhook-url.png')} alt="E2E Slack Webhook Configuration"/>
+  <img src={useBaseUrl('img/visual/e2e-slack-config-integrations.png')} alt="E2E Slack Configuration"/>
 
-Go back to your Screener Dashboard, open the **Integrations** menu > Click **Webhooks**.
+3. After submitting, you will be taken to a new page which has your unique Webhook URL, found under **Setup Instructions**. Copy the Webhook URL:
 
-<img src={useBaseUrl('img/visual/e2e-overview-activity-webhook-menu.png')} alt="E2E Slack Webhook Configuration"/>
+  <img src={useBaseUrl('img/visual/e2e-slack-webhook-url.png')} alt="E2E Slack Webhook Configuration"/>
 
+4. Go back to your Screener Dashboard, open the **Integrations** menu > Click **Webhooks**.
 
-In the Manage Webhooks dialog, paste the Slack Webhook URL. Click **Add Webhook**, then click **Save**.
+  <img src={useBaseUrl('img/visual/e2e-overview-activity-webhook-menu.png')} alt="E2E Slack Webhook Configuration"/>
+
+5. In the Manage Webhooks dialog, paste the Slack Webhook URL. Click **Add Webhook** > **Save**.
 <img src={useBaseUrl('img/visual/e2e-add-webhook.png')} alt="E2E Add Webhook"/>
 
+That's it! When your tests finish running, you will now receive Screener test notifications in your Slack channel similar to this:
 
-That's it! When your tests finish running, you will now receive Screener test notifications in your Slack channel:
-
-<img src={useBaseUrl('img/visual/e2e-slack-notification.png')} alt="E2E Add Webhook"/>
-
+  <img src={useBaseUrl('img/visual/e2e-slack-notification.png')} alt="E2E Add Webhook"/>
 
 :::tip
-If you want to reduce the number of notifications being sent, and trigger notifications only when changes are found, then append the following query-string to your webhook URL:
+If you want to reduce the number of notifications being sent, and trigger notifications only when changes are found, append the following query-string to your webhook URL:
 
-```bash
+```java
 ?screener.filter.hasChanges=true
 ```
-
 :::
 
 
@@ -51,29 +50,33 @@ If you want to reduce the number of notifications being sent, and trigger notifi
 
 To add HipChat notifications, you will need to add a webhook similar to the Slack example above.
 
-First, in your HipChat **Home** page, click on **Group Admin** in the top menu (you will need to have group admin permissions). Next, in the **Group Admin** page, click on the **API** tab.
+1. In your HipChat **Home** page, click on **Group Admin** in the top menu (you will need to have group admin permissions).
+2. Next, in the **Group Admin** page, click on the **API** tab.
 
 <img src={useBaseUrl('img/visual/e2e-hipchat-settings-menu.png')} alt="E2E HipChat"/>
 
-You may be asked to enter your password. Next, in the **API Auth Tokens** page, select **Notification** as the token type, add a label name for the token, and click on **Create token**. This will create a new API token. Copy your API token (auth_token).
+3. You may be asked to enter your password.
+4. Next, in the **API Auth Tokens** page, select **Notification** as the token type > Add a label name for the token > Click **Create token**. This will create a new API token.
 
-<img src={useBaseUrl('img/visual/e2e-hipchat-api-token.png')} alt="E2E HipChat API Token"/>
+  <img src={useBaseUrl('img/visual/e2e-hipchat-api-token.png')} alt="E2E HipChat API Token"/>
 
+5. Copy your API token (`auth_token`).
+6. Find the room ID for the chat room you want your test notifications posted to. Go back to the HipChat user home page, then click the **Rooms** tab.
+7. From the list of rooms, click on the room name, and copy the room ID (**API ID**).
 
-Next, find the room ID for the chat room you want your test notifications posted to. Go back to the HipChat user home page, then click the **Rooms** tab. From the list of rooms, click on the room name. Copy the room ID (API ID).
-<img src={useBaseUrl('img/visual/e2e-hipchat-room-id.png')} alt="E2E HipChat Room"/>
+  <img src={useBaseUrl('img/visual/e2e-hipchat-room-id.png')} alt="E2E HipChat Room"/>
 
-In Screener, add a Screener webhook. You will need to navigate to the Dashboard page. Click on **Webhooks**:
-<img src={useBaseUrl('img/visual/e2e-overview-activity-webhook-menu.png')} alt="E2E Overview Webhook Menu"/>
+8. In Screener, add a Screener webhook. You will need to navigate to the Dashboard page. Click on **Webhooks**:
 
-Add the HipChat URL:
+  <img src={useBaseUrl('img/visual/e2e-overview-activity-webhook-menu.png')} alt="E2E Overview Webhook Menu"/>
 
-```bash
-https://api.hipchat.com/v1/rooms/message?format=json&auth_token=[hipchat-api-token]&room_id=[hipchat-room-api-id]
-```
+9. Add the HipChat URL:
+  ```java
+  https://api.hipchat.com/v1/rooms/message?format=json&auth_token=[hipchat-api-token]&room_id=[hipchat-room-api-id]
+  ```
 
-Click **Add Webhook**, then click **Save**.
+10. Click **Add Webhook**, then click **Save**.
 
-<img src={useBaseUrl('img/visual/e2e-add-webhook.png')} alt="E2E Add Webhook"/>
+  <img src={useBaseUrl('img/visual/e2e-add-webhook.png')} alt="E2E Add Webhook"/>
 
 That's it! When a test run finds UI changes, you will now receive a notification in your HipChat room with a link that takes you to the Screener test results.
