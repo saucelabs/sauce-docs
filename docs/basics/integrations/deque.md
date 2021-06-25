@@ -288,6 +288,7 @@ config.capabilities = [
 ```
 
 ## Additional Resources
+* [`sa11y` (Selenium Accessibility) Example Code](https://github.com/saucelabs/sa11y)
 * [Deque Saucelabs Integration Documentation](https://www.deque.com/saucelabs/get-started/)
 * [Deque `axe-core` Example WebDriverIO Project](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/webdriverio)
 * [Documentation about the chainable `axe` API for WebdriverIO](https://www.npmjs.com/package/@axe-core/webdriverio)
