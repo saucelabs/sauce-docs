@@ -25,7 +25,7 @@ Below is a guide to set up the Sauce Labs integration. This integration allows y
 ## Configure the Commander View
 
 * In the Tricentis™ UI, navigate to **Event View** > **Commander View**.
-* Set the `Url` to Sauce Lab's data center endpoint: `https://ondemand.sauclabs.com`
+* Set the `Url` to Sauce Lab's data center endpoint: `https://ondemand.saucelabs.com`
 
   :::note Data Center Location
   Selecting the appropriate data center in which to run your tests is important. Please read the following [documentation](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) to learn more about setting your tests configuration options to the correct data center location.
