@@ -8,7 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The Insights section of your Sauce Labs app allows you to view your test data from a variety of different perspectives to ensure that you can see both the big picture of your testing effectiveness and the individual slices of test data that help you pinpoint failure causes and fix them.
 
-> **NOTE:** Sauce Labs has also published an [Insights API](https://wiki.saucelabs.com/display/DOCS/Sauce+Insights+Methods) so you can build a custom dashboard with views that are specific to your test strategy.
+:::note
+Sauce Labs has also published an [Insights API](/dev/api/insights) so you can build a custom dashboard with views that are specific to your test strategy.
+:::
 
 ## Touring the Interface
 
@@ -19,7 +21,7 @@ Access the **Insights** menu from the left-side navigation menu of our web app. 
 |Test Overview|Shows a variety of views of the data related to all the tests executed that match the specified filter criteria broken into three focus tabs. The **Overview** tab shows concatenated pass/fail statistics and platform breakdowns. The **Tests** tab shows a list of all tests which can be clicked to launch a view of data for just that test. The **Errors** tab counts the number of instances of each error that occurred across the execution of all tests in the filter. Click any error to see the list of tests in which it occurred.|
 |Test History| Shows a visual snapshot of the results for a specific test over time. See the [Test History](/insights/history) page for specific views and capabilities descriptions.|
 |Trends| Shows graphical visualizations of all tests. Applying filters to this view makes it easy to compare test outcomes for different variables, such as device browser version. See the [Trends](/insights/trends) page for detailed documentation.|
-|VM Concurrency|Shows how many VM instances are in use simultaneously at any given time. See [Team Concurrency](https://wiki.saucelabs.com/display/DOCS/Understanding+Concurrency+Limits+and+Team+Accounts) for information about how concurrency is allocated.|
+|VM Concurrency|Shows how many VM instances are in use simultaneously at any given time. See [Team Concurrency](/basics/acct-team-mgmt/concurrency-limits) for information about how concurrency is allocated.|
 |Failure Analysis|Exposes the results of the Sauce Labs machine learning algorithms that comb through every command run in every test and each error thrown in those tests to determine emerging patterns. See the [Failure Analysis](/insights/failure-analysis) page for detailed documentation.
 
 
