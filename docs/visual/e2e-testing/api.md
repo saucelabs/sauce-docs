@@ -9,64 +9,52 @@ import TabItem from '@theme/TabItem';
 
 ## What You'll Need
 
-In order to use the REST API with Visual E2E Testing, you'll need:
-
-* Your project's **API Key**, which you can obtain on your Project Dashboard. To access the API, each request must have a custom header named x-api-key, along with the value of the API key. An example custom header is as follows:
-  ```bash
-  x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4
-  ```
-* Your **Project ID**, which is available from the **Project** dropdown menu.
-* The **Base URL**: all endpoints below should be prefixed with https://screener.io.
-
-Depending on your test case, you may also need your **Test Group ID**, which is available from the Test Group's Project Dashboard.
+* Your project's **API Key**, which is available from the Project Dashboard. To access the API, each request must have a custom header named `x-api-key`, along with the value of the API key (e.g., `x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4`).
+* Your project's **Project ID**, which is available from the **Project** dropdown menu.
+* Depending on your test case, you may also need your **Test Group ID**, which is available from the Test Group's Project Dashboard.
 
 
 ## Available Actions
 
+The **Base URL** for all endpoints below is **`https://screener.io`**. All endpoints must be prefixed with this.
+
 ### Run Test Group
 
-Runs all tests in a Test Group. If there is no available test concurrency, then the test(s) will be queued.
+<details><summary><span className="api post">POST</span><code>/projects/&#123;Project ID&#125;/groups/&#123;Group ID&#125;/queue</code></summary>
+<p/>
 
-Useful for automatically running Screener tests on a schedule, such as part of a Cron job. Email notifications will be sent to subscribers when changes are found.
-
-* This API endpoint is for running Screener tests only (i.e. tests created using Screener Pages or Recorder). To run WebDriver tests, please refer to [our WebDriver doc](/visual/e2e-testing/integrations/selenium-webdriver).
-* This API endpoint only kicks off a test run; it does not wait for tests to finish, nor does it report results. To pass/fail builds based on Screener results, please refer to our [Continuous Integration doc](/visual/e2e-testing/integrations/continuous-integration).
-
-#### **Endpoint**
-
-```bash
-POST //projects/{Project ID}/groups/{Group ID}/queue
-```
+* Runs all tests in a Test Group. If there is no available test concurrency, then the test(s) will be queued.
+* Useful for automatically running Screener tests on a schedule, such as part of a Cron job. Email notifications will be sent to subscribers when changes are found.
+* This API endpoint is for running Screener tests only (i.e., tests created using Screener Pages or Recorder). To run WebDriver tests, please refer to our [WebDriver documentation](/visual/e2e-testing/integrations/selenium-webdriver).
+* This API endpoint only kicks off a test run; it does not wait for tests to finish, nor does it report results. To pass/fail builds based on Screener results, please refer to our [Continuous Integration documentation](/visual/e2e-testing/integrations/continuous-integration).
 
 | Parameter |	Description
 | :--- | :---
-| Project ID | Project the test belongs to
-| Group ID | Valid Test Group ID for the tests you want to run
+| `Project ID` | Project the test belongs to.
+| `Group ID` | Valid Test Group ID for the tests you want to run.
 
-#### **Response**
-
-```
-{ success: true }
-```
-
-#### **Curl Example**
-
-```curl
+```bash title="Sample Request"
 curl --header 'x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4' --data '' https://screener.io/api/projects/524481fddbcf9eb1cd0002123/groups/52538627afa3e1f10c001112/queue
 ```
+
+```jsx title="Sample Response"
+{ success: true }
+```
+</details>
+
+---
 
 
 ### Get All Projects
 
-#### **Endpoint**
+<details><summary><span className="api get">GET</span><code>/api/projects</code></summary>
+<p/>
 
-```bash
-GET /api/projects
+```bash title="Sample Request"
+curl --header 'x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4' https://screener.io/api/projects
 ```
 
-#### **Response**
-
-```java
+```jsx title="Sample Response"
 {
   "list": [{
     "_id": "524481fddbcf9eb1cd0002123",
@@ -75,28 +63,24 @@ GET /api/projects
 }
 ```
 
-#### **Curl Example**
+</details>
 
-```bash
-curl --header 'x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4' https://screener.io/api/projects
-```
+---
 
-### Get All Test Groups For A Project
+### Get All Test Groups for a Project
 
-#### **Endpoint**
-
-```bash
-GET /api/projects/{Project ID}/groups
-```
+<details><summary><span className="api get">GET</span><code>/api/projects/&#123;Project ID&#125;/groups</code></summary>
+<p/>
 
 | Parameter |	Description
 | :--- | :---
-| Project ID | Project the test belongs to
+| `Project ID` | Project the test belongs to.
 
+```bash title="Sample Request"
+curl --header 'x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4' https://screener.io/api/projects/524481fddbcf9eb1cd0002123/groups
+```
 
-#### **Response**
-
-```java
+```jsx title="Sample Response"
 {
   "list": [{
     "_id": "52538627afa3e1f10c001112",
@@ -105,29 +89,28 @@ GET /api/projects/{Project ID}/groups
   }]
 }
 ```
+</details>
 
-#### **Curl Example**
-```curl
-curl --header 'x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4' https://screener.io/api/projects/524481fddbcf9eb1cd0002123/groups
-```
+---
 
-### Get All Test Reports For A Test Group
+### Get All Test Reports for a Test Group
+
+<details><summary><span className="api get">GET</span><code>/api/projects/&#123;Project ID&#125;/groups/&#123;Group ID&#125;/report</code></summary>
+<p/>
+
 Get reporting stats on all tests for a specific Test Group. The report includes individual test totals.
 
-#### **Endpoint**
-
-```bash
-GET /api/projects/{Project ID}/groups/{Group ID}/report
-```
 
 | Parameter |	Description
 | :--- | :---
-| Project ID | Project the Test Group belongs to.
-| Group ID | Valid Test Group ID for the tests you want to run.
+| `Project ID` | Project the Test Group belongs to.
+| `Group ID`| Valid Test Group ID for the tests you want to run.
 
-#### **Response**
+```bash title="Sample Request"
+curl --header 'x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4' https://screener.io/api/projects/524481fddbcf9eb1cd0002123/groups/52538627afa3e1f10c001112/report
+```
 
-```java
+```jsx title="Sample Response"
 {
  "list": [
    {
@@ -154,87 +137,77 @@ GET /api/projects/{Project ID}/groups/{Group ID}/report
 }
 ```
 
-#### **Curl Example**
+</details>
 
-```bash
-curl --header 'x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4' https://screener.io/api/projects/524481fddbcf9eb1cd0002123/groups/52538627afa3e1f10c001112/report
-```
+---
 
-### Get Pages Object For A Test Group
+### Get Pages Object for a Test Group
 
-#### **Endpoint**
-```bash
-GET /api/projects/{Project ID}/groups/{Group ID}/pages
-```
+<details><summary><span className="api get">GET</span><code>/api/projects/&#123;Project ID&#125;/groups/&#123;Group ID&#125;/pages</code></summary>
+<p/>
 
 | Parameter |	Description
 | :--- | :---
-| Project ID | Project the Test Group belongs to
-| Group ID | Valid Test Group ID for the tests you want to run
+| `Project ID`| Project the Test Group belongs to.
+| `Group ID` | Valid Test Group ID for the tests you want to run.
 
+```bash title="Sample Request"
+curl --header 'x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4' https://screener.io/api/projects/524481fddbcf9eb1cd0002123/groups/52538627afa3e1f10c001112/pages
+```
 
-#### **Response**
-
-```java
+```jsx title="Sample Response"
 {
  "content": "{\"pages\":[{\"path\":\"/home\"}]}"
 }
 ```
 >**NOTE**: The "content" property returned will need to be parsed as JSON.
 
-#### **Curl Example**
+</details>
 
-```bash
-curl --header 'x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4' https://screener.io/api/projects/524481fddbcf9eb1cd0002123/groups/52538627afa3e1f10c001112/pages
-```
+---
 
+### Get Script for a Page
 
-### Get Script For A Page
-
-#### **Endpoint**
-
-```bash
-GET /api/projects/{Project ID}/groups/{Group ID}/scripts/{Page Path}
-```
+<details><summary><span className="api get">GET</span><code>/api/projects/&#123;Project ID&#125;/groups/&#123;Group ID&#125;/scripts/&#123;Page Path&#125;</code></summary>
+<p/>
 
 | Parameter |	Description
 | :--- | :---
-| Project ID | Project the Test Group belongs to.
-| Group ID | Valid Test Group ID for the tests you want to run.
-| Page Path	| URL-encoded page path (e.g., for "/", the url-encoded path would be "%2F").
+| `Project ID` | Project the Test Group belongs to.
+| `Group ID` | Valid Test Group ID for the tests you want to run.
+| `Page Path`	| URL-encoded page path (e.g., for `/`, the url-encoded path would be `%2F`).
 
+```bash title="Sample Request"
+curl --header 'x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4' https://screener.io/api/projects/524481fddbcf9eb1cd0002123/groups/52538627afa3e1f10c001112/scripts/%2Fhome
+```
 
-#### **Response**
-
-```java
+```jsx title="Sample Response"
 {
  "content": "{\n  \"type\": \"script\",\n  \"seleniumVersion\": 2,\n  \"formatVersion\": 1,\n  \"steps\": []\n}"
 }
 ```
 >**NOTE**: The "content" property returned will need to be parsed as JSON.
 
-#### **Curl Example**
-```bash
-curl --header 'x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4' https://screener.io/api/projects/524481fddbcf9eb1cd0002123/groups/52538627afa3e1f10c001112/scripts/%2Fhome
-```
+</details>
 
-### Get All States For A Test
+---
 
-#### **Endpoint**
-```bash
-GET /api/projects/{Project ID}/groups/{Group ID}/tests/{Test ID}/states
-```
+### Get All States for a Test
+
+<details><summary><span className="api get">GET</span><code>/api/projects/&#123;Project ID&#125;/groups/&#123;Group ID&#125;/tests/&#123;Test ID&#125;/states</code></summary>
+<p/>
 
 | Parameter |	Description
 | :--- | :---
-| Project ID | Project the Test Group belongs to
-| Group ID | Valid Test Group ID for the tests you want to run
-| Test ID | Valid Test ID in Test Group
+| `Project ID` | Project the Test Group belongs to
+| `Group ID` | Valid Test Group ID for the tests you want to run
+| `Test ID` | Valid Test ID in Test Group
 
+```bash title="Sample Request"
+curl --header 'x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4' https://screener.io/api/projects/524481fddbcf9eb1cd0002123/groups/52538627afa3e1f10c001112/tests/54080d74872f997b04000025/states
+```
 
-#### **Response**
-
-```java
+```jsx title="Sample Response"
 {
  "states": [{
    "id": "i9jhfasd-5h5ago-0",
@@ -247,32 +220,28 @@ GET /api/projects/{Project ID}/groups/{Group ID}/tests/{Test ID}/states
 
 >**NOTE**: The "screenshotUrl" for each state is a temporary url which is available for only 15 minutes from the time of the API request.
 
-#### **Curl Example**
+</details>
 
-```bash
-curl --header 'x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4' https://screener.io/api/projects/524481fddbcf9eb1cd0002123/groups/52538627afa3e1f10c001112/tests/54080d74872f997b04000025/states
-```
-
+---
 
 ### Get Recent Test Run History
 
-#### **Endpoint**
-
-```bash
-GET /api/projects/{Project ID}/groups/{Group ID}/tests/history
-```
+<details><summary><span className="api get">GET</span><code>/api/projects/&#123;Project ID&#125;/groups/&#123;Group ID&#125;/tests/history</code></summary>
+<p/>
 
 | Parameter |	Description
 | :--- | :---
-| Project ID | Project the Test Group belongs to.
-| Group ID | Valid Test Group ID for the tests you want to run.
-| Status (Optional) | Filter by Test Run status. Optional query string parameter (e.g., `&status=complete`).
-| Build	(Optional) | Filter by Build ID. Optional query string parameter (e.g., `&build=build-1234`).
+| `Project ID` | Project the Test Group belongs to.
+| `Group ID` | Valid Test Group ID for the tests you want to run.
+| `Status (Optional)` | Filter by Test Run status. Optional query string parameter (e.g., `&status=complete`).
+| `Build	(Optional)` | Filter by Build ID. Optional query string parameter (e.g., `&build=build-1234`).
 
 
-#### **Response**
+```bash title="Sample Request"
+curl --header 'x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4' https://screener.io/api/projects/524481fddbcf9eb1cd0002123/groups/52538627afa3e1f10c001112/tests/history
+```
 
-```java
+```jsx title="Sample Response"
 {
 "list": [
   {
@@ -293,8 +262,4 @@ GET /api/projects/{Project ID}/groups/{Group ID}/tests/history
 
 >**NOTE**: The Test Run is no longer running when it has one of the following statuses: complete, error, timeout, cancelled.
 
-#### **Curl Example**
-
-```bash
-curl --header 'x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4' https://screener.io/api/projects/524481fddbcf9eb1cd0002123/groups/52538627afa3e1f10c001112/tests/history
-```
+</details>
