@@ -23,68 +23,58 @@ Some sets of parameters include settings that vary by framework. In those cases,
 :::
 
 ## `apiVersion`
+<p><small>| REQUIRED | STRING |</small></p>
 
-__Description__: The version of `saucectl` you are running.
+Identifies the version of `saucectl` that is compatible with this configuration.
 
-__Type__: *string*
-
-__Example__:
 ```yaml
 apiVersion: v1alpha
 ```
 
+---
 
 ## `kind`
+<p><small>| REQUIRED | STRING/ENUM |</small></p>
 
-__Description__: The framework of your automation tests.
+Specifies which framework is associated with the automation tests configured in this specification. Valid values are:
 
-__Type__: *enum* Valid values are:
+* `cypress`
+* `playwright`
+* `testcafe`
+* `puppeteer`
+* `espresso`
 
-    * `cypress`
-    * `playwright`
-    * `testcafe`
-    * `puppeteer`
-    * `espresso`
-
-__Example__:
 ```yaml
 kind: cypress
 ```
+---
 
 ## `defaults`
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
-__Description__: Specifies any default settings for the project.
+Specifies any default settings for the project.
 
-__Type__: *object*
-
-__Example__:
 ```yaml
 defaults:
-  - mode: "sauce"
+  - mode: sauce
 ```
+---
 
 ### `mode`
+<p><small>| OPTIONAL | STRING/ENUM |</small></p>
 
-__Description__: Specifies whether tests in the project will run on `docker` or `sauce`. You can override this setting for individual suites using the `mode` setting within the [`suites`](#suites) object. The default value is `sauce`.
+Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally on `docker`. You can override this setting for individual suites using the `mode` setting within the [`suites`](#suites) object. If not set, the default value is `sauce`.
 
-:::note
-Espresso is supported in `sauce` mode only.
-:::
-
-__Type__: *enum* Valid values are: `sauce` or `docker`.
-
-__Example__:
 ```yaml
   mode: "sauce"
 ```
+---
 
 ## `sauce`
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
-__Description__: The parent field containing all settings related to how tests are run and identified in the Sauce Labs platform.
+The parent property containing all settings related to how tests are run and identified in the Sauce Labs platform.
 
-__Type__: *object*
-
-__Example__:
 ```yaml
 sauce:
   region: eu-central-1
@@ -95,111 +85,123 @@ sauce:
       - release team
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
-    concurrency: 10
+  concurrency: 10
 ```
+---
 
 ### `region`
+<p><small>| OPTIONAL | STRING/ENUM |</small></p>
 
-__Description__: The Sauce Labs data center through which test will run.
+Specifies through which Sauce Labs data center tests will run. Valid values are: `us-west-1` or `eu-central-1`.
 
-__Type__: *enum* Valid values are: `us-west-1` or `eu-central-1`.
-
-__Example__:
 ```yaml
   region: eu-central-1
 ```
+---
 
 ### `metadata`
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
-__Description__: The set of parameteres that specify how the tests are grouped and identified in Sauce Labs (i.e. `name`, `tags`, `build`, etc.)
+The set of properties that allows you to provide additional information about your project that helps you distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you, as shown in the following example:
 
-__Type__: *object*
-
-__Example__:
 ```yaml
-  metadata:
-    name: Testing Cypress Support
-    tags:
-      - e2e
-      - release team
-      - other tag
-    build: Release $CI_COMMIT_SHORT_SHA
+metadata:
+  name: Testing Cypress Support
+  build: RC 10.4.a
+  tags:
+    - e2e
+    - release team
+    - beta
+    - featurex
 ```
+---
 
 ### `concurrency`
+<p><small>| OPTIONAL | INTEGER |</small></p>
 
-__Description__: For test suites running on Sauce Cloud, the maximum number of suites to execute concurrently. This value is limited by your Sauce Labs account settings.
+Sets the maximum number of suites to execute at the same time. If the test defines more suites than the max, excess suites are queued and run in order as each suite completes.
 
-__Type__: *int*
-
-__Example__:
+:::caution
+For tests running on Sauce, set this value to equal or less than your Sauce concurrency allowance, as setting a higher value may result in jobs dropped by the server.
+:::
 
 ```yaml
-  concurrency: 10
+  concurrency: 5
 ```
 
+Alternatively, you can override the file setting at runtime by setting the concurrency flag as an inline parameter of the `saucectl run` command:
+
+```bash
+saucectl run --ccy 5
+```
+---
+
 ### `tunnel`
+<p><small>| OPTIONAL | OBJECT |  <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
 
-__Description__: Specifies an open Sauce Connect tunnel to use when running tests inside the Sauce cloud. See [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) for information about finding the correct identifier.
+`saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection when running your tests on Sauce Labs. To do so, launch a tunnel; then provide the identifier in this property.
 
-__Type__: *object*
+:::note Choose the Correct Tunnel Identifier
+When you launch a tunnel, you can accept the tunnel identifier name that Sauce Labs generates for your account (e.g., `{SL-username}_tunnel_id`) or specify a name in the launch command:
 
-__Example__:
+```
+bin/sc -u {SL-username} -k {SL-access_key} -i {tunnel_identifier}
+```
+
+This is the identifier `saucectl` expects as the `id` property, even though the Sauce Labs UI refers to this values as the `Tunnel Name`.
+:::
+
 ```yaml
  tunnel:
     id: your_tunnel_id
     parent: parent_owner_of_tunnel # if applicable, specify the owner of the tunnel
 ```
+---
 
 ## `docker`
+<p><small>| OPTIONAL | OBJECT |<span class="highlight docker">Docker only</span> |</small></p>
 
-__Description__: The set of parameters defining the specific Docker image and type your are using. See [Supported Docker Frameworks](/testrunner-toolkit#supported-frameworks-in-docker-runner) for framework specific release notes.
+The set of properties defining the specific Docker image and type your are using, if you are running any tests locally.
 
-__Type__: *object*
-
-__Example__:
 ```yaml
 docker:
   fileTransfer: mount
   image: saucelabs/stt-cypress-mocha-node:vX.X.X
 ```
+---
 
 ### `fileTransfer`
+<p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Method in which to transfer test files into the docker container. There are two options:
-* `mount` : Default method; mounts files and folders into the docker container. Changes to these files and folders will be reflected on the host (and vice a versa).
-* `copy` : Copies files and folders into the docker container. If you run into permission issues, either due to docker or host settings, `copy` is the advised use case.
-  > See the Docker documentation to read more about the copy convention ([`docker cp`](https://docs.docker.com/engine/reference/commandline/cp/) | [`COPY`](https://docs.docker.com/engine/reference/builder/#copy)).
+Method in which to transfer test files into the docker container. Valid values are:
+* `mount`: (Default) Mounts files and folders into the docker container. Changes to these files and folders will be reflected on the host (and vice a versa).
+* `copy`: Copies files and folders into the docker container. If you run into permission issues, either due to docker or host settings, `copy` is the advised use case. See the [Docker documentation](https://docs.docker.com/engine/reference/builder/#copy) for more about the copy convention.
 
-__Type__: *string*
-
-__Example__:
 ```yaml
   fileTransfer: < mount | copy >
 ```
+---
 
 ### `image`
+<p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Specifies which docker image and version to use when running tests. Valid image values are shown in the example below.
+Specifies which docker image and version to use when running tests. Valid values are in the format:
+`saucelabs/<framework-node>:<vX.X.X>`. See [Supported Testing Platforms](/testrunner-toolkit#supported-frameworks-in-docker-runner) for Docker release notes related to each framework.
 
-__Type__: *string*
-
-__Example__:
 ```yaml
-  image: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node >:< vX.X.X >
+  image: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node | stt-puppeteer-jest-node >:< vX.X.X >
 ```
 
 :::caution
 Avoid using the `latest` tag for docker images, as advised in [this article](https://vsupalov.com/docker-latest-tag/#:~:text=You%20should%20avoid%20using%20the,apart%20from%20the%20image%20ID.).
 :::
+---
 
 ## `rootDir`
+<p><small>| REQUIRED | OBJECT |</small></p>
 
-__Description__: Directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Tailoring Your Test File Bundle](/testrunner-toolkit/configuration#tailoring-your-test-file-bundle) for more details.
+The directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Tailoring Your Test File Bundle](#tailoring-your-test-file-bundle) for more details. The following examples show the different relative options for setting this value.
 
-__Type__: *object*
-
-__Examples__:
 ```yaml
   rootDir: "./" # Use the current directory
 ```
@@ -207,54 +209,51 @@ __Examples__:
 ```yaml
   rootDir: "packages/subpackage" # Some other package from within a monorepo
 ```
+---
 
 ## `npm`
-__Description__: Details specific to the `npm` configuration. Packages listed are installed in the environment prior to your tests executing.
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
-__Type__: *object*
+A parent property specifying the configuration details for any `npm` dependencies. Packages listed are installed in the environment prior to your tests executing.
 
-__Example__:
 ```yaml
-  npm:
-    registry: https://registry.npmjs.org
-    packages:
-      lodash: "4.17.20"
-      "@babel/preset-typescript": "7.12"
-      "@cypress/react": "^5.0.1"
+npm:
+  registry: https://registry.npmjs.org
+  packages:
+    lodash: "4.17.20"
+    "@babel/preset-typescript": "7.12"
+    "@cypress/react": "^5.0.1"
 ```
+---
 
 ### `registry`
+<p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/testrunner-toolkit/running-tests#running-tests-on-sauce-labs-with-sauce-connect).
+Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/testrunner-toolkit/running-tests#running-tests-on-sauce-labs-with-sauce-connect).
 
-__Type__: *string*
-
-__Example__:
 ```yaml
   registry: https://registry.npmjs.org
 ```
+---
 
 ### `packages`
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
-__Description__: Specifies npm packages that are required to run tests and should, therefore, be included in the bundle. See [Including Node Dependencies](/testrunner-toolkit/configuration#including-node-dependencies).
+Specifies any NPM packages that are required to run tests and should, therefore, be included in the bundle. See [Including Node Dependencies](#including-node-dependencies).
 
-__Type__: *object*
-
-__Example__:
 ```yaml
   packages:
     lodash: "4.17.20"
     "@babel/preset-typescript": "7.12"
     "@cypress/react": "^5.0.1"
 ```
+---
 
 ## `artifacts`
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
-__Description__: Specifies how to manage test artifacts, such as logs, videos, and screenshots.
+Specifies how to manage test artifacts, such as logs, videos, and screenshots.
 
-__Type__: *object*
-
-__Example__:
 ```yaml
 artifacts:
   download:
@@ -263,14 +262,13 @@ artifacts:
       - junit.xml
     directory: ./artifacts/
 ```
+---
 
 ### `download`
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
-__Description__: Specifies the settings related to downloading artifacts from tests run by `saucectl`.
+Specifies the settings related to downloading artifacts from tests run by `saucectl`.
 
-__Type__: *object*
-
-__Example__:
 ```yaml
   download:
     when: always
@@ -278,55 +276,49 @@ __Example__:
       - junit.xml
     directory: ./artifacts/
 ```
+---
 
 #### `when`
+<p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Specifies when and under what circumstances to download artifacts.
+Specifies when and under what circumstances to download artifacts. Valid values are:
 
-__Type__: *string*
+* `always`: Always download artifacts.
+* `never`: Never download artifacts.
+* `pass`: Download artifacts for passing suites only.
+* `fail`: Download artifacts for failed suites only.
 
-__Values__:
-- `always`: Always download artifacts.
-- `never`: Never download artifacts.
-- `pass`: Download artifacts for passing suites only.
-- `fail`: Download artifacts for failed suites only.
-
-__Example__:
 ```yaml
     when: always
 ```
+---
 
 #### `match`
+<p><small>| OPTIONAL | STRING/ARRAY |</small></p>
 
-__Description__: Allows you to specify particular files or file types to download based on whether they match the name pattern provided. Supports the wildcard character `*`.
+Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*`.
 
-__Type__: *string[]*
-
-__Example__:
 ```yaml
   match:
     - junit.xml
     - *.log
 ```
+---
 
 #### `directory`
+<p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded.
+Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded.
 
-__Type__: *string*
-
-__Example__:
 ```yaml
     directory: ./artifacts/
 ```
+---
 
 ## `{framework}`
+<p><small>| REQUIRED | OBJECT |</small></p>
 
-__Description__: The set of parameters providing details about the relevant framework. Specific parameters vary for each supported framework. More detail is available on the individual framework configuration pages, links to which are available in each example below.
-
-__Type__: *object*
-
-__Examples__:
+The set of properties providing details about the relevant framework. Specific properties vary for each supported framework. More detail is available on the individual framework configuration pages, links to which are available in each example below.
 
 <Tabs
     groupId="config"
@@ -385,14 +377,12 @@ https://github.com/saucelabs/saucectl-espresso-example/blob/master/.sauce/config
 </TabItem>
 </Tabs>
 
+---
 
 ## `suites`
+<p><small>| REQUIRED | OBJECT |</small></p>
 
-__Description__: The set of parameters providing details about the test suites to run. Each supported framework may include different parameters for each test suite, so refer to the individual framework configuration pages linked in each example below for relevant definitions.
-
-__Type__: *object*
-
-__Examples__:
+The set of properties providing details about the test suites to run. May contain multiple suite definitions. Each supported framework may include different properties for each test suite, so refer to the individual framework configuration pages linked in each example below for relevant definitions.
 
 <Tabs
     groupId="config"
@@ -450,89 +440,49 @@ https://github.com/saucelabs/saucectl-espresso-example/blob/master/.sauce/config
 
 </TabItem>
 </Tabs>
-
+---
 
 ### `name`
+<p><small>| REQUIRED | STRING |</small></p>
 
-__Description__: Name of the test suite.
+The name of the test suite, which will be reflected in the results and related artifacts.
 
-__Type__: *string*
-
-__Example__:
 ```yaml
   - name: "saucy test"
 ```
+---
 
 ### `env`
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
-__Description__: Field for setting enviornment variables. It supports expanded enviornment variables.
+A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported.
 
-__Type__: *object*
-
-__Example__:
 ```yaml
   env:
     hello: world
     my_var: $MY_VAR
 ```
-
-### `browser`
-
-__Description__: Name of the browser in which the test runs.
-
-__Type__: *string*
-
-__Example__:
-```yaml
-    browser: "chrome"
-```
-
-### `browserVersion`
-
-__Description__: Version of the browser in which the test runs.
-
-__Type__: *string*
-
-__Example__:
-```yaml
-    browserVersion: "85.0"
-```
-
-### `platformName`
-
-__Description__: Operating system on which the browser and test runs. This value is optional and will be defaulted to a sensible platform. Set this value explicitly if you'd like to have greater control over where your tests should run.
-
-__Type__: *string*
-
-__Example__:
-```yaml
-    platformName: "Windows 10"
-```
+---
 
 ### `screenResolution`
+<p><small>| OPTIONAL | STRING |  <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
 
-__Description__: Field where you can change the browser window screen resolution.
+Specifies a browser window screen resolution, which may be useful if you are attempting to simulate a browser on a particular device type. See [Test Configurations](/basics/test-config-annotation/test-config) for a list of available resolution values.
 
-__Type__: *string*
-
-__Example__:
 ```yaml
     screenResolution: "1920x1080"
 ```
-
-> For all available resolutions please visit [Sauce Labs Test Configurations](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SauceLabsCustomTestingOptions).
-
+---
 
 ### `mode`
+<p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Allows you to specify whether the individual suite will run on `docker` or `sauce`, potentially overriding the default project mode setting.
+Specifies whether the individual suite will run on `docker` or `sauce`, potentially overriding the default project mode setting.
 
-__Type__: *string*
-
-__Example__:
 ```yaml
   mode: "sauce"
 ```
+---
 
 ## Framework Syntax Reference
 
@@ -540,3 +490,4 @@ __Example__:
 * [Playwright](/testrunner-toolkit/configuration/playwright)
 * [TestCafe](/testrunner-toolkit/configuration/testcafe)
 * [Espresso](/testrunner-toolkit/configuration/espresso)
+* [XCUITest](testrunner-toolkit/configuration/xcuitest)
