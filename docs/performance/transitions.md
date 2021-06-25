@@ -238,9 +238,6 @@ First, create a separate file in which you define your target metric limits, as 
 ```
 Then, import your budget file in your test script and assert your performance call against the values in your budget, as shown in the following sample.
 
-<!--
-> <font color="pink">**Nancy:** Would be great if we could get at least a Python code sample, for consistency.</font>
--->
 
 ```js {1,9,19,11}
 const budgets = require('./budget.json')
@@ -364,4 +361,6 @@ Retrieve the log by calling:
 
 `driver.execute('sauce:log', {type: 'sauce:performance'});`
 
-> **NOTE:** See [Custom Sauce Labs Extensions](https://wiki.saucelabs.com/display/DOCS/Custom+Sauce+Labs+WebDriver+Extensions+for+Network+and+Log+Commands) for additional network and logging options enabled with extended debugging.
+:::note
+See [Using Extended Debugging](/insights/debug) for additional network and logging options enabled with extended debugging.
+:::
