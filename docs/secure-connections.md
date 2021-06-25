@@ -41,7 +41,7 @@ Sauce IPSec Proxy establishes a VPN connection between two IPSec gateways, and a
 
   <div className="box boxwidebottom card">
     <div className="container">
-    <h3><a href="/secure-connections/ipsec-vpn#setting-tunnel-permissions">Sharing Sauce IPSec Proxy Tunnels</a></h3>
+    <h3><a href="/secure-connections/ipsec-vpn">Sharing Sauce IPSec Proxy Tunnels</a></h3>
     <p>You can share Sauce IPSec Proxy tunnel access with your entire organization or restrict access to admins only.</p>
     </div>
   </div>

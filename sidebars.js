@@ -9,7 +9,8 @@ module.exports = {
                 items: [
                     'sauce-basics',
                     'basics/platform-configurator',
-                    'basics/test-config',
+                    'basics/environment-variables',
+
                     {
                         type: 'category',
                         label: 'Account and Team Management',
@@ -67,11 +68,32 @@ module.exports = {
                     },
                     {
                         type: 'category',
+                        label: 'Test Configuration and Annotation',
+                        collapsed: true,
+                        items: [
+                            'basics/test-config-annotation/test-config',
+                            'basics/test-config-annotation/test-annotation',
+
+                        ],
+                    },
+                    {
+                        type: 'category',
+                        label: 'Data Center Endpoints',
+                        collapsed: true,
+                        items: [
+                            'basics/data-center-endpoints/data-center-endpoints',
+                            'basics/data-center-endpoints/aust-early-access',
+
+                        ],
+                    },
+                    {
+                        type: 'category',
                         label: 'Integrations',
                         collapsed: true,
                         items: [
                             'basics/integrations/deque',
                             'basics/integrations/tosca',
+                            'basics/integrations/jira',
                         ],
                     },
                 ],
@@ -141,18 +163,10 @@ module.exports = {
                             'mobile-apps/automated-testing/appium',
                             'mobile-apps/automated-testing/appium/real-devices',
                             'mobile-apps/automated-testing/appium/virtual-devices',
+                            'mobile-apps/automated-testing/appium/migration',
                         ],
                     },
-                    {
-                        type: 'category',
-                        label: 'Espresso and XCUITest',
-                        collapsed: true,
-                        items: [
-                            'mobile-apps/automated-testing/espresso-xcuitest',
-                            'mobile-apps/automated-testing/espresso-xcuitest/real-devices',
-                            'mobile-apps/automated-testing/espresso-xcuitest/virtual-devices',
-                        ],
-                    },
+                    'mobile-apps/automated-testing/espresso-xcuitest',
                     'mobile-apps/automated-testing/ipa-files',
                 ],
             },
@@ -176,8 +190,52 @@ module.exports = {
                 label: 'Automated Testing',
                 collapsed: true,
                 items: [
-                    'web-apps/automated-testing/cypress',
-                    'web-apps/automated-testing/playwright',
+                    {
+                      type: 'category',
+                      label: 'Selenium',
+                      collapsed: true,
+                      items: [
+                        'web-apps/automated-testing/selenium',
+                        'web-apps/automated-testing/selenium/pre-run-executables',
+                        'web-apps/automated-testing/selenium/sample-scripts',
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'Cypress',
+                      collapsed: true,
+                      items: [
+                        'web-apps/automated-testing/cypress',
+                        'testrunner-toolkit/configuration/cypress',
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'Playwright',
+                      collapsed: true,
+                      items: [
+                        'web-apps/automated-testing/playwright',
+                        'testrunner-toolkit/configuration/playwright',
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'TestCafe',
+                      collapsed: true,
+                      items: [
+                        'web-apps/automated-testing/testcafe',
+                        'testrunner-toolkit/configuration/testcafe',
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'Puppeteer',
+                      collapsed: true,
+                      items: [
+                        'web-apps/automated-testing/puppeteer',
+                        'testrunner-toolkit/configuration/puppeteer',
+                      ]
+                    },
                 ],
             },
         ],
@@ -511,6 +569,7 @@ module.exports = {
             'ci/teamcity',
         ],
         "Test Results": [
+            'test-results',
             'test-results/viewing-test-results',
             'test-results/managing-test-results',
             'test-results/sharing-test-results',
@@ -537,40 +596,10 @@ module.exports = {
         "Headless": [
             'headless',
         ],
-        "Testrunner Toolkit": [
+        "SauceCTL": [
             'testrunner-toolkit',
             'testrunner-toolkit/installation',
-            {
-                type: 'category',
-                label: 'Configuration',
-                collapsed: true,
-                items: [
-                    'testrunner-toolkit/configuration',
-                    'testrunner-toolkit/configuration/common-syntax',
-                    {
-                        type: 'category',
-                        label: 'Cypress',
-                        collapsed: true,
-                        items: [
-                            'testrunner-toolkit/configuration/cypress',
-                            'testrunner-toolkit/configuration/cypress/cyp-cucumber',
-                        ]
-                    },
-                    'testrunner-toolkit/configuration/playwright',
-                    'testrunner-toolkit/configuration/puppeteer',
-                    'testrunner-toolkit/configuration/testcafe',
-                    {
-                        type: 'category',
-                        label: 'Espresso',
-                        collapsed: true,
-                        items: [
-                            'testrunner-toolkit/configuration/espresso',
-                            'testrunner-toolkit/configuration/espresso/esp-cucumber',
-                        ]
-                    },
-                    'testrunner-toolkit/configuration/xcuitest',
-                ],
-            },
+            'testrunner-toolkit/configuration',
             'testrunner-toolkit/running-tests',
             {
                 type: 'category',
@@ -595,19 +624,23 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'visual/e2e-testing/setup',
+                    'visual/e2e-testing/dashboard-workflow',
                     {
                         type: 'category',
                         label: 'Integrations',
                         collapsed: true,
                         items: [
-                          'visual/e2e-testing/integrations/selenium-webdriver',
                           'visual/e2e-testing/integrations/continuous-integration',
+                          'visual/e2e-testing/integrations/selenium-webdriver',
+                          'visual/e2e-testing/integrations/github',
+                          'visual/e2e-testing/integrations/webhooks',
+                          'visual/e2e-testing/integrations/sauce-labs',
                         ],
                     },
-                    'visual/e2e-testing/dashboard-workflow',
-                    'visual/e2e-testing/settings',
-                    'visual/e2e-testing/recording-tests',
+                    'visual/e2e-testing/screener-recorder',
+                    'visual/e2e-testing/api',
                     'visual/e2e-testing/secure-connections',
+                    'visual/e2e-testing/notifications',
                     'visual/e2e-testing/acct-team-mgmt',
                 ],
             },
@@ -617,11 +650,23 @@ module.exports = {
                 collapsed: true,
                 items: [
                   'visual/component-testing/setup',
-                  'visual/component-testing/integrations',
                   'visual/component-testing/dashboard-workflow',
-                  'visual/component-testing/settings',
-                  'visual/component-testing/interactions-testing-api',
-                  'visual/component-testing/supported-browsers-devices',
+                  {
+                      type: 'category',
+                      label: 'Integrations',
+                      collapsed: true,
+                      items: [
+                        'visual/component-testing/integrations/continuous-integration',
+                        'visual/component-testing/integrations/github',
+                        'visual/component-testing/integrations/webhooks',
+                        'visual/component-testing/integrations/slack',
+                        'visual/component-testing/integrations/visual-studio',
+                        'visual/component-testing/integrations/sauce-labs',
+                      ],
+                  },
+                  'visual/component-testing/cross-browser-testing',
+                  'visual/component-testing/testing-interactions',
+                  'visual/component-testing/notifications',
                   'visual/component-testing/acct-team-mgmt',
                 ],
             },
@@ -632,6 +677,7 @@ module.exports = {
             'dev/error-messages',
             'dev/test-configuration-options',
             'dev/w3c-webdriver-capabilities',
+            'dev/data-center-maint',
             {
                 type: 'category',
                 label: 'API Reference',
@@ -655,17 +701,6 @@ module.exports = {
                 items: [
                     'dev/cli',
                     'dev/cli/sauce-connect-proxy',
-                    {
-                        type: 'category',
-                        label: 'Espresso / XCUITest',
-                        collapsed: true,
-                        items: [
-                            'dev/cli/espresso-xcuitest',
-                            'dev/cli/espresso-xcuitest/real-devices',
-                            'dev/cli/espresso-xcuitest/yaml-config',
-                            'dev/cli/espresso-xcuitest/virtual-devices',
-                        ],
-                    },
                     {
                         type: 'category',
                         label: 'Virtual USB',

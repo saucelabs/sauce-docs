@@ -73,10 +73,7 @@ If you want to display the build status of a private Sauce account, you need to 
 This example shows how to generate an HMAC token using Python:
 
 ```
-python
-from hashlib import md5
-import hmac
-"?auth=" + hmac.new("YOUR_SAUCE_USERNAME:YOUR_SAUCE_ACCESSKEY", None, md5).hexdigest()
+python3 -c 'from hashlib import md5;import hmac;print("?auth=" + hmac.new("YOUR_SAUCE_USERNAME:YOUR_SAUCE_ACCESSKEY".encode(), None, md5).hexdigest())'
 ```
 
 This is an example to show that the HMAC token should be generated using your Sauce Labs username and access key. You can find many examples of how to accomplish this in other languages with a quick web search, such as [here](https://github.com/danharper/hmac-examples). As the above example shows, the HMAC token should be generated using the md5 cryptographic algorithm, and with no secret.
@@ -96,7 +93,7 @@ Follow the instructions below to run the sample demo that exists in the [saucela
 git clone https://github.com/saucelabs-training/demo-sauce-status-badge.git
 ```
 
-2. Set your Sauce Labs Credentials as environment variables (see _______)
+2. Set your Sauce Labs Credentials as environment variables (for more information, see Using Environment Variables).
 
 3. Add the username for the badge and matrix URLs like so:
   * Build Status Badge Example URL:
@@ -112,3 +109,6 @@ git clone https://github.com/saucelabs-training/demo-sauce-status-badge.git
 npm install
 ```
 5. Run the tests with the following command:
+```
+npm test
+```

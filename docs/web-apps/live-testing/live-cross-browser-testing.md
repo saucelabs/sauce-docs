@@ -135,7 +135,9 @@ The graph and csv file will contain these performance metrics for devices.
 | `network_mobile_receive_b` | Data in bytes received from the mobile carrier network |
 | `network_mobile_sent_b` | Data in bytes sent over mobile carrier network |
 
->**NOTE:** Device Vitals for live testing is currently in beta state, which means we are testing it on a few devices first. We will roll out to all devices in the coming weeks, please refer to this page for updates. See the full list of combinations available for beta below.
+:::note
+Device Vitals for live testing is currently in beta state, which means we are testing it on a few devices first. We will roll out to all devices in the coming weeks, please refer to this page for updates. See the full list of combinations available for beta below.
+:::
 
 <Tabs
   defaultValue="iOS"

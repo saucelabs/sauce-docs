@@ -60,11 +60,7 @@ You can use any of the existing methods of distribution for your iOS app, except
 
 ## Creating an XCUITest Package
 
-:::tip
-Our XCUITest test runner accepts both .app and .ipa file formats for the `--app` and `--test` parameters.
-:::
-
-### -Runner.app
+`saucectl v0.47.0+` supports archiving from .app to .ipa [Testing with XCUITest](/mobile-apps/automated-testing/espresso-xcuitest).
 
 1. Open your application project in Xcode.
 2. Select **Generic iOS Device** or **Any iOS Device (arm64)** as your project's device target.
@@ -72,19 +68,10 @@ Our XCUITest test runner accepts both .app and .ipa file formats for the `--app`
 <img src={useBaseUrl('img/xcuitest/xcode-build.png')} alt="Xcode Build Options" width="800" />
 
 4. Generate your test package by selecting **Product** > **Build For** > **Testing**.
-5. Navigate to your Xcode project's **Products** directory and find the generated **-Runner.app** files.
-6. Your -Runner.app files are ready to be used in the `--test` parameter of our XCUI test runner.
+5. Navigate to your Xcode project's **Products** directory and find the generated **.app** files.
 
-### .ipa (Optional)
-
-1. Create an empty directory name `Payload`.
-2. Move the -Runner.app to the `Payload` directory.
-3. Compress the Payload directory into an archive (.zip file) and give it a new name with .ipa file format ending.
-4. Your .ipa file is ready to be used in the `--test` parameter of our XCUITest test runner. See [Real Device Testing with Espresso and XCUITest](mobile-apps/automated-testing/espresso-xcuitest/real-devices.md) for more information.
 
 ## Creating .ipa Files for XCUITest Testing
-
-This section describes how to build .ipa files for Real Device Testing (see [Real Device Testing with Espresso and XCUITest](mobile-apps/automated-testing/espresso-xcuitest/real-devices)).
 
 Make sure that you set the same iOS version for your app and test runner **iOS Deployment Target**. If they don't match, your tests will run locally, but fail when you run them against Sauce Labs real devices.
 
@@ -96,4 +83,6 @@ To set the iOS version in your Xcode Target:
 1. Select the Target for your Project.
 2. Under **Build Settings**, set the iOS Deployment Target to the iOS version you want to use in your test.
 
->**NOTE**: will also overwrite the **Build Settings** at the Project level to that iOS version. If you use this method, be aware that your Targets can become out of sync with each other and the Project settings, and your tests will break. If you change the iOS version for one target output, you may want to build the Project again to make sure all your targets are in sync.
+:::caution
+This will also overwrite the **Build Settings** at the Project level to that iOS version. If you use this method, be aware that your Targets can become out of sync with each other and the Project settings, and your tests will break. If you change the iOS version for one target output, you may want to build the Project again to make sure all your targets are in sync.
+:::

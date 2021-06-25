@@ -198,7 +198,7 @@ xmlFolder: ./tmp
 
 ### `url`
 
-__Description__: specifies the URL of an alternative REST endpoint to use. For a list of endpoints, see [Data Center Endpoints](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102704068) for further details.
+__Description__: specifies the URL of an alternative REST endpoint to use. See [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints) for further details.
 
 __Example__:
 

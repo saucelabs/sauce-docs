@@ -2,49 +2,28 @@
 id: web-apps
 title: Web Application Testing
 sidebar_label: Getting Started
+description: Achieve digital confidence for your web app on every platform and in every browser.
 ---
-It's easy to run automated web application tests in the Sauce Labs device cloud.
+Achieving digital confidence for your website application involves knowing that every user who comes to your website will have the same experience, regardless of how they are getting there. Sauce Labs provides thousands of operating system and browser combinations for you to test you web app manually or using automation so you can launch faster and more confidently.
 
 <div className="box-wrapper" markdown="1">
 <div className="box box1 card">
   <div className="container">
-  <h2>Live Testing</h2>
-  <p>Use Sauce Labs to live test web apps on a desktop browser, and on native browsers for real and virtual devices.
+  <h2><a href="/web-apps/live-testing/live-cross-browser-testing">Live Testing</a></h2>
+  <p>Manually test your web app to see how it behaves across different operating systems, browsers, and versions of each. Verify that it scales across different mobile devices and with different screen resolutions or network connectivity.
 </p>
-  <ul>
-      <li><a href="https://wiki.saucelabs.com/display/DOCS/Live+Web+App+Testing+on+Mobile+Browsers+with+Virtual+and+Real+Devices">Testing on Mobile Browsers</a></li>
-      <li><a href="https://wiki.saucelabs.com/display/DOCS/Live+Web+App+Testing+on+Desktop+Browsers">Testing on Desktop Browsers</a></li>
-      <li><a href="https://wiki.saucelabs.com/display/DOCS/Best+Practices+for+Live+Testing">Best Practices for Live Testing</a></li>
-  </ul>
   </div>
 </div>
   <div className="box box2 card">
   <div className="container">
   <h2>Automated Testing</h2>
-  <p>Run automated tests of web apps on desktop and mobile browsers.</p>
+  <p>Use automation to vastly improve the speed, effectiveness, and consistency of your testing. Sauce Labs supports a variety of automated testing approaches, so you can test your app your way:</p>
   <ul>
-      <li><a href="https://wiki.saucelabs.com/display/DOCS/Automated+Web+App+Testing+on+Desktop+and+Mobile+Browsers">Testing on Desktop and Mobile Browsers</a></li>
-      <li><a href="/testrunner-toolkit">Run tests with Cypress, Playwright, and TestCafe</a></li>
-  </ul>
-  </div>
-  </div>
-  <div className="box box3 card">
-  <div className="container">
-  <h2>Selenium</h2>
-  <p>Selenium is designed to automate web browser interaction.</p>
-  <ul>
-      <li><a href="https://wiki.saucelabs.com/display/DOCS/Getting+Started+with+Selenium+for+Automated+Website+Testing">Getting Started</a></li>
-      <li><a href="https://wiki.saucelabs.com/display/DOCS/Example+Selenium+Scripts+for+Automated+Web+App+Tests">Example Scripts</a></li>
-  </ul>
-  </div>
-  </div>
-  <div className="box box4 card">
-  <div className="container">
-  <h2>Troubleshooting</h2>
-  <p>There are several ways to troubleshoot your manual and automated website tests.</p>
-  <ul>
-      <li><a href="https://wiki.saucelabs.com/display/DOCS/Troubleshooting+Automated+Website+Tests">Troubleshooting Automated Website Tests</a></li>
-      <li><a href="https://wiki.saucelabs.com/display/DOCS/Common+Error+Messages">Common Error Messages</a></li>
+      <li><a href="/web-apps/automated-testing/selenium">Selenium</a></li>
+      <li><a href="/web-apps/automated-testing/cypress">Cypress</a></li>
+      <li><a href="/web-apps/automated-testing/playwright">Playwright</a></li>
+      <li><a href="/web-apps/automated-testing/testcafe">TestCafe</a></li>
+      <li><a href="/web-apps/automated-testing/puppeteer">Puppeteer</a></li>
   </ul>
   </div>
   </div>

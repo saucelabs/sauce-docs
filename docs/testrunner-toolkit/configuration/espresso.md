@@ -227,10 +227,12 @@ testOptions:
   class:
     - com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
   notClass:
-    - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest  
+    - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest
   size: small
   package: com.example.android.testing.androidjunitrunnersample
   annotation: com.android.buzz.MyAnnotation
+  numShards: 4
+  clearPackageData: true
 ```
 
 ### `class`
@@ -290,4 +292,43 @@ __Type__: *string*
 __Example__:
 ```yaml
   annotation: com.android.buzz.MyAnnotation
+```
+
+### `numShards`
+
+__Description__: Sets the number of separate shards to create. Read more about shard tests on the [Android developer site](https://developer.android.com/training/testing/junit-runner#sharding-tests).
+
+When `numShards` is greater than 1, `saucectl` will create the create the sharded jobs automatically.
+
+e.g. for this configuration:
+```yaml
+suites:
+  - name: Sharded suite
+    testOptions:
+      numShards: 2
+    emulators:
+      - name: Android GoogleAPI Emulator
+        platformVersions:
+          - "11.0"
+```
+
+`saucectl` will automatically create two suites, each suite running a separate sharded set of tests.
+
+
+__Type__: *int*
+
+__Example__:
+```yaml
+  numShards: 4
+```
+
+### `clearPackageData`
+
+__Description__: Removes all shared states from the testing device's CPU and memory at the completion of each test.
+
+__Type__: *bool*
+
+__Example__:
+```yaml
+  clearPackageData: true
 ```
