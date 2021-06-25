@@ -314,7 +314,7 @@ There are a few potential causes for this error:
 
 You'll see this error when our infrastructure loses communication with the VM being used for your test and can't regain that connection after a reasonable time. If you only get this message rarely and randomly, it is probably a fluke on our end caused by an infrastructure blip.
 
-However, if you are experiencing this error repeatedly for a specific test or set of tests, there may be an issue on your end that's causing the failure. For example, if the error regularly appears after a specific Selenium command, there could be something wrong with the test that is causing Selenium to crash. We have also seen issues with [pre-run executables](/web-apps/automated-testing/pre-run-executables/index.html).
+However, if you are experiencing this error repeatedly for a specific test or set of tests, there may be an issue on your end that's causing the failure. For example, if the error regularly appears after a specific Selenium command, there could be something wrong with the test that is causing Selenium to crash. We have also seen issues with [pre-run executables](/web-apps/automated-testing/selenium/pre-run-executables).
 
 **Cause**
 

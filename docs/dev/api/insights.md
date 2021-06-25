@@ -904,7 +904,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   },
   "buckets": [
     {
-      "name": "Selenium didn't complete your last command on time.\nFor help, please check https://wiki.saucelabs.com/display/DOCS/Common+Error+Messages",
+      "name": "Selenium didn't complete your last command on time.\nFor help, please check https://docs.saucelabs.com/dev/error-messages",
       "count": 1,
       "items": [
         {
@@ -915,7 +915,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
           "creation_time": "2017-03-01T17:47:35Z",
           "end_time": "2017-03-01T17:54:03Z",
           "status": "errored",
-          "error": "Selenium didn't complete your last command on time.\nFor help, please check https://wiki.saucelabs.com/display/DOCS/Common+Error+Messages",
+          "error": "Selenium didn't complete your last command on time.\nFor help, please check https://docs.saucelabs.com/dev/error-messages",
           "os": "Linux",
           "browser": "Android 5.1",
           "details_url": "https://saucelabs.com/rest/v1.1/USERNAME/jobs/8f5nf6370061122bb6ah4ee10a2c966d"
