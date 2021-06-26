@@ -1,23 +1,18 @@
 ---
 id: testrunner-toolkit
-title: Using Testrunner Toolkit                                 
-sidebar_label: Using Testrunner Toolkit
+title: Using saucectl                                 
+sidebar_label: Using saucectl
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-Testrunner Toolkit is a containerized testing solution that allows you to get the benefits of the Sauce Labs platform while maintaining your test suites in your favorite framework.  
-
-
-## How it Works
-
-At the heart of the toolkit is the `saucectl` command line, which performs the underlying business logic to access the tests in your existing framework, run them (either in the Sauce Labs Cloud or locally in a Docker image), then securely transmit the test assets to the Sauce Labs platform, where you can review, share, and evaluate your test outcomes at scale.
+`saucectl` is a command line interface that performs the underlying business logic to access the tests in your existing framework, run them (either in the Sauce Labs Cloud or locally in a Docker image), then securely transmit the test assets to the Sauce Labs platform, where you can review, share, and evaluate your test outcomes at scale.
 
 ## Supported Frameworks and Browsers
 
-The toolkit currently supports:
+`saucectl` currently supports:
 
 * [Cypress](https://github.com/cypress-io/cypress)
 * [Playwright](https://github.com/microsoft/playwright)
