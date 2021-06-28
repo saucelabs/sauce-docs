@@ -460,36 +460,6 @@ Allows you to alter the test execution speed for the test suite in milliseconds,
 
 The configuration file is flexible enough to allow for any customizations and definitions that are required for any of the supported frameworks. The following sections describe some of the most common configurations.
 
-### Setting up a Proxy
-
-If you need to go through a proxy server, you can set it through the following variables:
-
-* `HTTP_PROXY`: Proxy to use to access HTTP websites
-* `HTTPS_PROXY`: Proxy to use to access HTTPS websites
-
-:::note
-At this time, these proxy settings are not supported for Playwright.
-:::
-
-
-#### Docker Proxy Considerations
-
-When running in docker-mode, `saucectl` still must reach the Sauce Labs platform get the latest docker image available or upload the test package to Sauce Cloud, and the docker container needs to access the tested website and Sauce Labs to upload results.
-
-Therefore, you may be required to set the proxy twice, as shown in the following examples:
-
-``` title= "Example: Windows Powershell"
-PS> $Env:HTTP_PROXY=http://my.proxy.org:3128/
-PS> $Env:HTTPS_PROXY=http://my.proxy.org:3128/
-PS> saucectl run -e HTTP_PROXY=${Env:HTTP_PROXY} -e HTTPS_PROXY=${Env:HTTPS_PROXY}
-```
-
-``` title= "Example: Linux/MacOS"
-$> export HTTP_PROXY=http://my.proxy.org:3128/
-$> export HTTPS_PROXY=http://my.proxy.org:3128/
-$> saucectl run -e HTTP_PROXY=${HTTP_PROXY} -e HTTPS_PROXY=${HTTPS_PROXY}
-```
-
 ### Tailoring Your Test File Bundle
 
 The `saucectl` command line bundles your root directory (`rootDir` parameter of `config.yml`) and transmits it to the Sauce Labs cloud or your own infrastructure via Docker, then unpacks the bundle and runs the tests. This functionality is partly what allows Sauce Control to operate in a framework-agnostic capacity. However, you can and should manage the inclusion and exclusion of files that get bundled to optimize performance and ensure security.
