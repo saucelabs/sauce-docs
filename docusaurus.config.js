@@ -19,7 +19,7 @@ const docusaurusConfig = {
     announcementBar: {
       id: 'support_us', // Any value that will identify this message.
       content:
-          'We are looking to revamp our docs, please fill <a target="_blank" rel="noopener noreferrer" href="#">this survey</a>',
+          'Our improved documentation is here! <a target="_blank" rel="noopener noreferrer" href="docsfeedback@saucelabs.com"> Tell us what you think</a>',
       backgroundColor: '#fafbfc', // Defaults to `#fff`.
       textColor: '#091E42', // Defaults to `#000`.
       isCloseable: true, // Defaults to `true`.
