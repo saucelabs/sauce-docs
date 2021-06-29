@@ -120,7 +120,7 @@ saucectl run --ccy 5
 ---
 
 ### `tunnel`
-<p><small>| OPTIONAL | OBJECT | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
 `saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the identifier in this property.
 
@@ -327,17 +327,17 @@ Find a device for this test suite that matches the device name or portion of the
 ```
 
 ```yaml title="Use Pattern Matching"
-        name: iPhone*
+        name: iPhone.*
 ```
 ---
 
 #### `platformVersion`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Request that the device matches a specific platform version. You can use the `*` wildcard to denote flexibility.
+Request that the device matches a specific platform version.
 
 ```yaml
-        platformVersion: 14.*
+        platformVersion: 14.3
 ```
 ---
 
@@ -361,10 +361,10 @@ Request that the matching device is also connected to a cellular network.
 ##### `deviceType`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Request that the matching device is a specific type of device. Valid values are:  `ANY`, `TABLET`, or `PHONE` (case-sensitive).
+Request that the matching device is a specific type of device. Valid values are:  `ANY`, `TABLET`, or `PHONE`.
 
 ```yaml
-        deviceTypecarrierConnectivity: TABLET
+        deviceType: TABLET
 ```
 ---
 
@@ -426,43 +426,3 @@ $> export HTTP_PROXY=http://my.proxy.org:3128/
 $> export HTTPS_PROXY=http://my.proxy.org:3128/
 ```
 
-
-### Tailoring Your Test File Bundle
-
-The `saucectl` command line bundles your root directory (`rootDir` parameter of `config.yml`) and transmits it to the Sauce Labs cloud, then unpacks the bundle and runs the tests. This functionality is partly what allows Sauce Control to operate in a framework-agnostic capacity. However, you can and should manage the inclusion and exclusion of files that get bundled to optimize performance and ensure security.
-
-#### Excluding Files from the Bundle
-
-The `.sauceignore` file allows you to designate certain files to be excluded from bundling.
-
-Add any files that are not direct test dependencies to `.sauceignore` to reduce the size of your bundle, improve test speed, and protect sensitive information.
-
-Examples of what can be included in `.sauceignore`:
-
-```bash
-# .sauceignore
-
-# Ignore node_modules
-node_modules/
-
-# Ignore all log files
-*.log
-
-# Ignore executables/binaries
-*.exe
-*.bin
-**/*/bin
-
-# Ignore media files
-*.png
-*.jpeg
-*.jpg
-*.mp4
-
-# Ignore documentation
-*.rst
-*.md
-
-# Ignore sensitive data
-credentials.yml
-```
