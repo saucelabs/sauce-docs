@@ -1,10 +1,10 @@
 {
   "index_name": "saucelabs",
   "start_urls": [
-    "https://docs.staging.saucelabs.net/"
+    "https://docs.saucelabs.com/"
   ],
   "sitemap_urls": [
-    "https://docs.staging.saucelabs.net/sitemap.xml"
+    "https://docs.saucelabs.com/sitemap.xml"
   ],
   "stop_urls": [],
   "selectors": {
