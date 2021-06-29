@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 <p><small><span class="highlight beta">BETA</span></small></p>
 
-Integrate your Sauce Labs and [Attlassian Jira](https://www.atlassian.com/software/jira) user accounts so you can create or update Jira issues from within the Sauce Labs dashboard.
+Integrate your Sauce Labs and [Atlassian Jira](https://www.atlassian.com/software/jira) user accounts so you can create or update Jira issues from within the Sauce Labs dashboard.
 
 
 ## What You'll Need
@@ -36,6 +36,10 @@ The Sauce Labs Jira integration is only compatible with Jira Cloud. We do not su
     * **Jira Email**: The email address associated with your personal Jira login account.
     * **Jira API Token**: The Jira integration utilizes Atlassian's Jira API to communicate with your Jira account. To do this, it passes authentication credentials in the API requests on your behalf. If you don't know your API token value or don't have one, you can create a new one for your sauce integration through your [Jira Account Profile](https://id.atlassian.com/manage-profile/security/api-tokens).
 1. Click **Save**.
+
+:::note Multiple Data Centers
+The Jira Plugin is specific to the data center that is active for your Sauce Labs account during integration. If you have access to multiple data centers, you must switch into each data center and repeat the Plugin install and setup process in order to integrate each data center.
+:::
 
 
 ## Create an Issue
