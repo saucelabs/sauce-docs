@@ -119,7 +119,7 @@ saucectl run --ccy 5
 ---
 
 ### `tunnel`
-<p><small>| OPTIONAL | OBJECT | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
 `saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the identifier in this property.
 
@@ -137,20 +137,6 @@ This is the identifier `saucectl` expects as the `id` property, even though the 
  tunnel:
     id: your_tunnel_id
     parent: parent_owner_of_tunnel # if applicable, specify the owner of the tunnel
-```
----
-
-## `rootDir`
-<p><small>| REQUIRED | OBJECT |</small></p>
-
-The directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Tailoring Your Test File Bundle](#tailoring-your-test-file-bundle) for more details. The following examples show the different relative options for setting this value.
-
-```yaml
-  rootDir: "./" # Use the current directory
-```
-
-```yaml
-  rootDir: "packages/subpackage" # Some other package from within a monorepo
 ```
 ---
 
@@ -235,7 +221,7 @@ espresso:
 ### `app`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The directory path to the application. The default directory is `{project-root}/apps/filename.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples.
+The path to the application. The default directory is `{project-root}/apps/filename.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples.
 
 ```yaml
   app: ./apps/calc.apk
@@ -249,7 +235,7 @@ The directory path to the application. The default directory is `{project-root}/
 ### `testApp`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The directory path to the testing application. The default directory is `{project-root}/apps/testfile.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples.
+The path to the testing application. The relative file location is `{project-root}/apps/testfile.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples.
 
 ```yaml
   testApp: ./apps/calc-success.apk
@@ -382,10 +368,10 @@ Find a device for this test suite that matches the device name or portion of the
 #### `platformVersion`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Request that the device matches a specific platform version. You can use the `*` wildcard to denote flexibility.
+Request that the device matches a specific platform version.
 
 ```yaml
-        platformVersion: 8.*
+        platformVersion: 8.0
 ```
 ---
 
@@ -409,10 +395,10 @@ Request that the matching device is also connected to a cellular network.
 ##### `deviceType`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Request that the matching device is a specific type of device. Valid values are:  `ANY`, `TABLET`, or `PHONE` (case-sensitive).
+Request that the matching device is a specific type of device. Valid values are:  `ANY`, `TABLET`, or `PHONE`.
 
 ```yaml
-        deviceTypecarrierConnectivity: TABLET
+        deviceType: TABLET
 ```
 ---
 
@@ -502,7 +488,7 @@ Instructs `saucectl` to run only tests that match a custom annotation that you h
 
 Sets the number of separate shards to create for the test suite. Read more about shard tests on the [Android developer site](https://developer.android.com/training/testing/junit-runner#sharding-tests).
 
-When sharding is configured, `saucectl` creates the sharded jobs automatically for each of the devices defined for the suite based on the number of shards you specify. For example, if a suite defines a single emulator version with 2 shards, `saucectl` clones the suite and runs one shard index on the first suite, and the other shard index on the identical clone suite.
+When sharding is configured, `saucectl` automatically creates the sharded jobs for each of the devices defined for the suite based on the number of shards you specify. For example, for a suite testing a single emulator version that specifies 2 shards, `saucectl` clones the suite and runs one shard index on the first suite, and the other shard index on the identical clone suite. For a suite that is testing 2 emulator version and two real devices, `saucectl` must clone the suite to run each shard index for each emulator and device, so 8 jobs in total for the suite.
 
 ```yaml
   numShards: 2
@@ -538,46 +524,6 @@ PS> $Env:HTTPS_PROXY=http://my.proxy.org:3128/
 ``` title= "Example: Linux/MacOS"
 $> export HTTP_PROXY=http://my.proxy.org:3128/
 $> export HTTPS_PROXY=http://my.proxy.org:3128/
-```
-
-### Tailoring Your Test File Bundle
-
-The `saucectl` command line bundles your root directory (`rootDir` parameter of `config.yml`) and transmits it to the Sauce Labs cloud, then unpacks the bundle and runs the tests. This functionality is partly what allows Sauce Control to operate in a framework-agnostic capacity. However, you can and should manage the inclusion and exclusion of files that get bundled to optimize performance and ensure security.
-
-#### Excluding Files from the Bundle
-
-The `.sauceignore` file allows you to designate certain files to be excluded from bundling.
-
-Add any files that are not direct test dependencies to `.sauceignore` to reduce the size of your bundle, improve test speed, and protect sensitive information.
-
-Examples of what can be included in `.sauceignore`:
-
-```bash
-# .sauceignore
-
-# Ignore node_modules
-node_modules/
-
-# Ignore all log files
-*.log
-
-# Ignore executables/binaries
-*.exe
-*.bin
-**/*/bin
-
-# Ignore media files
-*.png
-*.jpeg
-*.jpg
-*.mp4
-
-# Ignore documentation
-*.rst
-*.md
-
-# Ignore sensitive data
-credentials.yml
 ```
 
 ## Try Espresso with Cucumber
