@@ -597,10 +597,6 @@ If you need to go through a proxy server, you can set it through the following v
 * `HTTP_PROXY`: Proxy to use to access HTTP websites
 * `HTTPS_PROXY`: Proxy to use to access HTTPS websites
 
-:::note
-At this time, these proxy settings are not supported for Playwright.
-:::
-
 
 #### Docker Proxy Considerations
 
