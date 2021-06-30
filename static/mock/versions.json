@@ -1,0 +1,19 @@
+{
+  "downloads": {
+    "linux": {
+      "download_url": "https://saucelabs.com/downloads/sc-4.6.5-linux.tar.gz",
+      "sha1": "7e7a7f058754c65d323a77e027b62e12ba209e18"
+    },
+    "osx": {
+      "download_url": "https://saucelabs.com/downloads/sc-4.6.5-osx.zip",
+      "sha1": "caa05e8779f4e052463a63e1b38f6362473ce644"
+    },
+    "win32": {
+      "download_url": "https://saucelabs.com/downloads/sc-4.6.5-win32.zip",
+      "sha1": "4431030b57dc0c416ea59a2afa6738b0de59dc80"
+    }
+  },
+  "latest_version": "4.6.5",
+  "info_url": "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
+  "warning": ["Client host platform is not specified, download URL cannot be determined"]
+}
