@@ -153,7 +153,6 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'mobile-apps/automated-testing',
-
                     {
                         type: 'category',
                         label: 'Appium',
@@ -165,7 +164,16 @@ module.exports = {
                             'mobile-apps/automated-testing/appium/migration',
                         ],
                     },
-                    'mobile-apps/automated-testing/espresso-xcuitest',
+                    {
+                        type: 'category',
+                        label: 'Espresso and XCUITest',
+                        collapsed: true,
+                        items: [
+                            'mobile-apps/automated-testing/espresso-xcuitest',
+                            'testrunner-toolkit/configuration/espresso',
+                            'testrunner-toolkit/configuration/xcuitest',
+                        ],
+                    },
                     'mobile-apps/automated-testing/ipa-files',
                 ],
             },
@@ -594,7 +602,7 @@ module.exports = {
         "Headless": [
             'headless',
         ],
-        "SauceCTL": [
+        "saucectl": [
             'testrunner-toolkit',
             'testrunner-toolkit/installation',
             'testrunner-toolkit/configuration',
