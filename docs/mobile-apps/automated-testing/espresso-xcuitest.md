@@ -1,7 +1,7 @@
 ---
 id: espresso-xcuitest
 title: Mobile App Testing with Espresso and XCUITest
-sidebar_label: Espresso and XCUITest
+sidebar_label: Getting Started
 description: Run Espresso and XCUITest projects on Sauce Labs.
 ---
 
