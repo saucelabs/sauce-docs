@@ -15,7 +15,9 @@ Failure Analysis is designed to help you optimize test efficiency and efficacy. 
 
 ## How it Works
 
-> **NOTE:** Failure Analysis can only be effective if your automation tests are configured to [report a pass/fail outcome](https://wiki.saucelabs.com/display/DOCS/Setting+Test+Status+to+Pass+or+Fail).
+:::note
+Failure Analysis can only be effective if your automation tests are configured to [report a pass/fail outcome](/basics/test-config-annotation/test-annotation#setting-passfail).
+:::
 
 Failure Analysis leverages your test data and identifies potential failure patterns based on aggregate test errors. More specifically, the tool:
 
@@ -43,4 +45,4 @@ Incorporate from FAQs
 -->
 
 
-You can optimize the power of the Failure Analysis tool by [Providing Context for Selenium Commands with the JavaScript Executor](https://wiki.saucelabs.com/display/DOCS/Annotating+Tests+with+Selenium%27s+JavaScript+Executor#AnnotatingTestswithSelenium'sJavaScriptExecutor-ProvidingContextforSeleniumCommands).
+You can optimize the power of the Failure Analysis tool by [Providing Context for Selenium Commands with the JavaScript Executor](/basics/test-config-annotation/test-annotation#selenium-javascript-executor).
