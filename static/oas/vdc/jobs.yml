@@ -55,10 +55,10 @@ components:
           description: The unique identification for the job category
         public:
           type: string
-          description: Specifies who is able to view the job, based on the [Visibility](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#job-visibility) setting.
+          description: Specifies who is able to view the job, based on the [Visibility](/dev/test-configuration-options/) setting.
         breakpointed:
           type: boolean
-          description: Whether this test's execution was halted using the [Sauce Breakpoint](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Breakpoints+to+Diagnose+Flaky+Tests) feature.
+          description: Whether this test's execution was halted using the [Sauce Breakpoint](/insights/debug) feature.
     getJobId:
       properties:
         browser_short_version:
@@ -116,7 +116,7 @@ components:
         public:
           type: string
           enum: [public, public restricted, team, share, private, true, false ]
-          description: The status of the [job visibility](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#job-visibility).
+          description: The current Job Visibility setting, which determines who is able to view the job details.
           example: team
         assigned_tunnel_id:
           type: string
