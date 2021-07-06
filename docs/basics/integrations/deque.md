@@ -30,6 +30,9 @@ See the [following link](https://www.deque.com/web-accessibility-beginners-guide
 
 :::note
 For the purpose of this guide, we will focus entirely on [WebdriverIO](https://webdriver.io/)
+
+For using Deque axe™ Integration in Java, Ruby, or Python, check out the [Sauce Bindings](https://opensource.saucelabs.com/sauce_bindings),
+an interface to simplify working with Sauce Labs, which has now added [accessibility support](http://opensource.saucelabs.com/sauce_bindings/docs/accessibility)
 :::
 
 ## Set Up Dependencies
