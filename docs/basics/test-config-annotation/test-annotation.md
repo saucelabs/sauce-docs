@@ -30,14 +30,13 @@ Here's a Java code sample setting a job's name to "My test":
 
 ### Methods
 :::note
-Appium JS-Executor methods for Real Device Testing in Sauce Labs are limited and are indicated with the following badge:
-<p><span className="sauceDBlue">SUPPORTED ON RDC</span></p>
+Appium JS-Executor methods for Real Device Testing in Sauce Labs are limited and are indicated with the following badge: <small><span className="sauceDBlue">RDC ✓</span></small>
 :::
 
 | Method | Description |
-|---|---|
-|`"sauce:job-result=passed"`<p><span className="sauceDBlue">SUPPORTED ON RDC</span></p>| Sets the pass/fail status of the job. Options are `passed`, `failed`, `true`, and `false`. `True` means passed and `false` means failed.|
-|`"sauce:job-name=My awesome job"`| Sets the job name|
+|---------|---|
+|`"sauce:job-result=passed"` <small><span className="sauceDBlue">RDC ✓</span></small> | Sets the pass/fail status of the job. Options are `passed`, `failed`, `true`, and `false`. `True` means passed and `false` means failed.|
+|`"sauce:job-name=My awesome job"` <small><span className="sauceDBlue">RDC ✓</span></small> | Sets the job name|
 |`"sauce:job-tags=tag1,tag2,tag3"`| Sets the job tags in a comma-separated list.|
 |`"sauce:job-build=mybuild123"`| Sets the job’s build name.|
 |`"sauce: stop network"`<br/>`"sauce: start network"`| Stops and restart the VM’s network connection (Mac OSX only).|
@@ -45,7 +44,7 @@ Appium JS-Executor methods for Real Device Testing in Sauce Labs are limited and
 |`"sauce: break"`| Sets a Sauce breakpoint in the test. Test execution will pause at this point, waiting for manual control by clicking in the test’s live video.|
 |`"sauce:context=This line appears in the command list as 'info'"`| Logs the given line in the job’s Selenium commands list.|
 |`"sauce:job-info={'build':'mybuild','name':'my test name', 'public':'team}"`| Sets one or more job information fields to the values sent in the JSON-formatted dictionary.|
-|`"sauce:inject-image=[base64_encoded_image]"`<p><span className="sauceDBlue">SUPPORTED ON RDC</span></p>|Points to file for testing image injection (e.g. barcode scanning).|
+|`"sauce:inject-image=[base64_encoded_image]"` <small><span className="sauceDBlue">RDC ✓</span></small> |Points to file for testing image injection (e.g. barcode scanning).|
 |`"sauce:performanceEnable"`|Allows performance metrics to be collected.|
 |`"sauce:performanceDisable"`|Pauses performance metrics collection.|
 
