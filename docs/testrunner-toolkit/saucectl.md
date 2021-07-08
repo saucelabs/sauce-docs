@@ -35,21 +35,23 @@ $ saucectl init -r us-west-1 -f cypress -b chrome
 `saucectl` supports the following configuration flags as inline specifications.
 
 
-### `-a, --accessKey`
+### `--accessKey <string>`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 The authentication access key associated with the Sauce Labs user account making this request. If you have not set your authentication credentials as environment parameters or generated a `credentials.yml` file, this value is required.
 
+**Shorthand:** `-a <string>`
+
 ---
 
-### `--app`
+### `--app <string>`
 <p><small>| OPTIONAL | STRING | XCUITEST/ESPRESSO ONLY |</small></p>
 
 The path to a valid mobile application to test.
 
 ---
 
-### `--artifacts.download.when`
+### `--artifacts.download.when <string>`
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -62,45 +64,78 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 
 ---
 
-### `-b, --browserName`
+### `--browserName <string>`
 <p><small>| REQUIRED | STRING | WEB-APP ONLY |</small></p>
 
 The name of the browser in which to run tests.
 
+**Shorthand:** `-b <string>`
+
 ---
 
-### `--cypress.config`
+### `--cypress.config <string>`
 <p><small>| REQUIRED | STRING | CYPRESS ONLY |</small></p>
 
 The file path to the Cypress configuration file (typically `cypress.json`).
 
 ---
 
-### `--device`
-<p><small>| OPTIONAL | STRING | XCUITEST/ESPRESSO ONLY |</small></p>
+### `--device ["flag=value"]`
+<p><small>| OPTIONAL | ARRAY | XCUITEST/ESPRESSO ONLY |</small></p>
 
-Find a real device for this test matching the device name or portion of the name provided. Use the [Get Devices API Request](https://docs.saucelabs.com/dev/api/rdc#get-devices) for a list of supported real devices in your region.
+Find a real device for this test by matching a set of one or more device characteristics:
+
+|Characteristic|Description|Example|
+|---|---|---|
+|`id`| Specify a device by its ID. Using this selection flag ignores all other characteristics and is not advised because availability of a specific device is uncertain and could cause your test to time out.| ```--device "id=HTC_U11_real_us"```|
+|`name`|Find a device based on a partial name in order to increase likelihood of availability of similar devices.|```--device "name=HTC.*"```|
+|`platformVersion`|Find a device based on its platform version.|```--device "platformVersion=8.0"```|
+|`carrierConnectivity`|The selected device must be connected to a cellular network. |```--device "carrierConnectivity=true"```|
+|`deviceType`|The selected device must be a particular type (`PHONE`, `TABLET`, or `ANY`).|```--device "deviceType=PHONE"```|
+|`private`|The selected device must be private.|```--device "private=true"```|
+
+You can specify a combination of device characteristics within this flag:
+
+```bash
+--device "name=HTC.*,platformVersion=8.0.0,carrierConnectivity=true"
+```
 
 ---
 
-### `--emulator`
+### `--emulator ["flag=value"]`
 <p><small>| OPTIONAL | STRING | ESPRESSO ONLY |</small></p>
 
-The name of the virtual device emulator for the test. Check the list of [supported virtual devices](https://app.saucelabs.com/live/web-testing/virtual) for valid names.
+Specify a virtual device for the test by matching a set of one or more emulator characteristics.
+
+|Characteristic|Description|Example|
+|---|---|---|
+|`name`|Specify all or part of the emulator name. [Supported VMD List](https://app.saucelabs.com/live/web-testing/virtual) |```--emulator "name=Android.*"```|
+|`platformVersion`|Specify the emulator platform version.|```--emulator "platformVersion=7.1"```|
+|`orientation`|Specify how the emulator should be oriented for the test (`portrait` or `landscape`). |```--emulator "orientation=portrait"```|
+
+You can specify a combination of emulator characteristics within this flag:
+
+```bash
+--emulator "name=Samsung Galaxy S8 FHD GoogleAPI Emulator,platformVersion=7.1"
+```
 
 ---
 
-### `-f, --framework`
+### `--framework <string>`
 <p><small>| REQUIRED | STRING |</small></p>
 
 The framework for which this configuration is intended.
 
+**Shorthand:** `-f <string>`
+
 ---
 
-### `-v, --frameworkVersion`
+### `--frameworkVersion <string>`
 <p><small>| REQUIRED | STRING | WEB APPS ONLY |</small></p>
 
 The version of the framework that is compatible with the tests defined in this configuration.
+
+**Shorthand:** `-v <string>`
 
 ---
 
@@ -110,31 +145,43 @@ Usage information for the `init` command.
 
 ---
 
-### `-p, --platformName`
+### `--platformName <string>`
 <p><small>| OPTIONAL | STRING | WEB APPS ONLY |</small></p>
 
-A specific operating system and version on which to run the specified browser and test suite. Defaults to a platform that is supported by `saucectl` for the specified browser.
+A specific operating system and version on which to run the specified browser and test suite.
+
+:::note
+You can optionally specify `docker` here as the platform.
+:::
+
+**Shorthand:** `-p <string>`
 
 ---
 
-### `-r, --region`
+### `--region <string>`
 <p><small>| REQUIRED | STRING |</small></p>
 
 Specifies the Sauce Labs data center through which tests will run. Valid values are: `us-west-1` (default) or `eu-central-1`.
 
+**Shorthand:** `-r <string>`
+
 ---
 
-### `-t, --testApp`
+### `--testApp <string>`
 <p><small>| REQUIRED | STRING | XCUITEST/ESPRESSO ONLY |</small></p>
 
 The path to the mobile testing application.
 
+**Shorthand:** `-t <string>`
+
 ---
 
-### `-u, --username`
+### `--username <string>`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 A valid Sauce Labs user account. If you have not set your authentication credentials as environment parameters or generated a `credentials.yml` file, this value is required.
+
+**Shorthand:** `-u <string>`
 
 ---
 
@@ -168,17 +215,21 @@ $ saucectl configure -u tester.ninja -a 2a4a9x11-56b7-4d83-8f6o-b601bg67555e
 You're all set!
 ```
 
-### `-a, --accessKey`
+### `--accessKey <string>`
 <p><small>| REQUIRED | STRING |</small></p>
 
 The authentication access key for the Sauce Labs user account interacting with `saucectl`.
 
+**Shorthand:** `-a <string>`
+
 ---
 
-### `-u, --username`
+### `--username <string>`
 <p><small>| REQUIRED | STRING |</small></p>
 
 The valid Sauce Labs user account that will be interacting with `saucectl`.
+
+**Shorthand:** `-u <string>`
 
 ---
 
@@ -191,8 +242,8 @@ Executes tests according to the environment, framework, and test suite specifica
 saucectl run
 ```
 
-### `--artifacts.download.directory`
-<p><small>| OPTIONAL | STRING |</small></p>
+### `--artifacts.download.directory <path>`
+<p><small>| OPTIONAL | PATH |</small></p>
 
 Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded.
 
@@ -201,8 +252,8 @@ saucectl run --artifacts.download.directory ./artifacts
 ```
 ---
 
-### `--artifacts.download.match`
-<p><small>| OPTIONAL | STRING/ARRAY |</small></p>
+### `--artifacts.download.match [list]`
+<p><small>| OPTIONAL | STRING/LIST |</small></p>
 
 Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*`.
 
@@ -211,7 +262,7 @@ saucectl run --artifacts.download.match console.log,another.log
 ```
 ---
 
-### `--artifacts.download.when`
+### `--artifacts.download.when <string>`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies when and under what circumstances to download artifacts. Valid values are:
@@ -226,7 +277,7 @@ saucectl run --artifacts.download.when always
 ```
 ---
 
-### `--build`
+### `--build <string>`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Associates the tests with a build.
@@ -236,10 +287,12 @@ saucectl run --build myBuildID
 ```
 ---
 
-### `-ccy, --concurrency`
+### `--concurrency <int>`
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
 Sets the maximum number of suites to execute at the same time. If the test defines more suites than the max, excess suites are queued and run in order as each suite completes.
+
+**Shorthand:** `-ccy`
 
 :::caution
 For tests running on Sauce, set this value to equal or less than your Sauce concurrency allowance, as setting a higher value may result in jobs dropped by the server.
@@ -250,10 +303,12 @@ saucectl run --ccy 2
 ```
 ---
 
-### `-c, --config`
+### `--config <path>`
 <p><small>| OPTIONAL | FILEPATH |</small></p>
 
 Specify an alternative configuration file to the default `.sauce/config.yml` for this execution.
+
+**Shorthand:** `-c <path>`
 
 ```bash
 saucectl run -c ./path/to/{config-file}.yml
@@ -264,27 +319,29 @@ While you can use multiple files of different names or locations to specify your
 :::
 ---
 
-### `--env`
+### `--env [key=value]`
 <p><small>| OPTIONAL | KEY=VALUE |</small></p>
 
 An environment variable key value pair that may be referenced in the tests executed by this command. Expanded environment variables are supported.
 
 ```bash
-saucectl run --env <key>=value1> --env <key2>=<value2> ...
+saucectl run --env <key1>=value1> --env <key2>=<value2> ...
 ```
 ---
 
-### `-r, --region`
+### `--region <string>`
 <p><small>| REQUIRED | STRING |</small></p>
 
 Specifies the Sauce Labs data center through which tests will run. Valid values are: `us-west-1` (default) or `eu-central-1`.
+
+**Shorthand:** `-r <string>`
 
 ```bash
 saucectl run --region use-west-1
 ```
 ---
 
-### `--suite`
+### `--suite <string>`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies a test suite to execute by name.
@@ -294,7 +351,7 @@ saucectl run --suite <suite_name>
 ```
 ---
 
-### `--tags`
+### `--tags [list]`
 <p><small>| OPTIONAL | LIST |</small></p>
 
 A keyword that may help you distinguish the test in Sauce Labs, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you.
@@ -304,7 +361,7 @@ saucectl run --tags e2e,team2
 ```
 ---
 
-### `--timeout`
+### `--timeout <duration>`
 <p><small>| OPTIONAL | DURATION |</small></p>
 
 Sets a limit (in seconds or minutes) for how long `saucectl` can run this test (no limit by default).
@@ -315,7 +372,7 @@ saucectl run --timeout 30m
 ```
 ---
 
-### `--tunnel-id`
+### `--tunnel-id <string>`
 <p><small>| OPTIONAL | STRING | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
 
 Specifies an active [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) tunnel to establish a secure connection to run this test on Sauce Labs.
