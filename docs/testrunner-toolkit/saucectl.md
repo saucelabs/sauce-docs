@@ -29,7 +29,7 @@ $ saucectl init
 ```
 
 ```bash title="Batch Example"
-$saucectl init -r us-west-1 -f cypress -b chrome
+$ saucectl init -r us-west-1 -f cypress -b chrome
 ```
 
 `saucectl` supports the following configuration flags as inline specifications.
@@ -42,7 +42,7 @@ The authentication access key associated with the Sauce Labs user account making
 
 ---
 
-### `-app`
+### `--app`
 <p><small>| OPTIONAL | STRING | XCUITEST/ESPRESSO ONLY |</small></p>
 
 The path to a valid mobile application to test.
@@ -111,7 +111,7 @@ Usage information for the `init` command.
 ---
 
 ### `-p, --platformName`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| OPTIONAL | STRING | WEB APPS ONLY |</small></p>
 
 A specific operating system and version on which to run the specified browser and test suite. Defaults to a platform that is supported by `saucectl` for the specified browser.
 
@@ -297,7 +297,7 @@ saucectl run --suite <suite_name>
 ### `--tags`
 <p><small>| OPTIONAL | LIST |</small></p>
 
-A keyword that may help you distinguish the test in Sauce Labs, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you
+A keyword that may help you distinguish the test in Sauce Labs, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you.
 
 ```bash
 saucectl run --tags e2e,team2
