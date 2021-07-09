@@ -142,12 +142,7 @@ const docusaurusConfig = {
       [
         '@docusaurus/plugin-client-redirects',
         {
-          redirects: [
-            {
-              from: '/ci/azure',
-              to: '/ci',
-            },
-          ],
+          fromExtensions: ['html'],
         },
       ],
   ],
