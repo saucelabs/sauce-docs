@@ -133,12 +133,23 @@ const docusaurusConfig = {
     '@saucelabs/theme-github-codeblock',
   ],
   plugins: [
-    [
-      "docusaurus2-dotenv",
-      {
-        systemvars: true,
-      },
-    ],
+      [
+          "docusaurus2-dotenv",
+        {
+          systemvars: true,
+        },
+      ],
+      [
+        '@docusaurus/plugin-client-redirects',
+        {
+          redirects: [
+            {
+              from: '/ci/azure',
+              to: '/ci',
+            },
+          ],
+        },
+      ],
   ],
 }
 
