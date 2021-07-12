@@ -153,7 +153,7 @@ When you launch a tunnel, you can accept the tunnel identifier name that Sauce L
 bin/sc -u {SL-username} -k {SL-access_key} -i {tunnel_identifier}
 ```
 
-This is the identifier `saucectl` expects as the `id` property, even though the Sauce Labs UI refers to this values as the `Tunnel Name`.
+This is the identifier `saucectl` expects as the `id` property, even though the Sauce Labs UI refers to this value as the `Tunnel Name`.
 :::
 
 ```yaml
