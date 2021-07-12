@@ -14,7 +14,7 @@ labels: documentation, needs triage
 
 <!--A clear and concise description about the documentation issue, typo, or error. Also, please provide the URL of the page in question.-->
 
-__Doc URL:__ <!--example: [Testrunner Toolkit Installation doc url](https://github.com/saucelabs/sauce-docs/blob/master/docs/dev/testrunner-toolkit/installation.md)-->
+__Doc URL:__ <!--example: [saucectl Installation doc url](https://github.com/saucelabs/sauce-docs/blob/master/docs/testrunner-toolkit/installation.md)-->
 
 ## Suggested Fix
 
