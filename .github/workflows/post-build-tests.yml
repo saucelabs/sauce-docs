@@ -1,7 +1,7 @@
 name: Post Build Sauce Labs Tests
 on:
   schedule:
-    - cron: '*/59 * * * *'
+    - cron: '0 0/12 * * *'
   workflow_dispatch:
   
 env:
