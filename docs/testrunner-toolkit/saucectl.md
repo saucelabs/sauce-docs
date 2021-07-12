@@ -80,8 +80,8 @@ The file path to the Cypress configuration file (typically `cypress.json`).
 
 ---
 
-### `--device ["flag=value"]`
-<p><small>| OPTIONAL | ARRAY | XCUITEST/ESPRESSO ONLY |</small></p>
+### `--device <string>`
+<p><small>| OPTIONAL | STRING | XCUITEST/ESPRESSO ONLY |</small></p>
 
 Find a real device for this test by matching a set of one or more device characteristics:
 
@@ -102,7 +102,7 @@ You can specify a combination of device characteristics within this flag:
 
 ---
 
-### `--emulator ["flag=value"]`
+### `--emulator <string>`
 <p><small>| OPTIONAL | STRING | ESPRESSO ONLY |</small></p>
 
 Specify a virtual device for the test by matching a set of one or more emulator characteristics.
@@ -188,7 +188,7 @@ A valid Sauce Labs user account. If you have not set your authentication credent
 
 ## `$ saucectl configure [flags]`
 
-Allows you to provide your [Sauce Labs credentials]((https://app.saucelabs.com/user-settings) for the purpose of generating a `credentials.yml` file that `saucectl` can access to automatically authenticate commands without requiring manual authentication. The `credentials.yml` file is created in a `'sauce` folder in your `saucectl` installation root.
+Allows you to provide your [Sauce Labs credentials]((https://app.saucelabs.com/user-settings) for the purpose of generating a `credentials.yml` file that `saucectl` can access to automatically authenticate commands without requiring manual authentication. The `credentials.yml` file is created in a `.sauce` folder in your  home directory.
 
 :::note Environment Variable credentials prioritized
 `saucectl` will also detect your credentials as [environment variables](/basics/environment-variables) if you have set them. In fact, if both exist, the environment variable values take precedence.
@@ -319,7 +319,7 @@ While you can use multiple files of different names or locations to specify your
 :::
 ---
 
-### `--env [key=value]`
+### `--env <key=value>`
 <p><small>| OPTIONAL | KEY=VALUE |</small></p>
 
 An environment variable key value pair that may be referenced in the tests executed by this command. Expanded environment variables are supported.
@@ -351,7 +351,7 @@ saucectl run --suite <suite_name>
 ```
 ---
 
-### `--tags [list]`
+### `--tags <tag1,tag2,...>`
 <p><small>| OPTIONAL | LIST |</small></p>
 
 A keyword that may help you distinguish the test in Sauce Labs, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you.
