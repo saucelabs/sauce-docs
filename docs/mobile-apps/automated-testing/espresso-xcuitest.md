@@ -44,6 +44,10 @@ Clone or download the [Espresso](https://github.com/saucelabs/saucectl-espresso-
 1. Enter your Sauce Labs `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` at the prompts.
 1. `saucectl` creates a `credentials.yml` file in a `.sauce` folder of your home directory.
 
+:::tip Use Environment Variables
+You can set your Sauce Labs credentials as [environment variables](/basics/environment-variables) instead of generating a `credentials.yml`, if you prefer. In systems where both sets of credentials exist, environment variable values are prioritized.
+:::
+
 
 ## Configuration
 

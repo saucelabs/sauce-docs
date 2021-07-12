@@ -433,13 +433,13 @@ The explicit name, file glob, or location of the test files to be included in th
 ```
 ---
 
-### `devices`
+### `simulators`
 <p><small>| OPTIONAL | OBJECT | <span class="highlight sauce-cloud">Sauce Cloud only</span>|</small></p>
 
-The property containing details about on which devices the tests in this suite will run. This property can include multiple device definitions.
+The property containing details about on which simulators the tests in this suite will run. This property can include multiple device definitions.
 
 ```yaml
-  devices:
+  simulators:
     - name: iPhone 12 Simulator
       platformName: iOS
       platformVersions:

@@ -354,7 +354,7 @@ These Appium scripts for iOS and Android mobile app tests on emulators and simul
 
 Once you've been able to get a test running on Sauce, check out our best practices and available modifications you can make to your tests:
 
-* [Best Practices for Running Tests](https://community.saucelabs.com/search?q=best+practice&search_type=tag;.
+* [Best Practices for Running Tests](https://community.saucelabs.com/search?q=best+practice&search_type=tag).
 * [Implement timeouts to control text execution times](https://docs.saucelabs.com/dev/test-configuration-options#virtual-device-capabilities-sauce-specific--optional).
 *  [Annotating Tests with the Sauce Labs REST API](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation#sauce-labs-rest-api).
 * [Annotating Tests with Selenium's JavaScript Executor](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation#selenium-javascript-executor).

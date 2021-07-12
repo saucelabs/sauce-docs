@@ -104,7 +104,7 @@ npm install -g saucectl
 1. Enter your Sauce Labs Username and Access Key at the prompts.
 
 :::tip Use Environment Variables
-You can set your Sauce Labs credentials as [environment variables](/basics/environment-variables) instead of generating a `credentials.yml`, if you prefer.
+You can set your Sauce Labs credentials as [environment variables](/basics/environment-variables) instead of generating a `credentials.yml`, if you prefer. In systems where both sets of credentials exist, environment variable values are prioritized.
 :::
 
 ### Step 3: Set up Your Puppeteer Project
