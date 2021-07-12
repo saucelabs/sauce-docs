@@ -723,7 +723,7 @@ module.exports = {
                     },
                     {
                         type: 'link',
-                        label: 'Sauce CTL', // The label that should be displayed (string).
+                        label: 'saucectl CLI', // The label that should be displayed (string).
                         href: '/testrunner-toolkit/saucectl' // The target URL (string).
                     },
                 ],
