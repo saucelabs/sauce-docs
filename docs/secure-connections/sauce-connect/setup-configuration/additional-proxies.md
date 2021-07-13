@@ -31,7 +31,7 @@ There are several different ways to set up Sauce Connect Proxy to use a proxy se
 The configuration options described below will cause the REST API and SUT traffic to be routed through your proxy. While it is technically possible to route the tunnel traffic through your proxy, it is **not** recommended because this traffic is already TLS-secured. Also, routing tunnel traffic through your proxy will significantly degrade test performance. This option should only be used if your network does not allow outbound communication over `port 443`.
 
 ### Proxied Site Under Test (SUT)
-In this configuration, the Site Under Test (SUT) is behind a proxy in order to allow even more control over traffic before it reaches the SUT. This setup is used to control access to the SUT by IP whitelisting or by restricting proxy access to users with valid username/password credentials.
+In this configuration, the Site Under Test (SUT) is behind a proxy in order to allow even more control over traffic before it reaches the SUT. This setup is used to control access to the SUT by IP allowlisting or by restricting proxy access to users with valid username/password credentials.
 
 ### Proxy Auto-Configuration (Automatic)
 Proxies and proxy auto-configuration (PAC) (see [Proxy auto-config](https://en.wikipedia.org/wiki/Proxy_auto-config))settings are auto-configured, based on the operating system settings on the machine where it is installed.

@@ -10,7 +10,7 @@ keywords:
 ---
 
 :::note
-Did you receive an Invalid Request message? It's possible that you are trying to reach an environment that is behind a firewall that our public cloud accounts can't reach. You may need to whitelist our IPs, or install a self-hosted/on-premises trial. Please contact support@apifortress.com to learn more, or use our chat bot._
+Did you receive an Invalid Request message? It's possible that you are trying to reach an environment that is behind a firewall that our public cloud accounts can't reach. You may need to allowlist our IPs, or install a self-hosted/on-premises trial. Please contact support@apifortress.com to learn more, or use our chat bot._
 :::
 
 The API Fortress platform was uniquely developed to function in our cloud, or from your own virtual private cloud or data center. This was to allow for customers that have security requirements that don't allow for use of the cloud version (like private staging environments). The entire platform can be deployed behind your own firewall using Docker, Kubernetes or OpenShift.

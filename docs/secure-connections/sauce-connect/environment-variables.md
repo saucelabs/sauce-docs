@@ -72,7 +72,7 @@ Some command-line arguments can be passed through a config file or an environmen
   <td rowspan="2" >
    Sets hostnames that will not be proxied, even when Sauce Connect is configured to use a proxy. Format as a comma-separated list. Subdomain wildcarding is supported when the hostname starts with a <code>.</code>. Examples:
    <ul>
-   <li><code>saucelabs.com,foobar.net</code>: Only requests hitting <code>saucelabs.com</code> and <code>foobar.net</code> will not be proxied. All other requests will be proxied.</li>
+   <li><code>saucelabs.com,spam.net</code>: Only requests hitting <code>saucelabs.com</code> and <code>spam.net</code> will not be proxied. All other requests will be proxied.</li>
    <li><code>.example.com</code>: All requests going to any subdomain of <code>example.com</code> will not be proxied (e.g., <code>one.example.com</code>, <code>asdf.example.com</code>)</li>
    </ul></td>
    <td rowspan="2" > Linux </td>
