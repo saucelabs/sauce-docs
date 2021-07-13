@@ -37,7 +37,7 @@ In its default configuration, Sauce Connect Proxy will act as an HTTP proxy itse
 
 By using the `--proxy` or `--pac` command line options, `sc` can be configured to relay all requests to another HTTP proxy or proxies, where policy can be controlled and activity can be logged and monitored. The access provided by the configured proxies is in turn the only access that inbound requests coming through `sc` will have to the customer network.
 
-We recommend the use of an HTTP proxy that is familiar to the customer's security team. The proxy should be configured to allow access only to a whitelisted set of URL domains or URL prefixes used for testing. Access should be logged. Note that logs can be inspected by an Intrusion Detection System for malware signatures and other signs of suspicious activity.
+We recommend the use of an HTTP proxy that is familiar to the customer's security team. The proxy should be configured to allow access only to a allowlisted set of URL domains or URL prefixes used for testing. Access should be logged. Note that logs can be inspected by an Intrusion Detection System for malware signatures and other signs of suspicious activity.
 
 For more information, see [Sauce Connect Command Line Reference](/dev/cli/sauce-connect-proxy) and [Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
 
@@ -100,7 +100,7 @@ For connection to the API, Sauce Connect Proxy uses certificates issued by certi
 For connection to the Sauce Labs virtual machines, the certificate presented by the tunnel endpoint is signed by public certificate authorities.
 
 ### Setting Revocation Information for SSL Certificate Verification
-When securing Sauce Connect Proxy, be sure to whitelist these sites so that the Sauce Connect SSL certificates can be verified:
+When securing Sauce Connect Proxy, be sure to allowlist these sites so that the Sauce Connect SSL certificates can be verified:
 
 * **OCSP:** http://gp.symcd.com
 * **OCSP Servers for VDC/RDC clouds:** http://ocsp.digicert.com, http://status.geotrust.com
@@ -110,7 +110,7 @@ Sauce Connect Proxy will try to resolve the entire certificate chain at runtime 
 
 In your log, look for the entries following the `"checking OCSP entry"` line to get the list of certificate authority sites.
 
-In addition to whitelisting these sites, consult the  list of domains at the RapidSSL website and add them to your whitelist as well to make sure that Sauce Connect Proxy can connect to all appropriate certificate-issuing authorities.
+In addition to allowlisting these sites, consult the  list of domains at the RapidSSL website and add them to your allowlist as well to make sure that Sauce Connect Proxy can connect to all appropriate certificate-issuing authorities.
 
 #### OCSP Tunnel Certificate Validation
 This feature lets the Sauce Connect client validate that the tunnel endpoint's public certificate has not been revoked. OCSP relies on Public Key Infrastructure and needs to make additional HTTP requests to OCSP servers associated with the tunnel endpoint’s certificate chain.
