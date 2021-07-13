@@ -407,6 +407,20 @@ One or more paths to the playwright test files to run for this suite. Regex valu
 ```yaml
     testMatch: ["**/*.js"]
 ```
+---
+
+#### `numShards`
+<p><small>| OPTIONAL | INTEGER | <span class="highlight playwright">Playwright version >= 1.12</span> |</small></p>
+
+Sets the number of separate shards to create for the test suite. Read more about shard tests on the [Playwright developer site](https://playwright.dev/docs/test-parallel#shards).
+
+When sharding is configured, `saucectl` automatically creates the sharded jobs based on the number of shards you specify. For example, for a suite that specifies 2 shards, `saucectl` clones the suite and runs shard `1/2` on the first suite, and the other shard `2/2` on the identical clone suite.
+
+
+```yaml
+  numShards: 2
+```
+---
 
 ### `params`
 <p><small>| OPTIONAL | OBJECT |</small></p>
