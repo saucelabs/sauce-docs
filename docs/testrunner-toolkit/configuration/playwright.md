@@ -430,6 +430,7 @@ __Description__: This field is for specific test run parameters, for example:
 <p><small>| OPTIONAL | STRING |</small></p>
 
 The name of the browser in which to run this test suite.
+Available browser names: `chromium`, `firefox` and `webkit`.
 
 ```yaml
     browserName: "firefox"
