@@ -19,8 +19,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Below is a guide to set up the Sauce Labs integration. This integration allows you to run your accessibility tests, using axe™, on our platform.
 
-:::info What does `a11y` stand for, and what is Accessibility Testing?
-See the [following link](https://www.deque.com/web-accessibility-beginners-guide/#what-is-a11y) for further information.
+:::info why should you care about accessibility testing?
+Check out the [Deque Accessibility Guide](https://www.deque.com/web-accessibility-beginners-guide/#what-is-a11y) for further information.
 :::
 
 ## Sauce Labs UI
