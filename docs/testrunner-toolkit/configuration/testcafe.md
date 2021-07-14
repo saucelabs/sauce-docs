@@ -374,6 +374,7 @@ A property containing one or more environment variables that may be referenced i
 <p><small>| REQUIRED | STRING |</small></p>
 
 The name of the browser in which to run this test suite.
+Available browser names: `chrome`, `firefox`, `microsoftedge`(only for sauce mode) and `safari`(only for sauce mode on macOS or iOS simulators)
 
 ```yaml
     browser: "firefox"
