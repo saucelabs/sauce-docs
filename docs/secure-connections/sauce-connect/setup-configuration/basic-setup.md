@@ -111,7 +111,7 @@ Where `TUNNEL_ID` is the identifier or name of the tunnel from step 1.
 
 
 ### Test Not Working?
-If you're unable to connect, check with your network administrator about examining firewall settings for roadblocks. For more information, see [Allow-listing for Restricted Networks](/secure-connections/sauce-connect/system-requirements).
+If you're unable to connect, check with your network administrator about examining firewall settings for roadblocks. For more information, see [Allowlisting for Restricted Networks](/secure-connections/sauce-connect/system-requirements).
 
 Another possible issue is certificate  authentication. The server hosting Sauce Connect Proxy may need to connect to Online Certificate Status Protocol (OCSP). See [Certificate Handling](/secure-connections/sauce-connect/security-authentication) for more information.
 
