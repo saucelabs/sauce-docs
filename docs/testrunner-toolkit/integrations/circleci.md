@@ -1,6 +1,6 @@
 ---
 id: circleci
-title: Testrunner Toolkit with CircleCI
+title: saucectl with CircleCI
 sidebar_label: CircleCI
 ---
 
@@ -46,7 +46,7 @@ In order for CirceCi to communicate with Sauce Labs you need to authenticate wit
 
 ## Modify the CirceCI Configuration
 
-In the root of your project directory, create the `.circleci` directory if it doesn't already exist, and open/create `config.yml`. 
+In the root of your project directory, create the `.circleci` directory if it doesn't already exist, and open/create `config.yml`.
 
 You can easily execute Saucectl on CircleCI through [saucectl-run](https://circleci.com/developer/orbs/orb/saucelabs/saucectl-run) orb. Add the orb to your current `config.yml` using the following reference to  use it:
 

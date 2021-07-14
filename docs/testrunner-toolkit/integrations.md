@@ -1,22 +1,20 @@
 ---
 id: integrations
-title: Testrunner Toolkit CI Requirements
+title: saucectl CI Requirements
 sidebar_label: Requirements
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-A successful Testrunner Toolkit CI pipeline integration depends on a few requirements:
+Ensure your `saucectl` tests execute as part of your CI pipeline workflow flawlessly by observing some key prerequisites:
 
-* knowledge of the current automation framework in the stack
-* knowledge of the organization's preferred CI tool
-* possession of the appropriate administrator permissions
-* Testrunner Toolkit tests run successfully, either with [`docker`](/testrunner-toolkit/configuration#docker) mode, or on [`sauce`](/testrunner-toolkit/configuration#sauce)
+* Understand the current automation framework in the stack
+* Understand your organization's preferred CI tool
+* Ensure you have appropriate administrator permissions
+* Successfully run tests with `saucectl` on their own, either in [`docker`](/testrunner-toolkit/configuration#docker), or on [`sauce`](/testrunner-toolkit/configuration#sauce)
 
-After you confirm the above recommendations, proceed to the guides below:
-
-## Currently Available Platforms
+Once you have met the prerequisites, follow the instructions for the CI Tool with which you want to integrate your `saucectl` tests.
 
 * [CircleCI](/testrunner-toolkit/integrations/circleci)
 * [Jenkins](/testrunner-toolkit/integrations/jenkins)
