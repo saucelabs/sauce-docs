@@ -109,6 +109,6 @@ No, though you cannot use the `localhost` address with iOS.
 
 Yes.
 
-## Can you whitelist IP addresses instead of using Sauce Connect Proxy?
+## Can you allowlist IP addresses instead of using Sauce Connect Proxy?
 
-To create a secure connection, we strongly recommend using Sauce Connect or IPSec VPN instead of whitelisting IP ranges. More information: [Why Sauce Labs Recommends Sauce Connect Proxy Over Whitelisting IP Addresses](/secure-connections/sauce-connect).
+To create a secure connection, we strongly recommend using Sauce Connect or IPSec VPN instead of allowlisting IP ranges. More information: [Why Sauce Labs Recommends Sauce Connect Proxy Over Allowlisting IP Addresses](/secure-connections/sauce-connect).
