@@ -194,8 +194,32 @@ https://github.com/saucelabs-training/demo-ruby/blob/c51b52/sauce-features/acces
 </TabItem>
 <TabItem value="dotnet">
 
-We're collaborating with the developers of [Selenium.Axe for .NET](https://github.com/TroyWalshProf/SeleniumAxeDotnet/)
-to make their project compatible with our integration. Check back soon for examples.
+To get Accessibility results with .NET, we recommend [Selenium.Axe for .NET](https://github.com/TroyWalshProf/SeleniumAxeDotnet/).
+Make sure you are using version 3.x.
+
+__Requirements__
+
+To install via NuGet, in the Package Manager Console:
+```shell
+Install-Package Selenium.Axe
+```
+
+Import the namespace:
+
+```
+using Selenium.Axe;
+```
+
+__Usage__
+
+This method will populate results on the Sauce Labs Accessibility tab:
+
+```
+AxeResult axeResult = new AxeBuilder(webDriver).Analyze();
+```
+
+For more detailed usage, [Read the documentation](https://troywalshprof.github.io/SeleniumAxeDotnet)
+
 
 </TabItem>
 </Tabs>
