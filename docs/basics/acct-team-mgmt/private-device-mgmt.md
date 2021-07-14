@@ -8,7 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Private device management allows you to view and manage the private devices in your organization by assigned them to teams. If a device is not assigned to a team, it can be used by anyone in that organization (the default state is unassigned).
+Private device management allows the Organization Admin to view and manage the private devices in your organization by assigning them to teams. This enables you to reduce contention for scarce devices, and gain better visibility on which team is using a device at any given time.
+
+* By default, a device is not assigned to any team, meaning it can be used by anyone in that organization.
+* If you choose to assign a device to a team, only members of that team can access the device. This applies to live test sessions, automated test sessions, and to other connection methods like [Virtual USB](/mobile-apps/virtual-usb).
+* At any time, you can reassign your private device to another team, or remove the team assignment altogether.
 
 If a team with devices is deleted, the devices assigned to that team return to the unassigned state. (For more information about managing teams, see [Adding and Deleting Teams](/basics/acct-team-mgmt/adding-deleting-teams).)
 
