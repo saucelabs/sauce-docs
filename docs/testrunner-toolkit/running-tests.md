@@ -8,42 +8,43 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This page details the different options for using the `saucectl run` command to execute your tests in the JavaScript framework of your choice:
+This page details the different options for using the `saucectl run` command to execute your tests in the framework of your choice.
 
 * Run tests locally with Docker and send results to Sauce Labs
 * Run tests remotely on Sauce Labs virtual machines
 * Run tests against a local app server / app running on `localhost`
+
+`saucectl` allows you to configure your test mode for your entire project or specify the mode at the individual test suite level. See the [`mode` configuration property description](/testrunner-toolkit/configuration/common-syntax#mode) for more information.
 
 ## What You'll Need
 
 * [Install `saucectl`](/testrunner-toolkit/installation)
 * [Configure Your Test Environment](/testrunner-toolkit/configuration)
 
-:::note default test location
-Unless you specify a test directory, `saucectl` executes tests based on the test directory generated for the framework you selected during installation. For example, with Cypress, `saucectl` will attempt to locate `cypress.json`, as well as the default `cypress` directory.
-:::
 
-## Test on Docker (Local Testing)
+## Test Locally on Docker
 
-The following steps outline how to run your tests on your local machine with the containerized solution. This is the preferred option if you wish to run tests on your local machine, or if you wish to accelerate test execution in CI.
+Testing in your local environment with the containerized solution allows you to accelerate test execution in CI and results in a smaller bundle transmission to the Sauce Labs cloud.
 
-:::note `docker` Syntax Page
-See the [`docker` syntax reference page](/testrunner-toolkit/configuration/common-syntax#docker) for further details.
-:::
+### Set mode to Docker
 
-:::note `mode` Description
-See the [`mode` syntax reference page](/testrunner-toolkit/configuration/common-syntax#defaults) for further details.
-:::
+`saucectl` runs on Sauce Labs by default. To run any of your tests locally, set either the default `mode` or the suite `mode` to `docker` in your `config.yml` file, as shown in the following examples:
 
-For example, if you want to run all the suites in docker, set the default `mode` in `config.yml` to `docker`, as in the following example:
 ```yaml
 defaults:
   mode: docker
 ```
+_or_
+
+```yaml
+suites:
+  - name: saucy test
+    mode: docker
+```
 
 ### Specify a Docker Image
 
-`saucectl` can provide a default image to run your tests. You can also specify a Docker image in the `config.yml`, as shown in the following example:
+`saucectl` can provide a default image to run your tests, or you can specify a Docker image in your `.sauce/config.yml`, as shown in the following example:
 
 ```yaml
 docker:
@@ -54,11 +55,7 @@ Refer to the [framework version support matrix](/testrunner-toolkit#supported-fr
 
 ### Transfer Test Files to the Container
 
-The configuration field: `fileTransfer`, instructs `saucectl` how to copy the test files into the docker container. There are currently two choices `mount` or `copy`.
-
-:::note `fileTransfer` Syntax
-Please refer to the [`fileTransfer` syntax page](/testrunner-toolkit/configuration/common-syntax#filetransfer) for further detals.
-:::
+The configuration field: `fileTransfer`, instructs `saucectl` how to copy the test files into the docker container. There are currently two choices `mount` or `copy`. Refer to the [`fileTransfer` property description](/testrunner-toolkit/configuration/common-syntax#filetransfer) for further detals.
 
 ```yaml
 docker:
@@ -68,39 +65,7 @@ docker:
 
 ## Test on Sauce Labs
 
-<p><small>supported frameworks: <span class="highlight cypress">Cypress</span></small></p>
 
-If you wish to run your tests on Sauce Labs VMs, set the default `mode` in `config.yml` to `sauce`, as shown in the following example:
-
-```yaml
-defaults:
-  mode: sauce
-```
-_or_
-
-```yaml
-suites:
-  - name: saucy test
-    mode: sauce
-```
-
-If you wish to increase your VM concurrency you can also use the flag `--ccy <vm number>`.
-
-```bash
-saucectl run --ccy 2
-```
-
-You can also designate `concurrency` in the `config.yml` like so:
-
-```yaml {2}
-sauce:
-  concurrency: 3
-  region: us-west-1
-```
-
-Please note that VM concurrency depends on the suite number rather than the number of `.spec.js |.test.js` files. Plese visit the [CLI Reference](/testrunner-toolkit/saucectl#ccy) for more information regarding command parameters:
-
-> Your concurrency and VM entitlements also depend on your Sauce Labs subscription tier. For more information please visit the [pricing guide](https://saucelabs.com/pricing)
 
 ### Cross-Browser Tests
 
