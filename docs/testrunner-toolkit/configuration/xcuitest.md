@@ -252,7 +252,7 @@ The path to the testing application. The property recognizes both `.ipa` and `.a
 ### `otherApps`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-List of paths to apps to be pre-installed for running tests. The relative file location is `{project-root}/apps/app1.ipa`, and the property supports expaned environment vairables to designate the path, as shown in the following examples.
+Set of one or more paths to apps to be pre-installed for running tests. The relative file location is `{project-root}/apps/app1.ipa`, and the property supports expanded environment variables to designate the path, as shown in the following examples.
 ```yaml
   otherApps:
     - ./apps/pre-installed-app1.ipa
