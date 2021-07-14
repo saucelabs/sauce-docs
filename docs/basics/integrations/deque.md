@@ -53,7 +53,7 @@ Check out the description and examples for the new [Acessibility functionality](
 
 The following is information on how to use the Java Deque Axe Selenium library directly:
 
-## Requirements
+__Requirements__
 
 Add this to your `pom.xml`
 
@@ -66,14 +66,14 @@ Add this to your `pom.xml`
 </dependency>
 ```
 
-## Usage
+__Usage__
 
 This method will populate results on the Sauce Labs Accessibility tab:
 ```java
 new AxeBuilder().analyze(driver);
 ```
 
-### Example Code
+__Example Code__
 
 ```java reference
 https://github.com/saucelabs-training/demo-java/blob/a99c36/selenium-examples/src/test/java/com/saucedemo/accessibility/DequeAxeExampleTest.java
@@ -82,8 +82,8 @@ https://github.com/saucelabs-training/demo-java/blob/a99c36/selenium-examples/sr
 
 </TabItem>
 <TabItem value="wdio">
-
-## Requirements
+ 
+__Requirements__
 
 * [Install and Set up](https://webdriver.io/docs/gettingstarted/) WebdriverIO
   * This documentation also shows you how to run a test locally which will help troubleshoot potential issues with your code before running on Sauce Labs
@@ -116,7 +116,7 @@ browser.addCommand('getAxeResults', function (name) {
 ```
 
 
-## Usage
+__Usage__
 
 This method will populate results on the Sauce Labs Accessibility tab:
 ```js
@@ -132,7 +132,7 @@ Check out the description and examples for the new [Acessibility functionality](
 
 The following is information on how to use the Python sa11y library directly:
 
-## Requirements
+__Requirements__
 
 * Install Sa11y:
 ```shell
@@ -144,14 +144,14 @@ pip install sa11y
 from sa11y.analyze import Analyze
 ```
 
-## Usage
+__Usage__
 
 This method will populate results on the Sauce Labs Accessibility tab:
 ```python
 Analyze(driver).results()
 ```
 
-## Example Code
+__Example Code__
 
 ```python reference
 https://github.com/saucelabs-training/demo-python/blob/900b3a/examples/accessibility/test_sa11y.py
@@ -165,7 +165,7 @@ Check out the description and examples for the new [Acessibility functionality](
 
 The following is information on how to use the Ruby sa11y library directly:
 
-## Requirements
+__Requirements__
 
 * Add sa11y to your `gemfile`:
 ```shell
@@ -177,7 +177,7 @@ gem 'sa11y', '~> 0.2.1'
 require 'sa11y/analyze'
 ```
 
-## Usage
+__Usage__
 
 This method will populate results on the Sauce Labs Accessibility tab:
 
@@ -185,7 +185,7 @@ This method will populate results on the Sauce Labs Accessibility tab:
 Sa11y::Analyze.new(driver).results
 ```
 
-## Example Code
+__Example Code__
 
 ```ruby reference
 https://github.com/saucelabs-training/demo-ruby/blob/c51b52/sauce-features/accessibility/spec/sa11y_spec.rb
