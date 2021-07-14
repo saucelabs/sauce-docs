@@ -47,13 +47,13 @@ values={[
 <TabItem value="java">
 
 We highly recommend using the Java [Sauce Bindings](https://opensource.saucelabs.com/sauce_bindings/).
-Check out the description and examples for the new [Acessibility functionality](https://opensource.saucelabs.com/sauce_bindings/docs/accessibility).
+Check out the description and examples for the new [Accessibility functionality](https://opensource.saucelabs.com/sauce_bindings/docs/accessibility).
 
 The following is information on how to use the Java Deque Axe Selenium library directly:
 
 __Requirements__
 
-Add this to your `pom.xml`
+Add this to your `pom.xml`:
 
 ```xml
 <!-- https://mvnrepository.com/artifact/com.deque.html.axe-core/selenium -->
@@ -66,7 +66,7 @@ Add this to your `pom.xml`
 
 __Usage__
 
-This method will populate results on the Sauce Labs Accessibility tab:
+This method populates results on the Sauce Labs Accessibility tab:
 ```java
 new AxeBuilder().analyze(driver);
 ```
@@ -84,7 +84,7 @@ https://github.com/saucelabs-training/demo-java/blob/a99c36/selenium-examples/sr
 __Requirements__
 
 * [Install and Set up](https://webdriver.io/docs/gettingstarted/) WebdriverIO
-  * This documentation also shows you how to run a test locally which will help troubleshoot potential issues with your code before running on Sauce Labs
+  * This documentation shows you how to run a test locally, and also how to troubleshoot potential issues with your code before running on Sauce Labs
 
 * Add [Sauce Service](https://webdriver.io/docs/sauce-service) to WebdriverIO
 
@@ -116,7 +116,7 @@ browser.addCommand('getAxeResults', function (name) {
 
 __Usage__
 
-This method will populate results on the Sauce Labs Accessibility tab:
+This method populates results on the Sauce Labs Accessibility tab:
 ```js
 browser.getAxeResults()
 ```
@@ -126,9 +126,9 @@ browser.getAxeResults()
 <TabItem value="python">
 
 We highly recommend using the Python [Sauce Bindings](https://opensource.saucelabs.com/sauce_bindings/).
-Check out the description and examples for the new [Acessibility functionality](https://opensource.saucelabs.com/sauce_bindings/docs/accessibility).
+Check out the description and examples for the new [Accessibility functionality](https://opensource.saucelabs.com/sauce_bindings/docs/accessibility).
 
-The following is information on how to use the Python sa11y library directly:
+The following is information on how to use the Python `sa11y` library directly:
 
 __Requirements__
 
@@ -144,7 +144,7 @@ from sa11y.analyze import Analyze
 
 __Usage__
 
-This method will populate results on the Sauce Labs Accessibility tab:
+This method populates results on the Sauce Labs Accessibility tab:
 ```python
 Analyze(driver).results()
 ```
@@ -159,9 +159,9 @@ https://github.com/saucelabs-training/demo-python/blob/900b3a/examples/accessibi
 <TabItem value="ruby">
 
 We highly recommend using the Ruby [Sauce Bindings](https://opensource.saucelabs.com/sauce_bindings/). 
-Check out the description and examples for the new [Acessibility functionality](https://opensource.saucelabs.com/sauce_bindings/docs/accessibility).
+Check out the description and examples for the new [Accessibility functionality](https://opensource.saucelabs.com/sauce_bindings/docs/accessibility).
 
-The following is information on how to use the Ruby sa11y library directly:
+The following is information on how to use the Ruby `sa11y` library directly:
 
 __Requirements__
 
@@ -177,7 +177,7 @@ require 'sa11y/analyze'
 
 __Usage__
 
-This method will populate results on the Sauce Labs Accessibility tab:
+This method populates results on the Sauce Labs Accessibility tab:
 
 ```ruby
 Sa11y::Analyze.new(driver).results
@@ -210,7 +210,7 @@ using Selenium.Axe;
 
 __Usage__
 
-This method will populate results on the Sauce Labs Accessibility tab:
+This method populates results on the Sauce Labs Accessibility tab:
 
 ```
 AxeResult axeResult = new AxeBuilder(webDriver).Analyze();
