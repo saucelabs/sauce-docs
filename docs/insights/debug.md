@@ -17,12 +17,14 @@ Extended Debugging generates additional assets that impact test performance and 
 ## What You'll Need
 
 * Google Chrome (no older than 3 versions from latest) as the test browser
+
+:::caution Multi-Window Limitation on Chrome Browser
+In rare instances, tests running in Chrome that launch multiple browser windows may result in a Chrome DevTools socket interruption that throws a `408 Automation Server Error`. If this happens, discontinue extended debugging for tests that utilize multiple windows.
+:::
+
 or
 * Firefox browser (versions 53 and above)
 
-:::note
-Extended Debugging is not supported with Headless.
-:::
 
 ## Enabling Extended Debugging
 
@@ -64,6 +66,10 @@ const capabilities = {
 For more information and additional examples, see our [Extended Debugging Example GitHub repo](https://github.com/saucelabs-training/demo-js/tree/master/webdriverio/webdriver/examples/extended-debugging).
 
 When a test with extended debugging enabled completes, you can access the logs and files through the Sauce Labs application or with the REST API.
+
+:::note
+Extended Debugging is not supported for Headless test scripts.
+:::
 
 ### Edit Your Firefox Profile
 

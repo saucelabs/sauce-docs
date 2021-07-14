@@ -153,7 +153,7 @@ When you launch a tunnel, you can accept the tunnel identifier name that Sauce L
 bin/sc -u {SL-username} -k {SL-access_key} -i {tunnel_identifier}
 ```
 
-This is the identifier `saucectl` expects as the `id` property, even though the Sauce Labs UI refers to this values as the `Tunnel Name`.
+This is the identifier `saucectl` expects as the `id` property, even though the Sauce Labs UI refers to this value as the `Tunnel Name`.
 :::
 
 ```yaml
@@ -413,6 +413,7 @@ A property containing one or more environment variables that may be referenced i
 <p><small>| REQUIRED | STRING |</small></p>
 
 The name of the browser in which to run this test suite.
+Available browser names: `chrome`, `firefox`, `microsoftedge`(only for sauce mode) and `electron`(only for docker mode).
 
 ```yaml
     browser: "chrome"
@@ -507,10 +508,6 @@ If you need to go through a proxy server, you can set it through the following v
 
 * `HTTP_PROXY`: Proxy to use to access HTTP websites
 * `HTTPS_PROXY`: Proxy to use to access HTTPS websites
-
-:::note
-At this time, these proxy settings are not supported for Playwright.
-:::
 
 
 #### Docker Proxy Considerations

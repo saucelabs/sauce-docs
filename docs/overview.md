@@ -24,7 +24,7 @@ hide_table_of_contents: true
     <ul>
         <li><a href="https://wiki.saucelabs.com/display/DOCS/Getting+Started+with+Selenium+for+Automated+Website+Testing">Selenium</a> and <a href="https://wiki.saucelabs.com/display/DOCS/Getting+Started+with+Appium+for+Mobile+Application+Testing">Appium</a></li>
         <li><a href="/mobile-apps/automated-testing/espresso-xcuitest">Espresso and XCUITest</a></li>
-        <li><a href="/testrunner-toolkit">Testrunner Toolkit</a> (e.g. Puppeteer, Cypress, etc.)</li>
+        <li><a href="/web-apps/automated-testing/cypress">Cypress</a>, <a href="/web-apps/automated-testing/puppeteer">Puppeteer</a>, <a href="/web-apps/automated-testing/testcafe">TestCafe</a>, or <a href="/web-apps/automated-testing/playwright">Playwright</a></li>
     </ul>
     </div>
   </div>

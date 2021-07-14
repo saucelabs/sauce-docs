@@ -374,6 +374,7 @@ A property containing one or more environment variables that may be referenced i
 <p><small>| REQUIRED | STRING |</small></p>
 
 The name of the browser in which to run this test suite.
+Available browser names: `chrome`, `firefox`, `microsoftedge`(only for sauce mode) and `safari`(only for sauce mode on macOS or iOS simulators)
 
 ```yaml
     browser: "firefox"
@@ -433,13 +434,13 @@ The explicit name, file glob, or location of the test files to be included in th
 ```
 ---
 
-### `devices`
+### `simulators`
 <p><small>| OPTIONAL | OBJECT | <span class="highlight sauce-cloud">Sauce Cloud only</span>|</small></p>
 
-The property containing details about on which devices the tests in this suite will run. This property can include multiple device definitions.
+The property containing details about on which simulators the tests in this suite will run. This property can include multiple device definitions.
 
 ```yaml
-  devices:
+  simulators:
     - name: iPhone 12 Simulator
       platformName: iOS
       platformVersions:
@@ -596,10 +597,6 @@ If you need to go through a proxy server, you can set it through the following v
 
 * `HTTP_PROXY`: Proxy to use to access HTTP websites
 * `HTTPS_PROXY`: Proxy to use to access HTTPS websites
-
-:::note
-At this time, these proxy settings are not supported for Playwright.
-:::
 
 
 #### Docker Proxy Considerations

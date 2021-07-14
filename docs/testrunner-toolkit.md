@@ -179,7 +179,8 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |Puppeteer Version|Supported Browsers|
 |-----|----|
-|9.1.1|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.1.0)|
+|10.1.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.3.0)|
+|9.1.1|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.2.0)|
 |8.0.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.0.0)|
 |3.0.4|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v0.3.0)|
 
@@ -199,7 +200,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 ## How to Get Started
 
-The rest of the Testrunner Toolkit documentation will guide you through the process of installing and configuring the `saucectl` command line, and then using it to run your tests in the way that best suits your current development process. At a high level, you will:
+The rest of the `saucectl` documentation will guide you through the process of installing and configuring the `saucectl` command line, and then using it to run your tests in the way that best suits your current development process. At a high level, you will:
 
 1. [Download and install `saucectl`](testrunner-toolkit/installation).
 1. Generate and configure your `saucectl` working directory.
