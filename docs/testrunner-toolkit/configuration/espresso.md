@@ -215,6 +215,9 @@ The parent property containing the details specific to the Espresso project.
 espresso:
   app: ./apps/calc.apk
   testApp: ./apps/calc-success.apk
+  otherApps:
+    - ./apps/pre-installed-app1.apk
+    - ./apps/pre-installed-app2.apk
 ```
 ---
 
@@ -243,6 +246,23 @@ The path to the testing application. The relative file location is `{project-roo
 
 ```yaml
   testApp: $TEST_APP
+```
+---
+
+### `otherApps`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+List of paths to apps to be pre-installed for running tests. The relative file location is `{project-root}/apps/app1.apk`, and the property supports expaned environment vairables to designate the path, as shown in the following examples.
+```yaml
+  otherApps:
+    - ./apps/pre-installed-app1.apk
+    - ./apps/pre-installed-app2.apk
+```
+
+```yaml
+  otherApps:
+    - $PRE_INSTALLED_APP1
+    - $PRE_INSTALLED_APP2
 ```
 ---
 

@@ -215,6 +215,9 @@ The parent property containing the details specific to the XCUITest project.
 xcuitest:
   app: ./apps/SauceLabs.Mobile.Sample.XCUITest.App.ipa
   testApp: ./apps/SwagLabsMobileAppUITests-Runner.app
+  otherApps:
+    - ./apps/pre-installed-app1.ipa
+    - ./apps/pre-installed-app2.ipa
 ```
 ---
 
@@ -243,6 +246,23 @@ The path to the testing application. The property recognizes both `.ipa` and `.a
 
 ```yaml
   testApp: $TEST_APP
+```
+---
+
+### `otherApps`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+List of paths to apps to be pre-installed for running tests. The relative file location is `{project-root}/apps/app1.ipa`, and the property supports expaned environment vairables to designate the path, as shown in the following examples.
+```yaml
+  otherApps:
+    - ./apps/pre-installed-app1.ipa
+    - ./apps/pre-installed-app2.ipa
+```
+
+```yaml
+  otherApps:
+    - $PRE_INSTALLED_APP1
+    - $PRE_INSTALLED_APP2
 ```
 ---
 
