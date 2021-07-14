@@ -231,7 +231,7 @@ Once the host file has been altered, start Sauce Connect Proxy with the added ar
 During testing, your website or application may load resources (e.g., tracking services, images/videos, advertisements), which can impact page load times and even cause tests to fail. If these external assets are publicly available on the Internet, then they can be cached to speed up requests. If these are not needed at all for testing purposes, you can disable or redirect traffic to improve performance.
 
 ### Disable Traffic to External Resources
-You can improve your overall test performance by disabling these third-party resource calls. If you're using Sauce Connect Proxy, the additional network hops required to access external resources has the potential to slow test execution dramatically. To retrieve resources directly, you can use the `--tunnel-domains` and `--direct-domains` flags to control which domains Sauce Connect will access during the test. To blacklist traffic so it is immediately dropped, use the `--fast-fail-regexps` command.
+You can improve your overall test performance by disabling these third-party resource calls. If you're using Sauce Connect Proxy, the additional network hops required to access external resources has the potential to slow test execution dramatically. To retrieve resources directly, you can use the `--tunnel-domains` and `--direct-domains` flags to control which domains Sauce Connect will access during the test. To blocklist traffic so it is immediately dropped, use the `--fast-fail-regexps` command.
 
 See the following for more information:
 
