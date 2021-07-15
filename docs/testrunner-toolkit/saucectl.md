@@ -341,14 +341,18 @@ saucectl run --region use-west-1
 ```
 ---
 
-### `--suite <string>`
+### `--select-suite <string>`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies a test suite to execute by name.
 
 ```bash
-saucectl run --suite <suite_name>
+saucectl run --select-suite <suite_name>
 ```
+
+:::note Formerly `--suite <string>`
+Versions of saucectl before v0.52.4 use the flag  `--suite` instead.
+
 ---
 
 ### `--tags <tag1,tag2,...>`
