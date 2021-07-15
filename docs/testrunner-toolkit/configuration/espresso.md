@@ -428,6 +428,7 @@ testOptions:
   annotation: com.android.buzz.MyAnnotation
   numShards: 4
   clearPackageData: true
+  useTestOrchestrator: true
 ```
 ---
 
@@ -506,6 +507,19 @@ Removes all shared states from the testing device's CPU and memory at the comple
 
 ```yaml
   clearPackageData: true
+```
+---
+
+#### `useTestOrchestrator`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+If set, the instrumentation will start with [Test Orchestrator version 1.1.1](https://developer.android.com/training/testing/junit-runner#using-android-test-orchestrator) in use.
+
+:::note
+With Test Orchestrator, it is in most cases recommended to also set `clearPackageData` to `true` to remove all shared state from your device's CPU and memory after each test.
+
+```yaml
+  useTestOrchestrator: true
 ```
 ---
 
