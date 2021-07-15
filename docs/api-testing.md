@@ -51,3 +51,8 @@ hide_table_of_contents: true
     </div>
   </div>
 </div>
+
+
+:::info Mark3 Closed Beta
+Follow [this link](/apif/quick-start) to get to the API Fortress Mark3 Beta Guides
+:::
