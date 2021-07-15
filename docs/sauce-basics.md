@@ -4,7 +4,7 @@ title: What is Sauce Labs?
 sidebar_label: What is Sauce Labs?
 ---
 
-Welcome to Sauce Labs! Your path for getting started depends on your experience level and use case. Below are the various test scenarios that Sauce Labs supports.
+Sauce Labs is a full-scale testing platform that supports every stage of your software development and operations lifecycle to ensure complete digital confidence every time a user hits your website or application, regardless of the device, browser or operating system from which it is being accessed.
 
 
 ## Training
@@ -14,4 +14,4 @@ Need some extra help getting started? Check out some of the tutorials on [Sauce 
   * [Java with JUnit4](https://training.saucelabs.com/SeleniumJava/)
   * [Python with Pytest](https://training.saucelabs.com/seleniumpython/)
   * [JavaScript Mocha](https://training.saucelabs.com/SeleniumJS/)
-* Learn to [run Cypress tests](https://training.saucelabs.com/saucectl/) on Sauce Labs using Testrunner Toolkit
+* Learn to [run Cypress tests](https://training.saucelabs.com/saucectl/) on Sauce Labs using saucectl

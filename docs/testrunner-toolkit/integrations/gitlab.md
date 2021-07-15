@@ -1,6 +1,6 @@
 ---
 id: gitlab
-title: Testrunner Toolkit with GitLab
+title: saucectl with GitLab
 sidebar_label: GitLab
 ---
 
@@ -46,7 +46,7 @@ Credentials are now set!
 
 ## Add GitLab-CI Configuration
 
-In the root of your project directory, create the `.gitlab-ci.yml` file. Below are some job snippets of how to configure Testrunner Toolkit with GitLab-CI:
+In the root of your project directory, create the `.gitlab-ci.yml` file. Below are some job snippets of how to configure `saucectl` with GitLab-CI:
 
 
 ```yaml reference
