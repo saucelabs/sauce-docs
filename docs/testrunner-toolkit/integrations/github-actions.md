@@ -1,6 +1,6 @@
 ---
 id: github-actions
-title: Testrunner Toolkit with GitHub Actions
+title: saucectl with GitHub Actions
 sidebar_label: GitHub Actions
 ---
 
@@ -36,7 +36,7 @@ The first order of business is to export your [Sauce Labs account credentials](h
 
 ## Configure the GitHub Action
 
-In your root project directory, create the following directory tree: `.github/workflows`. In the `workflows` directory create a file called `actions.yml`. 
+In your root project directory, create the following directory tree: `.github/workflows`. In the `workflows` directory create a file called `actions.yml`.
 
 Add the following to the top of your file:
 
@@ -54,7 +54,9 @@ In the examples below, we illustrate the different run modes that `saucectl` has
 If you run your tests on the Sauce Cloud, you will likely require a tunnel back to where your application is running. A tunnel enables the remote browser to access your local network.
 For this, we are going to use [Sauce Connect](/secure-connections/sauce-connect).
 
-> For more detailed information on setting event-driven actions and jobs, please visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
+:::note
+For more detailed information on setting event-driven actions and jobs, please visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
+:::
 
 <Tabs
   defaultValue="Docker"
@@ -62,7 +64,7 @@ For this, we are going to use [Sauce Connect](/secure-connections/sauce-connect)
     {label: 'Docker', value: 'Docker'},
     {label: 'Sauce Cloud', value: 'Sauce Cloud'},
   ]}>
-  
+
 <TabItem value="Docker">
 
 ```yaml reference
@@ -79,7 +81,9 @@ https://github.com/saucelabs/saucectl-cypress-example/blob/master/.github/workfl
 </TabItem>
 </Tabs>
 
-> You can reference our example workflows [here](https://github.com/saucelabs/saucectl-cypress-example/tree/master/.github/workflows).
+:::note
+You can reference our example workflows [here](https://github.com/saucelabs/saucectl-cypress-example/tree/master/.github/workflows).
+:::
 
 Now when you commit these files, GitHub will detect the new workflow actions and launch `saucectl` to run your tests.
 
