@@ -92,3 +92,21 @@ You can regenerate a user's access key on the **Organization Management** page.
 | Team Member  | <ul><li>Edit personal information such as name, password, and email address</li><li>View jobs that were run by other team members</li><li>View jobs that were run by members of other teams in the organization</li><li>Sauce Connect Proxy tunnels: <ul><li>Start tunnels for individual use or to be shared with other team members</li><li>Stop tunnels they have started</li></ul></li></ul>  |  
 
 **NOTE:** In every organization, multiple organization admins and/or team admins can exist. However, users can only be part of one organization.
+
+## User Settings
+The User Settings screen gives users access to their username, password, and email address. Users can also regenerate an access key, as well as copy the driver string (for more information, see [Regenerating Access Keys](https://docs.saucelabs.com/basics/acct-team-mgmt/managing-user-info/index.html#regenerating-access-keys) and [Create a RemoteWebDriver Instance](https://docs.saucelabs.com/web-apps/automated-testing/selenium#step-1-create-a-remotewebdriver-instance)).
+
+### My Account
+
+
+### User Information
+
+### Email Address
+
+### Access Key
+
+### Driver Creation
+
+### Change Password
+
+### Email Settings
