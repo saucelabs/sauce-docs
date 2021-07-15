@@ -53,14 +53,20 @@ const docusaurusConfig = {
           to: '/overview',
         },
         {
-          label: 'API',
+          label: 'Developer',
           position: 'left',
-          to: '/dev/api',
-        },
-        {
-          label: 'CLI',
-          position: 'left',
-          to: '/dev/cli',
+          items: [
+            {
+              label: 'API Docs',
+              position: 'left',
+              to: '/dev/api',
+            },
+            {
+              label: 'CLI Docs',
+              position: 'left',
+              to: '/dev/cli',
+            },
+          ]
         },
         {
           label: 'Try it Free',
@@ -117,6 +123,7 @@ const docusaurusConfig = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
+          path: 'docs',
           routeBasePath: '/',
           editUrl:
               'https://github.com/saucelabs/sauce-docs/edit/master/',

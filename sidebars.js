@@ -1,5 +1,64 @@
 module.exports = {
-    someSidebar: {
+    apif: [
+        {
+            type: 'category',
+            label: 'Quick Start',
+            collapsed: true,
+            items: [
+                'apif/quick-start',
+                'apif/quick-start/composer',
+                'apif/quick-start/build-from-spec',
+            ],
+        },
+    ],
+    dev: [
+        'dev',
+        {
+            type: 'category',
+            label: 'API Reference',
+            collapsed: true,
+            items: [
+                'dev/api',
+                'dev/api/accounts',
+                'dev/api/connect',
+                'dev/api/insights',
+                'dev/api/jobs',
+                'dev/api/performance',
+                'dev/api/platform',
+                'dev/api/rdc',
+                'dev/api/storage',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'CLI Reference',
+            collapsed: true,
+            items: [
+                'dev/cli',
+                'dev/cli/sauce-connect-proxy',
+                {
+                    type: 'category',
+                    label: 'Virtual USB',
+                    collapsed: true,
+                    items: [
+                        'dev/cli/virtual-usb',
+                        'dev/cli/virtual-usb/start-server',
+                        'dev/cli/virtual-usb/start-session',
+                        'dev/cli/virtual-usb/connect-session',
+                        'dev/cli/virtual-usb/disconnect-session',
+                        'dev/cli/virtual-usb/delete-session',
+                        'dev/cli/virtual-usb/find-sessionid',
+                    ],
+                },
+                {
+                    type: 'link',
+                    label: 'saucectl CLI', // The label that should be displayed (string).
+                    href: '/testrunner-toolkit/saucectl' // The target URL (string).
+                },
+            ],
+        },
+    ],
+    docs: {
         "Home": [
             'overview',
             {
@@ -196,52 +255,51 @@ module.exports = {
                 type: 'category',
                 label: 'Automated Testing',
                 collapsed: true,
-                items: [
-                    {
-                      type: 'category',
-                      label: 'Selenium',
-                      collapsed: true,
-                      items: [
+                items: [{
+                    type: 'category',
+                    label: 'Selenium',
+                    collapsed: true,
+                    items: [
                         'web-apps/automated-testing/selenium',
                         'web-apps/automated-testing/selenium/pre-run-executables',
                         'web-apps/automated-testing/selenium/sample-scripts',
-                      ]
+                    ]
+                },
+                    {
+                        type: 'category',
+                        label: 'Cypress',
+                        collapsed: true,
+                        items: [
+                            'web-apps/automated-testing/cypress',
+                            'testrunner-toolkit/configuration/cypress',
+                        ]
                     },
                     {
-                      type: 'category',
-                      label: 'Cypress',
-                      collapsed: true,
-                      items: [
-                        'web-apps/automated-testing/cypress',
-                        'testrunner-toolkit/configuration/cypress',
-                      ]
+                        type: 'category',
+                        label: 'Playwright',
+                        collapsed: true,
+                        items: [
+                            'web-apps/automated-testing/playwright',
+                            'testrunner-toolkit/configuration/playwright',
+                        ],
                     },
                     {
-                      type: 'category',
-                      label: 'Playwright',
-                      collapsed: true,
-                      items: [
-                        'web-apps/automated-testing/playwright',
-                        'testrunner-toolkit/configuration/playwright',
-                      ]
+                        type: 'category',
+                        label: 'TestCafe',
+                        collapsed: true,
+                        items: [
+                            'web-apps/automated-testing/testcafe',
+                            'testrunner-toolkit/configuration/testcafe',
+                        ]
                     },
                     {
-                      type: 'category',
-                      label: 'TestCafe',
-                      collapsed: true,
-                      items: [
-                        'web-apps/automated-testing/testcafe',
-                        'testrunner-toolkit/configuration/testcafe',
-                      ]
-                    },
-                    {
-                      type: 'category',
-                      label: 'Puppeteer',
-                      collapsed: true,
-                      items: [
-                        'web-apps/automated-testing/puppeteer',
-                        'testrunner-toolkit/configuration/puppeteer',
-                      ]
+                        type: 'category',
+                        label: 'Puppeteer',
+                        collapsed: true,
+                        items: [
+                            'web-apps/automated-testing/puppeteer',
+                            'testrunner-toolkit/configuration/puppeteer',
+                        ],
                     },
                 ],
             },
@@ -531,18 +589,17 @@ module.exports = {
                 type: 'category',
                 label: 'Self Hosted',
                 collapsed: true,
-                items: [
-                    {
-                        type: 'category',
-                        label: 'The Self Hosted Platform',
-                        collapsed: true,
-                        items: [
-                            'api-testing/self-hosted/on-prem-platform',
-                            'api-testing/self-hosted/on-premises-requirements',
-                            'api-testing/self-hosted/updating-an-on-premises-instance',
-                            'api-testing/self-hosted/on-premises-backing-up-your-data',
-                        ],
-                    },
+                items: [{
+                    type: 'category',
+                    label: 'The Self Hosted Platform',
+                    collapsed: true,
+                    items: [
+                        'api-testing/self-hosted/on-prem-platform',
+                        'api-testing/self-hosted/on-premises-requirements',
+                        'api-testing/self-hosted/updating-an-on-premises-instance',
+                        'api-testing/self-hosted/on-premises-backing-up-your-data',
+                    ],
+                },
                     {
                         type: 'category',
                         label: 'Other Platforms',
@@ -636,11 +693,11 @@ module.exports = {
                         label: 'Integrations',
                         collapsed: true,
                         items: [
-                          'visual/e2e-testing/integrations/continuous-integration',
-                          'visual/e2e-testing/integrations/selenium-webdriver',
-                          'visual/e2e-testing/integrations/github',
-                          'visual/e2e-testing/integrations/webhooks',
-                          'visual/e2e-testing/integrations/sauce-labs',
+                            'visual/e2e-testing/integrations/continuous-integration',
+                            'visual/e2e-testing/integrations/selenium-webdriver',
+                            'visual/e2e-testing/integrations/github',
+                            'visual/e2e-testing/integrations/webhooks',
+                            'visual/e2e-testing/integrations/sauce-labs',
                         ],
                     },
                     'visual/e2e-testing/screener-recorder',
@@ -655,79 +712,34 @@ module.exports = {
                 label: 'Component Testing',
                 collapsed: true,
                 items: [
-                  'visual/component-testing/setup',
-                  'visual/component-testing/dashboard-workflow',
-                  {
-                      type: 'category',
-                      label: 'Integrations',
-                      collapsed: true,
-                      items: [
-                        'visual/component-testing/integrations/continuous-integration',
-                        'visual/component-testing/integrations/github',
-                        'visual/component-testing/integrations/webhooks',
-                        'visual/component-testing/integrations/slack',
-                        'visual/component-testing/integrations/visual-studio',
-                        'visual/component-testing/integrations/sauce-labs',
-                      ],
-                  },
-                  'visual/component-testing/cross-browser-testing',
-                  'visual/component-testing/testing-interactions',
-                  'visual/component-testing/notifications',
-                  'visual/component-testing/acct-team-mgmt',
+                    'visual/component-testing/setup',
+                    'visual/component-testing/dashboard-workflow',
+                    {
+                        type: 'category',
+                        label: 'Integrations',
+                        collapsed: true,
+                        items: [
+                            'visual/component-testing/integrations/continuous-integration',
+                            'visual/component-testing/integrations/github',
+                            'visual/component-testing/integrations/webhooks',
+                            'visual/component-testing/integrations/slack',
+                            'visual/component-testing/integrations/visual-studio',
+                            'visual/component-testing/integrations/sauce-labs',
+                        ],
+                    },
+                    'visual/component-testing/cross-browser-testing',
+                    'visual/component-testing/testing-interactions',
+                    'visual/component-testing/notifications',
+                    'visual/component-testing/acct-team-mgmt',
                 ],
             },
         ],
         "Reference": [
-            'dev',
             'dev/glossary',
             'dev/error-messages',
             'dev/test-configuration-options',
             'dev/w3c-webdriver-capabilities',
             'dev/data-center-maint',
-            {
-                type: 'category',
-                label: 'API Reference',
-                collapsed: true,
-                items: [
-                    'dev/api',
-                    'dev/api/accounts',
-                    'dev/api/connect',
-                    'dev/api/insights',
-                    'dev/api/jobs',
-                    'dev/api/performance',
-                    'dev/api/platform',
-                    'dev/api/rdc',
-                    'dev/api/storage',
-                ],
-            },
-            {
-                type: 'category',
-                label: 'CLI Reference',
-                collapsed: true,
-                items: [
-                    'dev/cli',
-                    'dev/cli/sauce-connect-proxy',
-                    {
-                        type: 'category',
-                        label: 'Virtual USB',
-                        collapsed: true,
-                        items: [
-                            'dev/cli/virtual-usb',
-                            'dev/cli/virtual-usb/start-server',
-                            'dev/cli/virtual-usb/start-session',
-                            'dev/cli/virtual-usb/connect-session',
-                            'dev/cli/virtual-usb/disconnect-session',
-                            'dev/cli/virtual-usb/delete-session',
-                            'dev/cli/virtual-usb/find-sessionid',
-                        ],
-                    },
-                    {
-                        type: 'link',
-                        label: 'saucectl CLI', // The label that should be displayed (string).
-                        href: '/testrunner-toolkit/saucectl' // The target URL (string).
-                    },
-                ],
-            },
         ],
         Contributing: [
             'contributing',
