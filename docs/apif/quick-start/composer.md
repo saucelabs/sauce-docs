@@ -61,7 +61,7 @@ Use the following image as a reference for the numbered items listed below:
     * _Global Parameters_ - variables that are available across all tests in the project. Reference these variables simply by calling it within the test using the convention `“${VARIABLE}”`.
     * _Input Sets_-  group of input variables representing a scenario. The test will be executed once for each input set, overriding the variable values into your test.
 
-  | Input Set Code View                                                                                   | Input Set Visual View                                                                                     |
+  | Input Set Code View                                                                                   | Input Set Visual View                                                                 |
   |---------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
   | <img src={useBaseUrl('img/api-fortress/2021/01/inputCode.png')} alt="Input Set Code View"/> | <img src={useBaseUrl('img/api-fortress/2021/01/inputVisual.png')} alt="Input Set Visual View"/> |
 

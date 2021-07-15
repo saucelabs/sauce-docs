@@ -47,13 +47,18 @@ const docusaurusConfig = {
         src: 'img/logo-saucelabs.png',
       },
       items: [
+        // {
+        //   label: 'APIFMark3',
+        //   position: 'left',
+        //   to: '/apif/quick-start',
+        // },
         {
           label: 'Docs',
           position: 'left',
           to: '/overview',
         },
         {
-          label: 'Developer',
+          label: 'For Developers',
           position: 'left',
           items: [
             {
@@ -66,7 +71,7 @@ const docusaurusConfig = {
               position: 'left',
               to: '/dev/cli',
             },
-          ]
+          ],
         },
         {
           label: 'Try it Free',
