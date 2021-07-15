@@ -94,7 +94,7 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Identify your applicable data center. | `--datacenter` | `--region` |
 | Specify a particular device to run the test on. | `--device` | Must use YAML |
 | Indicate device selection to be dynamic. | `--devices` | Must use YAML |
-| Provide a name for the test. | `--testname` | `--suite` |
+| Provide a name for the test. | `--testname` | Must use YAML |
 | Choose a device running a particular platform version. | `--platformVersion` | Must use YAML |
 | Choose devices from a private pool only. | `--privateDevicesOnly` | Must use YAML |
 | Choose a phone device only. | `--phoneOnly` | Must use YAML |
