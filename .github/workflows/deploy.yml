@@ -30,12 +30,12 @@ jobs:
         with:
           path: |
             **/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
+          key: ${{ runner.os }}-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/package.json') }}
 
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         run: |
-          npm install
+          npm ci
 
       - uses: actions/cache@v2
         id: cache-build
@@ -69,7 +69,7 @@ jobs:
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         run: |
-          npm install
+          npm ci
 
       - name: Run Build
         if: steps.cache-build.outputs.cache-hit != 'true'
@@ -118,7 +118,7 @@ jobs:
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         run: |
-          npm install
+          npm ci
 
       - name: Run Build
         if: steps.cache-build.outputs.cache-hit != 'true'
@@ -158,7 +158,7 @@ jobs:
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         run: |
-          npm install
+          npm ci
 
       - name: Run Build
         if: steps.cache-build.outputs.cache-hit != 'true'
