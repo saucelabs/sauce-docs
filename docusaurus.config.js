@@ -139,12 +139,12 @@ const docusaurusConfig = {
           systemvars: true,
         },
       ],
-      [
-        '@docusaurus/plugin-client-redirects',
-        {
-          fromExtensions: ['html'],
-        },
-      ],
+//       [
+//         '@docusaurus/plugin-client-redirects',
+//         {
+//           fromExtensions: ['html'],
+//         },
+//       ],
   ],
 }
 
