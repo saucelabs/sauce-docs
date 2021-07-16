@@ -96,6 +96,8 @@ You can regenerate a user's access key on the **Organization Management** page.
 ## User Settings
 The User Settings screen gives users access to their username, password, and email address. Users can also regenerate an access key, as well as copy the driver string (for more information, see [Regenerating Access Keys](https://docs.saucelabs.com/basics/acct-team-mgmt/managing-user-info/index.html#regenerating-access-keys) and [Create a RemoteWebDriver Instance](https://docs.saucelabs.com/web-apps/automated-testing/selenium#step-1-create-a-remotewebdriver-instance)).
 
+To access the User Settings screen, in Sauce Labs, click **ACCOUNT** and then click **User settings**.
+<img src={useBaseUrl('img/team-mgmt/user-settings-nav.png')} alt="User Settings navigation" width="400"/>
 ### My Account
 
 
