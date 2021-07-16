@@ -35,7 +35,7 @@ jobs:
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         run: |
-          npm ci
+          npm install
 
       - uses: actions/cache@v2
         id: cache-build
@@ -69,7 +69,7 @@ jobs:
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         run: |
-          npm ci
+          npm install
 
       - name: Run Build
         if: steps.cache-build.outputs.cache-hit != 'true'
@@ -118,7 +118,7 @@ jobs:
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         run: |
-          npm ci
+          npm install
 
       - name: Run Build
         if: steps.cache-build.outputs.cache-hit != 'true'
@@ -158,7 +158,7 @@ jobs:
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         run: |
-          npm ci
+          npm install
 
       - name: Run Build
         if: steps.cache-build.outputs.cache-hit != 'true'
