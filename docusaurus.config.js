@@ -47,20 +47,31 @@ const docusaurusConfig = {
         src: 'img/logo-saucelabs.png',
       },
       items: [
+        // {
+        //   label: 'APIFMark3',
+        //   position: 'left',
+        //   to: '/apif/quick-start',
+        // },
         {
           label: 'Docs',
           position: 'left',
           to: '/overview',
         },
         {
-          label: 'API',
+          label: 'For Developers',
           position: 'left',
-          to: '/dev/api',
-        },
-        {
-          label: 'CLI',
-          position: 'left',
-          to: '/dev/cli',
+          items: [
+            {
+              label: 'API Docs',
+              position: 'left',
+              to: '/dev/api',
+            },
+            {
+              label: 'CLI Docs',
+              position: 'left',
+              to: '/dev/cli',
+            },
+          ],
         },
         {
           label: 'Try it Free',
@@ -117,6 +128,7 @@ const docusaurusConfig = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
+          path: 'docs',
           routeBasePath: '/',
           editUrl:
               'https://github.com/saucelabs/sauce-docs/edit/master/',
