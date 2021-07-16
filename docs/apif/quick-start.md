@@ -47,8 +47,8 @@ Once you finish creating your test, you should see the _Test Composer page_.
 
 There are two avenues that you may take in building a test from here: 
 
-* Use the [Visual Test Composer](/api-testing/quick-start/composer)
-* Use the [Live Code View](/api-testing/quick-start/code-view)
+* Use the _Visual Test Composer_
+* Use the _Live Code View_
 
 For the purposes of this quickstart guide, the next page walks through how to use the _Visual Test Composer_ view. 
 
