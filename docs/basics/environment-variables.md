@@ -10,11 +10,13 @@ import TabItem from '@theme/TabItem';
 
 As a best practice, we recommend setting your Sauce Labs authentication credentials as environment variables on your local system, that can then be referenced from within your tests. This provides an extra layer of security for your tests, and also enables other members of your development and testing team to write tests that will authenticate against a single account.
 
+For a list of Sauce Connect Proxy environment variables, see [Environment Variables](/secure-connections/sauce-connect/environment-variables).
+
 ## What You'll Need
-* The SAUCE_USERN98i09AME and SAUCE_ACCESS_KEY specific to your Sauce Labs account. You can find them by logging into saucelabs.com and going to Account > User Settings.
+* The SAUCE_USERNAME and SAUCE_ACCESS_KEY specific to your Sauce Labs account. To view your settings, in Sauce Labs, click **ACCOUNT** and then click **User settings**.
 
 ## Setting Up Environment Variables on macOS and Linux Systems
-1. In Terminal mode, enter `vi ~/.bash_profile`, and then press **Enter**.
+1. In Terminal mode, enter `vi ~/.bash_profile`, and then press **Return**.
 2. Press i to insert text into your profile file.
 3. Enter these lines:
 
