@@ -98,6 +98,7 @@ The User Settings screen gives users access to their username, password, and ema
 
 To access the User Settings screen, in Sauce Labs, click **ACCOUNT** and then click **User settings**.
 <img src={useBaseUrl('img/team-mgmt/user-settings-nav.png')} alt="User Settings navigation" width="400"/>
+
 ### My Account
 
 
