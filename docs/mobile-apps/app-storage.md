@@ -178,6 +178,7 @@ caps.setCapability("app", "storage:c8511dd6-38ec-4f58-b8b9-4ec8c23ad882");
 
 </TabItem>
 <TabItem value="js">
+
 Before:
 ```
 caps['app'] = 'sauce-storage:my_app.apk';
@@ -189,6 +190,7 @@ caps['app'] = 'storage:c8511dd6-38ec-4f58-b8b9-4ec8c23ad882';
 
 </TabItem>
 <TabItem value="python">
+
 Before:
 ```
 caps['app'] = "sauce-storage:my_app.apk"
@@ -200,6 +202,7 @@ caps['app'] = "storage:c8511dd6-38ec-4f58-b8b9-4ec8c23ad882"
 
 </TabItem>
 <TabItem value="ruby">
+
 Before:
 ```
 caps['app'] = 'sauce-storage:my_app.apk'
@@ -211,6 +214,7 @@ caps['app'] = 'storage:c8511dd6-38ec-4f58-b8b9-4ec8c23ad882'
 
 </TabItem>
 <TabItem value="csharp">
+
 Before:
 ```
 caps.SetCapability("app","sauce-storage:my_app.apk");
