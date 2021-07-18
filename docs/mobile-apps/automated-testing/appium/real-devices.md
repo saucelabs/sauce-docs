@@ -33,7 +33,7 @@ There may be situations where you want to install an app from a downloadable rem
 
 Please review the following guidelines below before uploading your app:
 
-1. Make sure your app meets the [requirements](mobile-apps/supported-devices) for Android and iOS Mobile App Testing.
+1. Make sure your app meets the [requirements](/mobile-apps/supported-devices) for Android and iOS Mobile App Testing.
 2. Upload your app to the hosting location.
 3. Ensure Sauce Labs has READ access to the app URL.
 4. In your Appium test script, enter the URL for the app as the "app" desired capability. Example Java Snippet:
