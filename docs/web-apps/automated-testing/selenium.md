@@ -58,8 +58,8 @@ For Sauce Labs, choose the address of one of our [Data Center Endpoints](/basics
 
 The way to define capabilities in recent versions of Selenium is with browser options classes.
 The configurations set on these classes do one of two things:
-* ensure you have the session you want (e.g., browser name, browser version, operating system, etc)
-* set the behavior you want in your session. There are 3 types of options that set behavior:
+* Ensure you have the session you want (e.g., browser name, browser version, operating system, etc)
+* Set the behavior you want in your session. There are 3 types of options that set behavior:
   * [Common options](/dev/test-configuration-options/index.html#browser-w3c-capabilities--optional): 
     these include things like page load timeouts, insecure certificate behavior, etc
   * [Browser options](/dev/test-configuration-options/index.html#browser-vendor-capabilities)
@@ -124,13 +124,13 @@ The form elements look like this:
 Selenium provides multiple [element selection strategies](https://www.selenium.dev/documentation/en/webdriver/locating_elements/#element-selection-strategies), 
 which include determining an element by:
 
-* a specific **attribute** value, such as the value of `name` or `id`
-* the **tag name** of the element, such as `div` or `button`
-* **visible text**; this only applies to anchoxr elements, such as `Sauce Labs` 
+* A specific **attribute** value, such as the value of `name` or `id`
+* The **tag name** of the element, such as `div` or `button`
+* **Visible text**; this only applies to anchoxr elements, such as `Sauce Labs` 
   in `<a href="https://www.saucelabs.com">Sauce Labs</a>`
-* a [**CSS** selector](https://www.w3.org/TR/selectors-3/#selectors),
+* A [**CSS** selector](https://www.w3.org/TR/selectors-3/#selectors),
   such as `[placeholder="Username"]`
-* a [**XPath** expression](https://www.w3.org/TR/1999/REC-xpath-19991116/#location-paths), 
+* An [**XPath** expression](https://www.w3.org/TR/1999/REC-xpath-19991116/#location-paths), 
   such as `//input[@placeholder="Username"]`  
 
 :::tip Identifying Elements in HTML
@@ -141,7 +141,7 @@ simplest way to uniquely identify the element.
 
 #### Locator Methods
 
-You can use any of the WebDriver API **locator methods** to form locator expressions that find an element based on a 
+You can use any of the WebDriver API **[locator methods](https://www.selenium.dev/documentation/en/webdriver/locating_elements/)** to form locator expressions that find an element based on a 
 specified locator type and value. In Java and .NET, locators are managed with a `By` class instance - `By.id("user-name")`. 
 In Python, the locator method is merged with the finder method (as described below) - `find_element_by_id("user-name")`. 
 Whereas Ruby uses key value pairs, typically as Hash values: `{id: "user-name"}`
