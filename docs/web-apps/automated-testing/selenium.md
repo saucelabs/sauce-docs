@@ -155,7 +155,7 @@ https://github.com/saucelabs-training/demo-java/blob/0105cf9/selenium-examples/s
 
 #### Finder Methods
 
-To find an element, pass your locator method as an argument of a WebDriver API **finder method**. The find element
+To find an element, pass your locator method as an argument of a WebDriver API **[finder method](https://www.selenium.dev/documentation/en/webdriver/web_element/#find-element)**. The find element
 method for the given language will search the DOM (Document Object Model) of the current web page until it finds
 a matching element and returns it. Regardless of the language, changing the method name with "element" to "elements" 
 will search the entire DOM, and return a collection of all matching elements rather than just the first one.
