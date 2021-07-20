@@ -471,14 +471,14 @@ Below are mobile and web test script examples you can use to get up and running 
 <TabItem value="Desktop Web">
 
 ```js reference
-https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/examples/w3c/test/configs/wdio.saucelabs.conf.js
+https://github.com/saucelabs-training/demo-js/blob/website-1.0/webdriverio/webdriver/examples/w3c/test/configs/wdio.saucelabs.conf.js
 ```
 
 </TabItem>
 <TabItem value="Appium Web">
 
 ```js reference
-https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-web/examples/w3c/test/configs/wdio.saucelabs.conf.js
+https://github.com/saucelabs-training/demo-js/blob/website-1.0/webdriverio/appium-web/examples/w3c/test/configs/wdio.saucelabs.conf.js
 ```
 
 </TabItem>

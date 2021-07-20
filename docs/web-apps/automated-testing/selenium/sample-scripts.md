@@ -15,7 +15,7 @@ The following examples illustrate test scripts written in difference programming
 Visit the [Sauce Labs Ruby Demonstration Repo](https://github.com/saucelabs-training/demo-ruby) for prerequisites, setup instructions, a variety of sample scripts, and many other resources related to writing and running Selenium scripts in Ruby.
 
 ```rb reference
-https://github.com/saucelabs-training/demo-ruby/blob/master/selenium-examples/rspec/spec/login_success_spec.rb
+https://github.com/saucelabs-training/demo-ruby/blob/website-1.0/selenium-examples/rspec/spec/login_success_spec.rb
 ```
 
 
@@ -24,7 +24,7 @@ https://github.com/saucelabs-training/demo-ruby/blob/master/selenium-examples/rs
 Visit the [Sauce Labs Python Demonstration Repo](https://github.com/saucelabs-training/demo-python) for prerequisites, setup instructions, a variety of sample scripts, and many other resources related to writing and running Selenium scripts in Python.
 
 ```py reference
-https://github.com/saucelabs-training/demo-python/blob/main/examples/sauce_bindings/pytest/test_login_success.py
+https://github.com/saucelabs-training/demo-python/blob/website-1.0/examples/sauce_bindings/pytest/test_login_success.py
 ```
 
 
@@ -42,14 +42,14 @@ Visit the [Sauce Labs Java Demonstration Repo](https://github.com/saucelabs-trai
 <TabItem value="testng">
 
 ```java reference
-https://github.com/saucelabs-training/demo-java/blob/master/selenium-testng-examples/src/test/java/com/saucedemo/TestNgTest.java
+https://github.com/saucelabs-training/demo-java/blob/website-1.0/selenium-testng-examples/src/test/java/com/saucedemo/TestNgTest.java
 ```
 
 </TabItem>
 <TabItem value="junit">
 
 ```java reference
-https://github.com/saucelabs-training/demo-java/blob/master/selenium-examples/src/test/java/com/saucedemo/JUnit5W3CChromeTest.java
+https://github.com/saucelabs-training/demo-java/blob/website-1.0/selenium-examples/src/test/java/com/saucedemo/JUnit5W3CChromeTest.java
 ```
 
 </TabItem>
@@ -61,7 +61,7 @@ https://github.com/saucelabs-training/demo-java/blob/master/selenium-examples/sr
 Visit the [Sauce Labs JavaScript Demonstration Repo](https://github.com/saucelabs-training/demo-js) for prerequisites, setup instructions, a variety of sample scripts using different frameworks, and many other resources related to writing and running scripts in JavaScript.
 
 ```js reference
-https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/examples/typescript/test/specs/example.e2e.ts
+https://github.com/saucelabs-training/demo-js/blob/website-1.0/webdriverio/webdriver/examples/typescript/test/specs/example.e2e.ts
 ```
 
 
@@ -70,5 +70,5 @@ https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/ex
 Visit the [Sauce Labs C# Demonstration Repo](https://github.com/saucelabs-training/demo-csharp) for prerequisites, setup instructions, a variety of sample scripts, and many other resources related to writing and running scripts in C#.
 
 ```c# reference
-https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/OnboardingTests/InstantSauceTest.cs
+https://github.com/saucelabs-training/demo-csharp/blob/website-1.0/SauceExamples/SeleniumNunit/OnboardingTests/InstantSauceTest.cs
 ```
