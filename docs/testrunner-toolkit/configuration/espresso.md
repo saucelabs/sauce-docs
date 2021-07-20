@@ -227,6 +227,9 @@ The parent property containing the details specific to the Espresso project.
 espresso:
   app: ./apps/calc.apk
   testApp: ./apps/calc-success.apk
+  otherApps:
+    - ./apps/pre-installed-app1.apk
+    - ./apps/pre-installed-app2.apk
 ```
 ---
 
@@ -255,6 +258,23 @@ The path to the testing application. The relative file location is `{project-roo
 
 ```yaml
   testApp: $TEST_APP
+```
+---
+
+### `otherApps`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Set of one or more paths to apps to be pre-installed for running tests. The relative file location is `{project-root}/apps/app1.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples.
+```yaml
+  otherApps:
+    - ./apps/pre-installed-app1.apk
+    - ./apps/pre-installed-app2.apk
+```
+
+```yaml
+  otherApps:
+    - $PRE_INSTALLED_APP1
+    - $PRE_INSTALLED_APP2
 ```
 ---
 
@@ -440,6 +460,7 @@ testOptions:
   annotation: com.android.buzz.MyAnnotation
   numShards: 4
   clearPackageData: true
+  useTestOrchestrator: true
 ```
 ---
 
@@ -518,6 +539,19 @@ Removes all shared states from the testing device's CPU and memory at the comple
 
 ```yaml
   clearPackageData: true
+```
+---
+
+#### `useTestOrchestrator`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+If set, the instrumentation will start with [Test Orchestrator version 1.1.1](https://developer.android.com/training/testing/junit-runner#using-android-test-orchestrator) in use.
+
+:::note
+With Test Orchestrator, it is in most cases recommended to also set `clearPackageData` to `true` to remove all shared state from your device's CPU and memory after each test.
+
+```yaml
+  useTestOrchestrator: true
 ```
 ---
 
