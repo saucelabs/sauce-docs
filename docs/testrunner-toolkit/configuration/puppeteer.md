@@ -385,6 +385,17 @@ One or more paths to the puppeteer test files to run for this suite. Regex value
     testMatch: ["**/*.js"]
 ```
 
+---
+
+### `browserArgs`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Pass browser args as the launch options of puppeteer.
+
+```yaml
+    browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
+```
+
 ## Advanced Configuration Considerations
 
 The configuration file is flexible enough to allow for any customizations and definitions that are required for any of the supported frameworks. The following sections describe some of the most common configurations.
