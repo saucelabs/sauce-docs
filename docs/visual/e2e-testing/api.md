@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 * Your project's **API Key**, which is available from the Project Dashboard. To access the API, each request must have a custom header named `x-api-key`, along with the value of the API key (e.g., `x-api-key: f092961a-63b7-42c7-8687-b999c9a903b4`).
 * Your project's **Project ID**, which is available from the **Project** dropdown menu.
-* Depending on your test case, you may also need your **Test Group ID**, which is available from the Test Group's Project Dashboard.
+* Depending on your test case, you may also need your **Test Group ID**, which is available from the Test Group's Project Dashboard. 
 
 
 ## Available Actions
