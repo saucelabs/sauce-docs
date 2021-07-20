@@ -543,12 +543,11 @@ Removes all shared states from the testing device's CPU and memory at the comple
 ---
 
 #### `useTestOrchestrator`
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | REAL DEVICES ONLY |</small></p>
 
-If set, the instrumentation will start with [Test Orchestrator version 1.1.1](https://developer.android.com/training/testing/junit-runner#using-android-test-orchestrator) in use.
+If set, the instrumentation will start with [Test Orchestrator version 1.1.1](https://developer.android.com/training/testing/junit-runner#using-android-test-orchestrator) in use. This field is only works with real devices, not emulators.
 
-:::note
-With Test Orchestrator, it is in most cases recommended to also set `clearPackageData` to `true` to remove all shared state from your device's CPU and memory after each test.
+> **NOTE** With Test Orchestrator, it is in most cases recommended to also set `clearPackageData` to `true` to remove all shared state from your device's CPU and memory after each test.
 
 ```yaml
   useTestOrchestrator: true
