@@ -3,10 +3,10 @@ id: deque
 title: "Deque axe™ Integration"
 sidebar_label: "Axe Deque"
 keywords:
-- accessibility-testing
-- accessibility
-- automated-testing
-- how-to
+    - accessibility-testing
+    - accessibility 
+    - automated-testing
+    - how-to
 ---
 
 import Tabs from '@theme/Tabs';
@@ -73,8 +73,8 @@ new AxeBuilder().analyze(driver);
 
 __Example Code__
 
-```java reference
-https://github.com/saucelabs-training/demo-java/blob/a99c36/selenium-examples/src/test/java/com/saucedemo/accessibility/DequeAxeExampleTest.java
+```java reference title="Selenium Accessibility Test"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/accessibility/DequeAxeTest.java
 ```
 
 
@@ -151,8 +151,8 @@ Analyze(driver).results()
 
 __Example Code__
 
-```python reference
-https://github.com/saucelabs-training/demo-python/blob/900b3a/examples/accessibility/test_sa11y.py
+```python reference title="Accessibility Test with Sa11y"
+https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/accessibility/test_sa11y.py
 ```
 
 </TabItem>
@@ -185,8 +185,8 @@ Sa11y::Analyze.new(driver).results
 
 __Example Code__
 
-```ruby reference
-https://github.com/saucelabs-training/demo-ruby/blob/c51b52/sauce-features/accessibility/spec/sa11y_spec.rb
+```ruby reference title="Accessibility Test with Sa11y"`
+https://github.com/saucelabs-training/demo-ruby/blob/docs-1.0/sauce-features/accessibility/spec/sa11y_spec.rb
 ```
 
 </TabItem>

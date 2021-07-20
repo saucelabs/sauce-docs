@@ -63,7 +63,10 @@ You can also toggle Touch ID enrollment during a test session by calling, for ex
   ```js
   allowTouchIdEnroll: true,
   ```
-2. When starting the device through the capabilities, or when you are running your test runtime, add the `driver.toggleEnrollTouchId` capability and set it to true. A full code spec example is available [here](https://github.com/saucelabs-training/demo-js/blob/master/webdriverio/appium-app/examples/biometric-login/test/specs/touch.face.id.spec.js). Example:
+2. When starting the device through the capabilities, or when you are running your test runtime, 
+add the `driver.toggleEnrollTouchId` capability and set it to true. A full code spec example is available 
+[here](https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/appium-app/examples/biometric-login/test/specs/touch.face.id.spec.js). 
+Example:
   ```js
   driver.toggleEnrollTouchId(true);
   ```
@@ -74,8 +77,8 @@ You can also toggle Touch ID enrollment during a test session by calling, for ex
 
   <details><summary><strong>Click here</strong> to see iOS simulator test examples.</summary>
 
-  ```js reference
-  https://github.com/saucelabs-training/demo-js/blob/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.ios.sauce.sim.conf.js
+  ```js reference title="iOS simulator examples"
+  https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.ios.sauce.sim.conf.js
   ```
   </details>
 
@@ -127,8 +130,8 @@ Try running one of the below example scripts, which demonstrate the default capa
 
   <details><summary><strong>Click here</strong> to see the full Android emulator test examples</summary>
 
-  ```js reference
-  https://github.com/saucelabs-training/demo-js/blob/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.android.sauce.emu.conf.js
+  ```js reference title="Android emulator examples"
+  https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.android.sauce.emu.conf.js
   ```
   </details>
 
@@ -138,8 +141,8 @@ Try running one of the below example scripts, which demonstrate the default capa
 
 To enable Touch ID and Face ID on iOS real devices, add the `allowTouchIdEnroll` capability in your test script and set it to true, as shown in the example below:
 
-```js reference
-https://github.com/saucelabs-training/demo-js/blob/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.ios.sauce.real.conf.js
+```js reference title="Biometrics Example"
+https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.ios.sauce.real.conf.js
 ```
 
 #### **Android Real Devices**
@@ -147,14 +150,14 @@ https://github.com/saucelabs-training/demo-js/blob/b770bf13b7f12af1187176cbff344
 At this time, biometric authentication is not supported for Android real device live testing.
 
 ### Additional Resources
-* [Using Biometric Login on Sauce Labs](https://github.com/saucelabs-training/demo-js/tree/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login) contains Android and iOS device configuration demo scripts for a variety of use cases, including:
+* [Using Biometric Login on Sauce Labs](https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/appium-app/examples/biometric-login) contains Android and iOS device configuration demo scripts for a variety of use cases, including:
     * iOS local simulators
     * iOS simulators in our Sauce Labs Simulator Cloud
     * iOS real devices in our Legacy RDC platform
     * iOS real devices in the Sauce Labs UI
     * Android local emulators
     * Android emulators in the Sauce Labs Emulator Cloud
-* [Documentation for iOS simulator Face ID | Appium on GitHub](https://github.com/appium/appium-xcuitest-driver/blob/master/docs/touch-id.md)
+* [Documentation for iOS simulator Face ID | Appium on GitHub](https://github.com/appium/appium-xcuitest-driver/blob/docs-1.0/docs/touch-id.md)
 * [Support for iOS Touch ID on Real Devices](#biometric-authentication-touch-idface-id)
 
 
@@ -336,7 +339,7 @@ This error is displayed due to one or more of these reasons:
 
 ### Additional Resources
 
-* [Sauce Labs Image Injection code examples (GitHub)](https://github.com/saucelabs-training/demo-js/tree/master/webdriverio/appium-app/examples/image-injection)
+* [Sauce Labs Image Injection code examples (GitHub)](https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/appium-app/examples/image-injection)
 * [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile/releases/tag/2.3.0); try out image injection for yourself using our demo app
 * [Android Camera API | Google Developer Documentation](https://developer.android.com/guide/topics/media/camera)
 

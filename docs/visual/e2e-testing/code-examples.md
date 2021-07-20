@@ -4,43 +4,57 @@ title: Visual E2E Code Examples
 sidebar_label: Code Examples
 ---
 
-Full code examples can be found in Sauce Labs Training resources on GitHub:
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-<table>
-  <tr>
-   <td><strong>Programming Language</strong>
-   </td>
-   <td><strong>GitHub Repo</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>JavaScript (WebDriverIO)
-   </td>
-   <td><a href="https://github.com/saucelabs-training/demo-js/tree/master/visual-e2e/examples">saucelabs-training/demo-js</a>
-   </td>
-  </tr>
-  <tr>
-   <td>Java
-   </td>
-   <td><a href="https://github.com/saucelabs-training/demo-java/blob/master/selenium-junit4-examples/src/test/java/com/saucedemo/SimpleVisualE2ETest.java">saucelabs-training/demo-java</a>
-   </td>
-  </tr>
-  <tr>
-   <td>Python
-   </td>
-   <td><a href="https://github.com/saucelabs-training/demo-python/tree/master/visual-examples/webdriver-tests.py">saucelabs-training/demo-python</a>
-   </td>
-  </tr>
-  <tr>
-   <td>Ruby
-   </td>
-   <td><a href="https://github.com/saucelabs-training/demo-ruby/tree/master/sauce-features/visual/basic">saucelabs-training/demo-ruby</a>
-   </td>
-  </tr>
-  <tr>
-   <td>C#
-   </td>
-   <td><a href="https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/SeleniumNunit/Visual">saucelabs-training/demo-csharp</a>
-   </td>
-  </tr>
-</table>
+These examples can be found in Sauce Labs Training resources on GitHub:
+
+## Code
+
+<Tabs
+defaultValue="java"
+values={[
+{ label: 'Java', value: 'java', },
+{ label: 'WebdriverIO', value: 'wdio', },
+{ label: 'Python', value: 'python', },
+{ label: 'Ruby', value: 'ruby', },
+{ label: 'C#', value: 'csharp', }
+]
+}>
+
+<TabItem value="java">
+
+```java reference Title="Java Visual Example"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-junit4-examples/src/test/java/com/saucedemo/selenium/junit4/SimpleVisualE2ETest.java
+```
+
+</TabItem>
+<TabItem value="wdio">
+
+```js reference Title="WDIO Visual Example"
+https://github.com/saucelabs-training/demo-js/blob/docs-1.0/visual-e2e/examples
+```
+
+</TabItem>
+<TabItem value="python">
+
+```python reference Title="Python Visual Example"
+https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_visual/webdriver-tests.py
+```
+
+</TabItem>
+<TabItem value="ruby">
+
+```ruby reference Title="Ruby Visual Example"
+https://github.com/saucelabs-training/demo-ruby/blob/docs-1.0/sauce-features/visual/basic
+```
+
+</TabItem>
+<TabItem value="csharp">
+
+```csharp reference Title="C# Visual Example"
+https://github.com/saucelabs-training/demo-csharp/blob/docs-1.0/SauceExamples/SeleniumNunit/Visual
+```
+
+</TabItem>
+</Tabs>

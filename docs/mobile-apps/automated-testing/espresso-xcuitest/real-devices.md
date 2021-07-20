@@ -22,7 +22,8 @@ Our Sauce Runner for Real Devices test runner provides you the ability to run th
 * Your mobile app file and mobile test file. Accepted file types are *.ipa for iOS and *.apk for Android.
   * For details on how to build .ipa files for use with Sauce Runner for Real Devices, see [Creating .ipa Files for Appium and XCUITest](/mobile-apps/creating-ipa-files.md).
 
-If you'd like to try out this functionality but don't have an app on hand, [download our Sauce Labs demo app file and test file](https://github.com/saucelabs-training/demo-espresso/tree/master/real-devices).
+If you'd like to try out this functionality but don't have an app on hand, 
+[download our Sauce Labs demo app file and test file](https://github.com/saucelabs-training/demo-espresso/blob/docs-1.0/apps).
 :::
 
 ## System Requirements
@@ -101,23 +102,23 @@ Both examples show parallel test execution: four separate parallel tests on four
 
 Espresso YAML File Example
 
-```yaml reference
-https://github.com/saucelabs-training/demo-espresso/blob/d0ae60e428bb2f864c979285b9cf90ee63c756eb/real-devices/runner-ex1.yml#L8-L29
+```yaml reference title="Espresso Example"
+https://github.com/saucelabs-training/demo-espresso/blob/docs-1.0/.sauce/runner-ex1.yml#L8-L29
 ```
 
 **More Examples**:
 
 <details><summary>Parallel execution using dynamic devices</summary>
 
-```yaml reference
-https://github.com/saucelabs-training/demo-espresso/blob/e9fd3e9f9c61c36e0fe6374fe280f26f2dbf9d3a/real-devices/runner-ex5.yml#L8-L50
+```yaml reference title="Espresso in Parallel with Dynamic Devices"
+https://github.com/saucelabs-training/demo-espresso/blob/docs-1.0/.sauce/runner-ex5.yml#L8-L50
 ```
 </details>
 
 <details><summary>Run in parallel on hard-coded devices</summary>
 
-```yaml reference
-https://github.com/saucelabs-training/demo-espresso/blob/e9fd3e9f9c61c36e0fe6374fe280f26f2dbf9d3a/real-devices/runner-ex4.yml#L8-L49
+```yaml reference title="Espresso in Parallel with Specific Devices"
+https://github.com/saucelabs-training/demo-espresso/blob/docs-1.0/.sauce/runner-ex4.yml#L8-L49
 ```
 </details>
 
@@ -126,23 +127,23 @@ https://github.com/saucelabs-training/demo-espresso/blob/e9fd3e9f9c61c36e0fe6374
 
 XCUITest YAML File Example
 
-```yaml reference
-https://github.com/saucelabs-training/demo-xcuitest/blob/master/real-devices/runner-ex1.yml#L8-L29
+```yaml reference title="XCUItest Example"
+https://github.com/saucelabs-training/demo-xcuitest/blob/docs-1.0/.sauce/runner-ex1.yml#L8-L29
 ```
 
 **More Examples**:
 
 <details><summary>Parallel execution using dynamic devices</summary>
 
-```yaml reference
-https://github.com/saucelabs-training/demo-xcuitest/blob/master/real-devices/runner-ex5.yml#L8-L54
+```yaml reference title="XCUItest in Parallel with Dynamic Devices"
+https://github.com/saucelabs-training/demo-xcuitest/blob/docs-1.0/.sauce/runner-ex5.yml#L8-L54
 ```
 </details>
 
 <details><summary>Run in parallel on hard-coded devices</summary>
 
-```yaml reference
-https://github.com/saucelabs-training/demo-xcuitest/blob/master/real-devices/runner-ex4.yml#L8-L53
+```yaml reference title="XCUItest in Parallel with Specific Devices"
+https://github.com/saucelabs-training/demo-xcuitest/blob/docs-1.0/.sauce/runner-ex4.yml#L8-L53
 ```
 </details>
 
@@ -177,7 +178,8 @@ Wait for the runner to upload both files and execute the tests on Sauce Labs rea
 
 8. Once the test suite has completed, you can view your test results on Sauce Labs under **Automated** > **Test Results** > **Real Devices**. Test results for each device rolled into a single set of artifacts (e.g., videos, logs) and you can download these artifacts via the API.
 
-Go to the [Sauce Labs Training GitHub repository](https://github.com/saucelabs-training/demo-espresso/tree/master/real-devices) to browse more example scripts and Espresso test cases on Sauce Labs Emulators.
+Go to the [Sauce Labs Training GitHub repository](https://github.com/saucelabs-training/demo-espresso/blob/docs-1.0/apps) 
+to browse more example scripts and Espresso test cases on Sauce Labs Emulators.
 
 ## TestObject (Legacy RDC)
 
@@ -189,5 +191,5 @@ TestObject, our [Legacy Real Device Platform](https://saucelabs.com/platform/tes
 
 * [Espresso and XCUITest CLI Reference](dev/cli/espresso-xcuitest.md)
 * [Beyond Appium: Testing Using Espresso and XCUITest (white paper)](https://saucelabs.com/resources/white-papers/beyond-appium-testing-using-espresso-and-xcuitest).
-* [Sauce Labs GitHub repository | Espresso for Real Devices](https://github.com/saucelabs-training/demo-espresso/tree/master/real-devices)
-* [Sauce Labs GitHub repository | XCUITest for Real Devices](https://github.com/saucelabs-training/demo-xcuitest/tree/master/real-devices)
+* [Sauce Labs GitHub repository | Espresso for Real Devices](https://github.com/saucelabs-training/demo-espresso/blob/docs-1.0/apps)
+* [Sauce Labs GitHub repository | XCUITest for Real Devices](https://github.com/saucelabs-training/demo-xcuitest/blob/docs-1.0/apps)
