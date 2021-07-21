@@ -38,6 +38,7 @@ module.exports = {
                                 items: [
                                     'basics/acct-team-mgmt/adding-deleting-teams',
                                     'basics/acct-team-mgmt/assigning-removing-users-teams',
+                                    'basics/acct-team-mgmt/private-device-mgmt',
                                     'basics/acct-team-mgmt/sauce-connect-proxy-tunnels',
                                 ],
                             },
@@ -651,7 +652,6 @@ module.exports = {
                     'visual/e2e-testing/supported-browsers',
                     'visual/e2e-testing/troubleshooting',
                     'visual/e2e-testing/notifications',
-                    'visual/e2e-testing/acct-team-mgmt',
                 ],
             },
             {
