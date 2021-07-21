@@ -390,7 +390,7 @@ One or more paths to the puppeteer test files to run for this suite. Regex value
 ### `browserArgs`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Pass browser args as the launch options of puppeteer.
+Pass flags to configure how Puppeteer launches the selected browser. Review supported flags for [Chrome/Chromium](https://peter.sh/experiments/chromium-command-line-switches/)
 
 ```yaml
     browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
