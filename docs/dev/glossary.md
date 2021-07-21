@@ -622,7 +622,7 @@ A virtual software development environment that functions like an isolated, actu
 
 ### Visual Testing, Component
 
-A Sauce Labs visual testing method that enables you to test individual UI components in isolation. If you’re using a component library like Storybook, Vue, Angular or React, you can will use your existing stories as visual test cases and run them against our automated visual testing service.
+A Sauce Labs visual testing method that enables you to test individual UI components in isolation. If you’re using a component library like Storybook, Vue, Angular or React, you can use your existing stories as visual test cases and run them against our automated visual testing service.
 
 
 ### Visual Testing, End-to-End (E2E)

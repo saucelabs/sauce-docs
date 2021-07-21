@@ -162,6 +162,18 @@ This is the identifier `saucectl` expects as the `id` property, even though the 
 ```
 ---
 
+## `env`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
+
+```yaml
+  env:
+    hello: world
+    my_var: $MY_VAR
+```
+---
+
 ## `docker`
 <p><small>| OPTIONAL | OBJECT |<span class="highlight docker">Docker only</span> |</small></p>
 
@@ -360,7 +372,7 @@ The name of the test suite, which will be reflected in the results and related a
 ### `env`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported.
+A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
 
 ```yaml
   env:

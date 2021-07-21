@@ -140,6 +140,18 @@ This is the identifier `saucectl` expects as the `id` property, even though the 
 ```
 ---
 
+## `env`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
+
+```yaml
+  env:
+    hello: world
+    my_var: $MY_VAR
+```
+---
+
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -215,6 +227,9 @@ The parent property containing the details specific to the XCUITest project.
 xcuitest:
   app: ./apps/SauceLabs.Mobile.Sample.XCUITest.App.ipa
   testApp: ./apps/SwagLabsMobileAppUITests-Runner.app
+  otherApps:
+    - ./apps/pre-installed-app1.ipa
+    - ./apps/pre-installed-app2.ipa
 ```
 ---
 
@@ -246,6 +261,23 @@ The path to the testing application. The property recognizes both `.ipa` and `.a
 ```
 ---
 
+### `otherApps`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Set of one or more paths to apps to be pre-installed for running tests. The relative file location is `{project-root}/apps/app1.ipa`, and the property supports expanded environment variables to designate the path, as shown in the following examples.
+```yaml
+  otherApps:
+    - ./apps/pre-installed-app1.ipa
+    - ./apps/pre-installed-app2.ipa
+```
+
+```yaml
+  otherApps:
+    - $PRE_INSTALLED_APP1
+    - $PRE_INSTALLED_APP2
+```
+---
+
 ## `suites`
 <p><small>| REQUIRED | OBJECT |</small></p>
 
@@ -269,7 +301,7 @@ The name of the test suite, which will be reflected in the results and related a
 ### `env`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported.
+A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
 
 ```yaml
   env:
