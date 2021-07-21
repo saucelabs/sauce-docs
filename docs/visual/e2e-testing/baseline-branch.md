@@ -26,7 +26,7 @@ Follow the steps below to enable in your Visual E2E project:
 
 1. [Integrate your Visual E2E tests into your CI process](https://screener.io/v2/docs/visual-e2e/ci) so that visual tests are automatically run when branching or merging.
 
-2. Set the **branch** and **baseBranch** options in your **sauce:visual** webdriver capability to set the name of your current branch and the name of your base branch respectively.
+2. Set the **branch** and **baseBranch** options in your `sauce:visual` WebDriver capability to set the name of your current branch and the name of your base branch respectively.
 
 Below are examples of branch environment variables for various CI tools:
 
