@@ -401,9 +401,9 @@ The process of configuring and launching a Sauce Connect Proxy tunnel to run you
 The process of gracefully shutting down and decommissioning a Sauce Connect Proxy tunnel. More information: [How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect/proxy-tunnels).
 
 
-### Sauce Control (saucectl)
+### saucectl
 
-The Sauce Labs command terminal, which can be used as an alternative to the Sauce Labs interface. More information: [saucectl](/testrunner-toolkit).
+The Sauce Labs framework agnostic test orchestrator CLI (command line interface). [saucectl](/testrunner-toolkit).
 
 
 ### Sauce Headless Testing
@@ -424,13 +424,6 @@ A Sauce Labs white paper – compiled periodically – that leverages anonymized
 ### Sauce Labs User Name
 
 An ID name that you define when you create your Sauce Labs account. You must include this (along with your Sauce Labs Access Key) in your test scripts to authenticate your request and allow access to the resources on your Sauce Labs account. Also known as _Username_ in the Sauce Labs application and _SAUCE_USERNAME_ as an environment variable. You can find it under **User Settings**.
-
-
-### Sauce Testrunner Toolkit (STT)
-
-A containerized testing solution for developers that simplifies user setup, speeds up test execution time, unifies test results, and supports new open source frameworks like Puppeteer, Playwright, Cypress and TestCafe for running end-to-end web tests.
-
-It extends Sauce Labs capabilities to support tests run using native JavaScript test frameworks, so that test results and test analytics can be viewed within Sauce Labs for better debugging.
 
 
 ### Selenium
@@ -629,7 +622,7 @@ A virtual software development environment that functions like an isolated, actu
 
 ### Visual Testing, Component
 
-A Sauce Labs visual testing method that enables you to test individual UI components in isolation. If you’re using a component library like Storybook, Vue, Angular or React, you can will use your existing stories as visual test cases and run them against our automated visual testing service.
+A Sauce Labs visual testing method that enables you to test individual UI components in isolation. If you’re using a component library like Storybook, Vue, Angular or React, you can use your existing stories as visual test cases and run them against our automated visual testing service.
 
 
 ### Visual Testing, End-to-End (E2E)

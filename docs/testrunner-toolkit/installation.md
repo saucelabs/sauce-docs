@@ -141,6 +141,7 @@ saucectl run
 
 `saucectl` kicks off the example test in the framework directory you have created (e.g., `cypress/integration/example.test.js`), the output of which may look as follows:
 
+
 ```bash
 $ saucectl run
 Running version v0.44.0
@@ -200,10 +201,11 @@ Running version v0.44.0
 ~ $
 ```
 
+
 Once the test completes, you can view the test assets when you log into your Sauce Labs dashboard.
 
 
 ## Next Steps
 
-* [Run a Test](/testrunner-toolkit/running-tests): Learn how to run tests using TestRunner.
+* [Run a Test](/testrunner-toolkit/running-tests): Learn how to run tests using saucectl.
 * [`saucectl` Syntax Ref](/testrunner-toolkit/configuration): Review the syntax for `saucectl` commands and learn how to adjust for different testing scenarios.

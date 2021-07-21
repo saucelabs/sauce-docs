@@ -158,6 +158,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |Cypress Version|Supported Browsers|
 |----|----|
+|7.7.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.2.2)|
 |7.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.1.0)|
 |7.1.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.0.3)|
 |6.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v6.0.1)|
@@ -190,6 +191,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |TestCafe Version|Supported Browsers|
 |----|----|
+|1.15.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.9.0)|
 |1.14.2|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.7.0)|
 |1.14.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.6.1)|
 |1.11.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.5.0)|
@@ -200,7 +202,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 ## How to Get Started
 
-The rest of the Testrunner Toolkit documentation will guide you through the process of installing and configuring the `saucectl` command line, and then using it to run your tests in the way that best suits your current development process. At a high level, you will:
+The rest of the `saucectl` documentation will guide you through the process of installing and configuring the `saucectl` command line, and then using it to run your tests in the way that best suits your current development process. At a high level, you will:
 
 1. [Download and install `saucectl`](testrunner-toolkit/installation).
 1. Generate and configure your `saucectl` working directory.
