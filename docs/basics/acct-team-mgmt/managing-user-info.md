@@ -5,6 +5,8 @@ sidebar_label: Managing User Information
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 <p><span className="sauceDBlue">ENTERPRISE PLANS ONLY</span></p>
 
@@ -92,3 +94,22 @@ You can regenerate a user's access key on the **Organization Management** page.
 | Team Member  | <ul><li>Edit personal information such as name, password, and email address</li><li>View jobs that were run by other team members</li><li>View jobs that were run by members of other teams in the organization</li><li>Sauce Connect Proxy tunnels: <ul><li>Start tunnels for individual use or to be shared with other team members</li><li>Stop tunnels they have started</li></ul></li></ul>  |  
 
 **NOTE:** In every organization, multiple organization admins and/or team admins can exist. However, users can only be part of one organization.
+
+## User Settings
+The User Settings screen allows you to view and change your username, password, and email address. You can also regenerate an access key, as well as copy a driver string (for more information, see [Regenerating Access Keys](https://docs.saucelabs.com/basics/acct-team-mgmt/managing-user-info/index.html#regenerating-access-keys) and [Create a RemoteWebDriver Instance](https://docs.saucelabs.com/web-apps/automated-testing/selenium#step-1-create-a-remotewebdriver-instance)). If you are an admin and want to change the settings for users in your org, see [Updating User Information](https://docs.saucelabs.com/basics/acct-team-mgmt/managing-user-info).
+
+To access the User Settings screen, in Sauce Labs, click **ACCOUNT** and then click **User settings**.
+<img src={useBaseUrl('img/team-mgmt/user-settings-nav.png')} alt="User Settings navigation" width="350"/>
+
+## Password Policy
+Sauce Labs supports two-factor authentication. See [Setting Up Single Sign-On](https://docs.saucelabs.com/basics/sso/setting-up-single-sign-on) for more information.
+
+Strong passwords are required, and must include the following:
+* One lowercase letter
+* One uppercase letter
+* One numerical digit
+* One special character
+* A minimum of 8 characters
+* No blank spaces
+
+After five failed login attempts, users will be locked out.
