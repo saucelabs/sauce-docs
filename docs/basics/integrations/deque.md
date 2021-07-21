@@ -74,7 +74,7 @@ new AxeBuilder().analyze(driver);
 __Example Code__
 
 ```java reference
-https://github.com/saucelabs-training/demo-java/blob/a99c36/selenium-examples/src/test/java/com/saucedemo/accessibility/DequeAxeExampleTest.java
+https://github.com/saucelabs-training/demo-java/blob/website-1.0/selenium-examples/src/test/java/com/saucedemo/accessibility/DequeAxeExampleTest.java
 ```
 
 
@@ -152,7 +152,7 @@ Analyze(driver).results()
 __Example Code__
 
 ```python reference
-https://github.com/saucelabs-training/demo-python/blob/900b3a/examples/accessibility/test_sa11y.py
+https://github.com/saucelabs-training/demo-python/blob/website-1.0/examples/accessibility/test_sa11y.py
 ```
 
 </TabItem>
@@ -186,7 +186,7 @@ Sa11y::Analyze.new(driver).results
 __Example Code__
 
 ```ruby reference
-https://github.com/saucelabs-training/demo-ruby/blob/c51b52/sauce-features/accessibility/spec/sa11y_spec.rb
+https://github.com/saucelabs-training/demo-ruby/blob/website-1.0/sauce-features/accessibility/spec/sa11y_spec.rb
 ```
 
 </TabItem>

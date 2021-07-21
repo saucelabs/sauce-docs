@@ -183,7 +183,7 @@ __WebdriverIO Example Walkthrough__
   <details><summary><strong>Example Headless Script for Ruby</strong></summary>
 
   ```ruby reference
-  https://github.com/saucelabs-training/demo-ruby/blob/master/selenium-examples/rspec/spec/spec_helper.rb
+  https://github.com/saucelabs-training/demo-ruby/blob/website-1.0/selenium-examples/rspec/spec/spec_helper.rb
   ```
 
   </details>

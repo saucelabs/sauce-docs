@@ -141,7 +141,7 @@ Try running one of the below example scripts, which demonstrate the default capa
 To enable Touch ID and Face ID on iOS real devices, add the `allowTouchIdEnroll` capability in your test script and set it to true, as shown in the example below:
 
 ```js reference
-https://github.com/saucelabs-training/demo-js/blob/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.ios.sauce.real.conf.js
+https://github.com/saucelabs-training/demo-js/blob/website-1.0/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.ios.sauce.real.conf.js
 ```
 
 #### **Android Real Devices**
