@@ -14,15 +14,14 @@ It takes only a few minutes to integrate Screener into your existing Selenium We
 
 ## 1. Verify Requirements
 
-1. Your WebDriver test(s) use W3C capabilities and Sauce Labs Browsers that are in our [supported list](https://screener.io/v2/docs/visual-e2e/supported-browsers).
-2. Your Sauce Labs credentials are set in the "sauce:options" capability:
-
-```java
-'sauce:options': {
-  username: 'user',
-  accesskey: 'xxxxx'
-    }
-```
+* Your WebDriver test(s) use W3C capabilities and Sauce Labs Browsers that are in our [supported list](https://screener.io/v2/docs/visual-e2e/supported-browsers).
+* Your Sauce Labs credentials are set in the "sauce:options" capability:
+  ```java
+  'sauce:options': {
+    username: 'user',
+    accesskey: 'xxxxx'
+      }
+  ```
 
 
 ## 2. Update WebDriver Capabilities
@@ -40,7 +39,7 @@ Add "sauce:visual" capability to your WebDriver test configuration:
 
 <TabItem value="JavaScript">
 
-### WebDriverIO Example:
+WebDriverIO Example:
 
 ```javascript
 var capabilities = {
@@ -140,7 +139,7 @@ https://hub.screener.io
 
 <TabItem value="JavaScript">
 
-### WebDriverIO Example:
+WebDriverIO Example:
 
 ```javascript
 exports.config = {
@@ -190,8 +189,8 @@ driver = new RemoteWebDriver(new Uri("https://hub.screener.io:443/wd/hub"), capa
 
 To integrate Visual Commands, we wanted a very simple, safe, and unobtrusive way to integrate it into your existing code without needing to install anything; it is simply a JavaScript comment placed in a WebDriver execute command.
 
-1. Add a "@visual.init" command to set the name for each test. Add this before capturing snapshots.
-2. Add "@visual.snapshot" commands when you want to capture a visual snapshot; use this whenever you want a snapshot to be taken.
+* Add a "@visual.init" command to set the name for each test. Add this before capturing snapshots.
+* Add "@visual.snapshot" command when you want to capture a visual snapshot; use this whenever you want a snapshot to be taken.
 
 <Tabs
   defaultValue="JavaScript"
@@ -199,12 +198,13 @@ To integrate Visual Commands, we wanted a very simple, safe, and unobtrusive way
     {label: 'JavaScript', value: 'JavaScript'},
     {label: 'Java', value: 'Java'},
     {label: 'Python', value: 'Python'},
+    {label: 'Python', value: 'Ruby'},
     {label: 'C#', value: 'C#'},
   ]}>
 
 <TabItem value="JavaScript">
 
-### WebDriverIO Example:
+WebDriverIO Example:
 
 ```javascript
 it('should take snapshot', () => {
