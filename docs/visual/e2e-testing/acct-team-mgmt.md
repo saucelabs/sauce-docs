@@ -1,6 +1,6 @@
 ---
 id: acct-team-mgmt
-title: Team Management
+title: Visual E2E User and Team Management
 sidebar_label: Team Management
 ---
 

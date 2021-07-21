@@ -24,12 +24,13 @@ To get the test results, add the `@visual.end` command right before ending your 
     {label: 'JavaScript', value: 'JavaScript'},
     {label: 'Java', value: 'Java'},
     {label: 'Python', value: 'Python'},
+    {label: 'Ruby', value: 'Ruby'},
     {label: 'C#', value: 'C#'},
   ]}>
 
 <TabItem value="JavaScript">
 
-### WebDriverIO Example:
+WebDriverIO Example:
 
 ```javascript
 const result = driver.execute('/*@visual.end*/');
