@@ -8,6 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<img src={useBaseUrl('img/visual/e2e-branching-merging.png')} alt="E2E Baseline Branching and Merging" />
 
 When working with feature branches, Screener can save you time and optimize your workflow by automating the following:
 
