@@ -4,8 +4,11 @@ title: Learn the Review Flow
 sidebar_label: Review Flow
 ---
 
-Learn the Screener workflow for reviewing UIs. Each UI state under test has one of the following statuses:
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
+Learn the Screener workflow for reviewing UIs. Each UI state under test has one of the following statuses:
 
 <table>
   <tr>
@@ -48,18 +51,23 @@ Learn the Screener workflow for reviewing UIs. Each UI state under test has one 
 
 When a test has **Changed** or **New** UI states, it will show a Review button.
 
+<img src={useBaseUrl('img/visual/e2e-review-button.png')} alt="E2E Review Button" />
+
 Clicking on the Review button will display a list of your UI states filtered to only those needing review.
 
 Click on the first UI state to start reviewing.
 
+<img src={useBaseUrl('img/visual/e2e-review-state.jpeg')} alt="E2E Review State" />
+
 ## 2. Review UI State
 
-You will be presented with screenshots of the selected UI state:
+You will be presented with screenshots of the selected UI state.
+
+<img src={useBaseUrl('img/visual/e2e-review-screenshots.jpeg')} alt="E2E Review Screenshots" />
 
 If a baseline exists, a side-by-side view will be displayed with the baseline screenshot on the left-hand side and the current screenshot from the latest build on the right-hand side.
 
 Changed UI states will include highlights of visual changes directly overlayed on the screenshots.
-
 
 :::tip Ignoring
 
@@ -76,8 +84,10 @@ Changed UI states will include highlights of visual changes directly overlayed o
 ## 3. Accept or Reject
 
 After reviewing the UI state, you can either:
-* **Accept it**: if the screenshots are as expected, which will set the current as the new baseline (tip: keyboard shortcut is Shift + Up Arrow).
-* **Reject it**: if defects are found which need to be fixed (tip: keyboard shortcut is Shift + Down Arrow).
+* **Accept**: if the screenshots are as expected, which will set the current as the new baseline (tip: keyboard shortcut is Shift + Up Arrow).
+* **Reject**: if defects are found which need to be fixed (tip: keyboard shortcut is Shift + Down Arrow).
+
+<img src={useBaseUrl('img/visual/e2e-review-accept.png')} alt="E2E Review Accept" />
 
 
 ## 4. Continue Reviewing
@@ -85,6 +95,8 @@ After reviewing the UI state, you can either:
 Continue reviewing the remaining UI states by clicking one of the below options (or use keyboard shortcuts to navigate through UI states).
 * **Next** arrow (tip: keyboard shortcut is Right Arrow).
 * **Previous** arrow (tip: keyboard shortcut is Left Arrow).
+
+<img src={useBaseUrl('img/visual/e2e-review-next.png')} alt="E2E Review Next" />
 
 :::tip Accept All Button
 
@@ -95,6 +107,8 @@ Use the **Accept All** button to quickly set ___all___ filtered UI states to acc
 ## 5. Review Complete
 
 When all UI states have been reviewed, the filtered state list will be empty.
+
+<img src={useBaseUrl('img/visual/e2e-review-complete.png')} alt="E2E Review Complete" />
 
 The build status will be updated to **Success** when all UI states have been accepted.
 

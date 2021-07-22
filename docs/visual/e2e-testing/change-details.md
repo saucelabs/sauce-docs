@@ -4,10 +4,13 @@ title: Learn How To View Change Details
 sidebar_label: View Change Details
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Changed UI states will include highlights of visual changes directly overlayed on the screenshots.
 
 Screener automatically organizes these changes into four categories:
-
 
 <table>
   <tr>
@@ -45,3 +48,5 @@ Each change in Screener has additional details that can be viewed to help with d
 * View a text diff of content changes.
 
 These details can be viewed in the Change List, which can be opened by clicking on a change highlight.
+
+<img src={useBaseUrl('img/visual/e2e-change-detail-flow.gif')} alt="E2E Baseline Branching and Merging" />
