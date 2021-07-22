@@ -16,7 +16,7 @@ Know exactly where and what has changed so that you can deliver a consistent and
   <ul>
       <li><a href="/visual/e2e-testing/integrations/ci">Continuous Integration</a></li>
       <li><a href="/visual/e2e-testing/review-flow">Workflow</a></li>
-      <li><a href="/visual/e2e-testing/integrations/webdriver-integration">Selenium WebDriver Integration</a></li>
+      <li><a href="/visual/e2e-testing/webdriver-integration">Selenium WebDriver Integration</a></li>
   </ul>
   </div>
 </div>
