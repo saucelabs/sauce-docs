@@ -515,7 +515,7 @@ The following domains must be allowlisted for outbound communication from you ne
   defaultValue="US-West-1"
   values={[
     {label: 'US-West-1', value: 'US-West-1'},
-    {label: 'US East 1', value: 'EU-Central-1'},
+    {label: 'EU-Central-1', value: 'EU-Central-1'},
     {label: 'Headless US-East', value: 'Headless US-East'},
   ]}>
 
