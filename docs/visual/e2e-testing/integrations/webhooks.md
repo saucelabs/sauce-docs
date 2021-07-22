@@ -16,12 +16,16 @@ Screener has the following event types:
 * build.status.failure
 * build.status.success
 
-
 ## Setup Steps
 
 1. In Screener, open **Account > Webhooks**, and click **Add Webhook Endpoint**.
 
-2. In the Add Webhook dialog, enter your Webhook URL:
-(Optionally filter notifications by project and/or events)
+2. In the Add Webhook dialog, enter your Webhook URL.
 
-3. Click **Add Endpoint**, and your Webhook will be added:
+<img src={useBaseUrl('img/visual/e2e-add-webhook.png')} alt="E2E Add Webhook" />
+
+Optionally, you can filter notifications by project and/or events.
+
+3. Click **Add Endpoint**, and your Webhook will be added.
+
+<img src={useBaseUrl('img/visual/e2e-webhooks.png')} alt="E2E Webhooks" />
