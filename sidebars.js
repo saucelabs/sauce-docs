@@ -650,6 +650,7 @@ module.exports = {
                     'visual/e2e-testing/visual-commands',
                     'visual/e2e-testing/code-examples',
                     'visual/e2e-testing/supported-browsers',
+                    'visual/e2e-testing/acct-team-mgmt',
                     'visual/e2e-testing/troubleshooting',
                     'visual/e2e-testing/notifications',
                 ],
