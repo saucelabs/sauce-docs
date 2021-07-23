@@ -4,8 +4,11 @@ title: Learn the Review Flow
 sidebar_label: Review Flow
 ---
 
-Learn the Screener workflow for reviewing UIs. Each UI state under test has one of the following statuses:
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
+Learn the Screener workflow for reviewing UIs. Each UI state under test has one of the following statuses:
 
 <table>
   <tr>
@@ -48,18 +51,23 @@ Learn the Screener workflow for reviewing UIs. Each UI state under test has one 
 
 When a test has **Changed** or **New** UI states, it will show a Review button.
 
+<img src={useBaseUrl('img/visual/e2e-review-button.png')} alt="E2E Review Button" />
+
 Clicking on the Review button will display a list of your UI states filtered to only those needing review.
 
 Click on the first UI state to start reviewing.
 
+<img src={useBaseUrl('img/visual/e2e-review-state.jpeg')} alt="E2E Review State" />
+
 ## 2. Review UI State
 
-You will be presented with screenshots of the selected UI state:
+You will be presented with screenshots of the selected UI state.
+
+<img src={useBaseUrl('img/visual/e2e-review-screenshots.jpeg')} alt="E2E Review Screenshots" />
 
 If a baseline exists, a side-by-side view will be displayed with the baseline screenshot on the left-hand side and the current screenshot from the latest build on the right-hand side.
 
 Changed UI states will include highlights of visual changes directly overlayed on the screenshots.
-
 
 :::tip Ignoring
 
@@ -70,88 +78,37 @@ Changed UI states will include highlights of visual changes directly overlayed o
 :::tip Change Details
 
 [Learn how to view change details](https://screener.io/v2/docs/visual-e2e/change-details).
+:::
 
 
-## 3.Accept or Reject
+## 3. Accept or Reject
 
 After reviewing the UI state, you can either:
+* **Accept**: if the screenshots are as expected, which will set the current as the new baseline (tip: keyboard shortcut is Shift + Up Arrow).
+* **Reject**: if defects are found which need to be fixed (tip: keyboard shortcut is Shift + Down Arrow).
 
-* **Accept it** if the screenshots are as expected, which will set the current as the new baseline.
-* or **Reject it** if defects are found which need to be fixed.
-
-Use the status dropdown to accept or reject:
-
-::tip Use Keyboard Shortcuts to accept/reject
-
-<table>
-  <tr>
-   <td>
-    To <strong>Accept</strong>, press:
-   </td>
-   <td>
-    Shift + Up Arrow
-   </td>
-  </tr>
-  <tr>
-   <td>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>
-    To <strong>Reject</strong>, press:
-   </td>
-   <td>
-    Shift + Down Arrow
-   </td>
-  </tr>
-</table>
-:::
+<img src={useBaseUrl('img/visual/e2e-review-accept.png')} alt="E2E Review Accept" />
 
 
 ## 4. Continue Reviewing
 
-Continue reviewing the remaining UI states by clicking on the next/previous arrows:
+Continue reviewing the remaining UI states by clicking one of the below options (or use keyboard shortcuts to navigate through UI states).
+* **Next** arrow (tip: keyboard shortcut is Right Arrow).
+* **Previous** arrow (tip: keyboard shortcut is Left Arrow).
 
-:::tip Use Keyboard Shortcuts to navigate through UI states
+<img src={useBaseUrl('img/visual/e2e-review-next.png')} alt="E2E Review Next" />
 
-<table>
-  <tr>
-   <td>
-    To Go <strong>Next</strong>, press:
-   </td>
-   <td>
-    Right Arrow
-   </td>
-  </tr>
-  <tr>
-   <td>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>
-    To Go <strong>Previous</strong>, press:
-   </td>
-   <td>
-    Left Arrow
-   </td>
-  </tr>
-</table>
-:::
+:::tip Accept All Button
 
-
-:::tip Accept All
-
-Use the Accept All button to quickly set all filtered UI states to accepted.
+Use the **Accept All** button to quickly set ___all___ filtered UI states to accepted.
 :::
 
 
 ## 5. Review Complete
 
 When all UI states have been reviewed, the filtered state list will be empty.
+
+<img src={useBaseUrl('img/visual/e2e-review-complete.png')} alt="E2E Review Complete" />
 
 The build status will be updated to **Success** when all UI states have been accepted.
 

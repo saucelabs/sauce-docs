@@ -4,6 +4,9 @@ title: Learn How To Ignore Changes
 sidebar_label: Ignoring Changes
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## 1. Ignore Changes
 
@@ -15,6 +18,8 @@ To ignore a visual change:
 2. Find the change in the Change List, and click Ignore.
 
 Changes to this element will now be ignored in future tests.
+
+<img src={useBaseUrl('img/visual/e2e-ignore-flow.gif')} alt="E2E Ignore Flow" />
 
 
 ### How to Undo Ignore
