@@ -29,7 +29,7 @@ Each endpoint is constructed from a `{base-url}` prefix that is based on the dat
 
 ### Authentication
 
-The Sauce Labs API uses API keys to authenticate requests. You can view and manage your API key in the [User Seettings](https://app.saucelabs.com/user-settings) page of the Sauce Labs app.
+The Sauce Labs API uses API keys to authenticate requests. You can view and manage your API key in the [User Settings](https://app.saucelabs.com/user-settings) page of the Sauce Labs app.
 
 Authentication to the API is performed via [HTTP Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication). Provide your username and API key as the basic auth username and password values, respectively. All requests must be made over HTTPS. Calls made over HTTP or without proper authentication will fail.
 
