@@ -54,14 +54,14 @@ You'll know that these are set correctly if your tests have a status of Pass or 
 1. Copy this markdown code into your project's GitHub README.
 
 ```
-[![Sauce Test Status](https://app.saucelabs.com/buildstatus/YOUR_SAUCE_USERNAME)](https://app.saucelabs.com/u/YOUR_SAUCE_USERNAME)
+[![Sauce Test Status](https://app.saucelabs.com/browser-matrix/YOUR_SAUCE_USERNAME)](https://app.saucelabs.com/u/YOUR_SAUCE_USERNAME)
 ```
 
 Alternatively, you can add this HTML to your project site.
 
 ```
 <a href="https://app.saucelabs.com/u/YOUR_SAUCE_USERNAME">
-  <img src="https://app.saucelabs.com/buildstatus/YOUR_SAUCE_USERNAME" alt="Sauce Test Status"/>
+  <img src="https://app.saucelabs.com/browser-matrix/YOUR_SAUCE_USERNAME" alt="Sauce Test Status"/>
 </a>
 ```
 
