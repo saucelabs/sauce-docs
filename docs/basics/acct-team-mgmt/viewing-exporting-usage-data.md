@@ -85,7 +85,7 @@ Click a team name in the list to view the following information on the **Team De
 <img src={useBaseUrl('img/team-mgmt/usage-data-team-details.jpg')} alt="Usage data - Team Details"/>
 
 ## Minutes Used vs. Concurrency
-One way to tell if you're getting the most efficient use out of your Sauce Labs plan is to compare the minutes used with the number of concurrent tests run during the same period. If the ratio of minutes to concurrency is low, for example, 2:1 (100 minutes:50 concurrent tests), then you are using a lot of minutes to run very few tests. You should redesign your tests to take greater advantage of concurrency. See [Using Frameworks to Run Tests in Parallel](https://wiki.saucelabs.com/display/DOCS/Using+Frameworks+to+Run+Tests+in+Parallel) for more information.
+One way to tell if you're getting the most efficient use out of your Sauce Labs plan is to compare the minutes used with the number of concurrent tests run during the same period. If the ratio of minutes to concurrency is low, for example, 2:1 (100 minutes:50 concurrent tests), then you are using a lot of minutes to run very few tests. You should redesign your tests to take greater advantage of concurrency. See [Using Frameworks to Run Tests in Parallel](/web-apps/automated-testing/selenium#using-frameworks-to-run-tests-in-parallel) for more information.
 
 ## Exporting Usage Data
 
