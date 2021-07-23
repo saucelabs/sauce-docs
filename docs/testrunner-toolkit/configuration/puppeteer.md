@@ -37,7 +37,7 @@ Each of the properties supported for running Puppeteer tests through `saucectl` 
 ## `apiVersion`
 <p><small>| REQUIRED | STRING |</small></p>
 
-Identifies the version of `saucectl` that is compatible with this configuration.
+Identifies the version of the underlying configuration schema. At this time, `v1alpha` is the only supported value.
 
 ```yaml
 apiVersion: v1alpha
