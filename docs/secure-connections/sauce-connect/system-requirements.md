@@ -474,6 +474,7 @@ For more information on our Data Centers and how to choose the right one for you
 The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select your relevant [Data Center](/basics/data-center-endpoints/data-center-endpoints):
 
 <Tabs
+  groupId="dc-url"
   defaultValue="US-West-1"
   values={[
     {label: 'US-West-1', value: 'US-West-1'},
@@ -512,10 +513,11 @@ The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select y
 The following domains must be allowlisted for outbound communication from you network in order to make connections to Sauce Connect tunnels. Select your relevant [Data Center](/basics/data-center-endpoints/data-center-endpoints):
 
 <Tabs
+  groupId="dc-url"
   defaultValue="US-West-1"
   values={[
     {label: 'US-West-1', value: 'US-West-1'},
-    {label: 'US East 1', value: 'EU-Central-1'},
+    {label: 'EU-Central-1', value: 'EU-Central-1'},
     {label: 'Headless US-East', value: 'Headless US-East'},
   ]}>
 
