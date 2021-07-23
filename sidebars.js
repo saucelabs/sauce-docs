@@ -160,6 +160,7 @@ module.exports = {
                         collapsed: true,
                         items: [
                             'mobile-apps/automated-testing/appium',
+                            'mobile-apps/automated-testing/about-appium',
                             'mobile-apps/automated-testing/appium/real-devices',
                             'mobile-apps/automated-testing/appium/virtual-devices',
                             'mobile-apps/automated-testing/appium/migration',
