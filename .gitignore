@@ -1,6 +1,5 @@
 # Dependencies
 /node_modules
-package-lock.json
 
 # Log files
 logs
@@ -17,6 +16,8 @@ hs_err_pid*
 
 # node_modules
 **/node_modules
+yarn.lock
+package-lock.json
 
 # Optional npm cache directory
 **/.npm

@@ -11,46 +11,91 @@ keywords:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-<p><small><span class="highlight beta">BETA</span></small></p>
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 [Deque's axe™](https://www.deque.com/axe/) is one of the world's leading digital accessibility toolkits. The `axe-core` library provided by Deque allows you to inject functionality into your tests in order to scan content and return an `a11y` score. 
 
 Below is a guide to set up the Sauce Labs integration. This integration allows you to run your accessibility tests, using axe™, on our platform.
 
-:::info What does `a11y` stand for, and what is Accessibility Testing?
-See the [following link](https://www.deque.com/web-accessibility-beginners-guide/#what-is-a11y) for further information.
+:::info why should you care about accessibility testing?
+Check out the [Deque Accessibility Guide](https://www.deque.com/web-accessibility-beginners-guide/#what-is-a11y) for further information.
 :::
+
+## Sauce Labs UI
+
+Sauce Labs will display the accessibility results in our UI as a tab in the Job itself:
+
+<img src={useBaseUrl('img/accessibility/example.png')} alt="Accessibility Example in Sauce UI"/>
 
 ## What You'll Need
 * [A Sauce Labs Account](https://saucelabs.com/sign-up)
 * [A Deque Account (Optional)](https://axe.deque.com/plans)
-* [Install Git](https://git-scm.com/downloads)
-* [Install Node/NPM](https://nodejs.org/en/download/)
 
-:::note
-For the purpose of this guide, we will focus entirely on [WebdriverIO](https://webdriver.io/)
-:::
+## Language Specific Examples
 
-## Set Up Dependencies
+<Tabs
+defaultValue="java"
+values={[
+{ label: 'Java', value: 'java', },
+{ label: 'WebdriverIO', value: 'wdio', },
+{ label: 'Python', value: 'python', },
+{ label: 'Ruby', value: 'ruby', },
+{ label: 'C#', value: 'dotnet', }
+]
+}>
 
-Add the following dependencies to your `package.json` file:
+<TabItem value="java">
 
-* `axe-core` for Accessibility tests (`a11y` results)
-* `sauce-service` for the WebdriverIO plugin service
+We highly recommend using the Java [Sauce Bindings](https://opensource.saucelabs.com/sauce_bindings/).
+Check out the description and examples for the new [Accessibility functionality](https://opensource.saucelabs.com/sauce_bindings/docs/accessibility).
+
+The following is information on how to use the Java Deque Axe Selenium library directly:
+
+__Requirements__
+
+Add this to your `pom.xml`:
+
+```xml
+<!-- https://mvnrepository.com/artifact/com.deque.html.axe-core/selenium -->
+<dependency>
+  <groupId>com.deque.html.axe-core</groupId>
+  <artifactId>selenium</artifactId>
+  <version>4.2.2</version>
+</dependency>
+```
+
+__Usage__
+
+This method populates results on the Sauce Labs Accessibility tab:
+```java
+new AxeBuilder().analyze(driver);
+```
+
+__Example Code__
+
+```java reference
+https://github.com/saucelabs-training/demo-java/blob/a99c36/selenium-examples/src/test/java/com/saucedemo/accessibility/DequeAxeExampleTest.java
+```
+
+
+</TabItem>
+<TabItem value="wdio">
+ 
+__Requirements__
+
+* [Install and Set up](https://webdriver.io/docs/gettingstarted/) WebdriverIO
+  * This documentation shows you how to run a test locally, and also how to troubleshoot potential issues with your code before running on Sauce Labs
+
+* Add [Sauce Service](https://webdriver.io/docs/sauce-service) to WebdriverIO
+
+* Add the following dependency to your `package.json` file:
 
 ```js
 "@axe-core/webdriverio": "4.2.1"
-"@wdio/sauce-service"
 ```
 
-## Create the Configuration
-
-Next, create a `wdio.conf.js` in your root project directory, see the [WebdriverIO documentation](https://webdriver.io/docs/gettingstarted#set-up) for further details. 
-
-### WebdriverIO Instance
-
-In the `wdio.conf.js` file, create an object called `axeWdio`. This object creates a new `AxeWebdriverIO` instance which accepts the current browser object from WDIO as an argument.
+* In the `wdio.conf.js` file, create an object called `axeWdio`.
+  This object creates a new `AxeWebdriverIO` instance which accepts the current browser object from WDIO as an argument.
 
 ```js
 before: function (capabilities, specs, browser) {
@@ -60,7 +105,7 @@ before: function (capabilities, specs, browser) {
 }
 ```
 
-Next, we need to inject an `axe-core` command into the current page so that it scan for content:
+* In the `wdio.conf.js` file, add a command for getting basic accessibility results
 
 ```js
 browser.addCommand('getAxeResults', function (name) {
@@ -68,227 +113,122 @@ browser.addCommand('getAxeResults', function (name) {
 })
 ```
 
-When the `analyze()` command is called, `axe-core` then scans the current document content.
 
-The final step is to define a local variable to store the violations (critical, moderate, and/or minor) and return the `result`:
+__Usage__
 
-```js
-browser.addCommand('getAxeResults', function (name) {
-    return axeWdio.analyze()
-        .then(async (result) => {
-            const { violations = [] } = result
-            console.info(`Test: ${name} - Violations: ${violations.length}`)
-            return result
-        })
-        .catch(err => {
-            console.log(err)
-        })
-})
-```
-
-### Set Local Driver Capabilities
-Before you test on Sauce Labs, ensure your axe™ accessibility tests return the desired `a11y` results. The best course of action is to test against local drivers such as chrome, firefox, safari, etc.
-
-Here are some examples of how to instantiate a local driver through the `capabilities` object:
-
-<Tabs
-defaultValue="chrome"
-values={[
-{label: 'Chrome', value: 'chrome'},
-{label: 'Firefox', value: 'firefox'},
-]}>
-
-<TabItem value="chrome">
-
-```js
-    capabilities: [{
-        browserName: 'chrome', 
-        'goog:chromeOptions': {
-            args: [
-                '--no-sandbox', 
-                '--disable-infobars',
-            ],
-        },
-    },
-];
-```
-
-</TabItem>
-<TabItem value="firefox">
-
-```js
-    capabilities: [{
-        browserName: 'firefox',
-        specs: [
-            'test/ffOnly/*'
-        ],
-        'mox:firefoxOptions': {
-            args: [
-                '--headless'
-            ],
-        },
-    },
-];
-```
-</TabItem>
-</Tabs>
-
-
-For further information please read the following:
-
-* [WebdriverIO Documentation for setting up Driver Binaries](https://webdriver.io/docs/driverbinaries/#geckodriver)
-* [WebdriverIO Documentation for the config file](https://webdriver.io/docs/configurationfile)
-
-### Running the Test
-Now in your actual tests, all you need to do is call the following to get the `axe-core` test results:
-
+This method populates results on the Sauce Labs Accessibility tab:
 ```js
 browser.getAxeResults()
 ```
 
-## Sauce Labs Setup
 
-It's recommended that you create a separate `.conf.js` file in order to manage the Sauce Labs configuration details.
+</TabItem>
+<TabItem value="python">
 
-For example:
+We highly recommend using the Python [Sauce Bindings](https://opensource.saucelabs.com/sauce_bindings/).
+Check out the description and examples for the new [Accessibility functionality](https://opensource.saucelabs.com/sauce_bindings/docs/accessibility).
 
-```js
-const {config} = require('./wdio.conf');
+The following is information on how to use the Python `sa11y` library directly:
 
-config.user = "yourUserName";
-config.key = "yourAccessKey";
-config.region = "yourRegion -> us / eu";
+__Requirements__
 
-config.capabilities = [
-    
-];
-
-config.services = config.services.concat('sauce');
-
-exports.config = config;
+* Install Sa11y:
+```shell
+pip install sa11y
 ```
 
-### Sauce Labs Credentials
-
-Specify the Sauce Labs `user` access `key` and data center `region` in which you want to run your tests.
-
-```js
-config.user = "yourUserName";
-config.key = "yourAccessKey";
-config.region = "yourRegion -> us / eu";
+* Import Analyze class in your file:
+```python
+from sa11y.analyze import Analyze
 ```
 
-You can retrieve your Sauce Labs account credentials with [this link](https://app.saucelabs.com/user-settings). The `region` property is used for both Virtual Machine Cloud and Real Device Cloud tests, and the acceptable values are:
+__Usage__
 
-* `us` - *default*
-* `eu`
-
-:::warning Don't Hard-Code Credentials
-Hard-coding your `user`, `key`, and `region` property values is not a recommended best practice due to security reasons.
-
-Instead, export your [Sauce Labs Account Credentials as Environment Variables](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials) and add them in your script like the following example:
-
-```js
-config.user = process.env.SAUCE_USERNAME;
-config.key = process.env.SAUCE_ACCESS_KEY;
-config.region = process.env.REGION || 'us';
+This method populates results on the Sauce Labs Accessibility tab:
+```python
+Analyze(driver).results()
 ```
 
-Visit the [WebDriverIO documentation](https://webdriver.io/docs/sauce-service.html) for further details.
-:::
+__Example Code__
 
-### Set Sauce Labs Capabilities
-
-In order to test on Sauce Labs with multiple different browsers and platforms, add the following configuration options in the `capabilities` object.
-
-Here are some examples:
-
-<Tabs
-defaultValue="chrome"
-values={[
-{label: 'Chrome', value: 'chrome'},
-{label: 'Firefox', value: 'firefox'},
-{label: 'Safari', value: 'safari'},
-{label: 'Edge', value: 'edge'},
-]}>
-
-<TabItem value="chrome">
-
-```js
-    {
-        browserName: 'googlechrome',
-        platformName: 'Windows 10',
-        browserVersion: 'latest',
-    },
+```python reference
+https://github.com/saucelabs-training/demo-python/blob/900b3a/examples/accessibility/test_sa11y.py
 ```
 
 </TabItem>
-<TabItem value="firefox">
+<TabItem value="ruby">
 
-```js
-    {
-        browserName: 'firefox', 
-        platformName: 'Windows 10',
-        browserVersion: 'latest',
-    },
+We highly recommend using the Ruby [Sauce Bindings](https://opensource.saucelabs.com/sauce_bindings/). 
+Check out the description and examples for the new [Accessibility functionality](https://opensource.saucelabs.com/sauce_bindings/docs/accessibility).
+
+The following is information on how to use the Ruby `sa11y` library directly:
+
+__Requirements__
+
+* Add sa11y to your `gemfile`:
+```shell
+gem 'sa11y', '~> 0.2.1'
+```
+
+* require Analyze class in your file:
+```ruby
+require 'sa11y/analyze'
+```
+
+__Usage__
+
+This method populates results on the Sauce Labs Accessibility tab:
+
+```ruby
+Sa11y::Analyze.new(driver).results
+```
+
+__Example Code__
+
+```ruby reference
+https://github.com/saucelabs-training/demo-ruby/blob/c51b52/sauce-features/accessibility/spec/sa11y_spec.rb
 ```
 
 </TabItem>
-<TabItem value="safari">
+<TabItem value="dotnet">
 
-```js
-    {
-        browserName: 'safari', 
-        platformName: 'macOS 10.15',
-        browserVersion: 'latest',
-    },
+To get Accessibility results with .NET, we recommend [Selenium.Axe for .NET](https://github.com/TroyWalshProf/SeleniumAxeDotnet/).
+Make sure you are using version 3.x.
+
+__Requirements__
+
+To install via NuGet, in the Package Manager Console:
+```shell
+Install-Package Selenium.Axe
 ```
 
-</TabItem>
-<TabItem value="edge">
+Import the namespace:
 
-```js
-    {
-        browserName: 'MicrosoftEdge',
-        platformName: 'Windows 10',
-        browserVersion: 'latest',
-    },
 ```
+using Selenium.Axe;
+```
+
+__Usage__
+
+This method populates results on the Sauce Labs Accessibility tab:
+
+```
+AxeResult axeResult = new AxeBuilder(webDriver).Analyze();
+```
+
+For more detailed usage, [Read the documentation](https://troywalshprof.github.io/SeleniumAxeDotnet)
+
 
 </TabItem>
 </Tabs>
 
-:::tip Browers and OS support on Sauce Labs
-For a full list of supported browsers/platforms visit [this page](https://saucelabs.com/platform/supported-browsers-devices).
-:::
-
-It's also a best practice to set test options that are specific to Sauce Labs features. For example, declare this at the top of your configuration:
-
-```js
-const defaultBrowserSauceOptions = {
-    build: `Best Practices: Sauce Labs Desktop Web build-${new Date().getTime()}`,
-    screenResolution: '1600x1200',
-};
-```
-
-and call it in the `sauce:options` test option, as a part of the `capabilities` object, like in this example below:
-
-```js {6-7}
-config.capabilities = [
-    {
-        browserName: 'googlechrome',
-        platformName: 'Windows 10',
-        browserVersion: 'latest',
-        'sauce:options': {
-            ...defaultBrowserSauceOptions,
-        },
-    },
-...
-];
-```
 
 ## Additional Resources
-* [Deque Saucelabs Integration Documentation](https://www.deque.com/saucelabs/get-started/)
-* [Deque `axe-core` Example WebDriverIO Project](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/webdriverio)
-* [Documentation about the chainable `axe` API for WebdriverIO](https://www.npmjs.com/package/@axe-core/webdriverio)
+* [Deque Sauce Labs Integration Documentation](https://www.deque.com/saucelabs/get-started/)
 * [Sauce Labs / Deque Marketing Blog Post](https://saucelabs.com/news/sauce-labs-and-deque-systems-join-forces-to-help-enterprises-ensure-digital-accessibility)
+* [Sauce Bindings Accessibility Feature](https://opensource.saucelabs.com/sauce_bindings/docs/accessibility)
+* [Deque `axe-core` Selenium Integration for Java](https://github.com/dequelabs/axe-core-maven-html)
+* [Sa11y - Selenium Accessibility for Python & Ruby](https://github.com/saucelabs/sa11y)
+* [Deque `axe-core` Example WebdriverIO Project](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/webdriverio)
+* [Documentation about the chainable `axe` API for WebdriverIO](https://www.npmjs.com/package/@axe-core/webdriverio)
+* [Selenium.Axe for .NET](https://github.com/TroyWalshProf/SeleniumAxeDotnet/)

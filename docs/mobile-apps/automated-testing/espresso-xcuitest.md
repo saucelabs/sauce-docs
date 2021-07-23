@@ -1,7 +1,7 @@
 ---
 id: espresso-xcuitest
 title: Mobile App Testing with Espresso and XCUITest
-sidebar_label: Espresso and XCUITest
+sidebar_label: Getting Started
 description: Run Espresso and XCUITest projects on Sauce Labs.
 ---
 
@@ -43,6 +43,10 @@ Clone or download the [Espresso](https://github.com/saucelabs/saucectl-espresso-
     ```
 1. Enter your Sauce Labs `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` at the prompts.
 1. `saucectl` creates a `credentials.yml` file in a `.sauce` folder of your home directory.
+
+:::tip Use Environment Variables
+You can set your Sauce Labs credentials as [environment variables](/basics/environment-variables) instead of generating a `credentials.yml`, if you prefer. In systems where both sets of credentials exist, environment variable values are prioritized.
+:::
 
 
 ## Configuration
@@ -90,7 +94,7 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Identify your applicable data center. | `--datacenter` | `--region` |
 | Specify a particular device to run the test on. | `--device` | Must use YAML |
 | Indicate device selection to be dynamic. | `--devices` | Must use YAML |
-| Provide a name for the test. | `--testname` | `--suite` |
+| Provide a name for the test. | `--testname` | Must use YAML |
 | Choose a device running a particular platform version. | `--platformVersion` | Must use YAML |
 | Choose devices from a private pool only. | `--privateDevicesOnly` | Must use YAML |
 | Choose a phone device only. | `--phoneOnly` | Must use YAML |
@@ -109,7 +113,7 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Specify the maximum length of time (minutes) the test can run. | `--timeout` | `--timeout` |
 | Specify a folder to direct the JUnit XML output. | `--xmlFolder` | Not supported |
 | Specify an alternative REST endpoint (Is this TO only? Covered by region in SL?? | `--url` | Not supported |
-| Remove shared states between tests. | `--e useTestOrchestrator clearPackageData` | Must use YAML |
+| Remove shared states between tests. | `--e clearPackageData` | Must use YAML |
 | Set up a proxy connection. | `--D` | `-e HTTP_PROXY=$<HTTP> HTTPS_PROXY=$<HTTPS>` |
 | Specify the concurrency to use for the test execution (up to account max). | Not supported | `--ccy` |
 | Specify an alternative path and file to use as the configuration file. | `config --path` | `--config` |

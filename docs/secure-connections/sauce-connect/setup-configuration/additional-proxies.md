@@ -31,7 +31,7 @@ There are several different ways to set up Sauce Connect Proxy to use a proxy se
 The configuration options described below will cause the REST API and SUT traffic to be routed through your proxy. While it is technically possible to route the tunnel traffic through your proxy, it is **not** recommended because this traffic is already TLS-secured. Also, routing tunnel traffic through your proxy will significantly degrade test performance. This option should only be used if your network does not allow outbound communication over `port 443`.
 
 ### Proxied Site Under Test (SUT)
-In this configuration, the Site Under Test (SUT) is behind a proxy in order to allow even more control over traffic before it reaches the SUT. This setup is used to control access to the SUT by IP whitelisting or by restricting proxy access to users with valid username/password credentials.
+In this configuration, the Site Under Test (SUT) is behind a proxy in order to allow even more control over traffic before it reaches the SUT. This setup is used to control access to the SUT by IP allowlisting or by restricting proxy access to users with valid username/password credentials.
 
 ### Proxy Auto-Configuration (Automatic)
 Proxies and proxy auto-configuration (PAC) (see [Proxy auto-config](https://en.wikipedia.org/wiki/Proxy_auto-config))settings are auto-configured, based on the operating system settings on the machine where it is installed.
@@ -73,7 +73,7 @@ Here are some examples for starting a tunnel using  `-p` and `-w`:
 
 <TabItem value="maclinux">
 
-```
+```bash
 $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD
 ```
 
@@ -81,7 +81,7 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -p $PROXY_HOST:$PRO
 
 <TabItem value="windows">
 
-```
+```bash
 > sc_download\bin\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -p %PROXY_HOST%:%PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD%
 ```
 
@@ -89,7 +89,7 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -p $PROXY_HOST:$PRO
 
 <TabItem value="rdceu">
 
-```
+```bash
 $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD -x https://</span>eu-central-1.saucelabs.com/rest/v1
 ```
 
@@ -111,7 +111,7 @@ Here are some examples for starting a Sauce Connect Proxy tunnel using `-p` and 
 
 <TabItem value="maclinux">
 
-```
+```bash
 $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD -T
 ```
 
@@ -119,7 +119,7 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -p $PROXY_HOST:$PRO
 
 <TabItem value="windows">
 
-```
+```bash
 > sc_download\bin\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -p %PROXY_HOST:PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD% -T
 ```
 
@@ -127,7 +127,7 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -p $PROXY_HOST:$PRO
 
 <TabItem value="rdceu">
 
-```
+```bash
 $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD -T -x https://</span>eu-central-1.saucelabs.com/rest/v1
 ```
 
@@ -155,7 +155,7 @@ Here are some examples for starting a Sauce Connect Proxy tunnel using `--pac ur
 
 <TabItem value="maclinux">
 
-```
+```bash
 $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac PAC_FILE_URL
 ```
 
@@ -163,7 +163,7 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac PAC_FILE_URL
 
 <TabItem value="windows">
 
-```
+```bash
 > sc_download\bin\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --pac PAC_FILE_URL
 ```
 
@@ -171,7 +171,7 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac PAC_FILE_URL
 
 <TabItem value="rdceu">
 
-```
+```bash
 $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac PAC_FILE_URL -x https://</span>eu-central-1.saucelabs.com/rest/v1
 ```
 
@@ -262,21 +262,19 @@ The Charles Proxy is useful for monitoring traffic passing between your Sauce VM
 <img src={useBaseUrl('img/sauce-connect/charles-ssl-cert-nav.png')} alt="Charles SSL certificates navigation" width="400"/>
 
 4. Create a pac.js file for Sauce Connect Proxy:
+  ```java
+  function FindProxyForURL(url, host) {
+      if (shExpMatch(host, "*.miso.saucelabs.com") ||
+          shExpMatch(host, "*.saucelabs.com") ||
+          shExpMatch(host, "saucelabs.com")) {
+          // KGP and REST connections. Another proxy can also be specified.
+          return "DIRECT";
+      }
 
-```
-function FindProxyForURL(url, host) {
-    if (shExpMatch(host, "*.miso.saucelabs.com") ||
-        shExpMatch(host, "*.api.testobject.com") ||
-        shExpMatch(host, "*.saucelabs.com") ||
-        shExpMatch(host, "saucelabs.com")) {
-        // KGP and REST connections. Another proxy can also be specified.
-        return "DIRECT";
-    }
-
-    // Test HTTP traffic, route it through the Charles proxy.
-    return "PROXY localhost:8890";
-}
-```
+      // Test HTTP traffic, route it through the Charles proxy.
+      return "PROXY localhost:8890";
+  }
+  ```
 
 5. Start **Charles Proxy**.
 
@@ -285,10 +283,9 @@ function FindProxyForURL(url, host) {
 <img src={useBaseUrl('img/sauce-connect/charles-proxy-settings.png')} alt="Charles Proxy settings navigation" width="400"/>
 
 7. Start your Sauce Connect Proxy tunnel:
-
-```
-$ ./sc -v  --pac file:///</span>Users/johnsmith/workspace/scstuff/pac.js
-```
+  ```bash
+  $ ./sc -v  --pac file:///</span>Users/johnsmith/workspace/scstuff/pac.js
+  ```
 
 8. Start your test using the proxy, then observe the traffic in Charles Proxy.
 
@@ -307,12 +304,11 @@ To confirm if you have additional proxies, you can use basic curl commands. If '
 
 If `curl -v --proxy external.proxy.com private.mysite.com` does not get a response from your SUT, you may need to use a different proxy, such as `internal.proxy.com:8080`, access your SUT. In this case, you'd need your PAC file to reflect your network setup:
 
-```
+```java
 // multiproxy proxy.pac
 function FindProxyForURL(url, host) {
     // Sauce domain calls required to start a tunnel
     if (shExpMatch(host, "*.miso.saucelabs.com") ||
-        shExpMatch(host, "*.api.testobject.com") ||
         shExpMatch(host, "*.saucelabs.com") ||
         shExpMatch(host, "saucelabs.com")) {
         // Send the required Sauce Traffic

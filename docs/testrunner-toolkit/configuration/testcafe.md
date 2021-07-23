@@ -163,6 +163,18 @@ This is the identifier `saucectl` expects as the `id` property, even though the 
 ```
 ---
 
+## `env`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
+
+```yaml
+  env:
+    hello: world
+    my_var: $MY_VAR
+```
+---
+
 ## `docker`
 <p><small>| OPTIONAL | OBJECT | <span class="highlight docker">Docker only</span> |</small></p>
 
@@ -361,7 +373,7 @@ The name of the test suite, which will be reflected in the results and related a
 ### `env`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported.
+A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
 
 ```yaml
   env:
@@ -374,6 +386,7 @@ A property containing one or more environment variables that may be referenced i
 <p><small>| REQUIRED | STRING |</small></p>
 
 The name of the browser in which to run this test suite.
+Available browser names: `chrome`, `firefox`, `microsoftedge`(only for sauce mode) and `safari`(only for sauce mode on macOS or iOS simulators)
 
 ```yaml
     browser: "firefox"
@@ -433,13 +446,13 @@ The explicit name, file glob, or location of the test files to be included in th
 ```
 ---
 
-### `devices`
+### `simulators`
 <p><small>| OPTIONAL | OBJECT | <span class="highlight sauce-cloud">Sauce Cloud only</span>|</small></p>
 
-The property containing details about on which devices the tests in this suite will run. This property can include multiple device definitions.
+The property containing details about on which simulators the tests in this suite will run. This property can include multiple device definitions.
 
 ```yaml
-  devices:
+  simulators:
     - name: iPhone 12 Simulator
       platformName: iOS
       platformVersions:
@@ -596,10 +609,6 @@ If you need to go through a proxy server, you can set it through the following v
 
 * `HTTP_PROXY`: Proxy to use to access HTTP websites
 * `HTTPS_PROXY`: Proxy to use to access HTTPS websites
-
-:::note
-At this time, these proxy settings are not supported for Playwright.
-:::
 
 
 #### Docker Proxy Considerations

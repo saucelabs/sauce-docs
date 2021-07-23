@@ -38,6 +38,7 @@ module.exports = {
                                 items: [
                                     'basics/acct-team-mgmt/adding-deleting-teams',
                                     'basics/acct-team-mgmt/assigning-removing-users-teams',
+                                    'basics/acct-team-mgmt/private-device-mgmt',
                                     'basics/acct-team-mgmt/sauce-connect-proxy-tunnels',
                                 ],
                             },
@@ -154,7 +155,6 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'mobile-apps/automated-testing',
-
                     {
                         type: 'category',
                         label: 'Appium',
@@ -166,7 +166,16 @@ module.exports = {
                             'mobile-apps/automated-testing/appium/migration',
                         ],
                     },
-                    'mobile-apps/automated-testing/espresso-xcuitest',
+                    {
+                        type: 'category',
+                        label: 'Espresso and XCUITest',
+                        collapsed: true,
+                        items: [
+                            'mobile-apps/automated-testing/espresso-xcuitest',
+                            'testrunner-toolkit/configuration/espresso',
+                            'testrunner-toolkit/configuration/xcuitest',
+                        ],
+                    },
                     'mobile-apps/automated-testing/ipa-files',
                 ],
             },
@@ -562,7 +571,6 @@ module.exports = {
         ],
         "CI/CD": [
             'ci',
-            'ci/azure',
             'ci/bamboo',
             'ci/bitbucket',
             'ci/jenkins',
@@ -596,7 +604,7 @@ module.exports = {
         "Headless": [
             'headless',
         ],
-        "SauceCTL": [
+        "saucectl": [
             'testrunner-toolkit',
             'testrunner-toolkit/installation',
             'testrunner-toolkit/configuration',
@@ -623,25 +631,29 @@ module.exports = {
                 label: 'E2E Testing',
                 collapsed: true,
                 items: [
-                    'visual/e2e-testing/setup',
-                    'visual/e2e-testing/dashboard-workflow',
+                    'visual/e2e-testing/webdriver-integration',
                     {
                         type: 'category',
                         label: 'Integrations',
                         collapsed: true,
                         items: [
-                          'visual/e2e-testing/integrations/continuous-integration',
-                          'visual/e2e-testing/integrations/selenium-webdriver',
-                          'visual/e2e-testing/integrations/github',
+                          'visual/e2e-testing/integrations/ci',
+                          'visual/e2e-testing/integrations/slack',
                           'visual/e2e-testing/integrations/webhooks',
-                          'visual/e2e-testing/integrations/sauce-labs',
                         ],
                     },
-                    'visual/e2e-testing/screener-recorder',
-                    'visual/e2e-testing/api',
-                    'visual/e2e-testing/secure-connections',
-                    'visual/e2e-testing/notifications',
+                    'visual/e2e-testing/review-flow',
+                    'visual/e2e-testing/baseline-branch',
+                    'visual/e2e-testing/change-details',
+                    'visual/e2e-testing/visual-history',
+                    'visual/e2e-testing/ignore',
+                    'visual/e2e-testing/visual-options',
+                    'visual/e2e-testing/visual-commands',
+                    'visual/e2e-testing/code-examples',
+                    'visual/e2e-testing/supported-browsers',
                     'visual/e2e-testing/acct-team-mgmt',
+                    'visual/e2e-testing/troubleshooting',
+                    'visual/e2e-testing/notifications',
                 ],
             },
             {
@@ -717,7 +729,7 @@ module.exports = {
                     },
                     {
                         type: 'link',
-                        label: 'Sauce CTL', // The label that should be displayed (string).
+                        label: 'saucectl CLI', // The label that should be displayed (string).
                         href: '/testrunner-toolkit/saucectl' // The target URL (string).
                     },
                 ],
