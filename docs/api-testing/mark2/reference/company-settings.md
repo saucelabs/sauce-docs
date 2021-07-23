@@ -90,4 +90,4 @@ For details about all the endpoints, please see the documentation here:
 
 Lastly, two sections allow users to see status page. **Big screens** provides a URL to a real-time status page specifically designed for large screens that refreshes automatically made for internal users (it requires a valid username and password). The **Shareable** section allows you to create a URL for any purpose, such as being embedded in other pages.
 
-For more details about how to Generate a Status Page see [here](/api-testing/how-to/generate-a-status-page).
+For more details about how to Generate a Status Page see [here](/api-testing/mark2/how-to/generate-a-status-page).

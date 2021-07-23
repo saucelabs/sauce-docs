@@ -16,7 +16,7 @@ The API Fortress Remote Download Agent sits inside of your infrastructure to all
 
 It will listen to an HTTPS port for jobs requested by an API Fortress engine. The agent will perform an HTTP(S) request to an endpoint as described in the job, and once completed will serialize the data back to the engine, adding contextual information such as the metrics.
 
-No data is retained in the agent memory after job completion. The agent will use the DNS settings provided by the machine it’s installed on. Click here to learn more about the [Downloaders](/api-testing/learn-more/downloader-101).
+No data is retained in the agent memory after job completion. The agent will use the DNS settings provided by the machine it’s installed on. Click here to learn more about the [Downloaders](/api-testing/mark2/learn-more/downloader-101).
 
 ## General Requirements 
 

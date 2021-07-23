@@ -10,7 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 The API Fortress Composer offers unparalleled flexibility and ease-of-use with everything at your fingertips to build tests in minutes and eliminate many duplicate tasks. Users of all skill levels may begin using the Composer with little or no training to quickly generate sophisticated functional tests. These tests may easily be reused as end-to-end integration tests and load (stress) tests. In turn, load tests may easily be reused as monitors for performance testing.  
 
 :::note Learn more about End-to-End Tests / Integration Tests
-Read the following page to learn more about [Integration / Multistep Testing](/api-testing/quick-start/introduction-to-integration-testing)  
+Read the following page to learn more about [Integration / Multistep Testing](/api-testing/mark2/quick-start/introduction-to-integration-testing)  
 :::
 
 ## Visual vs. Code View
@@ -72,4 +72,4 @@ See the screenshot below for details:
 
 ## Additional Topics
 
-Learn how to create a test quickly [here.](/api-testing/quick-start)
+Learn how to create a test quickly [here.](/api-testing/mark2/quick-start)

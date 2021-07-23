@@ -7,7 +7,7 @@ description: "Forge is a downloadable IDE made for writing and running tests loc
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Forge is a downloadable IDE made for writing and running tests locally. The APIF Composer on Forge works exactly like the Composer on the hosted cloud or self-hosted/on-premises version of API Fortress. Click [here](/api-testing/quick-start/composer) to learn how the composer works.
+Forge is a downloadable IDE made for writing and running tests locally. The APIF Composer on Forge works exactly like the Composer on the hosted cloud or self-hosted/on-premises version of API Fortress. Click [here](/api-testing/mark2/quick-start/composer) to learn how the composer works.
 
 :::note
 Forge requires the API Fortress local engine, which is for licensed API Fortress customers only. If you would like to set up a free trial, please reach out to [support@apifortress.com](mailto:support@apifortress.com).

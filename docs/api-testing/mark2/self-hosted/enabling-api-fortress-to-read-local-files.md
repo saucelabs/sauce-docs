@@ -9,7 +9,7 @@ keywords:
     - read
 ---
 
-Using the [read-file](/api-testing/reference/read-file) command, you can have your test read local files.
+Using the [read-file](/api-testing/mark2/reference/read-file) command, you can have your test read local files.
 
 Currently, there is no GUI functionality to upload the files, however, you can set up your container to connect to a local folder on your host machine.
 

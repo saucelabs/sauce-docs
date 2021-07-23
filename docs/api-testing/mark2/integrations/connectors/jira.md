@@ -16,7 +16,7 @@ API Fortress can absolutely integrate with your JIRA setup. However, because not
 We will then gather the appropriate information and build you a custom connector for your JIRA setup.  
   
 :::note
-This connector does not come pre-loaded out of the box for self-hosted/on-premises, and will need to be loaded separately. To learn how to load the connector into your API Fortress instance [click here.](/api-testing/integrations/add-new-connector)  
+This connector does not come pre-loaded out of the box for self-hosted/on-premises, and will need to be loaded separately. To learn how to load the connector into your API Fortress instance [click here.](/api-testing/mark2/integrations/add-new-connector)  
 :::
 
 If you are using the SaaS version there is a simple JIRA connector provided, below are the steps to configure it:

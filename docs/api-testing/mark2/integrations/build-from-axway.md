@@ -27,4 +27,4 @@ You can generate a test draft from an API managed in Axway.
 5. You now have a high level test created from the API in your Axway account. Run the test as is, or modify it to add more logic!
    <img src={useBaseUrl('img/api-fortress/2019/08/axway_6.png')} alt="axway_6.png"/>
 
-Click [here](/api-testing/quick-start/test-reports) if you would like to learn what to do from here.
+Click [here](/api-testing/mark2/quick-start/test-reports) if you would like to learn what to do from here.

@@ -12,7 +12,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 This Github component is meant to simplify the process of retrieving a file from Github and use it as a data source. Some examples of files to use would be CSV or JSON files.
 
-[Here is a tutorial](/api-testing/how-to/github-for-datasets) on how to use it as part of a test.
+[Here is a tutorial](/api-testing/mark2/how-to/github-for-datasets) on how to use it as part of a test.
 
 The GitHub component has the following fields:
 

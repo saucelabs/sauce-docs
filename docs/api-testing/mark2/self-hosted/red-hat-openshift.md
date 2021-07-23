@@ -147,7 +147,7 @@ Access the platform with theURL provided in the `apifortress.xml` file. Login us
 
 ## Configure the Downloader
 
-The API Fortress downloader is the agent that retrieves the resources to be tested. Downloaders can be installed in various locations, so factors such as latency and download time can be measured by remote consumers. Click here to learn more about the [Downloaders](/api-testing/learn-more/downloader-101).
+The API Fortress downloader is the agent that retrieves the resources to be tested. Downloaders can be installed in various locations, so factors such as latency and download time can be measured by remote consumers. Click here to learn more about the [Downloaders](/api-testing/mark2/learn-more/downloader-101).
 
 ### Step 1 - Create a Downloader in API Fortress
 

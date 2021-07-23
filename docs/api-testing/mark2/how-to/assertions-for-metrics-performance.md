@@ -11,7 +11,7 @@ keywords:
 ---
 
 
-We have a [more detailed guide](/api-testing/learn-more/working-with-the-response-object) on working with the HTTP response, but wanted to provide specifics on creating assertions against performance metrics.
+We have a [more detailed guide](/api-testing/mark2/learn-more/working-with-the-response-object) on working with the HTTP response, but wanted to provide specifics on creating assertions against performance metrics.
 
 Here is an example using the CODE VIEW of the code. Please note that _overall_ refers to fetch and latency combined.
 

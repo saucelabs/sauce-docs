@@ -100,4 +100,4 @@ Updating input variables won't work when launching a test from within the compos
 * **Negation:** the exclamation mark (`!`) prior to an expression is used as a negation and it means: _when it’s false_, _when it’s empty_, _when it does not exist_. In our example: _!expires_ means when expires is empty. 
 * **Logic Or:** the classic double pipe sign ( `||` ). Rarely used in API Fortress except in IF conditions. 
 * **`toLong()`:** converts a string to a long number. 
-* **`D.<action>()`** an API Fortress language extension that provides date and time manipulation functionalities. Please refer to the [expression language extensions page](/api-testing/reference/expression-language-extensions) for further details.
+* **`D.<action>()`** an API Fortress language extension that provides date and time manipulation functionalities. Please refer to the [expression language extensions page](/api-testing/mark2/reference/expression-language-extensions) for further details.

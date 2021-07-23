@@ -27,11 +27,11 @@ First, you need to connect your CI/CD platform to ALM, which is detailed at the 
 
 Next, The documentation for adding API Fortress to your CI/CD workflow can be found here:
 
-- [APIF-Auto](/api-testing/ci/apif-auto) - Preferred Method
-- [API Fortress and CI/CD (General)](/api-testing/ci/jenkins/using-the-api)
+- [APIF-Auto](/api-testing/mark2/ci/apif-auto) - Preferred Method
+- [API Fortress and CI/CD (General)](/api-testing/mark2/ci/jenkins/using-the-api)
 
 More Details:
 
-- [APIF-Auto and Jenkins](/api-testing/ci/jenkins/apif-auto)
-- [API Fortress and Jenkins](/api-testing/ci/jenkins/using-the-api)
-- [API Fortress and Bamboo](/api-testing/ci/connecting-with-bamboo)
+- [APIF-Auto and Jenkins](/api-testing/mark2/ci/jenkins/apif-auto)
+- [API Fortress and Jenkins](/api-testing/mark2/ci/jenkins/using-the-api)
+- [API Fortress and Bamboo](/api-testing/mark2/ci/connecting-with-bamboo)

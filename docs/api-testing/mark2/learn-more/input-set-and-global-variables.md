@@ -44,13 +44,13 @@ If you define a variable in both the Global Parameters section, and in the Input
 
 ## Using the Vault and Scheduler
 
-You can also define the variables in the [**Vault**](/api-testing/quick-start/the-vault) and in the [**Scheduler**](/api-testing/quick-start/schedule-a-test).
+You can also define the variables in the [**Vault**](/api-testing/mark2/quick-start/the-vault) and in the [**Scheduler**](/api-testing/mark2/quick-start/schedule-a-test).
 
 ### Priority Order
 
 The priority order is:
 
-- if the same variable is defined in the _Vault_ and in the [_composer_](/api-testing/quick-start/composer), the one defined in the composer will be used.
+- if the same variable is defined in the _Vault_ and in the [_composer_](/api-testing/mark2/quick-start/composer), the one defined in the composer will be used.
   > it also doesn't matter if it is a global parameter, or an input set
 - if the same variable is defined in the composer both as a  _global param_ and an _input set_, the value of the input set will be used
 - if the same variable is defined in the _Vault_ (or in the composer) and in the _scheduler_, the variable defined in the scheduler will be used for the tests.

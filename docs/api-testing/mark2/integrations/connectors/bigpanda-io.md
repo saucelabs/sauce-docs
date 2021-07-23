@@ -14,7 +14,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 We love making life easier for our customers. That often means helping them unify their tools. [BigPanda](http://bigpanda.io) is one of those great tools that can help with that process, so we made sure to create included them as one of our connectors! To see this doc on their site [click here](https://www.bigpanda.io/docs/display/FAQS/Integrating+with+API+Fortress).  
 
 :::tip Import a Connector
-To learn how to import a connector [click here](/api-testing/integrations/add-new-connector) 
+To learn how to import a connector [click here](/api-testing/mark2/integrations/add-new-connector) 
 :::
 
 1. Login to your BigPanda account, and click on the Integrations tab, and then on New Integration.

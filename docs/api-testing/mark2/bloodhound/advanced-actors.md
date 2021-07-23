@@ -153,4 +153,4 @@ Limits the number of requests/second the gateway will accept and pass through. M
 
 ## Additional Topics:
 
-* __Module Actors__: Read more about [Bloodhound Modules](/api-testing/bloodhound/module-actors)
+* __Module Actors__: Read more about [Bloodhound Modules](/api-testing/mark2/bloodhound/module-actors)

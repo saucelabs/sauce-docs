@@ -16,7 +16,7 @@ This connection with xMatters allows you to notify on-call responders based on f
 Below is a quick guide to setting up and using the xMatters connector.  
   
 :::note
-This connector does not come pre-loaded out of the box for self-hosted/on-premises, and will need to be loaded separately. To learn how to load the connector into your API Fortress instance [click here.](/api-testing/integrations/add-new-connector)  
+This connector does not come pre-loaded out of the box for self-hosted/on-premises, and will need to be loaded separately. To learn how to load the connector into your API Fortress instance [click here.](/api-testing/mark2/integrations/add-new-connector)  
 :::   
 
 1. Go to settings page

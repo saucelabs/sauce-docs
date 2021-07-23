@@ -8,7 +8,7 @@ keywords:
     - composer-snippets
 ---
 
-A snippet is a fragment of test, stored in [the Vault](/api-testing/quick-start/the-vault), that can be reused in multiple tests.
+A snippet is a fragment of test, stored in [the Vault](/api-testing/mark2/quick-start/the-vault), that can be reused in multiple tests.
 
 ## Create a Snippet
 
@@ -30,6 +30,6 @@ For each snippet, two actions are available:
 
 In order to update a snippet,
 
-1. Open the Snippet from [the Vault](/api-testing/quick-start/the-vault)
+1. Open the Snippet from [the Vault](/api-testing/mark2/quick-start/the-vault)
 2. Click on any of the fields and begin typing to edit the details
 3. Changes are saved automagically.

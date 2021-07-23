@@ -23,8 +23,8 @@ The API Fortress Remote Download Agent can also sit inside of your infrastructur
   
 ## The Downloader Is Configurable
 
-* You may [disable SSL validation](/api-testing/how-to/disable-ssl-validation)  
-* It can be configured to [go through a proxy](/api-testing/self-hosted/proxy-settings-in-downloader):  
+* You may [disable SSL validation](/api-testing/mark2/how-to/disable-ssl-validation)  
+* It can be configured to [go through a proxy](/api-testing/mark2/self-hosted/proxy-settings-in-downloader):  
 * The Downloader (aka: RemoteDownloadAgent) receives inbound HTTPS connections from the dashboard, encrypting everything with its own certificate
-    * You can also install [an actual certificate to a RemoteDownloadAgent](/api-testing/how-to/keystores-for-downloader)
+    * You can also install [an actual certificate to a RemoteDownloadAgent](/api-testing/mark2/how-to/keystores-for-downloader)
 

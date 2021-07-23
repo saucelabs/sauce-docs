@@ -17,7 +17,7 @@ The `mime.text_content_types_contain` array contains a list of substrings meant 
 
 ### `application.properties`
 
-See [Fine tuning](/api-testing/bloodhound/fine-tuning) for more settings.
+See [Fine tuning](/api-testing/mark2/bloodhound/fine-tuning) for more settings.
 
 | Property                               | Description                                                                      |
 |----------------------------------------|----------------------------------------------------------------------------------|
@@ -82,7 +82,7 @@ The key of the thread pool (in this case `default`) is a single word that identi
 * `factor` is a multiplier that depends on the server Bloodhound is operating on and it works like this `factor*cpu=n_of_threads`. A way to make the system more adaptive to the context.
 
 :::tip Fine Tuning
-Check out the [Fine Tuning Guide](/api-testing/bloodhound/fine-tuning#thread-pools) for further readings on this topic.
+Check out the [Fine Tuning Guide](/api-testing/mark2/bloodhound/fine-tuning#thread-pools) for further readings on this topic.
 :::
 
 ### `backends.yml`
@@ -156,5 +156,5 @@ The meta variables can be retrieved in `evaluated` fields by using the following
 
 ## Additional Topics
 
-* __Flows__: the number of steps ([actors](/api-testing/bloodhound/base-actors)) performed between inbound requests and responses to outbound requests, are discussed in the [Flows guide](/api-testing/bloodhound/flows)
-* __Load Balancing__: load balancing functionality is available. Please refer to the [load balancing guide](/api-testing/bloodhound/load-balancing/) to learn more
+* __Flows__: the number of steps ([actors](/api-testing/mark2/bloodhound/base-actors)) performed between inbound requests and responses to outbound requests, are discussed in the [Flows guide](/api-testing/mark2/bloodhound/flows)
+* __Load Balancing__: load balancing functionality is available. Please refer to the [load balancing guide](/api-testing/mark2/bloodhound/load-balancing/) to learn more

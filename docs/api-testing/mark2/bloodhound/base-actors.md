@@ -171,4 +171,4 @@ Filters out any request not matching a certain set of criteria.
 
 ## Additional Topics
 
-* __Advanced Actors__: Please read the following [documentation](/api-testing/bloodhound/advanced-actors) to learn more about advanced actors.
+* __Advanced Actors__: Please read the following [documentation](/api-testing/mark2/bloodhound/advanced-actors) to learn more about advanced actors.

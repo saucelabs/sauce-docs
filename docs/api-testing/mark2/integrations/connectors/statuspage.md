@@ -14,7 +14,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 This connector allows you to connect your API Fortress instance with your StatusPage instance. When a test fails the connector will open an incident in StatusPage, the next time that same test runs and passes the connector will resolve the incident in StatusPage.
 
 :::note
-This connector does not come pre-loaded out of the box for self-hosted/on-premises, and will need to be loaded separately. To learn how to load the connector into your API Fortress instance [click here.](/api-testing/integrations/add-new-connector)  
+This connector does not come pre-loaded out of the box for self-hosted/on-premises, and will need to be loaded separately. To learn how to load the connector into your API Fortress instance [click here.](/api-testing/mark2/integrations/add-new-connector)  
 :::
 
 ## What You'll Need

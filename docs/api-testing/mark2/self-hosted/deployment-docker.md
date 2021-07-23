@@ -122,7 +122,7 @@ The API Fortress downloader is the agent that retrieves the resources to be test
 In this configuration path, we are deploying a downloader in the same server as API Fortress, and it will serve as the default downloader. 
 
 :::tip Downloader 101
-Click here to learn more about the [Downloaders](/api-testing/learn-more/downloader-101).  
+Click here to learn more about the [Downloaders](/api-testing/mark2/learn-more/downloader-101).  
 :::
 
 1. Edit the `downloader/docker-compose.yml` file and take note of the value of the `ipv4_address` configuration key.

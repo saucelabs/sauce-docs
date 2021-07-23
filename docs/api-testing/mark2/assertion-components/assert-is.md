@@ -20,7 +20,7 @@ This assertion is used to check if the value of the element defined by the expre
 | Stop test if fails | 'true' or 'false' | No |
 | Comment | String | No |
 
-* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](/api-testing/reference/expression/) for more details.
+* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](/api-testing/mark2/reference/expression/) for more details.
 * __Type__: The data type of the value. The possible values are: 
     * _integer_: checks if field is an integer value; 
     * _float_: checks if field is a decimal value; 

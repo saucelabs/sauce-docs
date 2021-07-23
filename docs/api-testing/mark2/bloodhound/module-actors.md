@@ -10,17 +10,17 @@ The source code of these modules can be found in [this GitHub Repository](https:
 
 ## Module: JDBC
 
-* [JDBC Module Documentation](/api-testing/bloodhound/module-actors/jdbc)
+* [JDBC Module Documentation](/api-testing/mark2/bloodhound/module-actors/jdbc)
 * [Source Code Reference](https://github.com/apifortress/bloodhound-modules/tree/master/jdbc)
 
 ## Module: MongoDB
-* [MongoDB Module Documentation](/api-testing/bloodhound/module-actors/mongodb)
+* [MongoDB Module Documentation](/api-testing/mark2/bloodhound/module-actors/mongodb)
 * [Source Code Reference](https://github.com/apifortress/bloodhound-modules/tree/master/mongodb)
 
 ## Module: RabbitMQ
-* [RabbitMQ Module Documentation](/api-testing/bloodhound/module-actors/rabbitmq)
+* [RabbitMQ Module Documentation](/api-testing/mark2/bloodhound/module-actors/rabbitmq)
 * [Source Code Reference](https://github.com/apifortress/bloodhound-modules/tree/master/rabbitmq)
 
 ## Module: Fortress-Forwarder
-* [Fortress-Forwarder Documentation](/api-testing/bloodhound/module-actors/fortress-forwarder)  
+* [Fortress-Forwarder Documentation](/api-testing/mark2/bloodhound/module-actors/fortress-forwarder)  
 * [Source Code Reference](https://github.com/apifortress/bloodhound-modules/tree/master/fortress-forwarder)

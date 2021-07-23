@@ -102,4 +102,4 @@ Expressions are automatically evaluated in the "expression" fields, but can also
 
 In this example, we compare the actual size of the collection with the "size attribute", by enclosing the expression within `${ .. }`. The "type" attribute ensures the comparison will happen with a numeric comparator, rather than string.
 
-Further readings, see [Expression extensions](/api-testing/reference/expression-language-extensions)
+Further readings, see [Expression extensions](/api-testing/mark2/reference/expression-language-extensions)

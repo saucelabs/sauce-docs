@@ -16,7 +16,7 @@ Using the connector, you can send test execution information to Splunk then use 
 Below is a quick guide to setting up and using the Splunk connector.
 
 :::note
-This connector does not come pre-loaded out of the box for self-hosted/on-premises, and will need to be loaded separately. To learn how to load the connector into your API Fortress instance [click here.](/api-testing/integrations/add-new-connector)  
+This connector does not come pre-loaded out of the box for self-hosted/on-premises, and will need to be loaded separately. To learn how to load the connector into your API Fortress instance [click here.](/api-testing/mark2/integrations/add-new-connector)  
 :::
 
 ## Configure the Connector

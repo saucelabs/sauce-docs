@@ -44,7 +44,7 @@ To do that, you can leverage multiple functions.
 
 ## Expression Language Extensions
 
-These extensions are unique in the API Fortress engine, and allow you to perform various operations that come handy in your daily work. The full reference is here: [https://apifortress.com/doc/expression-language-extensions/](/api-testing/reference/expression-language-extensions)
+These extensions are unique in the API Fortress engine, and allow you to perform various operations that come handy in your daily work. The full reference is here: [https://apifortress.com/doc/expression-language-extensions/](/api-testing/mark2/reference/expression-language-extensions)
 
 
 Here are a few examples:

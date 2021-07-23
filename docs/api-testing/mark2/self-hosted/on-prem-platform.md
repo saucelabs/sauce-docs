@@ -41,9 +41,9 @@ All this is done with a few lines of Java/Groovy that we can help you with.
 
 ## Deployment
 
-A simple [Docker](/api-testing/self-hosted/deployment-docker) / [Kubernetes](/api-testing/self-hosted/deployment-kubernetes) / [Open Shift](/api-testing/self-hosted/red-hat-openshift) deployment. 
+A simple [Docker](/api-testing/mark2/self-hosted/deployment-docker) / [Kubernetes](/api-testing/mark2/self-hosted/deployment-kubernetes) / [Open Shift](/api-testing/mark2/self-hosted/red-hat-openshift) deployment. 
 
-We ask a handful of questions, setup a configuration file for you, and then you deploy with your preferred container. The system requirements [here](/api-testing/self-hosted/on-premises-requirements).
+We ask a handful of questions, setup a configuration file for you, and then you deploy with your preferred container. The system requirements [here](/api-testing/mark2/self-hosted/on-premises-requirements).
 
 If you would like to trial API Fortress on-premises, simply [fill out this survey](https://apifortress.com/doc/on-premises-questionnaire/) and we will work on a configuration file for you.
 

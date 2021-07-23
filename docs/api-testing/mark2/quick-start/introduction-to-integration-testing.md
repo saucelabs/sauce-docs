@@ -29,7 +29,7 @@ Next, we need to use this token to make further calls to the application.
 
 ## Setting a Variable
 
-First, we need to assign the token to a variable. Variables are used to store data temporarily for a test. You can use the API Fortress Vault for more permanent variables ([learn more about variables here](/api-testing/quick-start/the-vault#variable-section)). 
+First, we need to assign the token to a variable. Variables are used to store data temporarily for a test. You can use the API Fortress Vault for more permanent variables ([learn more about variables here](/api-testing/mark2/quick-start/the-vault#variable-section)). 
 
 We do this so we don’t have to manually invoke or set a variable every time it is needed. Next, add a `“Set”` component, and enter the information as seen in the image below.
 

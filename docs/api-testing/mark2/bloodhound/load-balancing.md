@@ -5,7 +5,7 @@ sidebar_label: Load Balancing
 description: "This page details Bloodhound's simple load balancing capability."
 ---
 
-Bloodhound has a simple load balancing capability we are going to discuss now. Before moving forward, make sure you have read the [basic configuration guide](/api-testing/bloodhound/basic-configuration).
+Bloodhound has a simple load balancing capability we are going to discuss now. Before moving forward, make sure you have read the [basic configuration guide](/api-testing/mark2/bloodhound/basic-configuration).
 
 ## Load Balancing Configuration
 
@@ -44,4 +44,4 @@ In this configuration, `upstream` is replaced by the `upstreams` object.
 
 ## Additional Topics
 
-__Fine Tuning the Configuration__: Please refer to the [fine tuning guide](/api-testing/bloodhound/fine-tuning) to learn more.
+__Fine Tuning the Configuration__: Please refer to the [fine tuning guide](/api-testing/mark2/bloodhound/fine-tuning) to learn more.

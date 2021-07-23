@@ -38,6 +38,6 @@ Filter logs and alerts by time, endpoint, and more
 
 The following links provide useful information about using the dashboard and its metrics:
 
-- [Improving the metrics view](/api-testing/learn-more/improving-your-metrics)
-- [Creating test assertions based on metrics](/api-testing/how-to/assertions-for-metrics-performance/)
-- [Simplest method to set up a basic monitor](/api-testing/quick-start/easy-monitoring/)
+- [Improving the metrics view](/api-testing/mark2/learn-more/improving-your-metrics)
+- [Creating test assertions based on metrics](/api-testing/mark2/how-to/assertions-for-metrics-performance/)
+- [Simplest method to set up a basic monitor](/api-testing/mark2/quick-start/easy-monitoring/)

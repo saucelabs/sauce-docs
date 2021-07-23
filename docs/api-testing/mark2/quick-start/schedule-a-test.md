@@ -13,7 +13,7 @@ In API Fortress, it is simple to schedule a test to run as often as you’d like
 
 ### Step 1: Publish the Working Copy
 
-API Fortress has a unique working copy/published copy system. This system allows you to edit a test without affecting the live, currently active version. You can learn more about it [here](/api-testing/learn-more/the-working-copy-published-tests). 
+API Fortress has a unique working copy/published copy system. This system allows you to edit a test without affecting the live, currently active version. You can learn more about it [here](/api-testing/mark2/learn-more/the-working-copy-published-tests). 
 
 Step 1 is to publish your working copy. After you finish editing your Working Copy, click the "Publish" button (highlighted below). An individual test should also execute its own I/O operations (`GET`, `POST`, `PUT`, `DELETE`). 
 

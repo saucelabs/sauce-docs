@@ -13,9 +13,9 @@ API Fortress is an API-first platform that was built from the ground up for depl
 
 Find APIs on the API Fortress platform for most features, including data and test execution. You can use that API to easily run a single test, all tests, tests with specific tags, and more. Learn more about this:
 
-- [Jenkins and API Fortress](/api-testing/ci/jenkins/using-the-api)
-- [Bamboo and API Fortress](/api-testing/ci/connecting-with-bamboo)
-- [Comprehensive API docs](/api-testing/api/using-the-api)
+- [Jenkins and API Fortress](/api-testing/mark2/ci/jenkins/using-the-api)
+- [Bamboo and API Fortress](/api-testing/mark2/ci/connecting-with-bamboo)
+- [Comprehensive API docs](/api-testing/mark2/api/using-the-api)
 - Search below to the _General Guide_ for all other CI platforms:  
     - Azure DevOps Server
     - TravisCI
@@ -30,9 +30,9 @@ Find APIs on the API Fortress platform for most features, including data and tes
 
 We have also created a command-line tool that is easy to use, and exposes the execution of APIF tests in their local environment. It is also a great way to expose results during the build phase directly in the CI platform.
 
-- [Download APIF-Auto](/api-testing/ci/apif-auto)
-- [Jenkins and APIF-Auto](/api-testing/ci/jenkins/apif-auto)
-- [APIF-Auto General Docs](/api-testing/ci/apif-auto) - The command-line tool can be used with _any_ CI/CD platform! We are working on creating additional dedicated docs.
+- [Download APIF-Auto](/api-testing/mark2/ci/apif-auto)
+- [Jenkins and APIF-Auto](/api-testing/mark2/ci/jenkins/apif-auto)
+- [APIF-Auto General Docs](/api-testing/mark2/ci/apif-auto) - The command-line tool can be used with _any_ CI/CD platform! We are working on creating additional dedicated docs.
 
 ## API General Usage Guide
 
@@ -66,6 +66,6 @@ Great! If we make this API call via a browser or a tool like Postman, we can see
 
 ### Step 3 - Execute HTTP Calls
 
-From your CI/CD platform’s dashboard, you’ll need to paste the webhook call to the flow. We have more specific docs available, for instance, if you wish to use [Jenkins](/api-testing/ci/jenkins/using-the-api).
+From your CI/CD platform’s dashboard, you’ll need to paste the webhook call to the flow. We have more specific docs available, for instance, if you wish to use [Jenkins](/api-testing/mark2/ci/jenkins/using-the-api).
 
 The test results can then be passed along to platforms like qTest or Zephyr in your CI/CD pipeline.

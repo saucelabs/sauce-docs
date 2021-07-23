@@ -14,7 +14,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Here is a quick guide to setting up a [DataDog](http://www.datadog.com) integration.
 
 :::tip Import a Connector
-To learn how to import a connector [click here](/api-testing/integrations/add-new-connector) 
+To learn how to import a connector [click here](/api-testing/mark2/integrations/add-new-connector) 
 :::
 
 1. First, we need to generate a new API key in DataDog.

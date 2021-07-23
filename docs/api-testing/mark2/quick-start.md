@@ -7,7 +7,7 @@ description: Learn how to quickly generate a test in API Fortress. By using the 
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This page is a quickstart guide for getting up and running with the API Fortress tool. API Fortress may be deployed in our hosted cloud or self-hosted/on-premises via a container behind your firewall. Maintain complete test data ownership. [Learn more about the differences between the two types of deployments](/api-testing/self-hosted/on-prem-platform). 
+This page is a quickstart guide for getting up and running with the API Fortress tool. API Fortress may be deployed in our hosted cloud or self-hosted/on-premises via a container behind your firewall. Maintain complete test data ownership. [Learn more about the differences between the two types of deployments](/api-testing/mark2/self-hosted/on-prem-platform). 
 
 Below, we walk through how to quickly create a test using an e-commerce API. Let's get started!
 
@@ -48,7 +48,7 @@ If you want to build a test manually, API Fortress is capable of building a test
 For the purposes of this quickstart guide, we will show you how to use the **Generate Test** button. 
 
 :::tip Build Test from a Spec File
-To build a test using a spec file see: [Build from Spec](/api-testing/quick-start/build-from-spec).
+To build a test using a spec file see: [Build from Spec](/api-testing/mark2/quick-start/build-from-spec).
 :::
 
 ## Step 3: Create an HTTP Request
@@ -129,8 +129,8 @@ At this stage, this test is only a draft. You should take a moment to verify eac
 
 ### Additional Topics
 
-* Check out the [Example Snippets](/api-testing/quick-start/using-the-example-snippets) provided by the API Fortress Dashboard.
-* Learn how to [import Postman Collections](/api-testing/quick-start/importing-postman-collections
+* Check out the [Example Snippets](/api-testing/mark2/quick-start/using-the-example-snippets) provided by the API Fortress Dashboard.
+* Learn how to [import Postman Collections](/api-testing/mark2/quick-start/importing-postman-collections
   ) so that you may generate more tests.
-* Learn how to schedule a test [here](/api-testing/quick-start/schedule-a-test).  
-* Learn about data and notifications connectors [here](/api-testing/quick-start/setup-connectors/). Simple solutions to plug into the systems you use today (e.g DataDog or New Relic).
+* Learn how to schedule a test [here](/api-testing/mark2/quick-start/schedule-a-test).  
+* Learn about data and notifications connectors [here](/api-testing/mark2/quick-start/setup-connectors/). Simple solutions to plug into the systems you use today (e.g DataDog or New Relic).

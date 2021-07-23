@@ -7,7 +7,7 @@ description: Learn how to quickly generate a test in API Fortress. By using the 
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This page is a quickstart guide for getting up and running with the API Fortress tool. API Fortress may be deployed in our hosted cloud or self-hosted/on-premises via a container behind your firewall. Maintain complete test data ownership. [Learn more about the differences between the two types of deployments](/api-testing/self-hosted/on-prem-platform). 
+This page is a quickstart guide for getting up and running with the API Fortress tool. API Fortress may be deployed in our hosted cloud or self-hosted/on-premises via a container behind your firewall. Maintain complete test data ownership. [Learn more about the differences between the two types of deployments](/api-testing/mark2/self-hosted/on-prem-platform). 
 
 Below, we walk through how to quickly create a test using an e-commerce API. Let's get started!
 
@@ -53,7 +53,7 @@ There are two avenues that you may take in building a test from here:
 For the purposes of this quickstart guide, the next page walks through how to use the _Visual Test Composer_ view. 
 
 :::tip Build Tests from Spec Files
-To build tests using spec file(s) see: [Build from Spec](/api-testing/quick-start/build-from-spec).
+To build tests using spec file(s) see: [Build from Spec](/api-testing/mark2/quick-start/build-from-spec).
 :::
 
 ## Step 3: Add Test Components
@@ -64,7 +64,7 @@ The next step is to add the necessary test components when combined act as our t
 * Assertion Component
 
 :::note Full Component List
-Visit the [I/O Components](/api-testing/io-components) and [Assertion Components](/api-testing/assertion-components/assert-compares) sections for more details and descriptions of each test component.
+Visit the [I/O Components](/api-testing/mark2/io-components) and [Assertion Components](/api-testing/mark2/assertion-components/assert-compares) sections for more details and descriptions of each test component.
 :::
 
 For now, create a simple `GET` request and validate that response is correct.
@@ -130,8 +130,8 @@ At this stage, this test is only a draft. You should take a moment to verify eac
 
 Below are some topics worth exploration:
 
-* Check out the [Example Snippets](/api-testing/quick-start/using-the-example-snippets) provided by the API Fortress Dashboard.
-* Learn how to [import Postman Collections](/api-testing/quick-start/importing-postman-collections
+* Check out the [Example Snippets](/api-testing/mark2/quick-start/using-the-example-snippets) provided by the API Fortress Dashboard.
+* Learn how to [import Postman Collections](/api-testing/mark2/quick-start/importing-postman-collections
   ) so that you may generate more tests.
-* Learn how to schedule a test [here](/api-testing/quick-start/schedule-a-test).  
-* Learn about data and notifications connectors [here](/api-testing/quick-start/setup-connectors/). Simple solutions to plug into the systems you use today (e.g DataDog or New Relic).
+* Learn how to schedule a test [here](/api-testing/mark2/quick-start/schedule-a-test).  
+* Learn about data and notifications connectors [here](/api-testing/mark2/quick-start/setup-connectors). Simple solutions to plug into the systems you use today (e.g DataDog or New Relic).
