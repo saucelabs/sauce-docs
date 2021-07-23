@@ -122,7 +122,6 @@ import TabItem from '@theme/TabItem';
 
 </TabItem>
 <TabItem value="espresso">
-<div className="corner-ribbon">PREVIEW</div>
 
 |Supported Platforms|
 |-----|
@@ -130,7 +129,6 @@ import TabItem from '@theme/TabItem';
 
 </TabItem>
 <TabItem value="xcuitest">
-<div className="corner-ribbon">PREVIEW</div>
 
 |Supported Platforms|
 |-----|
