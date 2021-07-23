@@ -71,5 +71,5 @@ Use the following image as a reference for the numbered items listed below:
 
 ## Additional Topics
 
-* Learn how to [create a test quickly](/api-testing/quick-start).
+* Learn how to [create a test quickly](/api-testing/mark3/quick-start).
 * Learn about [request components](/api-testing/io-components) and [assertion components](/api-testing/assertion-components/assert-compares).
