@@ -122,7 +122,6 @@ import TabItem from '@theme/TabItem';
 
 </TabItem>
 <TabItem value="espresso">
-<div className="corner-ribbon">PREVIEW</div>
 
 |Supported Platforms|
 |-----|
@@ -130,7 +129,6 @@ import TabItem from '@theme/TabItem';
 
 </TabItem>
 <TabItem value="xcuitest">
-<div className="corner-ribbon">PREVIEW</div>
 
 |Supported Platforms|
 |-----|
@@ -158,6 +156,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |Cypress Version|Supported Browsers|
 |----|----|
+|7.7.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.2.2)|
 |7.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.1.0)|
 |7.1.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.0.3)|
 |6.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v6.0.1)|
@@ -190,6 +189,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |TestCafe Version|Supported Browsers|
 |----|----|
+|1.15.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.9.0)|
 |1.14.2|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.7.0)|
 |1.14.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.6.1)|
 |1.11.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.5.0)|

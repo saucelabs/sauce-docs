@@ -11,6 +11,14 @@ const docusaurusConfig = {
   projectName: 'sauce-docs',
   scripts: [],
   themeConfig: {
+//     announcementBar: {
+//       id: 'site_announcement', // Any value that will identify this message.
+//       content:
+//           'Our improved documentation is here! <a target="_blank" rel="noopener noreferrer" href="mailto:docsfeedback@saucelabs.com"> Tell us what you think</a>.',
+//       backgroundColor: '#E6F1FD', // Defaults to `#fff`.
+//       textColor: '#F0F0F0', // Defaults to `#000`.
+//       isCloseable: true, // Defaults to `true`.
+//     },
     googleAnalytics: {
       trackingID: 'UA-6735579-1',
     },
@@ -149,12 +157,6 @@ const docusaurusConfig = {
           "docusaurus2-dotenv",
         {
           systemvars: true,
-        },
-      ],
-      [
-        '@docusaurus/plugin-client-redirects',
-        {
-          fromExtensions: ['html'],
         },
       ],
   ],

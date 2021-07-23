@@ -113,7 +113,7 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Specify the maximum length of time (minutes) the test can run. | `--timeout` | `--timeout` |
 | Specify a folder to direct the JUnit XML output. | `--xmlFolder` | Not supported |
 | Specify an alternative REST endpoint (Is this TO only? Covered by region in SL?? | `--url` | Not supported |
-| Remove shared states between tests. | `--e useTestOrchestrator clearPackageData` | Must use YAML |
+| Remove shared states between tests. | `--e clearPackageData` | Must use YAML |
 | Set up a proxy connection. | `--D` | `-e HTTP_PROXY=$<HTTP> HTTPS_PROXY=$<HTTPS>` |
 | Specify the concurrency to use for the test execution (up to account max). | Not supported | `--ccy` |
 | Specify an alternative path and file to use as the configuration file. | `config --path` | `--config` |
