@@ -33,17 +33,18 @@ There may be situations where you want to install an app from a downloadable rem
 
 Please review the following guidelines below before uploading your app:
 
-1. Make sure your app meets the [requirements](mobile-apps/supported-devices) for Android and iOS Mobile App Testing.
+1. Make sure your app meets the [requirements](/mobile-apps/supported-devices) for Android and iOS Mobile App Testing.
 2. Upload your app to the hosting location.
 3. Ensure Sauce Labs has READ access to the app URL.
 4. In your Appium test script, enter the URL for the app as the "app" desired capability. Example Java Snippet:
+
   ```java
   caps.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.3.0/Android.SauceLabs.Mobile.Sample.app.2.3.0.apk?raw=true");
   ```
 
 ### Installing your App on Private Devices
 
-In some cases, you may need to upload / install your app to a private device and also prevent the device from broad internet access while under test. The steps to achieve this are:
+In some cases, you may need to upload/install your app to a private device and also prevent the device from broad internet access while under test. The steps to achieve this are:
 
 * Upload your app to an internal git repository, or private hosting solution with the necessary permissions (e.g. Amazon S3 with a strict bucket policy).
 * Ensure the hosted app URL is available to the machine running the automated test.
@@ -78,7 +79,7 @@ For specific instructions on how to set environment variables, visit the followi
 ### Supported Use Cases for Sauce Labs Real Device Testing
 
 * Execute Appium tests against a private real device hosted in the U.S., using your Sauce Labs username and access key.
-* Use our App Storage for Appium testing as you usually do for emulators and simulators tests.
+* Use our application storage for Appium testing as you usually do for emulators and simulators tests.
 * Analyze Appium test executions, on Sauce Labs similar to the way you do it for desktop, emulators and simulators.
 * Consume Real Device Cloud (RDC) API similar to the way you do for emulators and simulators (with applicable RDC settings).
 
@@ -97,19 +98,21 @@ void setUp() throws MalformedURLException {
 }
 ```
 
-### App Storage and Data Center Endpoints
+### Application Storage and Data Center Endpoints
 
-Below are some examples of how to use the Sauce Labs REST API to upload your mobile app to our App Storage. For details related to authorization credentials, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
+Below are some examples of how to use the Sauce Labs REST API to upload your mobile app to our application storage. For details related to authorization credentials, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
 
-To connect to the real device cloud in your automated Appium tests, you'll need to use include either the EU or US storage endpoint in your test script. This example (macOS / Linux) how to upload an app to App Storage in the US-West Data Center:
+To connect to the real device cloud in your automated Appium tests, you'll need to use include either the EU or US storage endpoint in your test script.
+
+Example (macOS/Linux) of how to upload an app to application storage in the US-West Data Center:
 
 ```sh
 $ curl -F "payload=@/Users/$SAUCE_USERNAME/Downloads/$FILE_NAME.ipa" -F "name=$FILE_NAME.ipa" -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY"  'https://api.us-west-1.saucelabs.com/v1/storage/upload'
 ```
 
-For more detailed information on how to access the app in your automated test builds and use the Storage API, see [App Storage](/mobile-apps/app-storage.md).
+For more detailed information on how to access the app in your automated test builds and use the Storage API, see [Application Storage](/mobile-apps/app-storage).
 
-Below are some additional examples using the EU and US endpoints.
+Examples using the EU and US endpoints:
 
 <Tabs
   defaultValue="US Data Center"
@@ -120,7 +123,7 @@ Below are some additional examples using the EU and US endpoints.
 
 <TabItem value="US Data Center">
 
-US Data Center (macOS / Linux)
+US Data Center (macOS/Linux)
 
 ```bash
 $ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" -X POST -w "%{http_code}\n" \
@@ -141,7 +144,7 @@ US Data Center (Windows)
 </TabItem>
 <TabItem value="EU Data Center">
 
-EU Data Center (macOS / Linux)
+EU Data Center (macOS/Linux)
 
 ```curl
 $ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" -X POST -w "%{http_code}\n" \

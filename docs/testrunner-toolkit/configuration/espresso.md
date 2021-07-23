@@ -140,6 +140,18 @@ This is the identifier `saucectl` expects as the `id` property, even though the 
 ```
 ---
 
+## `env`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
+
+```yaml
+  env:
+    hello: world
+    my_var: $MY_VAR
+```
+---
+
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -215,6 +227,9 @@ The parent property containing the details specific to the Espresso project.
 espresso:
   app: ./apps/calc.apk
   testApp: ./apps/calc-success.apk
+  otherApps:
+    - ./apps/pre-installed-app1.apk
+    - ./apps/pre-installed-app2.apk
 ```
 ---
 
@@ -246,6 +261,23 @@ The path to the testing application. The relative file location is `{project-roo
 ```
 ---
 
+### `otherApps`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Set of one or more apps to be pre-installed for your tests. You can upload an app from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
+
+:::note
+Apps specified as `otherApps` inherit the configuration of the main app under test for settings such as `proxy`, `locale`, and `device orientation`, regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test.
+:::
+
+```yaml
+  otherApps:
+    - ./apps/pre-installed-app1.apk
+    - $PRE_INSTALLED_APP2
+    - storage:filename=pre-installed-app3.apk
+```
+---
+
 ## `suites`
 <p><small>| REQUIRED | OBJECT |</small></p>
 
@@ -269,7 +301,7 @@ The name of the test suite, which will be reflected in the results and related a
 ### `env`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported.
+A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
 
 ```yaml
   env:
@@ -428,6 +460,7 @@ testOptions:
   annotation: com.android.buzz.MyAnnotation
   numShards: 4
   clearPackageData: true
+  useTestOrchestrator: true
 ```
 ---
 
@@ -490,6 +523,10 @@ Sets the number of separate shards to create for the test suite. Read more about
 
 When sharding is configured, `saucectl` automatically creates the sharded jobs for each of the devices defined for the suite based on the number of shards you specify. For example, for a suite testing a single emulator version that specifies 2 shards, `saucectl` clones the suite and runs one shard index on the first suite, and the other shard index on the identical clone suite. For a suite that is testing 2 emulator version and two real devices, `saucectl` must clone the suite to run each shard index for each emulator and device, so 8 jobs in total for the suite.
 
+:::note
+Espresso may not distribute tests evenly across the number of shards specified, especially if the number of shards is near or equivalent to the number of tests in the suite. In such cases, it is not unusual to see jobs with no tests at all because they were already executed in other shard jobs.
+:::
+
 ```yaml
   numShards: 2
 ```
@@ -502,6 +539,18 @@ Removes all shared states from the testing device's CPU and memory at the comple
 
 ```yaml
   clearPackageData: true
+```
+---
+
+#### `useTestOrchestrator`
+<p><small>| OPTIONAL | BOOLEAN | REAL DEVICES ONLY |</small></p>
+
+Run each of your tests in its own Instrumentation instance to remove most of the app's shared state from the device CPU and memory between tests. Use this setting in conjunction with `clearPackageData: true` to completely remove all shared state.
+
+When set, the instrumentation starts with [Test Orchestrator version 1.1.1](https://developer.android.com/training/testing/junit-runner#using-android-test-orchestrator) in use. This property applies only to real devices, not emulators.
+
+```yaml
+  useTestOrchestrator: true
 ```
 ---
 

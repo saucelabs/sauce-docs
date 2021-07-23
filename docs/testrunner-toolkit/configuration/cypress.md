@@ -153,13 +153,25 @@ When you launch a tunnel, you can accept the tunnel identifier name that Sauce L
 bin/sc -u {SL-username} -k {SL-access_key} -i {tunnel_identifier}
 ```
 
-This is the identifier `saucectl` expects as the `id` property, even though the Sauce Labs UI refers to this values as the `Tunnel Name`.
+This is the identifier `saucectl` expects as the `id` property, even though the Sauce Labs UI refers to this value as the `Tunnel Name`.
 :::
 
 ```yaml
  tunnel:
     id: your_tunnel_id
     parent: parent_owner_of_tunnel # if applicable, specify the owner of the tunnel
+```
+---
+
+## `env`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
+
+```yaml
+  env:
+    hello: world
+    my_var: $MY_VAR
 ```
 ---
 
@@ -397,22 +409,11 @@ The name of the test suite, which will be reflected in the results and related a
 ```
 ---
 
-### `env`
-<p><small>| OPTIONAL | OBJECT |</small></p>
-
-A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported.
-
-```yaml
-  env:
-    hello: world
-    my_var: $MY_VAR
-```
----
-
 ### `browser`
 <p><small>| REQUIRED | STRING |</small></p>
 
 The name of the browser in which to run this test suite.
+Available browser names: `chrome`, `firefox`, `microsoftedge`(only for sauce mode) and `electron`(only for docker mode).
 
 ```yaml
     browser: "chrome"
@@ -479,11 +480,13 @@ Provides details related to the Cypress test configuration that are relevant for
 #### `env`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A set of any ephemeral/environment variables needed to run the tests in this suite, which might take any of the following formats: *string* | *int* | *float* | *boolean*.
+A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
 
 ```yaml
-      env:
-        hello: world
+  config:
+    env:
+      hello: world
+      my_var: $MY_VAR
 ```
 ---
 

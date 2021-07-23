@@ -1,6 +1,6 @@
 ---
 id: jenkins
-title: Testrunner Toolkit with Jenkins
+title: saucectl with Jenkins
 sidebar_label: Jenkins
 ---
 
@@ -40,7 +40,9 @@ The easiest way to add credentials to Jenkins is with the UI:
 
     <img src={useBaseUrl('img/stt/secrets.png')} alt="Jenkins Secrets" width="500" />
 
-    > For further information on how to store your Sauce Labs credentials in Jenkins, visit [the Jenkinsfile documentation](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials).
+    :::note
+    For further information on how to store your Sauce Labs credentials in Jenkins, visit [the Jenkinsfile documentation](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials).
+    :::
 
 ### Configure the Jenkins Pipeline
 
@@ -101,7 +103,7 @@ https://github.com/saucelabs/saucectl-xcuitest-example/blob/master/Jenkinsfile
 </TabItem>
 </Tabs>
 
-<!--### Run the Pipeline Tests-->
+### Run the Pipeline Tests
 
 Now you can commit these files and Jenkins will detect the new pipeline and launch `saucetl` to run your tests.
 

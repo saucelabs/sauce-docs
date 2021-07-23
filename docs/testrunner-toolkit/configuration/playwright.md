@@ -162,6 +162,18 @@ This is the identifier `saucectl` expects as the `id` property, even though the 
 ```
 ---
 
+## `env`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
+
+```yaml
+  env:
+    hello: world
+    my_var: $MY_VAR
+```
+---
+
 ## `docker`
 <p><small>| OPTIONAL | OBJECT |<span class="highlight docker">Docker only</span> |</small></p>
 
@@ -360,7 +372,7 @@ The name of the test suite, which will be reflected in the results and related a
 ### `env`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported.
+A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
 
 ```yaml
   env:
@@ -407,6 +419,20 @@ One or more paths to the playwright test files to run for this suite. Regex valu
 ```yaml
     testMatch: ["**/*.js"]
 ```
+---
+
+### `numShards`
+<p><small>| OPTIONAL | INTEGER | <span class="highlight playwright">Playwright version >= 1.12</span> |</small></p>
+
+Sets the number of separate shards to create for the test suite. Read more about shard tests on the [Playwright developer site](https://playwright.dev/docs/test-parallel#shards).
+
+When sharding is configured, `saucectl` automatically creates the sharded jobs based on the number of shards you specify. For example, for a suite that specifies 2 shards, `saucectl` clones the suite and runs shard `1/2` on the first suite, and the other shard `2/2` on the identical clone suite.
+
+
+```yaml
+  numShards: 2
+```
+---
 
 ### `params`
 <p><small>| OPTIONAL | OBJECT |</small></p>
@@ -430,6 +456,7 @@ __Description__: This field is for specific test run parameters, for example:
 <p><small>| OPTIONAL | STRING |</small></p>
 
 The name of the browser in which to run this test suite.
+Available browser names: `chromium`, `firefox` and `webkit`.
 
 ```yaml
     browserName: "firefox"
