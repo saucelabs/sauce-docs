@@ -109,7 +109,7 @@ The custom `sauce:performance` command measures the performance output against a
 
 ### Script Examples
 
-The following samples are excerpts from the [Sauce Labs Demo](https://github.com/saucelabs-training) repo, where you can find code samples for many test scenarios in our supported languages. These samples show the `sauce:performance` assertion used in a Selenium test script.
+The following samples are excerpts that show the `sauce:performance` assertion used in a Selenium test script.
 
 <Tabs
   defaultValue="python"
@@ -120,22 +120,15 @@ The following samples are excerpts from the [Sauce Labs Demo](https://github.com
 
 <TabItem value="python">
 
-See the complete [Python performance demo](https://github.com/saucelabs-training/demo-python).
+See the complete [Python performance demo](https://github.com/saucelabs/performance-python-examples).
 
-```py
-def test_performance_firstInteractive(self, driver, request):
-      self.setUpClass(driver)
-      performance = driver.execute_script("sauce:performance", {
-                                          "name": request.node.name, "metrics": ["firstInteractive"]})
-      if(performance["result"] != "pass"):
-          assert performance["details"]["firstInteractive"]["actual "] < 5000
-      else:
-          assert performance["result"] == "pass"
+```py reference
+https://github.com/saucelabs/performance-python-examples/blob/main/tests/test_performance.py
 ```
 </TabItem>
 <TabItem value="js">
 
-See the complete [JavaScript performance demo](https://github.com/saucelabs-training/demo-js/tree/master/webdriverio/web/examples/performance).
+See the complete [JavaScript performance demo](https://github.com/saucelabs/performance-js-examples/blob/main/WebDriver.io/tests/performance.js).
 
 ```js
 describe('Sauce Labs Front-End Performance', () => {
@@ -261,7 +254,9 @@ When one or more metric evaluations fail because the result falls outside the es
 
 Since the command can be called throughout the test script, create tests that check for performance regressions across core business flows and screens. For example, evaluate pages that load following a successful login event or require multiple steps to trigger.
 
-> **NOTE:** `sauce:performance` is only aware of the performance metrics of the get URL command that was called before it and not able to capture metrics for views that were navigated via webdriver actions (e.g button clicks). In this example, the custom command returns performance metrics for the ``/inventory.html` URL.
+:::note
+`sauce:performance` is only aware of the performance metrics of the get URL command that was called before it and not able to capture metrics for views that were navigated via webdriver actions (e.g button clicks). In this example, the custom command returns performance metrics for the `/inventory.html` URL.
+:::
 
 ```
 describe('Performance Demo Test', function () {
@@ -315,6 +310,8 @@ If you would rather send your performance results to a log instead of asserting 
 
 <TabItem value="python">
 
+See the complete [Python performance demo](https://github.com/saucelabs/performance-python-examples/blob/main/tests/test_performance.py).
+
 ```py {5}
 def test_speed_index(self, driver):
     self.setUpClass(driver)
@@ -327,7 +324,7 @@ def test_speed_index(self, driver):
 </TabItem>
 <TabItem value="js">
 
-See the complete [JavaScript performance demo](https://github.com/saucelabs-training/demo-js).
+See the complete [JavaScript performance demo](https://github.com/saucelabs/performance-js-examples/blob/main/WebDriver.io/tests/performance.js).
 
 ```js {1}
 it('logs (sauce:performance) should check if all metrics were captured', () => {
