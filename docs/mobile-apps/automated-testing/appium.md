@@ -16,37 +16,31 @@ You can see more detailed and comprehensive instructions for all use cases can b
 ## What You'll Need
 
 * [Sample Tests](https://github.com/saucelabs-training/quickstart-appium-java)
-* The [Swag Labs Sample App](https://github.com/saucelabs/sample-app-mobile/releases) (App Tests)
-* A [Sauce Labs Username and Access Key](https://saucelabs.com/sign-up)
+* The [Swag Labs Sample App](https://github.com/saucelabs/sample-app-mobile/releases)
+* A [Sauce Labs Username and Access Key](https://app.saucelabs.com/user-settings)
 * An IDE such as [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=mac)
 * [Maven](https://maven.apache.org/install.html)
 
 ## Test a Mobile Web Browser on Sauce Labs VMs
 
 ### Step 1: Install Dependencies
-Make sure you [have Java, an IDE, and Maven installed](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) on your computer. To test a mobile web browser you will need either Android Studio or XCode to run an Emulator/ Simulator for testing on.
+Make sure you [have Java, an IDE, and Maven installed](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) on your computer.
 
-You will also want to set your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as [environment variables](https://www.youtube.com/watch?v=3K1Eu0eTha8).
+Set your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as [environment variables](https://www.youtube.com/watch?v=3K1Eu0eTha8).
 
 ### Step 2: Get Test Code
-In the [Sauce Appium sample repo](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/java/tests), you will be running the test in the `/src/test/java/tests/EmuSim` directory called `AppiumAndroidEmuWebTest.java`
+Open and review your test code in the [Sauce Appium sample repo](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/java/tests), and open the test file located in `/src/test/java/tests/EmuSim` directory called `AppiumAndroidEmuWebTest.java`.
 
-With TestNG you specify the tests you want to run using an .xml file in the [`/resources/xml` directory](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/resources/config), by editing the `pom.xml` file. Update the `testngXmlFile` tag to use the correct TestNG xml file:
+Update the `testngXmlFile` tag [in `pom.xml`](https://github.com/saucelabs-training/quickstart-appium-java/blob/main/pom.xml) to use the correct TestNG xml file.
 
 ```
 <testngXmlFile>appium_android_emu_web_test.xml</testngXmlFile>
 ```
 
-### Step 3: Set the Appium Java Binding Version
-
-Java tests using the TestNG framework rely on the `pom.xml` file to import a compatible [Appium Java Binding version](https://github.com/appium/java-client). At the top of `pom.xml` inside of the `properties` tag, update o the latest version:
+You can see the contents of this file in the [`/resources/xml` directory](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/resources/config).
 
 
-```
-<appium.version>7.5.1</appium.version>
-```
-
-### Step 4: Set Up Capabilities
+### Step 3: Set Up Capabilities
 [Update your Capabilities](https://saucelabs.com/platform/platform-configurator) to run on Sauce Labs Emulators to have these required Appium Capabilities to run an Android web browser test:
 
 ```
@@ -55,7 +49,7 @@ platforName: “Android”
 automationName: “UiAutomator2”
 ```
 
-### Step 5: Add Capabilities for the Browser
+### Step 4: Add Capabilities for the Browser
 Depending on which browser you would like to test on, you need to [set the capabilities](https://docs.saucelabs.com/dev/test-configuration-options#desktop-browser-capabilities-sauce-specific--optional) to test on that browser:
 
 ```
@@ -65,76 +59,29 @@ At a minimum, you must set the `browserName` capability, however different brows
 
 <img src={useBaseUrl('img/mobile-apps/appium-web-capabilities.png')} alt="Appium Capabilities" width="800"/>
 
-
-<!-- ### Step 2: Setup Environment
-
-First, start up Appium Desktop on your Computer.
-
-<Tabs
-  groupId="platforms"
-  defaultValue="ios"
-  values={[
-    {label: 'iOS', value: 'ios'},
-    {label: 'Android', value: 'android'},
-  ]}>
-
-<TabItem value="ios">
-* Start Appium Desktop
-* Set your Capabilities in Appium Desktop and start a session:
-`  "platformName": "iOS"
-  "platformVersion": "14.4"
-  "deviceName": "iPhone 12"
-  "automationName": "XCuiTest"`
-
-
-* The XCode simulator should open with the capabilities your specified in Appium Desktop
-
-See more in the [AppiumSetup Guide for iOS](https://docs.google.com/document/d/1e9KEhn0BP9GMGG0ynfcKSMctbLw-IS1w3mseyYAgrbI/edit?usp=sharing)
-
-
-</TabItem>
-<TabItem value="android">
-* Start Appium Desktop
-* Start Android Studio
-* Set your Capabilities to match the Emulator you are running in in Appium Desktop and start a session:
-
-`  "platformName": "Android"
-  "platformVersion": "9.0"
-  "deviceName": "Android Emulator"
-  "automationName": "UiAutomator2"`
-
-
-See more in the [Appium Setup Guide for Android](https://docs.google.com/document/d/1Q1b744PYJs7aMmpiUfgHPpnjB5SKG3nMKqWx8bYfEUs/edit?usp=sharing)
-
-Video - **[Android Appium Test Environment Setup](https://www.youtube.com/watch?v=aRC6WkmFfzc)**
-</TabItem>
-</Tabs> -->
-
 ## Test a Mobile App on Sauce Labs Real Devices
 
 ### Step 1: Install Dependencies
 Make sure you [have Java, an IDE, and Maven installed](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) on your computer.
 
-You will also want to set your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as [environment variables](https://www.youtube.com/watch?v=3K1Eu0eTha8).
+Set your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as [environment variables](https://www.youtube.com/watch?v=3K1Eu0eTha8).
 
 
 ### Step 2: Get Test Code
-In the [Sauce Appium sample repo](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/java/tests), you will be running the test in the `/src/test/java/tests/RDC` directory called `AppiumIosRdcAppTest.java`
 
-With TestNG you specify the tests you want to run using an .xml file in the`/resources/xml` [directory](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/resources/config), by editing the `pom.xml` file. Update the `testngXmlFile` tag to use the correct TestNG xml file:
+Open and review your test code in the [Sauce Appium sample repo](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/java/tests), and open the test file located in the `/src/test/java/tests/RDC` directory called `AppiumIosRdcAppTest.java`
+
+Update the `testngXmlFile` tag [in `pom.xml`](https://github.com/saucelabs-training/quickstart-appium-java/blob/main/pom.xml) to use the correct TestNG xml file.
 
 ```
 <testngXmlFile>appium_ios_rdc_app_test.xml</testngXmlFile>
 ```
-### Step 3: Set the Appium Java Binding Version
 
-Java tests using the TestNG framework rely on the `pom.xml` file to import a compatible [Appium Java Binding version](https://github.com/appium/java-client). At the top of `pom.xml` inside of the `properties` tag, update o the latest version:
 
-```
-<appium.version>7.5.1</appium.version>
-```
+You can view the contents of the .xml file in the`/resources/xml` [directory](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/resources/config).
 
-### Step 4: Set Up Your App
+
+### Step 3: Set Up Your App
 Use your own app, or grab the latest [Swag Labs App](https://github.com/saucelabs/sample-app-mobile/releases).
 
 On the [Sauce Labs App](https://app.saucelabs.com/live/app-testing), you can upload an .apk, .ipa, or .zip file, or use the API for [Mobile Application Storage](https://docs.saucelabs.com/mobile-apps/app-storage/index.html#uploading-apps-via-rest-api).
@@ -148,7 +95,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
 ```
 
-### Step 5: Set Up Capabilities
+### Step 4: Set Up Capabilities
 Update your Capabilities to run on Sauce Labs Emulators to have the minimum required Appium Capabilities to run an iOS App test:
 
 ```
@@ -167,6 +114,21 @@ capabilities.setCapability("app", "storage:filename="+appName);,
 ## Run Your Tests
 
 From you machine, either use the command `mvn clean test` or right click on the test you would like to run from your IDE to run your tests.  If you would like to skip Step 2, simply add the flag `-DtestngXmlFile=appium_ios_rdc_app_test.xml` and to change data centers, add the flag `-Dregion=us`
+
+:::note
+Java tests using the TestNG framework rely on the `pom.xml` file to import dependencies. Make sure the dependencies like [Appium Java Binding version](https://github.com/appium/java-client) and [TestNG version](https://testng.org/doc/download.html) are all up to date in the properties tag of `pom.xml`
+```
+<properties>
+    <testngXmlDir>src/test/resources/config</testngXmlDir>
+    <testngXmlFile>appium_ios_rdc_app_test.xml</testngXmlFile>
+    <testng.version>6.14.3</testng.version>
+    <commons-logging.version>1.2</commons-logging.version>
+    <selenium.version>3.141.59</selenium.version>
+    <maven-failsafe-plugin.version>2.19.1</maven-failsafe-plugin.version>
+    <appium.version>7.5.1</appium.version>
+</properties>
+```
+:::
 
 ### Optional Appium Capabilities
 
