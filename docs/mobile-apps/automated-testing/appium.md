@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This page is intended to provide you with instructions on how to quickly setup Appium tests with Java using the TestNG test runner on an Android Emulator or iOS Simulator, and run tests using the Sauce Labs App and Virtual Device Cloud. To see a comprehensive list of example, [check out the appium directory in our demo-java repo](https://github.com/saucelabs-training/demo-java/tree/dff5fd61b8e152efe59e4a8c9e75c644de4e51e0/appium-examples).
+This page is intended to provide you with instructions on how to quickly setup Appium tests with Java using the TestNG test runner on an Android Emulator or iOS Simulator, and run tests using the Sauce Labs App and Virtual Device Cloud. To see a comprehensive list of test examples, [check out the appium directory in our demo-java repo](https://github.com/saucelabs-training/demo-java/tree/dff5fd61b8e152efe59e4a8c9e75c644de4e51e0/appium-examples).
 
 You can see more detailed and comprehensive instructions for all use cases can be found in the [Real Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices) and [Virtual Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/virtual-devices) docs.
 
@@ -29,19 +29,21 @@ Make sure you [have Java, an IDE, and Maven installed](https://training.saucelab
 You will also want to set your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as [environment variables](https://www.youtube.com/watch?v=3K1Eu0eTha8).
 
 ### Step 2: Get Test Code
-In the [Sauce Appium sample repo](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/java/tests), you will be running the test in the `/src/test/java/tests` directory called `AppiumAndroidEmuWebTest.java`
+In the [Sauce Appium sample repo](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/java/tests), you will be running the test in the `/src/test/java/tests/EmuSim` directory called `AppiumAndroidEmuWebTest.java`
 
-With TestNG you specify the tests you want to run using an .xml file in the`/resources/xml` [directory](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/resources/config), by editing the `pom.xml` file. Update the `testngXmlFile` tag to use the correct TestNG xml file:
+With TestNG you specify the tests you want to run using an .xml file in the [`/resources/xml` directory](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/resources/config), by editing the `pom.xml` file. Update the `testngXmlFile` tag to use the correct TestNG xml file:
 
 ```
 <testngXmlFile>appium_android_emu_web_test.xml</testngXmlFile>
 ```
 
-### Step 3: Set the Appium Version
-Java tests using the TestNG framework rely on the `pom.xml` file to import the correct Appium version. At the top of `pom.xml` inside of the `properties` tag, update the `appium.version` tag to one that is [supported on Sauce Labs](https://saucelabs.com/platform/platform-configurator#/) and the device you are testing:
+### Step 3: Set the Appium Java Binding Version
+
+Java tests using the TestNG framework rely on the `pom.xml` file to import a compatible [Appium Java Binding version](https://github.com/appium/java-client). At the top of `pom.xml` inside of the `properties` tag, update o the latest version:
+
 
 ```
-<appium.version>7.4.1</appium.version>
+<appium.version>7.5.1</appium.version>
 ```
 
 ### Step 4: Set Up Capabilities
@@ -118,19 +120,19 @@ You will also want to set your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as [envir
 
 
 ### Step 2: Get Test Code
-In the [Sauce Appium sample repo](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/java/tests), you will be running the test in the `/src/test/java/tests` directory called `AppiumIosRdcAppTest.java`
+In the [Sauce Appium sample repo](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/java/tests), you will be running the test in the `/src/test/java/tests/RDC` directory called `AppiumIosRdcAppTest.java`
 
 With TestNG you specify the tests you want to run using an .xml file in the`/resources/xml` [directory](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/resources/config), by editing the `pom.xml` file. Update the `testngXmlFile` tag to use the correct TestNG xml file:
 
 ```
 <testngXmlFile>appium_ios_rdc_app_test.xml</testngXmlFile>
 ```
-### Step 3: Set the Appium Version
+### Step 3: Set the Appium Java Binding Version
 
-Java tests using the TestNG framework rely on the `pom.xml` file to import the correct Appium version. At the top of `pom.xml` inside of the `properties` tag, update the `appium.version` tag to one that is [supported on Sauce Labs](https://saucelabs.com/platform/platform-configurator#/) and the device you are testing:
+Java tests using the TestNG framework rely on the `pom.xml` file to import a compatible [Appium Java Binding version](https://github.com/appium/java-client). At the top of `pom.xml` inside of the `properties` tag, update o the latest version:
 
 ```
-<appium.version>7.4.1</appium.version>
+<appium.version>7.5.1</appium.version>
 ```
 
 ### Step 4: Set Up Your App
@@ -166,3 +168,13 @@ capabilities.setCapability("app", "storage:filename="+appName);,
 ## Run Your Tests
 
 From you machine, either use the command `mvn clean test` or right click on the test you would like to run from your IDE to run your tests.  If you would like to skip Step 2, simply add the flag `-DtestngXmlFile=appium_ios_rdc_app_test.xml` and to change data centers, add the flag `-Dregion=us`
+
+### Optional Appium Capabilities
+
+Sauce Labs will set default values for platform (operating system) and Appium versions, however you may want to specify versions you know are supported and compatible to aviod errors.
+
+**Appium Version** – By default your tests will run on the [latest version](https://saucelabs.com/platform/platform-configurator#/) of Appium supported by Sauce Labs for that device or OS, however you can set the [`appiumVersion` capability](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/virtual-devices/index.html#set-your-appiumversion).
+
+**Platform Version** - By default, Sauce Labs will pick a platform (depending on what's available if you are testing on Real Devices) and set an operating system for the device you are using, however you can also choose the version of the operating system with the [`platformVersion` capability](https://docs.saucelabs.com/dev/test-configuration-options/index.html#platformversion).  
+
+See the [Complete list of Optional Capabilities on Docs](https://docs.saucelabs.com/dev/test-configuration-options/index.html#mobile-app-capabilities-sauce-specific--optional)
