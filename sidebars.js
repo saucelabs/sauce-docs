@@ -520,6 +520,7 @@ module.exports = {
                             'secure-connections/sauce-connect/setup-configuration/high-availability',
                             'secure-connections/sauce-connect/setup-configuration/specialized-environments',
                             'secure-connections/sauce-connect/setup-configuration/ci-cd-environments',
+                            'secure-connections/sauce-connect/setup-configuration/legacy-tunnels',
                         ]
                     },
                     'secure-connections/sauce-connect/environment-variables',
