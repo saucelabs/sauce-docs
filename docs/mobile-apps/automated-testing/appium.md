@@ -21,7 +21,7 @@ You can see more detailed and comprehensive instructions for all use cases can b
 * An IDE such as [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=mac)
 * [Maven](https://maven.apache.org/install.html)
 
-## Quickstart – Test a Mobile Web Browser on Sauce Labs VMs
+## Test a Mobile Web Browser on Sauce Labs VMs
 
 ### Step 1: Install Dependencies
 Make sure you [have Java, an IDE, and Maven installed](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) on your computer. To test a mobile web browser you will need either Android Studio or XCode to run an Emulator/ Simulator for testing on.
@@ -47,12 +47,11 @@ Java tests using the TestNG framework rely on the `pom.xml` file to import a com
 ```
 
 ### Step 4: Set Up Capabilities
-[Update your Capabilities](https://saucelabs.com/platform/platform-configurator) to run on Sauce Labs Emulators to have the minimum required Appium Capabilities to run an Android web browser test:
+[Update your Capabilities](https://saucelabs.com/platform/platform-configurator) to run on Sauce Labs Emulators to have these required Appium Capabilities to run an Android web browser test:
 
 ```
 deviceName: “Android GoogleAPI Emulator”
 platforName: “Android”
-platformVersion: “11.0”
 automationName: “UiAutomator2”
 ```
 
@@ -111,7 +110,7 @@ Video - **[Android Appium Test Environment Setup](https://www.youtube.com/watch?
 </TabItem>
 </Tabs> -->
 
-## Quickstart – Test a Mobile App on Sauce Labs Real Devices
+## Test a Mobile App on Sauce Labs Real Devices
 
 ### Step 1: Install Dependencies
 Make sure you [have Java, an IDE, and Maven installed](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) on your computer.
