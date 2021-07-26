@@ -274,6 +274,11 @@ __Example__:
 "appium:app": "storage:filename=my_app.zip"
 ```
 
+:::tip Using Storage Id
+
+If you have an app you have uploaded to sauce storage, you can also set the `app` capability to `"storage:xxxxxxxxx-xxxxxxx-xxx"` and enter the **FILE ID** for your app 
+:::
+
 ---
 ### `deviceName`
 __Description__: allows you to set the name of the simulator, emulator, or real device you want to use in the test.

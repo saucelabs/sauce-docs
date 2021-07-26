@@ -151,11 +151,14 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 Update your Capabilities to run on Sauce Labs Emulators to have the minimum required Appium Capabilities to run an iOS App test:
 
 ```
+String appName = "iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa";
+```
+
+```
 platformName: "iOS"
-platformVersion: "14.4"
 deviceName: "iPhone 12"
 automationName: "XCuiTest"
-app: "iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa",
+capabilities.setCapability("app", "storage:filename="+appName);,
 ```
 
 <img src={useBaseUrl('img/mobile-apps/appium-app-capabilities.png')} alt="Appium Capabilities" width="800"/>
