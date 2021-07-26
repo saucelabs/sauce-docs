@@ -13,16 +13,6 @@ API Fortress is an API-first platform that was built from the ground up for depl
 
 Find APIs on the API Fortress platform for most features, including data and test execution. You can use that API to easily run a single test, all tests, tests with specific tags, and more.
 
-## Command-line Tool (APIF-Auto)
-
-We have also created a command-line tool that is easy to use, and exposes the execution of APIF tests in their local environment. It is also a great way to expose results during the build phase directly in the CI platform.
-
-- [Download APIF-Auto](/api-testing/mark2/ci/apif-auto)
-- [Jenkins and APIF-Auto](/api-testing/mark2/ci/jenkins/apif-auto)
-- [APIF-Auto General Docs](/api-testing/mark2/ci/apif-auto) - The command-line tool can be used with _any_ CI/CD platform! We are working on creating additional dedicated docs.
-
-## API General Usage Guide
-
 ### Step 1 - Install an HTTP Plugin
 
 Depending on your CI/CD platform, you may need to install a plugin that allows for HTTP requests during the build process. API Fortress will need the plugin to execute the tests.
@@ -49,13 +39,13 @@ To generate an API hook:
 The next steps depend on what you’re trying to test. The following directions are based on the assumption that you wish to run all of the tests in a project. You can also run a single test, or a series of tests with a certain tag. If you would like to learn more, please contact API Fortress.
 :::
 
-Consider the following example API hook:
+Consider the following example API:
 
 ```http request
 https://mastiff.apifortress.com/app/api/rest/v3/86f81b19-2d29-4879-91d9-6dbb2271fec0861
 ```
 
-The normal command to run all of the tests in the project, per the API Fortress docs is `/tests/run-all_\`, so we append this to the API call like so:
+The normal command to run all of the tests in the project, per the API Fortress docs is `/tests/run-all`, so we append this to the API call like so:
 
 ```http request 
 https://mastiff.apifortress.com/app/api/rest/v3/86f81b19-2d29-4879-91d9-6dbb2271fec0861/tests/run-all

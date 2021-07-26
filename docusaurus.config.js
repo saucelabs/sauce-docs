@@ -66,20 +66,14 @@ const docusaurusConfig = {
           to: '/overview',
         },
         {
-          label: 'For Developers',
+          label: 'API',
           position: 'left',
-          items: [
-            {
-              label: 'API Docs',
-              position: 'left',
-              to: '/dev/api',
-            },
-            {
-              label: 'CLI Docs',
-              position: 'left',
-              to: '/dev/cli',
-            },
-          ],
+          to: '/dev/api',
+        },
+        {
+          label: 'CLI',
+          position: 'left',
+          to: '/dev/cli',
         },
         {
           label: 'Try it Free',

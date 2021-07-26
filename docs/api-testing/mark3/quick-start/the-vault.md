@@ -15,45 +15,44 @@ The vault allows you to store variables and code snippets that can be used acros
 
 The link to access the Vault is at the top of the window, as shown below:
 
- <img src={useBaseUrl('img/api-fortress/2020/01/vault_header.jpg')} alt="Vault Header"/>
+<img src={useBaseUrl('img/api-fortress/2021/04/fromDashboard.png')} alt="Access Vault from Dashboard"/>
 
-### Project Column
+:::caution Vault Scope
+As with variables, code snippets saved in a specific project are only available in that project.
 
-The first column shows all of the projects of a company and the Global Vault. Code snippets and variables saved in a specific project are only available in that project. _They are not available across projects._ If a variable and/or code snippet needs to be available in more projects within the company, they must be saved to the **Global Vault**. 
+_They are not available across all projects._
 
-The Global Vault has been built to make variables and code snippets available across all of the projects in a company.
+If a variable and/or code snippet needs to be available in more projects within the company, they must be saved here in the **Company Vault**.
+:::
 
- <img src={useBaseUrl('img/api-fortress/2020/01/prj_global.jpg')} alt="Global Projects"/>
+### Variables Section
 
+The first view shows all of the global variables in the Company Vault; these variables and code snippets are available across all projects.
 
- <img src={useBaseUrl('img/api-fortress/2020/01/snippet_var.jpg')} alt="Snippet Variable"/>
+<img src={useBaseUrl('img/api-fortress/2021/04/company_vault.png')} alt="Company Vault View"/>
+
+In the variable section, you can define variables that will be part of the scope of the tests. If a variable with the same name is defined within the test, it will override the one defined in the Vault. For identical variable names in the global vault and in the project vault, the latter will have higher priority.
+
+Defining a variable in the Vault is helpful when you need to use the same variable across multiple tests. This way, you don't need to rewrite it every time.
+
+For example, a password could be saved as a variable and reused in multiple places.
+
+:::tip Import Postman Collections into The Vault
+Additionally, you can import variables from Postman. See [here](/api-testing/mark3/quick-start/importing-postman-collections/) for more details.
+:::
 
 ### Snippet Section
 
-In the snippet section, you will find all of the snippets you have created using the Composer (see [here](/api-testing/mark2/reference/composer-snippets) for more details). 
+In the snippet section, you will find all of the snippets you have created using the Composer.
 
+:::tip What is a Snippet?
+See [here](/api-testing/mark2/reference/composer-snippets) for more details. 
+:::
 Once you have saved the snippet, from the composer, you can choose whether you want to save it and make it available only for the current project or for all the projects within the company by saving it in the Global Vault. If you already have a snippet saved for the current project but you need to make it available across all projects, you can easily export them from the current project to the Global Vault by using the import/export feature. 
 
 <img src={useBaseUrl('img/api-fortress/2020/01/snippet.jpg')} alt="Snippet"/>
 
 A good use case for the snippets feature is an authentication flow; you don't need or want to rewrite all of the steps in every test. You just need to call the snippet that contains the authentication snippet. Another good example is integration testing, where you can reuse various tests to create one larger flow.
-
-### Variable Section
-
-In the variable section, you can define variables that will be part of the scope of the tests.
-
-<img src={useBaseUrl('img/api-fortress/2020/01/variable.jpg')} alt="Variable"/>
-
-
-If a variable with the same name is defined within the test, it will override the one defined in the Vault. For identical variable names in the global vault and in the project vault, the latter will have higher priority.
-
-Defining a variable in the Vault is helpful when you need to use the same variable across multiple tests. This way, you don't need to rewrite it every time. 
-
-For example, a password could be saved as a variable and reused in multiple places.
-
-Just like code snippets, if you need a variable available across multiple projects, you can save it in the Global Vault or import it directly from another project.
-
-Additionally, you can import variables from Postman. See [here](/api-testing/mark2/quick-start/importing-postman-collections/) for more details.
 
 ## Vault Tab in Composer
 
