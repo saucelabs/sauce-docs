@@ -25,7 +25,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  <Tabs
    groupId="platforms"
-   defaultValue="docker"
+   defaultValue="sauce"
    values={[
      {label: 'Sauce Labs', value: 'sauce'},
      {label: 'Docker', value: 'docker'},
@@ -35,6 +35,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Playwright Version|Supported Platforms|Supported Browsers|
  |-----|-----|-----|
+ |1.12.3|Windows 10|Chromium, Firefox, Webkit|
  |1.11.1|Windows 10|Chromium, Firefox, Webkit|
  |1.10.0|Windows 10|Chromium, Firefox, Webkit|
  |1.7.1|Windows 10|Chromium, Firefox, Webkit|
@@ -46,7 +47,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Playwright Version|Supported Browsers|
  |-----|----|
- |1.11.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.12.0)|
+ |1.12.3|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.0.3)|
+ |1.11.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.13.0)|
  |1.11.0|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.11.0)|
  |1.10.0|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.10.0)|
  |1.7.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.7.5)|
