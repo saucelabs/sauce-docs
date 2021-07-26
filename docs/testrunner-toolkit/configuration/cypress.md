@@ -62,6 +62,7 @@ Specifies any default settings for the project.
 ```yaml
 defaults:
   mode: sauce
+  timeout: 15m
 ```
 ---
 
@@ -72,6 +73,16 @@ Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally 
 
 ```yaml
   mode: sauce
+```
+---
+
+### `timeout`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Instructs how long `saucectl` should wait for the suites to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
+
+```yaml
+  timeout: 15m
 ```
 ---
 
@@ -497,6 +508,20 @@ One or more paths to the Cypress test files to run for this suite, if not otherw
 
 ```yaml
       testFiles: [ "**/*.*" ]
+```
+---
+
+### `timeout`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.
+
+:::note
+Setting `0` will make saucectl use the value set in `defaults`.
+:::
+
+```yaml
+  timeout: 15m
 ```
 ---
 
