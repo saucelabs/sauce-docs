@@ -9,6 +9,10 @@ import TabItem from '@theme/TabItem';
 
 ## Real Device Cloud Setup
 
+:::note
+The content on this page applies to the new RDC on Sauce platform. If you're looking for instructions on how to run Sauce Connect Proxy on our Legacy RDC platform (TestObject), see [Creating Tunnels in TestObject (Legacy)](/secure-connections/sauce-connect/setup-configuration/legacy-tunnels).
+:::
+
 Real Device Cloud on Sauce Labs (RDC on Sauce) offers public and private mobile devices for users looking to expedite automated and live testing for their mobile apps. You can run a high volume of tests across a broad range of real devices without compromising performance, quality, or reliability.
 
 With Sauce Connect Proxy, you’ll have a secure tunnel for testing applications and websites on your local machine (or behind a firewall) against devices and browsers in the Sauce Labs Real Device Cloud.  
@@ -128,10 +132,10 @@ Once you establish a Sauce Connect Proxy tunnel for real device testing, you can
 To ensure you're testing against the correct data center, you'll need to add the correct OnDemand endpoint when you instantiate a MobileDriver in your automated test:
 
 <Tabs
-  defaultValue="Java Snippet: Driver Setup for US Data Center"
+  defaultValue="US Data Center"
   values={[
-    {label: 'Java Snippet: Driver Setup for US Data Center', value: 'Java Snippet: Driver Setup for US Data Center'},
-    {label: 'Java Snippet: Driver Setup for EU Data Center', value: 'Java Snippet: Driver Setup for EU Data Center'},
+    {label: 'Java Snippet: Driver Setup for US Data Center', value: 'US Data Center'},
+    {label: 'Java Snippet: Driver Setup for EU Data Center', value: 'EU Data Center'},
   ]}>
 
 <TabItem value="US Data Center">

@@ -53,15 +53,21 @@ When a test has **Changed** or **New** UI states, it will show a Review button:
 
 <img src={useBaseUrl('img/visual/e2e-review-button.png')} alt="E2E Review Button" />
 
+<img src={useBaseUrl('img/visual/e2e-review-button.png')} alt="E2E Review Button" />
+
 Clicking on the Review button will display a list of your UI states filtered to only those needing review.
 
 Click on the first UI state to start reviewing:
 
 <img src={useBaseUrl('img/visual/e2e-review-state.jpeg')} alt="E2E Review State" />
 
+<img src={useBaseUrl('img/visual/e2e-review-state.jpeg')} alt="E2E Review State" />
+
 ## 2. Review UI State
 
-You will be presented with screenshots of the selected UI state:
+You will be presented with screenshots of the selected UI state.
+
+<img src={useBaseUrl('img/visual/e2e-review-screenshots.jpeg')} alt="E2E Review Screenshots" />
 
 <img src={useBaseUrl('img/visual/e2e-review-screenshots.jpeg')} alt="E2E Review Screenshots" />
 
@@ -72,6 +78,7 @@ Changed UI states will include highlights of visual changes directly overlayed o
 :::tip Tip: Ignoring
 
 [Learn how to ignore changes](/visual/e2e-testing/ignore).
+
 :::
 
 
@@ -88,6 +95,7 @@ After reviewing the UI state, you can either:
 * **Reject**: if defects are found which need to be fixed (tip: keyboard shortcut is Shift + Down Arrow).
 
 <img src={useBaseUrl('img/visual/e2e-review-accept.png')} alt="E2E Review Accept" width="300"/>
+
 
 
 ## 4. Continue Reviewing
