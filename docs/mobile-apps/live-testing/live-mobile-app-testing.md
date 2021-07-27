@@ -55,7 +55,7 @@ To easily copy a test's file name or ID, hover over the test and then click the 
 | Image Injection | Enable/disable image injection. Image injection allows you to mimic camera behavior when testing applications by letting you upload an image and present it to the application as if it were read by the device camera. |
 | Bypass Screenshot Restriction <br/><p><span className="sauceDBlue">ANDROID ONLY</span></p> | Enable/disable Bypass Screenshot Restriction (not supported on applications uploaded to the legacy sauce storage). Enabling **Bypass Screenshot Restriction** allows you to take screenshots of your app during tests, even if your app does not allow screenshots for security reasons. |
 | System Alerts Display <br/><p><span className="sauceDBlue">iOS Only</span></p> | Enable/disable a system alerts delay. Enabling delays alerts, such as asking for permission to access the camera, to prevent app crashes at startup. |
-| Biometrics Interception <br/><p><span className="sauceDBlue">iOS Only</span></p> | Enable/disable biometrics. Enabling allows you to choose authentication options if your mobile app requires a biometric authentication, such as Touch ID or Face ID. |
+| Biometrics Interception | Enable/disable biometrics. Enabling allows you to choose authentication options if your mobile app requires a biometric authentication, such as Touch ID or Face ID. |
 | Group Folder Redirect <br/><p><span className="sauceDBlue">iOS Only</span></p> | Enable/disable a group directory redirect. Enabling allows you to use your app's private app container directory instead of the shared app group container directory. When your app gets resigned, the shared directory is not accessible. |
 
 :::note
@@ -162,7 +162,8 @@ The graph and csv file will contain these performance metrics for devices.
 | `network_mobile_receive_b` | Data in bytes received from the mobile carrier network |
 | `network_mobile_sent_b` | Data in bytes sent over mobile carrier network |
 
-:::note Device Vitals for live testing is currently in beta state, which means we are testing it on a few devices first. We will roll out to all devices in the coming weeks, please refer to this page for updates. See the full list of combinations available for beta below.
+:::note
+Device Vitals for live testing is currently in beta state, which means we are testing it on a few devices first. We will roll out to all devices in the coming weeks, please refer to this page for updates. See the full list of combinations available for beta below.
 :::
 
 <Tabs
