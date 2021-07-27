@@ -36,7 +36,7 @@ Each of the properties supported for running Cypress tests through `saucectl` is
 ## `apiVersion`
 <p><small>| REQUIRED | STRING |</small></p>
 
-Identifies the version of `saucectl` that is compatible with this configuration.
+Identifies the version of the underlying configuration schema. At this time, `v1alpha` is the only supported value.
 
 ```yaml
 apiVersion: v1alpha
@@ -313,12 +313,12 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 #### `match`
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
 
-Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*`.
+Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
 
 ```yaml
   match:
     - junit.xml
-    - *.log
+    - "*.log"
 ```
 ---
 
