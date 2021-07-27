@@ -92,7 +92,7 @@ After reviewing the UI state, you can either:
 * **Accept**: if the screenshots are as expected, which will set the current as the new baseline (tip: keyboard shortcut is Shift + Up Arrow).
 * **Reject**: if defects are found which need to be fixed (tip: keyboard shortcut is Shift + Down Arrow).
 
-<img src={useBaseUrl('img/visual/e2e-review-accept.png')} alt="E2E Review Accept" width="300"/>
+  <img src={useBaseUrl('img/visual/e2e-review-accept.png')} alt="E2E Review Accept" width="200"/>
 
 
 ## 4. Continue Reviewing
@@ -101,13 +101,13 @@ Continue reviewing the remaining UI states by clicking one of the below options 
 * **Next** arrow (tip: keyboard shortcut is Right Arrow).
 * **Previous** arrow (tip: keyboard shortcut is Left Arrow).
 
-<img src={useBaseUrl('img/visual/e2e-review-next.png')} alt="E2E Review Next" />
+  <img src={useBaseUrl('img/visual/e2e-review-next.png')} alt="E2E Review Next" width="150"/>
 
-:::tip Accept All Button
+
+:::tip Tip: Accept All Button
 
 Use the **Accept All** button to quickly set ___all___ filtered UI states to accepted.
 :::
-
 
 ## 5. Review Complete
 
