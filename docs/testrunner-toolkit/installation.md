@@ -58,10 +58,9 @@ Browser support depends on the chosen [test framework](/testrunner-toolkit#suppo
 
 ## Installing `saucectl`
 
-`saucectl` binaries are attached to Github releases.<br />
-You can find the one matching you platform here: https://github.com/saucelabs/saucectl/releases/latest
+`saucectl` binaries are attached to [Github releases](https://github.com/saucelabs/saucectl/releases/latest).
 
-You will find now, some common way to install `saucectl`:
+Following is a list of `saucectl` installation options that are common across different development environments:
 
 ```bash title="Using NPM"
 npm install -g saucectl
