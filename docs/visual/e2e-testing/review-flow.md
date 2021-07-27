@@ -80,7 +80,6 @@ Changed UI states will include highlights of visual changes directly overlayed o
 [Learn how to ignore changes](/visual/e2e-testing/ignore).
 :::
 
-
 :::tip Tip: Change Details
 
 [Learn how to view change details](/visual/e2e-testing/change-details).
