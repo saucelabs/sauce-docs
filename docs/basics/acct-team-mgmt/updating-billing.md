@@ -8,12 +8,16 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 You can update your plan billing information at any time for our online plans.
 
-**NOTE:** If you want to update the billing information for an Enterprise plan, contact your Sauce Labs account executive.
+:::note
+If you want to update the billing information for an Enterprise plan, contact your Sauce Labs account executive.
+:::
 
-**NOTE:** Sauce Labs is currently migrating its billing system, so the steps to update your billing information will depend on what tab is available.
+:::note
+Sauce Labs is currently migrating its billing system, so the steps to update your billing information will depend on what tab is available.
+:::
 
 ## Virtual Device Cloud Billing
-In Sauce Labs, click **Account**, and then click **Billing**.
+In Sauce Labs, click **ACCOUNT**, and then click **Billing**.
 
 <img src={useBaseUrl('img/team-mgmt/billing-nav.jpg')} alt="Billing navigation" width="400"/>
 
@@ -25,7 +29,9 @@ If the **Payment** tab is visible:
 3. Select the checkbox to acknowledge you are replacing the card on file.
 4. Click **Save Payment Method**.
 
-**NOTE:** For your reference, the URL for this page is **billing.saucelabs.com**.
+:::note
+For your reference, the URL for this page is **billing.saucelabs.com**.
+:::
 
 ### Billing Information Tab
 If the **Billing Information** tab is visible:
@@ -35,7 +41,9 @@ If the **Billing Information** tab is visible:
 3. To update the card on file, click **Replace Existing Card**.
 4. Click **Update Payment**.
 
-**NOTE:** For your reference, the URL for this page is **https:<span></span>//app.saucelabs.com/billing/my-account**.
+:::note
+For your reference, the URL for this page is **https:<span></span>//app.saucelabs.com/billing/my-account**.
+:::
 
 ## Real Device Cloud Billing
 1. In Sauce Labs, in the left panel, click **Sauce Apps** and then click **Legacy RDC**.
