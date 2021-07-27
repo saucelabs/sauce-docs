@@ -35,7 +35,7 @@ Each of the properties supported for running Espresso tests through `saucectl` i
 ## `apiVersion`
 <p><small>| REQUIRED | STRING |</small></p>
 
-Identifies the version of `saucectl` that is compatible with this configuration.
+Identifies the version of the underlying configuration schema. At this time, `v1alpha` is the only supported value.
 
 ```yaml
 apiVersion: v1alpha
@@ -199,12 +199,12 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 #### `match`
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
 
-Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` so you can conveniently specify all artifacts of a specific file type.
+Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
 
 ```yaml
   match:
     - junit.xml
-    - *.log
+    - "*.log"
 ```
 ---
 
@@ -264,17 +264,17 @@ The path to the testing application. The relative file location is `{project-roo
 ### `otherApps`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Set of one or more paths to apps to be pre-installed for running tests. The relative file location is `{project-root}/apps/app1.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples.
-```yaml
-  otherApps:
-    - ./apps/pre-installed-app1.apk
-    - ./apps/pre-installed-app2.apk
-```
+Set of one or more apps to be pre-installed for your tests. You can upload an app from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
+
+:::note
+Apps specified as `otherApps` inherit the configuration of the main app under test for settings such as `proxy`, `locale`, and `device orientation`, regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test.
+:::
 
 ```yaml
   otherApps:
-    - $PRE_INSTALLED_APP1
+    - ./apps/pre-installed-app1.apk
     - $PRE_INSTALLED_APP2
+    - storage:filename=pre-installed-app3.apk
 ```
 ---
 
@@ -369,6 +369,8 @@ When an ID is specified, it supersedes the other settings.
 devices:
   - name: "Google Pixel.*"
     platformVersion: 8.1
+    options:
+      carrierConnectivity: true
   - id: Google_Pixel_2_real_us
 ```
 ---
@@ -420,7 +422,8 @@ A parent property to further specify desired device attributes within the pool o
 Request that the matching device is also connected to a cellular network.
 
 ```yaml
-       carrierConnectivity: true
+  options:
+      carrierConnectivity: true
 ```
 ---
 
@@ -430,7 +433,8 @@ Request that the matching device is also connected to a cellular network.
 Request that the matching device is a specific type of device. Valid values are:  `ANY`, `TABLET`, or `PHONE`.
 
 ```yaml
-        deviceType: TABLET
+  options:
+      deviceType: TABLET
 ```
 ---
 
@@ -440,7 +444,8 @@ Request that the matching device is a specific type of device. Valid values are:
 Request that the matching device is from your organization's private pool.
 
 ```yaml
-        private: true
+  options:
+      private: true
 ```
 ---
 
