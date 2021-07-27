@@ -5,6 +5,8 @@ sidebar_label: Page Motion
 description: Measure aesthetic smoothness as a page is in motion due to scrolling or tabbing between fields.
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 In addition to testing the efficiency of your application rendering, Sauce Labs also provides a means for testing how a single page performs in motion, such as while scrolling or tabbing.
 
 ## What You'll Learn
@@ -72,11 +74,11 @@ The command plus assertion returns a JSON object detailing a series of metric sc
 
 When your test completes, it generates a set of metrics and that you can access through the **Performance** tab of the **Test Details** page of the Sauce Labs app. If you detect a regression in your website's performance, you can download a Full Trace report, or you can use the Chrome DevTool, which records Javascript method signatures in a hierarchical view for each thread in each process, to get a better idea of how the Chrome browser is interacting with your website.
 
-<img src="/docs/assets/perf-jank.png" alt="Jankiness Score" width="750"/>
+<img src={useBaseUrl('img/performance/perf-jank.png')} alt="Jankiness Score" width="750"/>
 
 Click the **View Full Report** button to see additional details, including area charts showing the Frames Per Second (FPS) CPU and Heap memory used during the jankiness test.
 
-<img src="/docs/assets/perf-jank-full.png" alt="Jankiness Details" width="750"/>
+<img src={useBaseUrl('img/performance/perf-jank-full.png')} alt="Jankiness Details" width="750"/>
 
 ## Jankiness Metrics
 
@@ -120,7 +122,7 @@ Each of the individual metrics in the score is part of a larger diagnostic categ
 
 The frame rate, or frames per second (`fpsScore`) captures any sort of stuttering on the page. The minimum FPS value to achieve a smooth experience for the user is 60 FPS. As you can see in the example, the averageFPS metric of 30.4 in this test produces an FPS score of 0.5, which is essentially 50% of the standard.
 
-###Browser Workload
+### Browser Workload
 
 The `idleDurationScore` represents the extent to which the browser is using resources to redraw content as the page moves, which influences the overall performance. The score is based on the metric results for:
 
