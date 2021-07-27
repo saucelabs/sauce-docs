@@ -267,7 +267,7 @@ static void test() {
 </Tabs>
 
 
-For more details on commands, view the [Visual Commands](h/visual/e2e-testing/visual-commands) documentation.
+For more details on commands, view the [Visual Commands](/visual/e2e-testing/visual-commands) documentation.
 
 For full examples, view [Code Examples](/visual/e2e-testing/code-examples).
 
