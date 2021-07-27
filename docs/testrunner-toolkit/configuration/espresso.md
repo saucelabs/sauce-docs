@@ -35,7 +35,7 @@ Each of the properties supported for running Espresso tests through `saucectl` i
 ## `apiVersion`
 <p><small>| REQUIRED | STRING |</small></p>
 
-Identifies the version of `saucectl` that is compatible with this configuration.
+Identifies the version of the underlying configuration schema. At this time, `v1alpha` is the only supported value.
 
 ```yaml
 apiVersion: v1alpha
@@ -199,12 +199,12 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 #### `match`
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
 
-Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` so you can conveniently specify all artifacts of a specific file type.
+Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
 
 ```yaml
   match:
     - junit.xml
-    - *.log
+    - "*.log"
 ```
 ---
 
@@ -369,6 +369,8 @@ When an ID is specified, it supersedes the other settings.
 devices:
   - name: "Google Pixel.*"
     platformVersion: 8.1
+    options:
+      carrierConnectivity: true
   - id: Google_Pixel_2_real_us
 ```
 ---
@@ -420,7 +422,8 @@ A parent property to further specify desired device attributes within the pool o
 Request that the matching device is also connected to a cellular network.
 
 ```yaml
-       carrierConnectivity: true
+  options:
+      carrierConnectivity: true
 ```
 ---
 
@@ -430,7 +433,8 @@ Request that the matching device is also connected to a cellular network.
 Request that the matching device is a specific type of device. Valid values are:  `ANY`, `TABLET`, or `PHONE`.
 
 ```yaml
-        deviceType: TABLET
+  options:
+      deviceType: TABLET
 ```
 ---
 
@@ -440,7 +444,8 @@ Request that the matching device is a specific type of device. Valid values are:
 Request that the matching device is from your organization's private pool.
 
 ```yaml
-        private: true
+  options:
+      private: true
 ```
 ---
 
