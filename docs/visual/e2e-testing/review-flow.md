@@ -53,15 +53,21 @@ When a test has **Changed** or **New** UI states, it will show a Review button:
 
 <img src={useBaseUrl('img/visual/e2e-review-button.png')} alt="E2E Review Button" />
 
+<img src={useBaseUrl('img/visual/e2e-review-button.png')} alt="E2E Review Button" />
+
 Clicking on the Review button will display a list of your UI states filtered to only those needing review.
 
 Click on the first UI state to start reviewing:
 
 <img src={useBaseUrl('img/visual/e2e-review-state.jpeg')} alt="E2E Review State" />
 
+<img src={useBaseUrl('img/visual/e2e-review-state.jpeg')} alt="E2E Review State" />
+
 ## 2. Review UI State
 
-You will be presented with screenshots of the selected UI state:
+You will be presented with screenshots of the selected UI state.
+
+<img src={useBaseUrl('img/visual/e2e-review-screenshots.jpeg')} alt="E2E Review Screenshots" />
 
 <img src={useBaseUrl('img/visual/e2e-review-screenshots.jpeg')} alt="E2E Review Screenshots" />
 
