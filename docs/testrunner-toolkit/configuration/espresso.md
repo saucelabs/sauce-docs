@@ -64,13 +64,12 @@ defaults:
 ---
 
 ### `timeout`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| OPTIONAL | DURATION |</small></p>
 
-Instructs how long `saucectl` should wait for the suites to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
+Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
 
 ```yaml
   timeout: 15m
-```
 ---
 
 ## `sauce`
@@ -332,12 +331,12 @@ A property containing one or more environment variables that may be referenced i
 ---
 
 ### `timeout`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| OPTIONAL | DURATION |</small></p>
 
 Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.
 
 :::note
-Setting `0` will make saucectl use the value set in `defaults`.
+Setting `0` reverts to the value set in `defaults`.
 :::
 
 ```yaml

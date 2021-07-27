@@ -512,12 +512,12 @@ One or more paths to the Cypress test files to run for this suite, if not otherw
 ---
 
 ### `timeout`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| OPTIONAL | DURATION |</small></p>
 
 Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.
 
 :::note
-Setting `0` will make saucectl use the value set in `defaults`.
+Setting `0` reverts to the value set in `defaults`.
 :::
 
 ```yaml
