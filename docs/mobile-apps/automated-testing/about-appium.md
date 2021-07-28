@@ -24,7 +24,7 @@ Review [Appium's system requirements](http://appium.io/).
 
 ## Appium Architecture
 
-Appium has a client-server architecture.
+Appium has a client-server architecture. The general way this process works is that a client (you) sends requests to the Appium server. The server then processes each request based on the test session details, and then responds with the test results and/or log files. Read below for further details about the client-server architecture.
 
 ### Appium Client
 
