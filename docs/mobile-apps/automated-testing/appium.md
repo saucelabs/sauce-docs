@@ -97,7 +97,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 :::note
 Different file types are required for testing in different environments:
 * An Android emulator or real device needs to have an .apk-file
-* An iOS simulator needs to have an .app file which needs to be zipped for the Sauce Labs amulators
+* An iOS simulator needs to have an .app file which needs to be zipped for the Sauce Labs emulators (.zip file upload)
 * An iOS real device needs to have an .ipa-file
 :::
 
