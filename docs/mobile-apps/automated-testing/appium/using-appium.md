@@ -1,6 +1,6 @@
 ---
 id: using-appium
-title: Using Appium for Automated Mobile App Testing
+title: Appium on Sauce Labs
 sidebar_label: Using Appium
 ---
 
@@ -32,27 +32,22 @@ The Appium client is a programming language-specific [set of client libraries](h
 
 ### Appium Server
 
-The Appium server component, based on node.js, exposes a superset of the [JSON Wire Protocol](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol), known as the [Mobile JSON Wire Protocol](https://github.com/SeleniumHQ/mobile-spec/blob/master/spec-draft.md). 
+The Appium server component, based on node.js, exposes a superset of the [JSON Wire Protocol](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol), known as the [Mobile JSON Wire Protocol](https://github.com/SeleniumHQ/mobile-spec/blob/master/spec-draft.md). The Appium server also supports elements of the [W3C Webdriver spec](https://w3c.github.io/webdriver/webdriver-spec.html)
 
-<<<<<<< HEAD:docs/mobile-apps/automated-testing/appium/using-appium.md
-=======
-The Appium server also supports elements of the [W3C Webdriver spec](https://w3c.github.io/webdriver/webdriver-spec.html)
-
->>>>>>> c7c291e4afc4e9d8a24036825c20da73a6bef18e:docs/mobile-apps/automated-testing/about-appium.md
 Additionally, an [Appium desktop application](http://appium.io/downloads) exists that runs on Mac, Windows, and Linux. This application provides a graphical interface of the Appium server where you can set test configuration options, and use an inspector to view application elements. Please visit the [following page](https://github.com/appium/appium-desktop) for further technical information.
 
 :::note
 Appium Desktop is currently supported by the [Appium core team](https://appium.io/docs/en/contributing-to-appium/developers-overview/#developer-community).
 :::
 
-## Creating an Appium Test
+## Creating an Appium Tests
 
 Here are the basic steps for creating an Appium test script for your application under test (AUT):
 
 ### 1. Set your app location
-When you write an Appium test script, the most basic component is the [capabilities object](/basics/test-config-annotation/test-annotation). This is where you set your test parameters, such as the mobile platform and operating system you want to test against.
+When you write an Appium test script, the most basic component is the [capabilities object](/basics/test-config-annotation/test-annotation). This is where you set your test parameters, such as the mobile platform and operating system you want to test against.
 
-Within that object, one of the [required capabilities](/dev/test-configuration-options) is the `app` capability: the path to your application (e.g., Sauce Storage, AWS, GitHub). One of the advantages of the Appium architecture is that the application you want to test can be hosted anywhere, from a local path to any other web host on the network, since the Appium server will send the commands it receives from the client to any application path you specify. Practically, you have three options. 
+Within that object, one of the [required capabilities](/dev/test-configuration-options) is the `app` capability: the path to your application (e.g., Sauce Storage, AWS, GitHub). One of the advantages of the Appium architecture is that the application you want to test can be hosted anywhere, from a local path to any other web host on the network, since the Appium server will send the commands it receives from the client to any application path you specify. Practically, you have three options. 
 
 To learn about Application Storage on Sauce Labs, [click here](/mobile-apps/app-storage.md).
 
@@ -62,7 +57,7 @@ To learn about Application Storage on Sauce Labs, [click here](/mobile-apps/app-
 
 In this step, you'll create an Appium driver instance which points to a running Appium server (e.g., the servers on Sauce Labs). The WebDriver instance is the starting point for all uses of the Mobile JSON Wire Protocol.
 
-You'll need to create an instance of the WebDriver interface using a constructor for either Android or iOS. For mobile native application tests, you set both the platform and browser to test against by setting the `browserName` capability. 
+You'll need to create an instance of the WebDriver interface using a constructor for either Android or iOS. For mobile native application tests, you set both the platform and browser to test against by setting the `browserName` capability. 
 
 Once you have created an instance of the WebDriver interface, you use this instance to invoke methods, such as tap and swipe, to access other interfaces used in basic test steps. You do so by assigning the instance to a variable when you create it, and by using that variable to invoke methods.
 

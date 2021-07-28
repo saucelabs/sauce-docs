@@ -1,6 +1,6 @@
 ---
 id: appium
-title: Quickstart
+title: Appium Quickstart
 sidebar_label: Quickstart
 ---
 
