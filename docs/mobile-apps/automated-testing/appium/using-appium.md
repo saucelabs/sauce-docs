@@ -34,7 +34,7 @@ The Appium client is a programming language-specific [set of client libraries](h
 
 The Appium server component, based on node.js, exposes a superset of the WebDriver API known as the [Mobile JSON Wire Protocol](https://speakerdeck.com/jlipps/the-mobile-json-wire-protocol).
 
-The server also includes a [desktop application](http://appium.io/downloads) that contains everything you need to run Appium, bundled in a single package.  It offers the ability to inspect elements in running applications. Available for Mac, Windows, and Linux.
+Additionally, an [Appium desktop application](http://appium.io/downloads) exists that runs on Mac, Windows, and Linux. This application provides a graphical interface of the Appium server where you can set test configuration options, and use an inspector to view application elements. Please visit the [following page](https://github.com/appium/appium-desktop) for further technical information.
 
 :::note
 Appium Desktop is currently supported by the [Appium core team](https://appium.io/docs/en/contributing-to-appium/developers-overview/#developer-community).
