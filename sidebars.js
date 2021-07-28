@@ -160,6 +160,7 @@ module.exports = {
                         label: 'Appium',
                         collapsed: true,
                         items: [
+                            'mobile-apps/automated-testing/appium/using-appium',
                             'mobile-apps/automated-testing/appium',
                             'mobile-apps/automated-testing/appium/real-devices',
                             'mobile-apps/automated-testing/appium/virtual-devices',
