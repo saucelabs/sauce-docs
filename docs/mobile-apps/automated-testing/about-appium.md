@@ -28,7 +28,7 @@ Appium has a client-server architecture. The general way this process works is t
 
 ### Appium Client
 
-The Appium client includes a [set of client libraries](http://appium.io/downloads) for various scripting languages in which you write your test scripts based on the Selenium WebDriver API.
+The Appium client is a programming language-specific [set of client libraries](http://appium.io/downloads) in which you write your test scripts. The Appium client library wraps the [Selenium client libraries](https://www.selenium.dev/documentation/en/selenium_installation/installing_selenium_libraries/) and provides all the base selenium commands, along with extra commands specifically for automating mobile devices.
 
 ### Appium Server
 
