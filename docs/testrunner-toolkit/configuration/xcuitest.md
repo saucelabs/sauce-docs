@@ -53,6 +53,26 @@ kind: xcuitest
 ```
 ---
 
+## `defaults`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies any default settings for the project.
+
+```yaml
+defaults:
+  timeout: 15m
+```
+---
+
+### `timeout`
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
+
+```yaml
+  timeout: 15m
+---
+
 ## `sauce`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -307,6 +327,20 @@ A property containing one or more environment variables that may be referenced i
   env:
     hello: world
     my_var: $MY_VAR
+```
+---
+
+### `timeout`
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.
+
+:::note
+Setting `0` reverts to the value set in `defaults`.
+:::
+
+```yaml
+  timeout: 15m
 ```
 ---
 
