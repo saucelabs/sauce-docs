@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This page is intended to provide you with instructions on how to quickly setup Appium tests with Java using the TestNG test runner on an Android Emulator or iOS Simulator, and run tests using the Sauce Labs App and Virtual Device Cloud. To see a comprehensive list of test examples, [check out the appium directory in our demo-java repo](https://github.com/saucelabs-training/demo-java/tree/dff5fd61b8e152efe59e4a8c9e75c644de4e51e0/appium-examples).
+This page is intended to provide you with instructions on how to quickly set up Appium tests with Java using the TestNG test runner on an Android Emulator or an iOS Real Deives, and run tests using the Sauce Labs App with the Virtual Device and Real Device Cloud. To see a comprehensive list of test examples, [check out the appium directory in our demo-java repo](https://github.com/saucelabs-training/demo-java/tree/dff5fd61b8e152efe59e4a8c9e75c644de4e51e0/appium-examples).
 
 You can see more detailed and comprehensive instructions for all use cases in the [Real Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices) and [Virtual Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/virtual-devices) docs.
 
