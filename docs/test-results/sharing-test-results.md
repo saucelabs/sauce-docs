@@ -133,6 +133,28 @@ public class SauceShareableLink {
 }
 ```
 
+#### Example - Node.js
+
+```js
+const crypto = require('crypto');
+const sessionId = 'f65a1ee87a77410189aba40f48ac1223';
+const addDate = process.argv.includes('addDate');
+const date = new Date();
+const addedDays = date.setDate(date.getDate());
+const newDate = (new Date(addedDays)).toISOString().slice(0,10);
+const dateSecret = addDate ? `:${newDate}` : '';
+const secret = `${process.env.SAUCE_USERNAME}:${process.env.SAUCE_ACCESS_KEY}${dateSecret}`;
+const token = crypto
+.createHmac('md5', secret)
+.update(sessionId)
+.digest('hex');
+const usUrl = `https://app.saucelabs.com/tests/${sessionId}?auth=${token}`;
+const euUrl = `https://app.eu-central-1.saucelabs.com/tests/${sessionId}?auth=${token}`;
+console.log('usUrl = ', usUrl);
+console.log('euUrl = ', euUrl);
+
+```
+
 ## Support for Secondary Accounts
 If you want to authenticate as another user, just prefix the auth token with your user name, followed by a colon.
 
