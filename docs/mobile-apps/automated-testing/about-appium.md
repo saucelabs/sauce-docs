@@ -36,7 +36,7 @@ The Appium server component, based on node.js, exposes a superset of the [JSON W
 
 The Appium server also supports elements of the [W3C Webdriver spec](https://w3c.github.io/webdriver/webdriver-spec.html)
 
-The server also includes a [desktop application](http://appium.io/downloads) that contains everything you need to run Appium, bundled in a single package.  It offers the ability to inspect elements in running applications. Available for Mac, Windows, and Linux.
+Additionally, an [Appium desktop application](http://appium.io/downloads) exists that runs on Mac, Windows, and Linux. This application provides a graphical interface of the Appium server where you can set test configuration options, and use an inspector to view application elements. Please visit the [following page](https://github.com/appium/appium-desktop) for further technical information.
 
 :::note
 Appium Desktop is currently supported by the [Appium core team](https://appium.io/docs/en/contributing-to-appium/developers-overview/#developer-community).
