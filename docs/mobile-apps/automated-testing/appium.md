@@ -137,7 +137,7 @@ Java tests using the TestNG framework rely on the `pom.xml` file to import depen
 
 ### Optional Appium Capabilities
 
-Sauce Labs will set default values for platform (operating system) and Appium versions, however you may want to specify versions you know are supported and compatible to aviod errors.
+Sauce Labs will set default values for platform (operating system) and Appium versions, however you may want to specify versions you know are supported and compatible to avoid errors.
 
 **Appium Version** – By default your tests will run on the [latest version](https://saucelabs.com/platform/platform-configurator#/) of Appium supported by Sauce Labs for that device or OS, however you can set the [`appiumVersion` capability](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/virtual-devices/index.html#set-your-appiumversion).
 
