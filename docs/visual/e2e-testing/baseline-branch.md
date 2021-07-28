@@ -25,7 +25,7 @@ Follow the steps below to enable in your Visual E2E project:
 
 ## Setup Steps
 
-1. [Integrate your Visual E2E tests into your CI process](https://screener.io/v2/docs/visual-e2e/ci) so that visual tests are automatically run when branching or merging.
+1. [Integrate your Visual E2E tests into your CI process](/visual/e2e-testing/integrations/ci) so that visual tests are automatically run when branching or merging.
 
 2. Set the **branch** and **baseBranch** options in your `sauce:visual` WebDriver capability to set the name of your current branch and the name of your base branch respectively.
 
@@ -38,9 +38,6 @@ Below are examples of branch environment variables for various CI tools:
     {label: 'CircleCI', value: 'CircleCI'},
     {label: 'TravisCI', value: 'TravisCI'},
     {label: 'GitLab', value: 'GitLab'},
-    {label: 'Codeship', value: 'Codeship'},
-    {label: 'Buildkite', value: 'Buildkite'},
-    {label: 'Drone', value: 'Drone'},
   ]}>
 
 <TabItem value="Jenkins">
@@ -95,6 +92,18 @@ capabilities: {
 ```
 
 </TabItem>
+</Tabs>
+
+
+
+<Tabs
+  defaultValue="Codeship"
+  values={[
+    {label: 'Codeship', value: 'Codeship'},
+    {label: 'Buildkite', value: 'Buildkite'},
+    {label: 'Drone', value: 'Drone'},
+  ]}>
+
 <TabItem value="Codeship">
 
 ```js

@@ -10,12 +10,12 @@ import TabItem from '@theme/TabItem';
 Private device management allows an organization admin to view and manage the private devices in an organization by assigning them to teams. This reduces contention for scarce devices, and provides better visibility to which team is using a device at any given time.
 
 * By default, a device is not assigned to any team, meaning it can be used by anyone in that organization.
-* If you choose to assign a device to a team, only members of that team can access the device. This applies to live test sessions, automated test sessions, and to other connection methods like [Virtual USB](/mobile-apps/virtual-usb).
+* If you choose to assign a device to a team, only members of that team can access the device. This applies to live test sessions, automated test sessions, and to other connection methods like [Virtual USB](https://docs.saucelabs.com/mobile-apps/virtual-usb).
 * At any time, you can reassign your private device to another team, or remove the team assignment altogether.
 
-If a team with devices is deleted, the devices assigned to that team return to the unassigned state. (For more information about managing teams, see [Adding and Deleting Teams](/basics/acct-team-mgmt/adding-deleting-teams).)
+If a team with devices is deleted, the devices assigned to that team return to the unassigned state. (For more information about managing teams, see [Adding and Deleting Teams](https://docs.saucelabs.com/basics/acct-team-mgmt/adding-deleting-teams).)
 
-Private devices are not included in VM or RDC concurrency limits. (For more information about concurrency, see [Concurrency Limits and Team Accounts](/basics/acct-team-mgmt/concurrency-limits).)
+Private devices are not included in VM or RDC concurrency limits. (For more information about concurrency, see [Concurrency Limits and Team Accounts](https://docs.saucelabs.com/basics/acct-team-mgmt/concurrency-limits).)
 
 ## Viewing an Organization’s Private Devices
 1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
