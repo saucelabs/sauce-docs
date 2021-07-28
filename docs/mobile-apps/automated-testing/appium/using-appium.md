@@ -24,11 +24,11 @@ Review [Appium's system requirements](http://appium.io/).
 
 ## Appium Architecture
 
-Appium has a client-server architecture.
+Appium has a client-server architecture. The general way this process works is that a client (you) sends requests to the Appium server. The server then processes each request based on the test session details, and then responds with the test results and/or log files. Read below for further details about the client-server architecture.
 
 ### Appium Client
 
-The Appium client includes a [set of client libraries](http://appium.io/downloads) for various scripting languages in which you write your test scripts based on the Selenium WebDriver API.
+The Appium client is a programming language-specific [set of client libraries](http://appium.io/downloads) in which you write your test scripts. The Appium client library wraps the [Selenium client libraries](https://www.selenium.dev/documentation/en/selenium_installation/installing_selenium_libraries/) and provides all the base selenium commands, along with extra commands specifically for automating mobile devices.
 
 ### Appium Server
 
@@ -36,7 +36,9 @@ The Appium server component, based on node.js, exposes a superset of the WebDriv
 
 The server also includes a [desktop application](http://appium.io/downloads) that contains everything you need to run Appium, bundled in a single package.  It offers the ability to inspect elements in running applications. Available for Mac, Windows, and Linux.
 
->**NOTE**: Appium Desktop is not currently supported by the Appium core team.
+:::note
+Appium Desktop is currently supported by the [Appium core team](https://appium.io/docs/en/contributing-to-appium/developers-overview/#developer-community).
+:::
 
 ## Creating an Appium Test
 
