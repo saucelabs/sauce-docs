@@ -316,6 +316,7 @@ __Example__:
 
 ---
 ### `automationName`
+
 <p><small><Highlight color="#946f59">Android/Espresso Only</Highlight></small></p>
 
 __Description__: allows you to set the automation engine that will be used. Possible values are: `Appium`, `UiAutomator2`, `Selendroid`. Default value is Appium.<br/>

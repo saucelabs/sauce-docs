@@ -647,6 +647,7 @@ module.exports = {
                     'visual/e2e-testing/baseline-branch',
                     'visual/e2e-testing/change-details',
                     'visual/e2e-testing/visual-history',
+                    'visual/e2e-testing/animations',
                     'visual/e2e-testing/ignore',
                     'visual/e2e-testing/visual-options',
                     'visual/e2e-testing/visual-commands',
