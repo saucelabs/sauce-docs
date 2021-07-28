@@ -36,7 +36,7 @@ Each of the properties supported for running Cypress tests through `saucectl` is
 ## `apiVersion`
 <p><small>| REQUIRED | STRING |</small></p>
 
-Identifies the version of `saucectl` that is compatible with this configuration.
+Identifies the version of the underlying configuration schema. At this time, `v1alpha` is the only supported value.
 
 ```yaml
 apiVersion: v1alpha
@@ -62,6 +62,7 @@ Specifies any default settings for the project.
 ```yaml
 defaults:
   mode: sauce
+  timeout: 15m
 ```
 ---
 
@@ -72,6 +73,16 @@ Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally 
 
 ```yaml
   mode: sauce
+```
+---
+
+### `timeout`
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
+
+```yaml
+  timeout: 15m
 ```
 ---
 
@@ -160,6 +171,18 @@ This is the identifier `saucectl` expects as the `id` property, even though the 
  tunnel:
     id: your_tunnel_id
     parent: parent_owner_of_tunnel # if applicable, specify the owner of the tunnel
+```
+---
+
+## `env`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
+
+```yaml
+  env:
+    hello: world
+    my_var: $MY_VAR
 ```
 ---
 
@@ -301,12 +324,12 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 #### `match`
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
 
-Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*`.
+Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
 
 ```yaml
   match:
     - junit.xml
-    - *.log
+    - "*.log"
 ```
 ---
 
@@ -397,18 +420,6 @@ The name of the test suite, which will be reflected in the results and related a
 ```
 ---
 
-### `env`
-<p><small>| OPTIONAL | OBJECT |</small></p>
-
-A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported.
-
-```yaml
-  env:
-    hello: world
-    my_var: $MY_VAR
-```
----
-
 ### `browser`
 <p><small>| REQUIRED | STRING |</small></p>
 
@@ -480,11 +491,13 @@ Provides details related to the Cypress test configuration that are relevant for
 #### `env`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A set of any ephemeral/environment variables needed to run the tests in this suite, which might take any of the following formats: *string* | *int* | *float* | *boolean*.
+A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
 
 ```yaml
-      env:
-        hello: world
+  config:
+    env:
+      hello: world
+      my_var: $MY_VAR
 ```
 ---
 
@@ -495,6 +508,20 @@ One or more paths to the Cypress test files to run for this suite, if not otherw
 
 ```yaml
       testFiles: [ "**/*.*" ]
+```
+---
+
+### `timeout`
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.
+
+:::note
+Setting `0` reverts to the value set in `defaults`.
+:::
+
+```yaml
+  timeout: 15m
 ```
 ---
 

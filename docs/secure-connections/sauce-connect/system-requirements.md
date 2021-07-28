@@ -27,10 +27,8 @@ As an important step prior to downloading Sauce Connect Proxy, you or your syste
 3. Use cURL (or equivalent tool) to reach the below URLs, as needed:
    * [https://saucelabs.com](https://saucelabs.com/)
    * [https://eu-central-1.saucelabs.com](https://eu-central-1.saucelabs.com/)
-   * [https://us1.api.testobject.com/sc](https://us1.api.testobject.com/sc/)
-   * [https://eu1.api.testobject.com/sc](https://eu1.api.testobject.com/sc/)
 
-If you can get a `200 OK` response from all URLs above, you are ready to start Sauce Connect! As an alternative, you can use [Nethelp](https://github.com/mdsauce/nethelp) to quickly connect to multiple resources and save the output.
+   If you can get a `200 OK` response from all URLs above, you are ready to start Sauce Connect! As an alternative, you can use [Nethelp](https://github.com/mdsauce/nethelp) to quickly connect to multiple resources and save the output.
 
 
 ## Configuring Your System to Use Sauce Connect
@@ -476,7 +474,8 @@ For more information on our Data Centers and how to choose the right one for you
 The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select your relevant [Data Center](/basics/data-center-endpoints/data-center-endpoints):
 
 <Tabs
-  defaultValue="US West 1"
+  groupId="dc-url"
+  defaultValue="US-West-1"
   values={[
     {label: 'US-West-1', value: 'US-West-1'},
     {label: 'EU-Central-1', value: 'EU-Central-1'},
@@ -489,20 +488,12 @@ The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select y
 | :-------- |
 |`https://saucelabs.com/rest/v1` |
 
-| TestObject (Legacy Real Device Cloud) + Sauce Connect |
-| :-------- |
-|`https://us1.api.testobject.com/sc/rest/v1` |
-
 </TabItem>
 <TabItem value="EU-Central-1">
 
 |Virtual Device Cloud/Real Device Cloud + Sauce Connect|
 | :-------- |
 |`https://eu-central-1.saucelabs.com/rest/v1`|
-
-|TestObject (Legacy Real Device Cloud) + Sauce Connect|
-| :-------- |
-|`https://eu1.api.testobject.com/sc/rest/v1`|
 
 </TabItem>
 <TabItem value="Headless US-East">
@@ -522,10 +513,11 @@ The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select y
 The following domains must be allowlisted for outbound communication from you network in order to make connections to Sauce Connect tunnels. Select your relevant [Data Center](/basics/data-center-endpoints/data-center-endpoints):
 
 <Tabs
-  defaultValue="US West 1"
+  groupId="dc-url"
+  defaultValue="US-West-1"
   values={[
     {label: 'US-West-1', value: 'US-West-1'},
-    {label: 'US East 1', value: 'EU-Central-1'},
+    {label: 'EU-Central-1', value: 'EU-Central-1'},
     {label: 'Headless US-East', value: 'Headless US-East'},
   ]}>
 
@@ -535,20 +527,12 @@ The following domains must be allowlisted for outbound communication from you ne
 | :-------- |
 | `*.miso.saucelabs.com` |
 
-| Legacy Real Device Cloud |
-| :-------- |
-| `*.sjc1.mrdc.miso.saucelabs.com` |
-
 </TabItem>
 <TabItem value="EU-Central-1">
 
 | Virtual Device Cloud/Real Device Cloud + Sauce Connect |
 | :----- |
 | `*.eu-central-1.miso.saucelabs.com` |
-
-| EU Legacy RDC|
-| :-------- |
-| `*.txl1.mrdc.miso.saucelabs.com` |
 
 </TabItem>
 <TabItem value="Headless US-East">
@@ -564,8 +548,7 @@ The following domains must be allowlisted for outbound communication from you ne
 
 `*.miso.saucelabs.com` will cover all virtual and real device cloud data centers except for Headless.
 
-* US-West-1 (Virtual Device Cloud/Real Device Cloud + Sauce Connect): `*.miso.saucelabs.com`
-* US Legacy Real Device Cloud: `*.sjc1.mrdc.miso.saucelabs.com`
+* For US-West-1 (Virtual Device Cloud/Real Device Cloud + Sauce Connect): `*.miso.saucelabs.com`
 :::
 
 <br/>

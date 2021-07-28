@@ -36,7 +36,9 @@ The Appium server component, based on node.js, exposes a superset of the WebDriv
 
 The server also includes a [desktop application](http://appium.io/downloads) that contains everything you need to run Appium, bundled in a single package.  It offers the ability to inspect elements in running applications. Available for Mac, Windows, and Linux.
 
->**NOTE**: Appium Desktop is not currently supported by the Appium core team.
+:::note
+Appium Desktop is not currently supported by the Appium core team.
+:::
 
 ## Creating an Appium Test
 
@@ -321,7 +323,9 @@ import org.openqa.selenium.support.ui.WebDriverWait; 
 WebDriverWait wait = new WebDriverWait(driver, 10); WebElement messageElement = wait.until( ExpectedConditions.presenceOfElementLocated(By.id("loginResponse")) );
 ```
 
->**NOTE**: Do not mix implicit and explicit waits. Doing so can cause unpredictable wait times. For example setting an implicit wait of 10s and an explicit wait of 15 seconds, could cause a timeout to occur after 20 seconds.
+:::note
+Do not mix implicit and explicit waits. Doing so can cause unpredictable wait times. For example setting an implicit wait of 10s and an explicit wait of 15 seconds, could cause a timeout to occur after 20 seconds.
+:::
 
 <br/>
 

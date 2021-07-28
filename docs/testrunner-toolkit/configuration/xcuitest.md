@@ -36,7 +36,7 @@ Each of the properties supported for running XCUITest tests through `saucectl` i
 ## `apiVersion`
 <p><small>| REQUIRED | STRING |</small></p>
 
-Identifies the version of `saucectl` that is compatible with this configuration.
+Identifies the version of the underlying configuration schema. At this time, `v1alpha` is the only supported value.
 
 ```yaml
 apiVersion: v1alpha
@@ -51,6 +51,26 @@ Specifies which framework is associated with the automation tests configured in 
 ```yaml
 kind: xcuitest
 ```
+---
+
+## `defaults`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies any default settings for the project.
+
+```yaml
+defaults:
+  timeout: 15m
+```
+---
+
+### `timeout`
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
+
+```yaml
+  timeout: 15m
 ---
 
 ## `sauce`
@@ -140,6 +160,18 @@ This is the identifier `saucectl` expects as the `id` property, even though the 
 ```
 ---
 
+## `env`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
+
+```yaml
+  env:
+    hello: world
+    my_var: $MY_VAR
+```
+---
+
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -187,12 +219,12 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 #### `match`
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
 
-Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` so you can conveniently specify all artifacts of a specific file type.
+Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
 
 ```yaml
   match:
     - junit.xml
-    - *.log
+    - "*.log"
 ```
 ---
 
@@ -206,7 +238,7 @@ Specifies the path to the folder location in which to download artifacts. A sepa
 ```
 ---
 
-## `xxcuitest`
+## `xcuitest`
 <p><small>| REQUIRED | OBJECT |</small></p>
 
 The parent property containing the details specific to the XCUITest project.
@@ -215,6 +247,9 @@ The parent property containing the details specific to the XCUITest project.
 xcuitest:
   app: ./apps/SauceLabs.Mobile.Sample.XCUITest.App.ipa
   testApp: ./apps/SwagLabsMobileAppUITests-Runner.app
+  otherApps:
+    - ./apps/pre-installed-app1.ipa
+    - ./apps/pre-installed-app2.ipa
 ```
 ---
 
@@ -246,6 +281,23 @@ The path to the testing application. The property recognizes both `.ipa` and `.a
 ```
 ---
 
+### `otherApps`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Set of one or more apps to be pre-installed for your tests. You can upload an app from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.ipa`) or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
+
+:::note
+Apps specified as `otherApps` inherit the configuration of the main app under test for settings such as `proxy`, `locale`, and `device orientation`, regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test.
+:::
+
+```yaml
+  otherApps:
+    - ./apps/pre-installed-app1.ipa
+    - $PRE_INSTALLED_APP2
+    - storage:filename=pre-installed-app3.ipa
+```
+---
+
 ## `suites`
 <p><small>| REQUIRED | OBJECT |</small></p>
 
@@ -269,12 +321,26 @@ The name of the test suite, which will be reflected in the results and related a
 ### `env`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported.
+A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
 
 ```yaml
   env:
     hello: world
     my_var: $MY_VAR
+```
+---
+
+### `timeout`
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.
+
+:::note
+Setting `0` reverts to the value set in `defaults`.
+:::
+
+```yaml
+  timeout: 15m
 ```
 ---
 
@@ -286,9 +352,11 @@ The parent property that defines how to select real devices on which to run the 
 When an ID is specified, it supersedes the other settings.
 
 ```yaml
-ddevices:
+devices:
   - name: "iPhone 11"
     platformVersion: "14.3"
+    options:
+      carrierConnectivity: true
   - id: iPhone_11_14_5_real_us
 ```
 ---
@@ -340,7 +408,8 @@ A parent property to further specify desired device attributes within the pool o
 Request that the matching device is also connected to a cellular network.
 
 ```yaml
-       carrierConnectivity: true
+  options:
+      carrierConnectivity: true
 ```
 ---
 
@@ -350,7 +419,8 @@ Request that the matching device is also connected to a cellular network.
 Request that the matching device is a specific type of device. Valid values are:  `ANY`, `TABLET`, or `PHONE`.
 
 ```yaml
-        deviceType: TABLET
+  options:
+      deviceType: TABLET
 ```
 ---
 
@@ -360,7 +430,8 @@ Request that the matching device is a specific type of device. Valid values are:
 Request that the matching device is from your organization's private pool.
 
 ```yaml
-        private: true
+  options:
+      private: true
 ```
 ---
 
