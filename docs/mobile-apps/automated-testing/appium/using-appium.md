@@ -1,7 +1,7 @@
 ---
-id: about-appium
+id: using-appium
 title: Using Appium for Automated Mobile App Testing
-sidebar_label: About Appium
+sidebar_label: Using Appium
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
