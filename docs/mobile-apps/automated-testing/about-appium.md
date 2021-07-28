@@ -20,7 +20,7 @@ This page is intended to provide you with a quick overview of how Appium works s
 
 ## What You'll Need
 
-You can read about Appium's system requirements [here](http://appium.io/).
+Review [Appium's system requirements](http://appium.io/).
 
 ## Appium Architecture
 
