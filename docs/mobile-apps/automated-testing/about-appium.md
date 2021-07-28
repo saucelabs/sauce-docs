@@ -36,7 +36,9 @@ The Appium server component, based on node.js, exposes a superset of the WebDriv
 
 The server also includes a [desktop application](http://appium.io/downloads) that contains everything you need to run Appium, bundled in a single package.  It offers the ability to inspect elements in running applications. Available for Mac, Windows, and Linux.
 
->**NOTE**: Appium Desktop is not currently supported by the Appium core team.
+:::note
+Appium Desktop is currently supported by the [Appium core team](https://appium.io/docs/en/contributing-to-appium/developers-overview/#developer-community).
+:::
 
 ## Creating an Appium Test
 
