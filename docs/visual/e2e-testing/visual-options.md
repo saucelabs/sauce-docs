@@ -27,7 +27,7 @@ hide_table_of_contents: true
   </tr>
   <tr>
    <td>
-    projectName
+    <code>projectName</code>
    </td>
    <td>
     String
@@ -43,7 +43,7 @@ hide_table_of_contents: true
   </tr>
   <tr>
    <td>
-    apiKey
+    <code>apiKey</code>
    </td>
    <td>
     String
@@ -59,7 +59,7 @@ hide_table_of_contents: true
   </tr>
   <tr>
    <td>
-    viewportSize
+    <code>viewportSize</code>
    </td>
    <td>
     String
@@ -69,7 +69,7 @@ hide_table_of_contents: true
    </td>
    <td>
     A &lt;width>x&lt;height> representation of desired viewport size.
-<p>Example: "1024x768".</p>
+<p>Example: <code>1024x768</code>.</p>
    </td>
    <td>
     <code>"1024x768"</code>
@@ -77,7 +77,7 @@ hide_table_of_contents: true
   </tr>
   <tr>
    <td>
-    branch
+    <code>branch</code>
    </td>
    <td>
     String
@@ -87,14 +87,14 @@ hide_table_of_contents: true
    </td>
    <td>
     Branch or environment name.
-<p>Example: "main"</p>
+<p>Example: <code>main</code>.</p>
    </td>
    <td>
    </td>
   </tr>
   <tr>
    <td>
-    baseBranch
+    <code>baseBranch</code>
    </td>
    <td>
     String
@@ -103,15 +103,15 @@ hide_table_of_contents: true
     No
    </td>
    <td>
-    Branch name of project's base branch. Used for <a href="https://screener.io/v2/docs/visual-e2e/baseline-branch">baseline branching and merging</a>.
-<p>Example: "main"</p>
+    Branch name of project's base branch. Used for <a href="/visual/e2e-testing/baseline-branch">baseline branching and merging</a>.
+<p>Example: <code>main</code>.</p>
    </td>
    <td>
    </td>
   </tr>
   <tr>
    <td>
-    diffOptions
+    <code>diffOptions</code>
    </td>
    <td>
     Object
@@ -123,11 +123,11 @@ hide_table_of_contents: true
     Visual diff options to control validations.
 <p>Options available:</p>
 <ul>
-<li><strong>structure</strong>: enable or disable <a href="https://screener.io/v2/docs/visual-e2e/change-details">structural changes</a>. Defaults to true.</li>
-<li><strong>layout</strong>: enable or disable <a href="https://screener.io/v2/docs/visual-e2e/change-details">layout changes</a>. Defaults to true.</li>
-<li><strong>style</strong>: enable or disable <a href="https://screener.io/v2/docs/visual-e2e/change-details">style changes</a>. Defaults to true.</li>
+<li><strong>structure</strong>: enable or disable <a href="/visual/e2e-testing/change-details">structural changes</a>. Defaults to true.</li>
+<li><strong>layout</strong>: enable or disable <a href="/visual/e2e-testing/change-details">layout changes</a>. Defaults to true.</li>
+<li><strong>style</strong>: enable or disable <a href="/visual/e2e-testing/change-details">style changes</a>. Defaults to true.</li>
 
-<li><strong>content</strong>: enable or disable <a href="https://screener.io/v2/docs/visual-e2e/change-details">content changes</a>. Defaults to true.</li>
+<li><strong>content</strong>: enable or disable <a href="/visual/e2e-testing/change-details">content changes</a>. Defaults to true.</li>
 
 <li><strong>minLayoutPosition</strong>: Optional threshold for Layout position changes (in css pixels).</li>
 
@@ -159,14 +159,14 @@ hide_table_of_contents: true
    </td>
    <td>
     A comma-delimited list of css selectors to ignore when performing visual diffs.
-    <p>Example: "#some-id, .some-selector"</p>
+    <p>Example: <code>#some-id, .some-selector</code>.</p>
    </td>
    <td>
    </td>
   </tr>
   <tr>
    <td>
-    failOnNewStates
+    <code>failOnNewStates</code>
    </td>
    <td>
     Boolean
@@ -184,7 +184,7 @@ hide_table_of_contents: true
   </tr>
   <tr>
    <td>
-    alwaysAcceptBaseBranch
+    <code>alwaysAcceptBaseBranch</code>
    </td>
    <td>
     Boolean
@@ -201,7 +201,7 @@ hide_table_of_contents: true
   </tr>
   <tr>
    <td>
-    disableBranchBaseline
+    <code>disableBranchBaseline</code>
    </td>
    <td>
     Boolean
@@ -218,7 +218,7 @@ hide_table_of_contents: true
   </tr>
   <tr>
    <td>
-    scrollAndStitchScreenshots
+    <code>scrollAndStitchScreenshots</code>
    </td>
    <td>
     Boolean
@@ -235,7 +235,7 @@ hide_table_of_contents: true
   </tr>
   <tr>
    <td>
-    disableCORS
+    <code>disableCORS</code>
    </td>
    <td>
     Boolean
@@ -270,8 +270,8 @@ hide_table_of_contents: true
   </tr>
   <tr>
    <td>
-    iframesOptions
-<p>This is a Beta feature and may be unstable.</p>
+    <code>iframesOptions</code>
+   <p>This is a Beta feature and may be unstable.</p>
    </td>
    <td>
     Object

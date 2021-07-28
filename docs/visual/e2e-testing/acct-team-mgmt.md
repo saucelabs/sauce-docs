@@ -1,7 +1,7 @@
 ---
 id: acct-team-mgmt
 title: Visual E2E User and Team Management
-sidebar_label: Team Management
+sidebar_label: Account and Team Management
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -9,7 +9,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Teams Management allows you to create Teams for your Account, add users to your Teams, specify user roles, and specify which projects users have access to. In addition, you can assign a user to be an administrator for your Screener Account.
-
 
 ## 1. Add an Account Name
 
@@ -113,13 +112,11 @@ Before you create a team, it is useful to understand the different user roles in
 </table>
 
 
->**NOTE**: Every Screener user has an individual account, and will be the Account Owner for their own account. When a user is added to a team in another user's account, they will have access to the project(s) as defined by their role in the team.
+Every Screener user has an individual account and will be the **Account Owner** for their own account. When a user is added to a team in another user's account, they will have access to the project(s) as defined by their role in the team.
 
->**NOTE**: When a user is added as an Administrator, this user will have access to all projects within the account. There is no option to add a specific project to the team that has an Administrator role. Administrators have access to add/edit/delete projects.
+When a user is added as an **Administrator**, this user will have access to all projects within the account. There is no option to add a specific project to the team that has an Administrator role. Administrators have access to add/edit/delete projects.
 
->**NOTE**: If a user is assigned to more than 1 team with different roles, and there is a common project(s) between the teams, the highest role/permissions will be assigned to the user.
-
-
+If a user is assigned to more than one team with different roles, and there is a common project(s) between the teams, the highest role/permissions will be assigned to that user.
 
 ## 3. Create a Team
 
