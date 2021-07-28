@@ -28,13 +28,13 @@ Before you create a team, it is useful to understand the different user roles in
   <tr>
    <td><strong> </strong>
    </td>
-   <td><strong>Viewer</strong>
+   <td><strong><small>Viewer</small></strong>
    </td>
-   <td><strong>Tester</strong>
+   <td><strong><small>Tester</small></strong>
    </td>
-   <td><strong>Administrator</strong>
+   <td><strong><small>Administrator</small></strong>
    </td>
-   <td><strong>Account Owner</strong>
+   <td><strong><small>Account Owner</small></strong>
    </td>
   </tr>
   <tr>
@@ -124,7 +124,7 @@ Creating a team will allow you to specify which users have access to a specific 
 
 To add a new Team, click on the **+ Team** button.
 
-<img src={useBaseUrl('img/visual/e2e-add-team-button.png')} alt="E2E Add Team" />
+<img src={useBaseUrl('img/visual/e2e-add-team-button.png')} alt="E2E Add Team" width="350" />
 
 Enter a team name, select the appropriate user role, and click **Save**.
 
@@ -135,7 +135,7 @@ Enter a team name, select the appropriate user role, and click **Save**.
 
 After a team is created, you can add users to a team. Click on the team you wish to add a user to, and click on **Assign Users**.
 
-<img src={useBaseUrl('img/visual/e2e-add-user-button.png')} alt="E2E Add User" />
+<img src={useBaseUrl('img/visual/e2e-add-user-button.png')} alt="E2E Add User" width="350" />
 
 The **Manage Team Users** dialog will appear. Type the user's email address into the text box and click **Add User**. At this point, Screener will check to see if the user already exists in the system. If the user already exists, their email address will be added to the list of users below. If the user does not exist, you will be asked to invite the user by clicking **Click to Invite User**.
 
@@ -153,7 +153,7 @@ You will see the user added to the list. For new users, you will see **To Be Inv
 
 Assigning projects to a team allows users of the team to have access to the specified projects. To add a project to a team, in the **Team Management** page, click on the team you wish to add a project to, and click on **Assign Projects**.
 
-<img src={useBaseUrl('img/visual/e2e-add-project-team.png')} alt="E2E Add Project Team" />
+<img src={useBaseUrl('img/visual/e2e-add-project-team.png')} alt="E2E Add Project Team" width="350" />
 
 The **Manage Team Projects** dialog will appear. Select the project(s) you wish to add and click **Save**.
 
