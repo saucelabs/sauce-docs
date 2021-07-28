@@ -102,7 +102,7 @@ Different file types are required for testing in different environments:
 :::
 
 ### Step 4: Set Up Capabilities
-Update your Capabilities to run on Sauce Labs Emulators to have the minimum required Appium Capabilities to run an iOS App test:
+Update your Capabilities to run on Sauce Labs Real Devices to have the minimum required Appium Capabilities to run an iOS App test:
 
 ```
 String appName = "iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa";
