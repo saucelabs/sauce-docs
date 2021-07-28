@@ -50,7 +50,7 @@ automationName: “UiAutomator2”
 ```
 
 ### Step 4: Add Capabilities for the Browser
-Depending on which browser you would like to test on, you need to [set the capabilities](https://docs.saucelabs.com/dev/test-configuration-options#desktop-browser-capabilities-sauce-specific--optional) to test on that browser:
+[Set the capabilities](https://docs.saucelabs.com/dev/test-configuration-options#desktop-browser-capabilities-sauce-specific--optional) according to the browser on which you want to test:
 
 ```
 browserName: "Chrome"
