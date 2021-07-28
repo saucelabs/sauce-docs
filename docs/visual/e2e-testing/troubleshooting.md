@@ -80,7 +80,7 @@ exports.config = {
 
 ### WebDriver Timeouts
 
-WebDriver timeouts can be increased via the "timeouts" capability.
+WebDriver timeouts can be increased via the `timeouts` capability.
 
 The following WebDriver timeout defaults are used:
 
