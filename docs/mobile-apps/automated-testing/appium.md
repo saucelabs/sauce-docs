@@ -84,7 +84,7 @@ You can view the contents of the .xml file in the`/resources/xml` [directory](ht
 ### Step 3: Set Up Your App
 Use your own app, or grab the latest [Swag Labs App](https://github.com/saucelabs/sample-app-mobile/releases).
 
-On the [Sauce Labs App](https://app.saucelabs.com/live/app-testing), you can upload an .apk, .ipa, or .zip file, or use the API for [Mobile Application Storage](https://docs.saucelabs.com/mobile-apps/app-storage/index.html#uploading-apps-via-rest-api).
+On the [Sauce Labs App](https://app.saucelabs.com/live/app-testing), you can upload an .ipa file, or use the API for [Mobile Application Storage](https://docs.saucelabs.com/mobile-apps/app-storage/index.html#uploading-apps-via-rest-api).
 
 The easiest way to do this is to set environment variables for your Sauce username & access key, then use this command:
 
@@ -94,6 +94,12 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --form 'payload=@"/Users/lindsaywalker/Git/Example_Tests/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
 --form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
 ```
+:::note
+Different file types are required for testing in different environments:
+* An Android emulator or real device needs to have an .apk-file
+* An iOS simulator needs to have an .app file which needs to be zipped for the Sauce Labs amulators
+* An iOS real device needs to have an .ipa-file
+:::
 
 ### Step 4: Set Up Capabilities
 Update your Capabilities to run on Sauce Labs Emulators to have the minimum required Appium Capabilities to run an iOS App test:
@@ -101,7 +107,6 @@ Update your Capabilities to run on Sauce Labs Emulators to have the minimum requ
 ```
 String appName = "iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa";
 ```
-
 ```
 platformName: "iOS"
 deviceName: "iPhone 12"
