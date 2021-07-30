@@ -9,11 +9,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## 1. Test Timeouts
+## Test Timeouts
 
 If you receive a timeout, it could come from the testing framework you are using, or from WebDriver. For example, if you use WebDriverIO with Mocha, there is a default timeout of 10 seconds.
 
-**Test Framework Timeouts**
+### Test Framework Timeouts
 
 Test framework timeouts can be resolved by increasing the timeout option specific to your test framework.
 
@@ -31,7 +31,7 @@ Here are some examples for WebDriverIO, which supports various testing framework
 
 WebDriverIO with Mocha Example:
 
-```JavaScript
+```java
 // wdio.conf.js
 exports.config = {
   framework: 'mocha',
@@ -47,7 +47,7 @@ exports.config = {
 
 WebDriverIO with Jasmine Example:
 
-```javascript
+```java
 // wdio.conf.js
 exports.config = {
   framework: 'jasmine',
@@ -63,7 +63,7 @@ exports.config = {
 
 WebDriverIO with Cucumber Example:
 
-```javascript
+```java
 // wdio.conf.js
 exports.config = {
   framework: 'mocha',
@@ -78,13 +78,13 @@ exports.config = {
 </Tabs>
 
 
-**WebDriver Timeouts**
+### WebDriver Timeouts
 
-WebDriver timeouts can be increased via the "timeouts" capability.
+WebDriver timeouts can be increased via the `timeouts` capability.
 
 The following WebDriver timeout defaults are used:
 
-```JavaScript
+```java
 capabilities = {
   ...
   timeouts: {
