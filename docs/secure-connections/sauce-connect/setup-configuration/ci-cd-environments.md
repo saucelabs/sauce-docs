@@ -32,6 +32,4 @@ Jenkins is an open-source automation server and continuous integration software 
 The Jenkins plugin for Sauce Labs will automatically install Sauce Connect Proxy on your Jenkins server for integration. Once installed, you'll need to configure your project to use Sauce Connect Proxy. You can change the location where the plugin extracts Sauce Connect for specific projects or globally for all projects.
 
 ### More Information
-For instructions on running your Jenkins build with Sauce Connect Proxy enabled, see the following section:
-* [Configuring Sauce Connect with the Jenkins Plugin](/secure-connections/sauce-connect/setup-configuration/ci-cd-environments)
-* [Installing and Configuring the Sauce OnDemand Plugin for Jenkins](/secure-connections/sauce-connect/setup-configuration/ci-cd-environments)
+For instructions on running your Jenkins build with Sauce Connect Proxy enabled, see [Sauce Labs with Jenkins](/ci/jenkins).
