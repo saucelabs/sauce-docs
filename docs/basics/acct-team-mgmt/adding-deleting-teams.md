@@ -11,11 +11,11 @@ If you are an organization admin, you can create and delete teams and assign con
 
 ## Adding Teams
 
-1. In Sauce Labs, click **Account** and then click **Team Management**.
+1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 
    <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
 
-2. On the **Teams** tab, click the blue plus sign.
+2. On the **TEAMS** tab, click the blue plus sign.
 
    <img src={useBaseUrl('img/team-mgmt/add-new-team-nav.jpg')} alt="Add new team"/>
 
@@ -24,15 +24,15 @@ If you are an organization admin, you can create and delete teams and assign con
 
 <img src={useBaseUrl('img/team-mgmt/create-new-team.jpg')} alt="Create new team" width="400"/>
 
-4. In the **To Line of Business** dropdown, select the line of business the team will be associated with.
-5. Under **Team VM Concurrency Limits**, use the up and down arrows to set the number of concurrent virtual machines that the team can access. For more information about concurrency, see [Concurrency Limits and Team Accounts](/basics/acct-team-mgmt/concurrency-limits).
-6. Click **Add Team**.
+4. In the **TO LINE OF BUSINESS** dropdown, select the line of business the team will be associated with.
+5. Under **TEAM VM CONCURRENCY LIMITS**, use the up and down arrows to set the number of concurrent virtual machines that the team can access. For more information about concurrency, see [Concurrency Limits and Team Accounts](https://docs.saucelabs.com/basics/acct-team-mgmt/concurrency-limits).
+6. Click **ADD TEAM**.
 
 ## Deleting Teams
 
-1. In Sauce Labs, click **Account** and then click **Team Management**.
-2. On the **Teams** tab, select the checkbox of the team or teams you want to delete.
-3. Next to **Teams Selected**, in the **Action** dropdown, click **Delete team**.
+1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+2. On the **TEAMS** tab, select the checkbox of the team or teams you want to delete.
+3. Next to **TEAMS SELECTED**, in the **Action** dropdown, click **Delete team**.
 
 <img src={useBaseUrl('img/team-mgmt/delete-team.jpg')} alt="Delete team"/>
 

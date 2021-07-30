@@ -47,6 +47,6 @@ Each change in Screener has additional details that can be viewed to help with d
 * View the specific CSS property that changed.
 * View a text diff of content changes.
 
-These details can be viewed in the Change List, which can be opened by clicking on a change highlight.
+These details can be viewed in the Change List, which can be opened by clicking on a change highlight:
 
 <img src={useBaseUrl('img/visual/e2e-change-detail-flow.gif')} alt="E2E Baseline Branching and Merging" />

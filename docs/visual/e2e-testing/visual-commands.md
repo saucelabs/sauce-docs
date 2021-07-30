@@ -13,63 +13,33 @@ Visual commands can be integrated into existing WebDriver test code simply and s
 A Visual command is simply a JavaScript comment sent over WebDriver using the execute command.
 
 
-## `/*@visual.init*/` (Init Command)
+## `/*@visual.init*/`
 
-The Init command is used to initialize and name a Visual test. This command must be added before any snapshot commands. It can be used multiple times in a browser session to initialize multiple visual tests.
+`/*@visual.init*/` is the Init command, which is used to initialize and name a Visual test. This command must be added before any snapshot commands. It can be used multiple times in a browser session to initialize multiple visual tests.
 
-Init Command Arguments:
+### Arguments
 
-<table>
-  <tr>
-   <td>
-    <strong>Argument</strong>
-   </td>
-   <td>
-    <strong>Type</strong>
-   </td>
-   <td>
-    <strong>Required</strong>
-   </td>
-   <td>
-    <strong>Description</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>
-    <code>name</code>
-   </td>
-   <td>
-    String
-   </td>
-   <td>
-    Yes
-   </td>
-   <td>
-    Name of Visual test
-   </td>
-  </tr>
-  <tr>
-   <td>
-    <code>options</code>
-   </td>
-   <td>
-    Object
-   </td>
-   <td>
-    No
-   </td>
-   <td>
-    Init command options.
-    <p>Options available:</p>
-    <ul>
-    <li><strong>ignore</strong>: comma-delimited list of css-selectors to ignore in all snapshots in test.</li>
-    </ul>
-   <p>Example: <code>&#123; ignore: '.selector' &#125;</code></p>
+Here are the available Init arguments:
 
-   </td>
-  </tr>
-</table>
+---
+#### `name`
+__Value Type__: string<br/>
+__Required__: yes<br/>
+__Description__: name of visual test
 
+---
+#### `options`
+__Value Type__: object<br/>
+__Required__: no<br/>
+__Description__: Init command options. Options available:
+* `ignore`: comma-delimited list of css-selectors to ignore in all snapshots in test.<br/>
+__Example__:
+  ```java
+  { ignore: '.selector' }
+  ```
+---
+
+### Code Snippets
 
 <Tabs
   defaultValue="JavaScript"
@@ -77,7 +47,7 @@ Init Command Arguments:
     {label: 'JavaScript', value: 'JavaScript'},
     {label: 'Java', value: 'Java'},
     {label: 'Python', value: 'Python'},
-    {label: 'Python', value: 'Ruby'},
+    {label: 'Ruby', value: 'Ruby'},
     {label: 'C#', value: 'C#'},
   ]}>
 
@@ -122,66 +92,38 @@ driver.execute_script('/*@visual.init*/', 'My Visual Test')
 </Tabs>
 
 
-## `/*@visual.snapshot*/` (Snapshot Command)
+## `/*@visual.snapshot*/`
 
-The Snapshot command is used to capture a visual snapshot. This JS comment can be added into your code wherever you want a snapshot to be taken, and can be used multiple times.
+`/*@visual.snapshot*/` is the Snapshot command, which is used to capture a visual snapshot. This JS comment can be added into your code wherever you want a snapshot to be taken, and can be used multiple times.
 
 The above Init command must be called first before any snapshots are taken, or an error will occur.
 
+### Arguments
 
-### Arguments:
+Here are the available Snapshot arguments:
 
-<table>
-  <tr>
-   <td>
-    <strong>Argument</strong>
-   </td>
-   <td>
-    <strong>Type</strong>
-   </td>
-   <td>
-    <strong>Required</strong>
-   </td>
-   <td>
-    <strong>Description</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>
-    name
-   </td>
-   <td>
-    String
-   </td>
-   <td>
-    Yes
-   </td>
-   <td>
-    Name of Snapshot
-   </td>
-  </tr>
-  <tr>
-   <td>
-    options
-   </td>
-   <td>
-    Object
-   </td>
-   <td>
-    No
-   </td>
-   <td>
-    Snapshot command options.
-Options available:
-<ul>
-<li><strong>ignore</strong>: comma-delimited list of css-selectors to ignore in snapshot.</li>
-<li><strong>cropTo</strong>: single css-selector to crop the snapshot to.</li>
-<li><strong>scrollAndStitchScreenshot</strong>: boolean option to capture a full-page screenshot using a scrolling and stitching strategy instead of using native browser full-page screenshot capabilities.</li></ul>
-Example: <code>&#123; ignore: '.selector', cropTo: '#header' &#125;</code>
-   </td>
-  </tr>
-</table>
+---
+#### `name`
+__Value Type__: string<br/>
+__Required__: yes<br/>
+__Description__: name of Snapshot.
 
+---
+#### `options`
+__Value Type__: object<br/>
+__Required__: no<br/>
+__Description__: Snapshot command options. Options available:
+* `ignore`: comma-delimited list of css-selectors to ignore in snapshot.
+* `cropTo`: single css-selector to crop the snapshot to.
+* `scrollAndStitchScreenshot`: boolean option to capture a full-page screenshot using a scrolling and stitching strategy instead of using native browser full-page screenshot capabilities.
+
+__Example__:
+  ```java
+  { ignore: '.selector', cropTo: '#header' }
+  ```
+---
+
+### Code Snippets
 
 <Tabs
   defaultValue="JavaScript"
@@ -189,7 +131,7 @@ Example: <code>&#123; ignore: '.selector', cropTo: '#header' &#125;</code>
     {label: 'JavaScript', value: 'JavaScript'},
     {label: 'Java', value: 'Java'},
     {label: 'Python', value: 'Python'},
-    {label: 'Python', value: 'Ruby'},
+    {label: 'Ruby', value: 'Ruby'},
     {label: 'C#', value: 'C#'},
   ]}>
 
@@ -239,14 +181,13 @@ driver.execute_script('/*@visual.snapshot*/', 'State Name')
 
 </TabItem>
 </Tabs>
+<br/>
 
+## `/*@visual.end*/`
 
+`/*@visual.end*/` is the End command, which is used to wait and get visual results. This command should be the last visual command in your browser session, used after all your visual snapshots.
 
-## `/*@visual.end*/` (End Command)
-
-The End command is used to wait and get visual results. This command should be the last visual command in your browser session, used after all your visual snapshots.
-
-The response contains the following properties:
+The response will contain the following properties:
 
 <table>
   <tr>
@@ -262,7 +203,7 @@ The response contains the following properties:
     <strong>status</strong>
    </td>
    <td>
-    The test status. One of: success, failure, error, timeout, cancelled.
+    The test status. Possible values: <code>success</code>, <code>failure</code>, <code>error</code>, <code>timeout</code>, <code>cancelled</code>.
    </td>
   </tr>
   <tr>
@@ -278,8 +219,7 @@ The response contains the following properties:
     <strong>states</strong>
    </td>
    <td>
-    List of all snapshots, including name, status and url.
-Note: url's are not permalinks; url will direct to the latest results for the snapshot.
+    List of all snapshots, including name, status and URL. <strong>NOTE</strong>: URLs are not permalinks; URL will direct to the latest results for the snapshot.
    </td>
   </tr>
   <tr>
@@ -291,7 +231,9 @@ Note: url's are not permalinks; url will direct to the latest results for the sn
    </td>
   </tr>
 </table>
+<br/>
 
+### Code Snippets
 
 <Tabs
   defaultValue="JavaScript"
@@ -299,13 +241,13 @@ Note: url's are not permalinks; url will direct to the latest results for the sn
     {label: 'JavaScript', value: 'JavaScript'},
     {label: 'Java', value: 'Java'},
     {label: 'Python', value: 'Python'},
-    {label: 'Python', value: 'Ruby'},
+    {label: 'Ruby', value: 'Ruby'},
     {label: 'C#', value: 'C#'},
   ]}>
 
 <TabItem value="JavaScript">
 
-### WebDriverIO Example
+WebDriverIO Example:
 
 ```javascript
 const result = browser.execute('/*@visual.end*/');
@@ -346,11 +288,18 @@ Assert.IsTrue((Boolean)response["passed"], (String)response["message"]);
 
 </TabItem>
 </Tabs>
+<br/>
 
+### Sample Responses
 
-### Response Examples
+<Tabs
+  defaultValue="Successful Response"
+  values={[
+    {label: 'Successful Response', value: 'Successful Response'},
+    {label: 'Failure Response', value: 'Failure Response'},
+  ]}>
 
-#### Successful response:
+<TabItem value="Successful Response">
 
 ```java
 {
@@ -365,7 +314,8 @@ Assert.IsTrue((Boolean)response["passed"], (String)response["message"]);
 }
 ```
 
-#### Failure Response
+</TabItem>
+<TabItem value="Failure Response">
 
 ```java
 {
@@ -379,3 +329,6 @@ Assert.IsTrue((Boolean)response["passed"], (String)response["message"]);
   message: '1 visual regression found. Test failed.'
 }
 ```
+
+</TabItem>
+</Tabs>
