@@ -339,10 +339,10 @@ __Examples__:
 
 <TabItem value="US Data Center">
 
-No endpoint needed. Connection to the US Data Center occurs by default. So your only required options would be username and access key.
+To connect to the US Data Center, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US Data Center endpoint:
 
 ```bash
-$ bin/sc -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+$ bin/sc -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx -x https://api.us-west-1.saucelabs.com/rest/v1
 ```
 
 </TabItem>
