@@ -23,13 +23,13 @@ __Description__: Sets your Sauce Labs API key.
 __Shorthand__: `-k`
 <br/>
 
-### `--config`
+### `--config-file`
 
-__Description__: Sets the local path to a YAML file containing a Sauce Connect Proxy configuration. Use this in conjunction with the `--config-file` option. An example YAML configuration file, `config.yaml`, is included for your reference as part of the Sauce Connect Proxy download package.
+__Description__: Sets the local path to a YAML file containing a Sauce Connect Proxy configuration. An example YAML configuration file, `config.yaml`, is included for your reference as part of the Sauce Connect Proxy download package.
 
 We recommend using a YAML configuration file in production environments, rather than command-line options, as it facilitates tracking configuration changes, managing tunnel-domains and direct-domains options (which can get very long), and securing Sauce Connect Proxy credentials with tighter access control over the config file.
 
-__Shorthand__: n/a
+__Shorthand__: `-c`
 <br/>
 
 ### `--no-remove-colliding-tunnels`
@@ -81,13 +81,6 @@ __Shorthand__: `-u`
 
 ## Tunnel Configuration
 
-### `--custom-headers`
-
-__Description__:
-
-__Shorthand__: n/a
-<br/>
-
 ### `--direct-domains`
 
 __Description__: Use this option along with a comma-separated list of domains that you want to be relayed directly through the internet instead of through the Sauce Connect Proxy tunnel.
@@ -98,10 +91,6 @@ __Shorthand__: `-D`
 ### `--fast-fail-regexps`
 
 __Description__: Tests for application and site degradation based on missing assets or resources. Can be used to simulate non-loading of scripts, styles, or other resources. Use this option followed by a comma-separated list of regular expressions. Requests with URLs matching one of these will get dropped instantly and will not go through the tunnel. See the [Sauce Connect Proxy FAQ](/secure-connections/sauce-connect/faq) for an example.
-
-:::note
-`-vv` (very verbose), which outputs HTTP headers and KGP logs, is meant for troubleshooting purposes only. It is system-resource demanding and adversely affects Sauce Connect Proxy performance.
-:::
 
 __Shorthand__: `-B`
 <br/>
@@ -123,32 +112,6 @@ __Description__: Disables the auto-detection of proxy settings.
 __Shorthand__: n/a
 <br/>
 
-### `--pac`
-
-__Description__: Defines proxy auto-configuration (PAC) URL. You can input a http(s) or local file://URL. Absolute paths are required when specifying a local PAC file. For more information, see [Set Up with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
-
-__Shorthand__: n/a
-
-__Example__:
-```
---pac file:///Users/JohnSmith/Desktop/MyPac.pac
-```
-<br/>
-
-### `--pac-auth`
-
-__Description__: Supplies PAC authentication string in format `username:password@host:port`. This option can be used multiple times for each authenticated host in the PAC file. This option is compatible only with Sauce Connect Proxy versions 4.6.3 and higher.
-
-__Shorthand__: n/a
-<br/>
-
-### `--proxy-tunnel`
-
-__Description__: Uses the proxy configured with `-p` for the tunnel connection. For more information about the `-T` option and configuring Sauce Connect Proxy with other proxies, see Sauce Connect Proxy Set Up with Additional Proxies. / You'll need to use this option if you have a PAC file that contains Sauce Labs DNS names.
-
-__Shorthand__: `-w`
-<br/>
-
 ### `--pac [url]`
 
 __Description__: Defines proxy auto-configuration (PAC) URL. You can input a http(s) or local file://URL. Absolute paths are required when specifying a local PAC file. For more information, see [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
@@ -168,6 +131,13 @@ __Description__: Supplies PAC authentication string in format `username:password
 __Shorthand__: n/a
 <br/>
 
+### `--proxy`
+
+__Description__: Proxy host and port that Sauce Connect should use to connect to the Sauce Labs REST API.
+
+__Shorthand__: `-p`
+<br/>
+
 ### `--proxy-tunnel`
 
 __Description__: Uses the proxy configured with `-p` for the tunnel connection. For more information about the `-T `option and configuring Sauce Connect Proxy with other proxies, see [Set Up with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
@@ -183,7 +153,7 @@ __Description__: Requires username and password to be sent via basic authenticat
 
 Sauce Connect Proxy versions older than 4.6.1 do not support the `-p` option combined with `--pac`. Update to the latest version [here](/secure-connections/sauce-connect/installation).
 
-__Shorthand__: `-p`
+__Shorthand__: `-w`
 <br/>
 
 
