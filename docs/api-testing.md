@@ -6,10 +6,10 @@ description: Documentation for running API tests with Sauce Labs
 hide_table_of_contents: true
 ---
 
-## Mark3 Docs
+## Cloud Docs
 Select **Cloud** in the left-hand navigation, or follow [this link](/api-testing/mark3/quick-start) to get to the API Fortress Mark3 Beta Guides.
 
-## Legacy (Mark2) Docs
+## Legacy Docs
 Below are some topics regarding the legacy / on premise solution for API Testing.
 
 <div className="box-wrapper" markdown="1">
