@@ -76,7 +76,7 @@ __Shorthand__: `-u`
 
 ### `--direct-domains` (string)
 
-__Description__: Use this option along with a comma-separated list of domains that you want to be relayed directly through the internet instead of through the Sauce Connect Proxy tunnel.
+__Description__: Use this option along with a comma-separated list of domains (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)) that you want to be relayed directly through the internet instead of through the Sauce Connect Proxy tunnel.
 
 __Shorthand__: `-D`
 <br/>
@@ -90,9 +90,20 @@ __Shorthand__: `-B`
 
 ### `--tunnel-domains` (string)
 
-__Description__:  Performs the inverse of `--direct-domains`; sends domains that you request through the Sauce Connect Proxy tunnel. Be sure to format your domains as a comma-separated list.
+__Description__:  Performs the inverse of `--direct-domains`; sends domains that you request through the Sauce Connect Proxy tunnel. Be sure to format your domains as a comma-separated list (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)).
 
 __Shorthand__: `-t`
+<br/>
+
+### `--no-ssl-bump-domains` (string)
+
+__Description__: Comma-separated list of domains. Comma-separated list of domains (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)). Requests, including hosts that match one of these domains, will not be SSL re-encrypted. See [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) for more information about scenarios in which you would want to use this command.
+
+:::note
+HTTP Header Injection is disabled for all HTTPS domains passed to --no-ssl-bump-domains argument.
+:::
+
+__Shorthand__: `-B`
 <br/>
 
 
@@ -320,30 +331,51 @@ __Description__: depending on the Data Center location of the device you're test
 __Examples__:
 
 <Tabs
-  defaultValue="US Data Center"
+  defaultValue="US-WEST Data Center"
   values={[
-    {label: 'US Data Center', value: 'US Data Center'},
-    {label: 'EU Data Center', value: 'EU Data Center'},
+    {label: 'US-WEST Data Center', value: 'US-WEST Data Center'},
+    {label: 'US-EAST Data Center', value: 'US-EAST Data Center'},
+    {label: 'EU-CENTRAL Data Center', value: 'EU-CENTRAL Data Center'},
+    {label: 'APAC-SOUTHEAST Data Center', value: 'APAC-SOUTHEAST Data Center'},
   ]}>
 
-<TabItem value="US Data Center">
+<TabItem value="US-WEST Data Center">
 
-No endpoint needed. Connection to the US Data Center occurs by default. So your only required options would be username and access key.
+To connect to the US-WEST Data Center, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-WEST Data Center endpoint:
 
 ```bash
-$ bin/sc -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+$ sc -x https://api.us-west-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
 
 </TabItem>
-<TabItem value="EU Data Center">
+<TabItem value="US-EAST Data Center">
 
-To connect to the EU Data Center, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the EU Data Center endpoint:
+To connect to the US-EAST Data Center, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-EAST Data Center endpoint:
 
 ```bash
-$ bin/sc -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx -x https://eu-central-1.saucelabs.com/rest/v1
+$ sc -x https://us-east-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
 
 </TabItem>
+<TabItem value="EU-CENTRAL Data Center">
+
+To connect to the EU-CENTRAL Data Center, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the EU-CENTRAL Data Center endpoint:
+
+```bash
+$ sc -x https://eu-central-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+```
+
+</TabItem>
+<TabItem value="APAC-SOUTHEAST Data Center">
+
+To connect to the APAC-SOUTHEAST Data Center, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the APAC-SOUTHEAST Data Center endpoint:
+
+```bash
+$ sc -x https://api.apac-southeast-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+```
+
+</TabItem>
+
 </Tabs>
 <br/>
 
