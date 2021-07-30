@@ -62,6 +62,7 @@ Specifies any default settings for the project.
 ```yaml
 defaults:
   mode: docker
+  timeout: 15m
 ```
 ---
 
@@ -73,6 +74,15 @@ Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally 
 ```yaml
   mode: docker
 ```
+---
+
+### `timeout`
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
+
+```yaml
+  timeout: 15m
 ---
 
 ## `sauce`
@@ -383,6 +393,32 @@ One or more paths to the puppeteer test files to run for this suite. Regex value
 
 ```yaml
     testMatch: ["**/*.js"]
+```
+---
+
+### `timeout`
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.
+
+:::note
+Setting `0` reverts to the value set in `defaults`.
+:::
+
+```yaml
+  timeout: 15m
+```
+---
+
+---
+
+### `browserArgs`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Pass flags to configure how Puppeteer launches the selected browser. Review supported flags for [Chrome/Chromium](https://peter.sh/experiments/chromium-command-line-switches/)
+
+```yaml
+    browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
 ```
 
 ## Advanced Configuration Considerations

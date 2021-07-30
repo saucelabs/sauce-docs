@@ -557,6 +557,7 @@ module.exports = {
                         label: 'Appium',
                         collapsed: true,
                         items: [
+                            'mobile-apps/automated-testing/appium/using-appium',
                             'mobile-apps/automated-testing/appium',
                             'mobile-apps/automated-testing/appium/real-devices',
                             'mobile-apps/automated-testing/appium/virtual-devices',
@@ -725,6 +726,7 @@ module.exports = {
                     'visual/e2e-testing/baseline-branch',
                     'visual/e2e-testing/change-details',
                     'visual/e2e-testing/visual-history',
+                    'visual/e2e-testing/animations',
                     'visual/e2e-testing/ignore',
                     'visual/e2e-testing/visual-options',
                     'visual/e2e-testing/visual-commands',

@@ -61,9 +61,11 @@ To use the latest stable version of Chrome or Firefox that we support, you can u
 
 For example, if the latest stable version of Chrome is 73, you can request `"latest-2"` to use Chrome 71.Note that the latest version for Safari browsers will depend on the chosen `"platformName"`.
 
-See the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) for valid options.
+See the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator) for valid options.
 
->**NOTE**: This setting cannot be used for mobile browsers, as your test will use the default browser installed for the given Appium version.
+:::note
+This setting cannot be used for mobile browsers, as your test will use the default browser installed for the given Appium version.
+:::
 
 __Value Type__: string.<br/>
 __Example__:
@@ -167,7 +169,9 @@ __Example__:
 ### `edgedriverVersion`
 __Description__: allows you to specify the Microsoft Edge driver version you want to use for your tests. For a list of edgedriver versions, see the [Microsoft Edge Driver website](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/).
 
->**NOTE**:Edge Driver is based on Chrome Driver, so the same caveats from [chromedriverVersion](#chromedriverversion) apply to `edgedriverVersion`.
+:::note
+Edge Driver is based on Chrome Driver, so the same caveats from [chromedriverVersion](#chromedriverversion) apply to `edgedriverVersion`.
+:::
 
 __Value Type__: string.<br/>
 __Example__:
@@ -218,7 +222,9 @@ __Example__:
 __Description__: allows the browser to communicate directly with servers without going through a proxy. By default, Sauce routes traffic from Internet Explorer and Safari through an HTTP proxy server so that HTTPS connections with self-signed certificates will work.
 The proxy server can cause problems for some users, and this setting allows you to avoid it.
 
->**NOTE**: Any test run with a Sauce Connect tunnel has to use the proxy and this flag will be ignored.
+:::note
+Any test run with a Sauce Connect tunnel has to use the proxy and this flag will be ignored.
+:::
 
 __Value Type__: boolean.<br/>
 __Example__:
@@ -249,7 +255,9 @@ __Example__:
 __Description__: allows you to specify the screen resolution to be used during your test session.
 Default screen resolution for Sauce tests is 1024x768.
 
->**NOTE**: You cannot set screen resolution on Windows 7 with IE 9.
+:::note
+You cannot set screen resolution on Windows 7 with IE 9.
+:::
 
 __Value Type__: string.<br/>
 __Example__:
@@ -263,7 +271,9 @@ These common Appium test configuration settings can be added with an `appium:` p
 
 If you are not using the official Appium bindings, make sure to prefix all Appium capabilities with `appium:` to make them W3C WebDriver-compliant. For more information about Appium-specific options, see the [Appium Server Capabilities page of the Appium.io website](http://appium.io/docs/en/writing-running-appium/caps).
 
->**NOTE**: [`browserName`](#browsername) and [`platformName`](#platformname) are frequently used in Appium tests, but are W3C capabilities so they are not prepended with `appium:`
+:::note
+[`browserName`](#browsername) and [`platformName`](#platformname) are frequently used in Appium tests, but are W3C capabilities so they are not prepended with `appium:`
+:::
 
 ---
 ### `app`
@@ -274,15 +284,20 @@ __Example__:
 "appium:app": "storage:filename=my_app.zip"
 ```
 
+:::tip Using Storage Id
+
+If you have an app you have uploaded to [Sauce storage](https://app.saucelabs.com/live/app-testing), you can also set the `app` capability to `"storage:xxxxxxxxx-xxxxxxx-xxx"` and enter the **FILE ID** for your app. This allows you to set which specific version you uploaded, otherwise if you use the file name, it will use the latest one uploaded with the exact same name.
+:::
+
 ---
 ### `deviceName`
 __Description__: allows you to set the name of the simulator, emulator, or real device you want to use in the test.
 
-You can use this to set up a test with either [static or dynamic allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation), and run individual or parallel tests.
+You can use this to set up a test with either [static or dynamic allocation for RDC](https://docs.saucelabs.com/mobile-apps/app-storage), and run individual or parallel tests. Static allocation allows you to run your tests on a very specific device, while dynamic allocation allows you to specify a family of devices or any device with a certain OS so you can quickly run your test on the first available RDC device.
 * Dynamic allocation example: for an Android emulator test, you can request a generic Android emulator by using the option `"deviceName":"Android Emulator"`.
 * Static allocation example: if you want to use an Android emulator that looks and feels like a specific Android phone or tablet (e.g., Google Nexus 7 HD Emulator or a Samsung Galaxy S4), you need to specify the exact Android emulator skin to use (e.g., `"appium:deviceName":"Samsung Galaxy S4 Emulator"`).
 
-Each Android emulator skin will have a different configuration depending on the phone or tablet that it emulates. For example, all the skins have different resolutions, screen dimensions, pixel densities, memory, etc. You can use our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to get a list of the available Android emulator skins for the various Android emulator versions.
+Each Android emulator skin will have a different configuration depending on the phone or tablet that it emulates. For example, all the skins have different resolutions, screen dimensions, pixel densities, memory, etc. You can use our [Platform Configurator](https://saucelabs.com/platform/platform-configurator) to get a list of the available Android emulator skins for the various Android emulator versions.
 
 __Value Type__: string.<br/>
 __Example__:
@@ -292,7 +307,7 @@ __Example__:
 
 ---
 ### `platformVersion`
-__Description__: allows you to set the mobile OS platform version that you want to use in your test. You can use this for [dynamic device allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation) to specify incremental versions (e.g., `"4.1"`) or major versions (e.g., `"4"`). By setting a major version, you'd have access to all devices running incremental versions (`"4.1"`, `"4.2"`, `"4.2.1"`, "`4.4.4"`). This also extends to minor and point versions (e.g., specifying `"4.4"` will match `"4.4.0"`, `"4.4.1"`).<br/>
+__Description__: allows you to set the mobile OS platform version that you want to use in your test. You can use this for [dynamic device allocation](https://docs.saucelabs.com/mobile-apps/supported-devices/#static-and-dynamic-device-allocation) to specify incremental versions (e.g., `"4.1"`) or major versions (e.g., `"4"`). By setting a major version, you'd have access to all devices running incremental versions (`"4.1"`, `"4.2"`, `"4.2.1"`, "`4.4.4"`). This also extends to minor and point versions (e.g., specifying `"4.4"` will match `"4.4.0"`, `"4.4.1"`).<br/>
 __Value Type__: string.<br/>
 __Example__:
 ```java
@@ -301,7 +316,9 @@ __Example__:
 
 ---
 ### `automationName`
+
 <p><small><Highlight color="#946f59">Android/Espresso Only</Highlight></small></p>
+
 __Description__: allows you to set the automation engine that will be used. Possible values are: `Appium`, `UiAutomator2`, `Selendroid`. Default value is Appium.<br/>
 __Value Type__: string.<br/>
 __Example__:
@@ -433,7 +450,7 @@ __Example__:
 __Description__: use this to set your Sauce Labs username for the test. You can find this value under **Account** > **User Settings**.
 
 :::note
-You can either set `"username"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](https://docs.saucelabs.com/dev/test-configuration-options#visual-testing)), this must be set in capabilities.
+You can either set `"username"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](https://docs.saucelabs.com/dev/test-configuration-options/#visual-testing)), this must be set in capabilities.
 :::
 
 __Value Type__: string.<br/>
@@ -447,7 +464,7 @@ __Example__:
 __Description__: use this to set your Sauce Labs access key for the test. You can find this value under **Account** > **User Settings**.
 
 :::note
-You can either set `"accessKey"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](https://docs.saucelabs.com/dev/test-configuration-options#visual-testing), this must be set in capabilities.
+You can either set `"accessKey"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](https://docs.saucelabs.com/dev/test-configuration-options/#visual-testing), this must be set in capabilities.
 :::
 
 __Value Type__: string.<br/>
@@ -515,7 +532,9 @@ This capability will let the test job use any shared tunnels available from the 
 
 See [Using Sauce Connect Tunnel Identifiers](/secure-connections/sauce-connect/setup-configuration/high-availability) for more information.
 
->**NOTE**: If you're using a shared tunnel, you'll need to specify both `tunnelIdentifier` and `parentTunnel`.
+:::note
+If you're using a shared tunnel, you'll need to specify both `tunnelIdentifier` and `parentTunnel`.
+:::
 
 __Value Type__: string.<br/>
 __Example__:
@@ -666,11 +685,13 @@ The value for `cacheId` must be the same for all test methods that you want to r
 * `autoGrantPermissions`
 * `appiumVersion`
 
-Suitable for test setups that require the app's state to be reset between tests. Can be used for both [**static allocation and dynamic allocation**](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation).
+Suitable for test setups that require the app's state to be reset between tests. Can be used for both [**static allocation and dynamic allocation**](https://docs.saucelabs.com/mobile-apps/supported-devices/#static-and-dynamic-device-allocation).
 
 We recommend reviewing [Device Management for Real Devices](mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
->**NOTE**: `cacheId` has replaced the `testobject_cache_device` capability that was used in TestObject (Legacy RDC).
+:::note
+`cacheId` has replaced the `testobject_cache_device` capability that was used in TestObject (Legacy RDC).
+:::
 
 __Value Type__: randomized string.
 
@@ -715,7 +736,7 @@ __Value Type__: boolean.
 
 ---
 ### `sauceLabsImageInjectionEnabled`
-__Description__: enables the [camera image injection](https://docs.saucelabs.com/mobile-apps/features#camera-image-injection) feature.<br/>
+__Description__: enables the [camera image injection](https://docs.saucelabs.com/mobile-apps/features/#camera-image-injection) feature.<br/>
 __Value Type__: boolean.
 
 ---
@@ -727,7 +748,6 @@ __Value Type__: boolean.
 
 ---
 ### `allowTouchIdEnroll`
-<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
 
 __Description__: enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).<br/>
 __Value Type__: boolean.
@@ -754,7 +774,7 @@ The following Appium capabilities are not yet supported for real devices. If you
 * `installApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
 * `removeApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
 * `Edit Timezone`: Appium does not provide a capability to edit the timezone of a device in automated testing on real devices.
-  * See [Virtual Device Capabilities](https://docs.saucelabs.com/dev/test-configuration-options/index.html#virtual-device-capabilities-sauce-specific--optional) for information about timezone capabilities in virtual device testing.
+  * See [Virtual Device Capabilities](https://docs.saucelabs.com/dev/test-configuration-options/#virtual-device-capabilities-sauce-specific--optional) for information about timezone capabilities in virtual device testing.
 
 
 ## Virtual Device Capabilities: Sauce-Specific – Optional
