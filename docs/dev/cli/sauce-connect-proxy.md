@@ -76,7 +76,7 @@ __Shorthand__: `-u`
 
 ### `--direct-domains` (string)
 
-__Description__: Use this option along with a comma-separated list of domains that you want to be relayed directly through the internet instead of through the Sauce Connect Proxy tunnel.
+__Description__: Use this option along with a comma-separated list of domains (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)) that you want to be relayed directly through the internet instead of through the Sauce Connect Proxy tunnel.
 
 __Shorthand__: `-D`
 <br/>
@@ -90,9 +90,20 @@ __Shorthand__: `-B`
 
 ### `--tunnel-domains` (string)
 
-__Description__:  Performs the inverse of `--direct-domains`; sends domains that you request through the Sauce Connect Proxy tunnel. Be sure to format your domains as a comma-separated list.
+__Description__:  Performs the inverse of `--direct-domains`; sends domains that you request through the Sauce Connect Proxy tunnel. Be sure to format your domains as a comma-separated list (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)).
 
 __Shorthand__: `-t`
+<br/>
+
+### `--no-ssl-bump-domains` (string)
+
+__Description__: Comma-separated list of domains. Comma-separated list of domains (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)). Requests, including hosts that match one of these domains, will not be SSL re-encrypted. See [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) for more information about scenarios in which you would want to use this command.
+
+:::note
+HTTP Header Injection is disabled for all HTTPS domains passed to --no-ssl-bump-domains argument.
+:::
+
+__Shorthand__: `-B`
 <br/>
 
 
