@@ -331,30 +331,51 @@ __Description__: depending on the Data Center location of the device you're test
 __Examples__:
 
 <Tabs
-  defaultValue="US Data Center"
+  defaultValue="US-WEST Data Center"
   values={[
-    {label: 'US Data Center', value: 'US Data Center'},
-    {label: 'EU Data Center', value: 'EU Data Center'},
+    {label: 'US-WEST Data Center', value: 'US-WEST Data Center'},
+    {label: 'US-EAST Data Center', value: 'US-EAST Data Center'},
+    {label: 'EU-CENTRAL Data Center', value: 'EU-CENTRAL Data Center'},
+    {label: 'APAC-SOUTHEAST Data Center', value: 'APAC-SOUTHEAST Data Center'},
   ]}>
 
-<TabItem value="US Data Center">
+<TabItem value="US-WEST Data Center">
 
-To connect to the US Data Center, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US Data Center endpoint:
+To connect to the US-WEST Data Center, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-WEST Data Center endpoint:
 
 ```bash
-$ bin/sc -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx -x https://api.us-west-1.saucelabs.com/rest/v1
+$ sc -x https://api.us-west-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
 
 </TabItem>
-<TabItem value="EU Data Center">
+<TabItem value="US-EAST Data Center">
 
-To connect to the EU Data Center, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the EU Data Center endpoint:
+To connect to the US-EAST Data Center, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-EAST Data Center endpoint:
 
 ```bash
-$ bin/sc -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx -x https://eu-central-1.saucelabs.com/rest/v1
+$ sc -x https://us-east-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
 
 </TabItem>
+<TabItem value="EU-CENTRAL Data Center">
+
+To connect to the EU-CENTRAL Data Center, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the EU-CENTRAL Data Center endpoint:
+
+```bash
+$ sc -x https://eu-central-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+```
+
+</TabItem>
+<TabItem value="APAC-SOUTHEAST Data Center">
+
+To connect to the APAC-SOUTHEAST Data Center, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the APAC-SOUTHEAST Data Center endpoint:
+
+```bash
+$ sc -x https://api.apac-southeast-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+```
+
+</TabItem>
+
 </Tabs>
 <br/>
 
