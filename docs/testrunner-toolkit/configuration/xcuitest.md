@@ -282,9 +282,9 @@ The path to the testing application. The property recognizes both `.ipa` and `.a
 ---
 
 ### `otherApps`
-<p><small>| OPTIONAL | ARRAY |</small></p>
+<p><small>| OPTIONAL | ARRAY | REAL DEVICES ONLY |</small></p>
 
-Set of one or more apps to be pre-installed for your tests. You can upload an app from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.ipa`) or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
+Set of up to seven apps to pre-install for your tests. You can upload an app from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.ipa`) or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
 
 :::note
 Apps specified as `otherApps` inherit the configuration of the main app under test for settings such as `proxy`, `locale`, and `device orientation`, regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test.
