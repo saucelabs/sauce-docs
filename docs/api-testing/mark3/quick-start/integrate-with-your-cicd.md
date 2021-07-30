@@ -13,7 +13,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## APIFCTL
 
-The API Fortress Mark3 cloud CLI tool (`apifctl`) allows you to execute tests and interact with API Fortress either locally, or in a pipeline by using the following docker image: [quay.io/saucelabs/apifcli](quay.io/saucelabs/apifcli).
+The API Fortress Mark3 cloud CLI tool (`apifctl`) allows you to execute tests and interact with API Fortress either locally, or in a pipeline by using the following docker image: [quay.io/saucelabs/apifctl](https://quay.io/repository/saucelabs/apifctl?tag=latest&tab=tags).
 
 To use most of the tool's functionalities, a webhook is required for the project (just like with the old CLI tool: [apif-auto](/api-testing/mark2/ci/apif-auto)). You can either create or retrieve a webhook from the dashboard. Visit the [webhooks section](#generating-a-webhook) for further details.
 
@@ -29,7 +29,7 @@ https://{username}:{access_key}@domain/api-testing/rest/v4/{hookId}
 To run the CLI tool:
 
 ```bash
-docker run quay.io/saucelabs/apifcli
+docker run quay.io/saucelabs/apifctl
 ```
 
 ### Generating a Webhook

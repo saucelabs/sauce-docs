@@ -7,91 +7,126 @@ description: "The vault allows you to store variables and code snippets that can
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The vault allows you to store variables and code snippets that can be used across an entire project.
+The vault allows you to store variables and code snippets to use in your tests in one project, or across all projects.
 
-[Explanation Video](https://www.youtube.com/watch?v=cBNMi30Fj9Q)
+<!--[Explanation Video](https://www.youtube.com/watch?v=cBNMi30Fj9Q)-->
 
 ## Vault Overview
 
-The link to access the Vault is at the top of the window, as shown below:
+You can access the vaults in one of two ways:
 
-<img src={useBaseUrl('img/api-fortress/2021/04/fromDashboard.png')} alt="Access Vault from Dashboard"/>
+1. From the Dashboard:
+   <img src={useBaseUrl('img/api-fortress/2021/04/fromDashboard.png')} alt="Access Vault from Dashboard"/>
 
-:::caution Vault Scope
-As with variables, code snippets saved in a specific project are only available in that project.
-
-_They are not available across all projects._
-
-If a variable and/or code snippet needs to be available in more projects within the company, they must be saved here in the **Company Vault**.
-:::
+2. From the Project view:
+   <img src={useBaseUrl('img/api-fortress/2021/04/vaultFromProject.png')} alt="Access Vault from Project View "/>
 
 ### Variables Section
 
-The first view shows all of the global variables in the Company Vault; these variables and code snippets are available across all projects.
+In the variable section, you have the option to define environment variables to use in your tests. The screenshot below shows the _Company Vault_; these variables are available across all projects.
 
 <img src={useBaseUrl('img/api-fortress/2021/04/company_vault.png')} alt="Company Vault View"/>
 
-In the variable section, you can define variables that will be part of the scope of the tests. If a variable with the same name is defined within the test, it will override the one defined in the Vault. For identical variable names in the global vault and in the project vault, the latter will have higher priority.
+The second screenshot shows the _Project Vault_; these variables are only available in the specific project.
 
 Defining a variable in the Vault is helpful when you need to use the same variable across multiple tests. This way, you don't need to rewrite it every time.
 
-For example, a password could be saved as a variable and reused in multiple places.
+:::info variable scope
+If a variable that exists in the Company Vault, also exists in the Project Vault with the same name definition, the latter will override the Company Vault value.
+:::
+
+For example, a password could be saved as a variable and reused in multiple places. See the [The password variable example](#the-password-variable) below for more details.
 
 :::tip Import Postman Collections into The Vault
 Additionally, you can import variables from Postman. See [here](/api-testing/mark3/quick-start/importing-postman-collections/) for more details.
 :::
 
-### Snippet Section
+### Snippets Section
 
-In the snippet section, you will find all of the snippets you have created using the Composer.
+All created or imported test component/code examples exist in the snippets section.
 
 :::tip What is a Snippet?
 See [here](/api-testing/mark2/reference/composer-snippets) for more details. 
 :::
-Once you have saved the snippet, from the composer, you can choose whether you want to save it and make it available only for the current project or for all the projects within the company by saving it in the Global Vault. If you already have a snippet saved for the current project but you need to make it available across all projects, you can easily export them from the current project to the Global Vault by using the import/export feature. 
 
-<img src={useBaseUrl('img/api-fortress/2020/01/snippet.jpg')} alt="Snippet"/>
+Much like with variable scope, code snippets saved in the specific _Project Vault_ are only available in that project. Likewise, snippets saved in the _Company Vault_ are available across all projects.
 
-A good use case for the snippets feature is an authentication flow; you don't need or want to rewrite all of the steps in every test. You just need to call the snippet that contains the authentication snippet. Another good example is integration testing, where you can reuse various tests to create one larger flow.
+A good use case for the snippets feature is an authentication flow; you don't need nor want to rewrite all authentication steps for every test. Instead, call the snippet that contains these authentication details. See [The Autentication Snippet example below for more details](#the-authentication-snippet). Another good example is integration testing, where you can reuse various tests to create one larger flow.
 
-## Vault Tab in Composer
+:::warning snippet Scope
+If you have a snippet saved for the current project, but you need to make it available across all projects, you can **export** the snippet from your current project to the Company Vault by using the import/export feature (see screenshot below).
 
-When you open the Vault tab in the Composer, global snippets and variables will be highlighted for ease of identification.
+<img src={useBaseUrl('img/api-fortress/2021/04/exportSnippet.png')} alt="Snippet"/>
 
- <img src={useBaseUrl('img/api-fortress/2020/01/globalVsCompany.jpg')} alt="Global vs. Company"/>
+:::
 
-Here is a quick example on how the Vault can be used in a test.
+## Creating a Variable
+
+To create a variable:
+
+* Navigate to the Project Vault
+* Select _New Entry_
+* Add the Key: `domain`
+* Add the value: `api.us-west-1.com`
+* Select _Confirm_
+
+<img src={useBaseUrl('img/api-fortress/2021/04/variableEntry2.png')} alt="Domain Variables"/>
+
+Reference the variable by the key, and the following syntax: `${domain}`.
+
+### The Product Variable
+
+Consider a scenario where an `/product` endpoint requires a specific `id` query parameter. 
+
+<img src={useBaseUrl('img/api-fortress/2021/04/productID0.png')} alt="Product ID 0"/>
+
+While this is a perfectly valid request parameter, it can be hard to manage and update if you scale out your tests. Therefore rather than continuously hard-coding this value into the _Query Params_ field, a safer and more efficient approach is to export this value into to a variable.
+
+Here is an example of how it could look like in the _Project Vault_:
+
+<img src={useBaseUrl('img/api-fortress/2021/04/productID1.png')} alt="Product ID 1"/>
+
+Now you can switch the _Query Params_ field from **String value** to **Variable** and enter the variable name: `product_id` (see the screenshot below). This way if you have multiple tests in your project using the same password.
+
+<img src={useBaseUrl('img/api-fortress/2021/04/productID2.png')} alt="Product ID 2"/>
+
+:::tip code view example
+You can also reference this parameter in Code view with the following syntax: `params="['id':product_id]"`.
+:::
+
+## Creating a Code Snippet
+
+To create a code snippet:
+
+* Navigate to the desired test
+* Select the desired test component
+* Select the "Export snippet from selection" icon
+* Give the snippet a name
+* Select _Save Snippet_
+
+<img src={useBaseUrl('img/api-fortress/2021/04/createSnippet.png')} alt="Creating a Snippet"/>
+
+<img src={useBaseUrl('img/api-fortress/2021/04/snippetDetails.png')} alt="Snippet Details"/>
 
 ### The Authentication Snippet
 
-First, create a new test. Go to the test list, click **+New Test**, enter the test name and click **Compose**. Once the composer appears, simply enter the call. For this example, we will add a GET request that logs in using a Basic authentication:
+Below is an example of how to create an Authentication Snippet.
 
-<img src={useBaseUrl('img/api-fortress/2020/01/login-1.jpg')} alt="Login screenshot"/>
+1. First, create a new test with a request component that requires basic authentication. For examples, check the [Sauce Labs REST API endpoints](/dev/api/) for ideas.
+   <img src={useBaseUrl('img/api-fortress/2021/04/exampleSnippetRequest.png')} alt="Example Snippet Request"/>
+
+1. Select to the **+ Add Request Headers** section below the request component
+   <img src={useBaseUrl('img/api-fortress/2021/04/addRequestHeader.png')} alt="Add Request Header"/>
+   
+1. Select **Basic Authentication** from the list
+   <img src={useBaseUrl('img/api-fortress/2021/04/basicAuth.png')} alt="Basic Auth Component"/>
+   
+1. Enter the details for `username` and `password`, then select _Save_.
+   <img src={useBaseUrl('img/api-fortress/2021/04/basicAuthDetails.png')} alt="Basic Auth Details Component"/>
+
+1. Once the _Authorization Header_ appears, highlight it in the UI, then select the _Export snippet from selection_ icon in the toolbar.
+   <img src={useBaseUrl('img/api-fortress/2021/04/authSnippet.png')} alt="Auth Snippet screenshot"/>
 
 Consider a scenario where this login will be required for all the endpoints we have to test. It makes sense for this call to be stored in the Vault.
 
-Select the `GET`, open the Vault panel and click the + button. Enter a name and description.
-
-<img src={useBaseUrl('img/api-fortress/2020/01/loginSnippet.jpg')} alt="Login Snippet"/>
-
-Now you can proceed with creating the test. Once done, you may create other tests for your API. Once again, click **+New Test**. Once you are in the Composer, you can open the Vault panel and select the snippet saved in the previous step.
-
-<img src={useBaseUrl('img/api-fortress/2020/01/newTestSnippet.jpg')} alt="New Test Snippet"/>
-
-To use the login call in the new test, just click the down arrow button next to the snippet, and it will be added into the test.
-
-<img src={useBaseUrl('img/api-fortress/2020/01/invokeSnippet.jpg')} alt="Invoke Snippet"/>
-
-Now you can call the endpoint that you want to test. Let’s use the search endpoint. Pass the ”ID” variable as a query parameter. The authorization token that was parameterized after the login call will be passed in as well:
-
-<img src={useBaseUrl('img/api-fortress/2020/01/call_search.jpg')} alt="Call Search"/>
-
-Now, consider the case where we want to use the same ”ID” in multiple tests. Don’t set the ID as a global param or an input set. Add it to the vault instead. Save the test and exit from the Composer. Click on Vault in the header and add the variable ”ID” here:
-
-<img src={useBaseUrl('img/api-fortress/2020/01/saveVar.jpg')} alt="Save Variable"/>
-
-Once done, go back to the test and check that the variable is available in the Vault panel:
-
-<img src={useBaseUrl('img/api-fortress/2020/01/varInVault.jpg')} alt="Variable in Vault"/>
-
-If you launch the test, you can see that the ”ID” will be replaced with the value you have set in the Vault.
+Now you can choose to insert or invoke this snippet in future tests that require a Basic Authentication header.

@@ -32,7 +32,6 @@ Consider this variable:
 
 While the following variable is perfectly valid, it may become extremely painful to update tens or hundreds of tests if the domain changes.
 
-
 Alternatively, you may use the API Fortress Vault to store domain names to solve this problem. Simply add a “domain” variable in your vault as follows:
 
 <img src={useBaseUrl('img/api-fortress/2021/04/variableEntry.png')} alt="Domain Variables"/>

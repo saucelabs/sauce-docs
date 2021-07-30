@@ -17,8 +17,6 @@ module.exports = {
                         'api-testing/mark3/quick-start/test-reports',
                         'api-testing/mark3/quick-start/schedule-a-test',
                         'api-testing/mark3/quick-start/dashboard',
-                        'api-testing/mark3/quick-start/integrate-with-your-cicd',
-                        'api-testing/mark3/quick-start/adding-a-user',
                         'api-testing/mark3/quick-start/environments-vault-and-overrides-magic',
                         'api-testing/mark3/quick-start/flexible-variables-for-flexible-environments',
                         'api-testing/mark3/quick-start/the-vault',
