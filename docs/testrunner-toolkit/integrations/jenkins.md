@@ -1,6 +1,6 @@
 ---
 id: jenkins
-title: Testrunner Toolkit with Jenkins
+title: saucectl with Jenkins
 sidebar_label: Jenkins
 ---
 
@@ -40,7 +40,9 @@ The easiest way to add credentials to Jenkins is with the UI:
 
     <img src={useBaseUrl('img/stt/secrets.png')} alt="Jenkins Secrets" width="500" />
 
-    > For further information on how to store your Sauce Labs credentials in Jenkins, visit [the Jenkinsfile documentation](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials).
+    :::note
+    For further information on how to store your Sauce Labs credentials in Jenkins, visit [the Jenkinsfile documentation](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials).
+    :::
 
 ### Configure the Jenkins Pipeline
 
@@ -53,34 +55,55 @@ In the examples below, the `environment` variables are the GitHub secrets config
     {label: 'Cypress', value: 'cypress'},
     {label: 'Playwright', value: 'playwright'},
     {label: 'TestCafe', value: 'testcafe'},
+    {label: 'Puppeteer', value: 'puppeteer'},
+    {label: 'Espresso', value: 'espresso'},
+    {label: 'XCUITest', value: 'xcuitest'},
   ]}>
 
 <TabItem value="cypress">
 
 ```bash reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.cypress
+https://github.com/saucelabs/saucectl-cypress-example/blob/master/Jenkinsfile
 ```
 
 </TabItem>
 <TabItem value="playwright">
 
 ```sh reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.playwright
+https://github.com/saucelabs/saucectl-playwright-example/blob/master/Jenkinsfile
 ```
 
 </TabItem>
 <TabItem value="testcafe">
 
 ```bash reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.testcafe
+https://github.com/saucelabs/saucectl-testcafe-example/blob/master/Jenkinsfile
 ```
 
 </TabItem>
+<TabItem value="puppeteer">
+
+```bash reference
+https://github.com/saucelabs/saucectl-puppeteer-example/blob/master/Jenkinsfile
+```
+
+</TabItem>
+<TabItem value="espresso">
+
+```bash reference
+https://github.com/saucelabs/saucectl-espresso-example/blob/master/Jenkinsfile
+```
+
+</TabItem>
+<TabItem value="xcuitest">
+
+```bash reference
+https://github.com/saucelabs/saucectl-xcuitest-example/blob/master/Jenkinsfile
+```
+</TabItem>
 </Tabs>
 
-> You can view some of our public examples [here](https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/).
-
-<!--### Run the Pipeline Tests-->
+### Run the Pipeline Tests
 
 Now you can commit these files and Jenkins will detect the new pipeline and launch `saucetl` to run your tests.
 

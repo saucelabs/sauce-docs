@@ -2,13 +2,20 @@ div[class^='announcementBarContent'] {
     /*background-color: var(--ifm-background-surface-color);*/
     /*!*background-color: #F83838;*!*/
     /*color: var(--ifm-font-color-base);*/
-    font-size: inherit;
+    font-size: 14px;
+    background-color: #E6F1FD;
+    color: #1E2127;
+    box-shadow: inset 0px -1px 0px #0E75DD;
+    /* Text/High Emphasis */
+    color: #1E2127;
+    /* Text/Medium Emphasis */
+    color: #6D7584;
 }
 
 div[class^='announcementBarContent'] a {
-    /*color: var(--ifm-link-color);*/
-    text-decoration: inherit;
-    font-weight: bold;
+   /*color: var(--ifm-link-color);*/
+   text-decoration: inherit;
+   font-weight: bold;
 }
 
 div[class^='announcementBarContent'] a:hover {

@@ -44,7 +44,7 @@ where:
 
 2. Select an appropriate test script. Options might include:
   * One of your existing tests, if available.
-  * An example from [Sauce Labs Demonstration Scripts](https://wiki.saucelabs.com/display/DOCS/Sauce+Labs+Demonstration+Scripts). Follow the instructions to configure the test before proceeding to step 3 below.
+  * An example from [Sauce Labs Demonstration Scripts](https://github.com/saucelabs-training). Follow the instructions to configure the test before proceeding to step 3 below.
 3. If you are using an tunnel identifier, add the following to the desired capabilities of  the test:
 
 <Tabs
@@ -111,7 +111,7 @@ Where `TUNNEL_ID` is the identifier or name of the tunnel from step 1.
 
 
 ### Test Not Working?
-If you're unable to connect, check with your network administrator about examining firewall settings for roadblocks. For more information, see [Allow-listing for Restricted Networks](/secure-connections/sauce-connect/system-requirements).
+If you're unable to connect, check with your network administrator about examining firewall settings for roadblocks. For more information, see [Allowlisting for Restricted Networks](/secure-connections/sauce-connect/system-requirements).
 
 Another possible issue is certificate  authentication. The server hosting Sauce Connect Proxy may need to connect to Online Certificate Status Protocol (OCSP). See [Certificate Handling](/secure-connections/sauce-connect/security-authentication) for more information.
 
@@ -181,7 +181,7 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i sc-
 </Tabs>
 
 * Ensure that your network configuration allows for communication between the `SC Host`, the Tunnel VM, and the SUT (site under test). See the basic network configuration diagram for further explanation.
-* Select an example from [Sauce Labs Demonstration Scripts](https://wiki.saucelabs.com/display/DOCS/Sauce+Labs+Demonstration+Scripts) and follow the instructions to configure the test in your dev environment.
+* Select an example from [Sauce Labs Demonstration Scripts](https://github.com/saucelabs-training) and follow the instructions to configure the test in your dev environment.
 * Navigate to the desired test script and add the following [Test Configuration Option](/dev/test-configuration-options) in the [`sauce:options`](/dev/w3c-webdriver-capabilities) capability:
 
 <Tabs

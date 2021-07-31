@@ -158,6 +158,42 @@ h3, .h3 {
     font-size: 20px;
     margin-bottom: 8px !important;
 }
+h4, .h4 {
+    padding-bottom: 5px;
+    font-size: 18px;
+    margin-bottom: 20px !important;
+    font-weight: 750;
+}
+/* h4, .h4 {
+    padding-bottom: 5px;
+    font-size: 18px;
+    margin-bottom: 20px !important;
+    position:relative;
+} */
+/* h4::before {
+  content: "";
+  position: absolute;
+  left: 6%;
+  bottom: 5px;
+  width: 150px;
+  height: 10px;
+  transform: skew(-12deg) translateX(-25%);
+  background: rgba(197,210,214,0.5);
+  z-index: -1;
+} */
+h6, .h6 {
+    padding-bottom: 2px;
+    font-size: 16px;
+    margin-bottom: 2px !important;
+    margin-top: 5px !important;
+}
+
+.cli {
+    padding-bottom: 2px;
+    font-size: 16px;
+    margin-bottom: 2px !important;
+    margin-top: 5px !important;
+}
 
 .docusaurus-highlight-code-line {
     background-color: rgb(91, 72, 77);
@@ -284,7 +320,7 @@ h3, .h3 {
 .admonition-tip {
   border-left: 5px solid #01c3a5;
   /*color: #474c55;*/
-  margin-left: 25px;
+  margin-left: 50px;
   margin-right: 25px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -477,6 +513,44 @@ h3, .h3 {
     padding:.2rem;
     font-weight:600;
 }
+
+
+
+
+/* announcementBar button and image */
+
+.announcementBar {
+  border: 1px solid #0E75DD;
+  border-radius: 11px;
+  padding: 1px 9px;
+  color: #0E75DD;
+  font-weight: 550;
+  font-size: 13px;
+  line-height: 13px;
+}
+
+.announcementBar:hover {
+  background-color: #2f76d6;
+  color: #FFFFFF;
+  cursor:pointer;
+}
+
+.announcementBar:active {
+  background:linear-gradient(bottom, rgba(183,29,21,1) 0%, rgba(226,35,26,1) 100%);
+  color:#E6F1FD;
+  box-shadow: 0px 1px 0px #b71d15, 0px 1px 1px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 1px rgba(255,255,255,.5);
+  transform:translate(0, 2px);
+}
+
+.announcementBarimage {
+  background-image: url(/img/saucebot-announcementbar.png);
+  width: 55px;
+  height: 21px;
+  border: 0px;
+  padding: 0;
+}
+
+
 
 /*Playing with ribbons*/
 

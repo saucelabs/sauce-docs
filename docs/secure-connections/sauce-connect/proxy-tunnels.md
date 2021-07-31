@@ -231,7 +231,7 @@ Once the host file has been altered, start Sauce Connect Proxy with the added ar
 During testing, your website or application may load resources (e.g., tracking services, images/videos, advertisements), which can impact page load times and even cause tests to fail. If these external assets are publicly available on the Internet, then they can be cached to speed up requests. If these are not needed at all for testing purposes, you can disable or redirect traffic to improve performance.
 
 ### Disable Traffic to External Resources
-You can improve your overall test performance by disabling these third-party resource calls. If you're using Sauce Connect Proxy, the additional network hops required to access external resources has the potential to slow test execution dramatically. To retrieve resources directly, you can use the `--tunnel-domains` and `--direct-domains` flags to control which domains Sauce Connect will access during the test. To blacklist traffic so it is immediately dropped, use the `--fast-fail-regexps` command.
+You can improve your overall test performance by disabling these third-party resource calls. If you're using Sauce Connect Proxy, the additional network hops required to access external resources has the potential to slow test execution dramatically. To retrieve resources directly, you can use the `--tunnel-domains` and `--direct-domains` flags to control which domains Sauce Connect will access during the test. To blocklist traffic so it is immediately dropped, use the `--fast-fail-regexps` command.
 
 See the following for more information:
 
@@ -541,7 +541,7 @@ Ephemeral tunnels (short-lived tunnels) are ideal for the following test situati
 #### Starting an Ephemeral Tunnel From Your Local Workstation
 One option to start Ephemeral tunnels is to do so from your local workstation.
 
-1. Set your Sauce Labs username and access key as environmental variables. For more information, see [Best Practice: Use Environment Variables for Authentication Credentials](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials).
+1. Set your Sauce Labs username and access key as environmental variables. For more information, see [Using Environment Variables for Authentication Credentials](/basics/environment-variables).
 
 2. Run the simplest of startup commands to ensure that the tunnel starts:
 
@@ -637,7 +637,7 @@ Enables Sauce Connect Proxy to find the first available port for the Selenium Re
 File that auto-generates whenever a process for Sauce Connect Proxy starts. Must be unique per tunnel. To see where the file is saved, you can check your Sauce Connect Proxy Log.
 
 
-For more information, see the [Sauce Connect Proxy Command Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
+For more information, see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy).
 
 ## Keeping Your Long-Running Tunnels Fresh
 
@@ -653,7 +653,7 @@ If a tunnel fails or is absent, your tests will also fail. You'll be able to see
 If needed, you can also start a combination of Ephemeral and Long-Running tunnels (i.e., your teams aren't bound to one type or the other) provided you're staying within your concurrency limit. This may be useful if you're a large enterprise user. As an example, if you have long-running tunnels already going, you can still start up ephemeral on the side.
 
 ## Using the Selenium Relay
-The Selenium Relay is an optional configuration, built into Sauce Connect Proxy, that acts as a listener for Selenium commands. When enabled, it sends all inbound and outbound Selenium commands through an encrypted Sauce Connect tunnel (instead of HTTP/HTTPS) to the Sauce Labs browser cloud. Your tests would not use a Sauce Labs OnDemand endpoint (see [Data Center Endpoints](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) for more information).
+The Selenium Relay is an optional configuration, built into Sauce Connect Proxy, that acts as a listener for Selenium commands. When enabled, it sends all inbound and outbound Selenium commands through an encrypted Sauce Connect tunnel (instead of HTTP/HTTPS) to the Sauce Labs browser cloud. Your tests would not use a Sauce Labs OnDemand endpoint (see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints) for more information).
 
 Effective with Sauce Connect Proxy version 4.6.x and higher, this feature is disabled by default. Leveraging Sauce Connect Proxy as a Selenium Relay is generally not recommended and should only be used in rare scenarios, such as:
 

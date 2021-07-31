@@ -42,7 +42,7 @@ When generating a shareable link, you'll need to know your specific data center.
 https://app.eu-central-1.saucelabs.com/tests/YOUR_TEST_ID).
 ```
 
-See [Data Center Endpoints](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) for more info.
+See [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints) for more info.
 
 ### Linking to Tests that Require a Login to View
 You can create links to your tests that will only work if you're logged in with the account that ran the test.
@@ -61,7 +61,7 @@ As previously mentioned, all examples on this page use the US West 1 data center
 https://app.eu-central-1.saucelabs.com/tests/YOUR_TEST_ID
 ```
 
-See [Data Center Endpoints](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) for more info.
+See [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints) for more info.
 
 ### Linking to Tests that Don't Require a Login to View
 
@@ -74,6 +74,7 @@ The digest algorithm to use is MD5. The message and key used to generate the tok
 * Key: `SAUCE_USERNAME`:`SAUCE_ACCESS_KEY`
 * Message: `YOUR_TEST_ID`
 
+#### Example - Python
 The example below demonstrates how to generate the token in a Python interpreter for a test with the `id`: `5f9fef27854ca50a3c132ce331cb6034`:
 
 ```python
@@ -82,6 +83,78 @@ The example below demonstrates how to generate the token in a Python interpreter
 >>> hmac.new("SAUCE_USERNAME:SAUCE_ACCESS_KEY", "5f9fef27854ca50a3c132ce331cb6034", md5).hexdigest()
 Once the auth token has been obtained, you can use it to build a link in this format: https://app.saucelabs.com/tests/YOUR_TEST_ID?auth=AUTH_TOKEN.
 ```
+
+#### Example - Java
+```java
+package com.saucelabs.demo;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+
+import static java.nio.charset.StandardCharsets.US_ASCII;
+
+public class SauceShareableLink {
+
+  private static final String SAUCE_USERNAME = System.getenv("SAUCE_USERNAME");
+  private static final String SAUCE_ACCESS_KEY = System.getenv("SAUCE_ACCESS_KEY");
+  private static final String KEY = String.format("%s:%s", SAUCE_USERNAME, SAUCE_ACCESS_KEY);
+  private static final String SAUCE_TESTS_URL = "https://app.eu-central-1.saucelabs.com/tests";
+
+  public static String getShareableLink(String sauceJobId) throws NoSuchAlgorithmException, InvalidKeyException {
+    SecretKeySpec sks = new SecretKeySpec(KEY.getBytes(US_ASCII), "HmacMD5");
+    Mac mac = Mac.getInstance("HmacMD5");
+    mac.init(sks);
+    byte[] result = mac.doFinal(sauceJobId.getBytes(US_ASCII));
+    StringBuilder hash = new StringBuilder();
+    for (byte b : result) {
+      String hex = Integer.toHexString(0xFF & b);
+      if (hex.length() == 1) {
+        hash.append('0');
+      }
+      hash.append(hex);
+    }
+    String digest = hash.toString();
+    return String.format("%s/%s?auth=%s", SAUCE_TESTS_URL, sauceJobId, digest);
+  }
+
+  public static void main(String[] args) {
+    try {
+      String sauceJobId = "c5eb67f00e124ba0a46f2b7869bd418c";
+      String shareableLink = SauceShareableLink.getShareableLink(sauceJobId);
+      System.out.println(shareableLink);
+    } catch (NoSuchAlgorithmException | InvalidKeyException e) {
+      // Handle appropriately according to your use case
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+#### Example - Node.js
+
+```js
+const crypto = require('crypto');
+const sessionId = 'f65a1ee87a77410189aba40f48ac1223';
+const addDate = process.argv.includes('addDate');
+const date = new Date();
+const addedDays = date.setDate(date.getDate());
+const newDate = (new Date(addedDays)).toISOString().slice(0,10);
+const dateSecret = addDate ? `:${newDate}` : '';
+const secret = `${process.env.SAUCE_USERNAME}:${process.env.SAUCE_ACCESS_KEY}${dateSecret}`;
+const token = crypto
+.createHmac('md5', secret)
+.update(sessionId)
+.digest('hex');
+const usUrl = `https://app.saucelabs.com/tests/${sessionId}?auth=${token}`;
+const euUrl = `https://app.eu-central-1.saucelabs.com/tests/${sessionId}?auth=${token}`;
+console.log('usUrl = ', usUrl);
+console.log('euUrl = ', euUrl);
+
+```
+
 ## Support for Secondary Accounts
 If you want to authenticate as another user, just prefix the auth token with your user name, followed by a colon.
 
@@ -103,7 +176,7 @@ The date range can take two formats: `YYYY-MM-DD-HH` and `YYYY-MM-DD`. These sho
 
 ### Authentication Required
 
-Both of these configurations will only work for browsers logged in using your account, but you can use authentication tokens to make this work for anonymous viewers. For more information about creating authentication tokens, see [Building Sharable Links](/test-results/sharing-test-results#building-sharable-links).
+Both of these configurations will only work for browsers logged in using your account, but you can use authentication tokens to make this work for anonymous viewers. For more information about creating authentication tokens, see [Building Sharable Links](/test-results/sharing-test-results).
 
 ```js
 https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN

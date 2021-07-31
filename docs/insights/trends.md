@@ -59,7 +59,7 @@ As the figure below shows, more than 3,500 tests were run on Windows 7 for Chrom
 
 There are no errors, indicating that this is a robust set of tests, but a large number of tests ran to completion without reporting a Pass or Fail status. Hovering over one of the bars in the graph shows that these no-status completions account for about 65% of the tests in every time increment.
 
-While the tests themselves perform well, it's difficult to judge how well the site functions when completed tests do not offer a definitive outcome. To provide a better baseline for cross-browser comparison, [annotate](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+and+Annotation) these tests with relevant status using the Jobs API or the Selenium Javascript Executor.
+While the tests themselves perform well, it's difficult to judge how well the site functions when completed tests do not offer a definitive outcome. To provide a better baseline for cross-browser comparison, [annotate](/basics/test-config-annotation/test-annotation) these tests with relevant status using the Jobs API or the Selenium Javascript Executor.
 
 #### Chrome 55
 
@@ -133,4 +133,4 @@ The following table provides some guidance for how you might improve your build 
 |1 - 90%	|Semi-parallel	|The build took less time to run than the sum of all test run times, which means that some tests ran in parallel and some ran in sequential order. Consider reorganizing your tests into small, atomic, and autonomous validations of very focused functionality to make sure they aren't dependent on one another to complete before they can execute.|
 |91 - 100%	|Parallel	|The build took approximately the same amount of time to run as the longest test within it, meaning that most, if not all, the tests ran simultaneously. You can still potentially improve the overall efficiency of your build by breaking your longer running tests into smaller, shorter tests, if possible. In the benchmarking example for Build A, if T2 could be broken down into two tests that ran for 30 seconds each, you would improve the efficiency of that build by 25%, since the longest running test within it would be 45 seconds instead of 60 seconds.|
 
-See our [Small, Atomic Tests white paper](https://wiki.saucelabs.com/display/DOCS/Best+Practices%3A+Use+Small%2C+Atomic%2C+Autonomous+Tests) for more comprehensive discussion about improving the efficiency of your builds.
+See our [Short Tests in Parallel](https://saucelabs.com/blog/speeding-up-your-tests-short-tests-in-parallel) blog for a more comprehensive discussion about improving the speed and efficiency of your builds.
