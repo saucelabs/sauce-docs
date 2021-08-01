@@ -1,7 +1,7 @@
 ---
-id: review-flow
-title: Learn the Review Flow
-sidebar_label: Review Flow
+id: review-workflow
+title: Visual E2E Testing Review Worklow
+sidebar_label: Review Workflow
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -53,21 +53,15 @@ When a test has **Changed** or **New** UI states, it will show a Review button:
 
 <img src={useBaseUrl('img/visual/e2e-review-button.png')} alt="E2E Review Button" />
 
-<img src={useBaseUrl('img/visual/e2e-review-button.png')} alt="E2E Review Button" />
-
 Clicking on the Review button will display a list of your UI states filtered to only those needing review.
 
 Click on the first UI state to start reviewing:
 
 <img src={useBaseUrl('img/visual/e2e-review-state.jpeg')} alt="E2E Review State" />
 
-<img src={useBaseUrl('img/visual/e2e-review-state.jpeg')} alt="E2E Review State" />
-
 ## 2. Review UI State
 
-You will be presented with screenshots of the selected UI state.
-
-<img src={useBaseUrl('img/visual/e2e-review-screenshots.jpeg')} alt="E2E Review Screenshots" />
+You will be presented with screenshots of the selected UI state:
 
 <img src={useBaseUrl('img/visual/e2e-review-screenshots.jpeg')} alt="E2E Review Screenshots" />
 
@@ -77,12 +71,12 @@ Changed UI states will include highlights of visual changes directly overlayed o
 
 :::tip Tip: Ignoring
 
-[Learn how to ignore changes](/visual/e2e-testing/ignore).
+[Learn how to ignore changes](/visual/e2e-testing/workflow/ignoring-changes).
 :::
 
 :::tip Tip: Change Details
 
-[Learn how to view change details](/visual/e2e-testing/change-details).
+[Learn how to view change details](/visual/change-details).
 :::
 
 
@@ -122,4 +116,4 @@ The build status will be updated to **Failure** when there are rejected UI state
 
 ## Next Steps
 
-* [Integrate into your CI process](/visual/e2e-testing/integrations/ci) for continuous visual testing.
+* [Integrate into your CI process](/visual/e2e-testing/integrations/continuous-integration) for continuous visual testing.

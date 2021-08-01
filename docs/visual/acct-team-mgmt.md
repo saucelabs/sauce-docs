@@ -1,6 +1,6 @@
 ---
 id: acct-team-mgmt
-title: Visual E2E User and Team Management
+title: Visual Testing Account and Team Management
 sidebar_label: Account and Team Management
 ---
 

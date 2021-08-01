@@ -1,7 +1,7 @@
 ---
-id: visual-commands
-title: Visual Commands
-sidebar_label: Visual Commands
+id: commands
+title: Visual E2E Commands Reference
+sidebar_label: Commands
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -13,9 +13,9 @@ Visual commands can be integrated into existing WebDriver test code simply and s
 A Visual command is simply a JavaScript comment sent over WebDriver using the execute command.
 
 
-## `/*@visual.init*/`
+## Init Command
 
-`/*@visual.init*/` is the Init command, which is used to initialize and name a Visual test. This command must be added before any snapshot commands. It can be used multiple times in a browser session to initialize multiple visual tests.
+The Init command (`/*@visual.init*/`) is used to initialize and name a Visual test. This command must be added before any snapshot commands. It can be used multiple times in a browser session to initialize multiple visual tests.
 
 ### Arguments
 
@@ -92,9 +92,9 @@ driver.execute_script('/*@visual.init*/', 'My Visual Test')
 </Tabs>
 
 
-## `/*@visual.snapshot*/`
+## Snapshot Command
 
-`/*@visual.snapshot*/` is the Snapshot command, which is used to capture a visual snapshot. This JS comment can be added into your code wherever you want a snapshot to be taken, and can be used multiple times.
+The Snapshot command (`/*@visual.snapshot*/`) is used to capture a visual snapshot. This JS comment can be added into your code wherever you want a snapshot to be taken, and can be used multiple times.
 
 The above Init command must be called first before any snapshots are taken, or an error will occur.
 
@@ -183,9 +183,9 @@ driver.execute_script('/*@visual.snapshot*/', 'State Name')
 </Tabs>
 <br/>
 
-## `/*@visual.end*/`
+## End Command
 
-`/*@visual.end*/` is the End command, which is used to wait and get visual results. This command should be the last visual command in your browser session, used after all your visual snapshots.
+The End command (`/*@visual.end*/`) is used to wait and get visual results. This command should be the last visual command in your browser session, used after all your visual snapshots.
 
 The response will contain the following properties:
 
