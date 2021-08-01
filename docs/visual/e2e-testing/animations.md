@@ -1,6 +1,6 @@
 ---
 id: animations
-title: Learn How To Disable Animations
+title: Disabling Animations
 sidebar_label: Disabling Animations
 ---
 

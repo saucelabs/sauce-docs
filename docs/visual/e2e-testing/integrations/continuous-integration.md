@@ -1,5 +1,5 @@
 ---
-id: ci
+id: continuous-integration
 title: Continuous Integration
 sidebar_label: Continuous Integration
 ---
@@ -16,7 +16,7 @@ If your tests are already integrated into CI, get visual results returned into y
 
 ## 1. Return Visual results into your WebDriver test(s)
 
-To get the test results, add the [`@visual.end` command](/visual/e2e-testing/visual-commands) right before ending your test session. The returned result can then be asserted to pass or fail your test.
+To get the test results, add the [`@visual.end` command](/visual/e2e-testing/commands) right before ending your test session. The returned result can then be asserted to pass or fail your test.
 
 <Tabs
   defaultValue="JavaScript"
@@ -72,7 +72,7 @@ Assert.IsTrue(result.passed, result.message);
 </TabItem>
 </Tabs>
 
-For more details on results returned, view the [Visual Commands](https://screener.io/v2/docs/visual-e2e/visual-commands) documentation.
+For more details on results returned, view the [Visual Commands](/visual/e2e-testing/commands) documentation.
 
 
 ## 2. Integrate your CI Build
@@ -182,5 +182,5 @@ capabilities: {
 
 ## Next Steps
 
-* [Invite users](https://screener.io/v2/docs/visual-e2e/teams) to your project.
-* [Troubleshooting](https://screener.io/v2/docs/visual-e2e/troubleshooting).
+* [Invite users](/visual/acct-team-mgmt) to your project.
+* [Troubleshooting](/visual/e2e-testing/troubleshooting).

@@ -1,6 +1,6 @@
 ---
 id: notifications
-title: Visual Component Testing Notifications
+title: Visual Testing Notifications
 sidebar_label: Notifications
 hide_table_of_contents: true
 ---
@@ -11,9 +11,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Screener sends email notifications for the following build statuses:
 
-* Build Failed
-* Build Error
-* Build Accepted
+* `Build Failed`
+* `Build Error`
+* `Build Accepted`
 
 You can subscribe/unsubscribe to these notifications by Project from Screener's [Notifications Settings](https://screener.io/v2/account/notifications):
 
