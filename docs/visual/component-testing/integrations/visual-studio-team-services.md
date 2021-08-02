@@ -1,7 +1,7 @@
 ---
-id: visual-studio
+id: visual-studio-team-services
 title: Visual Studio Team Service Integration
-sidebar_label: Visual Studio
+sidebar_label: Visual Studio Team Services
 hide_table_of_contents: true
 ---
 
@@ -11,11 +11,12 @@ By integrating Screener into your VSTS Pull Request workflow, you can do both co
 
 <img src={useBaseUrl('img/visual/component-vsts-status.png')} alt="Component VSTS Status" />
 
-* When visual changes are found by Screener, the Pull Request status will be marked as failed in VSTS.
+* When visual changes are found by Screener, the Pull Request status will be marked as `failed` in VSTS.
 * Review visual changes simply by clicking on the status link.
 * The VSTS Pull Request status will automatically update to succeeded when visual changes are accepted in Screener, reducing the need to re-run a CI build to see a green success status.
 
 ## Setup Steps
+
 1. Integrate Screener into your CI process for continuous visual testing.
 2. Update `screener.config.js` file with your VSTS instance domain, and set the `failureExitCode` option to `0` (to not fail CI builds):
   ```java

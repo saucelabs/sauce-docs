@@ -1,11 +1,11 @@
 ---
-id: visual-options
+id: options
 title: Visual E2E Options Reference
-sidebar_label: Visual Options
+sidebar_label: Options
 hide_table_of_contents: true
 ---
 
-## Options for `sauce:visual` capability
+## `sauce:visual` Capability Options
 
 <table>
   <tr>
@@ -103,7 +103,7 @@ hide_table_of_contents: true
     No
    </td>
    <td>
-    Branch name of project's base branch. Used for <a href="/visual/e2e-testing/baseline-branch">baseline branching and merging</a>.
+    Branch name of project's base branch. Used for <a href="/visual/e2e-testing/workflow/baseline-branch">baseline branching and merging</a>.
 <p>Example: <code>main</code>.</p>
    </td>
    <td>
@@ -123,29 +123,29 @@ hide_table_of_contents: true
     Visual diff options to control validations.
 <p>Options available:</p>
 <ul>
-<li><strong>structure</strong>: enable or disable <a href="/visual/e2e-testing/change-details">structural changes</a>. Defaults to true.</li>
-<li><strong>layout</strong>: enable or disable <a href="/visual/e2e-testing/change-details">layout changes</a>. Defaults to true.</li>
-<li><strong>style</strong>: enable or disable <a href="/visual/e2e-testing/change-details">style changes</a>. Defaults to true.</li>
-
-<li><strong>content</strong>: enable or disable <a href="/visual/e2e-testing/change-details">content changes</a>. Defaults to true.</li>
-
-<li><strong>minLayoutPosition</strong>: Optional threshold for Layout position changes (in css pixels).</li>
-
-<li><strong>minLayoutDimension</strong>: Optional threshold for Layout dimension changes (in css pixels).</li>
-
-<li><strong>minShiftGraphic</strong>: Optional threshold for pixel shifts in graphics (in css pixels).</li>
+<li><code>structure</code>: enable or disable <a href="/visual/change-details">structural changes</a>. Defaults to true.</li>
+<li><code>layout</code>: enable or disable <a href="/visual/change-details">layout changes</a>. Defaults to true.</li>
+<li><code>style</code>: enable or disable <a href="/visual/change-details">style changes</a>. Defaults to true.</li>
+<li><code>content</code>: enable or disable <a href="/visual/change-details">content changes</a>. Defaults to true.</li>
+<li><code>minLayoutPosition</code>: Optional threshold for Layout position changes (in css pixels).</li>
+<li><code>minLayoutDimension</code>: Optional threshold for Layout dimension changes (in css pixels).</li>
+<li><code>minShiftGraphic</code>: Optional threshold for pixel shifts in graphics (in css pixels).</li>
 </ul>
-   </td>
-   <td><code>&#123;</code>
-<p><code>  structure: true,</code></p>
-<p><code>  layout: true,</code></p>
-<p><code>  style: true,</code></p>
-<p><code>  content: true,</code></p>
-<p><code>  minLayoutPosition: 4,</code></p>
-<p><code>  minLayoutDimension: 10</code></p>
-<p><code>  minShiftGraphic: 2</code></p>
-<p><code>&#125;</code></p>
-   </td>
+   </td><td><code>
+
+```java
+{
+  structure: true,
+  layout: true,
+  style: true,
+  content: true,
+  minLayoutPosition: 4,
+  minLayoutDimension: 10
+  minShiftGraphic: 2
+}
+```
+
+  </code></td>
   </tr>
   <tr>
    <td>
@@ -252,8 +252,8 @@ hide_table_of_contents: true
   </tr>
   <tr>
    <td>
-    iframes
-<p>This is a Beta feature and may be unstable.</p>
+    <code>iframes</code>
+<p><button class="sauceGold">IN BETA</button></p>
    </td>
    <td>
     Boolean
@@ -271,7 +271,7 @@ hide_table_of_contents: true
   <tr>
    <td>
     <code>iframesOptions</code>
-   <p>This is a Beta feature and may be unstable.</p>
+<p><button class="sauceGold">IN BETA</button></p>
    </td>
    <td>
     Object
@@ -282,9 +282,14 @@ hide_table_of_contents: true
    <td>
     Options to control the capturing and comparing of iframes content.
    </td>
-   <td><code>&#123;</code>
-<p><code>  maxFrames: Infinity</code></p>
-<p><code>&#125;</code></p>
+   <td><code>
+
+   ```java
+   {
+     maxFrames: Infinity
+   }
+   ```
+</code>
    </td>
   </tr>
 </table>

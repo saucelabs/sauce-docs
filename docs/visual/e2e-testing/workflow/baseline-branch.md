@@ -1,12 +1,14 @@
 ---
 id: baseline-branch
-title: Learn How To Pull Baseline When Branching & Auto-Accept When Merging
-sidebar_label: Baseline Branch & Merge
+title: Baseline Branching and Merging
+sidebar_label: Baseline Branching and Merging
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+In this section, you'll learn how to pull baseline when branching and auto-accept when merging.
 
 <img src={useBaseUrl('img/visual/e2e-branching-merging.png')} alt="E2E Baseline Branching and Merging" />
 
@@ -25,9 +27,9 @@ Follow the steps below to enable in your Visual E2E project:
 
 ## Setup Steps
 
-1. [Integrate your Visual E2E tests into your CI process](/visual/e2e-testing/integrations/ci) so that visual tests are automatically run when branching or merging.
+1. [Integrate your Visual E2E tests into your CI process](/visual/e2e-testing/integrations/continuous-integration) so that visual tests are automatically run when branching or merging.
 
-2. Set the **branch** and **baseBranch** options in your `sauce:visual` WebDriver capability to set the name of your current branch and the name of your base branch respectively.
+2. Set the `branch` and `baseBranch` options in your `sauce:visual` WebDriver capability to set the name of your current branch and the name of your base branch respectively.
 
 Below are examples of branch environment variables for various CI tools:
 
