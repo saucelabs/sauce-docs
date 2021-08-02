@@ -16,7 +16,6 @@ This is useful for:
 
 To test interactions, Screener provides a class called `Steps` that you can add to your existing Storybook stories. Each step is an instruction to interact with the component.
 
-
 ### For React
 To add steps to a React story, wrap your component within the `<Screener/>` component, and pass it as a `'steps'` prop. The steps can then be generated using our fluent API below.
 
