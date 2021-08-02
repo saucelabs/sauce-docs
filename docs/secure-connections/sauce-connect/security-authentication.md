@@ -67,7 +67,7 @@ Sauce Labs provides a secure and scalable cloud computing platform for functiona
 
 Having our own cloud enables us to provide our services faster, and with higher security, than can be delivered on a public cloud with shared resources. Managing our own data centers also means that we are responsible for delivering a consistent experience with the utmost concern for the security of our users’ data.
 
-For an overview of the services offered by Sauce Labs, our methods for securing the transmission of test data and results, and our security policies and procedures, see our white paper, [Overview of Sauce Labs Security Processes](https://wiki.saucelabs.com/download/attachments/65603985/An%20Overview%20of%20Sauce%20Labs%20Security%20Processes%20062020.pdf?version=2&modificationDate=1612763216702&api=v2).
+For an overview of the services offered by Sauce Labs, our methods for securing the transmission of test data and results, and our security policies and procedures, see our white paper, [Overview of Sauce Labs Security Processes](https://saucelabs.com/resources/white-papers/overview-of-sauce-labs-security-processes).
 
 ## Authentication Using `--auth`
 This approach to authentication works by configuring Sauce Connect Proxy to send authentication details to any URL requesting them. It works for all requests, even those where you're asked for credentials in response to a click or form submission.
