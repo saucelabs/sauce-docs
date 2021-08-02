@@ -75,7 +75,7 @@ Accelerate and scale your testing and broaden coverage by running automated test
 <div>
   <div className="box boxwidetop card">
     <div className="container">
-    <a href="https://wiki.saucelabs.com/display/DOCS/Legacy+Real+Device+Platform+Resources"><h3>Legacy Real Device Platform Resources</h3></a>
+    <a href="https://saucelabs.com/platform/test-object-eol"><h3>Legacy Real Device Platform Resources</h3></a>
     <p><strong>TestObject will reach end-of-life September 1, 2021.</strong></p>
     </div>  
   </div>

@@ -55,6 +55,11 @@ const docusaurusConfig = {
         src: 'img/logo-saucelabs.png',
       },
       items: [
+        // {
+        //   label: 'APIFMark3',
+        //   position: 'left',
+        //   to: '/apif/quick-start',
+        // },
         {
           label: 'Docs',
           position: 'left',
@@ -125,6 +130,7 @@ const docusaurusConfig = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
+          path: 'docs',
           routeBasePath: '/',
           editUrl:
               'https://github.com/saucelabs/sauce-docs/edit/master/',
