@@ -160,7 +160,7 @@ The following Appium capabilities are not yet supported for real devices. If you
 
 * `installApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
 * `removeApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
-* `Edit Timezone`: Appium does not provide a capability to edit the timezone of a device in automated testing on real devices. See [Test Configuration Options](https://wiki.saucelabs.com/pages/viewpage.action?pageId=80417492) for information about timezone capabilities in virtual device testing.
+* `Edit Timezone`: Appium does not provide a capability to edit the timezone of a device in automated testing on real devices. See [Test Configuration Options](/dev/test-configuration-options) for information about timezone capabilities in virtual device testing.
 
 ## RDC - Additional Resources
 
