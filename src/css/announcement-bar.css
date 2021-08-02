@@ -1,24 +1,29 @@
-div[class^='announcementBarContent'] {
-    /*background-color: var(--ifm-background-surface-color);*/
-    /*!*background-color: #F83838;*!*/
-    /*color: var(--ifm-font-color-base);*/
-    font-size: 14px;
-    background-color: #E6F1FD;
-    color: #1E2127;
-    box-shadow: inset 0px -1px 0px #0E75DD;
-    /* Text/High Emphasis */
-    color: #1E2127;
-    /* Text/Medium Emphasis */
-    color: #6D7584;
+button[class^='announcementBarimage'] {
+    vertical-align: bottom;
 }
 
+div[class^='announcementBarContent'] {
+    alignment: center;
+    background-color: #E6F1FD;
+    color: #1E2127;
+    /*box-shadow: inset 0 -1px 0 #0E75DD !important;*/
+    font-size: 14px;
+    margin-left: -5px;
+}
 div[class^='announcementBarContent'] a {
-   /*color: var(--ifm-link-color);*/
    text-decoration: inherit;
    font-weight: bold;
 }
-
 div[class^='announcementBarContent'] a:hover {
-    /*color: var(--ifm-link-color);*/
     text-decoration: underline;
+}
+button[class^='announcementBarClose'] {
+    font-size: 22px;
+    text-decoration: inherit;
+    background-color: #E6F1FD;
+    color: #347EDC;
+    /*box-shadow: inset 0 -1px 0 #0E75DD;*/
+}
+button[class^='announcementBarClose']:hover {
+    font-weight: bold;
 }
