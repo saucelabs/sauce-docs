@@ -1,7 +1,3 @@
-button[class^='announcementBarimage'] {
-    vertical-align: bottom;
-}
-
 div[class^='announcementBarContent'] {
     alignment: center;
     background-color: #E6F1FD;

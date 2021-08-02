@@ -14,7 +14,7 @@ const docusaurusConfig = {
     announcementBar: {
       id: 'site_announcement', // Any value that will identify this message.
       content:
-      '<button class="announcementBarimage"></button> Our improved documentation is here! <a target="_blank" rel="noopener noreferrer" href="mailto:docsfeedback@saucelabs.com"><button class="announcementBar">Tell us what you think</button></a>',
+      'Our improved documentation is here! <a target="_blank" rel="noopener noreferrer" href="mailto:docsfeedback@saucelabs.com"><button class="announcementBar">Tell us what you think</button></a>',
       backgroundColor: '#E6F1FD', // Defaults to `#fff`.
       textColor: '#F0F0F0', // Defaults to `#000`.
       isCloseable: true, // Defaults to `true`.
