@@ -52,7 +52,7 @@ Sauce Labs infrastructure.
 #### Direct Tests to Sauce Labs
 
 Remote WebDriver classes are instantiated with the URL of the server or service you want for your tests.
-For Sauce Labs, choose the address of one of our [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints/index.html#endpoints)
+For Sauce Labs, choose the address of one of our [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints/#endpoints)
 
 #### Define Capabilities
 
@@ -60,10 +60,10 @@ The way to define capabilities in recent versions of Selenium is with browser op
 The configurations set on these classes do one of two things:
 * Ensure you have the session you want (e.g., browser name, browser version, operating system, etc)
 * Set the behavior you want in your session. There are 3 types of options that set behavior:
-  * [Common options](/dev/test-configuration-options/index.html#browser-w3c-capabilities--optional): 
+  * [Common options](/dev/test-configuration-options/#browser-w3c-capabilities--optional): 
     these include things like page load timeouts, insecure certificate behavior, etc
-  * [Browser options](/dev/test-configuration-options/index.html#browser-vendor-capabilities)
-  * Sauce Labs options - See [Test Configuration](/dev/test-configuration-options/index.html) 
+  * [Browser options](/dev/test-configuration-options/#browser-vendor-capabilities)
+  * Sauce Labs options - See [Test Configuration](/dev/test-configuration-options) 
     for a complete guide to each available capability.
 
 :::note
