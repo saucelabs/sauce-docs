@@ -1,7 +1,7 @@
 ---
 id: webdriver-integration
 title: Getting Started with WebDriver
-sidebar_label: WebDriver Integration
+sidebar_label: Getting Started with WebDriver
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -119,7 +119,7 @@ For example, store it in an environment variable called `SCREENER_API_KEY`, and 
 
 :::
 
-For additional configuration options, view the [Visual Options](/visual/e2e-testing/visual-options) documentation.
+For additional configuration options, view the [Visual Options](/visual/e2e-testing/options) documentation.
 
 
 ## 3. Connect To Remote Hub
@@ -267,7 +267,7 @@ static void test() {
 </Tabs>
 
 
-For more details on commands, view the [Visual Commands](/visual/e2e-testing/visual-commands) documentation.
+For more details on commands, view the [Visual Commands](/visual/e2e-testing/commands) documentation.
 
 For full examples, view [Code Examples](/visual/e2e-testing/code-examples).
 
@@ -283,6 +283,6 @@ Now run your first test and view your initial results in the [Screener Dashboard
 
 ## Next Steps
 
-* [Learn the Review Flow](/visual/e2e-testing/review-flow) for reviewing UI test results.
-* [Return results into your WebDriver tests and integrate into your CI process](/visual/e2e-testing/integrations/ci) for continuous visual testing.
+* [Learn the Review Flow](/visual/e2e-testing/workflow/review-workflow) for reviewing UI test results.
+* [Return results into your WebDriver tests and integrate into your CI process](/visual/e2e-testing/integrations/continuous-integration) for continuous visual testing.
 * [Troubleshooting](/visual/e2e-testing/troubleshooting) or view full [Code Examples](/visual/e2e-testing/code-examples).
