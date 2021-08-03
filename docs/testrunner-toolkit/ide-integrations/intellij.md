@@ -1,0 +1,27 @@
+---
+id: intellij
+title: saucectl with intellij
+sidebar_label: IntelliJ IDEA
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## What You'll Need
+
+* [IntelliJ](https://www.jetbrains.com/idea/)
+
+## JSON Schema Validation
+
+IntelliJ can help you edit the `saucectl` configuration files by providing helpful suggestions, autocompletion and docs; all without having to leave the IDE.
+Our JSON schema is published to the [JSON Schema Store](https://www.schemastore.org/json/) which is made available to IntelliJ.
+To proceed, open up your `saucectl` config yaml in IntelliJ and select the `SauceCTL Configuration` schema [as described here](https://www.jetbrains.com/help/idea/json.html#ws_json_using_schemas).
+
+<img src={useBaseUrl('img/stt/intellij-saucectl-schema-dropdown.png')} alt="IntelliJ Schema Dropdown" />
+
+You should now be able to see the docs for various attributes
+<img src={useBaseUrl('img/stt/intellij-yaml-docs.png')} alt="IntelliJ YAML Attribute Description" />
+
+and have autocompletion ready at your fingertips!
+<img src={useBaseUrl('img/stt/intellij-yaml-autocomplete.png')} alt="IntelliJ YAML Attribute Autocompletion" />
