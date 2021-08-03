@@ -12,7 +12,7 @@ sauce:
     build: Commit $GITHUB_SHA
 cypress:
   version: 7.7.0
-  configFile: "tests/cypress.json"
+  configFile: "cypress.json"
 rootDir: tests/
 suites:
   - name: "all chrome"
