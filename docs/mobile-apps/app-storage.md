@@ -90,7 +90,7 @@ For example, let's assume you've updated a new version of your app using the `/u
    }
 }
 ```
-Then the file_id would be  `"id":"379c301a-199c-4b40-ad45-4a95e5f30a3a"`. If you're unsure of the id of an existing app, you can use the [endpoint](https://docs.saucelabs.com/basics/data-center-endpoints/data-center-endpoints) along with the necessary parameters to find the desired application.
+Then the file_id would be  `"id":"379c301a-199c-4b40-ad45-4a95e5f30a3a"`. If you're unsure of the id of an existing app, you can use the [Storage API](/dev/api/storage) to lookup the ID of an application in storage or look into the apps details in the [Sauce UI](https://app.saucelabs.com/live/app-testing).
 
 ### File Name instead of File ID
 You can also use the app `name` field from the storage API in the `app` capability. This approach is particularly useful if you uploaded your build to application storage via a CI pipeline, and you either don't know the id, or you do not wish to perform JSON parsing in order to retrieve the id. The filename field also includes any supported file that can be uploaded to application storage.
@@ -226,6 +226,43 @@ caps.SetCapability("app","storage:c8511dd6-38ec-4f58-b8b9-4ec8c23ad882");
 
 </TabItem>
 </Tabs>
+
+## Using Dependent Apps for a Test
+
+<small><span class="sauceDBlue">Real Devices Only</span></small>
+
+If your real device testing requires your app under test to have access to other apps and you, therefore, need to install those dependent apps and reference them in your tests, you can do so using the `otherApps` capability.
+
+:::note
+Dependent apps inherit the configuration of the main app under test for [`Device Language`, `Device Orientation`, and `Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of what settings may have been applied to the app at the time of upload, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
+:::
+
+### Appium Capability
+
+For [Appium](/dev/test-configuration-options#mobile-app-capabilities-sauce-specific--optional) tests, you can specify up to seven apps that have already been uploaded to App Storage using one of the previously described methods by setting the `otherApps` desired capability and referencing the app's storage ID or filename.
+
+```
+caps.setCapability("otherApps", "storage:filename=<file-name>")
+caps.setCapability("otherApps", "storage:fileid=<file-id>")
+```
+
+:::note
+* Android dependent apps will not be instrumented or modified.
+* iOS dependent apps will always be resigned/modified (even when resigning is disabled for the main app) because apps can't be installed on iOS devices without resigning them. If a dependent app cannot be resigned (such as a 3rd party app), the test will not work as intended.
+:::
+
+### Espresso/XCUITest Configuration
+
+For [Espresso](/testrunner-toolkit/configuration/espresso) or [XCUITest](/testrunner-toolkit/configuration/xcuitest) testing, you can specify up to seven dependent apps to either upload from your local machine or that are already in App Storage. In your `saucectl` configuration file, specify a local filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, and `saucectl` will upload the app to App Storage for use with the test. Otherwise, specify an app in App Storage using the reference `storage:<fileId>` or `storage:filename=<filename>`.
+
+
+```yaml
+espresso:
+  otherApps:
+    - ./apps/pre-installed-app1.apk
+    - $PRE_INSTALLED_APP2
+    - storage:filename=pre-installed-app3.apk
+```
 
 ## Uploading to Legacy Sauce Storage
 Sauce Storage is our legacy private storage space for apps. Files uploaded will expire seven days after upload, and be removed. You can upload the app you want to test to Sauce Storage using our REST API, and then access it for testing by specifying `sauce-storage:myapp` for the app capability in your test script. You upload apps using the `upload_file` method of the Sauce Labs REST API.
