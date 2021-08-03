@@ -499,6 +499,11 @@ A property containing one or more environment variables that may be referenced i
       hello: world
       my_var: $MY_VAR
 ```
+
+:::note
+Environment variables are directly provided to Cypress. You should not use `CYPRESS_` prefix.
+:::
+
 ---
 
 #### `testFiles`
