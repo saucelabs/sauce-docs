@@ -1,6 +1,6 @@
 ---
 id: webhooks
-title: Team Management
+title: Webhooks
 sidebar_label: Webhooks
 ---
 
@@ -12,9 +12,9 @@ Screener can send webhook events that notify your application any time an event 
 
 Screener has the following event types:
 
-* build.status.error
-* build.status.failure
-* build.status.success
+* `build.status.error`
+* `build.status.failure`
+* `build.status.success`
 
 ## Setup Steps
 

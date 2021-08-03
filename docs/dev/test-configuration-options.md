@@ -21,7 +21,10 @@ _Depending on which environment you are running tests in, different options, als
 * **Appium Capabilities:** Required for any test using Appium, either testing web browsers or apps
   * **[Mobile App Capabilities](#mobile-app-capabilities-appium-settings--required)**: Required if you are running a test on a mobile app
   * **Mobile Web Capabilities:** If you are using Appium to test a web app, you need to set the `deviceName`, `platformName` `platformVersion`, and `automationName` the same way you would for a mobile app test, along with settings for the browser.
-* **[Browser Capabilities](#desktop-browser-capabilities-sauce-specific--optional)**: You can set different kinds of capabilities for web browsers you are testing on Sauce Labs. Each browser also has it's own set of pre-defined options you can set to help you test. You can add these in regular capabilities or options, or use the browser-defined capabilities (browser options classes) to configure your browser tests:
+* **[Browser Specific Capabilities](#desktop-browser-capabilities-sauce-specific--optional)**: You can set various Sauce Labs capabilities that are specific to different web browsers. 
+
+#### Browser Vendor Capabilities
+Each browser also has it's own set of pre-defined options you can set to help you test. You can add these in regular capabilities or options, or use the browser-defined capabilities (browser options classes) to configure your browser tests:
   * [Chrome Capabilities](https://chromedriver.chromium.org/capabilities)
   * [Microsoft Edge Capabilities](https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options)
   * [Firefox Capabilities](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions)
@@ -284,11 +287,16 @@ __Example__:
 "appium:app": "storage:filename=my_app.zip"
 ```
 
+:::tip Using Storage Id
+
+If you have an app you have uploaded to [Sauce storage](https://app.saucelabs.com/live/app-testing), you can also set the `app` capability to `"storage:xxxxxxxxx-xxxxxxx-xxx"` and enter the **FILE ID** for your app. This allows you to set which specific version you uploaded, otherwise if you use the file name, it will use the latest one uploaded with the exact same name.
+:::
+
 ---
 ### `deviceName`
 __Description__: allows you to set the name of the simulator, emulator, or real device you want to use in the test.
 
-You can use this to set up a test with either [static or dynamic allocation](https://docs.saucelabs.com/mobile-apps/supported-devices/#static-and-dynamic-device-allocation), and run individual or parallel tests.
+You can use this to set up a test with either [static or dynamic allocation for RDC](https://docs.saucelabs.com/mobile-apps/app-storage), and run individual or parallel tests. Static allocation allows you to run your tests on a very specific device, while dynamic allocation allows you to specify a family of devices or any device with a certain OS so you can quickly run your test on the first available RDC device.
 * Dynamic allocation example: for an Android emulator test, you can request a generic Android emulator by using the option `"deviceName":"Android Emulator"`.
 * Static allocation example: if you want to use an Android emulator that looks and feels like a specific Android phone or tablet (e.g., Google Nexus 7 HD Emulator or a Samsung Galaxy S4), you need to specify the exact Android emulator skin to use (e.g., `"appium:deviceName":"Samsung Galaxy S4 Emulator"`).
 
