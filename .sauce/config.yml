@@ -18,6 +18,7 @@ suites:
   - name: "all chrome"
     browser: "chrome"
     platformName: "Windows 10"
+    screenResolution: "1920x1080"
     config:
       testFiles: [ "**/*.*" ]
       env:
