@@ -3,6 +3,7 @@
 context('Home Page Tree Actions', () => {
     beforeEach(() => {
         cy.visit(`/overview`)
+        cy.viewport(1536, 960)
     });
 
     // it('Welcome Page', () => {

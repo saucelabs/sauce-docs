@@ -21,6 +21,3 @@ suites:
     screenResolution: "1920x1080"
     config:
       testFiles: [ "**/*.*" ]
-      env:
-        VIEWPORT_WIDTH: 1920
-        VIEWPORT_HEIGHT: 1080
