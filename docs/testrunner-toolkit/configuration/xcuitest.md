@@ -21,7 +21,7 @@ saucectl run -c ./path/to/{config-file}.yml
 ```
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. If you are less comfortable with YAML, any of a wide variety of free online YAML/JSON validator tools may be helpful.
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](testrunner-toolkit/ide-integrations/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
 :::
 
 
@@ -71,6 +71,7 @@ Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each s
 
 ```yaml
   timeout: 15m
+```
 ---
 
 ## `sauce`
@@ -446,6 +447,8 @@ testOptions:
       - SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
       - SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
       - SwagLabsMobileAppUITests.LoginTests
+    notClass:
+      - SwagLabsMobileAppUITests.SwagLabsFlow/testCompleteFlow
 ```
 ---
 
@@ -459,6 +462,17 @@ Instructs `saucectl` to only run the specified classes for this test suite.
       - SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
       - SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
       - SwagLabsMobileAppUITests.LoginTests
+```
+---
+
+#### `notClass`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Instructs `saucectl` to run all classes for the suite *except* those specified here.
+
+```yaml
+    notClass:
+      - SwagLabsMobileAppUITests.SwagLabsFlow/testCompleteFlow
 ```
 ---
 
