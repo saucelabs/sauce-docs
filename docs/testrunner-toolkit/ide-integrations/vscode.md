@@ -25,7 +25,7 @@ By default, JSON Schema validation *only* works with JSON files, not YAML. So ma
 Ensure that the YAML Extension downloads schemas automatically from the Schema Store by 
 checking the Visual Studio Code settings to confirm that `yaml.schemaStore.enable` is set to `true`. If this entry does not exist, add it.
 
-If your `saucectl` config yaml is stored in a `.sauce/` folder, Visual Studio Code will automatically apply the schema to all yaml files contained in that folder and no further action is required.
+If your `saucectl` config YAML is stored in a `.sauce/` folder, Visual Studio Code will automatically apply the schema to all YAML files contained in that folder and no further action is required.
 
 You should now be able to see the docs for various attributes:
 <img src={useBaseUrl('img/stt/vscode-yaml-docs.png')} alt="Visual Studio Code YAML Attribute Description" />
