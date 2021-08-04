@@ -25,3 +25,7 @@ You should now be able to see the docs for various attributes:
 
 and have autocompletion ready at your fingertips!
 <img src={useBaseUrl('img/stt/intellij-yaml-autocomplete.png')} alt="IntelliJ YAML Attribute Autocompletion" />
+
+:::caution Known Limitations
+At the time of writing, IntelliJ's autocompletion has a bug when dealing with complex JSON schemas. While the validation takes place correctly, the suggestion/autocompletion feature may not work as intended. Until this behavior is fully addressed by JetBrains, you may want to check out our [Visual Studio Code Integration](vscode.md) in the meantime.
+:::
