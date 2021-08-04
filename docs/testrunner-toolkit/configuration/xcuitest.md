@@ -71,6 +71,7 @@ Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each s
 
 ```yaml
   timeout: 15m
+```
 ---
 
 ## `sauce`
@@ -446,6 +447,8 @@ testOptions:
       - SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
       - SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
       - SwagLabsMobileAppUITests.LoginTests
+    notClass:
+      - SwagLabsMobileAppUITests.SwagLabsFlow/testCompleteFlow
 ```
 ---
 
@@ -459,6 +462,17 @@ Instructs `saucectl` to only run the specified classes for this test suite.
       - SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
       - SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
       - SwagLabsMobileAppUITests.LoginTests
+```
+---
+
+#### `notClass`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Instructs `saucectl` to run all classes for the suite *except* those specified here.
+
+```yaml
+    notClass:
+      - SwagLabsMobileAppUITests.SwagLabsFlow/testCompleteFlow
 ```
 ---
 
