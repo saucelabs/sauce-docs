@@ -516,7 +516,7 @@ Once the above steps are in place, the Sauce Connect Proxy tunnel should restart
 ## Security Considerations with Tunnel Config
 
 :::warning
-If the SC client is running on a multi-user system, we recommend using config files or environment variables instead of command line arguments to hide sensitive information like access keys and proxy credentials so they aren't visible in the list of running processes.
+If the SC client is running on a multi-user system, we recommend using config files or environment variables instead of command line arguments to hide sensitive information like [`--api-key`](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html#--api-key-string) and proxy credentials so they aren't visible in the list of running processes.
 :::
 
 ## Tunnel Types
