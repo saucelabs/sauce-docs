@@ -500,8 +500,8 @@ A property containing one or more environment variables that may be referenced i
       my_var: $MY_VAR
 ```
 
-:::note
-Environment variables are directly provided to Cypress. You should not use `CYPRESS_` prefix.
+:::caution
+Since environment variables are provided to Cypress directly, avoid using `CYPRESS_` as a prefix.
 :::
 
 ---
