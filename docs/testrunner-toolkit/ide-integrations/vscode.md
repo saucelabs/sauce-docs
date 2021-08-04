@@ -18,7 +18,9 @@ import TabItem from '@theme/TabItem';
 Visual Studio Code can help you edit the `saucectl` configuration files by providing helpful suggestions, autocompletion and docs; all without having to leave the IDE.
 Our JSON schema is published to the [JSON Schema Store](https://www.schemastore.org/json/), which is made available to Visual Studio Code.
 
+:::caution Default Limitations
 By default, JSON Schema validation *only* works with JSON files, not YAML. So make sure to have the YAML extension installed or this will not work.
+:::
 
 Ensure that the YAML Extension downloads schemas automatically from the Schema Store by 
 checking the Visual Studio Code settings to confirm that `yaml.schemaStore.enable` is set to `true`. If this entry does not exist, add it.
