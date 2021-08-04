@@ -184,6 +184,11 @@ A property containing one or more environment variables that are global for all 
     hello: world
     my_var: $MY_VAR
 ```
+
+:::caution
+Since environment variables are provided to Cypress directly, avoid using `CYPRESS_` as a prefix.
+:::
+
 ---
 
 ## `docker`
