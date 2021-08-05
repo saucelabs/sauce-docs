@@ -701,6 +701,15 @@ module.exports = {
                     'testrunner-toolkit/integrations/gitlab',
                 ],
             },
+            {
+                type: 'category',
+                label: 'IDE Integrations',
+                collapsed: true,
+                items: [
+                    'testrunner-toolkit/ide-integrations/intellij',
+                    'testrunner-toolkit/ide-integrations/vscode'
+                ],
+            },
             'testrunner-toolkit/typescript',
             'testrunner-toolkit/saucectl',
         ],
