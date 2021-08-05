@@ -1,212 +1,186 @@
 ---
 id: continuous-integration
-title: Continuous Integration with Visual E2E Testing
+title: Continuous Integration
 sidebar_label: Continuous Integration
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-
-Integrate Screener into your Continuous Integration (CI) process, automatically triggering test runs and passing/failing builds based on visual changes detected. In this way, you can be sure your latest code changes do not contain any unexpected regressions.
-
-## Screener CI Script
-
-Screener provides a CI Script that integrates into your CI tool. This script waits for running tests to finish, and then will output the results. If visual regressions are found, it will fail the build. Otherwise, if no regressions are found, it will pass the build.
-
-The CI Script has three required parameters:
-
-<table>
-  <tr>
-   <td><strong>Parameter</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>API Key</td>
-   <td>Your project's API key is available at the bottom of your Project Dashboard:
-<img src={useBaseUrl('img/visual/e2e-api-key.png')} alt="API Key"/>
-   </td>
-  </tr>
-  <tr>
-   <td>Test Group ID</td>
-   <td>Your Test Group ID is available from the Test Group's Dashboard:
-<img src={useBaseUrl('img/visual/e2e-group-id.png')} alt="Group ID"/>
-   </td>
-  </tr>
-  <tr>
-   <td>Build Number</td>
-   <td>The current build number from your CI tool.</td>
-  </tr>
-</table>
-
-Environment Variables:
-We recommend adding the API Key and Test Group ID parameters as environment variables to your CI tool:
-* SCREENER_API_KEY
-* SCREENER_GROUP_ID
-
-The Build Number should already be available as an environment variable in your CI tool. Please refer to your CI tool documentation for what variable name it may be.
 
 
-## For WebDriver Tests
+Get continuous visual test automation by integrating into your Continuous Integration (CI) process.
 
-Assuming you have already [integrated Screener into your WebDriver tests](/visual/e2e-testing/integrations/selenium-webdriver).
+If your tests are already integrated into CI, get visual results returned into your tests and pass or fail your builds depending on visual regressions found.
 
-In your WebDriver test, you will need to add the Build Number to your desiredCapabilities object via a "build" property, for the CI script to reference. Here is an example:
 
-```java
-capabilities: {
-  browserName: 'chrome',
-  build: process.env.BUILD_NUMBER,
-  screener: {
-    ...
-  }
-}
-```
+## 1. Return Visual results into your WebDriver test(s)
 
-## For Tests Run On Screener (Pages or Recorder)
-
-Running a Screener Test using the CI Script will automatically trigger a test run against the Test Group ID passed into it.
-
->**NOTE**: If you do not want Screener to fail your build, you can alternatively trigger a Screener test run [via our API](/visual/e2e-testing/api) and receive email notifications when visual changes are found.
-
-## CI Tool Examples
-
-Contact our Support Team if you need help integrating Screener into your CI, or if you would like an example that we do not have listed here.
-
+To get the test results, add the [`@visual.end` command](/visual/e2e-testing/commands) right before ending your test session. The returned result can then be asserted to pass or fail your test.
 
 <Tabs
-  defaultValue="CircleCI"
+  defaultValue="JavaScript"
   values={[
-    {label: 'CircleCI', value: 'CircleCI'},
-    {label: 'Jenkins', value: 'Jenkins'},
-    {label: 'Travis CI', value: 'Travis CI'},
-    {label: 'Other', value: 'Other'},
+    {label: 'JavaScript', value: 'JavaScript'},
+    {label: 'Java', value: 'Java'},
+    {label: 'Python', value: 'Python'},
+    {label: 'Ruby', value: 'Ruby'},
+    {label: 'C#', value: 'C#'},
   ]}>
 
-<TabItem value="CircleCI">
+<TabItem value="JavaScript">
 
-**circle.yml**
+WebDriverIO Example:
 
-```
-dependencies:
-  override:
-    # Install Screener CI Script
-    - curl -O https://s3-us-west-2.amazonaws.com/screener-files/ci/v2.1/screener-ci.zip
-    - unzip -o screener-ci.zip
-
-test:
-  override:
-    # Run Screener Tests
-    - ./screener-ci.sh $SCREENER_API_KEY $SCREENER_GROUP_ID $CIRCLE_BUILD_NUM
+```javascript
+const result = driver.execute('/*@visual.end*/');
+assert.ok(result.passed, result.message);
 ```
 
 </TabItem>
-<TabItem value="Jenkins">
+<TabItem value="Java">
 
-#### **Linux/macOS Setup Instructions**
-
-1. Create a new job in Jenkins (Freestyle project).
-2. Set your Screener Environment Variables in Jenkins by using the [EnvInject plugin](https://wiki.jenkins-ci.org/display/JENKINS/EnvInject+Plugin)) or replacing the Screener Environment Variables below with actual values.
-3. Next, you'll configure your job. Under the **Build** heading, click **Add build step** and select **Execute shell**.
-4. Copy the commands below and paste into the "Command" text area.
-  ```curl
-  # Install Screener CI Script
-  curl -O https://s3-us-west-2.amazonaws.com/screener-files/ci/v2.1/screener-ci.zip
-  unzip -o screener-ci.zip
-
-  # Run Screener CI Script
-  ./screener-ci.sh $SCREENER_API_KEY $SCREENER_GROUP_ID $BUILD_NUMBER
-  ```
-5. Click **Save**.
-
-#### **Windows Setup Instructions**
-
->**NOTE**: The Windows script depends on cURL being installed, and in the PATH. Or add the curl.exe file into the Jenkins workspace job folder.
-
-1. Create a new job in Jenkins (Freestyle project).
-2. Set your Screener Environment Variables in Jenkins by using the [EnvInject plugin](https://wiki.jenkins-ci.org/display/JENKINS/EnvInject+Plugin)) or replacing the Screener Environment Variables below with actual values.
-3. Next, you'll configure your job. Under the **Build** heading, click **Add build step** and select **Execute Windows batch command**.
-4. Copy the commands below, and paste into the "Command" text area.
-    ```curl
-    curl -O http://s3-us-west-2.amazonaws.com/screener-files/ci/v2.1/screener-ci.bat
-    screener-ci.bat %SCREENER_API_KEY% %SCREENER_GROUP_ID% %BUILD_NUMBER%
-    ```
-5. Click **Save**.
-
-#### **Linux/macOS Setup Instructions:**
-
-Create a new job in Jenkins (Freestyle project)
-Configure the job:
-Under the "Build" heading, click "Add build step" and select "Execute shell"
-Copy the commands below, and paste into the "Command" textarea
-This step assumes Screener Environment Variables have already been set in Jenkins (can use [EnvInject plugin](https://wiki.jenkins-ci.org/display/JENKINS/EnvInject+Plugin)). Or replace the Screener Environment Variables below with actual values.
-
-Click "Save".
-
-```curl
-# Install Screener CI Script
-curl -O https://s3-us-west-2.amazonaws.com/screener-files/ci/v2.1/screener-ci.zip
-unzip -o screener-ci.zip
-```
-
-Windows Setup Instructions:
-
->**NOTE**: The Windows script depends on cURL being installed, and in the PATH. Or add the curl.exe file into the Jenkins workspace job folder.
-
-1. Create a new job in Jenkins (Freestyle project)
-2. Configure the job:
-  * Under the "Build" heading, click "Add build step" and select "Execute Windows batch command"
-  * Copy the commands below, and paste into the "Command" text area.
-    This step assumes Screener Environment Variables have already been set in Jenkins (can use [EnvInject plugin](https://wiki.jenkins-ci.org/display/JENKINS/EnvInject+Plugin)). Or replace the Screener Environment Variables below with actual values.
-3. Click "Save".
-
-```curl
-curl -O http://s3-us-west-2.amazonaws.com/screener-files/ci/v2.1/screener-ci.bat
-screener-ci.bat %SCREENER_API_KEY% %SCREENER_GROUP_ID% %BUILD_NUMBER%
+```java
+Map response = (Map)js.executeScript("/*@screener.end*/");
+Assert.assertTrue((Boolean)response.get("passed"), (String)response.get("message"));
 ```
 
 </TabItem>
-<TabItem value="Travis CI">
+<TabItem value="Python">
 
-#### **.travis.yml**
-
-```yaml
-install:
-  # Install Screener CI Script
-  - curl -O https://s3-us-west-2.amazonaws.com/screener-files/ci/v2.1/screener-ci.zip
-  - unzip -o screener-ci.zip
-
-script:
-  # Run Screener Tests
-  - ./screener-ci.sh $SCREENER_API_KEY $SCREENER_GROUP_ID $TRAVIS_BUILD_NUMBER
+```py
+result = self.driver.execute_script('/*@visual.end*/')
+assert result['passed'] is True
 ```
 
 </TabItem>
-<TabItem value="Other">
+<TabItem value="Ruby">
 
-#### **Linux/macOS Setup Instructions**
-
-```cURL
-# Install Screener CI Script
-curl -O https://s3-us-west-2.amazonaws.com/screener-files/ci/v2.1/screener-ci.zip
-unzip -o screener-ci.zip
-
-# Run Screener CI Script
-./screener-ci.sh $SCREENER_API_KEY $SCREENER_GROUP_ID $BUILD_NUMBER
+```rb
+result = driver.execute_script '/*@visual.end*/'
+expect(result.passed).to eq(true)
 ```
 
-<br/>
+</TabItem>
+<TabItem value="C#">
 
-#### **Windows Setup Instructions**
-
-The Windows script depends on [cURL](https://curl.haxx.se/download.html) being installed, and in the PATH.
-
-```curl
-curl -O http://s3-us-west-2.amazonaws.com/screener-files/ci/v2.1/screener-ci.bat
-screener-ci.bat %SCREENER_API_KEY% %SCREENER_GROUP_ID% %BUILD_NUMBER%
+```csharp
+dynamic result = js.ExecuteScript("/*@visual.end*/");
+Assert.IsTrue(result.passed, result.message);
 ```
 
 </TabItem>
 </Tabs>
+
+For more details on results returned, view the [Visual Commands](/visual/e2e-testing/commands) documentation.
+
+
+## 2. Integrate your CI Build
+
+Associate your Visual tests with your CI build number by setting the build option in your capabilities.
+
+Below are build number environment variables for various CI tools:
+
+<Tabs
+  defaultValue="Jenkins"
+  values={[
+    {label: 'Jenkins', value: 'Jenkins'},
+    {label: 'CircleCI', value: 'CircleCI'},
+    {label: 'TravisCI', value: 'TravisCI'},
+    {label: 'GitLab', value: 'GitLab'},
+    {label: 'Codeship', value: 'Codeship'},
+    {label: 'Buildkite', value: 'Buildkite'},
+    {label: 'Drone', value: 'Drone'},
+  ]}>
+
+<TabItem value="Jenkins">
+
+```java
+capabilities: {
+  ...
+  'sauce:options': {
+    build: process.env.BUILD_NUMBER
+  }
+}
+```
+
+</TabItem>
+<TabItem value="CircleCI">
+
+```java
+capabilities: {
+  ...
+  'sauce:options': {
+    build: process.env.CIRCLE_BUILD_NUM
+  }
+}
+```
+
+</TabItem>
+<TabItem value="TravisCI">
+
+```java
+capabilities: {
+  ...
+  'sauce:options': {
+    build: process.env.TRAVIS_BUILD_NUMBER
+  }
+}
+```
+
+</TabItem>
+<TabItem value="GitLab">
+
+```java
+capabilities: {
+  ...
+  'sauce:options': {
+    build: process.env.CI_PIPELINE_ID
+  }
+}
+```
+
+</TabItem>
+<TabItem value="Codeship">
+
+```java
+capabilities: {
+  ...
+  'sauce:options': {
+    build: process.env.CI_BUILD_NUMBER
+  }
+}
+```
+
+</TabItem>
+<TabItem value="Buildkite">
+
+```java
+capabilities: {
+  ...
+  'sauce:options': {
+    build: process.env.BUILDKITE_BUILD_NUMBER
+  }
+}
+```
+
+</TabItem>
+<TabItem value="Drone">
+
+```java
+capabilities: {
+  ...
+  'sauce:options': {
+    build: process.env.DRONE_BUILD_NUMBER
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+
+## Next Steps
+
+* [Invite users](/visual/acct-team-mgmt) to your project.
+* [Troubleshooting](/visual/e2e-testing/troubleshooting).

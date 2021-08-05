@@ -97,7 +97,7 @@ No, tunnels to the Real Device Cloud are automatically shared with all of your t
 Yes, you can use the same Sauce Connect Proxy tunnel and/or same machine to test with the Virtual Device Cloud Real Device Cloud.
 
 :::note
-If you're still using Legacy RDC, you will need to configure separate, unique tunnel for virtual devices and real devices. More information: [Creating a Sauce Connect Tunnel for Legacy Real Device Cloud](https://wiki.saucelabs.com/display/DOCS/Creating+a+Sauce+Connect+Tunnel+for+Legacy+Real+Device+Cloud).
+If you're still using Legacy RDC, you will need to configure separate, unique tunnel for virtual devices and real devices. More information: [Creating Tunnels in TestObject (Legacy)](/secure-connections/sauce-connect/setup-configuration/legacy-tunnels).
 :::
 
 ## Are there any special parameters when using a PAC file in real device tests?
@@ -109,6 +109,6 @@ No, though you cannot use the `localhost` address with iOS.
 
 Yes.
 
-## Can you whitelist IP addresses instead of using Sauce Connect Proxy?
+## Can you allowlist IP addresses instead of using Sauce Connect Proxy?
 
-To create a secure connection, we strongly recommend using Sauce Connect or IPSec VPN instead of whitelisting IP ranges. More information: [Why Sauce Labs Recommends Sauce Connect Proxy Over Whitelisting IP Addresses](/secure-connections/sauce-connect).
+To create a secure connection, we strongly recommend using Sauce Connect or IPSec VPN instead of allowlisting IP ranges. More information: [Why Sauce Labs Recommends Sauce Connect Proxy Over Allowlisting IP Addresses](/secure-connections/sauce-connect).

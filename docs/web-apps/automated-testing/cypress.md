@@ -34,6 +34,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Cypress Version|Supported Platforms|Supported Browsers|
  |-----|-----|-----|
+ |7.7.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
  |7.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
  |7.1.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
  |6.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
@@ -46,6 +47,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Cypress Version|Supported Browsers|
  |----|----|
+ |7.7.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.2.2)|
  |7.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.1.0)|
  |7.1.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.0.3)|
  |6.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v6.0.1)|
@@ -106,7 +108,7 @@ npm install -g saucectl
 1. Enter your Sauce Labs Username and Access Key at the prompts.
 
 :::tip Use Environment Variables
-You can set your Sauce Labs credentials as [environment variables](/basics/environment-variables) instead of generating a `credentials.yml`, if you prefer.
+You can set your Sauce Labs credentials as [environment variables](/basics/environment-variables) instead of generating a `credentials.yml`, if you prefer. In systems where both sets of credentials exist, environment variable values are prioritized.
 :::
 
 ### Step 3: Set up Your Cypress Project

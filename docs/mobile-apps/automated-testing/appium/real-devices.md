@@ -33,17 +33,18 @@ There may be situations where you want to install an app from a downloadable rem
 
 Please review the following guidelines below before uploading your app:
 
-1. Make sure your app meets the [requirements](mobile-apps/supported-devices) for Android and iOS Mobile App Testing.
+1. Make sure your app meets the [requirements](/mobile-apps/supported-devices) for Android and iOS Mobile App Testing.
 2. Upload your app to the hosting location.
 3. Ensure Sauce Labs has READ access to the app URL.
 4. In your Appium test script, enter the URL for the app as the "app" desired capability. Example Java Snippet:
+
   ```java
   caps.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.3.0/Android.SauceLabs.Mobile.Sample.app.2.3.0.apk?raw=true");
   ```
 
 ### Installing your App on Private Devices
 
-In some cases, you may need to upload / install your app to a private device and also prevent the device from broad internet access while under test. The steps to achieve this are:
+In some cases, you may need to upload/install your app to a private device and also prevent the device from broad internet access while under test. The steps to achieve this are:
 
 * Upload your app to an internal git repository, or private hosting solution with the necessary permissions (e.g. Amazon S3 with a strict bucket policy).
 * Ensure the hosted app URL is available to the machine running the automated test.
@@ -78,7 +79,7 @@ For specific instructions on how to set environment variables, visit the followi
 ### Supported Use Cases for Sauce Labs Real Device Testing
 
 * Execute Appium tests against a private real device hosted in the U.S., using your Sauce Labs username and access key.
-* Use our App Storage for Appium testing as you usually do for emulators and simulators tests.
+* Use our application storage for Appium testing as you usually do for emulators and simulators tests.
 * Analyze Appium test executions, on Sauce Labs similar to the way you do it for desktop, emulators and simulators.
 * Consume Real Device Cloud (RDC) API similar to the way you do for emulators and simulators (with applicable RDC settings).
 
@@ -97,19 +98,21 @@ void setUp() throws MalformedURLException {
 }
 ```
 
-### App Storage and Data Center Endpoints
+### Application Storage and Data Center Endpoints
 
-Below are some examples of how to use the Sauce Labs REST API to upload your mobile app to our App Storage. For details related to authorization credentials, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
+Below are some examples of how to use the Sauce Labs REST API to upload your mobile app to our application storage. For details related to authorization credentials, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
 
-To connect to the real device cloud in your automated Appium tests, you'll need to use include either the EU or US storage endpoint in your test script. This example (macOS / Linux) how to upload an app to App Storage in the US-West Data Center:
+To connect to the real device cloud in your automated Appium tests, you'll need to use include either the EU or US storage endpoint in your test script.
+
+Example (macOS/Linux) of how to upload an app to application storage in the US-West Data Center:
 
 ```sh
 $ curl -F "payload=@/Users/$SAUCE_USERNAME/Downloads/$FILE_NAME.ipa" -F "name=$FILE_NAME.ipa" -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY"  'https://api.us-west-1.saucelabs.com/v1/storage/upload'
 ```
 
-For more detailed information on how to access the app in your automated test builds and use the Storage API, see [App Storage](/mobile-apps/app-storage.md).
+For more detailed information on how to access the app in your automated test builds and use the Storage API, see [Application Storage](/mobile-apps/app-storage).
 
-Below are some additional examples using the EU and US endpoints.
+Examples using the EU and US endpoints:
 
 <Tabs
   defaultValue="US Data Center"
@@ -120,7 +123,7 @@ Below are some additional examples using the EU and US endpoints.
 
 <TabItem value="US Data Center">
 
-US Data Center (macOS / Linux)
+US Data Center (macOS/Linux)
 
 ```bash
 $ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" -X POST -w "%{http_code}\n" \
@@ -141,7 +144,7 @@ US Data Center (Windows)
 </TabItem>
 <TabItem value="EU Data Center">
 
-EU Data Center (macOS / Linux)
+EU Data Center (macOS/Linux)
 
 ```curl
 $ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" -X POST -w "%{http_code}\n" \
@@ -440,8 +443,75 @@ _Dynamic Allocation_ involves providing basic parameters for the platform and op
 
 While static allocation allows you more fine-grained control over the device used in your tests, it can also cause delays in your test execution if that device isn't available when you run your tests. If you only need to test on a particular platform and OS version, such as an Android 4.1, or on a particular type of device, you should use dynamic allocation, and we recommend that you use dynamic allocation for all automated mobile application testing in CI/CD environments.
 
-* [Required Capabilities for Dynamic Allocation](/dev/test-configuration-options).
-* [Optional Capabilities for Dynamic Allocation](/dev/test-configuration-options).
+#### Required Capabilities
+
+Below are capabilities required for dynamic allocation of [iOS and/or Android real devices for your tests](mobile-apps/automated-testing/appium/real-devices).
+
+<table>
+  <tr>
+   <td><strong>Capability</strong>
+   </td>
+   <td><strong>Capability Explanation</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><a href="/dev/test-configuration-options#platformname"><code>platformName</code></a>
+   </td>
+   <td><p>Defines the type of mobile platform to use in your tests (i.e., Android or iOS). The values for capabilities are not case-sensitive, so <code>android</code> is the same as <code>Android</code>, and <code>ios</code> is the same as <code>iOS</code>.</p>
+   </td>
+  </tr>
+  <tr>
+   <td><a href="/dev/test-configuration-options#platformVersion"><code>platformVersion</code></a>
+   </td>
+   <td><p>The platform version to use in your tests, for example "4" or "4.1". This is a substring match. You can specify both major versions and incremental versions of an operating system.</p><p>For example, if you set only a major version 4, you also have access to all devices running incremental versions (e.g., "4.1"," 4.2", "4.2.1", "4.4.4").</p><p>This also extends to minor and point versions. For example, if you specify "11.4", it will match "11.4.0", "11.4.1".</p>
+
+   </td>
+  </tr>
+  <tr>
+   <td><a href="/dev/test-configuration-options#deviceName"><code>deviceName</code></a>
+   </td>
+   <td><p>The display name of the device to use, such as "Samsung S7". You can also use regular expressions for setting the <code>deviceName</code>. Some examples:</p>
+
+<p>To allocate any iPhone:</p><sub>
+
+    "iPhone.*", "iPhone .*"
+</sub>
+<p>To allocate any device with the word "nexus" in its display name.</p><sub>
+
+    ".*nexus.*"
+</sub>
+<p>To allocate either "iPhone 7" or "iPhone 6" device.</p><sub>
+
+    "iPhone [67]" or "iPhone [6-7]"
+</sub>
+<p>To allocate either "iPhone 7S" or "iPhone 6S" device.</p><sub>
+
+    "iPhone [67]S" or "iPhone [6-7]S"
+</sub>
+<p>To allocate "iPhone 7" or "iPhone 7S", or any device that starts with the display name "iPhone 7".</p><sub>
+
+    "iPhone 7.*"
+</sub>
+<p><strong>NOTE</strong>: Regular expressions are not case sensitive.</p>
+   </td>
+  </tr>
+</table>
+
+#### Optional Capabilities
+
+Below are optional capabilities for dynamic allocation of iOS and/or Android real devices for your tests.
+
+*  [`tabletOnly`](https://docs.saucelabs.com/dev/test-configuration-options#tabletOnly)
+*  [`phoneOnly`](https://docs.saucelabs.com/dev/test-configuration-options#phoneOnly)
+*  [`privateDevicesOnly`](https://docs.saucelabs.com/dev/test-configuration-options#privateDevicesOnly)
+*  [`publicDevicesOnly`](https://docs.saucelabs.com/dev/test-configuration-options#publicDevicesOnly)
+*  [`carrierConnectivityOnly`](https://docs.saucelabs.com/dev/test-configuration-options#carrierConnectivityOnly)
+*  [`cacheId`](https://docs.saucelabs.com/dev/test-configuration-options#cacheId)
+*  [`noReset`](https://docs.saucelabs.com/dev/test-configuration-options#noreset)
+*  [`recordDeviceVitals`](https://docs.saucelabs.com/dev/test-configuration-options#recordDeviceVitals)
+*  [`crosswalkApplication`](https://docs.saucelabs.com/dev/test-configuration-options#crosswalkApplication)
+*  [`autoGrantPermissions`](https://docs.saucelabs.com/dev/test-configuration-options#autoGrantPermissions)
+*  [`enableAnimations`](https://docs.saucelabs.com/dev/test-configuration-options#enableAnimations)
 
 
 ### Static Device Allocation
@@ -709,9 +779,7 @@ The CSV file will contain these performance metrics for iOS devices.
 ## TestObject (Legacy RDC)
 
 :::warning
-TestObject, our [Legacy Real Device Platform](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177), reaches end-of-life September 1, 2021.
-
-Please migrate all of your apps and tests from TestObject to Sauce Labs by August 31, 2021.
+TestObject, our [Legacy Real Device Platform](https://saucelabs.com/platform/test-object-eol), reaches end-of-life September 1, 2021. Please migrate all of your apps and tests from TestObject to Sauce Labs by August 31, 2021.
 :::
 
 ## Additional Test Configuration Options

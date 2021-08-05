@@ -13,7 +13,6 @@ Incorporating continuous testing into your CI/CD pipeline means designing your t
     <h2>Sauce OnDemand Plugin</h2>
     <p>Use the Sauce Labs OnDemand plugin in conjunction with your existing CI/CD pipeline to integrate your tests.<br/>
       <ul>
-        <li><a href="/ci/azure">Azure DevOps</a></li>
         <li><a href="/ci/bamboo">Bamboo</a></li>
         <li><a href="/ci/bitbucket">Bitbucket</a></li>
         <li><a href="/ci/jenkins">Jenkins</a></li>
@@ -40,7 +39,7 @@ Incorporating continuous testing into your CI/CD pipeline means designing your t
       <ul>
         <li><a href="https://saucelabs.com/resources/articles/automated-testing-in-cicd-a-continuous-integration-server-integration-primer">Automated Testing in CI/CD Primer White Paper</a></li>
         <li><a href="https://saucelabs.com/blog/choosing-a-ci-cd-tool">Choosing a CI/CD Tool Blog</a></li>
-        <li><a href="https://training.saucelabs.com/codelabs/Module2-Testrunner/index.html?index=..%2F..saucectl#4">Sauce School CI/CD Training Module</a></li>
+        <li><a href="https://training.saucelabs.com/codelabs/Module2-Testrunner/index.html?index=..%2F..saucectl#4">Sauce School Cypress/GitHub Actions Integration Module</a></li>
       </ul></p>
     </div>
   </div>

@@ -1,0 +1,25 @@
+div[class^='announcementBarContent'] {
+    alignment: center;
+    background-color: #E6F1FD;
+    color: #1E2127;
+    /*box-shadow: inset 0 -1px 0 #0E75DD !important;*/
+    font-size: 14px;
+    margin-left: -5px;
+}
+div[class^='announcementBarContent'] a {
+   text-decoration: inherit;
+   font-weight: bold;
+}
+div[class^='announcementBarContent'] a:hover {
+    text-decoration: underline;
+}
+button[class^='announcementBarClose'] {
+    font-size: 22px;
+    text-decoration: inherit;
+    background-color: #E6F1FD;
+    color: #347EDC;
+    /*box-shadow: inset 0 -1px 0 #0E75DD;*/
+}
+button[class^='announcementBarClose']:hover {
+    font-weight: bold;
+}

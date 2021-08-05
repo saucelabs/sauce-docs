@@ -21,7 +21,7 @@ saucectl run -c ./path/to/{config-file}.yml
 ```
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. If you are less comfortable with YAML, any of a wide variety of free online YAML/JSON validator tools may be helpful.
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](testrunner-toolkit/ide-integrations/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
 :::
 
 
@@ -36,7 +36,7 @@ Each of the properties supported for running Playwright tests through `saucectl`
 ## `apiVersion`
 <p><small>| REQUIRED | STRING |</small></p>
 
-Identifies the version of `saucectl` that is compatible with this configuration.
+Identifies the version of the underlying configuration schema. At this time, `v1alpha` is the only supported value.
 
 ```yaml
 apiVersion: v1alpha
@@ -61,6 +61,7 @@ Specifies any default settings for the project.
 ```yaml
 defaults:
   mode: sauce
+  timeout: 15m
 ```
 ---
 
@@ -72,6 +73,15 @@ Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally 
 ```yaml
   mode: sauce
 ```
+---
+
+### `timeout`
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
+
+```yaml
+  timeout: 15m
 ---
 
 ## `sauce`
@@ -159,6 +169,18 @@ This is the identifier `saucectl` expects as the `id` property, even though the 
  tunnel:
     id: your_tunnel_id
     parent: parent_owner_of_tunnel # if applicable, specify the owner of the tunnel
+```
+---
+
+## `env`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
+
+```yaml
+  env:
+    hello: world
+    my_var: $MY_VAR
 ```
 ---
 
@@ -300,12 +322,12 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 #### `match`
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
 
-Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*`.
+Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
 
 ```yaml
   match:
     - junit.xml
-    - *.log
+    - "*.log"
 ```
 ---
 
@@ -360,7 +382,7 @@ The name of the test suite, which will be reflected in the results and related a
 ### `env`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported.
+A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
 
 ```yaml
   env:
@@ -407,6 +429,20 @@ One or more paths to the playwright test files to run for this suite. Regex valu
 ```yaml
     testMatch: ["**/*.js"]
 ```
+---
+
+### `numShards`
+<p><small>| OPTIONAL | INTEGER | <span class="highlight playwright">Playwright version >= 1.12</span> |</small></p>
+
+Sets the number of separate shards to create for the test suite. Read more about shard tests on the [Playwright developer site](https://playwright.dev/docs/test-parallel#shards).
+
+When sharding is configured, `saucectl` automatically creates the sharded jobs based on the number of shards you specify. For example, for a suite that specifies 2 shards, `saucectl` clones the suite and runs shard `1/2` on the first suite, and the other shard `2/2` on the identical clone suite.
+
+
+```yaml
+  numShards: 2
+```
+---
 
 ### `params`
 <p><small>| OPTIONAL | OBJECT |</small></p>
@@ -430,6 +466,7 @@ __Description__: This field is for specific test run parameters, for example:
 <p><small>| OPTIONAL | STRING |</small></p>
 
 The name of the browser in which to run this test suite.
+Available browser names: `chromium`, `firefox` and `webkit`.
 
 ```yaml
     browserName: "firefox"
@@ -456,39 +493,23 @@ Allows you to alter the test execution speed for the test suite in milliseconds,
 ```
 ---
 
+### `timeout`
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.
+
+:::note
+Setting `0` reverts to the value set in `defaults`.
+:::
+
+```yaml
+  timeout: 15m
+```
+---
+
 ## Advanced Configuration Considerations
 
 The configuration file is flexible enough to allow for any customizations and definitions that are required for any of the supported frameworks. The following sections describe some of the most common configurations.
-
-### Setting up a Proxy
-
-If you need to go through a proxy server, you can set it through the following variables:
-
-* `HTTP_PROXY`: Proxy to use to access HTTP websites
-* `HTTPS_PROXY`: Proxy to use to access HTTPS websites
-
-:::note
-At this time, these proxy settings are not supported for Playwright.
-:::
-
-
-#### Docker Proxy Considerations
-
-When running in docker-mode, `saucectl` still must reach the Sauce Labs platform get the latest docker image available or upload the test package to Sauce Cloud, and the docker container needs to access the tested website and Sauce Labs to upload results.
-
-Therefore, you may be required to set the proxy twice, as shown in the following examples:
-
-``` title= "Example: Windows Powershell"
-PS> $Env:HTTP_PROXY=http://my.proxy.org:3128/
-PS> $Env:HTTPS_PROXY=http://my.proxy.org:3128/
-PS> saucectl run -e HTTP_PROXY=${Env:HTTP_PROXY} -e HTTPS_PROXY=${Env:HTTPS_PROXY}
-```
-
-``` title= "Example: Linux/MacOS"
-$> export HTTP_PROXY=http://my.proxy.org:3128/
-$> export HTTPS_PROXY=http://my.proxy.org:3128/
-$> saucectl run -e HTTP_PROXY=${HTTP_PROXY} -e HTTPS_PROXY=${HTTPS_PROXY}
-```
 
 ### Tailoring Your Test File Bundle
 

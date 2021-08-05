@@ -30,8 +30,8 @@ __Table of Contents__
 ## Prerequisites
 
 * [`git`](https://git-scm.com/downloads)
-* [Node.js](https://nodejs.org/en/download/) `version >= 10.15.1` or above (which can be checked by running node -v). You can use nvm for managing multiple Node versions on a single machine installed
-* [Yarn](https://yarnpkg.com/en/) `version >= 1.5` (which can be checked by running yarn version). Yarn is a performant package manager for JavaScript and replaces the npm client. It is not strictly necessary but highly encouraged.
+* [Node.js](https://nodejs.org/en/download/) `version >= 14.15.0` or above (which can be checked by running node -v). You can use nvm for managing multiple Node versions on a single machine installed
+* [Yarn](https://yarnpkg.com/en/) `version >= 1.22.5` (which can be checked by running yarn version). Yarn is a performant package manager for JavaScript and replaces the npm client. It is not strictly necessary but highly encouraged.
 * [Docker](https://docs.docker.com/get-docker/) (optional if you want to deploy locally via a container or to test before you deploy)
 
 ## Installation
@@ -62,7 +62,7 @@ __Table of Contents__
    npm run dev
    ```
 
-	This command builds the site and serves it on your machine's host (http://localhost:3000) and requires no [Algolia API key](https://github.com/saucelabs/sauce-docs/blob/master/docusaurus.config.js#L150-L156).
+	This command builds the site and serves it on your machine's host (http://localhost:3000) and requires no [Algolia API key](https://docusaurus.io/docs/search#connecting-algolia).
 	
 * Start the website locally (with Algolia API Key):
 

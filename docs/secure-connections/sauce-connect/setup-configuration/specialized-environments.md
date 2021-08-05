@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 ## Real Device Cloud Setup
 
 :::note
-The content on this page applies to the new RDC on Sauce platform. If you're looking for instructions on how to run Sauce Connect Proxy on our Legacy RDC platform (TestObject), see [Creating a Sauce Connect Tunnel for Legacy Real Device Cloud](https://wiki.saucelabs.com/display/DOCS/Creating+a+Sauce+Connect+Tunnel+for+Legacy+Real+Device+Cloud).
+The content on this page applies to the new RDC on Sauce platform. If you're looking for instructions on how to run Sauce Connect Proxy on our Legacy RDC platform (TestObject), see [Creating Tunnels in TestObject (Legacy)](/secure-connections/sauce-connect/setup-configuration/legacy-tunnels).
 :::
 
 Real Device Cloud on Sauce Labs (RDC on Sauce) offers public and private mobile devices for users looking to expedite automated and live testing for their mobile apps. You can run a high volume of tests across a broad range of real devices without compromising performance, quality, or reliability.
@@ -132,10 +132,10 @@ Once you establish a Sauce Connect Proxy tunnel for real device testing, you can
 To ensure you're testing against the correct data center, you'll need to add the correct OnDemand endpoint when you instantiate a MobileDriver in your automated test:
 
 <Tabs
-  defaultValue="Java Snippet: Driver Setup for US Data Center"
+  defaultValue="US Data Center"
   values={[
-    {label: 'Java Snippet: Driver Setup for US Data Center', value: 'Java Snippet: Driver Setup for US Data Center'},
-    {label: 'Java Snippet: Driver Setup for EU Data Center', value: 'Java Snippet: Driver Setup for EU Data Center'},
+    {label: 'Java Snippet: Driver Setup for US Data Center', value: 'US Data Center'},
+    {label: 'Java Snippet: Driver Setup for EU Data Center', value: 'EU Data Center'},
   ]}>
 
 <TabItem value="US Data Center">
@@ -162,3 +162,6 @@ If your tunnel launch fails with message "Failed to check for existing tunnels,"
 Sauce Headless is a lightweight infrastructure that allows developers to run early pipeline component tests and sanity checks at scale. It is a container-based architecture for the Virtual Machines that host our headless browsers.
 
 For instructions on how to set up Sauce Connect Proxy tunnels with your Sauce Headless tests, see [Getting Started With Sauce Headless](/headless).
+
+## Legacy RDC (TestObject)
+For instructions on how to run Sauce Connect Proxy on our Legacy RDC platform (TestObject), see [Creating a Sauce Connect Tunnel for Legacy Real Device Cloud](https://wiki.saucelabs.com/display/DOCS/Creating+a+Sauce+Connect+Tunnel+for+Legacy+Real+Device+Cloud).

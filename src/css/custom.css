@@ -35,6 +35,7 @@
  */
 /*{"last_published":"2021-01-18 18:46:45 UTC"}*/
 @import "api-override.css";
+@import "announcement-bar.css";
 @import "fw-badge-override.css";
 @import url('https://use.typekit.net/bte6qhg.css');
 
@@ -319,7 +320,7 @@ h6, .h6 {
 .admonition-tip {
   border-left: 5px solid #01c3a5;
   /*color: #474c55;*/
-  margin-left: 25px;
+  margin-left: 50px;
   margin-right: 25px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -512,6 +513,37 @@ h6, .h6 {
     padding:.2rem;
     font-weight:600;
 }
+
+
+
+
+/* announcementBar button */
+
+.announcementBar {
+  border: 1px solid #0E75DD;
+  border-radius: 11px;
+  padding: 1px 9px;
+  color: #0E75DD;
+  font-weight: 550;
+  font-size: 13px;
+  line-height: 13px;
+}
+
+.announcementBar:hover {
+  background-color: #2f76d6;
+  color: #FFFFFF;
+  cursor:pointer;
+}
+
+.announcementBar:active {
+  background:linear-gradient(bottom, rgba(183,29,21,1) 0%, rgba(226,35,26,1) 100%);
+  color:#E6F1FD;
+  box-shadow: 0px 1px 0px #b71d15, 0px 1px 1px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 1px rgba(255,255,255,.5);
+  transform:translate(0, 2px);
+}
+
+
+
 
 /*Playing with ribbons*/
 

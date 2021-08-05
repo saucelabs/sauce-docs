@@ -45,6 +45,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Puppeteer Version|Supported Browsers|
  |-----|----|
+ |10.1.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.4.0)|
  |9.1.1|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.1.0)|
  |8.0.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.0.0)|
  |3.0.4|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v0.3.0)|
@@ -104,7 +105,7 @@ npm install -g saucectl
 1. Enter your Sauce Labs Username and Access Key at the prompts.
 
 :::tip Use Environment Variables
-You can set your Sauce Labs credentials as [environment variables](/basics/environment-variables) instead of generating a `credentials.yml`, if you prefer.
+You can set your Sauce Labs credentials as [environment variables](/basics/environment-variables) instead of generating a `credentials.yml`, if you prefer. In systems where both sets of credentials exist, environment variable values are prioritized.
 :::
 
 ### Step 3: Set up Your Puppeteer Project
