@@ -170,6 +170,7 @@ To mimic camera behavior, you'll provide the app with an image during your test 
 
 * Have your [app uploaded to Sauce Labs](/mobile-apps/app-storage) prior to testing.
 
+
 ### Requirements
 
 * Test automation frameworks: Appium.
