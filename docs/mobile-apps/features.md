@@ -13,7 +13,7 @@ export const Highlight = ({children, color}) => ( <span style={{
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Biometric Authentication - Touch ID and Face ID
+## Biometric Authentication (Touch ID and Face ID)
 
 We provide testing capabilities for mobile app biometric authentication (Touch ID and Face ID).
 
@@ -170,13 +170,14 @@ To mimic camera behavior, you'll provide the app with an image during your test 
 
 * Have your [app uploaded to Sauce Labs](/mobile-apps/app-storage) prior to testing.
 
-### Supported
+### Requirements
 
 * Test automation frameworks: Appium.
 * Devices: all iOS and Android real devices available in our public and private Real Device Clouds.
 * Image file sizes: up to 5MB.
 * Image file formats: JPG, JPEG, PNG.
-* Front-facing and rear-facing system device cameras.
+
+We support both front-facing and rear-facing system device cameras.
 
 :::note Not Supported
 
@@ -325,11 +326,11 @@ String qrCodeImage = Base64.getEncoder().encodeToString(
 
 Here are some common errors you may see in the course of testing with Camera Image Injection and how to resolve them.
 
-#### **Image injection failed**
+#### `Image injection failed`
 
 This error is displayed when you attempt to inject your image before the app fully loads during your initial test session startup. You must wait until your app has fully loaded prior to injecting your image.
 
-#### **Image injection is not enabled for the application**
+#### `Image injection is not enabled for the application`
 
 This error is displayed due to one or more of these reasons:
 
@@ -342,7 +343,6 @@ This error is displayed due to one or more of these reasons:
 * [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile/releases/tag/2.3.0); try out image injection for yourself using our demo app
 * [Android Camera API | Google Developer Documentation](https://developer.android.com/guide/topics/media/camera)
 
-For support in Beta, please reach out to your CSM or SE.
 
 ## Gestures
 
@@ -350,6 +350,9 @@ Building a great user experience is more than just design. Equally important is 
 * [Sauce Labs Mobile App Gestures | GitHub](https://github.com/saucelabs/sample-app-mobile/#gestures)
 * [How To Do Multi-Touch Gestures in Live Testing](https://saucelabs.com/blog/how-to-do-multi-touch-gestures-in-live-testing)
 
+
 ## Virtual USB (RDC)
 
-Virtual USB (vUSB) is a mobile app debugging tool that simulates connecting a Sauce Labs real device directly to your local machine with a USB cable. It integrates into your development environment as if the device is connected directly to your workstation, meaning you can use your choice of homegrown development and testing tools to debug. See [Virtual USB for Sauce Labs Real Devices](mobile-apps/virtual-usb) for more information.
+Virtual USB (vUSB) is a mobile app debugging tool that simulates connecting a Sauce Labs real device directly to your local machine with a USB cable. It integrates into your development environment as if the device is connected directly to your workstation, meaning you can use your choice of homegrown development and testing tools to debug.
+
+See [Virtual USB for Sauce Labs Real Devices](mobile-apps/virtual-usb) for more information.
