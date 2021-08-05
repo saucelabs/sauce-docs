@@ -135,7 +135,7 @@ Whether you are using environment variables or a credentials file, make sure you
 To ensure you have access to the most current feature set of saucectl, keep your installation up to date by periodically upgrading to the latest release.
 
 ```bash
-npm upgrade -g saucectl
+npm update -g saucectl
 ```
 
 
