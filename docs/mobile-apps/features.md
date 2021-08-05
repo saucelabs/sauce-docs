@@ -168,34 +168,41 @@ To mimic camera behavior, you'll provide the app with an image during your test 
 
 ### What You'll Need
 
-* [Upload your app](/mobile-apps/app-storage) to Sauce Labs prior to testing.
-* Refer to the RDC system requirements under [Using Real and Virtual Mobile Devices for Testing](/mobile-apps/supported-devices).
-* Review the key specs below:
+* Have your [app uploaded to Sauce Labs](/mobile-apps/app-storage) prior to testing.
 
-#### **Supported**
+### Supported
 
-* Appium test automation framework.
-* All iOS and Android devices available in the RDC.
-* Public and private Sauce Labs real devices.
+* Test automation frameworks: Appium.
+* Devices: all iOS and Android real devices available in our public and private Real Device Clouds.
+* Image file sizes: up to 5MB.
+* Image file formats: JPG, JPEG, PNG.
 * Front-facing and rear-facing system device cameras.
-* Image file sizes up to 5MB.
-* JPG, JPEG, PNG image file formats.
-* For Android devices, there are multiple ways to capture an image, as described in the [Android Camera API](https://developer.android.com/guide/topics/media/camera) developer documentation. We support the following:
-    * [ACTION_IMAGE_CAPTURE Intent](https://developer.android.com/reference/android/provider/MediaStore#ACTION_IMAGE_CAPTURE): opens the system camera and notifies the calling app gets when the image is taken
-    *   [camera2 API](https://developer.android.com/reference/android/hardware/camera2/package-summary): everything is configured and handled from within the app
-    * [cameraX](https://developer.android.com/training/camerax): leverages the capabilities of camera2, but uses a simpler, use case-based approach that is lifecycle-aware.
-    *   [Camera API (deprecated)](https://developer.android.com/reference/android/hardware/Camera) (partially supported): As with camera2, everything is handled in the app itself. QR Code readers often use [Camera#setPreviewCallback](https://developer.android.com/reference/android/hardware/Camera#setPreviewCallback(android.hardware.Camera.PreviewCallback)). We pass the injected image to this method, but the rest of this deprecated API is not supported. UI Elements will not likely display the injected image.
-*   For iOS devices, the camera can be configured with different outputs. We support the following:
-    *   [AVCapturePhotoOutput](https://developer.apple.com/documentation/avfoundation/avcapturephotooutput?language=objc): for capturing still images. The results are received via the [AVCapturePhotoCaptureDelegate](https://developer.apple.com/documentation/avfoundation/avcapturephotocapturedelegate?language=objc) and the method [captureOutput:didFinishProcessingPhoto:error:](https://developer.apple.com/documentation/avfoundation/avcapturephotocapturedelegate/2873949-captureoutput?language=objc) The other methods in this delegate are either deprecated or handle live photos, which we don't support.
-    *   [AVCaptureVideoDataOutput](https://developer.apple.com/documentation/avfoundation/avcapturevideodataoutput?language=objc): for capturing video frames and processing them. The frames are received via [AVCaptureVideoDataOutputSampleBufferDelegate](https://developer.apple.com/documentation/avfoundation/avcapturevideodataoutputsamplebufferdelegate?language=objc) and the method [captureOutput:didOutputSampleBuffer:fromConnection:](https://developer.apple.com/documentation/avfoundation/avcapturevideodataoutputsamplebufferdelegate/1385775-captureoutput?language=objc).
-    *   [AVCaptureMetadataOutput](https://developer.apple.com/documentation/avfoundation/avcapturemetadataoutput?language=objc): for reading QR-Codes. The QR Codes are passed to the app via [captureOutput:didOutputMetadataObjects:fromConnection:](https://developer.apple.com/documentation/avfoundation/avcapturemetadataoutputobjectsdelegate/1389481-captureoutput?language=objc). We are detecting the [AVMetadataMachineReadableCodeObject](https://developer.apple.com/documentation/avfoundation/avmetadatamachinereadablecodeobject?language=objc) and QR Codes are part of that.
 
-#### **Not Supported**
+:::note Not Supported
 
-* Espresso and XCUITest test automation frameworks.
-* Mobile browsers or system apps already installed on the phone. That's because the camera image injection functionality needs to pull the app from Sauce Labs storage.
-*   Ephemeral apps (i.e., app with temporary messages that disappear after a certain timeframe).
-*   Testing with Emulators, Simulators.
+* Test automation frameworks: Espresso and XCUITest.
+* Mobile browsers and system apps that come pre-installed on the device. Our camera image injection functionality looks to Sauce Labs storage to get your app information.
+* Ephemeral apps (i.e., apps with temporary, disappearing messages).
+* Testing with emulators and simulators.
+
+:::
+
+#### For Android
+
+For Android devices, there are multiple ways to capture an image, as described in the [Android Camera API](https://developer.android.com/guide/topics/media/camera) developer documentation. We support the following:
+* [ACTION_IMAGE_CAPTURE Intent](https://developer.android.com/reference/android/provider/MediaStore#ACTION_IMAGE_CAPTURE): opens the system camera and notifies the calling app gets when the image is taken
+* [camera2 API](https://developer.android.com/reference/android/hardware/camera2/package-summary): everything is configured and handled from within the app
+* [cameraX](https://developer.android.com/training/camerax): leverages the capabilities of camera2, but uses a simpler, use case-based approach that is lifecycle-aware.
+* [Camera API (deprecated)](https://developer.android.com/reference/android/hardware/Camera) (partially supported): As with camera2, everything is handled in the app itself. QR Code readers often use [Camera#setPreviewCallback](https://developer.android.com/reference/android/hardware/Camera#setPreviewCallback(android.hardware.Camera.PreviewCallback)). We pass the injected image to this method, but the rest of this deprecated API is not supported. UI Elements will not likely display the injected image.
+
+
+#### iOS
+
+For iOS devices, the camera can be configured with different outputs. We support the following:
+*   [`AVCapturePhotoOutput`](https://developer.apple.com/documentation/avfoundation/avcapturephotooutput?language=objc): for capturing still images. The results are received via the [`AVCapturePhotoCaptureDelegate`](https://developer.apple.com/documentation/avfoundation/avcapturephotocapturedelegate?language=objc) and the method [`captureOutput:didFinishProcessingPhoto:error:`](https://developer.apple.com/documentation/avfoundation/avcapturephotocapturedelegate/2873949-captureoutput?language=objc) The other methods in this delegate are either deprecated or handle live photos, which we don't support.
+*   [`AVCaptureVideoDataOutput`](https://developer.apple.com/documentation/avfoundation/avcapturevideodataoutput?language=objc): for capturing video frames and processing them. The frames are received via [`AVCaptureVideoDataOutputSampleBufferDelegate`](https://developer.apple.com/documentation/avfoundation/avcapturevideodataoutputsamplebufferdelegate?language=objc) and the method [`captureOutput:didOutputSampleBuffer:fromConnection:`](https://developer.apple.com/documentation/avfoundation/avcapturevideodataoutputsamplebufferdelegate/1385775-captureoutput?language=objc).
+*   [`AVCaptureMetadataOutput`](https://developer.apple.com/documentation/avfoundation/avcapturemetadataoutput?language=objc): for reading QR-Codes. The QR Codes are passed to the app via [`captureOutput:didOutputMetadataObjects:fromConnection:`](https://developer.apple.com/documentation/avfoundation/avcapturemetadataoutputobjectsdelegate/1389481-captureoutput?language=objc). We are detecting the [`AVMetadataMachineReadableCodeObject`](https://developer.apple.com/documentation/avfoundation/avmetadatamachinereadablecodeobject?language=objc) and QR Codes are part of that.
+
 
 ### Common Use Cases
 
@@ -243,7 +250,7 @@ This video illustrates how to use both biometric authentication and image inject
 
 When injecting an image with a QR Code or barcode, the image size in your preview may exceed the boundaries of the target scanner area, which would prevent your app from reading the code. In this scenario, you'd need to add padding to your uploaded image so that when it's scaled to full-screen, the QR Code will fit inside the scanning area limits and can be processed.
 
-[Click to view video](/img/mobile-apps/image-injection-padding.mp4)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/viaN-Bs4vBs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Automated Testing
 
