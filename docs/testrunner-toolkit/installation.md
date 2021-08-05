@@ -130,6 +130,14 @@ SAUCE_ACCESS_KEY='valid.key'
 Whether you are using environment variables or a credentials file, make sure your authentication data is protected. Use secrets or context variables to mask your environment variables, or add `credentials.yml` to your `gitignore` file to ensure your credentials are not exposed in your commits.
 :::
 
+## Updating saucectl
+
+To ensure you have access to the most current feature set of saucectl, keep your installation up to date by periodically upgrading to the latest release.
+
+```bash
+npm update -g saucectl
+```
+
 
 ## Sample Repos
 
