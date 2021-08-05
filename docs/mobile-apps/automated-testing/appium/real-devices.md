@@ -443,8 +443,75 @@ _Dynamic Allocation_ involves providing basic parameters for the platform and op
 
 While static allocation allows you more fine-grained control over the device used in your tests, it can also cause delays in your test execution if that device isn't available when you run your tests. If you only need to test on a particular platform and OS version, such as an Android 4.1, or on a particular type of device, you should use dynamic allocation, and we recommend that you use dynamic allocation for all automated mobile application testing in CI/CD environments.
 
-* [Required Capabilities for Dynamic Allocation](/dev/test-configuration-options).
-* [Optional Capabilities for Dynamic Allocation](/dev/test-configuration-options).
+#### Required Capabilities
+
+Below are capabilities required for dynamic allocation of [iOS and/or Android real devices for your tests](mobile-apps/automated-testing/appium/real-devices).
+
+<table>
+  <tr>
+   <td><strong>Capability</strong>
+   </td>
+   <td><strong>Capability Explanation</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><a href="/dev/test-configuration-options#platformname"><code>platformName</code></a>
+   </td>
+   <td><p>Defines the type of mobile platform to use in your tests (i.e., Android or iOS). The values for capabilities are not case-sensitive, so <code>android</code> is the same as <code>Android</code>, and <code>ios</code> is the same as <code>iOS</code>.</p>
+   </td>
+  </tr>
+  <tr>
+   <td><a href="/dev/test-configuration-options#platformVersion"><code>platformVersion</code></a>
+   </td>
+   <td><p>The platform version to use in your tests, for example "4" or "4.1". This is a substring match. You can specify both major versions and incremental versions of an operating system.</p><p>For example, if you set only a major version 4, you also have access to all devices running incremental versions (e.g., "4.1"," 4.2", "4.2.1", "4.4.4").</p><p>This also extends to minor and point versions. For example, if you specify "11.4", it will match "11.4.0", "11.4.1".</p>
+
+   </td>
+  </tr>
+  <tr>
+   <td><a href="/dev/test-configuration-options#deviceName"><code>deviceName</code></a>
+   </td>
+   <td><p>The display name of the device to use, such as "Samsung S7". You can also use regular expressions for setting the <code>deviceName</code>. Some examples:</p>
+
+<p>To allocate any iPhone:</p><sub>
+
+    "iPhone.*", "iPhone .*"
+</sub>
+<p>To allocate any device with the word "nexus" in its display name.</p><sub>
+
+    ".*nexus.*"
+</sub>
+<p>To allocate either "iPhone 7" or "iPhone 6" device.</p><sub>
+
+    "iPhone [67]" or "iPhone [6-7]"
+</sub>
+<p>To allocate either "iPhone 7S" or "iPhone 6S" device.</p><sub>
+
+    "iPhone [67]S" or "iPhone [6-7]S"
+</sub>
+<p>To allocate "iPhone 7" or "iPhone 7S", or any device that starts with the display name "iPhone 7".</p><sub>
+
+    "iPhone 7.*"
+</sub>
+<p><strong>NOTE</strong>: Regular expressions are not case sensitive.</p>
+   </td>
+  </tr>
+</table>
+
+#### Optional Capabilities
+
+Below are optional capabilities for dynamic allocation of iOS and/or Android real devices for your tests.
+
+*  [`tabletOnly`](https://docs.saucelabs.com/dev/test-configuration-options#tabletOnly)
+*  [`phoneOnly`](https://docs.saucelabs.com/dev/test-configuration-options#phoneOnly)
+*  [`privateDevicesOnly`](https://docs.saucelabs.com/dev/test-configuration-options#privateDevicesOnly)
+*  [`publicDevicesOnly`](https://docs.saucelabs.com/dev/test-configuration-options#publicDevicesOnly)
+*  [`carrierConnectivityOnly`](https://docs.saucelabs.com/dev/test-configuration-options#carrierConnectivityOnly)
+*  [`cacheId`](https://docs.saucelabs.com/dev/test-configuration-options#cacheId)
+*  [`noReset`](https://docs.saucelabs.com/dev/test-configuration-options#noreset)
+*  [`recordDeviceVitals`](https://docs.saucelabs.com/dev/test-configuration-options#recordDeviceVitals)
+*  [`crosswalkApplication`](https://docs.saucelabs.com/dev/test-configuration-options#crosswalkApplication)
+*  [`autoGrantPermissions`](https://docs.saucelabs.com/dev/test-configuration-options#autoGrantPermissions)
+*  [`enableAnimations`](https://docs.saucelabs.com/dev/test-configuration-options#enableAnimations)
 
 
 ### Static Device Allocation
