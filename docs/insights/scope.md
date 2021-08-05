@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The Insights section of your Sauce Labs app allows you to view your test data from a variety of different perspectives to ensure that you can see both the big picture of your testing effectiveness and the individual slices of test data that help you pinpoint failure causes and fix them.
 
-:::note
+:::tip
 Sauce Labs has also published an [Insights API](/dev/api/insights) so you can build a custom dashboard with views that are specific to your test strategy.
 :::
 
@@ -18,7 +18,7 @@ Access the **Insights** menu from the left-side navigation menu of our web app. 
 
 |Page|Description|
 |---|---|
-|Test Overview|Shows a variety of views of the data related to all the tests executed that match the specified filter criteria broken into three focus tabs. The **Overview** tab shows concatenated pass/fail statistics and platform breakdowns. The **Tests** tab shows a list of all tests which can be clicked to launch a view of data for just that test. The **Errors** tab counts the number of instances of each error that occurred across the execution of all tests in the filter. Click any error to see the list of tests in which it occurred.|
+|Test Overview|Shows a variety of views of the data related to all the tests executed that match the specified filter criteria broken into three focus tabs. <br/>The **Overview** tab shows concatenated pass/fail statistics and platform breakdowns. <br/>The **Tests** tab shows a table of all tests run on either **Virtual Cloud** or **Real Devices**, which you can sort by any of the data columns. You can click any test to see a historical breakdown of that test, and you can also export the data to a local CSV file. <br/>The **Errors** tab shows the total number of errors across the execution of all tests in the filter for either **Virtual Cloud** or **Real Devices** along with a graph depicting the error rate over time. Below, there is a breakdown of each error with the number of times it occurred in the period, which you can click any error to see the list of tests in which it occurred.|
 |Test History| Shows a visual snapshot of the results for a specific test over time. See the [Test History](/insights/history) page for specific views and capabilities descriptions.|
 |Trends| Shows graphical visualizations of all tests. Applying filters to this view makes it easy to compare test outcomes for different variables, such as device browser version. See the [Trends](/insights/trends) page for detailed documentation.|
 |VM Concurrency|Shows how many VM instances are in use simultaneously at any given time. See [Team Concurrency](/basics/acct-team-mgmt/concurrency-limits) for information about how concurrency is allocated.|
