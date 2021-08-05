@@ -34,14 +34,16 @@ __Shorthand__: `-c`
 
 ### `--no-remove-colliding-tunnels`
 
-__Description__: Specifies the file where you want the Sauce Connect Proxy process ID (pid) to be written. This is useful for programmatically stopping Sauce Connect Proxy. Although Sauce Connect Proxy makes a best effort, we cannot guarantee that the `pidfile` will be removed when shutting down Sauce Connect Proxy. With that in mind, relying on the `pidfile` as a means to monitor Sauce Connect Proxy is not supported.
+__Description__: Make this tunnel a part of the High Availability Sauce Connect Proxy Tunnel Pool. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). 
 
 __Shorthand__: n/a
 <br/>
 
 ### `--rest-url` (string)
 
-__Description__: Allows you to connect to a different Sauce Labs cloud (e.g., EU Virtual Device and Desktop Cloud or US Real Device Cloud) other than the default, US-West-1. For a full list of Sauce Connect Proxy endpoints, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
+__Description__: Sauce Labs regional data center REST API URL (e.g., EU-CENTRAL, US-WEST, etc...). For a full list, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
+
+__Default__: `https://saucelabs.com/rest/v1`
 
 __Shorthand__: `-x`
 <br/>
@@ -55,11 +57,16 @@ __Shorthand__: `-s`
 
 ### `--tunnel-identifier` (string)
 
-__Description__: Assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is very strongly recommended. Future jobs will use this tunnel only when explicitly specified by the tunnelIdentifier Capability in a Selenium client.
 
-For information on using `--tunnel-identifier` to run several Sauce Connect Proxy tunnels simultaneously, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). To learn about the syntax for setting `--tunnelIdentifier` as a capability, see [Test Configuration Options](/dev/test-configuration-options).
+__Description__: Assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is strongly recommended. Future jobs will use this tunnel only when explicitly specified by the [tunnelIdentifier](/dev/test-configuration-options#tunnelidentifier) in the desired capabilities of your automated tests.
 
+To learn about the syntax for setting `--tunnel-identifier` as a capability, see [Test Configuration Options](/dev/test-configuration-options).
+
+For information on using `--tunnel-identifier` in the tunnel pool, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
+
+:::note
 Your ID must be ASCII.
+:::
 
 __Shorthand__: `-i`
 <br/>
@@ -76,7 +83,7 @@ __Shorthand__: `-u`
 
 ### `--direct-domains` (string)
 
-__Description__: Use this option along with a comma-separated list of domains (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)) that you want to be relayed directly through the internet instead of through the Sauce Connect Proxy tunnel.
+__Description__: Comma-separated list of domains (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)) that you want to be relayed directly through the internet instead of through the Sauce Connect Proxy tunnel.
 
 __Shorthand__: `-D`
 <br/>
@@ -85,7 +92,7 @@ __Shorthand__: `-D`
 
 __Description__: Tests for application and site degradation based on missing assets or resources. Can be used to simulate non-loading of scripts, styles, or other resources. Use this option followed by a comma-separated list of regular expressions. Requests with URLs matching one of these will get dropped instantly and will not go through the tunnel. See the [Sauce Connect Proxy FAQ](/secure-connections/sauce-connect/faq) for an example.
 
-__Shorthand__: `-B`
+__Shorthand__: `-F`
 <br/>
 
 ### `--tunnel-domains` (string)
@@ -97,7 +104,7 @@ __Shorthand__: `-t`
 
 ### `--no-ssl-bump-domains` (string)
 
-__Description__: Comma-separated list of domains. Comma-separated list of domains (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)). Requests, including hosts that match one of these domains, will not be SSL re-encrypted. See [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) for more information about scenarios in which you would want to use this command.
+__Description__: Comma-separated list of domains (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)). Requests that include hosts matching one of these domains, will not be SSL re-encrypted. See [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) for more information about scenarios in which you would want to use this command.
 
 :::note
 HTTP Header Injection is disabled for all HTTPS domains passed to --no-ssl-bump-domains argument.
@@ -111,7 +118,7 @@ __Shorthand__: `-B`
 
 ### `--no-autodetect`
 
-__Description__: Disables the auto-detection of proxy settings.
+__Description__: Disables the auto-detection of proxy settings. See also [Automatic Proxy Auto-Configuration](/secure-connections/sauce-connect/setup-configuration/additional-proxies#proxy-auto-configuration-automatic).
 
 __Shorthand__: n/a
 <br/>
@@ -215,18 +222,23 @@ __Description__: Performs basic authentication when a URL on `host:port` asks fo
 Sauce Connect Proxy's `--auth` flag will only send the header Authorization with a type of 'Basic'. If a resource responds with the header WWW-Authenticate of a type any other than 'Basic,' your authentication will fail and return a non-200 HTTP response. HTTP Header Injection is disabled for SSL domains that are not re-encrypted by Sauce Connect Proxy, which means performing basic authentication in this way is disabled for all HTTPS domains passed to `--no-ssl-bump-domains` argument.
 
 __Shorthand__: `-a`  
+
+__Example__:
+```
+--auth mysite.com:80:awesometester:supersekrit
+```
 <br/>
 
 ### `--cainfo` (string)
 
-__Description__: CA certificate bundle to use for verifying REST connections.
+__Description__: CA certificate bundle to use for verifying connections to Sauce Labs REST API.
 
 __Shorthand__: n/a
 <br/>
 
 ### `--capath` (string)
 
-__Description__: Directory of CA certs to use for verifying REST connections.
+__Description__: Directory of CA certs to use for verifying connections to Sauce Labs REST API.
 
 __Shorthand__: n/a  
 <br/>
@@ -246,6 +258,10 @@ __Example__:
 ### `--ocsp` (string)
 
 __Description__: OSCP verification mode. Options are strict, attempt, log-only, and disable. The default is log-only.
+
+:::note
+`--ocsp strict` may fail if a certificate in the chain does not support OCSP. It's recommended to leave it to the default "log-only" mode.
+:::
 
 __Shorthand__: n/a  
 <br/>

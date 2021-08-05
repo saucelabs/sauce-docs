@@ -14,22 +14,22 @@ export const Highlight = ({children, color}) => ( <span style={{
 
 See the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to generate the code for setting the capabilities to execute a test.
 
-_Depending on which environment you are running tests in, different options, also known as **Capabilities**, should be set_. There are different sets of capabilities for different environments, which can be combined. These configurations are added to the [Capabilities](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_Capabilities.html) or [Options](https://www.selenium.dev/documentation/en/driver_idiosyncrasies/driver_specific_capabilities/) classes. Some of these setting are required for a test to run in a given environment, while some are optional.
+## Terminology
 
-* **[W3C Capabilities](#browser-w3c-capabilities--optional)**: Required for any test using Selenium or Appium to communicate with the browser. W3C capabilities are universal capabilities for any test, and are usually combined with additional capabilities
+Depending on the environment in which you are testing (e.g., web browser, mobile real device), you'll need to set different options, known as ***capabilities***. There are different sets of capabilities for different environments, which can be combined. These configurations are added to the [capabilities](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_Capabilities.html) or [options](https://www.selenium.dev/documentation/en/driver_idiosyncrasies/driver_specific_capabilities/) classes. Some of these settings are required for a test to run in a given environment, while some are optional.
+
+* **[W3C Capabilities](#browser-w3c-capabilities--optional)**: Required for any test using Selenium or Appium to communicate with the browser. W3C capabilities are universal capabilities for any test, and are usually combined with additional capabilities.
 * **[Sauce Labs Capabilities](#desktop-and-mobile-capabilities-sauce-specific--optional)**: Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the endpoint URL](/basics/data-center-endpoints/data-center-endpoints) and should pass the test name and status as capabilities to the remote webdriver.
-* **Appium Capabilities:** Required for any test using Appium, either testing web browsers or apps
-  * **[Mobile App Capabilities](#mobile-app-capabilities-appium-settings--required)**: Required if you are running a test on a mobile app
-  * **Mobile Web Capabilities:** If you are using Appium to test a web app, you need to set the `deviceName`, `platformName` `platformVersion`, and `automationName` the same way you would for a mobile app test, along with settings for the browser.
-* **[Browser Specific Capabilities](#desktop-browser-capabilities-sauce-specific--optional)**: You can set various Sauce Labs capabilities that are specific to different web browsers. 
-
-#### Browser Vendor Capabilities
-Each browser also has it's own set of pre-defined options you can set to help you test. You can add these in regular capabilities or options, or use the browser-defined capabilities (browser options classes) to configure your browser tests:
-  * [Chrome Capabilities](https://chromedriver.chromium.org/capabilities)
-  * [Microsoft Edge Capabilities](https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options)
-  * [Firefox Capabilities](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions)
-  * [Internet Explorer Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/ie/InternetExplorerDriver.html)
-  * [Safari Capabilities](https://developer.apple.com/documentation/webkit/about_webdriver_for_safari)
+* **Appium Capabilities**: Required for any test using Appium, either testing web browsers or apps.
+  * **[Mobile App Capabilities](#mobile-app-capabilities-appium-settings--required)**: Required if you are running a test on a mobile app.
+  * **Mobile Web Capabilities**: If you are using Appium to test a web app, you need to set the `deviceName`, `platformName` `platformVersion`, and `automationName` the same way you would for a mobile app test, along with settings for the browser.
+* **[Browser-Specific Capabilities](#desktop-browser-capabilities-sauce-specific--optional)**: You can set various Sauce Labs capabilities that are specific to different web browsers.
+* **Browser Vendor Capabilities**: Each browser also has its own set of pre-defined options you can set to help you test. You can add these in regular capabilities or options, or use the browser-defined capabilities (browser options classes) to configure your browser tests:
+   * [Chrome Capabilities](https://chromedriver.chromium.org/capabilities)
+   * [Microsoft Edge Capabilities](https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options)
+   * [Firefox Capabilities](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions)
+   * [Internet Explorer Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/ie/InternetExplorerDriver.html)
+   * [Safari Capabilities](https://developer.apple.com/documentation/webkit/about_webdriver_for_safari)
 
 
 ## WebDriver W3C Capabilities – Required
@@ -275,7 +275,7 @@ These common Appium test configuration settings can be added with an `appium:` p
 If you are not using the official Appium bindings, make sure to prefix all Appium capabilities with `appium:` to make them W3C WebDriver-compliant. For more information about Appium-specific options, see the [Appium Server Capabilities page of the Appium.io website](http://appium.io/docs/en/writing-running-appium/caps).
 
 :::note
-[`browserName`](#browsername) and [`platformName`](#platformname) are frequently used in Appium tests, but are W3C capabilities so they are not prepended with `appium:`
+[`browserName`](#browsername) and [`platformName`](#platformname) are frequently used in Appium tests, however, because they are W3C capabilities, you do not need to prepend them with `appium:`
 :::
 
 ---
@@ -433,6 +433,144 @@ __Examples__:
 * Android dependent apps will not be instrumented or modified.
 * iOS dependent apps will always be resigned/modified (even when resigning is disabled for the main app) because apps can't be installed on iOS devices without resigning them. If a dependent app cannot be resigned (such as a 3rd party app), the test will not work as intended.
 :::
+
+
+---
+### `tabletOnly`
+__Description__: use this capability to select only tablet devices for testing by setting it to `"true"`. For [***Dynamic Allocation***](mobile-apps/automated-testing/appium/real-devices).<br/>
+__Value Type__: boolean.
+
+---
+### `phoneOnly`
+__Description__: use this capability to select only phone devices by setting it to `"true"`. For ***Dynamic Allocation***.<br/>
+__Value Type__: boolean.
+
+---
+### `privateDevicesOnly`
+__Description__: if your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For [***Dynamic Allocation***](mobile-apps/automated-testing/appium/real-devices).<br/>
+__Value Type__: boolean.
+
+---
+### `publicDevicesOnly`
+__Description__: if your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For [***Dynamic Allocation***](mobile-apps/automated-testing/appium/real-devices).<br/>
+__Value Type__: boolean.
+
+---
+### `carrierConnectivityOnly`
+__Description__: use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For [***Dynamic Allocation***](mobile-apps/automated-testing/appium/real-devices).<br/>
+__Value Type__: boolean.
+
+---
+### `cacheId`
+__Description__: use this capability to keep a device allocated to you between test sessions, bypassing the device cleaning process and session exit that occurs by default after each test completes. Normally, you'd need to start over and reopen another device. You'll need to launch your next test within **10 seconds** of your previous test ending to ensure that the same device will be allocated for the test (not cleaned or reset).
+
+Your app under test and its data will remain as-is on the device.
+
+The value for `cacheId` must be the same for all test methods that you want to run on the cached device. In addition, the app and project ID used for the tests must remain the same, along with the values for these capabilities:
+* `deviceName`
+* `platformName`
+* `platformVersion`
+* `tabletOnly`
+* `phoneOnly`
+* `privateDevicesOnly`
+* `automationName`
+* `autoGrantPermissions`
+* `appiumVersion`
+
+Suitable for test setups that require the app's state to be reset between tests. Can be used for both [**static allocation and dynamic allocation**](https://docs.saucelabs.com/mobile-apps/supported-devices/#static-and-dynamic-device-allocation).
+
+We recommend reviewing [Device Management for Real Devices](mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
+
+:::note
+`cacheId` has replaced the `testobject_cache_device` capability that was used in TestObject (Legacy RDC).
+:::
+
+__Value Type__: randomized string.
+
+---
+### `noReset`
+__Description__: set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
+
+:::caution Known iOS Limitation
+On iOS devices, the `noReset` value is permanently set to `true` and cannot be overridden using `noReset:false`. If you check your Appium logs, you'll see that the value is `true`, even though the default setting technically is false. We've done this intentionally to ensure that your post-test iOS device cleaning process is optimal and secure.
+:::
+__Value Type__: boolean.
+
+---
+### `recordDeviceVitals`
+__Description__: Device vitals are a collection of the mobile device performance data taken in real time during test execution. Vitals includes CPU utilization, memory consumption, network usage for both wifi and carrier connectivity where applicable, file operation and more. Measuring device vitals during test execution provides insights for analyzing app performance during operation.<br/>
+__Value Type__: boolean.
+
+---
+### `crosswalkApplication`
+__Description__: As described in [Appium Issue 4597](https://github.com/appium/appium/issues/4597) and [ChromeDriver Issue 2375613002](https://codereview.chromium.org/2375613002), mobile tests using Crosswalk will fail because because of attempts to connect to the wrong socket on the device. Sauce Labs has developed a patched version of ChromeDriver that will work with Crosswalk. You can specify to use this patched version with the `crosswalkApplication` capability.<br/>
+__Value Type__: boolean.
+
+---
+### `autoGrantPermissions`
+__Description__: By default, applications are installed on devices in the Sauce Labs real device cloud with autoGrantPermissions capability set to `true`. As long as the API number of the device is equal to 23 or higher, you can disable this by explicitly setting `autoGrantPermissions` to false.<br/>
+__Value Type__: boolean.
+
+---
+### `enableAnimations`
+__Description__: Use this capability to enable animations for real devices by setting it to `true`. By default, animations are disabled.<br/>
+__Value Type__: boolean.
+
+
+
+:::note Unsupported Appium Capabilities
+
+The following Appium capabilities are not yet supported for real devices:
+
+* `installApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
+* `removeApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
+* `Edit Timezone`: Appium does not provide a capability to edit the timezone of a device in automated testing on real devices.
+  * See [Virtual Device Capabilities](https://docs.saucelabs.com/dev/test-configuration-options/#virtual-device-capabilities-sauce-specific--optional) for information about timezone capabilities in a virtual device testing.
+
+If you have any questions or concerns, please contact your Customer Success Manager or Sauce Labs Support.
+:::
+
+## Mobile App Capabilities: Appium Override Settings - Optional
+
+These are custom capabilities developed by Sauce Labs that you can use to override settings enabled during app configuration.
+
+---
+### `resigningEnabled`
+__Description__: Enables the resigning (iOS) or instrumentation (Android) of apps on the Sauce Labs side, allowing the usage of the other capabilities listed in this section.<br/>
+__Value Type__: boolean.
+
+---
+### `sauceLabsImageInjectionEnabled`
+__Description__: enables the [camera image injection](https://docs.saucelabs.com/mobile-apps/features/#camera-image-injection) feature.<br/>
+__Value Type__: boolean.
+
+---
+### `sauceLabsBypassScreenshotRestriction`
+<p><small><Highlight color="#946f59">Espresso/Android Only</Highlight></small></p>
+
+__Description__: bypasses the restriction on taking screenshots for secure screens (i.e., secure text entry).<br/>
+__Value Type__: boolean.
+
+---
+### `allowTouchIdEnroll`
+
+__Description__: enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).<br/>
+__Value Type__: boolean.
+
+---
+### `groupFolderRedirectEnabled`
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
+
+__Description__: Enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.<br/>
+__Value Type__: boolean.
+
+---
+### `systemAlertsDelayEnabled`
+<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
+
+__Value Type__: boolean.<br/>
+__Description__: Delays system alerts, such as alerts asking for permission to access the camera, to prevent app crashes at startup.
+
 
 <br/>
 
@@ -603,205 +741,10 @@ __Example__:
 ```
 <br/>
 
-#### **Timeout Settings**
-
-These settings apply to all tests run on Virtual device cloud (desktop browsers, emulators, and simulators). They can be added to the `sauce:options` block of your session creation code.
-
-## Appium Real Device Cloud - Dynamic Allocation - Required
-
-Below are capabilities required for dynamically allocating [iOS and/or Android real devices for your tests](mobile-apps/automated-testing/appium/real-devices).
-
-<table>
-  <tr>
-   <td><strong>Capability</strong>
-   </td>
-   <td><strong>Capability Explanation</strong>
-   </td>
-  </tr>
-  <tr>
-   <td><code>platformName</code>
-   </td>
-   <td><p>Defines the type of mobile platform to use in your tests (i.e., Android or iOS). The values for capabilities are not case-sensitive, so <code>android</code> is the same as <code>Android</code>, and <code>ios</code> is the same as <code>iOS</code>.</p>
-   </td>
-  </tr>
-  <tr>
-   <td><code>platformVersion</code>
-   </td>
-   <td><p>The platform version to use in your tests, for example "4" or "4.1". This is a substring match. You can specify both major versions and incremental versions of an operating system.</p><p>For example, if you set only a major version 4, you also have access to all devices running incremental versions (e.g., "4.1"," 4.2", "4.2.1", "4.4.4").</p><p>This also extends to minor and point versions. For example, if you specify "11.4", it will match "11.4.0", "11.4.1".</p>
-
-   </td>
-  </tr>
-  <tr>
-   <td><code>deviceName</code>
-   </td>
-   <td><p>The display name of the device to use, such as "Samsung S7". You can also use regular expressions for setting the <code>deviceName</code>. Some examples:</p>
-
-<p>To allocate any iPhone:</p><sub>
-
-    "iPhone.*", "iPhone .*"
-</sub>
-<p>To allocate any device with the word "nexus" in its display name.</p><sub>
-
-    ".*nexus.*"
-</sub>
-<p>To allocate either "iPhone 7" or "iPhone 6" device.</p><sub>
-
-    "iPhone [67]" or "iPhone [6-7]"
-</sub>
-<p>To allocate either "iPhone 7S" or "iPhone 6S" device.</p><sub>
-
-    "iPhone [67]S" or "iPhone [6-7]S"
-</sub>
-<p>To allocate "iPhone 7" or "iPhone 7S", or any device that starts with the display name "iPhone 7".</p><sub>
-
-    "iPhone 7.*"
-</sub>
-<p><strong>NOTE</strong>: Regular expressions are not case sensitive.</p>
-   </td>
-  </tr>
-</table>
-
-## Appium Real Device Cloud - Dynamic Allocation - Optional
-
-Below are optional capabilities for dynamically allocating [iOS and/or Android real devices for your tests](mobile-apps/automated-testing/appium/real-devices).
-
----
-### `tabletOnly`
-__Description__: use this capability to select only tablet devices for testing by setting it to `"true"`. For ***Dynamic Allocation***.<br/>
-__Value Type__: boolean.
-
----
-### `phoneOnly`
-__Description__: use this capability to select only phone devices by setting it to `"true"`. For ***Dynamic Allocation***.<br/>
-__Value Type__: boolean.
-
----
-### `privateDevicesOnly`
-__Description__: if your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For ***Dynamic Allocation***.<br/>
-__Value Type__: boolean.
-
----
-### `publicDevicesOnly`
-__Description__: if your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For ***Dynamic Allocation***.<br/>
-__Value Type__: boolean.
-
----
-### `carrierConnectivityOnly`
-__Description__: use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For ***Dynamic Allocation***.<br/>
-__Value Type__: boolean.
-
----
-### `cacheId`
-__Description__: use this capability to keep a device allocated to you between test sessions, bypassing the device cleaning process and session exit that occurs by default after each test completes. Normally, you'd need to start over and reopen another device. You'll need to launch your next test within **10 seconds** of your previous test ending to ensure that the same device will be allocated for the test (not cleaned or reset).
-
-Your app under test and its data will remain as-is on the device.
-
-The value for `cacheId` must be the same for all test methods that you want to run on the cached device. In addition, the app and project ID used for the tests must remain the same, along with the values for these capabilities:
-* `deviceName`
-* `platformName`
-* `platformVersion`
-* `tabletOnly`
-* `phoneOnly`
-* `privateDevicesOnly`
-* `automationName`
-* `autoGrantPermissions`
-* `appiumVersion`
-
-Suitable for test setups that require the app's state to be reset between tests. Can be used for both [**static allocation and dynamic allocation**](https://docs.saucelabs.com/mobile-apps/supported-devices/#static-and-dynamic-device-allocation).
-
-We recommend reviewing [Device Management for Real Devices](mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
-
-:::note
-`cacheId` has replaced the `testobject_cache_device` capability that was used in TestObject (Legacy RDC).
-:::
-
-__Value Type__: randomized string.
-
----
-### `noReset`
-__Description__: set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
-
-:::caution Known iOS Limitation
-On iOS devices, the `noReset` value is permanently set to `true` and cannot be overridden using `noReset:false`. If you check your Appium logs, you'll see that the value is `true`, even though the default setting technically is false. We've done this intentionally to ensure that your post-test iOS device cleaning process is optimal and secure.
-:::
-__Value Type__: boolean.
-
----
-### `recordDeviceVitals`
-__Description__: Device vitals are a collection of the mobile device performance data taken in real time during test execution. Vitals includes CPU utilization, memory consumption, network usage for both wifi and carrier connectivity where applicable, file operation and more. Measuring device vitals during test execution provides insights for analyzing app performance during operation.<br/>
-__Value Type__: boolean.
-
----
-### `crosswalkApplication`
-__Description__: As described in [Appium Issue 4597](https://github.com/appium/appium/issues/4597) and [ChromeDriver Issue 2375613002](https://codereview.chromium.org/2375613002), mobile tests using Crosswalk will fail because because of attempts to connect to the wrong socket on the device. Sauce Labs has developed a patched version of ChromeDriver that will work with Crosswalk. You can specify to use this patched version with the `crosswalkApplication` capability.<br/>
-__Value Type__: boolean.
-
----
-### `autoGrantPermissions`
-__Description__: By default, applications are installed on devices in the Sauce Labs real device cloud with autoGrantPermissions capability set to `true`. As long as the API number of the device is equal to 23 or higher, you can disable this by explicitly setting `autoGrantPermissions` to false.<br/>
-__Value Type__: boolean.
-
----
-### `enableAnimations`
-__Description__: Use this capability to enable animations for real devices by setting it to `true`. By default, animations are disabled.<br/>
-__Value Type__: boolean.
-
-
-## Appium Override Settings Capabilities - Optional
-
-These are custom capabilities developed by Sauce Labs that you can use to override settings that are enabled during app configuration.
-
----
-### `resigningEnabled`
-__Description__: Enables the resigning (iOS) or instrumentation (Android) of apps on the Sauce Labs side, allowing the usage of the other capabilities listed in this section.<br/>
-__Value Type__: boolean.
-
----
-### `sauceLabsImageInjectionEnabled`
-__Description__: enables the [camera image injection](https://docs.saucelabs.com/mobile-apps/features/#camera-image-injection) feature.<br/>
-__Value Type__: boolean.
-
----
-### `sauceLabsBypassScreenshotRestriction`
-<p><small><Highlight color="#946f59">Espresso/Android Only</Highlight></small></p>
-
-__Description__: bypasses the restriction on taking screenshots for secure screens (i.e., secure text entry).<br/>
-__Value Type__: boolean.
-
----
-### `allowTouchIdEnroll`
-
-__Description__: enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).<br/>
-__Value Type__: boolean.
-
----
-### `groupFolderRedirectEnabled`
-<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
-
-__Description__: Enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.<br/>
-__Value Type__: boolean.
-
----
-### `systemAlertsDelayEnabled`
-<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
-
-__Value Type__: boolean.<br/>
-__Description__: Delays system alerts, such as alerts asking for permission to access the camera, to prevent app crashes at startup.
-
-
-## Appium Real Device Cloud - Unsupported Capabilities
-
-The following Appium capabilities are not yet supported for real devices. If you have any questions or concerns about unsupported capabilities, please contact your Customer Success Manager or Sauce Labs Support.
-
-* `installApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
-* `removeApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
-* `Edit Timezone`: Appium does not provide a capability to edit the timezone of a device in automated testing on real devices.
-  * See [Virtual Device Capabilities](https://docs.saucelabs.com/dev/test-configuration-options/#virtual-device-capabilities-sauce-specific--optional) for information about timezone capabilities in virtual device testing.
-
 
 ## Virtual Device Capabilities: Sauce-Specific – Optional
 
-The following are Sauce Labs-specific options that apply only for desktop sessions, emulators and simulators. These can be added to the `sauce:options` block of your session creation code.
+The following are Sauce Labs-specific options that apply only to virtual devices (desktop sessions, emulators and simulators). These options can be added to the `sauce:options` block of your session creation code.
 
 ---
 ### `maxDuration`
@@ -924,7 +867,7 @@ __Value Type__: integer.<br/>
 
 [Visual Testing](/visual) is run on Sauce Labs servers, but the URL gets sent to `"https://hub.screener.io"`. This means that the [`username`](#username) and [`accessKey`](#accesskey) values are required.
 
-Check out the complete Sauce Labs [Visual Testing with WebDriver Documentation](https://screener.io/v2/docs/visual-e2e). Also, we recommend reading up on all of the valid [Visual Options](https://screener.io/v2/docs/visual-e2e/visual-options).
+Check out [Visual Testing with WebDriver](/visual/e2e-testing/webdriver-integration) and [Visual Options](/visual/e2e-testing/options).
 
 
 ## Additional Resources
