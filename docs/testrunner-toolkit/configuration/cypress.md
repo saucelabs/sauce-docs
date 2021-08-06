@@ -519,6 +519,11 @@ One or more paths to the Cypress test files to run for this suite, if not otherw
 ```yaml
       testFiles: [ "**/*.*" ]
 ```
+
+:::note
+`testFiles` must be a regex or a path relative to `cypress/integration` or the `integrationFolder` value set in `cypress.json`.
+:::
+
 ---
 
 ### `timeout`
