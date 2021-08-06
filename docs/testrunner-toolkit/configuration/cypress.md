@@ -460,7 +460,7 @@ The options of reporters you want to add.
 :::note
 This field has the same purpose as `reporterOptions` in `cypress.json` file.
 
-Reporter options are specific for each reporter. Take a look to your reporter options in order to know which options are available.
+Reporter options are specific for each reporter. Consult your reporter documentation, in order to know which options are available.
 :::
 
 ---
