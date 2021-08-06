@@ -20,7 +20,7 @@ saucectl run -c ./path/to/{config-file}.yml
 ```
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. If you are less comfortable with YAML, any of a wide variety of free online YAML/JSON validator tools may be helpful.
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](testrunner-toolkit/ide-integrations/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
 :::
 
 
@@ -70,6 +70,7 @@ Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each s
 
 ```yaml
   timeout: 15m
+```
 ---
 
 ## `sauce`
@@ -282,12 +283,12 @@ The path to the testing application. The relative file location is `{project-roo
 ---
 
 ### `otherApps`
-<p><small>| OPTIONAL | ARRAY |</small></p>
+<p><small>| OPTIONAL | ARRAY | REAL DEVICES ONLY |</small></p>
 
-Set of one or more apps to be pre-installed for your tests. You can upload an app from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
+Set of up to seven apps to pre-install for your tests. You can upload an app from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
 
 :::note
-Apps specified as `otherApps` inherit the configuration of the main app under test for settings such as `proxy`, `locale`, and `device orientation`, regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test.
+Apps specified as `otherApps` inherit the configuration of the main app under test for [`Device Language`, `Device Orientation`, and `Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
 :::
 
 ```yaml
