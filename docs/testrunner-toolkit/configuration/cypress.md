@@ -424,7 +424,7 @@ The additional reporters you want to add.
 
 :::note
 Reporters functionality is provided through [cypress-multi-reporter](https://www.npmjs.com/package/cypress-multi-reporters).
-In order to work, the intended reporter must be compatible with that plugin.
+In order for your additional reporter to work, it must be compatible with that plugin.
 :::
 
 ---
