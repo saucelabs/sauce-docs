@@ -411,7 +411,7 @@ For additional information regarding cypress configurations, please consult the 
 ### `reporters`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The reporters you want to add.
+The additional reporters you want to add.
 
 ```yaml
   reporters:
