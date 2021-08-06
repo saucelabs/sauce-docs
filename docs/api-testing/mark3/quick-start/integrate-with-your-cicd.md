@@ -55,7 +55,9 @@ To create a webhook:
 __Description__: Runs a single test. The `{hookId}` and `testId` are both required.
 
 __Example__:
-
+```bash
+docker run quay.io/saucelabs/apifctl run -H https://foobar:ae5499d58ab1@api.us-west-1.saucelabs.com/api-testing/rest/v4/4be5-45db-a9aa-4c5d9027e6f5 -i 555161be0ad1b20c6e2dd020
+```
 ---
 
 ### `run-all`
@@ -63,7 +65,9 @@ __Example__:
 __Description__: Runs all the complete tests in the project referenced by the hook.
 
 __Example__:
-
+```bash
+docker run quay.io/saucelabs/apifctl run-all -H https://foobar:ae5499d58ab1@api.us-west-1.saucelabs.com/api-testing/rest/v4/4be5-45db-a9aa-4c5d9027e6f5
+```
 ---
 
 ### `run-tag`
@@ -71,7 +75,9 @@ __Example__:
 __Description__: Runs all the tests tagged with a specific tag.
 
 __Example__:
-
+```bash
+docker run quay.io/saucelabs/apifctl run-tag -H https://foobar:ae5499d58ab1@api.us-west-1.saucelabs.com/api-testing/rest/v4/4be5-45db-a9aa-4c5d9027e6f5 -tag production
+```
 ---
 
 ### `exec`
@@ -79,7 +85,9 @@ __Example__:
 __Description__: Sends a test residing in the local file system (directory with `unit.xml` and `input.xml`) to the cloud for execution.
 
 __Example__:
-
+```bash
+docker run -v $(pwd)/tests:/tests quay.io/saucelabs/apifctl exec -H https://foobar:ae5499d58ab1@api.us-west-1.saucelabs.com/api-testing/rest/v4/4be5-45db-a9aa-4c5d9027e6f5 -p /tests/test_abc
+```
 ---
 
 ### `upload`
@@ -87,7 +95,9 @@ __Example__:
 __Description__: Uploads a test residing in the local file system  (directory with `unit.xml` and `input.xml`) to the cloud for storage.
 
 __Example__:
-
+```bash
+docker run -v $(pwd)/tests:/tests quay.io/saucelabs/apifctl upload -H https://foobar:ae5499d58ab1@api.us-west-1.saucelabs.com/api-testing/rest/v4/4be5-45db-a9aa-4c5d9027e6f5 -p /tests/test_abc
+```
 ---
 
 ## Command Options
@@ -109,7 +119,9 @@ __Example__:
 __Description__: Sets the data format: `json` || `junit`
 
 __Example__:
-
+```bash
+-f junit
+```
 ---
 
 ### `-t`
@@ -117,5 +129,7 @@ __Example__:
 __Description__: Adds a set of tags to the resulting event
 
 __Example__:
-
+```bash
+-t production,smoketest
+```
 ---
