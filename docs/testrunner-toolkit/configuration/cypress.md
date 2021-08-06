@@ -484,12 +484,12 @@ Provides details related to the Cypress test configuration that are relevant for
 ```yaml {5}
   suites:
     - name: "Hello"
-    browser: "firefox"
-    platformName: "Windows 10"
-    config:
-      env:
-        hello: world
-      testFiles: [ "**/*.*" ]
+      browser: "firefox"
+      platformName: "Windows 10"
+      config:
+        env:
+          hello: world
+        testFiles: [ "**/*.*" ]
 ```
 ---
 
