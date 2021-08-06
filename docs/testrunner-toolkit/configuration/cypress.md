@@ -408,6 +408,63 @@ For additional information regarding cypress configurations, please consult the 
 :::
 ---
 
+### `reporters`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The reporters you want to add.
+
+```yaml
+  reporters:
+    - name: cypress-mochawesome
+      options:
+        reportDir: cypress/report
+        charts: true
+        reportPageTitle: Cypress running on Sauce
+```
+
+:::note
+Reporters functionality is provided through [cypress-multi-reporter](https://www.npmjs.com/package/cypress-multi-reporters).
+In order to work, the intended reporter must be compatible with that plugin.
+:::
+
+---
+
+#### `name`
+<p><small>| REQUIRED | STRING |</small></p>
+
+The name of the reporter to enable.
+
+```yaml
+      name: cypress-mochawesome
+```
+
+:::note
+This field has the same purpose as `reporter` in `cypress.json` file.
+
+Some reporters may require you to install dependencies.
+:::
+
+---
+
+#### `options`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The options of reporters you want to add.
+```yaml
+      options:
+        reportDir: cypress/report
+        charts: true
+        reportPageTitle: Cypress running on Sauce
+```
+
+:::note
+This field has the same purpose as `reporterOptions` in `cypress.json` file.
+
+Reporter options are specific for each reporter. Take a look to your reporter options in order to know which options are available.
+:::
+
+---
+
 ## `suites`
 <p><small>| REQUIRED | OBJECT |</small></p>
 
