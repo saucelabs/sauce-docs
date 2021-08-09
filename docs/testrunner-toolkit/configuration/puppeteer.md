@@ -210,6 +210,11 @@ The directory of files that need to be bundled and uploaded for the tests to run
 ```yaml
   rootDir: "packages/subpackage" # Some other package from within a monorepo
 ```
+
+:::caution
+Only the files contained within `rootDir` will be available during the tests. Any reference to a file that is not included in `rootDir` will make the tests fail.
+:::
+
 ---
 
 ## `npm`
