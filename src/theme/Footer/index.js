@@ -98,7 +98,7 @@ function Footer() {
                     <li><a className="link" href="https://saucelabs.com/platform/integrations-plugins" target="" data-ta="click" data-tc="Text" data-tl="">Supported Integrations</a></li>
                     <li><a className="link" href="https://saucelabs.com/platform/supported-browsers-devices" target="" data-ta="click" data-tc="Text" data-tl="">Supported Browsers &amp; Devices</a></li>
                     <li><a className="link" href="https://saucelabs.com/platform/analytics-performance/advanced-debugging-tools" target="" data-ta="click" data-tc="Text" data-tl="">Debugging Tools</a></li>
-                    <li><a className="link" href="https://saucelabs.com/platform/analytics-performance/sauce-insights" target="" data-ta="click" data-tc="Text" data-tl="">Sauce Insights</a></li>
+                    <li><a className="link" href="https://saucelabs.com/platform/analytics-performance/test-analytics" target="" data-ta="click" data-tc="Text" data-tl="">Test Analytics</a></li>
                     <li><a className="link" href="https://saucelabs.com/platform/automation-tools" target="" data-ta="click" data-tc="Text" data-tl="">Automation Tools</a></li>
                     <li><a className="link" href="https://saucelabs.com/pricing" target="" data-ta="click" data-tc="Text" data-tl="">Pricing</a></li>
                 </ul>
@@ -130,9 +130,8 @@ function Footer() {
                   <li><a className="link" href="https://saucelabs.com/company/partners" target="" data-ta="click" data-tc="Text" data-tl="">Partners</a></li>
                   <li><a className="link" href="https://saucelabs.com/company" target="" data-ta="click" data-tc="Text" data-tl="">About Us</a></li>
                   <li><a className="link" href="https://saucelabs.com/company/careers" target="" data-ta="click" data-tc="Text" data-tl="">Careers</a></li>
-                  <li><a className="link" href="https://saucelabs.com/security" target="" data-ta="click" data-tc="Text" data-tl="">Security</a></li>
-                  <li><a className="link" href="https://saucelabs.com/news" target="" data-ta="click" data-tc="Text" data-tl="">News</a></li><li>
-                  <a className="link" href="https://saucelabs.com/contact" target="" data-ta="click" data-tc="Text" data-tl="">Contact</a></li>
+                  <li><a className="link" href="https://saucelabs.com/news" target="" data-ta="click" data-tc="Text" data-tl="">News</a></li>
+                  <li><a className="link" href="https://saucelabs.com/contact" target="" data-ta="click" data-tc="Text" data-tl="">Contact</a></li>
               </ul>
           </div>
           </div>

@@ -94,32 +94,7 @@ const docusaurusConfig = {
         href: 'https://saucelabs.com',
       },
       style: 'light',
-      links: [
-        {
-          title: 'Partners',
-          items: []
-        },
-        {
-          title: 'About Us',
-          items: []
-        },
-        {
-          title: 'Careers',
-          items: []
-        },
-        {
-          title: 'Security',
-          items: []
-        },
-        {
-          title: 'News',
-          items: []
-        },
-        {
-          title: 'Contact',
-          items: []
-        },
-      ],
+      links: [],
       copyright: `Copyright © ${new Date().getFullYear()} Sauce Labs, Inc. Built with Docusaurus.`,
     },
   },
