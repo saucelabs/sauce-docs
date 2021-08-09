@@ -14,12 +14,14 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ## Team Methods
 
-### Get Teams
+### Lookup Teams
 
 <details><summary><span className="api get">GET</span> <code>/team-management/v1/teams/</code></summary>
 <p/>
 
-Returns a team count and an array of all teams in the organization of the requesting account.
+Queries the organization of the requesting account and returns the number of teams matching the query and a summary of each team, including the `ID` value, which may be a required parameter of other API calls related to a specific team.
+
+You can filter the results of your query using the `name` parameter below.
 
 #### Parameters
 
@@ -108,7 +110,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
 <p/>
 
-Returns the full profile of the specified team.
+Returns the full profile of the specified team. The `ID` of the team is the only valid unique identifier.
 
 #### Parameters
 
@@ -116,7 +118,7 @@ Returns the full profile of the specified team.
   <tbody>
     <tr>
      <td><code>id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#get-teams">Get Teams</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -216,7 +218,7 @@ Creates a new team under the organization of the requesting account.
   <tbody>
     <tr>
      <td><code>organization</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The unique ID of the organization under which the team is created. You can look up your organization ID using the [Get Teams(#get-teams)] endpoint.</p></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The unique ID of the organization under which the team is created. You can look up your organization ID using the [Lookup Teams(#lookup-teams)] endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -267,7 +269,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \ 
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -336,7 +338,7 @@ Deletes the specified team from the organization of the requesting account.
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#get-teams">Get Teams</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -405,7 +407,7 @@ Replaces all values of the specified team with the new set of parameters passed 
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#get-teams">Get Teams</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -536,7 +538,7 @@ Updates one or more individual editable parameters (such as the concurrency allo
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the ID of teams in your organization using the <a href="#get-teams">Get Teams</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the ID of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -804,12 +806,14 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ## User Methods
 
-### Get Users
+### Lookup Users
 
 <details><summary><span className="api get">GET</span> <code>/team-management/v1/users/</code></summary>
 <p/>
 
-Returns a count total and array of of all users in the organization of the requesting account.
+Queries the organization of the requesting account and returns the number of users matching the query and a basic profile of each user, including the `ID` value, which may be a required parameter of other API calls related to a specific user.
+
+You can narrow the results of your query using any of the following filtering parameters.
 
 #### Parameters
 
@@ -947,7 +951,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/team-management/v1/users/&#123;user_id&#125;/</code></summary>
 <p/>
 
-Returns the full profile of the specified user.
+Returns the full profile of the specified user. The `ID` of the user is the only valid unique identifier.
 
 #### Parameters
 
@@ -955,7 +959,7 @@ Returns the full profile of the specified user.
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The user's unique identifier. You can look up the IDs of users in your organization using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The user's unique identifier. You can look up the IDs of users in your organization using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1098,7 +1102,7 @@ Creates a new user in the Sauce Labs platform.
   <tbody>
     <tr>
      <td><code>team</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The identifier of the team of which the new user is a member. You can look up team IDs using the <a href="#get-teams">Get Teams</a> endpoint.</p></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The identifier of the team of which the new user is a member. You can look up team IDs using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1235,7 +1239,7 @@ Replaces all values of the specified user profile with the new set of parameters
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1374,7 +1378,7 @@ Allows you to update individual user values without replacing the entire profile
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user to update. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user to update. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1519,7 +1523,7 @@ At this time, users may only belong to a maximum of one team.
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1606,13 +1610,13 @@ Set a user's team affiliation. Users are limited to one team affiliation, so if 
   <tbody>
     <tr>
      <td><code>user</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the Sauce Labs user to be added to the team.You can look up the ID of a user in your organization using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the Sauce Labs user to be added to the team.You can look up the ID of a user in your organization using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The identifier of the team to which the user will be added. You can look up the ID of a team in your organization using the <a href="#get-teams">Get Teams</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The identifier of the team to which the user will be added. You can look up the ID of a team in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1741,7 +1745,7 @@ Assigns administrator rights to the user within their organization. Organization
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1835,7 +1839,7 @@ Assigns administrator rights to the user within their current team. If the user 
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1930,7 +1934,7 @@ Assigns the `member` role to the user. If the user is currently assigned any Adm
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2025,7 +2029,7 @@ Retrieves the Sauce Labs access key for the specified user.
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2104,7 +2108,7 @@ Regenerating an access key invalidates the previous value and any tests containi
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2178,7 +2182,7 @@ Suspends the specified user's account, preventing all access to Sauce Labs while
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2274,7 +2278,7 @@ Re-activates the specified user's account, if it had been previously deactivated
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
