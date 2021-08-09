@@ -243,7 +243,7 @@ For [Appium](/dev/test-configuration-options#mobile-app-capabilities-sauce-speci
 
 ```
 caps.setCapability("otherApps", "storage:filename=<file-name>")
-caps.setCapability("otherApps", "storage:fileid=<file-id>")
+caps.setCapability("otherApps", "storage:<fileId>")
 ```
 
 :::note
