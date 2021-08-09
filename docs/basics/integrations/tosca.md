@@ -21,7 +21,7 @@ Below is a guide to set up the Sauce Labs integration. This integration allows y
 * [A Tosca Tricentis™ Account](https://www.tricentis.com/software-testing-tool-trial-demo/)
 
 ## Start a VM with the Tosca Agent
-To start a virtual machine with a Tosca Agent, you need to send a `POST` request to the Sauce Labs `ondemand` endpoint using an HTTP client (e.g. `curl` or Postman). First, you must pass your [Sauce Labs authentication credentials](app.saucelabs.com/user-settings) using Basic Auth. Then, your `POST` body request must contain the required settings:
+To start a virtual machine with a Tosca Agent, you need to send a `POST` request to the Sauce Labs `ondemand` endpoint using an HTTP client (e.g. `curl` or Postman). First, you must pass your [Sauce Labs authentication credentials](https://app.saucelabs.com/user-settings) using Basic Auth. Then, your `POST` body request must contain the required settings:
 
 * `platformName`: the operating system to run tests against (e.g. Windows 10)
 * `browserName`: the browser(s) to run tests against (e.g. Chrome, Firefox, etc.)
