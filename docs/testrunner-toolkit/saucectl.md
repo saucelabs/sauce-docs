@@ -352,6 +352,7 @@ saucectl run --select-suite <suite_name>
 
 :::note Formerly `--suite <string>`
 Versions of saucectl before v0.52.4 use the flag  `--suite` instead.
+:::
 
 ---
 

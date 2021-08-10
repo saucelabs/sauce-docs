@@ -242,6 +242,11 @@ The directory of files that need to be bundled and uploaded for the tests to run
 ```yaml
   rootDir: "packages/subpackage" # Some other package from within a monorepo
 ```
+
+:::caution
+Only the files contained within `rootDir` will be available during the tests. Any reference to a file that is not included in `rootDir` will make the tests fail.
+:::
+
 ---
 
 ## `npm`
@@ -568,6 +573,11 @@ One or more paths to the Cypress test files to run for this suite, if not otherw
 ```yaml
       testFiles: [ "**/*.*" ]
 ```
+
+:::note
+`testFiles` must be a regex or a path relative to `cypress/integration` or the `integrationFolder` value set in `cypress.json`.
+:::
+
 ---
 
 ### `timeout`
