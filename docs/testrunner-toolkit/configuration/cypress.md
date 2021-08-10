@@ -411,7 +411,7 @@ For additional information regarding cypress configurations, please consult the 
 ### `reporters`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The additional reporters you want to add.
+The set of additional reporters to execute as part of your Cypress tests.
 
 ```yaml
   reporters:
@@ -423,8 +423,7 @@ The additional reporters you want to add.
 ```
 
 :::note
-Reporters functionality is provided through [cypress-multi-reporter](https://www.npmjs.com/package/cypress-multi-reporters).
-In order for your additional reporter to work, it must be compatible with that plugin.
+In order for your additional reporter to work, it must be compatible with the [cypress-multi-reporter plugin](https://www.npmjs.com/package/cypress-multi-reporters), which provides the underlying functionality.
 :::
 
 ---
@@ -432,15 +431,13 @@ In order for your additional reporter to work, it must be compatible with that p
 #### `name`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The name of the reporter to enable.
+The name of the reporter to enable, which corresponds to the `reporter` property in the `cypres.json` file.
 
 ```yaml
-      name: cypress-mochawesome
+      - name: cypress-mochawesome
 ```
 
 :::note
-This field has the same purpose as `reporter` in `cypress.json` file.
-
 Some reporters may require you to install dependencies.
 :::
 
@@ -449,7 +446,7 @@ Some reporters may require you to install dependencies.
 #### `options`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The options of reporters you want to add.
+Any relevant settings that are be supported by the specified reporter. These properties correspond to the `reporterOptions` object in the `cypress.json` file.
 ```yaml
       options:
         reportDir: cypress/report
@@ -457,11 +454,6 @@ The options of reporters you want to add.
         reportPageTitle: Cypress running on Sauce
 ```
 
-:::note
-This field has the same purpose as `reporterOptions` in `cypress.json` file.
-
-Reporter options are specific for each reporter. Consult your reporter documentation, in order to know which options are available.
-:::
 
 ---
 
