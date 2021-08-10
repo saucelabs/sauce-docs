@@ -424,8 +424,8 @@ __Description__: A dependent app that has already been uploaded to [Sauce Labs A
 __Value Type__: Array<br/>
 __Examples__:
 ```java
-"otherApps": "storage:filename=<file-name>"
-"otherApps": "storage:fileid=<file-id>"
+"otherApps": "storage:filename=app0.apk" or "otherApps": ["storage:filename=app0.apk", "storage:filename=app1.apk"]
+"otherApps": "storage:7435ab52-1eaa-4387-a67b-4d8e265f85" or "otherApps": ["storage:7435ab52-1eaa-4387-a67b-4d8e265f8509","storage:9035342-f8ea-7687-a67b-4dd4365f8588"]
 ```
 
 :::note
