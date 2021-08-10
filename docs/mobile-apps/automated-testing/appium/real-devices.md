@@ -235,7 +235,7 @@ DesiredCapabilities caps = DesiredCapabilities();
     caps.setCapability("username", "SAUCE_USERNAME");
     caps.setCapability("accessKey", "SAUCE_ACCESS_KEY");
     caps.setCapability("deviceName","iPhone .*");
-    caps.setCapability("deviceOrientation", "portrait");
+    caps.setCapability("orientation", "portrait");
     caps.setCapability("platformVersion","12.2");
     caps.setCapability("platformName", "iOS");
     caps.setCapability("browserName", "");
@@ -251,7 +251,7 @@ caps['username'] = "SAUCE_USERNAME"
 caps['accessKey'] = "SAUCE_ACCESS_KEY"
 caps['browserName'] = ""
 caps['deviceName'] = "iPhone .*"
-caps['deviceOrientation'] = "portrait"
+caps['orientation'] = "portrait"
 caps['platformVersion'] = "12.2"
 caps['platformName'] = "iOS"
 caps['app'] = "storage:filename=<file-name>"
@@ -266,7 +266,7 @@ caps['username'] = 'SAUCE_USERNAME';
 caps['accessKey'] = 'SAUCE_ACCESS_KEY';
 caps['browserName'] = '';
 caps['deviceName'] = 'iPhone .*';
-caps['deviceOrientation'] = 'portrait';
+caps['orientation'] = 'portrait';
 caps['platformVersion'] = '12.2';
 caps['platformName'] = 'iOS';
 caps['app'] = 'storage:filename=<file-name>';
@@ -280,7 +280,7 @@ caps = Selenium::WebDriver::Remote::Capabilities()
 caps['username'] = 'SAUCE_USERNAME'
 caps['accessKey'] = 'SAUCE_ACCESS_KEY'
 caps['deviceName'] = 'iPhone .*'
-caps['deviceOrientation'] = 'portrait'
+caps['orientation'] = 'portrait'
 caps['platformVersion'] = '12.2'
 caps['platformName'] = 'iOS'
 caps['browserName'] = ''
@@ -295,7 +295,7 @@ DesiredCapabilities caps = new DesiredCapabilities();
     caps.SetCapability("username", "SAUCE_USERNAME");
     caps.SetCapability("accessKey", "SAUCE_ACCESS_KEY");
     caps.SetCapability("deviceName", "iPhone .*");
-    caps.SetCapability("deviceOrientation", "portrait");
+    caps.SetCapability("orientation", "portrait");
     caps.SetCapability("platformVersion", "12.2");
     caps.SetCapability("platformName", "iOS");
     caps.SetCapability("browserName", "");
@@ -325,7 +325,7 @@ DesiredCapabilities caps = DesiredCapabilities();
     caps.setCapability("username", "SAUCE_USERNAME");
     caps.setCapability("accessKey", "SAUCE_ACCESS_KEY");
     caps.setCapability("deviceName","Samsung.*Galaxy.*");
-    caps.setCapability("deviceOrientation", "portrait");
+    caps.setCapability("orientation", "portrait");
     caps.setCapability("browserName", "");
     caps.setCapability("platformVersion","8.1");
     caps.setCapability("platformName","Android");
@@ -340,7 +340,7 @@ caps = {}
 caps['username'] = "SAUCE_USERNAME"
 caps['accessKey'] = "SAUCE_ACCESS_KEY"
 caps['deviceName'] = "Samsung.*Galaxy.*"
-caps['deviceOrientation'] = "portrait"
+caps['orientation'] = "portrait"
 caps['platformVersion'] = "8.1"
 caps['platformName'] = "Android"
 caps['app'] = "storage:filename=<file-name>"
@@ -354,7 +354,7 @@ caps = {};
 caps['username'] = 'SAUCE_USERNAME';
 caps['accessKey'] = 'SAUCE_ACCESS_KEY';
 caps['deviceName'] = 'Samsung.*Galaxy.*';
-caps['deviceOrientation'] = 'portrait';
+caps['orientation'] = 'portrait';
 caps['browserName'] = '';
 caps['platformVersion'] = '8.1';
 caps['platformName'] = 'Android';
@@ -369,7 +369,7 @@ caps = Selenium::WebDriver::Remote::Capabilities()
 caps['username'] = 'SAUCE_USERNAME'
 caps['accessKey'] = 'SAUCE_ACCESS_KEY'
 caps['deviceName'] = 'Samsung.*Galaxy.*'
-caps['deviceOrientation'] = 'portrait'
+caps['orientation'] = 'portrait'
 caps['browserName'] = ''
 caps['platformVersion'] = '8.1'
 caps['platformName'] = 'Android'
@@ -384,7 +384,7 @@ DesiredCapabilities caps = new DesiredCapabilities();
     caps.SetCapability("username", "SAUCE_USERNAME");
     caps.SetCapability("accessKey", "SAUCE_ACCESS_KEY");
     caps.SetCapability("deviceName", "Samsung.*Galaxy.*");
-    caps.SetCapability("deviceOrientation", "portrait");
+    caps.SetCapability("orientation", "portrait");
     caps.SetCapability("browserName", "");
     caps.SetCapability("platformVersion", "8.1");
     caps.SetCapability("platformName", "Android");
@@ -802,5 +802,6 @@ These Appium script examples can help streamline your real device testing proces
 
 Visit our [sample test frameworks GitHub repository](https://github.com/saucelabs-sample-test-frameworks?utf8=%E2%9C%93&q=appium&type=&language=) for more detailed language-specific examples.
 
->**NOTE**: For Example Purposes Only
+:::note For Example Purposes Only
 The code in these scripts is provided on an "AS-IS” basis without warranty of any kind, either express or implied, including without limitation any implied warranties of condition, uninterrupted use, merchantability, fitness for a particular purpose, or non-infringement. Your tests and testing environments may require you to modify these scripts. Issues regarding these scripts should be submitted through <a href="https://github.com/saucelabs-training">Sauce Labs GitHub</a>. These scripts are not maintained by Sauce Labs Support.
+:::
