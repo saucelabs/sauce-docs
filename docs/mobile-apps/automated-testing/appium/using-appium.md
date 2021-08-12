@@ -432,7 +432,7 @@ public class SampleSauceTest {
 
 ## Additional Resources
 
-* [Appium Bootcamp](https://wiki.saucelabs.com/pages/viewpage.action?pageId=63480380), by Dave Haeffner and Matthew Edwards.
+* [Appium Bootcamp](https://saucelabs.com/blog/appium-bootcamp-chapter-1-get-started-with-appium), by Bill McGee.
 * [Official Appium website](http://appium.io): documentation and test script examples.
 * [An Introduction to Appium](https://youtu.be/1J0aXDbjiUE?list=PLSIUOFhnxEiCODb8XQB-RUQ0RGNZ2yW7d), presented by Jonathan Lipps of Sauce Labs and the Appium project given at the 2013 Google Test Automation Conference.
 * [A talk on the Mobile JSON Wire Protocol](https://confengine.com/selenium-conf-2015/proposal/1319/the-mobile-json-wire-protocol), presented by Jonathan Lipps at the 2015 Selenium Conference.
