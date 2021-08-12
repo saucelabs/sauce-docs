@@ -408,12 +408,21 @@ __Example__:
 ```
 
 ---
-### `deviceOrientation`
-__Description__: the device orientation in which the simulator/device will be rendered. Options are `portrait` and `landscape`.<br/>
+### `deviceOrientation` or `orientation`
+__Description__: the physical orientation of the screen during the test. Valid values are `portrait` and `landscape`.<br/>
+
+:::important
+For virtual mobile tests, the capability is `deviceOrientation`, but for real device tests, the capability is `orientation` in order to distinguish between flipping the skin (virtual) vs. rotating the screen (real).
+:::
+
 __Value Type__: string.<br/>
-__Example__:
-```java
+__Examples__:
+```java title="Virtual Setting"
 "deviceOrientation": "portrait"
+```
+
+``` title="Real Device Setting"
+"orientation": "portrait"
 ```
 
 ---
