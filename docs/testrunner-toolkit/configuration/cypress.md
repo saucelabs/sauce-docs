@@ -413,6 +413,55 @@ For additional information regarding cypress configurations, please consult the 
 :::
 ---
 
+### `reporters`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The set of additional reporters to execute as part of your Cypress tests.
+
+```yaml
+  reporters:
+    - name: cypress-mochawesome
+      options:
+        reportDir: cypress/report
+        charts: true
+        reportPageTitle: Cypress running on Sauce
+```
+
+:::note
+In order for your additional reporter to work, it must be compatible with the [cypress-multi-reporter plugin](https://www.npmjs.com/package/cypress-multi-reporters), which provides the underlying functionality.
+:::
+
+---
+
+#### `name`
+<p><small>| REQUIRED | STRING |</small></p>
+
+The name of the reporter to enable, which corresponds to the `reporter` property in the `cypres.json` file.
+
+```yaml
+      - name: cypress-mochawesome
+```
+
+:::note
+Some reporters may require you to install dependencies.
+:::
+
+---
+
+#### `options`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Any relevant settings that are be supported by the specified reporter. These properties correspond to the `reporterOptions` object in the `cypress.json` file.
+```yaml
+      options:
+        reportDir: cypress/report
+        charts: true
+        reportPageTitle: Cypress running on Sauce
+```
+
+
+---
+
 ## `suites`
 <p><small>| REQUIRED | OBJECT |</small></p>
 
@@ -489,12 +538,12 @@ Provides details related to the Cypress test configuration that are relevant for
 ```yaml {5}
   suites:
     - name: "Hello"
-    browser: "firefox"
-    platformName: "Windows 10"
-    config:
-      env:
-        hello: world
-      testFiles: [ "**/*.*" ]
+      browser: "firefox"
+      platformName: "Windows 10"
+      config:
+        env:
+          hello: world
+        testFiles: [ "**/*.*" ]
 ```
 ---
 
