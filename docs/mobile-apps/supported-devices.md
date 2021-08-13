@@ -63,7 +63,7 @@ If you need...
 
 ### Public Device Cloud
 
-Our public cloud, available to all users regardless of pricing plan, contains a wide selection of thoroughly cleaned devices. They are subject to availability. On the mobile device selection screen, if a device is in use, it'll be [marked with a **Busy** flag](mobile-apps/live-testing/live-mobile-app-testing#selecting-a-real-device). Here are some use cases:
+Our public cloud, available to all users regardless of pricing plan, contains a wide selection of thoroughly cleaned devices. They are subject to availability. On the mobile device selection screen, if a device is in use, it'll be [marked with a **Busy** flag](/mobile-apps/live-testing/live-mobile-app-testing#selecting-a-real-device). Here are some use cases:
 
 * The devices available on the public cloud are sufficient for your testing coverage.
 * You need to reproduce bugs on a selection of hundreds of iOS and Android devices.
