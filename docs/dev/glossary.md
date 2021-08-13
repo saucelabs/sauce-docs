@@ -51,7 +51,7 @@ A Sauce Labs feature that enables you to mimic camera behavior when testing appl
 
 ### Capabilities (Caps)
 
-A section of code required in automated test scripts to specify test parameters (e.g., OS, browser, API, device) used to configure the environment for your Selenium, Appium, and Sauce Labs tests. More information: [Test Configuration Options](dev/test-configuration-options).
+A section of code required in automated test scripts to specify test parameters (e.g., OS, browser, API, device) used to configure the environment for your Selenium, Appium, and Sauce Labs tests. More information: [Test Configuration Options](/dev/test-configuration-options).
 
 See also: _[platform configurator](#platform-configurator)_.
 
@@ -71,7 +71,7 @@ See also: _[CI/CD pipeline](#cicd-pipeline), [continuous integration](#continuou
 
 ### Colliding Tunnels
 
-A Sauce Connect Proxy test scenario where two or more tunnels are launched with the same tunnel identifier name. By default, duplicate tunnels are removed from your test unless you append your code with the `--no-remove-colliding-tunnels` option. More information: [Sauce Connect Proxy Tunnel Modes: Ephemeral and Long-Running](secure-connections/sauce-connect/proxy-tunnels).
+A Sauce Connect Proxy test scenario where two or more tunnels are launched with the same tunnel identifier name. By default, duplicate tunnels are removed from your test unless you append your code with the `--no-remove-colliding-tunnels` option. More information: [Sauce Connect Proxy Tunnel Modes: Ephemeral and Long-Running](/secure-connections/sauce-connect/proxy-tunnels).
 
 See also: _[sauce connect proxy](#sauce-connect-proxy), [tunnel identifier](#tunnel-identifier)_.
 
@@ -255,7 +255,7 @@ See: _[native app](#native-app), [hybrid app](#hybrid-app)._
 
 ### Native App
 
-A mobile software app written in a programming language specific to the platform it is being developed for: either iOS or Android. More information: [Live Testing for Native Mobile Apps on Real Devices](mobile-apps/live-testing/live-mobile-app-testing), [Mobile App Testing with Espresso and XCUITest](mobile-apps/automated-testing/espresso-xcuitest).
+A mobile software app written in a programming language specific to the platform it is being developed for: either iOS or Android. More information: [Live Testing for Native Mobile Apps on Real Devices](/mobile-apps/live-testing/live-mobile-app-testing), [Mobile App Testing with Espresso and XCUITest](/mobile-apps/automated-testing/espresso-xcuitest).
 
 See also: _[hybrid app](#hybrid-app)_.
 
@@ -338,7 +338,7 @@ See also: _[unified platform](#unified-platform)_.
 
 ### Real Device Cloud (RDC)
 
-A Sauce Labs cloud service that provides an infrastructure to test your web, hybrid, and native mobile apps on real mobile devices on the secured public cloud or a private set of real mobile devices. You can run tests on thousands of browser, operating system, and device combinations, simultaneously. More information: [Appium Testing on Real Devices](/mobile-apps/automated-testing/appium/real-devices), [Live Mobile App Testing](/mobile-apps/live-testing/live-mobile-app-testing), [Live Cross Browser Testing](web-apps/live-testing/live-cross-browser-testing), [Sauce Labs Pricing](https://saucelabs.com/pricing).
+A Sauce Labs cloud service that provides an infrastructure to test your web, hybrid, and native mobile apps on real mobile devices on the secured public cloud or a private set of real mobile devices. You can run tests on thousands of browser, operating system, and device combinations, simultaneously. More information: [Appium Testing on Real Devices](/mobile-apps/automated-testing/appium/real-devices), [Live Mobile App Testing](/mobile-apps/live-testing/live-mobile-app-testing), [Live Cross Browser Testing](/web-apps/live-testing/live-cross-browser-testing), [Sauce Labs Pricing](https://saucelabs.com/pricing).
 
 See also: _[rdc on sauce](#rdc-on-sauce)._
 
@@ -443,7 +443,7 @@ An integrated development environment for Selenium scripts – implemented as an
 
 ### Selenium Relay
 
-A listener for Selenium commands built into Sauce Connect Proxy that enables inbound and outbound test traffic to be sent through an encrypted tunnel. More information: [Using the Selenium Relay with Sauce Connect Proxy](secure-connections/sauce-connect/proxy-tunnels), [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
+A listener for Selenium commands built into Sauce Connect Proxy that enables inbound and outbound test traffic to be sent through an encrypted tunnel. More information: [Using the Selenium Relay with Sauce Connect Proxy](/secure-connections/sauce-connect/proxy-tunnels), [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
 
 
 ### Selenium Server

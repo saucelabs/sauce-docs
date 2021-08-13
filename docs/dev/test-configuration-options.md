@@ -280,7 +280,7 @@ If you are not using the official Appium bindings, make sure to prefix all Appiu
 
 ---
 ### `app`
-__Description__: allows you to set the path to an .ipa, .apk or .zip file containing the app you want to test. This could be the location of your app in [Application Storage](mobile-apps/app-storage) (e.g., `storage:filename=myapp.zip`) or the URL to a remote location where your app is located (e.g., `http://myappurl.zip`). If you're running a mobile browser test, this capability can be left blank.<br/>
+__Description__: allows you to set the path to an .ipa, .apk or .zip file containing the app you want to test. This could be the location of your app in [Application Storage](/mobile-apps/app-storage) (e.g., `storage:filename=myapp.zip`) or the URL to a remote location where your app is located (e.g., `http://myappurl.zip`). If you're running a mobile browser test, this capability can be left blank.<br/>
 __Value Type__: string.<br/>
 __Example__:
 ```java
@@ -446,7 +446,7 @@ __Examples__:
 
 ---
 ### `tabletOnly`
-__Description__: use this capability to select only tablet devices for testing by setting it to `"true"`. For [***Dynamic Allocation***](mobile-apps/automated-testing/appium/real-devices).<br/>
+__Description__: use this capability to select only tablet devices for testing by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).<br/>
 __Value Type__: boolean.
 
 ---
@@ -456,17 +456,17 @@ __Value Type__: boolean.
 
 ---
 ### `privateDevicesOnly`
-__Description__: if your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For [***Dynamic Allocation***](mobile-apps/automated-testing/appium/real-devices).<br/>
+__Description__: if your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).<br/>
 __Value Type__: boolean.
 
 ---
 ### `publicDevicesOnly`
-__Description__: if your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For [***Dynamic Allocation***](mobile-apps/automated-testing/appium/real-devices).<br/>
+__Description__: if your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).<br/>
 __Value Type__: boolean.
 
 ---
 ### `carrierConnectivityOnly`
-__Description__: use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For [***Dynamic Allocation***](mobile-apps/automated-testing/appium/real-devices).<br/>
+__Description__: use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).<br/>
 __Value Type__: boolean.
 
 ---
@@ -486,9 +486,9 @@ The value for `cacheId` must be the same for all test methods that you want to r
 * `autoGrantPermissions`
 * `appiumVersion`
 
-Suitable for test setups that require the app's state to be reset between tests. Can be used for both [**static allocation and dynamic allocation**](https://docs.saucelabs.com/mobile-apps/supported-devices/#static-and-dynamic-device-allocation).
+Suitable for test setups that require the app's state to be reset between tests. Can be used for both [**static allocation and dynamic allocation**](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation).
 
-We recommend reviewing [Device Management for Real Devices](mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
+We recommend reviewing [Device Management for Real Devices](/mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
 :::note
 `cacheId` has replaced the `testobject_cache_device` capability that was used in TestObject (Legacy RDC).
@@ -534,7 +534,7 @@ The following Appium capabilities are not yet supported for real devices:
 * `installApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
 * `removeApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
 * `Edit Timezone`: Appium does not provide a capability to edit the timezone of a device in automated testing on real devices.
-  * See [Virtual Device Capabilities](https://docs.saucelabs.com/dev/test-configuration-options/#virtual-device-capabilities-sauce-specific--optional) for information about timezone capabilities in a virtual device testing.
+  * See [Virtual Device Capabilities](#virtual-device-capabilities-sauce-specific--optional) for information about timezone capabilities in a virtual device testing.
 
 If you have any questions or concerns, please contact your Customer Success Manager or Sauce Labs Support.
 :::
@@ -550,7 +550,7 @@ __Value Type__: boolean.
 
 ---
 ### `sauceLabsImageInjectionEnabled`
-__Description__: enables the [camera image injection](https://docs.saucelabs.com/mobile-apps/features/#camera-image-injection) feature.<br/>
+__Description__: enables the [camera image injection](/mobile-apps/features/#camera-image-injection) feature.<br/>
 __Value Type__: boolean.
 
 ---
@@ -619,7 +619,7 @@ __Example__:
 __Description__: use this to set your Sauce Labs username for the test. You can find this value under **Account** > **User Settings**.
 
 :::note
-You can either set `"username"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](https://docs.saucelabs.com/dev/test-configuration-options/#visual-testing)), this must be set in capabilities.
+You can either set `"username"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](#visual-testing)), this must be set in capabilities.
 :::
 
 __Value Type__: string.<br/>
@@ -633,7 +633,7 @@ __Example__:
 __Description__: use this to set your Sauce Labs access key for the test. You can find this value under **Account** > **User Settings**.
 
 :::note
-You can either set `"accessKey"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](https://docs.saucelabs.com/dev/test-configuration-options/#visual-testing), this must be set in capabilities.
+You can either set `"accessKey"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](#visual-testing), this must be set in capabilities.
 :::
 
 __Value Type__: string.<br/>
@@ -686,7 +686,7 @@ __Example__:
 
 ---
 ### `tunnelIdentifier`
-__Description__: If you're using [Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/sauce-connect/index.html) to test an application that is behind a firewall or on your local machine that has been created with a `--tunnel-identifier` value, you must provide that identifier in order to use the tunnel. See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information.<br/>
+__Description__: If you're using [Sauce Connect Proxy](/secure-connections/sauce-connect) to test an application that is behind a firewall or on your local machine that has been created with a `--tunnel-identifier` value, you must provide that identifier in order to use the tunnel. See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information.<br/>
 __Value Type__: string.<br/>
 __Example__:
 ```java

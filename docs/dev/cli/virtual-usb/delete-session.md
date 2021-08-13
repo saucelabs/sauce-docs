@@ -4,12 +4,12 @@ title: "Virtual USB CLI: Delete Session"
 sidebar_label: Delete Session
 ---
 
-The [`deleteSession`](https://docs.saucelabs.com/mobile-apps/virtual-usb#close-test) command closes out Virtual USB tests session started in the command line interface using the [`startSession`](dev/cli/virtual-usb/start-session) command.
+The [`deleteSession`](https://docs.saucelabs.com/mobile-apps/virtual-usb#close-test) command closes out Virtual USB tests session started in the command line interface using the [`startSession`](/dev/cli/virtual-usb/start-session) command.
 
 ## Required
 
 ### `--sessionId`
-__Description__: your test session ID number, which you can find using the [`sessions`](dev/cli/virtual-usb/find-sessionid) command.
+__Description__: your test session ID number, which you can find using the [`sessions`](/dev/cli/virtual-usb/find-sessionid) command.
 
 ### `--username`
 __Description__: your Sauce Labs username.

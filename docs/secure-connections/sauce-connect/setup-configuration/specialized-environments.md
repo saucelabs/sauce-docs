@@ -164,4 +164,4 @@ Sauce Headless is a lightweight infrastructure that allows developers to run ear
 For instructions on how to set up Sauce Connect Proxy tunnels with your Sauce Headless tests, see [Getting Started With Sauce Headless](/headless).
 
 ## Legacy RDC (TestObject)
-For instructions on how to run Sauce Connect Proxy on our Legacy RDC platform (TestObject), see [Creating a Sauce Connect Tunnel for Legacy Real Device Cloud](https://wiki.saucelabs.com/display/DOCS/Creating+a+Sauce+Connect+Tunnel+for+Legacy+Real+Device+Cloud).
+For instructions on how to run Sauce Connect Proxy on our Legacy RDC platform (TestObject), see [Creating a Sauce Connect Tunnel for Legacy Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/legacy-tunnels/).
