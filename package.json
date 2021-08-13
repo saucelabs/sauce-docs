@@ -47,6 +47,6 @@
   "devDependencies": {
     "axios": "^0.21.1",
     "cross-env": "^7.0.3",
-    "cypress": "^74.12.1"
+    "cypress": "^4.12.1"
   }
 }
