@@ -255,7 +255,7 @@ See: _[native app](#native-app), [hybrid app](#hybrid-app)._
 
 ### Native App
 
-A mobile software app written in a programming language specific to the platform it is being developed for: either iOS or Android. More information: [Live Testing for Native Mobile Apps on Real Devices](/mobile-apps/live-testing/live-mobile-app-testing), [Mobile App Testing with Espresso and XCUITest](mobile-apps/automated-testing/espresso-xcuitest).
+A mobile software app written in a programming language specific to the platform it is being developed for: either iOS or Android. More information: [Live Testing for Native Mobile Apps on Real Devices](/mobile-apps/live-testing/live-mobile-app-testing), [Mobile App Testing with Espresso and XCUITest](/mobile-apps/automated-testing/espresso-xcuitest).
 
 See also: _[hybrid app](#hybrid-app)_.
 
