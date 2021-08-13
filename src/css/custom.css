@@ -522,22 +522,23 @@ h6, .h6 {
 .announcementBar {
   border: 1px solid #0E75DD;
   border-radius: 11px;
-  padding: 1px 9px;
-  color: #0E75DD;
+  padding: 2px 10px;
+  color: #FFFFFF;
+  background-color: #0E75DD;
   font-weight: 550;
   font-size: 13px;
   line-height: 13px;
 }
 
 .announcementBar:hover {
-  background-color: #2f76d6;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  color: #0E75DD;
   cursor:pointer;
 }
 
 .announcementBar:active {
-  background:linear-gradient(bottom, rgba(183,29,21,1) 0%, rgba(226,35,26,1) 100%);
-  color:#E6F1FD;
+  background:linear-gradient(bottom, rgb(255,255,255) 0%, rgb(255,255,255) 100%);
+  color:#FFFFFF;
   box-shadow: 0px 1px 0px #b71d15, 0px 1px 1px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 1px rgba(255,255,255,.5);
   transform:translate(0, 2px);
 }
