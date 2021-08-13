@@ -22,7 +22,7 @@ hide_table_of_contents: true
     <h2>Automated Testing</h2>
     <p>Browse through the Automated Testing documentation to see examples of how to execute tests in your preferred automation framework.</p>
     <ul>
-        <li><a href="/web-apps/automated-testing/selenium">Selenium</a> and <a href="mobile-apps/automated-testing/appium">Appium</a></li>
+        <li><a href="/web-apps/automated-testing/selenium">Selenium</a> and <a href="/mobile-apps/automated-testing/appium">Appium</a></li>
         <li><a href="/mobile-apps/automated-testing/espresso-xcuitest">Espresso and XCUITest</a></li>
         <li><a href="/web-apps/automated-testing/cypress">Cypress</a>, <a href="/web-apps/automated-testing/puppeteer">Puppeteer</a>, <a href="/web-apps/automated-testing/testcafe">TestCafe</a>, or <a href="/web-apps/automated-testing/playwright">Playwright</a></li>
     </ul>
