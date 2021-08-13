@@ -20,7 +20,7 @@ Our Sauce Runner for Real Devices test runner provides you the ability to run th
 
 * Your Sauce Labs username and access key.
 * Your mobile app file and mobile test file. Accepted file types are *.ipa for iOS and *.apk for Android.
-  * For details on how to build .ipa files for use with Sauce Runner for Real Devices, see [Creating .ipa Files for Appium and XCUITest](mobile-apps/creating-ipa-files.md).
+  * For details on how to build .ipa files for use with Sauce Runner for Real Devices, see [Creating .ipa Files for Appium and XCUITest](/mobile-apps/creating-ipa-files.md).
 
 If you'd like to try out this functionality but don't have an app on hand, [download our Sauce Labs demo app file and test file](https://github.com/saucelabs-training/demo-espresso/tree/master/real-devices).
 :::
@@ -60,7 +60,7 @@ If you'd like to try out this functionality but don't have an app on hand, [down
 ### Using the CLI
 
 :::tip CLI Reference
-See [Sauce Runner for Real Devices CLI Reference](dev/cli/espresso-xcuitest/real-devices). To view these commands in your CLI, run the `--help` option:
+See [Sauce Runner for Real Devices CLI Reference](/dev/cli/espresso-xcuitest/real-devices). To view these commands in your CLI, run the `--help` option:
 ```java
 java -jar saucelabs-native-test-runner.jar --help
 ```
@@ -82,7 +82,7 @@ If needed, you can also add optional parameters. See [Sauce Runner for Real Devi
 ### Using a YAML Config File
 
 Below are some examples of how to write your YAML file. See [Sauce Runner YAML Configuration](/dev/cli/espresso-xcuitest/yaml-config) for a full list of available parameters. This YAML file example includes all required parameters for running Espresso and XCUITest test suite with Sauce Runner for Real Devices, plus the following options:
-  * `devices`: use this to specify a group of devices via dynamic allocation (using regex) and/or static allocation (regex plus exact device ID). See [Static and Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
+  * `devices`: use this to specify a group of devices via dynamic allocation (using regex) and/or static allocation (regex plus exact device ID). See [Static and Dynamic Device Allocation](/mobile-apps/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
   * `testsToRun` (XCUITest only): use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Swift or Objective-C.
   * `envs` (Espresso only): use this to set a specific set of classes/tests to run on a device. The class(es) specified can be written in Java or Kotlin.
 
