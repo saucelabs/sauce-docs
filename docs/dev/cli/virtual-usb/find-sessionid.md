@@ -4,7 +4,7 @@ title: "Virtual USB CLI: Find SessionID"
 sidebar_label: Find SessionID
 ---
 
-The `sessions` command returns a list of active device sessions based on the Sauce Labs credentials you enter. This is required in order to use the [`connect`](dev/cli/virtual-usb/connect-session) command. It can also be useful if you've lost track of your session ID and need to find it to run other commands (i.e., deleting or disconnecting a session).
+The `sessions` command returns a list of active device sessions based on the Sauce Labs credentials you enter. This is required in order to use the [`connect`](/dev/cli/virtual-usb/connect-session) command. It can also be useful if you've lost track of your session ID and need to find it to run other commands (i.e., deleting or disconnecting a session).
 
 ## Required
 
