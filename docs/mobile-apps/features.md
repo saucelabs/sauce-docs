@@ -48,7 +48,7 @@ To initiate a Touch ID or Face ID action in your live test session:
 <br/>
 <img src={useBaseUrl('img/mobile-apps/biometric-auth-2.gif')} alt="Biometric authorization live testing" width="650"/>
 
-See [Live Mobile App Testing Toolbar](https://docs.saucelabs.com/mobile-apps/live-testing/live-mobile-app-testing#app-settings) for more information.
+See [Live Mobile App Testing Toolbar](/mobile-apps/live-testing/live-mobile-app-testing#app-settings) for more information.
 
 
 ### Automated Testing
@@ -157,7 +157,7 @@ At this time, biometric authentication is not supported for Android real device 
     * Android local emulators
     * Android emulators in the Sauce Labs Emulator Cloud
 * [Documentation for iOS simulator Face ID | Appium on GitHub](https://github.com/appium/appium-xcuitest-driver/blob/master/docs/touch-id.md)
-* [Support for iOS Touch ID on Real Devices](https://docs.saucelabs.com/mobile-apps/features/index.html#biometric-authentication-touch-idface-id)
+* [Support for iOS Touch ID on Real Devices](#biometric-authentication-touch-idface-id)
 
 
 ## Camera Image Injection
@@ -181,12 +181,10 @@ To mimic camera behavior, you'll provide the app with an image during your test 
 We support both front-facing and rear-facing system device cameras.
 
 :::note Not Supported
-
 * Test automation frameworks: Espresso and XCUITest.
 * Mobile browsers and system apps that come pre-installed on the device. Our camera image injection functionality looks to Sauce Labs storage to get your app information.
 * Ephemeral apps (i.e., apps with temporary, disappearing messages).
 * Testing with emulators and simulators.
-
 :::
 
 #### For Android
@@ -356,4 +354,4 @@ Building a great user experience is more than just design. Equally important is 
 
 Virtual USB (vUSB) is a mobile app debugging tool that simulates connecting a Sauce Labs real device directly to your local machine with a USB cable. It integrates into your development environment as if the device is connected directly to your workstation, meaning you can use your choice of homegrown development and testing tools to debug.
 
-See [Virtual USB for Sauce Labs Real Devices](mobile-apps/virtual-usb) for more information.
+See [Virtual USB for Sauce Labs Real Devices](/mobile-apps/virtual-usb) for more information.
