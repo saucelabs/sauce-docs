@@ -16,7 +16,7 @@ The data center (DC) you use with Sauce Labs determines:
 :::note
 The location of your data center determines the format of some of the information you will see.
 * Devices in US data centers default to EN-US, and will display information like date, currency, and temperature using US standard terms (i.e., MM/dd/yyyy, $, and F degrees).
-* Devices in EU data centers default to EN-UK, and will display information like date, currency, and temperature using EU standard terms (i.e., dd/MM/yyyy, €, and C degrees).
+* Devices in EU data centers default to EN-UK, and will display information like date, currency, and temperature using UK standard terms (i.e., dd/MM/yyyy, £, and C degrees).
 :::
 
 ## Access to Data Centers
