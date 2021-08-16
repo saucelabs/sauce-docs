@@ -2,6 +2,7 @@ const docusaurusConfig = {
   title: 'Sauce Labs Documentation',
   tagline: 'Find everything you need to know about manual and automated cross-browser and mobile app testing in the Sauce Labs Continuous Testing Cloud.',
   url: 'https://docs.saucelabs.com',
+  noIndex: false,
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
@@ -10,6 +11,14 @@ const docusaurusConfig = {
   projectName: 'sauce-docs',
   scripts: [],
   themeConfig: {
+    announcementBar: {
+      id: 'site_announcement', // Any value that will identify this message.
+      content:
+      'Our improved documentation is here! <a target="_blank" rel="noopener noreferrer" href="mailto:docsfeedback@saucelabs.com"><button class="announcementBar">Tell us what you think</button></a>',
+      backgroundColor: '#E6F1FD', // Defaults to `#fff`.
+      textColor: '#F0F0F0', // Defaults to `#000`.
+      isCloseable: true, // Defaults to `true`.
+    },
     googleAnalytics: {
       trackingID: 'UA-6735579-1',
     },
@@ -46,6 +55,11 @@ const docusaurusConfig = {
         src: 'img/logo-saucelabs.png',
       },
       items: [
+        // {
+        //   label: 'APIFMark3',
+        //   position: 'left',
+        //   to: '/apif/quick-start',
+        // },
         {
           label: 'Docs',
           position: 'left',
@@ -80,32 +94,7 @@ const docusaurusConfig = {
         href: 'https://saucelabs.com',
       },
       style: 'light',
-      links: [
-        {
-          title: 'Partners',
-          items: []
-        },
-        {
-          title: 'About Us',
-          items: []
-        },
-        {
-          title: 'Careers',
-          items: []
-        },
-        {
-          title: 'Security',
-          items: []
-        },
-        {
-          title: 'News',
-          items: []
-        },
-        {
-          title: 'Contact',
-          items: []
-        },
-      ],
+      links: [],
       copyright: `Copyright © ${new Date().getFullYear()} Sauce Labs, Inc. Built with Docusaurus.`,
     },
   },
@@ -116,6 +105,7 @@ const docusaurusConfig = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
+          path: 'docs',
           routeBasePath: '/',
           editUrl:
               'https://github.com/saucelabs/sauce-docs/edit/master/',
@@ -132,12 +122,12 @@ const docusaurusConfig = {
     '@saucelabs/theme-github-codeblock',
   ],
   plugins: [
-    [
-      "docusaurus2-dotenv",
-      {
-        systemvars: true,
-      },
-    ],
+      [
+          "docusaurus2-dotenv",
+        {
+          systemvars: true,
+        },
+      ],
   ],
 }
 

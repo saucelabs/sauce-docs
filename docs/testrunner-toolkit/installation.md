@@ -58,7 +58,9 @@ Browser support depends on the chosen [test framework](/testrunner-toolkit#suppo
 
 ## Installing `saucectl`
 
-You can install `saucectl` using any of the following methods:
+`saucectl` binaries are attached to [Github releases](https://github.com/saucelabs/saucectl/releases/latest).
+
+Following is a list of `saucectl` installation options that are common across different development environments:
 
 ```bash title="Using NPM"
 npm install -g saucectl
@@ -72,13 +74,21 @@ SAUCECTL_INSTALL_BINARY=https://company.domain.com/saucectl_0.32.2_mac_64-bit.ta
 Use the `SAUCECTL_INSTALL_BINARY` environment variable to make `saucectl` available from a known source within your control or if you use `npx saucectl` to bypass installation.
 :::
 
-```bash title="Using curl"
-curl -L https://saucelabs.github.io/saucectl/install | bash
-```
-
 ```bash title="Using Homebrew (macOS)"
 brew tap saucelabs/saucectl
 brew install saucectl
+```
+
+```bash title="Using curl (Linux / macOS)"
+curl -L https://saucelabs.github.io/saucectl/install | bash
+```
+
+```bash title="Using Powershell (Windows)"
+$url = Invoke-RestMethod -Uri https://api.github.com/repos/saucelabs/saucectl/releases/latest | ForEach-Object {$_.assets} | Where-Object { $_.name -Like "*_win_64-bit.zip" }
+Invoke-RestMethod -Uri $url.browser_download_url -OutFile saucectl.zip
+Expand-Archive -Force -PassThru -Path ./saucectl.zip
+Move-Item -Path ./saucectl/saucectl.exe -Destination saucectl.exe
+Remove-Item -Force -Recurse  -Path ./saucectl,./saucectl.zip
 ```
 
 If you would like to inspect the content of our one line installer, download it, have a look, and execute it:
@@ -120,6 +130,14 @@ SAUCE_ACCESS_KEY='valid.key'
 Whether you are using environment variables or a credentials file, make sure your authentication data is protected. Use secrets or context variables to mask your environment variables, or add `credentials.yml` to your `gitignore` file to ensure your credentials are not exposed in your commits.
 :::
 
+## Updating saucectl
+
+To ensure you have access to the most current feature set of saucectl, keep your installation up to date by periodically upgrading to the latest release.
+
+```bash
+npm update -g saucectl
+```
+
 
 ## Sample Repos
 
@@ -140,6 +158,7 @@ saucectl run
 ```
 
 `saucectl` kicks off the example test in the framework directory you have created (e.g., `cypress/integration/example.test.js`), the output of which may look as follows:
+
 
 ```bash
 $ saucectl run
@@ -200,10 +219,11 @@ Running version v0.44.0
 ~ $
 ```
 
+
 Once the test completes, you can view the test assets when you log into your Sauce Labs dashboard.
 
 
 ## Next Steps
 
-* [Run a Test](/testrunner-toolkit/running-tests): Learn how to run tests using TestRunner.
+* [Run a Test](/testrunner-toolkit/running-tests): Learn how to run tests using saucectl.
 * [`saucectl` Syntax Ref](/testrunner-toolkit/configuration): Review the syntax for `saucectl` commands and learn how to adjust for different testing scenarios.

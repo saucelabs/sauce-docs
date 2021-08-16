@@ -40,6 +40,21 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
    </tr>
    <tbody>
    <tr>
+     <td rowspan='3'>1.15.0</td>
+     <td><b>macOS:</b> 11.0</td>
+     <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+   </tr>
+   <tr>
+     <td><b>Windows:</b> 10</td>
+     <td>Chrome, Firefox, MicrosoftEdge</td>
+   </tr>
+   <tr>
+     <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+     <td>Safari</td>
+   </tr>
+   </tbody>
+   <tbody>
+   <tr>
      <td rowspan='3'>1.14.2</td>
      <td><b>macOS:</b> 11.0</td>
      <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
@@ -159,7 +174,7 @@ npm install -g saucectl
 1. Enter your Sauce Labs Username and Access Key at the prompts.
 
 :::tip Use Environment Variables
-You can set your Sauce Labs credentials as [environment variables](/basics/environment-variables) instead of generating a `credentials.yml`, if you prefer.
+You can set your Sauce Labs credentials as [environment variables](/basics/environment-variables) instead of generating a `credentials.yml`, if you prefer. In systems where both sets of credentials exist, environment variable values are prioritized.
 :::
 
 ### Step 3: Set up Your TestCafe Project

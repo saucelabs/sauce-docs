@@ -393,7 +393,5 @@ To debug with Safari: Open Safari > From the nav, select **Develop** > **Select 
 ## TestObject (Legacy RDC)
 
 :::warning
-TestObject, our [Legacy Real Device Platform](https://wiki.saucelabs.com/pages/viewpage.action?pageId=102721177), reaches end-of-life September 1, 2021.
-
-Please migrate all of your apps and tests from TestObject to Sauce Labs by August 31, 2021.
+TestObject, our [Legacy Real Device Platform](https://saucelabs.com/platform/test-object-eol), reaches end-of-life September 1, 2021. Please migrate all of your apps and tests from TestObject to Sauce Labs by August 31, 2021.
 :::

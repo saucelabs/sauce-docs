@@ -4,7 +4,7 @@ title: Visual Component Cross-Browser Testing
 sidebar_label: Cross-Browser Testing
 ---
 
-For Cross-Browser Testing (i.e., testing across multiple browsers), Screener provides cloud browsers and device emulators.
+For cross-browser testing (i.e., testing across multiple browsers), Screener provides cloud browsers and device emulators.
 
 ## Supported Browsers
 
@@ -39,9 +39,11 @@ The following browsers are available in our cloud:
 
 To test against additional browsers (e.g., Safari and Edge), you can [integrate Screener with Sauce Labs](/visual/component-testing/integrations/sauce-labs) to gain access.
 
-Cross-Browser Testing is available through Screener's Perform plan. By default, Screener runs tests against the Chrome browser.
+Cross-browser testing is available through Screener's Perform plan. By default, Screener runs tests against the Chrome browser.
+
 
 ## Adding Browsers
+
 To test against multiple browsers, add the `browsers` option to your `screener.config.js` file:
 
 ```java

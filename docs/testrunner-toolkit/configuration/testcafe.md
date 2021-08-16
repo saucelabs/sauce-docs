@@ -21,7 +21,7 @@ saucectl run -c ./path/to/{config-file}.yml
 ```
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. If you are less comfortable with YAML, any of a wide variety of free online YAML/JSON validator tools may be helpful.
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](/testrunner-toolkit/ide-integrations/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
 :::
 
 
@@ -36,7 +36,7 @@ Each of the properties supported for running TestCafe tests through `saucectl` i
 ## `apiVersion`
 <p><small>| REQUIRED | STRING |</small></p>
 
-Identifies the version of `saucectl` that is compatible with this configuration.
+Identifies the version of the underlying configuration schema. At this time, `v1alpha` is the only supported value.
 
 ```yaml
 apiVersion: v1alpha
@@ -62,6 +62,7 @@ Specifies any default settings for the project.
 ```yaml
 defaults:
   mode: sauce
+  timeout: 15m
 ```
 ---
 
@@ -72,6 +73,16 @@ Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally 
 
 ```yaml
   mode: "sauce"
+```
+---
+
+### `timeout`
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
+
+```yaml
+  timeout: 15m
 ```
 ---
 
@@ -163,6 +174,18 @@ This is the identifier `saucectl` expects as the `id` property, even though the 
 ```
 ---
 
+## `env`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
+
+```yaml
+  env:
+    hello: world
+    my_var: $MY_VAR
+```
+---
+
 ## `docker`
 <p><small>| OPTIONAL | OBJECT | <span class="highlight docker">Docker only</span> |</small></p>
 
@@ -214,6 +237,11 @@ The directory of files that need to be bundled and uploaded for the tests to run
 ```yaml
   rootDir: "packages/subpackage" # Some other package from within a monorepo
 ```
+
+:::caution
+Only the files contained within `rootDir` will be available during the tests. Any reference to a file that is not included in `rootDir` will make the tests fail.
+:::
+
 ---
 
 ## `npm`
@@ -301,12 +329,12 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 #### `match`
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
 
-Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*`.
+Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
 
 ```yaml
   match:
     - junit.xml
-    - *.log
+    - "*.log"
 ```
 ---
 
@@ -361,7 +389,7 @@ The name of the test suite, which will be reflected in the results and related a
 ### `env`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported.
+A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
 
 ```yaml
   env:
@@ -374,6 +402,7 @@ A property containing one or more environment variables that may be referenced i
 <p><small>| REQUIRED | STRING |</small></p>
 
 The name of the browser in which to run this test suite.
+Available browser names: `chrome`, `firefox`, `microsoftedge`(only for sauce mode) and `safari`(only for sauce mode on macOS or iOS simulators)
 
 ```yaml
     browser: "firefox"
@@ -433,13 +462,13 @@ The explicit name, file glob, or location of the test files to be included in th
 ```
 ---
 
-### `devices`
+### `simulators`
 <p><small>| OPTIONAL | OBJECT | <span class="highlight sauce-cloud">Sauce Cloud only</span>|</small></p>
 
-The property containing details about on which devices the tests in this suite will run. This property can include multiple device definitions.
+The property containing details about on which simulators the tests in this suite will run. This property can include multiple device definitions.
 
 ```yaml
-  devices:
+  simulators:
     - name: iPhone 12 Simulator
       platformName: iOS
       platformVersions:
@@ -579,6 +608,20 @@ Determines whether to prevent the browser from caching page content. See [Testca
 ```
 ---
 
+### `timeout`
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.
+
+:::note
+Setting `0` reverts to the value set in `defaults`.
+:::
+
+```yaml
+  timeout: 15m
+```
+---
+
 ## Advanced Configuration Considerations
 
 The configuration file is flexible enough to allow for any customizations and definitions that are required for any of the supported frameworks. The following sections describe some of the most common configurations.
@@ -596,10 +639,6 @@ If you need to go through a proxy server, you can set it through the following v
 
 * `HTTP_PROXY`: Proxy to use to access HTTP websites
 * `HTTPS_PROXY`: Proxy to use to access HTTPS websites
-
-:::note
-At this time, these proxy settings are not supported for Playwright.
-:::
 
 
 #### Docker Proxy Considerations

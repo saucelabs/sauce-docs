@@ -219,7 +219,7 @@ Below are resolutions to common errors that you may experience in live cross bro
 ### Seeing a Security Error Message (Error #2048)
 This error is displayed when the ports used by manual testing relies are being blocked by a firewall on your end. This may also be caused by running applications such as Avast! antivirus software.
 
-Below are the servers and ports used by manual testing. If you plan to launch manual tests locally installed browsers, we recommend checking with your network administrator confirm that you can access: `charon.saucelabs.com:443`.
+Below are the servers and ports used by manual testing. If you plan to launch manual tests locally installed browsers, we recommend checking with your network administrator to confirm that you can make secure websocket connections to: `api.us-west-1.saucelabs.com:443` (for US-West-1 DC) or `api.eu-central-1.saucelabs.com:443` (for EU-Central-1 DC).
 
 ### Your Job is Not Loading
 There are two common scenarios here:
