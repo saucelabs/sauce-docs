@@ -32,8 +32,7 @@ At the top of each docs page, you need to include these things:
 |sidebar_label|This is what will appear in the left hand navigation tree for the page.|
 |description (optional)|This is what appears when the page is referenced in a Google search result.|
 
-### Code Example
-
+It looks like this in the document:
 ```markdown
 ---
 id: style-guide
@@ -59,8 +58,7 @@ or an H3 header that isn't under an H2 header.
 a user might want to click on
 * H4 headers are to emphasize things within a subsection of the page; these can be longer than the other headers if needed. 
 
-### Code Example
-
+Markdown Code:
 ```markdown
 ## H2 Header
 ### H3 Header
@@ -72,7 +70,15 @@ a user might want to click on
 All words are rendered in the same paragraph even with line breaks, so long as there isn't an empty line.
 As such, it is good practice for each line to be less than 120 characters long for readability, when possible.
 
-### Code Example
+<table class="code">
+  <tbody>
+    <tr>
+      <td>
+
+**Markdown**
+
+</td>
+      <td>
 
 ```markdown
 This
@@ -89,7 +95,15 @@ This forces a soft return<br />
 rather than creating a new paragraph
 ```
 
-### Display
+</td>
+</tr>
+<tr>
+<td>
+
+**Display**
+
+</td>
+      <td>
 
 This
 will
@@ -103,6 +117,11 @@ The empty line above creates a new paragraph.
 
 This forces a soft return<br />
 rather than creating a new paragraph
+
+</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Images
 
@@ -145,7 +164,18 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-### Code Example:
+and then use the tabs as follows:
+
+<table class="code">
+  <tbody>
+    <tr>
+      <td>
+
+**Markdown**
+
+</td>
+      <td>
+
 ```markdown
 <Tabs
   defaultValue="java"
@@ -155,19 +185,27 @@ import TabItem from '@theme/TabItem';
   ]}>
  
 <TabItem value="java">
- 
+
 This would include information or examples for Java
 
 </TabItem>
 <TabItem value="js">
 
 This would include information or examples for JavaScript
- 
+
 </TabItem>
 </Tabs>
 ```
 
-### Display
+</td>
+</tr>
+<tr>
+<td>
+
+**Display**
+
+</td>
+      <td>
 
 <Tabs
 defaultValue="java"
@@ -188,32 +226,84 @@ This would include information or examples for JavaScript
 </TabItem>
 </Tabs>
 
+</td>
+    </tr>
+  </tbody>
+</table>
+
 ## Inline Code
 
 To refer to a single class or method name within a sentence, place single backticks around the name.
 This code:
+
+<table class="code">
+  <tbody>
+    <tr>
+      <td>
+
+**Markdown**
+
+</td>
+      <td>
+
 ```markdown
 This comment refers to the `RemoteWebDriver` class
 ```
-will be displayed as:
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Display**
+
+</td>
+      <td>
+
 This comment refers to the `RemoteWebDriver` class
+
+</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Code Blocks
 
 The best way to display code is with code blocks. Markdown will highlight each language differently, so it is helpful
 to specify which language you are using, and it's a good idea to include a title with the code block as well.
 
-### Example Code
+<table class="code">
+  <tbody>
+    <tr>
+      <td>
+
+**Markdown**
+
+</td>
+      <td>
 
     ```java title="Custom Title"
-    // Java Code Example
+    RemoteWebDriver driver = new RemoteWebDriver(url, capabilities);
     ```
 
-### Display
+</td>
+</tr>
+<tr>
+<td>
+
+**Display**
+
+</td>
+      <td>
 
 ```java title="Custom Title"
-// Java Code Example
+RemoteWebDriver driver = new RemoteWebDriver(url, capabilities);
 ```
+
+</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Code References
 
@@ -226,17 +316,38 @@ Additionally, the referenced code should reference a tag name rather than just a
 a commit hash (which is hard to version). For example, the `demo-java` repo has a tag for `website-1.0`, so the reference
 link should specify this.
 
-### Example Code
+<table class="code">
+  <tbody>
+    <tr>
+      <td>
+
+**Markdown**
+
+</td>
+      <td>
 
     ```java reference title="Example Test"
     https://github.com/saucelabs-training/demo-java/blob/website-1.0/selenium-examples/src/test/java/com/saucedemo/junit5/SauceBindingsTest.java#L35-L43
     ```
 
-### Display
+</td>
+</tr>
+<tr>
+<td>
+
+**Display**
+
+</td>
+      <td>
 
 ```java reference title="Example Test"
 https://github.com/saucelabs-training/demo-java/blob/website-1.0/selenium-examples/src/test/java/com/saucedemo/junit5/SauceBindingsTest.java#L35-L43
 ```
+
+</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Admonitions
 
@@ -246,7 +357,15 @@ There are 4 types of [Docusaurus Admonitions](https://docusaurus.io/docs/markdow
 * Caution - A user should pay attention to this.
 * Warning - A user might do something dangerous!
 
-### Code Example
+<table class="code">
+  <tbody>
+    <tr>
+      <td>
+
+**Markdown**
+
+</td>
+      <td>
 
 ```markdown
 :::note
@@ -266,7 +385,15 @@ You are about to do something dangerous!
 :::
 ```
 
-### Display
+</td>
+</tr>
+<tr>
+<td>
+
+**Display**
+
+</td>
+      <td>
 
 :::note
 Relevant information for you.
@@ -283,6 +410,11 @@ You should probably pay attention to this.
 :::warning
 You are about to do something dangerous!
 :::
+
+</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Badges
 
@@ -298,71 +430,113 @@ BLUE indicates that the feature being documented is limited in its scope or avai
 * BETA
 * EARLY ACCESS
 
-### Code Example
+<table class="code">
+  <tbody>
+    <tr>
+      <td>
+
+**HTML**
+
+</td>
+      <td>
 
 ```html
 <p><span className="sauceDBlue">BETA</span></p>
+<p><span className="sauceDBlue">ENTERPRISE ONLY</span></p>
+<p><span className="sauceDBlue">IOS ONLY</span></p>
+<p><span className="sauceDBlue">LIVE TESTING ONLY</span></p>
+<p><span className="sauceDBlue">EARLY ACCESS</span></p>
 
 <p><span className="sauceGold">DEPRECATED</span></p>
 ```
 
-### Display
+</td>
+</tr>
+<tr>
+<td>
 
+**Display**
+
+</td>
+      <td>
+<p><span className="sauceDBlue">BETA</span></p>
 <p><span className="sauceDBlue">ENTERPRISE ONLY</span></p>
+<p><span className="sauceDBlue">IOS ONLY</span></p>
+<p><span className="sauceDBlue">LIVE TESTING ONLY</span></p>
+<p><span className="sauceDBlue">EARLY ACCESS</span></p>
 
 <p><span className="sauceGold">DEPRECATED</span></p>
+</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Cards
 
 For overview pages that have 4 categories, we often use these Boxes. Note that you can't use Markdown inside this html.
 
-### Code Example
+<table class="code">
+  <tbody>
+    <tr>
+      <td>
+
+**HTML**
+
+</td>
+      <td>
 
 ```html
 <div className="box-wrapper" markdown="1">
-  <div className="box box1 card">
-    <div className="container">
-      <h2>Box 1</h2>
-      <p>Box 1 things.</p>
-      <ul>
-        <li><a href="">Link 1</a></li>
-        <li><a href="">Link 2</a></li>
-      </ul>
+    <div className="box box1 card">
+        <div className="container">
+            <h2>Box 1</h2>
+            <p>Box 1 things.</p>
+            <ul>
+                <li><a href="">Link 1</a></li>
+                <li><a href="">Link 2</a></li>
+            </ul>
+        </div>
     </div>
-  </div>
-  <div className="box box2 card">
-    <div className="container">
-      <h2>Box 2</h2>
-      <p>Box 2 things.</p>
-       <ul>
-        <li><a href="">Link 1</a></li>
-      </ul>
-   </div>
-  </div>
-  <div className="box box3 card">
-    <div className="container">
-      <h2>Box 3</h2>
-      <p>Box 3 things, <a href="">Link 1</a>.</p>
-        <ul>
-        <li><a href="">Link 2</a></li>
-      </ul>
-  </div>
-  </div>
-  <div className="box box4 card">
-    <div className="container">
-    <h2>Box 4</h2>
-    <p>Box 4 things.</p>
-        <ul>
-        <li><a href="">Link 1</a></li>
-        <li><a href="">Link 2</a></li>
-      </ul>
+    <div className="box box2 card">
+        <div className="container">
+            <h2>Box 2</h2>
+            <p>Box 2 things.</p>
+            <ul>
+                <li><a href="">Link 1</a></li>
+            </ul>
+        </div>
     </div>
-  </div>
+    <div className="box box3 card">
+        <div className="container">
+            <h2>Box 3</h2>
+            <p>Box 3 things, <a href="">Link 1</a>.</p>
+            <ul>
+                <li><a href="">Link 2</a></li>
+            </ul>
+        </div>
+    </div>
+    <div className="box box4 card">
+        <div className="container">
+            <h2>Box 4</h2>
+            <p>Box 4 things.</p>
+            <ul>
+                <li><a href="">Link 1</a></li>
+                <li><a href="">Link 2</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 ```
 
-### Display
+</td>
+</tr>
+<tr>
+<td>
 
+**Display**
+
+</td>
+      <td>
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -403,3 +577,7 @@ For overview pages that have 4 categories, we often use these Boxes. Note that y
     </div>
   </div>
 </div>
+</td>
+    </tr>
+  </tbody>
+</table>

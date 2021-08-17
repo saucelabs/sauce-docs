@@ -775,6 +775,9 @@ a.hero__button {
 .dev-resources__list ul li a {
   color: #E12726;
 }
+table.code td:last-child {
+    width: 100%;
+}
 /* footer styles */
 footer {
   background-color: #ac1414;
