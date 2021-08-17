@@ -30,5 +30,3 @@ A device can be assigned to only 1 team at a time.
 1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 2. On the **DEVICES** tab, in the **Team** dropdown, select a team to assign the device to.
 <img src={useBaseUrl('img/team-mgmt/device-mgmt-assign-team.png')} alt="Assign a team" width="600"/>
-
-## Removing a Private Device from a Team
