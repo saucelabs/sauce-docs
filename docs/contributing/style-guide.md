@@ -3,6 +3,7 @@ id: style-guide
 title: Style Guide
 sidebar_label: Style Guide
 description: The Sauce Labs Documentation Style Guide
+tags: [contributing, style, markdown]
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -13,13 +14,13 @@ along with some guidelines and conventions.
 
 ## Markdown
 
-This site uses Docusaurus version 2 beta.The 
-[Docusaurus Markdown Features documentation](https://docusaurus.io/docs/markdown-features) 
-is interesting, but is missing descriptions of several key features. Markdown Guide provides a more comprehensive description of available 
-[Basic Syntax](https://www.markdownguide.org/basic-syntax) and 
-[Extended Syntax](https://www.markdownguide.org/extended-syntax/) with some helpful tips for how to use it well.
-Markdown is used for its readability, but for anything where you need more control or more complex styling,
-plain HTML may also be used directly in the file.
+This site uses Docusaurus version 2 beta. Docusaurus uses the 
+[remarkable Markdown processor](https://github.com/jonschlinkert/remarkable) to convert 
+[Github Flavored Markdown](https://guides.github.com/features/mastering-markdown/) into html. 
+[Docusaurus Markdown](https://docusaurus.io/docs/markdown-features) supports 
+[Basic Markdown Syntax](https://www.markdownguide.org/basic-syntax) and most 
+[Extended Syntax](https://www.markdownguide.org/extended-syntax/). You can see which features are supported 
+[here](https://www.markdownguide.org/tools/docusaurus/).
 
 ## Frontmatter
 
@@ -40,6 +41,7 @@ id: style-guide
 title: Style Guide Introduction
 sidebar_label: Style Guide
 description: The Sauce Labs Documentation Style Guide
+tags: [contributing, style, markdown]
 ---
 ```
 
@@ -56,7 +58,7 @@ or an H3 header that isn't under an H2 header.
 * H1 headers should never be used in a document since the title is automatically generated as an H1.
 * H2 headers are used for SEO, so make sure they succinctly represent what a user will find on the page in that section.
 * H3 headers are included in the page's table of contents on the right, so make sure the title describes something
-a user might want to click on.
+a user might want to directly navigate to.
 * H4 headers are to emphasize things within a subsection of the page; these can be longer than the other headers if needed. 
 
 Markdown Code:
@@ -138,7 +140,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 ```
 
 and then reference the image as follows:
-```markdown
+```html
 <img src={useBaseUrl('img/contributing/my-image.png')} alt="All images should have alt text" width="250"/>
 ```
 
@@ -146,18 +148,20 @@ and then reference the image as follows:
 
 Any referenced videos need to be from a Sauce Labs YouTube account.
 The suggested iframe code structure is as follows:
-```markdown
+```html
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-RDh1ukLN8w" frameborder="0" allow="accelerometer; 
 autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
 ## Tabs
 
-Tabs are a great option when an example is different in different contexts. The primary usage of
-tabs on this site is to illustrate the same example in multiple languages. Ideally, these examples will exist in Java, Node.js, Python, Ruby, and C#, and the tabs should be placed in that order.
+Tabs are a great option when an example is different in different contexts. 
+The primary usage of tabs on this site is to illustrate the same example in multiple languages. 
+Ideally, these examples will exist in Java, Node.js, Python, Ruby, and C#, and the tabs should be placed in that order.
 
 :::tip
-When a page includes multiple sets of tabs, use a `groupId` so when the user selects a particular tab, all the set on the page will switch to that tab.
+When a page includes multiple sets of tabs, use a `groupId` so when the user selects a particular tab, 
+all the set on the page will switch to that tab.
 :::
 
 To use tabs, you need to import two special methods by placing these lines below the [Frontmatter](#frontmatter),
@@ -212,6 +216,7 @@ This would include information or examples for JavaScript
       <td>
 
 <Tabs
+groupId="lang-ex"
 defaultValue="java"
 values={[
 {label: 'Java', value: 'java'},
@@ -425,9 +430,12 @@ You are about to do something dangerous!
 Badges are color-coded images that alert a reader to special considerations for a given section. 
 We currently support 2 types of badges:
 
-GOLD indicates that a page is deprecated or out-of-date in some way
+GOLD indicates that a page is deprecated or out-of-date in some way, for example:
+
 * DEPRECATED
+
 BLUE indicates that the feature being documented is limited in its scope or availability, for example:
+
 * ENTERPRISE ONLY
 * IOS ONLY
 * LIVE TESTING ONLY
