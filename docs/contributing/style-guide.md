@@ -27,10 +27,11 @@ At the top of each docs page, you need to include these things:
 
 | Variable | Description |
 | ----------- | ----------- |
-|id|A brief string that uniquely identifies the page within its parent folder. The id and the name of the file should be the same.|
-|title|The main title of the page. This value will automatically be rendered using the H1 style at the top of the page.
-|sidebar_label|This is what will appear in the left hand navigation tree for the page.|
-|description (optional)|This is what appears when the page is referenced in a Google search result.|
+|`id`|A brief string that uniquely identifies the page within its parent folder. The id and the name of the file should be the same.|
+|`title`|The main title of the page. This value will automatically be rendered using the H1 style at the top of the page.
+|`sidebar_label`|This is what will appear in the left hand navigation tree for the page.|
+|`description` (optional)|This is what appears when the page is referenced in a Google search result.|
+|`tags` (optional)| A list of terms that help categorize the page for SEO purposes.|
 
 It looks like this in the document:
 ```markdown
@@ -53,9 +54,9 @@ For accessibility and SEO reasons, never have an H4 header that isn't under an H
 or an H3 header that isn't under an H2 header.
 
 * H1 headers should never be used in a document since the title is automatically generated as an H1.
-* H2 headers are used for SEO, so make sure they succinctly represent what a user will find on the page in that section
+* H2 headers are used for SEO, so make sure they succinctly represent what a user will find on the page in that section.
 * H3 headers are included in the page's table of contents on the right, so make sure the title describes something
-a user might want to click on
+a user might want to click on.
 * H4 headers are to emphasize things within a subsection of the page; these can be longer than the other headers if needed. 
 
 Markdown Code:
@@ -152,10 +153,12 @@ autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allow
 
 ## Tabs
 
-Tabs are a great option for when an example is different in different contexts. The primary usage of
-Tabs on this site is for code-specific descriptions or examples, since many such things on our platform
-are relevant to multiple languages.
-Ideally these examples will exist in Java, Node.js, Python, Ruby, C#, and the tabs should be placed in that order.
+Tabs are a great option when an example is different in different contexts. The primary usage of
+tabs on this site is to illustrate the same example in multiple languages. Ideally, these examples will exist in Java, Node.js, Python, Ruby, and C#, and the tabs should be placed in that order.
+
+:::tip
+When a page includes multiple sets of tabs, use a `groupId` so when the user selects a particular tab, all the set on the page will switch to that tab.
+:::
 
 To use tabs, you need to import two special methods by placing these lines below the [Frontmatter](#frontmatter),
 but above the [Introduction](#introduction):
@@ -178,6 +181,7 @@ and then use the tabs as follows:
 
 ```markdown
 <Tabs
+  groupId="lang-ex"
   defaultValue="java"
   values={[
     {label: 'Java', value: 'java'},
