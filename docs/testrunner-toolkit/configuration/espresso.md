@@ -139,6 +139,22 @@ saucectl run --ccy 5
 ```
 ---
 
+### `retries`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Sets the number of times to retry a failed suite.
+
+```yaml
+  retries: 1
+```
+
+Alternatively, you can override the file setting at runtime by setting the retries flag as an inline parameter of the `saucectl run` command:
+
+```bash
+saucectl run --retries 1
+```
+---
+
 ### `tunnel`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
