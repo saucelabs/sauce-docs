@@ -172,7 +172,18 @@ A property containing one or more environment variables that are global for all 
     my_var: $MY_VAR
 ```
 ---
+## `reporters`
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
+Configures additional reporting capabilities provided by `saucectl`.
+
+```yaml
+reporters:
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
+```
+---
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
