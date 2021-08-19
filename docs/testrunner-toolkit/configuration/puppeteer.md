@@ -426,8 +426,6 @@ Setting `0` reverts to the value set in `defaults`.
 ```
 ---
 
----
-
 ### `browserArgs`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
@@ -436,6 +434,7 @@ Pass flags to configure how Puppeteer launches the selected browser. Review supp
 ```yaml
     browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
 ```
+---
 
 ## Advanced Configuration Considerations
 
