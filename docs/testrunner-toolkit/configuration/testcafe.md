@@ -430,6 +430,16 @@ The version of the browser to use for this test suite.
 ```
 ---
 
+### `browserArgs`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Pass flags to configure how Puppeteer launches the selected browser. Review supported flags for [Chrome/Chromium](https://peter.sh/experiments/chromium-command-line-switches/)
+
+```yaml
+    browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
+```
+---
+
 ### `platformName`
 <p><small>| OPTIONAL | STRING |</small></p>
 
