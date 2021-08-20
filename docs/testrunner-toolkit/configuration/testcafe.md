@@ -281,7 +281,18 @@ Specifies any NPM packages that are required to run tests and should, therefore,
     "@testcafe/react": "^5.0.1"
 ```
 ---
+## `reporters`
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
+Configures additional reporting capabilities provided by `saucectl`.
+
+```yaml
+reporters:
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
+```
+---
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -416,6 +427,16 @@ The version of the browser to use for this test suite.
 
 ```yaml
     browserVersion: "85.0"
+```
+---
+
+### `browserArgs`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Pass flags to configure how Puppeteer launches the selected browser. Review supported flags for [Chrome/Chromium](https://peter.sh/experiments/chromium-command-line-switches/)
+
+```yaml
+    browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
 ```
 ---
 

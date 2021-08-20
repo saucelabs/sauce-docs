@@ -80,7 +80,7 @@ brew install saucectl
 ```
 
 ```bash title="Using curl (Linux / macOS)"
-curl -L https://saucelabs.github.io/saucectl/install | bash
+sudo sh -c 'curl -L https://saucelabs.github.io/saucectl/install | bash -s -- -b /usr/local/bin'
 ```
 
 ```bash title="Using Powershell (Windows)"
@@ -96,7 +96,7 @@ If you would like to inspect the content of our one line installer, download it,
 ```bash
 curl -fsSL -o get_saucectl.sh https://saucelabs.github.io/saucectl/install && \
 chmod 700 get_saucectl.sh && \
-./get_saucectl.sh
+sudo ./get_saucectl.sh -b /usr/local/bin
 ```
 
 :::caution Are you using mingw?
