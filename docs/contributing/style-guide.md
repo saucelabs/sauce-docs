@@ -59,7 +59,8 @@ or an H3 header that isn't under an H2 header.
 * H2 headers are used for SEO, so make sure they succinctly represent what a user will find on the page in that section.
 * H3 headers are included in the page's table of contents on the right, so make sure the title describes something
 a user might want to directly navigate to.
-* H4 headers are to emphasize things within a subsection of the page; these can be longer than the other headers if needed. 
+* H4 headers are to emphasize things within a subsection of the page; these can be longer than the other headers 
+if needed because they aren't included in the Table of Contents.
 
 Markdown Code:
 ```markdown
@@ -161,7 +162,7 @@ Ideally, these examples will exist in Java, Node.js, Python, Ruby, and C#, and t
 
 :::tip
 When a page includes multiple sets of tabs, use a `groupId` so when the user selects a particular tab, 
-all the set on the page will switch to that tab.
+all tabs with that ID will switch to the selected tab.
 :::
 
 To use tabs, you need to import two special methods by placing these lines below the [Frontmatter](#frontmatter),
