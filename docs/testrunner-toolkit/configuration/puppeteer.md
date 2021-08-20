@@ -252,7 +252,18 @@ Specifies any NPM packages that are required to run tests and should, therefore,
     "@babel/preset-typescript": "7.12"
 ```
 ---
+## `reporters`
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
+Configures additional reporting capabilities provided by `saucectl`.
+
+```yaml
+reporters:
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
+```
+---
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -415,16 +426,15 @@ Setting `0` reverts to the value set in `defaults`.
 ```
 ---
 
----
-
 ### `browserArgs`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Pass flags to configure how Puppeteer launches the selected browser. Review supported flags for [Chrome/Chromium](https://peter.sh/experiments/chromium-command-line-switches/)
+Pass flags to configure how TestCafe launches the selected browser. Review supported flags for [Chrome/Chromium](https://peter.sh/experiments/chromium-command-line-switches/)
 
 ```yaml
     browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
 ```
+---
 
 ## Advanced Configuration Considerations
 
