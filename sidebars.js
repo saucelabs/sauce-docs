@@ -559,8 +559,8 @@ module.exports = {
                         label: 'Appium',
                         collapsed: true,
                         items: [
-                            'mobile-apps/automated-testing/appium/using-appium',
                             'mobile-apps/automated-testing/appium',
+                            'mobile-apps/automated-testing/appium/quickstart',
                             'mobile-apps/automated-testing/appium/real-devices',
                             'mobile-apps/automated-testing/appium/virtual-devices',
                             'mobile-apps/automated-testing/appium/migration',
@@ -614,6 +614,7 @@ module.exports = {
                         collapsed: true,
                         items: [
                             'web-apps/automated-testing/cypress',
+                            'web-apps/automated-testing/cypress/quickstart',
                             'testrunner-toolkit/configuration/cypress',
                         ]
                     },
@@ -623,6 +624,7 @@ module.exports = {
                         collapsed: true,
                         items: [
                             'web-apps/automated-testing/playwright',
+                            'web-apps/automated-testing/playwright/quickstart',
                             'testrunner-toolkit/configuration/playwright',
                         ],
                     },
@@ -632,6 +634,7 @@ module.exports = {
                         collapsed: true,
                         items: [
                             'web-apps/automated-testing/testcafe',
+                            'web-apps/automated-testing/testcafe/quickstart',
                             'testrunner-toolkit/configuration/testcafe',
                         ]
                     },
@@ -641,6 +644,7 @@ module.exports = {
                         collapsed: true,
                         items: [
                             'web-apps/automated-testing/puppeteer',
+                            'web-apps/automated-testing/puppeteer/quickstart',
                             'testrunner-toolkit/configuration/puppeteer',
                         ],
                     },
