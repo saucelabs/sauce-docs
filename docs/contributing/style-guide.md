@@ -244,7 +244,6 @@ This would include information or examples for JavaScript
 ## Inline Code
 
 To refer to a single class or method name within a sentence, place single backticks around the name.
-This code:
 
 <table class="code">
   <tbody>
@@ -319,8 +318,9 @@ RemoteWebDriver driver = new RemoteWebDriver(url, capabilities);
 
 The Sauce Labs Open Source Team created a plugin for use with Docusaurus to allow us to reference code on Github
 rather than duplicating code in this repo. Ideally all code displayed in the Sauce Labs documentation points to code in
-one of the `demo-<language>` repos on [Sauce Labs Training Github Org](https://github.com/saucelabs-training/?q=demo#org-repositories)
-When referencing code, Include the language, "reference" and a title indicating what the code is.
+one of the `demo-<language>` repos on 
+[Sauce Labs Training Github Org](https://github.com/saucelabs-training/?q=demo#org-repositories).
+When referencing code, include the language, "reference" and a title indicating what the sample shows.
 The URL for the link can be for the entire file, or include specific line numbers at the end.
 Additionally, the referenced code should reference a tag name rather than just a branch name (which can easily break) or
 a commit hash (which is hard to version). For example, the `demo-java` repo has a tag for `website-1.0`, so the reference
