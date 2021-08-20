@@ -2,7 +2,7 @@
 id: real-devices
 title: Appium Testing with Real Devices
 sidebar_label: Real Devices
-description: Run your Appium tests on Sauce Labs real devices.
+description: Run your automated Appium tests on Sauce Labs real devices.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -10,6 +10,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Sauce Labs provides thousands of real mobile devices for nearly every phone and tablet model and applicable OS version. You can run your Appium tests on these devices through the Sauce Labs Real Device Cloud (RDC) to ensure your app behaves accurately and consistently across different devices in the real world. Sauce Labs offers a massive pool of public devices available for all customers, as well as a private option in which customers can create a selection of devices for use by only their organization.
+
+Appium automated real device testing supports tests designed to run against a web application in a mobile browser or a native app on a mobile device.
+
 
 See [When to Test on Real Devices](https://docs.saucelabs.com/mobile-apps/supported-devices/#when-to-test-on-real-devices) for deails about real device testing use cases, benefits, and system requirements.
 
