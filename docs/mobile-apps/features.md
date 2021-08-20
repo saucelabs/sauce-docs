@@ -13,31 +13,29 @@ export const Highlight = ({children, color}) => ( <span style={{
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Biometric Authentication (Touch ID and Face ID)
+## Biometric Authentication
 
-We provide testing capabilities for mobile app biometric authentication (Touch ID and Face ID).
+We provide testing capabilities for mobile app biometric authentication (i.e., fingerprint and facial recognition).
 
 :::caution **Security Notice**
 
-KeyStore is normally used to implement and store Touch ID and Face ID user biometrics for mobile apps. As this is a cloud security risk, Sauce Labs does not mock the KeyStore on our real devices for supporting Touch ID and Face ID; the use of KeyStore on our real devices is not supported.
+KeyStore is normally used to implement and store fingerprint and facial recognition user biometrics for mobile apps. As this is a cloud security risk, Sauce Labs does not mock the KeyStore on our real devices for supporting fingerprint and facial recognition; the use of KeyStore on our real devices is not supported.
 :::
 
 ### Live Testing
 
-<p><Highlight color="#013a70">iOS Real Devices only</Highlight></p>
+Biometric authentication is supported for live testing on real devices only. Virtual mobile devices are not supported at this time.
 
-For live testing, biometric authentication is supported for iOS real devices only. Emulators, simulators, and Android real devices are not supported at this time.
-
-First, you'll need to enable biometric authentication in your settings:
+To enable biometric authentication in your settings:
 
 1. Click **LIVE** > **Mobile App** to get to Sauce Labs real devices.
-2. If you haven't already, upload your iOS app *.ipa file here.
+2. If you haven't already, upload your app file.
 3. Hover your mouse over the line item for your app > Click **Settings**.
 4. Set **Biometrics Interception** to **Enabled**.
 5. Return to the app menu by clicking **Back to App Selection**.
 6. Start up your live test session by hovering your mouse over your app, then click **Choose Device** > select your device > click **Launch**.
 
-To initiate a Touch ID or Face ID action in your live test session:
+To initiate a fingerprint or facial recognition action in your live test session:
 
 1. In the toolbar, click the **Authentication** fingerprint icon.
 2. Select a response:
@@ -48,7 +46,7 @@ To initiate a Touch ID or Face ID action in your live test session:
 <br/>
 <img src={useBaseUrl('img/mobile-apps/biometric-auth-2.gif')} alt="Biometric authorization live testing" width="650"/>
 
-See [Live Mobile App Testing Toolbar](/mobile-apps/live-testing/live-mobile-app-testing#app-settings) for more information.
+See [Live Mobile App Testing Toolbar](/mobile-apps/live-testing/live-mobile-app-testing/#app-settings) for more information.
 
 
 ### Automated Testing
