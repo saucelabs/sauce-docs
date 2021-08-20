@@ -426,22 +426,16 @@ You are about to do something dangerous!
   </tbody>
 </table>
 
-## Badges
+## Context Limited
 
-Badges are color-coded images that alert a reader to special considerations for a given section. 
-We currently support 2 types of badges:
+There are two ways to provide context for users for when special conditions or limitations apply to 
+designated information.
 
-GOLD indicates that a page is deprecated or out-of-date in some way, for example:
+### Badges
 
-* DEPRECATED
+Badges are color-coded images that apply to entire pages or large sections of documentation:
 
-BLUE indicates that the feature being documented is limited in its scope or availability, for example:
-
-* ENTERPRISE ONLY
-* IOS ONLY
-* LIVE TESTING ONLY
-* BETA
-* EARLY ACCESS
+Blue badges are used for everything except for deprecated information which is indicated with a Gold badge
 
 <table class="code">
   <tbody>
@@ -479,6 +473,51 @@ BLUE indicates that the feature being documented is limited in its scope or avai
 <p><span className="sauceDBlue">EARLY ACCESS</span></p>
 
 <p><span className="sauceGold">DEPRECATED</span></p>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+### Highlighted Text
+
+For information in a subsection or in a table that needs additional context, use a `span` element with
+one of the highlight classes. These can also be used to indicate that the content only applies to specific versions of a 
+technology.
+
+<table class="code">
+  <tbody>
+    <tr>
+      <td>
+
+**HTML**
+
+</td>
+      <td>
+
+```html
+<p><span class="highlight sauce-cloud">Sauce Cloud only</span></p>
+<p><span class="highlight docker">Docker only</span></p>
+<p><span class="highlight cypress">Cypress</span></p>
+<p><span class="highlight playwright">Playwright version >= 1.12</span></p>
+<p><span class="highlight testcafe">Testcafe</span></p>
+<p><span class="highlight puppeteer">Puppeteer only</span></p>
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Display**
+
+</td>
+      <td>
+<p><span class="highlight sauce-cloud">Sauce Cloud only</span></p>
+<p><span class="highlight docker">Docker only</span></p>
+<p><span class="highlight cypress">Cypress</span></p>
+<p><span class="highlight playwright">Playwright version >= 1.12</span></p>
+<p><span class="highlight testcafe">Testcafe</span></p>
+<p><span class="highlight puppeteer">Puppeteer only</span></p>
 </td>
     </tr>
   </tbody>
