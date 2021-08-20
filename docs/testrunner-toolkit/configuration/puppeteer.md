@@ -426,16 +426,15 @@ Setting `0` reverts to the value set in `defaults`.
 ```
 ---
 
----
-
 ### `browserArgs`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Pass flags to configure how Puppeteer launches the selected browser. Review supported flags for [Chrome/Chromium](https://peter.sh/experiments/chromium-command-line-switches/)
+Pass flags to configure how TestCafe launches the selected browser. Review supported flags for [Chrome/Chromium](https://peter.sh/experiments/chromium-command-line-switches/)
 
 ```yaml
     browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
 ```
+---
 
 ## Advanced Configuration Considerations
 
