@@ -2,23 +2,18 @@
 id: features
 title: Mobile App Testing Features
 sidebar_label: Testing Features
+description: Learn how to test specific mobile features, such as biometrics and mobile payments.
 ---
 
-export const Highlight = ({children, color}) => ( <span style={{
-      backgroundColor: color,
-      borderRadius: '2px',
-      color: '#fff',
-      padding: '0.2rem',
-    }}>{children}</span> );
-
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Biometric Authentication
 
 We provide testing capabilities for mobile app biometric authentication (i.e., fingerprint and facial recognition).
 
 :::caution **Security Notice**
-
 KeyStore is normally used to implement and store fingerprint and facial recognition user biometrics for mobile apps. As this is a cloud security risk, Sauce Labs does not mock the KeyStore on our real devices for supporting fingerprint and facial recognition; the use of KeyStore on our real devices is not supported.
 :::
 
@@ -48,12 +43,11 @@ To initiate a fingerprint or facial recognition action in your live test session
 
 See [Live Mobile App Testing Toolbar](/mobile-apps/live-testing/live-mobile-app-testing/#app-settings) for more information.
 
-
 ### Automated Testing
 
-For automated testing, biometric authentication is supported for simulators, emulators, and iOS real devices. Please note that not all iOS and Android devices support Touch ID or Face ID. Be prepared to handle test cases..
+For automated testing, biometric authentication is supported for simulators, emulators, and iOS and Android real devices. Please note that not all iOS and Android devices support fingerprint or racial recognition, so you may have to adjust your test cases accordingly.
 
-#### **iOS Simulators**
+#### iOS Simulators
 
 To enable Touch ID and Face ID on Sauce Labs iOS simulators or on your local machine, you need to set the desired capability `allowTouchIdEnroll` to true. When the Simulator starts, Touch ID enrollment will be enabled by default.
 
@@ -79,9 +73,8 @@ You can also toggle Touch ID enrollment during a test session by calling, for ex
   ```
   </details>
 
-<br/>
 
-#### **Android Emulators**
+#### Android Emulators
 
 Android emulators differ from iOS simulators in that:
 * They do not have a one-off capability that enables Touch ID authentication.
@@ -132,21 +125,41 @@ Try running one of the below example scripts, which demonstrate the default capa
   ```
   </details>
 
-<br/>
 
-#### **iOS Real Devices**
+#### Real Devices
 
-To enable Touch ID and Face ID on iOS real devices, add the `allowTouchIdEnroll` capability in your test script and set it to true, as shown in the example below:
+To enable Touch ID and Face ID on iOS and Android real devices, add the `allowTouchIdEnroll` capability in your test script and set it to `true`.
+
+When your test triggers a biometric prompt event, you can trigger a successful or failed authentication using the following commands:
+
+`driver.execute('sauce:biometrics-authenticate=true');` passes a successful authentication to the prompt.
+`driver.execute('sauce:biometrics-authenticate=false');` passes a failed authentication to the prompt.
+
+<Tabs
+  defaultValue="ios"
+  values={[
+    {label: 'iOS', value: 'ios'},
+    {label: 'Android', value: 'android'},
+  ]}>
+
+<TabItem value="ios">
 
 ```js reference
 https://github.com/saucelabs-training/demo-js/blob/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.ios.sauce.real.conf.js
 ```
 
-#### **Android Real Devices**
+</TabItem>
+<TabItem value="android">
 
-At this time, biometric authentication is not supported for Android real device live testing.
+```java
+This is a placeholder for now.
+```
+
+</TabItem>
+</Tabs>
 
 ### Additional Resources
+
 * [Using Biometric Login on Sauce Labs](https://github.com/saucelabs-training/demo-js/tree/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login) contains Android and iOS device configuration demo scripts for a variety of use cases, including:
     * iOS local simulators
     * iOS simulators in our Sauce Labs Simulator Cloud
