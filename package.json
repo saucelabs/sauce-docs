@@ -21,7 +21,7 @@
     "@docusaurus/preset-classic": "2.0.0-beta.0",
     "@docusaurus/plugin-client-redirects": "2.0.0-beta.0",
     "@mdx-js/react": "1.6.21",
-    "@saucelabs/theme-github-codeblock": "0.0.4",
+    "@saucelabs/theme-github-codeblock": "0.1.0",
     "@types/react": "16.9.35",
     "clsx": "1.1.1",
     "core-js": "3.1.4",
