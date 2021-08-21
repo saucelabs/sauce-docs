@@ -520,29 +520,29 @@ h6, .h6 {
 /* announcementBar button */
 
 .announcementBar {
-  border: 1px solid #0E75DD;
-  border-radius: 11px;
-  padding: 2px 10px;
-  color: #FFFFFF;
-  background-color: #0E75DD;
-  font-weight: 550;
-  font-size: 13px;
-  line-height: 13px;
+  border: 0.5px solid #F0F0F0;
+  border-radius: 4px;
+  padding: 1px 9px;
+  color: #F0F0F0;
+  background-color: #0D65BE;
+  font-weight: 500;
+  font-size: 17px;
+  font-family: "museo-sans",sans-serif;
+  line-height: 16px;
 }
 
 .announcementBar:hover {
-  background-color: #FFFFFF;
-  color: #0E75DD;
+  background-color: #3a7cbd;
+  color: #F0F0F0;
   cursor:pointer;
 }
 
 .announcementBar:active {
   background:linear-gradient(bottom, rgb(255,255,255) 0%, rgb(255,255,255) 100%);
-  color:#FFFFFF;
+  color:#F0F0F0;
   box-shadow: 0px 1px 0px #b71d15, 0px 1px 1px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 1px rgba(255,255,255,.5);
   transform:translate(0, 2px);
 }
-
 
 
 
