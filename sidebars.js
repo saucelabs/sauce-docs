@@ -807,15 +807,7 @@ module.exports = {
         Contributing: [
             'contributing',
             'contributing/code-of-conduct',
-            {
-                type: 'category',
-                label: 'Style Guide',
-                items: [
-                    'contributing/style-guide',
-                    'contributing/style-guide/mkdwn-styles',
-                    'contributing/style-guide/adv-examples'
-                ],
-            },
+            'contributing/style-guide'
         ],
     },
 };
