@@ -877,6 +877,7 @@ These are currently not supported for real devices:
 
 See [Sauce Labs Training on GitHub](https://github.com/saucelabs-training).
 
+
 ### Visual Testing
 
 While [Visual Testing](/visual) runs on Sauce Labs servers, the URL gets sent to `"https://hub.screener.io"`. This means that the [`username`](#username) and [`accessKey`](#accesskey) values are required.
