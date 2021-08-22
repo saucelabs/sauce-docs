@@ -507,6 +507,20 @@ h6, .h6 {
   font-weight:750;
 }
 
+.AndroidOnly {
+  background:#a4c639;
+  color:#FFFFFF;
+  padding:.2rem;
+  font-weight:750;
+}
+
+.iOSOnly {
+  background:#333333;
+  color:#FFFFFF;
+  padding:.2rem;
+  font-weight:750;
+}
+
 .preview {
     background:#01c3a5;
     color: #FFFFFF;
