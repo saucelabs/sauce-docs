@@ -309,8 +309,7 @@ __Example__:
 
 ---
 ### `automationName`
-
-<p><small><Highlight color="#946f59">Android/Espresso Only</Highlight></small></p>
+<small><span className="AndroidOnly">Android Only</span></small>
 
 __Description__: Allows you to set the automation engine that will be used. Possible values are: `Appium`, `UiAutomator2`, `Selendroid`. Default value is Appium.<br/>
 __Value Type__: String.<br/>
@@ -321,8 +320,7 @@ __Example__:
 
 ---
 ### `appPackage`
-
-<p><small><Highlight color="#946f59">Android Only</Highlight></small></p>
+<small><span className="AndroidOnly">Android Only</span></small>
 
 __Description__: Allows you to specify the Java package of the Android app you want to run.
 
@@ -339,8 +337,7 @@ __Example__:
 
 ---
 ### `appActivity`
-
-<p><small><Highlight color="#946f59">Android Only</Highlight></small></p>
+<small><span className="AndroidOnly">Android Only</span></small>
 
 __Description__: Allows you to set the name for the Android activity you want to launch from your package. This capability must be preceded by a dot (e.g., `.MainActivity`).
 
@@ -357,8 +354,7 @@ __Example__:
 
 ---
 ### `autoAcceptAlerts`
-
-<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
+<small><span className="iOSOnly">iOS Only</span></small>
 
 __Description__: Allows you to automatically accept any unexpected browser alerts that come up during your test, such as when Safari pops up the alert `Safari would like to use your current location (Don't Allow | Allow).`<br/>
 __Value Type__: Boolean.<br/>
@@ -410,7 +406,7 @@ __Examples__:
 "deviceOrientation": "portrait"
 ```
 
-``` title="Real Device Setting"
+```java title="Real Device Setting"
 "orientation": "portrait"
 ```
 
@@ -432,32 +428,44 @@ __Examples__:
 
 ---
 ### `tabletOnly`
+<small><span className="sauceDBlue">Real Devices Only</span></small>
+
 __Description__: use this capability to select only tablet devices for testing by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).<br/>
 __Value Type__: Boolean.
 
 ---
 ### `phoneOnly`
+<small><span className="sauceDBlue">Real Devices Only</span></small>
+
 __Description__: use this capability to select only phone devices by setting it to `"true"`. For ***Dynamic Allocation***.<br/>
 __Value Type__: Boolean.
 
 ---
 ### `privateDevicesOnly`
+<small><span className="sauceDBlue">Real Devices Only</span></small>
+
 __Description__: if your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).<br/>
 __Value Type__: Boolean.
 
 ---
 ### `publicDevicesOnly`
+<small><span className="sauceDBlue">Real Devices Only</span></small>
+
 __Description__: if your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).<br/>
 __Value Type__: Boolean.
 
 ---
 ### `carrierConnectivityOnly`
+<small><span className="sauceDBlue">Real Devices Only</span></small>
+
 __Description__: use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).<br/>
 __Value Type__: Boolean.
 
 ---
 ### `cacheId`
-__Description__: Keeps a device allocated to you between test sessions, bypassing the device cleaning process and session exit that occurs by default after each test completes. Normally, you'd need to start over and reopen another device. You'll need to launch your next test within **10 seconds** of your previous test ending to ensure that the same device will be allocated for the test (not cleaned or reset).
+<small><span className="sauceDBlue">Real Devices Only</span></small>
+
+__Description__: Keeps a device allocated to you between test sessions, bypassing the device cleaning process and session exit that occurs by default after each test completes. Normally, you'd need to start over and reopen another device. You'll need to launch your next test within 10 seconds of your previous test ending to ensure that the same device will be allocated for the test (not cleaned or reset).
 
 Your app under test and its data will remain as-is on the device.
 
@@ -482,6 +490,8 @@ __Value Type__: Randomized String.
 
 ---
 ### `noReset`
+<small><span className="sauceDBlue">Real Devices Only</span></small>
+
 __Description__: set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
 
 :::caution Known iOS Limitation
@@ -491,57 +501,71 @@ __Value Type__: Boolean.
 
 ---
 ### `recordDeviceVitals`
+<small><span className="sauceDBlue">Real Devices Only</span></small>
+
 __Description__: Device vitals are a collection of the mobile device performance data taken in real time during test execution. Vitals includes CPU utilization, memory consumption, network usage for both wifi and carrier connectivity where applicable, file operation and more. Measuring device vitals during test execution provides insights for analyzing app performance during operation.<br/>
 __Value Type__: Boolean.
 
 ---
 ### `crosswalkApplication`
+<small><span className="sauceDBlue">Real Devices Only</span></small>
+
 __Description__: As described in [Appium Issue 4597](https://github.com/appium/appium/issues/4597) and [ChromeDriver Issue 2375613002](https://codereview.chromium.org/2375613002), mobile tests using Crosswalk will fail because because of attempts to connect to the wrong socket on the device. We've developed a patched version of ChromeDriver that will work with Crosswalk. You can specify to use this patched version with the `crosswalkApplication` capability.<br/>
 __Value Type__: Boolean.
 
 ---
 ### `autoGrantPermissions`
+<small><span className="sauceDBlue">Real Devices Only</span></small>
+
 __Description__: By default, applications are installed on devices in the Sauce Labs real device cloud with autoGrantPermissions capability set to `true`. As long as the API number of the device is equal to 23 or higher, you can disable this by explicitly setting `autoGrantPermissions` to false.<br/>
 __Value Type__: Boolean.
 
 ---
 ### `enableAnimations`
+<small><span className="sauceDBlue">Real Devices Only</span></small>
+
 __Description__: Use this capability to enable animations for real devices by setting it to `true`. By default, animations are disabled.<br/>
 __Value Type__: Boolean.
 
 ---
 ### `resigningEnabled`
+<small><span className="sauceDBlue">Real Devices Only</span></small>
+
 __Description__: Appium override setting that enables the resigning (iOS) or instrumentation (Android) of apps on the Sauce Labs side, allowing the usage of the other capabilities listed in this section.<br/>
 __Value Type__: Boolean.
 
 ---
 ### `sauceLabsImageInjectionEnabled`
+<small><span className="sauceDBlue">Real Devices Only</span></small>
+
 __Description__: Appium override setting that enables the [camera image injection](/mobile-apps/features/#camera-image-injection) feature.<br/>
 __Value Type__: Boolean.
 
 ---
 ### `sauceLabsBypassScreenshotRestriction`
-<p><small><Highlight color="#946f59">Espresso/Android Only</Highlight></small></p>
+<small><span className="AndroidOnly">Android Only</span></small> <small><span className="sauceDBlue">Real Devices Only</span></small>
 
 __Description__: Appium override setting that bypasses the restriction on taking screenshots for secure screens (i.e., secure text entry).<br/>
 __Value Type__: Boolean.
 
 ---
 ### `allowTouchIdEnroll`
+<small><span className="sauceDBlue">Real Devices Only</span></small>
 
 __Description__: Appium override setting that enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).<br/>
 __Value Type__: Boolean.
 
 ---
 ### `groupFolderRedirectEnabled`
-<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
+<small><span className="iOSOnly">iOS Only</span></small> <small><span className="sauceDBlue">Real Devices Only</span></small>
 
 __Description__: Appium override setting that enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.<br/>
 __Value Type__: Boolean.
 
 ---
 ### `systemAlertsDelayEnabled`
-<p><small><Highlight color="#333333">iOS Only</Highlight></small></p>
+<small><span className="iOSOnly">iOS Only</span></small> <small><span className="sauceDBlue">Real Devices Only</span></small>
+
 __Description__: Appium override setting that delays system alerts, such as alerts asking for permission to access the camera, to prevent app crashes at startup.<br/>
 __Value Type__: Boolean.<br/>
 
@@ -689,7 +713,7 @@ __Example__:
 
 ---
 ### `videoUploadOnPass`
-__Description__: disables video upload for passing tests. `videoUploadOnPass` is an alternative to `recordVideo`; it lets you discard videos for tests you've marked as passing. It disables video post-processing and uploading that may otherwise consume some extra time after your test is complete.<br/>
+__Description__: Disables video upload for passing tests. `videoUploadOnPass` is an alternative to `recordVideo`; it lets you discard videos for tests you've marked as passing. It disables video post-processing and uploading that may otherwise consume some extra time after your test is complete.<br/>
 __Value Type__: Boolean.<br/>
 __Example__:
 ```java
@@ -698,7 +722,7 @@ __Example__:
 
 ---
 ### `recordScreenshots`
-__Description__: disables step-by-step screenshots. In addition to capturing video, Sauce Labs captures step-by-step screenshots of every test you run. Most users find it very useful to get a quick overview of what happened without having to watch the complete video. However, this feature may add some extra time to your tests.<br/>
+__Description__: Disables step-by-step screenshots. In addition to capturing video, Sauce Labs captures step-by-step screenshots of every test you run. Most users find it very useful to get a quick overview of what happened without having to watch the complete video. However, this feature may add some extra time to your tests.<br/>
 __Value Type__: Boolean.<br/>
 __Example__:
 ```java
@@ -707,7 +731,7 @@ __Example__:
 
 ---
 ### `recordLogs`
-__Description__: disables log recording. By default, Sauce creates a log of all the actions that you execute to create a report for the test run that lets you troubleshoot test failures more easily. This option disables only the recording of the log.json file; the selenium-server.log will still be recorded.<br/>
+__Description__: Disables log recording. By default, Sauce creates a log of all the actions that you execute to create a report for the test run that lets you troubleshoot test failures more easily. This option disables only the recording of the log.json file; the selenium-server.log will still be recorded.<br/>
 __Value Type__: Boolean.<br/>
 __Example__:
 ```java
@@ -722,7 +746,7 @@ The following are Sauce Labs-specific options that apply only to virtual devices
 
 ---
 ### `maxDuration`
-__Description__: sets maximum test duration in seconds. As a safety measure to prevent tests from running indefinitely, the default is 1,800 seconds (30 minutes), and the maximum is 10,800 seconds (three hours).
+__Description__: sets maximum test duration in seconds. As a safety measure to prevent tests from running indefinitely, the default is 1800 seconds (30 minutes) and the maximum is 10,800 seconds (three hours).
 
 :::caution Tests Should Not Exceed 30 Minutes
 
@@ -780,11 +804,11 @@ __Description__: allows you to set a custom time zone for your test. If the `tim
   * **For iOS Devices**: you can use this capability to change the time on the Mac OS X VM, which will be picked up by the iOS simulator.
   * **For Android Devices**: this capability is not supported for Android devices, but for Android 7.2 or later, there is a workaround. Use the following ADB command to grant Appium notification read permission in order to use the time zone capability:
   ```java
-  adb shell cmd notification allow_listener io.appium.settings/io.appium.settings.NLService
+  adb shell cmd notification allow_listener
+  io.appium.settings/io.appium.settings.NLService
   ```
 
-  See the [Appium Android documentation](http://appium.io/docs/en/writing-running-appium/android/android-shell/#mobile-shell) for additional support.
-
+See the [Appium Android documentation](http://appium.io/docs/en/writing-running-appium/android/android-shell/#mobile-shell) for additional support.<br/>
 __Value Type__: String.<br/>
 __Examples__:
 ```java
@@ -851,7 +875,8 @@ These are currently not supported for real devices:
 
 #### Example Test Scripts
 
-See [Sauce Labs Training on GitHub](https://github.com/saucelabs-training)
+See [Sauce Labs Training on GitHub](https://github.com/saucelabs-training).
+
 
 ### Visual Testing
 
