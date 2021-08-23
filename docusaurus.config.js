@@ -2,7 +2,7 @@ const docusaurusConfig = {
   title: 'Sauce Labs Documentation',
   tagline: 'Find everything you need to know about manual and automated cross-browser and mobile app testing in the Sauce Labs Continuous Testing Cloud.',
   url: 'https://docs.saucelabs.com',
-  noIndex: true,
+  noIndex: false,
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
@@ -14,8 +14,8 @@ const docusaurusConfig = {
     announcementBar: {
       id: 'site_announcement', // Any value that will identify this message.
       content:
-      'Our improved documentation is here! <a target="_blank" rel="noopener noreferrer" href="mailto:docsfeedback@saucelabs.com"><button class="announcementBar">Tell us what you think</button></a>',
-      backgroundColor: '#E6F1FD', // Defaults to `#fff`.
+      '<button class="announcementBarBadge">NEW</button> Our improved documentation is here! <a target="_blank" rel="noopener noreferrer" href="mailto:docsfeedback@saucelabs.com"><button class="announcementBar">Tell us what you think</button></a>',
+      backgroundColor: '#0D65BE', // Defaults to `#fff`.
       textColor: '#F0F0F0', // Defaults to `#000`.
       isCloseable: true, // Defaults to `true`.
     },

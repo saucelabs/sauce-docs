@@ -1,7 +1,7 @@
 ---
 id: espresso-xcuitest
 title: Mobile App Testing with Espresso and XCUITest
-sidebar_label: Getting Started
+sidebar_label: Using Espresso and XCUITest
 description: Run Espresso and XCUITest projects on Sauce Labs.
 ---
 
@@ -24,7 +24,7 @@ Sauce Labs uses its framework agnostic test orchestrator [`saucectl`](/testrunne
 Begin by installing the `saucectl` CLI so it has access to your local project.
 
 ```bash
-curl -L https://saucelabs.github.io/saucectl/install | bash
+sudo sh -c 'curl -L https://saucelabs.github.io/saucectl/install | bash -s -- -b /usr/local/bin'
 ```
 
 :::caution Required Minimum Versions

@@ -249,6 +249,20 @@ Specifies any NPM packages that are required to run tests and should, therefore,
 ```
 ---
 
+## `reporters`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Configures additional reporting capabilities provided by `saucectl`.
+
+```yaml
+reporters:
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
+```
+
+---
+
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 

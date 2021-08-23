@@ -438,6 +438,7 @@ module.exports = {
                                 items: [
                                     'basics/acct-team-mgmt/adding-deleting-teams',
                                     'basics/acct-team-mgmt/assigning-removing-users-teams',
+                                    'basics/acct-team-mgmt/private-device-mgmt',
                                     'basics/acct-team-mgmt/sauce-connect-proxy-tunnels',
                                 ],
                             },
@@ -559,8 +560,8 @@ module.exports = {
                         label: 'Appium',
                         collapsed: true,
                         items: [
-                            'mobile-apps/automated-testing/appium/using-appium',
                             'mobile-apps/automated-testing/appium',
+                            'mobile-apps/automated-testing/appium/quickstart',
                             'mobile-apps/automated-testing/appium/real-devices',
                             'mobile-apps/automated-testing/appium/virtual-devices',
                             'mobile-apps/automated-testing/appium/migration',
@@ -614,6 +615,7 @@ module.exports = {
                         collapsed: true,
                         items: [
                             'web-apps/automated-testing/cypress',
+                            'web-apps/automated-testing/cypress/quickstart',
                             'testrunner-toolkit/configuration/cypress',
                         ]
                     },
@@ -623,6 +625,7 @@ module.exports = {
                         collapsed: true,
                         items: [
                             'web-apps/automated-testing/playwright',
+                            'web-apps/automated-testing/playwright/quickstart',
                             'testrunner-toolkit/configuration/playwright',
                         ],
                     },
@@ -632,6 +635,7 @@ module.exports = {
                         collapsed: true,
                         items: [
                             'web-apps/automated-testing/testcafe',
+                            'web-apps/automated-testing/testcafe/quickstart',
                             'testrunner-toolkit/configuration/testcafe',
                         ]
                     },
@@ -641,6 +645,7 @@ module.exports = {
                         collapsed: true,
                         items: [
                             'web-apps/automated-testing/puppeteer',
+                            'web-apps/automated-testing/puppeteer/quickstart',
                             'testrunner-toolkit/configuration/puppeteer',
                         ],
                     },
@@ -803,15 +808,7 @@ module.exports = {
         Contributing: [
             'contributing',
             'contributing/code-of-conduct',
-            {
-                type: 'category',
-                label: 'Style Guide',
-                items: [
-                    'contributing/style-guide',
-                    'contributing/style-guide/mkdwn-styles',
-                    'contributing/style-guide/adv-examples'
-                ],
-            },
+            'contributing/style-guide'
         ],
     },
 };

@@ -1,10 +1,12 @@
 div[class^='announcementBarContent'] {
     alignment: center;
-    background-color: #E6F1FD;
-    color: #1E2127;
+    background-color: #0D65BE;
+    color: #F0F0F0;
     /*box-shadow: inset 0 -1px 0 #0E75DD !important;*/
-    font-size: 14px;
+    font-size: 17px;
+    line-height: 16px;
     margin-left: -5px;
+    font-family: "museo-sans",sans-serif;
 }
 div[class^='announcementBarContent'] a {
    text-decoration: inherit;
@@ -16,10 +18,28 @@ div[class^='announcementBarContent'] a:hover {
 button[class^='announcementBarClose'] {
     font-size: 22px;
     text-decoration: inherit;
-    background-color: #E6F1FD;
-    color: #347EDC;
+    background-color: #0D65BE;
+    color: #F0F0F0;
     /*box-shadow: inset 0 -1px 0 #0E75DD;*/
 }
 button[class^='announcementBarClose']:hover {
     font-weight: bold;
+}
+button[class^='announcementBarBadge'] {
+   alignment: center;
+   width: 44px;
+   height: 17px;
+   left: 675px;
+   background: #FFD600;
+   border-radius: 3px;
+   border: 0px;
+
+   font-family: "museo-sans-rounded",sans-serif;
+   font-weight: 600;
+   font-size: 14px;
+   line-height: 17px;
+
+   align-items: center;
+   text-align: center;
+   color: #1E2127;
 }
