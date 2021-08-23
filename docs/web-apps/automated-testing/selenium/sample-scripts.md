@@ -65,7 +65,7 @@ https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/ex
 ```
 
 
-## C#
+## C Sharp
 
 Visit the [Sauce Labs C# Demonstration Repo](https://github.com/saucelabs-training/demo-csharp) for prerequisites, setup instructions, a variety of sample scripts, and many other resources related to writing and running scripts in C#.
 
