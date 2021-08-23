@@ -159,42 +159,33 @@ At this time, biometric authentication is not supported for Android real device 
 
 
 ## Camera Image Injection
+<small><span className="sauceDBlue">Real Devices Only</span></small>
 
-Does your mobile app have the ability to take images and then process or store them within the app (e.g., scanning a bank check, taking a social media selfie)? Camera Image Injection – also known as camera mocking – is a Sauce Labs Real Device Cloud (RDC) core feature that simulates taking a picture through a mobile app, allowing you to test the app’s camera-based functionality and deliver the best possible user experience.
+Do you have a mobile app with the ability to take images on the device camera, then process or store them within the app (e.g., scanning/depositing a check on banking app)? Camera Image Injection – also known as camera mocking – is a Sauce Labs Real Device Cloud (RDC) core feature that simulates taking a picture through a mobile app, allowing you to test the app’s camera-based functionality and deliver the best possible user experience.
 
-To mimic camera behavior, you'll provide the app with an image during your test that mocks the use of the camera. Your mobile app accesses the camera and instead of getting back the picture of the device camera, it'll retrieve your uploaded image for your test. You employ the built-in device camera in your live and automated testing and perform test cases that require taking images with any of the device cameras.
+To mimic camera behavior, you'll provide the app with an image during your test that mocks the use of the camera. Your mobile app accesses the camera and instead of getting back the picture of the device camera, it'll retrieve your uploaded image for your test. You employ the built-in device camera in your live and automated testing and perform test cases that require taking images with any of the device cameras. We support both front-facing and rear-facing system device cameras.
 
 ### What You'll Need
 
 * Have your [app uploaded to Sauce Labs](/mobile-apps/app-storage) prior to testing.
+* What we support:
+  * Test automation frameworks: Appium only.
+  * Test devices: real devices only; any iOS and Android real device in our public Real Device Cloud and private Real Device Cloud, if you have one.
+  * JPG, JPEG, and PNG images up to 5MB.
 
-
-### Requirements
-
-* Test automation frameworks: Appium.
-* Devices: all iOS and Android real devices available in our public and private Real Device Clouds.
-* Image file sizes: up to 5MB.
-* Image file formats: JPG, JPEG, PNG.
-
-We support both front-facing and rear-facing system device cameras.
-
-:::note Not Supported
-* Test automation frameworks: Espresso and XCUITest.
-* Mobile browsers and system apps that come pre-installed on the device. Our camera image injection functionality looks to Sauce Labs storage to get your app information.
-* Ephemeral apps (i.e., apps with temporary, disappearing messages).
-* Testing with emulators and simulators.
+>**NOTE**: We currently do not support: Espresso, XCUITest, testing with emulators/simulators, ephemeral apps (i.e., apps with temporary, disappearing messages), and mobile browsers/system apps that come pre-installed on devices (camera image injection functionality points to Sauce Labs storage to get your app information).
 :::
 
-#### For Android
+#### Android Device Information
 
 For Android devices, there are multiple ways to capture an image, as described in the [Android Camera API](https://developer.android.com/guide/topics/media/camera) developer documentation. We support the following:
-* [ACTION_IMAGE_CAPTURE Intent](https://developer.android.com/reference/android/provider/MediaStore#ACTION_IMAGE_CAPTURE): opens the system camera and notifies the calling app gets when the image is taken
+* [`ACTION_IMAGE_CAPTURE` Intent](https://developer.android.com/reference/android/provider/MediaStore#ACTION_IMAGE_CAPTURE): opens the system camera and notifies the calling app gets when the image is taken
 * [camera2 API](https://developer.android.com/reference/android/hardware/camera2/package-summary): everything is configured and handled from within the app
 * [cameraX](https://developer.android.com/training/camerax): leverages the capabilities of camera2, but uses a simpler, use case-based approach that is lifecycle-aware.
-* [Camera API (deprecated)](https://developer.android.com/reference/android/hardware/Camera) (partially supported): As with camera2, everything is handled in the app itself. QR Code readers often use [Camera#setPreviewCallback](https://developer.android.com/reference/android/hardware/Camera#setPreviewCallback(android.hardware.Camera.PreviewCallback)). We pass the injected image to this method, but the rest of this deprecated API is not supported. UI Elements will not likely display the injected image.
+* [Camera API (deprecated)](https://developer.android.com/reference/android/hardware/Camera): partially supported. As with camera2, everything is handled in the app itself. QR Code readers often use [Camera#setPreviewCallback](https://developer.android.com/reference/android/hardware/Camera#setPreviewCallback(android.hardware.Camera.PreviewCallback)). We pass the injected image to this method, but the rest of this deprecated API is not supported. UI Elements will not likely display the injected image.
 
 
-#### iOS
+#### iOS Device Information
 
 For iOS devices, the camera can be configured with different outputs. We support the following:
 *   [`AVCapturePhotoOutput`](https://developer.apple.com/documentation/avfoundation/avcapturephotooutput?language=objc): for capturing still images. The results are received via the [`AVCapturePhotoCaptureDelegate`](https://developer.apple.com/documentation/avfoundation/avcapturephotocapturedelegate?language=objc) and the method [`captureOutput:didFinishProcessingPhoto:error:`](https://developer.apple.com/documentation/avfoundation/avcapturephotocapturedelegate/2873949-captureoutput?language=objc) The other methods in this delegate are either deprecated or handle live photos, which we don't support.
