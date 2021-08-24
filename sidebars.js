@@ -407,7 +407,6 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'sauce-basics',
-                    'basics/quickstarts',
                     'basics/platform-configurator',
                     'basics/environment-variables',
 
