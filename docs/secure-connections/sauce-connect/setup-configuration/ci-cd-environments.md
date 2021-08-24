@@ -18,12 +18,6 @@ Here are some of the features:
 
 Note that this plug-in also has a set of environment variables that are specific to Bamboo. You’ll also need to output the Sauce session ID to the standard output (stdout) to allow the plug-in to associate test results with Sauce jobs.
 
-### More Information
-For information on installing and configuring the Sauce Labs plug-in for Bamboo, see the following sections:
-
-* [Installing and Configuring the Sauce Labs Plugin for Bamboo](/ci/bamboo)
-* [Sauce OnDemand for Bamboo](https://marketplace.atlassian.com/apps/30134/sauce-ondemand-for-bamboo)
-* [Introducing Bamboo Sauce](https://saucelabs.com/blog/introducing-bamboo-sauce-)
 
 ## Jenkins Configuration
 
@@ -31,5 +25,12 @@ Jenkins is an open-source automation server and continuous integration software 
 
 The Jenkins plugin for Sauce Labs will automatically install Sauce Connect Proxy on your Jenkins server for integration. Once installed, you'll need to configure your project to use Sauce Connect Proxy. You can change the location where the plugin extracts Sauce Connect for specific projects or globally for all projects.
 
-### More Information
+## Additional Resources
+
+For information on installing and configuring the Sauce Labs plug-in for Bamboo, see the following sections:
+
+* [Installing and Configuring the Sauce Labs Plugin for Bamboo](/ci/bamboo)
+* [Sauce OnDemand for Bamboo](https://marketplace.atlassian.com/apps/30134/sauce-ondemand-for-bamboo)
+* [Introducing Bamboo Sauce](https://saucelabs.com/blog/introducing-bamboo-sauce-)
+
 For instructions on running your Jenkins build with Sauce Connect Proxy enabled, see [Sauce Labs with Jenkins](/ci/jenkins).
