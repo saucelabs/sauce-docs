@@ -328,9 +328,10 @@ import java.util.Base64;
 import static org.apache.commons.io.IOUtils.toByteArray;
 
 // Read the file from the classpath and transform it to a base64 string
-String qrCodeImage = Base64.getEncoder().encodeToString(
-  toByteArray(getClass().getResourceAsStream("qr-code.png")));
-
+FileInputStream in = new FileInputStream("/Users/enriquegonzalez/Desktop/Gorilla.png");
+qrCodeImage = Base64.getEncoder().encodeToString(
+        toByteArray(in)
+);
 // Provide the transformed image to the device
 ((JavascriptExecutor)driver).executeScript("sauce:inject-image=" + qrCodeImage);
 ```
