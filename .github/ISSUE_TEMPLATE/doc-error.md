@@ -6,7 +6,7 @@ labels: documentation, needs triage
 
 ## 📃 Documentation Issue
 
-### Have you read the [Contributing Guidelines on issues?](https://github.com/saucelabs/sauce-docs/blob/master/CONTRIBUTING.MD#reporting-bugs)
+### Have you read the [Contributing Guidelines on issues?](https://github.com/saucelabs/sauce-docs/blob/main/CONTRIBUTING.MD#reporting-bugs)
 
 - [ ] Yes
 
@@ -14,7 +14,7 @@ labels: documentation, needs triage
 
 <!--A clear and concise description about the documentation issue, typo, or error. Also, please provide the URL of the page in question.-->
 
-__Doc URL:__ <!--example: [Front End Performance Overview url](https://github.com/saucelabs/sauce-docs/blob/master/docs/performance/about.md)-->
+__Doc URL:__ <!--example: [Front End Performance Overview url](https://github.com/saucelabs/sauce-docs/blob/main/docs/performance/about.md)-->
 
 ## Suggested Fix
 
