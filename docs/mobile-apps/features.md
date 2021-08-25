@@ -90,38 +90,16 @@ To enable biometric authentication on Android emulators:
   ```js
   adb -e emu finger touch <finger_id>
   ```
-5. For example, `adb -e emu finger touch 1234`. The automation script would use `1234` as the fingerprint. Make sure you remember the fingerprint number you've selected; when you add the fingerprint through `adb`, you'll need to enter it there.  
-6. At this point, you should see a fingerprint detected message.  
-7. Return to your Android app, navigate to an action that requires fingerprint authentication, and execute the same command on the app screen.
+  For example, `adb -e emu finger touch 1234` sets `1234` as the virtual fingerprint. When you test the fingerprint in your automation script, use this value in your `adb` command for a successful authentication, or an incorrect value to test a failed authentication.  
+5. After adding the fingerprint, the emulator displays a fingerprint detected message.  
+6. Return to your Android app, navigate to an action that requires fingerprint authentication, and execute the same command on the app screen.
 
-In the script below, you'll see that the device API level is called out; each Android OS version has a corresponding API level, which may need to be reflected in your code. For more information, see [Android Platform codenames, versions, API levels, and NDK releases](https://source.android.com/setup/start/build-numbers#platform-code-names-versions-api-levels-and-ndk-releases).
+The following demo script illustrates using biometric authentication in an Android emulator automation script.
 
-```js
-enableBiometricLogin() {
-    if (driver.capabilities.deviceApiLevel < 26) {
-        // Open the settings screen
-        this.executeAdbCommand('am start -a android.settings.SECURITY_SETTINGS');
-        this.waitAndClick('Fingerprint');
-        this.fingerPrintWizardSevenOrLower(DEFAULT_PIN);
-    } else {
-        // Open the settings screen and set screen lock to pin
-        this.executeAdbCommand(`am start -a android.settings.SECURITY_SETTINGS && locksettings set-pin ${DEFAULT_PIN}`);
-        this.waitAndClick('Fingerprint');
-        this.fingerPrintWizardEightOrHigher(DEFAULT_PIN);
-    }
+  <details><summary>Expand to view an example of an Android emulator Java test with biometric authentication.</summary>
 
-    // We need to end this method where we started it, which is the current running app
-    // Open the app again
-    driver.launchApp();
-}
-```
-
-Try running one of the below example scripts, which demonstrate the default capabilities needed to run automated tests on Android emulators.
-
-  <details><summary><strong>Click here</strong> to see the full Android emulator test examples</summary>
-
-  ```js reference
-  https://github.com/saucelabs-training/demo-js/blob/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.android.sauce.emu.conf.js
+  ```java reference
+  https://github.com/saucelabs-training/demo-java/blob/main/appium-examples/src/test/java/com/emusim/biometric_login/BiometricLoginAndroidTest.java
   ```
   </details>
 
