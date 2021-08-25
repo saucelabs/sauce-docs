@@ -16,7 +16,9 @@ Before you can add teams to your account, you must give your account a name. Thi
 
 <img src={useBaseUrl('img/visual/e2e-add-account-name.png')} alt="E2E Add Account Name" />
 
->**NOTE**: Your account will be named **My Account** temporarily until you name your account.
+:::note
+Your account will be named **My Account** temporarily until you name your account.
+:::
 
 
 ## 2. User Roles
