@@ -74,15 +74,21 @@ Most settings update automatically, however, when you make changes to the proxy 
 ### Selecting a Device
 You must select a device prior to launching a session.
 
-1. On the **App Selection** page, hover over the app you want to test and then click **Choose Device**.
+On the **App Selection** page, hover over the app you want to test and then click **Choose Device**.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-choose-device.png')} alt="Choose a device" width="650"/>
 
-2. On the device selection page:
-* **Mobile Real** - Use the search box and filters to find the device you want to test on, or select the device in the grid.
-<img src={useBaseUrl('img/live-testing/live-mobile-app-real-tab.png')} alt="Mobile Real tab" width="650"/>
-* **Mobile Virtual** -
-<img src={useBaseUrl('img/live-testing/live-mobile-app-virtual-tab.png')} alt="Mobile Virtual tab" width="650"/>
+The device selection page will open, with the option to test on a real device or a virtual device.
+
+#### Real Devices
+On the device selection page, click the **Mobile Real** tab. Use the search box and filters to find the device you want to test on, or select the device in the grid.
+
+<img src={useBaseUrl('img/live-testing/live-mobile-app-real-tab.png')} alt="Mobile Real tab" width="450"/>
+
+#### Virtual Devices
+On the device selection page, click the **Mobile Virtual** tab. Use the dropdowns to select the details for the virtual device you want to test on, and then click **Start Session**.
+
+<img src={useBaseUrl('img/live-testing/live-mobile-app-virtual-tab.png')} alt="Mobile Virtual tab" width="250"/>
 
 #### **Public vs. Private Devices**
 
@@ -90,7 +96,7 @@ There is a distinction between **Public Devices** and **Private Devices**.
 
 * Public devices are accessible by anyone with a Sauce Labs account and are subject to availability. If a device is in use, you will see a yellow **Busy** flag across the thumbnail.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-busy.png')} alt="Busy public device" width="250"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-busy.png')} alt="Busy public device" width="280"/>
 
 * Private devices are associated with your account and are an **enterprise only** feature. Private devices are indicated by a person icon.
 
