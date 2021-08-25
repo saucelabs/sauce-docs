@@ -7,8 +7,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Mobile Real Device Testing
-With Sauce Labs, you can test your mobile applications on a variety of real Android and iOS mobile devices. If you do not have an app, consider using the Sauce Labs Swag Labs sample app for validating your account functionality as well as your tests.
+## Mobile Application Testing
+With Sauce Labs, you can test your mobile applications on a variety of Android and iOS devices. If you do not have an app, consider using the Sauce Labs Swag Labs sample app for validating your account functionality as well as your tests.
 
 ## What You'll Need
 * A Sauce Labs account
@@ -24,9 +24,6 @@ To upload an app via the Sauce Labs UI:
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-nav.png')} alt="Upload an application" width="650"/>
 
-:::note
-The Sauce Labs UI currently supports live testing on **real devices only**. To test on virtual devices, use the REST API.
-:::
 
 ### Deleting an App
 Deleting an app in Sauce Labs will delete the whole application (i.e., the group of builds belonging to the same app package). Files associated with app identifiers (i.e., belonging to the same platform and accessible to the same team) are indicated by the + symbol next to version number. Also, the version number shown is the most recently updated file, not necessarily the latest version of the application.
@@ -43,6 +40,10 @@ To view or change the application settings, on the Mobile App test page, hover o
 To easily copy a test's file name or ID, hover over the test and then click the clipboard icon.
 
 <img src={useBaseUrl('img/live-testing/copy-file-id.png')} alt="Copy a file name or ID" width="450"/>
+
+:::note
+The application settings screen is only available for real device testing.
+:::
 
 **Default App Settings**
 
@@ -72,14 +73,18 @@ Any changes you make to the application settings will affect all uploaded versio
 
 Most settings update automatically, however, when you make changes to the proxy setting, click **Update** to finish.
 
-### Selecting a Real Device
+### Selecting a Device
 You must select a device prior to launching a session.
 
 1. On the **App Selection** page, hover over the app you want to test and then click **Choose Device**.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-choose-device.png')} alt="Choose a device" width="650"/>
 
-2. Use the search box and filters to find the device you want to test on, or select the device in the grid.
+2. On the device selection page:
+* **Mobile Real** - Use the search box and filters to find the device you want to test on, or select the device in the grid.
+<img src={useBaseUrl('img/live-testing/live-mobile-app-real-tab.png')} alt="Mobile Real tab" width="650"/>
+* **Mobile Virtual** - 
+<img src={useBaseUrl('img/live-testing/live-mobile-app-virtual-tab.png')} alt="Mobile Virtual tab" width="650"/>
 
 #### **Public vs. Private Devices**
 
