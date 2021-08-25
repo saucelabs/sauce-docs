@@ -5,7 +5,7 @@ about: Submit a proposal for a new feature
 
 ## 🚀 Feature Proposal
 
-### Have you read the [contributing guidelines on issues?](https://github.com/saucelabs/sauce-docs/blob/master/CONTRIBUTING.MD#reporting-bugs)
+### Have you read the [contributing guidelines on issues?](https://github.com/saucelabs/sauce-docs/blob/main/CONTRIBUTING.MD#reporting-bugs)
 
 - [ ] Yes
 

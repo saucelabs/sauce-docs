@@ -108,7 +108,7 @@ const docusaurusConfig = {
           path: 'docs',
           routeBasePath: '/',
           editUrl:
-              'https://github.com/saucelabs/sauce-docs/edit/master/',
+              'https://github.com/saucelabs/sauce-docs/edit/main/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         },
