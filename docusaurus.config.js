@@ -9,11 +9,6 @@ const docusaurusConfig = {
   favicon: 'img/favicon.ico',
   organizationName: 'saucelabs',
   projectName: 'sauce-docs',
-  webpack: {
-    jsLoader: (isServer) => ({
-      loader: require.resolve('babel-loader'),
-    }),
-  },
   scripts: [],
   themeConfig: {
     announcementBar: {
