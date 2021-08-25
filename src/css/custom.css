@@ -272,11 +272,9 @@ h6, .h6 {
 /*Inclusivity statement*/
 
 .deis {
-  margin-left: 175px;
-  margin-right: 175px;
+  margin-left: 200px;
+  margin-right: 200px;
   margin-top: 75px;
-  font-size: 18px;
-  font-weight: lighter;
   text-align: center;
   font-style: italic;
 }
