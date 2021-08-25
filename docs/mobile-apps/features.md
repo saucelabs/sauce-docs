@@ -45,7 +45,7 @@ See [Live Mobile App Testing Toolbar](/mobile-apps/live-testing/live-mobile-app-
 
 ### Automated Testing
 
-For automated testing, biometric authentication is supported for simulators, emulators, and iOS and Android real devices. Please note that not all iOS and Android devices support fingerprint or racial recognition, so you may have to adjust your test cases accordingly.
+For automated testing, biometric authentication is supported for simulators, emulators, and iOS and Android real devices. Please note that not all iOS and Android devices support fingerprint or facial recognition, so you may have to adjust your test cases accordingly.
 
 #### iOS Simulators
 
