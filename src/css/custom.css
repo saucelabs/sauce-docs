@@ -269,6 +269,16 @@ h6, .h6 {
     font-size: 12px;
 }
 
+/*Inclusivity statement*/
+
+.deis {
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 75px;
+  text-align: center;
+  font-style: italic;
+}
+
 /* Callout styles */
 
 .alert a {
