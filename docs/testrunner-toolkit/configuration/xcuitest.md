@@ -82,13 +82,6 @@ The parent property containing all settings related to how tests are run and ide
 ```yaml
 sauce:
   region: eu-central-1
-  metadata:
-    name: Testing XCUITest Support
-    tags:
-      - e2e
-      - release team
-      - other tag
-    build: Release $X_COMMIT_SHORT_SHA
   concurrency: 5
 ```
 ---
@@ -100,23 +93,6 @@ Specifies through which Sauce Labs data center tests will run. Valid values are:
 
 ```yaml
   region: eu-central-1
-```
----
-
-### `metadata`
-<p><small>| OPTIONAL | OBJECT |</small></p>
-
-The set of properties that allows you to provide additional information about your project that helps you distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you, as shown in the following example:
-
-```yaml
-metadata:
-  name: Testing XCUITest Support
-  build: RC 10.4.a
-  tags:
-    - e2e
-    - Android
-    - beta
-    - featurex
 ```
 ---
 
