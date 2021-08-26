@@ -25,7 +25,7 @@ Virtual USB (vUSB) is a mobile (app) debugging tool that simulates connecting a 
 
 ## What You'll Need
 
-<p><Highlight color="#013a70">Enterprise Plans Only</Highlight></p>
+<small><span className="sauceDBlue">Enterprise Plans Only</span></small>
 
 * For security reasons, you'll need to have [Sauce Labs Private Devices](https://saucelabs.com/platform/real-device-cloud) enabled as part of your [enterprise pricing plan](https://saucelabs.com/solutions/enterprise) to use Virtual USB. This feature allocates a dedicated pool of Sauce Labs real devices to your organization only.
 * Windows, macOS, or Linux operating system.
