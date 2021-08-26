@@ -4,7 +4,7 @@ title: Mobile App Testing FAQ
 sidebar_label: FAQ
 ---
 
-## Emulators and Simulators
+## Virtual Devices
 
 #### **What type of keyboard and buttons do the Android emulators have?**
 
