@@ -393,4 +393,8 @@ The `{saucePublisher}` function lets you send test result data to Sauce Labs. Se
 1. Select **saucePublisher: Run Sauce Labs Test Publisher** and **Generate Groovy**.
 1. Add the returned snippet to your Groovy script.
 
-> **NOTE:** You need not wrap the `{saucePublisher}` in the `{sauce}` snippet, but do include the `{saucePublisher}` in some part of the Pipeline file in order to report the results.
+:::note
+You need not wrap the `{saucePublisher}` in the `{sauce}` snippet, but do include the `{saucePublisher}` in some part of the Pipeline file in order to report the results.
+:::
+
+<p className="deis">We recognize that there are times we use words that are part of a troublesome history. We're working toward replacing these as part of the move to inclusive language within the tech community as a whole.</p>
