@@ -232,7 +232,7 @@ __Example__:
 
 ---
 ### `extendedDebugging`
-__Description__: Enables [Extended Debugging features](/insights/debug/index.html). This applies to Firefox and Chrome only. It records HAR files and console logs for both of these browsers. In Chrome, it also enables network interception, network and cpu throttling as well as access to network logs during the session. It is required to be true for [`capturePerformance`](#captureperformance). The default value is `false`.<br/>
+__Description__: Enables [Extended Debugging features](/insights/debug). This applies to Firefox and Chrome only. It records HAR files and console logs for both of these browsers. In Chrome, it also enables network interception, network and cpu throttling as well as access to network logs during the session. It is required to be true for [`capturePerformance`](#captureperformance). The default value is `false`.<br/>
 __Value Type__: Boolean.<br/>
 __Example__:
 ```java
