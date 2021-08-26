@@ -12,6 +12,8 @@ export const Highlight = ({children, color}) => ( <span style={{
     }}>{children}</span> );
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Biometric Authentication
 
@@ -53,7 +55,7 @@ See [Live Mobile App Testing Toolbar](/mobile-apps/live-testing/live-mobile-app-
 
 For automated testing, biometric authentication is supported for simulators, emulators, and iOS real devices. Please note that not all iOS and Android devices support Touch ID or Face ID. Be prepared to handle test cases..
 
-#### **iOS Simulators**
+#### iOS Simulators
 
 To enable Touch ID and Face ID on Sauce Labs iOS simulators or on your local machine, you need to set the desired capability `allowTouchIdEnroll` to true. When the Simulator starts, Touch ID enrollment will be enabled by default.
 
@@ -81,7 +83,7 @@ You can also toggle Touch ID enrollment during a test session by calling, for ex
 
 <br/>
 
-#### **Android Emulators**
+#### Android Emulators
 
 Android emulators differ from iOS simulators in that:
 * They do not have a one-off capability that enables Touch ID authentication.
@@ -134,7 +136,7 @@ Try running one of the below example scripts, which demonstrate the default capa
 
 <br/>
 
-#### **iOS Real Devices**
+#### iOS Real Devices
 
 To enable Touch ID and Face ID on iOS real devices, add the `allowTouchIdEnroll` capability in your test script and set it to true, as shown in the example below:
 
@@ -142,7 +144,7 @@ To enable Touch ID and Face ID on iOS real devices, add the `allowTouchIdEnroll`
 https://github.com/saucelabs-training/demo-js/blob/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.ios.sauce.real.conf.js
 ```
 
-#### **Android Real Devices**
+#### Android Real Devices
 
 At this time, biometric authentication is not supported for Android real device live testing.
 
@@ -159,42 +161,33 @@ At this time, biometric authentication is not supported for Android real device 
 
 
 ## Camera Image Injection
+<small><span className="sauceDBlue">Real Devices Only</span></small>
 
-Does your mobile app have the ability to take images and then process or store them within the app (e.g., scanning a bank check, taking a social media selfie)? Camera Image Injection – also known as camera mocking – is a Sauce Labs Real Device Cloud (RDC) core feature that simulates taking a picture through a mobile app, allowing you to test the app’s camera-based functionality and deliver the best possible user experience.
+Do you have a mobile app with the ability to take images on the device camera, then process or store them within the app (e.g., scanning/depositing a check on banking app)? Camera Image Injection – also known as camera mocking – is a Sauce Labs Real Device Cloud (RDC) core feature that simulates taking a picture through a mobile app, allowing you to test the app’s camera-based functionality and deliver the best possible user experience.
 
-To mimic camera behavior, you'll provide the app with an image during your test that mocks the use of the camera. Your mobile app accesses the camera and instead of getting back the picture of the device camera, it'll retrieve your uploaded image for your test. You employ the built-in device camera in your live and automated testing and perform test cases that require taking images with any of the device cameras.
+To mimic camera behavior, you'll provide the app with an image during your test that mocks the use of the camera. Your mobile app accesses the camera and instead of getting back the picture of the device camera, it'll retrieve your uploaded image for your test. You employ the built-in device camera in your live and automated testing and perform test cases that require taking images with any of the device cameras. We support both front-facing and rear-facing system device cameras.
 
-### What You'll Need
 
 * Have your [app uploaded to Sauce Labs](/mobile-apps/app-storage) prior to testing.
+* What we support:
+  * Test automation frameworks: Appium only.
+  * Test devices: real devices only; any iOS and Android real device in our public Real Device Cloud and private Real Device Cloud, if you have one.
+  * JPG, JPEG, and PNG images up to 5MB.
 
-
-### Requirements
-
-* Test automation frameworks: Appium.
-* Devices: all iOS and Android real devices available in our public and private Real Device Clouds.
-* Image file sizes: up to 5MB.
-* Image file formats: JPG, JPEG, PNG.
-
-We support both front-facing and rear-facing system device cameras.
-
-:::note Not Supported
-* Test automation frameworks: Espresso and XCUITest.
-* Mobile browsers and system apps that come pre-installed on the device. Our camera image injection functionality looks to Sauce Labs storage to get your app information.
-* Ephemeral apps (i.e., apps with temporary, disappearing messages).
-* Testing with emulators and simulators.
+:::note
+We currently do not support: Espresso, XCUITest, testing with emulators/simulators, ephemeral apps (i.e., apps with temporary, disappearing messages), and mobile browsers/system apps that come pre-installed on devices (camera image injection functionality points to Sauce Labs storage to get your app information).
 :::
 
-#### For Android
+#### Android Device Information
 
 For Android devices, there are multiple ways to capture an image, as described in the [Android Camera API](https://developer.android.com/guide/topics/media/camera) developer documentation. We support the following:
-* [ACTION_IMAGE_CAPTURE Intent](https://developer.android.com/reference/android/provider/MediaStore#ACTION_IMAGE_CAPTURE): opens the system camera and notifies the calling app gets when the image is taken
+* [`ACTION_IMAGE_CAPTURE` Intent](https://developer.android.com/reference/android/provider/MediaStore#ACTION_IMAGE_CAPTURE): opens the system camera and notifies the calling app gets when the image is taken
 * [camera2 API](https://developer.android.com/reference/android/hardware/camera2/package-summary): everything is configured and handled from within the app
 * [cameraX](https://developer.android.com/training/camerax): leverages the capabilities of camera2, but uses a simpler, use case-based approach that is lifecycle-aware.
-* [Camera API (deprecated)](https://developer.android.com/reference/android/hardware/Camera) (partially supported): As with camera2, everything is handled in the app itself. QR Code readers often use [Camera#setPreviewCallback](https://developer.android.com/reference/android/hardware/Camera#setPreviewCallback(android.hardware.Camera.PreviewCallback)). We pass the injected image to this method, but the rest of this deprecated API is not supported. UI Elements will not likely display the injected image.
+* [Camera API (deprecated)](https://developer.android.com/reference/android/hardware/Camera): partially supported. As with camera2, everything is handled in the app itself. QR Code readers often use [Camera#setPreviewCallback](https://developer.android.com/reference/android/hardware/Camera#setPreviewCallback(android.hardware.Camera.PreviewCallback)). We pass the injected image to this method, but the rest of this deprecated API is not supported. UI Elements will not likely display the injected image.
 
 
-#### iOS
+#### iOS Device Information
 
 For iOS devices, the camera can be configured with different outputs. We support the following:
 *   [`AVCapturePhotoOutput`](https://developer.apple.com/documentation/avfoundation/avcapturephotooutput?language=objc): for capturing still images. The results are received via the [`AVCapturePhotoCaptureDelegate`](https://developer.apple.com/documentation/avfoundation/avcapturephotocapturedelegate?language=objc) and the method [`captureOutput:didFinishProcessingPhoto:error:`](https://developer.apple.com/documentation/avfoundation/avcapturephotocapturedelegate/2873949-captureoutput?language=objc) The other methods in this delegate are either deprecated or handle live photos, which we don't support.
@@ -206,21 +199,21 @@ For iOS devices, the camera can be configured with different outputs. We support
 
 Below are common use cases ideal for implementing Camera Image Injection in your tests.
 
-#### **Scanning a Check for a Mobile Banking App Deposit**
+#### Scanning a Check for a Mobile Banking App Deposit
 
 Many mobile banking apps allow customers to deposit checks using their smartphone. The customer takes and uploads an image of their physical paper check, and the image is then submitted to the bank for processing.
 
-#### **Using a QR Code to Link to an Embedded URL**
+#### Using a QR Code to Link to an Embedded URL
 
 QR codes are often used as a way to bridge print media to digital. Users take a photo with a QR code reader app, the app scans the code and directs them to an embedded URL.
 
 For use cases that involve scanning barcodes or QR codes, your own application in testing must do the actual image processing. Camera Image Injection passes your uploaded image directly to your app as if it came from the device camera; it does not do any processing.
 
-#### **Taking a Selfie for a User Profile Photo**
+#### Taking a Selfie for a User Profile Photo
 
 This could be taking a selfie or uploading a picture for apps that require a user profile photo. You can use Camera Image Injection to test image formats and sizes.
 
-#### **Taking an Image to Store or Send via Mobile App**
+#### Taking an Image to Store or Send via Mobile App
 
 Whether it’s a social media app or photo sharing, this use case can encompass many different scenarios. In its simplest form, it could be taking pictures from the front or back camera to send and/or archive within the app.
 
@@ -258,7 +251,14 @@ In your automated test script, you'll need to input the desired capabilities spe
 
 1. First, you'll need add the camera instrumentation desired capability command,  `sauceLabsImageInjectionEnabled`, to your test script. This capability enables image injection functionality.
 
-**Webdriver.io example**
+<Tabs
+  defaultValue="Webdriver.io example"
+  values={[
+    {label: 'Webdriver.io example', value: 'Webdriver.io example'},
+    {label: 'Java example', value: 'Java example'},
+  ]}>
+
+<TabItem value="Webdriver.io example">
 
 ```js
 exports.config = {
@@ -277,7 +277,8 @@ exports.config = {
 }
 ```
 
-**Java example**
+</TabItem>
+<TabItem value="Java example">
 
 ```java
 var desiredCapabilities = new DesiredCapabilities();
@@ -288,11 +289,22 @@ desiredCapabilities.setCapability("platformVersionName", "10");
 desiredCapabilities.setCapability("sauceLabsImageInjectionEnabled", true);
 ```
 
+</TabItem>
+</Tabs>
+
 2. In this step, you're adding the image injection method to your test script by providing a file path to your image. You can put the below code snippet into your test script in one or more places. Then, when you execute your test, the code snippets will call the endpoint and pass the image to the app for further processing or for other use.  
 
-To change the image, you'll need to send a custom command with a different image. Note that your image file path must be converted to base64 encoding.  
+  To change the image, you'll need to send a custom command with a different image. Note that your image file path must be converted to base64 encoding.  
 
-**Webdriver.io example**
+
+<Tabs
+  defaultValue="Webdriver.io example"
+  values={[
+    {label: 'Webdriver.io example', value: 'Webdriver.io example'},
+    {label: 'Java example', value: 'Java example'},
+  ]}>
+
+<TabItem value="Webdriver.io example">
 
 ```js
 const {readFileSync} = require('fs');
@@ -305,29 +317,34 @@ const qrCodeImage = readFileSync(join(process.cwd(), 'assets/qr-code.png'), 'bas
 driver.execute(`sauce:inject-image=${qrCodeImage}`);
 ```
 
-**Java example**
+</TabItem>
+<TabItem value="Java example">
 
 ```java
 import java.util.Base64;
 import static org.apache.commons.io.IOUtils.toByteArray;
 
 // Read the file from the classpath and transform it to a base64 string
-String qrCodeImage = Base64.getEncoder().encodeToString(
-  toByteArray(getClass().getResourceAsStream("qr-code.png")));
-
+FileInputStream in = new FileInputStream("/Users/enriquegonzalez/Desktop/Gorilla.png");
+qrCodeImage = Base64.getEncoder().encodeToString(
+        toByteArray(in)
+);
 // Provide the transformed image to the device
 ((JavascriptExecutor)driver).executeScript("sauce:inject-image=" + qrCodeImage);
 ```
 
-### Troubleshooting
+</TabItem>
+</Tabs>
+
+### Common Errors
 
 Here are some common errors you may see in the course of testing with Camera Image Injection and how to resolve them.
 
-#### `Image injection failed`
+#### Error: `Image injection failed`
 
 This error is displayed when you attempt to inject your image before the app fully loads during your initial test session startup. You must wait until your app has fully loaded prior to injecting your image.
 
-#### `Image injection is not enabled for the application`
+#### Error: `Image injection is not enabled for the application`
 
 This error is displayed due to one or more of these reasons:
 
@@ -341,6 +358,7 @@ This error is displayed due to one or more of these reasons:
 * [Android Camera API | Google Developer Documentation](https://developer.android.com/guide/topics/media/camera)
 
 
+
 ## Gestures
 
 Building a great user experience is more than just design. Equally important is creating intuitive user interactions and touch gestures. For more information, see:
@@ -348,8 +366,7 @@ Building a great user experience is more than just design. Equally important is 
 * [How To Do Multi-Touch Gestures in Live Testing](https://saucelabs.com/blog/how-to-do-multi-touch-gestures-in-live-testing)
 
 
+
 ## Virtual USB (RDC)
 
-Virtual USB (vUSB) is a mobile app debugging tool that simulates connecting a Sauce Labs real device directly to your local machine with a USB cable. It integrates into your development environment as if the device is connected directly to your workstation, meaning you can use your choice of homegrown development and testing tools to debug.
-
-See [Virtual USB for Sauce Labs Real Devices](/mobile-apps/virtual-usb) for more information.
+See [Virtual USB for Sauce Labs Real Devices](/mobile-apps/virtual-usb).
