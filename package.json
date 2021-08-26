@@ -1,6 +1,7 @@
 {
   "name": "sauce-docs",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "cross-env SAUCE_DOCS_DEV=true docusaurus start",
