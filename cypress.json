@@ -3,7 +3,6 @@
   "testFiles": "*.test.js",
   "viewportWidth": 1680,
   "viewportHeight": 864,
-  "baseUrl": "http://localhost:3000",
   "env": {
     "HOST_ADDR": "localhost:3000"
   }
