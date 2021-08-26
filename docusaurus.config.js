@@ -3,6 +3,7 @@ const docusaurusConfig = {
   tagline: 'Find everything you need to know about manual and automated cross-browser and mobile app testing in the Sauce Labs Continuous Testing Cloud.',
   url: 'https://docs.saucelabs.com',
   noIndex: false,
+  trailingSlash: false,
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
@@ -102,6 +103,7 @@ const docusaurusConfig = {
     [
       '@docusaurus/preset-classic',
       {
+        blog: false,
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
@@ -121,14 +123,7 @@ const docusaurusConfig = {
   themes: [
     '@saucelabs/theme-github-codeblock',
   ],
-  plugins: [
-      [
-          "docusaurus2-dotenv",
-        {
-          systemvars: true,
-        },
-      ],
-  ],
+  plugins: [],
 }
 
 if (!process.env.SAUCE_DOCS_DEV) {
