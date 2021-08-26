@@ -114,11 +114,17 @@ html[data-theme='dark'] .alert a {
   decoration: underline;
 }
 
-
 html[data-theme='light'] {
     --ifm-alert-color: #474c55;
 }
 
+html[data-theme='dark'] footer.row.docusaurus-mt-lg {
+    background-color: #18191a;
+}
+
+html[data-theme='light'] footer.row.docusaurus-mt-lg {
+    background-color: #FFFFFF;
+}
 
 .hero--primary {
     --ifm-hero-background-color: var(--ifm-color-primary-darkest);
@@ -786,12 +792,10 @@ a.hero__button {
 }
 .dev-resources__list ul {
   list-style-type: none;
-  margin: 0px;
-  padding: 0px;
   text-align: left;
   border-left: solid 1px #C1C3C7;
   padding: 0 0 0 15px;
-  margin-left: 25px;
+  margin: 0 0 0 25px;
 }
 .dev-resources__list ul li {
   padding: 5px 0 5px 0;
@@ -803,6 +807,7 @@ table.code td:last-child {
     width: 100%;
 }
 /* footer styles */
+
 footer {
   background-color: #ac1414;
   font-size: 13px;
