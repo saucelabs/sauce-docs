@@ -690,9 +690,11 @@ __Description__: for using shared tunnels in your organization.
 
 This capability will let the test job use any shared tunnels available from the specified parent account (i.e., any account that is upstream in the hierarchy).
 
-See [Using Sauce Connect Tunnel Identifiers](/secure-connections/sauce-connect/setup-configuration/high-availability) for more information.
+See [Using Tunnel Identifiers](https://docs.saucelabs.com/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-identifiers) for more information.
 
->**NOTE**: If you're using a shared tunnel, you'll need to specify both `tunnelIdentifier` and `parentTunnel`.
+:::note
+If you're using a shared tunnel, you'll need to specify both `tunnelIdentifier` and `parentTunnel`.
+:::
 
 __Value Type__: String.<br/>
 __Example__:
