@@ -56,6 +56,13 @@ Yes. See [Camera Image Injection](https://docs.saucelabs.com/mobile-apps/feature
 * **Android emulators** - not supported.
 * **iOS simulators** - not supported.
 
+#### **Is there a maximum time I can use a real device for either manual or automated testing, provided I actually do interact with the device?**
+
+For real devices on the public cloud, the limit is 6 hours; for private cloud devices there is no limit.
+
+#### **Can I upload files to or download files from a real device (iOS/Android)?
+
+Yes, by using virtual USB on a private device. See [Virtual USB Testing on Real Mobile Devices](https://docs.saucelabs.com/mobile-apps/virtual-usb) for more information.
 
 ### Security
 
