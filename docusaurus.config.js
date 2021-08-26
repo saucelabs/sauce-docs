@@ -3,7 +3,7 @@ const docusaurusConfig = {
   tagline: 'Find everything you need to know about manual and automated cross-browser and mobile app testing in the Sauce Labs Continuous Testing Cloud.',
   url: 'https://docs.saucelabs.com',
   noIndex: false,
-  trailingSlash: false,
+  trailingSlash: true,
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
