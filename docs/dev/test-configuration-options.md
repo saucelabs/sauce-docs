@@ -543,7 +543,7 @@ __Value Type__: Boolean.
 
 ---
 ### `sauceLabsBypassScreenshotRestriction`
-<small><span className="AndroidOnly">Android Only</span></small> <small><span className="sauceDBlue">Real Devices Only</span></small>
+<small><span className="sauceDBlue">Real Devices Only</span></small> <small><span className="AndroidOnly">Android Only</span></small>
 
 __Description__: Appium override setting that bypasses the restriction on taking screenshots for secure screens (i.e., secure text entry).<br/>
 __Value Type__: Boolean.
@@ -557,14 +557,14 @@ __Value Type__: Boolean.
 
 ---
 ### `groupFolderRedirectEnabled`
-<small><span className="iOSOnly">iOS Only</span></small> <small><span className="sauceDBlue">Real Devices Only</span></small>
+<small><span className="sauceDBlue">Real Devices Only</span></small> <small><span className="iOSOnly">iOS Only</span></small>
 
 __Description__: Appium override setting that enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.<br/>
 __Value Type__: Boolean.
 
 ---
 ### `systemAlertsDelayEnabled`
-<small><span className="iOSOnly">iOS Only</span></small> <small><span className="sauceDBlue">Real Devices Only</span></small>
+<small><span className="sauceDBlue">Real Devices Only</span></small> <small><span className="iOSOnly">iOS Only</span></small>
 
 __Description__: Appium override setting that delays system alerts, such as alerts asking for permission to access the camera, to prevent app crashes at startup.<br/>
 __Value Type__: Boolean.<br/>
@@ -748,12 +748,11 @@ The following are Sauce Labs-specific options that apply only to virtual devices
 
 ---
 ### `maxDuration`
-__Description__: sets maximum test duration in seconds. As a safety measure to prevent tests from running indefinitely, the default is 1800 seconds (30 minutes) and the maximum is 10,800 seconds (three hours).
+__Description__: sets maximum test duration in seconds. As a safety measure to prevent tests from running indefinitely, the default is 1,800 seconds (30 minutes) and the maximum is 10,800 seconds (three hours).
 
 :::caution Tests Should Not Exceed 30 Minutes
 
-A test should never need to run more than 30 minutes. Our data shows that tests that run in under two minutes are twice as likely to pass as tests that take longer than
-seven minutes.
+A test should never need to run more than 30 minutes. Our data shows that tests that run in under two minutes are twice as likely to pass as tests that take longer than seven minutes.
 
 We have a three-hour maximum in place to ease the transition of new users migrating long-running tests to Sauce Labs.
 :::
@@ -858,7 +857,7 @@ __Description__: defines whether Sauce should wait for this executable to finish
 __Value Type__: Boolean.<br/>
 
 ### `timeout` (secondary key)
-__Description__: the number of seconds Sauce will wait for your executable to finish before your browser session starts. The default is 90 seconds and the maximum is 360 seconds.<br/>
+__Description__: the number of seconds Sauce will wait for your executable to finish before your browser session starts. The default value is 90 seconds and the maximum is 360 seconds.<br/>
 __Value Type__: integer.<br/>
 
 

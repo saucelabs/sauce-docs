@@ -160,9 +160,6 @@ At this time, biometric authentication is not supported for Android real device 
 * [Support for iOS Touch ID on Real Devices](#biometric-authentication-touch-idface-id)
 
 
-
-
-
 ## Camera Image Injection
 <small><span className="sauceDBlue">Real Devices Only</span></small>
 
@@ -170,15 +167,15 @@ Do you have a mobile app with the ability to take images on the device camera, t
 
 To mimic camera behavior, you'll provide the app with an image during your test that mocks the use of the camera. Your mobile app accesses the camera and instead of getting back the picture of the device camera, it'll retrieve your uploaded image for your test. You employ the built-in device camera in your live and automated testing and perform test cases that require taking images with any of the device cameras. We support both front-facing and rear-facing system device cameras.
 
-### What You'll Need
 
-* [Uploaded your app to Sauce Labs](/mobile-apps/app-storage) prior to testing.
+* Have your [app uploaded to Sauce Labs](/mobile-apps/app-storage) prior to testing.
 * What we support:
   * Test automation frameworks: Appium only.
   * Test devices: real devices only; any iOS and Android real device in our public Real Device Cloud and private Real Device Cloud, if you have one.
   * JPG, JPEG, and PNG images up to 5MB.
 
->**NOTE**: We currently do not support: Espresso, XCUITest, testing with emulators/simulators, ephemeral apps (i.e., apps with temporary, disappearing messages), and mobile browsers/system apps that come pre-installed on devices (camera image injection functionality points to Sauce Labs storage to get your app information).
+:::note
+We currently do not support: Espresso, XCUITest, testing with emulators/simulators, ephemeral apps (i.e., apps with temporary, disappearing messages), and mobile browsers/system apps that come pre-installed on devices (camera image injection functionality points to Sauce Labs storage to get your app information).
 :::
 
 #### Android Device Information
