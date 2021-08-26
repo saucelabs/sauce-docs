@@ -94,4 +94,8 @@ __Table of Contents__
 
 ## Contributing
 
-Before you edit the docs, review the [style guide](docs/contributing/style-guide/mkdwn-styles.md) to make sure you maintain or standards. Also, before submitting an issue or PR in GitHub, please review the [code of conduct](docs/contributing/code-of-conduct.md) and or [contribution guide](CONTRIBUTING.MD) for further details.
+Before you edit the docs, review the [style guide](https://docs.saucelabs.com/contributing/style-guide/) to see
+how to get the most out of your markdown and to ensure you are following our conventions. 
+Also, before submitting an issue or PR in GitHub, please review the 
+[code of conduct](https://docs.saucelabs.com/contributing/code-of-conduct) and or
+[contribution guide](https://docs.saucelabs.com/contributing) for further details.
