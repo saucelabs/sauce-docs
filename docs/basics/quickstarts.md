@@ -1,7 +1,7 @@
 ---
 id: quickstarts
-title: Quickstart Guides and Sample Code
-sidebar_label: Quickstarts and Samples
+title: Sample Frameworks and Quickstarts
+sidebar_label: Sample Frameworks and Quickstarts
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
