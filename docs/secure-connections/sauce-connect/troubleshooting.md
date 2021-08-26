@@ -34,7 +34,7 @@ If any of these commands fail, you should work with your internal network team t
 
 <TabItem value="ping">
 
-```
+```bash
 ping saucelabs.com
 ```
 
@@ -42,7 +42,7 @@ ping saucelabs.com
 
 <TabItem value="telnet">
 
-```
+```bash
 telnet saucelabs.com 443
 ```
 
@@ -52,7 +52,7 @@ This command should return an IP address of 162.222.73.2.
 
 <TabItem value="curl">
 
-```
+```curl
 curl -v https://</span>saucelabs.com/
 ```
 
@@ -70,7 +70,7 @@ SSL Bumping is enabled by default when you download Sauce Connect Proxy. However
 Cross-Origin Resource Sharing (CORS) errors could be caused by a variety of reasons. We recommend the following solutions:
 
 * Make sure that the ulimit/open file limit of your machine is at least 8000, which is the recommend value for Sauce Connect Proxy use.
-* Start a Sauce Connect Proxy instance using the `-B` all and `-N` flags. For more information about what these flags do for your tunnel, see the [Sauce Connect Proxy Command Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
+* Start a Sauce Connect Proxy instance using the `-B` all and `-N` flags. For more information about what these flags do for your tunnel, see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy).
 
 ## Additional Support
 If you're still experiencing Sauce Connect Proxy test failures, try the diagnostic steps under Sauce Connect Proxy Debugging and Diagnostics with `--doctor` flag.
@@ -88,7 +88,9 @@ To use the `--doctor` flag, you would run the same command for starting the Sauc
 :::note
 When adding the `--doctor` flag to your code, placement matters. Here's the correct order of flags:
 
+```bash
 `c -u [Your Sauce Username] -k [Your Sauce Access Key] --doctors`
+```
 :::
 
 ### Diagnostics Performed
@@ -133,9 +135,9 @@ To better assist you, when creating your support ticket, please include the foll
 * Link to your Sauce Labs test from the Test Results page in Sauce Labs, showing reproduction of the problem
 * Your Sauce Connect Proxy verbose log, which you can get by adding the `-v` and `-l sc.log` options to your Sauce Connect Proxy command line:
 
-```
-sc -u [Your Sauce Username] -k [Your Sauce Access Key] -v -l sc.log
-```
+  ```bash
+  sc -u [Your Sauce Username] -k [Your Sauce Access Key] -v -l sc.log
+  ```
 
 Then, attach the resulting `sc.log` file to your support request.
 
