@@ -107,6 +107,7 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Run only tests matching the specified size. | `--e -i=size size` | Must use YAML |
 | Specify which package to run. | `--e package` | Must use YAML |
 | Run only tests matching the specified annotation.  | `--e -i=annotation com.my.annotation` | Must use YAML |
+| Exclude tests matching the specified annotation.  | `--e -i=notAnnotation com.my.annotation` | Must use YAML |
 | Further specify Espresso test options using supported key-value pairs. | `--e` | Not supported |
 | Identify a running Sauce Connect tunnel to use for secure connectivity to the cloud. | `--tunnelIdentifier` | `--tunnel-id` |
 | Specify how often (seconds) the runner should check for test results. | `--checkFrequency` | Not supported |
@@ -156,6 +157,7 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Run only tests matching the specified size. | Must use CLI | `suites[].testOptions.size:` (Espresso Only) |
 | Specify which package to run. | Not supported | `suites[].testOptions.package:`  (Espresso Only) |
 | Run only tests matching the specified annotation.  | Must use CLI | `suites[].testOptions.annotation:`  (Espresso Only) |
+| Exclude tests matching the specified annotation.  | Must use CLI | `suites[].testOptions.notAnnotation:`  (Espresso Only) |
 | Break the test into separate shards. | Not supported | `suites[].testOptions.numShards:`  (Espresso Only) |
 | Identify a running Sauce Connect tunnel to use for secure connectivity to the cloud. | `tunnelIdentifier:` | `sauce.tunnel.id:` |
 | Specify how often (seconds) the runner should check for test results. | `checkFrequency:` | Not supported |

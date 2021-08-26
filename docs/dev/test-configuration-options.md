@@ -690,9 +690,11 @@ __Description__: for using shared tunnels in your organization.
 
 This capability will let the test job use any shared tunnels available from the specified parent account (i.e., any account that is upstream in the hierarchy).
 
-See [Using Sauce Connect Tunnel Identifiers](/secure-connections/sauce-connect/setup-configuration/high-availability) for more information.
+See [Using Tunnel Identifiers](https://docs.saucelabs.com/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-identifiers) for more information.
 
->**NOTE**: If you're using a shared tunnel, you'll need to specify both `tunnelIdentifier` and `parentTunnel`.
+:::note
+If you're using a shared tunnel, you'll need to specify both `tunnelIdentifier` and `parentTunnel`.
+:::
 
 __Value Type__: String.<br/>
 __Example__:
@@ -863,23 +865,20 @@ __Value Type__: integer.<br/>
 
 ## Additional Resources
 
-### Appium
-
-#### Unsupported Appium Capabilities
-
-These are currently not supported for real devices:
-* `installApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
-* `removeApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
-* `Edit Timezone`: Appium does not provide a capability to edit the timezone of a device in automated testing on real devices.
-* See [Virtual Device Capabilities](#virtual-device-capabilities-sauce-specific--optional) for information about timezone capabilities in a virtual device testing.
-
-#### Example Test Scripts
+### Example Test Scripts
 
 See [Sauce Labs Training on GitHub](https://github.com/saucelabs-training).
-
 
 ### Visual Testing
 
 While [Visual Testing](/visual) runs on Sauce Labs servers, the URL gets sent to `"https://hub.screener.io"`. This means that the [`username`](#username) and [`accessKey`](#accesskey) values are required.
 
 See [Visual Testing with WebDriver](/visual/e2e-testing/webdriver-integration) and [Visual Options](/visual/e2e-testing/options).
+
+### Unsupported Appium Capabilities
+
+These are currently not supported for real devices:
+* `installApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
+* `removeApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
+* `Edit Timezone`: Appium does not provide a capability to edit the timezone of a device in automated testing on real devices.
+* See [Virtual Device Capabilities](#virtual-device-capabilities-sauce-specific--optional) for information about timezone capabilities in a virtual device testing.

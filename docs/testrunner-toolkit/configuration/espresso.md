@@ -525,6 +525,7 @@ testOptions:
   size: small
   package: com.example.android.testing.androidjunitrunnersample
   annotation: com.android.buzz.MyAnnotation
+  notAnnotation: com.android.buzz.NotMyAnnotation
   numShards: 4
   clearPackageData: true
   useTestOrchestrator: true
@@ -580,6 +581,16 @@ Instructs `saucectl` to run only tests that match a custom annotation that you h
 
 ```yaml
   annotation: com.android.buzz.MyAnnotation
+```
+---
+
+#### `notAnnotation`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Instructs `saucectl` to run all tests *except* those matching a custom annotation that you have set.
+
+```yaml
+  notAnnotation: com.android.buzz.NotMyAnnotation
 ```
 ---
 
