@@ -104,7 +104,7 @@ Specifies through which Sauce Labs data center tests will run. Valid values are:
 The set of properties that allows you to provide additional information about your project that helps you distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you.
 
 :::note Restricted Mobile Support
-`metadata` is not yet supported for tests on real devices, so any values set for Espresso configurations will be ignored on emulator tests, and values set or XCUITest configurations will be ignored entirely, since simulators are not yet supported through `saucectl`.
+`metadata` is not yet supported for tests on real devices, so any values set for Espresso configurations will apply only to emulator tests, and values set for XCUITest configurations will be ignored entirely, since simulators are not yet supported through `saucectl`.
 :::
 
 
