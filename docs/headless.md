@@ -91,7 +91,7 @@ __TestNG Example Walkthrough__
   $ mvn clean test -Dtest=SampleHeadlessSauceTest
   ```
 
-<details><summary><strong>Click here to see a successful output example `code` </strong></summary>
+<details><summary><strong>Click here to see a successful output example</strong></summary>
 
 ```bash
 -------------------------------------------------------
