@@ -119,6 +119,13 @@ html[data-theme='light'] {
     --ifm-alert-color: #474c55;
 }
 
+html[data-theme='dark'] footer.row.docusaurus-mt-lg {
+    background-color: #18191a;
+}
+
+html[data-theme='light'] footer.row.docusaurus-mt-lg {
+    background-color: #FFFFFF;
+}
 
 .hero--primary {
     --ifm-hero-background-color: var(--ifm-color-primary-darkest);
