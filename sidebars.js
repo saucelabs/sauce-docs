@@ -8,7 +8,7 @@ module.exports = {
             items: [
                 {
                     type: 'category',
-                    label: 'Quick Start',
+                    label: 'Quickstart',
                     collapsed: true,
                     items: [
                         'api-testing/mark3/quick-start',
@@ -33,7 +33,7 @@ module.exports = {
             items: [
                 {
                     type: 'category',
-                    label: 'Quick Start',
+                    label: 'Quickstart',
                     collapsed: true,
                     items: [
                         'api-testing/mark2/quick-start',
