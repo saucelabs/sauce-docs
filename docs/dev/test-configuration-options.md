@@ -538,7 +538,7 @@ __Value Type__: Boolean.
 ### `sauceLabsImageInjectionEnabled`
 <small><span className="sauceDBlue">Real Devices Only</span></small>
 
-__Description__: Appium override setting that enables the [camera image injection](/mobile-apps/features/#camera-image-injection) feature.<br/>
+__Description__: Appium override setting that enables the [camera image injection](/mobile-apps/features/camera-image-injection) feature.<br/>
 __Value Type__: Boolean.
 
 ---
