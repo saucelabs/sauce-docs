@@ -15,7 +15,7 @@ Below are some topics regarding the legacy / on premise solution for API Testing
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
-    <h2>A Quick Start</h2>
+    <h2>A Quickstart</h2>
     <p>Some quick facts and guides to get started with the platform.</p>
     <ul>
         <li><a href="/api-testing/mark2/quick-start">Create a Test Quickly</a></li>
