@@ -542,6 +542,18 @@ module.exports = {
             'mobile-apps/app-storage',
             {
                 type: 'category',
+                label: 'Features',
+                collapsed: true,
+                items: [
+                    'mobile-apps/features/virtual-usb',
+                    'mobile-apps/features/biometric-authentication',
+                    'mobile-apps/features/camera-image-injection',
+                    'mobile-apps/features/gestures',
+
+                ],
+            },
+            {
+                type: 'category',
                 label: 'Live Testing',
                 collapsed: true,
                 items: [
@@ -580,8 +592,6 @@ module.exports = {
                     'mobile-apps/automated-testing/ipa-files',
                 ],
             },
-            'mobile-apps/features',
-            'mobile-apps/virtual-usb',
             'mobile-apps/ms-app-center',
             'mobile-apps/faq',
         ],
