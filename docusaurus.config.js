@@ -12,7 +12,7 @@ const docusaurusConfig = {
   projectName: 'sauce-docs',
   scripts: [
     {
-      src: 'https://docs.saucelabs.com/analytics.js',
+      src: 'https://gist.github.com/spider-sauce/4395e4541fef2c15a285cc949ca561f9.js',
       async: true,
     }
   ],
