@@ -10,7 +10,12 @@ const docusaurusConfig = {
   favicon: 'img/favicon.ico',
   organizationName: 'saucelabs',
   projectName: 'sauce-docs',
-  scripts: [],
+  scripts: [
+    {
+      src: 'https://docs.saucelabs.com/analytics.js',
+      async: true,
+    }
+  ],
   themeConfig: {
     // announcementBar: {
     //   id: 'site_announcement', // Any value that will identify this message.
