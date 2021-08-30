@@ -21,7 +21,7 @@ saucectl run -c ./path/to/{config-file}.yml
 ```
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](testrunner-toolkit/ide-integrations/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](/testrunner-toolkit/ide-integrations/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
 :::
 
 
@@ -81,9 +81,8 @@ The parent property containing all settings related to how tests are run and ide
 
 ```yaml
 sauce:
-  region: eu-central-1
+  region: eu-central-1  
   metadata:
-    name: Testing XCUITest Support
     tags:
       - e2e
       - release team
@@ -104,17 +103,20 @@ Specifies through which Sauce Labs data center tests will run. Valid values are:
 ---
 
 ### `metadata`
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT | VIRTUAL ONLY |</small></p>
 
-The set of properties that allows you to provide additional information about your project that helps you distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you, as shown in the following example:
+The set of properties that allows you to provide additional information about your project that helps distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you.
+
+:::note
+At this time, the `metadata` property is not supported for XCUITest, but is coming soon.
+:::
 
 ```yaml
 metadata:
-  name: Testing XCUITest Support
-  build: RC 10.4.a
+  build: RC 10.4.i
   tags:
     - e2e
-    - Android
+    - iPad
     - beta
     - featurex
 ```
@@ -137,6 +139,22 @@ Alternatively, you can override the file setting at runtime by setting the concu
 
 ```bash
 saucectl run --ccy 5
+```
+---
+
+### `retries`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Sets the number of times to retry a failed suite.
+
+```yaml
+  retries: 1
+```
+
+Alternatively, you can override the file setting at runtime by setting the retries flag as an inline parameter of the `saucectl run` command:
+
+```bash
+saucectl run --retries 1
 ```
 ---
 
@@ -172,7 +190,18 @@ A property containing one or more environment variables that are global for all 
     my_var: $MY_VAR
 ```
 ---
+## `reporters`
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
+Configures additional reporting capabilities provided by `saucectl`.
+
+```yaml
+reporters:
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
+```
+---
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 

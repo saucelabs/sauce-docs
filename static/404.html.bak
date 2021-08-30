@@ -1,31 +1,6 @@
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="generator" content="Docusaurus v2.0.0-beta.0">
-    <meta name="robots" content="noindex, nofollow">
-    <link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Sauce Labs Documentation Blog RSS Feed">
-    <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Sauce Labs Documentation Blog Atom Feed">
-    <link rel="preconnect" href="https://www.google-analytics.com">
-    <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-6735579-1","auto"),ga("send","pageview")</script>
-    <script async src="https://www.google-analytics.com/analytics.js"></script>
-    <link rel="search" type="application/opensearchdescription+xml" title="Sauce Labs Documentation" href="/opensearch.xml">
-    <title data-react-helmet="true">404 Error: Sauce Labs Documentation | Sauce Labs Documentation</title>
-    <meta data-react-helmet="true" property="og:title" content="404 Error: Sauce Labs Documentation | Sauce Labs Documentation">
-    <meta data-react-helmet="true" name="description" content="Description will go into a meta tag in &lt;head /&gt;">
-    <meta data-react-helmet="true" property="og:description" content="Description will go into a meta tag in &lt;head /&gt;">
-    <meta data-react-helmet="true" property="og:url" content="https://docs.saucelabs.com/404">
-    <meta data-react-helmet="true" name="docsearch:language" content="en">
-    <meta data-react-helmet="true" name="docsearch:docusaurus_tag" content="default">
-    <link data-react-helmet="true" rel="shortcut icon" href="/img/favicon.ico">
-    <link data-react-helmet="true" rel="canonical" href="https://docs.saucelabs.com/404">
-    <link data-react-helmet="true" rel="alternate" href="https://docs.saucelabs.com/404" hreflang="en">
-    <link data-react-helmet="true" rel="alternate" href="https://docs.saucelabs.com/404" hreflang="x-default">
-    <link data-react-helmet="true" rel="preconnect" href="https://ZETDNHTKFC-dsn.algolia.net" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/styles.e57cc14c.css">
-    <link rel="preload" href="/assets/js/runtime~main.dc7857a1.js" as="script">
-    <link rel="preload" href="/assets/js/main.183f918e.js" as="script">
 </head>
 <body>
 <script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){var t=null;try{t=localStorage.getItem("theme")}catch(t){}return t}();t(null!==e?e:"light")}()</script>

@@ -63,7 +63,7 @@ If you need...
 
 ### Public Device Cloud
 
-Our public cloud, available to all users regardless of pricing plan, contains a wide selection of thoroughly cleaned devices. They are subject to availability. On the mobile device selection screen, if a device is in use, it'll be [marked with a **Busy** flag](https://docs.saucelabs.com/mobile-apps/live-testing/live-mobile-app-testing#selecting-a-real-device). Here are some use cases:
+Our public cloud, available to all users regardless of pricing plan, contains a wide selection of thoroughly cleaned devices. They are subject to availability. On the mobile device selection screen, if a device is in use, it'll be [marked with a **Busy** flag](/mobile-apps/live-testing/live-mobile-app-testing#selecting-a-real-device). Here are some use cases:
 
 * The devices available on the public cloud are sufficient for your testing coverage.
 * You need to reproduce bugs on a selection of hundreds of iOS and Android devices.
@@ -75,7 +75,7 @@ Our public cloud, available to all users regardless of pricing plan, contains a 
 
 <p> <Highlight color="#013a70">Enterprise Plans Only</Highlight> </p>
 
-This is dedicated pool of devices just for your organization. On the mobile device selection screen, your private devices are [marked with a person silhouette icon](https://docs.saucelabs.com/mobile-apps/live-testing/live-mobile-app-testing#selecting-a-real-device). Here are some use cases:
+This is dedicated pool of devices just for your organization. On the mobile device selection screen, your private devices are [marked with a person silhouette icon](/mobile-apps/live-testing/live-mobile-app-testing#selecting-a-real-device). Here are some use cases:
 
 * You need to use a very specific set of devices that aren't supported on the public cloud.
 * Your security team insists on dedicated devices.
@@ -217,7 +217,7 @@ A matching device must be present in your account in order for the test to run. 
 ## Additional Resources
 
 * [Appium Testing on Real Devices](/mobile-apps/automated-testing/appium/real-devices)
-  * [Test Configuration Options](dev/test-configuration-options)
+  * [Test Configuration Options](/dev/test-configuration-options)
 * [Espresso and XCUITest Testing](/mobile-apps/automated-testing/espresso-xcuitest)
 * [Sauce Labs Blog: How to Choose Mobile Devices for Testing](https://saucelabs.com/blog/how-to-choose-mobile-devices-for-testing)
 * [Better Together: Using Real Devices, Simulators, and Emulators for Mobile Testing](https://saucelabs.com/blog/better-together-real-devices-emulators-simulators-for-mobile-testing)

@@ -8,7 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The **Test History** page available within the **Insights** submenu of the Sauce Labs dashboard shows a visual snapshot of the results for a specific test over time. Seeing the test outcomes in a scatter plot helps reveal anomalies and patterns, which can help you identify issues with test performance and flakiness across platforms, operating systems, and browsers that you test against.
 
-> **NOTE:** The Extended Debugging feature provides access to the HAR files and JavaScript console logs for your tests to help identify flaky tests. Check out [Debugging Tests with JavaScript Console Logs and HAR Files (Extended Debugging)](https://wiki.saucelabs.com/pages/viewpage.action?pageId=70072943) for more information.
+:::note
+The Extended Debugging feature provides access to the HAR files and JavaScript console logs for your tests to help identify flaky tests. Check out [Debugging Tests with JavaScript Console Logs and HAR Files (Extended Debugging)](/insights/debug) for more information.
+:::
 
 ## Access the History Page for a Test
 

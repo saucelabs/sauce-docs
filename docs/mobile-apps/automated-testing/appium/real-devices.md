@@ -20,7 +20,7 @@ This topic describes automated Appium testing on the Sauce Labs Real Device Clou
 ## What You'll Need
 
 * Your Sauce Labs username and access key.
-* Ensure that your mobile app and project setup meet our [real device cloud requirements](mobile-apps/supported-devices).
+* Ensure that your mobile app and project setup meet our [real device cloud requirements](/mobile-apps/supported-devices).
 * Have your mobile app file (.ipa for iOS, .apk for Android) and mobile test file on hand.
 
 If you don't have an app and would like to try out our test functionality, feel free to download and use our [Sauce Labs demo app](https://github.com/saucelabs/sample-app-mobile/releases).
@@ -168,7 +168,7 @@ EU Data Center (Windows)
 
 ## Configuring Appium Tests for Real Devices
 
-This section describes parameters that we recommend using to configure your Appium tests on Sauce Labs real devices. See [Test Configuration Options](dev/test-configuration-options) for the full list of required and optional parameters.
+This section describes parameters that we recommend using to configure your Appium tests on Sauce Labs real devices. See [Test Configuration Options](/dev/test-configuration-options) for the full list of required and optional parameters.
 
 Certain Appium capabilities behave differently when running Appium tests on our Real Device Cloud versus a local Appium server. On our Real Device Cloud:
 
@@ -235,7 +235,7 @@ DesiredCapabilities caps = DesiredCapabilities();
     caps.setCapability("username", "SAUCE_USERNAME");
     caps.setCapability("accessKey", "SAUCE_ACCESS_KEY");
     caps.setCapability("deviceName","iPhone .*");
-    caps.setCapability("deviceOrientation", "portrait");
+    caps.setCapability("orientation", "portrait");
     caps.setCapability("platformVersion","12.2");
     caps.setCapability("platformName", "iOS");
     caps.setCapability("browserName", "");
@@ -251,7 +251,7 @@ caps['username'] = "SAUCE_USERNAME"
 caps['accessKey'] = "SAUCE_ACCESS_KEY"
 caps['browserName'] = ""
 caps['deviceName'] = "iPhone .*"
-caps['deviceOrientation'] = "portrait"
+caps['orientation'] = "portrait"
 caps['platformVersion'] = "12.2"
 caps['platformName'] = "iOS"
 caps['app'] = "storage:filename=<file-name>"
@@ -266,7 +266,7 @@ caps['username'] = 'SAUCE_USERNAME';
 caps['accessKey'] = 'SAUCE_ACCESS_KEY';
 caps['browserName'] = '';
 caps['deviceName'] = 'iPhone .*';
-caps['deviceOrientation'] = 'portrait';
+caps['orientation'] = 'portrait';
 caps['platformVersion'] = '12.2';
 caps['platformName'] = 'iOS';
 caps['app'] = 'storage:filename=<file-name>';
@@ -280,7 +280,7 @@ caps = Selenium::WebDriver::Remote::Capabilities()
 caps['username'] = 'SAUCE_USERNAME'
 caps['accessKey'] = 'SAUCE_ACCESS_KEY'
 caps['deviceName'] = 'iPhone .*'
-caps['deviceOrientation'] = 'portrait'
+caps['orientation'] = 'portrait'
 caps['platformVersion'] = '12.2'
 caps['platformName'] = 'iOS'
 caps['browserName'] = ''
@@ -295,7 +295,7 @@ DesiredCapabilities caps = new DesiredCapabilities();
     caps.SetCapability("username", "SAUCE_USERNAME");
     caps.SetCapability("accessKey", "SAUCE_ACCESS_KEY");
     caps.SetCapability("deviceName", "iPhone .*");
-    caps.SetCapability("deviceOrientation", "portrait");
+    caps.SetCapability("orientation", "portrait");
     caps.SetCapability("platformVersion", "12.2");
     caps.SetCapability("platformName", "iOS");
     caps.SetCapability("browserName", "");
@@ -325,7 +325,7 @@ DesiredCapabilities caps = DesiredCapabilities();
     caps.setCapability("username", "SAUCE_USERNAME");
     caps.setCapability("accessKey", "SAUCE_ACCESS_KEY");
     caps.setCapability("deviceName","Samsung.*Galaxy.*");
-    caps.setCapability("deviceOrientation", "portrait");
+    caps.setCapability("orientation", "portrait");
     caps.setCapability("browserName", "");
     caps.setCapability("platformVersion","8.1");
     caps.setCapability("platformName","Android");
@@ -340,7 +340,7 @@ caps = {}
 caps['username'] = "SAUCE_USERNAME"
 caps['accessKey'] = "SAUCE_ACCESS_KEY"
 caps['deviceName'] = "Samsung.*Galaxy.*"
-caps['deviceOrientation'] = "portrait"
+caps['orientation'] = "portrait"
 caps['platformVersion'] = "8.1"
 caps['platformName'] = "Android"
 caps['app'] = "storage:filename=<file-name>"
@@ -354,7 +354,7 @@ caps = {};
 caps['username'] = 'SAUCE_USERNAME';
 caps['accessKey'] = 'SAUCE_ACCESS_KEY';
 caps['deviceName'] = 'Samsung.*Galaxy.*';
-caps['deviceOrientation'] = 'portrait';
+caps['orientation'] = 'portrait';
 caps['browserName'] = '';
 caps['platformVersion'] = '8.1';
 caps['platformName'] = 'Android';
@@ -369,7 +369,7 @@ caps = Selenium::WebDriver::Remote::Capabilities()
 caps['username'] = 'SAUCE_USERNAME'
 caps['accessKey'] = 'SAUCE_ACCESS_KEY'
 caps['deviceName'] = 'Samsung.*Galaxy.*'
-caps['deviceOrientation'] = 'portrait'
+caps['orientation'] = 'portrait'
 caps['browserName'] = ''
 caps['platformVersion'] = '8.1'
 caps['platformName'] = 'Android'
@@ -384,7 +384,7 @@ DesiredCapabilities caps = new DesiredCapabilities();
     caps.SetCapability("username", "SAUCE_USERNAME");
     caps.SetCapability("accessKey", "SAUCE_ACCESS_KEY");
     caps.SetCapability("deviceName", "Samsung.*Galaxy.*");
-    caps.SetCapability("deviceOrientation", "portrait");
+    caps.SetCapability("orientation", "portrait");
     caps.SetCapability("browserName", "");
     caps.SetCapability("platformVersion", "8.1");
     caps.SetCapability("platformName", "Android");
@@ -445,7 +445,7 @@ While static allocation allows you more fine-grained control over the device use
 
 #### Required Capabilities
 
-Below are capabilities required for dynamic allocation of [iOS and/or Android real devices for your tests](mobile-apps/automated-testing/appium/real-devices).
+Below are capabilities required for dynamic allocation of [iOS and/or Android real devices for your tests](/mobile-apps/automated-testing/appium/real-devices).
 
 <table>
   <tr>
@@ -501,17 +501,17 @@ Below are capabilities required for dynamic allocation of [iOS and/or Android re
 
 Below are optional capabilities for dynamic allocation of iOS and/or Android real devices for your tests.
 
-*  [`tabletOnly`](https://docs.saucelabs.com/dev/test-configuration-options#tabletOnly)
-*  [`phoneOnly`](https://docs.saucelabs.com/dev/test-configuration-options#phoneOnly)
-*  [`privateDevicesOnly`](https://docs.saucelabs.com/dev/test-configuration-options#privateDevicesOnly)
-*  [`publicDevicesOnly`](https://docs.saucelabs.com/dev/test-configuration-options#publicDevicesOnly)
-*  [`carrierConnectivityOnly`](https://docs.saucelabs.com/dev/test-configuration-options#carrierConnectivityOnly)
-*  [`cacheId`](https://docs.saucelabs.com/dev/test-configuration-options#cacheId)
-*  [`noReset`](https://docs.saucelabs.com/dev/test-configuration-options#noreset)
-*  [`recordDeviceVitals`](https://docs.saucelabs.com/dev/test-configuration-options#recordDeviceVitals)
-*  [`crosswalkApplication`](https://docs.saucelabs.com/dev/test-configuration-options#crosswalkApplication)
-*  [`autoGrantPermissions`](https://docs.saucelabs.com/dev/test-configuration-options#autoGrantPermissions)
-*  [`enableAnimations`](https://docs.saucelabs.com/dev/test-configuration-options#enableAnimations)
+*  [`tabletOnly`](/dev/test-configuration-options#tabletOnly)
+*  [`phoneOnly`](/dev/test-configuration-options#phoneOnly)
+*  [`privateDevicesOnly`](/dev/test-configuration-options#privateDevicesOnly)
+*  [`publicDevicesOnly`](/dev/test-configuration-options#publicDevicesOnly)
+*  [`carrierConnectivityOnly`](/dev/test-configuration-options#carrierConnectivityOnly)
+*  [`cacheId`](/dev/test-configuration-options#cacheId)
+*  [`noReset`](/dev/test-configuration-options#noreset)
+*  [`recordDeviceVitals`](/dev/test-configuration-options#recordDeviceVitals)
+*  [`crosswalkApplication`](/dev/test-configuration-options#crosswalkApplication)
+*  [`autoGrantPermissions`](/dev/test-configuration-options#autoGrantPermissions)
+*  [`enableAnimations`](/dev/test-configuration-options#enableAnimations)
 
 
 ### Static Device Allocation
@@ -787,7 +787,7 @@ TestObject, our [Legacy Real Device Platform](https://saucelabs.com/platform/tes
 Once you're up and running with your real device tests, check out our [Best Practices](https://community.saucelabs.com/search?q=best+practice&search_type=tag;) for making the most of your testing. Here are some examples:
 
 * [Test Configuration Options](/dev/test-configuration-options)
-* [Implement timeouts to control text execution times](https://docs.saucelabs.com/dev/test-configuration-options#timeouts)
+* [Implement timeouts to control text execution times](/dev/test-configuration-options#timeouts)
 * [Add test annotations](/basics/test-config-annotation/test-annotation)
 * [Setting test status to pass or fail](/test-results/test-status)
 * [Use Build IDs and tags to differentiate and identify test runs](/basics/test-config-annotation/test-annotation)
@@ -802,5 +802,6 @@ These Appium script examples can help streamline your real device testing proces
 
 Visit our [sample test frameworks GitHub repository](https://github.com/saucelabs-sample-test-frameworks?utf8=%E2%9C%93&q=appium&type=&language=) for more detailed language-specific examples.
 
->**NOTE**: For Example Purposes Only
+:::note For Example Purposes Only
 The code in these scripts is provided on an "AS-IS” basis without warranty of any kind, either express or implied, including without limitation any implied warranties of condition, uninterrupted use, merchantability, fitness for a particular purpose, or non-infringement. Your tests and testing environments may require you to modify these scripts. Issues regarding these scripts should be submitted through <a href="https://github.com/saucelabs-training">Sauce Labs GitHub</a>. These scripts are not maintained by Sauce Labs Support.
+:::

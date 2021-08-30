@@ -95,7 +95,7 @@ You can manage many of the plugin settings from within the Jenkins dashboard to 
       </tr>
       <tr>
         <td><b>Disable sending build usage stats to Sauce Labs</b></td>
-        <td><i>Not sure what this means? Need to look up</i></td>
+        <td>Omit build usage information when transmitting test results data to Sauce Labs.</td>
       </tr>
       <tr>
         <td><b>Override Sauce Connect Path</b></td>
@@ -257,7 +257,7 @@ The following environment variables are relevant for Sauce Labs tests running in
 |`SELENIUM_STARTING_URL`|The value of the Starting URL field.|This value is not populated by any configuration setting.|
 |`SAUCE_ONDEMAND_BROWSERS`|A JSON-formatted string containing a set of attributes for multiple operating system and browser combinations.|Populated when you select more than one **WebDriver** or **Appium** value during project configuration.|
 |`TUNNEL_IDENTIFIER`|The unique tunnel identifier used when Sauce Connect is launched.| Populated when the **Create a new unique Sauce Connect tunnel per build** option is selected during project configuration.|
-|`JENKINS_BUILD_NUMBER`|The ID of the build the Sauce OnDemand plugin will use when showing results that are not in the logs|How is this populated?|
+|`JENKINS_BUILD_NUMBER`|The ID of the build the Sauce OnDemand plugin will use when showing results that are not in the logs.|Populated when the `buildName` capability is set for the test.|
 |`SAUCE_BUILD_NAME`|The name of the build the Sauce OnDemand plugin will use when showing test results.|The plugin automatically populates this this value at run-time with `${JOB_NAME}_${BUILD_NUMBER}`.|
 
 ### Referencing Environment Variables in Your Tests
@@ -393,4 +393,8 @@ The `{saucePublisher}` function lets you send test result data to Sauce Labs. Se
 1. Select **saucePublisher: Run Sauce Labs Test Publisher** and **Generate Groovy**.
 1. Add the returned snippet to your Groovy script.
 
-> **NOTE:** You need not wrap the `{saucePublisher}` in the `{sauce}` snippet, but do include the `{saucePublisher}` in some part of the Pipeline file in order to report the results.
+:::note
+You need not wrap the `{saucePublisher}` in the `{sauce}` snippet, but do include the `{saucePublisher}` in some part of the Pipeline file in order to report the results.
+:::
+
+<p className="deis">We recognize that there are times we use words that are part of a troublesome history. We're working toward replacing these as part of the move to inclusive language within the tech community as a whole.</p>

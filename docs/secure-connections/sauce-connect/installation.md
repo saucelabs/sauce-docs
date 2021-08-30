@@ -30,7 +30,7 @@ This topic describes where and how to Sauce Connect Proxy to your local machine.
 * **bin directory**
     * **sc.exe**: Sauce Connect Proxy client executable file
 * **config_examples directory**
-    * **config.yml file**: An example configuration file to be used with the `--config-file` command-line option. See [Sauce Connect Proxy Command-Line Reference](dev/cli/sauce-connect-proxy) for more information.
+    * **config.yml file**: An example configuration file to be used with the `--config-file` command-line option. See [Sauce Connect Proxy Command-Line Reference](/dev/cli/sauce-connect-proxy) for more information.
     * **systemd directory**: Contains sample files for use with the systemd service manager to start and stop Sauce Connect Proxy. Consult the **config_examples** > **systemd** > ** README.md** file for more information.
     * **upstart directory**: Contains sample files for use with the upstart service manager to start and stop Sauce Connect Proxy. Consult the **config_examples** > **upstart** > **README.md** file for more information.
 * **COPYRIGHT.md file**
@@ -80,7 +80,3 @@ The location will vary, depending on your operating system. For Mac OS X and Lin
 ## Changelog
 
 See [Sauce Connect Proxy Changelog](/secure-connections/sauce-connect/changelog).
-
-:::note
-Effective with Sauce Connect Proxy version 4.6.0, we've enabled support for Public Certificates and deprecated support for Private Certificates. See [Sauce Connect Proxy Changelog](/secure-connections/sauce-connect/changelog) for more detailed information.
-:::

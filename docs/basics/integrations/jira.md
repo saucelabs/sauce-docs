@@ -13,8 +13,6 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<p><small><span class="highlight beta">BETA</span></small></p>
-
 Integrate your Sauce Labs and [Atlassian Jira](https://www.atlassian.com/software/jira) user accounts so you can create or update Jira issues from within the Sauce Labs dashboard.
 
 

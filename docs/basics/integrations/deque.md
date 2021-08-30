@@ -47,7 +47,7 @@ values={[
 <TabItem value="java">
 
 We highly recommend using the Java [Sauce Bindings](https://opensource.saucelabs.com/sauce_bindings/).
-Check out the description and examples for the new [Accessibility functionality](https://opensource.saucelabs.com/sauce_bindings/docs/accessibility).
+Check out the description and examples for the new [Accessibility functionality](https://opensource.saucelabs.com/sauce_bindings/accessibility).
 
 The following is information on how to use the Java Deque Axe Selenium library directly:
 
@@ -126,7 +126,7 @@ browser.getAxeResults()
 <TabItem value="python">
 
 We highly recommend using the Python [Sauce Bindings](https://opensource.saucelabs.com/sauce_bindings/).
-Check out the description and examples for the new [Accessibility functionality](https://opensource.saucelabs.com/sauce_bindings/docs/accessibility).
+Check out the description and examples for the new [Accessibility functionality](https://opensource.saucelabs.com/sauce_bindings/accessibility).
 
 The following is information on how to use the Python `sa11y` library directly:
 
@@ -159,7 +159,7 @@ https://github.com/saucelabs-training/demo-python/blob/900b3a/examples/accessibi
 <TabItem value="ruby">
 
 We highly recommend using the Ruby [Sauce Bindings](https://opensource.saucelabs.com/sauce_bindings/). 
-Check out the description and examples for the new [Accessibility functionality](https://opensource.saucelabs.com/sauce_bindings/docs/accessibility).
+Check out the description and examples for the new [Accessibility functionality](https://opensource.saucelabs.com/sauce_bindings/accessibility).
 
 The following is information on how to use the Ruby `sa11y` library directly:
 
@@ -226,7 +226,7 @@ For more detailed usage, [Read the documentation](https://troywalshprof.github.i
 ## Additional Resources
 * [Deque Sauce Labs Integration Documentation](https://www.deque.com/saucelabs/get-started/)
 * [Sauce Labs / Deque Marketing Blog Post](https://saucelabs.com/news/sauce-labs-and-deque-systems-join-forces-to-help-enterprises-ensure-digital-accessibility)
-* [Sauce Bindings Accessibility Feature](https://opensource.saucelabs.com/sauce_bindings/docs/accessibility)
+* [Sauce Bindings Accessibility Feature](https://opensource.saucelabs.com/sauce_bindings/accessibility)
 * [Deque `axe-core` Selenium Integration for Java](https://github.com/dequelabs/axe-core-maven-html)
 * [Sa11y - Selenium Accessibility for Python & Ruby](https://github.com/saucelabs/sa11y)
 * [Deque `axe-core` Example WebdriverIO Project](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/webdriverio)

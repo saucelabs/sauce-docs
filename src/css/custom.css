@@ -37,6 +37,7 @@
 @import "api-override.css";
 @import "announcement-bar.css";
 @import "fw-badge-override.css";
+@import "admonitions.css";
 @import url('https://use.typekit.net/bte6qhg.css');
 
 .tk-museo-sans { font-family: "museo-sans",sans-serif; }
@@ -119,6 +120,13 @@ html[data-theme='light'] {
     --ifm-alert-color: #474c55;
 }
 
+html[data-theme='dark'] footer.row.docusaurus-mt-lg {
+    background-color: #18191a;
+}
+
+html[data-theme='light'] footer.row.docusaurus-mt-lg {
+    background-color: #FFFFFF;
+}
 
 .hero--primary {
     --ifm-hero-background-color: var(--ifm-color-primary-darkest);
@@ -269,133 +277,14 @@ h6, .h6 {
     font-size: 12px;
 }
 
-/* Callout styles */
+/*Inclusivity statement*/
 
-.alert a {
-  color: #E2231A;
-}
-
-.alert {
-  border-left: 5px solid #C1C3C7;
-  margin-left: 50px;
-  margin-right: 25px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 10px;
-  background-color: transparent;
-  border-top: none;
-  border-bottom: none;
-  border-right: none;
-  border-radius: 0px;
-}
-
-.admonition-note {
-  border-left: 5px solid #C1C3C7;
-  margin-left: 50px;
-  margin-right: 25px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 10px;
-  background-color: transparent;
-  border-top: none;
-  border-bottom: none;
-  border-right: none;
-  border-radius: 0px;
-}
-
-.admonition-note h5 {
-  /*color: #474c55;*/
-  font-weight: bold;
-}
-
-.admonition-note .admonition-icon svg {
-  stroke: #474c55;
-  fill: #C1C3C7;
-}
-
-.admonition-tip {
-  border-left: 5px solid #01c3a5;
-  /*color: #474c55;*/
-  margin-left: 50px;
-  margin-right: 25px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 10px;
-  background-color: transparent;
-  border-top: none;
-  border-bottom: none;
-  border-right: none;
-  border-radius: 0px;
-}
-
-.admonition-tip h5 {
-  /*color: #474c55;*/
-  font-weight: bold;
-}
-
-.admonition-tip .admonition-icon svg {
-  stroke: #474c55;
-  fill: #01c3a5;
-}
-
-.admonition-caution {
-  border-left: 5px solid #fbd741;
-  /*color: #474c55;*/
-  margin-left: 50px;
-  margin-right: 25px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 10px;
-  background-color: transparent;
-  border-top: none;
-  border-bottom: none;
-  border-right: none;
-  border-radius: 0px;
-}
-
-.admonition-caution h5 {
-  /*color: #474c55;*/
-  font-weight: bold;
-}
-
-.admonition-caution .admonition-icon svg {
-  stroke: #474c55;
-  fill: #fbd741;
-}
-
-.admonition-warning {
-  border-left: 5px solid #ec5c26;;
-  /*color: #474c55;*/
-  margin-left: 50px;
-  margin-right: 25px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 10px;
-  background-color: transparent;
-  border-top: none;
-  border-bottom: none;
-  border-right: none;
-  border-radius: 0px;
-}
-
-.admonition-warning h5 {
-  /*color: #474c55;*/
-  font-weight: bold;
-}
-
-.admonition-warning .admonition-icon svg {
-  stroke: #474c55;
-  fill: #ec5c26;;
+.deis {
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 75px;
+  text-align: center;
+  font-style: italic;
 }
 
 
@@ -507,6 +396,20 @@ h6, .h6 {
   font-weight:750;
 }
 
+.AndroidOnly {
+  background:#a4c639;
+  color:#FFFFFF;
+  padding:.2rem;
+  font-weight:750;
+}
+
+.iOSOnly {
+  background:#333333;
+  color:#FFFFFF;
+  padding:.2rem;
+  font-weight:750;
+}
+
 .preview {
     background:#01c3a5;
     color: #FFFFFF;
@@ -520,28 +423,29 @@ h6, .h6 {
 /* announcementBar button */
 
 .announcementBar {
-  border: 1px solid #0E75DD;
-  border-radius: 11px;
+  border: 0.5px solid #F0F0F0;
+  border-radius: 4px;
   padding: 1px 9px;
-  color: #0E75DD;
-  font-weight: 550;
-  font-size: 13px;
-  line-height: 13px;
+  color: #F0F0F0;
+  background-color: #0D65BE;
+  font-weight: 500;
+  font-size: 17px;
+  font-family: "museo-sans",sans-serif;
+  line-height: 16px;
 }
 
 .announcementBar:hover {
-  background-color: #2f76d6;
-  color: #FFFFFF;
+  background-color: #3a7cbd;
+  color: #F0F0F0;
   cursor:pointer;
 }
 
 .announcementBar:active {
-  background:linear-gradient(bottom, rgba(183,29,21,1) 0%, rgba(226,35,26,1) 100%);
-  color:#E6F1FD;
+  background:linear-gradient(to bottom, rgb(255,255,255) 0%, rgb(255,255,255) 100%);
+  color:#F0F0F0;
   box-shadow: 0px 1px 0px #b71d15, 0px 1px 1px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 1px rgba(255,255,255,.5);
   transform:translate(0, 2px);
 }
-
 
 
 
@@ -602,7 +506,7 @@ h6, .h6 {
 }
 
 .download:active {
-  background:linear-gradient(bottom, rgba(183,29,21,1) 0%, rgba(226,35,26,1) 100%);
+  background:linear-gradient(to bottom, rgba(183,29,21,1) 0%, rgba(226,35,26,1) 100%);
   color:#EDEDEF;
   box-shadow: 0px 2px 0px #b71d15, 0px 1px 3px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
   transform:translate(0, 4px);
@@ -773,6 +677,9 @@ a.hero__button {
 }
 .dev-resources__list ul li a {
   color: #E12726;
+}
+table.code td:last-child {
+    width: 100%;
 }
 /* footer styles */
 footer {

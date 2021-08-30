@@ -31,7 +31,7 @@ Get a list of recent jobs run by the specified user.
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs user whose jobs you are looking up. You can look up Sauce Labs users in your organization using the <a href="accounts/#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs user whose jobs you are looking up. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -160,7 +160,7 @@ Get detailed information about a specific job.
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs user whose jobs you are looking up. You can look up Sauce Labs users in your organization using the <a href="accounts/#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs user whose jobs you are looking up. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -271,7 +271,7 @@ Edit job attributes based on parameters passed in the request, including setting
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job you are updating. You can look up Sauce Labs users in your organization using the <a href="accounts/#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job you are updating. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-usersaccounts/">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -462,7 +462,7 @@ Get detailed information about a specific job.
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job to stop. You can look up Sauce Labs users in your organization using the <a href="accounts/#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job to stop. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -633,7 +633,7 @@ Delete the entire test history and all assets for the specified user.
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs user whose jobs you are deleting. You can look up Sauce Labs users in your organization using the <a href="accounts/#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs user whose jobs you are deleting. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -701,7 +701,7 @@ Get a list of files associated with a specific test, such as the logs, video, an
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job. You can look up Sauce Labs users in your organization using the <a href="accounts/#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -789,7 +789,7 @@ Retrieve one of the asset files associated with a job, such as a log file, video
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job. You can look up Sauce Labs users in your organization using the <a href="accounts/#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1023,7 +1023,7 @@ Sauce Labs retains job asset files for 30 days, after which, they are purged, bu
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job. You can look up Sauce Labs users in your organization using the <a href="accounts/#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1152,7 +1152,7 @@ Get a list of recent builds run by the specified user.
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs users whose builds you are looking up. You can look up Sauce Labs users in your organization using the <a href="accounts/#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs users whose builds you are looking up. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>

@@ -21,7 +21,7 @@ saucectl run -c ./path/to/{config-file}.yml
 ```
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](testrunner-toolkit/ide-integrations/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](/testrunner-toolkit/ide-integrations/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
 :::
 
 
@@ -210,6 +210,11 @@ The directory of files that need to be bundled and uploaded for the tests to run
 ```yaml
   rootDir: "packages/subpackage" # Some other package from within a monorepo
 ```
+
+:::caution
+Only the files contained within `rootDir` will be available during the tests. Any reference to a file that is not included in `rootDir` will make the tests fail.
+:::
+
 ---
 
 ## `npm`
@@ -247,7 +252,18 @@ Specifies any NPM packages that are required to run tests and should, therefore,
     "@babel/preset-typescript": "7.12"
 ```
 ---
+## `reporters`
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
+Configures additional reporting capabilities provided by `saucectl`.
+
+```yaml
+reporters:
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
+```
+---
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -410,16 +426,15 @@ Setting `0` reverts to the value set in `defaults`.
 ```
 ---
 
----
-
 ### `browserArgs`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Pass flags to configure how Puppeteer launches the selected browser. Review supported flags for [Chrome/Chromium](https://peter.sh/experiments/chromium-command-line-switches/)
+Pass flags to configure how TestCafe launches the selected browser. Review supported flags for [Chrome/Chromium](https://peter.sh/experiments/chromium-command-line-switches/)
 
 ```yaml
     browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
 ```
+---
 
 ## Advanced Configuration Considerations
 
