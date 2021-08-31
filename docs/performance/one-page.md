@@ -64,12 +64,14 @@ Sauce Performance supports the following Speedo commands:
 * speedo run - Get the set of standard performance metrics for any pre-defined URL
 * speedo analyze - Validate the performance of URLs that are accessed by one of the previously run WebDriver tests.
 
-> **NOTE:** The Speedo commands require your SAUCE_USERNAME and SAUCE_ACCESS_KEY. Export the values into your environment in order to avoid passing them as parameters each time you call a Speedo command. For example:
->
-> ```bash
-> $ export SAUCE_USERNAME=Slavocado
-> $ export SAUCE_ACCESS_KEY=XXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\
-> ```
+:::note
+The Speedo commands require your SAUCE_USERNAME and SAUCE_ACCESS_KEY. Export the values into your environment in order to avoid passing them as parameters each time you call a Speedo command. For example:
+
+```bash
+$ export SAUCE_USERNAME=Slavocado
+$ export SAUCE_ACCESS_KEY=XXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\
+```
+:::
 
 ### Run Command: Test a Single URL
 
@@ -108,7 +110,9 @@ The Speedo analyze command allows you to compare the performance of multiple URL
 
 `$ speedo analyze "<test name>"`
 
-> **NOTE:** The specified test must have the appropriate options set for Performance.
+:::note
+The specified test must have the appropriate options set for Performance.
+:::
 
 #### Analyze Command Configuration
 
