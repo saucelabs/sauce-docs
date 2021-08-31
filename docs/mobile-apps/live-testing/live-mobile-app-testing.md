@@ -80,6 +80,10 @@ On the **App Selection** page, hover over the app you want to test and then clic
 
 The device selection page will open, with the option to test on a real device or a virtual device.
 
+:::note
+If you are testing an iOS app, the **Virtual Devices** tab will only appear if the app is configured for simulators.
+:::
+
 #### Real Devices
 On the device selection page, click the **Mobile Real** tab. Use the search box and filters to find the device you want to test on, or select the device in the grid.
 
