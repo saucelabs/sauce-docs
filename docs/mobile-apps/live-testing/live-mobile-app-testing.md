@@ -55,7 +55,7 @@ To easily copy a test's file name or ID, hover over the test and then click the 
 | Image Injection | Enable/disable image injection. Image injection allows you to mimic camera behavior when testing applications by letting you upload an image and present it to the application as if it were read by the device camera. |
 | Bypass Screenshot Restriction <br/><p><span className="sauceDBlue">ANDROID ONLY</span></p> | Enable/disable Bypass Screenshot Restriction (not supported on applications uploaded to the legacy sauce storage). Enabling **Bypass Screenshot Restriction** allows you to take screenshots of your app during tests, even if your app does not allow screenshots for security reasons. |
 | System Alerts Display <br/><p><span className="sauceDBlue">iOS Only</span></p> | Enable/disable a system alerts delay. Enabling delays alerts, such as asking for permission to access the camera, to prevent app crashes at startup. |
-| Biometrics Interception | Enable/disable biometrics. Enabling allows you to choose authentication options if your mobile app requires a biometric authentication, such as Touch ID or Face ID. |
+| Biometrics Interception | Enable/disable biometrics. Enabling allows you to choose authentication options if your mobile app requires a biometric authentication, such as fingerprint or face recognition on Android, and Face ID or Touch ID on iOS. |
 | Group Folder Redirect <br/><p><span className="sauceDBlue">iOS Only</span></p> | Enable/disable a group directory redirect. Enabling allows you to use your app's private app container directory instead of the shared app group container directory. When your app gets resigned, the shared directory is not accessible. |
 
 :::note
@@ -250,7 +250,7 @@ To make Apple Pay work on Sauce Labs real private devices:
   1. Manually adding the device and its UDID to the device list for your developer certificate.
   **NOTE:** Your device list can be found on Apple’s [Certificates, Identifiers & Profiles page](https://developer.apple.com/account/resources/) for your developer account, and you can get the UDID of your private device by contacting your Sauce Labs CSM.
   2. Using the Sauce Labs Virtual USB solution:
-      1. Start a session with Virtual USB (see [Testing with Virtual USB on Real Devices](/mobile-apps/virtual-usb) for more information).
+      1. Start a session with Virtual USB (see [Testing with Virtual USB on Real Devices](/mobile-apps/features/virtual-usb) for more information).
       2. When the connection is established, open **XCODE**.
       3. Select the device from the device list.
 
@@ -339,39 +339,3 @@ Once the app has been uploaded and re-signing has been disabled, you can start t
 <img src={useBaseUrl('img/live-testing/apple-pay-14.png')} alt="Apple Pay setup - Demo app" width="250"/>
 
 <img src={useBaseUrl('img/live-testing/apple-pay-15.png')} alt="Apple Pay setup - Demo app" width="250"/>
-
-
-
-## Camera Image Injection
-
-Camera Image Injection is a core feature built into our RDC functionality and available for use with public and private devices. Your mobile app accesses the camera and instead of getting back the picture of the device camera, it'll retrieve your uploaded image for your test. You employ the built-in device camera in your live and automated testing and perform test cases that require taking images with any of the device cameras.
-
-### Key Specs
-**Supported**
-* All iOS and Android devices available in the RDC
-* Front-facing and rear-facing system device cameras
-* Image file sizes up to 5MB
-* JPG, JPEG, PNG image file formats
-
-**Not Supported**
-* Ephemeral apps (i.e., app with temporary messages that disappear after a certain timeframe)
-* Testing with emulators, simulators
-
-### What You'll Need
-You'll need to upload your app to Sauce Labs prior to testing (see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing)).
-
-### Testing with Camera Image Injection
-1. In Sauce Labs, click **LIVE** and then click **Mobile App**.
-2. On the **App Selection** test page, hover over the test and then click **Settings**.
-
-<img src={useBaseUrl('img/live-testing/live-mobile-app-settings-nav.png')} alt="Mobile app settings navigation" width="650"/>
-
-3. On the **Settings** page, ensure that **Image Injection** is enabled and then return to the **App Selection** page.
-4. On the **App Selection** test page, hover over the test and then click **Choose Device**.
-5. On the device selection page, hover over a device and then click **Launch**.
-6. When you want to capture an image of the test, in the right toolbar, click the **Camera** icon.
-7. Click **Choose Image** and navigate to the image you want to use.
-
-<img src={useBaseUrl('img/live-testing/live-mobile-app-camera-nav.png')} alt="Camera image injection navigation" width="450"/>
-
-8. Activate the camera inside of your app. The device will show your uploaded image in the app as if the image was taken by the device camera. The image will continue to be available, should you go back to the camera during your test session, or you can upload another image and capture it with the camera.

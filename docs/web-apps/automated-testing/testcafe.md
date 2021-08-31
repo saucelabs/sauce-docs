@@ -1,22 +1,14 @@
 ---
 id: testcafe
 title: TestCafe on Sauce Labs
-sidebar_label: Getting Started
+sidebar_label: Using TestCafe
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
- Use `saucectl` -- the Sauce Labs test orchestrator CLI -- to run [TestCafe](https://github.com/DevExpress/testcafe) tests directly from your existing TestCafe project.
-
- * Don't have TestCafe tests but want to try? The  [TestCafe Demo Repo](https://github.com/saucelabs/saucectl-testcafe-example) includes a sample project structure, working configuration file, and sample TestCafe test so you can get up and running in less than 10 minutes!
- * Already running TestCafe? Let `saucectl` run your tests in the Sauce Labs Cloud, where you have access to thousands of OS/browser combinations and Sauce Labs analytics.  
-
-## What You'll Need
-
- * A Sauce Labs account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
- * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+[TestCafe](https://github.com/DevExpress/testcafe) is an easy-to-use testing framework that you can use to test your applications either locally in Docker or through Sauce Labs using the [saucectl CLI](/testrunner-toolkit/saucectl), giving you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
 
 ### Supported Testing Platforms
 
@@ -155,44 +147,8 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 </TabItem>
 </Tabs>
 
-## Quickstart
+## How to Get Started
 
-### Step 1: Install `saucectl`
-
-```
-npm install -g saucectl
-```
-
-### Step 2: Link Your Sauce Labs Account
-
-`saucectl` requires access to a valid Sauce Labs account.
-
-1. Run the `configure` command:     
-    ```
-    saucectl configure
-    ```
-1. Enter your Sauce Labs Username and Access Key at the prompts.
-
-:::tip Use Environment Variables
-You can set your Sauce Labs credentials as [environment variables](/basics/environment-variables) instead of generating a `credentials.yml`, if you prefer. In systems where both sets of credentials exist, environment variable values are prioritized.
-:::
-
-### Step 3: Set up Your TestCafe Project
-
- Check out the [TestCafe Demo Repo](https://github.com/saucelabs/saucectl-testcafe-example) to get a TestCafe project structure, TestCafe-ready configuration file, and sample TestCafe test.
-
-### Step 4: Run Tests
-
-Use the `run` command to execute the sample test included with the `saucectl` installation.
-
-```
-saucectl run
-```
-
-The console displays the executing tests, distinguishing which mode is running.
-
-The results and test assets are immediately available in the [Sauce Labs dashboard](https://app.saucelabs.com/dashboard/tests/vdc):
-
-## Set up Your Own Tests
-
-The demo repo provides an easy baseline for seeing `saucectl` work, but if you already have TestCafe tests, you can customize `saucectl` to run those tests just by modifying the `config.yml` file. See [Configuring Your TestCafe Tests](/testrunner-toolkit/configuration/testcafe) for details.
+* [Quickstart](/web-apps/automated-testing/testcafe/quickstart): Use our demo repo to quickly set up and run a sample TestCafe project and test to see the results.
+* [Run Your own Tests](/testrunner-toolkit/configuration/testcafe): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
+* [Incorporate saucectl in your pipeline](/testrunner-toolkit/integrations): TestCafe on Sauce supports CI integrations with Cirlce CI, GitLab, Jenkins, and GitHub Actions.

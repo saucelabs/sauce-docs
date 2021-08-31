@@ -25,7 +25,7 @@ Virtual USB (vUSB) is a mobile (app) debugging tool that simulates connecting a 
 
 ## What You'll Need
 
-<p><Highlight color="#013a70">Enterprise Plans Only</Highlight></p>
+<small><span className="sauceDBlue">Enterprise Plans Only</span></small>
 
 * For security reasons, you'll need to have [Sauce Labs Private Devices](https://saucelabs.com/platform/real-device-cloud) enabled as part of your [enterprise pricing plan](https://saucelabs.com/solutions/enterprise) to use Virtual USB. This feature allocates a dedicated pool of Sauce Labs real devices to your organization only.
 * Windows, macOS, or Linux operating system.
@@ -41,7 +41,7 @@ Virtual USB (vUSB) is a mobile (app) debugging tool that simulates connecting a 
 * If you need to use [Sauce Connect Proxy](/secure-connections/sauce-connect), you'll need to have the client installed first.
 
 
-## Virtual USB for Sauce Labs
+## Using Virtual USB
 
 :::tip CLI Reference
 See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB test configuration commands and options. You can also view them directly in the vUSB client by running `java -jar virtual-usb-client.jar --help`.
@@ -251,7 +251,7 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
 
 ### Test and Debug
 
-8. Now, you can debug and run tests on your app. For guidance and ideas, see the [Example Use Cases](https://docs.saucelabs.com/mobile-apps/virtual-usb#example-use-cases).
+8. Now, you can debug and run tests on your app. For guidance and ideas, see the [Example Use Cases](https://docs.saucelabs.com/mobile-apps/features/virtual-usb#example-use-cases).
 
 :::caution iOS Limitation
 To do proper debugging, the iOS device symbols will need to be downloaded to your local machine. This happens automatically when you're connecting to a Sauce Labs iOS device for the first time via a remote debug vUSB session with Xcode. **Xcode will attempt to download the iOS device symbols over the vUSB tunnel, causing a lag that can last up to a few minutes.**
@@ -372,7 +372,7 @@ open /tmp/screen.png
 To deploy and debug your iOS apps, you can use Xcode. To debug your website, we recommend using the developer tools within Safari.
 
 #### **Xcode Debugging**
-> **NOTE**: Before debugging with Xcode, please read the known limitations under [Test and Debug](https://docs.saucelabs.com/mobile-apps/virtual-usb#test-and-debug).
+> **NOTE**: Before debugging with Xcode, please read the known limitations under [Test and Debug](https://docs.saucelabs.com/mobile-apps/features/virtual-usb#test-and-debug).
 
 To profile your app: from your Xcode nav, select **Product** > **Profile**. It will automatically profile the app and generate a new menu, as shown below.
 
