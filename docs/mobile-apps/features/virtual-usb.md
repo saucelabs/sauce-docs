@@ -4,13 +4,6 @@ title: Virtual USB Testing on Real Mobile Devices
 sidebar_label: Virtual USB (Real Devices)
 ---
 
-export const Highlight = ({children, color}) => ( <span style={{
-      backgroundColor: color,
-      borderRadius: '2px',
-      color: '#fff',
-      padding: '0.2rem',
-    }}>{children}</span> );
-
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -127,9 +120,9 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
   java -jar virtual-usb-client.jar connect --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
   ```
 
-  > **NOTE:** Method 1 is recommended for the following reasons:
-  > - All menu options to control the device are available with Method 1 and **NOT** with Method 2.
-  > - Interactions and gestures on an iOS device session are much faster in comparison to Method 2.
+  >**NOTE:** Method 1 is recommended for the following reasons:
+  > * All menu options to control the device are available with Method 1 and **NOT** with Method 2.
+  > * Interactions and gestures on an iOS device session are much faster in comparison to Method 2.
 
   If your vUSB test session launch is successful, you'll see a success message:
   <Tabs
@@ -372,7 +365,9 @@ open /tmp/screen.png
 To deploy and debug your iOS apps, you can use Xcode. To debug your website, we recommend using the developer tools within Safari.
 
 #### **Xcode Debugging**
-> **NOTE**: Before debugging with Xcode, please read the known limitations under [Test and Debug](https://docs.saucelabs.com/mobile-apps/features/virtual-usb#test-and-debug).
+:::note
+Before debugging with Xcode, please read the known limitations under [Test and Debug](https://docs.saucelabs.com/mobile-apps/features/virtual-usb#test-and-debug).
+:::
 
 To profile your app: from your Xcode nav, select **Product** > **Profile**. It will automatically profile the app and generate a new menu, as shown below.
 
