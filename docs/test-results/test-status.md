@@ -9,8 +9,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## What You'll Learn
-* How to use the JavaScript Executor to update the status of your test at the end of the session
-* How to use the Sauce Labs REST API to update the status of your test after it has already completed
+* How to use the JavaScript Executor to update the status of your test at the end of the session.
+* How to use the Sauce Labs REST API to update the status of your test after it has already completed.
+
+## What You'll Need
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 
 ## Update Test Status in Session
 You can use the Selenium JavaScript Executor to annotate your test in the @after hook. This is the ideal means of writing your tests to interpret the results as a pass/fail and update the status accordingly.
