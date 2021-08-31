@@ -55,7 +55,7 @@ Each demo repo includes a sample `config.yml` file (in the `<root>/.sauce` direc
 
 Modify the `config.yml` file to run your existing tests.
 
-* **Test Object Migration:** refer to the [Commands Map](#legacy-to-saucectl-commands-map) to determine which CLI commands and/or YAML configuration properties to use based on your Test Object configurations.
+* **TestObject Migration:** refer to the [Commands Map](#legacy-to-saucectl-commands-map) to determine which CLI commands and/or YAML configuration properties to use based on your TestObject configurations.
 * **New Accounts:** see the `saucectl` configuration documentation for [Espresso](/testrunner-toolkit/configuration/espresso) and [XCUITest](/testrunner-toolkit/configuration/xcuitest).
 
 :::tip Alternative Config Files
@@ -69,11 +69,12 @@ saucectl run -c ./path/to/<configFile>.yml
 
 ### Legacy to `saucectl` Commands Map
 
-`saucectl` configures and runs your Espresso and XCUITest tests entirely from the CLI and YAML configuration settings. The following tables provide a list of testing actions, mapping the Test Object configuration settings to the equivalent settings in `saucectl`. These maps are separated by CLI commands and YAML properties for ease of navigation.
+`saucectl` configures and runs your Espresso and XCUITest tests entirely from the CLI and YAML configuration settings. The following tables provide a list of testing actions, mapping the TestObject configuration settings to the equivalent settings in `saucectl`. Both TestObject and Sauce Labs utilize CLI commands and YAML configuration files to define the many ways in which you can run your tests. Some actions can be set using either a CLI command _or_ a YAML property, while other actions can only be configured by one or the other, so the maps below are separated by CLI commands and YAML properties for ease of navigation.
 
-:::note
-Both Test Object and Sauce Labs utilize CLI commands and YAML configuration files to define the many ways in which you can run your tests. Some actions can be set using either a CLI command _or_ a YAML property, while other actions can only be configured by one or the other.
+:::important
+Real Device testing on Sauce Labs is data center contingent, so you will only have access to the public and private devices available within the data center specified for the test, rather than the entire body of devices across all data centers. Each data center includes a very similar  variety of devices and operating systems to provide a broad selection for testing, but depending on your organization’s concurrency allowances, this separation may affect the number of tests you can run in parallel.
 :::
+
 
 <Tabs
   defaultValue="cli"
@@ -88,7 +89,7 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Configuration | Legacy CLI | saucectl CLI |
 | ----------------------------------- | --- | --- |
 | Specify the framework. | `espresso` or `xcuitest` | Must use YAML |
-| Pass account credentials (Test Object). | `--apikey` | [Create Credentials file](/testrunner-toolkit/installation#associating-your-sauce-labs-account) |
+| Pass account credentials (TestObject). | `--apikey` | [Create Credentials file](/testrunner-toolkit/installation#associating-your-sauce-labs-account) |
 | Provide the location of the app to be tested. | `--app` | Must use YAML |
 | Provide the location of the test app. | `--test` | Must use YAML |
 | Identify your applicable data center. | `--datacenter` | `--region` |
