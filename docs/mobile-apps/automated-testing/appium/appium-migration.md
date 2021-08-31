@@ -45,7 +45,7 @@ Follow the steps outlined here to modify your existing test builds to utilize an
 
 Replace the Remote URL endpoint in your tests to access the Sauce Labs platform, for example:
 
-|Region|Test Object URL|Sauce Labs URL|
+|Region|TestObject URL|Sauce Labs URL|
 |---|-----------|-----------|
 |US|<small>`https://us1.appium.testobject.com/wd/hub`</small>|<small>`https://ondemand.us-west-1.saucelabs.com/wd/hub`</small>|
 |EU|<small>`https://eu1.appium.testobject.com/wd/hub`</small>|<small>`https://ondemand.eu-central-1.saucelabs.com/wd/hub`</small>|
@@ -56,6 +56,10 @@ If you're using [Sauce Connect Proxy](/secure-connections/sauce-connect), our [R
 ### Step 3: Change Device Test Options
 
 Not all device model and operating system combinations will carry over from the TestObject platform to Sauce Labs. You may need to adjust your device capabilities in your test configuration.
+
+:::important
+Real Device testing on Sauce Labs is data center contingent, so you will only have access to the public and private devices available within the data center specified for the test, rather than the entire body of devices across all data centers. Each data center includes a very similar  variety of devices and operating systems to provide a broad selection for testing, but depending on your organization’s concurrency allowances, this separation may affect the number of tests you can run in parallel.
+:::
 
 #### **Device Allocations**
 To ensure your preferred [device allocations](/mobile-apps/automated-testing/appium/real-devices#configuring-appium-tests-for-real-devices) will still work when you move from TestObject to Sauce Labs, view the list of available devices for your region by logging into the Sauce Labs platform and going to **Live** > **Cross-Browser** > **Mobile Real**. For a full, non-region specific list of supported devices and platforms, see [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices).
