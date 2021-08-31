@@ -74,19 +74,19 @@ This approach to authentication works by configuring Sauce Connect Proxy to send
 
 For each URL where you need to bypass HTTP authentication, add this to your Sauce Connect Proxy startup command:
 
-```
+```bash
 --auth host:port:username:password
 ```
 
 If your website doesn't need a port, you can use the default port, `port 80`. Let's say that your website under test is `mysite.com`, your username is `awesometester`, and your password is `supersekrit`. Here's how you'd write your Sauce Connect Proxy startup command:
 
-```
+```bash
 --auth mysite.com:80:awesometester:supersekrit
 ```
 
 You can use this option multiple times in a row, like so:
 
-```
+```bash
 --auth mysite.com:80:awesometester:supersekrit --auth myothersite.com:443:awesometester:supersekrit --auth mythirdsite.com:80:awesometester:supersekrit
 ```
 

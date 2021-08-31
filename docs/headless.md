@@ -257,3 +257,9 @@ To use Sauce Connect Proxy in conjunction with your Sauce Headless tests, be sur
 This video shows you how to configure your early pipeline tests to run in Sauce Headless and determine which of your tests might be a good candidate for this lightweight and cost-effective testing solution.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/KFPcX9c1_CE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+## Additional Resources
+
+* White Paper: [Headless Testing Primer](https://saucelabs.com/resources/white-papers/headless-testing-primer)
+* White Paper: [Headless Testing - When, Where and How?](https://saucelabs.com/resources/white-papers/why-when-and-how-to-use-headless-testing)

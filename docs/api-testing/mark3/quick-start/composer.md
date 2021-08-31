@@ -17,16 +17,16 @@ Read the following page to learn more about [Integration / Multistep Testing](/a
 
 Begin using the Composer by selecting from two versions in terms of views. With either Visual or Code view, easily make calls and add assertions for testing your APIs, and insert variables wherever needed.
 
-* __Visual__ - The Visual Composer does not require coding expertise, and provides real-time suggestions via predictive text to help you create ideal API tests for your needs. 
+* __Visual__ - The Visual Composer does not require coding expertise, and provides real-time suggestions via predictive text to help you create ideal API tests for your needs.
 
   <img src={useBaseUrl('img/api-fortress/2021/01/visualView.png')} alt="Test Composer Visual View Pic"/>
 
-* __Code__ - The Code view is for users who are more comfortable working in code rather than a visual UI. 
+* __Code__ - The Code view is for users who are more comfortable working in code rather than a visual UI.
 
   <img src={useBaseUrl('img/api-fortress/2021/01/codeView.png')} alt="Test Composer Code View Pic"/>
-  
+
 :::tip API Testing Best Practices
-For more information, visit our [API Testing University](https://training.saucelabs.com/apiTesting/index.html) to research best practices and find detailed guidance.
+For more information, visit our [Sauce School API Testing course](https://training.saucelabs.com/apiTesting/index.html) to research best practices and find detailed guidance.
 :::
 
 ## Test Composer UI
@@ -38,7 +38,7 @@ Use the following image as a reference for the numbered items listed below:
 1. __Add Request__ / __Assertions__: This button displays all available components.
    If a component is not valid for the operation you are conducting, it will not be made available to help avoid mistakes.
    For instance, if you don’t add a `POST` first, you cannot add a `POST` Body or `POST` Param.
-   
+
    <img src={useBaseUrl('img/api-fortress/2019/06/components.png')} alt="Test Components"/>
 
   > __NOTE__: Free accounts do not give you access to all available components.  
@@ -57,7 +57,7 @@ Use the following image as a reference for the numbered items listed below:
 7. __Run Test__: This button executes a test.
 
 8. __Input Sets__: This button displays the Input Set view where you can store input data sets to reuse across all your tests. There are two types of input data sets you can use:
-   
+
     * _Global Parameters_ - variables that are available across all tests in the project. Reference these variables simply by calling it within the test using the convention `“${VARIABLE}”`.
     * _Input Sets_-  group of input variables representing a scenario. The test will be executed once for each input set, overriding the variable values into your test.
 

@@ -216,7 +216,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 |Puppeteer Version|Supported Browsers|
 |-----|----|
 |10.2.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.5.0)|
-|10.1.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.4.0)|
+|10.1.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.4.1)|
 |9.1.1|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.2.0)|
 |8.0.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.0.0)|
 |3.0.4|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v0.3.0)|
@@ -241,7 +241,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 The rest of the `saucectl` documentation will guide you through the process of installing and configuring the `saucectl` command line, and then using it to run your tests in the way that best suits your current development process. At a high level, you will:
 
-1. [Download and install `saucectl`](testrunner-toolkit/installation).
+1. [Download and install `saucectl`](/testrunner-toolkit/installation).
 1. Generate and configure your `saucectl` working directory.
 1. Run a sample test to verify functionality.
 
@@ -249,11 +249,11 @@ Once you are confident that `saucectl` is running, you can customize your config
 
 ### Existing Tests
 
-If you already have existing tests in your project (in `cypress` for example), once you install `saucectl`, you can just directly [modify the default configuration file](testrunner-toolkit/configuration), and  then run your existing tests.
+If you already have existing tests in your project (in `cypress` for example), once you install `saucectl`, you can just directly [modify the default configuration file](/testrunner-toolkit/configuration), and  then run your existing tests.
 
 ### Pipeline Tests
 
-If you wish to run `saucectl` as part of your DevOps CI toolchain, you can add it in your workflow by following one of our [CI integration guides](testrunner-toolkit/integrations.md).
+If you wish to run `saucectl` as part of your DevOps CI toolchain, you can add it in your workflow by following one of our [CI integration guides](/testrunner-toolkit/integrations.md).
 
 ### Sample Repos
 
