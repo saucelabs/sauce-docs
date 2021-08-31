@@ -12,7 +12,9 @@ Sauce Labs now supports the [W3C WebDriver-compliant capabilities and protocol](
 
 We early adopted the W3C WebDriver specification when it achieved the W3C standard level as the automation protocol for web browsers. As browser vendors update to support W3C WebDriver protocol and shift away from JSON Wire Protocol (JWP), this can bring increased stability in your Selenium tests across different browsers. It’s important to update your tests accordingly.
 
->**NOTE**: Some extended capabilities are not backwards-compatible with Selenium versions below 4.0.
+:::note
+Some extended capabilities are not backwards-compatible with Selenium versions below 4.0.
+:::
 
 
 ## What You'll Need
@@ -197,12 +199,13 @@ FireFoxOptions mozOpts = new FirefoxOptions();
 DesiredCapabilities caps = new DesiredCapabilities.firefox();
 ```
 
->**NOTE**: Using JWP legacy formatting in a Selenium 3.11+ script will yield the following message:
+:::note
+Using JWP legacy formatting in a Selenium 3.11+ script will yield the following message:
 
 ```js
 INFO: Using `new FirefoxOptions()` is preferred to `DesiredCapabilities.firefox()`
 ```
-
+:::
 </TabItem>
 </Tabs>
 <br/>
@@ -252,11 +255,13 @@ caps.setCapability("version", "latest");
 WebDriver driver = new RemoteWebDriver(new URL("https://ondemand.saucelabs.com/wd/hub"), caps);
 ```
 
->**NOTE**: Using JWP legacy formatting in a Selenium 3.11+ script will yield the following message:
+:::note
+Using JWP legacy formatting in a Selenium 3.11+ script will yield the following message:
 ```
 "INFO: Using `new FirefoxOptions()` is preferred
 to `DesiredCapabilities.firefox()"
 ```
+:::
 
 </TabItem>
 </Tabs>
