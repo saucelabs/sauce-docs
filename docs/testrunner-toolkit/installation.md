@@ -12,7 +12,8 @@ The `saucectl` command line tool orchestrates the communication between Sauce La
 
 ## What You'll Need
 
-* A [Sauce Labs](https://saucelabs.com/) account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * Know which [test framework and browser versions](/testrunner-toolkit#supported-frameworks-and-browsers) you plan to run tests against
 * [Docker](https://docs.docker.com/get-docker/), if you plan to run tests locally
 

@@ -16,6 +16,12 @@ You can check the current accessibility of any Sauce Labs system on the [Sauce L
 :::
 
 
+## What You'll Need
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+
+
 ## Accessing the APIs
 
 The Sauce Labs APIs are organized around REST and each endpoint is structured as a resource-oriented URL that accepts inline query parameters and form-encoded request bodies, then returns JSON-encoded responses.
