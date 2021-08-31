@@ -35,8 +35,8 @@ Use the [`-B all`](/dev/cli/sauce-connect-proxy) flag to disable SSL bumping. Fa
 
 where:
 
-  a. `TEST_OBJECT_USERNAME` refers to your Test Object username.
-  b. `TEST_OBJECT_API_KEY` refers to your Test Object API Key.
+  a. `TEST_OBJECT_USERNAME` refers to your TestObject username.
+  b. `TEST_OBJECT_API_KEY` refers to your TestObject API Key.
   c. `TEST_OBJECT_DC` refers to the Data Center API endpoint (see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints)).
   d. `TUNNEL_ID` refers to the tunnel identifier (see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability)).
 
@@ -53,13 +53,13 @@ So an example would look like this:
 
 **Mac OSX/Linux Example**
 
-```
+```bash
 $ /bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x 'https://us1.api.testobject.com/sc/rest/v1' -i test-object-rdc-tunnel-us
 ```
 
 **Windows Example**
 
-```
+```bash
 > \bin\sc -u %TEST_OBJECT_USERNAME% -k %TEST_OBJECT_API_KEY% -x 'https://us1.api.testobject.com/sc/rest/v1' -i test-object-rdc-tunnel-us
 ```
 
@@ -68,13 +68,13 @@ $ /bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x 'https://us1.api.t
 
 **Mac OSX/Linux Example**
 
-```
+```bash
 $ /bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x 'https://eu1.api.testobject.com/sc/rest/v1' -i test-object-rdc-tunnel-eu
 ```
 
 **Windows Example**
 
-```
+```bash
 > \bin\sc -u %TEST_OBJECT_USERNAME% -k %TEST_OBJECT_API_KEY% -x 'https://eu1.api.testobject.com/sc/rest/v1' -i test-object-rdc-tunnel-eu
 ```
 

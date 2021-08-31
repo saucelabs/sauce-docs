@@ -1,146 +1,37 @@
 ---
 id: appium
-title: Appium Quickstart
-sidebar_label: Quickstart
+title: Appium on Sauce Labs
+sidebar_label: Using Appium
+description: Learn how to achieve digital confidence for your app on all mobile devices with Appium and Sauce Labs.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This page is intended to provide you with instructions on how to quickly set up Appium tests with Java using the TestNG test runner on an Android Emulator or an iOS Real Device, and run tests using the Sauce Labs App with the Virtual Device and Real Device Cloud. To see a comprehensive list of test examples, [check out the appium directory in our demo-java repo](https://github.com/saucelabs-training/demo-java/tree/dff5fd61b8e152efe59e4a8c9e75c644de4e51e0/appium-examples).
-
-You can see more detailed and comprehensive instructions for all use cases in the [Real Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices) and [Virtual Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/virtual-devices) docs.
+Looking to incorporate Appium in your mobile testing strategy? This page can help you understand the system architecture and requirements, as well as how to design a test strategy that yields the most meaningful results.
 
 
-## What You'll Need
+## Appium Overview
 
-* [Sample Tests](https://github.com/saucelabs-training/quickstart-appium-java)
-* The [Swag Labs Sample App](https://github.com/saucelabs/sample-app-mobile/releases)
-* A [Sauce Labs Username and Access Key](https://app.saucelabs.com/user-settings)
-* An IDE such as [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=mac)
-* [Maven](https://maven.apache.org/install.html)
+[Appium](http://appium.io/) is an automation testing framework that allows you to write tests using the [Selenium](https://www.selenium.dev) syntax that are for use in testing native, mobile web, and hybrid applications on iOS and Android devices. Run your Appium tests on Sauce Labs to benefit from speed, parallelization, clear test result history, failure analysis, issue tracking, and more.
 
-## Test a Mobile Web Browser on Sauce Labs VMs
+## Appium Architecture
 
-### Step 1: Install Dependencies
-Make sure you [have Java, an IDE, and Maven installed](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) on your computer.
+Appium has a client-server architecture, meaning the user installs a client application locally that translates test session configuration details into requests to the remote Appium server, which processes them and responds with results and related material that Sauce Labs can then render into meaningful results in your dashboard.
 
-Set your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as [environment variables](https://www.youtube.com/watch?v=3K1Eu0eTha8).
+The **Appium client** is a programming language-specific [set of client libraries](http://appium.io/downloads) in which you write your test scripts. The Appium client library is a wrapper of Selenium client libraries designed specifically for use with the unique needs of mobile device operating systems.
 
-### Step 2: Get Test Code
-Open and review your test code in the [Sauce Appium sample repo](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/java/tests), and open the test file located in `/src/test/java/tests/EmuSim` directory called `AppiumAndroidEmuWebTest.java`.
+The **Appium server** component, based on node.js, exposes a superset of the [JSON Wire Protocol](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol), known as the [Mobile JSON Wire Protocol](https://github.com/SeleniumHQ/mobile-spec/blob/master/spec-draft.md). The Appium server also supports elements of the [W3C Webdriver spec](https://w3c.github.io/webdriver/webdriver-spec.html), which allows it to support a wide variety of test specification formats.
 
-Update the `testngXmlFile` tag [in `pom.xml`](https://github.com/saucelabs-training/quickstart-appium-java/blob/main/pom.xml) to use the correct TestNG xml file.
-
-```
-<testngXmlFile>appium_android_emu_web_test.xml</testngXmlFile>
-```
-
-You can see the contents of this file in the [`/resources/xml` directory](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/resources/config).
-
-
-### Step 3: Set Up Capabilities
-[Update your Capabilities](https://saucelabs.com/platform/platform-configurator) to run on Sauce Labs Emulators to have these required Appium Capabilities to run an Android web browser test:
-
-```
-deviceName: “Android GoogleAPI Emulator”
-platforName: “Android”
-automationName: “UiAutomator2”
-```
-
-### Step 4: Add Capabilities for the Browser
-[Set the capabilities](https://docs.saucelabs.com/dev/test-configuration-options#desktop-browser-capabilities-sauce-specific--optional) according to the browser on which you want to test:
-
-```
-browserName: "Chrome"
-```
-At a minimum, you must set the `browserName` capability, however different browsers have other options you can set.
-
-<img src={useBaseUrl('img/mobile-apps/appium-web-capabilities.png')} alt="Appium Capabilities" width="800"/>
-
-## Test a Mobile App on Sauce Labs Real Devices
-
-### Step 1: Install Dependencies
-Make sure you [have Java, an IDE, and Maven installed](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) on your computer.
-
-Set your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as [environment variables](https://www.youtube.com/watch?v=3K1Eu0eTha8).
-
-
-### Step 2: Get Test Code
-
-Open and review your test code in the [Sauce Appium sample repo](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/java/tests), and open the test file located in the `/src/test/java/tests/RDC` directory called `AppiumIosRdcAppTest.java`
-
-Update the `testngXmlFile` tag [in `pom.xml`](https://github.com/saucelabs-training/quickstart-appium-java/blob/main/pom.xml) to use the correct TestNG xml file.
-
-```
-<testngXmlFile>appium_ios_rdc_app_test.xml</testngXmlFile>
-```
-
-
-You can view the contents of the .xml file in the`/resources/xml` [directory](https://github.com/saucelabs-training/quickstart-appium-java/tree/main/src/test/resources/config).
-
-
-### Step 3: Set Up Your App
-Use your own app, or grab the latest [Swag Labs App](https://github.com/saucelabs/sample-app-mobile/releases).
-
-On the [Sauce Labs App](https://app.saucelabs.com/live/app-testing), you can upload an .ipa file, or use the API for [Mobile Application Storage](https://docs.saucelabs.com/mobile-apps/app-storage/index.html#uploading-apps-via-rest-api).
-
-The easiest way to do this is to set environment variables for your Sauce username & access key, then use this command:
-
-```
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
---form 'payload=@"/Users/lindsaywalker/Git/Example_Tests/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
---form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
-```
-:::note
-Different file types are required for testing in different environments:
-* An Android emulator or real device needs to have an .apk-file
-* An iOS simulator needs to have an .app file which needs to be zipped for the Sauce Labs emulators (.zip file upload)
-* An iOS real device needs to have an .ipa-file
-:::
-
-### Step 4: Set Up Capabilities
-Update your Capabilities to run on Sauce Labs Real Devices to have the minimum required Appium Capabilities to run an iOS App test:
-
-```
-String appName = "iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa";
-```
-```
-platformName: "iOS"
-deviceName: "iPhone 12"
-automationName: "XCuiTest"
-capabilities.setCapability("app", "storage:filename="+appName);,
-```
-
-<img src={useBaseUrl('img/mobile-apps/appium-app-capabilities.png')} alt="Appium Capabilities" width="800"/>
-
-## Run Your Tests
-
-From you machine, either use the command `mvn clean test` or right click on the test you would like to run from your IDE to run your tests.  If you would like to skip Step 2, simply add the flag `-DtestngXmlFile=appium_ios_rdc_app_test.xml` and to change data centers, add the flag `-Dregion=us`
+There is also an [Appium desktop application](https://github.com/appium/appium-desktop) option available for Mac, Windows, and Linux environments that offers a graphical interface experience for the Appium server and bundles many of the system dependencies (including Node/NPM).
 
 :::note
-Java tests using the TestNG framework rely on the `pom.xml` file to import dependencies. Make sure the dependencies like [Appium Java Binding version](https://github.com/appium/java-client) and [TestNG version](https://testng.org/doc/download.html) are all up to date in the properties tag of `pom.xml`
-```
-<properties>
-    <testngXmlDir>src/test/resources/config</testngXmlDir>
-    <testngXmlFile>appium_ios_rdc_app_test.xml</testngXmlFile>
-    <testng.version>6.14.3</testng.version>
-    <commons-logging.version>1.2</commons-logging.version>
-    <selenium.version>3.141.59</selenium.version>
-    <maven-failsafe-plugin.version>2.19.1</maven-failsafe-plugin.version>
-    <appium.version>7.5.1</appium.version>
-</properties>
-```
+Appium Desktop is currently supported by the [Appium core team](https://appium.io/docs/en/contributing-to-appium/developers-overview/#developer-community).
 :::
 
-### Optional Appium Capabilities
+## How to Get Started
 
-Sauce Labs will set default values for platform (operating system) and Appium versions, however you may want to specify versions you know are supported and compatible to avoid errors.
-
-**Appium Version** – By default your tests will run on the [latest version](https://saucelabs.com/platform/platform-configurator#/) of Appium supported by Sauce Labs for that device or OS, however you can set the [`appiumVersion` capability](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/virtual-devices/index.html#set-your-appiumversion).
-
-**Platform Version** - By default, Sauce Labs will pick a platform (depending on what's available if you are testing on Real Devices) and set an operating system for the device you are using, however you can also choose the version of the operating system with the [`platformVersion` capability](https://docs.saucelabs.com/dev/test-configuration-options/index.html#platformversion).  
-
-See the [Complete list of Optional Capabilities on Docs](https://docs.saucelabs.com/dev/test-configuration-options/index.html#mobile-app-capabilities-sauce-specific--optional)
+* [Quickstart](/mobile-apps/automated-testing/appium/quickstart): Quickly set up a Java test environment and run a pre-configured working test using Appium to see if this is the right method for your mobile test objectives.
+* [Real Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices): If you already have an Appium test infrastructure, set it up to test on Sauce Labs library of real devices.
+* [Virtual Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/virtual-devices): You can also run your tests against Sauce Labs extensive combination of simulators and emulators for broader selection of devices and options.

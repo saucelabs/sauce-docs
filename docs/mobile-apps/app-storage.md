@@ -265,6 +265,11 @@ espresso:
 ```
 
 ## Uploading to Legacy Sauce Storage
+
+:::warning
+TestObject, our [Legacy Real Device Platform](https://saucelabs.com/platform/test-object-eol), reaches end-of-life September 1, 2021. Please migrate all of your apps and tests from TestObject to Sauce Labs by August 31, 2021.
+:::
+
 Sauce Storage is our legacy private storage space for apps. Files uploaded will expire seven days after upload, and be removed. You can upload the app you want to test to Sauce Storage using our REST API, and then access it for testing by specifying `sauce-storage:myapp` for the app capability in your test script. You upload apps using the `upload_file` method of the Sauce Labs REST API.
 
 You can use any REST client; [cURL](https://curl.haxx.se/docs/manpage.html) is a convenient command-line option.

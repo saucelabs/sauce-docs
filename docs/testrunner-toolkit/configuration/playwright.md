@@ -82,6 +82,7 @@ Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each s
 
 ```yaml
   timeout: 15m
+```
 ---
 
 ## `sauce`
@@ -147,6 +148,22 @@ Alternatively, you can override the file setting at runtime by setting the concu
 
 ```bash
 saucectl run --ccy 5
+```
+---
+
+### `retries`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Sets the number of times to retry a failed suite.
+
+```yaml
+  retries: 1
+```
+
+Alternatively, you can override the file setting at runtime by setting the retries flag as an inline parameter of the `saucectl run` command:
+
+```bash
+saucectl run --retries 1
 ```
 ---
 
@@ -279,7 +296,18 @@ Specifies any NPM packages that are required to run tests and should, therefore,
     "@playwright/react": "^5.0.1"
 ```
 ---
+## `reporters`
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
+Configures additional reporting capabilities provided by `saucectl`.
+
+```yaml
+reporters:
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
+```
+---
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
