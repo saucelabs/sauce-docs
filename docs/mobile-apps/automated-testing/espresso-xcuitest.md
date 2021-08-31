@@ -121,9 +121,8 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Set environment variable values on which other settings depend (such as proxy host/port values). | Not supported | `--env` |
 | Simulate a test without actually executing. | Not supported | `--dry-run` |
 | Return additional output for troubleshooting purposes. | --verbose | `--verbose` |
-| Provide a name for the job as it will appear in the Sauce Labs UI. | Not supported | Must use YAML |
-| Provide tags for use in filtering jobs in the Sauce Labs UI in ways that are meaningful for your org, such as release numbers or dev teams. | Not supported | Must use YAML |
-| Associate the job with a build ID for grouping jobs in the Sauce Labs UI. | Not supported | Must use YAML |
+| Provide tags for use in filtering jobs in the Sauce Labs UI in ways that are meaningful for your org, such as release numbers or dev teams. | Not supported | `--tags <tag1,tag2...>` (Espresso RDC Only)|
+| Associate the job with a build ID for grouping jobs in the Sauce Labs UI. | Not supported | `--build` (Espresso RDC Only)|
 | Specify the circumstances under which to download test artifacts. | Not supported | Must use YAML |
 | When downloading is enabled, specify that only certain types of test artifacts are to be downloaded. | Not supported | Must use YAML |
 | When downloading is enabled, specify the download location. | Not supported | Must use YAML |
@@ -171,9 +170,8 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Set environment variable values on which other settings depend (such as proxy host/port values). | Not supported | `suites[].env:` |
 | Simulate a test without actually executing. | Not supported | Must use CLI |
 | Return additional output for troubleshooting purposes. | Not supported | Must use CLI |
-| Provide a name for the job as it will appear in the Sauce Labs UI. | Not supported | `sauce.metadata.name` |
-| Provide tags for use in filtering jobs in the Sauce Labs UI in ways that are meaningful for your org, such as release numbers or dev teams. | Not supported | `sauce.metadata.tags:` |
-| Associate the job with a build ID for grouping jobs in the Sauce Labs UI. | Not supported | `sauce.metadata.build:` |
+| Provide tags for use in filtering jobs in the Sauce Labs UI in ways that are meaningful for your org, such as release numbers or dev teams. | Not supported | `sauce.metadata.tags:` (Espresso RDC Only)|
+| Associate the job with a build ID for grouping jobs in the Sauce Labs UI. | Not supported | `sauce.metadata.build:` (Espresso RDC Only)|
 | Specify the circumstances under which to download test artifacts. | Not supported | `artifacts.download.when:` |
 | When downloading is enabled, specify that only certain types of test artifacts are to be downloaded. | Not supported | `artifacts.download.match:` |
 | When downloading is enabled, specify the download location. | Not supported | `artifacts.download.directory:` |

@@ -15,7 +15,7 @@ Below are some topics regarding the legacy / on premise solution for API Testing
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
-    <h2>A Quick Start</h2>
+    <h2>A Quickstart</h2>
     <p>Some quick facts and guides to get started with the platform.</p>
     <ul>
         <li><a href="/api-testing/mark2/quick-start">Create a Test Quickly</a></li>
@@ -26,8 +26,8 @@ Below are some topics regarding the legacy / on premise solution for API Testing
   </div>
   <div className="box box2 card">
     <div className="container">
-    <h2>API Testing University</h2>
-    <p>Browse through the courses to learn more about using the API testing tool.</p>
+    <h2>Sauce School</h2>
+    <p>Browse through our courses to learn more about using the API testing tool.</p>
     <ul>
         <li><a href="https://training.saucelabs.com/codelabs/Module1-APITesting/index.html?index=..%2F..apiTesting#0">API Testing Basics</a></li>
         <li><a href="https://training.saucelabs.com/codelabs/Module2-APITesting/index.html?index=..%2F..apiTesting#0">Best Practices</a></li>

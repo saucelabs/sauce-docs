@@ -26,7 +26,7 @@ Know exactly where and what has changed so that you can deliver a consistent and
   <p>Perform front-end visual regression tests on isolated UI components across tools such as Storybook, React, Vue, Angular and HTML. No coding needed.
   </p>
   <ul>
-      <li><a href="/visual/component-testing/setup">Quick Start</a></li>
+      <li><a href="/visual/component-testing/setup">Quickstart</a></li>
       <li><a href="/visual/component-testing/testing-interactions">Story Integration</a></li>
       <li><a href="/visual/component-testing/workflow/review-workflow">Workflow</a></li>
   </ul>
