@@ -116,7 +116,11 @@ The specified test must have the appropriate options set for Performance.
 
 #### Analyze Command Configuration
 
-You can apply parameter specifications to customize the test execution either by including the parameters as inline arguments or through a config file (speedo.config.js) located in the directory from which Speedo is called. Following is a list of common inline arguments. NOTE: Call $ speedo analyze -h to view the complete list of run command options.
+You can apply parameter specifications to customize the test execution either by including the parameters as inline arguments or through a config file (speedo.config.js) located in the directory from which Speedo is called. Following is a list of common inline arguments.
+
+:::note
+Call $ speedo analyze -h to view the complete list of run command options.
+:::
 
 #### Analyze Command Example
 
