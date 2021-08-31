@@ -10,16 +10,21 @@ const docusaurusConfig = {
   favicon: 'img/favicon.ico',
   organizationName: 'saucelabs',
   projectName: 'sauce-docs',
-  scripts: [],
+  scripts: [
+    {
+      src: 'https://gist.github.com/spider-sauce/4395e4541fef2c15a285cc949ca561f9.js',
+      async: true,
+    }
+  ],
   themeConfig: {
-    announcementBar: {
-      id: 'site_announcement', // Any value that will identify this message.
-      content:
-      '<button class="announcementBarBadge">NEW</button> Our improved documentation is here! <a target="_blank" rel="noopener noreferrer" href="mailto:docsfeedback@saucelabs.com"><button class="announcementBar">Tell us what you think</button></a>',
-      backgroundColor: '#0D65BE', // Defaults to `#fff`.
-      textColor: '#F0F0F0', // Defaults to `#000`.
-      isCloseable: true, // Defaults to `true`.
-    },
+    // announcementBar: {
+    //   id: 'site_announcement', // Any value that will identify this message.
+    //   content:
+    //   '<button class="announcementBarBadge">NEW</button> Our improved documentation is here! <a target="_blank" rel="noopener noreferrer" href="mailto:docsfeedback@saucelabs.com"><button class="announcementBar">Tell us what you think</button></a>',
+    //   backgroundColor: '#0D65BE', // Defaults to `#fff`.
+    //   textColor: '#F0F0F0', // Defaults to `#000`.
+    //   isCloseable: true, // Defaults to `true`.
+    // },
     googleAnalytics: {
       trackingID: 'UA-6735579-1',
     },
