@@ -52,10 +52,10 @@ See [Live Mobile App Testing Toolbar](/mobile-apps/live-testing/live-mobile-app-
 
 |                      | Supported | Not Supported |   
 |----------------------|:---------:|:-------------:|
-| Android real devices |          |          &#x2715;       |   
-| iOS real devices     |    &checkmark;      |             |   
-| Android emulators    |     &checkmark;       |            |
-| iOS simulators       |     &checkmark;       |       |
+| Android real devices |    &checkmark;      |           |   
+| iOS real devices     |    &checkmark;      |           |   
+| Android emulators    |    &checkmark;      |           |
+| iOS simulators       |    &checkmark;      |           |
 
 ### iOS Simulators
 
