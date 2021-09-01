@@ -18,12 +18,12 @@ Our Sauce Runner for Real Devices test runner provides you the ability to run th
 
 ## What You'll Need
 
-* Your Sauce Labs username and access key.
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * Your mobile app file and mobile test file. Accepted file types are *.ipa for iOS and *.apk for Android.
-  * For details on how to build .ipa files for use with Sauce Runner for Real Devices, see [Creating .ipa Files for Appium and XCUITest](/mobile-apps/creating-ipa-files.md).
+  * For instructions on building .ipa files for use with Sauce Runner for Real Devices, see [Creating .ipa Files for Appium and XCUITest](/mobile-apps/creating-ipa-files.md).
 
 If you'd like to try out this functionality but don't have an app on hand, [download our Sauce Labs demo app file and test file](https://github.com/saucelabs-training/demo-espresso/tree/master/real-devices).
-:::
 
 ## System Requirements
 
