@@ -7,7 +7,9 @@
     "https://docs.saucelabs.com/sitemap.xml"
   ],
   "stop_urls": [
-    "https://docs.saucelabs.com/api-testing/mark2/"
+    {
+      "url": "https://docs.saucelabs.com/api-testing/mark2/([^\/]+$)",
+    }
   ],
   "selectors": {
     "lvl0": {
