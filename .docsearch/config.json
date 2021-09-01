@@ -3,8 +3,11 @@
    "start_urls":[
       "https://docs.saucelabs.com/"
    ],
+   "sitemap_urls": ["https://docs.saucelabs.com/sitemap.xml"],
    "stop_urls":[
-      "/api-testing/mark2/$"
+      "https://docs.saucelabs.com/api-testing/mark2/$",
+      "https://docs.saucelabs.com/api-testing/mark2",
+      "/index.html"
    ],
    "selectors":{
       "lvl0":{
