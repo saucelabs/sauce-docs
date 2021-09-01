@@ -18,8 +18,10 @@ The OnDemand plugin allows you to easily manage your Sauce Labs testing from [Je
 * How to set up reporting between Sauce Labs & Jenkins
 * How to implement the OnDemand plugin into your Jenkins pipeline
 
-### What You'll Need
+## What You'll Need
 
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * Allow access to the following from your Jenkins server:
     - IP range `162.222.72.0/21`
     - `saucelabs.com`

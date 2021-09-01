@@ -13,6 +13,13 @@ The data center (DC) you use with Sauce Labs determines:
 * Where related artifacts are stored
 * Your ability to run headless tests, meaning tests run on a browser that does not have a user interface
 
+
+## What You’ll Need
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+
+
 ## Data Center Location - Real Device Cloud
 For real device testing, the location of your data center determines the format of some of the information you will see. Devices in US data centers default to EN-US, and will display information like date, currency, and temperature using US standard terms (i.e., MM/dd/yyyy, $, and F°), while devices in EU data centers default to EN-UK, and will display information like date, currency, and temperature using UK standard terms (i.e., dd/MM/yyyy, £, and C°).
 
