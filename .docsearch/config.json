@@ -6,11 +6,7 @@
   "sitemap_urls": [
     "https://docs.saucelabs.com/sitemap.xml"
   ],
-  "stop_urls": [
-    {
-      "url": "https://docs.saucelabs.com/api-testing/mark2/([^\/]+$)",
-    }
-  ],
+  "stop_urls": [],
   "selectors": {
     "lvl0": {
       "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[last()]",
