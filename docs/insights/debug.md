@@ -16,14 +16,12 @@ Extended Debugging generates additional assets that impact test performance and 
 
 ## What You'll Need
 
-* Google Chrome (no older than 3 versions from latest) as the test browser
-
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+* Google Chrome (no older than 3 versions from latest) ***or*** Firefox browser (versions 53 and above) as the test browser
 :::caution Multi-Window Limitation on Chrome Browser
 In rare instances, tests running in Chrome that launch multiple browser windows may result in a Chrome DevTools socket interruption that throws a `408 Automation Server Error`. If this happens, discontinue extended debugging for tests that utilize multiple windows.
 :::
-
-or
-* Firefox browser (versions 53 and above)
 
 
 ## Enabling Extended Debugging

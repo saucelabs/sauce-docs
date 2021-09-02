@@ -10,7 +10,8 @@ import TabItem from '@theme/TabItem';
 With Sauce Labs, you can test your mobile applications on a variety of Android and iOS devices. If you do not have an app, consider using the Sauce Labs Swag Labs sample app for validating your account functionality as well as your tests.
 
 ## What You'll Need
-* A Sauce Labs account
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * A mobile app to test. If you don't have one, you can use the [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile).
 
 ### Uploading an App

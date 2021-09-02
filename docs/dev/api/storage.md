@@ -13,6 +13,11 @@ Use the Storage API methods to upload and manage your application and any file d
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
+## What You'll Need
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+
 ### Get App Storage Files
 
 <details><summary><span className="api get">GET</span> <code>/v1/storage/files</code></summary>
