@@ -25,7 +25,6 @@ Check out the [Deque Accessibility Guide](https://www.deque.com/web-accessibilit
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * [A Deque Account](https://axe.deque.com/plans) (Optional)
 
 

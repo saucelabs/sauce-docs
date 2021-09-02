@@ -21,7 +21,7 @@ A pre-run executable is simply a script that you download to the Sauce Labs virt
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+* Your Sauce Labs [Username](https://app.saucelabs.com/user-settings).
 
 ## Setting Up Pre-Run Executables
 You can configure your Sauce testing jobs to use  pre-run executables with the `prerun` capability as described in [Test Configuration Options](/dev/test-configuration-options#pre-run-executables).
