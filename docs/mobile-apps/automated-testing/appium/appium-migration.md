@@ -16,12 +16,11 @@ TestObject will remain accessible in the Sauce Labs app under **SAUCE APPS** > *
 
 ## What You'll Need
 
-*  Your TestObject credentials (username and API key).
-*  Sauce Labs account `USERNAME` and `ACCESS_KEY` [Look them up](https://app.saucelabs.com/user-settings)
-*  Your preferred Sauce Labs Data Center (e.g., US-West-1, EU-Central-1).
-*  An app to test
-
-If you don't have a mobile app or test file, you can sample our [Sauce Labs sample app](https://github.com/saucelabs/sample-app-mobile/releases).
+* Your TestObject credentials (username and API key).
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+* Your preferred Sauce Labs Data Center (e.g., US-West-1, EU-Central-1).
+* An app to test. If you don't have a mobile app or test file, consider using our [Sauce Labs sample app](https://github.com/saucelabs/sample-app-mobile/releases).
 
 
 ## Sauce Labs User Management

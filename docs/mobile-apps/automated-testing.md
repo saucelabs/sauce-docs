@@ -11,12 +11,8 @@ This section covers native mobile app test automation using Sauce Labs emulators
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-
-## System Requirements
-
-For information on platform requirements and test environment configuration, see [Supported Mobile Devices](/mobile-apps/supported-devices).
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Review [system and platform requirements](/mobile-apps/supported-devices)
 
 ## Getting Started
 
