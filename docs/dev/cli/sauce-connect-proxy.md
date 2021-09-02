@@ -42,11 +42,7 @@ __Shorthand__: n/a
 
 ---
 ### `--tunnel-pool`
-__Description__: The tunnel is a part of the High Availability Sauce Connect Proxy Tunnel Pool. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). <br/>
-
-:::note
-This option is available starting from version 4.7.0.
-:::
+__Description__: New in version 4.7.0. The tunnel is a part of the High Availability Sauce Connect Proxy Tunnel Pool. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). <br/>
 
 __Shorthand__: n/a
 
@@ -56,8 +52,8 @@ __Shorthand__: n/a
 __Description__: Sauce Labs regional data center REST API URL (e.g., eu-central, us-west, etc...). For a full list, see [Data Center Endpoints](#data-center-endpoint).<br/>
 __Default__: `https://saucelabs.com/rest/v1`<br/>
 
-:::warning
-Deprecated since version 4.7.0: --rest-url has been deprecated in favor of --region.
+:::note
+Starting from version 4.7.0, it's recommended to use `--region` instead of `--rest-url`.
 :::
 
 __Shorthand__: `-x`
@@ -65,12 +61,8 @@ __Shorthand__: `-x`
 
 ---
 ### `--region` (string)
-__Description__: Sauce Labs data center region (e.g., eu-central, us-west, etc...). For a full list, see [Data Center Endpoints](#data-center-endpoint).<br/>
+__Description__: New in version 4.7.0. Sauce Labs data center region (e.g., eu-central, us-west, etc...). For a full list, see [Data Center Endpoints](#data-center-endpoint).<br/>
 __Default__: `us-west`<br/>
-
-:::note
-This option is available starting from version 4.7.0.
-:::
 
 __Shorthand__: `-r`
 
@@ -104,15 +96,11 @@ __Shorthand__: `-i`
 ### `--tunnel-name` (string)
 
 
-__Description__: Assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is strongly recommended. Future jobs will use this tunnel only when explicitly specified by the [tunnelIdentifier](/dev/test-configuration-options#tunnelidentifier) in the desired capabilities of your automated tests.
+__Description__: New in version 4.7.0. Assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is strongly recommended. Future jobs will use this tunnel only when explicitly specified by the [tunnelIdentifier](/dev/test-configuration-options#tunnelidentifier) in the desired capabilities of your automated tests.
 
 To learn about the syntax for setting `--tunnel-name` as a capability, see [Test Configuration Options](/dev/test-configuration-options).
 
 For information on using `--tunnel-name` in the tunnel pool, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
-
-:::note
-This option is available starting from version 4.7.0.
-:::
 
 __Shorthand__: n/a
 
