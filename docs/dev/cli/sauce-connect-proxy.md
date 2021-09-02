@@ -34,7 +34,7 @@ __Shorthand__: `-c`
 __Description__: The tunnel is a part of the High Availability Sauce Connect Proxy Tunnel Pool. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). <br/>
 
 :::warning
-This option is aliased to `--tunnel-pool` in versions starting from v4.7.0. It will be removed in the future!
+Deprecated since version 4.7.0: --no-remove-colliding-tunnels has been deprecated in favor of --tunnel-pool.
 :::
 
 __Shorthand__: n/a
@@ -45,7 +45,7 @@ __Shorthand__: n/a
 __Description__: The tunnel is a part of the High Availability Sauce Connect Proxy Tunnel Pool. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). <br/>
 
 :::note
-This option is available in versions starting from v4.7.0.
+This option is available starting from version 4.7.0.
 :::
 
 __Shorthand__: n/a
@@ -56,8 +56,8 @@ __Shorthand__: n/a
 __Description__: Sauce Labs regional data center REST API URL (e.g., eu-central, us-west, etc...). For a full list, see [Data Center Endpoints](#data-center-endpoint).<br/>
 __Default__: `https://saucelabs.com/rest/v1`<br/>
 
-:::note
-Starting from v4.7.0, it's recommended to use `--region` option instead.
+:::warning
+Deprecated since version 4.7.0: --rest-url has been deprecated in favor of --region.
 :::
 
 __Shorthand__: `-x`
@@ -69,7 +69,7 @@ __Description__: Sauce Labs data center region (e.g., eu-central, us-west, etc..
 __Default__: `us-west`<br/>
 
 :::note
-This option is available in versions starting from v4.7.0.
+This option is available starting from version 4.7.0.
 :::
 
 __Shorthand__: `-r`
@@ -94,7 +94,7 @@ Your ID must be ASCII.
 :::
 
 :::warning
-This option is aliased to `--tunnel-name` in versions starting from v4.7.0.
+Deprecated since version 4.7.0: --tunnel-identifier has been deprecated in favor of --tunnel-name.
 :::
 
 __Shorthand__: `-i`
@@ -111,7 +111,7 @@ To learn about the syntax for setting `--tunnel-name` as a capability, see [Test
 For information on using `--tunnel-name` in the tunnel pool, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
 
 :::note
-This option is available in versions starting from v4.7.0.
+This option is available starting from version 4.7.0.
 :::
 
 __Shorthand__: n/a
@@ -366,13 +366,13 @@ __Examples__:
 
 <TabItem value="US-West">
 
-To connect to the US-West Data Center, starting from SauceConnect Proxy version v4.7.0, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the US-West Data Center:
+To connect to the US-West Data Center, starting from SauceConnect Proxy version 4.7.0, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the US-West Data Center:
 
 ```java
 $ sc -r us-west -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
 
-For SauceConnect Proxy versions older than v4.7.0, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-West Data Center endpoint:
+For SauceConnect Proxy older than version 4.7.0, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-West Data Center endpoint:
 
 ```java
 $ sc -x https://api.us-west-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
@@ -381,13 +381,13 @@ $ sc -x https://api.us-west-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xx
 </TabItem>
 <TabItem value="US-East">
 
-To connect to the US-East Data Center, starting from SauceConnect Proxy version v4.7.0, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the US-East Data Center:
+To connect to the US-East Data Center, starting from SauceConnect Proxy version 4.7.0, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the US-East Data Center:
 
 ```java
 $ sc -r us-east -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
 
-For SauceConnect Proxy versions older than v4.7.0, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-East Data Center endpoint:
+For SauceConnect Proxy versions older than version 4.7.0, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-East Data Center endpoint:
 
 ```java
 $ sc -x https://us-east-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
@@ -396,13 +396,13 @@ $ sc -x https://us-east-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-x
 </TabItem>
 <TabItem value="EU-Central">
 
-To connect to the EU-Central Data Center, starting from SauceConnect Proxy version v4.7.0, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the EU-Central Data Center:
+To connect to the EU-Central Data Center, starting from SauceConnect Proxy version 4.7.0, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the EU-Central Data Center:
 
 ```java
 $ sc -r eu-central -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
 
-For SauceConnect Proxy versions older than v4.7.0, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the EU-Central Data Center endpoint:
+For SauceConnect Proxy versions older than version 4.7.0, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the EU-Central Data Center endpoint:
 
 ```java
 $ sc -x https://eu-central-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
@@ -411,13 +411,13 @@ $ sc -x https://eu-central-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxx
 </TabItem>
 <TabItem value="APAC-SOUTHEAST">
 
-To connect to the [APAC-SOUTHEAST-1 Data Center](/basics/data-center-endpoints/aust-early-access), starting from SauceConnect Proxy version v4.7.0, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the APAC-SOUTHEAST Data Center:
+To connect to the [APAC-SOUTHEAST-1 Data Center](/basics/data-center-endpoints/aust-early-access), starting from SauceConnect Proxy version 4.7.0, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the APAC-SOUTHEAST Data Center:
 
 ```java
 $ sc -r apac-southeast -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
 
-For SauceConnect Proxy versions older than v4.7.0, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the APAC-SOUTHEAST Data Center endpoint:
+For SauceConnect Proxy versions older than version 4.7.0, add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the APAC-SOUTHEAST Data Center endpoint:
 
 ```java
 $ sc -x https://api.apac-southeast-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
