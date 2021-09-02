@@ -7,11 +7,10 @@ description: Convert your TestObject Appium setup to Sauce Labs testing.
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::warning TestObject End-of-Life September 1, 2021
+<p><span className="sauceGold">DEPRECATED</span></p>
 
-**Action Required**: If you're currently using the Appium test framework on TestObject, please migrate all of your mobile apps and test files from TestObject Storage to Sauce Labs Application Storage by August 31, 2021 using the step-by-step guide on this page. Appium real device testing is fully supported on Sauce Labs.
-
-TestObject will remain accessible in the Sauce Labs app under **SAUCE APPS** > **LEGACY RDC** through August 31, 2021. As we begin phasing it out, we'll keep you posted on key end-of-life dates. If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+:::warning TestObject End-of-life
+TestObject was discontinued on September 1, 2021. If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
 :::
 
 ## What You'll Need
