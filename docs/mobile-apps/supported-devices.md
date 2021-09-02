@@ -21,9 +21,6 @@ There are a variety of use cases to consider when you're deciding on the mix of 
 
 We support thousands of device/OS combinations and test automation frameworks such as Appium, Espresso, XCUITest, and Robotium. For a full list, [click here](https://saucelabs.com/platform/supported-browsers-devices).
 
-## What You'll Need
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 
 ## When to Test on Emulators and Simulators
 

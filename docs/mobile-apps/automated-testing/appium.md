@@ -15,7 +15,6 @@ Looking to incorporate Appium in your mobile testing strategy? This page can hel
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 
 ## Appium Architecture
 

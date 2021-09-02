@@ -12,7 +12,6 @@ This topic describes where and how to Sauce Connect Proxy to your local machine.
 ## What You’ll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * For macOS Catalina 10.15+ compatibility, enable your Mac to allow apps from the App Store and identified developers.
     1. Go to **System Preferences** > **Security & Privacy** > **General** tab.
     2. Under the header **Allow apps downloaded from**, select the option **App Store and identified developers**.

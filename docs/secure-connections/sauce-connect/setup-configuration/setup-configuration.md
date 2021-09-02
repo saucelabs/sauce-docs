@@ -17,5 +17,5 @@ As you’re configuring the setup type that’s right for you, it's important to
 ## What You’ll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings), for some setups.
 * Sauce Connect Proxy must be installed on the same network as the application or website you're testing; however, it is not required to install Sauce Connect Proxy on the same local machine. For this reason, when setting up Sauce Connect Proxy, be mindful of how it will interact with your network architecture.
