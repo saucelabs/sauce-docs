@@ -53,7 +53,7 @@ __Description__: Sauce Labs regional data center REST API URL (e.g., eu-central,
 __Default__: `https://saucelabs.com/rest/v1`<br/>
 
 :::note
-Starting from version 4.7.0, it's recommended to use `--region` instead of `--rest-url`.
+Starting in version 4.7.0, `--region` is recommended instead of `--rest-url`.
 :::
 
 __Shorthand__: `-x`
