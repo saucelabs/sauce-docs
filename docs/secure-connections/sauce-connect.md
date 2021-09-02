@@ -6,6 +6,13 @@ sidebar_label: Using Sauce Connect Proxy
 
 Sauce Connect Proxy&trade; is a proxy server that opens a secure connection between a Sauce Labs virtual machine, emulator, simulator or real device running your browser or native app tests, and an application or website you want to test that is on your local machine or behind a corporate firewall.
 
+
+## What You'll Need
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+
+
 ## Getting Started
 
 Prior getting started, you'll need to validate that your local machine meets our system requirements and confirm that your firewall rules allow for outbound traffic.

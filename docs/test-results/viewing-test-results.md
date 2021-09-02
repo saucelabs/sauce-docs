@@ -6,12 +6,16 @@ sidebar_label: Viewing Test Results
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-After you run a test, you can view the results on the Test Results page. From there you can:
+After you run a test, you can view the results on the Test Results page. From there, you can:
 
 * Watch a video recording of the test
 * Review the commands that were issued
 * Read the test log
 * View the test metadata
+
+## What You'll Need
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 
 ## Live Test Results
 
