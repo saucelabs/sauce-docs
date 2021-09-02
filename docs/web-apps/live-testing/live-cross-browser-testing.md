@@ -12,7 +12,6 @@ You can run live tests of your websites on a wide variety of operating system, b
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 
 
 ## Testing on a Desktop Browser
