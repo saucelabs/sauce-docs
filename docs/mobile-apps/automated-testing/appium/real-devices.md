@@ -775,11 +775,6 @@ The CSV file will contain these performance metrics for iOS devices.
   </tr>
 </table>
 
-## TestObject (Legacy RDC)
-
-:::warning
-TestObject, our [Legacy Real Device Platform](https://saucelabs.com/platform/test-object-eol), reaches end-of-life September 1, 2021. Please migrate all of your apps and tests from TestObject to Sauce Labs by August 31, 2021.
-:::
 
 ## Additional Test Configuration Options
 
