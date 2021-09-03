@@ -77,37 +77,22 @@ __Shorthand__: `-s`
 
 
 ---
-### `--tunnel-identifier`
+### `--tunnel-name` or `--tunnel-identifier`
 <p><small>| OPTIONAL | STRING |</small></p>
+
+:::caution
+Effective with version 4.7.0, `--tunnel-identifier` was deprecated and replaced by `--tunnel-name`.
+:::
 
 __Description__: Assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is strongly recommended. Future jobs will use this tunnel only when explicitly specified by the [tunnelIdentifier](/dev/test-configuration-options#tunnelidentifier) in the desired capabilities of your automated tests.
 
-To learn about the syntax for setting `--tunnel-identifier` as a capability, see [Test Configuration Options](/dev/test-configuration-options). For information on using `--tunnel-identifier` in the tunnel pool, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
+To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options). For information on using this option in the tunnel pool, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
 
 :::note
 Your ID must be ASCII.
 :::
 
-:::caution
-Effective with version 4.7.0, `--tunnel-identifier` deprecated and replaced by `--tunnel-name`.
-:::
-
-__Shorthand__: `-i`
-
-
----
-### `--tunnel-name`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-__Description__: Assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is strongly recommended. Future jobs will use this tunnel only when explicitly specified by the [tunnelIdentifier](/dev/test-configuration-options#tunnelidentifier) in the desired capabilities of your automated tests.
-
-To learn about the syntax for setting `--tunnel-name` as a capability, see [Test Configuration Options](/dev/test-configuration-options).
-
-For information on using `--tunnel-name` in the tunnel pool, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
-
-Not compatible with Sauce Connect Proxy versions below 4.7.0.
-
-__Shorthand__: n/a
+__Shorthand__: `-i` for `--tunnel-identifier`; n/a for `--tunnel-name`
 
 
 ---
