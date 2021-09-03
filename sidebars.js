@@ -351,6 +351,11 @@ module.exports = {
                 'dev/cli',
                 'dev/cli/sauce-connect-proxy',
                 {
+                    type: 'link',
+                    label: 'saucectl CLI', // The label that should be displayed (string).
+                    href: '/testrunner-toolkit/saucectl' // The target URL (string).
+                },
+                {
                     type: 'category',
                     label: 'Virtual USB',
                     collapsed: true,
@@ -363,11 +368,6 @@ module.exports = {
                         'dev/cli/virtual-usb/delete-session',
                         'dev/cli/virtual-usb/find-sessionid',
                     ],
-                },
-                {
-                    type: 'link',
-                    label: 'saucectl CLI', // The label that should be displayed (string).
-                    href: '/testrunner-toolkit/saucectl' // The target URL (string).
                 },
             ],
         },
