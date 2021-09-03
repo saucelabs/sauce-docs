@@ -416,5 +416,4 @@ $ sc -x https://api.apac-southeast-1.saucelabs.com/rest/v1 -u john.smith -k ab01
 </Tabs>
 <br/>
 
-See the **Tunnels** page for quickstart info.
 See [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for quick start info.
