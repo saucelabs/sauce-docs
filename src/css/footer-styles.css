@@ -2006,11 +2006,11 @@
     width:auto;
     max-width:none
 }
-@media print,screen and (min-width:768px){
-    .footer__inner{
-        margin:0 50px
-    }
-}
+/*@media print,screen and (min-width:768px){*/
+/*    .footer__inner{*/
+/*        margin:0 50px*/
+/*    }*/
+/*}*/
 @media screen and (min-width:1024px){
     .footer__inner{
         margin:0 100px
