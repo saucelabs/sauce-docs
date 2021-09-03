@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-We provide testing capabilities for mobile app biometric authentication (fingerprint and facial recognition). Please note that not all iOS and Android mobile devices offer Touch ID and Face ID.
+We provide testing capabilities for mobile app biometric authentication (fingerprint and facial recognition). Please note that not all iOS and Android mobile devices offer this feature.
 
 :::caution Security Notice
 KeyStore is normally used to implement and store fingerprint and facial recognition user biometrics for mobile apps. Because this is a cloud security risk, Sauce Labs does not mock the KeyStore on our real devices for supporting fingerprint and facial recognition; the use of KeyStore on our real devices is not supported.
