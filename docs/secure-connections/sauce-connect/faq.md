@@ -97,7 +97,7 @@ No, tunnels to the Real Device Cloud are automatically shared with all of your t
 Yes, you can use the same Sauce Connect Proxy tunnel and/or same machine to test with the Virtual Device Cloud Real Device Cloud.
 
 :::note
-If you're still using Legacy RDC, you will need to configure separate, unique tunnel for virtual devices and real devices. More information: [Creating Tunnels in TestObject (Legacy)](/secure-connections/sauce-connect/setup-configuration/legacy-tunnels).
+TestObject <small><span className="sauceGold">DEPRECATED</span></small> environments must configure separate, unique tunnels for virtual devices and real devices. See [Creating Tunnels in TestObject (Legacy)](/secure-connections/sauce-connect/setup-configuration/legacy-tunnels).
 :::
 
 ## Are there any special parameters when using a PAC file in real device tests?
