@@ -9,31 +9,31 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## What You'll Learn
-* How to use the JavaScript Executor to update the status of your test at the end of the session
-* How to use the Sauce Labs REST API to update the status of your test after it has already completed
+* How to use the JavaScript Executor to update the status of your test at the end of the session.
+* How to use the Sauce Labs REST API to update the status of your test after it has already completed.
 
 ## Update Test Status in Session
-You can use the Selenium JavaScript Executor to annotate your test in the @after hook. This is the ideal means of 
+You can use the Selenium JavaScript Executor to annotate your test in the @after hook. This is the ideal means of
 writing your tests to interpret the results as a pass/fail and update the status accordingly.
 
 :::caution JavaScript Executor
-The JavaScript Executer commands can only be run while the test is in session. 
-Once the test is complete, the JavaScript Executor commands are no longer applicable and you must use the 
+The JavaScript Executer commands can only be run while the test is in session.
+Once the test is complete, the JavaScript Executor commands are no longer applicable and you must use the
 REST API to update the test.
 :::
 
 ### Video: Setting Test Status to Pass Fail
-Watch this video for a demonstration of using the Selenium JavaScript Executor to annotate your test result with a 
+Watch this video for a demonstration of using the Selenium JavaScript Executor to annotate your test result with a
 Passed/Failed status.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/iaKRGjO-L8Y" title="YouTube video player" 
-frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iaKRGjO-L8Y" title="YouTube video player"
+frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen></iframe>
 
 ### Code Examples
 
-The annotation for calling the JavaScript Executor in your test differs slightly for each framework and language, 
-which are provided in the following code snippet examples. Refer to our Sauce Labs Demonstration Code Repositories 
+The annotation for calling the JavaScript Executor in your test differs slightly for each framework and language,
+which are provided in the following code snippet examples. Refer to our Sauce Labs Demonstration Code Repositories
 on GitHub for further information, and more context, on annotating your tests to record the pass/fail status.
 
 <Tabs
@@ -111,11 +111,12 @@ https://github.com/saucelabs-training/demo-ruby/blob/docs-1.0/intro/spec/spec_he
 
 ## Updating Test Status After Completion
 
-If you did not use the JavaScript Executor to update the status of your test as an assertion in the test code, 
+If you did not use the JavaScript Executor to update the status of your test as an assertion in the test code,
 you can still use the Sauce Labs REST API to update the test status.
 
-### What You'll Need
-* Your Sauce Labs account credentials
+## What You'll Need
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * The JOB_ID for the test you wish to update
 
 Call the `update_jobs` REST API and pass the parameter "passed" with a value of "true" or "false".
