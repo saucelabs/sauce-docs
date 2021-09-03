@@ -2,7 +2,7 @@
 //TODO Harden Cypress Locators
 context('Home Page Tree Actions', () => {
     beforeEach(() => {
-        cy.visit(`http://localhost:3000/overview`)
+        cy.visit(`/overview`)
         cy.viewport(1536, 960)
     });
 
