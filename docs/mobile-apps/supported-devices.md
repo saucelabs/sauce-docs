@@ -15,11 +15,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Get the most out of your live and automated testing by including a healthy mix of emulators, simulators, and real devices as your mobile testing platforms. Why? There are some aspects of the mobile experience you can test on emulators or simulators, and others that you'd need to test on real devices, such as location-based apps that use manufacturer-specific device sensors, memory consumption, and CPU usage.
+Getting the most out of your live and automated testing means including a healthy mix of emulators, simulators, and real devices as your mobile testing platforms. Why? Most  aspects of the mobile experience you can test on emulators or simulators, while some scenarios require testing on physical real devices (e.g., memory consumption, CPU usage, location-based apps that use manufacturer-specific device sensors).
 
 There are a variety of use cases to consider when you're deciding on the mix of emulators, simulators, and real devices to use in your testing.
 
-We support thousands of device/OS combinations and test automation frameworks such as Appium, Espresso, XCUITest, and Robotium. For a full list of Sauce Labs supported devices, operating systems, and browsers, [learn more here](https://saucelabs.com/platform/supported-browsers-devices).
+We support thousands of device/OS combinations and test automation frameworks such as Appium, Espresso, XCUITest, and Robotium. For a full list, [click here](https://saucelabs.com/platform/supported-browsers-devices).
+
 
 ## When to Test on Emulators and Simulators
 
@@ -217,7 +218,7 @@ A matching device must be present in your account in order for the test to run. 
 ## Additional Resources
 
 * [Appium Testing on Real Devices](/mobile-apps/automated-testing/appium/real-devices)
-  * [Test Configuration Options](/dev/test-configuration-options)
+* [Test Configuration Options](/dev/test-configuration-options)
 * [Espresso and XCUITest Testing](/mobile-apps/automated-testing/espresso-xcuitest)
 * [Sauce Labs Blog: How to Choose Mobile Devices for Testing](https://saucelabs.com/blog/how-to-choose-mobile-devices-for-testing)
 * [Better Together: Using Real Devices, Simulators, and Emulators for Mobile Testing](https://saucelabs.com/blog/better-together-real-devices-emulators-simulators-for-mobile-testing)
