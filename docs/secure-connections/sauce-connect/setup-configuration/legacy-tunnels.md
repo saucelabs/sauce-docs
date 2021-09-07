@@ -7,6 +7,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><span className="sauceGold">DEPRECATED</span></p>
+
+:::warning TestObject End-of-life
+TestObject was discontinued on September 1, 2021. If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+:::
+
 TestObject, our legacy real device cloud platform, allows for public and private mobile device testing. By setting up Sauce Connect Proxy, you’ll have a secure tunnel for testing apps and websites on your local machine (or behind a firewall) against devices and browsers in the TestObject Real Device Cloud. You can run a high volume of tests across a broad range of real devices without compromising performance, quality, or reliability.
 
 Connecting to real devices in TestObject through a Sauce Connect Proxy tunnel requires endpoints and authentication methods that are different from Sauce Labs. You'll need to launch an additional tunnel – separate from the one(s) you're using in Sauce Labs – so that your test code reaches the TestObject-specific real devices.
