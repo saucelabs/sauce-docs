@@ -449,7 +449,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
+--request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "Doc-Team",
@@ -465,7 +465,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
+--request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "Doc-Team",
@@ -579,7 +579,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PATCH 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
+--request PATCH 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "settings": {
@@ -594,7 +594,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PATCH 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
+--request PATCH 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "settings": {
