@@ -13,8 +13,9 @@ With Sauce Labs, you can run automated Appium tests for your native and hybrid m
 
 ## What You'll Need
 
-* A Sauce Labs Account.
-* The native or hybrid mobile app you want to test. If you don't have one on hand and want to test this functionality, try our [Sauce Labs demo mobile app](https://github.com/saucelabs/sample-app-mobile).
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+* The native or hybrid mobile app you want to test. If you don't have one on hand and would like to test this functionality, consider using our [Sauce Labs demo mobile app](https://github.com/saucelabs/sample-app-mobile).
 * Ensure that your system fulfills the project support and requirements prior to uploading your apps or leveraging device emulators and simulators. Review the [Automated Mobile App Testing Admin Guide](/mobile-apps/supported-devices) for further details.
 
 ## Upload Your App to Emulators and Simulators

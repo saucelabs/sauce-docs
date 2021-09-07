@@ -168,3 +168,8 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 * [Quickstart](/web-apps/automated-testing/testcafe/quickstart): Use our demo repo to quickly set up and run a sample TestCafe project and test to see the results.
 * [Run Your own Tests](/testrunner-toolkit/configuration/testcafe): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
 * [Incorporate saucectl in your pipeline](/testrunner-toolkit/integrations): TestCafe on Sauce supports CI integrations with Cirlce CI, GitLab, Jenkins, and GitHub Actions.
+
+### TestCafe Plugin for Sauce Labs
+
+If you would prefer to stay in TestCafe, try the new [TestCafe Sauce Labs Plugin](https://github.com/DevExpress/testcafe-browser-provider-saucelabs). Connect to your Sauce Labs account from within your TestCafe project to configure and run your tests directly from TestCafe.
+
