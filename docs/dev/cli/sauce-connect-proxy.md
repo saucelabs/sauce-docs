@@ -273,6 +273,9 @@ __Shorthand__: n/a
 ### `--capath`
 <p><small>| OPTIONAL | STRING |</small></p>
 
+:::caution
+Effective with Sauce Connect Proxy version 4.7.0, `--capath` was deprecated.
+:::
 __Description__: Directory of CA certs to use for verifying connections to Sauce Labs REST API.<br/>
 __Shorthand__: n/a  
 
@@ -313,6 +316,9 @@ __Shorthand__: n/a
 ### `--tunnel-capath`
 <p><small>| OPTIONAL | STRING |</small></p>
 
+:::caution
+Effective with Sauce Connect Proxy version 4.7.0, `--tunnel-capath` was deprecated.
+:::
 __Description__: Directory of CA certificates to use for verifying tunnel connections.<br/>
 __Shorthand__: n/a  
 
@@ -330,7 +336,10 @@ __Shorthand__: `-z`
 ### `--metrics-address`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Use this option to define the host:port for the internal web server used to expose client side metrics. The default is `localhost:8888`.<br/>
+:::caution
+Effective with Sauce Connect Proxy version 4.7.0, the metrics server is disabled, by default.
+:::
+__Description__: Use this option to define the host:port for the internal web server used to expose client side metrics. The default is `localhost:8888` for versions prior to 4.7.0.<br/>
 __Shorthand__: n/a  
 
 
