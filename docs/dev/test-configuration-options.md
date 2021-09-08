@@ -14,6 +14,10 @@ export const Highlight = ({children, color}) => ( <span style={{
 
 See the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to generate the code for setting the capabilities to execute a test. For examples, see [Examples of Test Configuration Options for Website Tests](https://docs.saucelabs.com/basics/test-config-annotation/test-config/#examples-of-test-configuration-options-for-website-tests)
 
+## What You'll Need
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+
 ## Terminology
 
 When setting up your test, you'll need to configure your script with settings called ___capabilities___ that align with your test environment (e.g., desktop browser, mobile web browser, mobile app). While each environment has its own set of capabilities, they can also be combined. Some are required for a test to run in a given environment, while some are optional.
@@ -484,7 +488,9 @@ Suitable for test setups that require the app's state to be reset between tests.
 
 We recommend reviewing [Device Management for Real Devices](/mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
->**NOTE**: `cacheId` has replaced the `testobject_cache_device` capability that was used in TestObject (Legacy RDC).
+:::note
+`cacheId` replaces the deprecated `testobject_cache_device` capability formerly used in TestObject (Legacy RDC).
+:::
 
 __Value Type__: Randomized String.
 
