@@ -371,6 +371,24 @@ __Description__: Rates limit writes in scproxy to the number of bytes per second
 __Shorthand__: n/a
 
 
+---
+### `--extra-info`
+
+__Description__: JSON string that contains an advanced tunnel configuration.<br/>
+
+|Option|Description|Example|
+|---|---|---|
+|`inject-forwarded-for`| Do not remove X-FORWARDED-FOR header from the proxied HTTP requests.|```--extra-info '{"inject-forwarded-for": true}'```|
+|`reply_body_max_size`| Set limit to the reply body size (unlimited by default).|```--extra-info '{"reply_body_max_size": "30 MB"}'```|
+
+You can specify a combination of several options, for example:
+
+```bash
+--extra-info '{"inject-forwarded-for": true, "reply_body_max_size": "300 MB"}'
+```
+__Shorthand__: n/a
+
+
 ## Data Center Endpoints
 
 __Description__: depending on the Data Center location of the device you're testing on (US or EU), you may need to add a [Data Center endpoint](/basics/data-center-endpoints/data-center-endpoints).
