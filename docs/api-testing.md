@@ -1,33 +1,30 @@
 ---
 id: api-testing
 title: API Testing Documentation
-sidebar_label: API Testing Docs
+sidebar_label: Getting Started
 description: Documentation for running API tests with Sauce Labs
 hide_table_of_contents: true
 ---
 
-## Cloud Docs
-Select **Cloud** in the left-hand navigation, or follow [this link](/api-testing/mark3/quick-start) to get to the API Fortress Mark3 Beta Guides.
+Check out the docs below to get started with testing your APIs on the Sauce Labs cloud.
 
-## Legacy Docs
-Below are some topics regarding the legacy / on premise solution for API Testing.
 
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
-    <h2>A Quickstart</h2>
-    <p>Some quick facts and guides to get started with the platform.</p>
+    <h2>Getting Started</h2>
+    <p>Some quick facts and guides to get started with our API testing cloud.</p>
     <ul>
-        <li><a href="/api-testing/mark2/quick-start">Create a Test Quickly</a></li>
-        <li><a href="/api-testing/mark2/quick-start/composer">Test Composer Guide</a></li>
-        <li><a href="/api-testing/mark2/quick-start/build-from-spec">Build from Spec</a></li>
+        <li><a href="/api-testing/mark3/quick-start">Quickstart</a></li>
+        <li><a href="/api-testing/mark3/quick-start/composer">Test Composer Guide</a></li>
+        <li><a href="/api-testing/mark3/quick-start/build-from-spec">Build from Spec</a></li>
     </ul>
     </div>
   </div>
   <div className="box box2 card">
     <div className="container">
     <h2>Sauce School</h2>
-    <p>Browse through our courses to learn more about using the API testing tool.</p>
+    <p>Browse through our courses to learn more about API testing.</p>
     <ul>
         <li><a href="https://training.saucelabs.com/codelabs/Module1-APITesting/index.html?index=..%2F..apiTesting#0">API Testing Basics</a></li>
         <li><a href="https://training.saucelabs.com/codelabs/Module2-APITesting/index.html?index=..%2F..apiTesting#0">Best Practices</a></li>
@@ -35,25 +32,9 @@ Below are some topics regarding the legacy / on premise solution for API Testing
     </ul>
     </div>
   </div>
-  <div className="box box3 card">
-    <div className="container">
-    <h2>APIs and Webhooks</h2>
-    <p>Leverage a robust collection of APIs and webhooks to manage everything from execution, test creation, data, and integrations.</p>
-    <ul>
-        <li><a href="/api-testing/mark2/api/v3">API Docs (v3)</a></li>
-        <li><a href="/api-testing/mark2/api/using-the-api">Usage Guides</a></li>
-    </ul>
-    </div>
-  </div>
-  <div className="box box4 card">
-    <div class="container">
-    <h2>CI / CD</h2>
-    <p>Browse the continuous integration and continuous delivery documentation to explore how to integrate Sauce Labs API testing into your DevOps pipeline.</p>
-    <ul>
-        <li><a href="/api-testing/mark2/ci/jenkins/using-the-api">Jenkins</a></li>
-        <li><a href="/api-testing/mark2/ci/connecting-with-bamboo">Bamboo</a></li>
-        <li>and <a href="/api-testing/mark2/ci/apif-auto">More</a></li>
-    </ul>
-    </div>
-  </div>
 </div>
+
+<br/>
+<br/>
+
+Looking for our on-premise docs? See the [API Fortress documentation](https://apifortress.com/doc/).

@@ -7,8 +7,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Testing on a Desktop Browser
 You can run live tests of your websites on a wide variety of operating system, browser, version, and screen resolution configurations.
+
+## What You'll Need
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+
+
+## Testing on a Desktop Browser
 
 1. In Sauce Labs, in the left navigation panel, click **LIVE** and then click **Cross Browser**.
 2. Click the **Desktop** tab.
