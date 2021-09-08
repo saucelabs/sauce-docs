@@ -38,7 +38,7 @@ __Shorthand__: `-c`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 :::caution
-Effective with Sauce Connect Proxy version 4.7.0, `--no-remove-colliding-tunnels` was deprecated and replaced by `--tunnel-pool`.
+Effective with Sauce Connect Proxy version 4.7.0, `--no-remove-colliding-tunnels` has been deprecated and replaced by `--tunnel-pool`.
 :::
 __Description__: The tunnel is a part of the High Availability Sauce Connect Proxy Tunnel Pool. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
 __Shorthand__: n/a
@@ -81,7 +81,7 @@ __Shorthand__: `-s`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 :::caution
-Effective with version 4.7.0, `--tunnel-identifier` was deprecated and replaced by `--tunnel-name`.
+Effective with version 4.7.0, `--tunnel-identifier` has been deprecated and replaced by `--tunnel-name`.
 :::
 
 __Description__: Assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is strongly recommended. Future jobs will use this tunnel only when explicitly specified by the [tunnelIdentifier](/dev/test-configuration-options#tunnelidentifier) in the desired capabilities of your automated tests.
@@ -274,7 +274,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | STRING |</small></p>
 
 :::caution
-Effective with Sauce Connect Proxy version 4.7.0, `--capath` was deprecated.
+Effective with Sauce Connect Proxy version 4.7.0, `--capath` has been deprecated.
 :::
 __Description__: Directory of CA certs to use for verifying connections to Sauce Labs REST API.<br/>
 __Shorthand__: n/a  
@@ -317,7 +317,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | STRING |</small></p>
 
 :::caution
-Effective with Sauce Connect Proxy version 4.7.0, `--tunnel-capath` was deprecated.
+Effective with Sauce Connect Proxy version 4.7.0, `--tunnel-capath` has been deprecated.
 :::
 __Description__: Directory of CA certificates to use for verifying tunnel connections.<br/>
 __Shorthand__: n/a  
