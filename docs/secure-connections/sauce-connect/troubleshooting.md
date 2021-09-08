@@ -67,7 +67,8 @@ This command should return the status message connected to `saucelabs.com`.
 sc -c /path/to/your/config.yaml
 ```
 
-This command should return the error message "Failed to reach https://saucelabs.com/rest/v1/USERNAME/tunnels/info/updates" if SauceConnect Proxy fails to connect to `saucelabs.com`.
+This command should return the error message "Failed to reach https://saucelabs.com/rest/v1/USERNAME/tunnels/info/updates" if Sauce Connect Proxy fails to connect to `saucelabs.com`.
+
 </TabItem>
 </Tabs>
 
@@ -83,9 +84,7 @@ Cross-Origin Resource Sharing (CORS) errors could be caused by a variety of reas
 * Start a Sauce Connect Proxy instance using the `-B` all and `-N` flags. For more information about what these flags do for your tunnel, see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy).
 
 ## Additional Support
-If you need more help, please get in touch with our support team at help@saucelabs.com.
-
-To better assist you, when creating your support ticket, please include the following information with your request:
+For additional help, please reach out to our Support Team. To better assist you, include the following information with your request:
 
 * Link to your Sauce Labs test from the Test Results page in Sauce Labs, showing reproduction of the problem
 * Your Sauce Connect Proxy verbose log, which you can get by adding the `-v` and `-l sc.log` options to your Sauce Connect Proxy command line:
@@ -96,14 +95,18 @@ To better assist you, when creating your support ticket, please include the foll
 
 Then, attach the resulting `sc.log` file to your support request.
 
+
 ## Common Mistakes in Network Configurations
+
 As a primer, the diagram below is the ideal network configuration with regards to Sauce Connect Proxy. Your firewall only needs to allow for outbound connections to Sauce Labs. Sauce Connect Proxy establishes a TLS connection (tunnel) to a dedicated tunnel endpoint server hosted in the Sauce Labs cloud. For best performance, Sauce Connect Proxy should be running close to the Site Under Test or Application Under Test.
 
 <img src={useBaseUrl('img/sauce-connect/correct-network-config.png')} alt="Correct network configuration" width="400"/>
 
 The diagrams below illustrate common configuration mistakes that result in dysfunctional setups.
 
+
 ### Dysfunctional Geographic Domain Configuration
+
 The problem with this network configuration is that the SC Host is in the same VPN--and the same internal network--as the Site Under Test (SUT), but they live in separate geographic locations.
 
 For example, if an SC Host is in Berlin and the SUT is located in a data center in Chicago, the connection would require a number of network hops, which would delay communication with the test virtual machine at Sauce Labs. This means that requests from Sauce Connect Proxy to the SUT would need to reach back through the internet to be completed, rather than over the same internal network.
