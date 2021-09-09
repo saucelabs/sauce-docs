@@ -13,7 +13,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-[Deque's axe™](https://www.deque.com/axe/) is one of the world's leading digital accessibility toolkits. The `axe-core` library provided by Deque allows you to inject functionality into your tests in order to scan content and return an `a11y` score. 
+[Deque's axe™](https://www.deque.com/axe/) is one of the world's leading digital accessibility toolkits. The `axe-core` library provided by Deque allows you to inject functionality into your tests in order to scan content and return an `a11y` score.
 
 Below is a guide to set up the Sauce Labs integration. This integration allows you to run your accessibility tests, using axe™, on our platform.
 
@@ -21,15 +21,19 @@ Below is a guide to set up the Sauce Labs integration. This integration allows y
 Check out the [Deque Accessibility Guide](https://www.deque.com/web-accessibility-beginners-guide/#what-is-a11y) for further information.
 :::
 
+
+## What You'll Need
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* [A Deque Account](https://axe.deque.com/plans) (Optional)
+
+
 ## Sauce Labs UI
 
 Sauce Labs will display the accessibility results in our UI as a tab in the Job itself:
 
 <img src={useBaseUrl('img/accessibility/example.png')} alt="Accessibility Example in Sauce UI"/>
 
-## What You'll Need
-* [A Sauce Labs Account](https://saucelabs.com/sign-up)
-* [A Deque Account (Optional)](https://axe.deque.com/plans)
 
 ## Language Specific Examples
 
@@ -80,7 +84,7 @@ https://github.com/saucelabs-training/demo-java/blob/a99c36/selenium-examples/sr
 
 </TabItem>
 <TabItem value="wdio">
- 
+
 __Requirements__
 
 * [Install and Set up](https://webdriver.io/docs/gettingstarted/) WebdriverIO
@@ -158,7 +162,7 @@ https://github.com/saucelabs-training/demo-python/blob/900b3a/examples/accessibi
 </TabItem>
 <TabItem value="ruby">
 
-We highly recommend using the Ruby [Sauce Bindings](https://opensource.saucelabs.com/sauce_bindings/). 
+We highly recommend using the Ruby [Sauce Bindings](https://opensource.saucelabs.com/sauce_bindings/).
 Check out the description and examples for the new [Accessibility functionality](https://opensource.saucelabs.com/sauce_bindings/accessibility).
 
 The following is information on how to use the Ruby `sa11y` library directly:

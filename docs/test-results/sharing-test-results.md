@@ -32,7 +32,7 @@ You can generate a sharable link to your test results that limits who can view t
 
 You can also change the visibility of a test (e.g., Public, Private, or Team) directly on the **Test Results** page.
 
-:::warning Does Not Work with Legacy RDC Platform
+:::caution Does Not Work with Legacy RDC Platform
 The following information does not currently work with the legacy RDC platform (TestObject).
 :::
 

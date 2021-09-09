@@ -1,34 +1,8 @@
 module.exports = {
     apif: [
-        'api-testing',
         {
             type: 'category',
-            label: 'Cloud',
-            collapsed: true,
-            items: [
-                {
-                    type: 'category',
-                    label: 'Quickstart',
-                    collapsed: true,
-                    items: [
-                        'api-testing/mark3/quick-start',
-                        'api-testing/mark3/quick-start/composer',
-                        'api-testing/mark3/quick-start/build-from-spec',
-                        'api-testing/mark3/quick-start/test-reports',
-                        'api-testing/mark3/quick-start/schedule-a-test',
-                        'api-testing/mark3/quick-start/dashboard',
-                        'api-testing/mark3/quick-start/environments-vault-and-overrides-magic',
-                        'api-testing/mark3/quick-start/flexible-variables-for-flexible-environments',
-                        'api-testing/mark3/quick-start/the-vault',
-                        'api-testing/mark3/quick-start/importing-postman-collections',
-                        'api-testing/mark3/quick-start/integrate-with-your-cicd',
-                    ],
-                },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'On Premise',
+            label: 'On-Premise (Legacy)',
             collapsed: true,
             items: [
                 {
@@ -377,6 +351,11 @@ module.exports = {
                 'dev/cli',
                 'dev/cli/sauce-connect-proxy',
                 {
+                    type: 'link',
+                    label: 'saucectl CLI', // The label that should be displayed (string).
+                    href: '/testrunner-toolkit/saucectl' // The target URL (string).
+                },
+                {
                     type: 'category',
                     label: 'Virtual USB',
                     collapsed: true,
@@ -389,11 +368,6 @@ module.exports = {
                         'dev/cli/virtual-usb/delete-session',
                         'dev/cli/virtual-usb/find-sessionid',
                     ],
-                },
-                {
-                    type: 'link',
-                    label: 'saucectl CLI', // The label that should be displayed (string).
-                    href: '/testrunner-toolkit/saucectl' // The target URL (string).
                 },
             ],
         },
@@ -663,9 +637,27 @@ module.exports = {
                 ],
             },
         ],
+
         "API Testing": [
             'api-testing',
-
+            'api-testing/mark3/quick-start',
+            'api-testing/mark3/quick-start/composer',
+            'api-testing/mark3/quick-start/build-from-spec',
+            'api-testing/mark3/quick-start/test-reports',
+            'api-testing/mark3/quick-start/schedule-a-test',
+            'api-testing/mark3/quick-start/dashboard',
+              {
+                  type: 'category',
+                  label: 'Environments, Vaults, and Variables',
+                  collapsed: true,
+                  items: [
+                      'api-testing/mark3/quick-start/environments-vault-and-overrides-magic',
+                      'api-testing/mark3/quick-start/flexible-variables-for-flexible-environments',
+                      'api-testing/mark3/quick-start/the-vault',
+                      'api-testing/mark3/quick-start/importing-postman-collections',
+                      ],
+                  },
+             'api-testing/mark3/quick-start/integrate-with-your-cicd',
         ],
         "CI/CD": [
             'ci',

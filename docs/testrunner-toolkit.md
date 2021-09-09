@@ -10,6 +10,13 @@ import TabItem from '@theme/TabItem';
 
 `saucectl` is a command line interface that performs the underlying business logic to access the tests in your existing framework, run them (either in the Sauce Labs Cloud or locally in a Docker image), then securely transmit the test assets to the Sauce Labs platform, where you can review, share, and evaluate your test outcomes at scale.
 
+
+## What You'll Need
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+
+
 ## Supported Frameworks and Browsers
 
 `saucectl` currently supports:
@@ -37,6 +44,7 @@ import TabItem from '@theme/TabItem';
 
 |Cypress Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
+|8.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |7.7.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |7.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |7.1.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
@@ -48,6 +56,7 @@ import TabItem from '@theme/TabItem';
 
 |Playwright Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
+|1.14.1|Windows 10|Chromium, Firefox, Webkit|
 |1.12.3|Windows 10|Chromium, Firefox, Webkit|
 |1.11.1|Windows 10|Chromium, Firefox, Webkit|
 |1.10.0|Windows 10|Chromium, Firefox, Webkit|
@@ -68,6 +77,21 @@ import TabItem from '@theme/TabItem';
     <th>Supported Platforms</th>
     <th>Supported Browsers</th>
   </tr>
+  <tbody>
+  <tr>
+    <td rowspan='3'>1.15.3</td>
+    <td><b>macOS:</b> 11.0</td>
+    <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  <tr>
+    <td><b>Windows:</b> 10</td>
+    <td>Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  <tr>
+    <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+    <td>Safari</td>
+  </tr>
+  </tbody>
   <tbody>
   <tr>
     <td rowspan='3'>1.15.0</td>
@@ -173,6 +197,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |Cypress Version|Supported Browsers|
 |----|----|
+|8.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.3.0)|
 |7.7.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.2.2)|
 |7.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.1.0)|
 |7.1.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.0.3)|
@@ -184,7 +209,9 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |Playwright Version|Supported Browsers|
 |-----|----|
-|1.11.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.12.0)|
+|1.14.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.2.1)|
+|1.12.3|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.0.3)|
+|1.11.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.13.0)|
 |1.11.0|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.11.0)|
 |1.10.0|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.10.0)|
 |1.7.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.7.5)|
@@ -195,7 +222,8 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |Puppeteer Version|Supported Browsers|
 |-----|----|
-|10.1.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.4.0)|
+|10.2.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.5.0)|
+|10.1.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.4.1)|
 |9.1.1|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.2.0)|
 |8.0.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.0.0)|
 |3.0.4|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v0.3.0)|
@@ -206,6 +234,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |TestCafe Version|Supported Browsers|
 |----|----|
+|1.15.3|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.10.0)|
 |1.15.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.9.0)|
 |1.14.2|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.7.0)|
 |1.14.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.6.1)|

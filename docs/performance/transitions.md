@@ -11,7 +11,8 @@ import TabItem from '@theme/TabItem';
 
 Capturing page load performance for a specific URL is a great start to detect opportunities to improve performance, but some performance testing requires user interaction to facilitate, such as page load following a successful login or submission of a form. The Sauce Labs custom WebDriver command allows you to trigger performance capturing within an automation script at a precise point of interaction, ensuring you can isolate any issues related to the current application state.
 
-> **NOTE:** Using automation to test performance after targeted interaction with your application in no way implies that you should integrate performance testing in your existing functional test suite. Testing function and performance in the same test is likely to result in compromised results for both objectives and can obscure failure troubleshooting.
+:::note Using automation to test performance after targeted interaction with your application in no way implies that you should integrate performance testing in your existing functional test suite. Testing function and performance in the same test is likely to result in compromised results for both objectives and can obscure failure troubleshooting.
+:::
 
 ## What You'll Learn
 
@@ -21,11 +22,13 @@ Capturing page load performance for a specific URL is a great start to detect op
 * How to write the performance results to a log
 * How to view your results
 
-### What You'll Need
+## What You'll Need
 
-* Google Chrome (no older than 3 versions from latest) as the test browser
-* SAUCE_USERNAME and SAUCE_ACCESS_KEY defined for your environment
-* An automation script that performs the interaction with your app during which you want to measure performance
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+  * Have your SAUCE_USERNAME and SAUCE_ACCESS_KEY defined for your environment.
+* Google Chrome (no older than 3 versions from latest) as the test browser.
+* An automation script that performs the interaction with your app during which you want to measure performance.
 
 ## Setting Performance Capabilities
 
@@ -104,7 +107,7 @@ The custom `sauce:performance` command measures the performance output against a
 
 |Argument|Description|
 |---|------|
-|`name`<br/><font size="2">Required</font>|A name of the test as it would appear in the Sauce Labs application.|
+|`name`<br/><font size="2">Required</font>|A name of the test as it would appear on Sauce Labs.|
 |`metrics`<br/><font size="2">Optional</font>|Specifies one or more specific metrics you want to assert. If not specified, the test defaults to score, which automatically tests all metrics that currently make up a Lighthouse Performance Score.<br/>See [Metric Values](/performance/one-page.md#metric-values) for the list of supported metric values.|
 
 ### Script Examples

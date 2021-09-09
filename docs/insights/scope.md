@@ -6,7 +6,7 @@ description: Tailor the Sauce Labs Insights dashboard to zero in on the results 
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The Insights section of your Sauce Labs app allows you to view your test data from a variety of different perspectives to ensure that you can see both the big picture of your testing effectiveness and the individual slices of test data that help you pinpoint failure causes and fix them.
+The Sauce Labs **Insights** section allows you to view your test data from a variety of different perspectives to ensure that you can see both the big picture of your testing effectiveness and the individual slices of test data that help you pinpoint failure causes and fix them.
 
 :::tip
 Sauce Labs has also published an [Insights API](/dev/api/insights) so you can build a custom dashboard with views that are specific to your test strategy.
