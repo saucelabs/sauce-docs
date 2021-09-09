@@ -51,4 +51,4 @@ Use `saucectl` -- the Sauce Labs test orchestrator CLI to run [Playwright](https
  saucectl run
  ```
 
- The console displays the executing tests, distinguishing which mode is running, and the results and test assets are immediately available in the [Sauce Labs dashboard](https://app.saucelabs.com/dashboard/tests/vdc).
+ The console displays the executing tests, distinguishing which mode is running, and the results and test assets are available immediately in your [Sauce Labs account](https://app.saucelabs.com/dashboard/tests/vdc).

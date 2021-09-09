@@ -301,9 +301,10 @@ Jenkins populates the `SELENIUM_PLATFORM`, `SELENIUM_VERSION`, `SELENIUM_BROWSER
 
 The following sections describe how to share information about your Sauce Labs tests in both the Sauce Labs site and your Jenkins dashboard.
 
+
 ### Capture Build Details
 
-Set the `SAUCE_BUILD_NAME` environment variable as the value of the `build` desired capability to set the Sauce build name at runtime. This enables you to access your test reports by build in the Sauce Labs dashboard and also view them on the Jenkins **Build Details** page.
+Set the `SAUCE_BUILD_NAME` environment variable as the value of the `build` desired capability to set the Sauce build name at runtime. This enables you to access your test reports by build in Sauce Labs and view them on the Jenkins **Build Details** page.
 
 ```java title="Jave Build Capabilities Example"
 DesiredCapabilities capabilities = new DesiredCapabilities();

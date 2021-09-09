@@ -63,7 +63,7 @@ const capabilities = {
 
 For more information and additional examples, see our [Extended Debugging Example GitHub repo](https://github.com/saucelabs-training/demo-js/tree/master/webdriverio/webdriver/examples/extended-debugging).
 
-When a test with extended debugging enabled completes, you can access the logs and files through the Sauce Labs application or with the REST API.
+When a test with extended debugging enabled completes, you can access the logs and files through Sauce Labs or with the REST API.
 
 :::note
 Extended Debugging is not supported for Headless test scripts.
@@ -500,7 +500,7 @@ The JS console collects security errors, warnings, and messages that are explici
 
 ### Accessing Console Logs
 
-Access the JS Console logs (`console.json`) under the **Logs** tab of the **Test Details** page in the Sauce Labs application, or through the REST API by calling the [assets endpoint](/dev/api/jobs#get-a-job-asset-file):
+Access the JS Console logs (`console.json`) under the **Logs** tab of the **Test Details** page, or through the REST API by calling the [assets endpoint](/dev/api/jobs#get-a-job-asset-file):
 
 ```
 curl --compressed -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.saucelabs.com/v1/eds/JOB_ID/console.json
@@ -525,15 +525,15 @@ Alternatively, some other commonly used HAR viewers include:
 
 ### Accessing HAR Files
 
-To download HAR files from the Sauce Labs application:
+To download HAR files from Sauce Labs:
 
-1. From your Sauce Labs dashboard, navigate to **Live > Test Results**.
+1. Navigate to **Live** > **Test Results**.
 1. Select the applicable test.
 1. Click the **Metadata** tab.
 
 You can also download a HAR file programmatically using the following API request:
 
-```
+```curl
 curl --compressed -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.saucelabs.com/v1/eds/JOB_ID/network.har
 ```
 
