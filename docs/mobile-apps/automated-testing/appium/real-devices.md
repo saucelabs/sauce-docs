@@ -519,7 +519,7 @@ With _Static Allocation_, you can specify the device to use in your tests, but i
 
 | Capability | Setting |
 |------------|----|
-| `deviceName` | The ID of the device you want to use in your test, for example `LG_Nexus_5X_real`. You can find the ID for a device by locating it in the real device selection menu of the Sauce Labs application, and then click the **Details** link for the device. |
+| `deviceName` | The ID of the device you want to use in your test (e.g., `LG_Nexus_5X_real`). To find a device's ID number, go to its listing in the device selection menu, then click **Details** . |
 
 
 ### Device Caching
