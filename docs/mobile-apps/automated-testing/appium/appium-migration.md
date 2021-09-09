@@ -10,7 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 <p><span className="sauceGold">DEPRECATED</span></p>
 
 :::warning TestObject End-of-life
-TestObject was discontinued on September 1, 2021. If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+TestObject was discontinued September 1, 2021. If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
 :::
 
 ## What You'll Need
@@ -24,7 +24,7 @@ TestObject was discontinued on September 1, 2021. If you have any questions, ple
 
 ## Sauce Labs User Management
 
-Confirm that your TestObject entitlements and platform privileges have carried over to Sauce Labs by reviewing your organization's [Team Management](https://app.saucelabs.com/team-management/users) page in the Sauce Labs app, where you can assign users to teams, bestow user privileges, and manage device/VM concurrency.
+Confirm that your TestObject entitlements and platform privileges have carried over to Sauce Labs by reviewing your organization's [**Team Management**](https://app.saucelabs.com/team-management/users) page, where you can assign users to teams, bestow user privileges, and manage device/VM concurrency.
 
 
 ## Modifying Real Device Test Builds
