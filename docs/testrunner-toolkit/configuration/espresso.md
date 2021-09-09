@@ -82,7 +82,6 @@ The parent property containing all settings related to how tests are run and ide
 sauce:
   region: eu-central-1
   metadata:
-    name: Testing Espresso Support
     tags:
       - e2e
       - release team
@@ -103,13 +102,12 @@ Specifies through which Sauce Labs data center tests will run. Valid values are:
 ---
 
 ### `metadata`
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT | VIRTUAL ONLY |</small></p>
 
 The set of properties that allows you to provide additional information about your project that helps you distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you, as shown in the following example:
 
 ```yaml
 metadata:
-  name: Testing Espresso Support
   build: RC 10.4.a
   tags:
     - e2e
@@ -440,7 +438,7 @@ devices:
 #### `id`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Request a specific device for this test suite by its ID. You can look up device IDs in the Sauce Labs app or using our [Get Devices API request](https://docs.saucelabs.com/dev/api/rdc#get-devices).
+Request a specific device for this test suite by its ID. You can look up device IDs on device selection pages or by using our [Get Devices API request](https://docs.saucelabs.com/dev/api/rdc#get-devices).
 
 ```yaml
         id: Google_Pixel_2_real_us
@@ -525,6 +523,7 @@ testOptions:
   size: small
   package: com.example.android.testing.androidjunitrunnersample
   annotation: com.android.buzz.MyAnnotation
+  notAnnotation: com.android.buzz.NotMyAnnotation
   numShards: 4
   clearPackageData: true
   useTestOrchestrator: true
@@ -580,6 +579,16 @@ Instructs `saucectl` to run only tests that match a custom annotation that you h
 
 ```yaml
   annotation: com.android.buzz.MyAnnotation
+```
+---
+
+#### `notAnnotation`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Instructs `saucectl` to run all tests *except* those matching a custom annotation that you have set.
+
+```yaml
+  notAnnotation: com.android.buzz.NotMyAnnotation
 ```
 ---
 

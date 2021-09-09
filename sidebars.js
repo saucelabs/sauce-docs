@@ -1,39 +1,13 @@
 module.exports = {
     apif: [
-        'api-testing',
         {
             type: 'category',
-            label: 'Cloud',
+            label: 'On-Premise (Legacy)',
             collapsed: true,
             items: [
                 {
                     type: 'category',
-                    label: 'Quick Start',
-                    collapsed: true,
-                    items: [
-                        'api-testing/mark3/quick-start',
-                        'api-testing/mark3/quick-start/composer',
-                        'api-testing/mark3/quick-start/build-from-spec',
-                        'api-testing/mark3/quick-start/test-reports',
-                        'api-testing/mark3/quick-start/schedule-a-test',
-                        'api-testing/mark3/quick-start/dashboard',
-                        'api-testing/mark3/quick-start/environments-vault-and-overrides-magic',
-                        'api-testing/mark3/quick-start/flexible-variables-for-flexible-environments',
-                        'api-testing/mark3/quick-start/the-vault',
-                        'api-testing/mark3/quick-start/importing-postman-collections',
-                        'api-testing/mark3/quick-start/integrate-with-your-cicd',
-                    ],
-                },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'On Premise',
-            collapsed: true,
-            items: [
-                {
-                    type: 'category',
-                    label: 'Quick Start',
+                    label: 'Quickstart',
                     collapsed: true,
                     items: [
                         'api-testing/mark2/quick-start',
@@ -377,6 +351,11 @@ module.exports = {
                 'dev/cli',
                 'dev/cli/sauce-connect-proxy',
                 {
+                    type: 'link',
+                    label: 'saucectl CLI', // The label that should be displayed (string).
+                    href: '/testrunner-toolkit/saucectl' // The target URL (string).
+                },
+                {
                     type: 'category',
                     label: 'Virtual USB',
                     collapsed: true,
@@ -390,11 +369,6 @@ module.exports = {
                         'dev/cli/virtual-usb/find-sessionid',
                     ],
                 },
-                {
-                    type: 'link',
-                    label: 'saucectl CLI', // The label that should be displayed (string).
-                    href: '/testrunner-toolkit/saucectl' // The target URL (string).
-                },
             ],
         },
     ],
@@ -407,6 +381,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'sauce-basics',
+                    'basics/quickstarts',
                     'basics/platform-configurator',
                     'basics/environment-variables',
 
@@ -541,6 +516,18 @@ module.exports = {
             'mobile-apps/app-storage',
             {
                 type: 'category',
+                label: 'Features',
+                collapsed: true,
+                items: [
+                    'mobile-apps/features/virtual-usb',
+                    'mobile-apps/features/biometric-authentication',
+                    'mobile-apps/features/camera-image-injection',
+                    'mobile-apps/features/gestures',
+
+                ],
+            },
+            {
+                type: 'category',
                 label: 'Live Testing',
                 collapsed: true,
                 items: [
@@ -579,8 +566,6 @@ module.exports = {
                     'mobile-apps/automated-testing/ipa-files',
                 ],
             },
-            'mobile-apps/features',
-            'mobile-apps/virtual-usb',
             'mobile-apps/ms-app-center',
             'mobile-apps/faq',
         ],
@@ -651,9 +636,27 @@ module.exports = {
                 ],
             },
         ],
+
         "API Testing": [
             'api-testing',
-
+            'api-testing/mark3/quick-start',
+            'api-testing/mark3/quick-start/composer',
+            'api-testing/mark3/quick-start/build-from-spec',
+            'api-testing/mark3/quick-start/test-reports',
+            'api-testing/mark3/quick-start/schedule-a-test',
+            'api-testing/mark3/quick-start/dashboard',
+              {
+                  type: 'category',
+                  label: 'Environments, Vaults, and Variables',
+                  collapsed: true,
+                  items: [
+                      'api-testing/mark3/quick-start/environments-vault-and-overrides-magic',
+                      'api-testing/mark3/quick-start/flexible-variables-for-flexible-environments',
+                      'api-testing/mark3/quick-start/the-vault',
+                      'api-testing/mark3/quick-start/importing-postman-collections',
+                      ],
+                  },
+             'api-testing/mark3/quick-start/integrate-with-your-cicd',
         ],
         "CI/CD": [
             'ci',

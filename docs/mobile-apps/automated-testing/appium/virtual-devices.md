@@ -8,24 +8,22 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-With Sauce Labs, you can run automated Appium tests for your native and hybrid mobile apps against many virtual 
-OS and platform combinations with [Android emulators](https://developer.android.com/studio/run/emulator) and 
+With Sauce Labs, you can run automated Appium tests for your native and hybrid mobile apps against many virtual
+OS and platform combinations with [Android emulators](https://developer.android.com/studio/run/emulator) and
 [iOS simulators](https://developer.apple.com/documentation/xcode/running_your_app_in_the_simulator_or_on_a_device).
 
 
 ## What You'll Need
 
-* A Sauce Labs Account.
-* The native or hybrid mobile app you want to test. If you don't have one on hand and want to test this functionality, 
-try our [Sauce Labs demo mobile app](https://github.com/saucelabs/sample-app-mobile).
-* Ensure that your system fulfills the project support and requirements prior to uploading your apps or leveraging 
-device emulators and simulators. 
-Review the [Automated Mobile App Testing Admin Guide](/mobile-apps/supported-devices) for further details.
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+* The native or hybrid mobile app you want to test. If you don't have one on hand and would like to test this functionality, consider using our [Sauce Labs demo mobile app](https://github.com/saucelabs/sample-app-mobile).
+* Ensure that your system fulfills the project support and requirements prior to uploading your apps or leveraging device emulators and simulators. Review the [Automated Mobile App Testing Admin Guide](/mobile-apps/supported-devices) for further details.
 
 ## Upload Your App to Emulators and Simulators
 
-To begin, you'll need to upload your app to a publicly available source. Accepted file types are *.zip iOS 
-package files for simulators and *.apk Android package files for emulators. 
+To begin, you'll need to upload your app to a publicly available source. Accepted file types are *.zip iOS
+package files for simulators and *.apk Android package files for emulators.
 There are two ways you can upload your app for automated testing:
 
    * Sauce Labs App Storage
@@ -38,8 +36,8 @@ There are two ways you can upload your app for automated testing:
 After you've uploaded your app, open a new test script. Add your Sauce Labs credentials (`username` and `accessKey`).
 
 :::warning
-Credentials should not be stored in as text in your code where they might be stored in version control system. 
-For every machine that executes the code, 
+Credentials should not be stored in as text in your code where they might be stored in version control system.
+For every machine that executes the code,
 [set your Sauce Labs credentials with environment variables](/basics/environment-variables).
 :::
 
@@ -334,8 +332,8 @@ DesiredCapabilities caps = DesiredCapabilities.android();
 
 ## Example Appium Test Scripts
 
-These Appium scripts for iOS and Android mobile app tests on emulators and simulators can help streamline your testing 
-process. Below are links to the [Sauce Labs Training on GitHub](https://github.com/saucelabs-training) repository, 
+These Appium scripts for iOS and Android mobile app tests on emulators and simulators can help streamline your testing
+process. Below are links to the [Sauce Labs Training on GitHub](https://github.com/saucelabs-training) repository,
 where you'll find demo scripts for a variety of use cases to get you started with automated Appium testing:
 
 * [Java](https://github.com/saucelabs-training/demo-java/blob/docs-1.0/appium-examples)

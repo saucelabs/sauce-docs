@@ -1,6 +1,6 @@
 ---
 id: espresso-xcuitest
-title: Mobile App Testing with Espresso and XCUITest
+title: Espresso and XCUITest on Sauce Labs
 sidebar_label: Using Espresso and XCUITest
 description: Run Espresso and XCUITest projects on Sauce Labs.
 ---
@@ -8,12 +8,13 @@ description: Run Espresso and XCUITest projects on Sauce Labs.
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs uses its framework agnostic test orchestrator [`saucectl`](/testrunner-toolkit) to execute Espresso and XCUITest tests based on one or more configuration files that instruct `saucectl` to run your tests exactly the way you specify. Results get published in your Sauce Labs dashboard, where you can compare 30 days of results across different environments and frameworks all in one view.
+Sauce Labs uses its framework agnostic test orchestrator [`saucectl`](/testrunner-toolkit) to execute Espresso and XCUITest tests based on one or more configuration files that instruct `saucectl` to run your tests exactly the way you specify. Results get published in your Sauce Labs account, where you can compare 30 days of results across different environments and frameworks all in one view.
 
 ## What You'll Need
 
-* Sauce Labs account `USERNAME` and `ACCESS_KEY` [Look them up](https://app.saucelabs.com/user-settings)
-* Your Espresso or XCUITest apps and files
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+* Your Espresso or XCUITest apps and files.
 
 ## Installation & Setup
 
@@ -55,7 +56,7 @@ Each demo repo includes a sample `config.yml` file (in the `<root>/.sauce` direc
 
 Modify the `config.yml` file to run your existing tests.
 
-* **Test Object Migration:** refer to the [Commands Map](#legacy-to-saucectl-commands-map) to determine which CLI commands and/or YAML configuration properties to use based on your Test Object configurations.
+* **TestObject Migration:** refer to the [Commands Map](#legacy-to-saucectl-commands-map) to determine which CLI commands and/or YAML configuration properties to use based on your TestObject configurations.
 * **New Accounts:** see the `saucectl` configuration documentation for [Espresso](/testrunner-toolkit/configuration/espresso) and [XCUITest](/testrunner-toolkit/configuration/xcuitest).
 
 :::tip Alternative Config Files
@@ -67,13 +68,20 @@ saucectl run -c ./path/to/<configFile>.yml
 :::
 
 
-### Legacy to `saucectl` Commands Map
+### TestObject (Legacy RDC) to `saucectl` Commands Map
 
-`saucectl` configures and runs your Espresso and XCUITest tests entirely from the CLI and YAML configuration settings. The following tables provide a list of testing actions, mapping the Test Object configuration settings to the equivalent settings in `saucectl`. These maps are separated by CLI commands and YAML properties for ease of navigation.
+<p><span className="sauceGold">DEPRECATED</span></p>
 
-:::note
-Both Test Object and Sauce Labs utilize CLI commands and YAML configuration files to define the many ways in which you can run your tests. Some actions can be set using either a CLI command _or_ a YAML property, while other actions can only be configured by one or the other.
+:::warning TestObject End-of-life
+TestObject was discontinued on September 1, 2021. If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
 :::
+
+`saucectl` configures and runs your Espresso and XCUITest tests entirely from the CLI and YAML configuration settings. The following tables provide a list of testing actions, mapping the TestObject configuration settings to the equivalent settings in `saucectl`. Both TestObject and Sauce Labs utilize CLI commands and YAML configuration files to define the many ways in which you can run your tests. Some actions can be set using either a CLI command _or_ a YAML property, while other actions can only be configured by one or the other, so the maps below are separated by CLI commands and YAML properties for ease of navigation.
+
+:::important
+Real Device testing on Sauce Labs is data center contingent, so you will only have access to the public and private devices available within the data center specified for the test, rather than the entire body of devices across all data centers. Each data center includes a very similar  variety of devices and operating systems to provide a broad selection for testing, but depending on your organization’s concurrency allowances, this separation may affect the number of tests you can run in parallel.
+:::
+
 
 <Tabs
   defaultValue="cli"
@@ -88,7 +96,7 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Configuration | Legacy CLI | saucectl CLI |
 | ----------------------------------- | --- | --- |
 | Specify the framework. | `espresso` or `xcuitest` | Must use YAML |
-| Pass account credentials (Test Object). | `--apikey` | [Create Credentials file](/testrunner-toolkit/installation#associating-your-sauce-labs-account) |
+| Pass account credentials (TestObject). | `--apikey` | [Create Credentials file](/testrunner-toolkit/installation#associating-your-sauce-labs-account) |
 | Provide the location of the app to be tested. | `--app` | Must use YAML |
 | Provide the location of the test app. | `--test` | Must use YAML |
 | Identify your applicable data center. | `--datacenter` | `--region` |
@@ -107,6 +115,7 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Run only tests matching the specified size. | `--e -i=size size` | Must use YAML |
 | Specify which package to run. | `--e package` | Must use YAML |
 | Run only tests matching the specified annotation.  | `--e -i=annotation com.my.annotation` | Must use YAML |
+| Exclude tests matching the specified annotation.  | `--e -i=notAnnotation com.my.annotation` | Must use YAML |
 | Further specify Espresso test options using supported key-value pairs. | `--e` | Not supported |
 | Identify a running Sauce Connect tunnel to use for secure connectivity to the cloud. | `--tunnelIdentifier` | `--tunnel-id` |
 | Specify how often (seconds) the runner should check for test results. | `--checkFrequency` | Not supported |
@@ -120,9 +129,8 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Set environment variable values on which other settings depend (such as proxy host/port values). | Not supported | `--env` |
 | Simulate a test without actually executing. | Not supported | `--dry-run` |
 | Return additional output for troubleshooting purposes. | --verbose | `--verbose` |
-| Provide a name for the job as it will appear in the Sauce Labs UI. | Not supported | Must use YAML |
-| Provide tags for use in filtering jobs in the Sauce Labs UI in ways that are meaningful for your org, such as release numbers or dev teams. | Not supported | Must use YAML |
-| Associate the job with a build ID for grouping jobs in the Sauce Labs UI. | Not supported | Must use YAML |
+| Provide tags for use in filtering jobs in the Sauce Labs UI in ways that are meaningful for your org, such as release numbers or dev teams. | Not supported | `--tags <tag1,tag2...>` (Espresso RDC Only)|
+| Associate the job with a build ID for grouping jobs in the Sauce Labs UI. | Not supported | `--build` (Espresso RDC Only)|
 | Specify the circumstances under which to download test artifacts. | Not supported | Must use YAML |
 | When downloading is enabled, specify that only certain types of test artifacts are to be downloaded. | Not supported | Must use YAML |
 | When downloading is enabled, specify the download location. | Not supported | Must use YAML |
@@ -156,6 +164,7 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Run only tests matching the specified size. | Must use CLI | `suites[].testOptions.size:` (Espresso Only) |
 | Specify which package to run. | Not supported | `suites[].testOptions.package:`  (Espresso Only) |
 | Run only tests matching the specified annotation.  | Must use CLI | `suites[].testOptions.annotation:`  (Espresso Only) |
+| Exclude tests matching the specified annotation.  | Must use CLI | `suites[].testOptions.notAnnotation:`  (Espresso Only) |
 | Break the test into separate shards. | Not supported | `suites[].testOptions.numShards:`  (Espresso Only) |
 | Identify a running Sauce Connect tunnel to use for secure connectivity to the cloud. | `tunnelIdentifier:` | `sauce.tunnel.id:` |
 | Specify how often (seconds) the runner should check for test results. | `checkFrequency:` | Not supported |
@@ -169,9 +178,8 @@ Both Test Object and Sauce Labs utilize CLI commands and YAML configuration file
 | Set environment variable values on which other settings depend (such as proxy host/port values). | Not supported | `suites[].env:` |
 | Simulate a test without actually executing. | Not supported | Must use CLI |
 | Return additional output for troubleshooting purposes. | Not supported | Must use CLI |
-| Provide a name for the job as it will appear in the Sauce Labs UI. | Not supported | `sauce.metadata.name` |
-| Provide tags for use in filtering jobs in the Sauce Labs UI in ways that are meaningful for your org, such as release numbers or dev teams. | Not supported | `sauce.metadata.tags:` |
-| Associate the job with a build ID for grouping jobs in the Sauce Labs UI. | Not supported | `sauce.metadata.build:` |
+| Provide tags for use in filtering jobs in the Sauce Labs UI in ways that are meaningful for your org, such as release numbers or dev teams. | Not supported | `sauce.metadata.tags:` (Espresso RDC Only)|
+| Associate the job with a build ID for grouping jobs in the Sauce Labs UI. | Not supported | `sauce.metadata.build:` (Espresso RDC Only)|
 | Specify the circumstances under which to download test artifacts. | Not supported | `artifacts.download.when:` |
 | When downloading is enabled, specify that only certain types of test artifacts are to be downloaded. | Not supported | `artifacts.download.match:` |
 | When downloading is enabled, specify the download location. | Not supported | `artifacts.download.directory:` |

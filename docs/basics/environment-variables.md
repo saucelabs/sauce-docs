@@ -12,19 +12,21 @@ As a best practice, we recommend setting your Sauce Labs authentication credenti
 
 For a list of Sauce Connect Proxy environment variables, see [Environment Variables](/secure-connections/sauce-connect/environment-variables).
 
-## What You'll Need
-* The SAUCE_USERNAME and SAUCE_ACCESS_KEY specific to your Sauce Labs account. To view your settings, in Sauce Labs, click **ACCOUNT** and then click **User settings**.
+
+## What You’ll Need
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+
 
 ## Setting Up Environment Variables on macOS and Linux Systems
 1. In Terminal mode, enter `vi ~/.bash_profile`, and then press **Return**.
 2. Press i to insert text into your profile file.
 3. Enter these lines:
-
-```
-export SAUCE_USERNAME="your Sauce username"
-export SAUCE_ACCESS_KEY="your Sauce access key"
-```
-
+  ```bash
+  export SAUCE_USERNAME="your Sauce username"
+  export SAUCE_ACCESS_KEY="your Sauce access key"
+  ```
 4. Press **Esc**.
 5. Hold **Shift** and press **Z** twice (shift+Z+Z) to save your file and quit vi.
 6. In the terminal, enter `source ~/.bash_profile`.

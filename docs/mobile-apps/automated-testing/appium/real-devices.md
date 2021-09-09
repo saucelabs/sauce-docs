@@ -17,15 +17,14 @@ import TabItem from '@theme/TabItem';
 
 This topic describes automated Appium testing on the Sauce Labs Real Device Cloud (RDC). You can accelerate your test execution by running parallel automated tests across thousands of mobile device/OS combinations, in our public real device cloud and/or a private device pool of your own.
 
+
 ## What You'll Need
 
-* Your Sauce Labs username and access key.
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * Ensure that your mobile app and project setup meet our [real device cloud requirements](/mobile-apps/supported-devices).
-* Have your mobile app file (.ipa for iOS, .apk for Android) and mobile test file on hand.
+* Have your mobile app file (.ipa for iOS, .apk for Android) and mobile test file on hand. If you don't have one and would like to test our functionality, consider using our [Sauce Labs demo app](https://github.com/saucelabs/sample-app-mobile/releases).
 
-If you don't have an app and would like to try out our test functionality, feel free to download and use our [Sauce Labs demo app](https://github.com/saucelabs/sample-app-mobile/releases).
-
-Select your preferred method - remote location or REST API - for uploading your app to [storage](/mobile-apps/app-storage).
 
 ## Uploading Mobile Apps from a Remote Location
 
@@ -520,7 +519,7 @@ With _Static Allocation_, you can specify the device to use in your tests, but i
 
 | Capability | Setting |
 |------------|----|
-| `deviceName` | The ID of the device you want to use in your test, for example `LG_Nexus_5X_real`. You can find the ID for a device by locating it in the real device selection menu of the Sauce Labs application, and then click the **Details** link for the device. |
+| `deviceName` | The ID of the device you want to use in your test (e.g., `LG_Nexus_5X_real`). To find a device's ID number, go to its listing in the device selection menu, then click **Details** . |
 
 
 ### Device Caching
@@ -776,11 +775,6 @@ The CSV file will contain these performance metrics for iOS devices.
   </tr>
 </table>
 
-## TestObject (Legacy RDC)
-
-:::warning
-TestObject, our [Legacy Real Device Platform](https://saucelabs.com/platform/test-object-eol), reaches end-of-life September 1, 2021. Please migrate all of your apps and tests from TestObject to Sauce Labs by August 31, 2021.
-:::
 
 ## Additional Test Configuration Options
 

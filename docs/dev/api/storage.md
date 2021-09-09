@@ -13,6 +13,11 @@ Use the Storage API methods to upload and manage your application and any file d
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
+## What You'll Need
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+
 ### Get App Storage Files
 
 <details><summary><span className="api get">GET</span> <code>/v1/storage/files</code></summary>
@@ -446,7 +451,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/storage/download/43732d5b-5275-4a79-a936-197e4b9cd2d4' | jq
+--request GET 'https://api.us-west-1.saucelabs.com/v1/storage/download/43732d5b-5275-4a79-a936-197e4b9cd2d4' --output SwagLabsMobileApp.ipa
 ```
 
 </TabItem>
@@ -454,7 +459,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/download/43732d5b-5275-4a79-a936-197e4b9cd2d4' | jq
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/download/43732d5b-5275-4a79-a936-197e4b9cd2d4' --output SwagLabsMobileApp.ipa
 ```
 
 </TabItem>
