@@ -62,8 +62,8 @@ $ export SAUCE_ACCESS_KEY=<your access key>
 
 The API is versioned by URL, each of which may be in a different stage of release. The currently published version of each endpoint is reflected in the URL itself, as demonstrated in the following two endpoints:
 
-* `https://api.us-west-1.saucelabs.com/rest/v1.2/users/<USERNAME>/concurrency`
-* `https://api.us-west-1.saucelabs.com/rest/v1/users/<USERNAME>/activity`
+* `https://api.us-west-1.saucelabs.com/rest/v1/<USERNAME>/jobs`
+* `https://api.us-west-1.saucelabs.com/v2/performance/metrics/`
 
 ### Methods
 
@@ -132,11 +132,9 @@ Requests received after the rate limit is reached return a [429 response code](h
 
 | REST API Endpoint | Rate Limit | Authenticated |
 | :-------------------------- | :---:| ---:|
-| `/rest/v1/*/activity` | 3 requests per second, or 3,500 requests per hour | :heavy_check_mark: |
-| All other authenticated request endpoints | 10 requests per second, or 3,500 requests per hour | :heavy_check_mark: |
+| All authenticated request endpoints | 10 requests per second, or 3,500 requests per hour | :heavy_check_mark: |
 | All unauthenticated request endpoints | 2 requests per minute ||
 
-For more information about rate limiting check out this blog post: [Announcing New Rest API Usage Limits](https://saucelabs.com/blog/announcing-new-rest-api-rate-limits).
 
 ## JQ Response Formatting
 
