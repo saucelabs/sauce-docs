@@ -1506,7 +1506,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-### Get a User's Concurrency
+### Get User Concurrency
 
 <details><summary><span className="get">GET</span> <code>/rest/v1.2/users/&#123;username&#125;/concurrency</code></summary>
 <p/>
