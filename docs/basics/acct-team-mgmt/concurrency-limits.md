@@ -20,7 +20,7 @@ Once you've used all of your concurrency slots, additional tests will not start 
 
 ## Checking Concurrency
 
-You can use the [Get User Concurrency](/dev/api/accounts/#get-a-users-concurrency) API endpoint to retrieve a specific user's concurrency usage compared with their organization and team concurrency allowances.
+You can use the [Get User Concurrency](/dev/api/accounts/#get-user-concurrency) API endpoint to retrieve a specific user's concurrency usage compared with their organization and team concurrency allowances.
 
 ```jsx title="Sample Concurrency Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
