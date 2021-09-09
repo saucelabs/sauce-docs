@@ -90,7 +90,7 @@ The testing session was terminated by the user.
 
 **Cause(s)**
 
-Your test was manually interrupted using the **Cancel** or **Breakpoint** buttons in the Sauce Labs application. Since both of these take control of the virtual machine immediately, test assets like screenshots, video, or logs that require additional execution time will not be collected and made available afterwards.
+Your test was manually interrupted using the Sauce Labs **Cancel** or **Breakpoint** buttons. Since both of these take control of the virtual machine immediately, test assets like screenshots, video, or logs that require additional execution time will not be collected and made available afterwards.
 
 **How to Resolve**
 
@@ -274,7 +274,7 @@ The capabilities you've supplied include a URL to a mobile application to instal
 
 **How to Resolve**
 
-We recommend avoiding all problems with apps hosted internally by uploading to [Sauce Labs App Storage](/mobile-apps/app-storage) instead.
+We recommend avoiding all problems with apps hosted internally by uploading to Sauce Labs [Application Storage](/mobile-apps/app-storage) instead.
 
 If you're already using storage, check to make sure that:
 

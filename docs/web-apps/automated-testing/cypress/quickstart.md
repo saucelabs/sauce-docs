@@ -53,6 +53,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  The console displays the executing tests, distinguishing which mode is running.
 
- The results and test assets are immediately available in the [Sauce Labs dashboard](https://app.saucelabs.com/dashboard/tests/vdc):
+ The results and test assets are available immediately in your [Sauce Labs account](https://app.saucelabs.com/dashboard/tests/vdc):
 
   <img src={useBaseUrl('img/cypress/test-results.png')} alt="Cypress Test Results" />

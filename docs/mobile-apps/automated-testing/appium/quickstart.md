@@ -2,7 +2,7 @@
 id: quickstart
 title: Appium Quickstart
 sidebar_label: Quickstart
-description: Use our demo scripts to quickly set up and run automated tests and view the results in the Sauce Labs app.
+description: Use our demo scripts to quickly set up and run automated tests and view the results in Sauce Labs.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -63,4 +63,4 @@ mvn clean test
 Alternatively, you can right click the test and choose `Run` from most IDE interfaces.
 
 
-Following this quickstart, you should be able to see the results of your test in the [Sauce Labs app](https://app.saucelabs.com/dashboard/tests/vdc).
+Following this quickstart, you should be able to see the [results of your test](https://app.saucelabs.com/dashboard/tests/vdc) in Sauce Labs.
