@@ -61,7 +61,8 @@ const capabilities = {
 </TabItem>
 </Tabs>
 
-For more information and additional examples, see our [Extended Debugging Example GitHub repo](https://github.com/saucelabs-training/demo-js/tree/master/webdriverio/webdriver/examples/extended-debugging).
+For more information and additional examples, see our 
+[Extended Debugging Example GitHub repo](https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/webdriver/examples/extended-debugging).
 
 When a test with extended debugging enabled completes, you can access the logs and files through Sauce Labs or with the REST API.
 
