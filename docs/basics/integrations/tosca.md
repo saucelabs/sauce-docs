@@ -19,6 +19,7 @@ Below is a guide to set up the Sauce Labs integration. This integration allows y
 
 * [A Sauce Labs Account](https://saucelabs.com/sign-up)
 * [A Tosca Tricentis™ Account](https://www.tricentis.com/software-testing-tool-trial-demo/)
+* [A Sauce Connect tunnel (for encrypted test runs)](#encrypted-test-runs)
 
 ## Start a VM with the Tosca Agent
 To start a virtual machine with a Tosca Agent, you need to send a `POST` request to the Sauce Labs `ondemand` endpoint using an HTTP client (e.g. `curl` or Postman). First, you must pass your [Sauce Labs authentication credentials](https://app.saucelabs.com/user-settings) using Basic Auth. Then, your `POST` body request must contain the required settings:
@@ -51,6 +52,13 @@ The Sauce Labs VMs also require specific test configuration options if you plan 
 :::info W3C Protocol
 Read more about the `sauce:options` setting, and other test configuration options [here](/dev/test-configuration-options/#webdriver-w3c-capabilities--required).
 :::
+
+### Encrypted Test Runs
+
+If you wish to encrypt or run your tests using a secure tunnel, you must add `tunnelIdentifier` in the `sauce:options` section of your `POST` request like in the example above.
+
+For more information regarding the `tunnelIdentifier` option, please refer to the [Secure Connection](https://docs.saucelabs.com/secure-connections/sauce-connect) page.
+
 
 ### Example Request
 Below is an example `POST` body request that starts a Sauce Labs VM with the Tosca Agent using `curl`, and passes session the information with a file called `tosca.json`:
@@ -98,23 +106,16 @@ https://ondemand.us-west-1.saucelabs.com/wd/hub
 }
 ```
 
-### Encrypted Test Runs
-
-If you wish to encrypt or run your tests using a secure tunnel, you must add `tunnelIdentifier` in the `sauce:options` section of your `POST` request like in the example above.
-
-For more information regarding the `tunnelIdentifier` option, please refer to the [Secure Connection](https://docs.saucelabs.com/secure-connections/sauce-connect) page.
-
 ## Configure Tricentis Tosca
 
-Once the Sauce Labs VM starts with the Tosca agent, the next step is to configure Tosca. For detailed information about the Tricentis Tosca user interface, please consult [the documentation](https://documentation.tricentis.com/tosca/1300/en/content/resources/webhelp/cover_web.htm).
+Once the Sauce Labs VM starts with the Tosca agent, the next step is to configure Tosca. The general steps are as follows:
 
-* Navigate to **Tosca Settings** > **Commander** > **Distributed Execution** to update the _Monitor URL_ and _Server Settings_
-  * Monitor URL Example: `http://ec2-18-185-109-249.eu-central-1.compute.amazonaws.com:8080/Monitor/`
-  * Server Setting (EndpointAddress) Example: `http://ec2-18-185-109-249.eu-central-1.compute.amazonaws.com:8080/DistributionServerService/ManagerService.svc`
-* After you finish configuring the Distributed Execution, create a _TestEvent_ and link the desired _ExecutionList_
-  * For example, **OperatingSystem/Browser/BrowserVersion** capabilities are set in the `POST` request for the **VM/Agent Machine**
-* Right-click on **Configurations** to refresh the agents, then you should see your agent machine in the list.
-* Right-click on the desired _TestEvent_ and then execute the test(s).
+* As with any other distributed run in Tosca, Create a _TestEvent_ and link your desired _ExecutionList_
+* **OperatingSystem/Browser/BrowserVersion** capabilities are set in the `POST` request for the **VM/Agent Machine**
+* After right-clicking on **Configurations** to refresh the agents, you should see the agent machine in the list.
+* Finally, right-click on the desired _TestEvent_ and then execute the test(s).
+
+For detailed information about configuring Tosca for distributed test runs, please consult [the documentation](https://documentation.tricentis.com/tosca/1300/en/content/resources/webhelp/cover_web.htm).
 
 :::warning Note on Scaling
 Consult the licensing tiers for both Tosca and Sauce Labs to ensure your account concurrency is aligned with your testing requirements.
