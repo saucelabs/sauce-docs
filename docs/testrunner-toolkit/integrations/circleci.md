@@ -13,7 +13,7 @@ These examples can apply to virtually any CirceCI deployment, provided that you 
 ## What You'll Need
 
 * [CirceCI Account](https://circleci.com/signup/)
-* [SauceLabs Account](https://saucelabs.com/sign-up)
+* [Sauce Labs Account](https://saucelabs.com/sign-up)
 * A git repository hosting service (GitHub or BitBucket)
 
 ## Project Setup

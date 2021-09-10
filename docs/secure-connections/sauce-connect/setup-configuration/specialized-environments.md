@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 ## Real Device Cloud Setup
 
 :::note
-The content on this page applies to the new RDC on Sauce platform. If you're looking for instructions on how to run Sauce Connect Proxy on our Legacy RDC platform (TestObject), see [Creating Tunnels in TestObject (Legacy)](/secure-connections/sauce-connect/setup-configuration/legacy-tunnels).
+The content on this page applies to RDC on Sauce. For instructions on running Sauce Connect Proxy on our Legacy RDC platform (TestObject), see [Creating Tunnels in TestObject (Legacy)](/secure-connections/sauce-connect/setup-configuration/legacy-tunnels).
 :::
 
 Real Device Cloud on Sauce Labs (RDC on Sauce) offers public and private mobile devices for users looking to expedite automated and live testing for their mobile apps. You can run a high volume of tests across a broad range of real devices without compromising performance, quality, or reliability.
@@ -52,7 +52,8 @@ Sauce Connect Proxy can have multiple tunnels running simultaneously, as describ
 
 1. Start Sauce Command Proxy from the command line, providing an `-i (--tunnel-identifer)` to start a new tunnel with that identifier (see [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy.md) for more information).
 
-```bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x $SAUCE_DC_ENDPOINT -i $TUNNEL_ID
+```bash
+bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x $SAUCE_DC_ENDPOINT -i $TUNNEL_ID
 ```
 
 `SAUCE_RDC_USERNAME` refers to your Sauce Labs username, where:
@@ -63,12 +64,13 @@ Sauce Connect Proxy can have multiple tunnels running simultaneously, as describ
 
 So an example would look like this:
 
-```$ /bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x 'https://us-west-1.saucelabs.com/rest/v1' -i rdc-on-sauce-tunnel-us
+```bash
+$ /bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x 'https://us-west-1.saucelabs.com/rest/v1' -i rdc-on-sauce-tunnel-us
 ```
 
 2. In your device testing script, specify the tunnel name with `tunnelIdentifier` in your desired capabilities, as shown in this Java example:
 
-```jsx title="Java Snippet"
+```js
 final DesiredCapabilities capabilities = new DesiredCapabilities();
     capabilities.setCapability("username", System.getenv("SAUCE_RDC_USERNAME"));
     capabilities.setCapability("accessKey", System.getenv("SAUCE_RDC_ACCESS_KEY"));
@@ -96,13 +98,13 @@ In the Sauce Connect Proxy code snippet below, you'll see '-x' followed by the t
 
 **Mac OSX / Linux Example**
 
-```
+```bash
 $ /bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x 'https://saucelabs.com/rest/v1' -i rdc-on-sauce-tunnel-us
 ```
 
 **Windows Example**
 
-```
+```bash
 > \bin\sc -u %SAUCE_RDC_USERNAME% -k %SAUCE_RDC_ACCESS_KEY% -x 'https://saucelabs.com/rest/v1' -i rdc-on-sauce-tunnel-us
 ```
 
@@ -111,20 +113,20 @@ $ /bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x 'https://saucelabs.
 
 **Mac OSX / Linux Example**
 
-```
+```bash
 $ /bin/sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -x 'https://eu-central-1.saucelabs.com/rest/v1' -i rdc-on-sauce-tunnel-eu
 ```
 
 **Windows Example**
 
-```
+```bash
 > \bin\sc -u %SAUCE_RDC_USERNAME% -k %SAUCE_RDC_ACCESS_KEY% -x 'https://eu-central-1.saucelabs.com/rest/v1' -i rdc-on-sauce-tunnel-eu
 ```
 </TabItem>
 </Tabs>
 
 :::note
-Once you establish a Sauce Connect Proxy tunnel for real device testing, you can also use it for virtual devices (and vice versa) since they'll share the same endpoint.
+Once you establish a Sauce Connect Proxy tunnel for real device testing, you can also use it for virtual devices (and vice versa) since they share the same endpoint.
 :::
 
 ### OnDemand Endpoint Examples for Driver Setup
@@ -140,7 +142,7 @@ To ensure you're testing against the correct data center, you'll need to add the
 
 <TabItem value="US Data Center">
 
-```
+```bash
 final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub"), capabilities);
 ```
 
@@ -148,7 +150,7 @@ final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.us-west
 
 <TabItem value="EU Data Center">
 
-```
+```bash
 final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.eu-central-1.saucelabs.com/wd/hub"), capabilities);
 ```
 
@@ -164,4 +166,4 @@ Sauce Headless is a lightweight infrastructure that allows developers to run ear
 For instructions on how to set up Sauce Connect Proxy tunnels with your Sauce Headless tests, see [Getting Started With Sauce Headless](/headless).
 
 ## Legacy RDC (TestObject)
-For instructions on how to run Sauce Connect Proxy on our Legacy RDC platform (TestObject), see [Creating a Sauce Connect Tunnel for Legacy Real Device Cloud](https://wiki.saucelabs.com/display/DOCS/Creating+a+Sauce+Connect+Tunnel+for+Legacy+Real+Device+Cloud).
+For instructions on how to run Sauce Connect Proxy on our Legacy RDC platform (TestObject), see [Creating a Sauce Connect Tunnel for Legacy Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/legacy-tunnels/).

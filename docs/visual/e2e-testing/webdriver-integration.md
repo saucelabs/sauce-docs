@@ -1,7 +1,7 @@
 ---
 id: webdriver-integration
 title: Getting Started with WebDriver
-sidebar_label: WebDriver Integration
+sidebar_label: Getting Started with WebDriver
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -109,7 +109,8 @@ browserOptions.AddAdditionalCapability("sauce:visual", sauceVisual, true);
 </TabItem>
 </Tabs>
 
-> **NOTE**: You can get your Screener API Key (`apiKey`) from [here](https://screener.io/v2/account/api-key).
+:::note You can get your Screener API Key (`apiKey`) from [here](https://screener.io/v2/account/api-key).
+:::
 
 :::tip Tip: Store API Key as an environment variable
 
@@ -119,7 +120,7 @@ For example, store it in an environment variable called `SCREENER_API_KEY`, and 
 
 :::
 
-For additional configuration options, view the [Visual Options](/visual/e2e-testing/visual-options) documentation.
+For additional configuration options, view the [Visual Options](/visual/e2e-testing/options) documentation.
 
 
 ## 3. Connect To Remote Hub
@@ -267,7 +268,7 @@ static void test() {
 </Tabs>
 
 
-For more details on commands, view the [Visual Commands](/visual/e2e-testing/visual-commands) documentation.
+For more details on commands, view the [Visual Commands](/visual/e2e-testing/commands) documentation.
 
 For full examples, view [Code Examples](/visual/e2e-testing/code-examples).
 
@@ -278,11 +279,13 @@ Great, you're all set!
 
 Now run your first test and view your initial results in the [Screener Dashboard](https://screener.io/v2/dashboard).
 
->**NOTE**: your initial visual test will fail, and results will be labelled as "New"; [Review and Accept](https://screener.io/v2/docs/visual-e2e/review-flow) them as the baseline.
+:::note
+Your initial visual test will fail, and results will be labelled as "New"; [Review and Accept](https://screener.io/v2/docs/visual-e2e/review-flow) them as the baseline.
+:::
 
 
 ## Next Steps
 
-* [Learn the Review Flow](/visual/e2e-testing/review-flow) for reviewing UI test results.
-* [Return results into your WebDriver tests and integrate into your CI process](/visual/e2e-testing/integrations/ci) for continuous visual testing.
+* [Learn the Review Flow](/visual/e2e-testing/workflow/review-workflow) for reviewing UI test results.
+* [Return results into your WebDriver tests and integrate into your CI process](/visual/e2e-testing/integrations/continuous-integration) for continuous visual testing.
 * [Troubleshooting](/visual/e2e-testing/troubleshooting) or view full [Code Examples](/visual/e2e-testing/code-examples).

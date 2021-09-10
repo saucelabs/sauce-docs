@@ -12,7 +12,8 @@ The `saucectl` command line tool orchestrates the communication between Sauce La
 
 ## What You'll Need
 
-* A [Sauce Labs](https://saucelabs.com/) account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * Know which [test framework and browser versions](/testrunner-toolkit#supported-frameworks-and-browsers) you plan to run tests against
 * [Docker](https://docs.docker.com/get-docker/), if you plan to run tests locally
 
@@ -80,7 +81,7 @@ brew install saucectl
 ```
 
 ```bash title="Using curl (Linux / macOS)"
-curl -L https://saucelabs.github.io/saucectl/install | bash
+sudo sh -c 'curl -L https://saucelabs.github.io/saucectl/install | bash -s -- -b /usr/local/bin'
 ```
 
 ```bash title="Using Powershell (Windows)"
@@ -96,7 +97,7 @@ If you would like to inspect the content of our one line installer, download it,
 ```bash
 curl -fsSL -o get_saucectl.sh https://saucelabs.github.io/saucectl/install && \
 chmod 700 get_saucectl.sh && \
-./get_saucectl.sh
+sudo ./get_saucectl.sh -b /usr/local/bin
 ```
 
 :::caution Are you using mingw?
@@ -105,7 +106,7 @@ Mingw on Windows is known to interfere with the interactive `saucectl` commands,
 
 ## Associating Your Sauce Labs Account
 
-Your Sauce Labs `username` and `accessKey` are required to post your test results to the Sauce Labs platform. These values are available in the [User Settings](https://app.saucelabs.com/user-settings) page in the Sauce Labs app.
+Your Sauce Labs `username` and `accessKey` are required to post your test results to the Sauce Labs platform. These values are available on the [User Settings](https://app.saucelabs.com/user-settings) page.
 
 You can associate your Sauce Labs account with `saucectl` either by creating environment variables or by generating a `credentials.yml` file.
 
@@ -129,6 +130,14 @@ SAUCE_ACCESS_KEY='valid.key'
 :::warning Protect your Credentials
 Whether you are using environment variables or a credentials file, make sure your authentication data is protected. Use secrets or context variables to mask your environment variables, or add `credentials.yml` to your `gitignore` file to ensure your credentials are not exposed in your commits.
 :::
+
+## Updating saucectl
+
+To ensure you have access to the most current feature set of saucectl, keep your installation up to date by periodically upgrading to the latest release.
+
+```bash
+npm update -g saucectl
+```
 
 
 ## Sample Repos
@@ -212,7 +221,7 @@ Running version v0.44.0
 ```
 
 
-Once the test completes, you can view the test assets when you log into your Sauce Labs dashboard.
+Once the test completes, you can view the test assets when you log into Sauce Labs.
 
 
 ## Next Steps

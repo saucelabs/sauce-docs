@@ -278,9 +278,9 @@ saucectl run --artifacts.download.when always
 ---
 
 ### `--build <string>`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| OPTIONAL | STRING | VIRTUAL ONLY |</small></p>
 
-Associates the tests with a build.
+Associates the tests with a build. This flag is not yet supported for mobile real device tests.
 
 ```bash
 saucectl run --build myBuildID
@@ -352,13 +352,14 @@ saucectl run --select-suite <suite_name>
 
 :::note Formerly `--suite <string>`
 Versions of saucectl before v0.52.4 use the flag  `--suite` instead.
+:::
 
 ---
 
 ### `--tags <tag1,tag2,...>`
-<p><small>| OPTIONAL | LIST |</small></p>
+<p><small>| OPTIONAL | LIST | VIRTUAL ONLY |</small></p>
 
-A keyword that may help you distinguish the test in Sauce Labs, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you.
+A keyword that may help you distinguish the test in Sauce Labs, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you. This flag is not yet supported for mobile real device tests.
 
 ```bash
 saucectl run --tags e2e,team2

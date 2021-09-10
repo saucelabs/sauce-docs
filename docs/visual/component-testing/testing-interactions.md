@@ -16,7 +16,6 @@ This is useful for:
 
 To test interactions, Screener provides a class called `Steps` that you can add to your existing Storybook stories. Each step is an instruction to interact with the component.
 
-
 ### For React
 To add steps to a React story, wrap your component within the `<Screener/>` component, and pass it as a `'steps'` prop. The steps can then be generated using our fluent API below.
 
@@ -36,7 +35,9 @@ storiesOf('MyComponent', module)
   ));
 ```
 
->**NOTE**: The `<Screener/>` component must be the top-most component returned within a story. If you use `addDecorator` in your stories, ensure the last decorator contains the Screener component and steps.
+:::note
+The `<Screener/>` component must be the top-most component returned within a story. If you use `addDecorator` in your stories, ensure the last decorator contains the Screener component and steps.
+:::
 
 
 ### For Vue
@@ -121,7 +122,9 @@ __Description__: this will send the provided keys to the first element matching 
 ### `executeScript(code)`
 __Description__: his executes custom JS code against the client browser the test is running in.
 
->**NOTE**: The "code" parameter is a **string**.
+:::note
+The "code" parameter is a **string**.
+:::
 
 ---
 ### `ignore(selector)`
@@ -159,4 +162,6 @@ __Description__: this will set the current UI state to left-to-right direction.
 ### `end()`
 __Description__: this will return the steps to be run.
 
->**NOTE**: When adding `Steps` using the fluent API, you must end the method chain with `end()`.
+:::note
+When adding `Steps` using the fluent API, you must end the method chain with `end()`.
+:::
