@@ -80,5 +80,4 @@ If you would like to see sample tests and configuration files for particular fra
 
 * [Cypress Demo](https://github.com/saucelabs/saucectl-cypress-example/tree/master/examples/typescript)
 * [TestCafe Demo](https://github.com/saucelabs/saucectl-testcafe-example/tree/master/examples/typescript)
-* [Playwright Demo](https://github.com/saucelabs/saucectl-playwright-example/tree/master/examples/typescript)
 * [Puppeteer Demo](https://github.com/saucelabs/saucectl-puppeteer-example/tree/master/examples/typescript)
