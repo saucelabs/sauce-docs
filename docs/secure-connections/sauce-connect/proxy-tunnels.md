@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 ## Tunnel Management
 You can manage and monitor all Sauce Connect Proxy tunnel activity from the **Tunnels** menu. You can also launch and stop tunnels from this page.
 
-### Tunnel Information on Your Sauce Labs Dashboard
+### Viewing Tunnel Information on Sauce Labs
 The Tunnels page displays useful information, such as the number of active tunnels, tunnel status, specific attributes for each tunnel.
 
 | Column | Description |

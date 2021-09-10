@@ -27,6 +27,7 @@ The [latest version of Sauce Connect Proxy](/secure-connections/sauce-connect/in
 
 :::note
 At this time, data from tests run in Headless mode is not available to the [Sauce Insights](/insights) analytics features.
+
 :::
 
 ## Setup and Configuration
@@ -77,7 +78,7 @@ You can run Sauce Headless tests in a variety of programming languages and test 
 __TestNG Example Walkthrough__
 
 1. Head to [Sauce Labs Training: Java Example Scripts](https://github.com/saucelabs-training/demo-java) on GitHub and review the README page to ensure you have the prerequisite software.
-2. Download or clone [this headless sample script](https://github.com/saucelabs-training/demo-java/blob/master/selenium-examples/src/test/java/com/saucedemo/SampleHeadlessSauceTest.java) from our GitHub repo.
+2. Copy [this headless sample script](https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-testng-examples/src/test/java/com/saucedemo/selenium/testng/SampleHeadlessSauceTest.java) from our GitHub repo.
 3. Resolve dependencies with Maven:
   ```bash
   $ mvn dependency:resolve
@@ -125,7 +126,7 @@ __Pytest Example Walkthrough__
 
 1. Head to [Sauce Labs Training: Python Example Scripts](https://github.com/saucelabs-training/demo-python) on GitHub and review the README page to ensure you have the prerequisite software.
 
-2. Download or clone [this headless sample script](https://github.com/saucelabs-training/demo-python/blob/main/examples/headless/test_demo.py) from the repo.
+2. Download or clone [this headless sample script](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/headless/test_demo.py) from the repo.
 3. Install the following modules:
   ```bash
   pip install pytest pytest-xdist
@@ -157,8 +158,9 @@ __Pytest Example Walkthrough__
 
 __WebdriverIO Example Walkthrough__
 
-1. Head to [Sauce Labs Training: JavaScript Example Scripts](https://github.com/saucelabs-training/demo-js) on GitHub and review the README page to ensure you have the prerequisite software.
-2. Download or clone one of [our headless test scripts](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio/webdriver/examples/headless) from the repo.
+1. Head to [Sauce Labs Training: JavaScript Examples](https://github.com/saucelabs-training/demo-js) on GitHub and
+review the README page to ensure you have the prerequisite software.
+2. Download or clone one of [our headless test examples](https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/webdriver/examples/headless) from the repo.
 3. Navigate to the headless-examples directory and install node package dependencies:
   ```bash
   $ cd headless-examples/
@@ -184,8 +186,8 @@ __WebdriverIO Example Walkthrough__
 
   <details><summary><strong>Example Headless Script for Ruby</strong></summary>
 
-  ```ruby reference
-  https://github.com/saucelabs-training/demo-ruby/blob/master/selenium-examples/rspec/spec/spec_helper.rb
+  ```ruby reference title="Ruby Example"
+  https://github.com/saucelabs-training/demo-ruby/blob/docs-1.0/selenium-examples/rspec/spec/spec_helper.rb
   ```
 
   </details>
@@ -225,8 +227,8 @@ Head to [Sauce Labs Training: C# Example Scripts](https://github.com/saucelabs-t
 
   <details><summary><strong>Example Headless Script for C#</strong></summary>
 
-  ```csharp reference
-  https://github.com/saucelabs-training/demo-csharp/blob/bf16d3342b663d02014c53a66b1164b6c86970b8/SauceExamples/SeleniumNunit/SimpleExamples/SimpleHeadlessTest.cs
+  ```csharp reference title="C# Example"
+  https://github.com/saucelabs-training/demo-csharp/blob/docs-1.0/SauceExamples/SeleniumNunit/SimpleExamples/SimpleHeadlessTest.cs
   ```
 
   </details>
@@ -241,6 +243,7 @@ The US-East IP addresses should be reachable from your network. If there's an is
 
 :::note
 Cross-Browser VMs are not available at this time in US-East.
+
 :::
 
 ## Using the Sauce Headless Web UI

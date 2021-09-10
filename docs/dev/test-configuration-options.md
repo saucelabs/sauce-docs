@@ -14,6 +14,10 @@ export const Highlight = ({children, color}) => ( <span style={{
 
 See the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to generate the code for setting the capabilities to execute a test. For examples, see [Examples of Test Configuration Options for Website Tests](https://docs.saucelabs.com/basics/test-config-annotation/test-config/#examples-of-test-configuration-options-for-website-tests)
 
+## What You'll Need
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+
 ## Terminology
 
 When setting up your test, you'll need to configure your script with settings called ___capabilities___ that align with your test environment (e.g., desktop browser, mobile web browser, mobile app). While each environment has its own set of capabilities, they can also be combined. Some are required for a test to run in a given environment, while some are optional.
@@ -70,6 +74,7 @@ See the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platfo
 
 :::note
 This setting cannot be used for mobile browsers, as your test will use the default browser installed for the given Appium version.
+
 :::
 
 __Value Type__: String.<br/>
@@ -178,6 +183,7 @@ __Description__: Specifies the Microsoft Edge driver version you want to use for
 
 :::note
 Edge Driver is based on Chrome Driver, so the same caveats from [chromedriverVersion](#chromedriverversion) apply to `edgedriverVersion`.
+
 :::
 
 __Value Type__: String.<br/>
@@ -260,6 +266,7 @@ __Description__: Specifies the screen resolution to be used during your test ses
 
 :::note
 You cannot set screen resolution on Windows 7 with IE 9.
+
 :::
 
 __Value Type__: String.<br/>
@@ -276,6 +283,7 @@ If you are not using the official Appium bindings, make sure to prefix all Appiu
 
 :::note
 [`browserName`](#browsername) and [`platformName`](#platformname) are frequently used in Appium tests, however, because they are W3C capabilities, you do not need to prepend them with `appium:`.
+
 :::
 
 ---
@@ -424,7 +432,7 @@ __Examples__:
 ### `otherApps`
 <small><span className="sauceDBlue">Real Devices Only</span></small>
 
-__Description__: A dependent app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) that will be pre-installed on the device under test for use during testing the main app. You can specify the app using its `storage:<fileId>` or `storage:filename=<filename>` reference.
+__Description__: A dependent app that has already been uploaded to [Sauce Labs Application Storage](/mobile-apps/app-storage) that will be pre-installed on the device under test for use during testing the main app. You can specify the app using its `storage:<fileId>` or `storage:filename=<filename>` reference.
 
 Dependent apps inherit the configuration of the main app under test for [`Device Language`](https://app.saucelabs.com/live/app-testing#group-details), [`Device Orientation`](https://app.saucelabs.com/live/app-testing#group-details), and [`Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of what settings may have been applied to the app at the time of upload, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
 
@@ -494,8 +502,8 @@ Suitable for test setups that require the app's state to be reset between tests.
 
 We recommend reviewing [Device Management for Real Devices](/mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
-:::note 
-`cacheId` has replaced the `testobject_cache_device` capability that was used in TestObject (Legacy RDC).
+:::note
+`cacheId` replaces the deprecated `testobject_cache_device` capability formerly used in TestObject (Legacy RDC).
 :::
 
 __Value Type__: Randomized String.

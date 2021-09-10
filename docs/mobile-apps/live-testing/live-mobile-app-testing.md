@@ -10,7 +10,8 @@ import TabItem from '@theme/TabItem';
 With Sauce Labs, you can test your mobile applications on a variety of Android and iOS devices. If you do not have an app, consider using the Sauce Labs Swag Labs sample app for validating your account functionality as well as your tests.
 
 ## What You'll Need
-* A Sauce Labs account
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * A mobile app to test. If you don't have one, you can use the [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile).
 
 ### Uploading an App
@@ -54,7 +55,7 @@ The application settings screen is only available for real device testing.
 | Image Injection | Enable/disable image injection. Image injection allows you to mimic camera behavior when testing applications by letting you upload an image and present it to the application as if it were read by the device camera. |
 | Bypass Screenshot Restriction <br/><p><span className="sauceDBlue">ANDROID ONLY</span></p> | Enable/disable Bypass Screenshot Restriction (not supported on applications uploaded to the legacy sauce storage). Enabling **Bypass Screenshot Restriction** allows you to take screenshots of your app during tests, even if your app does not allow screenshots for security reasons. |
 | System Alerts Display <br/><p><span className="sauceDBlue">iOS Only</span></p> | Enable/disable a system alerts delay. Enabling delays alerts, such as asking for permission to access the camera, to prevent app crashes at startup. |
-| Biometrics Interception | Enable/disable biometrics. Enabling allows you to choose authentication options if your mobile app requires a biometric authentication, such as fingerprint or face recognition on Android, and Face ID or Touch ID on iOS. |
+| Biometrics Interception | Enable/disable biometrics. Enabling allows you to choose authentication options if your mobile app requires a biometric authentication, such as fingerprint or face recognition on Android, and Face ID or Touch ID on iOS.<br/> This setting is disabled by default for iOS apps. |
 | Group Folder Redirect <br/><p><span className="sauceDBlue">iOS Only</span></p> | Enable/disable a group directory redirect. Enabling allows you to use your app's private app container directory instead of the shared app group container directory. When your app gets resigned, the shared directory is not accessible. |
 
 :::note
@@ -122,7 +123,7 @@ You can launch a test from the following screens:
 | <img src={useBaseUrl('img/live-testing/pin-unpin-icon.png')} alt="Unpin/Pin Toolbar icon" width="35"/> | Unpin/Pin Toolbar | Unpins or pins the live testing toolbar.  |
 | <img src={useBaseUrl('img/live-testing/session-info-icon.png')} alt="Session Info icon" width="35"/> | Session Info | Opens the **Current Session** window, which includes app and device details. |
 | <img src={useBaseUrl('img/live-testing/take-screenshot-icon.png')} alt="Take Screenshot icon" width="35"/> | Take Screenshot | Takes a screenshot of the current device screen. The image downloads automatically as a .png file. |
-| <img src={useBaseUrl('img/live-testing/share-session-icon.png')} alt="Share Session icon" width="35"/> | Share Session | Opens the **Share Device** window. For a sharable link to the device, click **Get Link**. <br/>**NOTE:** Users must be logged in to be able to view the test. |
+| <img src={useBaseUrl('img/live-testing/share-session-icon.png')} alt="Share Session icon" width="35"/> | Share Session | Opens the **Share Device** window. For a sharable link to the device, click **Get Link**. <br/>Users must be logged in to be able to view the test. |
 | <img src={useBaseUrl('img/live-testing/rotate-device-icon.png')} alt="Rotate Device icon" width="35"/> | Rotate Device | Rotates the device between portrait and landscape. |
 | <img src={useBaseUrl('img/live-testing/home-icon.png')} alt="Home icon" width="35"/> | Home | Opens the device home screen. |
 | <img src={useBaseUrl('img/live-testing/more-device-options-icon.png')} alt="More Device Options icon" width="35"/> | More Device Options | **Set Location** - Set the GPS location using coordinates or by dropping a pin on the map. <br/> **Camera Injection** - Opens the **Camera Injection** window. See [Camera Image Injection](/mobile-apps/live-testing/live-mobile-app-testing#camera-image-injection) for more information.<br/> **Biometric Injection** - Opens the **Biometric Authentication** window. |

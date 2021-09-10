@@ -20,6 +20,8 @@ Virtual USB (vUSB) is a mobile (app) debugging tool that simulates connecting a 
 
 <small><span className="sauceDBlue">Enterprise Plans Only</span></small>
 
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * For security reasons, you'll need to have [Sauce Labs Private Devices](https://saucelabs.com/platform/real-device-cloud) enabled as part of your [enterprise pricing plan](https://saucelabs.com/solutions/enterprise) to use Virtual USB. This feature allocates a dedicated pool of Sauce Labs real devices to your organization only.
 * Windows, macOS, or Linux operating system.
 * Administrative rights to install software on your machine.
@@ -122,8 +124,14 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
 
 :::note
 Method 1 is recommended for the following reasons:
+<<<<<<< HEAD
   * All menu options to control the device are available with Method 1 and **NOT** with Method 2.
   * Interactions and gestures on an iOS device session are much faster in comparison to Method 2.
+=======
+* All menu options to control the device are available with Method 1 and **NOT** with Method 2.
+* Interactions and gestures on an iOS device session are much faster in comparison to Method 2.
+
+>>>>>>> aa4f02fb25139fc1ecaa8ff2f143f0ac8c8fa63f
 :::
 
   If your vUSB test session launch is successful, you'll see a success message:
@@ -386,9 +394,3 @@ In this example below, **Energy Log** has been selected and recording has been s
 To debug with Safari: Open Safari > From the nav, select **Develop** > **Select your device** > **Select the view** you want to debug. In our example, we want to debug the [Sauce Swag Labs demo website](https://www.saucedemo.com).
 
 <img src={useBaseUrl('img/virtual-usb/vusb-safari-debug.png')} alt="Virtual USB Energy Logs" />
-
-## TestObject (Legacy RDC)
-
-:::warning
-TestObject, our [Legacy Real Device Platform](https://saucelabs.com/platform/test-object-eol), reaches end-of-life September 1, 2021. Please migrate all of your apps and tests from TestObject to Sauce Labs by August 31, 2021.
-:::
