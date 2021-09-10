@@ -82,7 +82,6 @@ The parent property containing all settings related to how tests are run and ide
 sauce:
   region: eu-central-1
   metadata:
-    name: Testing Espresso Support
     tags:
       - e2e
       - release team
@@ -103,13 +102,12 @@ Specifies through which Sauce Labs data center tests will run. Valid values are:
 ---
 
 ### `metadata`
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT | VIRTUAL ONLY |</small></p>
 
 The set of properties that allows you to provide additional information about your project that helps you distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you, as shown in the following example:
 
 ```yaml
 metadata:
-  name: Testing Espresso Support
   build: RC 10.4.a
   tags:
     - e2e
@@ -136,6 +134,22 @@ Alternatively, you can override the file setting at runtime by setting the concu
 
 ```bash
 saucectl run --ccy 5
+```
+---
+
+### `retries`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Sets the number of times to retry a failed suite.
+
+```yaml
+  retries: 1
+```
+
+Alternatively, you can override the file setting at runtime by setting the retries flag as an inline parameter of the `saucectl run` command:
+
+```bash
+saucectl run --retries 1
 ```
 ---
 
@@ -172,7 +186,18 @@ A property containing one or more environment variables that are global for all 
     my_var: $MY_VAR
 ```
 ---
+## `reporters`
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
+Configures additional reporting capabilities provided by `saucectl`.
+
+```yaml
+reporters:
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
+```
+---
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -257,7 +282,7 @@ espresso:
 ### `app`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the application. The default directory is `{project-root}/apps/filename.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples.
+The path to the application. The default directory is `{project-root}/apps/filename.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples. Supports \*.apk (\*.aab files supported for real device testing only).
 
 ```yaml
   app: ./apps/calc.apk
@@ -271,7 +296,7 @@ The path to the application. The default directory is `{project-root}/apps/filen
 ### `testApp`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the testing application. The relative file location is `{project-root}/apps/testfile.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples.
+The path to the testing application. The relative file location is `{project-root}/apps/testfile.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples. Supports \*.apk (\*.aab files supported for real device testing only).
 
 ```yaml
   testApp: ./apps/calc-success.apk
@@ -285,7 +310,7 @@ The path to the testing application. The relative file location is `{project-roo
 ### `otherApps`
 <p><small>| OPTIONAL | ARRAY | REAL DEVICES ONLY |</small></p>
 
-Set of up to seven apps to pre-install for your tests. You can upload an app from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
+Set of up to seven apps to pre-install for your tests. You can upload an \*.apk (\*.aab supported for real device testing only) app file from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
 
 :::note
 Apps specified as `otherApps` inherit the configuration of the main app under test for [`Device Language`, `Device Orientation`, and `Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
@@ -413,7 +438,7 @@ devices:
 #### `id`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Request a specific device for this test suite by its ID. You can look up device IDs in the Sauce Labs app or using our [Get Devices API request](https://docs.saucelabs.com/dev/api/rdc#get-devices).
+Request a specific device for this test suite by its ID. You can look up device IDs on device selection pages or by using our [Get Devices API request](https://docs.saucelabs.com/dev/api/rdc#get-devices).
 
 ```yaml
         id: Google_Pixel_2_real_us
@@ -498,6 +523,7 @@ testOptions:
   size: small
   package: com.example.android.testing.androidjunitrunnersample
   annotation: com.android.buzz.MyAnnotation
+  notAnnotation: com.android.buzz.NotMyAnnotation
   numShards: 4
   clearPackageData: true
   useTestOrchestrator: true
@@ -553,6 +579,16 @@ Instructs `saucectl` to run only tests that match a custom annotation that you h
 
 ```yaml
   annotation: com.android.buzz.MyAnnotation
+```
+---
+
+#### `notAnnotation`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Instructs `saucectl` to run all tests *except* those matching a custom annotation that you have set.
+
+```yaml
+  notAnnotation: com.android.buzz.NotMyAnnotation
 ```
 ---
 

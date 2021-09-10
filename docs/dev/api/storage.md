@@ -13,6 +13,11 @@ Use the Storage API methods to upload and manage your application and any file d
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
+## What You'll Need
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+
 ### Get App Storage Files
 
 <details><summary><span className="api get">GET</span> <code>/v1/storage/files</code></summary>
@@ -308,7 +313,11 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api post">POST</span> <code>/v1/storage/upload</code></summary>
 <p/>
 
-Uploads an application file to Sauce Storage for the purpose of mobile application testing and returns a unique file ID assigned to the app. Sauce Storage supports app files in *.APK, *.IPA, or *.ZIP format, up to 4GB.
+Uploads an application file to Sauce Storage for the purpose of mobile application testing and returns a unique file ID assigned to the app. Sauce Storage supports app files in \*.apk, \*.aab, \*.ipa, or \*.zip format, up to 4GB.
+
+:::caution Limited Support for *.aab Files
+At this time, \*.aab files are only supported for Android real device testing.
+:::
 
 #### Parameters
 
@@ -446,7 +455,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/storage/download/43732d5b-5275-4a79-a936-197e4b9cd2d4' | jq
+--request GET 'https://api.us-west-1.saucelabs.com/v1/storage/download/43732d5b-5275-4a79-a936-197e4b9cd2d4' --output SwagLabsMobileApp.ipa
 ```
 
 </TabItem>
@@ -454,7 +463,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/download/43732d5b-5275-4a79-a936-197e4b9cd2d4' | jq
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/download/43732d5b-5275-4a79-a936-197e4b9cd2d4' --output SwagLabsMobileApp.ipa
 ```
 
 </TabItem>
