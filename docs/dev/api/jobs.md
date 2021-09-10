@@ -10,9 +10,18 @@ import TabItem from '@theme/TabItem';
 
 The Jobs API methods allow you to review and edit the metadata associated with the tests you are running on Sauce Labs. You can also stop tests, delete jobs, and filter lists of jobs by a variety of attributes, such as owner, time period, build, or environment.
 
-> **NOTE:** These calls are specific to jobs running in simulation. For methods related to Real Device testing, see [Real Device API Methods](/dev/api/rdc).
+:::note
+These calls are specific to jobs running in simulation. For methods related to Real Device testing, see [Real Device API Methods](/dev/api/rdc).
+:::
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
+
+
+## What You'll Need
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+
 
 ## Jobs Methods
 

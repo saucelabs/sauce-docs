@@ -17,3 +17,13 @@ In the diagram below, OrgX has a total concurrency of 100 VMs, and the org admin
 
 ## Queuing Tests
 Once you've used all of your concurrency slots, additional tests will not start until an existing test finishes. As tests complete, queued tests are allocated to concurrency slots in the order they were queued, however, we do not recommend queuing tests intentionally. Tests will time out with an error if they are queued for too long and/or if too many tests are already queued.
+
+## Checking Concurrency
+
+You can use the [Get User Concurrency](/dev/api/accounts/#get-user-concurrency) API endpoint to retrieve a specific user's concurrency usage compared with their organization and team concurrency allowances.
+
+```jsx title="Sample Concurrency Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/rest/v1.2/users/<username>/concurrency' \
+--header 'Content-Type: application/json' \ | json_pp
+```

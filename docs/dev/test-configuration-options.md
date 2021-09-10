@@ -14,6 +14,10 @@ export const Highlight = ({children, color}) => ( <span style={{
 
 See the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to generate the code for setting the capabilities to execute a test. For examples, see [Examples of Test Configuration Options for Website Tests](https://docs.saucelabs.com/basics/test-config-annotation/test-config/#examples-of-test-configuration-options-for-website-tests)
 
+## What You'll Need
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+
 ## Terminology
 
 When setting up your test, you'll need to configure your script with settings called ___capabilities___ that align with your test environment (e.g., desktop browser, mobile web browser, mobile app). While each environment has its own set of capabilities, they can also be combined. Some are required for a test to run in a given environment, while some are optional.
@@ -68,7 +72,10 @@ For example, if the latest stable version of Chrome is 73, you can request `"lat
 
 See the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator) for valid options.
 
->**NOTE**: This setting cannot be used for mobile browsers, as your test will use the default browser installed for the given Appium version.
+:::note
+This setting cannot be used for mobile browsers, as your test will use the default browser installed for the given Appium version.
+
+:::
 
 __Value Type__: String.<br/>
 __Example__:
@@ -174,7 +181,10 @@ __Example__:
 ### `edgedriverVersion`
 __Description__: Specifies the Microsoft Edge driver version you want to use for your tests. For a list of edgedriver versions, see the [Microsoft Edge Driver website](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/).
 
->**NOTE**: Edge Driver is based on Chrome Driver, so the same caveats from [chromedriverVersion](#chromedriverversion) apply to `edgedriverVersion`.
+:::note
+Edge Driver is based on Chrome Driver, so the same caveats from [chromedriverVersion](#chromedriverversion) apply to `edgedriverVersion`.
+
+:::
 
 __Value Type__: String.<br/>
 __Example__:
@@ -222,7 +232,9 @@ __Example__:
 ### `avoidProxy`
 __Description__: Allows the browser to communicate directly with servers without going through a proxy. By default, Sauce routes traffic from Internet Explorer and Safari through an HTTP proxy server so that HTTPS connections with self-signed certificates will work. The proxy server can cause problems for some users, and this setting allows you to avoid it.
 
->**NOTE**: Any test run with a Sauce Connect tunnel has to use the proxy and this flag will be ignored.
+:::note
+Any test run with a Sauce Connect tunnel has to use the proxy and this flag will be ignored.
+:::
 
 __Value Type__: Boolean.<br/>
 __Example__:
@@ -252,7 +264,10 @@ __Example__:
 ### `screenResolution`
 __Description__: Specifies the screen resolution to be used during your test session. Default screen resolution for Sauce tests is `1024x768`.
 
->**NOTE**: You cannot set screen resolution on Windows 7 with IE 9.
+:::note
+You cannot set screen resolution on Windows 7 with IE 9.
+
+:::
 
 __Value Type__: String.<br/>
 __Example__:
@@ -266,7 +281,10 @@ These common Appium test configuration settings can be added with an `appium:` p
 
 If you are not using the official Appium bindings, make sure to prefix all Appium capabilities with `appium:` to make them W3C WebDriver-compliant. For more information about Appium-specific options, see the [Appium Server Capabilities page of the Appium.io website](http://appium.io/docs/en/writing-running-appium/caps).
 
->**NOTE**: [`browserName`](#browsername) and [`platformName`](#platformname) are frequently used in Appium tests, however, because they are W3C capabilities, you do not need to prepend them with `appium:`.
+:::note
+[`browserName`](#browsername) and [`platformName`](#platformname) are frequently used in Appium tests, however, because they are W3C capabilities, you do not need to prepend them with `appium:`.
+
+:::
 
 ---
 ### `app`
@@ -414,7 +432,7 @@ __Examples__:
 ### `otherApps`
 <small><span className="sauceDBlue">Real Devices Only</span></small>
 
-__Description__: A dependent app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) that will be pre-installed on the device under test for use during testing the main app. You can specify the app using its `storage:<fileId>` or `storage:filename=<filename>` reference.
+__Description__: A dependent app that has already been uploaded to [Sauce Labs Application Storage](/mobile-apps/app-storage) that will be pre-installed on the device under test for use during testing the main app. You can specify the app using its `storage:<fileId>` or `storage:filename=<filename>` reference.
 
 Dependent apps inherit the configuration of the main app under test for [`Device Language`](https://app.saucelabs.com/live/app-testing#group-details), [`Device Orientation`](https://app.saucelabs.com/live/app-testing#group-details), and [`Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of what settings may have been applied to the app at the time of upload, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
 
@@ -484,7 +502,9 @@ Suitable for test setups that require the app's state to be reset between tests.
 
 We recommend reviewing [Device Management for Real Devices](/mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
->**NOTE**: `cacheId` has replaced the `testobject_cache_device` capability that was used in TestObject (Legacy RDC).
+:::note
+`cacheId` replaces the deprecated `testobject_cache_device` capability formerly used in TestObject (Legacy RDC).
+:::
 
 __Value Type__: Randomized String.
 

@@ -449,7 +449,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
+--request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "Doc-Team",
@@ -465,7 +465,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
+--request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "Doc-Team",
@@ -579,7 +579,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PATCH 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
+--request PATCH 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "settings": {
@@ -594,7 +594,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PATCH 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
+--request PATCH 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "settings": {
@@ -1484,7 +1484,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </tbody>
 </table>
 
-```jsx title="Sample Failed Response"
+```jsx title="Sample Response"
 {
     "id": "e5be7513ba224f6f9463c209cb4c5d83",
     "username": "jsmith",
@@ -1505,6 +1505,120 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </details>
 
 ---
+
+### Get User Concurrency
+
+<details><summary><span className="get">GET</span> <code>/rest/v1.2/users/&#123;username&#125;/concurrency</code></summary>
+<p/>
+
+Allows you to update individual user values without replacing the entire profile.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>username</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the user whose concurrency you are looking up. You can look up a user's name using a variety of filtering paramters with the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/rest/v1.2/users/<username>/concurrency' \
+--header 'Content-Type: application/json' \ | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/rest/v1.2/users/<username>/concurrency' \
+--header 'Content-Type: application/json' \ | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. User updated.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>401</code></td>
+    <td colSpan='2'>Unauthorized.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Bad request.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+   "concurrency" : {
+      "organization" : {
+         "allowed" : {
+            "mac_vms" : 1000,
+            "rds" : 20,
+            "vms" : 1000
+         },
+         "current" : {
+            "mac_vms" : 0,
+            "rds" : 0,
+            "vms" : 0
+         },
+         "id" : "7fb25570b4064716b9b6daae1a846790"
+      },
+      "team" : {
+         "allowed" : {
+            "mac_vms" : 1000,
+            "rds" : 20,
+            "vms" : 100
+         },
+         "current" : {
+            "mac_vms" : 0,
+            "rds" : 0,
+            "vms" : 0
+         },
+         "id" : "98b9f34e596047d99abba56f517846a9"
+      }
+   },
+   "timestamp" : 1631125800.61984
+}
+
+```
+</details>
+
+---
+
 
 ### Get a User's Team
 
