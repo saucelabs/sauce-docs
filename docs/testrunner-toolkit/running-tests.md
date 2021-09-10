@@ -98,7 +98,7 @@ suites:
        testFiles: [ "**/login.*" ]
 ```
 
-> For full examples, please [visit this repository](https://github.com/saucelabs-training/demo-js/tree/master/testrunner-toolkit)
+> For full examples, please [visit this repository](https://github.com/saucelabs-training/demo-js/blob/docs-1.0/testrunner-toolkit)
 
 ### Using Sauce Connect
 
