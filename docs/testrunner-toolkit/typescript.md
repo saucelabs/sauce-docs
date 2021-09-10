@@ -4,7 +4,7 @@ title: Using TypeScript Tests
 sidebar_label: Using TypeScript
 ---
 
-If you wrote your automated tests using TypeScript in  Puppeteer, you need to transpile your Typescript files to Javascript before running them with Testrunner Toolkit.
+If you wrote your automated tests using TypeScript in Puppeteer, you need to transpile your Typescript files to Javascript before running them with saucectl.
 Cypress, Playwright, and TestCafe support TypeScript out of the box.
 
 ## What You'll Need
