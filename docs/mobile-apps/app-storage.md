@@ -15,10 +15,9 @@ When testing mobile apps, you have the option to upload your app to our applicat
 * Storing apps for up to 60 days.
 
 ## What You'll Need
-* A Sauce Labs account.
-* Your mobile app file.
-
-If you don't have a mobile app on hand, consider using the [Sauce Labs Swag Labs sample app](https://github.com/saucelabs/sample-app-mobile) for validating this process.
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+* Your mobile app file. If you don't have one on hand, consider using the [Sauce Labs sample app](https://github.com/saucelabs/sample-app-mobile) for validating this process.
 
 ## Uploading Apps via UI
 
@@ -265,9 +264,14 @@ espresso:
 ```
 
 ## Uploading to Legacy Sauce Storage
-Sauce Storage is our legacy private storage space for apps. Files uploaded will expire seven days after upload, and be removed. You can upload the app you want to test to Sauce Storage using our REST API, and then access it for testing by specifying `sauce-storage:myapp` for the app capability in your test script. You upload apps using the `upload_file` method of the Sauce Labs REST API.
 
-You can use any REST client; [cURL](https://curl.haxx.se/docs/manpage.html) is a convenient command-line option.
+<p><span className="sauceGold">DEPRECATED</span></p>
+
+TestObject was discontinued on September 1, 2021.
+
+If you have any questions about migrating your apps to Sauce Labs, please reach out to your Customer Success Manager or Sauce Labs Support.
+
+Sauce Storage is our legacy private storage space for apps. Files uploaded will expire seven days after upload, and be removed. You can upload the app you want to test to Sauce Storage using our REST API, and then access it for testing by specifying `sauce-storage:myapp` for the app capability in your test script. You upload apps using the [`upload_file`](/dev/api/storage/#upload-file-to-app-storage) method of the Sauce Labs REST API.
 
 <Tabs
   defaultValue="bash"

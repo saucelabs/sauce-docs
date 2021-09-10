@@ -323,7 +323,13 @@ import org.openqa.selenium.support.ui.WebDriverWait; 
 WebDriverWait wait = new WebDriverWait(driver, 10); WebElement messageElement = wait.until( ExpectedConditions.presenceOfElementLocated(By.id("loginResponse")) );
 ```
 
->**NOTE**: Do not mix implicit and explicit waits. Doing so can cause unpredictable wait times. For example setting an implicit wait of 10s and an explicit wait of 15 seconds, could cause a timeout to occur after 20 seconds.
+:::note
+Do not mix implicit and explicit waits. Doing so can cause unpredictable wait times. For example setting an implicit wait of 10s and an explicit wait of 15 seconds, could cause a timeout to occur after 20 seconds.
+<<<<<<< HEAD
+=======
+
+>>>>>>> aa4f02fb25139fc1ecaa8ff2f143f0ac8c8fa63f
+:::
 
 <br/>
 

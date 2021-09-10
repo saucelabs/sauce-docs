@@ -7,11 +7,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Mobile Real Device Testing
-With Sauce Labs, you can test your mobile applications on a variety of real Android and iOS mobile devices. If you do not have an app, consider using the Sauce Labs Swag Labs sample app for validating your account functionality as well as your tests.
+With Sauce Labs, you can test your mobile applications on a variety of Android and iOS devices. If you do not have an app, consider using the Sauce Labs Swag Labs sample app for validating your account functionality as well as your tests.
 
 ## What You'll Need
-* A Sauce Labs account
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * A mobile app to test. If you don't have one, you can use the [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile).
 
 ### Uploading an App
@@ -23,10 +23,6 @@ To upload an app via the Sauce Labs UI:
 2. Click **App Upload**. You can either drag and drop an application, or browse for and select the file. We currently support APK and IPA files up to 4 GB. Non-app file uploads are not supported in the UI at this time, but can be uploaded through the API.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-nav.png')} alt="Upload an application" width="650"/>
-
-:::note
-The Sauce Labs UI currently supports live testing on **real devices only**. To test on virtual devices, use the REST API.
-:::
 
 ### Deleting an App
 Deleting an app in Sauce Labs will delete the whole application (i.e., the group of builds belonging to the same app package). Files associated with app identifiers (i.e., belonging to the same platform and accessible to the same team) are indicated by the + symbol next to version number. Also, the version number shown is the most recently updated file, not necessarily the latest version of the application.
@@ -44,6 +40,10 @@ To easily copy a test's file name or ID, hover over the test and then click the 
 
 <img src={useBaseUrl('img/live-testing/copy-file-id.png')} alt="Copy a file name or ID" width="450"/>
 
+:::note
+The application settings screen is only available for real device testing.
+:::
+
 **Default App Settings**
 
 | Setting | Description |
@@ -55,7 +55,7 @@ To easily copy a test's file name or ID, hover over the test and then click the 
 | Image Injection | Enable/disable image injection. Image injection allows you to mimic camera behavior when testing applications by letting you upload an image and present it to the application as if it were read by the device camera. |
 | Bypass Screenshot Restriction <br/><p><span className="sauceDBlue">ANDROID ONLY</span></p> | Enable/disable Bypass Screenshot Restriction (not supported on applications uploaded to the legacy sauce storage). Enabling **Bypass Screenshot Restriction** allows you to take screenshots of your app during tests, even if your app does not allow screenshots for security reasons. |
 | System Alerts Display <br/><p><span className="sauceDBlue">iOS Only</span></p> | Enable/disable a system alerts delay. Enabling delays alerts, such as asking for permission to access the camera, to prevent app crashes at startup. |
-| Biometrics Interception | Enable/disable biometrics. Enabling allows you to choose authentication options if your mobile app requires a biometric authentication, such as Touch ID or Face ID. |
+| Biometrics Interception | Enable/disable biometrics. Enabling allows you to choose authentication options if your mobile app requires a biometric authentication, such as fingerprint or face recognition on Android, and Face ID or Touch ID on iOS.<br/> This setting is disabled by default for iOS apps. |
 | Group Folder Redirect <br/><p><span className="sauceDBlue">iOS Only</span></p> | Enable/disable a group directory redirect. Enabling allows you to use your app's private app container directory instead of the shared app group container directory. When your app gets resigned, the shared directory is not accessible. |
 
 :::note
@@ -72,14 +72,28 @@ Any changes you make to the application settings will affect all uploaded versio
 
 Most settings update automatically, however, when you make changes to the proxy setting, click **Update** to finish.
 
-### Selecting a Real Device
+### Selecting a Device
 You must select a device prior to launching a session.
 
-1. On the **App Selection** page, hover over the app you want to test and then click **Choose Device**.
+On the **App Selection** page, hover over the app you want to test and then click **Choose Device**.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-choose-device.png')} alt="Choose a device" width="650"/>
 
-2. Use the search box and filters to find the device you want to test on, or select the device in the grid.
+The device selection page will open, with the option to test on a real device or a virtual device.
+
+:::note
+If you are testing an iOS app, the **Virtual Devices** tab will only appear if the app is configured for simulators.
+:::
+
+#### Real Devices
+On the device selection page, click the **Mobile Real** tab. Use the search box and filters to find the device you want to test on, or select the device in the grid.
+
+<img src={useBaseUrl('img/live-testing/live-mobile-app-real-tab.png')} alt="Mobile Real tab" width="450"/>
+
+#### Virtual Devices
+On the device selection page, click the **Mobile Virtual** tab. Use the dropdowns to select the details for the virtual device you want to test on, and then click **Start Session**.
+
+<img src={useBaseUrl('img/live-testing/live-mobile-app-virtual-tab.png')} alt="Mobile Virtual tab" width="250"/>
 
 #### **Public vs. Private Devices**
 
@@ -87,7 +101,7 @@ There is a distinction between **Public Devices** and **Private Devices**.
 
 * Public devices are accessible by anyone with a Sauce Labs account and are subject to availability. If a device is in use, you will see a yellow **Busy** flag across the thumbnail.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-busy.png')} alt="Busy public device" width="250"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-busy.png')} alt="Busy public device" width="280"/>
 
 * Private devices are associated with your account and are an **enterprise only** feature. Private devices are indicated by a person icon.
 
@@ -109,7 +123,7 @@ You can launch a test from the following screens:
 | <img src={useBaseUrl('img/live-testing/pin-unpin-icon.png')} alt="Unpin/Pin Toolbar icon" width="35"/> | Unpin/Pin Toolbar | Unpins or pins the live testing toolbar.  |
 | <img src={useBaseUrl('img/live-testing/session-info-icon.png')} alt="Session Info icon" width="35"/> | Session Info | Opens the **Current Session** window, which includes app and device details. |
 | <img src={useBaseUrl('img/live-testing/take-screenshot-icon.png')} alt="Take Screenshot icon" width="35"/> | Take Screenshot | Takes a screenshot of the current device screen. The image downloads automatically as a .png file. |
-| <img src={useBaseUrl('img/live-testing/share-session-icon.png')} alt="Share Session icon" width="35"/> | Share Session | Opens the **Share Device** window. For a sharable link to the device, click **Get Link**. <br/>**NOTE:** Users must be logged in to be able to view the test. |
+| <img src={useBaseUrl('img/live-testing/share-session-icon.png')} alt="Share Session icon" width="35"/> | Share Session | Opens the **Share Device** window. For a sharable link to the device, click **Get Link**. <br/>Users must be logged in to be able to view the test. |
 | <img src={useBaseUrl('img/live-testing/rotate-device-icon.png')} alt="Rotate Device icon" width="35"/> | Rotate Device | Rotates the device between portrait and landscape. |
 | <img src={useBaseUrl('img/live-testing/home-icon.png')} alt="Home icon" width="35"/> | Home | Opens the device home screen. |
 | <img src={useBaseUrl('img/live-testing/more-device-options-icon.png')} alt="More Device Options icon" width="35"/> | More Device Options | **Set Location** - Set the GPS location using coordinates or by dropping a pin on the map. <br/> **Camera Injection** - Opens the **Camera Injection** window. See [Camera Image Injection](/mobile-apps/live-testing/live-mobile-app-testing#camera-image-injection) for more information.<br/> **Biometric Injection** - Opens the **Biometric Authentication** window. |
@@ -248,9 +262,11 @@ To make Apple Pay work on Sauce Labs real private devices:
   3. Set up an Apple sandbox tester account (see [Create a sandbox tester account](https://help.apple.com/app-store-connect/#/dev8b997bee1) for more information).
 2. **Build your app**. Apple Pay doesn’t work with enterprise certificates, so it will not work with Sauce Labs out of the box. The first step is to add the Sauce Labs real private devices to your Apple developer certificate before building the app. You can do that in one of the following ways:
   1. Manually adding the device and its UDID to the device list for your developer certificate.
-  **NOTE:** Your device list can be found on Apple’s [Certificates, Identifiers & Profiles page](https://developer.apple.com/account/resources/) for your developer account, and you can get the UDID of your private device by contacting your Sauce Labs CSM.
+  :::note
+  Your device list can be found on Apple’s [Certificates, Identifiers & Profiles page](https://developer.apple.com/account/resources/) for your developer account, and you can get the UDID of your private device by contacting your Sauce Labs CSM.
+  :::
   2. Using the Sauce Labs Virtual USB solution:
-      1. Start a session with Virtual USB (see [Testing with Virtual USB on Real Devices](/mobile-apps/virtual-usb) for more information).
+      1. Start a session with Virtual USB (see [Testing with Virtual USB on Real Devices](/mobile-apps/features/virtual-usb) for more information).
       2. When the connection is established, open **XCODE**.
       3. Select the device from the device list.
 
@@ -280,7 +296,9 @@ To make Apple Pay work on Sauce Labs real private devices:
 Apple Pay requires that you have set a passcode on your phone, and you can’t add cards to your wallet without it. But setting a passcode on a device can break Appium automation because Appium can’t automate the passcode screen. To prevent the testing device from displaying the passcode screen:
 1. On the device, go to **Settings > Display & Brightness** and disable Auto-Lock.
 2. Ask your CSM to disable rebooting the device by providing them with the unique device name, found in the device details.
-**NOTE:** There is no guarantee that the device won’t reboot or show the passcode screen. The test run on the device might be less reliable if the passcode screen appears during the automated session.
+:::note
+There is no guarantee that the device won’t reboot or show the passcode screen. The test run on the device might be less reliable if the passcode screen appears during the automated session.
+:::
 
 ### Add the Testing Account
 1. On the device, go to **Settings** and then click **Sign in to your iPhone**. Sign in using your Apple sandbox tester account.
@@ -339,39 +357,3 @@ Once the app has been uploaded and re-signing has been disabled, you can start t
 <img src={useBaseUrl('img/live-testing/apple-pay-14.png')} alt="Apple Pay setup - Demo app" width="250"/>
 
 <img src={useBaseUrl('img/live-testing/apple-pay-15.png')} alt="Apple Pay setup - Demo app" width="250"/>
-
-
-
-## Camera Image Injection
-
-Camera Image Injection is a core feature built into our RDC functionality and available for use with public and private devices. Your mobile app accesses the camera and instead of getting back the picture of the device camera, it'll retrieve your uploaded image for your test. You employ the built-in device camera in your live and automated testing and perform test cases that require taking images with any of the device cameras.
-
-### Key Specs
-**Supported**
-* All iOS and Android devices available in the RDC
-* Front-facing and rear-facing system device cameras
-* Image file sizes up to 5MB
-* JPG, JPEG, PNG image file formats
-
-**Not Supported**
-* Ephemeral apps (i.e., app with temporary messages that disappear after a certain timeframe)
-* Testing with emulators, simulators
-
-### What You'll Need
-You'll need to upload your app to Sauce Labs prior to testing (see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing)).
-
-### Testing with Camera Image Injection
-1. In Sauce Labs, click **LIVE** and then click **Mobile App**.
-2. On the **App Selection** test page, hover over the test and then click **Settings**.
-
-<img src={useBaseUrl('img/live-testing/live-mobile-app-settings-nav.png')} alt="Mobile app settings navigation" width="650"/>
-
-3. On the **Settings** page, ensure that **Image Injection** is enabled and then return to the **App Selection** page.
-4. On the **App Selection** test page, hover over the test and then click **Choose Device**.
-5. On the device selection page, hover over a device and then click **Launch**.
-6. When you want to capture an image of the test, in the right toolbar, click the **Camera** icon.
-7. Click **Choose Image** and navigate to the image you want to use.
-
-<img src={useBaseUrl('img/live-testing/live-mobile-app-camera-nav.png')} alt="Camera image injection navigation" width="450"/>
-
-8. Activate the camera inside of your app. The device will show your uploaded image in the app as if the image was taken by the device camera. The image will continue to be available, should you go back to the camera during your test session, or you can upload another image and capture it with the camera.
