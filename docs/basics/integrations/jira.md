@@ -2,7 +2,7 @@
 id: jira
 title: Jira Cloud Integration
 sidebar_label: Jira
-description: Link your Sauce Labs account with your Jira account to create an issue directly from the Sauce Labs app.
+description: Link your Sauce Labs account with your Jira account to create an issue directly from Sauce Labs.
 keywords:
 - create-jira-issue
 - share-test-results
@@ -13,11 +13,13 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Integrate your Sauce Labs and [Atlassian Jira](https://www.atlassian.com/software/jira) user accounts so you can create or update Jira issues from within the Sauce Labs dashboard.
+Integrate your Sauce Labs and [Atlassian Jira](https://www.atlassian.com/software/jira) user accounts so you can create or update Jira issues directly from Sauce Labs.
 
 
 ## What You'll Need
-* [A Sauce Labs Account](https://saucelabs.com/sign-up)
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * [A Jira Cloud Account](https://www.atlassian.com/software/jira)
 
 :::note
@@ -27,7 +29,7 @@ The Sauce Labs Jira integration is only compatible with Jira Cloud. We do not su
 
 ## Install and Set up the Jira Plugin
 
-1. From your Sauce Labs dashboard, navigate to the [Account Integrations](https://app.staging.saucelabs.net/integrations) page.
+1. From your Sauce Labs account, navigate to the [Account Integrations](https://app.staging.saucelabs.net/integrations) page.
 1. Click the Jira Software **Install** button.
 1. Enter your Jira account details in the **Jira Integration** form:
     * **Atlassian Cloud URL**: The base URL for your company's Jira Cloud account. This value is typically `https://<your-jira-account>.atlassian.net`.

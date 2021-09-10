@@ -4,77 +4,40 @@ title: Sauce Connect Proxy Changelog
 sidebar_label: Changelog
 ---
 
-:::note
-All Sauce Connect Proxy versions below 4.6.0, which were supporting Private Certificates, have reached end of life and are no longer available for download. To align with security best practices, Sauce Connect Proxy is only supporting certificates signed by Public Certificate Authorities. For best performance, and to take advantage of these security enhancements, please upgrade to the latest version. If you're using Sauce Connect in conjunction with [Jenkins](/secure-connections/sauce-connect/setup-configuration/ci-cd-environments), be sure to use the most recent version of the Jenkins plugin.
-:::
 
-<table>
-  <tr>
-   <td>
-<strong>Sauce Connect versions</strong>
-   </td>
-   <td><strong>End of Technical Support</strong>
-   </td>
-   <td><strong>End of Life </strong>
-   </td>
-   <td><strong>Stops Working (will no longer start tunnels)</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>4.5.0 and below
-   </td>
-   <td>October 5, 2020
-   </td>
-   <td>December 31, 2020
-   </td>
-   <td>January 4, 2021
-   </td>
-  </tr>
-  <tr>
-   <td>4.6.2 and below
-   </td>
-   <td>March 31, 2021
-   </td>
-   <td>March 31, 2021
-   </td>
-   <td>March 31, 2021
-   </td>
-  </tr>
-</table>
+## v4.5.0 and Above
 
-:::
+Changelogs for Sauce Connect v4.5.0 and above are hosted [here](https://changelog.saucelabs.com/en?category=sauce%20connect).
 
-To see notes on Sauce Connect Proxy previous versions not shown here, or other historical information, please contact our [Support Team](https://support.saucelabs.com/).
 
 ## v4.6.4
 
 Release Date: Feb 1, 2021.
 
-### New Features
+#### New Features
 
 **Decluttered Basic sc client Logs**: We've moved the PROXY log level to be in sync with the Sauce Connect client (sc client) log level and set HTTP requests logging to be less verbose.
 
 **Command-line option `--pac-auth` now also works with `-T`**: You can now combine the use of the `--pac-auth` and `-T` commands. More info [here](/dev/cli/sauce-connect-proxy).
 
-### Internal Tooling and Improvements
+#### Internal Tooling and Improvements
 
 * Removed checks for colliding tunnels during High Availability mode startup sequence to streamline the process.
 * Reconfigured the KGP connection diagnostics algorithm to improve connection stability.
 * Reconfigured `expvar` metrics endpoint so that it now conforms to Selenium port configuration.
 
-### Bug Fixes
+#### Bug Fixes
 
 * Readily identify and use dynamically assigned ports for `expvar` metrics service, regardless of the number of sc clients running on the same host.
 * sc client no longer exits when attempting to start High Availability pool without explicitly assigned `expvar` service port numbers.
 * sc client now successfully establishes connections while using tunnel proxy with basic authentication.
 
-<br/>
 
 ## v4.6.3
 
 Release Date: December 9, 2020.
 
-### New Features
+#### New Features
 
 **sc client configuration now stored in DB**: sc client may be configured via command-line arguments, config file or any combination of both. Configuration will be stored in DB regardless of the origin to enable better support and debugging.
 
@@ -84,7 +47,7 @@ Release Date: December 9, 2020.
 
 **Basic authentication for multiple upstream proxies in a PAC file is now supported**: Use the `--pac-auth <username:password@host:port>` command-line option. The option can be used multiple times for each authenticated host in the PAC file.
 
-### Internal Tooling and Improvements
+#### Internal Tooling and Improvements
 
 * Moved sauceproxy-rest library to GitLab, while keeping it mirrored to GitHub for backwards compatibility.
 * Changed sauceproxy-rest library status from open-source to private to avoid exposing internal API that is subject to change.
@@ -92,7 +55,7 @@ Release Date: December 9, 2020.
 * Added logging when loading certificates from keychain on OS X.
 * Added dev flags to debug SC over SSL+SNI connection without DNS resolution of KGP servername.
 
-### Bug Fixes
+#### Bug Fixes
 
 * You can now use [OpenSSL library function flags](https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_options.html) to control TLS protocol versions used by the connection between KGP client and server.
 
@@ -103,28 +66,26 @@ Release Date: December 9, 2020.
 * We've removed `Doctor` attempts to resolve non-existent maki hosts   
   * Attempts to run domain name resolution check for hard-coded defunct maki hosts created confusing errors; removed these checks.
 
-### Known Issues
+#### Known Issues
 
 * When attempting to run two or more instances of sc client on the same host in High Availability mode, second and subsequent instances will fail to start with error due to conflicting SC metrics port assignment.
   * As a workaround, use the `--metrics-address :0` command-line option in your sc client.
 
-<br/>
 
 ## v4.6.2
 
 Release Date: May 31, 2020.
 
-### Bug Fixes
+#### Bug Fixes
 
 * Sauce Connect now correctly handles server response when parsing `HEAD` requests that use a `Transfer-Encoding: chunked` header.
 
-<br/>
 
 ## v4.6.1
 
 Release Date: May 18, 2020.
 
-### New Features
+#### New Features
 
 We are changing how we manage SSL certificates to improve assurance and compatibility with SSL-inspecting web proxies.
 
@@ -150,9 +111,16 @@ We are changing how we manage SSL certificates to improve assurance and compatib
 
 **App Notarization - macOS Catalina support**: Effective with this release, all Sauce Connect Proxy executables will be Apple-notarized to support the more stringent security standards introduced by macOS Catalina.
 
-### Bug Fixes
+#### Bug Fixes
 
 * Fixed the compatibility of `--pac`, `--proxy` and `--proxy-userpwd` flags. You can now use them in the same command line.
 * Characters used in tunnel identifier names must now be only ASCII, so that they're captured correctly in the Sauce Labs UI.
 * Removed ANSI color codes from the Sauce Connect log to improve readability.
 * Fixed WebSockets handling functionality on HTTP/2 servers.
+
+
+## v4.6.0 and Below
+
+To align with security best practices, Sauce Connect Proxy supports certificates signed by Public Certificate Authorities. All Sauce Connect Proxy versions below 4.6.0, which were supporting Private Certificates, reached end of life and are no longer available for download. For best performance, and to take advantage of these security enhancements, please upgrade to the latest version.
+
+To see notes on Sauce Connect Proxy previous versions not shown here, or other historical information, please contact our [Support Team](https://support.saucelabs.com/).
