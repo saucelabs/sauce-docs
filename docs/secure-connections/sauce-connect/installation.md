@@ -37,7 +37,7 @@ This topic describes where and how to Sauce Connect Proxy to your local machine.
 * **license.html file**
   * Sauce Labs, Inc. End User Agreement.
 
-## Sauce Connect Proxy Logs
+## Logging
 
 Once you've started using Sauce Connect, a log file called _sc.log_ will populate in your computer's directory.
 
@@ -75,6 +75,48 @@ The location will vary, depending on your operating system. For Mac OS X and Lin
    </td>
   </tr>
 </table>
+
+
+## Version Lifecycle Information
+
+The launch of Sauce Connect 4.7.0 makes it the officially supported version of the Sauce Connect client. All past versions are in maintenance mode, with the oldest versions nearing the end of their support life. The table below outlines the lifecycle dates for all versions.
+
+<table>
+  <tr>
+   <td>Sauce Connect CLI Client
+   </td>
+   <td>Type of Support
+   </td>
+   <td>End of Life
+   </td>
+  </tr>
+  <tr>
+   <td>4.7.*
+   </td>
+   <td>Full Support
+   </td>
+   <td>June 31, 2022
+   </td>
+  </tr>
+  <tr>
+   <td>4.6.*
+   </td>
+   <td>Security & Major Bug Fixes Only
+   </td>
+   <td>January 31, 2022
+   </td>
+  </tr>
+  <tr>
+   <td>4.5.*
+   </td>
+   <td>Not Supported
+   </td>
+   <td>March 31, 2021
+   </td>
+  </tr>
+</table>
+
+
 
 ## Changelog
 

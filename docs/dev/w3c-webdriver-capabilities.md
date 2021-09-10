@@ -202,11 +202,14 @@ FireFoxOptions mozOpts = new FirefoxOptions();
 DesiredCapabilities caps = new DesiredCapabilities.firefox();
 ```
 
->**NOTE**: Using JWP legacy formatting in a Selenium 3.11+ script will yield the following message:
+:::note
+Using JWP legacy formatting in a Selenium 3.11+ script will yield the following message:
 
 ```js
 INFO: Using `new FirefoxOptions()` is preferred to `DesiredCapabilities.firefox()`
 ```
+
+:::
 
 </TabItem>
 </Tabs>
@@ -257,11 +260,16 @@ caps.setCapability("version", "latest");
 WebDriver driver = new RemoteWebDriver(new URL("https://ondemand.saucelabs.com/wd/hub"), caps);
 ```
 
->**NOTE**: Using JWP legacy formatting in a Selenium 3.11+ script will yield the following message:
+:::note
+
+Using JWP legacy formatting in a Selenium 3.11+ script will yield the following message:
+
 ```
 "INFO: Using `new FirefoxOptions()` is preferred
 to `DesiredCapabilities.firefox()"
 ```
+
+:::
 
 </TabItem>
 </Tabs>
