@@ -424,7 +424,6 @@ Setting `0` reverts to the value set in `defaults`.
 ```yaml
   timeout: 15m
 ```
----
 
 ---
 
@@ -436,6 +435,17 @@ Pass flags to configure how Puppeteer launches the selected browser. Review supp
 ```yaml
     browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
 ```
+---
+
+### `groups`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Execute specific groups of tests with puppeteer runner.
+
+```yaml
+    groups: ["group1", "group2"]
+```
+---
 
 ## Advanced Configuration Considerations
 
