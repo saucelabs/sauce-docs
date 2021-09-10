@@ -37,7 +37,6 @@ storiesOf('MyComponent', module)
 
 :::note
 The `<Screener/>` component must be the top-most component returned within a story. If you use `addDecorator` in your stories, ensure the last decorator contains the Screener component and steps.
-
 :::
 
 
@@ -125,7 +124,6 @@ __Description__: his executes custom JS code against the client browser the test
 
 :::note
 The "code" parameter is a **string**.
-
 :::
 
 ---
@@ -166,5 +164,4 @@ __Description__: this will return the steps to be run.
 
 :::note
 When adding `Steps` using the fluent API, you must end the method chain with `end()`.
-
 :::

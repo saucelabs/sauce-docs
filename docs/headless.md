@@ -158,7 +158,7 @@ __Pytest Example Walkthrough__
 
 __WebdriverIO Example Walkthrough__
 
-1. Head to [Sauce Labs Training: JavaScript Examples](https://github.com/saucelabs-training/demo-js) on GitHub and 
+1. Head to [Sauce Labs Training: JavaScript Examples](https://github.com/saucelabs-training/demo-js) on GitHub and
 review the README page to ensure you have the prerequisite software.
 2. Download or clone one of [our headless test examples](https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/webdriver/examples/headless) from the repo.
 3. Navigate to the headless-examples directory and install node package dependencies:
