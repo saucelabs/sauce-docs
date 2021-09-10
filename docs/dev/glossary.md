@@ -413,7 +413,7 @@ An environment to execute tests against headless Chrome and Firefox on Linux con
 
 ### Sauce Labs Access Key
 
-A randomly generated string of alphanumeric characters assigned to your Sauce Labs account that you must include in your test scripts along with your Sauce Labs username to authenticate your request and allow access to the resources on your Sauce Labs account. Also known as Access Key in the Sauce Labs application and SAUCE_ACCESS_KEY as an environment variable. You can find it under **User Settings**.
+A randomly generated string of alphanumeric characters assigned to your Sauce Labs account that you must include in your test scripts along with your Sauce Labs username to authenticate your request and allow access to the resources on your Sauce Labs account. Also known as Access Key in [Sauce Labs](https://app.saucelabs.com/user-settings) and `SAUCE_ACCESS_KEY` as an environment variable. 
 
 
 ### Sauce Labs Continuous Testing Benchmark
@@ -423,7 +423,7 @@ A Sauce Labs white paper – compiled periodically – that leverages anonymized
 
 ### Sauce Labs User Name
 
-An ID name that you define when you create your Sauce Labs account. You must include this (along with your Sauce Labs Access Key) in your test scripts to authenticate your request and allow access to the resources on your Sauce Labs account. Also known as _Username_ in the Sauce Labs application and _SAUCE_USERNAME_ as an environment variable. You can find it under **User Settings**.
+An ID name that you define when you create your Sauce Labs account. You must include this (along with your Sauce Labs Access Key) in your test scripts to authenticate your request and allow access to the resources on your Sauce Labs account. Also known as Username in [Sauce Labs](https://app.saucelabs.com/user-settings) and `SAUCE_USERNAME` as an environment variable.
 
 
 ### Selenium
