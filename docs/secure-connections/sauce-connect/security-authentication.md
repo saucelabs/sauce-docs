@@ -67,26 +67,26 @@ Sauce Labs provides a secure and scalable cloud computing platform for functiona
 
 Having our own cloud enables us to provide our services faster, and with higher security, than can be delivered on a public cloud with shared resources. Managing our own data centers also means that we are responsible for delivering a consistent experience with the utmost concern for the security of our users’ data.
 
-For an overview of the services offered by Sauce Labs, our methods for securing the transmission of test data and results, and our security policies and procedures, see our white paper, [Overview of Sauce Labs Security Processes](https://wiki.saucelabs.com/download/attachments/65603985/An%20Overview%20of%20Sauce%20Labs%20Security%20Processes%20062020.pdf?version=2&modificationDate=1612763216702&api=v2).
+For an overview of the services offered by Sauce Labs, our methods for securing the transmission of test data and results, and our security policies and procedures, see our white paper, [Overview of Sauce Labs Security Processes](https://saucelabs.com/resources/white-papers/overview-of-sauce-labs-security-processes).
 
 ## Authentication Using `--auth`
 This approach to authentication works by configuring Sauce Connect Proxy to send authentication details to any URL requesting them. It works for all requests, even those where you're asked for credentials in response to a click or form submission.
 
 For each URL where you need to bypass HTTP authentication, add this to your Sauce Connect Proxy startup command:
 
-```
+```bash
 --auth host:port:username:password
 ```
 
 If your website doesn't need a port, you can use the default port, `port 80`. Let's say that your website under test is `mysite.com`, your username is `awesometester`, and your password is `supersekrit`. Here's how you'd write your Sauce Connect Proxy startup command:
 
-```
+```bash
 --auth mysite.com:80:awesometester:supersekrit
 ```
 
 You can use this option multiple times in a row, like so:
 
-```
+```bash
 --auth mysite.com:80:awesometester:supersekrit --auth myothersite.com:443:awesometester:supersekrit --auth mythirdsite.com:80:awesometester:supersekrit
 ```
 

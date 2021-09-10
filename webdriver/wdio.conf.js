@@ -85,15 +85,6 @@ exports.config = {
             },
         },
         {
-            browserName: 'internet explorer',
-            platformName: 'Windows 8.1',
-            browserVersion: 'latest',
-            'sauce:options': {
-                public: 'public',
-                ...defaultBrowserSauceOptions,
-            },
-        },
-        {
             browserName: 'MicrosoftEdge',
             platformName: 'Windows 10',
             browserVersion: '18.17763',

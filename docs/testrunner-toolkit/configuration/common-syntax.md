@@ -79,7 +79,6 @@ The parent property containing all settings related to how tests are run and ide
 sauce:
   region: eu-central-1
   metadata:
-    name: Testing Cypress Support
     tags:
       - e2e
       - release team
@@ -100,13 +99,17 @@ Specifies through which Sauce Labs data center tests will run. Valid values are:
 ---
 
 ### `metadata`
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT | VIRTUAL ONLY |</small></p>
 
-The set of properties that allows you to provide additional information about your project that helps you distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you, as shown in the following example:
+The set of properties that allows you to provide additional information about your project that helps you distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you.
+
+:::note Restricted Mobile Support
+`metadata` is not yet supported for tests on real devices, so any values set for Espresso configurations will apply only to emulator tests, and values set for XCUITest configurations will be ignored entirely, since simulators are not yet supported through `saucectl`.
+:::
+
 
 ```yaml
 metadata:
-  name: Testing Cypress Support
   build: RC 10.4.a
   tags:
     - e2e
@@ -247,6 +250,20 @@ Specifies any NPM packages that are required to run tests and should, therefore,
     "@babel/preset-typescript": "7.12"
     "@cypress/react": "^5.0.1"
 ```
+---
+
+## `reporters`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Configures additional reporting capabilities provided by `saucectl`.
+
+```yaml
+reporters:
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
+```
+
 ---
 
 ## `artifacts`
@@ -490,4 +507,4 @@ Specifies whether the individual suite will run on `docker` or `sauce`, potentia
 * [Playwright](/testrunner-toolkit/configuration/playwright)
 * [TestCafe](/testrunner-toolkit/configuration/testcafe)
 * [Espresso](/testrunner-toolkit/configuration/espresso)
-* [XCUITest](testrunner-toolkit/configuration/xcuitest)
+* [XCUITest](/testrunner-toolkit/configuration/xcuitest)

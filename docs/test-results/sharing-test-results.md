@@ -32,7 +32,7 @@ You can generate a sharable link to your test results that limits who can view t
 
 You can also change the visibility of a test (e.g., Public, Private, or Team) directly on the **Test Results** page.
 
-:::warning Does Not Work with Legacy RDC Platform
+:::caution Does Not Work with Legacy RDC Platform
 The following information does not currently work with the legacy RDC platform (TestObject).
 :::
 
@@ -131,6 +131,28 @@ public class SauceShareableLink {
     }
   }
 }
+```
+
+#### Example - Node.js
+
+```js
+const crypto = require('crypto');
+const sessionId = 'f65a1ee87a77410189aba40f48ac1223';
+const addDate = process.argv.includes('addDate');
+const date = new Date();
+const addedDays = date.setDate(date.getDate());
+const newDate = (new Date(addedDays)).toISOString().slice(0,10);
+const dateSecret = addDate ? `:${newDate}` : '';
+const secret = `${process.env.SAUCE_USERNAME}:${process.env.SAUCE_ACCESS_KEY}${dateSecret}`;
+const token = crypto
+.createHmac('md5', secret)
+.update(sessionId)
+.digest('hex');
+const usUrl = `https://app.saucelabs.com/tests/${sessionId}?auth=${token}`;
+const euUrl = `https://app.eu-central-1.saucelabs.com/tests/${sessionId}?auth=${token}`;
+console.log('usUrl = ', usUrl);
+console.log('euUrl = ', euUrl);
+
 ```
 
 ## Support for Secondary Accounts

@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 ## Tunnel Management
 You can manage and monitor all Sauce Connect Proxy tunnel activity from the **Tunnels** menu. You can also launch and stop tunnels from this page.
 
-### Tunnel Information on Your Sauce Labs Dashboard
+### Viewing Tunnel Information on Sauce Labs
 The Tunnels page displays useful information, such as the number of active tunnels, tunnel status, specific attributes for each tunnel.
 
 | Column | Description |
@@ -512,6 +512,12 @@ NET START SauceConnect
 6. Open Windows scheduler and set it to call `restartSC.bat` once a day.
 
 Once the above steps are in place, the Sauce Connect Proxy tunnel should restart itself daily at the time of your choosing.
+
+## Security Considerations with Tunnel Config
+
+:::warning
+If the SC client is running on a multi-user system, we recommend using config files or environment variables instead of command line arguments to hide sensitive information like [`--api-key`](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html#--api-key-string) and proxy credentials so they aren't visible in the list of running processes.
+:::
 
 ## Tunnel Types
 When testing with Sauce Labs, there are two different types of tunnel scenarios:

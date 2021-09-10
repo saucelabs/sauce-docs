@@ -14,6 +14,11 @@ To download Sauce Connect, see [Sauce Connect Installation](secure-connections/s
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
+
+## What You'll Need
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+
 ### Get Tunnels for a User
 
 <details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/tunnels</code></summary>

@@ -11,8 +11,7 @@ This topic describes where and how to Sauce Connect Proxy to your local machine.
 
 ## What You’ll Need
 
-* Review [Using Sauce Connect Proxy](/secure-connections/sauce-connect).
-* Review [System and Network Requirements](/secure-connections/sauce-connect/system-requirements), which includes information about deployment options.
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * For macOS Catalina 10.15+ compatibility, enable your Mac to allow apps from the App Store and identified developers.
     1. Go to **System Preferences** > **Security & Privacy** > **General** tab.
     2. Under the header **Allow apps downloaded from**, select the option **App Store and identified developers**.
@@ -30,7 +29,7 @@ This topic describes where and how to Sauce Connect Proxy to your local machine.
 * **bin directory**
     * **sc.exe**: Sauce Connect Proxy client executable file
 * **config_examples directory**
-    * **config.yml file**: An example configuration file to be used with the `--config-file` command-line option. See [Sauce Connect Proxy Command-Line Reference](dev/cli/sauce-connect-proxy) for more information.
+    * **config.yml file**: An example configuration file to be used with the `--config-file` command-line option. See [Sauce Connect Proxy Command-Line Reference](/dev/cli/sauce-connect-proxy) for more information.
     * **systemd directory**: Contains sample files for use with the systemd service manager to start and stop Sauce Connect Proxy. Consult the **config_examples** > **systemd** > ** README.md** file for more information.
     * **upstart directory**: Contains sample files for use with the upstart service manager to start and stop Sauce Connect Proxy. Consult the **config_examples** > **upstart** > **README.md** file for more information.
 * **COPYRIGHT.md file**
@@ -38,7 +37,7 @@ This topic describes where and how to Sauce Connect Proxy to your local machine.
 * **license.html file**
   * Sauce Labs, Inc. End User Agreement.
 
-## Sauce Connect Proxy Logs
+## Logging
 
 Once you've started using Sauce Connect, a log file called _sc.log_ will populate in your computer's directory.
 
@@ -77,10 +76,48 @@ The location will vary, depending on your operating system. For Mac OS X and Lin
   </tr>
 </table>
 
+
+## Version Lifecycle Information
+
+The launch of Sauce Connect 4.7.0 makes it the officially supported version of the Sauce Connect client. All past versions are in maintenance mode, with the oldest versions nearing the end of their support life. The table below outlines the lifecycle dates for all versions.
+
+<table>
+  <tr>
+   <td>Sauce Connect CLI Client
+   </td>
+   <td>Type of Support
+   </td>
+   <td>End of Life
+   </td>
+  </tr>
+  <tr>
+   <td>4.7.*
+   </td>
+   <td>Full Support
+   </td>
+   <td>June 31, 2022
+   </td>
+  </tr>
+  <tr>
+   <td>4.6.*
+   </td>
+   <td>Security & Major Bug Fixes Only
+   </td>
+   <td>January 31, 2022
+   </td>
+  </tr>
+  <tr>
+   <td>4.5.*
+   </td>
+   <td>Not Supported
+   </td>
+   <td>March 31, 2021
+   </td>
+  </tr>
+</table>
+
+
+
 ## Changelog
 
 See [Sauce Connect Proxy Changelog](/secure-connections/sauce-connect/changelog).
-
-:::note
-Effective with Sauce Connect Proxy version 4.6.0, we've enabled support for Public Certificates and deprecated support for Private Certificates. See [Sauce Connect Proxy Changelog](/secure-connections/sauce-connect/changelog) for more detailed information.
-:::

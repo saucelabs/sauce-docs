@@ -6,12 +6,13 @@ on:
     paths-ignore:
       - '.github/**'
       - '.docsearch/**'
+      - 'README.md'
   workflow_dispatch:
     
 env:
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
-  SAUCECTL_VERSION: "0.32.0"
+  SAUCECTL_VERSION: "0.59.0"
   ALGOLIA_APP_ID: ${{secrets.ALGOLIA_APP_ID}}
   ALGOLIA_KEY: ${{secrets.ALGOLIA_KEY}}
 
@@ -90,11 +91,11 @@ jobs:
           # Expose website
           cd build/ && python3 -m http.server 8000 &
 
-          saucectl run -c ./.sauce/config.yml --tunnel-id proxy-tunnel-$GITHUB_RUN_ID --test-env sauce
+          saucectl run -c ./.sauce/config.yml --tunnel-id proxy-tunnel-$GITHUB_RUN_ID
   deploy-staging:
     needs: test
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/master' }}
+    if: ${{ github.ref == 'refs/heads/main' }}
 
     steps:
       - name: Install Python
@@ -135,7 +136,7 @@ jobs:
   deploy-production:
     needs: deploy-staging
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/master' }}
+    if: ${{ github.ref == 'refs/heads/main' }}
 
     steps:
       - name: Install Python
