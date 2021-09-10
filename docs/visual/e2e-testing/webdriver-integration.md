@@ -278,7 +278,10 @@ Great, you're all set!
 
 Now run your first test and view your initial results in the [Screener Dashboard](https://screener.io/v2/dashboard).
 
->**NOTE**: your initial visual test will fail, and results will be labelled as "New"; [Review and Accept](https://screener.io/v2/docs/visual-e2e/review-flow) them as the baseline.
+:::note
+Your initial visual test will fail, and results will be labelled as "New"; [Review and Accept](https://screener.io/v2/docs/visual-e2e/review-flow) them as the baseline.
+
+:::
 
 
 ## Next Steps

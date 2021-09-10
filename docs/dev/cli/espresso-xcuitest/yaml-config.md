@@ -307,6 +307,9 @@ devices:
 java -jar runner.jar config --path ./MyFile.yml --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
 
->**NOTE**: [Sauce Runner RDC CLI Options](/dev/cli/espresso-xcuitest/real-devices) are not compatible with YAML-specific flags. Once you pass the `config` YAML command to the runner, you can only use `--path` and `--accessKey`.
+:::note
+[Sauce Runner RDC CLI Options](/dev/cli/espresso-xcuitest/real-devices) are not compatible with YAML-specific flags. Once you pass the `config` YAML command to the runner, you can only use `--path` and `--accessKey`.
+
+:::
 
 This will launch your test. To see your results, go to Sauce Labs > **Automated** > **Test Results** > **Real Devices**.

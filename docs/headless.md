@@ -25,7 +25,10 @@ There are a few key differences between setting up Sauce Headless tests versus s
 
 The [latest version of Sauce Connect Proxy](/secure-connections/sauce-connect/installation), if you're using it to run Headless tests.
 
->**NOTE**: At this time, data from tests run in Headless mode is not available to the [Sauce Insights](/insights) analytics features.
+:::note
+At this time, data from tests run in Headless mode is not available to the [Sauce Insights](/insights) analytics features.
+
+:::
 
 ## Setup and Configuration
 
@@ -237,7 +240,10 @@ The containers used for Sauce Headless testing are hosted in the Sauce Labs East
 
 The US-East IP addresses should be reachable from your network. If there's an issue, please refer to the [Sauce Connect Proxy documentation](/secure-connections/sauce-connect/system-requirements) > allowlisting section.
 
->**NOTE**: Cross-Browser VMs are not available at this time in US-East.
+:::note
+Cross-Browser VMs are not available at this time in US-East.
+
+:::
 
 ## Using the Sauce Headless Web UI
 Information about your Headless testing jobs is accessible by logging into the headless testing web interface.
