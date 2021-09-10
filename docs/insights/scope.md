@@ -6,7 +6,7 @@ description: Tailor the Sauce Labs Insights dashboard to zero in on the results 
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The Insights section of your Sauce Labs app allows you to view your test data from a variety of different perspectives to ensure that you can see both the big picture of your testing effectiveness and the individual slices of test data that help you pinpoint failure causes and fix them.
+The Sauce Labs **Insights** section allows you to view your test data from a variety of different perspectives to ensure that you can see both the big picture of your testing effectiveness and the individual slices of test data that help you pinpoint failure causes and fix them.
 
 :::tip
 Sauce Labs has also published an [Insights API](/dev/api/insights) so you can build a custom dashboard with views that are specific to your test strategy.
@@ -40,6 +40,6 @@ The following table describes each of the filters available for customizing your
 |OS| Show data for tests run on the specified operating systems. The menu lists each OS version separately.|
 |Browser| Show data for tests run on the specified browsers. The menu lists each browser version separately so you can compare versions of the same browser.|
 |Tag|	Show data for tests or builds that are categorized using the specified tag(s).The **Tag** filter is not available for all sections of the Insights interface.|
-|Time Period| Show data for tests that executed within the specified time period. In the selection modal, choose the **Relative** tab to set a duration up through the current day and time. Choose the **Absolute** tab to set a specific window within start and end dates.<br/><br/>**NOTE:** Times and dates are in the local time of the logged in user. If you are not seeing data you expect in that duration, consider whether the test was executed in a different time zone.|
+|Time Period| Show data for tests that executed within the specified time period. In the selection modal, choose the **Relative** tab to set a duration up through the current day and time. Choose the **Absolute** tab to set a specific window within start and end dates.<br/><br/>Times and dates are in the local time of the logged in user. If you are not seeing data you expect in that duration, consider whether the test was executed in a different time zone.|
 
 Check out the individual sections of the Insights feature documentation for use cases illustrating how filtering your data view can help you pinpoint errors or inefficiencies in your tests so you can be confident that your app is functioning optimally.

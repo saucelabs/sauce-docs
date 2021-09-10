@@ -72,7 +72,7 @@ The command plus assertion returns a JSON object detailing a series of metric sc
 
 ## Reporting Jankiness
 
-When your test completes, it generates a set of metrics and that you can access through the **Performance** tab of the **Test Details** page of the Sauce Labs app. If you detect a regression in your website's performance, you can download a Full Trace report, or you can use the Chrome DevTool, which records Javascript method signatures in a hierarchical view for each thread in each process, to get a better idea of how the Chrome browser is interacting with your website.
+When your test completes, it generates a set of metrics and that you can access through the **Performance** tab of the **Test Details** page. If you detect a regression in your website's performance, you can download a Full Trace report, or you can use the Chrome DevTool, which records Javascript method signatures in a hierarchical view for each thread in each process, to get a better idea of how the Chrome browser is interacting with your website.
 
 <img src={useBaseUrl('img/performance/perf-jank.png')} alt="Jankiness Score" width="750"/>
 
