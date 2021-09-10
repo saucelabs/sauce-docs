@@ -20,7 +20,7 @@ You can upload your app via the Sauce Labs UI or via the REST API. For informati
 To upload an app via the Sauce Labs UI:
 
 1. In Sauce Labs, in the left panel, click **LIVE** and then click **Mobile App**.
-2. Click **App Upload**. You can either drag and drop an application, or browse for and select the file. We currently support APK and IPA files up to 4 GB. Non-app file uploads are not supported in the UI at this time, but can be uploaded through the API.
+2. Click **App Upload**. You can either drag and drop an application, or browse for and select the file. We currently support \*.apk Android app files (\*.aab file support coming soon) and \*.ipa or \*.zip iOS app files (\*.zip files are parsed to determine whether a valid \*.app bundle exists). Non-app file uploads are not supported in the UI at this time, but can be uploaded through the API.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-nav.png')} alt="Upload an application" width="650"/>
 
