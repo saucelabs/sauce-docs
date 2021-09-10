@@ -468,6 +468,7 @@ module.exports = {
                         items: [
                             'basics/integrations/deque',
                             'basics/integrations/jira',
+                            'basics/integrations/slack',
                         ],
                     },
                 ],
