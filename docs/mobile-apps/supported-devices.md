@@ -101,7 +101,7 @@ For the full list of supported real devices, see [Supported Browsers and Devices
 We use a proprietary process that wipes every real device clean at the end of the testing session:
 
 * User accounts and data are cleared from the device.
-* History and user data is cleared from the browser.
+* History and user data is removed from the default system browser. Non-default browsers are uninstalled.
 * Network settings are reset.
 * Device settings are reset.
 * Your app is uninstalled.
