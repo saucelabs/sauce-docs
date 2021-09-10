@@ -519,7 +519,7 @@ With _Static Allocation_, you can specify the device to use in your tests, but i
 
 | Capability | Setting |
 |------------|----|
-| `deviceName` | The ID of the device you want to use in your test, for example `LG_Nexus_5X_real`. You can find the ID for a device by locating it in the real device selection menu of the Sauce Labs application, and then click the **Details** link for the device. |
+| `deviceName` | The ID of the device you want to use in your test (e.g., `LG_Nexus_5X_real`). To find a device's ID number, go to its listing in the device selection menu, then click **Details** . |
 
 
 ### Device Caching
@@ -775,11 +775,6 @@ The CSV file will contain these performance metrics for iOS devices.
   </tr>
 </table>
 
-## TestObject (Legacy RDC)
-
-:::warning
-TestObject, our [Legacy Real Device Platform](https://saucelabs.com/platform/test-object-eol), reaches end-of-life September 1, 2021. Please migrate all of your apps and tests from TestObject to Sauce Labs by August 31, 2021.
-:::
 
 ## Additional Test Configuration Options
 
@@ -793,11 +788,14 @@ Once you're up and running with your real device tests, check out our [Best Prac
 
 ### Full Example Scripts
 
-These Appium script examples can help streamline your real device testing process. They use the [pytest](https://docs.pytest.org/en/latest/) test framework. Feel free to [clone these scripts directly from GitHub](https://github.com/saucelabs-training/demo-python/tree/master/examples), and follow the instructions in the [README file](https://github.com/saucelabs-training/demo-python).
+These Appium script examples can help streamline your real device testing process. 
+They use the [pytest](https://docs.pytest.org/en/latest/) test framework. 
+Feel free to [clone these scripts directly from GitHub](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples), 
+and follow the instructions in the [README file](https://github.com/saucelabs-training/demo-python#readme).
 
-* [conftest.py](https://github.com/saucelabs-training/demo-python/blob/master/examples/sauce_bindings/pytest/conftest.py): this script initializes the test fixtures, as well as the prerequisite and post-requisite test tasks.
-* [test_login_success.py](https://github.com/saucelabs-training/demo-python/blob/master/examples/sauce_bindings/pytest/test_login_success.py): this script represents an individual test.
-* [test_invalid_login.py](https://github.com/saucelabs-training/demo-python/blob/master/examples/sauce_bindings/pytest/test_login_fail.py): this script represents an individual test.
+* [conftest.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/conftest.py): this script initializes the test fixtures, as well as the prerequisite and post-requisite test tasks.
+* [test_login_success.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/test_login_success.py): this script represents an individual test.
+* [test_invalid_login.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/test_login_fail.py): this script represents an individual test.
 
 Visit our [sample test frameworks GitHub repository](https://github.com/saucelabs-sample-test-frameworks?utf8=%E2%9C%93&q=appium&type=&language=) for more detailed language-specific examples.
 

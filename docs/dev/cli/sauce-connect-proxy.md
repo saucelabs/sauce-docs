@@ -38,7 +38,7 @@ __Shorthand__: `-c`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 :::caution
-Effective with Sauce Connect Proxy version 4.7.0, `--no-remove-colliding-tunnels` was deprecated and replaced by `--tunnel-pool`.
+Effective with Sauce Connect Proxy version 4.7.0, `--no-remove-colliding-tunnels` has been deprecated and replaced by `--tunnel-pool`.
 :::
 __Description__: The tunnel is a part of the High Availability Sauce Connect Proxy Tunnel Pool. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
 __Shorthand__: n/a
@@ -81,7 +81,7 @@ __Shorthand__: `-s`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 :::caution
-Effective with version 4.7.0, `--tunnel-identifier` was deprecated and replaced by `--tunnel-name`.
+Effective with version 4.7.0, `--tunnel-identifier` has been deprecated and replaced by `--tunnel-name`.
 :::
 
 __Description__: Assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is strongly recommended. Future jobs will use this tunnel only when explicitly specified by the [tunnelIdentifier](/dev/test-configuration-options#tunnelidentifier) in the desired capabilities of your automated tests.
@@ -273,6 +273,10 @@ __Shorthand__: n/a
 ### `--capath`
 <p><small>| OPTIONAL | STRING |</small></p>
 
+:::caution
+Effective with Sauce Connect Proxy version 4.7.0, `--capath` has been deprecated.
+:::
+
 __Description__: Directory of CA certs to use for verifying connections to Sauce Labs REST API.<br/>
 __Shorthand__: n/a  
 
@@ -313,6 +317,9 @@ __Shorthand__: n/a
 ### `--tunnel-capath`
 <p><small>| OPTIONAL | STRING |</small></p>
 
+:::caution
+Effective with Sauce Connect Proxy version 4.7.0, `--tunnel-capath` has been deprecated.
+:::
 __Description__: Directory of CA certificates to use for verifying tunnel connections.<br/>
 __Shorthand__: n/a  
 
@@ -330,7 +337,11 @@ __Shorthand__: `-z`
 ### `--metrics-address`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Use this option to define the host:port for the internal web server used to expose client side metrics. The default is `localhost:8888`.<br/>
+:::caution
+Effective with Sauce Connect Proxy version 4.7.0, the metrics server is disabled by default.
+:::
+
+__Description__: Use this option to define the host:port for the internal web server used to expose client side metrics. The default is `localhost:8888` for versions prior to 4.7.0.<br/>
 __Shorthand__: n/a  
 
 
@@ -359,6 +370,24 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | NUMBER |</small></p>
 
 __Description__: Rates limit writes in scproxy to the number of bytes per second that you specify. This option can be used to adjust local network transfer rate to prevent overloading the tunnel connection.<br/>
+__Shorthand__: n/a
+
+
+---
+### `--extra-info`
+
+__Description__: JSON string that contains an advanced tunnel configuration.<br/>
+
+|Option|Description|Example|
+|---|---|---|
+|`inject-forwarded-for`| Do not remove X-FORWARDED-FOR header from the proxied HTTP requests.|```--extra-info '{"inject-forwarded-for": true}'```|
+|`reply_body_max_size`| Set limit to the reply body size (unlimited by default).|```--extra-info '{"reply_body_max_size": "30 MB"}'```|
+
+You can specify a combination of several options. For example:
+
+```bash
+--extra-info '{"inject-forwarded-for": true, "reply_body_max_size": "300 MB"}'
+```
 __Shorthand__: n/a
 
 

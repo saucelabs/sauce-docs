@@ -1,6 +1,6 @@
 ---
 id: espresso-xcuitest
-title: Mobile App Testing with Espresso and XCUITest
+title: Espresso and XCUITest on Sauce Labs
 sidebar_label: Using Espresso and XCUITest
 description: Run Espresso and XCUITest projects on Sauce Labs.
 ---
@@ -8,7 +8,7 @@ description: Run Espresso and XCUITest projects on Sauce Labs.
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs uses its framework agnostic test orchestrator [`saucectl`](/testrunner-toolkit) to execute Espresso and XCUITest tests based on one or more configuration files that instruct `saucectl` to run your tests exactly the way you specify. Results get published in your Sauce Labs dashboard, where you can compare 30 days of results across different environments and frameworks all in one view.
+Sauce Labs uses its framework agnostic test orchestrator [`saucectl`](/testrunner-toolkit) to execute Espresso and XCUITest tests based on one or more configuration files that instruct `saucectl` to run your tests exactly the way you specify. Results get published in your Sauce Labs account, where you can compare 30 days of results across different environments and frameworks all in one view.
 
 ## What You'll Need
 
@@ -68,7 +68,13 @@ saucectl run -c ./path/to/<configFile>.yml
 :::
 
 
-### Legacy to `saucectl` Commands Map
+### TestObject (Legacy RDC) to `saucectl` Commands Map
+
+<p><span className="sauceGold">DEPRECATED</span></p>
+
+:::warning TestObject End-of-life
+TestObject was discontinued on September 1, 2021. If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+:::
 
 `saucectl` configures and runs your Espresso and XCUITest tests entirely from the CLI and YAML configuration settings. The following tables provide a list of testing actions, mapping the TestObject configuration settings to the equivalent settings in `saucectl`. Both TestObject and Sauce Labs utilize CLI commands and YAML configuration files to define the many ways in which you can run your tests. Some actions can be set using either a CLI command _or_ a YAML property, while other actions can only be configured by one or the other, so the maps below are separated by CLI commands and YAML properties for ease of navigation.
 

@@ -394,7 +394,7 @@ devices:
 #### `id`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Request a specific device for this test suite by its ID. You can look up device IDs in the Sauce Labs app or using our [Get Devices API request](https://docs.saucelabs.com/dev/api/rdc#get-devices).
+Request a specific device for this test suite by its ID. You can look up device IDs under the device selection page or by using our [Get Devices API request](https://docs.saucelabs.com/dev/api/rdc#get-devices).
 
 ```yaml
         id: iPhone_11_14_5_real_us

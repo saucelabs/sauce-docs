@@ -107,7 +107,7 @@ The custom `sauce:performance` command measures the performance output against a
 
 |Argument|Description|
 |---|------|
-|`name`<br/><font size="2">Required</font>|A name of the test as it would appear in the Sauce Labs application.|
+|`name`<br/><font size="2">Required</font>|A name of the test as it would appear on Sauce Labs.|
 |`metrics`<br/><font size="2">Optional</font>|Specifies one or more specific metrics you want to assert. If not specified, the test defaults to score, which automatically tests all metrics that currently make up a Lighthouse Performance Score.<br/>See [Metric Values](/performance/one-page.md#metric-values) for the list of supported metric values.|
 
 ### Script Examples
