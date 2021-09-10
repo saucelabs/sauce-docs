@@ -37,7 +37,9 @@ Install the Sauce OnDemand plugin from your Jenkins Administration page.
 1. Click **Download now and install after restart**.
 1. In the plugin installation process window, select the **Restart Jenkins when installation is complete and no jobs are running** checkbox.
 
-> **NOTE:** The plugin file is fairly large, so download may take several minutes.
+:::note
+The plugin file is fairly large, so download may take several minutes.
+:::
 
 ### Creating Your Sauce Labs Credentials
 
@@ -82,7 +84,9 @@ You can manage many of the plugin settings from within the Jenkins dashboard to 
 
  Some plugin options are set globally for all your Jenkins projects and some options are specific to individual projects.
 
- > **NOTE:** When options can be set at both levels, project settings override global settings.
+:::note
+When options can be set at both levels, project settings override global settings.
+:::
 
 ### Configure Global Sauce Settings
 
@@ -301,9 +305,10 @@ Jenkins populates the `SELENIUM_PLATFORM`, `SELENIUM_VERSION`, `SELENIUM_BROWSER
 
 The following sections describe how to share information about your Sauce Labs tests in both the Sauce Labs site and your Jenkins dashboard.
 
+
 ### Capture Build Details
 
-Set the `SAUCE_BUILD_NAME` environment variable as the value of the `build` desired capability to set the Sauce build name at runtime. This enables you to access your test reports by build in the Sauce Labs dashboard and also view them on the Jenkins **Build Details** page.
+Set the `SAUCE_BUILD_NAME` environment variable as the value of the `build` desired capability to set the Sauce build name at runtime. This enables you to access your test reports by build in Sauce Labs and view them on the Jenkins **Build Details** page.
 
 ```java title="Jave Build Capabilities Example"
 DesiredCapabilities capabilities = new DesiredCapabilities();

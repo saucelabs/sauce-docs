@@ -70,24 +70,29 @@ Minimum configuration example needed to run a test.
 
 <TabItem value="Espresso">
 
-```yaml reference
-https://github.com/saucelabs-training/demo-espresso/blob/master/real-devices/runner-ex1.yml#L8-L29
+```yaml reference title="Espresso Example"
+https://github.com/saucelabs-training/demo-espresso/blob/docs-1.0/.sauce/runner-ex1.yml
 ```
+
+:::tip
+Go to our [GitHub repository](https://github.com/saucelabs-training/demo-espresso/) for examples, plus demo apps and tests.
+:::
+
 
 </TabItem>
 <TabItem value="XCUITest">
 
-```yaml reference
-https://github.com/saucelabs-training/demo-xcuitest/blob/master/real-devices/runner-ex1.yml#L8-L29
+```yaml reference title="XCUITest Example"
+https://github.com/saucelabs-training/demo-xcuitest/blob/docs-1.0/.sauce/runner-ex1.yml
 ```
+
+:::tip
+Go to our [GitHub repository](https://github.com/saucelabs-training/demo-xcuitest/) for examples, plus demo apps and tests.
+:::
 
 </TabItem>
 </Tabs>
 
-
-:::tip
-Go to our [GitHub repository](https://github.com/saucelabs-training/demo-xcuitest/tree/master/real-devices) for example scripts, plus demo apps and tests.
-:::
 
 ## Device Allocation (Optional)
 
@@ -95,7 +100,8 @@ Here are some additional options you can use to configure your YAML file.
 
 ### `device`
 
-__Description__: specifies the exact device to use in your tests by providing the Device ID. See [Static Device Allocation](/mobile-apps/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
+__Description__: specifies the exact device to use in your tests by providing the Device ID. See
+[Static Device Allocation](/mobile-apps/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
 
 __Examples__:
 
@@ -307,6 +313,8 @@ devices:
 java -jar runner.jar config --path ./MyFile.yml --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
 
->**NOTE**: [Sauce Runner RDC CLI Options](/dev/cli/espresso-xcuitest/real-devices) are not compatible with YAML-specific flags. Once you pass the `config` YAML command to the runner, you can only use `--path` and `--accessKey`.
+:::note
+[Sauce Runner RDC CLI Options](/dev/cli/espresso-xcuitest/real-devices) are not compatible with YAML-specific flags. Once you pass the `config` YAML command to the runner, you can only use `--path` and `--accessKey`.
+:::
 
 This will launch your test. To see your results, go to Sauce Labs > **Automated** > **Test Results** > **Real Devices**.

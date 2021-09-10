@@ -3,7 +3,10 @@ id: style-guide
 title: Style Guide
 sidebar_label: Style Guide
 description: The Sauce Labs Documentation Style Guide
-tags: [contributing, style, markdown]
+keywords:
+    - contributing
+    - style
+    - markdown
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -32,7 +35,7 @@ At the top of each docs page, you need to include these things:
 |`title`|The main title of the page. This value will automatically be rendered using the H1 style at the top of the page.
 |`sidebar_label`|This is what will appear in the left hand navigation tree for the page.|
 |`description` (optional)|This is what appears when the page is referenced in a Google search result.|
-|`tags` (optional)| A list of terms that help categorize the page for SEO purposes.|
+|`keywords` (optional)| A list of terms that help categorize the page for SEO purposes.|
 
 It looks like this in the document:
 ```markdown
@@ -41,7 +44,10 @@ id: style-guide
 title: Style Guide Introduction
 sidebar_label: Style Guide
 description: The Sauce Labs Documentation Style Guide
-tags: [contributing, style, markdown]
+keywords:
+    - contributing
+    - style
+    - markdown
 ---
 ```
 
@@ -322,9 +328,20 @@ one of the `demo-<language>` repos on
 [Sauce Labs Training Github Org](https://github.com/saucelabs-training/?q=demo#org-repositories).
 When referencing code, include the language, "reference" and a title indicating what the sample shows.
 The URL for the link can be for the entire file, or include specific line numbers at the end.
-Additionally, the referenced code should reference a tag name rather than just a branch name (which can easily break) or
-a commit hash (which is hard to version). For example, the `demo-java` repo has a tag for `website-1.0`, so the reference
-link should specify this.
+
+:::caution
+To ensure that code examples do not go stale and can be easily updated, 
+all code references should reference a tag instead of 
+a branch name or a commit hash. For our `demo-<language>` repos, we are doing semantic versioning with `docs-<version>`.
+So, we will create and use `docs-1.0` or `docs-1.1`, etc., as needed.
+
+To create a new tag in one of the Sauce Labs owned repos:
+```shell
+git tag -a -m 'reference for Sauce Labs documentation' docs-<version>
+git push origin --tags
+```
+:::
+
 
 <table class="code">
   <tbody>
@@ -337,7 +354,7 @@ link should specify this.
       <td>
 
     ```java reference title="Example Test"
-    https://github.com/saucelabs-training/demo-java/blob/website-1.0/selenium-examples/src/test/java/com/saucedemo/junit5/SauceBindingsTest.java#L35-L43
+    https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/demo/SauceBindingsTest.java#L39-L43
     ```
 
 </td>
@@ -351,13 +368,59 @@ link should specify this.
       <td>
 
 ```java reference title="Example Test"
-https://github.com/saucelabs-training/demo-java/blob/website-1.0/selenium-examples/src/test/java/com/saucedemo/junit5/SauceBindingsTest.java#L35-L43
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/demo/SauceBindingsTest.java#L39-L43
 ```
 
 </td>
     </tr>
   </tbody>
 </table>
+
+## Expanding Code Blocks
+
+If you have an especially large code block that you'd like to reference on the page, but do not want 
+it to take up too much space on the page by default, we encourage the use of `details` elements.
+
+<table class="code">
+  <tbody>
+    <tr>
+      <td>
+
+**HTML**
+
+</td>
+      <td>
+
+```html
+<details>
+  <summary>
+    <strong>Click here</strong> to see an example of something hidden by default.
+  </summary>
+    This is hidden by default!
+</details>
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Display**
+
+</td>
+      <td>
+<details>
+  <summary>
+    <strong>Click here</strong> to see an example of something hidden by default.
+  </summary>
+    This is hidden by default!
+</details>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+
 
 ## Admonitions
 
