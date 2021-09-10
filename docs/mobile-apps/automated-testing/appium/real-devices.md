@@ -53,63 +53,17 @@ In some cases, you may need to upload/install your app to a private device and a
 Each session is a "fresh" installation of your app, meaning, you will not be able to access information about previous versions of your app.
 :::
 
-
 ## Uploading Mobile Apps with the Sauce Labs REST API
 
-Below are some examples of how to use the Sauce Labs REST API to upload your mobile app to our App Storage and get your real device project started. See also: [Mobile App Testing API](/dev/api).
+Use the [App Storage REST API](/dev/api/storage/#upload-file-to-app-storage) to upload your app for Appium automated mobile testing. We currently support \*.apk or \*.aab Android app files and \*.ipa or \*.zip iOS app files (\*.zip files are parsed to determine whether a valid *.app bundle exists).
 
-### REST API Authentication
-
-For APIs and authorization credentials, use the Sauce Labs Storage REST API (app.saucelabs.com).
-
-A recommended best practice is to set your credentials as environment variables, like so:
-
-```java
-SAUCE_USERNAME='valid.username'
-SAUCE_ACCESS_KEY='valid.key'
-```
-
-For specific instructions on how to set environment variables, visit the following links:
-
-* [Set Environment Variables with Windows 10](https://www.architectryan.com/2018/08/31/how-to-change-environment-variables-on-windows-10/)
-* [Set Environment Variables with MacOS](https://apple.stackexchange.com/questions/106778/how-do-i-set-environment-variables-on-os-x)
-* [Set Environment Variables with Linux](https://askubuntu.com/questions/58814/how-do-i-add-environment-variables)
-
-### Supported Use Cases for Sauce Labs Real Device Testing
-
-* Execute Appium tests against a private real device hosted in the U.S., using your Sauce Labs username and access key.
-* Use our application storage for Appium testing as you usually do for emulators and simulators tests.
-* Analyze Appium test executions, on Sauce Labs similar to the way you do it for desktop, emulators and simulators.
-* Consume Real Device Cloud (RDC) API similar to the way you do for emulators and simulators (with applicable RDC settings).
-
-**Example Test Script**
-
-```java
-private URL createUrl() throws MalformedURLException {
-    return new URL("https://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.us-west-1.saucelabs.com/wd/hub");
-}
-
-@BeforeEach
-void setUp() throws MalformedURLException {
-    DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-    desiredCapabilities.setCapability("platformName", "iOS");
-    IOSDriver driver = new IOSDriver(createUrl(), desiredCapabilities);
-}
-```
+:::caution Limited Support for *.aab Files
+At this time, \*.aab files are only supported for Android real device testing.
+:::
 
 ### Application Storage and Data Center Endpoints
 
-Below are some examples of how to use the Sauce Labs REST API to upload your mobile app to our application storage. For details related to authorization credentials, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
-
-To connect to the real device cloud in your automated Appium tests, you'll need to use include either the EU or US storage endpoint in your test script.
-
-Example (macOS/Linux) of how to upload an app to application storage in the US-West Data Center:
-
-```sh
-$ curl -F "payload=@/Users/$SAUCE_USERNAME/Downloads/$FILE_NAME.ipa" -F "name=$FILE_NAME.ipa" -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY"  'https://api.us-west-1.saucelabs.com/v1/storage/upload'
-```
-
-For more detailed information on how to access the app in your automated test builds and use the Storage API, see [Application Storage](/mobile-apps/app-storage).
+When uploading your app for testing with real devices, you must identify the [Data Center](/basics/data-center-endpoints/data-center-endpoints) where the devices you are testing are located by specifying the applicable API URL for that data center.
 
 Examples using the EU and US endpoints:
 
@@ -125,10 +79,10 @@ Examples using the EU and US endpoints:
 US Data Center (macOS/Linux)
 
 ```bash
-$ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" -X POST -w "%{http_code}\n" \
--H "Content-Type: application/octet-stream" \
-"https://saucelabs.com/rest/v1/storage/$SAUCE_USERNAME/Android.SauceLabs.Mobile.Sample.app.x.x.x.apk?overwrite=true" \
---data-binary @/path/to/Android.SauceLabs.Mobile.Sample.app.x.x.x.apk
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
+--form 'payload=@"g16K4P8IX/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
+--form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
 ```
 
 US Data Center (Windows)
@@ -146,10 +100,10 @@ US Data Center (Windows)
 EU Data Center (macOS/Linux)
 
 ```curl
-$ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" -X POST -w "%{http_code}\n" \
--H "Content-Type: application/octet-stream" \
-"https://eu-central-1.saucelabs.com/rest/v1/storage/$SAUCE_USERNAME/Android.SauceLabs.Mobile.Sample.app.x.x.x.apk?overwrite=true" \
---data-binary @/path/to/Android.SauceLabs.Mobile.Sample.app.x.x.x.apk
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/v1/storage/upload' \
+--form 'payload=@"g16K4P8IX/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
+--form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
 ```
 
 EU Data Center (Windows)
@@ -177,7 +131,29 @@ Certain Appium capabilities behave differently when running Appium tests on our 
 * The `noReset` capability will only work if device caching is enabled.
 * Different setups may have different ways of handling capabilities and/or different requirements. Check to make sure you're providing all of the required capabilities.
 
-#### **Setting Your `appiumVersion`**
+### Supported Use Cases for Sauce Labs Real Device Testing
+
+* Execute Appium tests against a private real device hosted in the U.S., using your Sauce Labs username and access key.
+* Use our application storage for Appium testing as you usually do for emulators and simulators tests.
+* Analyze Appium test executions, on Sauce Labs similar to the way you do it for desktop, emulators and simulators.
+* Consume Real Device Cloud (RDC) API similar to the way you do for emulators and simulators (with applicable RDC settings).
+
+**Example Test Script**
+
+```java
+private URL createUrl() throws MalformedURLException {
+    return new URL("https://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.us-west-1.saucelabs.com/wd/hub");
+}
+
+@BeforeEach
+void setUp() throws MalformedURLException {
+    DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+    desiredCapabilities.setCapability("platformName", "iOS");
+    IOSDriver driver = new IOSDriver(createUrl(), desiredCapabilities);
+}
+```
+
+#### Setting Your `appiumVersion`
 
 If you omit the `appiumVersion` in your test configuration, your test will be running with our default Appium version. We recommend that you specify one of the newer Appium versions that provides a more extended API and fixes to known bugs.
 
@@ -188,21 +164,21 @@ If you omit the `appiumVersion` in your test configuration, your test will be ru
 4. Click the **Metadata** tab.
 5. Look for the **Logs** row and select **Appium Log**. The first line should indicate the Appium version. For example, `2019-05-05T17:45:07.541Z - info: Welcome to Appium v1.10.1`.
 
-#### **Setting the `browserName`**
+#### Setting the `browserName`
 
 When testing a native mobile app, the value for `browserName` is an empty string, as in `caps.setCapability("browserName", "");`.
 
-#### **Setting the Location of Your Mobile App**
+#### Setting the Location of Your Mobile App
 
 If the app you want to test has been uploaded to a location other than our App Storage, you need to specify this location for `app`, and make sure that this location is accessible to Sauce Labs browsers. For example, `caps.setCapability("app","storage:filename=mapp.zip");`.
 
-#### **Setting the `automationName` for Android Apps**
+#### Setting the `automationName` for Android Apps
 
 If you're testing a native mobile app against Android versions 4.0-4.1, or a hybrid mobile against Android versions 4.0 - 4.2, you need to set the capability `"automationName","selendroid"`.
 
 These Android versions are only supported via Appium’s bundled version of Selendroid, which utilizes [Instrumentation](http://developer.android.com/reference/android/app/Instrumentation.html). Later versions of Android are supported via Appium’s own UiAutomator library.
 
-#### **Enabling Location Services for iOS Devices**
+#### Enabling Location Services for iOS Devices
 
 If you want to enable location services on an iOS simulator - to test GPS-dependent apps, for example - set these capabilities in your Appium script:
 
@@ -788,11 +764,14 @@ Once you're up and running with your real device tests, check out our [Best Prac
 
 ### Full Example Scripts
 
-These Appium script examples can help streamline your real device testing process. They use the [pytest](https://docs.pytest.org/en/latest/) test framework. Feel free to [clone these scripts directly from GitHub](https://github.com/saucelabs-training/demo-python/tree/master/examples), and follow the instructions in the [README file](https://github.com/saucelabs-training/demo-python).
+These Appium script examples can help streamline your real device testing process. 
+They use the [pytest](https://docs.pytest.org/en/latest/) test framework. 
+Feel free to [clone these scripts directly from GitHub](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples), 
+and follow the instructions in the [README file](https://github.com/saucelabs-training/demo-python#readme).
 
-* [conftest.py](https://github.com/saucelabs-training/demo-python/blob/master/examples/sauce_bindings/pytest/conftest.py): this script initializes the test fixtures, as well as the prerequisite and post-requisite test tasks.
-* [test_login_success.py](https://github.com/saucelabs-training/demo-python/blob/master/examples/sauce_bindings/pytest/test_login_success.py): this script represents an individual test.
-* [test_invalid_login.py](https://github.com/saucelabs-training/demo-python/blob/master/examples/sauce_bindings/pytest/test_login_fail.py): this script represents an individual test.
+* [conftest.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/conftest.py): this script initializes the test fixtures, as well as the prerequisite and post-requisite test tasks.
+* [test_login_success.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/test_login_success.py): this script represents an individual test.
+* [test_invalid_login.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/test_login_fail.py): this script represents an individual test.
 
 Visit our [sample test frameworks GitHub repository](https://github.com/saucelabs-sample-test-frameworks?utf8=%E2%9C%93&q=appium&type=&language=) for more detailed language-specific examples.
 

@@ -14,8 +14,8 @@ The following examples illustrate test scripts written in difference programming
 
 Visit the [Sauce Labs Ruby Demonstration Repo](https://github.com/saucelabs-training/demo-ruby) for prerequisites, setup instructions, a variety of sample scripts, and many other resources related to writing and running Selenium scripts in Ruby.
 
-```rb reference
-https://github.com/saucelabs-training/demo-ruby/blob/master/selenium-examples/rspec/spec/login_success_spec.rb
+```rb reference title="Ruby Login Test"
+https://github.com/saucelabs-training/demo-ruby/blob/docs-1.0/selenium-examples/rspec/spec/login_success_spec.rb
 ```
 
 
@@ -23,33 +23,42 @@ https://github.com/saucelabs-training/demo-ruby/blob/master/selenium-examples/rs
 
 Visit the [Sauce Labs Python Demonstration Repo](https://github.com/saucelabs-training/demo-python) for prerequisites, setup instructions, a variety of sample scripts, and many other resources related to writing and running Selenium scripts in Python.
 
-```py reference
-https://github.com/saucelabs-training/demo-python/blob/main/examples/sauce_bindings/pytest/test_login_success.py
+```py reference title="Python Login Test"
+https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/test_login_success.py
 ```
 
 
 ## Java
 
-Visit the [Sauce Labs Java Demonstration Repo](https://github.com/saucelabs-training/demo-java) for prerequisites, setup instructions, a variety of sample scripts, and many other resources related to writing and running Selenium scripts in Java.
+Visit the [Sauce Labs Java Demonstration Repo](https://github.com/saucelabs-training/demo-java) for prerequisites, 
+setup instructions, a variety of sample scripts, and many other resources related to writing and running Selenium scripts in Java.
 
 <Tabs
-  defaultValue="testng"
+  defaultValue="junit5"
   values={[
+    {label: 'JUnit', value: 'junit5'},
+    {label: 'JUnit', value: 'junit4'},
     {label: 'TestNG', value: 'testng'},
-    {label: 'JUnit', value: 'junit'},
   ]}>
 
-<TabItem value="testng">
+<TabItem value="junit5">
 
-```java reference
-https://github.com/saucelabs-training/demo-java/blob/master/selenium-testng-examples/src/test/java/com/saucedemo/TestNgTest.java
+```java reference title="JUnit 5 Selenium Example"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/demo/SeleniumTest.java
 ```
 
 </TabItem>
-<TabItem value="junit">
+<TabItem value="junit4">
 
-```java reference
-https://github.com/saucelabs-training/demo-java/blob/master/selenium-examples/src/test/java/com/saucedemo/JUnit5W3CChromeTest.java
+```java reference title="JUnit 4 Selenium Example"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-junit4-examples/src/test/java/com/saucedemo/selenium/junit4/demo/SeleniumTest.java
+```
+
+</TabItem>
+<TabItem value="testng">
+
+```java reference title="TestNG Selenium Example"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-testng-examples/src/test/java/com/saucedemo/selenium/testng/demo/SeleniumTest.java
 ```
 
 </TabItem>
@@ -60,8 +69,8 @@ https://github.com/saucelabs-training/demo-java/blob/master/selenium-examples/sr
 
 Visit the [Sauce Labs JavaScript Demonstration Repo](https://github.com/saucelabs-training/demo-js) for prerequisites, setup instructions, a variety of sample scripts using different frameworks, and many other resources related to writing and running scripts in JavaScript.
 
-```js reference
-https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/examples/typescript/test/specs/example.e2e.ts
+```js reference title="WebdriverIO Login Test"
+https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/webdriver/examples/typescript/test/specs/example.e2e.ts
 ```
 
 
@@ -69,6 +78,6 @@ https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/ex
 
 Visit the [Sauce Labs C# Demonstration Repo](https://github.com/saucelabs-training/demo-csharp) for prerequisites, setup instructions, a variety of sample scripts, and many other resources related to writing and running scripts in C#.
 
-```c# reference
-https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/OnboardingTests/InstantSauceTest.cs
+```csharp reference title="C# Selenium Example"
+https://github.com/saucelabs-training/demo-csharp/blob/docs-1.0/SauceExamples/SeleniumNunit/OnboardingTests/InstantSauceTest.cs
 ```
