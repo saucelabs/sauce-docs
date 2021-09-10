@@ -276,6 +276,7 @@ __Shorthand__: n/a
 :::caution
 Effective with Sauce Connect Proxy version 4.7.0, `--capath` has been deprecated.
 :::
+
 __Description__: Directory of CA certs to use for verifying connections to Sauce Labs REST API.<br/>
 __Shorthand__: n/a  
 
@@ -337,8 +338,9 @@ __Shorthand__: `-z`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 :::caution
-Effective with Sauce Connect Proxy version 4.7.0, the metrics server is disabled, by default.
+Effective with Sauce Connect Proxy version 4.7.0, the metrics server is disabled by default.
 :::
+
 __Description__: Use this option to define the host:port for the internal web server used to expose client side metrics. The default is `localhost:8888` for versions prior to 4.7.0.<br/>
 __Shorthand__: n/a  
 
@@ -381,7 +383,7 @@ __Description__: JSON string that contains an advanced tunnel configuration.<br/
 |`inject-forwarded-for`| Do not remove X-FORWARDED-FOR header from the proxied HTTP requests.|```--extra-info '{"inject-forwarded-for": true}'```|
 |`reply_body_max_size`| Set limit to the reply body size (unlimited by default).|```--extra-info '{"reply_body_max_size": "30 MB"}'```|
 
-You can specify a combination of several options, for example:
+You can specify a combination of several options. For example:
 
 ```bash
 --extra-info '{"inject-forwarded-for": true, "reply_body_max_size": "300 MB"}'
