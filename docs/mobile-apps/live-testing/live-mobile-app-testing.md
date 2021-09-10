@@ -262,7 +262,9 @@ To make Apple Pay work on Sauce Labs real private devices:
   3. Set up an Apple sandbox tester account (see [Create a sandbox tester account](https://help.apple.com/app-store-connect/#/dev8b997bee1) for more information).
 2. **Build your app**. Apple Pay doesn’t work with enterprise certificates, so it will not work with Sauce Labs out of the box. The first step is to add the Sauce Labs real private devices to your Apple developer certificate before building the app. You can do that in one of the following ways:
   1. Manually adding the device and its UDID to the device list for your developer certificate.
-  **NOTE:** Your device list can be found on Apple’s [Certificates, Identifiers & Profiles page](https://developer.apple.com/account/resources/) for your developer account, and you can get the UDID of your private device by contacting your Sauce Labs CSM.
+  :::note
+  Your device list can be found on Apple’s [Certificates, Identifiers & Profiles page](https://developer.apple.com/account/resources/) for your developer account, and you can get the UDID of your private device by contacting your Sauce Labs CSM.
+  :::
   2. Using the Sauce Labs Virtual USB solution:
       1. Start a session with Virtual USB (see [Testing with Virtual USB on Real Devices](/mobile-apps/features/virtual-usb) for more information).
       2. When the connection is established, open **XCODE**.
@@ -294,7 +296,9 @@ To make Apple Pay work on Sauce Labs real private devices:
 Apple Pay requires that you have set a passcode on your phone, and you can’t add cards to your wallet without it. But setting a passcode on a device can break Appium automation because Appium can’t automate the passcode screen. To prevent the testing device from displaying the passcode screen:
 1. On the device, go to **Settings > Display & Brightness** and disable Auto-Lock.
 2. Ask your CSM to disable rebooting the device by providing them with the unique device name, found in the device details.
-**NOTE:** There is no guarantee that the device won’t reboot or show the passcode screen. The test run on the device might be less reliable if the passcode screen appears during the automated session.
+:::note
+There is no guarantee that the device won’t reboot or show the passcode screen. The test run on the device might be less reliable if the passcode screen appears during the automated session.
+:::
 
 ### Add the Testing Account
 1. On the device, go to **Settings** and then click **Sign in to your iPhone**. Sign in using your Apple sandbox tester account.

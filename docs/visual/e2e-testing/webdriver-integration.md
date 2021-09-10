@@ -109,7 +109,8 @@ browserOptions.AddAdditionalCapability("sauce:visual", sauceVisual, true);
 </TabItem>
 </Tabs>
 
-> **NOTE**: You can get your Screener API Key (`apiKey`) from [here](https://screener.io/v2/account/api-key).
+:::note You can get your Screener API Key (`apiKey`) from [here](https://screener.io/v2/account/api-key).
+:::
 
 :::tip Tip: Store API Key as an environment variable
 
@@ -280,7 +281,6 @@ Now run your first test and view your initial results in the [Screener Dashboard
 
 :::note
 Your initial visual test will fail, and results will be labelled as "New"; [Review and Accept](https://screener.io/v2/docs/visual-e2e/review-flow) them as the baseline.
-
 :::
 
 

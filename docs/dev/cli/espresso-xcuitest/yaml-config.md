@@ -100,7 +100,7 @@ Here are some additional options you can use to configure your YAML file.
 
 ### `device`
 
-__Description__: specifies the exact device to use in your tests by providing the Device ID. See 
+__Description__: specifies the exact device to use in your tests by providing the Device ID. See
 [Static Device Allocation](/mobile-apps/supported-devices#static-and-dynamic-device-allocation) for detailed instructions.
 
 __Examples__:
@@ -315,7 +315,6 @@ java -jar runner.jar config --path ./MyFile.yml --accessKey ab015c1e-xxxx-xxxx-x
 
 :::note
 [Sauce Runner RDC CLI Options](/dev/cli/espresso-xcuitest/real-devices) are not compatible with YAML-specific flags. Once you pass the `config` YAML command to the runner, you can only use `--path` and `--accessKey`.
-
 :::
 
 This will launch your test. To see your results, go to Sauce Labs > **Automated** > **Test Results** > **Real Devices**.

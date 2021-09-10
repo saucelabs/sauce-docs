@@ -13,7 +13,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 ## Preamble
 
 With the introduction of stateful email notifications (version=2) the API Fortress mailer will notify you when a test starts failing, and notify you again when the test is back in full working order. The identifier of the incident that allows the system to track the events is the ID of the test itself.  
-  
+
 However, in a multi-environment testing strategy, the ID of the test may not be sufficient anymore, as an incident may relate to different environments. Therefore, the test needs to inform the mailer which environment the execution relates too, so that the incident signature will carry the environment as well.
 
 ## The FACT Component
@@ -24,7 +24,9 @@ A FACT has an ID (which should be unique within the test), a label (to help the 
 
 A specific FACT can be used to control the incident behavior previously discussed.
 
-> **NOTE**: the FACT component should be set as high up in the test as possible, as if the test reaches its fail limit before the FACT then it will not be set.
+:::note
+The FACT component should be set as high up in the test as possible, as if the test reaches its fail limit before the FACT then it will not be set.
+:::
 
 ## Use a FACT to Set Alert Environments
 
@@ -71,7 +73,7 @@ Another use-case of the fact component is set an email alert threshold. If you w
 <img src={useBaseUrl('img/api-fortress/2020/07/Screen-Shot-2020-07-07-at-12.56.25-PM.png')} alt="screenshot.png"/>
 
 This means the test will need to fail twice in a row before an email alert is sent.  
-  
+
 Given that this can be configured within the test, it offers all the flexibility provided by conditional statements, such as an IF condition on the environment the test is running upon:  
 
 <img src={useBaseUrl('img/api-fortress/2020/07/Screen-Shot-2020-07-07-at-12.59.24-PM.png')} alt="screenshot.png"/>
