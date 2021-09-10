@@ -9,11 +9,15 @@ keywords:
 - how-to
 ---
 
-<p><small><span class="highlight beta">BETA</span></small></p>
+<p><small><span class="highlight beta">BETA</span> <span class="highlight sauceRed">EXPERIMENTAL</span></small></p>
 
 [Tosca's Tricentis™](https://www.tricentis.com/) is one of the world's leading enterprising enterprise software testing platforms. Tricentis is "totally automated, fully codeless, and intelligently driven by AI". The Sauce Labs and Tosca Tricentis integrations allows you to run your Tricentis tests on the Sauce Labs platform—giving you access to all of the [features that the Sauce Labs continuous testing cloud](https://saucelabs.com/platform) has to offer.
 
 Below is a guide to set up the Sauce Labs integration. This integration allows you to run your Tricentis tests on our platform.
+
+:::warning This integration is experimental!
+Blah blah blah [important link](#)
+:::
 
 ## What You'll Need
 
@@ -117,7 +121,7 @@ Once the Sauce Labs VM starts with the Tosca agent, the next step is to configur
 
 For detailed information about configuring Tosca for distributed test runs, please consult [the documentation](https://documentation.tricentis.com/tosca/1300/en/content/resources/webhelp/cover_web.htm).
 
-:::warning Note on Scaling
+:::caution Note on Scaling
 Consult the licensing tiers for both Tosca and Sauce Labs to ensure your account concurrency is aligned with your testing requirements.
 :::
 
