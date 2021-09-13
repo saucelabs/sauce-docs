@@ -1,5 +1,14 @@
 import React from "react";
 const axios = require("axios");
+import {trackPromise, usePromiseTracker} from "react-promise-tracker";
+
+const LoadingIndicator = props => {
+    const { promiseInProgress } = usePromiseTracker();
+    return (
+        promiseInProgress &&
+        <h1>Loading...</h1>
+    );
+}
 
 export default class scTable extends React.Component {
     constructor(props) {
@@ -18,13 +27,14 @@ export default class scTable extends React.Component {
             const version = res.data.latest_version;
             const results = Object.entries(res.data.downloads)
                 .map(([key, val])=>({platform: key, ...val, id: i++, ...val}));
+            trackPromise(
             setTimeout(() => {
                 console.log('Updated Sauce Connect Table Versions fetched');
                 this.setState({
                     data: results,
                     latest_version: version
                 })
-            }, 1000)
+            }, 1000))
         } catch (err) {
             console.log(err);
         }
@@ -35,6 +45,7 @@ export default class scTable extends React.Component {
     render() {
         return(
             <div className="Table">
+                <LoadingIndicator/>
                 <p>Latest Version: {this.state.latest_version}</p>
                 <table>
                     <thead>
