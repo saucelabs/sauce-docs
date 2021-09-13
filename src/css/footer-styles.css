@@ -2183,11 +2183,12 @@
 }
 .footer-nav p.link-title{
     display:block;
-    padding-bottom:10px;
+    /*padding-bottom:10px;*/
     font-size:.875rem;
     line-height:.875rem;
     font-weight:700;
     color: #FFFFFF;
+    margin-bottom: 10px;
 }
 .footer-nav .link-list{
     border-top:2px solid hsla(0,100%,80%,.2);
@@ -2214,30 +2215,31 @@
     align-items:flex-start;
     list-style: none;
 }
-@media print,screen and (min-width:768px){
-    .footer-nav .link-list ul{
-        max-height:300px
-    }
-    .footer-nav .link-list ul li{
-        line-height:36px;
-        height:36px
-    }
-    .footer-nav .link-list ul li a{
-        line-height:20px;
-        display:block
-    }
-}
+/*@media print,screen and (min-width:768px){*/
+/*    .footer-nav .link-list ul{*/
+/*        max-height:275px*/
+/*    }*/
+/*    .footer-nav .link-list ul li{*/
+/*        line-height:36px;*/
+/*        height:36px*/
+/*    }*/
+/*    .footer-nav .link-list ul li a{*/
+/*        line-height:20px;*/
+/*        display:block*/
+/*    }*/
+/*}*/
 @media screen and (min-width:1024px){
     .footer-nav .link-list ul{
-        max-height:180px
+        max-height:180px;
+        padding: 0;
     }
     .footer-nav .link-list ul li{
         line-height:24px;
-        height:auto
+        height:auto;
     }
     .footer-nav .link-list ul li a{
         line-height:20px;
-        display:inline
+        display:inline;
     }
 }
 .footer-nav .link-list ul li .link{
