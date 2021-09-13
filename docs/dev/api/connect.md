@@ -50,7 +50,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jim.smith/tunnels' \
---header 'Content-Type: application/json' \
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -59,7 +59,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels' \
---header 'Content-Type: application/json' \
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -128,7 +128,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
---header 'Content-Type: application/json' \
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -137,7 +137,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
---header 'Content-Type: application/json' \
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -229,7 +229,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://apip.us-west-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8/num_jobs' \
---header 'Content-Type: application/json' \
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -238,7 +238,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://apip.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8/num_jobs' \
---header 'Content-Type: application/json' \
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -309,7 +309,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
---header 'Content-Type: application/json' \
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -318,7 +318,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
---header 'Content-Type: application/json' \
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
