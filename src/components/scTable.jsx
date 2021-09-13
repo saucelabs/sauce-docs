@@ -2,7 +2,7 @@ import React from "react";
 const axios = require("axios");
 import {trackPromise, usePromiseTracker} from "react-promise-tracker";
 
-const LoadingIndicator = props => {
+const LoadingIndicator = async() => {
     const { promiseInProgress } = usePromiseTracker();
     return (
         promiseInProgress &&
@@ -27,14 +27,15 @@ export default class scTable extends React.Component {
             const version = res.data.latest_version;
             const results = Object.entries(res.data.downloads)
                 .map(([key, val])=>({platform: key, ...val, id: i++, ...val}));
-            trackPromise(
-            setTimeout(() => {
-                console.log('Updated Sauce Connect Table Versions fetched');
-                this.setState({
-                    data: results,
-                    latest_version: version
-                })
-            }, 1000))
+            trackPromise = async() => {(
+                setTimeout(() => {
+                    console.log('Updated Sauce Connect Table Versions fetched');
+                    this.setState({
+                        data: results,
+                        latest_version: version
+                    })
+                }, 1000)
+            )}
         } catch (err) {
             console.log(err);
         }
