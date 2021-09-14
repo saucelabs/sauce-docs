@@ -66,6 +66,10 @@ Once you have successfully connected your Sauce Labs and Jira accounts, you can 
          <td><p><small>| OPTIONAL |</small></p><p>Describe the purpose of the issue.</p></td>
         </tr>
         <tr>
+         <td><b>Attachments</b></td>
+         <td><p><small>| OPTIONAL |</small></p><p>Check the relevant boxes to include test assets as attachments in your Jira ticket.<br/>&#9744; Attach Logs<br/>&#9744; Attach Screenshots<br/>&#9744; Attach Video</p></td>
+        </tr>
+        <tr>
          <td><b>ASSIGN TO</b></td>
          <td><p><small>| REQUIRED |</small></p><p>Use the drop down menu to select the member within your company's Jira org who is responsible for the issue. The list is populated alphabetically, so if you do not actively set the assignment, the value defaults to the first one in the list.</p></td>
         </tr>
@@ -79,7 +83,3 @@ Once you have successfully connected your Sauce Labs and Jira accounts, you can 
 ## Update an Issue
 
 If the job you are viewing already has Jira issues associated with it, the number of previously filed issues appears in parentheses next to the Jira Issue button. When you click the button, you can select an existing issue to open the issue in your Jira account in another tab of your browser. There, you can edit the issue as you normally would.
-
-:::note
-Attaching assets from your Sauce Labs job to your Jira issue is not yet supported.
-:::
