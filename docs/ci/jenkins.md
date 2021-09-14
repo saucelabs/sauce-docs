@@ -26,7 +26,7 @@ The OnDemand plugin allows you to easily manage your Sauce Labs testing from [Je
     - IP range `162.222.72.0/21`
     - `saucelabs.com`
     - `ondemand.saucelabs.com`
-* [Jenkins documentation for setting up a Proxy](https://wiki.jenkins-ci.org/display/JENKINS/JenkinsBehindProxy)
+
 
 ## Installing the OnDemand Plugin
 
