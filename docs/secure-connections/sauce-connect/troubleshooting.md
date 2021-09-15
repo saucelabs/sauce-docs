@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 ## How to Generate Tunnel Logs to Help with Troubleshooting
 To generate a tunnel log file, which is a great tool to troubleshoot Sauce Connect Proxy, use the `–l (--logfile <file>)` command line option. The log provides details on network transactions and Sauce Connect Proxy activity.
 
-The file will be named "sauce_connect.log." By default, Sauce Connect Proxy generates log messages to your local operating system's temporary folder. On Linux / Mac OS X, this is usually `/tmp`. On Windows, it varies by individual release. You can also specify a specific location for the output in the `<file>` of the command-line  `–l (--logfile <file>)`.
+By default, Sauce Connect Proxy names the log file `sc.log`, and writes to your local operating system's temporary folder. On Linux / Mac OS X, this is usually `/tmp`. On Windows, it varies by individual release. You can also specify a specific location for the output in the `<file>` of the command-line  `–l (--logfile <file>)`.
 
-You can enable verbose logging, which increases the logging level of Sauce Connect Proxy, but does not alter where it is sent. Just use the with the `--verbose` command-line. Verbose output will be sent to the Sauce Connect Proxy log file, rather than standard out. To send all logging to stdout, set a value of `-` for the `--logfile` command (i.e., `--logfile -`) when starting Sauce Connect Proxy.
+You can enable verbose logging, which increases the logging level of Sauce Connect Proxy, with the `--verbose` command-line. Verbose output will be sent to the Sauce Connect Proxy log file, rather than standard out. To send all logging to stdout, set a value of `-` for the `--logfile` command (i.e., `--logfile -`) when starting Sauce Connect Proxy.
 
 ## Network Configuration with Firewalls and Proxies
 Is there a firewall or proxy server in place between your machine running Sauce Connect Proxy and Sauce Labs (`*.saucelabs.com:443`)? You may need to allow access in your firewall rules or configure Sauce Connect Proxy to use an additional proxy. See [Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies)
