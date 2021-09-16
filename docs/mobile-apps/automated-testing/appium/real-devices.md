@@ -2,121 +2,37 @@
 id: real-devices
 title: Appium Testing with Real Devices
 sidebar_label: Real Devices
+description: Run your Appium tests on Sauce Labs real devices.
 ---
-
-export const Highlight = ({children, color}) => ( <span style={{
-      backgroundColor: color,
-      borderRadius: '2px',
-      color: '#fff',
-      padding: '0.2rem',
-    }}>{children}</span> );
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This topic describes automated Appium testing on the Sauce Labs Real Device Cloud (RDC). You can accelerate your test execution by running parallel automated tests across thousands of mobile device/OS combinations, in our public real device cloud and/or a private device pool of your own.
+Sauce Labs provides thousands of real mobile devices for nearly every phone and tablet model and applicable OS version. You can run your Appium tests on these devices through the Sauce Labs Real Device Cloud (RDC) to ensure your app behaves accurately and consistently across different devices in the real world. Sauce Labs offers a massive pool of public devices available for all customers, as well as a private option in which customers can create a selection of devices for use by only their organization.
 
+See [When to Test on Real Devices](https://docs.saucelabs.com/mobile-apps/supported-devices/#when-to-test-on-real-devices) for deails about real device testing use cases, benefits, and system requirements.
 
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-* Ensure that your mobile app and project setup meet our [real device cloud requirements](/mobile-apps/supported-devices).
-* Have your mobile app file (.ipa for iOS, .apk for Android) and mobile test file on hand. If you don't have one and would like to test our functionality, consider using our [Sauce Labs demo app](https://github.com/saucelabs/sample-app-mobile/releases).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+* An Appium installation (See [Using Appium](/mobile-apps/automater-testing/appium))
+* A mobile app file (.ipa for iOS, .apk for Android)
+* An Appium mobile test file
 
 
-## Uploading Mobile Apps from a Remote Location
+## Install Your Mobile App on Real Devices
 
-There may be situations where you want to install an app from a downloadable remote location (e.g., AWS S3 bucket, a GitHub repository). The app is completely removed from the real device after the test completes, providing an added layer of security for your app.
+If your Appium tests are intended to test a native mobile application on real devices, the app file must be available to Sauce Labs so it can be installed on the devices selected for testing. Sauce Labs provides a variety of methods for doing this, including:
 
-Please review the following guidelines below before uploading your app:
+* Install your app to a real device from a remote location [How?](/mobile-apps/app-storage/#installing-apps-from-a-remote-location)
+* Upload your app to Sauce Application Storage using the [Sauce Labs UI](/mobile-apps/app-storage/#uploading-apps-via-ui) or [REST API](/mobile-apps/app-storage/#uploading-apps-via-rest-api).
 
-1. Make sure your app meets the [requirements](/mobile-apps/supported-devices) for Android and iOS Mobile App Testing.
-2. Upload your app to the hosting location.
-3. Ensure Sauce Labs has READ access to the app URL.
-4. In your Appium test script, enter the URL for the app as the "app" desired capability. Example Java Snippet:
+The following application file types are supported for real device tests:
 
-  ```java
-  caps.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.3.0/Android.SauceLabs.Mobile.Sample.app.2.3.0.apk?raw=true");
-  ```
-
-### Installing your App on Private Devices
-
-In some cases, you may need to upload/install your app to a private device and also prevent the device from broad internet access while under test. The steps to achieve this are:
-
-* Upload your app to an internal git repository, or private hosting solution with the necessary permissions (e.g. Amazon S3 with a strict bucket policy).
-* Ensure the hosted app URL is available to the machine running the automated test.
-* Ensure that you've enabled the **Require Sauce Connect/VPN** setting in your [organization's security settings](/basics/acct-team-mgmt/org-settings).
-
-:::note
-Each session is a "fresh" installation of your app, meaning, you will not be able to access information about previous versions of your app.
-:::
-
-## Uploading Mobile Apps with the Sauce Labs REST API
-
-Use the [App Storage REST API](/dev/api/storage/#upload-file-to-app-storage) to upload your app for Appium automated mobile testing. We currently support \*.apk or \*.aab Android app files and \*.ipa or \*.zip iOS app files (\*.zip files are parsed to determine whether a valid *.app bundle exists).
-
-:::caution Limited Support for *.aab Files
-At this time, \*.aab files are only supported for Android real device testing.
-:::
-
-### Application Storage and Data Center Endpoints
-
-When uploading your app for testing with real devices, you must identify the [Data Center](/basics/data-center-endpoints/data-center-endpoints) where the devices you are testing are located by specifying the applicable API URL for that data center.
-
-Examples using the EU and US endpoints:
-
-<Tabs
-  defaultValue="US Data Center"
-  values={[
-    {label: 'US Data Center', value: 'US Data Center'},
-    {label: 'EU Data Center', value: 'EU Data Center'},
-  ]}>
-
-<TabItem value="US Data Center">
-
-US Data Center (macOS/Linux)
-
-```bash
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
---form 'payload=@"g16K4P8IX/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
---form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
-```
-
-US Data Center (Windows)
-
-```zh
-> curl -u "%SAUCE_USERNAME%:%SAUCE_ACCESS_KEY% -X POST -w "%{http_code}\n" \
--H "Content-Type: application/octet-stream" \
-"https://saucelabs.com/rest/v1/storage/%SAUCE_USERNAME%/Android.SauceLabs.Mobile.Sample.app.x.x.x.apk?overwrite=true" \
---data-binary @\path\to\Android.SauceLabs.Mobile.Sample.app.x.x.x.apk
-```
-
-</TabItem>
-<TabItem value="EU Data Center">
-
-EU Data Center (macOS/Linux)
-
-```curl
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/v1/storage/upload' \
---form 'payload=@"g16K4P8IX/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
---form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
-```
-
-EU Data Center (Windows)
-
-```bash
-> curl -u "%SAUCE_USERNAME%:%SAUCE_ACCESS_KEY%" -X POST -w "%{http_code}\n" \
--H "Content-Type: application/octet-stream" \
-"https://eu-central-1.saucelabs.com/rest/v1/storage/%SAUCE_USERNAME%/Android.SauceLabs.Mobile.Sample.app.x.x.x.apk?overwrite=true" \
---data-binary @\path\to\Android.SauceLabs.Mobile.Sample.app.x.x.x.apk
-```
-
-</TabItem>
-</Tabs>
+* \*.apk or \*.aab for Android app files
+* \*.ipa or \*.zip for iOS app files (\*.zip files are parsed to determine whether a valid *.app bundle exists).
 
 
 ## Configuring Appium Tests for Real Devices
@@ -764,9 +680,9 @@ Once you're up and running with your real device tests, check out our [Best Prac
 
 ### Full Example Scripts
 
-These Appium script examples can help streamline your real device testing process. 
-They use the [pytest](https://docs.pytest.org/en/latest/) test framework. 
-Feel free to [clone these scripts directly from GitHub](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples), 
+These Appium script examples can help streamline your real device testing process.
+They use the [pytest](https://docs.pytest.org/en/latest/) test framework.
+Feel free to [clone these scripts directly from GitHub](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples),
 and follow the instructions in the [README file](https://github.com/saucelabs-training/demo-python#readme).
 
 * [conftest.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/conftest.py): this script initializes the test fixtures, as well as the prerequisite and post-requisite test tasks.
