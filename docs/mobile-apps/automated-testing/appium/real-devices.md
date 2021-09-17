@@ -13,7 +13,6 @@ Sauce Labs provides thousands of real mobile devices for nearly every phone and 
 
 Appium automated real device testing supports tests designed to run against a web application in a mobile browser or a native app on a mobile device.
 
-
 See [When to Test on Real Devices](https://docs.saucelabs.com/mobile-apps/supported-devices/#when-to-test-on-real-devices) for deails about real device testing use cases, benefits, and system requirements.
 
 ## What You'll Need
@@ -40,37 +39,20 @@ The following application file types are supported for real device tests:
 
 ## Configuring Appium Tests for Real Devices
 
-This section describes parameters that we recommend using to configure your Appium tests on Sauce Labs real devices. See [Test Configuration Options](/dev/test-configuration-options) for the full list of required and optional parameters.
+Certain Appium capabilities behave differently when running Appium tests on real devices versus virtual devices. For example:
 
-Certain Appium capabilities behave differently when running Appium tests on our Real Device Cloud versus a local Appium server. On our Real Device Cloud:
-
-* Some Appium capabilities are not supported.
-* Emulator-only capabilities will not work.
+* Some Appium capabilities are not supported for real devices.
+* Emulator-only capabilities will not work on real devices.
 * The `app` capability will be always be overwritten; it will point to the app file you uploaded to our system.
 * The `noReset` capability will only work if device caching is enabled.
 * Different setups may have different ways of handling capabilities and/or different requirements. Check to make sure you're providing all of the required capabilities.
 
-### Supported Use Cases for Sauce Labs Real Device Testing
+See [Test Configuration Options](/dev/test-configuration-options) for the full list of required and optional parameters.
 
-* Execute Appium tests against a private real device hosted in the U.S., using your Sauce Labs username and access key.
-* Use our application storage for Appium testing as you usually do for emulators and simulators tests.
-* Analyze Appium test executions, on Sauce Labs similar to the way you do it for desktop, emulators and simulators.
-* Consume Real Device Cloud (RDC) API similar to the way you do for emulators and simulators (with applicable RDC settings).
+### 
 
-**Example Test Script**
 
-```java
-private URL createUrl() throws MalformedURLException {
-    return new URL("https://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.us-west-1.saucelabs.com/wd/hub");
-}
 
-@BeforeEach
-void setUp() throws MalformedURLException {
-    DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-    desiredCapabilities.setCapability("platformName", "iOS");
-    IOSDriver driver = new IOSDriver(createUrl(), desiredCapabilities);
-}
-```
 
 #### Setting Your `appiumVersion`
 
