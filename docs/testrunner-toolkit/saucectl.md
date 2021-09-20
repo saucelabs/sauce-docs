@@ -415,3 +415,14 @@ Enables detailed output during the test run in order to facilitate troubleshooti
 ```bash
 saucectl run --verbose
 ```
+
+## `$ saucectl completion`
+
+Allows you to generate completion script for `bash`, `zsh`, `fish` and `powershell` shells.
+
+You can run the command below to get more details on how to generate a completion script for a specific shell.
+
+```bash
+saucectl completion --help
+```
+---
