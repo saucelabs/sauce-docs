@@ -130,7 +130,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.us-west-1.saucelabs.com/v1/analytics/tests?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&size=10&from=10&build=build-123"
+--request GET "https://api.us-west-1.saucelabs.com/v1/analytics/tests?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&size=10&from=10&build=build-123" | json_pp
 ```
 
 </TabItem>
@@ -138,7 +138,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.eu-central-1.saucelabs.com/v1/analytics/tests?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&size=10&from=10&build=build-123"
+--request GET "https://api.eu-central-1.saucelabs.com/v1/analytics/tests?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&size=10&from=10&build=build-123" | json_pp
 ```
 
 </TabItem>
@@ -290,7 +290,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.us-west-1.saucelabs.com/v1/analytics/insights/test-metrics?start=1515687172&end=1516291972&query=AnalyticsSeleniumTest%20on%20OS%20X%2010.10"
+--request GET "https://api.us-west-1.saucelabs.com/v1/analytics/insights/test-metrics?start=1515687172&end=1516291972&query=AnalyticsSeleniumTest%20on%20OS%20X%2010.10" | json_pp
 ```
 
 </TabItem>
@@ -298,7 +298,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.eu-central-1.saucelabs.com/v1/analytics/insights/test-metrics?start=1515687172&end=1516291972&query=AnalyticsSeleniumTest%20on%20OS%20X%2010.10"
+--request GET "https://api.eu-central-1.saucelabs.com/v1/analytics/insights/test-metrics?start=1515687172&end=1516291972&query=AnalyticsSeleniumTest%20on%20OS%20X%2010.10" | json_pp
 ```
 
 </TabItem>
@@ -477,7 +477,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.us-west-1.saucelabs.com/v1/analytics/trends/tests?interval=1h&start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&os=Linux"
+--request GET "https://api.us-west-1.saucelabs.com/v1/analytics/trends/tests?interval=1h&start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&os=Linux" | json_pp
 ```
 
 </TabItem>
@@ -485,7 +485,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.eu-central-1.saucelabs.com/v1/analytics/trends/tests?interval=1h&start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&os=Linux"
+--request GET "https://api.eu-central-1.saucelabs.com/v1/analytics/trends/tests?interval=1h&start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&os=Linux" | json_pp
 ```
 
 </TabItem>
@@ -675,7 +675,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.us-west-1.saucelabs.com/v1/analytics/trends/builds_tests?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z"
+--request GET "https://api.us-west-1.saucelabs.com/v1/analytics/trends/builds_tests?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z" |json_pp
 ```
 
 </TabItem>
@@ -683,7 +683,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.eu-central-1.saucelabs.com/v1/analytics/trends/builds_tests?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z"
+--request GET "https://api.eu-central-1.saucelabs.com/v1/analytics/trends/builds_tests?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z" | json_pp
 ```
 
 </TabItem>
@@ -860,7 +860,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.us-west-1.saucelabs.com/v1/analytics/trends/errors?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&scope=organization"
+--request GET "https://api.us-west-1.saucelabs.com/v1/analytics/trends/errors?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&scope=organization" | json_pp
 ```
 
 </TabItem>
@@ -868,7 +868,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.eu-central-1.saucelabs.com/v1/analytics/trends/errors?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&scope=organization"
+--request GET "https://api.eu-central-1.saucelabs.com/v1/analytics/trends/errors?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&scope=organization" | json_pp
 ```
 
 </TabItem>

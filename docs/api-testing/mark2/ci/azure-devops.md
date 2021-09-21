@@ -11,13 +11,15 @@ keywords:
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-APIF-Auto, a command line tool that supports automated API Fortress test execution, is the ideal tool for executing tests in an Azure DevOps workflow. 
+APIF-Auto, a command line tool that supports automated API Fortress test execution, is the ideal tool for executing tests in an Azure DevOps workflow.
 
 ## Example Pipeline Script
 
-The pipeline script below serves as a template for creating a step in your Azure DevOps Pipeline for testing your APIs with API Fortress. If you’d like to take a look at the documentation for APIF-Auto, click [here](/api-testing/mark2/ci/apif-auto). 
+The pipeline script below serves as a template for creating a step in your Azure DevOps Pipeline for testing your APIs with API Fortress. If you’d like to take a look at the documentation for APIF-Auto, click [here](/api-testing/mark2/ci/apif-auto).
 
->NOTE: this is an **example** of an Azure DevOps Pipeline. Experienced users are free to configure their workflow as best suits their needs.
+:::note
+This is an **example** of an Azure DevOps Pipeline. Experienced users are free to configure their workflow as best suits their needs.
+:::
 
 ```yaml
 trigger:  
@@ -30,17 +32,17 @@ jobs:
     matrix:  
       Python37:  
         python.version: '3.7'  
-      
+
   steps:  
   - script: |  
       python -m pip install --upgrade pip  
       python -m pip install -r requirements.txt  
     displayName: 'Install dependencies'  
-  
+
   - script: |  
       python apif-run.py run-all security -S -f junit -o results/TEST-junit.xml  
     displayName: 'Run APIF Tests'  
-  
+
   - task: PublishTestResults@2  
     inputs:  
       testRestultFiles: 'result/junit.xml'  

@@ -23,7 +23,7 @@ In the following walkthrough we’ll show you how to use Bloodhound to turn a da
     And load the test data in the UI.  
     <img src={useBaseUrl('img/api-fortress/2020/07/Screenshot2-Import-Data.png')} alt="Import Data"/>
 
-    To do this we will click on “Import” and load the “postgres.sql” file and click on “Execute” (note: this will throw an error but it has no effect)
+    To do this we will click on “Import” and load the “postgres.sql” file and click on “Execute” (**NOTE:** This will throw an error but it has no effect)
 
 - Now that we have our database populated with test data, we can query it using the API “localhost:8080/postgres.” Let’s try a “select” query. We will execute the following curl command “curl -H 'content-type:text/plain' -d 'select \* from orders' localhost:8080/postgres“  
     <img src={useBaseUrl('img/api-fortress/2020/07/Screenshot3-API-Response.png')} alt="API Response"/>

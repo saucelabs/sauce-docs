@@ -356,8 +356,13 @@ module.exports = {
                     href: '/testrunner-toolkit/saucectl' // The target URL (string).
                 },
                 {
+                    type: 'link',
+                    label: 'Visual E2E CLI', // The label that should be displayed (string).
+                    href: '/visual/e2e-testing/visual-e2e-cli' // The target URL (string).
+                },
+                {
                     type: 'category',
-                    label: 'Virtual USB',
+                    label: 'Virtual USB CLI',
                     collapsed: true,
                     items: [
                         'dev/cli/virtual-usb',
@@ -468,6 +473,7 @@ module.exports = {
                         items: [
                             'basics/integrations/deque',
                             'basics/integrations/jira',
+                            'basics/integrations/slack',
                         ],
                     },
                 ],
@@ -729,7 +735,7 @@ module.exports = {
                 label: 'E2E Testing',
                 collapsed: true,
                 items: [
-                    'visual/e2e-testing/webdriver-integration',
+                    'visual/e2e-testing/setup',
                     {
                         type: 'category',
                         label: 'Integrations',
@@ -747,14 +753,13 @@ module.exports = {
                         items: [
                             'visual/e2e-testing/workflow/review-workflow',
                             'visual/e2e-testing/workflow/baseline-branch',
+                            'visual/e2e-testing/workflow/change-details',
                             'visual/e2e-testing/workflow/visual-history',
                             'visual/e2e-testing/workflow/ignoring-changes',
                         ],
                     },
-                    'visual/e2e-testing/commands',
-                    'visual/e2e-testing/options',
+                    'visual/e2e-testing/visual-e2e-cli',
                     'visual/e2e-testing/code-examples',
-                    'visual/e2e-testing/animations',
                     'visual/e2e-testing/supported-browsers',
                     'visual/e2e-testing/troubleshooting',
                 ],
@@ -771,9 +776,9 @@ module.exports = {
                         collapsed: true,
                         items: [
                             'visual/component-testing/integrations/continuous-integration',
-                            'visual/component-testing/integrations/github',
-                            'visual/component-testing/integrations/webhooks',
                             'visual/component-testing/integrations/slack',
+                            'visual/component-testing/integrations/webhooks',
+                            'visual/component-testing/integrations/github',
                             'visual/component-testing/integrations/visual-studio-team-services',
                             'visual/component-testing/integrations/sauce-labs',
                         ],
@@ -785,18 +790,17 @@ module.exports = {
                         items: [
                             'visual/component-testing/workflow/review-workflow',
                             'visual/component-testing/workflow/baseline-branch',
-                            'visual/component-testing/workflow/ignoring-changes',
+                            'visual/component-testing/workflow/change-details',
                             'visual/component-testing/workflow/visual-history',
+                            'visual/component-testing/workflow/ignoring-changes',
                             'visual/component-testing/workflow/include-exclude-settings',
                         ],
                     },
-                    'visual/component-testing/animations',
-                    'visual/component-testing/cross-browser-testing',
-                    'visual/component-testing/testing-interactions',
-                    'visual/component-testing/animations',
+                    'visual/component-testing/supported-browsers',
+                    'visual/component-testing/storybook-interactions-testing',
                 ],
             },
-        'visual/change-details',
+        'visual/css-animations',
         'visual/acct-team-mgmt',
         'visual/notifications',
         ],

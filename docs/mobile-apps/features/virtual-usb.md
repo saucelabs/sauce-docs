@@ -122,9 +122,17 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
   java -jar virtual-usb-client.jar connect --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
   ```
 
-  >**NOTE:** Method 1 is recommended for the following reasons:
-  > * All menu options to control the device are available with Method 1 and **NOT** with Method 2.
-  > * Interactions and gestures on an iOS device session are much faster in comparison to Method 2.
+:::note
+Method 1 is recommended for the following reasons:
+<<<<<<< HEAD
+  * All menu options to control the device are available with Method 1 and **NOT** with Method 2.
+  * Interactions and gestures on an iOS device session are much faster in comparison to Method 2.
+=======
+* All menu options to control the device are available with Method 1 and **NOT** with Method 2.
+* Interactions and gestures on an iOS device session are much faster in comparison to Method 2.
+
+>>>>>>> aa4f02fb25139fc1ecaa8ff2f143f0ac8c8fa63f
+:::
 
   If your vUSB test session launch is successful, you'll see a success message:
   <Tabs

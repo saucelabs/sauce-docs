@@ -8,7 +8,7 @@ description: Run Espresso and XCUITest projects on Sauce Labs.
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs uses its framework agnostic test orchestrator [`saucectl`](/testrunner-toolkit) to execute Espresso and XCUITest tests based on one or more configuration files that instruct `saucectl` to run your tests exactly the way you specify. Results get published in your Sauce Labs dashboard, where you can compare 30 days of results across different environments and frameworks all in one view.
+Sauce Labs uses its framework agnostic test orchestrator [`saucectl`](/testrunner-toolkit) to execute Espresso and XCUITest tests based on one or more configuration files that instruct `saucectl` to run your tests exactly the way you specify. Results get published in your Sauce Labs account, where you can compare 30 days of results across different environments and frameworks all in one view.
 
 ## What You'll Need
 

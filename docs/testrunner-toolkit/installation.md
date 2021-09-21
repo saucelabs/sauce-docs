@@ -106,7 +106,7 @@ Mingw on Windows is known to interfere with the interactive `saucectl` commands,
 
 ## Associating Your Sauce Labs Account
 
-Your Sauce Labs `username` and `accessKey` are required to post your test results to the Sauce Labs platform. These values are available in the [User Settings](https://app.saucelabs.com/user-settings) page in the Sauce Labs app.
+Your Sauce Labs `username` and `accessKey` are required to post your test results to the Sauce Labs platform. These values are available on the [User Settings](https://app.saucelabs.com/user-settings) page.
 
 You can associate your Sauce Labs account with `saucectl` either by creating environment variables or by generating a `credentials.yml` file.
 
@@ -221,7 +221,7 @@ Running version v0.44.0
 ```
 
 
-Once the test completes, you can view the test assets when you log into your Sauce Labs dashboard.
+Once the test completes, you can view the test assets when you log into Sauce Labs.
 
 
 ## Next Steps
