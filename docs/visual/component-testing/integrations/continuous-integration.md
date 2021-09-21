@@ -1,6 +1,6 @@
 ---
 id: continuous-integration
-title: Continuous Integration with Visual Component Testing
+title: Integrate Visual Component Testing Into Your CI
 sidebar_label: Continuous Integration
 ---
 
@@ -8,7 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Get continuous visual test automation by integrating Screener into your Continuous Integration (CI) process. Screener will automatically run tests, and pass or fail your builds depending on visual regressions found.
+Get continuous visual test automation by integrating Visual Component tests directly into your continuous integration (CI) build.
+
+Screener will automatically run tests, and pass or fail your builds depending on visual regressions found.
 
 ## Setup Steps
 
