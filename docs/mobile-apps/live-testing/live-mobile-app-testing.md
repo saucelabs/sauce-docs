@@ -176,55 +176,6 @@ The graph and csv file will contain these performance metrics for devices.
 | `network_mobile_receive_b` | Data in bytes received from the mobile carrier network |
 | `network_mobile_sent_b` | Data in bytes sent over mobile carrier network |
 
-:::note
-Device Vitals for live testing is currently in beta state, which means we are testing it on a few devices first. We will roll out to all devices in the coming weeks, please refer to this page for updates. See the full list of combinations available for beta below.
-:::
-
-<Tabs
-  defaultValue="iOS"
-  values={[
-    {label: 'iOS', value: 'iOS'},
-    {label: 'Android', value: 'Android'},
-  ]}>
-
-<TabItem value="iOS">
-
-**App Tests**
-
-| Device/Platform | iPhone 11 | iPhone XR | iPhoneXS | iPhone X | iPhone 8 | iPhone 7 | iPhone 6 | iPhone 6 Plus | iPhone 6S Plus | iPhone 5S | iPhone SE | iPad Pro 11 2018 | iPad Pro | iPad Air 2019 | iPad 9.7 2017 | iPad 4 | iPad Mini 2 |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| iOS 9.3.2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 10.0.2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 10.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 10.3.3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 11.4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 11.4.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 12.2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 12.4.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 13.0 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 13.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
-
-</TabItem>
-<TabItem value="Android">
-
-**App Tests**
-
-| Device/Platform | Google Pixel XL | Google Pixel 3 | Google Pixel 3a | Motorola Moto G6 Plus | Huawei P30 | Google Pixel C | HTC U12 Plus | HTC U11 | HTC Desire 12 | Samsung Galaxy S7 | Lenovo Tab 4 | Asus Google Nexus 7 (2013) | LG G6 | LG G5 | LG G4 | Huawei P9 | Amazon Kindle Fire HD 8 |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Android 5.1.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Android 6.0 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Android 6.0.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Android 7.0 |  |  |  |  |  |  |  |  |  |  |  |  | X |  |  |  |  |
-| Android 7.1.1 |  |  |  |  |  |  |  |  |  |  | X |  |  |  |  |  |  |
-| Android 8.0.0 |  |  |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |
-| Android 8.1.0 |  |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |  |
-| Android 9 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Android 10 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Android 11 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
-</TabItem>
-</Tabs>
 
 ## Changing an App Version
 Sometimes you need to conduct A/B testing, or document and validate feature parity between different versions of the same application. You can change the app version, as well as the real device, and launch a new test session.
