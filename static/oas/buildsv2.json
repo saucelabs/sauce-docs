@@ -56,7 +56,7 @@
           }
         }
       },
-      "/v2/builds/{build_source}/":{
+    "/v2/builds/{build_source}/":{
         "get":{
           "tags":["builds"],
           "summary":"Get Builds",
@@ -200,7 +200,7 @@
           }
         }
       },
-      "/v2/builds/{build_source}/jobs/{job_id}/build/":{
+    "/v2/builds/{build_source}/jobs/{job_id}/build/":{
         "get":{
           "tags":["builds"],
           "summary":"Get Build By Job Id",
@@ -246,7 +246,7 @@
           }
         }
       },
-      "/v2/builds/{build_source}/{build_id}/jobs/":{
+    "/v2/builds/{build_source}/{build_id}/jobs/":{
         "get":{
           "tags":["jobs"],
           "summary":"Get Jobs For Build",
@@ -392,8 +392,8 @@
           }
         }
       }
-    },
-    "components":{
+  },
+  "components":{
       "schemas":{
         "BuildV2":{
           "title":"BuildV2",
@@ -645,10 +645,10 @@
               }
             }
           },
-          "tags":[
-            {
-              "name":"builds",
-              "description":"Builds are grouping multiple jobs and additionally provide job counts"
-            }
-          ]
-        }
+  "tags":[
+    {
+      "name":"builds",
+      "description":"Builds are grouping multiple jobs and additionally provide job counts"
+    }
+  ]
+  }
