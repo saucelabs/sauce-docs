@@ -6,7 +6,7 @@ sidebar_label: Sauce Labs
 
 Screener integrates with the Sauce Labs testing cloud for Cross-Browser Testing.
 
-To learn more about Screener's Cross-Browser Testing, see [Visual Component Cross-Browser Testing](/visual/component-testing/cross-browser-testing).
+To learn more about Screener's Cross-Browser Testing, see [Visual Component Cross-Browser Testing](/visual/component-testing/supported-browsers).
 
 :::note Important
 * Cross-Browser Testing with Sauce Labs will be slower than regular Screener visual regression tests.
