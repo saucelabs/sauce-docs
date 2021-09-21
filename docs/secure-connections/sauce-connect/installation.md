@@ -5,9 +5,8 @@ sidebar_label: Installation
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import ScTable from '../../../src/components/scTable.jsx'
 
-This topic describes where and how to Sauce Connect Proxy to your local machine.
+This topic describes where and how to download Sauce Connect Proxy to your local machine.
 
 ## What You’ll Need
 
@@ -19,6 +18,8 @@ This topic describes where and how to Sauce Connect Proxy to your local machine.
 ## Downloading
 
 Click the one of the links below (Linux, Mac, or Windows) to download Sauce Connect Proxy to your local machine.
+
+[Latest version: 4.7.0](https://changelog.saucelabs.com/en/sauce-connect-proxy-version-30JTvzO0F)
 
 <table>
  <tr>
