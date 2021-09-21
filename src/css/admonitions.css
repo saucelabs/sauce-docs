@@ -134,9 +134,17 @@
     background-color: #f1f2f2;
 }
 
+.admonition-caution pre code {
+    background-color: #292d3e;
+}
+
 .admonition-note code {
     color: #474c55;
     background-color: #f1f2f2;
+}
+
+.admonition-note pre code {
+    background-color: #292d3e;
 }
 
 .admonition-tip code {
@@ -144,12 +152,24 @@
     background-color: #f1f2f2;
 }
 
+.admonition-tip pre code {
+    background-color: #292d3e;
+}
+
 .admonition-warning code {
     color: #474c55;
     background-color: #f1f2f2;
 }
 
+.admonition-warning pre code {
+    background-color: #292d3e;
+}
+
 .admonition-info code {
     color: #474c55;
     background-color: #f1f2f2;
+}
+
+.admonition-info pre code {
+    background-color: #292d3e;
 }

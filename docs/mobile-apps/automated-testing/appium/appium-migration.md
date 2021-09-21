@@ -7,26 +7,24 @@ description: Convert your TestObject Appium setup to Sauce Labs testing.
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::warning TestObject End-of-Life September 1, 2021
+<p><span className="sauceGold">DEPRECATED</span></p>
 
-**Action Required**: If you're currently using the Appium test framework on TestObject, please migrate all of your mobile apps and test files from TestObject Storage to Sauce Labs Application Storage by August 31, 2021 using the step-by-step guide on this page. Appium real device testing is fully supported on Sauce Labs.
-
-TestObject will remain accessible in the Sauce Labs app under **SAUCE APPS** > **LEGACY RDC** through August 31, 2021. As we begin phasing it out, we'll keep you posted on key end-of-life dates. If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+:::warning TestObject End-of-life
+TestObject was discontinued September 1, 2021. If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
 :::
 
 ## What You'll Need
 
-*  Your TestObject credentials (username and API key).
-*  Sauce Labs account `USERNAME` and `ACCESS_KEY` [Look them up](https://app.saucelabs.com/user-settings)
-*  Your preferred Sauce Labs Data Center (e.g., US-West-1, EU-Central-1).
-*  An app to test
-
-If you don't have a mobile app or test file, you can sample our [Sauce Labs sample app](https://github.com/saucelabs/sample-app-mobile/releases).
+* Your TestObject credentials (username and API key).
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+* Your preferred Sauce Labs Data Center (e.g., US-West-1, EU-Central-1).
+* An app to test. If you don't have a mobile app or test file, consider using our [Sauce Labs sample app](https://github.com/saucelabs/sample-app-mobile/releases).
 
 
 ## Sauce Labs User Management
 
-Confirm that your TestObject entitlements and platform privileges have carried over to Sauce Labs by reviewing your organization's [Team Management](https://app.saucelabs.com/team-management/users) page in the Sauce Labs app, where you can assign users to teams, bestow user privileges, and manage device/VM concurrency.
+Confirm that your TestObject entitlements and platform privileges have carried over to Sauce Labs by reviewing your organization's [**Team Management**](https://app.saucelabs.com/team-management/users) page, where you can assign users to teams, bestow user privileges, and manage device/VM concurrency.
 
 
 ## Modifying Real Device Test Builds

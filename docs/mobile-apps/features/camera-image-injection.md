@@ -19,7 +19,8 @@ You employ the built-in device camera in your live and automated testing and per
 
 ## What You'll Need
 
-[Upload your app to Sauce Labs](/mobile-apps/app-storage) prior to testing. The camera image injection functionality will pointsto Sauce Labs storage to get your app information.
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* [Upload your app to Sauce Labs](/mobile-apps/app-storage) prior to testing. The camera image injection functionality will pointsto Sauce Labs storage to get your app information.
 
 
 ## Key Specs

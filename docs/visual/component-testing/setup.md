@@ -1,14 +1,14 @@
 ---
 id: setup
-title: Setting Up Your Visual Component Testing Project
-sidebar_label: Setup
+title: Setting Up Visual Component Testing with Storybook
+sidebar_label: Project Setup with Storybook
 ---
 
-## Getting Started with Screener and Storybook
+## Getting Started with Storybook
 
-Get automated Visual Testing across your React, Vue or Angular components with [Storybook](https://storybook.js.org/) and Screener.
+Get automated UI test results across your React, Vue or Angular components by integrating [Storybook](https://storybook.js.org/) with Sauce Labs Visual Component Testing.
 
-Follow the steps below to set up Screener with Storybook, or use the [New Project Wizard](https://screener.io/v2/new).
+Follow the steps below to set up Component Testing with Storybook, or use the [New Project Wizard](https://screener.io/v2/new).
 
 
 ## What You'll Need

@@ -1,7 +1,7 @@
 ---
 id: the-vault
 title: "Use the Vault (Resuable Variables / Code Snippets)"
-sidebar_label: Using the Vault
+sidebar_label: Vault
 description: "The vault allows you to store variables and code snippets that can be used across an entire project."
 ---
 
@@ -46,7 +46,7 @@ Additionally, you can import variables from Postman. See [here](/api-testing/mar
 All created or imported test component/code examples exist in the snippets section.
 
 :::tip What is a Snippet?
-See [here](/api-testing/mark2/reference/composer-snippets) for more details. 
+See [here](/api-testing/mark2/reference/composer-snippets) for more details.
 :::
 
 Much like with variable scope, code snippets saved in the specific _Project Vault_ are only available in that project. Likewise, snippets saved in the _Company Vault_ are available across all projects.
@@ -76,7 +76,7 @@ Reference the variable by the key, and the following syntax: `${domain}`.
 
 ### The Product Variable
 
-Consider a scenario where an `/product` endpoint requires a specific `id` query parameter. 
+Consider a scenario where an `/product` endpoint requires a specific `id` query parameter.
 
 <img src={useBaseUrl('img/api-fortress/2021/04/productID0.png')} alt="Product ID 0"/>
 
@@ -117,10 +117,10 @@ Below is an example of how to create an Authentication Snippet.
 
 1. Select to the **+ Add Request Headers** section below the request component
    <img src={useBaseUrl('img/api-fortress/2021/04/addRequestHeader.png')} alt="Add Request Header"/>
-   
+
 1. Select **Basic Authentication** from the list
    <img src={useBaseUrl('img/api-fortress/2021/04/basicAuth.png')} alt="Basic Auth Component"/>
-   
+
 1. Enter the details for `username` and `password`, then select _Save_.
    <img src={useBaseUrl('img/api-fortress/2021/04/basicAuthDetails.png')} alt="Basic Auth Details Component"/>
 

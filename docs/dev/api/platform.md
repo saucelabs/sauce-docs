@@ -37,7 +37,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/info/status' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -46,7 +46,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/info/status' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -116,7 +116,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/info/platforms/all' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 --data-raw ''
 ```
 
@@ -126,7 +126,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/info/platforms/all' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 --data-raw ''
 ```
 
@@ -235,7 +235,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/info/platforms/appium/eol' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -244,7 +244,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/info/platforms/appium/eol' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>

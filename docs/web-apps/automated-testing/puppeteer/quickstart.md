@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Use `saucectl` -- the Sauce Labs test orchestrator CLI to run [Puppeteer](https://github.com/puppeteer) tests directly from your existing Puppeteer project.
 
 * Don't have Puppeteer tests but want to try? The  [Puppeteer Demo Repo](https://github.com/saucelabs/saucectl-puppeteer-example) includes a sample project structure, working configuration file, and sample Puppeteer test so you can get up and running in less than 10 minutes!
-* Already running Puppeteer? Let `saucectl` run your tests in Docker and then publish the results in the Sauce Labs app, where you can easily analyze 30 days worth of test results and data analytics.  
+* Already running Puppeteer? Let `saucectl` run your tests in Docker and then publish the results in your Sauce Labs account, where you can easily analyze 30 days worth of test results and data analytics.  
 
 ## What You'll Need
 
@@ -55,4 +55,4 @@ Use the `run` command to execute the sample test included with the `saucectl` ex
 saucectl run
 ```
 
-The console displays the executing tests, confirming that Docker mode is running and the results and test assets are immediately available in the [Sauce Labs dashboard](https://app.saucelabs.com/dashboard/tests/vdc).
+The console displays the executing tests, confirming that Docker mode is running and the results and test assets are available immediately in your [Sauce Labs account](https://app.saucelabs.com/dashboard/tests/vdc).

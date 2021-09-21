@@ -141,7 +141,13 @@ To have Sauce Connect Proxy with your PAC file, use the `--pac url` command line
 
 If your PAC file contains multiple proxies, in addition to `-pac`, you'll need to specify the `-p` option to designate which proxy will receive the username and password.
 
->**NOTE:** Sauce Connect Proxy versions older than 4.6.1 do not support the  `-p (--proxy)`  and `-T (--proxy-tunnel)` options combined with `--pac`. See [Downloading Sauce Connect Proxy](/secure-connections/sauce-connect/installation) to download the latest version.
+:::note
+Sauce Connect Proxy versions older than 4.6.1 do not support the  `-p (--proxy)`  and `-T (--proxy-tunnel)` options combined with `--pac`. See [Downloading Sauce Connect Proxy](/secure-connections/sauce-connect/installation) to download the latest version.
+<<<<<<< HEAD
+=======
+
+>>>>>>> aa4f02fb25139fc1ecaa8ff2f143f0ac8c8fa63f
+:::
 
 Here are some examples for starting a Sauce Connect Proxy tunnel using `--pac url`:
 

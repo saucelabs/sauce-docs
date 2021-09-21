@@ -6,7 +6,7 @@ description: Get a full picture of the success of your tests. Learn how to look 
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The **Test History** page available within the **Insights** submenu of the Sauce Labs dashboard shows a visual snapshot of the results for a specific test over time. Seeing the test outcomes in a scatter plot helps reveal anomalies and patterns, which can help you identify issues with test performance and flakiness across platforms, operating systems, and browsers that you test against.
+The **Test History** page, which you can access under the **Insights** submenu, shows a visual snapshot of the results for a specific test over time. Seeing the test outcomes in a scatter plot helps reveal anomalies and patterns, which can help you identify issues with test performance and flakiness across platforms, operating systems, and browsers that you test against.
 
 :::note
 The Extended Debugging feature provides access to the HAR files and JavaScript console logs for your tests to help identify flaky tests. Check out [Debugging Tests with JavaScript Console Logs and HAR Files (Extended Debugging)](/insights/debug) for more information.
@@ -14,7 +14,7 @@ The Extended Debugging feature provides access to the HAR files and JavaScript c
 
 ## Access the History Page for a Test
 
-1. From the Sauce Labs dashboard, click the **Insights** tab to open its submenu.
+1. Click the **Insights** tab to expand its submenu.
 1. Click **Test History**.
 1. Use the [filters](scope.md#using-filters-to-adjust-the-scope-of-your-data) to reduce the list of tests to a limited range.
 1. In the **Search** field, enter the name of the test you want to view.  If you're not sure, entering just the first few characters will bring up a list from which you can choose.

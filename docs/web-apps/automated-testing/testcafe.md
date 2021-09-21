@@ -14,7 +14,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  Sauce Labs supports the following test configurations for TestCafe:
 
- <Tabs
+<Tabs
    groupId="platforms"
    defaultValue="sauce"
    values={[
@@ -22,90 +22,106 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
      {label: 'Docker', value: 'docker'},
    ]}>
 
- <TabItem value="sauce">
+<TabItem value="sauce">
 
- <table id="table-fw">
-   <tr>
-     <th>TestCafe Version</th>
-     <th>Supported Platforms</th>
-     <th>Supported Browsers</th>
-   </tr>
-   <tbody>
-   <tr>
-     <td rowspan='3'>1.15.0</td>
-     <td><b>macOS:</b> 11.0</td>
-     <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
-   </tr>
-   <tr>
-     <td><b>Windows:</b> 10</td>
-     <td>Chrome, Firefox, MicrosoftEdge</td>
-   </tr>
-   <tr>
-     <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-     <td>Safari</td>
-   </tr>
-   </tbody>
-   <tbody>
-   <tr>
-     <td rowspan='3'>1.14.2</td>
-     <td><b>macOS:</b> 11.0</td>
-     <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
-   </tr>
-   <tr>
-     <td><b>Windows:</b> 10</td>
-     <td>Chrome, Firefox, MicrosoftEdge</td>
-   </tr>
-   <tr>
-     <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-     <td>Safari</td>
-   </tr>
-   </tbody>
-   <tbody>
-   <tr>
-     <td rowspan='3'>1.14.0</td>
-     <td><b>macOS:</b> 11.0</td>
-     <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
-   </tr>
-   <tr>
-     <td><b>Windows:</b> 10</td>
-     <td>Chrome, Firefox, MicrosoftEdge</td>
-   </tr>
-   <tr>
-     <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-     <td>Safari</td>
-   </tr>
-   </tbody>
-   <tbody>
-   <tr>
-     <td rowspan='3'>1.11.0</td>
-     <td><b>macOS:</b> 11.0</td>
-     <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
-   </tr>
-   <tr>
-     <td><b>Windows:</b> 10</td>
-     <td>Chrome, Firefox, MicrosoftEdge</td>
-   </tr>
-   <tr>
-     <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-     <td>Safari</td>
-   </tr>
-   </tbody>
-   <tbody>
-   <tr>
-     <td>1.10.1</td>
-     <td><b>Windows:</b> 10</td>
-     <td>Chrome, Firefox, MicrosoftEdge</td>
-   </tr>
-   </tbody>
- </table>
+  <table id="table-fw">
+    <tr>
+      <th>TestCafe Version</th>
+      <th>Supported Platforms</th>
+      <th>Supported Browsers</th>
+    </tr>
+    <tbody>
+    <tr>
+      <td rowspan='3'>1.15.3</td>
+      <td><b>macOS:</b> 11.0</td>
+      <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+      <td>Safari</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='3'>1.15.0</td>
+      <td><b>macOS:</b> 11.0</td>
+      <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+      <td>Safari</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='3'>1.14.2</td>
+      <td><b>macOS:</b> 11.0</td>
+      <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+      <td>Safari</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='3'>1.14.0</td>
+      <td><b>macOS:</b> 11.0</td>
+      <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+      <td>Safari</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='3'>1.11.0</td>
+      <td><b>macOS:</b> 11.0</td>
+      <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+      <td>Safari</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td>1.10.1</td>
+      <td><b>Windows:</b> 10</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    </tbody>
+  </table>
 
- </TabItem>
- <TabItem value="docker">
+</TabItem>
+<TabItem value="docker">
 
  Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available release notes.
 
  |TestCafe Version|Supported Browsers|
  |----|----|
+ |1.15.3|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.10.0)|
  |1.14.2|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.7.0)|
  |1.14.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.6.1)|
  |1.11.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.5.0)|
@@ -152,3 +168,8 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 * [Quickstart](/web-apps/automated-testing/testcafe/quickstart): Use our demo repo to quickly set up and run a sample TestCafe project and test to see the results.
 * [Run Your own Tests](/testrunner-toolkit/configuration/testcafe): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
 * [Incorporate saucectl in your pipeline](/testrunner-toolkit/integrations): TestCafe on Sauce supports CI integrations with Cirlce CI, GitLab, Jenkins, and GitHub Actions.
+
+### TestCafe Plugin for Sauce Labs
+
+If you would prefer to stay in TestCafe, try the new [TestCafe Sauce Labs Plugin](https://github.com/DevExpress/testcafe-browser-provider-saucelabs). Connect to your Sauce Labs account from within your TestCafe project to configure and run your tests directly from TestCafe.
+

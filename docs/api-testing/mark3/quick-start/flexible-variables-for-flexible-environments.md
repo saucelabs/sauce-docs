@@ -1,13 +1,13 @@
 ---
 id: flexible-variables-for-flexible-environments
 title: Using Variables for Environment Flexibility
-sidebar_label: Using Variables
+sidebar_label: Variables
 description: "In API Fortress, you do not have to be concerned with organizing variables in a hierarchy from global to local."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-In API Fortress, you do not have to be concerned with organizing variables in a hierarchy from global to local… why? 
+In API Fortress, you do not have to be concerned with organizing variables in a hierarchy from global to local… why?
 
 Almost any string can be hardcoded or referenced as a variable in API Fortress. Hardcoding is fine as long as you’re building simple tests, however, it is advisable to parametrize some items when:
 
@@ -48,19 +48,19 @@ In this way, you can eliminate duplicate tasks by simply editing the vault varia
 
 ## Using the Environments
 
-Once a domain is parametrized, you may override a variable, if needed. 
+Once a domain is parametrized, you may override a variable, if needed.
 
-To access and create new environments: 
+To access and create new environments:
 
 * Visit the _Environment_ section in the test project section:
   <img src={useBaseUrl('img/api-fortress/2021/04/accessEnvironment.png')} alt="access environment"/>
 
 * Add the details (typically the target domain) and select _Confirm_:
   <img src={useBaseUrl('img/api-fortress/2021/04/createEnvironment.png')} alt="create environment"/>
-  
+
 * Add the variable details and select _Confirm_:
   <img src={useBaseUrl('img/api-fortress/2021/04/addDomainVar.png')} alt="variable in environment"/>
-  
+
   You can add multiple variables to each environment:
   <img src={useBaseUrl('img/api-fortress/2021/04/result.png')} alt="result in environment"/>
 
@@ -82,7 +82,7 @@ And Basically Anywhere
 Reference variables almost anywhere that you need. Consider the following example assertion:
 
 <img src={useBaseUrl('img/api-fortress/2017/09/exp.png')} alt="EXP"/>
-    
+
 Yes, we're using variables as expected values.
 
 ## Conclusion

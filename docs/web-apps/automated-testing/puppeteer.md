@@ -11,9 +11,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## What You'll Need
 
- * A Sauce Labs account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
- * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
- * [Docker](https://docs.docker.com/get-docker/) For now, Puppeteer is only supported for local testing.
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+* [Docker](https://docs.docker.com/get-docker/) For now, Puppeteer is only supported for local testing.
 
  :::note
  Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g., `docker info` works in your terminal / command prompt)

@@ -38,6 +38,7 @@
 @import "announcement-bar.css";
 @import "fw-badge-override.css";
 @import "admonitions.css";
+@import "footer-styles.css";
 @import url('https://use.typekit.net/bte6qhg.css');
 
 .tk-museo-sans { font-family: "museo-sans",sans-serif; }
@@ -244,32 +245,6 @@ h6, .h6 {
     border-left: 0.25em solid transparent !important;
     border-right: 0.25em solid transparent !important;
     border-top: 0.25em solid !important;
-}
-
-.footer {
-    font-family: museo-sans, sans-serif;
-    padding-bottom: 40px;
-    --ifm-footer-background-color: #ac1413;
-}
-
-.footer__logo {
-    padding-bottom: 40px;
-}
-
-.footer__title {
-    /*border-bottom: 1px solid #bd3431;*/
-    display: block;
-    padding-bottom: 10px;
-    font-size: .875rem;
-    line-height: .875rem;
-    font-weight: 700;
-}
-.footer__link-item {
-    font-size: .6875rem;
-    font-weight: 500;
-    margin: 5px 0;
-    line-height: 20px;
-    display: block;
 }
 
 .text--center {
@@ -681,107 +656,7 @@ a.hero__button {
 table.code td:last-child {
     width: 100%;
 }
-/* footer styles */
-footer {
-  background-color: #ac1414;
-  font-size: 13px;
-  padding: 40px 0;
-  text-align: center;
-}
-footer .footer__image {
-  display: flex;
-  justify-content: space-between;
-  max-width: 1200px;
-  text-align: left;
-  margin: 0 auto;
-  padding: 55px 0 25px 18px;
-}
-footer .footer__image img {
-  width: 230px;
-}
-footer .footer__inner {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  max-width: 1200px;
-  text-align: left;
-}
-footer ul, footer li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  padding-top: 2px;
-}
-footer .footer-column {
-  padding: 0 20px;
-}
-footer .footer-column a {
-  color: #fff;
-}
-footer .footer-wrapper {
-  display: flex;
-}
-footer .link-title {
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
-  padding-bottom: 10px;
-}
-footer .link-title__space {
-  padding: 30px 0 0 0;
-}
-footer .link-list {
-  border-top: 1px solid #B83737;
-  flex: 1;
-  margin-right: 32px;
-  padding: 10px 0 0 0;
-}
-footer .link-list:last-child {
-  margin-right: 0;
-  margin-bottom: 0;
-}
-footer .link-list label {
-  display: block;
-  color: #fff;
-  margin: 8px 0 16px;
-}
 
-ul.footer__sublinks {
-  float: right;
-  margin: 0px;
-  padding: 0px;
-  display: inline-block;
-  clear: both;
-  position: relative;
-  font-size: 12px;
-}
-ul.footer__sublinks li {
-  float: left;
-  display: inline-block;
-  margin: 0 10px 0 0;
-  padding: 0px;
-}
-
-.footerbar {
-  background-color: #000;
-  color: #fff;
-  font-size: 8px;
-  padding: 10px 0;
-  max-height: 13%;
-  text-align: left;
-}
-.footerbar a {
-  color: currentcolor;
-}
-.footerbar__inner {
-  margin: 0 auto;
-  max-width: 1200px;
-  display: block;
-  clear: both;
-}
-.footer__copyright {
-  text-align: left;
-}
 .DocSearch-Button-Placeholder {
   position: relative;
   top: -3px;
@@ -808,135 +683,62 @@ ul.dropdown__menu li a:hover {
   background: none;
   color: #E12726;
 }
-/*.navbar__item.dropdown.dropdown--hoverable.dropdown--right {*/
-/*  padding-bottom: 20px;*/
-/*}*/
-/*.navbar__item:nth-child(7) {*/
-/*  background-color: #E12726;*/
-/*  padding: 9px 15px 9px 15px;*/
-/*  font-weight: bold;*/
-/*  font-size: 14px;*/
-/*  border-radius: 25px;*/
-/*  color: #fff;*/
-/*}*/
-/* footer styles */
 
 /* mobile overrides */
 @media only screen
     and (max-device-width: 740px),
     only screen and (max-device-width: 740px),
-    only screen and (max-width: 740px)
-  {
+    only screen and (max-width: 740px) {
     .callouts__container .callout {
-      width: 100%;
-      text-align: left;
-      padding: 0 10px 0 10px;
+        width: 100%;
+        text-align: left;
+        padding: 0 10px 0 10px;
     }
+
     .callouts__container:first-of-type {
-      margin-bottom: 0px;
-      border-bottom: none;
+        margin-bottom: 0px;
+        border-bottom: none;
     }
+
     .dev-resources__image {
-      width: 100%;
+        width: 100%;
     }
+
     .dev-resources__image img {
-      width: 300px;
+        width: 300px;
     }
+
     .dev-resources__list {
-      width: 100%;
+        width: 100%;
     }
+
     .dev-resources__list ul {
-      text-align: center!important;
-      border-left: none!important;
-      border-right: none!important;
+        text-align: center !important;
+        border-left: none !important;
+        border-right: none !important;
     }
+
     .main__container-bg {
-      height: inherit!important;
+        height: inherit !important;
     }
+
     .dev-resources__image {
-      padding: 15px 0 15px 0;
+        padding: 15px 0 15px 0;
     }
+
     .main__container-bg.--important-links .dev-resources__list ul {
-      margin: 15px 0 15px 0;
+        margin: 15px 0 15px 0;
     }
+
     .dev-resources__title {
-      padding: 15px 0 15px 0;
+        padding: 15px 0 15px 0;
     }
+
     #footer {
-      padding: 24px 0;
+        padding: 24px 0;
     }
-    .footer-wrapper {
-      flex-direction: column;
-    }
+
     .link-list {
-      margin: 0 0 24px 0;
+        margin: 0 0 24px 0;
     }
-    .footer__inner {
-      display: flex!important;
-      flex-wrap: wrap!important;
-    }
-    .footer-column {
-      flex: 0 50%!important;
-    }
-    .footerbar .site-width.layout.horizontal.center.justified {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-    }
-    .footerbar .footer__sublinks, .footerbar .footer__copyright {
-      flex: 0 100%;
-      padding: 5px 0 5px 0;
-    }
-
-    /*.navbar__inner {*/
-    /*  width: inherit!important;*/
-    /*  display: inline-block;*/
-    /*  margin: 0 auto;*/
-    /*  padding-top: 0px!important;*/
-    /*}*/
-    /*.navbar__toggle {*/
-    /*  position: absolute;*/
-    /*  right: 0px;*/
-    /*  top: 15px;*/
-    /*}*/
-    /*.navbar__logo {*/
-    /*    max-width:25%;*/
-    /*    height: auto;*/
-    /*}*/
-
-    /*.DocSearch-Button {*/
-    /*  top: 15px;*/
-    /*}*/
-    /*.navbar--fixed-top {*/
-    /*  height: 60px;*/
-    /*}*/
-    /*.DocSearch-Button-Placeholder {*/
-    /*  position: relative;*/
-    /*  top: -3px;*/
-    /*  display: inline-block!important;*/
-    /*}*/
 }
-/* mobile overrides */
-/*@media only screen*/
-/*    and (max-device-width: 996px),*/
-/*    only screen and (max-device-width: 996px),*/
-/*    only screen and (max-width: 996px)*/
-/*  {*/
-/*    .navbar__toggle {*/
-/*      position: absolute;*/
-/*      right: 0px;*/
-/*      top: 15px;*/
-/*    }*/
-/*    .navbar__logo {*/
-/*      margin-top: 25px;*/
-/*    }*/
-/*    .navbar__inner {*/
-/*      width: inherit!important;*/
-/*      display: inline-block;*/
-/*      margin: 0 auto;*/
-/*      padding-top: 0px;*/
-/*    }*/
-/*    .DocSearch-Button {*/
-/*      top: 15px;*/
-/*    }*/
-/*}*/

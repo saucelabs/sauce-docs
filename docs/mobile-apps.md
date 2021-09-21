@@ -72,7 +72,7 @@ Accelerate and scale your testing and broaden coverage by running automated test
 
 ## TestObject (Legacy RDC)
 
-**TestObject will each end-of-life September 1, 2021.**
+<p><span className="sauceGold">DEPRECATED</span></p>
 
 <div className="box-wrapper" markdown="1">
 
