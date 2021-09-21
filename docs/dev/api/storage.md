@@ -79,7 +79,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/storage/files' | jq
+--request GET 'https://api.us-west-1.saucelabs.com/v1/storage/files' | json_pp
 ```
 
 </TabItem>
@@ -87,7 +87,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/files' | jq
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/files' | json_pp
 ```
 
 </TabItem>
@@ -210,7 +210,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/storage/groups' | jq
+--request GET 'https://api.us-west-1.saucelabs.com/v1/storage/groups' | json_pp
 ```
 
 </TabItem>
@@ -218,7 +218,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/groups' | jq
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/groups' | json_pp
 ```
 
 </TabItem>
@@ -313,7 +313,11 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api post">POST</span> <code>/v1/storage/upload</code></summary>
 <p/>
 
-Uploads an application file to Sauce Storage for the purpose of mobile application testing and returns a unique file ID assigned to the app. Sauce Storage supports app files in *.APK, *.IPA, or *.ZIP format, up to 4GB.
+Uploads an application file to Sauce Storage for the purpose of mobile application testing and returns a unique file ID assigned to the app. Sauce Storage supports app files in \*.apk, \*.aab, \*.ipa, or \*.zip format, up to 4GB.
+
+:::caution Limited Support for *.aab Files
+At this time, \*.aab files are only supported for Android real device testing.
+:::
 
 #### Parameters
 
@@ -645,7 +649,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/v1/storage/files/43732d5b-5275-4a79-a936-197e4b9cd2d4' | jq
+--request DELETE 'https://api.us-west-1.saucelabs.com/v1/storage/files/43732d5b-5275-4a79-a936-197e4b9cd2d4' | json_pp
 ```
 
 </TabItem>
@@ -653,7 +657,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.eu-central-1.saucelabs.com/v1/storage/files/43732d5b-5275-4a79-a936-197e4b9cd2d4' | jq
+--request DELETE 'https://api.eu-central-1.saucelabs.com/v1/storage/files/43732d5b-5275-4a79-a936-197e4b9cd2d4' | json_pp
 ```
 
 </TabItem>
@@ -743,7 +747,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/v1/storage/groups/64612' | jq
+--request DELETE 'https://api.us-west-1.saucelabs.com/v1/storage/groups/64612' | json_pp
 ```
 
 </TabItem>
@@ -751,7 +755,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.eu-central-1.saucelabs.com/v1/storage/groups/64612' | jq
+--request DELETE 'https://api.eu-central-1.saucelabs.com/v1/storage/groups/64612' | json_pp
 ```
 
 </TabItem>

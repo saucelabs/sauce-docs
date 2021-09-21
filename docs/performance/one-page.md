@@ -64,12 +64,14 @@ Sauce Performance supports the following Speedo commands:
 * speedo run - Get the set of standard performance metrics for any pre-defined URL
 * speedo analyze - Validate the performance of URLs that are accessed by one of the previously run WebDriver tests.
 
-> **NOTE:** The Speedo commands require your SAUCE_USERNAME and SAUCE_ACCESS_KEY. Export the values into your environment in order to avoid passing them as parameters each time you call a Speedo command. For example:
->
-> ```bash
-> $ export SAUCE_USERNAME=Slavocado
-> $ export SAUCE_ACCESS_KEY=XXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\
-> ```
+:::note
+The Speedo commands require your SAUCE_USERNAME and SAUCE_ACCESS_KEY. Export the values into your environment in order to avoid passing them as parameters each time you call a Speedo command. For example:
+
+```bash
+$ export SAUCE_USERNAME=Slavocado
+$ export SAUCE_ACCESS_KEY=XXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\
+```
+:::
 
 ### Run Command: Test a Single URL
 
@@ -108,11 +110,17 @@ The Speedo analyze command allows you to compare the performance of multiple URL
 
 `$ speedo analyze "<test name>"`
 
-> **NOTE:** The specified test must have the appropriate options set for Performance.
+:::note
+The specified test must have the appropriate options set for Performance.
+:::
 
 #### Analyze Command Configuration
 
-You can apply parameter specifications to customize the test execution either by including the parameters as inline arguments or through a config file (speedo.config.js) located in the directory from which Speedo is called. Following is a list of common inline arguments. NOTE: Call $ speedo analyze -h to view the complete list of run command options.
+You can apply parameter specifications to customize the test execution either by including the parameters as inline arguments or through a config file (speedo.config.js) located in the directory from which Speedo is called. Following is a list of common inline arguments.
+
+:::note
+Call $ speedo analyze -h to view the complete list of run command options.
+:::
 
 #### Analyze Command Example
 

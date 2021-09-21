@@ -202,11 +202,14 @@ FireFoxOptions mozOpts = new FirefoxOptions();
 DesiredCapabilities caps = new DesiredCapabilities.firefox();
 ```
 
->**NOTE**: Using JWP legacy formatting in a Selenium 3.11+ script will yield the following message:
+:::note
+Using JWP legacy formatting in a Selenium 3.11+ script will yield the following message:
 
 ```js
 INFO: Using `new FirefoxOptions()` is preferred to `DesiredCapabilities.firefox()`
 ```
+
+:::
 
 </TabItem>
 </Tabs>
@@ -257,11 +260,16 @@ caps.setCapability("version", "latest");
 WebDriver driver = new RemoteWebDriver(new URL("https://ondemand.saucelabs.com/wd/hub"), caps);
 ```
 
->**NOTE**: Using JWP legacy formatting in a Selenium 3.11+ script will yield the following message:
+:::note
+
+Using JWP legacy formatting in a Selenium 3.11+ script will yield the following message:
+
 ```
 "INFO: Using `new FirefoxOptions()` is preferred
 to `DesiredCapabilities.firefox()"
 ```
+
+:::
 
 </TabItem>
 </Tabs>
@@ -298,7 +306,7 @@ To instantiate WebDriver with W3C WebDriver-compliant capabilities, select a cod
 
   <details><summary><strong>Click here</strong> to see an example TestNG test script.</summary>
 
-  ```java reference
+  ```java reference title="TestNG Example"
   https://github.com/saucelabs-training/w3c-examples/blob/master/java/testng/W3CChromeTest.java
   ```
   </details>
@@ -317,14 +325,13 @@ To instantiate WebDriver with W3C WebDriver-compliant capabilities, select a cod
   $ mvn clean test -Dtest=TestNGW3CChromeTest
   ```
 
-**JUnit Jupiter Example Walkthrough**
+**JUnit 5 Example Walkthrough**
 
 1. Ensure you have the [prerequisite software](https://github.com/saucelabs-training/demo-java/#prerequisites) to run a Java test on Sauce.
 2. Download or clone the below example test script from our GitHub repo:
   <details><summary><strong>Click here</strong> to see the JUnit Jupiter example test script.</summary>
 
-  ```java reference
-
+  ```java reference title="JUnit 5 Example"
   https://github.com/saucelabs-training/w3c-examples/blob/master/java/junit5/W3CChromeTest.java
   ```
   </details>
@@ -351,8 +358,7 @@ To instantiate WebDriver with W3C WebDriver-compliant capabilities, select a cod
 2. Download or clone the below test script from our GitHub repo:
   <details><summary><strong>Click here</strong> to see an example PyTest test script.</summary>
 
-  ```py reference
-
+  ```py reference title="PyTest Example"
   https://github.com/saucelabs-training/w3c-examples/blob/master/python/test_pytest_chrome.py
   ```
   </details>
@@ -376,8 +382,7 @@ To instantiate WebDriver with W3C WebDriver-compliant capabilities, select a cod
 2. Download or clone the below test script from our GitHub repo:
   <details><summary><strong>Click here</strong> to see an example unittest test script.</summary>
 
-  ```py reference
-
+  ```py reference title="UnitTest Example"
   https://github.com/saucelabs-training/w3c-examples/blob/master/python/test_unittest_chrome.py
   ```
   </details>
@@ -404,9 +409,8 @@ To instantiate WebDriver with W3C WebDriver-compliant capabilities, select a cod
 2. Download or clone the below test script from our GitHub repo:
   <details><summary><strong>Click here</strong> to see an example WebdriverIO test script.</summary>
 
-  ```js reference
-
-  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/examples/w3c/test/configs/wdio.saucelabs.conf.js
+  ```js reference title="WebdriverIO Example"
+  https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/webdriver/examples/w3c/test/configs/wdio.saucelabs.conf.js
   ```
   </details>
 3. Install node package dependencies:
@@ -432,8 +436,7 @@ To instantiate WebDriver with W3C WebDriver-compliant capabilities, select a cod
 2. Download or clone the below test script from our GitHub repo:
   <details><summary><strong>Click here</strong> to see an example Ruby test script.</summary>
 
-  ```ruby reference
-
+  ```ruby reference title="RSpec Example"
   https://github.com/saucelabs-training/w3c-examples/blob/master/ruby/rspec/chrome_example_spec.rb
   ```
   </details>
@@ -462,7 +465,7 @@ To instantiate WebDriver with W3C WebDriver-compliant capabilities, select a cod
 2. Download or clone the below test script from our GitHub repo:
   <details><summary><strong>Click here</strong> to see an example C# test script.</summary>
 
-  ```csharp reference
+  ```csharp reference title="NUnit Example"
   https://github.com/saucelabs-training/w3c-examples/blob/master/csharp/NUnitExamples.cs
   ```
   </details>
@@ -479,7 +482,7 @@ To instantiate WebDriver with W3C WebDriver-compliant capabilities, select a cod
 
 ## Quickstart
 
-Below are mobile and web test script examples you can use to get up and running quickly:
+Below are mobile and web test script examples you can use to get up and running quickly in JavaScript:
 
 <Tabs
   defaultValue="Desktop Web"
@@ -490,15 +493,15 @@ Below are mobile and web test script examples you can use to get up and running 
 
 <TabItem value="Desktop Web">
 
-```js reference
-https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/examples/w3c/test/configs/wdio.saucelabs.conf.js
+```js reference title="Desktop Web Example"
+https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/webdriver/examples/w3c/test/configs/wdio.saucelabs.conf.js
 ```
 
 </TabItem>
 <TabItem value="Appium Web">
 
-```js reference
-https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-web/examples/w3c/test/configs/wdio.saucelabs.conf.js
+```js reference title="Appium Web Example"
+https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/appium-web/examples/w3c/test/configs/wdio.saucelabs.conf.js
 ```
 
 </TabItem>

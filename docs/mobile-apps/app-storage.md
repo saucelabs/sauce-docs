@@ -37,11 +37,15 @@ There are two main contexts/branches for the storage API:
 * One for working with apps (groups of application builds with the same unique identifier, belonging to the same platform and team).
 
 :::note
-[Data center-specific endpoints](/basics/data-center-endpoints/data-center-endpoints) should be used whenever possible.
+Use [Data center-specific endpoints](/basics/data-center-endpoints/data-center-endpoints) whenever possible.
 :::
 
 ## Accepted File Types 
-Application storage recognizes *.apk files as Android apps and *.ipa files as iOS apps. For iOS apps, can also upload a *.zip file, which will be parsed to determine whether a valid *.app bundle exists.
+Application storage recognizes \*.apk and \*.aab files as Android apps and \*.ipa or \*.zip files as iOS apps. \*.zip files are parsed to determine whether a valid *.app bundle exists.
+
+:::caution Limited Support for *.aab Files
+At this time, \*.aab files are only supported for Android real device testing.
+:::
 
 You can also upload and store other file types for generic use, such as a pre-run executable, package, or binary. Some of the formats for this type of use case include:
 

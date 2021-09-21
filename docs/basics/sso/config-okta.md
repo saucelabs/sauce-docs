@@ -16,4 +16,6 @@ sidebar_label: Configuring Okta
 11. Click **Done**.
 12. Follow the instructions in [Single Sign-On Settings](/basics/acct-team-mgmt/org-settings) to complete the integration of Sauce Labs with your Okta instance.
 
-**NOTE:** The Sauce Labs app on the Okta Application Network only supports access to **us-west-1**. If you need to configure access for another data center, please follow the instructions for general setup of SSO.
+:::note
+The Sauce Labs app on the Okta Application Network only supports access to **us-west-1**. If you need to configure access for another data center, please follow the instructions for general setup of SSO.
+:::

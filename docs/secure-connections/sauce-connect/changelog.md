@@ -5,33 +5,9 @@ sidebar_label: Changelog
 ---
 
 
-## v4.5.0 and Above
+## v4.6.4 and Above
 
-Changelogs for Sauce Connect v4.5.0 and above are hosted [here](https://changelog.saucelabs.com/en?category=sauce%20connect).
-
-
-## v4.6.4
-
-Release Date: Feb 1, 2021.
-
-#### New Features
-
-**Decluttered Basic sc client Logs**: We've moved the PROXY log level to be in sync with the Sauce Connect client (sc client) log level and set HTTP requests logging to be less verbose.
-
-**Command-line option `--pac-auth` now also works with `-T`**: You can now combine the use of the `--pac-auth` and `-T` commands. More info [here](/dev/cli/sauce-connect-proxy).
-
-#### Internal Tooling and Improvements
-
-* Removed checks for colliding tunnels during High Availability mode startup sequence to streamline the process.
-* Reconfigured the KGP connection diagnostics algorithm to improve connection stability.
-* Reconfigured `expvar` metrics endpoint so that it now conforms to Selenium port configuration.
-
-#### Bug Fixes
-
-* Readily identify and use dynamically assigned ports for `expvar` metrics service, regardless of the number of sc clients running on the same host.
-* sc client no longer exits when attempting to start High Availability pool without explicitly assigned `expvar` service port numbers.
-* sc client now successfully establishes connections while using tunnel proxy with basic authentication.
-
+Changelogs for Sauce Connect v4.6.4 and above are hosted [here](https://changelog.saucelabs.com/en?category=sauce%20connect).
 
 ## v4.6.3
 

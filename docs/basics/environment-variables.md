@@ -51,93 +51,45 @@ Below are examples of how to set environment variables in a given language/frame
   defaultValue="java"
   values={[
     {label: 'Java', value: 'java'},
-    {label: 'C#', value: 'c#'},
     {label: 'NodeJS', value: 'nodejs'},
-    {label: 'Ruby', value: 'ruby'},
     {label: 'Python', value: 'python'},
+    {label: 'Ruby', value: 'ruby'},
+    {label: 'C#', value: 'csharp'},
   ]}>
 
 <TabItem value="java">
 
-### JUnit
+```java reference title="Authenticating with Environment Variables"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/demo/SeleniumTest.java#L34-35
 ```
-String sauceUserName = System.getenv("SAUCE_USERNAME");
-String sauceAccessKey = System.getenv("SAUCE_ACCESS_KEY");
-```
-For a full example, see the [Sauce Labs Java repository](https://github.com/saucelabs-training/demo-java/tree/master/selenium-junit4-examples).
-
-### TestNG
-```
-String sauceUserName = System.getenv("SAUCE_USERNAME");
-String sauceAccessKey = System.getenv("SAUCE_ACCESS_KEY");
-```
-
-For a full example, see the [Sauce Labs Java repository](https://github.com/saucelabs-training/demo-java/tree/master/selenium-testng-examples).
 
 </TabItem>
-
-<TabItem value="c#">
-
-### NUnit
-```
-var sauceUserName =
-    Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);     
-var sauceAccessKey =
-    Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
-```
-
-For a full example, see the [Sauce Labs C# repository](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/SeleniumNunit).
-
-</TabItem>
-
 <TabItem value="nodejs">
 
-### WebdriverIO
+```javascript reference title="Authenticating with Environment Variables"
+https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/webdriver/examples/w3c/test/configs/wdio.saucelabs.conf.js#L7-L8
 ```
-let username = process.env.SAUCE_USERNAME,
-    accessKey = process.env.SAUCE_ACCESS_KEY,
-
-```
-For a full example, see the [Sauce Labs JS repository](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio).
-
-### Protractor-Jasmine
-```
-exports.config = {
-    sauceUser: process.env.SAUCE_USERNAME,
-    sauceKey: process.env.SAUCE_ACCESS_KEY,
-```
-For a full example, see the [Sauce Labs JS repository](https://github.com/saucelabs-training/demo-js/tree/main/protractor).
 
 </TabItem>
-
-<TabItem value="ruby">
-
-### RSpec
-```
-username: ENV['SAUCE_USERNAME'],
-accessKey: ENV['SAUCE_ACCESS_KEY']
-```
-For a full example, see the [Sauce Labs Ruby repository](https://github.com/saucelabs-training/demo-ruby/tree/master/selenium-examples/rspec).
-
-</TabItem>
-
 <TabItem value="python">
 
-### PyTest
+```python reference title="Authenticating with Environment Variables"
+https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/w3c-examples/test_pytest_chrome.py#L9-L10
 ```
-sauce_username = os.environ["SAUCE_USERNAME"]
-sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
-```
-For a full example, see the [Sauce Labs Python repository](https://github.com/saucelabs-training/demo-python/tree/main/examples).
 
-### unittest
-```
-sauce_username = os.environ["SAUCE_USERNAME"]
-sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
+</TabItem>
+<TabItem value="ruby">
 
+```ruby reference title="Authenticating with Environment Variables"
+https://github.com/saucelabs-training/demo-ruby/blob/docs-1.0/selenium-examples/rspec/spec/spec_helper.rb#L23-L24
 ```
-For a full example, see the [Sauce Labs Python repository](https://github.com/saucelabs-training/demo-python/tree/main/examples).
 
+</TabItem>
+<TabItem value="csharp">
+
+```csharp reference title="Authenticating with Environment Variables"
+https://github.com/saucelabs-training/demo-csharp/blob/docs-1.0/SauceExamples/Common/SauceLabs/SauceUser.cs#L7-L11
+```
 
 </TabItem>
 

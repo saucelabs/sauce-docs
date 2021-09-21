@@ -78,8 +78,8 @@ use the browser options classes instead
 The following example shows the instantiation of the RemoteWebDriver (assigned the variable name `driver`),
 authentication values, and the OS/Browser targets for a test written in Selenium 3.141.59.
 
-```java reference
-https://github.com/saucelabs-training/demo-java/blob/0105cf9/selenium-examples/src/test/java/com/saucedemo/login/W3CDemoTest.java#L29-L39
+```java reference title="Configuring a Driver"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L32-L42
 ```
 
 :::tip Use Credential Environment Variables
@@ -93,8 +93,8 @@ hard-coding them into all your scripts for efficiency and to protect them from u
 Invoke the `get` method on your WedDriver instance, using the variable name you assigned, and pass the URL of the web
 page containing the element you wish to test as an argument. The following gets our Swag Labs login page:
 
-```java reference
-https://github.com/saucelabs-training/demo-java/blob/0105cf9/selenium-examples/src/test/java/com/saucedemo/login/W3CDemoTest.java#L45
+```java reference title="Selenium Navigation"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L48
 ```
 
 ### Step 3: Locate an HTML Element on a Web Page
@@ -153,8 +153,8 @@ Whereas Ruby uses key value pairs, typically as Hash values: `{id: "user-name"}`
 Most of the elements in our Swag Labs example have multiple unique attributes that make it easy to
 identify them. For this example we can identify them in Java as follows:
 
-```java reference
-https://github.com/saucelabs-training/demo-java/blob/0105cf9/selenium-examples/src/test/java/com/saucedemo/login/W3CDemoTest.java#L47-L49
+```java reference title="Selenium Locator Definitions"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L50-L52
 ```
 
 #### Finder Methods
@@ -167,8 +167,8 @@ will search the entire DOM, and return a collection of all matching elements rat
 The following example invokes `findElement` on our `driver` instance to locate the elements for which we defined loators
 in the last section:
 
-``` java reference
-https://github.com/saucelabs-training/demo-java/blob/0105cf9/selenium-examples/src/test/java/com/saucedemo/login/W3CDemoTest.java#L54-L56
+```java reference title="Finding Selenium WebElements"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L57-L59
 ```
 
 #### Synchronization Strategies
@@ -195,8 +195,8 @@ desired condition is met the test can continue, and only if the condition is not
 will the code throw an exception. Each language implements this slightly differently. Java and .NET have
 `ExpectedConditions` classes, but the recommended approach in all languages at this point is to use a lambda like so:
 
-``` java reference
-https://github.com/saucelabs-training/demo-java/blob/0105cf9/selenium-examples/src/test/java/com/saucedemo/login/W3CDemoTest.java#L51-L52
+``` java reference title="Selenium Waits"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L54-L55
 ```
 
 :::caution Do Not Mix Explicit and Implicit Waits
@@ -223,8 +223,8 @@ instead.
 The following example automates a user login by sending keys to the username and password text fields, and clicking the
 submit button:
 
-``` java reference
-https://github.com/saucelabs-training/demo-java/blob/0105cf9/selenium-examples/src/test/java/com/saucedemo/login/W3CDemoTest.java#L58-L60
+``` java reference title="Selenium Actions"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L61-L63
 ```
 
 ### Step 5: Assert a Result
@@ -234,8 +234,8 @@ an explicit line of code to ensure that this functionality is working as intende
 how to evaluate success requires domain knowledge and can be more art than science. Here's an example of an
 assertion with JUnit 5:
 
-``` java reference
-https://github.com/saucelabs-training/demo-java/blob/0105cf9/selenium-examples/src/test/java/com/saucedemo/login/W3CDemoTest.java#L62
+``` java reference title="Java Assertions"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L65
 ```
 
 ### Step 6: Report the Results
@@ -252,12 +252,12 @@ Since Sauce Labs doesn't know what you are asserting in your code, though,
 we rely on users to send us the information. One approach is with JavaScript before you end
 your session. Here's an example using JUnit 5 with a Test Watcher class:
 
-```java reference
-https://github.com/saucelabs-training/demo-java/blob/0105cf9/selenium-examples/src/test/java/com/saucedemo/login/W3CDemoTest.java#L68
+```java reference title="Report Passing Test to Sauce Labs"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L74
 ```
 or
-```java reference
-https://github.com/saucelabs-training/demo-java/blob/0105cf9/selenium-examples/src/test/java/com/saucedemo/login/W3CDemoTest.java#L74
+```java reference title="Report Failing Test to Sauce Labs"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L80
 ```
 
 ### Step 7: End the Session
@@ -270,16 +270,16 @@ Remote WebDriver instance.
 
 The following example invokes the quit method on the driver variable:
 
-```java reference
-https://github.com/saucelabs-training/demo-java/blob/0105cf9/selenium-examples/src/test/java/com/saucedemo/login/W3CDemoTest.java#L69
+```java reference title="Quit Selenium Session"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L75
 ```
 
 ### Complete Example  
 
 The following example shows the Java code for all seven steps described in this document, implemented with JUnit 5.
 
-```java reference
-https://github.com/saucelabs-training/demo-java/blob/0105cf9/selenium-examples/src/test/java/com/saucedemo/login/W3CDemoTest.java
+```java reference title="Complete Selenium Example"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#
 ```
 
 ### Sauce Bindings Example
@@ -288,8 +288,8 @@ The [Sauce Bindings](https://opensource.saucelabs.com/sauce_bindings/) are desig
 working with Sauce Labs. Toward that end, the previous example can be written using saucebindings-junit5 package
 with the setup and teardown methods handled for you. You can see how much less code there is here:
 
-```java reference
-https://github.com/saucelabs-training/demo-java/blob/0105cf9/selenium-examples/src/test/java/com/saucedemo/login/SBJU5DemoTest.java
+```java reference title="Simplify With Sauce Bindings"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SauceBindingsLoginTest.java
 ```
 
 ## Scaling Tests

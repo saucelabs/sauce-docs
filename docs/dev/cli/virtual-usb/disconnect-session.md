@@ -21,7 +21,10 @@ java -jar virtual-usb-client.jar disconnect --sessionId d03a1b81-158d-4bb4-bcc9-
 Disconnected
 ```
 
->**NOTE**: **Android Only**: After completing the above step, you'll also need to [disconnect your device from ADB](/mobile-apps/features/virtual-usb#close-test) by running `adb disconnect` followed by your `<IPAddress>:<portNumber>`.  
+:::note Android Only
+After completing the above step, you'll also need to [disconnect your device from ADB](/mobile-apps/features/virtual-usb#close-test) by running `adb disconnect` followed by your `<IPAddress>:<portNumber>`.  
+
+:::
 
 ## Optional
 
