@@ -282,7 +282,7 @@ espresso:
 ### `app`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the application. The default directory is `{project-root}/apps/filename.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples.
+The path to the application. The default directory is `{project-root}/apps/filename.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples. Supports \*.apk (\*.aab files supported for real device testing only).
 
 ```yaml
   app: ./apps/calc.apk
@@ -296,7 +296,7 @@ The path to the application. The default directory is `{project-root}/apps/filen
 ### `testApp`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the testing application. The relative file location is `{project-root}/apps/testfile.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples.
+The path to the testing application. The relative file location is `{project-root}/apps/testfile.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples. Supports \*.apk (\*.aab files supported for real device testing only).
 
 ```yaml
   testApp: ./apps/calc-success.apk
@@ -310,7 +310,7 @@ The path to the testing application. The relative file location is `{project-roo
 ### `otherApps`
 <p><small>| OPTIONAL | ARRAY | REAL DEVICES ONLY |</small></p>
 
-Set of up to seven apps to pre-install for your tests. You can upload an app from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
+Set of up to seven apps to pre-install for your tests. You can upload an \*.apk (\*.aab supported for real device testing only) app file from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
 
 :::note
 Apps specified as `otherApps` inherit the configuration of the main app under test for [`Device Language`, `Device Orientation`, and `Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.

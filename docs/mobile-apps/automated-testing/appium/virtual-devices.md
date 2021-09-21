@@ -22,14 +22,11 @@ OS and platform combinations with [Android emulators](https://developer.android.
 
 ## Upload Your App to Emulators and Simulators
 
-To begin, you'll need to upload your app to a publicly available source. Accepted file types are *.zip iOS
-package files for simulators and *.apk Android package files for emulators.
-There are two ways you can upload your app for automated testing:
+To begin, upload your app to a publicly available source. Accepted file types are \*.zip iOS package files for simulators and \*.apk Android package files for emulators. There are two ways you can upload your app for automated testing:
 
-   * Sauce Labs App Storage
-   * Install from a Remote Location
+* Upload a local file using the [App Storage REST API](/dev/api/storage/#upload-file-to-app-storage)
+* Provide a URL to install from a [Remote Location](/mobile-apps/automated-testing/appium/real-devices/#uploading-mobile-apps-from-a-remote-location)
 
-  For step-by-step instructions on uploading your app, see [App Storage](mobile-apps/app-storage.md).
 
 ## Set Your Test Credentials
 

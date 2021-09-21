@@ -652,28 +652,3 @@ npm:
     "@babel/preset-typescript": "7.12"
     "@playwright/react": "^5.0.1"
 ```
-
-### Transpiling TypeScript Tests
-
-If your Playwright tests are in TypeScript, you need to transpile your Typescript files to JavaScript before running them with `saucectl`.
-
-1. Install typescript:
-
-   ```bash
-   npm install -g typescript
-   ```
-
-2. Review your `tsconfig.json` to ensure you've set the `compilerOptions` appropriately. Review the [documentation](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html#writing-a-configuration-file) for guidelines.
-
-3. Run the TypeScript compiler:
-
-   ```bash
-   tsc --project ./tests/tsconfig.json
-   ```
-4. Edit the `testMatch` properties for each of your test suites in `.sauce/config.yml` to call the JavaScript test files instead of the TypeScript files.
-
-   ```yaml
-   suites:
-     - name: "basic test"
-       testMatch: 'tests/*.js'
-   ```

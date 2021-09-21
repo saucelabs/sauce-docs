@@ -47,7 +47,7 @@ values={[
 ```jsx title="cURL with jq Example"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams?name=sauce' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -57,7 +57,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="cURL with jq Example"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams?name=sauce' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -137,7 +137,7 @@ values={[
 ```jsx title="cURL with jq Example"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -147,7 +147,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="cURL with jq Example"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -262,7 +262,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     },
     "organization": "<org-id>",
     "description": "Docs QA Team"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -279,7 +279,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     },
     "organization": "<org-id>",
     "description": "Docs QA Team"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -357,7 +357,7 @@ values={[
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request DELETE 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>/' \
 --header 'Content-Type: application/json' \
---data-raw '' | jq
+--data-raw '' | json_pp
 ```
 
 </TabItem>
@@ -367,7 +367,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request DELETE 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>/' \
 --header 'Content-Type: application/json' \
---data-raw '' | jq
+--data-raw '' | json_pp
 ```
 
 </TabItem>
@@ -457,7 +457,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         "virtual_machines": "10"
     },
     "description": "Docs Team"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -473,7 +473,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         "virtual_machines": "10"
     },
     "description": "Docs Team"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -585,7 +585,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "settings": {
         "virtual_machines": "25"
     }
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -600,7 +600,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "settings": {
         "virtual_machines": "25"
     }
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -684,7 +684,7 @@ values={[
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>/members' \
 --header 'Content-Type: application/json' \
---data-raw '' | jq
+--data-raw '' | json_pp
 ```
 
 </TabItem>
@@ -694,7 +694,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>/members' \
 --header 'Content-Type: application/json' \
---data-raw '' | jq
+--data-raw '' | json_pp
 ```
 
 </TabItem>
@@ -764,7 +764,7 @@ values={[
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>/reset-access-key' \
 --header 'Content-Type: application/json' \
---data-raw '' | jq
+--data-raw '' | json_pp
 ```
 
 </TabItem>
@@ -774,7 +774,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>/reset-access-key' \
 --header 'Content-Type: application/json' \
---data-raw '' | jq
+--data-raw '' | json_pp
 ```
 
 </TabItem>
@@ -892,7 +892,7 @@ values={[
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users?roles=3&limit=30' \
 --header 'Content-Type: application/json' \
---data-raw '' | jq
+--data-raw '' | json_pp
 ```
 
 </TabItem>
@@ -902,7 +902,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users?roles=3&limit=30' \
 --header 'Content-Type: application/json' \
---data-raw '' | jq
+--data-raw '' | json_pp
 ```
 
 </TabItem>
@@ -977,7 +977,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -986,7 +986,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1130,7 +1130,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "password": "$m1th*RULES",
     "role": 4,
     "team": "<team-id>"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -1148,7 +1148,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "password": "$m1th*RULES",
     "role": 4,
     "team": "<team-id>"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -1302,7 +1302,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "email": "jsmith@icloud.com",
     "password": "$m1th*RULEStheworld",
     "verify_password": "$m1th*RULEStheworld"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -1318,7 +1318,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "email": "jsmith@icloud.com",
     "password": "$m1th*RULEStheworld",
     "verify_password": "$m1th*RULEStheworld"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -1437,7 +1437,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "first_name": "Jimmy"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -1449,7 +1449,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "first_name": "Jimmy"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -1655,7 +1655,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/teams/' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1664,7 +1664,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/teams/' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1752,7 +1752,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --data-raw '{
     "user": "<user-id>",
     "team": "<team-id>"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -1765,7 +1765,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --data-raw '{
     "user": "<user-id>",
     "team": "<team-id>"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -1877,7 +1877,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/set-admin/' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1886,7 +1886,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/set-admin/' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1971,7 +1971,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/set-team-admin/' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1980,7 +1980,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/set-team-admin/' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2066,7 +2066,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/set-team-admin/' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2075,7 +2075,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/set-team-admin/' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2161,7 +2161,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/access-key' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2170,7 +2170,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/access-key' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2240,7 +2240,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/reset-access-key' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2249,7 +2249,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/reset-access-key' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2314,7 +2314,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/deactivate' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2323,7 +2323,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/deactivate' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2410,7 +2410,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/activate' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2419,7 +2419,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/activate' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>

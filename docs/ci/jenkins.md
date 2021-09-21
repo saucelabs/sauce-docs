@@ -26,7 +26,7 @@ The OnDemand plugin allows you to easily manage your Sauce Labs testing from [Je
     - IP range `162.222.72.0/21`
     - `saucelabs.com`
     - `ondemand.saucelabs.com`
-* [Jenkins documentation for setting up a Proxy](https://wiki.jenkins-ci.org/display/JENKINS/JenkinsBehindProxy)
+
 
 ## Installing the OnDemand Plugin
 
@@ -37,7 +37,9 @@ Install the Sauce OnDemand plugin from your Jenkins Administration page.
 1. Click **Download now and install after restart**.
 1. In the plugin installation process window, select the **Restart Jenkins when installation is complete and no jobs are running** checkbox.
 
-> **NOTE:** The plugin file is fairly large, so download may take several minutes.
+:::note
+The plugin file is fairly large, so download may take several minutes.
+:::
 
 ### Creating Your Sauce Labs Credentials
 
@@ -82,7 +84,9 @@ You can manage many of the plugin settings from within the Jenkins dashboard to 
 
  Some plugin options are set globally for all your Jenkins projects and some options are specific to individual projects.
 
- > **NOTE:** When options can be set at both levels, project settings override global settings.
+:::note
+When options can be set at both levels, project settings override global settings.
+:::
 
 ### Configure Global Sauce Settings
 

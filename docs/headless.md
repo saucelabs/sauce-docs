@@ -25,7 +25,10 @@ There are a few key differences between setting up Sauce Headless tests versus s
 
 The [latest version of Sauce Connect Proxy](/secure-connections/sauce-connect/installation), if you're using it to run Headless tests.
 
->**NOTE**: At this time, data from tests run in Headless mode is not available to the [Sauce Insights](/insights) analytics features.
+:::note
+At this time, data from tests run in Headless mode is not available to the [Sauce Insights](/insights) analytics features.
+
+:::
 
 ## Setup and Configuration
 
@@ -155,7 +158,7 @@ __Pytest Example Walkthrough__
 
 __WebdriverIO Example Walkthrough__
 
-1. Head to [Sauce Labs Training: JavaScript Examples](https://github.com/saucelabs-training/demo-js) on GitHub and 
+1. Head to [Sauce Labs Training: JavaScript Examples](https://github.com/saucelabs-training/demo-js) on GitHub and
 review the README page to ensure you have the prerequisite software.
 2. Download or clone one of [our headless test examples](https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/webdriver/examples/headless) from the repo.
 3. Navigate to the headless-examples directory and install node package dependencies:
@@ -238,7 +241,10 @@ The containers used for Sauce Headless testing are hosted in the Sauce Labs East
 
 The US-East IP addresses should be reachable from your network. If there's an issue, please refer to the [Sauce Connect Proxy documentation](/secure-connections/sauce-connect/system-requirements) > allowlisting section.
 
->**NOTE**: Cross-Browser VMs are not available at this time in US-East.
+:::note
+Cross-Browser VMs are not available at this time in US-East.
+
+:::
 
 ## Using the Sauce Headless Web UI
 Information about your Headless testing jobs is accessible by logging into the headless testing web interface.
