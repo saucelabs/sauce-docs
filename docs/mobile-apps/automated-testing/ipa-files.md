@@ -21,9 +21,7 @@ You can also use the Appium capability `resigningEnabled=false` to disable app r
 
 #### Building an .app Bundle
 1. Open your application project in Xcode.
-2. Select your product's device target:
-    1. On a real device: **Generic iOS Device** or **Any iOS Device (arm64)**.
-    2. On a simulator: Select any available simulator.
+2. Select a **Generic iOS Device** or **Any iOS Device (arm64)** as your product's device target.
 3. In the **Product** menu, select **Clean**.
 4. In the **Product** menu, select **Build**.
 5. Navigate to your Xcode project's **Products** directory and find the generated **.app** file.
@@ -85,9 +83,7 @@ This will also overwrite the **Build Settings** at the Project level to that iOS
 ## Virtual Devices
 ### Building an .app Bundle
 1. Open your application project in Xcode.
-2. Select your product's device target:
-    1. On a real device: **Generic iOS Device** or **Any iOS Device (arm64)**.
-    2. On a simulator: Select any available simulator.
+2. Select any available simulator as your product's device target.
 3. In the **Product** menu, select **Clean**.
 4. In the **Product** menu, select **Build**.
 5. Navigate to your Xcode project's **Products** directory and find the generated **.app** file.
