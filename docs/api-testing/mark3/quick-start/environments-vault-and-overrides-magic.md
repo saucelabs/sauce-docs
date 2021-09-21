@@ -1,7 +1,7 @@
 ---
 id: environments-vault-and-overrides-magic
 title:  "Environments, Vault, and Variable Overrides"
-sidebar_label: "Environments, Vault, and Variable Overrides"
+sidebar_label: "Overview"
 description: "Gain a wide range of options to mix and match your test settings with our latest “Environments” features."
 ---
 
@@ -47,7 +47,7 @@ domain: ${staging_domain}
 
 If run without environment selection or overrides, the test will hit the production domain. If run with the staging environment, the test will hit the staging domain. The Environments will not know the actual domain, therefore the actual data management will happen within the Vault.
 
-**Known Issue**: The double evaluation will not work on query params. As a workaround, in the test before performing the call, introduce a `SET` component to resolve the variable as in: 
+**Known Issue**: The double evaluation will not work on query params. As a workaround, in the test before performing the call, introduce a `SET` component to resolve the variable as in:
 
 ```
 <set var=”apikey” value=”${apikey}”/>

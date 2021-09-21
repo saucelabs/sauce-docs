@@ -659,9 +659,9 @@ module.exports = {
                       'api-testing/mark3/quick-start/environments-vault-and-overrides-magic',
                       'api-testing/mark3/quick-start/flexible-variables-for-flexible-environments',
                       'api-testing/mark3/quick-start/the-vault',
-                      'api-testing/mark3/quick-start/importing-postman-collections',
                       ],
                   },
+             'api-testing/mark3/quick-start/importing-postman-collections',
              'api-testing/mark3/quick-start/integrate-with-your-cicd',
         ],
         "CI/CD": [

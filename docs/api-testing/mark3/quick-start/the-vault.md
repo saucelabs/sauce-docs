@@ -1,17 +1,15 @@
 ---
 id: the-vault
-title: "Use the Vault (Resuable Variables / Code Snippets)"
-sidebar_label: Vault
+title: "Storing Reusable Variables and Code Snippets with the Vault"
+sidebar_label: Using the Vault
 description: "The vault allows you to store variables and code snippets that can be used across an entire project."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The vault allows you to store variables and code snippets to use in your tests in one project, or across all projects.
+The vault feature allows you to store variables and code snippets to use in your tests in one project, or across all projects.
 
 <!--[Explanation Video](https://www.youtube.com/watch?v=cBNMi30Fj9Q)-->
-
-## Vault Overview
 
 You can access the vaults in one of two ways:
 
@@ -35,7 +33,7 @@ Defining a variable in the Vault is helpful when you need to use the same variab
 If a variable that exists in the Company Vault, also exists in the Project Vault with the same name definition, the latter will override the Company Vault value.
 :::
 
-For example, a password could be saved as a variable and reused in multiple places. See the [The password variable example](#the-password-variable) below for more details.
+For example, a password could be saved as a variable and reused in multiple places. See [password variable example](#the-password-variable) below for more details.
 
 :::tip Import Postman Collections into The Vault
 Additionally, you can import variables from Postman. See [here](/api-testing/mark3/quick-start/importing-postman-collections/) for more details.
@@ -51,7 +49,7 @@ See [here](/api-testing/mark2/reference/composer-snippets) for more details.
 
 Much like with variable scope, code snippets saved in the specific _Project Vault_ are only available in that project. Likewise, snippets saved in the _Company Vault_ are available across all projects.
 
-A good use case for the snippets feature is an authentication flow; you don't need nor want to rewrite all authentication steps for every test. Instead, call the snippet that contains these authentication details. See [The Autentication Snippet example below for more details](#the-authentication-snippet). Another good example is integration testing, where you can reuse various tests to create one larger flow.
+A good use case for the snippets feature is an authentication flow; you don't need nor want to rewrite all authentication steps for every test. Instead, call the snippet that contains these authentication details. See [The Authentication Snippet example below for more details](#the-authentication-snippet). Another good example is integration testing, where you can reuse various tests to create one larger flow.
 
 :::warning snippet Scope
 If you have a snippet saved for the current project, but you need to make it available across all projects, you can **export** the snippet from your current project to the Company Vault by using the import/export feature (see screenshot below).
