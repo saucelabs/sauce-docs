@@ -415,3 +415,61 @@ Enables detailed output during the test run in order to facilitate troubleshooti
 ```bash
 saucectl run --verbose
 ```
+
+## `$ saucectl completion`
+
+Allows you to generate a completion script for `bash`, `zsh`, `fish` and `powershell` shells.
+
+### bash
+
+#### Linux
+
+```bash
+saucectl completion bash > /etc/bash_completion.d/saucectl
+```
+
+#### macOS
+
+```bash
+saucectl completion bash > /usr/local/etc/bash_completion.d/saucectl
+```
+
+### zsh
+
+If shell completion is not already enabled in your environment, enable it by executing the following once:
+
+```bash
+$ echo "autoload -U compinit; compinit" >> ~/.zshrc
+```
+  
+To load completions for each session, execute once:
+
+```bash
+saucectl completion zsh > "${fpath[1]}/_saucectl"
+```
+
+Start a new shell to apply this setup.
+
+### fish
+
+```bash
+saucectl completion fish | source
+```
+
+To load completions for each session, execute once:
+
+```bash
+saucectl completion fish > ~/.config/fish/completions/saucectl.fish
+```
+
+### PowerShell
+
+```bash
+saucectl completion powershell | Out-String | Invoke-Expression
+```
+
+To load completions for every new session, run the following and then source this file from your Powershell profile:
+
+```bash
+saucectl completion powershell > saucectl.ps1
+```
