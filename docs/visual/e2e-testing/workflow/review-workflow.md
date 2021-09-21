@@ -76,7 +76,7 @@ Changed UI states will include highlights of visual changes directly overlayed o
 
 :::tip Tip: Change Details
 
-[Learn how to view change details](/visual/change-details).
+[Learn how to view change details](/visual/e2e-testing/workflow/change-details).
 :::
 
 

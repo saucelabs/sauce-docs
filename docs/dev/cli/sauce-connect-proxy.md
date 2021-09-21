@@ -1,7 +1,7 @@
 ---
 id: sauce-connect-proxy
 title: Sauce Connect Proxy CLI Reference
-sidebar_label: Sauce Connect Proxy
+sidebar_label: Sauce Connect Proxy CLI
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
