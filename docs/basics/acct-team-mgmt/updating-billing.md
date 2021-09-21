@@ -15,7 +15,7 @@ If you want to update the billing information for an Enterprise plan, contact yo
 ## Virtual Device Cloud Billing
 1. In Sauce Labs, click **ACCOUNT**, and then click **Billing**.
 
-<img src={useBaseUrl('img/team-mgmt/team-mgmt-billing-nav.png')} alt="Team management billing navigation" width="400"/>
+<img src={useBaseUrl('img/team-mgmt/team-mgmt-billing-nav.png')} alt="Team management billing navigation" width="300"/>
 
 2. Update cardholder details (if required).
 3. To update the card on file, click **Replace Existing Card**.
