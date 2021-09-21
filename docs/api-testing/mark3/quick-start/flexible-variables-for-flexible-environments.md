@@ -1,7 +1,7 @@
 ---
 id: flexible-variables-for-flexible-environments
 title: Using Variables for Environment Flexibility
-sidebar_label: Variables
+sidebar_label: Using Variables
 description: "In API Fortress, you do not have to be concerned with organizing variables in a hierarchy from global to local."
 ---
 
