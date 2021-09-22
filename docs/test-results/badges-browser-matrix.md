@@ -68,7 +68,7 @@ Alternatively, you can add this HTML to your project site.
 Note that the above information applies to [Open Sauce](https://saucelabs.com/open-source) accounts only. Open Sauce accounts are public, meaning tests and build status can be viewed without authentication. In order to use the above for any other type of account, read on.
 
 ### Status Images for Private Accounts
-If you want to display the build status of a private Sauce account, you need to provide a [Hash-based Message Authentication Code (HMAC)](https://en.wikipedia.org/wiki/Hash-based_message_authentication_code) token generated from your username and access key.
+To display the build status of a private Sauce Labs account, including both status badges and browser matrix badges, you need to provide a [Hash-based Message Authentication Code (HMAC)](https://en.wikipedia.org/wiki/Hash-based_message_authentication_code) token generated from your username and access key.
 
 This example shows how to generate an HMAC token using Python:
 
