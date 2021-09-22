@@ -1,18 +1,18 @@
 ---
-id: visual-e2e-cli
-title: Visual E2E Testing CLI Reference
-sidebar_label: Visual E2E CLI
+id: commands-options
+title: Visual E2E Testing Reference
+sidebar_label: Commands and Options
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Visual E2E Commands
+
 Visual commands can be integrated into existing WebDriver test code simply and safely - no need to install anything.
 
 A Visual command is simply a JavaScript comment sent over WebDriver using the execute command.
-
-## Visual E2E Commands
 
 ### Init command
 
@@ -378,9 +378,9 @@ Assert.IsTrue((Boolean)response["passed"], (String)response["message"]);
 
 
 
-## Visual E2E Options
+## `sauce:visual` Capability Options
 
-Below are the available options for the `sauce:visual` capability.
+Below are the available options that you can use with the [`sauce:visual` capability](/visual/e2e-testing/workflow/baseline-branch).
 
 <table>
   <tr>
