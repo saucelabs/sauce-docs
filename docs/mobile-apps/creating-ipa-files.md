@@ -97,10 +97,7 @@ To set the iOS version in your Xcode Target:
 2. Under **Build Settings**, set the iOS Deployment Target to the iOS version you want to use in your test.
 
 :::note
-<<<<<<< HEAD
-Will also overwrite the **Build Settings** at the Project level to that iOS version. If you use this method, be aware that your Targets can become out of sync with each other and the Project settings, and your tests will break. If you change the iOS version for one target output, you may want to build the Project again to make sure all your targets are in sync.
-=======
+
 This will also overwrite the **Build Settings** at the Project level to that iOS version. If you use this method, be aware that your Targets can become out of sync with each other and the Project settings, and your tests will break. If you change the iOS version for one target output, you may want to build the Project again to make sure all your targets are in sync.
 
->>>>>>> aa4f02fb25139fc1ecaa8ff2f143f0ac8c8fa63f
 :::
