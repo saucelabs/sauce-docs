@@ -57,7 +57,7 @@ You can also upload and store other file types for generic use, such as a pre-ru
 * *.bat
 
 ## Team Management Sync
-By default, all uploaded files are shared with the same team. Members can only access files that are shared with the team where you contribute/participate. Organization admins have access to all files in your organization.
+All uploaded files are shared with the same team. Members can only access files that are shared with the team where you contribute/participate. Organization admins have access to all files in your organization.
 
 For more information about managing access to your organization, see [Managing User Information](https://docs.saucelabs.com/basics/acct-team-mgmt/managing-user-info).
 
