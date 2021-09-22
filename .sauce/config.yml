@@ -4,17 +4,20 @@ sauce:
   region: us-west-1
   concurrency: 10
   metadata:
-    name: Testing Sauce Docs
     tags:
-      - e2e
       - technical-content-team
-    build: Release $CI_COMMIT_SHORT_SHA
+      - $GITHUB_RUN_ID
+      - $GITHUB_REPOSITORY
+      - $GITHUB_REF
+    build: Commit $GITHUB_SHA
 cypress:
-  version: 5.6.0
-  configFile: "tests/cypress.json"
+  version: 7.7.0
+  configFile: "cypress.json"
+rootDir: tests/
 suites:
   - name: "all chrome"
     browser: "chrome"
     platformName: "Windows 10"
+    screenResolution: "1920x1080"
     config:
       testFiles: [ "**/*.*" ]

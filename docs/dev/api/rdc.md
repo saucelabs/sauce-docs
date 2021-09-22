@@ -35,7 +35,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/devices' | jq
+--request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/devices' | json_pp
 ```
 
 </TabItem>
@@ -44,7 +44,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/devices' | jq
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/devices' | json_pp
 ```
 
 </TabItem>
@@ -147,7 +147,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/devices/iPad_Pro_11_14_2018_real' | jq
+--request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/devices/iPad_Pro_11_14_2018_real' | json_pp
 ```
 
 </TabItem>
@@ -156,7 +156,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/devices/iPad_Pro_11_14_2018_real' | jq
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/devices/iPad_Pro_11_14_2018_real' | json_pp
 ```
 
 </TabItem>
@@ -249,7 +249,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/devices/available' | jq
+--request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/devices/available' | json_pp
 ```
 
 </TabItem>
@@ -258,7 +258,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/devicesavailable' | jq
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/devicesavailable' | json_pp
 ```
 
 </TabItem>
@@ -354,7 +354,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/jobs?limit=5' | jq
+--request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/jobs?limit=5' | json_pp
 ```
 
 </TabItem>
@@ -363,7 +363,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/jobs?limit=5' | jq
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/jobs?limit=5' | json_pp
 ```
 
 </TabItem>
@@ -451,7 +451,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/jobs/293d84fb2f634ff29a750c3f8eaee592' | jq
+--request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/jobs/293d84fb2f634ff29a750c3f8eaee592' | json_pp
 ```
 
 </TabItem>
@@ -460,7 +460,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/jobs/48c6d12f9ef944439453b5abc6715b54' | jq
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/jobs/48c6d12f9ef944439453b5abc6715b54' | json_pp
 ```
 
 </TabItem>

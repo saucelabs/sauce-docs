@@ -1,9 +1,9 @@
 {
-  "integrationFolder": "./tests/",
+  "integrationFolder": "./tests/cypress/integration/",
   "testFiles": "*.test.js",
   "viewportWidth": 1680,
   "viewportHeight": 864,
   "env": {
-    "HOST_ADDR": "localhost:3000"
+    "HOST_ADDR": "http://localhost:3000"
   }
 }

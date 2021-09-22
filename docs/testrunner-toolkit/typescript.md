@@ -4,8 +4,8 @@ title: Using TypeScript Tests
 sidebar_label: Using TypeScript
 ---
 
-If you wrote your automated tests using TypeScript in either Playwright or Puppeteer, you need to transpile your Typescript files to Javascript before running them with Testrunner Toolkit.
-TestCafe and Cypress support TypeScript out of the box. 
+If you wrote your automated tests using TypeScript in Puppeteer, you need to transpile your Typescript files to Javascript before running them with saucectl.
+Cypress, Playwright, and TestCafe support TypeScript out of the box.
 
 ## What You'll Need
 
@@ -80,5 +80,4 @@ If you would like to see sample tests and configuration files for particular fra
 
 * [Cypress Demo](https://github.com/saucelabs/saucectl-cypress-example/tree/master/examples/typescript)
 * [TestCafe Demo](https://github.com/saucelabs/saucectl-testcafe-example/tree/master/examples/typescript)
-* [Playwright Demo](https://github.com/saucelabs/saucectl-playwright-example/tree/master/examples/typescript)
 * [Puppeteer Demo](https://github.com/saucelabs/saucectl-puppeteer-example/tree/master/examples/typescript)

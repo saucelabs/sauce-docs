@@ -47,12 +47,12 @@ We strive to support the latest releases within 48 hours to ensure your website 
 
 #### **Is it possible to test the camera behavior using your mobile devices?**
 
-Yes. See [Camera Image Injection](https://docs.saucelabs.com/mobile-apps/features#camera-image-injection).
+Yes. See [Camera Image Injection](/mobile-apps/features/camera-image-injection).
 
 #### **Is it possible to test push notifications?**
 
 * **Android Real Devices** - Yes. It works automatically with no action required.
-* **iOS Real Devices** - Yes. Prior to testing, you'll need to disable resigning; this enables notifications testing. Disabling resigning is a feature available for [private devices only](https://docs.saucelabs.com/mobile-apps/supported-devices#private-device-cloud). To disable resigning, go to **Live** > **Mobile App** > Locate your iOS mobile app from your list of uploaded app > Click **Settings** > Toggle **Instrumentation** so that it says **Disabled**. You'll need to start keeping track of the iOS device UDIDs (Unique Device Identifier) by maintaining them in your own Apple Developer profile used at app build time.
+* **iOS Real Devices** - Yes. Prior to testing, you'll need to disable resigning; this enables notifications testing. Disabling resigning is a feature available for [private devices only](/mobile-apps/supported-devices#private-device-cloud). To disable resigning, go to **Live** > **Mobile App** > Locate your iOS mobile app from your list of uploaded app > Click **Settings** > Toggle **Instrumentation** so that it says **Disabled**. You'll need to start keeping track of the iOS device UDIDs (Unique Device Identifier) by maintaining them in your own Apple Developer profile used at app build time.
 * **Android emulators** - not supported.
 * **iOS simulators** - not supported.
 
@@ -63,7 +63,7 @@ Yes. See [Camera Image Injection](https://docs.saucelabs.com/mobile-apps/feature
 
 Our Real Device Cloud servers are located in the Europe and US at certified data centers. The communication is SSL secured. We try to ensure as much safety as a cloud service can provide. The Real Device Cloud will never abuse your data, and we respect your data privacy at all times.
 
-For very high security requirements, we also provide a [private cloud solution](https://docs.saucelabs.com/mobile-apps/supported-devices#private-device-cloud).
+For very high security requirements, we also provide a [private cloud solution](/mobile-apps/supported-devices/#private-device-cloud).
 
 
 #### **Can other users access my data?**

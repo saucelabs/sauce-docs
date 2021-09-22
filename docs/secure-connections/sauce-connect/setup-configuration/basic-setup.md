@@ -31,8 +31,8 @@ Sauce Labs recommends setting all of the values above as environment variables t
 Once you've downloaded Sauce Connect Proxy, you can validate that it works on your network by completing the following steps:
 1. Launch a tunnel with the following flags, per the [Sauce Connect Proxy Command Line Reference](/dev/cli/sauce-connect-proxy):
 
-```
-$ bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i TUNNEL_ID'
+```bash
+$ bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i TUNNEL_ID
 ```
 
 where:
@@ -59,7 +59,7 @@ where:
 
 <TabItem value="Java">
 
-```
+```java
 caps.SetCapability("tunnelIdentifier", "TUNNEL_ID");
 ```
 
@@ -67,7 +67,7 @@ caps.SetCapability("tunnelIdentifier", "TUNNEL_ID");
 
 <TabItem value="Node.js">
 
-```
+```javascript
 'tunnelIdentifier': 'TUNNEL_ID'
 ```
 
@@ -75,7 +75,7 @@ caps.SetCapability("tunnelIdentifier", "TUNNEL_ID");
 
 <TabItem value="C#">
 
-```
+```csharp
 caps.SetCapability("tunnelIdentifier", "TUNNEL_ID");
 ```
 
@@ -83,7 +83,7 @@ caps.SetCapability("tunnelIdentifier", "TUNNEL_ID");
 
 <TabItem value="Python">
 
-```
+```py
 'tunnelIdentifier': 'TUNNEL_ID'
 ```
 
@@ -91,12 +91,11 @@ caps.SetCapability("tunnelIdentifier", "TUNNEL_ID");
 
 <TabItem value="Ruby">
 
-```
-'tunnelIdentifier: 'TUNNEL_ID',
+```rb
+'tunnelIdentifier': 'TUNNEL_ID'
 ```
 
 </TabItem>
-
 </Tabs>
 
 Where `TUNNEL_ID` is the identifier or name of the tunnel from step 1.
@@ -164,7 +163,7 @@ Launch a new tunnel on the `SC_HOST` with the following flags, per the [Sauce Co
 
 <TabItem value="MacOS/Linux Example">
 
-```
+```bash
 $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i sc-proxy-tunnel
 ```
 
@@ -172,7 +171,7 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i sc-
 
 <TabItem value="Windows Example">
 
-```
+```bash
 > sc_download\bin\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -x %SAUCE_DC% -i sc-proxy-tunnel
 ```
 
@@ -196,7 +195,7 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i sc-
 
 <TabItem value="Java">
 
-```
+```java
 caps.SetCapability("tunnelIdentifier", "sc-proxy-tunnel");
 ```
 
@@ -204,7 +203,7 @@ caps.SetCapability("tunnelIdentifier", "sc-proxy-tunnel");
 
 <TabItem value="Node.js">
 
-```
+```js
 'tunnelIdentifier': 'sc-proxy-tunnel'
 ```
 
@@ -212,7 +211,7 @@ caps.SetCapability("tunnelIdentifier", "sc-proxy-tunnel");
 
 <TabItem value="C#">
 
-```
+```csharp
 caps.SetCapability("tunnelIdentifier", "sc-proxy-tunnel");
 ```
 
@@ -220,7 +219,7 @@ caps.SetCapability("tunnelIdentifier", "sc-proxy-tunnel");
 
 <TabItem value="Python">
 
-```
+```py
 'tunnelIdentifier': 'sc-proxy-tunnel'
 ```
 
@@ -228,7 +227,7 @@ caps.SetCapability("tunnelIdentifier", "sc-proxy-tunnel");
 
 <TabItem value="Ruby">
 
-```
+```rb
 tunnelIdentifier: 'sc-proxy-tunnel',
 ```
 

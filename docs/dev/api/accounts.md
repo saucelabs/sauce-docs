@@ -14,12 +14,14 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ## Team Methods
 
-### Get Teams
+### Lookup Teams
 
 <details><summary><span className="api get">GET</span> <code>/team-management/v1/teams/</code></summary>
 <p/>
 
-Returns a team count and an array of all teams in the organization of the requesting account.
+Queries the organization of the requesting account and returns the number of teams matching the query and a summary of each team, including the `ID` value, which may be a required parameter of other API calls related to a specific team.
+
+You can filter the results of your query using the `name` parameter below.
 
 #### Parameters
 
@@ -45,7 +47,7 @@ values={[
 ```jsx title="cURL with jq Example"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams?name=sauce' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -55,7 +57,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="cURL with jq Example"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams?name=sauce' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -108,7 +110,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
 <p/>
 
-Returns the full profile of the specified team.
+Returns the full profile of the specified team. The `ID` of the team is the only valid unique identifier.
 
 #### Parameters
 
@@ -116,7 +118,7 @@ Returns the full profile of the specified team.
   <tbody>
     <tr>
      <td><code>id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#get-teams">Get Teams</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -135,7 +137,7 @@ values={[
 ```jsx title="cURL with jq Example"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -145,7 +147,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="cURL with jq Example"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -216,7 +218,7 @@ Creates a new team under the organization of the requesting account.
   <tbody>
     <tr>
      <td><code>organization</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The unique ID of the organization under which the team is created. You can look up your organization ID using the [Get Teams(#get-teams)] endpoint.</p></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The unique ID of the organization under which the team is created. You can look up your organization ID using the [Lookup Teams(#lookup-teams)] endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -260,14 +262,14 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     },
     "organization": "<org-id>",
     "description": "Docs QA Team"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \ 
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -277,7 +279,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     },
     "organization": "<org-id>",
     "description": "Docs QA Team"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -336,7 +338,7 @@ Deletes the specified team from the organization of the requesting account.
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#get-teams">Get Teams</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -355,7 +357,7 @@ values={[
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request DELETE 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>/' \
 --header 'Content-Type: application/json' \
---data-raw '' | jq
+--data-raw '' | json_pp
 ```
 
 </TabItem>
@@ -365,7 +367,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request DELETE 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>/' \
 --header 'Content-Type: application/json' \
---data-raw '' | jq
+--data-raw '' | json_pp
 ```
 
 </TabItem>
@@ -405,7 +407,7 @@ Replaces all values of the specified team with the new set of parameters passed 
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#get-teams">Get Teams</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -447,7 +449,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
+--request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "Doc-Team",
@@ -455,7 +457,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         "virtual_machines": "10"
     },
     "description": "Docs Team"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -463,7 +465,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
+--request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "Doc-Team",
@@ -471,7 +473,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         "virtual_machines": "10"
     },
     "description": "Docs Team"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -536,7 +538,7 @@ Updates one or more individual editable parameters (such as the concurrency allo
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the ID of teams in your organization using the <a href="#get-teams">Get Teams</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the ID of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -577,13 +579,13 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PATCH 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
+--request PATCH 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "settings": {
         "virtual_machines": "25"
     }
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -592,13 +594,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PATCH 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
+--request PATCH 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "settings": {
         "virtual_machines": "25"
     }
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -682,7 +684,7 @@ values={[
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>/members' \
 --header 'Content-Type: application/json' \
---data-raw '' | jq
+--data-raw '' | json_pp
 ```
 
 </TabItem>
@@ -692,7 +694,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>/members' \
 --header 'Content-Type: application/json' \
---data-raw '' | jq
+--data-raw '' | json_pp
 ```
 
 </TabItem>
@@ -762,7 +764,7 @@ values={[
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>/reset-access-key' \
 --header 'Content-Type: application/json' \
---data-raw '' | jq
+--data-raw '' | json_pp
 ```
 
 </TabItem>
@@ -772,7 +774,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>/reset-access-key' \
 --header 'Content-Type: application/json' \
---data-raw '' | jq
+--data-raw '' | json_pp
 ```
 
 </TabItem>
@@ -804,12 +806,14 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ## User Methods
 
-### Get Users
+### Lookup Users
 
 <details><summary><span className="api get">GET</span> <code>/team-management/v1/users/</code></summary>
 <p/>
 
-Returns a count total and array of of all users in the organization of the requesting account.
+Queries the organization of the requesting account and returns the number of users matching the query and a basic profile of each user, including the `ID` value, which may be a required parameter of other API calls related to a specific user.
+
+You can narrow the results of your query using any of the following filtering parameters.
 
 #### Parameters
 
@@ -888,7 +892,7 @@ values={[
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users?roles=3&limit=30' \
 --header 'Content-Type: application/json' \
---data-raw '' | jq
+--data-raw '' | json_pp
 ```
 
 </TabItem>
@@ -898,7 +902,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users?roles=3&limit=30' \
 --header 'Content-Type: application/json' \
---data-raw '' | jq
+--data-raw '' | json_pp
 ```
 
 </TabItem>
@@ -947,7 +951,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/team-management/v1/users/&#123;user_id&#125;/</code></summary>
 <p/>
 
-Returns the full profile of the specified user.
+Returns the full profile of the specified user. The `ID` of the user is the only valid unique identifier.
 
 #### Parameters
 
@@ -955,7 +959,7 @@ Returns the full profile of the specified user.
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The user's unique identifier. You can look up the IDs of users in your organization using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The user's unique identifier. You can look up the IDs of users in your organization using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -973,7 +977,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -982,7 +986,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1098,7 +1102,7 @@ Creates a new user in the Sauce Labs platform.
   <tbody>
     <tr>
      <td><code>team</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The identifier of the team of which the new user is a member. You can look up team IDs using the <a href="#get-teams">Get Teams</a> endpoint.</p></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The identifier of the team of which the new user is a member. You can look up team IDs using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1126,7 +1130,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "password": "$m1th*RULES",
     "role": 4,
     "team": "<team-id>"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -1144,7 +1148,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "password": "$m1th*RULES",
     "role": 4,
     "team": "<team-id>"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -1235,7 +1239,7 @@ Replaces all values of the specified user profile with the new set of parameters
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1298,7 +1302,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "email": "jsmith@icloud.com",
     "password": "$m1th*RULEStheworld",
     "verify_password": "$m1th*RULEStheworld"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -1314,7 +1318,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "email": "jsmith@icloud.com",
     "password": "$m1th*RULEStheworld",
     "verify_password": "$m1th*RULEStheworld"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -1374,7 +1378,7 @@ Allows you to update individual user values without replacing the entire profile
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user to update. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user to update. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1433,7 +1437,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "first_name": "Jimmy"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -1445,7 +1449,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "first_name": "Jimmy"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -1480,7 +1484,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </tbody>
 </table>
 
-```jsx title="Sample Failed Response"
+```jsx title="Sample Response"
 {
     "id": "e5be7513ba224f6f9463c209cb4c5d83",
     "username": "jsmith",
@@ -1502,6 +1506,120 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
+### Get User Concurrency
+
+<details><summary><span className="get">GET</span> <code>/rest/v1.2/users/&#123;username&#125;/concurrency</code></summary>
+<p/>
+
+Allows you to update individual user values without replacing the entire profile.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>username</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the user whose concurrency you are looking up. You can look up a user's name using a variety of filtering paramters with the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/rest/v1.2/users/<username>/concurrency' \
+--header 'Content-Type: application/json' \ | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/rest/v1.2/users/<username>/concurrency' \
+--header 'Content-Type: application/json' \ | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. User updated.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>401</code></td>
+    <td colSpan='2'>Unauthorized.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Bad request.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+   "concurrency" : {
+      "organization" : {
+         "allowed" : {
+            "mac_vms" : 1000,
+            "rds" : 20,
+            "vms" : 1000
+         },
+         "current" : {
+            "mac_vms" : 0,
+            "rds" : 0,
+            "vms" : 0
+         },
+         "id" : "7fb25570b4064716b9b6daae1a846790"
+      },
+      "team" : {
+         "allowed" : {
+            "mac_vms" : 1000,
+            "rds" : 20,
+            "vms" : 100
+         },
+         "current" : {
+            "mac_vms" : 0,
+            "rds" : 0,
+            "vms" : 0
+         },
+         "id" : "98b9f34e596047d99abba56f517846a9"
+      }
+   },
+   "timestamp" : 1631125800.61984
+}
+
+```
+</details>
+
+---
+
+
 ### Get a User's Team
 
 <details><summary><span className="api get">GET</span> <code>/team-management/v1/users/&#123;user_id&#125;/teams/</code></summary>
@@ -1519,7 +1637,7 @@ At this time, users may only belong to a maximum of one team.
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1537,7 +1655,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/teams/' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1546,7 +1664,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/teams/' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1606,13 +1724,13 @@ Set a user's team affiliation. Users are limited to one team affiliation, so if 
   <tbody>
     <tr>
      <td><code>user</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the Sauce Labs user to be added to the team.You can look up the ID of a user in your organization using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the Sauce Labs user to be added to the team.You can look up the ID of a user in your organization using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The identifier of the team to which the user will be added. You can look up the ID of a team in your organization using the <a href="#get-teams">Get Teams</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The identifier of the team to which the user will be added. You can look up the ID of a team in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1634,7 +1752,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --data-raw '{
     "user": "<user-id>",
     "team": "<team-id>"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -1647,7 +1765,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --data-raw '{
     "user": "<user-id>",
     "team": "<team-id>"
-}' | jq
+}' | json_pp
 ```
 
 </TabItem>
@@ -1741,7 +1859,7 @@ Assigns administrator rights to the user within their organization. Organization
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1759,7 +1877,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/set-admin/' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1768,7 +1886,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/set-admin/' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1835,7 +1953,7 @@ Assigns administrator rights to the user within their current team. If the user 
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1853,7 +1971,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/set-team-admin/' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1862,7 +1980,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/set-team-admin/' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1930,7 +2048,7 @@ Assigns the `member` role to the user. If the user is currently assigned any Adm
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1948,7 +2066,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/set-team-admin/' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1957,7 +2075,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/set-team-admin/' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2025,7 +2143,7 @@ Retrieves the Sauce Labs access key for the specified user.
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2043,7 +2161,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/access-key' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2052,7 +2170,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/access-key' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2104,7 +2222,7 @@ Regenerating an access key invalidates the previous value and any tests containi
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2122,7 +2240,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/reset-access-key' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2131,7 +2249,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/reset-access-key' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2178,7 +2296,7 @@ Suspends the specified user's account, preventing all access to Sauce Labs while
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2196,7 +2314,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/deactivate' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2205,7 +2323,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/deactivate' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2274,7 +2392,7 @@ Re-activates the specified user's account, if it had been previously deactivated
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#get-users">Get Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2292,7 +2410,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/activate' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -2301,7 +2419,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/activate' \
---header 'Content-Type: application/json' | jq
+--header 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>

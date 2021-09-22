@@ -30,8 +30,8 @@ __Table of Contents__
 ## Prerequisites
 
 * [`git`](https://git-scm.com/downloads)
-* [Node.js](https://nodejs.org/en/download/) `version >= 10.15.1` or above (which can be checked by running node -v). You can use nvm for managing multiple Node versions on a single machine installed
-* [Yarn](https://yarnpkg.com/en/) `version >= 1.5` (which can be checked by running yarn version). Yarn is a performant package manager for JavaScript and replaces the npm client. It is not strictly necessary but highly encouraged.
+* [Node.js](https://nodejs.org/en/download/) `version >= 14.15.0` or above (which can be checked by running node -v). You can use nvm for managing multiple Node versions on a single machine installed
+* [Yarn](https://yarnpkg.com/en/) `version >= 1.22.5` (which can be checked by running yarn version). Yarn is a performant package manager for JavaScript and replaces the npm client. It is not strictly necessary but highly encouraged.
 * [Docker](https://docs.docker.com/get-docker/) (optional if you want to deploy locally via a container or to test before you deploy)
 
 ## Installation
@@ -62,7 +62,7 @@ __Table of Contents__
    npm run dev
    ```
 
-	This command builds the site and serves it on your machine's host (http://localhost:3000) and requires no [Algolia API key](https://github.com/saucelabs/sauce-docs/blob/master/docusaurus.config.js#L150-L156).
+	This command builds the site and serves it on your machine's host (http://localhost:3000) and requires no [Algolia API key](https://docusaurus.io/docs/search#connecting-algolia).
 	
 * Start the website locally (with Algolia API Key):
 
@@ -94,4 +94,8 @@ __Table of Contents__
 
 ## Contributing
 
-Before you edit the docs, review the [style guide](docs/contributing/style-guide/mkdwn-styles.md) to make sure you maintain or standards. Also, before submitting an issue or PR in GitHub, please review the [code of conduct](docs/contributing/code-of-conduct.md) and or [contribution guide](CONTRIBUTING.MD) for further details.
+Before you edit the docs, review the [style guide](https://docs.saucelabs.com/contributing/style-guide/) to see
+how to get the most out of your markdown and to ensure you are following our conventions. 
+Also, before submitting an issue or PR in GitHub, please review the 
+[code of conduct](https://docs.saucelabs.com/contributing/code-of-conduct) and or
+[contribution guide](https://docs.saucelabs.com/contributing) for further details.

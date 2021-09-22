@@ -11,7 +11,7 @@ hide_table_of_contents: true
   <div className="box boxwidetop card">
     <div className="container">
     <a href="/dev/cli/sauce-connect-proxy"><h3>Sauce Connect Proxy CLI</h3></a>
-    <p>The CLI tool for deploying sauce connect proxy tunnels.</p>
+    <p>The CLI tool for deploying Sauce Connect Proxy tunnels.</p>
     </div>
   </div>
 </div>
@@ -20,6 +20,14 @@ hide_table_of_contents: true
     <div className="container">
     <a href="/testrunner-toolkit/saucectl"><h3>saucectl CLI</h3></a>
     <p>Our framework agnostic test orchestrator CLI.</p>
+    </div>
+  </div>
+</div>
+<div>
+  <div className="box boxwidetop card">
+    <div className="container">
+    <a href="/visual/e2e-testing/commands-options"><h3>Visual E2E Testing CLI</h3></a>
+    <p>Use these commands and options in your WebDriver test code to control your Visual E2E tests.</p>
     </div>
   </div>
 </div>

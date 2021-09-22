@@ -2,13 +2,13 @@
 id: analyze
 title: Analyzing Performance Results
 sidebar_label: Results Analysis
-description: Drill into the results of your performance testing in the Sauce Labs dashboard to isolate and identify sources of performance degradation.
+description: Drill into the results of your Sauce Labs performance testing to isolate and identify sources of performance degradation.
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Every time you run a performance test, whether it is through the Speedo command line or an automation script testing page load or motion effects, the results of the test are compiled and displayed in your Sauce Labs app, and available to all members of your team for analysis and debugging.
+Every time you run a performance test, whether it is through the Speedo command line or an automation script testing page load or motion effects, the results of the test are compiled and displayed in Sauce Labs, and available to all members of your team for analysis and debugging.
 
-## Viewing Performance Results in the Sauce Labs App
+## Viewing Performance Results in Sauce Labs
 
 From your Sauce Labs **Test Results** page, chose one of your completed Performance tests for an overview of its results.
 
