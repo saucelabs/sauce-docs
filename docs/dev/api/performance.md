@@ -60,14 +60,14 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/?metric_names=speedIndex' | jq
+curl --location --request GET 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/?metric_names=speedIndex' | json_pp
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/?metric_names=speedIndex' | jq
+curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/?metric_names=speedIndex' | json_pp
 ```
 
 </TabItem>
@@ -167,14 +167,14 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/f62eaf7d63c9449eb0424cf7678bf6a9/' | jq
+curl --location --request GET 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/f62eaf7d63c9449eb0424cf7678bf6a9/' | json_pp
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/f62eaf7d63c9449eb0424cf7678bf6a9/' | jq
+curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/f62eaf7d63c9449eb0424cf7678bf6a9/' | json_pp
 ```
 
 </TabItem>
@@ -312,14 +312,14 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/assert/?metric_names=speedIndex&order_index=1' | jq
+curl --location --request GET 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/assert/?metric_names=speedIndex&order_index=1' | json_pp
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/assert/?metric_names=speedIndex&order_index=1' | jq
+curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/assert/?metric_names=speedIndex&order_index=1' | json_pp
 ```
 
 </TabItem>
@@ -422,14 +422,14 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/baseline/?metric_names=speedIndex&order_index=0' | jq
+curl --location --request GET 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/baseline/?metric_names=speedIndex&order_index=0' | json_pp
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/baseline/?metric_names=speedIndex&order_index=0' | jq
+curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/baseline/?metric_names=speedIndex&order_index=0' | json_pp
 ```
 
 </TabItem>
@@ -517,14 +517,14 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/baseline/reset/' | jq
+curl --location --request GET 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/baseline/reset/' | json_pp
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/baseline/reset' | jq
+curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/baseline/reset' | json_pp
 ```
 
 </TabItem>
@@ -585,14 +585,14 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/baseline/reset/' | jq
+curl --location --request POST 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/baseline/reset/' | json_pp
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/baseline/reset' | jq
+curl --location --request POST 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/baseline/reset' | json_pp
 ```
 
 </TabItem>
@@ -658,14 +658,14 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/discarded/?order_index=0' | jq
+curl --location --request GET 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/discarded/?order_index=0' | json_pp
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/discarded/?order_index=0' | jq
+curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/discarded/?order_index=0' | json_pp
 ```
 
 </TabItem>
@@ -738,14 +738,14 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/discarded/?order_index=0' | jq
+curl --location --request POST 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/discarded/?order_index=0' | json_pp
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/discarded/?order_index=0' | jq
+curl --location --request POST 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/discarded/?order_index=0' | json_pp
 ```
 
 </TabItem>
@@ -823,14 +823,14 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/history/?order_index=0' | jq
+curl --location --request POST 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/history/?order_index=0' | json_pp
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/discarded/?order_index=0' | jq
+curl --location --request POST 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/0308500535c24468a977b250da266b18/discarded/?order_index=0' | json_pp
 ```
 
 </TabItem>
@@ -992,14 +992,14 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/b6bee25245724ddca6b852a7ec49f155/regimes/?order_index=0&metric_names=speedIndex,domContentLoaded,lastVisualChange' | jq
+curl --location --request GET 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/b6bee25245724ddca6b852a7ec49f155/regimes/?order_index=0&metric_names=speedIndex,domContentLoaded,lastVisualChange' | json_pp
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/b6bee25245724ddca6b852a7ec49f155/regimes/?order_index=0&metric_names=speedIndex,domContentLoaded,lastVisualChange' | jq
+curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/b6bee25245724ddca6b852a7ec49f155/regimes/?order_index=0&metric_names=speedIndex,domContentLoaded,lastVisualChange' | json_pp
 ```
 
 </TabItem>
@@ -1095,14 +1095,14 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/b6bee25245724ddca6b852a7ec49f155/regimes/acknowledge/?order_index=0' | jq
+curl --location --request POST 'https://api.us-west-1.saucelabs.com/v2/performance/metrics/b6bee25245724ddca6b852a7ec49f155/regimes/acknowledge/?order_index=0' | json_pp
 ```
 
 </TabItem>
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location --request POST 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/b6bee25245724ddca6b852a7ec49f155/regimes/acknowledge/?order_index=0' | jq
+curl --location --request POST 'https://api.eu-central-1.saucelabs.com/v2/performance/metrics/b6bee25245724ddca6b852a7ec49f155/regimes/acknowledge/?order_index=0' | json_pp
 ```
 
 </TabItem>

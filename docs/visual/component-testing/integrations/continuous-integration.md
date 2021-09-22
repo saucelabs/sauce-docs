@@ -1,23 +1,24 @@
 ---
 id: continuous-integration
-title: Continuous Integration with Visual Component Testing
+title: Integrate Visual Component Testing Into Your CI
 sidebar_label: Continuous Integration
-hide_table_of_contents: true
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Get continuous visual test automation by integrating Screener into your Continuous Integration (CI) process. Screener will automatically run tests, and pass or fail your builds depending on visual regressions found.
+Get continuous visual test automation by integrating Visual Component tests directly into your continuous integration (CI) build.
+
+Screener will automatically run tests, and pass or fail your builds depending on visual regressions found.
 
 ## Setup Steps
 
 1. After Screener is installed into your project, add the following command to your CI pipeline script:
-  ```bash
+  ```java
   npm run test-storybook
   ```
-2. Set the `baseBranch` option in your `screener.config.js` file to the name of your base branch ([Learn Why](https://screener.io/v2/docs/baseline-branch)):
+2. Set the `baseBranch` option in your `screener.config.js` file to the name of your base branch ([learn why](/visual/component-testing/workflow/baseline-branch)):
   ```java
   // screener.config.js
   module.exports = {

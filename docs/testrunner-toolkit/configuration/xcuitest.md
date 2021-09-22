@@ -21,7 +21,7 @@ saucectl run -c ./path/to/{config-file}.yml
 ```
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. If you are less comfortable with YAML, any of a wide variety of free online YAML/JSON validator tools may be helpful.
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](/testrunner-toolkit/ide-integrations/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
 :::
 
 
@@ -71,6 +71,7 @@ Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each s
 
 ```yaml
   timeout: 15m
+```
 ---
 
 ## `sauce`
@@ -80,9 +81,8 @@ The parent property containing all settings related to how tests are run and ide
 
 ```yaml
 sauce:
-  region: eu-central-1
+  region: eu-central-1  
   metadata:
-    name: Testing XCUITest Support
     tags:
       - e2e
       - release team
@@ -103,17 +103,20 @@ Specifies through which Sauce Labs data center tests will run. Valid values are:
 ---
 
 ### `metadata`
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT | VIRTUAL ONLY |</small></p>
 
-The set of properties that allows you to provide additional information about your project that helps you distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you, as shown in the following example:
+The set of properties that allows you to provide additional information about your project that helps distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you.
+
+:::note
+At this time, the `metadata` property is not supported for XCUITest, but is coming soon.
+:::
 
 ```yaml
 metadata:
-  name: Testing XCUITest Support
-  build: RC 10.4.a
+  build: RC 10.4.i
   tags:
     - e2e
-    - Android
+    - iPad
     - beta
     - featurex
 ```
@@ -136,6 +139,22 @@ Alternatively, you can override the file setting at runtime by setting the concu
 
 ```bash
 saucectl run --ccy 5
+```
+---
+
+### `retries`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Sets the number of times to retry a failed suite.
+
+```yaml
+  retries: 1
+```
+
+Alternatively, you can override the file setting at runtime by setting the retries flag as an inline parameter of the `saucectl run` command:
+
+```bash
+saucectl run --retries 1
 ```
 ---
 
@@ -171,7 +190,18 @@ A property containing one or more environment variables that are global for all 
     my_var: $MY_VAR
 ```
 ---
+## `reporters`
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
+Configures additional reporting capabilities provided by `saucectl`.
+
+```yaml
+reporters:
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
+```
+---
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -282,12 +312,12 @@ The path to the testing application. The property recognizes both `.ipa` and `.a
 ---
 
 ### `otherApps`
-<p><small>| OPTIONAL | ARRAY |</small></p>
+<p><small>| OPTIONAL | ARRAY | REAL DEVICES ONLY |</small></p>
 
-Set of one or more apps to be pre-installed for your tests. You can upload an app from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.ipa`) or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
+Set of up to seven apps to pre-install for your tests. You can upload an app from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.ipa`) or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
 
 :::note
-Apps specified as `otherApps` inherit the configuration of the main app under test for settings such as `proxy`, `locale`, and `device orientation`, regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test.
+Apps specified as `otherApps` inherit the configuration of the main app under test for [`Device Language`, `Device Orientation`, and `Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
 :::
 
 ```yaml
@@ -364,7 +394,7 @@ devices:
 #### `id`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Request a specific device for this test suite by its ID. You can look up device IDs in the Sauce Labs app or using our [Get Devices API request](https://docs.saucelabs.com/dev/api/rdc#get-devices).
+Request a specific device for this test suite by its ID. You can look up device IDs under the device selection page or by using our [Get Devices API request](https://docs.saucelabs.com/dev/api/rdc#get-devices).
 
 ```yaml
         id: iPhone_11_14_5_real_us
@@ -446,6 +476,8 @@ testOptions:
       - SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
       - SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
       - SwagLabsMobileAppUITests.LoginTests
+    notClass:
+      - SwagLabsMobileAppUITests.SwagLabsFlow/testCompleteFlow
 ```
 ---
 
@@ -459,6 +491,17 @@ Instructs `saucectl` to only run the specified classes for this test suite.
       - SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
       - SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
       - SwagLabsMobileAppUITests.LoginTests
+```
+---
+
+#### `notClass`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Instructs `saucectl` to run all classes for the suite *except* those specified here.
+
+```yaml
+    notClass:
+      - SwagLabsMobileAppUITests.SwagLabsFlow/testCompleteFlow
 ```
 ---
 

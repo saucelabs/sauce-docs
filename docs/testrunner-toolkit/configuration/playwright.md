@@ -21,7 +21,7 @@ saucectl run -c ./path/to/{config-file}.yml
 ```
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. If you are less comfortable with YAML, any of a wide variety of free online YAML/JSON validator tools may be helpful.
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](/testrunner-toolkit/ide-integrations/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
 :::
 
 
@@ -82,6 +82,7 @@ Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each s
 
 ```yaml
   timeout: 15m
+```
 ---
 
 ## `sauce`
@@ -147,6 +148,22 @@ Alternatively, you can override the file setting at runtime by setting the concu
 
 ```bash
 saucectl run --ccy 5
+```
+---
+
+### `retries`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Sets the number of times to retry a failed suite.
+
+```yaml
+  retries: 1
+```
+
+Alternatively, you can override the file setting at runtime by setting the retries flag as an inline parameter of the `saucectl run` command:
+
+```bash
+saucectl run --retries 1
 ```
 ---
 
@@ -235,6 +252,11 @@ The directory of files that need to be bundled and uploaded for the tests to run
 ```yaml
   rootDir: "packages/subpackage" # Some other package from within a monorepo
 ```
+
+:::caution
+Only the files contained within `rootDir` will be available during the tests. Any reference to a file that is not included in `rootDir` will make the tests fail.
+:::
+
 ---
 
 ## `npm`
@@ -274,7 +296,18 @@ Specifies any NPM packages that are required to run tests and should, therefore,
     "@playwright/react": "^5.0.1"
 ```
 ---
+## `reporters`
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
+Configures additional reporting capabilities provided by `saucectl`.
+
+```yaml
+reporters:
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
+```
+---
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -619,28 +652,3 @@ npm:
     "@babel/preset-typescript": "7.12"
     "@playwright/react": "^5.0.1"
 ```
-
-### Transpiling TypeScript Tests
-
-If your Playwright tests are in TypeScript, you need to transpile your Typescript files to JavaScript before running them with `saucectl`.
-
-1. Install typescript:
-
-   ```bash
-   npm install -g typescript
-   ```
-
-2. Review your `tsconfig.json` to ensure you've set the `compilerOptions` appropriately. Review the [documentation](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html#writing-a-configuration-file) for guidelines.
-
-3. Run the TypeScript compiler:
-
-   ```bash
-   tsc --project ./tests/tsconfig.json
-   ```
-4. Edit the `testMatch` properties for each of your test suites in `.sauce/config.yml` to call the JavaScript test files instead of the TypeScript files.
-
-   ```yaml
-   suites:
-     - name: "basic test"
-       testMatch: 'tests/*.js'
-   ```
