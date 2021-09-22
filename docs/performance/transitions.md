@@ -13,6 +13,7 @@ Capturing page load performance for a specific URL is a great start to detect op
 
 :::note
 Using automation to test performance after targeted interaction with your application in no way implies that you should integrate performance testing in your existing functional test suite. Testing function and performance in the same test is likely to result in compromised results for both objectives and can obscure failure troubleshooting.
+:::
 
 ## What You'll Learn
 
