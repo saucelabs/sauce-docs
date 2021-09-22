@@ -21,7 +21,7 @@ There are four status badges that correspond to the three states of a finished t
 With the browser matrix, you can keep track of the test status of your project for various browser/platform/operating system combinations.
 
 ### Build Status Badge Example
-<img src={useBaseUrl('img/test-results/browser-badges-unknown.png')} alt="Build status badge"/>
+<img src={useBaseUrl('img/test-results/build-status-badge.png')} alt="Build status badge"/>
 
 ### Browser Matrix Badge Example
 <img src={useBaseUrl('img/test-results/browser-matrix-badge.png')} alt="Browser matrix badge" width="100"/>
