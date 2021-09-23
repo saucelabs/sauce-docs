@@ -116,6 +116,11 @@ You can launch a test from the following screens:
 
   <img src={useBaseUrl('img/live-testing/live-mobile-test-ui.png')} alt="Mobile real device test interface" width="450"/>
 
+#### Time Limits and Timeouts for Real Devices
+* Live tests for free users have a 10 minute limit from session start
+* Live tests for all other users are limited to six hours
+* Live tests for paid users will timeout after 15 minutes of inactivity
+
 ## Live Test Interface
 
 | Icon | Name | Description |
