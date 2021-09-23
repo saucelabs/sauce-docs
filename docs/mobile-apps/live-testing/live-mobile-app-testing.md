@@ -12,7 +12,7 @@ With Sauce Labs, you can test your mobile applications on a variety of Android a
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* A mobile app to test. If you don't have one, you can use the [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile).
+* A mobile app to test.
 
 ### Uploading an App
 You can upload your app via the Sauce Labs UI or via the REST API. For information about uploading via the API, see [Upload Files with the REST API](/mobile-apps/app-storage).
@@ -21,6 +21,8 @@ To upload an app via the Sauce Labs UI:
 
 1. In Sauce Labs, in the left panel, click **LIVE** and then click **Mobile App**.
 2. Click **App Upload**. You can either drag and drop an application, or browse for and select the file. We currently support \*.apk Android app files, \*.aab Android App Bundle files and \*.ipa or \*.zip iOS app files (\*.zip files are parsed to determine whether a valid \*.app bundle exists). Non-app file uploads are not supported in the UI at this time, but can be uploaded through the API.
+
+  If you don't have an app to test, you can use the [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile).
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-nav.png')} alt="Upload an application" width="650"/>
 
