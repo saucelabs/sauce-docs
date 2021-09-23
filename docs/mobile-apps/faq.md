@@ -60,9 +60,9 @@ Yes. See [Camera Image Injection](/mobile-apps/features/camera-image-injection).
 
 For real devices on the public cloud, the limit is 6 hours; for private cloud devices there is no limit.
 
-#### **Can I upload files to or download files from a real device (iOS/Android)?**
+#### **Can I upload files to or download files from a real device?**
 
-Yes, by using virtual USB on a private device. See [Virtual USB Testing on Real Mobile Devices](https://docs.saucelabs.com/mobile-apps/virtual-usb) for more information.
+Yes,  by using virtual USB, but only on private Android devices. Currently, iOS does not have an option to upload or download files from real devices. See [Virtual USB Testing on Real Mobile Devices](https://docs.saucelabs.com/mobile-apps/virtual-usb) for more information.
 
 ### Security
 
