@@ -120,7 +120,7 @@ For example, store it in an environment variable called `SCREENER_API_KEY`, and 
 
 :::
 
-For additional configuration options, see the [Visual E2E Testing CLI Reference](/visual/e2e-testing/visual-e2e-cli) (Options section).
+For additional configuration options, see the [Visual E2E Testing CLI Reference](/visual/e2e-testing/commands-options) (Options section).
 
 
 ## 3. Connect To Remote Hub
@@ -268,7 +268,7 @@ static void test() {
 </Tabs>
 
 
-For more details on commands, view the [Visual Commands](/visual/e2e-testing/visual-e2e-cli) documentation.
+For more details on commands, view the [Visual Commands](/visual/e2e-testing/commands-options) documentation.
 
 For full examples, view [Code Examples](/visual/e2e-testing/code-examples).
 

@@ -18,10 +18,7 @@ Before you can add teams to your account, you must give your account a name. Thi
 
 :::note
 Your account will be named **My Account** temporarily until you name your account.
-<<<<<<< HEAD
-=======
 
->>>>>>> aa4f02fb25139fc1ecaa8ff2f143f0ac8c8fa63f
 :::
 
 
@@ -153,10 +150,7 @@ You will see the user added to the list. For new users, you will see **To Be Inv
 
 :::note
 For new users who are invited to join Screener, they will receive an invitation email. They can follow the instructions in the email to complete the registration process. When they are registered, they will have access to your project(s).
-<<<<<<< HEAD
-=======
 
->>>>>>> aa4f02fb25139fc1ecaa8ff2f143f0ac8c8fa63f
 :::
 
 
