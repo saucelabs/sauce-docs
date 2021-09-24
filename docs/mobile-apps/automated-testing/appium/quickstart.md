@@ -62,5 +62,9 @@ mvn clean test
 ```
 Alternatively, you can right click the test and choose `Run` from most IDE interfaces.
 
+:::note
+For Android tests, if your emulator session fails to start, make sure the app you are targeting is an `\*.apk`, not an `\*.aab`, as the latter is not yet supported in emulator tests.
+:::
+
 
 Following this quickstart, you should be able to see the [results of your test](https://app.saucelabs.com/dashboard/tests/vdc) in Sauce Labs.
