@@ -4,7 +4,7 @@ title: Mobile App Testing FAQ
 sidebar_label: FAQ
 ---
 
-## Emulators and Simulators
+## Virtual Devices
 
 #### **What type of keyboard and buttons do the Android emulators have?**
 
@@ -56,6 +56,13 @@ Yes. See [Camera Image Injection](/mobile-apps/features/camera-image-injection).
 * **Android emulators** - not supported.
 * **iOS simulators** - Yes, when using Appium version 1.21.0. See [Announcing support for Appium v1.21.0 on iOS Simulators](https://changelog.saucelabs.com/en/announcing-support-for-appium-v-on-ios-simulators) for more information.
 
+#### **Is there a maximum time I can use a real device for either manual or automated testing, provided I actually do interact with the device?**
+
+For real devices on the public cloud, the limit is 6 hours; for private cloud devices there is no limit.
+
+#### **Can I upload files to or download files from a real device?**
+
+Yes,  by using virtual USB, but only on private Android devices. Currently, iOS does not have an option to upload or download files from real devices. See [Virtual USB Testing on Real Mobile Devices](https://docs.saucelabs.com/mobile-apps/virtual-usb) for more information.
 
 ### Security
 
