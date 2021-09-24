@@ -37,7 +37,7 @@ In order to capture your Sauce Labs user account information for use in Slack no
 1. Click **Submit here**.
 
 :::note Multiple Data Centers
-The Slack Plugin is specific to the data center you specify during integration. If you have access to multiple data centers, you must repeat the Plugin install and setup process separately for each data center.
+If your Sauce Labs account has access to multiple data centers, you need only install the plugin once and it will be available for all data centers to which the account has access. If you have access to different data centers through different Sauce Labs accounts, you must install and setup the plugin separately for each Sauce Labs account.
 :::
 
 ## Add the Sauce App to Notification Channels
