@@ -357,7 +357,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Virtual USB',
+                    label: 'Virtual USB CLI',
                     collapsed: true,
                     items: [
                         'dev/cli/virtual-usb',
@@ -654,9 +654,9 @@ module.exports = {
                       'api-testing/mark3/quick-start/environments-vault-and-overrides-magic',
                       'api-testing/mark3/quick-start/flexible-variables-for-flexible-environments',
                       'api-testing/mark3/quick-start/the-vault',
-                      'api-testing/mark3/quick-start/importing-postman-collections',
                       ],
                   },
+             'api-testing/mark3/quick-start/importing-postman-collections',
              'api-testing/mark3/quick-start/integrate-with-your-cicd',
         ],
         "CI/CD": [
@@ -730,7 +730,7 @@ module.exports = {
                 label: 'E2E Testing',
                 collapsed: true,
                 items: [
-                    'visual/e2e-testing/webdriver-integration',
+                    'visual/e2e-testing/setup',
                     {
                         type: 'category',
                         label: 'Integrations',
@@ -748,14 +748,13 @@ module.exports = {
                         items: [
                             'visual/e2e-testing/workflow/review-workflow',
                             'visual/e2e-testing/workflow/baseline-branch',
+                            'visual/e2e-testing/workflow/change-details',
                             'visual/e2e-testing/workflow/visual-history',
                             'visual/e2e-testing/workflow/ignoring-changes',
                         ],
                     },
-                    'visual/e2e-testing/commands',
-                    'visual/e2e-testing/options',
+                    'visual/e2e-testing/commands-options',
                     'visual/e2e-testing/code-examples',
-                    'visual/e2e-testing/animations',
                     'visual/e2e-testing/supported-browsers',
                     'visual/e2e-testing/troubleshooting',
                 ],
@@ -772,9 +771,9 @@ module.exports = {
                         collapsed: true,
                         items: [
                             'visual/component-testing/integrations/continuous-integration',
-                            'visual/component-testing/integrations/github',
-                            'visual/component-testing/integrations/webhooks',
                             'visual/component-testing/integrations/slack',
+                            'visual/component-testing/integrations/webhooks',
+                            'visual/component-testing/integrations/github',
                             'visual/component-testing/integrations/visual-studio-team-services',
                             'visual/component-testing/integrations/sauce-labs',
                         ],
@@ -786,18 +785,17 @@ module.exports = {
                         items: [
                             'visual/component-testing/workflow/review-workflow',
                             'visual/component-testing/workflow/baseline-branch',
-                            'visual/component-testing/workflow/ignoring-changes',
+                            'visual/component-testing/workflow/change-details',
                             'visual/component-testing/workflow/visual-history',
+                            'visual/component-testing/workflow/ignoring-changes',
                             'visual/component-testing/workflow/include-exclude-settings',
                         ],
                     },
-                    'visual/component-testing/animations',
-                    'visual/component-testing/cross-browser-testing',
-                    'visual/component-testing/testing-interactions',
-                    'visual/component-testing/animations',
+                    'visual/component-testing/supported-browsers',
+                    'visual/component-testing/storybook-interactions-testing',
                 ],
             },
-        'visual/change-details',
+        'visual/css-animations',
         'visual/acct-team-mgmt',
         'visual/notifications',
         ],
@@ -806,6 +804,11 @@ module.exports = {
             'dev/error-messages',
             'dev/test-configuration-options',
             'dev/w3c-webdriver-capabilities',
+            {
+                type: 'link',
+                label: 'Visual E2E Testing', // The label that should be displayed (string).
+                href: '/visual/e2e-testing/commands-options' // The target URL (string).
+            },
             'dev/data-center-maint',
         ],
         Contributing: [

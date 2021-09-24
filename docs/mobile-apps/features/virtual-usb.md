@@ -124,14 +124,10 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
 
 :::note
 Method 1 is recommended for the following reasons:
-<<<<<<< HEAD
-  * All menu options to control the device are available with Method 1 and **NOT** with Method 2.
-  * Interactions and gestures on an iOS device session are much faster in comparison to Method 2.
-=======
+
 * All menu options to control the device are available with Method 1 and **NOT** with Method 2.
 * Interactions and gestures on an iOS device session are much faster in comparison to Method 2.
 
->>>>>>> aa4f02fb25139fc1ecaa8ff2f143f0ac8c8fa63f
 :::
 
   If your vUSB test session launch is successful, you'll see a success message:
