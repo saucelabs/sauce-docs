@@ -59,7 +59,7 @@ Modify the `config.yml` file to run your existing tests.
 * **TestObject Migration:** refer to the [Commands Map](#legacy-to-saucectl-commands-map) to determine which CLI commands and/or YAML configuration properties to use based on your TestObject configurations.
 * **New Accounts:** see the `saucectl` configuration documentation for [Espresso](/testrunner-toolkit/configuration/espresso) and [XCUITest](/testrunner-toolkit/configuration/xcuitest).
 
-For Android tests, if your emulator session fails to start, make sure the app you are targeting is an `\*.apk`, not an `\*.aab`, as the latter is not supported in emulator tests.
+For Android tests, if your emulator session fails to start, make sure the app you are targeting is an `\*.apk`, not an `\*.aab`, as the latter is not yet supported in emulator tests.
 
 
 :::tip Alternative Config Files
