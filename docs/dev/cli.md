@@ -24,6 +24,14 @@ hide_table_of_contents: true
   </div>
 </div>
 <div>
+  <div className="box boxwidetop card">
+    <div className="container">
+    <a href="/visual/e2e-testing/commands-options"><h3>Visual E2E Testing CLI</h3></a>
+    <p>Use these commands and options in your WebDriver test code to control your Visual E2E tests.</p>
+    </div>
+  </div>
+</div>
+<div>
   <div className="box boxwidebottom card">
     <div className="container">
     <a href="/dev/cli/virtual-usb"><h3>Virtual USB CLI</h3></a>

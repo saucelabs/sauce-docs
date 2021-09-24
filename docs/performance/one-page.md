@@ -135,7 +135,7 @@ $ speedo analyze "Instagram Login Test" -u "Slavocado" -k "XXXXXXXXX-XXXX-XXXX-X
 
 The following screenshot shows an example of the returned output for the analysis of the automation test.
 
-<img src={useBaseUrl('speedo-analyze-output.png')} alt="Analyze Command Output" width="750"/>
+<img src={useBaseUrl('img/performance/speedo-analyze-output.png')} alt="Analyze Command Output" width="750"/>
 
 ## Integrating with a CI/CD Pipeline
 
