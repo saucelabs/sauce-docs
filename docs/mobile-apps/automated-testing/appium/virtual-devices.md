@@ -27,6 +27,10 @@ To begin, upload your app to a publicly available source. Accepted file types ar
 * Upload a local file using the [App Storage REST API](/dev/api/storage/#upload-file-to-app-storage)
 * Provide a URL to install from a [Remote Location](/mobile-apps/automated-testing/appium/real-devices/#uploading-mobile-apps-from-a-remote-location)
 
+:::note
+`\*.aab` files are not yet supported for Android emulator tests.
+:::
+
 
 ## Set Your Test Credentials
 
@@ -338,6 +342,10 @@ where you'll find demo scripts for a variety of use cases to get you started wit
 * [Python](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/best_practice/mobile_native)
 * [Ruby](https://github.com/saucelabs-training/demo-ruby/blob/docs-1.0/appium-examples)
 * [C#](https://github.com/saucelabs-training/demo-csharp)
+
+::note
+For Android tests, if your emulator session fails to start, make sure the app you are targeting is an `\*.apk`, not an `\*.aab`, as the latter is not yet supported in emulator tests.
+:::
 
 ## Additional Resources
 
