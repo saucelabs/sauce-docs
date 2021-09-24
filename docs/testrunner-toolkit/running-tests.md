@@ -110,7 +110,7 @@ You can use the `--tunnel-id` flag with `saucectl` in order to use an existing S
 saucectl run --tunnel-id <tunnel-id>
 ```
 
-> For more information on how to use the `--tunnel-id` flag, please visit the [CLI Reference](/testrunner-toolkit/saucectl#tunnel-id).
+> For more information on how to use the `--tunnel-id` flag, please visit the [CLI Reference](/testrunner-toolkit/saucectl/#tunnel-id).
 
 To enable Sauce Connect Proxy in the `config.yml`, use the `tunnel` field:
 
@@ -162,7 +162,7 @@ suites:
     mode: docker
 ```
 
-ensure the `docker` container can access the local app server (e.g. `localhost:<port>/`) from your host machine. After the tests complete the results upload to the Sauce Labs results dashboard.
+Ensure the `docker` container can access the local app server (e.g. `localhost:<port>/`) from your host machine. After the tests complete the results upload to the Sauce Labs results dashboard.
 
 ### Run Tests on Sauce Labs with Sauce Connect
 
@@ -250,3 +250,7 @@ test(testName, async t => {
 
 </TabItem>
 </Tabs>
+
+::note
+For Android tests, if your emulator session fails to start, make sure the app you are targeting is an `\*.apk`, not an `\*.aab`, as the latter is not yet supported in emulator tests.
+:::
