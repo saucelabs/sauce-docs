@@ -54,7 +54,7 @@ Yes. See [Camera Image Injection](/mobile-apps/features/camera-image-injection).
 * **Android Real Devices** - Yes. It works automatically with no action required.
 * **iOS Real Devices** - Yes. Prior to testing, you'll need to disable resigning; this enables notifications testing. Disabling resigning is a feature available for [private devices only](/mobile-apps/supported-devices#private-device-cloud). To disable resigning, go to **Live** > **Mobile App** > Locate your iOS mobile app from your list of uploaded app > Click **Settings** > Toggle **Instrumentation** so that it says **Disabled**. You'll need to start keeping track of the iOS device UDIDs (Unique Device Identifier) by maintaining them in your own Apple Developer profile used at app build time.
 * **Android emulators** - not supported.
-* **iOS simulators** - not supported.
+* **iOS simulators** - Yes, when using Appium version 1.21.0. See [Announcing support for Appium v1.21.0 on iOS Simulators](https://changelog.saucelabs.com/en/announcing-support-for-appium-v-on-ios-simulators) for more information.
 
 #### **Is there a maximum time I can use a real device for either manual or automated testing, provided I actually do interact with the device?**
 
