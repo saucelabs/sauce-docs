@@ -36,7 +36,7 @@ Does your app render quickly and flawlessly every time on every device and opera
   <div className="box box4 card">
     <div className="container">
     <a href="/performance/analyze"><h2>Results Analysis</h2></a>
-    <p>Use the Sauce Labs dashboard tools to view your results in different visualized perspectives.</p>
+    <p>Use our analytics tools to view your test results in different visualized perspectives.</p>
     </div>
   </div>
 </div>

@@ -4,7 +4,7 @@ title: "Virtual USB CLI: Start Test Session"
 sidebar_label: Start Session
 ---
 
-The [`startSession`](/mobile-apps/virtual-usb#start-test-session) command provides the server with your credentials and the name of the device you want to connect to, then launches a brand new live test session via the command line. This is one of two ways to start a Virtual USB test; the other is to [connect to an existing session](/dev/cli/virtual-usb/connect-session).
+The [`startSession`](/mobile-apps/features/virtual-usb#start-test-session) command provides the server with your credentials and the name of the device you want to connect to, then launches a brand new live test session via the command line. This is one of two ways to start a Virtual USB test; the other is to [connect to an existing session](/dev/cli/virtual-usb/connect-session).
 
 ## Required
 

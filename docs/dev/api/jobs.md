@@ -10,9 +10,18 @@ import TabItem from '@theme/TabItem';
 
 The Jobs API methods allow you to review and edit the metadata associated with the tests you are running on Sauce Labs. You can also stop tests, delete jobs, and filter lists of jobs by a variety of attributes, such as owner, time period, build, or environment.
 
-> **NOTE:** These calls are specific to jobs running in simulation. For methods related to Real Device testing, see [Real Device API Methods](/dev/api/rdc).
+:::note
+These calls are specific to jobs running in simulation. For methods related to Real Device testing, see [Real Device API Methods](/dev/api/rdc).
+:::
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
+
+
+## What You'll Need
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+
 
 ## Jobs Methods
 
@@ -31,7 +40,7 @@ Get a list of recent jobs run by the specified user.
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs user whose jobs you are looking up. You can look up Sauce Labs users in your organization using the <a href="accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs user whose jobs you are looking up. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -78,7 +87,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jsmith/jobs?from=1616262316&to=1618940716' | jq
+--request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jsmith/jobs?from=1616262316&to=1618940716' | json_pp
 ```
 
 </TabItem>
@@ -87,7 +96,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jsmith/jobs?from=1616262316&to=1618940716' | jq
+--request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jsmith/jobs?from=1616262316&to=1618940716' | json_pp
 ```
 
 </TabItem>
@@ -160,7 +169,7 @@ Get detailed information about a specific job.
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs user whose jobs you are looking up. You can look up Sauce Labs users in your organization using the <a href="accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs user whose jobs you are looking up. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -183,7 +192,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jsmith/jobs/eed5eb4999d840f89f67f8b6d60a2da3' | jq
+--request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jsmith/jobs/eed5eb4999d840f89f67f8b6d60a2da3' | json_pp
 ```
 
 </TabItem>
@@ -192,7 +201,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jsmith/jobs/eed5eb4999d840f89f67f8b6d60a2da3' | jq
+--request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jsmith/jobs/eed5eb4999d840f89f67f8b6d60a2da3' | json_pp
 ```
 
 </TabItem>
@@ -271,7 +280,7 @@ Edit job attributes based on parameters passed in the request, including setting
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job you are updating. You can look up Sauce Labs users in your organization using the <a href="accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job you are updating. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-usersaccounts/">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -462,7 +471,7 @@ Get detailed information about a specific job.
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job to stop. You can look up Sauce Labs users in your organization using the <a href="accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job to stop. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -485,7 +494,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/ec92ec2e200d40b8a75a4f6c06e2226f/stop' | jq
+--request PUT 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/ec92ec2e200d40b8a75a4f6c06e2226f/stop' | json_pp
 ```
 
 </TabItem>
@@ -494,7 +503,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/ec92ec2e200d40b8a75a4f6c06e2226f/stop' | jq
+--request PUT 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/ec92ec2e200d40b8a75a4f6c06e2226f/stop' | json_pp
 ```
 
 </TabItem>
@@ -582,7 +591,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/jobs/a521fd8a78c4426fb10ab765ab1f6831' | jq
+--request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/jobs/a521fd8a78c4426fb10ab765ab1f6831' | json_pp
 ```
 
 </TabItem>
@@ -591,7 +600,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1.1/jobs/a521fd8a78c4426fb10ab765ab1f6831' | jq
+--request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1.1/jobs/a521fd8a78c4426fb10ab765ab1f6831' | json_pp
 ```
 
 </TabItem>
@@ -633,7 +642,7 @@ Delete the entire test history and all assets for the specified user.
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs user whose jobs you are deleting. You can look up Sauce Labs users in your organization using the <a href="accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs user whose jobs you are deleting. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -650,7 +659,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/nancy.sweeney/jobs' | jq
+--request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/nancy.sweeney/jobs' | json_pp
 ```
 
 </TabItem>
@@ -659,7 +668,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/nancy.sweeney/jobs' | jq
+--request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/nancy.sweeney/jobs' | json_pp
 ```
 
 </TabItem>
@@ -701,7 +710,7 @@ Get a list of files associated with a specific test, such as the logs, video, an
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job. You can look up Sauce Labs users in your organization using the <a href="accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -724,7 +733,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets' | jq
+--request GET 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets' | json_pp
 ```
 
 </TabItem>
@@ -733,7 +742,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets' | jq
+--request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets' | json_pp
 ```
 
 </TabItem>
@@ -789,7 +798,7 @@ Retrieve one of the asset files associated with a job, such as a log file, video
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job. You can look up Sauce Labs users in your organization using the <a href="accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -818,7 +827,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets/performance.json' | jq
+--request GET 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets/performance.json' | json_pp
 ```
 
 </TabItem>
@@ -827,7 +836,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets/performance.json' | jq
+--request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets/performance.json' | json_pp
 ```
 
 </TabItem>
@@ -1023,7 +1032,7 @@ Sauce Labs retains job asset files for 30 days, after which, they are purged, bu
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job. You can look up Sauce Labs users in your organization using the <a href="accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1046,7 +1055,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets' | jq
+--request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets' | json_pp
 ```
 
 </TabItem>
@@ -1055,7 +1064,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets' | jq
+--request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets' | json_pp
 ```
 
 </TabItem>
@@ -1152,7 +1161,7 @@ Get a list of recent builds run by the specified user.
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs users whose builds you are looking up. You can look up Sauce Labs users in your organization using the <a href="accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs users whose builds you are looking up. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1169,7 +1178,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jsmith/builds' | jq
+--request GET 'https://api.us-west-1.saucelabs.com/rest/v1/jsmith/builds' | json_pp
 ```
 
 </TabItem>
@@ -1178,7 +1187,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jsmith/builds' | jq
+--request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jsmith/builds' | json_pp
 ```
 
 </TabItem>

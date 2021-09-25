@@ -3,7 +3,8 @@ id: config-adfs
 title: Configuring Active Directory Federation Services (AD FS)
 sidebar_label: Configuring Active Directory Federation Services (AD FS)
 ---
-**NOTE:** These instructions are for setting up Microsoft's Active Directory Federated Service (AD FS) as an Identity Provider for Sauce Labs SSO using Windows Server 2012 R2 and ADFS 3.0. ADFS 3.0 is also supported on Windows Server 2008R2, but may require additional configuration for that operating system.
+
+These instructions are for setting up Microsoft's Active Directory Federated Service (AD FS) as an Identity Provider for Sauce Labs SSO using Windows Server 2012 R2 and ADFS 3.0. ADFS 3.0 is also supported on Windows Server 2008R2, but may require additional configuration for that operating system.
 
 ## Before You Begin
 - Make sure that your Active Directory Domain Service is set up

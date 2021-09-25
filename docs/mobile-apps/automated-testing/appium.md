@@ -11,10 +11,10 @@ import TabItem from '@theme/TabItem';
 
 Looking to incorporate Appium in your mobile testing strategy? This page can help you understand the system architecture and requirements, as well as how to design a test strategy that yields the most meaningful results.
 
-
-## Appium Overview
-
 [Appium](http://appium.io/) is an automation testing framework that allows you to write tests using the [Selenium](https://www.selenium.dev) syntax that are for use in testing native, mobile web, and hybrid applications on iOS and Android devices. Run your Appium tests on Sauce Labs to benefit from speed, parallelization, clear test result history, failure analysis, issue tracking, and more.
+
+## What You'll Need
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 
 ## Appium Architecture
 

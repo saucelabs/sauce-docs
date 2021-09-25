@@ -95,3 +95,5 @@ private void printSessionId() {
     System.out.println(message);
 }
 ```
+
+<p className="deis">We recognize that there are times we use words that are part of a troublesome history. We're working toward replacing these as part of the move to inclusive language within the tech community as a whole.</p>
