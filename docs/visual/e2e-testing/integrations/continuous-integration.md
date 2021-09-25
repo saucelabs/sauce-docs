@@ -16,7 +16,7 @@ If your tests are already integrated into CI, get visual results returned into y
 
 ## 1. Return Visual results into your WebDriver test(s)
 
-To get the test results, add the [`@visual.end` command](/visual/e2e-testing/commands-options) right before ending your test session. The returned result can then be asserted to pass or fail your test.
+To get the test results, add the [`@visual.end` command](https://docs.saucelabs.com/visual/e2e-testing/commands-options/#end-command) right before ending your test session. The returned result can then be asserted to pass or fail your test.
 
 <Tabs
   defaultValue="JavaScript"

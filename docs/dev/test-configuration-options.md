@@ -903,7 +903,7 @@ See [Sauce Labs Training on GitHub](https://github.com/saucelabs-training).
 
 While [Visual Testing](/visual) runs on Sauce Labs servers, the URL gets sent to `"https://hub.screener.io"`. This means that the [`username`](#username) and [`accessKey`](#accesskey) values are required.
 
-See [Visual Testing with WebDriver](/visual/e2e-testing/setup) and [Visual Options](/visual/e2e-testing/commands-options).
+See [Visual Testing with WebDriver](/visual/e2e-testing/setup) and [Visual Commands and Options](/visual/e2e-testing/commands-options).
 
 ### Unsupported Appium Capabilities
 
