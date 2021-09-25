@@ -1,13 +1,13 @@
 ---
 id: quick-start
 title: Create Your First Test
-sidebar_label: Creating a Test
+sidebar_label: Quickstart
 description: Learn how to quickly generate a test in API Fortress. By using the payload from an API call or from a specification file.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This page is a quickstart guide for getting up and running with the API Fortress tool. API Fortress may be deployed in our hosted cloud or self-hosted/on-premises via a container behind your firewall. Maintain complete test data ownership. [Learn more about the differences between the two types of deployments](/api-testing/mark2/self-hosted/on-prem-platform). 
+This page is a quickstart guide for getting up and running with the API Fortress tool. API Fortress may be deployed in our hosted cloud or self-hosted/on-premises via a container behind your firewall. Maintain complete test data ownership. [Learn more about the differences between the two types of deployments](/api-testing/mark2/self-hosted/on-prem-platform).
 
 Below, we walk through how to quickly create a test using an e-commerce API. Let's get started!
 
@@ -15,14 +15,14 @@ Below, we walk through how to quickly create a test using an e-commerce API. Let
 
 * An API Fortress Account
 
-:::caution Confirm your Email Address 
+:::caution Confirm your Email Address
 You should receive an email with your login credentials from the platform. If you haven’t, please email us at [support@saucelabs.com](mailto:support@saucelabs.com). If you’d like to trial mocking or load testing, please contact support or your API Fortress representative.
 :::
 
 
 ## Step 1: Create a Project
 
-When you first log in, you are introduced to the Dashboard. 
+When you first log in, you are introduced to the Dashboard.
 
 Select the **Create Project** tab.
 
@@ -45,12 +45,12 @@ Enter the details about your test and select **Save**.
 Once you finish creating your test, you should see the _Test Composer page_.
 <img src={useBaseUrl('img/api-fortress/2021/01/testComposerPage.png')} alt="Test Composer Page"/>
 
-There are two avenues that you may take in building a test from here: 
+There are two avenues that you may take in building a test from here:
 
 * Use the _Visual Test Composer_
 * Use the _Live Code View_
 
-For the purposes of this quickstart guide, the next page walks through how to use the _Visual Test Composer_ view. 
+For the purposes of this quickstart guide, the next page walks through how to use the _Visual Test Composer_ view.
 
 :::tip Build Tests from Spec Files
 To build tests using spec file(s) see: [Build from Spec](/api-testing/mark2/quick-start/build-from-spec).
@@ -79,7 +79,7 @@ Select the `GET` request component.
 Edit the following details:
 * Url: `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions` - This URL returns a `json` response body.
 * Variable: `payload` - This variable stores the response.
-  
+
   <img src={useBaseUrl('img/api-fortress/2021/01/getFields.png')} alt="GET request fields"/>
 
 Leave the rest of the fields blank and select _Save_.

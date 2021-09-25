@@ -18,6 +18,11 @@ export const Highlight = ({children, color}) => ( <span style={{
 
 Test annotation refers to adding information to your tests after they have completed, such as setting a name, build number, tag, and Pass/Fail status. These annotations are useful for managing your tests and builds (for example, when searching and sorting tests in your [Archives](/test-results/archived-test-results)). You can add annotations with our [REST API](/basics/test-config-annotation/test-annotation) or the [Selenium JavaScript Executor](/basics/test-config-annotation/test-annotation). You can also use [sample test frameworks](https://github.com/saucelabs-training) to automatically add annotations to your tests.
 
+## What You'll Need
+
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+
 ## Selenium JavaScript Executor
 Selenium's JavascriptExecutor lets you use JavaScript commands in your test scripts to perform actions in the browser. We've developed a set of custom JavascriptExecutor methods you can use to annotate tests and record pass/fail status. You can also use these methods to track information in your Selenium log for debugging.
 

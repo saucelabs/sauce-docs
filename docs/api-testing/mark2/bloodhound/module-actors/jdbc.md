@@ -4,7 +4,7 @@ title: "Bloodhound: JBDC Module"
 sidebar_label: JBDC
 ---
 
-The module implements multiple actors involving the connection to JDBC databases. 
+The module implements multiple actors involving the connection to JDBC databases.
 
 ## Proxy
 
@@ -12,7 +12,9 @@ The module implements multiple actors involving the connection to JDBC databases
 
 An upstream actor that acts as a backend for a route.
 
-**Note:** the current implementation is **synchronous** 
+::note
+The current implementation is **synchronous**
+:::
 
 **class:** `com.apifortress.afthem.modules.jdbc.actors.proxy.UpstreamJdbcActor`
 

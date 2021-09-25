@@ -1,10 +1,8 @@
 ---
 id: supported-browsers
-title: Visual E2E Supported Browsers
-sidebar_label: Supported Browsers
+title: Visual E2E Supported Browsers and Operation Systems
+sidebar_label: Supported Browsers and OSs
 ---
-
-For more details on platforms available in Sauce Labs, please see the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/).
 
 ## Browser Versions Supported
 
@@ -119,3 +117,9 @@ For more details on platforms available in Sauce Labs, please see the [Sauce Lab
    </td>
   </tr>
 </table>
+
+## Additional Information
+
+For more information on what we support, see:
+* [Sauce Labs | Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices)
+* [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/)
