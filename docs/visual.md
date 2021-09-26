@@ -15,7 +15,7 @@ Know exactly where and what has changed so that you can deliver a consistent and
   <p>Combine visual and functional testing in the same run by integrating your Selenium WebDriver tests with our End-to-End (E2E) solution.</p>
   <ul>
       <li><a href="/visual/e2e-testing/setup">Selenium WebDriver Integration</a></li>
-      <li><a href="/visual/e2e-testing/commands-options">Visual E2E Testing CLI Reference</a></li>
+      <li><a href="/visual/e2e-testing/commands-options">Visual E2E Testing Commands and Options</a></li>
       <li><a href="/visual/e2e-testing/workflow/review-workflow">Workflow</a></li>
   </ul>
   </div>
