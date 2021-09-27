@@ -49,7 +49,7 @@ If you just have one project, you can use your main Sauce Labs account name. If 
 :::
 
 2. Run your tests.
-3. For every test that runs using the test configuration options:<ul><li>Set a build name on your capabilities (see [Use Build IDs, Tags, and Names to Identify Your Tests](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation/#use-build-ids-tags-and-names-to-identify-your-tests)).</li><li>Set pass/fail on your tests via some of our different options (see [Setting Pass/Fail](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation/#setting-passfail)).</li><li>Set test visibility to public (see [Test Configuration Options - public](https://docs.saucelabs.com/dev/test-configuration-options/#public)). If the visibility shouldn't be public, see [Status Images for Private Accounts](https://docs.saucelabs.com/test-results/badges-browser-matrix/#status-images-for-private-accounts).</li></ul>
+3. For every test that runs using the test configuration options:<ul><li>Set a build name on your capabilities (see [Use Build IDs, Tags, and Names to Identify Your Tests](/basics/test-config-annotation/test-annotation/#use-build-ids-tags-and-names-to-identify-your-tests)).</li><li>Set pass/fail on your tests via some of our different options (see [Setting Pass/Fail](/basics/test-config-annotation/test-annotation/#setting-passfail)).</li><li>Set test visibility to public (see [Test Configuration Options - public](/dev/test-configuration-options/#public)). If the visibility shouldn't be public, see [Private Accounts](#private-accounts).</li></ul>
 If these are set correctly, your tests will display a **Pass** or **Failed** status instead of **Finished** on your dashboard, and a build number will also be displayed.
 
 ### Setting Up the Browser Matrix Widget
@@ -93,9 +93,9 @@ Follow the instructions below to run the sample demo that exists in the [saucela
 git clone https://github.com/saucelabs-training/demo-sauce-status-badge.git
 ```
 
-2. Set your Sauce Labs Credentials as environment variables (for more information, see Using Environment Variables).
+2. Set your Sauce Labs Credentials as environment variables (for more information, see [Using Environment Variables](/basics/environment-variables).
 
-3. Add the username for the badge and matrix URLs like so:
+3. Add the username for the badge and matrix URLs:
   * Build Status Badge Example URL:
     ```
     [![Build Status](https://app.saucelabs.com/buildstatus/SAUCE_USERNAME)](https://app.saucelabs.com/u/SAUCE_USERNAME)
