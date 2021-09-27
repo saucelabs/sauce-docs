@@ -28,28 +28,32 @@ We provide testing capabilities for mobile app biometric authentication (fingerp
 
 To enable biometric authentication for your app:
 
-1. Click **LIVE** > **Mobile App** to navigate to Sauce Labs real devices.
-2. If you haven't already, upload your app file.
-3. Hover over your app row and click **Settings**.
-4. Set **Biometrics Interception** to **Enabled**.
-5. Return to the app menu by clicking **Back to App Selection**.
-6. Start up your live test session:
-    1. Hover over your app and click **Choose Device**.
-    1. Choose an available device from the menu.
-    1. Click **Launch**.
+1. In Sauce Labs, click **LIVE** and then click **Mobile App**.
+2. On the **App Selection** page, hover over the test and then click **Settings**.
+
+  <img src={useBaseUrl('img/live-testing/live-mobile-app-settings-nav.png')} alt="Mobile app settings navigation" width="650"/>
+
+3. On the **Settings** page, ensure that **Biometrics Interception** is enabled and then return to the **App Selection** page.
+
+  <img src={useBaseUrl('img/live-testing/biometrics-enabled.png')} alt="Biometrics Interception - Enabled" width="650"/>
+
+4. On the **App Selection** test page, hover over the test and then click **Choose Device**.
+
+  <img src={useBaseUrl('img/live-testing/image-injection-choose-device.png')} alt="Image Injection - Choose Device" width="650"/>
+
+5. On the device selection page, hover over a device and then click **Launch**.
+
+  <img src={useBaseUrl('img/live-testing/image-injection-launch.png')} alt="Image Injection - Launch" width="650"/>
 
 To initiate a fingerprint or facial recognition action in your live test session:
 
-1. In the toolbar, click the **Authentication** fingerprint icon.
-2. Select a response:
-    * Select **PASS** to imitate successful authentication.
-    * Select **FAIL** to imitate unsuccessful authentication.  
+1. In the live test window, in the right toolbar, click **More Device Options** and then click **Biometric Authentication**.
 
-<img src={useBaseUrl('img/mobile-apps/biometric-auth-1.png')} alt="Biometric authorization live testing" width="200"/>
-<br/>
-<img src={useBaseUrl('img/mobile-apps/biometric-auth-2.gif')} alt="Biometric authorization live testing" width="650"/>
+  <img src={useBaseUrl('img/live-testing/biometric-toolbar.png')} alt="Image Injection - Launch" width="450"/>
 
-See [Live Mobile App Testing Toolbar](/mobile-apps/live-testing/live-mobile-app-testing/#app-settings) for more information.
+2. In the **Biometric Authentication** window, click **Pass** to imitate successful authentication or click **Fail** to imitate an unsuccessful authentication.
+
+    <img src={useBaseUrl('img/live-testing/biometric-nav.png')} alt="Biometric Authentication" width="450"/>
 
 
 ## Automated Testing

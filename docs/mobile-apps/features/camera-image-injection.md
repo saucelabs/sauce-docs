@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 <p><small><span className="sauceDBlue">Real Devices Only</span></small></p>
 
-Do you have a mobile app with the ability to take images on the device camera, then process or store them within the app (e.g., scanning/depositing a check on banking app)?
+Do you have a mobile app with the ability to take images on the device camera, then process or store them within the app (e.g., scanning/depositing a check in a banking app)?
 
 Camera image injection, also known as camera mocking, is a Sauce Labs Real Device Cloud (RDC) core feature that simulates taking a picture through your mobile app. It then allows you to test your app's camera-based functionality and deliver the best possible user experience.
 
@@ -68,17 +68,17 @@ For iOS devices, the camera can be configured with different outputs. We support
 
 Below are common use cases ideal for implementing Camera Image Injection in your tests.
 
-* **Scanning a Check for a Mobile Banking App Deposit**: Many mobile banking apps allow customers to deposit checks using their smartphone. The customer takes and uploads an image of their physical paper check, and the image is then submitted to the bank for processing.
-* **Using a QR Code to Link to an Embedded URL**: QR codes are often used as a way to bridge print media to digital. Users take a photo with a QR code reader app, the app scans the code and directs them to an embedded URL. For use cases that involve scanning barcodes or QR codes, your own application in testing must do the actual image processing. Camera Image Injection passes your uploaded image directly to your app as if it came from the device camera; it does not do any processing.
-* **Taking a Selfie for a User Profile Photo**: This could be taking a selfie or uploading a picture for apps that require a user profile photo. You can use Camera Image Injection to test image formats and sizes.
-* **Taking an Image to Store or Send via Mobile App**: Whether it’s a social media app or photo sharing, this use case can encompass many different scenarios. In its simplest form, it could be taking pictures from the front or back camera to send and/or archive within the app.
+* **Scanning a check for a mobile banking app deposit**: Many mobile banking apps allow customers to deposit checks using their smartphone. The customer takes and uploads an image of their physical paper check, and the image is then submitted to the bank for processing.
+* **Using a QR code to link to an embedded URL**: QR codes are often used as a way to bridge print media to digital. Users take a photo with a QR code reader app, the app scans the code and directs them to an embedded URL. For use cases that involve scanning barcodes or QR codes, your own application in testing must do the actual image processing. Camera Image Injection passes your uploaded image directly to your app as if it came from the device camera; it does not do any processing.
+* **Taking a selfie for a user profile photo**: This could be taking a selfie or uploading a picture for apps that require a user profile photo. You can use Camera Image Injection to test image formats and sizes.
+* **Taking an image to store or send via mobile app**: Whether it’s a social media app or photo sharing, this use case can encompass many different scenarios. In its simplest form, it could be taking pictures from the front or back camera to send and/or archive within the app.
 
 ## Live Testing
 
-During a live test, you'll be prompted in the UI to upload a photo that will be fed to your app, rather than using your device camera to take the photo.
+During a live test, you'll be prompted in Sauce Labs to upload a photo that will be fed to your app, rather than using your device camera to take the photo.
 
 1. In Sauce Labs, click **LIVE** and then click **Mobile App**.
-2. On the **App Selection** test page, hover over the test and then click **Settings**.
+2. On the **App Selection** page, hover over the test and then click **Settings**.
 
   <img src={useBaseUrl('img/live-testing/live-mobile-app-settings-nav.png')} alt="Mobile app settings navigation" width="650"/>
 
@@ -96,11 +96,11 @@ During a live test, you'll be prompted in the UI to upload a photo that will be 
 
 6. When you want to capture an image of the test, in the right toolbar, click **More Device Options** and then click **Camera Injection**.
 
-  <img src={useBaseUrl('img/live-testing/camera-injection-nav.png')} alt="Camera Injection navigation" width="650"/>
+  <img src={useBaseUrl('img/live-testing/camera-injection-nav.png')} alt="Camera Injection navigation" width="450"/>
 
 7. Click **Choose Image** and navigate to the image you want to use.
 
-  <img src={useBaseUrl('img/live-testing/live-mobile-app-camera-nav.png')} alt="Camera image injection navigation" width="450"/>
+  <img src={useBaseUrl('img/live-testing/camera-injection-choose.png')} alt="Choose a file" width="450"/>
 
   If the image upload is successful, you will see a thumbnail of the image and a successful upload message.
 
@@ -108,16 +108,35 @@ During a live test, you'll be prompted in the UI to upload a photo that will be 
 
 8. Activate the camera inside of your app. The device will show your uploaded image in the app as if the image was taken by the device camera. The image will continue to be available, should you go back to the camera during your test session, or you can upload another image and capture it with the camera.
 
+  <img src={useBaseUrl('img/live-testing/camera-injection-camera.png')} alt="Image in camera app" width="350"/>
+
 ### Testing with QR Codes
+You can use the camera image injection feature to upload QR codes for testing.
 
-When injecting an image with a QR Code or barcode, the image size in your preview may exceed the boundaries of the target scanner area, which would prevent your app from reading the code. In this scenario, you'd need to add padding to your uploaded image so that when it's scaled to full-screen, the QR Code will fit inside the scanning area limits and can be processed.
+1. In the live test window, in the right toolbar, click **More Device Options** and then click **Camera Injection**.
 
+2. Click **Choose Image** and navigate to the QR code file.
+
+  <img src={useBaseUrl('img/live-testing/camera-injection-qr-nav.png')} alt="QR file navigation" width="450"/>
+
+  If the image upload is successful, you will see a thumbnail of the image and a successful upload message.
+
+  <img src={useBaseUrl('img/live-testing/camera-injection-success.png')} alt="Camera image upload successful" width="450"/>
+
+
+#### Padding
+Sometimes when you upload a QR code image your app will not recognize it because it doesn't fit in the target area defined by your application. This is because image injection strictly overrides what is seen by the camera and your image will be scaled linearly to fit the camera image size as best it can. But this might not always be the same as what your application is expecting.
+
+<img src={useBaseUrl('img/live-testing/camera-injection-target-area.png')} alt="QR code target area example" width="300"/>
+<img src={useBaseUrl('img/live-testing/camera-injection-qr-too-big.png')} alt="QR code target area example" width="300"/>
+
+If your application only registers a code being read when it is within this target area, you will need to take this behavior into account when testing your application. Adding extra space (or "padding") around your image before uploading it for image injection will ensure that the QR code is within the target area that your application defines.
 
 ## Automated Testing
 
 During an automated test, you'll pass an image to the image injection endpoint. Image injection intercepts the camera input and replaces the camera output with the image file via the camera APIs. When the app requests an image from the device's camera, we inject your uploaded image into the response (the app doesn't know the difference).
 
-In your test script, you'll need to input the desired capabilities specific to Camera Image Injection (see below code snippets). The code will execute your image upload and opening of the device camera.
+In your test script, you'll need to input the desired capabilities specific to camera image injection (see below code snippets). The code will execute your image upload and opening of the device camera.
 
 1. First, you'll need add the camera instrumentation desired capability command,  `sauceLabsImageInjectionEnabled`, to your test script. This capability enables image injection functionality.
 
@@ -208,7 +227,7 @@ qrCodeImage = Base64.getEncoder().encodeToString(
 
 ## Common Errors
 
-Here are some common errors you may see in the course of testing with Camera Image Injection and how to resolve them.
+Here are some common errors you may see in the course of testing with camera image injection and how to resolve them.
 
 #### Error: `Image injection failed`
 
