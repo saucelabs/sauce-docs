@@ -21,7 +21,7 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 <details><summary><span className="api get">GET</span> <code>/v2/builds/&#123;build_source&#125;/</code></summary>
 <p/>
 
-Queries the requesting account and returns the number of builds matching the query and a summary of each build, including the `ID` value, which may be a required parameter of other API calls related to a specific build.
+Queries the requesting account and returns a summary of each build matching the query, including the `ID` value, which may be a required parameter of other API calls related to a specific build.
 
 You can narrow the results of your query using any of the optional filtering parameters.
 
@@ -41,50 +41,50 @@ You can narrow the results of your query using any of the optional filtering par
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns builds owned by the specified user. You can look up the IDs of users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns any builds owned by the specified user that the authenticated user is authorized to view. You can look up the IDs of users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>org_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns builds for all users in the organization.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns all builds in the specified organization that the authenticated user is authorized to view.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>group_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns only the builds owned by the specified group.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns all builds associated with the specified group that the authenticated user is authorized to view.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns builds for all users in the specified team.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns all builds for the specified team that the authenticated user is authorized to view.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return only builds where the status of all jobs in the build matches the list of values specified. Valid values are:
+     <td><p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Returns only builds where the status matches the list of values specified. Valid values are:
        <ul>
-         <li><code>success</code></li>
-         <li><code>failed</code></li>
-         <li><code>complete</code></li>
-         <li><code>error</code></li>
-         <li><code>running</code></li>
+         <li><code>running</code> - Any job in the build has a state of <i>running</i>, <i>new</i>, or <i>queued</i>.</li>
+         <li><code>error</code> - The build is not <b>running</b> and at least one job in the build has a state of <i>errored</i>.</li>
+         <li><code>failed</code> - The build is not <b>running</b> or <b>error</b> and at least one job in the build has a state of <i>failed</i>.</li>
+         <li><code>complete</code> - The build is not <b>running</b>, <b>error</b>, or <b>failed</b>, but the number of jobs with a state of <i>finished</i> does not equal the number of jobs marked <i>passed</i>, so at least one job has a state other than <i>passed</i>.</li>
+         <li><code>success</code> -- All jobs in the build have a state of <i>passed</i>.</li>
        </ul></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>start</code></td>
-     <td><p><small>| QUERY | OPTIONAL | DATE-TIME |</small></p><p>Return only builds where the earliest job ran on or after this Unix timestamp.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | DATE-TIME |</small></p><p>Returns only builds where the earliest job ran on or after this Unix timestamp.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>end</code></td>
-     <td><p><small>| QUERY | OPTIONAL | DATE-TIME |</small></p><p>Return only builds where the latest job ran on or before this Unix timestamp.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | DATE-TIME |</small></p><p>Returns only builds where the latest job ran on or before this Unix timestamp.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -96,13 +96,13 @@ You can narrow the results of your query using any of the optional filtering par
   <tbody>
     <tr>
      <td><code>offset</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Begin the set of results at this index number.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Begins the set of results at this index number.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>sort</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ENUM |</small></p><p>Sort the results in alphabetically ascending or Descending order. Valid values are:
+     <td><p><small>| QUERY | OPTIONAL | ENUM |</small></p><p>Sorts the results in alphabetically ascending or descending order. Valid values are:
        <ul>
          <li><code>asc</code> - Ascending</li>
          <li><code>desc</code> - Descending</li>
@@ -453,13 +453,13 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>modified_since</code></td>
-     <td><p><small>| QUERY | OPTIONAL | DATE-TIME |</small></p><p>Limit returned jobs to those that have been modified after this unicode timestamp.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | DATE-TIME |</small></p><p>Returns only jobs that have been modified after this unicode timestamp.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>completed</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Return jobs based on their <code>completed</code> state:
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether they completed, meaning the tests ran uninterrupted to completion:
        <ul>
          <li><code>true</code> - Return jobs that have a completed state of true.</li>
          <li><code>false</code> - Return jobs that have a completed state of false.</li>
@@ -469,7 +469,7 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>errored</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Return jobs based on their <code>errored</code> state:
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on their <code>errored</code> state:
        <ul>
          <li><code>true</code> - Return jobs that have an errored state of true.</li>
          <li><code>false</code> - Return jobs that have an errored state of false.</li>
@@ -479,7 +479,7 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>failed</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Return jobs based on their <code>failed</code> state:
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on their <code>failed</code> state:
        <ul>
          <li><code>true</code> - Return jobs that have a failed state of true.</li>
          <li><code>false</code> - Return jobs that have a failed state of false.</li>
@@ -489,7 +489,7 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>finished</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Return jobs based on their <code>finished</code> state:
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether they have finished, meaning they are no longer <i>running</i>, but may not have run to completion:
        <ul>
          <li><code>true</code> - Return jobs that have a finished state of true.</li>
          <li><code>false</code> - Return jobs that have a finished state of false.</li>
@@ -499,7 +499,7 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>new</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Return jobs based on their <code>new</code> state:
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on their <code>new</code> state:
        <ul>
          <li><code>true</code> - Return jobs that have a new state of true.</li>
          <li><code>false</code> - Return jobs that have a new state of false.</li>
@@ -509,7 +509,7 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>passed</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Return jobs based on their <code>passed</code> state:
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on their <code>passed</code> state:
        <ul>
          <li><code>true</code> - Return jobs that have a passed state of true.</li>
          <li><code>false</code> - Return jobs that have a passed state of false.</li>
@@ -519,7 +519,7 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>public</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Return jobs based on whether they were run on public devices:
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether they were run on public devices:
        <ul>
          <li><code>true</code> - Return jobs that have a public state of true.</li>
          <li><code>false</code> - Return jobs that have a public state of false.</li>
@@ -529,7 +529,7 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>queued</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Return jobs based on whether their current state is queued:
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether their current state is <i>queued</i>:
        <ul>
          <li><code>true</code> - Return jobs that have a queued state of true.</li>
          <li><code>false</code> - Return jobs that have a queued state of false.</li>
@@ -539,7 +539,7 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>running</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Return jobs based on whether they are currently running:
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether they are currently in a <i>running</i> state:
        <ul>
          <li><code>true</code> - Return jobs that are currently running.</li>
          <li><code>false</code> - Return jobs that are not currently running.</li>
@@ -549,7 +549,7 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>faulty</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Return jobs based on their <code>faulty</code> state:
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether they are identified as <i>faulty</i>, meaning either <i>errored</i> or <i>failed</i> state is true.
        <ul>
          <li><code>true</code> - Return jobs that have a faulty state of true.</li>
          <li><code>false</code> - Return jobs that have a faulty state of false.</li>
