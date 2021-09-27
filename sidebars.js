@@ -357,11 +357,6 @@ module.exports = {
                     href: '/testrunner-toolkit/saucectl' // The target URL (string).
                 },
                 {
-                    type: 'link',
-                    label: 'Visual E2E CLI', // The label that should be displayed (string).
-                    href: '/visual/e2e-testing/visual-e2e-cli' // The target URL (string).
-                },
-                {
                     type: 'category',
                     label: 'Virtual USB CLI',
                     collapsed: true,
@@ -660,9 +655,9 @@ module.exports = {
                       'api-testing/mark3/quick-start/environments-vault-and-overrides-magic',
                       'api-testing/mark3/quick-start/flexible-variables-for-flexible-environments',
                       'api-testing/mark3/quick-start/the-vault',
-                      'api-testing/mark3/quick-start/importing-postman-collections',
                       ],
                   },
+             'api-testing/mark3/quick-start/importing-postman-collections',
              'api-testing/mark3/quick-start/integrate-with-your-cicd',
         ],
         "CI/CD": [
@@ -759,7 +754,7 @@ module.exports = {
                             'visual/e2e-testing/workflow/ignoring-changes',
                         ],
                     },
-                    'visual/e2e-testing/visual-e2e-cli',
+                    'visual/e2e-testing/commands-options',
                     'visual/e2e-testing/code-examples',
                     'visual/e2e-testing/supported-browsers',
                     'visual/e2e-testing/troubleshooting',
@@ -810,6 +805,11 @@ module.exports = {
             'dev/error-messages',
             'dev/test-configuration-options',
             'dev/w3c-webdriver-capabilities',
+            {
+                type: 'link',
+                label: 'Visual E2E Testing', // The label that should be displayed (string).
+                href: '/visual/e2e-testing/commands-options' // The target URL (string).
+            },
             'dev/data-center-maint',
         ],
         Contributing: [
