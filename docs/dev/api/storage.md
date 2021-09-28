@@ -334,6 +334,12 @@ At this time, \*.aab files are only supported for Android real device testing.
      <td><p><small>| FORM-TEXT | REQUIRED | STRING |</small></p><p>The portion of the payload value that is the actual file name (including the type extension).</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>description</code></td>
+     <td><p><small>| FORM-TEXT | OPTIONAL | STRING |</small></p><p>A description to distinguish your app.</p></td>
+    </tr>
+  </tbody>
 </table>
 
 
@@ -351,7 +357,8 @@ values={[
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
 --form 'payload=@"g16K4P8IX/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
---form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
+--form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
+--form 'description="iOS Test App v3"'
 ```
 
 </TabItem>
@@ -361,7 +368,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/v1/storage/upload' \
 --form 'payload=@"g16K4P8IX/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
---form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
+--form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
+--form 'description="iOS Test App v3"'
 ```
 
 </TabItem>
