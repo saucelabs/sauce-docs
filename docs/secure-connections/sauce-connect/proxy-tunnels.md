@@ -44,7 +44,7 @@ If you are using the [High Availability Setup](/secure-connections/sauce-connect
 :::
 
 ### Stopping an Individual Tunnel in Sauce Labs
-In Sauce Labs, in the left navigation panel, click **Tunnels**. On the **Tunnels** page, the tunnel information table, click **Stop** in the **Actions** column.
+On Sauce Labs, in the left navigation panel, click **Tunnels**. On the **Tunnels** page, the tunnel information table, click **Stop** in the **Actions** column.
 
 ### Stopping All Tunnels in Your Account in Sauce Labs
 On the Tunnels page, click **Stop My Tunnels**.
@@ -423,7 +423,7 @@ $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
 > sc -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY%
 ```
 
-Once you see a tunnel in Sauce Labs, you can start testing against a site that is hosted on your network. You can leave it up for as long as you'd like and test at a fairly reasonable volume. Start it and stop it as needed!
+Once you see a tunnel on Sauce Labs, you can start testing against a site that is hosted on your network. You can leave it up for as long as you'd like and test at a fairly reasonable volume. Start it and stop it as needed!
 
 #### Starting an Ephemeral Tunnel From a Continuous Integration (CI) Build Server
 You can also launch Ephemeral tunnels from a continuous integration (CI) build server, where the code is being pulled from a repository.
@@ -459,7 +459,7 @@ Long-running tunnels are especially useful for large enterprise customers, who o
 * If you have a test automation infrastructure that can utilize the Sauce Connect Proxy service and wish to have your Sauce Connect client component up and running for a long time (i.e., 12-48 hours)
 * If you plan to share tunnels across teams
 
-Long-running tunnels go hand in hand with our [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability), which allows you to run multiple tunnels to support a very high number of parallel tests. If you're part of a team of multiple people and/or departments running tests simultaneously on Sauce Labs, we strongly recommend utilizing long-running tunnels in High Availability Mode. Once you (or your systems administrator) set your long-running tunnel configuration for your account in Sauce Labs, the settings will be remembered in your account and you won't have to set them again. Here are some benefits to this:
+Long-running tunnels go hand in hand with our [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability), which allows you to run multiple tunnels to support a very high number of parallel tests. If you're part of a team of multiple people and/or departments running tests simultaneously on Sauce Labs, we strongly recommend utilizing long-running tunnels in High Availability Mode. Once you (or your systems administrator) set your long-running tunnel configuration for your account on Sauce Labs, the settings will be remembered in your account and you won't have to set them again. Here are some benefits to this:
 
 * When provisioning new user accounts, these tunnel settings will be ready and waiting for them when they log in
 * All Sauce Labs users in your organization will have immediate access to existing, launched tunnels
