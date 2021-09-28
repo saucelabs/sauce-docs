@@ -1,7 +1,7 @@
 ---
 id: setup-configuration
 title: Setup and Configuration
-sidebar_label: Setup and Configuration
+sidebar_label: Overview
 hide_table_of_contents: true
 ---
 
