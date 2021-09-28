@@ -80,7 +80,7 @@ One way to tell if you're getting the most efficient use out of your Sauce Labs 
 
 You can export a .csv file that contains the usage information for selected accounts.
 
-1. In Sauce Labs, click **Account** and then click **Team Management**.
+1. On Sauce Labs, click **Account** and then click **Team Management**.
 
    <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
 
