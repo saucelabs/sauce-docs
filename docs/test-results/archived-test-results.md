@@ -21,7 +21,7 @@ The **Archives** page includes a number of filters you can use to search through
 
 ### Basic Filtering
 
-1. In Sauce Labs, in the left panel, click **AUTOMATED** and then click **Archive**.
+1. On Sauce Labs, in the left panel, click **AUTOMATED** and then click **Archive**.
 
 <img src={useBaseUrl('img/test-results/test-results-archive-nav.png')} alt="Test results archive navigation" width="650"/>
 

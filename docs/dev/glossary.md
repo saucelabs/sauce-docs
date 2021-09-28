@@ -262,7 +262,7 @@ See also: _[hybrid app](#hybrid-app)_.
 
 ### Non-Functional Testing
 
-A type of software testing that validates behavioral, measurable aspects of the software (e.g., performance, compatibility, user experience). Functional testing determines if your software meets its business requirements, whereas non-functional testing determines _how_ it operates. When running non-functional tests in Sauce Labs, you can use custom extensions for WebDriver that will allow you test the performance of your website under specific network conditions and collect network and application-related metrics.
+A type of software testing that validates behavioral, measurable aspects of the software (e.g., performance, compatibility, user experience). Functional testing determines if your software meets its business requirements, whereas non-functional testing determines _how_ it operates. When running non-functional tests on Sauce Labs, you can use custom extensions for WebDriver that will allow you test the performance of your website under specific network conditions and collect network and application-related metrics.
 
 See also: _[functional testing](#functional-testing)_.
 
