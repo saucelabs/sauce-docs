@@ -84,10 +84,10 @@ Click the one of the links below (Linux, Mac, or Windows) to download Sauce Conn
 To install and extract Sauce Connect on your Linux machine, add sc to your system PATH:
 
 ```bash
-cd ~/
+cd $HOME
 curl -LO https://saucelabs.com/downloads/sc-4.7.0-linux.tar.gz
 tar xvf ./sc-4.7.0-linux.tar.gz
-cp ./sc-4.7.0-linux/bin/sc ~/bin/sc
+export PATH="$HOME/sc-4.7.0-linux/bin:$PATH"
 ```
 
 ## Logging
