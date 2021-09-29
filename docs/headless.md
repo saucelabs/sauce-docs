@@ -21,7 +21,7 @@ There are a few key differences between setting up Sauce Headless tests versus s
 
 ## What You'll Need
 
-<p> <Highlight color="#013a70">ENTERPRISE PLANS ONLY</Highlight> </p>
+<p> <Highlight color="#013a70">Enterprise Plans only</Highlight> </p>
 
 The [latest version of Sauce Connect Proxy](/secure-connections/sauce-connect/installation), if you're using it to run Headless tests.
 
