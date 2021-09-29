@@ -1145,12 +1145,14 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ## Builds Methods
 
-The set of methods defined in this section are applicable to builds, or groups of associated tests.
+<p><span className="sauceGold">DEPRECATED</span></p>
+
+Builds are now available to both RDC and VDC jobs. Please see the new [Builds API](/dev/api/builds) for endpoints that incorporate this enhancement.
 
 
 ### Get Builds
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/builds</code></summary>
+<details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/builds</code>  <small><span className="sauceGold">DEPRECATED</span></small></summary>
 <p/>
 
 Get a list of recent builds run by the specified user.

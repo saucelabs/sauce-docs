@@ -142,7 +142,7 @@ Another common mistake is placing the SUT in the same network as the [Demilitari
 
 For additional help, please reach out to our Support Team. To better assist you, include the following information with your request:
 
-* Link to your Sauce Labs test from the Test Results page in Sauce Labs, showing reproduction of the problem
+* Link to your Sauce Labs test from the Test Results page on Sauce Labs, showing reproduction of the problem
 * Your Sauce Connect Proxy verbose log, which you can get by adding the `-v` and `-l sc.log` options to your Sauce Connect Proxy command line:
 
   ```bash

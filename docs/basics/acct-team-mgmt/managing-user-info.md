@@ -8,12 +8,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<p><span className="sauceDBlue">ENTERPRISE PLANS ONLY</span></p>
+<p><span className="sauceDBlue">Enterprise Plans only</span></p>
 
 ## Updating User Information
 Organization admins can update the name, email address, user name, role, and team assignment for any user in their organization. Team admins can update that information for users on their team. If you invite a user via email, you will need to edit their concurrency limit and other account details after they have accepted your invitation and created an account.
 
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 
    <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
 
@@ -29,7 +29,7 @@ Organization admins can update the name, email address, user name, role, and tea
 
 Sauce Labs offers several options for filtering your list of users. To apply one or more of the available filters:
 
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 2. On the **USERS** tab, select the checkboxes of the filters you want to apply. The user list will update accordingly.
 
 ### General Filters
@@ -55,14 +55,14 @@ Only an organization admin can change a user’s role.
 You can change a user’s role on the **Organization Management** page and also on the **User Details** page.
 
 ### Changing a User’s Role - Organization Management
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 2. On the **USERS** tab, select the checkbox of the user you want to deactivate.
 3. Above the list of users, in the **Action** dropdown, click **Assign Role** and then click the new role.
 
    <img src={useBaseUrl('img/team-mgmt/change-role-org-mgmt.jpg')} alt="Change a user's role"/>
 
 ### Changing a User’s Role - User Details
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 2. On the **USERS** tab, click the user name of the user whose role you want to change.
 
    <img src={useBaseUrl('img/team-mgmt/users-list-username.jpg')} alt="Users list"/>
@@ -77,7 +77,7 @@ You can change a user’s role on the **Organization Management** page and also 
 
 You can regenerate a user's access key on the **Organization Management** page.
 
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 2. On the **USERS** tab, click the user name of the user whose access key you want to regenerate.
 
    <img src={useBaseUrl('img/team-mgmt/users-list-username.jpg')} alt="Users list"/>
@@ -105,7 +105,7 @@ For more information on Sauce Connect and IPSec settings available to Organizati
 ## User Settings
 The User Settings screen allows you to view and change your username, password, and email address. You can also regenerate an access key, as well as copy a driver string (for more information, see [Regenerating Access Keys](https://docs.saucelabs.com/basics/acct-team-mgmt/managing-user-info/#regenerating-access-keys) and [Create a RemoteWebDriver Instance](https://docs.saucelabs.com/web-apps/automated-testing/selenium/#step-1-create-a-remotewebdriver-instance)). If you are an admin and want to change the settings for users in your org, see [Updating User Information](https://docs.saucelabs.com/basics/acct-team-mgmt/managing-user-info/#updating-user-information).
 
-To access the User Settings screen, in Sauce Labs, click **ACCOUNT** and then click **User settings**.
+To access the User Settings screen, on Sauce Labs, click **ACCOUNT** and then click **User settings**.
 <img src={useBaseUrl('img/team-mgmt/user-settings-nav.png')} alt="User Settings navigation" width="350"/>
 
 ## Password Policy

@@ -39,6 +39,7 @@
 @import "fw-badge-override.css";
 @import "admonitions.css";
 @import "footer-styles.css";
+@import "cli-override.css";
 @import url('https://use.typekit.net/bte6qhg.css');
 
 .tk-museo-sans { font-family: "museo-sans",sans-serif; }
@@ -73,7 +74,6 @@ html[data-theme='dark'] {
     --ifm-blockquote-color: #f0f0f0;
     --ifm-code-background: #44494F;
     --ifm-link-color: #ffffff;
-    --ifm-link-decoration: underline;
     --ifm-menu-color-active: #57C1E8;
     --ifm-alert-color: #f0f0f0 !important;
     --ifm-navbar-link-color: #464b54;
@@ -90,6 +90,7 @@ html[data-theme='dark'] .alert--secondary {
     --ra-admonition-color: #fff !important;
 }
 
+
 html[data-theme='dark'] .table-of-contents__link--active {
     color: #57C1E8;
 }
@@ -104,6 +105,7 @@ html[data-theme='dark'] .table-of-contents__link:hover code {
 
 html[data-theme='dark'] .table-of-contents__link:hover {
     color: #57C1E8;
+    cursor: pointer;
 }
 
 html[data-theme='dark'] .tabs__item--active {
