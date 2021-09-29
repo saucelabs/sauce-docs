@@ -20,7 +20,7 @@ With Sauce Connect Proxy, you’ll have a secure tunnel for testing applications
 ## What You'll Need
 You must know your account details, including:
 
-* Your Sauce Labs username and access key. In Sauce Labs, click **Account** and then click **User settings**.
+* Your Sauce Labs username and access key. On Sauce Labs, click **Account** and then click **User settings**.
 * The Data Center endpoint associated with your geographic location
 
 :::note

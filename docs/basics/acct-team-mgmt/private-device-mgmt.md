@@ -18,7 +18,7 @@ If a team with devices is deleted, the devices assigned to that team return to t
 Private devices are not included in VM or RDC concurrency limits. (For more information about concurrency, see [Concurrency Limits and Team Accounts](/basics/acct-team-mgmt/concurrency-limits).)
 
 ## Viewing an Organization’s Private Devices
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
 2. Click the **DEVICES** tab. The devices assigned to your organization will be listed.
 <img src={useBaseUrl('img/team-mgmt/device-mgmt-devices-tab.png')} alt="Devices tab" width="600"/>
@@ -27,6 +27,6 @@ Private devices are not included in VM or RDC concurrency limits. (For more info
 :::note
 A device can be assigned to only 1 team at a time.
 :::
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 2. On the **DEVICES** tab, in the **Team** dropdown, select a team to assign the device to.
 <img src={useBaseUrl('img/team-mgmt/device-mgmt-assign-team.png')} alt="Assign a team" width="600"/>
