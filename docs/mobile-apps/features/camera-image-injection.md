@@ -77,7 +77,7 @@ Below are common use cases ideal for implementing Camera Image Injection in your
 
 During a Live test, you'll be prompted in the UI to upload a photo that will be fed to your app, rather than using your device camera to take the photo.
 
-1. In Sauce Labs, click **LIVE** and then click **Mobile App**.
+1. On Sauce Labs, click **LIVE** and then click **Mobile App**.
 2. On the **App Selection** test page, hover over the test and then click **Settings**.
 
   <img src={useBaseUrl('img/live-testing/live-mobile-app-settings-nav.png')} alt="Mobile app settings navigation" width="650"/>

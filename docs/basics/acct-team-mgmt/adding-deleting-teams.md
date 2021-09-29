@@ -6,12 +6,12 @@ sidebar_label: Adding and Deleting Teams
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><span className="sauceDBlue">ENTERPRISE PLANS ONLY</span></p>
+<p><span className="sauceDBlue">Enterprise Plans only</span></p>
 If you are an organization admin, you can create and delete teams and assign concurrency limits to each team.
 
 ## Adding Teams
 
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 
    <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
 
@@ -30,7 +30,7 @@ If you are an organization admin, you can create and delete teams and assign con
 
 ## Deleting Teams
 
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 2. On the **TEAMS** tab, select the checkbox of the team or teams you want to delete.
 3. Next to **TEAMS SELECTED**, in the **Action** dropdown, click **Delete team**.
 

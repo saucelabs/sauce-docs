@@ -258,7 +258,7 @@ At this point, the tunnel is established between the Sauce Connect Client and th
 
 <img src={useBaseUrl('img/sauce-connect/scp-network-traffic-flow.png')} alt="Network traffic flow diagram" width="650"/>
 
-1. Selenium/Appium test code sends an HTTPS request to the VM or Real Device that was created for this test (for example, `GET [www.saucedemo.com](http://www.saucedemo.com/)`).
+1. Selenium/Appium test code sends an HTTPS request to the VM or Real Device that was created for this test (for example, `GET www.saucedemo.com`).
 
 2. Test VM or Device sends this request to Tunnel VM in order to access SUT.
 

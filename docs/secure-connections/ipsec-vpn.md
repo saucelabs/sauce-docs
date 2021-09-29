@@ -124,11 +124,11 @@ caps.setCapability("parentTunnel","johnsmith");
 
 #### __Cross Browser App Testing__
 
-For cross browser app testing, in Sauce Labs, click **LIVE** and then click **Cross Browser**. In the **Sauce Connect Proxy** dropdown, select your Sauce IPSec Proxy tunnel.
+For cross browser app testing, on Sauce Labs, click **LIVE** and then click **Cross Browser**. In the **Sauce Connect Proxy** dropdown, select your Sauce IPSec Proxy tunnel.
 
 #### __Mobile Device Testing__
 
-For mobile device testing, in Sauce Labs, click **LIVE** and then click **Mobile App**. Choose your app from the list, and then, in the **Sauce Connect Proxy** dropdown, select your Sauce IPSec Proxy tunnel.
+For mobile device testing, on Sauce Labs, click **LIVE** and then click **Mobile App**. Choose your app from the list, and then, in the **Sauce Connect Proxy** dropdown, select your Sauce IPSec Proxy tunnel.
 
 :::note
 To ensure compliance with your company's settings and network policy, we recommend checking with your organization admin before running tests on virtual and real devices over a Sauce IPSec Proxy connection.

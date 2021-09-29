@@ -14,7 +14,7 @@ You can cancel your subscription plan at any time from the **Billing** page.
 If you want to cancel an Enterprise plan, contact your Sauce Labs account executive.  
 :::
 
-1. In Sauce Labs, click **ACCOUNT** and then click **Billing**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Billing**.
 
    <img src={useBaseUrl('img/team-mgmt/team-mgmt-billing-nav.png')} alt="Team management billing navigation" width="400"/>
 
@@ -30,7 +30,7 @@ If you need more concurrent VMs, concurrent devices, or more minutes, you can up
 If you want to upgrade an Enterprise plan, contact your Sauce Labs account executive.
 :::
 
-1. In Sauce Labs, click **ACCOUNT** and then click **Billing**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Billing**.
 2. On the **SELECT PLAN** tab, update the relevant settings and then click **Update Plan**.
 
     <img src={useBaseUrl('img/team-mgmt/team-mgmt-billing-update.png')} alt="Updating your subscription" width="400"/>

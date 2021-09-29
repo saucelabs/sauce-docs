@@ -5,7 +5,7 @@ sidebar_label: Adding and Deactivating Users
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><span className="sauceDBlue">ENTERPRISE PLANS ONLY</span></p>
+<p><span className="sauceDBlue">Enterprise Plans only</span></p>
 
 ## Adding Users
 If you are an organization administrator, you can add users to your organization or team by inviting them via email, or by adding them manually to the organization or team.
@@ -13,7 +13,7 @@ If you are an organization administrator, you can add users to your organization
 When you add a user manually, you assign the user a user name and password. To allow a user to set their own user name and password, invite them via email.
 
 ### Adding a User Manually
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 
    <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
 
@@ -30,7 +30,7 @@ When you add a user manually, you assign the user a user name and password. To a
 6. Click **ADD USER**.
 
 ### Adding a User Via Email
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 2. On the **USERS** tab, click the blue plus sign.
 3. On the **INVITE VIA EMAIL** tab, enter the user's email address, and then select a role from the **USER ROLE** dropdown.
 
@@ -59,7 +59,7 @@ For example, in the following scenarios you may need to add non-SSO users to you
 You can deactivate users in your account on the **Organization Management** page and also on the **User Details** page.
 
 ### Deactivating a User - Organization Management
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 2. On the **USERS** tab, select the check box of the user you want to deactivate.
 3. Above the list of users, in the **Action** dropdown, click **Deactivate User**.
 
@@ -68,7 +68,7 @@ You can deactivate users in your account on the **Organization Management** page
 4. In the **Confirm deactivate** box, click **Yes, Deactivate**.
 
 ### Deactivating a User - User Details
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 2. On the **USERS** tab, click the user name of the user you want to deactivate.
 
    <img src={useBaseUrl('img/team-mgmt/users-list-username.jpg')} alt="Deactivate a user in User Details"/>
