@@ -6,7 +6,7 @@ sidebar_label: Assigning and Removing Users from Teams
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><span className="sauceDBlue">ENTERPRISE PLANS ONLY</span></p>
+<p><span className="sauceDBlue">Enterprise Plans only</span></p>
 If you are an organization admin, you can assign users to and remove users from a team.
 
 ## Assigning a User to a Team
