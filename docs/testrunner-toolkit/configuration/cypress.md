@@ -592,7 +592,7 @@ Since environment variables are provided to Cypress directly, avoid using `CYPRE
 
 ---
 
-#### `shard`
+### `shard`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 When sharding is configured, saucectl automatically splits the tests (e.g. by spec) so that they can easily run in parallel.
