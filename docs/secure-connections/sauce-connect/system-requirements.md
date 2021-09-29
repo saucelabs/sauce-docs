@@ -428,6 +428,204 @@ Select a cloud provider from the tables below to view the recommended system req
 </Tabs>
 
 
+### Microsoft Azure
+
+For Azure, we recommend using multiple instances of D4a to scale, rather than faster individual instances.
+
+<Tabs
+  defaultValue="Virtual Machines"
+  values={[
+    {label: 'Virtual Machines', value: 'Virtual Machines'},
+    {label: 'Headless', value: 'Headless'},
+  ]}>
+
+<TabItem value="Virtual Machines">
+
+<table>
+  <tr>
+   <td>
+<strong>Parallel Tests</strong>
+   </td>
+   <td><strong>Machine Type</strong>
+   </td>
+   <td><strong>Memory</strong>
+   </td>
+   <td>
+<strong>Processor</strong>
+   </td>
+   <td><strong>Bandwidth</strong>
+   </td>
+   <td><strong>Recommended SC Tunnels</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>0-99
+   </td>
+   <td>Standard_D2a_v4
+   </td>
+   <td>7.5 GB
+   </td>
+   <td>2
+   </td>
+   <td>450 Mbps
+   </td>
+   <td>1
+   </td>
+  </tr>
+  <tr>
+   <td>100-199
+   </td>
+   <td>Standard_D4a_v4
+   </td>
+   <td>15 GB
+   </td>
+   <td>4
+   </td>
+   <td>750 Mbps
+   </td>
+   <td>1
+   </td>
+  </tr>
+  <tr>
+   <td>200-399
+   </td>
+   <td>Standard_D4a_v4 x 2
+   </td>
+   <td>15 GB
+   </td>
+   <td>4
+   </td>
+   <td>750 Mbps
+   </td>
+   <td>2
+   </td>
+  </tr>
+  <tr>
+   <td>400-599
+   </td>
+   <td>Standard_D4a_v4 x 4
+   </td>
+   <td>15 GB
+   </td>
+   <td>4
+   </td>
+   <td>750 Mbps
+   </td>
+   <td>3
+   </td>
+  </tr>
+  <tr>
+   <td>600-799
+   </td>
+   <td>Standard_D4a_v4 x 8
+   </td>
+   <td>15 GB
+   </td>
+   <td>4
+   </td>
+   <td>750 Mbps
+   </td>
+   <td>4
+   </td>
+  </tr>
+  <tr>
+   <td>800+
+   </td>
+   <td>Standard_D4a_v4 x 16
+   </td>
+   <td>15 GB
+   </td>
+   <td>4
+   </td>
+   <td>750 Mbps
+   </td>
+   <td>6
+   </td>
+  </tr>
+</table>
+
+</TabItem>
+<TabItem value="Headless">
+
+<table>
+  <tr>
+   <td>
+<strong>Parallel Tests</strong>
+   </td>
+   <td><strong>Machine Type</strong>
+   </td>
+   <td><strong>Memory</strong>
+   </td>
+   <td>
+<strong>Processor</strong>
+   </td>
+   <td><strong>Bandwidth</strong>
+   </td>
+   <td><strong>Recommended SC Tunnels</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>0-499
+   </td>
+   <td>Standard_D2a_v4
+   </td>
+   <td>7.5 GB
+   </td>
+   <td>2
+   </td>
+   <td>3.5 Gbps
+   </td>
+   <td>1
+   </td>
+  </tr>
+  <tr>
+   <td>500-999
+   </td>
+   <td>Standard_D4a_v4
+   </td>
+   <td>7.5 GB
+   </td>
+   <td>2
+   </td>
+   <td>3.5 Gbps
+   </td>
+   <td>2
+   </td>
+  </tr>
+  <tr>
+   <td>1000-1999
+   </td>
+   <td>Standard_D4a_v4 x 2
+   </td>
+   <td>7.5 GB
+   </td>
+   <td>2
+   </td>
+   <td>3.5 Gbps
+   </td>
+   <td>4
+   </td>
+  </tr>
+  <tr>
+   <td>2000+
+   </td>
+   <td>Standard_D4a_v4 x 8
+   </td>
+   <td>7.5 GB
+   </td>
+   <td>2
+   </td>
+   <td>3.5 Gbps
+   </td>
+   <td>8
+   </td>
+  </tr>
+</table>
+
+</TabItem>
+</Tabs>
+
+
 Tips for optimizing your tests running through Sauce Connect tunnels:
 
 *  If you're running **100 or more parallel tests**, we recommend a minimum network bandwidth of 750 Mbps to support the high volume of network traffic.
