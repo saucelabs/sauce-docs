@@ -599,7 +599,7 @@ When sharding is configured, saucectl automatically splits the tests (e.g. by sp
 Selectable values: `spec` to shard by spec file. Remove this field or leave it empty `""` for no sharding.
 
 ```yaml
-      shard: spec
+    shard: spec
 ```
 
 ---
