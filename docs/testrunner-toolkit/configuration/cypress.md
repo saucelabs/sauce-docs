@@ -592,6 +592,18 @@ Since environment variables are provided to Cypress directly, avoid using `CYPRE
 
 ---
 
+### `shard`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+When sharding is configured, saucectl automatically splits the tests (e.g. by spec) so that they can easily run in parallel.
+Selectable values: `spec` to shard by spec file. Remove this field or leave it empty `""` for no sharding.
+
+```yaml
+    shard: spec
+```
+
+---
+
 #### `testFiles`
 <p><small>| REQUIRED | STRING/ARRAY/REGEX |</small></p>
 
