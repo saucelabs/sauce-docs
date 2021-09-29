@@ -97,7 +97,7 @@ module.exports = config;
 ```
 
 
-## Additional Information
+## More Information
 
 For more information on what we support, see:
 * [Sauce Labs | Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices)

@@ -5,7 +5,7 @@ sidebar_label: Adding and Deactivating Users
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><span className="sauceDBlue">ENTERPRISE PLANS ONLY</span></p>
+<p><span className="sauceDBlue">Enterprise Plans only</span></p>
 
 ## Adding Users
 If you are an organization administrator, you can add users to your organization or team by inviting them via email, or by adding them manually to the organization or team.
