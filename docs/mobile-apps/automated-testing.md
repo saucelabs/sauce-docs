@@ -27,7 +27,10 @@ Sauce Labs supports several ways to do this, so the method that best suits your 
   * Whether you plan to test on virtual devices (Android Emulator or iOS Simulator) or real devices
   * Whether you wish to use a graphical interface or a programmatic API request
   For additional information about choosing your best method, see [Application Storage](/mobile-apps/app-storage).
-1. **Configure your tests for Sauce Labs.** Whether you are using Appium, Espresso, or XCUITest to run your mobile automation test scripts, you will need to provide instructions for things like:
+
+### 3. Configure your tests for Sauce Labs.
+
+Whether you are using Appium, Espresso, or XCUITest to run your mobile automation test scripts, you will need to provide instructions for things like:
   * The test framework you are using and its version
   * Where your test scripts are located
   * Which tests to run
@@ -36,9 +39,9 @@ Sauce Labs supports several ways to do this, so the method that best suits your 
   * Whether your test have any dependencies that must also be installed on the test devices
   and many other settings. For [Appium](/mobile-apps/automated-testing/appium), these settings are configured through capability properties in your test scripts. For [Espresso and XCUITest](/mobile-apps/automated-testing/espresso-xcuitest), these settings are configured through YAML properties. Refer to the applicable configuration documentation for your test environment for details about supported configurations and syntax.
 
-### 3. Run your Tests.
+### 4. Run your Tests.
 
-Once you have connected to Sauce Labs, provided access to your apps, and configured your tests, you can run your tests from the environment of your choice.
+Once you have connected to Sauce Labs, provided access to your apps, and configured your tests, you can run your tests from the environment of your choice. For example, if you are running Appium tests through IntelliJ, you can start the test from within the IntellliJ interface or execute the command `mvn clean test` from a terminal. For espresso or XCUITests, you can use our `saucectl` CLI command `saucectl run` to kick off your tests.
 
 ## Mobile Automation Test Considerations
 
@@ -48,4 +51,5 @@ Within the high level process described above, there are many nuances that can a
 
 By default, automated tests that are running on real devices in the Sauce Labs data centers can run for up to **60 minutes**. However, that duration can be affected by other factors:
 
-* If the test is idle (not actively interacting with the device) for more than 60 seconds, the test will timeout and the session ends.
+* If the test is idle (not actively interacting with the device) for more than 60 seconds, the test will timeout and end the session, so consider writing tests that do not include waits that may trigger this timeout. For Appium tests, you have the option to increase the idle timeout value to a maximum of 90 seconds using the [`newCommandTimeout`](/dev/test-configuration-options/#newCommandTimeout) capability.
+* If you are running multiple Appium tests concurrently on the same device, consider setting the [cache ID](/dev/test-configuration-options/#cacheId) to bypass the default device cleaning process and session exit between tests.
