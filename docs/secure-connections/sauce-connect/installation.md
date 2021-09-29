@@ -167,14 +167,21 @@ The launch of Sauce Connect 4.7.0 makes it the officially supported version of t
    </td>
   </tr>
   <tr>
-   <td rowspan="5" >4.6
+   <td rowspan="6" >4.6
    </td>
+   <td>4.6.5
+   </td>
+   <td>
+    <a href="https://saucelabs.com/downloads/sc-4.6.5-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.5-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.5-win32.zip">Windows</a>
+   </td>
+   <td rowspan="6" >Jan. 31, 2022
+   </td>
+  </tr>
+  <tr>
    <td>4.6.4
    </td>
    <td>
     <a href="https://saucelabs.com/downloads/sc-4.6.4-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.4-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.4-win32.zip">Windows</a>
-   </td>
-   <td rowspan="5" >Jan. 31, 2022
    </td>
   </tr>
   <tr>
@@ -195,7 +202,7 @@ The launch of Sauce Connect 4.7.0 makes it the officially supported version of t
    <td>4.6.1
    </td>
    <td>
-    <a href="https://saucelabs.com/downloads/sc-4.6.1-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.1-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.1-win32.zip">Windows</a>
+   <a href="https://saucelabs.com/downloads/sc-4.6.1-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.1-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.1-win32.zip">Windows</a>
    </td>
   </tr>
   <tr>
