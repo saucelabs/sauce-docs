@@ -334,9 +334,10 @@ module.exports = {
             items: [
                 'dev/api',
                 'dev/api/accounts',
+                'dev/api/jobs',
+                'dev/api/builds',
                 'dev/api/connect',
                 'dev/api/insights',
-                'dev/api/jobs',
                 'dev/api/performance',
                 'dev/api/platform',
                 'dev/api/rdc',
@@ -490,7 +491,7 @@ module.exports = {
                         label: 'Setup and Configuration',
                         collapsed: true,
                         items: [
-                            'secure-connections/sauce-connect/setup-configuration/setup-configuration',
+                            'secure-connections/sauce-connect/setup-configuration',
                             'secure-connections/sauce-connect/setup-configuration/basic-setup',
                             'secure-connections/sauce-connect/setup-configuration/additional-proxies',
                             'secure-connections/sauce-connect/setup-configuration/high-availability',
