@@ -21,7 +21,7 @@ After you run a test, you can view the results on the Test Results page. From th
 Sauce Labs provides live test results for both real and virtual devices.
 
 To view live test results:
-1. In Sauce Labs, in the left panel, click **LIVE** and then click **Test Results.**
+1. On Sauce Labs, in the left panel, click **LIVE** and then click **Test Results.**
 
 <img src={useBaseUrl('img/test-results/test-results-live-nav.png')} alt="Live test results navigation" width="650"/>
 
@@ -35,7 +35,7 @@ To view live test results:
 
 ## Automated Test Results
 To view automated test results:
-1. In Sauce Labs, in the left panel, click **AUTOMATED** and then click **Test Results**.
+1. On Sauce Labs, in the left panel, click **AUTOMATED** and then click **Test Results**.
 
 <img src={useBaseUrl('img/test-results/test-results-auto-nav.png')} alt="Automated test results navigation" width="650"/>
 
@@ -43,7 +43,7 @@ To view automated test results:
 
 3. In the **Test Results** results list, click a test to view its details.
 
-4. To view and manage the results of past tests and builds, in Sauce Labs, in the left panel, click **AUTOMATED** and then click **Archive**. Here you can use status badges on your code repository or a web page to keep track of your latest test runs (see [Status Badges and the Browser Matrix Wizard](/test-results/badges-browser-matrix) for more information).
+4. To view and manage the results of past tests and builds, on Sauce Labs, in the left panel, click **AUTOMATED** and then click **Archive**. Here you can use status badges on your code repository or a web page to keep track of your latest test runs (see [Status Badges and the Browser Matrix Wizard](/test-results/badges-browser-matrix) for more information).
 
 <img src={useBaseUrl('img/test-results/test-results-archive.png')} alt="Test results archive" width="650"/>
 
@@ -54,7 +54,7 @@ You can review a variety of data about the tests you have run.
 Your test assets, including videos, screenshots, and logs, are retained for 30 days. Test parameters and metadata are available indefinitely.
 :::
 
-1. In Sauce Labs, in the left panel, click **AUTOMATED** or **LIVE** and then click **Test Results**.
+1. On Sauce Labs, in the left panel, click **AUTOMATED** or **LIVE** and then click **Test Results**.
 2. Click the test whose results you want to view.
 3. On the **Test Details** page, you can do the following:
   * Click the play button to view screenshots and video of the test. Audio is not recorded.

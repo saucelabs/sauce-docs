@@ -4,8 +4,9 @@ title: Sauce Connect Proxy Changelog
 sidebar_label: Changelog
 ---
 
+For best performance and to take advantage of our latest security enhancements, please upgrade to the latest version of [Sauce Connect Proxy](/secure-connections/sauce-connect/installation).
 
-## v4.6.4 and Above
+## v4.6.4 and above
 
 Changelogs for Sauce Connect v4.6.4 and above are hosted [here](https://changelog.saucelabs.com/en?category=sauce%20connect).
 
@@ -95,8 +96,10 @@ We are changing how we manage SSL certificates to improve assurance and compatib
 * Fixed WebSockets handling functionality on HTTP/2 servers.
 
 
-## v4.6.0 and Below
+## v4.6.0 and below
 
-To align with security best practices, Sauce Connect Proxy supports certificates signed by Public Certificate Authorities. All Sauce Connect Proxy versions below 4.6.0, which were supporting Private Certificates, reached end of life and are no longer available for download. For best performance, and to take advantage of these security enhancements, please upgrade to the latest version.
+v4.6.0 and below, which were supporting Private Certificates, reached end of life and [are no longer available for download](/secure-connections/sauce-connect/installation/#all-sauce-connect-proxy-versions-below-460-which-were-supporting-private-certificates-reached-end-of-life-and-are-no-longer-available-for-download).
 
-To see notes on Sauce Connect Proxy previous versions not shown here, or other historical information, please contact our [Support Team](https://support.saucelabs.com/).
+To align with security best practices, Sauce Connect Proxy began supporting certificates signed by Public Certificate Authorities effective with v4.6.1.
+
+To request historical information, please contact our [Support Team](https://support.saucelabs.com/).
