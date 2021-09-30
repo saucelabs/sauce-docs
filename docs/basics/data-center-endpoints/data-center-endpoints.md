@@ -36,10 +36,10 @@ Your data center is determined based on your license type and your company's nee
 
 To see your data center, check the upper-right corner of the Sauce Labs user interface. Options include:
 
-* US-West
-* EU-Central
-* Headless
-* APAC-Southeast (beta)
+* US West
+* EU Central
+* Headless US-East
+* APAC Southeast (beta)
 
 ### Restricted Access
 If you attempt to use a data center that you don't have access to:
@@ -57,9 +57,9 @@ Real devices are kept in our data center, behind locked racks and doors. Other s
 * Access management is handled by Sauce Labs, and only specific individuals are allowed access to our devices, with logs that track all access attempts
 
 ### Automated Tests and APIs
-When you run automated tests or make API calls, your data center by default is US-West. If you want to use a different data center, you'll need to specify it in the test code or API call.
+When you run automated tests or make API calls, your data center by default is US West. If you want to use a different data center, you'll need to specify it in the test code or API call.
 
-In addition, if you want to run automated tests on real devices, you need to specify the correct real device endpoint based on your data center. For details, see [Endpoints](https://docs.saucelabs.com/basics/data-center-endpoints/data-center-endpoints/#endpoints).
+In addition, if you want to run automated tests on real devices, you need to specify the correct real device endpoint based on your data center. For details, see [Endpoints](#endpoints).
 
 For more information about the Real Device Cloud and Sauce Labs API, see [API Reference](/dev/api).
 
@@ -68,17 +68,17 @@ The URL hostname and authorization credentials for APIs are different for each d
 
 | Sauce Data Center | Authorization Credentials |
 |---|---|
-| US-West virtual devices and desktops cloud  | User name and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
-| EU-Central virtual devices and desktops cloud  | User name and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
-| APAC-Southeast virtual devices and desktops cloud  | User name and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
-| US-West real devices cloud  | User name and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
-| EU-Central real devices cloud  | User name and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
-| APAC-Southeast real devices cloud | N/A |
+| US West virtual devices and desktops cloud  | User name and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
+| EU Central virtual devices and desktops cloud  | User name and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
+| APAC Southeast virtual devices and desktops cloud  | User name and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
+| US West real devices cloud  | User name and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
+| EU Central real devices cloud  | User name and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
+| APAC Southeast real devices cloud | N/A |
 
-#### Running Tests on EU-Central
-If you use any of the following and your data center is EU-Central, you need to make changes to your tests and/or framework to run those tests in the EU data center.
+#### Running Tests on EU Central
+If you use any of the following and your data center is EU Central, you need to make changes to your tests and/or framework to run those tests in the EU data center.
 
-|||
+| Framework | Change |
 |---|---|
 | Java with JUnit or TestNG  | Set `SAUCE_REST_ENDPOINT=https://eu-central-1.saucelabs.com/` as a system/environment variable, otherwise test status will not be set. |
 | Protractor | Update to version 5.4.2 or later of Protractor and set `sauceRegion: 'eu'` in your `config` file. |
@@ -94,9 +94,9 @@ For details about setting up SSO for Sauce Labs, see [Setting Up Single Sign-On]
 
 | Data Center | Signing/Encryption Certificate/Entity ID | Entity AssertionConsumeURL |
 |---|---|---|
-| US-West | `https://saucelabs.com/sso/metadata` | `https://saucelabs.com/sso/acs` |
-| EU-Central | `https://eu-central-1.saucelabs.com/sso/metadata` | `https://eu-central-1.saucelabs.com/sso/acs` |
-| Headless | `https://us-east-1.saucelabs.com/sso/metadata` | `https://us-east-1.saucelabs.com/sso/acs` |
+| US West | `https://saucelabs.com/sso/metadata` | `https://saucelabs.com/sso/acs` |
+| EU Central | `https://eu-central-1.saucelabs.com/sso/metadata` | `https://eu-central-1.saucelabs.com/sso/acs` |
+| Headless US-East | `https://us-east-1.saucelabs.com/sso/metadata` | `https://us-east-1.saucelabs.com/sso/acs` |
 
 ## Changing Your Data Center
 If you have access to more than one data center, you can switch data centers by clicking the data center name in the upper-right corner. This drops down a list of options available to you.
@@ -118,43 +118,43 @@ To view planned maintenance windows for your data center, see [Maintenance Windo
 ## Endpoints
 URLs vary based on the services you're using, your data center, and the types of tests you need to run.
 
-### US-West Data Center
+### US West Data Center
 | Name | Details |
 |---|---|
-| **US-West OnDemand Endpoints** |   |
+| **US West OnDemand Endpoints** |   |
 | Desktop Browser and Virtual Device Cloud | `https://ondemand.us-west-1.saucelabs.com/wd/hub` |
 | RDC on Sauce | `https://ondemand.us-west-1.saucelabs.com/` |
-| **US-West REST API** |   |
+| **US West REST API** |   |
 | Virtual Devices and Desktops | `https://api.us-west-1.saucelabs.com/v1` |
 | RDC on Sauce | `https://api.us-west-1.saucelabs.com/v1/rdc` |
 | Team Management | `https://api.us-west-1.saucelabs.com/team-management/v1/` |
 | Sauce Connect Proxy | Virtual and Real Devices on Sauce: `https://saucelabs.com/rest/v1/` |
 | IP Ranges | `162.222.72.0/21`<br/>`66.85.48.0/21`  |
 
-### EU-Central Data Center
+### EU Central Data Center
 :::note
-Depending on the framework or driver you use, you might need to make additional changes to your tests to run them in the EU-Central data center. See [Running Tests on EU-Central](https://docs.saucelabs.com/basics/data-center-endpoints/data-center-endpoints/#running-tests-on-eu-central) for details.
+Depending on the framework or driver you use, you might need to make additional changes to your tests to run them in the EU-Central data center. See [Running Tests on EU Central](#running-tests-on-eu-central) for details.
 :::
 
 | Name | Details |
 |---|---|
-| **EU-Central OnDemand Endpoints** |   |
+| **EU Central OnDemand Endpoints** |   |
 | Desktop Browser and Virtual Device Cloud | `https://ondemand.eu-central-1.saucelabs.com/wd/hub` |
 | RDC on Sauce | `https://ondemand.eu-central-1.saucelabs.com/` |
-| **EU-Central REST API** |   |
+| **EU Central REST API** |   |
 | Virtual Devices and Desktops | `https://api.eu-central-1.saucelabs.com/v1` |
 | RDC on Sauce | `https://api.eu-central-1.saucelabs.com/v1/rdc` |
 | Team Management | `https://api.eu-central-1.saucelabs.com/team-management/v1/` |
 | Sauce Connect Proxy | Virtual and Real Devices on Sauce: `https://eu-central-1.saucelabs.com/rest/v1` |
 | IP Ranges | `185.94.24.0/22` |
 
-### APAC-Southeast Data Center
+### APAC Southeast Data Center
 | Name | Details |
 |---|---|
-| **APAC-Southeast OnDemand Endpoints** |   |
+| **APAC Southeast OnDemand Endpoints** |   |
 | Desktop Browser and Virtual Device Cloud | `https://ondemand.apac-southeast-1.saucelabs.com/wd/hub` |
 | RDC on Sauce | `https://ondemand.apac-southeast-1.saucelabs.com/` |
-| **APAC-Southeast REST API** |   |
+| **APAC Southeast REST API** |   |
 | Virtual Devices and Desktops | `https://api.apac-southeast-1.saucelabs.com/v1` |
 | RDC on Sauce | N/A |
 | Team Management | `https://api.apac-southeast-1.saucelabs.com/team-management/v1/` |
@@ -162,15 +162,15 @@ Depending on the framework or driver you use, you might need to make additional 
 | IP Ranges | `34.87.251.80/28`  |
 
 
-### Headless Data Center (US Only)
+### Headless US-East Data Center
 For more information on Sauce Headless, including full test walkthroughs, see [Sauce Headless Testing in the Cross-Browser Cloud](/headless).
 
 | Name | Details |
 |---|---|
-| **Headless OnDemand Endpoints** |   |
+| **Headless US-East OnDemand Endpoints** |   |
 | Desktop Browser and Virtual Device Cloud | `https://ondemand.us-east-1.saucelabs.com/wd/hub` |
 | RDC on Sauce | N/A |
-| **Headless REST API** |   |
+| **Headless US-East REST API** |   |
 | Virtual Devices and Desktops | `https://us-east-1.saucelabs.com/rest/v1` |
 | RDC on Sauce | N/A |
 | Sauce Connect Proxy | `https://us-east-1.saucelabs.com/rest/v1` |
