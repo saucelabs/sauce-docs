@@ -6,7 +6,7 @@ sidebar_label: Viewing and Exporting Usage Data
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><span className="sauceDBlue">ENTERPRISE PLANS ONLY</span></p>
+<p><span className="sauceDBlue">Enterprise Plans only</span></p>
 
 If you're the owner of the overall Sauce Labs account, you can view usage information for all accounts on the **Organization Management** page. If you're an individual user, you can view your usage information on the **My Account** page.
 
@@ -80,7 +80,7 @@ One way to tell if you're getting the most efficient use out of your Sauce Labs 
 
 You can export a .csv file that contains the usage information for selected accounts.
 
-1. In Sauce Labs, click **Account** and then click **Team Management**.
+1. On Sauce Labs, click **Account** and then click **Team Management**.
 
    <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
 

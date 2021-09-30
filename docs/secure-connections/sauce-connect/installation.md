@@ -15,7 +15,7 @@ This topic describes where and how to download Sauce Connect Proxy to your local
     1. Go to **System Preferences** > **Security & Privacy** > **General** tab.
     2. Under the header **Allow apps downloaded from**, select the option **App Store and identified developers**.
 
-## Downloading
+## Download Latest Version
 
 Click the one of the links below (Linux, Mac, or Windows) to download Sauce Connect Proxy to your local machine.
 
@@ -23,15 +23,15 @@ Click the one of the links below (Linux, Mac, or Windows) to download Sauce Conn
 
 <table>
  <tr>
-  <td><strong><small>Platform</small></strong>
+  <td><strong>OS</strong>
   </td>
-  <td><strong><small>Download Link</small></strong>
+  <td><strong>Download Link</strong>
   </td>
-  <td><strong><small>SHA1 Checksum</small></strong>
+  <td><strong>SHA1 Checksum</strong>
   </td>
  </tr>
  <tr>
-  <td><small>Linux</small>
+  <td>Linux
   </td>
   <td>
    <strong><small><a href="https://saucelabs.com/downloads/sc-4.7.0-linux.tar.gz">https://saucelabs.com/downloads/sc-4.7.0-linux.tar.gz</a></small></strong>
@@ -40,7 +40,7 @@ Click the one of the links below (Linux, Mac, or Windows) to download Sauce Conn
   </td>
  </tr>
  <tr>
-  <td><small>Mac</small>
+  <td>Mac
   </td>
   <td>
    <strong><small><a href="https://saucelabs.com/downloads/sc-4.7.0-osx.zip">https://saucelabs.com/downloads/sc-4.7.0-osx.zip</a></small></strong>
@@ -49,7 +49,7 @@ Click the one of the links below (Linux, Mac, or Windows) to download Sauce Conn
   </td>
  </tr>
  <tr>
-  <td><small>Windows</small>
+  <td>Windows
   </td>
   <td>
    <strong><small><a href="https://saucelabs.com/downloads/sc-4.7.0-win32.zip">https://saucelabs.com/downloads/sc-4.7.0-win32.zip</a></small></strong>
@@ -84,13 +84,13 @@ Click the one of the links below (Linux, Mac, or Windows) to download Sauce Conn
 To install and extract Sauce Connect on your Linux machine, add sc to your system PATH:
 
 ```bash
-cd ~/
+cd $HOME
 curl -LO https://saucelabs.com/downloads/sc-4.7.0-linux.tar.gz
 tar xvf ./sc-4.7.0-linux.tar.gz
-cp ./sc-4.7.0-linux/bin/sc ~/bin/sc
+export PATH="$HOME/sc-4.7.0-linux/bin:$PATH"
 ```
 
-## Logging
+## Log File
 
 Once you've started using Sauce Connect, a log file called _sc.log_ will populate in your computer's directory.
 
@@ -100,31 +100,31 @@ The location will vary, depending on your operating system. For Mac and Linux, t
   <tr>
    <td><strong>OS</strong>
    </td>
-   <td><strong>Directory</strong>
+   <td><strong>Log Directory</strong>
    </td>
   </tr>
   <tr>
    <td>Mac
    </td>
-   <td><p>(DD Month) (Time)</p>
+   <td>(DD Month) (Time)
    Log file:
-   <p><code>/var/folders/72/tjnr5_fs4fvcb3csfjx4sw200000gn/T/sc.log</code></p>
+   <code>/var/folders/72/tjnr5_fs4fvcb3csfjx4sw200000gn/T/sc.log</code>
    </td>
   </tr>
   <tr>
    <td>Linux (tested on Ubuntu 16.04.6)
    </td>
-   <td><p>(DD Month) (Time)</p>
+   <td>(DD Month) (Time)
    Log file:
-   <p><code>/tmp/sc.log</code></p>
+   <code>/tmp/sc.log</code>
    </td>
   </tr>
   <tr>
    <td>Windows
    </td>
-   <td><p>(DD Month) (Time)</p>
+   <td>(DD Month) (Time)
    Log file:
-   <p><code>C:\Users\sauce_username\Downloads\sc-4.5.1-win32\sc-4.5.1-win32\sc.log</code></p>
+   <code>C:\Users\sauce_username\Downloads\sc-4.5.1-win32\sc-4.5.1-win32\sc.log</code>
    </td>
   </tr>
 </table>
@@ -132,45 +132,129 @@ The location will vary, depending on your operating system. For Mac and Linux, t
 
 ## Version Lifecycle Information
 
-The launch of Sauce Connect 4.7.0 makes it the officially supported version of the Sauce Connect client. All past versions are in maintenance mode, with the oldest versions nearing the end of their support life. The table below outlines the lifecycle dates for all versions.
+The launch of Sauce Connect 4.7.0 makes it the officially supported version of the Sauce Connect client. All previous versions are in maintenance mode, with the oldest versions nearing the end of their support life.
+
 
 <table>
   <tr>
-   <td>Sauce Connect CLI Client
+   <td>Family
    </td>
-   <td>Type of Support
+   <td>Version
+   </td>
+   <td>Download Link
    </td>
    <td>End of Life
    </td>
   </tr>
   <tr>
-   <td>4.7.*
-   </td>
-   <td>Full Support
-   </td>
-   <td>June 31, 2022
+   <td colspan="4" ><strong>Full Support</strong>
    </td>
   </tr>
   <tr>
-   <td>4.6.*
+   <td>4.7
    </td>
-   <td>Security & Major Bug Fixes Only
+   <td>4.7.0
    </td>
-   <td>January 31, 2022
+   <td>
+    See <a href="#downloading">Downloading</a>
+   </td>
+   <td>
+   June 31, 2022
    </td>
   </tr>
   <tr>
-   <td>4.5.*
+   <td colspan="4" ><strong>Security & Major Bug Fixes only</strong>
    </td>
-   <td>Not Supported
+  </tr>
+  <tr>
+   <td rowspan="6" >4.6
    </td>
-   <td>March 31, 2021
+   <td>4.6.5
+   </td>
+   <td>
+    <a href="https://saucelabs.com/downloads/sc-4.6.5-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.5-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.5-win32.zip">Windows</a>
+   </td>
+   <td rowspan="6" >Jan. 31, 2022
+   </td>
+  </tr>
+  <tr>
+   <td>4.6.4
+   </td>
+   <td>
+    <a href="https://saucelabs.com/downloads/sc-4.6.4-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.4-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.4-win32.zip">Windows</a>
+   </td>
+  </tr>
+  <tr>
+   <td>4.6.3
+   </td>
+   <td>
+    <a href="https://saucelabs.com/downloads/sc-4.6.3-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.3-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.3-win32.zip">Windows</a>
+   </td>
+  </tr>
+  <tr>
+   <td>4.6.2
+   </td>
+   <td>
+    <a href="https://saucelabs.com/downloads/sc-4.6.2-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.2-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.2-win32.zip">Windows</a>
+   </td>
+  </tr>
+  <tr>
+   <td>4.6.1
+   </td>
+   <td>
+   <a href="https://saucelabs.com/downloads/sc-4.6.1-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.1-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.1-win32.zip">Windows</a>
+   </td>
+  </tr>
+  <tr>
+   <td>4.6.0<sup><a href="#all-sauce-connect-proxy-versions-below-460-which-were-supporting-private-certificates-reached-end-of-life-and-are-no-longer-available-for-download">*</a></sup>
+   </td>
+   <td>
+   &#8212;
+   </td>
+  </tr>
+  <tr>
+   <td colspan="4" ><strong>Unsupported</strong>
+   </td>
+  </tr>
+  <tr>
+   <td rowspan="5" >4.5<sup><a href="#all-sauce-connect-proxy-versions-below-460-which-were-supporting-private-certificates-reached-end-of-life-and-are-no-longer-available-for-download">*</a></sup>
+   </td>
+   <td>4.5.4
+   </td>
+   <td>
+    &#8212;
+   </td>
+   <td rowspan="5" >March 31, 2021
+   </td>
+  </tr>
+  <tr>
+   <td>4.5.3
+   </td>
+   <td>
+    &#8212;
+   </td>
+  </tr>
+  <tr>
+   <td>4.5.2
+   </td>
+   <td>
+    &#8212;
+   </td>
+  </tr>
+  <tr>
+   <td>4.5.1
+   </td>
+   <td>
+    &#8212;
+   </td>
+  </tr>
+  <tr>
+   <td>4.5.0
+   </td>
+   <td>
+    &#8212;
    </td>
   </tr>
 </table>
 
-
-
-## Changelog
-
-See [Sauce Connect Proxy Changelog](/secure-connections/sauce-connect/changelog).
+##### <sup>*</sup> All Sauce Connect Proxy versions below 4.6.1, which were supporting Private Certificates, reached end of life and are no longer available for download.
