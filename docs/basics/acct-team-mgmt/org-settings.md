@@ -11,7 +11,7 @@ General settings determine the options available to your users when they create 
 
 To access General settings:
 
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 
 <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
 
@@ -26,11 +26,11 @@ To access General settings:
 | Require Full Name for Users  | With this option enabled, users must enter both a first name and a last name when creating their accounts.  |
 
 ## Security Settings
-<p><span className="sauceDBlue">ENTERPRISE PLANS ONLY</span></p>
+<p><span className="sauceDBlue">Enterprise Plans only</span></p>
 Sauce Labs security settings allow organization admins to manage how users in their enterprise can run tests.
 
 To access Security settings:
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 2. On the **Organization Management** page, in the **ORGANIZATION SETTINGS** section, click **VIEW SETTINGS**.
 
 <img src={useBaseUrl('img/team-mgmt/team-mgmt-view-settings-nav.jpg')} alt="View settings" width="600" />
@@ -54,7 +54,7 @@ When you set up SSO with Sauce Labs, you are establishing a connection between t
 For more detailed information about setting up SSO, see [Setting Up Single Sign-On](https://docs.saucelabs.com/basics/sso/setting-up-single-sign-on).
 :::
 
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 2. On the **Organization Management** page, in the **ORGANIZATION SETTINGS** section, click **VIEW SETTINGS**.
 
 <img src={useBaseUrl('img/team-mgmt/team-mgmt-view-settings-nav.jpg')} alt="View settings" width="600" />
