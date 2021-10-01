@@ -26,11 +26,15 @@ As an important step prior to downloading Sauce Connect Proxy, you or your syste
 
 2. Use cURL (or equivalent tool) to reach your Site Under Test. If you are relying on API to support a website or mobile app, you can cURL that as well. You should get a `200 OK HTTP` response. If you do NOT see a `200 OK HTTP` response, then Sauce Connect Proxy will not be able to reach it either.
 
-3. Use cURL (or equivalent tool) to reach the below URLs, as needed:
+3. Use cURL (or equivalent tool) to reach the below URLs, as needed. For example:
    * [https://saucelabs.com](https://saucelabs.com/)
-   * [https://eu-central-1.saucelabs.com](https://eu-central-1.saucelabs.com/)
+   * [https://api.us-west-1.saucelabs.com/rest/v1](https://api.us-west-1.saucelabs.com/rest/v1) for US-WEST region
+   * [https://us-east-1.saucelabs.com/rest/v1](https://us-east-1.saucelabs.com/rest/v1) for US-EAST region
+   * [https://eu-central-1.saucelabs.com](https://eu-central-1.saucelabs.com/) for EU-CENTRAL region
 
-   If you can get a `200 OK` response from all URLs above, you are ready to start Sauce Connect! As an alternative, you can use [Nethelp](https://github.com/mdsauce/nethelp) to quickly connect to multiple resources and save the output.
+   If you can get a `200 OK` response from all URLs above, you are ready to start Sauce Connect!
+   As an alternative, you can just try to [start a tunnel](/secure-connections/sauce-connect/setup-configuration/basic-setup/#validating-your-basic-setup)
+   and check the console output.
 
 
 ## Configuring Your System to Use Sauce Connect

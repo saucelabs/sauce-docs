@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 As a best practice, we recommend setting your Sauce Labs authentication credentials as environment variables on your local system, that can then be referenced from within your tests. This provides an extra layer of security for your tests, and also enables other members of your development and testing team to write tests that will authenticate against a single account.
 
-For a list of Sauce Connect Proxy environment variables, see [Environment Variables](/secure-connections/sauce-connect/environment-variables).
+For a list of Sauce Connect Proxy environment variables, see [Environment Variables](/secure-connections/sauce-connect/setup-configuration/environment-variables).
 
 
 ## What You’ll Need

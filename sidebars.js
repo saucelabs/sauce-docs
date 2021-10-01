@@ -493,6 +493,7 @@ module.exports = {
                         items: [
                             'secure-connections/sauce-connect/setup-configuration',
                             'secure-connections/sauce-connect/setup-configuration/basic-setup',
+                            'secure-connections/sauce-connect/setup-configuration/environment-variables',
                             'secure-connections/sauce-connect/setup-configuration/additional-proxies',
                             'secure-connections/sauce-connect/setup-configuration/high-availability',
                             'secure-connections/sauce-connect/setup-configuration/specialized-environments',
@@ -500,7 +501,6 @@ module.exports = {
                             'secure-connections/sauce-connect/setup-configuration/legacy-tunnels',
                         ]
                     },
-                    'secure-connections/sauce-connect/environment-variables',
                     'secure-connections/sauce-connect/proxy-tunnels',
                     'secure-connections/sauce-connect/security-authentication',
                     'secure-connections/sauce-connect/troubleshooting',
