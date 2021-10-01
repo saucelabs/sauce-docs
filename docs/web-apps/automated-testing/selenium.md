@@ -73,53 +73,9 @@ The way to define capabilities in recent versions of Selenium is with browser op
 
 The following example shows the instantiation of the RemoteWebDriver (assigned the variable name `driver`), authentication values, and the OS/Browser targets for a test written in Selenium 3.141.59:
 
-<Tabs
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'JavaScript', value: 'JavaScript'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
-
-<TabItem value="Java">
-
 ```java reference title="Configuring a Driver"
 https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L32-L42
 ```
-
-</TabItem>
-<TabItem value="JavaScript">
-
-```js reference title="Configuring a Driver"
-https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/examples/w3c/test/configs/wdio.saucelabs.conf.js#L7-L36
-```
-
-</TabItem>
-<TabItem value="Python">
-
-```py reference title="Configuring a Driver"
-https://github.com/saucelabs-training/demo-python/blob/1b19546316679c1a32d6c387727547423f36a454/examples/w3c-examples/test_pytest_chrome.py#L9-L27
-```
-
-</TabItem>
-<TabItem value="Ruby">
-
-```rb reference title="Configuring a Driver"
-https://github.com/saucelabs-training/demo-ruby/blob/main/on-boarding-modules/rspec/spec/module2_rspec_spec.rb#L15-L30
-```
-
-</TabItem>
-<TabItem value="C#">
-
-```cs reference title="Configuring a Driver"
-https://github.com/saucelabs-training/demo-csharp/blob/main/SauceExamples/SeleniumMsTest/Onboarding/InstantSauceTest.cs#L23-L38
-```
-
-</TabItem>
-</Tabs>
-
 
 :::tip Use Credential Environment Variables
 Set your Sauce Labs account credentials as [environment variables](/basics/environment-variables) rather than hard-coding them into all your scripts for efficiency and to protect them from unintended exposure.
@@ -130,56 +86,12 @@ Set your Sauce Labs account credentials as [environment variables](/basics/envir
 
 Invoke the `get` method on your WedDriver instance, using the variable name you assigned, and pass the URL of the web page containing the element you wish to test as an argument. The following gets our Swag Labs login page:
 
-
-<Tabs
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'JavaScript', value: 'JavaScript'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
-
-<TabItem value="Java">
-
 ```java reference title="Selenium Navigation"
 https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L48
 ```
 
-</TabItem>
-<TabItem value="JavaScript">
+To view code snippets in JavaScript, Python, Ruby, and C#, see the [Selenium documentation on Browser Navigation](https://www.selenium.dev/documentation/webdriver/browser_manipulation/#browser-navigation).
 
-```js title="Selenium Navigation"
-driver.navigate().to("https://www.saucedemo.com");
-```
-
-</TabItem>
-<TabItem value="Python">
-
-```py reference title="Selenium Navigation"
-https://github.com/saucelabs-training/demo-python/blob/main/examples/w3c-examples/test_pytest_chrome.py#L42
-```
-
-</TabItem>
-<TabItem value="Ruby">
-
-```rb reference title="Selenium Navigation"
-https://github.com/saucelabs-training/demo-ruby/blob/main/on-boarding-modules/rspec/spec/module1_rspec_spec.rb#L22
-```
-
-</TabItem>
-<TabItem value="C#">
-
-```cs reference title="Selenium Navigation"
-https://github.com/saucelabs-training/demo-csharp/blob/main/SauceExamples/SeleniumNunit/OnboardingTests/InstantSauceTest.cs#L48
-```
-
-</TabItem>
-</Tabs>
-
-
-For more information, see the [Selenium documentation on Browser Navigation](https://www.selenium.dev/documentation/webdriver/browser_manipulation/#browser-navigation).
 
 ### Step 3: Locate an HTML Element on a Web Page
 
@@ -232,55 +144,12 @@ In Python, the locator method is merged with the [_finder method_](#finder-metho
 
 Most of the elements in our Swag Labs example have multiple unique attributes that make it easy to identify them. For this example we can identify them as follows:
 
-<Tabs
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'JavaScript', value: 'JavaScript'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
-
-<TabItem value="Java">
 
 ```java reference title="Selenium Locator Definitions"
 https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L50-L52
 ```
 
-</TabItem>
-<TabItem value="JavaScript">
-
-```js reference title="Selenium Locator Definitions"
-https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/webdriver/examples/w3c/test/page-objects/LoginPage.js#L13-L23
-```
-
-</TabItem>
-<TabItem value="Python">
-
-```py reference title="Selenium Locator Definitions"
-https://github.com/saucelabs-training/demo-python/blob/main/examples/sauce_bindings/pytest/test_login_success.py#L7-L9
-```
-
-</TabItem>
-<TabItem value="Ruby">
-
-```rb reference title="Selenium Locator Definitions"
-https://github.com/saucelabs-training/demo-ruby/blob/main/selenium-examples/rspec/spec/login_success_spec.rb#L16-L18
-```
-
-</TabItem>
-<TabItem value="C#">
-
-```cs reference title="Selenium Locator Definitions"
-https://github.com/saucelabs-training/demo-csharp/blob/main/SauceExamples/SeleniumNunit/OnboardingTests/InstantSauceTest.cs#L55-L59
-```
-
-</TabItem>
-</Tabs>
-
-
-For more information, see the [Selenium documentation on Locating Elements](https://www.selenium.dev/documentation/en/webdriver/locating_elements).
+To view code snippets in JavaScript, Python, Ruby, and C#, see the [Selenium documentation on Locating Elements](https://www.selenium.dev/documentation/en/webdriver/locating_elements).
 
 
 #### Finder Methods
@@ -291,55 +160,13 @@ The find element method for the given language will search the DOM (Document Obj
 
 The following example invokes `findElement` on our `driver` instance to locate the elements for which we defined locators in the last section:
 
-<Tabs
-  defaultValue="JavaScript"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'JavaScript', value: 'JavaScript'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
-
-<TabItem value="Java">
-
 ```java reference title="Finding Selenium WebElements"
 https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L57-L59
 ```
 
-</TabItem>
-<TabItem value="JavaScript">
 
-```js reference title="Finding Selenium WebElements"
-https://github.com/saucelabs-training/demo-js/blob/dac51456e529f952aa9efbd23120439d22c95f14/protractor/appium-web/examples/real-devices/tests/specs/login.spec.js#L12-L14
-```
+To view code snippets in JavaScript, Python, Ruby, and C#, see the [Selenium documentation on the Find Element](https://www.selenium.dev/documentation/en/webdriver/web_element/#find-element).
 
-</TabItem>
-<TabItem value="Python">
-
-```py reference title="Finding Selenium WebElements"
-https://github.com/saucelabs-training/demo-python/blob/1af15c6fd119fd6515b5dc37a2c6eabfd9d87ebc/examples/headless/test_demo.py#L75-L77
-```
-
-</TabItem>
-<TabItem value="Ruby">
-
-```rb reference title="Finding Selenium WebElements"
-https://github.com/saucelabs-training/demo-ruby/blob/main/selenium-examples/rspec/spec/login_success_spec.rb#L16-L18
-```
-
-</TabItem>
-<TabItem value="C#">
-
-```cs reference title="Finding Selenium WebElements"
-https://github.com/saucelabs-training/demo-csharp/blob/main/SauceExamples/SeleniumNunit/OnboardingTests/InstantSauceTest.cs#L57-L59
-```
-
-</TabItem>
-</Tabs>
-
-
-For more information, see the [Selenium documentation on the Find Element](https://www.selenium.dev/documentation/en/webdriver/web_element/#find-element).
 
 #### Synchronization Strategies
 
@@ -363,52 +190,11 @@ Mixing implicit and explicit waits can cause unpredictable outcomes, which is an
 
 Each language implements this slightly differently. Java and .NET have `ExpectedConditions` classes, but the recommended approach in all languages at this point is to use a lambda, like so:
 
-<Tabs
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'JavaScript', value: 'JavaScript'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
-
-<TabItem value="Java">
-
 ```java reference title="Selenium Waits"
 https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L54-L55
 ```
 
-</TabItem>
-<TabItem value="JavaScript">
-
-```js reference title="Selenium Waits"
-https://github.com/saucelabs-training/demo-js/blob/dac51456e529f952aa9efbd23120439d22c95f14/webdriverio/appium-app/examples/up-download-file/test/screen-objects/GooglePhotos.js#L36-L42
-```
-
-</TabItem>
-<TabItem value="Python">
-
-Coming Soon
-
-</TabItem>
-<TabItem value="Ruby">
-
-```ruby reference title="Selenium Waits"
-https://github.com/saucelabs-training/demo-ruby/blob/c51b521d87581cfca030717602998c5b37e0b81f/appium-examples/RSpec/emusim/spec/spec_helper.rb#L54-L57
-```
-
-</TabItem>
-<TabItem value="C#">
-
-```cs reference title="Selenium Waits"
-https://github.com/saucelabs-training/demo-csharp/blob/main/SauceExamples/SeleniumNunit/OnboardingTests/InstantSauceTest.cs#L51-L59
-```
-
-</TabItem>
-</Tabs>
-
-For more information, see the [Selenium documentation on Waits](https://www.selenium.dev/documentation/en/webdriver/waits/).
+To view code snippets in JavaScript, Python, Ruby, and C#, see the [Selenium documentation on Waits](https://www.selenium.dev/documentation/en/webdriver/waits/).
 
 ### Step 4: Perform Actions on Located Elements
 
@@ -426,100 +212,17 @@ The "submit" method does not simulate how a user would submit the form, so it is
 
 The following example automates a user login by sending keys to the username and password text fields, and clicking the **Submit** button:
 
-<Tabs
-  defaultValue="JavaScript"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'JavaScript', value: 'JavaScript'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
-
-<TabItem value="Java">
-
 ```java reference title="Selenium Actions"
 https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L61-L63
 ```
-
-</TabItem>
-<TabItem value="JavaScript">
-
-```js reference title="Selenium Actions"
-https://github.com/saucelabs-training/demo-js/blob/dac51456e529f952aa9efbd23120439d22c95f14/protractor/appium-web/examples/real-devices/tests/specs/login.spec.js#L12-L14
-```
-
-</TabItem>
-<TabItem value="Python">
-
-```py reference title="Selenium Actions"
-https://github.com/saucelabs-training/demo-python/blob/1af15c6fd119fd6515b5dc37a2c6eabfd9d87ebc/examples/headless/test_demo.py#L75-L77
-```
-
-</TabItem>
-<TabItem value="Ruby">
-
-```rb reference title="Selenium Actions"
-https://github.com/saucelabs-training/demo-ruby/blob/main/selenium-examples/rspec/spec/login_success_spec.rb#L16-L18
-```
-
-</TabItem>
-<TabItem value="C#">
-
-```cs reference title="Selenium Actions"
-https://github.com/saucelabs-training/demo-csharp/blob/main/SauceExamples/SeleniumNunit/OnboardingTests/InstantSauceTest.cs#L57-L59
-```
-
-</TabItem>
-</Tabs>
-
 
 ### Step 5: Assert a Result
 
 You do not have a test without an assertion. Each test should have something specific it is checking for and have an explicit line of code to ensure that this functionality is working as intended. What makes a test successful and how to evaluate success requires domain knowledge and can be more art than science. Here's an example of an assertion with JUnit 5:
 
-<Tabs
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'JavaScript', value: 'JavaScript'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
-
-<TabItem value="Java">
-
 ```java reference title="Assertions"
 https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L65
 ```
-
-</TabItem>
-<TabItem value="JavaScript">
-
-Coming Soon
-
-</TabItem>
-<TabItem value="Python">
-
-```py reference title="Assertions"
-https://github.com/saucelabs-training/demo-python/blob/main/examples/sauce_bindings/pytest/test_login_success.py#L11
-```
-
-</TabItem>
-<TabItem value="Ruby">
-
-Coming Soon
-
-</TabItem>
-<TabItem value="C#">
-
-```cs reference title="Assertions"
-https://github.com/saucelabs-training/demo-csharp/blob/6cf6e1b12f0d5b6328c4e4dffb3a92ded48a2043/SauceExamples/SeleniumNunit/Parallel/ParallelAtMethodsWithSelenium.cs#L62-L63
-```
-
-</TabItem>
-</Tabs>
 
 ### Step 6: Report the Results
 
@@ -549,52 +252,11 @@ It is important to remember to close the browser when you are done with it by ca
 
 The following examples invokes the quit method on the driver variable:
 
-<Tabs
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'JavaScript', value: 'JavaScript'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
-
-<TabItem value="Java">
 
 ```java reference title="Quit Selenium Session"
 https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L75
 ```
 
-</TabItem>
-<TabItem value="JavaScript">
-
-```js title="Quit Selenium Session"
-driver.quit()
-```
-
-</TabItem>
-<TabItem value="Python">
-
-```py reference title="Quit Selenium Session"
-https://github.com/saucelabs-training/demo-python/blob/1b19546316679c1a32d6c387727547423f36a454/examples/legacyTestObject/pytest/conftest.py#L48
-```
-
-</TabItem>
-<TabItem value="Ruby">
-
-```rb reference title="Quit Selenium Session"
-https://github.com/saucelabs-training/demo-ruby/blob/c51b521d87581cfca030717602998c5b37e0b81f/intro/spec/spec_helper.rb#L23
-```
-
-</TabItem>
-<TabItem value="C#">
-
-```cs reference title="Quit Selenium Session"
-https://github.com/saucelabs-training/demo-csharp/blob/6cf6e1b12f0d5b6328c4e4dffb3a92ded48a2043/DotnetCore/Sauce.Demo/Core.BestPractices.Web/Tests/Desktop/WebTestsBase.cs#L16
-```
-
-</TabItem>
-</Tabs>
 
 ### Complete Example  
 
