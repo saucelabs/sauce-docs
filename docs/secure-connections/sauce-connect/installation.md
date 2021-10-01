@@ -69,7 +69,7 @@ Click the one of the links below (Linux, Mac, or Windows) to download Sauce Conn
 <img src={useBaseUrl('img/sauce-connect/sc-download.png')} alt="Sauce Connect download file contents" width="350" margin-bottom="50px"/>
 
 * **bin directory**
-    * **sc.exe**: Sauce Connect Proxy client executable file
+    * **sc.exe** or **sc**: Sauce Connect Proxy client executable file
 * **config_examples directory**
     * **config.yml file**: An example configuration file to be used with the `--config-file` command-line option. See [Sauce Connect Proxy Command-Line Reference](/dev/cli/sauce-connect-proxy) for more information.
     * **systemd directory**: Contains sample files for use with the systemd service manager to start and stop Sauce Connect Proxy. Consult the **config_examples** > **systemd** > ** README.md** file for more information.
