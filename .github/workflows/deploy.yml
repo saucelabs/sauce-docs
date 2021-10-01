@@ -13,6 +13,7 @@ env:
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
   SAUCECTL_VERSION: "0.59.0"
+  SC_VERSION: "4.7.1"
   ALGOLIA_APP_ID: ${{secrets.ALGOLIA_APP_ID}}
   ALGOLIA_KEY: ${{secrets.ALGOLIA_KEY}}
 
@@ -81,8 +82,8 @@ jobs:
       - name: Create Tunnel
         run: |
           set -e
-          curl -L -s https://saucelabs.com/downloads/sc-4.6.4-linux.tar.gz | sudo tar -xvz
-          sc-4.6.4-linux/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -i proxy-tunnel-$GITHUB_RUN_ID &
+          curl -L -s https://saucelabs.com/downloads/sc-${SC_VERSION}-linux.tar.gz | sudo tar -xvz
+          sc-${SC_VERSION}-linux/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -i proxy-tunnel-$GITHUB_RUN_ID -r us-west -l - &
       - name: install saucectl
         run: |
           curl -L -s https://github.com/saucelabs/saucectl/releases/download/v${SAUCECTL_VERSION}/saucectl_${SAUCECTL_VERSION}_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
