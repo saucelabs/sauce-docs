@@ -141,6 +141,3 @@ Example of starting Sauce Connect Proxy in conjunction with your Sauce Headless 
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
   -r us-east -i $TUNNEL_ID
 ```
-
-## Legacy RDC (TestObject)
-For instructions on how to run Sauce Connect Proxy on our Legacy RDC platform (TestObject), see [Creating a Sauce Connect Tunnel for Legacy Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/legacy-tunnels/).
