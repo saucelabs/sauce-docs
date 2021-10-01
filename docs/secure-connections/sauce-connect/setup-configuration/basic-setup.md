@@ -32,14 +32,14 @@ Once you've downloaded Sauce Connect Proxy, you can validate that it works on yo
 1. Launch a tunnel with the following flags, per the [Sauce Connect Proxy Command Line Reference](/dev/cli/sauce-connect-proxy):
 
 ```bash
-$ bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i TUNNEL_ID
+$ bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region $SAUCE_DC -i TUNNEL_ID
 ```
 
 where:
 
 * `SAUCE_USERNAME` is the username assigned to your Sauce Labs account.
 * `SAUCE_ACCESS_KEY` is the access key associated with that account.
-* `SAUCE_DC` is the url of the datacenter you need to use. By default, the `-x` option is not required if you're using the default US West data center. If you're using the Read Device Cloud or the European Data Center, `-x SAUCE_DC` is required.
+* `SAUCE_DC` is the regional datacenter you need to use. By default, the `-r` option is not required if you're using the default US West data center. If you're using [any other region](/dev/cli/sauce-connect-proxy/#data-center-endpoints), `-r SAUCE_DC` is required.
 * `TUNNEL_ID` is the identifier or name of the tunnel; for more information, see Using Tunnel Identifiers below.
 
 2. Select an appropriate test script. Options might include:
