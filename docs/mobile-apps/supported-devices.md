@@ -115,8 +115,6 @@ While we take these actions to clean public real devices after each test session
 #### Passcode Usage on Public Devices
 If you are running tests on public devices, and your app requires the use of a passcode, we recommend that you utilize our biometrics authentication feature instead. See [Biometric Authentication](/mobile-apps/features/biometric-authentication) for more information.
 
-If you absolutely MUST set a passcode, the only passcode allowed by Sauce Labs is **123456**, and you MUST remove it before the end of the test.
-
 If setting unique passcodes is critical to your tests, using private devices instead of public might be a better solution. See [Managing Private Devices](/basics/acct-team-mgmt/private-device-mgmt) for more information.
 
 For more information on Sauce Labs security settings, see [Security Settings for Organizations](/basics/acct-team-mgmt/org-settings).
