@@ -36,7 +36,7 @@ Click the one of the links below (Linux, Mac, or Windows) to download Sauce Conn
   <td>
    <strong><small><a href="https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz">https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz</a></small></strong>
   </td>
-  <td><small>2bc39ae75d52a01e6a764b7583d05bf7144392aa</small>
+  <td><small>e5d7f82ad98251a653d1b0537f1103e49eda5e11</small>
   </td>
  </tr>
  <tr>
@@ -45,7 +45,7 @@ Click the one of the links below (Linux, Mac, or Windows) to download Sauce Conn
   <td>
    <strong><small><a href="https://saucelabs.com/downloads/sc-4.7.1-osx.zip">https://saucelabs.com/downloads/sc-4.7.1-osx.zip</a></small></strong>
   </td>
-  <td><small>4c3329bf2ca56b977cd77b5b49f8aa10d9f23f67</small>
+  <td><small>1f18defa14a5cc4b663bf07213411f6bdd535b6d</small>
   </td>
  </tr>
  <tr>
@@ -54,7 +54,7 @@ Click the one of the links below (Linux, Mac, or Windows) to download Sauce Conn
   <td>
    <strong><small><a href="https://saucelabs.com/downloads/sc-4.7.1-win32.zip">https://saucelabs.com/downloads/sc-4.7.1-win32.zip</a></small></strong>
   </td>
-  <td><small>9a404144e1394eb404291bfa9bcd8a973854a525</small>
+  <td><small>9c91e5adbd023973efe0eb14d2d427d2c0ef3c25</small>
   </td>
  </tr>
 </table>
