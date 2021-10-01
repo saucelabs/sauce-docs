@@ -91,9 +91,10 @@ export PATH="$HOME/sc-4.7.1-linux/bin:$PATH"
 
 ## Log File
 
-Once you've started using Sauce Connect, a log file called _sc.log_ will populate in your computer's directory.
+Once you've started using Sauce Connect, a log file will populate in your computer's directory. The log file name depends on whether [--tunnel-name](/dev/cli/sauce-connect-proxy/#--tunnel-name-or---tunnel-identifier) was used.
+For _anonymous_ tunnels, a log file name would be _sc.log_, for _named_ tunnels, a log file name would be _sc-TUNNEL_NAME.log_
 
-The location will vary, depending on your operating system. For Mac and Linux, the sc.log will use a tmp folder. For Windows, it'll use the current working directory.
+The location of the log file will vary, depending on your operating system. For Mac and Linux, the sc.log will use a tmp folder. For Windows, it'll use the current working directory.
 
 <table>
   <tr>
@@ -123,7 +124,7 @@ The location will vary, depending on your operating system. For Mac and Linux, t
    </td>
    <td>(DD Month) (Time)
    Log file:
-   <code>C:\Users\sauce_username\Downloads\sc-4.5.1-win32\sc-4.5.1-win32\sc-TUNNEL_NAME.log</code>
+   <code>C:\Users\sauce_username\Downloads\sc-4.7.1-win32\sc-4.7.1-win32\sc-TUNNEL_NAME.log</code>
    </td>
   </tr>
 </table>
