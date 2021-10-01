@@ -73,6 +73,7 @@ The way to define capabilities in recent versions of Selenium is with browser op
 
 The following example shows the instantiation of the RemoteWebDriver (assigned the variable name `driver`), authentication values, and the OS/Browser targets for a test written in Selenium 3.141.59:
 
+
 <Tabs
   defaultValue="Java"
   values={[
@@ -180,6 +181,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/main/SauceExamples/Seleni
 
 
 For more information, see the [Selenium documentation on Browser Navigation](https://www.selenium.dev/documentation/webdriver/browser_manipulation/#browser-navigation).
+
 
 ### Step 3: Locate an HTML Element on a Web Page
 
@@ -341,6 +343,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/main/SauceExamples/Seleni
 
 For more information, see the [Selenium documentation on the Find Element](https://www.selenium.dev/documentation/en/webdriver/web_element/#find-element).
 
+
 #### Synchronization Strategies
 
 Synchronization is an advanced topic, but it is essential when locating an element that the application is ready for the element to be located. There are two main approaches to synchronization: implicit and explicit.
@@ -409,6 +412,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/main/SauceExamples/Seleni
 </Tabs>
 
 For more information, see the [Selenium documentation on Waits](https://www.selenium.dev/documentation/en/webdriver/waits/).
+
 
 ### Step 4: Perform Actions on Located Elements
 
@@ -595,6 +599,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/6cf6e1b12f0d5b6328c4e4dff
 
 </TabItem>
 </Tabs>
+
 
 ### Complete Example  
 

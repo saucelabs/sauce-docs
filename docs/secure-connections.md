@@ -8,40 +8,10 @@ We offer two options to provide an extra layer of security to protect test data 
 
 To determine which solution is best for you, see [Overview of Sauce Labs Security Processes](https://saucelabs.com/resources/white-papers/overview-of-sauce-labs-security-processes).
 
-## Sauce IPSec Proxy
-
-<p><small><span className="sauceDBlue">Enterprise Plans only</span></small></p>
-
-Sauce IPSec Proxy establishes a VPN connection between two IPSec gateways, and a tunnel gateway that allows only your authorized test VMs to connect. Contact your Sauce Labs Sales Engineer or Customer Success Manager for more information.
-
-<div className="box-wrapper" markdown="1">
-
-  <div className="box box1 card">
-    <div className="container">
-    <h3><a href="/secure-connections/ipsec-vpn">Using IPSec Tunnels</a></h3>
-    <p>The tunnel gateway is always on for the lifetime of the secure Sauce IPSec Proxy connection, allowing you to run secure and encrypted tests anytime in the Sauce Labs cloud.</p>
-    </div>
-  </div>
-
-  <div className="box box2 card">
-    <div className="container">
-    <h3><a href="/secure-connections/ipsec-vpn#bandwidth-recommendations">Sauce IPSec Proxy Tunnel Network Recommendations</a></h3>
-    <p>Depending on the number of tests you’re running, you'll need to utilize either one or two Sauce IPSec Proxy tunnels for best performance.</p>
-    </div>
-  </div>
-
-</div>
-
-  <div className="box boxwidebottom card">
-    <div className="container">
-    <h3><a href="/secure-connections/ipsec-vpn">Sharing Sauce IPSec Proxy Tunnels</a></h3>
-    <p>You can share Sauce IPSec Proxy tunnel access with your entire organization or restrict access to admins only.</p>
-    </div>
-  </div>
 
 ## Sauce Connect Proxy™
 
-  See [White Paper: Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview) for information about optimizing your network and development environment for the best Sauce Connect Proxy performance.
+See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview) white paper for information about optimizing your network and development environment for Sauce Connect Proxy performance.
 
   <div className="box-wrapper" markdown="1">
     <div className="box box1 card">
@@ -79,6 +49,38 @@ Sauce IPSec Proxy establishes a VPN connection between two IPSec gateways, and a
       <h3><a href="/secure-connections/sauce-connect/security-authentication">Security and Authentication</a></h3>
       <p>Settings and tips for configuring Sauce Connect Proxy with your network.</p>
       </div>
+    </div>
+  </div>
+
+
+## Sauce IPSec Proxy
+
+<p><small><span className="sauceDBlue">Enterprise Plans only</span></small></p>
+
+Sauce IPSec Proxy establishes a VPN connection between two IPSec gateways, and a tunnel gateway that allows only your authorized test VMs to connect. Contact your Sauce Labs Sales Engineer or Customer Success Manager for more information.
+
+<div className="box-wrapper" markdown="1">
+
+  <div className="box box1 card">
+    <div className="container">
+    <h3><a href="/secure-connections/ipsec-vpn">Using IPSec Tunnels</a></h3>
+    <p>The tunnel gateway is always on for the lifetime of the secure Sauce IPSec Proxy connection, allowing you to run secure and encrypted tests anytime in the Sauce Labs cloud.</p>
+    </div>
+  </div>
+
+  <div className="box box2 card">
+    <div className="container">
+    <h3><a href="/secure-connections/ipsec-vpn#bandwidth-recommendations">Sauce IPSec Proxy Tunnel Network Recommendations</a></h3>
+    <p>Depending on the number of tests you’re running, you'll need to utilize either one or two Sauce IPSec Proxy tunnels for best performance.</p>
+    </div>
+  </div>
+
+</div>
+
+  <div className="box boxwidebottom card">
+    <div className="container">
+    <h3><a href="/secure-connections/ipsec-vpn">Sharing Sauce IPSec Proxy Tunnels</a></h3>
+    <p>You can share Sauce IPSec Proxy tunnel access with your entire organization or restrict access to admins only.</p>
     </div>
   </div>
 
