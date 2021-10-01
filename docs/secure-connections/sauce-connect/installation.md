@@ -73,7 +73,6 @@ Click the one of the links below (Linux, Mac, or Windows) to download Sauce Conn
 * **config_examples directory**
     * **config.yml file**: An example configuration file to be used with the `--config-file` command-line option. See [Sauce Connect Proxy Command-Line Reference](/dev/cli/sauce-connect-proxy) for more information.
     * **systemd directory**: Contains sample files for use with the systemd service manager to start and stop Sauce Connect Proxy. Consult the **config_examples** > **systemd** > ** README.md** file for more information.
-    * **upstart directory**: Contains sample files for use with the upstart service manager to start and stop Sauce Connect Proxy. Consult the **config_examples** > **upstart** > **README.md** file for more information.
 * **COPYRIGHT.md file**
   * Sauce Connect Open Source Software Declaration.
 * **license.html file**
@@ -108,15 +107,15 @@ The location will vary, depending on your operating system. For Mac and Linux, t
    </td>
    <td>(DD Month) (Time)
    Log file:
-   <code>/var/folders/72/tjnr5_fs4fvcb3csfjx4sw200000gn/T/sc.log</code>
+   <code>/var/folders/72/tjnr5_fs4fvcb3csfjx4sw200000gn/T/sc-TUNNEL_NAME.log</code>
    </td>
   </tr>
   <tr>
-   <td>Linux (tested on Ubuntu 16.04.6)
+   <td>Linux
    </td>
    <td>(DD Month) (Time)
    Log file:
-   <code>/tmp/sc.log</code>
+   <code>/tmp/sc-TUNNEL_NAME.log</code>
    </td>
   </tr>
   <tr>
@@ -124,7 +123,7 @@ The location will vary, depending on your operating system. For Mac and Linux, t
    </td>
    <td>(DD Month) (Time)
    Log file:
-   <code>C:\Users\sauce_username\Downloads\sc-4.5.1-win32\sc-4.5.1-win32\sc.log</code>
+   <code>C:\Users\sauce_username\Downloads\sc-4.5.1-win32\sc-4.5.1-win32\sc-TUNNEL_NAME.log</code>
    </td>
   </tr>
 </table>
@@ -151,15 +150,21 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    </td>
   </tr>
   <tr>
-   <td>4.7
+   <td rowspan="2" >4.7
    </td>
    <td>4.7.1
    </td>
    <td>
     See <a href="#downloading">Downloading</a>
    </td>
+   <td rowspan="2" >June 31, 2022
+   </td>
+  </tr>
+  <tr>
+   <td>4.7.0
+   </td>
    <td>
-   June 31, 2022
+    <a href="https://saucelabs.com/downloads/sc-4.7.0-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.7.0-osx.zip">Mac</a>
    </td>
   </tr>
   <tr>
