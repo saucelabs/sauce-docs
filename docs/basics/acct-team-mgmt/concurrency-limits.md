@@ -37,7 +37,7 @@ An organization has a total concurrency of 500 VMs. Team A has a concurrency lim
 When Team A is using all 250 concurrency slots, that only leaves 250 of the organization's slots open. Even though Team B has a concurrency limit of 350, it will only be able to use the 250 remaining slots until Team A's tests finish.
 
 #### Example - Team Limits
-An org admin allocates 100 VMs to Team A, which has five members. Since the members of a team share the team's VM limit, the number of concurrent tests being run by the five team members cannot exceed 100 limit. However, concurrency limits cannot be set at the user level, so User A could be running 20 tests, while user B is running 50 tests, and users C, D, and E are running 10 tests each. Or User A could be running 100 tests while Users B, C, D, and E are not running any tests.
+An org admin allocates 100 VMs to Team A, which has five members. Since the members of a team share the team's VM limit, the number of concurrent tests being run by the five team members cannot exceed 100. However, concurrency limits cannot be set at the user level, so User A could be running 20 tests, while user B is running 50 tests, and users C, D, and E are running 10 tests each. Or User A could be running 100 tests while Users B, C, D, and E are not running any tests.
 
 ## Queueing Tests
 As tests complete, queued tests are allocated to concurrency slots in the order they were queued.
