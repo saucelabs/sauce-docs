@@ -188,7 +188,7 @@ The following diagrams illustrate different Sauce Connect Proxy network flow con
 
 #### Site Under Test (SUT) Behind a Proxy
 
-<img src={useBaseUrl('img/sauce-connect/scp-sut-proxy.png')} alt="Site Under Test (SUT) behind a proxy" width="400"/>
+<img src={useBaseUrl('img/sauce-connect/scp-sut-proxy.png')} alt="Site Under Test (SUT) behind a proxy" width="800"/>
 
 **Diagram Legend**
 
@@ -200,7 +200,7 @@ The following diagrams illustrate different Sauce Connect Proxy network flow con
 
 #### Network Traffic Flow With Tunnel Established using `-p`
 
-<img src={useBaseUrl('img/sauce-connect/scp-traffic-flow-tunnel.png')} alt="Network traffic flow With tunnel established using '-p'" width="400"/>
+<img src={useBaseUrl('img/sauce-connect/scp-traffic-flow-tunnel.png')} alt="Network traffic flow With tunnel established using '-p'" width="800"/>
 
 1. Sauce Connect Proxy client sends new tunnel request to proxy.
 2. Proxy forwards request to REST API.
@@ -213,7 +213,7 @@ At this point, the tunnel is established between the Sauce Connect Client and th
 
 #### Network Traffic Flow When a Test is Run Through a Tunnel Started with `-p`
 
-<img src={useBaseUrl('img/sauce-connect/scp-traffic-flow-through-tunnel.png')} alt="Network traffic flow through a tunnel started with '-p'" width="400"/>
+<img src={useBaseUrl('img/sauce-connect/scp-traffic-flow-through-tunnel.png')} alt="Network traffic flow through a tunnel started with '-p'" width="800"/>
 
 1. Selenium/Appium test code sends an HTTPS request to the VM or Real Device that was created for this test (for example, 'GET www.saucedemo.com').
 2. Test VM or Device sends this request to Tunnel VM in order to access Site Under Test (SUT).
@@ -228,7 +228,7 @@ Throughout the lifetime of a tunnel, Sauce Connect Proxy client sends status inf
 
 #### Network Traffic Flow when a Tunnel is Established Using `-T`
 
-<img src={useBaseUrl('img/sauce-connect/scp-traffic-flow-t.png')} alt="Network traffic flow through a tunnel established using '-T'" width="400"/>
+<img src={useBaseUrl('img/sauce-connect/scp-traffic-flow-t.png')} alt="Network traffic flow through a tunnel established using '-T'" width="800"/>
 
 1. Sauce Connect Proxy client sends new tunnel request to REST API via your proxy.
 2. REST API initiates a request to the system to create a new Tunnel VM.
@@ -239,7 +239,7 @@ At this point, the tunnel is established between the Sauce Connect Proxy client 
 
 #### Network Traffic Flow When a Test is Run Through a Tunnel Started Using `-T`
 
-<img src={useBaseUrl('img/sauce-connect/scp-traffic-flow-through-t.png')} alt="Network traffic flow through a tunnel started using '-T'" width="400"/>
+<img src={useBaseUrl('img/sauce-connect/scp-traffic-flow-through-t.png')} alt="Network traffic flow through a tunnel started using '-T'" width="800"/>
 
 1. Selenium/Appium test code sends an HTTPS request to the VM or Real Device that was created for this test (for example, `GET www.saucedemo.com`).
 2. Test VM or device sends this request to Tunnel VM in order to access Site Under Test (SUT).
@@ -262,7 +262,7 @@ The Charles Proxy is useful for monitoring traffic passing between your Sauce VM
 2. Open **Charles Proxy**.
 3. To enable your machine to trust SSL/TLS certificates, in Charles Proxy, click **Help**, and then click **SSL Proxying** > **Install Charles Root Certificate**. For more information, see [SSL Certificates](https://www.charlesproxy.com/documentation/using-charles/ssl-certificates/).
 
-<img src={useBaseUrl('img/sauce-connect/charles-ssl-cert-nav.png')} alt="Charles SSL certificates navigation" width="400"/>
+<img src={useBaseUrl('img/sauce-connect/charles-ssl-cert-nav.png')} alt="Charles SSL certificates navigation" width="800"/>
 
 4. Create a pac.js file for Sauce Connect Proxy:
   ```java
@@ -283,7 +283,7 @@ The Charles Proxy is useful for monitoring traffic passing between your Sauce VM
 
 6. To change to an open port, in Charles Proxy, click **Proxy** and then click **Proxy Settings**. Under **HHTP Proxy**, enter an open port (e.g., `port 8890`) and then click **OK**.
 
-<img src={useBaseUrl('img/sauce-connect/charles-proxy-settings.png')} alt="Charles Proxy settings navigation" width="400"/>
+<img src={useBaseUrl('img/sauce-connect/charles-proxy-settings.png')} alt="Charles Proxy settings navigation" width="800"/>
 
 7. Start your Sauce Connect Proxy tunnel:
   ```bash
