@@ -5,7 +5,7 @@ sidebar_label: Overview
 hide_table_of_contents: true
 ---
 
-Sauce Labs offers five different Sauce Connect Proxy setup types:
+Sauce Labs offers several different Sauce Connect Proxy setup types:
 * [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup)
 * [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies)
 * [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability)
