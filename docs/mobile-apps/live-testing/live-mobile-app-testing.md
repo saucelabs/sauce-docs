@@ -19,7 +19,7 @@ You can upload your app via the Sauce Labs UI or via the REST API. For informati
 
 To upload an app via the Sauce Labs UI:
 
-1. In Sauce Labs, in the left panel, click **LIVE** and then click **Mobile App**.
+1. On Sauce Labs, in the left panel, click **LIVE** and then click **Mobile App**.
 2. Click **App Upload**. You can either drag and drop an application, or browse for and select the file. We currently support \*.apk Android app files, \*.aab Android App Bundle files and \*.ipa or \*.zip iOS app files (\*.zip files are parsed to determine whether a valid \*.app bundle exists). Non-app file uploads are not supported in the UI at this time, but can be uploaded through the API.
 
   If you don't have an app to test, you can use the [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile).
@@ -117,6 +117,11 @@ You can launch a test from the following screens:
   You'll see a loading screen, and then the app will launch in a live test window using the device you selected.
 
   <img src={useBaseUrl('img/live-testing/live-mobile-test-ui.png')} alt="Mobile real device test interface" width="450"/>
+
+#### Time Limits and Timeouts for Real Devices
+* Live tests for free users have a 10 minute limit from session start
+* Live tests for all other users are limited to six hours
+* Live tests for paid users will timeout after 15 minutes of inactivity
 
 ## Live Test Interface
 
@@ -277,7 +282,7 @@ Apple test cards can be found on Apple’s [Sandbox Testing](https://developer.a
 3. **Prepare Sauce Labs**. As mentioned before, Sauce Labs uses an enterprise certificate to install an app on public and private devices. But Apple Pay can’t work with the enterprise certificate, so the app needs to be signed with the developer certificate. You need to instruct Sauce Labs to not re-sign the app when it is installed.
 
 ### Disable Re-Signing
-1. In Sauce Labs, in the left navigation, click **Live** and then click **Mobile-App**.
+1. On Sauce Labs, in the left navigation, click **Live** and then click **Mobile-App**.
 
 <img src={useBaseUrl('img/live-testing/apple-pay-8.png')} alt="Apple Pay setup - Sauce login" width="250"/>
 

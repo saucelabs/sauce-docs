@@ -1,0 +1,60 @@
+/* CLI Custom CSS */
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+#table-cli tr, td {
+    margin-bottom: 1px;
+    padding: 0px;
+    margin-block-start: 2px;
+    background: transparent;
+}
+
+#table-cli th {
+    margin-bottom: 2px;
+    padding: 1px;
+    margin-block-start: 2px;
+    font-family: "museo-sans-rounded", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #F1F2F2;
+    border-bottom: 1px solid #474c55;
+}
+
+.cli {
+    color: #003A70;
+    font-family: "Source Code Pro";
+    padding: 5px;
+    padding-right: 50%;
+    background: linear-gradient(to right, #EDEDEF 0%,#EDEDEF 550px, transparent 50px, transparent 100%);
+    background-clip:padding-box;
+    background-size: cover;
+}
+
+.cli-desc {
+  margin-left: 40px;
+}
+
+.t-cli {
+  color: #003A70;
+  font-size: 13px;
+  padding: 1px;
+  border: solid .5px #d6d6db;
+  background-color: #EDEDEF;
+  border-radius: 5px;
+}
+
+
+html[data-theme='dark'] .cli {
+  background: linear-gradient(to right, #44494F 0%,#44494F 550px, transparent 50px, transparent 100%);
+  color: #EDEDEF;
+}
+
+html[data-theme='dark'] .t-cli {
+  background: linear-gradient(to right, #44494F 0%,#44494F 550px, transparent 50px, transparent 100%);
+  color: #EDEDEF;
+  border: solid .5px #93939f;
+}
+
+html[data-theme='dark'] #table-cli th {
+  background-color: #44494F;
+  color: #EDEDEF;
+}

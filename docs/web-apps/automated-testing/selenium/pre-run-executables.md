@@ -110,11 +110,11 @@ You can use a pre-run executable script to download files from a public location
 <TabItem value="macOS">
 
 ### OS X 10.6, 10.8, 10.9, 10.10
-This shell script will fetch the file at the URL and save it to **/tmp/file.txt**.
+This shell script will fetch the file at the URL and save it to **/Users/chef/file.txt**.
 
 ```js
 #!/bin/bash
-curl -o /tmp/file.txt http://mywebsite.com/file.txt
+curl -o /Users/chef/file.txt http://mywebsite.com/file.txt
 ```
 </TabItem>
 

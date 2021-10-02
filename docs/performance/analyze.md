@@ -6,7 +6,7 @@ description: Drill into the results of your Sauce Labs performance testing to is
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Every time you run a performance test, whether it is through the Speedo command line or an automation script testing page load or motion effects, the results of the test are compiled and displayed in Sauce Labs, and available to all members of your team for analysis and debugging.
+Every time you run a performance test, whether it is through the Speedo command line or an automation script testing page load or motion effects, the results of the test are compiled and displayed on Sauce Labs, and available to all members of your team for analysis and debugging.
 
 ## Viewing Performance Results in Sauce Labs
 
