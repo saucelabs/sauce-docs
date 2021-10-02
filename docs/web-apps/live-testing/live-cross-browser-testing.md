@@ -16,7 +16,7 @@ You can run live tests of your websites on a wide variety of operating system, b
 
 ## Testing on a Desktop Browser
 
-1. In Sauce Labs, in the left navigation panel, click **LIVE** and then click **Cross Browser**.
+1. On Sauce Labs, in the left navigation panel, click **LIVE** and then click **Cross Browser**.
 2. Click the **Desktop** tab.
 
 <img src={useBaseUrl('img/live-testing/desktop-test-nav.jpg')} alt="Live desktop test navigation" width="650"/>
@@ -62,7 +62,7 @@ With Sauce Labs you can run live tests of your web apps using native browsers fo
 Know if your app is designed to run on internal or otherwise restricted networks. If it does and you're testing on real devices, use Sauce Connect Proxy to connect. For more information, see the [Sauce Connect Proxy setup for Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/specialized-environments).
 
 ### Real Device
-1. In Sauce Labs, in the left panel, click **LIVE** and then click **Cross Browser**.
+1. On Sauce Labs, in the left panel, click **LIVE** and then click **Cross Browser**.
 2. Click the **Mobile Real** tab.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-real-nav.png')} alt="Live mobile real device test navigation" width="650"/>
@@ -191,7 +191,7 @@ Device Vitals for live testing is currently in beta state, which means we are te
 </Tabs>
 
 ### Virtual Device
-1. In Sauce Labs, in the left panel, click **Live** and then click **Cross Browser**.
+1. On Sauce Labs, in the left panel, click **Live** and then click **Cross Browser**.
 2. Click the **Mobile Virtual** tab.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-virtual-nav.png')} alt="Live mobile virtual device test navigation" width="650"/>

@@ -43,7 +43,7 @@ Your layout changes will be saved until you change them again.
 
 ## Managing Automated Build and Test Results
 
-Whenever you kick off an automated test or build with Sauce, you will see the build or test begin to run in Sauce Labs, and, if you have set up your tests to report whether they've passed or failed, the ultimate result of that build or test run on either the Automated Builds or Automated Tests page.
+Whenever you kick off an automated test or build with Sauce, you will see the build or test begin to run on Sauce Labs, and, if you have set up your tests to report whether they've passed or failed, the ultimate result of that build or test run on either the Automated Builds or Automated Tests page.
 
 Once the results have been logged to the page, you have a couple options for filtering those results with the filters in the upper-right corner of the page:
 
