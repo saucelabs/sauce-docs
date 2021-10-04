@@ -68,11 +68,11 @@ The URL hostname and authorization credentials for APIs are different for each d
 
 | Sauce Data Center | Authorization Credentials |
 |---|---|
-| US West virtual devices and desktops cloud  | User name and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
-| EU Central virtual devices and desktops cloud  | User name and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
-| APAC Southeast virtual devices and desktops cloud  | User name and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
-| US West real devices cloud  | User name and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
-| EU Central real devices cloud  | User name and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
+| US West virtual devices and desktops cloud  | Username and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
+| EU Central virtual devices and desktops cloud  | Username and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
+| APAC Southeast virtual devices and desktops cloud  | Username and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
+| US West real devices cloud  | Username and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
+| EU Central real devices cloud  | Username and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
 | APAC Southeast real devices cloud | N/A |
 
 #### Running Tests on EU Central
