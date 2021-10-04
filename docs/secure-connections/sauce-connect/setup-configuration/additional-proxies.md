@@ -44,7 +44,9 @@ Proxies and proxy auto-configuration (PAC) (see [Proxy auto-config](https://en.w
   * `all_proxy`
   * `ALL_PROXY` (they can be in the form `http://host.name:port` or `host.name:port`)
 
-When a proxy is auto-detected, Sauce Connect Proxy will route all network traffic between the Sauce Connect Proxy client running on your network and the Sauce Labs REST API through the detected proxy. The traffic between the Sauce Connect Proxy client and the SUT will also be routed through the proxy. You can disable automatic proxy detection with the command-line option `./sc --no-autodetect`.
+When a proxy is auto-detected, Sauce Connect Proxy will route all network traffic between the Sauce Connect Proxy client running on your network and the Sauce Labs REST API through the detected proxy.
+The traffic between the Sauce Connect Proxy client and the SUT will also be routed through the proxy. You can disable automatic proxy detection
+with the command-line option [--no-autodetect](/dev/cli/sauce-connect-proxy#--no-autodetect).
 
 To set up and run Sauce Connect Proxy for this situation, see [Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
 
@@ -68,13 +70,13 @@ Here are some examples for starting a tunnel using  `-p` and `-w`:
   values={[
     {label: 'Mac or Linux', value: 'maclinux'},
     {label: 'Windows', value: 'windows'},
-    {label: 'Using RDC or EU Data Center', value: 'rdceu'},
   ]}>
 
 <TabItem value="maclinux">
 
 ```bash
-$ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
+    -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD
 ```
 
 </TabItem>
@@ -82,15 +84,8 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -p $PROXY_HOST:$PRO
 <TabItem value="windows">
 
 ```bash
-> sc_download\bin\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -p %PROXY_HOST%:%PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD%
-```
-
-</TabItem>
-
-<TabItem value="rdceu">
-
-```bash
-$ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD -x https://</span>eu-central-1.saucelabs.com/rest/v1
+> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
+    -p %PROXY_HOST%:%PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD%
 ```
 
 </TabItem>
@@ -106,13 +101,13 @@ Here are some examples for starting a Sauce Connect Proxy tunnel using `-p` and 
   values={[
     {label: 'Mac or Linux', value: 'maclinux'},
     {label: 'Windows', value: 'windows'},
-    {label: 'Using RDC or EU Data Center', value: 'rdceu'},
   ]}>
 
 <TabItem value="maclinux">
 
 ```bash
-$ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD -T
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
+    -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD -T
 ```
 
 </TabItem>
@@ -120,15 +115,8 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -p $PROXY_HOST:$PRO
 <TabItem value="windows">
 
 ```bash
-> sc_download\bin\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -p %PROXY_HOST:PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD% -T
-```
-
-</TabItem>
-
-<TabItem value="rdceu">
-
-```bash
-$ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD -T -x https://</span>eu-central-1.saucelabs.com/rest/v1
+> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
+    -p %PROXY_HOST:PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD% -T
 ```
 
 </TabItem>
@@ -137,14 +125,10 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -p $PROXY_HOST:$PRO
 #### Command Line Configuration Using PAC Files (`–pac url`)
 Your IT organization may have a PAC file that is used to specify how your own internal proxy servers should be configured.
 
-To have Sauce Connect Proxy with your PAC file, use the `--pac url` command line option when starting Sauce Connect Proxy. The url argument can be an http(s) or local file: //URL. Absolute paths are required when specifying a local PAC file (e.g., `file:///Users/Andrew/Desktop/MyPac.pac`).
+To have Sauce Connect Proxy with your PAC file, use the [--pac url](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy#--pac) command line option when starting Sauce Connect Proxy.
+The url argument can be an http(s) or local file: //URL. Absolute paths are required when specifying a local PAC file (e.g., `file:///Users/JohnSmith/Desktop/MyPac.pac`).
 
 If your PAC file contains multiple proxies, in addition to `-pac`, you'll need to specify the `-p` option to designate which proxy will receive the username and password.
-
-:::note
-Sauce Connect Proxy versions older than 4.6.1 do not support the  `-p (--proxy)`  and `-T (--proxy-tunnel)` options combined with `--pac`. See [Downloading Sauce Connect Proxy](/secure-connections/sauce-connect/installation) to download the latest version.
-
-:::
 
 Here are some examples for starting a Sauce Connect Proxy tunnel using `--pac url`:
 
@@ -153,13 +137,12 @@ Here are some examples for starting a Sauce Connect Proxy tunnel using `--pac ur
   values={[
     {label: 'Mac or Linux', value: 'maclinux'},
     {label: 'Windows', value: 'windows'},
-    {label: 'Using RDC or EU Data Center', value: 'rdceu'},
   ]}>
 
 <TabItem value="maclinux">
 
 ```bash
-$ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac PAC_FILE_URL
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac PAC_FILE_URL
 ```
 
 </TabItem>
@@ -167,15 +150,7 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac PAC_FILE_URL
 <TabItem value="windows">
 
 ```bash
-> sc_download\bin\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --pac PAC_FILE_URL
-```
-
-</TabItem>
-
-<TabItem value="rdceu">
-
-```bash
-$ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac PAC_FILE_URL -x https://</span>eu-central-1.saucelabs.com/rest/v1
+> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --pac PAC_FILE_URL
 ```
 
 </TabItem>
@@ -287,7 +262,7 @@ The Charles Proxy is useful for monitoring traffic passing between your Sauce VM
 
 7. Start your Sauce Connect Proxy tunnel:
   ```bash
-  $ ./sc -v  --pac file:///</span>Users/johnsmith/workspace/scstuff/pac.js
+  $ ./sc --pac file:///Users/JohnSmith/workspace/scstuff/pac.js
   ```
 
 8. Start your test using the proxy, then observe the traffic in Charles Proxy.
