@@ -659,6 +659,7 @@ module.exports = {
                   },
              'api-testing/mark3/quick-start/importing-postman-collections',
              'api-testing/mark3/quick-start/integrate-with-your-cicd',
+             'api-testing/mark3/quick-start/mocking',
         ],
         "CI/CD": [
             'ci',
