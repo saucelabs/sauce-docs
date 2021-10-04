@@ -147,7 +147,10 @@ Sauce Connect Proxy must be on the same network as the website or mobile app bei
 ## Using Tunnel Identifiers
 When launching a Sauce Connect Proxy tunnel for automated web and mobile app tests, you have two options:
 * Launch a Sauce Connect tunnel as-is, without identifying it. That default, unnamed tunnel will automatically be used for all automated tests. This can be useful for small organizations with a limited number of tests.
-* Assign a name known as a tunnel identifier. To accomplish this, you'll need to launch a tunnel with the `-i (--tunnel-identifier)` command to assign the tunnel identifier(s) when starting up Sauce Connect Proxy. Then, you'll need to use the `tunnelIdentifier` option in the desired capabilities of your automated tests (see [Using Tunnel Identifiers](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information). This will trigger your tests to request a specific tunnel to run your tests through that tunnel.
+* Assign a name known as a tunnel identifier. To accomplish this, you'll need to launch a tunnel with the
+  `-i` (["--tunnel-name" or "--tunnel-identifier"](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy#--tunnel-name-or---tunnel-identifier)) command to assign the tunnel identifier(s) when starting up Sauce Connect Proxy.
+  Then, you'll need to use the `tunnelIdentifier` option in the desired capabilities of your automated tests.
+  This will trigger your tests to request a specific tunnel to run your tests through that tunnel.
 
 ### Example: Automated Test with Sauce Connect Proxy Tunnel Identifiers
 Below is an example of how to designate tunnels based on the `tunnelIdentifier` option so that it works properly with an automated test.
@@ -164,7 +167,7 @@ Launch a new tunnel on the `SC_HOST` with the following flags, per the [Sauce Co
 <TabItem value="MacOS/Linux Example">
 
 ```bash
-$ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i sc-proxy-tunnel
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DC -i sc-proxy-tunnel
 ```
 
 </TabItem>
@@ -172,7 +175,7 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i sc-
 <TabItem value="Windows Example">
 
 ```bash
-> sc_download\bin\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -x %SAUCE_DC% -i sc-proxy-tunnel
+> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -r %SAUCE_DC% -i sc-proxy-tunnel
 ```
 
 </TabItem>
