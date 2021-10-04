@@ -40,7 +40,7 @@ Additionally, an [Appium desktop application](http://appium.io/downloads) exists
 Appium Desktop is currently supported by the [Appium core team](https://appium.io/docs/en/contributing-to-appium/developers-overview/#developer-community).
 :::
 
-## Creating an Appium Tests
+## Creating an Appium Test
 
 Here are the basic steps for creating an Appium test script for your application under test (AUT):
 

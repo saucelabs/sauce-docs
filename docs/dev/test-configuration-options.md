@@ -3,14 +3,8 @@ id: test-configuration-options
 title: Test Configuration Options
 sidebar_label: Test Configuration Options
 ---
-This page includes a list of valid test configuration options (capabilities) for tests run on Sauce Labs.
 
-export const Highlight = ({children, color}) => ( <span style={{
-      backgroundColor: color,
-      borderRadius: '2px',
-      color: '#fff',
-      padding: '0.2rem',
-    }}>{children}</span> );
+This page includes a list of valid test configuration options (capabilities) for tests run on Sauce Labs.
 
 See the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to generate the code for setting the capabilities to execute a test. For examples, see [Examples of Test Configuration Options for Website Tests](https://docs.saucelabs.com/basics/test-config-annotation/test-config/#examples-of-test-configuration-options-for-website-tests)
 
@@ -66,7 +60,7 @@ Identifies the user agent. See the [WebDriver W3C Specification](https://w3c.git
 ### `browserVersion`
 <p><small>| STRING |</small></p>
 
-identifies the version of the browser you want to use in your test. See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-browser-version) for more information.
+Identifies the version of the browser you want to use in your test. See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-browser-version) for more information.
 
 To use the latest stable version of Chrome or Firefox that we support, you can use `"browserVersion": "latest"`. You can also use `"browserVersion": "latest-1"` or `"browserVersion": "latest-2"`, etc., to request the next most recent versions of a browser.
 
@@ -76,7 +70,6 @@ See the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platfo
 
 :::note
 This setting cannot be used for mobile browsers, as your test will use the default browser installed for the given Appium version.
-
 :::
 
 ```java
@@ -169,7 +162,7 @@ Browser-specific optional capabilities you can add to the `sauce:options` block 
 ### `chromedriverVersion`
 <p><small>| STRING |</small></p>
 
-allows you to specify the ChromeDriver version you want to use for your tests. The default version of ChromeDriver when no value is specified depends on the version of Chrome used. As of Chrome 73, the major version of the driver and the browser must match.
+Allows you to specify the ChromeDriver version you want to use for your tests. The default version of ChromeDriver when no value is specified depends on the version of Chrome used. As of Chrome 73, the major version of the driver and the browser must match.
 
 For a list of ChromeDriver versions, see [chromedriver versions list](https://chromedriver.storage.googleapis.com/index.html).
 
@@ -460,31 +453,31 @@ Android-dependent apps will not be instrumented or modified. iOS-dependent apps 
 ### `tabletOnly`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-use this capability to select only tablet devices for testing by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).
+Use this capability to select only tablet devices for testing by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).
 
 ---
 ### `phoneOnly`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-use this capability to select only phone devices by setting it to `"true"`. For ***Dynamic Allocation***.
+Use this capability to select only phone devices by setting it to `"true"`. For ***Dynamic Allocation***.
 
 ---
 ### `privateDevicesOnly`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-if your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).
+If your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).
 
 ---
 ### `publicDevicesOnly`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-if your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).
+If your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).
 
 ---
 ### `carrierConnectivityOnly`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).
+Use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).
 
 ---
 ### `cacheId`
@@ -514,16 +507,29 @@ We recommend reviewing [Device Management for Real Devices](/mobile-apps/support
 :::
 
 ---
+
+### `newCommandTimeout`
+<p><small>| DURATION | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+
+Sets the amount of time, in seconds, a test can wait for the next command to execute on a real device before timing out. The default value is 60 seconds and the maximum allowed value is 90 seconds.
+
+```java
+"newCommandTimeout": 90
+```
+
+---
+
 ### `noReset`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
+Set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
 
 :::caution Known iOS Limitation
 On iOS devices, the `noReset` value is permanently set to `true` and cannot be overridden using `noReset:false`. If you check your Appium logs, you'll see that the value is `true`, even though the default setting technically is false. We've done this intentionally to ensure that your post-test iOS device cleaning process is optimal and secure.
 :::
 
 ---
+
 ### `recordDeviceVitals`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
@@ -614,7 +620,7 @@ Associates multiple jobs with a build number or app version, which will then be 
 ### `tags`
 <p><small>| LIST |</small></p>
 
-user-defined tags for grouping and filtering jobs on the **Test Results** dashboard and **Archive** view. Tags can facilitate team collaboration.
+User-defined tags for grouping and filtering jobs on the **Test Results** dashboard and **Archive** view. Tags can facilitate team collaboration.
 
 ```java
 "tags": ["tag1","tag2","tag3"]
@@ -638,7 +644,7 @@ You can find your `username` value under **Account** > **User Settings**.
 ### `accessKey`
 <p><small>| STRING |</small></p>
 
-use this to set your Sauce Labs access key for the test. You can find this value under **Account** > **User Settings**.
+Use this to set your Sauce Labs access key for the test. You can find this value under **Account** > **User Settings**.
 
 You can either set `"accessKey"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](#visual-testing), this must be set in capabilities.
 
@@ -655,7 +661,7 @@ You can find your `accessKey` value under **Account** > **User Settings**.
 ### `custom-data`
 <p><small>| OBJECT |</small></p>
 
-user-defined custom data that will accept any valid JSON object, limited to 64KB in size.
+User-defined custom data that will accept any valid JSON object, limited to 64KB in size.
 
 
 ```java
@@ -709,7 +715,7 @@ If you're using [Sauce Connect Proxy](/secure-connections/sauce-connect) to test
 ### `parentTunnel`  
 <p><small>| STRING |</small></p>
 
-for using shared tunnels in your organization.
+For using shared tunnels in your organization.
 
 This capability will let the test job use any shared tunnels available from the specified parent account (i.e., any account that is upstream in the hierarchy).
 
@@ -728,7 +734,7 @@ If you're using a shared tunnel, you'll need to specify both `tunnelIdentifier` 
 ### `recordVideo`
 <p><small>| BOOLEAN |</small></p>
 
-use this to disable video recording. By default, Sauce Labs records a video of every test you run. Disabling video recording can be useful for debugging failing tests as well as having a visual confirmation that a certain feature works (or still works). However, there is an added wait time for screen recording during a test run.
+Use this to disable video recording. By default, Sauce Labs records a video of every test you run. Disabling video recording can be useful for debugging failing tests as well as having a visual confirmation that a certain feature works (or still works). However, there is an added wait time for screen recording during a test run.
 
 
 ```java
@@ -775,7 +781,7 @@ The following are Sauce Labs-specific options that apply only to virtual devices
 ### `maxDuration`
 <p><small>| INTEGER |</small></p>
 
-sets maximum test duration in seconds. As a safety measure to prevent tests from running indefinitely, the default is 1,800 seconds (30 minutes) and the maximum is 10,800 seconds (three hours).
+Sets maximum test duration in seconds. As a safety measure to prevent tests from running indefinitely, the default is 1,800 seconds (30 minutes) and the maximum is 10,800 seconds (three hours).
 
 :::caution Tests Should Not Exceed 30 Minutes
 
@@ -792,7 +798,7 @@ We have a three-hour maximum in place to ease the transition of new users migrat
 ### `commandTimeout`
 <p><small>| INTEGER |</small></p>
 
-sets command timeout in seconds. As a safety measure to prevent Selenium crashes from making your tests run indefinitely, we limit how long Selenium can take to run a command in our browsers. This is set to 300 seconds by default. The maximum command timeout value allowed is 600 seconds.
+Sets command timeout in seconds. As a safety measure to prevent Selenium crashes from making your tests run indefinitely, we limit how long Selenium can take to run a command in our browsers. This is set to 300 seconds by default. The maximum command timeout value allowed is 600 seconds.
 
 ```java
 "commandTimeout": 300
@@ -802,7 +808,7 @@ sets command timeout in seconds. As a safety measure to prevent Selenium crashes
 ### `idleTimeout`
 <p><small>| INTEGER |</small></p>
 
-sets idle test timeout in seconds. As a safety measure to prevent tests from running too long after something has gone wrong, we limit how long a browser can wait for a test to send a new command. This is set to 90 seconds by default and limited to a maximum value of 1000 seconds.
+Sets idle test timeout in seconds. As a safety measure to prevent tests from running too long after something has gone wrong, we limit how long a browser can wait for a test to send a new command. This is set to 90 seconds by default and limited to a maximum value of 1000 seconds.
 
 ```java
 "idleTimeout": 90
@@ -812,7 +818,7 @@ sets idle test timeout in seconds. As a safety measure to prevent tests from run
 ### `priority`
 <p><small>| INTEGER |</small></p>
 
-setting to prioritize jobs. If you have multiple new jobs waiting to start (i.e., across a collection of sub-accounts), jobs with a lower priority number take precedence over jobs with a higher number.
+Setting to prioritize jobs. If you have multiple new jobs waiting to start (i.e., across a collection of sub-accounts), jobs with a lower priority number take precedence over jobs with a higher number.
 
 So, for example, if you have multiple jobs simultaneously waiting to start, we'll first attempt to find resources to start all the jobs with priority `0`, then all the jobs with priority `1`, etc.
 
@@ -858,7 +864,7 @@ Read the descriptions of each key below the example.
 ```
 
 ### `prerun` (primary key)
-use this to define pre-run executables. You can provide a URL to an executable file, which will be downloaded and executed to configure the VM before the test starts. For faster performance, you may want to upload the executable to your [Sauce Application Storage](/mobile-apps/app-storage) space. This capability takes a JSON object with four main keys. See [Using Pre-Run Executables to Configure Browsers and VMs](/web-apps/automated-testing/selenium/pre-run-executables) for more information.
+Use this to define pre-run executables. You can provide a URL to an executable file, which will be downloaded and executed to configure the VM before the test starts. For faster performance, you may want to upload the executable to your [Sauce Application Storage](/mobile-apps/app-storage) space. This capability takes a JSON object with four main keys. See [Using Pre-Run Executables to Configure Browsers and VMs](/web-apps/automated-testing/selenium/pre-run-executables) for more information.
 
 * Running AutoIt Scripts: If you want to run an AutoIt script during your test, compile it as an .exe, send it using this capability, and set background to true to allow AutoIt to continue running throughout the full duration of your test.
 * Using Multiple Pre-Run Executables: If you need to send multiple pre-run executables, the best way is to bundle them into a single executable file, such as a self-extracting zip file.
