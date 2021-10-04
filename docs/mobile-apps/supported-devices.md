@@ -115,7 +115,7 @@ While we take these actions to clean public real devices after each test session
 #### Passcode Usage on Public Devices
 Passcodes cannot be set on public devices. If your app requires authentication, you can:
 
-* Use our biometrics authentication feature (see [Biometric Authentication](/mobile-apps/features/biometric-authentication)).
+* Use our biometric authentication feature (see [Biometric Authentication](/mobile-apps/features/biometric-authentication)).
 * Use private devices (see [Private Device Cloud](#private-device-cloud)).
 
 For more information on Sauce Labs security settings, see [Security Settings for Organizations](/basics/acct-team-mgmt/org-settings).
