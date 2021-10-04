@@ -112,3 +112,21 @@ Yes.
 ## Can you allowlist IP addresses instead of using Sauce Connect Proxy?
 
 To create a secure connection, we strongly recommend using Sauce Connect or IPSec VPN instead of allowlisting IP ranges. More information: [Why Sauce Labs Recommends Sauce Connect Proxy Over Allowlisting IP Addresses](/secure-connections/sauce-connect).
+
+## Where can I get more in-depth information about Sauce Connect Proxy?
+
+[Sauce Connect Proxy white paper](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview) contains an in-depth overview of the proxy and its security.
+
+## What is KGP in Sauce Connect Proxy logs?
+
+KGP is a protocol that is used to establish a tunnel between a customer environment and Sauce Labs data center.
+
+It's an application layer protocol that carries all HTTP(s) traffic as its payload.
+It is developed and maintained by Sauce Labs, and is used to multiplex established connections for multiple HTTP requests/responses.
+
+KGP packets contain the following components:
+
+- Data packets carrying HTTP(s) traffic
+- Control packets, which include:
+  - Connection requests
+  - Keepalive timers

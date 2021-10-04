@@ -12,7 +12,8 @@ Sauce Labs offers several different Sauce Connect Proxy setup types:
 * [Sauce Connect Proxy Setup for Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/specialized-environments)
 * [Headless Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/specialized-environments)
 
-As you’re configuring the setup type that’s right for you, it's important to understand how the program will interact with your network architecture components, such as proxies, firewalls, and geographically distributed data centers.
+As you’re configuring the setup type that’s right for you, it's important to understand how the program will interact with your network architecture components,
+such as proxies, firewalls, and geographically distributed data centers.
 
 ## What You’ll Need
 
