@@ -132,7 +132,7 @@ Real Device testing on Sauce Labs is data center contingent, so you will only ha
 | Specify an alternative path and file to use as the configuration file. | `config --path` | `--config` |
 | Set environment variable values on which other settings depend (such as proxy host/port values). | Not supported | `--env` |
 | Simulate a test without actually executing. | Not supported | `--dry-run` |
-| Return additional output for troubleshooting purposes. | ``--verbose` | `--verbose` |
+| Return additional output for troubleshooting purposes. | `--verbose` | `--verbose` |
 | Provide tags for use in filtering jobs in the Sauce Labs UI in ways that are meaningful for your org, such as release numbers or dev teams. | Not supported | `--tags <tag1,tag2...>` (Espresso RDC Only)|
 | Associate the job with a build ID for grouping jobs in the Sauce Labs UI. | Not supported | `--build` (Espresso RDC Only)|
 | Specify the circumstances under which to download test artifacts. | Not supported | Must use YAML |
