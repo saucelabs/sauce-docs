@@ -575,7 +575,7 @@ Instructs `saucectl` to run only tests in the specified package.
 ---
 
 #### `notPackage`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| OPTIONAL | STRING | REAL DEVICES ONLY |</small></p>
 
 Instructs `saucectl` to run run all tests *except* those in the specified package.
 
