@@ -25,6 +25,10 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 <p/>
 
 Returns Tunnel IDs or Tunnels Info for any currently running tunnels launched by the specified user.
+It also allows to filter tunnels using an optional "filter" parameter that may take the following values:
+
+- <code>filter=v2alpha</code>  - a response will contain only tunnels that were started with `--vm-version v2alpha`.
+- <code>filter=one_per_pool</code> - a response will contain only one (arbitrary) tunnel per tunnel pool.
 
 #### Parameters
 
@@ -41,6 +45,10 @@ Returns Tunnel IDs or Tunnels Info for any currently running tunnels launched by
     <tr>
      <td><code>all</code></td>
      <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Set to <code>true</code> to return the tunnels IDs/info for the users in the specified user org. If this option is set, the response type would be a dictionary mapping user name to a list of tunnels. Defaults to <code>false</code>. </p></td>
+    </tr>
+    <tr>
+     <td><code>filter</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Predefined filter name that can be used to filter out the tunnels. Currently the following filters are supported: <code>one_per_pool</code>, <code>v2alpha</code>.</p></td>
     </tr>
   </tbody>
 </table>
@@ -110,10 +118,52 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </tbody>
 </table>
 
-```jsx title="Sample Response"
+```jsx title="Sample Response to the default request"
 [
     "28e7c8133ede4588a891666dd35af1f8"
 ]
+```
+
+```jsx title="Sample Response to the request with an optional parameter full=true"
+[
+    {
+        "owner": "jim.smith",
+        "team_ids": [...],
+        "creation_time": 1618345938,
+        "domain_names": null,
+        "owner": "jim.smith",
+        "id": "28e7c8133ede4588a891666dd35af1f8",
+        "extra_info": "{…}",
+        …
+        "tunnel_identifier": "jim.smith_tunnel_id"
+    }
+]
+```
+
+```jsx title="Sample Response to the request with an optional parameter all=true"
+{
+    "jim.smith": [
+        "28e7c8133ede4588a891666dd35af1f8"
+    ]
+}
+```
+
+```jsx title="Sample Response to the request with all=true&full=true"
+{
+    "jim.smith": [
+      {
+          "owner": "jim.smith",
+          "team_ids": [...],
+          "creation_time": 1618345938,
+          "domain_names": null,
+          "owner": "jim.smith",
+          "id": "28e7c8133ede4588a891666dd35af1f8",
+          "extra_info": "{…}",
+          …
+          "tunnel_identifier": "jim.smith_tunnel_id"
+      }
+    ]
+}
 ```
 </details>
 
@@ -211,14 +261,12 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Response"
 {
+    "owner": "jim.smith",
     "team_ids": [...],
-    "ssh_port": 443,
     "creation_time": 1618345938,
     "domain_names": null,
-    "owner": "jim.smith",
-    "use_kgp": true,
     "id": "28e7c8133ede4588a891666dd35af1f8",
-    "extra_info": "{\"metrics_host\": \"localhost\", \"metrics_port\": 8888, \"tunnel_cert\": \"public\", \"inject_job_id\": true, \"backend\": \"kgp\"}",
+    "extra_info": "{…}",
     "direct_domains": null,
     "vm_version": "",
     "no_ssl_bump_domains": null,
@@ -230,9 +278,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "ip_address": null,
     "last_connected": 1618346660,
     "user_shutdown": null,
-    "use_caching_proxy": null,
     "launch_time": 1618345940,
-    "no_proxy_caching": false,
     "tunnel_identifier": "jim.smith_tunnel_id"
 }
 ```
