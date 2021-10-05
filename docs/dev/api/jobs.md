@@ -1019,6 +1019,90 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
+### Get All Screenshots
+
+<details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;/assets/screenshots.zip</code></summary>
+<p/>
+
+Retrieves all of the screenshot files for the specified job and downloads them as a single ZIP file. Use the `--output <filepath>` cURL flag, as shown in the request samples, to download to a local directory. 
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>username</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the owner of the job. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>job_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The Sauce Labs identifier of the job for which you are retrieving the asset list. You can look up job IDs using the <a href="#get-jobs">Get Jobs</a> endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets/screenshots.zip' --output './screenshots.zip'
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets/screenshots.zip' --output './screenshots.zip'
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. Screenshots are downloaded to the specified output location.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>401</code></td>
+    <td colSpan='2'>Not authorized.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                               Dload  Upload   Total   Spent    Left  Speed
+100     9    0     9    0     0     18      0 --:--:-- --:--:-- --:--:--    18
+```
+</details>
+
+---
+
+
 ### Delete Job Assets
 
 <details><summary><span className="api delete">DELETE</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;/assets</code></summary>
