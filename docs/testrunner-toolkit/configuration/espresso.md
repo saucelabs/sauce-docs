@@ -523,7 +523,7 @@ suites:
       - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest
     size: small
     package: com.example.android.testing.androidjunitrunnersample
-    notPakacge: com.example.android.testing.androidMyDemoTests
+    notPackage: com.example.android.testing.androidMyDemoTests
     annotation: com.android.buzz.MyAnnotation
     notAnnotation: com.android.buzz.NotMyAnnotation
     numShards: 4
