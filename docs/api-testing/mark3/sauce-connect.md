@@ -10,28 +10,34 @@ If your APIs exist behind a firewall on your private network, you'll need to use
 
 ## What You'll Need
 
-If you've never used Sauce Connect Proxy:
-* Review [Using Sauce Connect Proxy](/secure-connections/sauce-connect)
-  * See [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy) for additional, optional configuration options
-* Confirm that your local environment meets the [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/)
-* [Download Sauce Connect Proxy](/secure-connections/sauce-connect/installation/) to your local machine
+* Have the Sauce Connect Proxy client on your local machine ([download here](/secure-connections/sauce-connect/installation/)).
+
+:::info
+If you're new to Sauce Connect Proxy, we also recommend reviewing [Using Sauce Connect Proxy](/secure-connections/sauce-connect), [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/), and [Sauce Connect Proxy Quickstart Guide](/secure-connections/sauce-connect/quickstart/).
+
+:::
 
 ## Using Sauce Connect Proxy
 
 1. Log in to Sauce Labs.
-2. Start a Sauce Connect Proxy tunnel per standard procedure.
-3. Verify that the tunnel is running. There are two places to do this.
-   * via [**TUNNELS**](https://app.saucelabs.com/tunnels) page
+2. Start a Sauce Connect Proxy tunnel from your CLI terminal as you would normally, with one difference &#8212 append the API option, `--vm-version v2alpha`, to your command line.
 
-     <img src={useBaseUrl('img/api-fortress/2021/api-sauceconnect-tunnelsuccess-UI.png')} alt="API Testing Sauce Connect Tunnel Success" width="650"/>
-   * via CLI
+  ```bash
+  ./sc   -u $SAUCE_USERNAME \
+         -k $SAUCE_ACCESS_KEY \
+         -x https://saucelabs.com/rest/v1 \
+         -i SAUCE_TUNNEL_ID \
+         --vm-version v2alpha
+  ```
 
-     <img src={useBaseUrl('img/api-fortress/2021/api-sauceconnect-tunnel-success.png')} alt="API Testing Sauce Connect Tunnel Success CLI" width="650"/>
-4. Click [**API TESTING**](https://app.saucelabs.com/apitesting/landing) > **Get Started** to launch Sauce Labs API Testing.
-5. Click the **Projects** tab to view all of your projects, then click on your project name.
-6. Under **Run Configuration**, click **No Tunnel** (default) to trigger the Sauce Connect Proxy dropdown menu, then click the name of the tunnel you started in Step 2.
-
+3. Click [**API TESTING**](https://app.saucelabs.com/apitesting/landing) > **Get Started** to launch Sauce Labs API Testing.
+4. Click the **Projects** tab to view all of your projects, then click on your project name.
+5. Under **Run Configuration**, click **No Tunnel** (default) to trigger the Sauce Connect Proxy dropdown menu, then click the name of the tunnel you started in Step 2.<br/>
   <img src={useBaseUrl('img/api-fortress/2021/api-sauceconnect-nav1.png')} alt="API Testing Sauce Connect Nav" width="600"/>
-7. Now you're set up to run your API tests through Sauce Connect Proxy.
 
-To stop the tunnel, return to the [**TUNNELS**](https://app.saucelabs.com/tunnels) page and click the **Stop** icon next to your tunnel.
+Now you're set up to run your API tests through Sauce Connect Proxy.
+
+
+## More Information
+
+To learn how to verify tunnel activity and stop tunnels, see [Sauce Connect Proxy Quickstart Guide](/secure-connections/sauce-connect/quickstart/).
