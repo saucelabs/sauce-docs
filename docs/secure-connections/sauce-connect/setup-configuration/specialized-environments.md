@@ -68,7 +68,7 @@ So an example, starting a tunnel in US West Data Center, would look like this:
 $ ./sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -r 'us-west' -i rdc-on-sauce-tunnel-us
 ```
 
-2. In your device testing script, specify the tunnel name with `tunnelIdentifier` in your desired capabilities, as shown in this Java example:
+2. In your device testing script, specify the tunnel name with `tunnelIdentifier` in your capabilities, as shown in this Java example:
 
 ```js
 final DesiredCapabilities capabilities = new DesiredCapabilities();
