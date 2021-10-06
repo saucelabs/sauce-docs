@@ -26,7 +26,7 @@ In rare instances, tests running in Chrome that launch multiple browser windows 
 
 ## Enabling Extended Debugging
 
-To generate the JS console logs and HAR files, add the `extendedDebugging` capability to the desired capabilities of your test and set it to true. Here are some example scripts in both W3C WebDriver Protocol and legacy JSON Wire Protocol that show Extended Debugging enabled.
+To generate the JS console logs and HAR files, add the `extendedDebugging` capability to the capabilities of your test and set it to true. Here are some example scripts in both W3C WebDriver Protocol and legacy JSON Wire Protocol that show Extended Debugging enabled.
 
 <Tabs
   defaultValue="w3c"
@@ -61,7 +61,7 @@ const capabilities = {
 </TabItem>
 </Tabs>
 
-For more information and additional examples, see our 
+For more information and additional examples, see our
 [Extended Debugging Example GitHub repo](https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/webdriver/examples/extended-debugging).
 
 When a test with extended debugging enabled completes, you can access the logs and files through Sauce Labs or with the REST API.
