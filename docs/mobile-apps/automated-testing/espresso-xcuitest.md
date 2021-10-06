@@ -117,6 +117,7 @@ Real Device testing on Sauce Labs is data center contingent, so you will only ha
 | Exclude certain classes from the test. | `--e -e= class name.of.class1,name.of.class2`  | Must use YAML |
 | Run only tests matching the specified size. | `--e -i=size size` | Must use YAML |
 | Specify which package to run. | `--e package` | Must use YAML |
+| Exclude tests in the specified package. | `--e notPackage` | Must use YAML |
 | Run only tests matching the specified annotation.  | `--e -i=annotation com.my.annotation` | Must use YAML |
 | Exclude tests matching the specified annotation.  | `--e -i=notAnnotation com.my.annotation` | Must use YAML |
 | Further specify Espresso test options using supported key-value pairs. | `--e` | Not supported |
@@ -131,7 +132,7 @@ Real Device testing on Sauce Labs is data center contingent, so you will only ha
 | Specify an alternative path and file to use as the configuration file. | `config --path` | `--config` |
 | Set environment variable values on which other settings depend (such as proxy host/port values). | Not supported | `--env` |
 | Simulate a test without actually executing. | Not supported | `--dry-run` |
-| Return additional output for troubleshooting purposes. | --verbose | `--verbose` |
+| Return additional output for troubleshooting purposes. | `--verbose` | `--verbose` |
 | Provide tags for use in filtering jobs in the Sauce Labs UI in ways that are meaningful for your org, such as release numbers or dev teams. | Not supported | `--tags <tag1,tag2...>` (Espresso RDC Only)|
 | Associate the job with a build ID for grouping jobs in the Sauce Labs UI. | Not supported | `--build` (Espresso RDC Only)|
 | Specify the circumstances under which to download test artifacts. | Not supported | Must use YAML |
@@ -151,21 +152,22 @@ Real Device testing on Sauce Labs is data center contingent, so you will only ha
 | Provide a name for the test. | `testname:` | `suites[].name:` |
 | Specify a virtual machine emulator. (Espresso Only) | `-d` (one value)<br/> `--devices[]` | `suites[].emulators[]:` |
 | Specify the emulator(s) to run the test on. (Espresso Only) | `deviceName=name` | `suites[].emulators[].name:` |
-| Specify the test orientation for the emulator. (Espresso Only) | `orientation=portrait|landscape` | `suites[].emulators[].orientation:` |
+| Specify the test orientation for the emulator. (Espresso Only) | `orientation=portrait\|landscape` | `suites[].emulators[].orientation:` |
 | Specify the emulator platform versions to apply. (Espresso Only) | `platformVersion=version#` | `suites[].emulators[].platformVersions[]:` |
 | Specify a real device to run the test on. | `device:` | `suites[].devices[].id:` |
 | Indicate real device selection to be dynamic. | `devices:` | `suites[].devices[]:` |
 | Choose a real device running a particular platform version. | `devices.platformVersion:` | `suites[].devices[].platformVersion:` |
 | Choose real devices from a private pool only. | `privateDevicesOnly:` | `suites[].devices[].options.private:` |
 | Choose a phone real device only. | `phoneOnly:` | `suites[].devices.options.deviceType: PHONE` |
-| Choose a tablet real device only. | tabletOnly: | `suites[].devices[].options.deviceType: TABLET` |
+| Choose a tablet real device only. | `tabletOnly:` | `suites[].devices[].options.deviceType: TABLET` |
 | Ensure the real device is connected to a cellular network. | Not supported | `suites[].devices[].options.carrierConnectivity` |
 | Choose any real device where the name matches the regex. | `devices.deviceNameQuery:` | `suites[].devices[].name:` |
 | Specify which test class to run. | `testsToRun.testClass:` | `suites[].testOptions.class:` |
 | Specify which methods to run. | `testsToRun.testMethod:` | `suites[].testOptions.class: class/Method` (XCUITest Only) |
 | Exclude certain classes from the test. | Must use CLI | `suites[].testOptions.notClass:` (Espresso Only) |
 | Run only tests matching the specified size. | Must use CLI | `suites[].testOptions.size:` (Espresso Only) |
-| Specify which package to run. | Not supported | `suites[].testOptions.package:`  (Espresso Only) |
+| Specify which package to run. | Must use CLI | `suites[].testOptions.package:`  (Espresso Only) |
+| Exclude tests in the specified package. | Must use CLI | `suites[].testOptions.notPackage:`  (Espresso Only) |
 | Run only tests matching the specified annotation.  | Must use CLI | `suites[].testOptions.annotation:`  (Espresso Only) |
 | Exclude tests matching the specified annotation.  | Must use CLI | `suites[].testOptions.notAnnotation:`  (Espresso Only) |
 | Break the test into separate shards. | Not supported | `suites[].testOptions.numShards:`  (Espresso Only) |
