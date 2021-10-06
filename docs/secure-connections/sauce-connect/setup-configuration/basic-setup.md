@@ -45,7 +45,7 @@ where:
 2. Select an appropriate test script. Options might include:
   * One of your existing tests, if available.
   * An example from [Sauce Labs Demonstration Scripts](https://github.com/saucelabs-training). Follow the instructions to configure the test before proceeding to step 3 below.
-3. If you are using an tunnel identifier, add the following to the desired capabilities of  the test:
+3. If you are using an tunnel identifier, add the following to the capabilities of  the test:
 
 <Tabs
   defaultValue="Java"
@@ -149,7 +149,7 @@ When launching a Sauce Connect Proxy tunnel for automated web and mobile app tes
 * Launch a Sauce Connect tunnel as-is, without identifying it. That default, unnamed tunnel will automatically be used for all automated tests. This can be useful for small organizations with a limited number of tests.
 * Assign a name known as a tunnel identifier. To accomplish this, you'll need to launch a tunnel with the
   `-i` (["--tunnel-name" or "--tunnel-identifier"](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy#--tunnel-name-or---tunnel-identifier)) command to assign the tunnel identifier(s) when starting up Sauce Connect Proxy.
-  Then, you'll need to use the `tunnelIdentifier` option in the desired capabilities of your automated tests.
+  Then, you'll need to use the `tunnelIdentifier` option in the capabilities of your automated tests.
   This will trigger your tests to request a specific tunnel to run your tests through that tunnel.
 
 ### Example: Automated Test with Sauce Connect Proxy Tunnel Identifiers

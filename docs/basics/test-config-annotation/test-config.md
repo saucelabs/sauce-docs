@@ -22,11 +22,11 @@ Once your test is finished, you can annotate the job with a name, tags, and pass
 See [Test Configuration Options](/dev/test-configuration-options) for a list of valid test configuration options for tests run on Sauce Labs.
 
 ## Getting Ready to Test
-Test configuration refers to setting the desired capabilities of your test within the test script itself. There are required capabilities for both Selenium and Appium tests, as well as an extensive set of optional capabilities (some of which are exclusive to Sauce Labs). You can use our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to create the required desired capabilities for your test scripts, or use one of our [sample test frameworks](https://github.com/saucelabs-training) to set up the desired capabilities for parallel testing across multiple platform/operating systems.
+Test configuration refers to setting the capabilities of your test within the test script itself. There are required capabilities for both Selenium and Appium tests, as well as an extensive set of optional capabilities (some of which are exclusive to Sauce Labs). You can use our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to create the required capabilities for your test scripts, or use one of our [sample test frameworks](https://github.com/saucelabs-training) to set up the capabilities for parallel testing across multiple platform/operating systems.
 
 ## Capabilities for Selenium and Appium Tests
 
-You can configure the environment for your Appium and Selenium tests by specifying a set of desired capabilities. Our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) can set desired capabilities for testing in the scripting language of your choice. [Test Configuration Options](https://docs.saucelabs.com/dev/test-configuration-options) provides a complete list of all Selenium, Appium, and Sauce Labs testing capabilities.
+You can configure the environment for your Appium and Selenium tests by specifying a set of capabilities. Our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) can set test capabilities for testing in the scripting language of your choice. [Test Configuration Options](https://docs.saucelabs.com/dev/test-configuration-options) provides a complete list of all Selenium, Appium, and Sauce Labs testing capabilities.
 
 ## Examples of Test Configuration Options for Website Tests
 You can test websites using either Selenium or Appium. Selenium has better support for desktop devices, while Appium has better support for testing websites on mobile devices with native browsers. However, website testing against Android devices with Appium is only supported for Android versions 4.4 and higher.
@@ -189,7 +189,7 @@ If you're testing a native mobile app against Android versions 4.0 - 4.1, or a h
 
 #### Enabling Location Services for iOS Devices
 
-If you want to enable location services in an iOS simulator, for example to test GPS-dependent applications, you should set these desired capabilities in your Appium script:
+If you want to enable location services in an iOS simulator, for example to test GPS-dependent applications, you should set these capabilities in your Appium test script:
 
 * `locationServicesEnabled=true`
 * `locationServicesAuthorized=true`
