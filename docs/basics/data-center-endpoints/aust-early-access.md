@@ -31,7 +31,7 @@ To allow inbound and outbound connections to Sauce Labs Services using IP addres
 ## Running Tests in the APAC Region
 1. To verify you have access to the new region, **APAC Southeast**, in Sauce Labs, click the data center dropdown.
 
-<img src={useBaseUrl('img/aust-early-access.png')} alt="APAC-SOUTHEAST-1 availability" width="400"/>
+<img src={useBaseUrl('img/aust-early-access.png')} alt="APAC Southeast availability" width="400"/>
 
 2. To run your automated tests, update your Selenium tests to point to the new region by changing the ondemand url during driver creation to `https://ondemand.apac-southeast-1.saucelabs.com`.
 
