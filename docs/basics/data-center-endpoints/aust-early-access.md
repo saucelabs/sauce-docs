@@ -30,10 +30,15 @@ To allow inbound and outbound connections to Sauce Labs Services using IP addres
 
 ## Running Tests in the APAC Region
 <<<<<<< HEAD
+<<<<<<< HEAD
 1. To verify you have access to the new region, **APAC Southeast**, in Sauce Labs, click the data center dropdown.
 =======
 1. To verify you have access to the new region, **APAC-SOUTHEAST-1**, on Sauce Labs, click the data center dropdown.
 >>>>>>> 5102bdbfde54bf5d42f665e62562e03862609cfb
+=======
+
+1. To verify you have access to the new region, **APAC Southeast**, in Sauce Labs, click the data center dropdown.
+>>>>>>> dd4b51fab2e284234e0390f9c60c4bdd2bf28cf1
 
 <img src={useBaseUrl('img/aust-early-access.png')} alt="APAC-SOUTHEAST-1 availability" width="400"/>
 
