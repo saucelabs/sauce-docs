@@ -29,7 +29,11 @@ Depending on your network configuration, your network administrator may need to 
 To allow inbound and outbound connections to Sauce Labs Services using IP addresses, use the following IP range(s): `34.87.251.80/28`
 
 ## Running Tests in the APAC Region
+<<<<<<< HEAD
 1. To verify you have access to the new region, **APAC Southeast**, in Sauce Labs, click the data center dropdown.
+=======
+1. To verify you have access to the new region, **APAC-SOUTHEAST-1**, on Sauce Labs, click the data center dropdown.
+>>>>>>> 5102bdbfde54bf5d42f665e62562e03862609cfb
 
 <img src={useBaseUrl('img/aust-early-access.png')} alt="APAC-SOUTHEAST-1 availability" width="400"/>
 

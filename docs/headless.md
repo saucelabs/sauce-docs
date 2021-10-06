@@ -21,7 +21,7 @@ There are a few key differences between setting up Sauce Headless tests versus s
 
 ## What You'll Need
 
-<p> <Highlight color="#013a70">ENTERPRISE PLANS ONLY</Highlight> </p>
+<p> <Highlight color="#013a70">Enterprise Plans only</Highlight> </p>
 
 The [latest version of Sauce Connect Proxy](/secure-connections/sauce-connect/installation), if you're using it to run Headless tests.
 
@@ -35,7 +35,7 @@ At this time, data from tests run in Headless mode is not available to the [Sauc
 Sauce Headless provides headless Chrome and Firefox in the three most recent versions and the most recent version of Linux. 
 
 ### WebDriver Capabilities
-You'll need to set desired capabilities in your test that are specific to headless testing, as shown in this example:
+You'll need to set capabilities in your test that are specific to headless testing, as shown in this example:
 
 ```
 saucelabs_headless_chrome": {
