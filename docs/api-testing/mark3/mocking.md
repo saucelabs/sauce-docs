@@ -29,8 +29,9 @@ Where can I run it?
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 * An OpenAPI spec file
+
 
 ## Mock Generation
 
@@ -40,6 +41,25 @@ If you provide a regular OpenAPI spec file, the system should bind a series of e
 * When one response example is present: the system will present the example.
 * When multiple response examples are present: the system will present the first example.
 * When multiple content types are available: the system will pick the one closer to the "Accept" header, any JSON response if a match is not found.
+
+1. Place your spec file (or set of files in a folder) in a location of your choice. For this example, we'll call it `myspec.yaml`.
+2. Open your CLI terminal and navigate to right outside that folder, then run this command in your terminal:
+  ```bash
+  docker run -v "$(pwd)/myspec:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
+  ```
+  `$(pwd)/myspec` means the `{current_directory}/myspec` that gets mounted to the container in the `/specs` folder. Therefore, the -u (relative to the container is) `/specs/myspec.yaml`.
+3. If all goes well, you should see the listing of the available routes:
+  ```json
+  2021-10-05T07:32:35.157Z info: Piestry booting on port: 5000
+  2021-10-05T07:32:35.189Z info: Registering GET /api/v1/release-notes
+  2021-10-05T07:32:35.191Z info: Registering GET /api/v1/user
+  2021-10-05T07:32:35.191Z info: Registering GET /api/v1/user/:id
+  2021-10-05T07:32:35.192Z info: Registering GET /api/v1/echo
+  2021-10-05T07:32:35.192Z info: Registering POST /api/v1/echo
+  2021-10-05T07:32:35.192Z info: Registering POST /api/v1/post-check
+  2021-10-05T07:32:35.193Z info: Registering POST /api/v1/check-in
+  ```
+4. At this point, you can use any **HTTP client** to query one of these endpoints (i.e., `curl localhost:5000/api/v1/release-notes`). It should return a mock for release notes. On top of this, you can add the option to connect the logger, and there you go.
 
 
 ### Enhancing OpenAPI with x-sauce
