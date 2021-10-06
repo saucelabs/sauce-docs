@@ -13,26 +13,39 @@ If your APIs exist behind a firewall on your private network, you'll need to use
 * Have the Sauce Connect Proxy client on your local machine ([download here](/secure-connections/sauce-connect/installation/)).
 
 :::info
-If you're new to Sauce Connect Proxy, we also recommend reviewing [Using Sauce Connect Proxy](/secure-connections/sauce-connect), [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/), and [Sauce Connect Proxy Quickstart Guide](/secure-connections/sauce-connect/quickstart/).
+If you're new to Sauce Connect Proxy, check out [Using Sauce Connect Proxy](/secure-connections/sauce-connect), [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/), and [Sauce Connect Proxy Quickstart Guide](/secure-connections/sauce-connect/quickstart/).
 
 :::
 
-## Using Sauce Connect Proxy
+## Starting a Tunnel for API Testing
 
-1. Log in to Sauce Labs.
-2. Start a Sauce Connect Proxy tunnel from your CLI terminal as you would normally, with one difference &#8212 append the API option, `--vm-version v2alpha`, to your command line.
-
-  ```bash
-  ./sc   -u $SAUCE_USERNAME \
-         -k $SAUCE_ACCESS_KEY \
-         -x https://saucelabs.com/rest/v1 \
-         -i SAUCE_TUNNEL_ID \
-         --vm-version v2alpha
+1. Create a .yaml configuration file using the text below. Substitute your [SAUCE_USERNAME](https://app.saucelabs.com/user-settings) and [SAUCE_ACCESS_KEY](https://app.saucelabs.com/user-settings) where indicated. Optionally, you can define a name for your tunnel (`tunnel-identifier` variable).
+  ```yaml
+  rest-url: "https://api.us-west-4-staging.saucelabs.net/rest/v1"
+  user: "SAUCE_USERNAME"
+  api-key: "SAUCE_ACCESS_KEY"
+  no-remove-colliding-tunnels: true
+  vm-version: "v2alpha"
+  tunnel-cert: private
+  tunnel-identifier: your-tunnel-name
   ```
-
-3. Click [**API TESTING**](https://app.saucelabs.com/apitesting/landing) > **Get Started** to launch Sauce Labs API Testing.
-4. Click the **Projects** tab to view all of your projects, then click on your project name.
-5. Under **Run Configuration**, click **No Tunnel** (default) to trigger the Sauce Connect Proxy dropdown menu, then click the name of the tunnel you started in Step 2.<br/>
+2. Save your .yaml file to the same folder as your Sauce Connect Proxy client. In this example, the file is named `api-config.yaml`.
+  <img src={useBaseUrl('img/api-fortress/2021/api-sauceconnect-folders.png')} alt="API Testing Sauce Connect Nav" width="500" />
+3. Open your CLI terminal and navigate to your Sauce Connect Proxy folder.
+  ```bash
+  cd sc-4.7.1-osx
+  ```
+4. Start your tunnel by issuing:
+  ```bash
+  bin/sc -c api-config.yaml
+  ```
+5. Log in to Sauce Labs.
+:::tip
+[Verify that your tunnel is active](/secure-connections/sauce-connect/quickstart/#verifying-a-tunnel).
+:::
+6. Click [**API TESTING**](https://app.saucelabs.com/apitesting/landing) > **Get Started** to launch Sauce Labs API Testing.
+7. Click the **Projects** tab to view all of your projects, then click on your project name.
+8. Under **Run Configuration**, click **No Tunnel** (default) to trigger the Sauce Connect Proxy dropdown menu, then click the name of your tunnel.<br/>
   <img src={useBaseUrl('img/api-fortress/2021/api-sauceconnect-nav1.png')} alt="API Testing Sauce Connect Nav" width="600"/>
 
 Now you're set up to run your API tests through Sauce Connect Proxy.
