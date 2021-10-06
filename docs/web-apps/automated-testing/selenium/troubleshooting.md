@@ -50,7 +50,7 @@ A good template to log with is:
 
 The log message itself should include everything relevant to the problem you're seeing, in particular:
 
-* Just before creating a Selenium driver, with the desired capabilities
+* Just before creating a Selenium driver, with the test capabilities
 * When the driver is created successfully, with its session ID
 * When a driver is going to be quit, with its session ID
 * When a driver has been successfully quit, with its session ID
@@ -72,7 +72,7 @@ Once you have logs to review, here are some things to look for:
 
 ### Incorrect driver setup
 
-* "Empty" or incomplete desired capabilities
+* "Empty" or incomplete test capabilities
 * "Empty" or missing user authentication
 
 ### Non-thread-safe code

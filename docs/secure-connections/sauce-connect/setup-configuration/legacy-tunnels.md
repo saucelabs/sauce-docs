@@ -89,7 +89,7 @@ $ /bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x 'https://eu1.api.t
 
 
 
-2. In your device testing script, specify the tunnel name with `tunnelIdentifier` in your desired capabilities, as shown in this Java example:
+2. In your device testing script, specify the tunnel name with `tunnelIdentifier` in your capabilities, as shown in this Java example:
 
 **Example `tunnelIdentifier` Java Snippet**
 ```java
