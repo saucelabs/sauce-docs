@@ -515,18 +515,20 @@ Request that the matching device is from your organization's private pool.
 A set of parameters allowing you to provide additional details about which test class should be run for the suite and how to apply them.
 
 ```yaml
-testOptions:
-  class:
-    - com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
-  notClass:
-    - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest
-  size: small
-  package: com.example.android.testing.androidjunitrunnersample
-  annotation: com.android.buzz.MyAnnotation
-  notAnnotation: com.android.buzz.NotMyAnnotation
-  numShards: 4
-  clearPackageData: true
-  useTestOrchestrator: true
+suites:
+  testOptions:
+    class:
+      - com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
+    notClass:
+      - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest
+    size: small
+    package: com.example.android.testing.androidjunitrunnersample
+    notPackage: com.example.android.testing.androidMyDemoTests
+    annotation: com.android.buzz.MyAnnotation
+    notAnnotation: com.android.buzz.NotMyAnnotation
+    numShards: 4
+    clearPackageData: true
+    useTestOrchestrator: true
 ```
 ---
 
@@ -569,6 +571,16 @@ Instructs `saucectl` to run only tests in the specified package.
 
 ```yaml
   package: com.example.android.testing.androidjunitrunnersample
+```
+---
+
+#### `notPackage`
+<p><small>| OPTIONAL | STRING | REAL DEVICES ONLY |</small></p>
+
+Instructs `saucectl` to run run all tests *except* those in the specified package.
+
+```yaml
+  notPackage: com.example.android.testing.androidMyDemoTests
 ```
 ---
 
