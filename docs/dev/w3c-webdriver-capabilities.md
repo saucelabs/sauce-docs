@@ -25,7 +25,7 @@ Some extended capabilities are not backwards-compatible with Selenium versions b
 To ensure W3C WebDriver compliance:
 
 * Use Selenium version 3.11 or higher.
-* Switch from using JWP (legacy) to the newer W3C WebDriver Protocol. Mixing JWP with W3C will result in an [error](https://docs.saucelabs.com/dev/w3c-webdriver-capabilities#common-errors).
+* Switch from using JWP (legacy) to the newer W3C WebDriver Protocol. Mixing JWP with W3C will result in an [error](/dev/w3c-webdriver-capabilities/#common-errors).
 * Learn the name changes effective with the W3C protocol capabilities. For example, W3C uses `platformName`, while JWP uses `platform`. W3C uses `browserVersion`, while JWP uses `version`. We recommend reviewing our [Test Configuration Options](/dev/test-configuration-options) and the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities).
 * Include our custom `sauce:options` W3C WebDriver-compliant capabilities in your Sauce Labs test scripts.
   <details><summary><strong>Click here</strong> to see the full list of <code>sauce:options</code> capabilities. See <a href="/dev/test-configuration-options">Test Configuration Options</a> for guidance on which are required and optional.</summary>

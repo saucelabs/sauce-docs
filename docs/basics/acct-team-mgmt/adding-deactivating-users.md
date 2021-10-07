@@ -26,7 +26,7 @@ When you add a user manually, you assign the user a user name and password. To a
    <img src={useBaseUrl('img/team-mgmt/add-new-user-manual.jpg')} alt="Add new user - manually" width="500"/>
 
 4. In the **ADD TO TEAM** dropdown, select the team for the user. If you don't select a team, the user will be added to the default team.  
-5. In the **ORG ROLE** dropdown, select an organizational role for the user. The options are Org. Admin, Team Member, and Member. For more information about the permissions associated with each role, see [User Roles](https://docs.saucelabs.com/basics/acct-team-mgmt/managing-user-info/#user-roles).
+5. In the **ORG ROLE** dropdown, select an organizational role for the user. The options are Org. Admin, Team Member, and Member. For more information about the permissions associated with each role, see [User Roles](/basics/acct-team-mgmt/managing-user-info/#user-roles).
 6. Click **ADD USER**.
 
 ### Adding a User Via Email
@@ -46,7 +46,7 @@ If you invite a user by email, you will need to wait until they accept your invi
 
 ### SSO Considerations
 
-If SSO and the **Require Single Sign-On** option are enabled for your organization (see [Single Sign-On Settings](https://docs.saucelabs.com/basics/acct-team-mgmt/org-settings/#single-sign-on-settings)), new users will be outside your IdP. This means they will not be able to log in to Sauce Labs using the credentials you provided when you created their account (they will be able to run test automation, however). In this situation, you should add users manually.
+If SSO and the **Require Single Sign-On** option are enabled for your organization (see [Single Sign-On Settings](/basics/acct-team-mgmt/org-settings/#single-sign-on-settings)), new users will be outside your IdP. This means they will not be able to log in to Sauce Labs using the credentials you provided when you created their account (they will be able to run test automation, however). In this situation, you should add users manually.
 
 If SSO is enabled but the **Require Single Sign-On** option is not, you can add new users manually or invite them via email.
 

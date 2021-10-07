@@ -32,7 +32,7 @@ Once you've downloaded Sauce Connect Proxy, you can validate that it works on yo
 1. Launch a tunnel with the following flags, per the [Sauce Connect Proxy Command Line Reference](/dev/cli/sauce-connect-proxy):
 
 ```bash
-$ bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region $SAUCE_DC -i TUNNEL_ID
+$ bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region $SAUCE_DC -i TUNNEL_NAME
 ```
 
 where:
@@ -40,7 +40,7 @@ where:
 * `SAUCE_USERNAME` is the username assigned to your Sauce Labs account.
 * `SAUCE_ACCESS_KEY` is the access key associated with that account.
 * `SAUCE_DC` is the regional datacenter you need to use. By default, the `-r` option is not required if you're using the default US West data center. If you're using [any other region](/dev/cli/sauce-connect-proxy/#data-center-endpoints), `-r SAUCE_DC` is required.
-* `TUNNEL_ID` is the identifier or name of the tunnel; for more information, see Using Tunnel Identifiers below.
+* `TUNNEL_NAME` is the identifier or name of the tunnel; for more information, see Using Tunnel Names below.
 
 2. Select an appropriate test script. Options might include:
   * One of your existing tests, if available.
@@ -60,7 +60,7 @@ where:
 <TabItem value="Java">
 
 ```java
-caps.SetCapability("tunnelIdentifier", "TUNNEL_ID");
+caps.SetCapability("tunnelName", "TUNNEL_NAME");
 ```
 
 </TabItem>
@@ -68,7 +68,7 @@ caps.SetCapability("tunnelIdentifier", "TUNNEL_ID");
 <TabItem value="Node.js">
 
 ```javascript
-'tunnelIdentifier': 'TUNNEL_ID'
+'tunnelName': 'TUNNEL_NAME'
 ```
 
 </TabItem>
@@ -76,7 +76,7 @@ caps.SetCapability("tunnelIdentifier", "TUNNEL_ID");
 <TabItem value="C#">
 
 ```csharp
-caps.SetCapability("tunnelIdentifier", "TUNNEL_ID");
+caps.SetCapability("tunnelName", "TUNNEL_NAME");
 ```
 
 </TabItem>
@@ -84,7 +84,7 @@ caps.SetCapability("tunnelIdentifier", "TUNNEL_ID");
 <TabItem value="Python">
 
 ```py
-'tunnelIdentifier': 'TUNNEL_ID'
+'tunnelName': 'TUNNEL_NAME'
 ```
 
 </TabItem>
@@ -92,13 +92,13 @@ caps.SetCapability("tunnelIdentifier", "TUNNEL_ID");
 <TabItem value="Ruby">
 
 ```rb
-'tunnelIdentifier': 'TUNNEL_ID'
+'tunnelName': 'TUNNEL_NAME'
 ```
 
 </TabItem>
 </Tabs>
 
-Where `TUNNEL_ID` is the identifier or name of the tunnel from step 1.
+Where `TUNNEL_NAME` is the identifier or name of the tunnel from step 1.
 
 3. When you see `connected`, log in to Sauce Labs and, in the left navigation panel, click **TUNNELS**. Under **Active Tunnels**, you should see the tunnel you've just started.
 
@@ -144,18 +144,20 @@ As a best practice, Sauce Labs recommends creating a new tunnel for each test su
 Sauce Connect Proxy must be on the same network as the website or mobile app being tested, but it is not required to set it up on the same machine.
 :::
 
-## Using Tunnel Identifiers
+## Using Tunnel Names
+
 When launching a Sauce Connect Proxy tunnel for automated web and mobile app tests, you have two options:
-* Launch a Sauce Connect tunnel as-is, without identifying it. That default, unnamed tunnel will automatically be used for all automated tests. This can be useful for small organizations with a limited number of tests.
-* Assign a name known as a tunnel identifier. To accomplish this, you'll need to launch a tunnel with the
-  `-i` (["--tunnel-name" or "--tunnel-identifier"](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy#--tunnel-name-or---tunnel-identifier)) command to assign the tunnel identifier(s) when starting up Sauce Connect Proxy.
-  Then, you'll need to use the `tunnelIdentifier` option in the capabilities of your automated tests.
-  This will trigger your tests to request a specific tunnel to run your tests through that tunnel.
 
-### Example: Automated Test with Sauce Connect Proxy Tunnel Identifiers
-Below is an example of how to designate tunnels based on the `tunnelIdentifier` option so that it works properly with an automated test.
+* Launch a Sauce Connect tunnel as-is, without naming it. That default, unnamed tunnel will automatically be used for all automated tests. This can be useful for small organizations with a limited number of tests.
+* Assign a name to help distinguish tunnels in a way that is meaningful to your organization. To accomplish this:
+  1. Use the [ `--tunnelName` flag](/dev/cli/sauce-connect-proxy/#--tunnel-name-or---tunnel-identifier) when you launch a tunnel.
+  1. Specify the named tunnel in your automated tests by adding the `tunnelName` capability.
 
-Launch a new tunnel on the `SC_HOST` with the following flags, per the [Sauce Connect Proxy Command Line Reference](/dev/cli/sauce-connect-proxy):
+### Sample Configurations Using Named Tunnels
+
+The following code samples demonstrate specifying a tunnel name when launching a tunnel and then referencing that tunnel in your automated test.
+
+Launch a new tunnel on the `SC_HOST` using the [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy) and the `--tunnelName` flag:
 
 <Tabs
   defaultValue="MacOS/Linux Example"
@@ -167,7 +169,7 @@ Launch a new tunnel on the `SC_HOST` with the following flags, per the [Sauce Co
 <TabItem value="MacOS/Linux Example">
 
 ```bash
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DC -i sc-proxy-tunnel
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DC --tunnelName sc-proxy-tunnel
 ```
 
 </TabItem>
@@ -175,7 +177,7 @@ $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DC -i sc-proxy-tunnel
 <TabItem value="Windows Example">
 
 ```bash
-> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -r %SAUCE_DC% -i sc-proxy-tunnel
+> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -r %SAUCE_DC% --tunnelName sc-proxy-tunnel
 ```
 
 </TabItem>
@@ -184,7 +186,7 @@ $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DC -i sc-proxy-tunnel
 
 * Ensure that your network configuration allows for communication between the `SC Host`, the Tunnel VM, and the SUT (site under test). See the basic network configuration diagram for further explanation.
 * Select an example from [Sauce Labs Demonstration Scripts](https://github.com/saucelabs-training) and follow the instructions to configure the test in your dev environment.
-* Navigate to the desired test script and add the following [Test Configuration Option](/dev/test-configuration-options) in the [`sauce:options`](/dev/w3c-webdriver-capabilities) capability:
+* Navigate to the desired test script and add the [tunnelName](/dev/test-configuration-options#tunnelname) capability to your [`sauce:options`](/dev/w3c-webdriver-capabilities).
 
 <Tabs
   defaultValue="Java"
@@ -199,7 +201,7 @@ $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DC -i sc-proxy-tunnel
 <TabItem value="Java">
 
 ```java
-caps.SetCapability("tunnelIdentifier", "sc-proxy-tunnel");
+caps.SetCapability("tunnelName", "sc-proxy-tunnel");
 ```
 
 </TabItem>
@@ -207,7 +209,7 @@ caps.SetCapability("tunnelIdentifier", "sc-proxy-tunnel");
 <TabItem value="Node.js">
 
 ```js
-'tunnelIdentifier': 'sc-proxy-tunnel'
+'tunnelName': 'sc-proxy-tunnel'
 ```
 
 </TabItem>
@@ -215,7 +217,7 @@ caps.SetCapability("tunnelIdentifier", "sc-proxy-tunnel");
 <TabItem value="C#">
 
 ```csharp
-caps.SetCapability("tunnelIdentifier", "sc-proxy-tunnel");
+caps.SetCapability("tunnelName", "sc-proxy-tunnel");
 ```
 
 </TabItem>
@@ -223,7 +225,7 @@ caps.SetCapability("tunnelIdentifier", "sc-proxy-tunnel");
 <TabItem value="Python">
 
 ```py
-'tunnelIdentifier': 'sc-proxy-tunnel'
+'tunnelName': 'sc-proxy-tunnel'
 ```
 
 </TabItem>
@@ -231,7 +233,7 @@ caps.SetCapability("tunnelIdentifier", "sc-proxy-tunnel");
 <TabItem value="Ruby">
 
 ```rb
-tunnelIdentifier: 'sc-proxy-tunnel',
+tunnelName: 'sc-proxy-tunnel',
 ```
 
 </TabItem>
