@@ -29,15 +29,15 @@ Depending on your network configuration, your network administrator may need to 
 To allow inbound and outbound connections to Sauce Labs Services using IP addresses, use the following IP range(s): `34.87.251.80/28`
 
 ## Running Tests in the APAC Region
-1. To verify you have access to the new region, **APAC-SOUTHEAST-1**, on Sauce Labs, click the data center dropdown.
+1. To verify you have access to the new region, **APAC Southeast**, in Sauce Labs, click the data center dropdown.
 
-<img src={useBaseUrl('img/aust-early-access.png')} alt="APAC-SOUTHEAST-1 availability" width="400"/>
+<img src={useBaseUrl('img/aust-early-access.png')} alt="APAC Southeast availability" width="400"/>
 
 2. To run your automated tests, update your Selenium tests to point to the new region by changing the ondemand url during driver creation to `https://ondemand.apac-southeast-1.saucelabs.com`.
 
 <img src={useBaseUrl('img/data-center-selenium.png')} alt="Update your Selenium tests" width="400"/>
 
-3. To verify the results, log in to Sauce Labs and select the **APAC-SOUTHEAST-1** region.
+3. To verify the results, log in to Sauce Labs and select the **APAC Southeast** region.
 
 :::note
 During the transition from the alpha to beta programs, our ability to retain historical data, including test results, is limited.
