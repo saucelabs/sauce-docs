@@ -92,4 +92,4 @@ Accelerate and scale your testing and broaden coverage by running automated test
 
 ## Training
 
-Get up and running quickly with your existing automated Android Appium test code using Sauce Schools' [quickstart tutorial on Running Appium Android Tests on Sauce Labs](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#0).
+Get up and running quickly with your existing automated Android Appium test code using Sauce Schools' [quickstart tutorial on Running Appium Android Tests on Sauce Labs](https://training.saucelabs.com/codelabs/Module2-Quickstart/?index=..%2F..quickstart#0).

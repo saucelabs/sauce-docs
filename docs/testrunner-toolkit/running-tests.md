@@ -104,13 +104,13 @@ suites:
 
 If you're running tests on Sauce Labs VMs, but the site under test is protected behind strict network security/policies, you can utilize [Sauce Connect Proxy](/secure-connections/sauce-connect) to circumvent the problem.
 
-You can use the `--tunnel-id` flag with `saucectl` in order to use an existing Sauce Connect tunnel with your test session:
+You can use the `--tunnel-name` flag with `saucectl` in order to use an existing Sauce Connect tunnel with your test session:
 
 ```bash
-saucectl run --tunnel-id <tunnel-id>
+saucectl run --tunnel-name <tunnel-name>
 ```
 
-> For more information on how to use the `--tunnel-id` flag, please visit the [CLI Reference](/testrunner-toolkit/saucectl/#tunnel-id).
+> For more information on how to use the `--tunnel-name` flag, please visit the [CLI Reference](/testrunner-toolkit/saucectl/#tunnel-name).
 
 To enable Sauce Connect Proxy in the `config.yml`, use the `tunnel` field:
 
@@ -118,7 +118,7 @@ To enable Sauce Connect Proxy in the `config.yml`, use the `tunnel` field:
 sauce:
   concurrency: 3
   tunnel:
-    id: sauce-ci-tunnel
+    name: sauce-ci-tunnel
   region: us-west-1
 ```
 
@@ -169,7 +169,7 @@ Ensure the `docker` container can access the local app server (e.g. `localhost:<
 If you wish to test the app running on a local app  server with Sauce Labs VMs:
 
 * Download and launch [Sauce Connect](/secure-connections/sauce-connect)
-* Specify a `tunnel-id` (either in the config or using the `--tunnel-id` CLI flag)
+* Specify the tunnel to use when running your tests (either in the config.yml `tunnel` property or using the `--tunnel-name` flag with the saucectl run command).
 
 :::tip Working Example
 Here is a working example of this use case using [Sauce Connect and GitHub Actions](/testrunner-toolkit/integrations/github-actions).
