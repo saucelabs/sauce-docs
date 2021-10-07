@@ -15,7 +15,7 @@ Get up and running with a Sauce Connect Proxy tunnel in just a few minutes by fo
 4. Go to the [**TUNNELS**](https://app.saucelabs.com/tunnels) page, scroll to **STEP 3: Configure & Authenticate**, and copy the code snippet listed there.
 5. Paste the snippet into your local terminal and then run it. This authenticates you, connects you to a Sauce Labs Data Center, assigns an ID for your tunnel, and starts your tunnel.
 
-That's it! Now that your tunnel is up, try running a test.
+That's it! Now that your tunnel is up, try running a test. To view additional configuration options, see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy/).
 
 
 ## Verifying a Tunnel
@@ -38,4 +38,4 @@ To stop a tunnel, go to the [**TUNNELS**](https://app.saucelabs.com/tunnels) pag
 
 ## More Information
 
-* [Sauce School: Sauce Connect Proxy course](https://training.saucelabs.com/sauceconnect/) - an interactive course with video walkthroughs and practice activities.
+* [Sauce School | Sauce Connect Proxy](https://training.saucelabs.com/sauceconnect/): an interactive course with video walkthroughs and practice activities.
