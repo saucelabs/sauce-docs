@@ -79,7 +79,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/storage/files' | jq
+--request GET 'https://api.us-west-1.saucelabs.com/v1/storage/files' | json_pp
 ```
 
 </TabItem>
@@ -87,7 +87,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/files' | jq
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/files' | json_pp
 ```
 
 </TabItem>
@@ -210,7 +210,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/storage/groups' | jq
+--request GET 'https://api.us-west-1.saucelabs.com/v1/storage/groups' | json_pp
 ```
 
 </TabItem>
@@ -218,7 +218,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/groups' | jq
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/groups' | json_pp
 ```
 
 </TabItem>
@@ -334,6 +334,12 @@ At this time, \*.aab files are only supported for Android real device testing.
      <td><p><small>| FORM-TEXT | REQUIRED | STRING |</small></p><p>The portion of the payload value that is the actual file name (including the type extension).</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>description</code></td>
+     <td><p><small>| FORM-TEXT | OPTIONAL | STRING |</small></p><p>A description to distinguish your app.</p></td>
+    </tr>
+  </tbody>
 </table>
 
 
@@ -351,7 +357,8 @@ values={[
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
 --form 'payload=@"g16K4P8IX/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
---form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
+--form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
+--form 'description="iOS Test App v3"'
 ```
 
 </TabItem>
@@ -361,7 +368,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/v1/storage/upload' \
 --form 'payload=@"g16K4P8IX/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
---form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
+--form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
+--form 'description="iOS Test App v3"'
 ```
 
 </TabItem>
@@ -649,7 +657,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/v1/storage/files/43732d5b-5275-4a79-a936-197e4b9cd2d4' | jq
+--request DELETE 'https://api.us-west-1.saucelabs.com/v1/storage/files/43732d5b-5275-4a79-a936-197e4b9cd2d4' | json_pp
 ```
 
 </TabItem>
@@ -657,7 +665,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.eu-central-1.saucelabs.com/v1/storage/files/43732d5b-5275-4a79-a936-197e4b9cd2d4' | jq
+--request DELETE 'https://api.eu-central-1.saucelabs.com/v1/storage/files/43732d5b-5275-4a79-a936-197e4b9cd2d4' | json_pp
 ```
 
 </TabItem>
@@ -747,7 +755,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/v1/storage/groups/64612' | jq
+--request DELETE 'https://api.us-west-1.saucelabs.com/v1/storage/groups/64612' | json_pp
 ```
 
 </TabItem>
@@ -755,7 +763,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.eu-central-1.saucelabs.com/v1/storage/groups/64612' | jq
+--request DELETE 'https://api.eu-central-1.saucelabs.com/v1/storage/groups/64612' | json_pp
 ```
 
 </TabItem>

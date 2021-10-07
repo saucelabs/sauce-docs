@@ -12,15 +12,17 @@ With Sauce Labs, you can test your mobile applications on a variety of Android a
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* A mobile app to test. If you don't have one, you can use the [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile).
+* A mobile app to test.
 
 ### Uploading an App
 You can upload your app via the Sauce Labs UI or via the REST API. For information about uploading via the API, see [Upload Files with the REST API](/mobile-apps/app-storage).
 
 To upload an app via the Sauce Labs UI:
 
-1. In Sauce Labs, in the left panel, click **LIVE** and then click **Mobile App**.
-2. Click **App Upload**. You can either drag and drop an application, or browse for and select the file. We currently support \*.apk Android app files (\*.aab file support coming soon) and \*.ipa or \*.zip iOS app files (\*.zip files are parsed to determine whether a valid \*.app bundle exists). Non-app file uploads are not supported in the UI at this time, but can be uploaded through the API.
+1. On Sauce Labs, in the left panel, click **LIVE** and then click **Mobile App**.
+2. Click **App Upload**. You can either drag and drop an application, or browse for and select the file. We currently support \*.apk Android app files, \*.aab Android App Bundle files and \*.ipa or \*.zip iOS app files (\*.zip files are parsed to determine whether a valid \*.app bundle exists). Non-app file uploads are not supported in the UI at this time, but can be uploaded through the API.
+
+  If you don't have an app to test, you can use the [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile).
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-nav.png')} alt="Upload an application" width="650"/>
 
@@ -116,6 +118,11 @@ You can launch a test from the following screens:
 
   <img src={useBaseUrl('img/live-testing/live-mobile-test-ui.png')} alt="Mobile real device test interface" width="450"/>
 
+#### Time Limits and Timeouts for Real Devices
+* Live tests for free users have a 10 minute limit from session start
+* Live tests for all other users are limited to six hours
+* Live tests for paid users will timeout after 15 minutes of inactivity
+
 ## Live Test Interface
 
 | Icon | Name | Description |
@@ -176,55 +183,6 @@ The graph and csv file will contain these performance metrics for devices.
 | `network_mobile_receive_b` | Data in bytes received from the mobile carrier network |
 | `network_mobile_sent_b` | Data in bytes sent over mobile carrier network |
 
-:::note
-Device Vitals for live testing is currently in beta state, which means we are testing it on a few devices first. We will roll out to all devices in the coming weeks, please refer to this page for updates. See the full list of combinations available for beta below.
-:::
-
-<Tabs
-  defaultValue="iOS"
-  values={[
-    {label: 'iOS', value: 'iOS'},
-    {label: 'Android', value: 'Android'},
-  ]}>
-
-<TabItem value="iOS">
-
-**App Tests**
-
-| Device/Platform | iPhone 11 | iPhone XR | iPhoneXS | iPhone X | iPhone 8 | iPhone 7 | iPhone 6 | iPhone 6 Plus | iPhone 6S Plus | iPhone 5S | iPhone SE | iPad Pro 11 2018 | iPad Pro | iPad Air 2019 | iPad 9.7 2017 | iPad 4 | iPad Mini 2 |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| iOS 9.3.2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 10.0.2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 10.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 10.3.3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 11.4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 11.4.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 12.2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 12.4.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 13.0 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| iOS 13.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
-
-</TabItem>
-<TabItem value="Android">
-
-**App Tests**
-
-| Device/Platform | Google Pixel XL | Google Pixel 3 | Google Pixel 3a | Motorola Moto G6 Plus | Huawei P30 | Google Pixel C | HTC U12 Plus | HTC U11 | HTC Desire 12 | Samsung Galaxy S7 | Lenovo Tab 4 | Asus Google Nexus 7 (2013) | LG G6 | LG G5 | LG G4 | Huawei P9 | Amazon Kindle Fire HD 8 |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Android 5.1.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Android 6.0 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Android 6.0.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Android 7.0 |  |  |  |  |  |  |  |  |  |  |  |  | X |  |  |  |  |
-| Android 7.1.1 |  |  |  |  |  |  |  |  |  |  | X |  |  |  |  |  |  |
-| Android 8.0.0 |  |  |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |
-| Android 8.1.0 |  |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |  |
-| Android 9 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Android 10 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Android 11 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
-</TabItem>
-</Tabs>
 
 ## Changing an App Version
 Sometimes you need to conduct A/B testing, or document and validate feature parity between different versions of the same application. You can change the app version, as well as the real device, and launch a new test session.
@@ -324,7 +282,7 @@ Apple test cards can be found on Apple’s [Sandbox Testing](https://developer.a
 3. **Prepare Sauce Labs**. As mentioned before, Sauce Labs uses an enterprise certificate to install an app on public and private devices. But Apple Pay can’t work with the enterprise certificate, so the app needs to be signed with the developer certificate. You need to instruct Sauce Labs to not re-sign the app when it is installed.
 
 ### Disable Re-Signing
-1. In Sauce Labs, in the left navigation, click **Live** and then click **Mobile-App**.
+1. On Sauce Labs, in the left navigation, click **Live** and then click **Mobile-App**.
 
 <img src={useBaseUrl('img/live-testing/apple-pay-8.png')} alt="Apple Pay setup - Sauce login" width="250"/>
 

@@ -1,7 +1,7 @@
 ---
 id: sauce-connect-proxy
 title: Sauce Connect Proxy CLI Reference
-sidebar_label: Sauce Connect Proxy
+sidebar_label: Sauce Connect Proxy CLI
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -84,7 +84,7 @@ __Shorthand__: `-s`
 Effective with version 4.7.0, `--tunnel-identifier` has been deprecated and replaced by `--tunnel-name`.
 :::
 
-__Description__: Assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is strongly recommended. Future jobs will use this tunnel only when explicitly specified by the [tunnelIdentifier](/dev/test-configuration-options#tunnelidentifier) in the desired capabilities of your automated tests.
+__Description__: Assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is strongly recommended. Future jobs will use this tunnel only when explicitly specified by the [tunnelIdentifier](/dev/test-configuration-options#tunnelidentifier) in your test capabilities.
 
 To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options). For information on using this option in the tunnel pool, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
 

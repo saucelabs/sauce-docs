@@ -29,16 +29,57 @@ This method currently supports live testing on **real devices only**. For virtua
 
 ## Uploading Apps via REST API
 
-See [File Storage API Methods](/dev/api/storage) to learn how to use the Sauce Labs REST API to upload your mobile file to application storage.
+You can upload your mobile app programmatically using the [File Storage API Methods](/dev/api/storage). The API endpoints are [Data center-specific](/basics/data-center-endpoints/data-center-endpoints), so make sure you are using the endpoint that is applicable for your account data center, as shown in the following example requests.
 
-There are two main contexts/branches for the storage API:
+### Considerations
 
-* One for working with separate application builds (individual builds, application files, etc.).
-* One for working with apps (groups of application builds with the same unique identifier, belonging to the same platform and team).
+When using the cURL sample requests below, consider the following:
 
-:::note
-Use [Data center-specific endpoints](/basics/data-center-endpoints/data-center-endpoints) whenever possible.
-:::
+* The `<path/to/your/file>` variable must include the file itself, including the file extension.
+* The `<filename.ext>` variable is the portion of the path that is just the file itself and must also include the file extension. Otherwise, the upload will succeed, but your app will not be accessible to your tests.
+* The `$SAUCE_USERNAME:$SAUCE_ACCESS_KEY` variable assumes you have set your Sauce Labs credentials as [environment variables](/basics/environment-variables).
+
+<Tabs
+groupId="dc-url"
+defaultValue="usw"
+values={[
+{label: 'US West', value: 'usw'},
+{label: 'US East', value: 'use'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="usw">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
+--form 'payload=@"<path/to/your/file>"' \
+--form 'name="<filename.ext>"'
+```
+
+</TabItem>
+<TabItem value="use">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-east-1.saucelabs.com/v1/storage/upload' \
+--form 'payload=@"<path/to/your/file>"' \
+--form 'name="<filename.ext>"'
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/v1/storage/upload' \
+--form 'payload=@"<path/to/your/file>"' \
+--form 'name="<filename.ext>"'
+```
+
+</TabItem>
+</Tabs>
+
 
 ## Accepted File Types 
 Application storage recognizes \*.apk and \*.aab files as Android apps and \*.ipa or \*.zip files as iOS apps. \*.zip files are parsed to determine whether a valid *.app bundle exists.
@@ -57,7 +98,7 @@ You can also upload and store other file types for generic use, such as a pre-ru
 * *.bat
 
 ## Team Management Sync
-By default, all uploaded files are shared with the same team. Members can only access files that are shared with the team where you contribute/participate. Organization admins have access to all files in your organization.
+All uploaded files are shared with the same team. Members can only access files that are shared with the team where you contribute/participate. Organization admins have access to all files in your organization.
 
 For more information about managing access to your organization, see [Managing User Information](https://docs.saucelabs.com/basics/acct-team-mgmt/managing-user-info).
 
@@ -269,13 +310,11 @@ espresso:
 
 ## Uploading to Legacy Sauce Storage
 
-<p><span className="sauceGold">DEPRECATED</span></p>
+Sauce Storage is a short term storage space for apps. Files uploaded here expire and are removed from the platform after seven days. You can upload an app you want to test using the applicable REST API request below, and then access it for testing by specifying `sauce-storage:myapp` for the app capability in your test script:
 
-TestObject was discontinued on September 1, 2021.
-
-If you have any questions about migrating your apps to Sauce Labs, please reach out to your Customer Success Manager or Sauce Labs Support.
-
-Sauce Storage is our legacy private storage space for apps. Files uploaded will expire seven days after upload, and be removed. You can upload the app you want to test to Sauce Storage using our REST API, and then access it for testing by specifying `sauce-storage:myapp` for the app capability in your test script. You upload apps using the [`upload_file`](/dev/api/storage/#upload-file-to-app-storage) method of the Sauce Labs REST API.
+```
+"appium:app": "storage:my-app"
+```
 
 <Tabs
   defaultValue="bash"

@@ -359,7 +359,7 @@ Versions of saucectl before v0.52.4 use the flag  `--suite` instead.
 ### `--tags <tag1,tag2,...>`
 <p><small>| OPTIONAL | LIST | VIRTUAL ONLY |</small></p>
 
-A keyword that may help you distinguish the test in Sauce Labs, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you. This flag is not yet supported for mobile real device tests.
+A keyword that may help you distinguish the test on Sauce Labs, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you. This flag is not yet supported for mobile real device tests.
 
 ```bash
 saucectl run --tags e2e,team2
@@ -414,4 +414,62 @@ Enables detailed output during the test run in order to facilitate troubleshooti
 
 ```bash
 saucectl run --verbose
+```
+
+## `$ saucectl completion`
+
+Allows you to generate a completion script for `bash`, `zsh`, `fish` and `powershell` shells.
+
+### bash
+
+#### Linux
+
+```bash
+saucectl completion bash > /etc/bash_completion.d/saucectl
+```
+
+#### macOS
+
+```bash
+saucectl completion bash > /usr/local/etc/bash_completion.d/saucectl
+```
+
+### zsh
+
+If shell completion is not already enabled in your environment, enable it by executing the following once:
+
+```bash
+$ echo "autoload -U compinit; compinit" >> ~/.zshrc
+```
+  
+To load completions for each session, execute once:
+
+```bash
+saucectl completion zsh > "${fpath[1]}/_saucectl"
+```
+
+Start a new shell to apply this setup.
+
+### fish
+
+```bash
+saucectl completion fish | source
+```
+
+To load completions for each session, execute once:
+
+```bash
+saucectl completion fish > ~/.config/fish/completions/saucectl.fish
+```
+
+### PowerShell
+
+```bash
+saucectl completion powershell | Out-String | Invoke-Expression
+```
+
+To load completions for every new session, run the following and then source this file from your Powershell profile:
+
+```bash
+saucectl completion powershell > saucectl.ps1
 ```

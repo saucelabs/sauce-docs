@@ -136,15 +136,8 @@ Requests received after the rate limit is reached return a [429 response code](h
 | All unauthenticated request endpoints | 2 requests per minute ||
 
 
-## JQ Response Formatting
+## JSON Response Formatting
 
-The request samples throughout the API documentation are appended with `| jq` in order to return the response in a more readable format. You can install JQ using NPM or Brew:
+The request samples throughout the API documentation are appended with `| json_pp` as a convenience to return the response in a more readable format that does not require the installation of any additional tools.
 
-```
-npm install jq
-```
-```
-brew install jq
-```
-
-Alternatively, you can remove the `|jq` reference from your requests and the response will be returned as raw JSON.
+You can remove the `|json_pp` reference from your requests to have responses returned as raw JSON, or you can specify a different syntax formatter of your choosing, such as [JQ](https://stedolan.github.io/jq/).

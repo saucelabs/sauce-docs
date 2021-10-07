@@ -44,7 +44,7 @@ If you are using the [High Availability Setup](/secure-connections/sauce-connect
 :::
 
 ### Stopping an Individual Tunnel in Sauce Labs
-In Sauce Labs, in the left navigation panel, click **Tunnels**. On the **Tunnels** page, the tunnel information table, click **Stop** in the **Actions** column.
+On Sauce Labs, in the left navigation panel, click **Tunnels**. On the **Tunnels** page, the tunnel information table, click **Stop** in the **Actions** column.
 
 ### Stopping All Tunnels in Your Account in Sauce Labs
 On the Tunnels page, click **Stop My Tunnels**.
@@ -244,9 +244,9 @@ By default, Sauce Connect Proxy will cache all traffic with SSL Bumping (see [SS
 If you're in a situation where you have to manually disable SSL bumping (`--no-ssl-bump-domains` command), be aware the Sauce Connect Proxy will no longer be able to cache SSL-encrypted traffic, possibly impacting your test performance. If you're running multiple tests that access the same external resources, you can improve performance by having those tests all use the same tunnel because Sauce Connect Proxy will cache all HTTP and HTTPS traffic.
 
 ## Service Management Tools
-For Linux users, systemd and upstart are service management tools that facilitate Sauce Connect Proxy tunnel monitoring, system startup/shutdown, and rolling restarts.
+For Linux users, systemd is a service management tool that may facilitate Sauce Connect Proxy tunnel monitoring, system startup/shutdown, and rolling restarts.
 
-When used to perform rolling restarts, systemd and upstart allow time for Sauce Connect Proxy to clean up on exit, making it a more fluid experience. This is useful in scenarios where you want to kill and quickly restart a new Sauce Connect Proxy instance; you can use systemd and upstart to schedule and control the timing of shutdown and clean-up processes.
+When used to perform rolling restarts, systemd allows time for Sauce Connect Proxy to clean up on exit, making it a more fluid experience. This is useful in scenarios where you want to kill and quickly restart a new Sauce Connect Proxy instance; you can use systemd to schedule and control the timing of shutdown and clean-up processes.
 
 ### Setting Up systemd
 1. Create a system user to run the Sauce Connect Proxy.
@@ -255,7 +255,7 @@ When used to perform rolling restarts, systemd and upstart allow time for Sauce 
 sudo adduser --system --no-create-home --group --disabled-login --home /nonexistent sauceconnect
 ```
 
-2. Download Sauce Connect Proxy.
+2. [Download Sauce Connect Proxy](/secure-connections/sauce-connect/installation/).
 
 ```
 wget https://saucelabs.com/downloads/sc-<VERSION>-linux.tar.gz
@@ -304,8 +304,9 @@ ReloadPropagatedFrom=sc.service
   ExecStart = /usr/local/bin/sc \
                 --logfile - \
                 --pidfile "/tmp/sauceconnect_%i.pid" \
+                --region us-west \
                 --se-port "%i" \
-                --no-remove-colliding-tunnels
+                --tunnel-pool
   # Not needed with systemd
   ExecStartPost = /bin/rm -f /tmp/sauceconnect_%i.pid
 
@@ -350,143 +351,6 @@ sudo systemctl status 'sc@*'
 
 ```
 sudo systemctl stop sc
-```
-
-### Setting Up 'upstart'
-1. Navigate to your `/local/bin` directory where you want to install Sauce Connect Proxy.
-
-```
-cd /usr/local/bin
-```
-
-2. Download Sauce Connect Proxy.
-
-```
-wget https://saucelabs.com/downloads/sc-<VERSION>-linux.tar.gz
-```
-
-3. Untar the Sauce Connect Proxy file.
-
-```
-tar -zxvf sc-<VERSION>-linux.tar.gz
-```
-
-4. Copy the Sauce Connect Proxy file into a dedicated directory.
-
-```
-cp sc-<VERSION>-linux/bin/sc
-```
-
-5. Make sure Sauce Connect Proxy is located in the correct directory.
-
-```
-ls /usr/local/bin/sc
-```
-
-6. Change to the `/etc/init` directory.
-
-```
-cd /etc/init
-```
-
-7. In the `/etc/init` directory, create a file `sc.conf` with these contents.
-Change the username and access key in the file to match your own.  
-
-```jsx title="sc.conf example"
-#
-#This Upstart config expects that Sauce Connect is installed at
-#/usr/local/bin/sc. Edit that path if it is installed somewhere else.
-#
-#Copy this file to /etc/init/sc.conf, and do:
-#
-# $ sudo initctl reload-configuration
-#
-#Then you can manage SC via the usual upstart tools, e.g.:
-#
-#$ sudo start sc
-#$ sudo restart sc
-#$ sudo stop sc
-#$ sudo status sc
-#
-start on filesystem and started networking
-stop on runlevel 06
-
-respawn
-respawn limit 15 5
-
-#Wait for tunnel shutdown when stopping Sauce Connect.
-kill timeout 120
-
-#Bump maximum number of open files/sockets.
-limit nofile 8192 8192
-
-#Make Sauce Connect output go to /var/log/upstart/sc.log.
-console log
-
-env LOGFILE="/tmp/sc_long.log"
-env PIDFILE="/tmp/sc_long.pid"
-env SAUCE_USERNAME="CHANGEME" # XXX
-env SAUCE_ACCESS_KEY="CHANGEME" # XXX
-
-post-start script
-  # Save the pidfile, since Sauce Connect might remove it before the
-  # post-stop script gets a chance to run.
-  n=0
-  max_tries=30
-  while [ $n -le $max_tries ]; do
-    if [ -f $PIDFILE ]; then
-      cp $PIDFILE ${PIDFILE}.saved
-      break
-    fi
-    n=$((n+1))
-    [ $n -ge $max_tries ] && exit 1
-    sleep 1
-  done
-end script
-
-post-stop script
-  # Wait for Sauce Connect to shut down its tunnel.
-  n=0
-  max_tries=30
-  pid="$(cat ${PIDFILE}.saved)"
-  while [ $n -le $max_tries ]; do
-    kill -0 $pid || break
-    n=$((n+1))
-    [ $n -ge $max_tries ] && exit 1
-    sleep 1
-  done
-end script
-
-setuid nobody
-setgid nogroup
-
-chdir /tmp
-
-exec /usr/local/bin/sc -l $LOGFILE --pidfile $PIDFILE
-```
-
-8. Reload the service.
-
-```
-sudo initctl reload-configuration
-```
-
-9. Start the service.
-
-```
-sudo start sc
-```
-
-10. Check the status of the service.
-
-```
-sudo status sc
-```
-
-11. You can stop the service with this command.
-
-```
-sudo stop sc
 ```
 
 ## Running as a Microsoft Windows Service
@@ -552,14 +416,14 @@ One option to start Ephemeral tunnels is to do so from your local workstation.
 2. Run the simplest of startup commands to ensure that the tunnel starts:
 
 ```jsx title="MacOS/Linux"
-$ bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
 ```
 
 ```jsx title="Windows Example"
-> bin\sc -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY%
+> sc -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY%
 ```
 
-Once you see a tunnel in Sauce Labs, you can start testing against a site that is hosted on your network. You can leave it up for as long as you'd like and test at a fairly reasonable volume. Start it and stop it as needed!
+Once you see a tunnel on Sauce Labs, you can start testing against a site that is hosted on your network. You can leave it up for as long as you'd like and test at a fairly reasonable volume. Start it and stop it as needed!
 
 #### Starting an Ephemeral Tunnel From a Continuous Integration (CI) Build Server
 You can also launch Ephemeral tunnels from a continuous integration (CI) build server, where the code is being pulled from a repository.
@@ -575,15 +439,15 @@ You can also launch Ephemeral tunnels from a continuous integration (CI) build s
 3. How you start your tunnel is up to you. You can run a simple Bash shell script (or PowerShell script, if you're in Windows) that simply executes the start commands as if you were starting it locally:  
 
 ```
-$ /bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
 ```
 
 :::note
-If you don't specify a Data Center Sauce Connect Proxy uses the US Data Center for `SAUCE_DC` by default. So for example if you need to run tests on the Sauce Labs EU Data Center, you need to modify the '-x' flag like so:
+If you don't specify a Data Center Sauce Connect Proxy uses the US Data Center for `SAUCE_DC` by default. So for example if you need to run tests on the Sauce Labs EU Data Center, you need to modify the '-r' flag like so:
 :::
 
 ```
-$ /bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -i singleton-eu-tunnel -x ht<span>tp://</span>eu-central-1.saucelabs.com/rest/v1/
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -i singleton-eu-tunnel -r eu-central
 ```
 
 Once you've established your automated loop, you should be able to kick off builds as needed, automatically.
@@ -595,7 +459,7 @@ Long-running tunnels are especially useful for large enterprise customers, who o
 * If you have a test automation infrastructure that can utilize the Sauce Connect Proxy service and wish to have your Sauce Connect client component up and running for a long time (i.e., 12-48 hours)
 * If you plan to share tunnels across teams
 
-Long-running tunnels go hand in hand with our [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability), which allows you to run multiple tunnels to support a very high number of parallel tests. If you're part of a team of multiple people and/or departments running tests simultaneously on Sauce Labs, we strongly recommend utilizing long-running tunnels in High Availability Mode. Once you (or your systems administrator) set your long-running tunnel configuration for your account in Sauce Labs, the settings will be remembered in your account and you won't have to set them again. Here are some benefits to this:
+Long-running tunnels go hand in hand with our [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability), which allows you to run multiple tunnels to support a very high number of parallel tests. If you're part of a team of multiple people and/or departments running tests simultaneously on Sauce Labs, we strongly recommend utilizing long-running tunnels in High Availability Mode. Once you (or your systems administrator) set your long-running tunnel configuration for your account on Sauce Labs, the settings will be remembered in your account and you won't have to set them again. Here are some benefits to this:
 
 * When provisioning new user accounts, these tunnel settings will be ready and waiting for them when they log in
 * All Sauce Labs users in your organization will have immediate access to existing, launched tunnels
@@ -608,40 +472,33 @@ Long-running tunnels go hand in hand with our [High Availability Setup](/secure-
 A single tunnel that you'd start from your laptop or CICD system would look like this on the command line:
 
 ```
-/Users/you/sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACESS_KEY -i my-single-tunnel-- --pidfile /tmp/sc_client.pid
+/Users/you/sc-<VERSION>-<PLATFORM>/bin/sc \
+  -u $SAUCE_USERNAME -k $SAUCE_ACESS_KEY \
+  -i my-single-tunnel
 ```
 
 **Multiple Tunnels**
 High Availability tunnels would look like this if they were run as part of a script or from the command line:
 
 ```
-$ /Users/you/sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --no-remove-colliding-tunnels -i main-tunnel-pool --se-port 0 --pidfile /tmp/sc_client-1.pid
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool -i main-tunnel-pool
 
-$ /Users/you/sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --no-remove-colliding-tunnels -i main-tunnel-pool --se-port 0 --pidfile /tmp/sc_client-2.pid
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool -i main-tunnel-pool
 
-$/ Users/you/sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --no-remove-colliding-tunnels -i main-tunnel-pool --se-port 0 --pidfile /tmp/sc_client-3.pid
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool -i main-tunnel-pool
 
-$ /Users/you/sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --no-remove-colliding-tunnels -i main-tunnel-pool --se-port 0 --pidfile /tmp/sc_client-4.pid
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool -i main-tunnel-pool
 ```
 
 ## Code Block Legend
 
-**`--no-remove-colliding-tunnels`**
+**`--tunnel-pool`**
 
 This command line prevents the removal of identified tunnels with the same name and any default tunnels, if you're using them. Jobs will be distributed across these tunnels, enabling load balancing and High Availability. It is required when running High Availability tunnels to allow multiple tunnels with the same name. What happens if you don't use this command? By default, colliding tunnels (i.e., tunnels with the same identifier) would be removed when Sauce Connect is starting up. If you start another tunnel with the same identifier as an existing pool without adding `--no-remove-colliding-tunnels`, the new tunnel would be established, but all tunnels in the pre-existing pool would be closed.
 
 **`-i main-tunnel-pool`**
 
 `-i` is shorthand for the `--tunnel-identifier` command and `main-tunnel-pool` is the tunnel name. Defining a name is required so that your tests can find your tunnels. This is required to start a long-running pool of tunnels.
-
-**`--se-port 0`**
-
-Enables Sauce Connect Proxy to find the first available port for the Selenium Relay.
-
-**`--pidfile /some/dir/my_unique_file.pid`**
-
-File that auto-generates whenever a process for Sauce Connect Proxy starts. Must be unique per tunnel. To see where the file is saved, you can check your Sauce Connect Proxy Log.
-
 
 For more information, see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy).
 

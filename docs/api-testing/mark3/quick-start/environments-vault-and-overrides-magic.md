@@ -1,7 +1,7 @@
 ---
 id: environments-vault-and-overrides-magic
 title:  "Environments, Vault, and Variable Overrides"
-sidebar_label: "Environments, Vault, and Variable Overrides"
+sidebar_label: "Overview"
 description: "Gain a wide range of options to mix and match your test settings with our latest “Environments” features."
 ---
 
@@ -9,13 +9,13 @@ description: "Gain a wide range of options to mix and match your test settings w
 
 Gain a wide range of options to mix and match your test settings with our latest “Environments” features. Explore our variable containers from the lowest to the highest priority:
 
-**Vault:** Each project has a vault where variables and snippets are contained. Each vault is global to the project and its variables are injected during test execution.
+**Vault**: Each project has a vault where variables and snippets are contained. Each vault is global to the project and its variables are injected during test execution.
 
 **Globals / Input set**: They belong to each test and contain the variables that are needed by the test to perform its duties. Since these variables can be overridden to hit different environments, we generally suggest considering these variables as containers of the default scenario. If the variable has been previously declared in the vault, globals/input sets will win over the Vault.
 
 **Overrides**: When an overridden variable is declared (using the API, the Scheduler or the Jenkins plugin) its value will be injected into the test when it's executed. If the variable has already been declared in the vault or the globals/input set, it will be rewritten with the new value.
 
-**Environments and Pre-sets:** They are collections of overrides. You can save an environment with a name and reuse it when running a test.
+**Environments and Pre-sets**: They are collections of overrides. You can save an environment with a name and reuse it when running a test.
 
 **`SET` commands**: The last item of the chain, the `SET` commands within a test will introduce a runtime variable. If a variable with that name has already been declared, it will be overwritten.
 
@@ -33,7 +33,7 @@ By doing so, you can decide to store the actual data in the variable container t
 
 In the following example, we are storing the actual domains in the Vault, deciding a default in the Globals, and overriding in the environment:
 
-```bash
+```yaml
 VAULT:
 production_domain: example.com
 staging_domain: staging_example.com
@@ -47,9 +47,9 @@ domain: ${staging_domain}
 
 If run without environment selection or overrides, the test will hit the production domain. If run with the staging environment, the test will hit the staging domain. The Environments will not know the actual domain, therefore the actual data management will happen within the Vault.
 
-**Known Issue**: The double evaluation will not work on query params. As a workaround, in the test before performing the call, introduce a `SET` component to resolve the variable as in: 
+**Known Issue**: The double evaluation will not work on query params. As a workaround, in the test before performing the call, introduce a `SET` component to resolve the variable as in:
 
-```
+```bash
 <set var=”apikey” value=”${apikey}”/>
 ```
 

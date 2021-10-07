@@ -40,7 +40,7 @@ Additionally, an [Appium desktop application](http://appium.io/downloads) exists
 Appium Desktop is currently supported by the [Appium core team](https://appium.io/docs/en/contributing-to-appium/developers-overview/#developer-community).
 :::
 
-## Creating an Appium Tests
+## Creating an Appium Test
 
 Here are the basic steps for creating an Appium test script for your application under test (AUT):
 
@@ -325,10 +325,7 @@ WebDriverWait wait = new WebDriverWait(driver, 10); WebElement messageElement = 
 
 :::note
 Do not mix implicit and explicit waits. Doing so can cause unpredictable wait times. For example setting an implicit wait of 10s and an explicit wait of 15 seconds, could cause a timeout to occur after 20 seconds.
-<<<<<<< HEAD
-=======
 
->>>>>>> aa4f02fb25139fc1ecaa8ff2f143f0ac8c8fa63f
 :::
 
 <br/>

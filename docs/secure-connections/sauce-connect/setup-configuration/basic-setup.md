@@ -32,20 +32,20 @@ Once you've downloaded Sauce Connect Proxy, you can validate that it works on yo
 1. Launch a tunnel with the following flags, per the [Sauce Connect Proxy Command Line Reference](/dev/cli/sauce-connect-proxy):
 
 ```bash
-$ bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i TUNNEL_ID
+$ bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region $SAUCE_DC -i TUNNEL_ID
 ```
 
 where:
 
 * `SAUCE_USERNAME` is the username assigned to your Sauce Labs account.
 * `SAUCE_ACCESS_KEY` is the access key associated with that account.
-* `SAUCE_DC` is the url of the datacenter you need to use. By default, the `-x` option is not required if you're using the default US West data center. If you're using the Read Device Cloud or the European Data Center, `-x SAUCE_DC` is required.
+* `SAUCE_DC` is the regional datacenter you need to use. By default, the `-r` option is not required if you're using the default US West data center. If you're using [any other region](/dev/cli/sauce-connect-proxy/#data-center-endpoints), `-r SAUCE_DC` is required.
 * `TUNNEL_ID` is the identifier or name of the tunnel; for more information, see Using Tunnel Identifiers below.
 
 2. Select an appropriate test script. Options might include:
   * One of your existing tests, if available.
   * An example from [Sauce Labs Demonstration Scripts](https://github.com/saucelabs-training). Follow the instructions to configure the test before proceeding to step 3 below.
-3. If you are using an tunnel identifier, add the following to the desired capabilities of  the test:
+3. If you are using an tunnel identifier, add the following to the capabilities of  the test:
 
 <Tabs
   defaultValue="Java"
@@ -147,7 +147,10 @@ Sauce Connect Proxy must be on the same network as the website or mobile app bei
 ## Using Tunnel Identifiers
 When launching a Sauce Connect Proxy tunnel for automated web and mobile app tests, you have two options:
 * Launch a Sauce Connect tunnel as-is, without identifying it. That default, unnamed tunnel will automatically be used for all automated tests. This can be useful for small organizations with a limited number of tests.
-* Assign a name known as a tunnel identifier. To accomplish this, you'll need to launch a tunnel with the `-i (--tunnel-identifier)` command to assign the tunnel identifier(s) when starting up Sauce Connect Proxy. Then, you'll need to use the `tunnelIdentifier` option in the desired capabilities of your automated tests (see [Using Tunnel Identifiers](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information). This will trigger your tests to request a specific tunnel to run your tests through that tunnel.
+* Assign a name known as a tunnel identifier. To accomplish this, you'll need to launch a tunnel with the
+  `-i` (["--tunnel-name" or "--tunnel-identifier"](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy#--tunnel-name-or---tunnel-identifier)) command to assign the tunnel identifier(s) when starting up Sauce Connect Proxy.
+  Then, you'll need to use the `tunnelIdentifier` option in the capabilities of your automated tests.
+  This will trigger your tests to request a specific tunnel to run your tests through that tunnel.
 
 ### Example: Automated Test with Sauce Connect Proxy Tunnel Identifiers
 Below is an example of how to designate tunnels based on the `tunnelIdentifier` option so that it works properly with an automated test.
@@ -164,7 +167,7 @@ Launch a new tunnel on the `SC_HOST` with the following flags, per the [Sauce Co
 <TabItem value="MacOS/Linux Example">
 
 ```bash
-$ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i sc-proxy-tunnel
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DC -i sc-proxy-tunnel
 ```
 
 </TabItem>
@@ -172,7 +175,7 @@ $ sc_download/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x $SAUCE_DC -i sc-
 <TabItem value="Windows Example">
 
 ```bash
-> sc_download\bin\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -x %SAUCE_DC% -i sc-proxy-tunnel
+> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -r %SAUCE_DC% -i sc-proxy-tunnel
 ```
 
 </TabItem>
@@ -258,7 +261,7 @@ At this point, the tunnel is established between the Sauce Connect Client and th
 
 <img src={useBaseUrl('img/sauce-connect/scp-network-traffic-flow.png')} alt="Network traffic flow diagram" width="650"/>
 
-1. Selenium/Appium test code sends an HTTPS request to the VM or Real Device that was created for this test (for example, `GET [www.saucedemo.com](http://www.saucedemo.com/)`).
+1. Selenium/Appium test code sends an HTTPS request to the VM or Real Device that was created for this test (for example, `GET www.saucedemo.com`).
 
 2. Test VM or Device sends this request to Tunnel VM in order to access SUT.
 

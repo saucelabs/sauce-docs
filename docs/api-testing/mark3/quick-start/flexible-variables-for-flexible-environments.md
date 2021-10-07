@@ -1,7 +1,7 @@
 ---
 id: flexible-variables-for-flexible-environments
 title: Using Variables for Environment Flexibility
-sidebar_label: Variables
+sidebar_label: Using Variables
 description: "In API Fortress, you do not have to be concerned with organizing variables in a hierarchy from global to local."
 ---
 
@@ -52,13 +52,13 @@ Once a domain is parametrized, you may override a variable, if needed.
 
 To access and create new environments:
 
-* Visit the _Environment_ section in the test project section:
+* Visit the **Environment** section in the test project section:
   <img src={useBaseUrl('img/api-fortress/2021/04/accessEnvironment.png')} alt="access environment"/>
 
-* Add the details (typically the target domain) and select _Confirm_:
+* Add the details (typically the target domain) and select **Confirm**:
   <img src={useBaseUrl('img/api-fortress/2021/04/createEnvironment.png')} alt="create environment"/>
 
-* Add the variable details and select _Confirm_:
+* Add the variable details and select **Confirm**:
   <img src={useBaseUrl('img/api-fortress/2021/04/addDomainVar.png')} alt="variable in environment"/>
 
   You can add multiple variables to each environment:
