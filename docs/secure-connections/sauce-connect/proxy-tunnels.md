@@ -193,14 +193,14 @@ While Sauce Connect Proxy is running, a basic webpage with metrics is made avail
 ```
 
 
-If you plan to run multiple instances of Sauce Connect Proxy on a single machine and wish to access the health metrics of each tunnel, then you''ll need to assign a unique port to each instance of Sauce Connect Proxy that is running.
+If you plan to run multiple instances of Sauce Connect Proxy on a single machine and wish to access the health metrics of each tunnel, then you'll need to assign a unique port to each instance of Sauce Connect Proxy that is running.
 
 For example, if we were to start two instances of Sauce Connect Proxy on the same machine, using the following commands in the code block below, then the metrics for SCP1 would be available at `http://localhost:8001/debug/vars`. Similarly, SCP2's metrics would be available at `http://localhost:8000/debug/vars`.
 
 ```
->./sc --user *** --api-key *** --metrics-address localhost:8000 --se-port 4445 --tunnel-identifier SCP1 --pidfile SCP1
+>./sc --user *** --api-key *** --metrics-address localhost:8000 --se-port 4445 --tunnel-name SCP1 --pidfile SCP1
 >...
->./sc --user *** --api-key *** --metrics-address localhost:8001 --se-port 4446 --tunnel-identifier SCP2 --pidfile SCP2
+>./sc --user *** --api-key *** --metrics-address localhost:8001 --se-port 4446 --tunnel-name SCP2 --pidfile SCP2
 ```
 
 :::note
@@ -380,7 +380,7 @@ Once the above steps are in place, the Sauce Connect Proxy tunnel should restart
 ## Security Considerations with Tunnel Config
 
 :::warning
-If the SC client is running on a multi-user system, we recommend using config files or environment variables instead of command line arguments to hide sensitive information like [`--api-key`](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html#--api-key-string) and proxy credentials so they aren't visible in the list of running processes.
+If the SC client is running on a multi-user system, we recommend using config files or environment variables instead of command line arguments to hide sensitive information like [`--api-key`](/dev/cli/sauce-connect-proxy/#--api-key-string) and proxy credentials so they aren't visible in the list of running processes.
 :::
 
 ## Tunnel Types
@@ -447,7 +447,7 @@ If you don't specify a Data Center Sauce Connect Proxy uses the US Data Center f
 :::
 
 ```
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -i singleton-eu-tunnel -r eu-central
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-name singleton-eu-tunnel -r eu-central
 ```
 
 Once you've established your automated loop, you should be able to kick off builds as needed, automatically.
@@ -474,20 +474,20 @@ A single tunnel that you'd start from your laptop or CICD system would look like
 ```
 /Users/you/sc-<VERSION>-<PLATFORM>/bin/sc \
   -u $SAUCE_USERNAME -k $SAUCE_ACESS_KEY \
-  -i my-single-tunnel
+  --tunnel-name my-single-tunnel
 ```
 
 **Multiple Tunnels**
 High Availability tunnels would look like this if they were run as part of a script or from the command line:
 
 ```
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool -i main-tunnel-pool
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
 
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool -i main-tunnel-pool
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
 
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool -i main-tunnel-pool
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
 
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool -i main-tunnel-pool
+$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
 ```
 
 ## Code Block Legend
@@ -496,9 +496,9 @@ $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool -i main-tunnel-pool
 
 This command line prevents the removal of identified tunnels with the same name and any default tunnels, if you're using them. Jobs will be distributed across these tunnels, enabling load balancing and High Availability. It is required when running High Availability tunnels to allow multiple tunnels with the same name. What happens if you don't use this command? By default, colliding tunnels (i.e., tunnels with the same identifier) would be removed when Sauce Connect is starting up. If you start another tunnel with the same identifier as an existing pool without adding `--no-remove-colliding-tunnels`, the new tunnel would be established, but all tunnels in the pre-existing pool would be closed.
 
-**`-i main-tunnel-pool`**
+**`--tunnel-name main-tunnel-pool`**
 
-`-i` is shorthand for the `--tunnel-identifier` command and `main-tunnel-pool` is the tunnel name. Defining a name is required so that your tests can find your tunnels. This is required to start a long-running pool of tunnels.
+Defining a tunnel name is required so that your tests can find your tunnels. This is required to start a long-running pool of tunnels.
 
 For more information, see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy).
 

@@ -50,10 +50,10 @@ While rare, there are some test cases that will require you to disable SSL Bumpi
 ## Selecting the Tunnel to Use
 Sauce Connect Proxy can have multiple tunnels running simultaneously, as described in [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). You can select which tunnel to use in a real device test in the same way as you would any other type of automated test.
 
-1. Start Sauce Command Proxy from the command line, providing an `-i (--tunnel-identifer)` to start a new tunnel with that identifier (see [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy.md) for more information).
+1. Start Sauce Command Proxy from the command line, using the `--tunnel-name` flag to start a new tunnel with that name (see [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy.md/#--tunnel-name-or---tunnel-identifier) for more information).
 
 ```bash
-./sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -r $SAUCE_DC -i $TUNNEL_ID
+./sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -r $SAUCE_DC --tunnel-name $TUNNEL_NAME
 ```
 
 `SAUCE_RDC_USERNAME` refers to your Sauce Labs username, where:
@@ -65,7 +65,7 @@ Sauce Connect Proxy can have multiple tunnels running simultaneously, as describ
 So an example, starting a tunnel in US West Data Center, would look like this:
 
 ```bash
-$ ./sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -r 'us-west' -i rdc-on-sauce-tunnel-us
+$ ./sc -u $SAUCE_RDC_USERNAME -k $SAUCE_RDC_ACCESS_KEY -r 'us-west' --tunnel-name rdc-on-sauce-tunnel-us
 ```
 
 2. In your device testing script, specify the tunnel name with `tunnelIdentifier` in your capabilities, as shown in this Java example:
@@ -139,5 +139,5 @@ Example of starting Sauce Connect Proxy in conjunction with your Sauce Headless 
 
 ```bash
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
-  -r us-east -i $TUNNEL_ID
+  -r us-east --tunnel-name $TUNNEL_ID
 ```

@@ -37,7 +37,7 @@ If the **saml:NameID** field contains only a user name and no @ symbol, then the
 This is a required attribute within the SAML assertion that indicates the specific users the assertion is intended for. It must be equal to the value of entityID from SauceLabs metadata based on your data center. For details, see the **Single Sign-On Configuration** section in [Data Center Endpoints](/dev/cli/sauce-connect-proxy).
 
 ## Configuration Information for SSO
-The Signing/Encryption Certificate and Entity AssertionConsumeURLs required for configuring Sauce Labs SSO vary based on your data center. For details, see [Data Center Endpoints](https://docs.saucelabs.com/basics/data-center-endpoints/data-center-endpoints/#single-sign-on-sso-configuration). Here are some things to be aware of:
+The Signing/Encryption Certificate and Entity AssertionConsumeURLs required for configuring Sauce Labs SSO vary based on your data center. For details, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints/#single-sign-on-sso-configuration). Here are some things to be aware of:
 
 - The Assertion/Issuer Name is **Sauce Labs**
 - Sauce Labs does not provide a staging environment for pre-integration testing of SSO

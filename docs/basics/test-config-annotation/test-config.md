@@ -26,7 +26,7 @@ Test configuration refers to setting the capabilities of your test within the te
 
 ## Capabilities for Selenium and Appium Tests
 
-You can configure the environment for your Appium and Selenium tests by specifying a set of capabilities. Our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) can set test capabilities for testing in the scripting language of your choice. [Test Configuration Options](https://docs.saucelabs.com/dev/test-configuration-options) provides a complete list of all Selenium, Appium, and Sauce Labs testing capabilities.
+You can configure the environment for your Appium and Selenium tests by specifying a set of capabilities. Our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) can set test capabilities for testing in the scripting language of your choice. [Test Configuration Options](/dev/test-configuration-options) provides a complete list of all Selenium, Appium, and Sauce Labs testing capabilities.
 
 ## Examples of Test Configuration Options for Website Tests
 You can test websites using either Selenium or Appium. Selenium has better support for desktop devices, while Appium has better support for testing websites on mobile devices with native browsers. However, website testing against Android devices with Appium is only supported for Android versions 4.4 and higher.
