@@ -44,9 +44,9 @@ During the transition from the alpha to beta programs, our ability to retain his
 :::
 
 ### Supported Browsers and Features
-Currently, Sauce Labs does not support MacOS or mobile testing for the APAC region. To access the full functionality, use the US West region.
+Currently, Sauce Labs does not support macOS or mobile testing for the APAC region. To access the full functionality, use the US West region.
 
-The APAC region currently supports all popular versions of Chrome, Firefox, and Edge. Support of Safari is TBD, based on the future support of MacOS (above).  
+The APAC region currently supports all popular versions of Chrome, Firefox, and Edge. Support of Safari is TBD, based on the future support of macOS (above).  
 
 
 ## Getting Help and Providing Feedback
