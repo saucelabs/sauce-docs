@@ -229,7 +229,7 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    </td>
   </tr>
   <tr>
-   <td>4.6.0<sup><a href="#all-sauce-connect-proxy-versions-below-461-which-were-supporting-private-certificates-reached-end-of-life-and-are-no-longer-available-for-download">**</a></sup>
+   <td>4.6.0<sup><a href="#sauce-connect-proxy-versions-below-461-which-were-supporting-private-certificates-reached-end-of-life-and-are-no-longer-available-for-download">**</a></sup>
    </td>
    <td>
    &#8212;
@@ -240,7 +240,7 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    </td>
   </tr>
   <tr>
-   <td rowspan="5" >4.5<sup><a href="#all-sauce-connect-proxy-versions-below-461-which-were-supporting-private-certificates-reached-end-of-life-and-are-no-longer-available-for-download">**</a></sup>
+   <td rowspan="5" >4.5<sup><a href="#sauce-connect-proxy-versions-below-461-which-were-supporting-private-certificates-reached-end-of-life-and-are-no-longer-available-for-download">**</a></sup>
    </td>
    <td>4.5.4
    </td>
@@ -281,4 +281,4 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
 </table>
 
 ##### <sup>*</sup>Windows version no longer available for download.
-##### <sup>**</sup>All Sauce Connect Proxy versions below 4.6.1, which were supporting Private Certificates, reached end of life and are no longer available for download.
+##### <sup>**</sup>Sauce Connect Proxy versions below 4.6.1, which were supporting Private Certificates, reached end of life and are no longer available for download.
