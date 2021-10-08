@@ -531,7 +531,7 @@ On iOS devices, the `noReset` value is permanently set to `true` and cannot be o
 ---
 
 ### `recordDeviceVitals`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| BOOLEAN | <span className="sauceDBlue">TestObject Only</span> <span className="sauceGold">DEPRECATED</span> |</small></p>
 
 Device vitals are a collection of the mobile device performance data taken in real time during test execution. Vitals includes CPU utilization, memory consumption, network usage for both wifi and carrier connectivity where applicable, file operation and more. Measuring device vitals during test execution provides insights for analyzing app performance during operation.
 

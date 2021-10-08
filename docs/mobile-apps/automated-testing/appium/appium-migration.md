@@ -66,7 +66,7 @@ If you switch your Sauce Labs Data Center in the UI, you may see a different set
 
 #### **Appium Capabilities**
 
-Validate that the Appium capabilities you've used on TestObject will still work when you move tests to Sauce Labs; see [Appium Capabilities for Real Device Testing](/basics/test-config-annotation/test-config).
+Validate that the Appium capabilities you've used on TestObject will still work when you move tests to Sauce Labs; see [Mobile App Appium Capabilities](/dev/test-configuration-options).
 
 ### Step 4: Upload your Application to Sauce Application Storage
 
