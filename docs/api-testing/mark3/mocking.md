@@ -6,26 +6,30 @@ sidebar_label: Mocking
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-What is API mocking? A server that: Feeds solely on OpenAPI 3 specs
-Provides dynamicity in the responses so that proper positive, negative and edge case testing can be performed. Effortless mocks. No extra work, just works.
+What is Sauce Labs _Piestry_? A server that feeds solely on OpenAPI 3 specs. Provides dynamicity in the responses so that proper positive, negative and edge case testing can be performed. Effortless mocks. No extra work, just works.
 
-Why use mocking? Allows you to create stubbed virtualized API is that you can use to in your testing flow… you can get rid of any dependencies from third-party APIs that may be expensive, but you don’t have control over it. Allows you to also get ahead of your testing when your API is still in development and not built out yet. You could re-create it in our mocking platform, write all of your tests against it, and then you can have this jumpstart on testing before your API is out of development. the mocking is pretty robust. When you create a mock, you create the endpoint and the response. Use the Expression field to add tags (eg “GET” and “payload ID=123” makes xyz response)
+Why use mocking?
+* Allows you to create stubbed API is that you can use to in your testing flow.
+* You can get rid of any dependencies from third-party APIs that may be expensive, but you don’t have control over it.
+* Allows you to also get ahead of your testing when your API is still in development and not built out yet.
+* You could re-create it in our mocking platform, write all of your tests against it, and then you can have this jumpstart on testing before your API is out of development.
 
 Why the name Piestry?
 didn't want to drop the Sauce tradition of naming stuff after food, so Piestry is:
 "A pastry that acts as if it was a pie, but is nothing more than a pastry"
 
+
+--use cases: you want to fake the payment transaction, you want to isolate the microservice from the rest of the API actions (ie everything else is stable and you want to drill down to find the error)
+
+
 Where can I run it?
-* Locally
-* In a CI/CD pipeline
-* Docker container
+* Docker container (locally or CI/CI pipeline)
   * Image: quay.io/saucelabs/piestry
   * Run it using the code snippet below:
   ```bash
   docker run -v "$(pwd)/specs:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
   Where /specs/myspec.yaml is the URI to a YAML file, local or remote.
   ```
-* the form of a utility
 
 ## What You'll Need
 
@@ -206,23 +210,8 @@ Whenever a request is performed, it will be validated against the schema, and if
 
 The response will also contain the x-sauce-error: true header, signifying that the response is not mocked, but it's an internal error.
 
-## E2E Mode
-When Piestry is run with `--e2e`, it will turn into a reverse proxy gateway and forward the requests based to the origin, according to the OpenAPI specification. The requirement is the "server" definition of the OpenAPI spec should lead to an actual location.
 
-In this mode, you can enable contract validators as well as capture mode.
-
-### Contract Validators
-There are two types of validations you can activate, focusing on different areas.
-
-### Validate Response
-The validate response is similar to the ["validate examples" (mocking mode)](/api-testing/mark3/mocking/#validate-examples); the difference is that will validate the actual responses in an end-to-end session. Use the switch `--validate-response` to enable it.
-
-### Capture Mode
-Capture mode is activated by passing the `--capture` parameter, followed by the path to a directory. As the requests go through, Piestry will capture the responses coming from the origin and save them to file.
-
-When `--capture` is executed without `--e2e`, Pietry will try to map the saved files to the OpenAPI definition and serve them as examples.
-
-## Dynamic examples
+### Dynamic examples
 The system allows for examples containing dynamic data using the Handlebars markup. Remember that if you use dynamic examples in your OpenAPI specs, your spec will reduce its usability for documentation purposes as documentation renderers don't support it.
 
 To have dynamic parameters, you simply place an expression between double curly brackets as in `{{requestUrl}}`.
@@ -241,3 +230,42 @@ As an example, the following template will echo the shape of the request back in
 ```
 
 The "json" keyword will convert a full data structure into its JSON equivalent.
+
+
+
+
+## E2E Mode
+When Piestry is run with `--e2e`, it will turn into a reverse proxy gateway and forward the requests based to the origin, according to the OpenAPI specification. The requirement is the "server" definition of the OpenAPI spec should lead to an actual location.
+
+In this mode, you can enable contract validators as well as capture mode.
+
+### Contract Validators
+There are two types of validations you can activate, focusing on different areas.
+
+### Validate Response
+The validate response is similar to the ["validate examples" (mocking mode)](/api-testing/mark3/mocking/#validate-examples); the difference is that will validate the actual responses in an end-to-end session. Use the switch `--validate-response` to enable it.
+
+### Capture Mode
+Capture mode is activated by passing the `--capture` parameter, followed by the path to a directory. As the requests go through, Piestry will capture the responses coming from the origin and save them to file.
+
+When `--capture` is executed without `--e2e`, Pietry will try to map the saved files to the OpenAPI definition and serve them as examples.
+
+
+
+## Logger
+
+PIestry can log full API conversations, including validation results, to a file or to the Sauce API Testing platform.
+
+To activate the logger, use the `--logger` switch followed either by the path to a file, or a URL.
+
+In Sauce Labs, you can feed the data to the Sauce Labs API Logging, the first tool in a upcoming larger suite of API debugging tools.
+
+Sauce Labs API Logging
+1. Access your Sauce Labs API testing account.
+1. Create a webhook for a project.
+1. Compose the logger url as in
+   ```bash
+   https://{user}:{key}@app.saucelabs.com/api-testing/rest/v4/{hook_id}/logger
+   ```
+1. Launch Piestry with the given URL.
+1. Use the "Logger" section in the dashboard to inspect your calls, convert them into HTTP calls in the HTTP Client, or generate a test.
