@@ -96,7 +96,7 @@ Update the TestObject base URL `https://app.testobject.com/api/rest/` to the Bas
 
 |TestObject (Legacy RDC) Endpoints|Sauce Labs RDC Endpoints|
 |---------------|----------------|
-|<small>`storage/upload`</small>|<small>[`v1/storage/upload`](https://docs.saucelabs.com/dev/api/storage#upload-file-to-app-storage)</small>|
+|<small>`storage/upload`</small>|<small>[`v1/storage/upload`](/dev/api/storage/#upload-file-to-app-storage)</small>|
 
 #### **Appium Watcher API**
 
@@ -120,42 +120,42 @@ The following TestObject Appium suites API endpoints will be deprecated and not 
 
 |TestObject (Legacy RDC) Endpoints|Sauce Labs RDC Endpoints|
 |---------------|----------------|
-|<small>`v2/devices`</small>|<small>[`v1/rdc/devices`](https://docs.saucelabs.com/dev/api/rdc#get-devices)</small>|
-|<small>`v2/devices/available`</small>|<small>[`v1/rdc/devices/available`(https://docs.saucelabs.com/dev/api/rdc#get-available-devices)]</small>|
-|<small>`v2/devices/{deviceDescriptorId}`</small>|<small>[`v1/rdc/devices/$DEVICE_ID`](https://docs.saucelabs.com/dev/api/rdc#get-a-specific-device)</small>|
+|<small>`v2/devices`</small>|<small>[`v1/rdc/devices`](/dev/api/rdc/#get-devices)</small>|
+|<small>`v2/devices/available`</small>|<small>[`v1/rdc/devices/available`(/dev/api/rdc/#get-available-devices)]</small>|
+|<small>`v2/devices/{deviceDescriptorId}`</small>|<small>[`v1/rdc/devices/$DEVICE_ID`](/dev/api/rdc/#get-a-specific-device)</small>|
 
 #### **Test Reports API**
 
 |TestObject (Legacy RDC) Endpoints|Sauce Labs RDC Endpoints|
 |---------------|----------------|
-|<small>`v2/reports/{testReportId}`</small>|<small>[`v1/rdc/jobs/$JOB_ID`](https://docs.saucelabs.com/dev/api/rdc#get-a-specific-real-device-job)</small>|
+|<small>`v2/reports/{testReportId}`</small>|<small>[`v1/rdc/jobs/$JOB_ID`](/dev/api/rdc/#get-a-specific-real-device-job)</small>|
 
 #### **Session Report API**
 
 |TestObject (Legacy RDC) Endpoints|Sauce Labs RDC Endpoints|
 |---------------|----------------|
-|<small>`v1/devices/reports`</small>|<small>[`v1/rdc/jobs`](https://docs.saucelabs.com/dev/api/rdc#get-real-device-jobs)</small>|
+|<small>`v1/devices/reports`</small>|<small>[`v1/rdc/jobs`](/dev/api/rdc/#get-real-device-jobs)</small>|
 
 
 #### **Logs API**
 
 |TestObject (Legacy RDC) Endpoints|Sauce Labs RDC Endpoints|
 |---------------|----------------|
-|<small>`/v2/logs/{testReportId}/appium`</small><br/><small>`/v2/logs/{testReportId}/device`</small><br/><small>`/v2/logs/{testReportId}/vitals`</small><br/><small>`/v2/logs/{testReportId}/xcuitest`</small>|<small>[`/rest/v1/$SAUCE_RDC_USERNAME/jobs/$JOB_ID/assets/$FILE_NAME`](https://docs.saucelabs.com/dev/api/jobs#get-a-job-asset-file)</small>|
-|<small>`v2/logs/{testReportId}`</small>|<small>[`rest/v1/$SAUCE_RDC_USERNAME/jobs/$JOB_ID/assets`](https://docs.saucelabs.com/dev/api/jobs#list-job-assets)</small>|
+|<small>`/v2/logs/{testReportId}/appium`</small><br/><small>`/v2/logs/{testReportId}/device`</small><br/><small>`/v2/logs/{testReportId}/vitals`</small><br/><small>`/v2/logs/{testReportId}/xcuitest`</small>|<small>[`/rest/v1/$SAUCE_RDC_USERNAME/jobs/$JOB_ID/assets/$FILE_NAME`](/dev/api/jobs/#get-a-job-asset-file)</small>|
+|<small>`v2/logs/{testReportId}`</small>|<small>[`rest/v1/$SAUCE_RDC_USERNAME/jobs/$JOB_ID/assets`](/dev/api/jobs/#list-job-assets)</small>|
 
 
 #### **Screenshot API**
 
 |TestObject (Legacy RDC) Endpoints|Sauce Labs RDC Endpoints|
 |---------------|----------------|
-|<small>`v2/screenshots/{testReportId}/{screenshotId}.png`</small>|<small>[`rest/v1/$SAUCE_RDC_USERNAME/jobs/$JOB_ID/assets/$FILE_NAME`](https://docs.saucelabs.com/dev/api/jobs#get-a-job-asset-file)</small>|
+|<small>`v2/screenshots/{testReportId}/{screenshotId}.png`</small>|<small>[`rest/v1/$SAUCE_RDC_USERNAME/jobs/$JOB_ID/assets/$FILE_NAME`](/dev/api/jobs/#get-a-job-asset-file)</small>|
 
 #### **Session Video API**
 
 |TestObject (Legacy RDC) Endpoints|Sauce Labs RDC Endpoints|
 |---------------|----------------|
-|<small>`v2/video/{videoId}.mp4`</small>|<small>`[rest/v1/$SAUCE_RDC_USERNAME/jobs/$JOB_ID/assets/$FILE_NAME`](https://docs.saucelabs.com/dev/api/jobs#get-a-job-asset-file)</small>|
+|<small>`v2/video/{videoId}.mp4`</small>|<small>`[rest/v1/$SAUCE_RDC_USERNAME/jobs/$JOB_ID/assets/$FILE_NAME`](/dev/api/jobs/#get-a-job-asset-file)</small>|
 
 #### **Suites Reports API**
 
