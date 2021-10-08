@@ -103,13 +103,13 @@ In every organization, multiple Organization Admins and/or Team Admins can exist
 For more information on Sauce Connect and IPSec settings available to Organization Admins, see [Security Settings](/basics/acct-team-mgmt/org-settings#security-settings).
 
 ## User Settings
-The User Settings screen allows you to view and change your username, password, and email address. You can also regenerate an access key, as well as copy a driver string (for more information, see [Regenerating Access Keys](https://docs.saucelabs.com/basics/acct-team-mgmt/managing-user-info/#regenerating-access-keys) and [Create a RemoteWebDriver Instance](https://docs.saucelabs.com/web-apps/automated-testing/selenium/#step-1-create-a-remotewebdriver-instance)). If you are an admin and want to change the settings for users in your org, see [Updating User Information](https://docs.saucelabs.com/basics/acct-team-mgmt/managing-user-info/#updating-user-information).
+The User Settings screen allows you to view and change your username, password, and email address. You can also regenerate an access key, as well as copy a driver string (for more information, see [Regenerating Access Keys](/basics/acct-team-mgmt/managing-user-info/#regenerating-access-keys) and [Create a RemoteWebDriver Instance](/web-apps/automated-testing/selenium/#step-1-create-a-remotewebdriver-instance)). If you are an admin and want to change the settings for users in your org, see [Updating User Information](/basics/acct-team-mgmt/managing-user-info/#updating-user-information).
 
 To access the User Settings screen, on Sauce Labs, click **ACCOUNT** and then click **User settings**.
 <img src={useBaseUrl('img/team-mgmt/user-settings-nav.png')} alt="User Settings navigation" width="350"/>
 
 ## Password Policy
-Sauce Labs supports two-factor authentication. See [Setting Up Single Sign-On](https://docs.saucelabs.com/basics/sso/setting-up-single-sign-on) for more information.
+Sauce Labs supports two-factor authentication. See [Setting Up Single Sign-On](/basics/sso/setting-up-single-sign-on) for more information.
 
 Strong passwords are required, and must include the following:
 * One lowercase letter

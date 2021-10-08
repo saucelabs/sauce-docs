@@ -22,9 +22,9 @@ For more information about using the  command line, see the [Sauce Connect Proxy
 
 | Environment Variable  | Description  | Platforms  | Corresponding CLI Option  |
 |---|---|---|---|
-| `SAUCE_USERNAME` | Sets your Sauce Labs username. | Windows, Linux, Mac OS X | [`--user`](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html#--user) |
-| `SAUCE_ACCESS_KEY` | Sets your Sauce Labs access key. | Windows, Linux, Mac OS X | [`--api-key`](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html#--api-key) |
-| `http_proxy`<br/>`HTTP_PROXY`<br/>`all_proxy`<br/>`ALL_PROXY` | Sets an HTTP proxy to be used by Sauce Connect Proxy. It can be formatted as `http://hostname:port` or `hostname:port`.<br/><br/>On Linux and Mac environments, `http_proxy` and `https_proxy` variables can contain proxy credentials in the following format: `scheme://user:password@host:port` | Windows, Linux, Mac OS X | [`--proxy`](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html#external-proxy-configuration) |
+| `SAUCE_USERNAME` | Sets your Sauce Labs username. | Windows, Linux, Mac OS X | [`--user`](/dev/cli/sauce-connect-proxy/#--user) |
+| `SAUCE_ACCESS_KEY` | Sets your Sauce Labs access key. | Windows, Linux, Mac OS X | [`--api-key`](/dev/cli/sauce-connect-proxy/#--api-key) |
+| `http_proxy`<br/>`HTTP_PROXY`<br/>`all_proxy`<br/>`ALL_PROXY` | Sets an HTTP proxy to be used by Sauce Connect Proxy. It can be formatted as `http://hostname:port` or `hostname:port`.<br/><br/>On Linux and Mac environments, `http_proxy` and `https_proxy` variables can contain proxy credentials in the following format: `scheme://user:password@host:port` | Windows, Linux, Mac OS X | [`--proxy`](/dev/cli/sauce-connect-proxy/#external-proxy-configuration) |
 | `no_proxy`<br/>`NO_PROXY` | Sets hostnames that will not be proxied, even when Sauce Connect Proxy is configured to use a proxy. Format as a comma-separated list. Subdomain wildcarding is supported when the hostname starts with a `.` Examples:<br/><br/>`saucelabs.com,spam.net`: Only requests hitting `saucelabs.com` and `spam.net` will not be proxied. All other requests will be proxied.<br/><br/>`.example.com`: All requests going to any subdomain of `example.com` will not be proxied (e.g., `one.example.com`, `asdf.example.com`) | Linux | |
 | `SAUCE_ARES_FLAGS` | Sets advanced flags for DNS library use with Sauce Connect Proxy. For more information, see [c-ares Documentation](http://c-ares.haxx.se/ares_init.html). | Windows, Linux, Mac OS X | |
 

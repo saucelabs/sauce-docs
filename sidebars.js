@@ -504,6 +504,14 @@ module.exports = {
                     },
                     'secure-connections/sauce-connect/proxy-tunnels',
                     'secure-connections/sauce-connect/security-authentication',
+                    {
+                        type: 'category',
+                        label: 'Advanced',
+                        collapsed: true,
+                        items: [
+                            'secure-connections/sauce-connect/advanced/sc-architecture',
+                        ]
+                    },
                     'secure-connections/sauce-connect/troubleshooting',
                     'secure-connections/sauce-connect/faq',
                     'secure-connections/sauce-connect/changelog',

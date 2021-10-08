@@ -35,7 +35,7 @@ At this time, data from tests run in Headless mode is not available to the [Sauc
 Sauce Headless provides headless Chrome and Firefox in the three most recent versions and the most recent version of Linux. 
 
 ### WebDriver Capabilities
-You'll need to set desired capabilities in your test that are specific to headless testing, as shown in this example:
+You'll need to set capabilities in your test that are specific to headless testing, as shown in this example:
 
 ```
 saucelabs_headless_chrome": {
