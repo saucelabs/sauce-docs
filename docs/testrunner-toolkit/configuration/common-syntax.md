@@ -140,24 +140,48 @@ saucectl run --ccy 5
 ---
 
 ### `tunnel`
-<p><small>| OPTIONAL | OBJECT |  <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
-`saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection when running your tests on Sauce Labs. To do so, launch a tunnel; then provide the identifier in this property.
+`saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
 
-:::note Choose the Correct Tunnel Identifier
-When you launch a tunnel, you can accept the tunnel identifier name that Sauce Labs generates for your account (e.g., `{SL-username}_tunnel_id`) or specify a name in the launch command:
-
+```yaml
+sauce:
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
 ```
-bin/sc -u {SL-username} -k {SL-access_key} -i {tunnel_identifier}
-```
+---
 
-This is the identifier `saucectl` expects as the `id` property, even though the Sauce Labs UI refers to this values as the `Tunnel Name`.
+#### `name`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Identifies an active Sauce Connect tunnel to use for secure connectivity to the Sauce Labs cloud.
+
+:::note
+This property replaces the former `id` property, which is deprecated.
 :::
 
 ```yaml
- tunnel:
-    id: your_tunnel_id
-    parent: parent_owner_of_tunnel # if applicable, specify the owner of the tunnel
+sauce:
+  tunnel:
+    name: your_tunnel_name
+```
+---
+
+#### `owner`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Identifies the Sauce Labs user who created the specified tunnel, which is required if the user running the tests did not create the tunnel.
+
+:::note
+This property replaces the former `parent` property, which is deprecated.
+:::
+
+```yaml
+sauce:
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
 ```
 ---
 

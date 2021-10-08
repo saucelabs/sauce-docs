@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Network Security
-Sauce Connect Proxy establishes a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines or real devices that are used for testing.
+Sauce Connect Proxy establishes a secure connection between your applications hosted on an internal server and the Sauce Labs VMs or real devices used during your tests.
 
 Data transmitted by Sauce Connect Proxy is encrypted through the TLS protocol, which uses perfect forward secrecy for maximum security. Sauce Connect Proxy also uses a caching web proxy to minimize data transfer. You can disable this with the command line option `-N (--no-proxy-caching)`.
 
@@ -20,15 +20,15 @@ We recommend running Sauce Connect Proxy in a firewalled DMZ on a dedicated mach
 For more information, see [DMZ (computing)](https://en.wikipedia.org/wiki/DMZ_(computing)) and [Common Mistakes in Network Configurations](/secure-connections/sauce-connect/troubleshooting).
 
 ## Securing Sauce Connect Proxy
-There are several ways to secure Sauce Connect Proxy in your network. With our recommended configuration, firewall rules are set so that Sauce Connect Proxy has only one point of access to the customer's internal network--through a single HTTP proxy--and all inbound traffic will be relayed. You'll have a secure setup with fine-grained access control and complete logging.
+There are several ways to secure Sauce Connect Proxy in your network. With our recommended configuration, firewall rules are set so that Sauce Connect Proxy has only one point of access to the customer's internal network &#8212; through a single HTTP proxy &#8212; and all inbound traffic will be relayed. You'll have a secure setup with fine-grained access control and complete logging.
 
 ### Recommended Configuration
-The sc client program establishes a TLS connection (tunnel connection) to a dedicated tunnel endpoint server hosted in the Sauce Labs cloud. During test sessions, browsers and mobile apps use this tunnel endpoint as an HTTP proxy. HTTP requests are multiplexed and relayed back through the tunnel connection to the sc client program, which proxies these HTTP requests, providing access to the Application Under Test within your network.
+The [sc client program](/secure-connections/sauce-connect/installation/#download-latest-version) establishes a TLS connection (tunnel connection) to a dedicated tunnel endpoint server hosted in the Sauce Labs cloud. During test sessions, browsers and mobile apps use this tunnel endpoint as an HTTP proxy. HTTP requests are multiplexed and relayed back through the tunnel connection to the sc client program, which proxies these HTTP requests, providing access to the Application Under Test within your network.
 
 There are two options to control and monitor the access sc has to your network: firewall rules and proxy settings. In our recommended configuration, both are used.
 
 #### Firewall Rules
-The SC Client program should be run on a dedicated, single-purpose machine or VM (aka the SC Host), which has access only to the systems required for testing. This can be accomplished with an external firewall.
+The sc client should be run on a dedicated, single-purpose machine or VM (aka the SC Host), which has access only to the systems required for testing. This can be accomplished with an external firewall.
 
 For maximum control, we recommend the SC Host is firewalled so that its only access to the customer network is through a single HTTP proxy, where all inbound traffic will be relayed, and can be appropriately restricted and logged. Unintended access through other routes can be prevented in the event of a security vulnerability that affects Sauce Connect.
 
@@ -39,11 +39,11 @@ By using the `--proxy` or `--pac` command line options, `sc` can be configured t
 
 We recommend the use of an HTTP proxy that is familiar to the customer's security team. The proxy should be configured to allow access only to a allowlisted set of URL domains or URL prefixes used for testing. Access should be logged. Note that logs can be inspected by an Intrusion Detection System for malware signatures and other signs of suspicious activity.
 
-For more information, see [Sauce Connect Command Line Reference](/dev/cli/sauce-connect-proxy) and [Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
+For more information, see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy) and [Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
 
-**Recommended Sauce Connect Proxy Configuration**
+##### **Recommended Sauce Connect Proxy Configuration**
 
-<img src={useBaseUrl('img/sauce-connect/recommended-sc-config.png')} alt="Recommended Sauce Connect Proxy configuration" width="400"/>
+<img src={useBaseUrl('img/sauce-connect/recommended-sc-config.png')} alt="Recommended Sauce Connect Proxy configuration" width="650"/>
 
 By configuring Sauce Connect Proxy following these steps, you can create a security profile with fine-grained control over access and complete logging of activity:
 
@@ -65,7 +65,7 @@ Benefits to this configuration:
 ### Sauce Labs Security Process
 Sauce Labs provides a secure and scalable cloud computing platform for functional testing of web and mobile apps located in world-class data centers in North America and Europe.
 
-Having our own cloud enables us to provide our services faster, and with higher security, than can be delivered on a public cloud with shared resources. Managing our own data centers also means that we are responsible for delivering a consistent experience with the utmost concern for the security of our users’ data.
+Having our own cloud enables us to provide our services faster, and with higher security, than can be delivered on a public cloud with shared resources. Managing our own data centers also means that we are responsible for delivering a consistent experience with the utmost concern for the security of your data.
 
 For an overview of the services offered by Sauce Labs, our methods for securing the transmission of test data and results, and our security policies and procedures, see our white paper, [Overview of Sauce Labs Security Processes](https://saucelabs.com/resources/white-papers/overview-of-sauce-labs-security-processes).
 
@@ -84,10 +84,12 @@ If your website doesn't need a port, you can use the default port, `port 80`. Le
 --auth mysite.com:80:awesometester:supersekrit
 ```
 
-You can use this option multiple times in a row, like so:
+You can use this option multiple times in a row:
 
 ```bash
---auth mysite.com:80:awesometester:supersekrit --auth myothersite.com:443:awesometester:supersekrit --auth mythirdsite.com:80:awesometester:supersekrit
+--auth mysite.com:80:awesometester:supersekrit \
+--auth myothersite.com:443:awesometester:supersekrit \
+--auth mythirdsite.com:80:awesometester:supersekrit
 ```
 
 For more information, see [Best Practice: Handling Authentication](https://community.saucelabs.com/general-delivery-discussion-6/best-practice-handling-authentication-164) and [Using Environment Variables for Authentication Credentials](/basics/environment-variables).
@@ -126,8 +128,8 @@ On Linux machines, Sauce Connect Proxy will look for the directory where the cer
 #### Windows
 On Windows machines, certificates are managed through the Security Support Provider Interface API (see [Security Support Provider Interface](https://en.wikipedia.org/wiki/Security_Support_Provider_Interface)) over SChannel, which requires access to [OCSP](https://en.wikipedia.org/wiki/Online_Certificate_Status_Protocol) URLs to verify certificates. If you have set up highly restrictive firewalls or proxies on the machine where Sauce Connect Proxy is running and it can't connect to these URLs, you'll get an error when attempting to connect to the Sauce Labs API.
 
-#### OS X
-On OS X machines, certificates are pre-installed as part of the [Trust Store](https://support.apple.com/en-us/HT204132) and are accessible through the [Keychain](https://en.wikipedia.org/wiki/Keychain_(software)). If Sauce Connect Proxy is installed on an OS X machine, no troubleshooting should be necessary as long as it can access the Keychain.
+#### macOS
+On macOS machines, certificates are pre-installed as part of the [Trust Store](https://support.apple.com/en-us/HT204132) and are accessible through the [Keychain](https://en.wikipedia.org/wiki/Keychain_(software)). If Sauce Connect Proxy is installed on a macOS machine, no troubleshooting should be necessary, as long as it can access the Keychain.
 
 ### Tunnel Connection to the Sauce Labs Virtual Machine over SSL/TLS
 Sauce Connect Proxy reverses tunnel VM-to-test target traffic through the TLS connection from Sauce Connect-to-tunnel endpoints. Your Selenium and Appium webdriver traffic is sent over `http(80)` or `https(443)` to `ondemand.saucelabs.com`, which has its own TLS certificate that's then passed to the test VM.
