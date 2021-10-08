@@ -21,7 +21,7 @@ If you're new to Sauce Connect Proxy, check out [Using Sauce Connect Proxy](/sec
 
 1. Create a .yaml configuration file using the text below. Substitute your [SAUCE_USERNAME](https://app.saucelabs.com/user-settings) and [SAUCE_ACCESS_KEY](https://app.saucelabs.com/user-settings) where indicated. Optionally, you can define a name for your tunnel (`tunnel-identifier` variable).
   ```yaml
-  rest-url: "https://api.us-west-4-staging.saucelabs.net/rest/v1"
+  rest-url: "https://api.us-west-4-i3er.saucelabs.com/rest/v1"
   user: "SAUCE_USERNAME"
   api-key: "SAUCE_ACCESS_KEY"
   no-remove-colliding-tunnels: true
