@@ -86,21 +86,18 @@ Set your Sauce Labs account credentials as [environment variables](/basics/envir
 
 Invoke the `get` method on your WedDriver instance, using the variable name you assigned, and pass the URL of the web page containing the element you wish to test as an argument. The following gets our Swag Labs login page:
 
-
 ```java reference title="Selenium Navigation"
 https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L48
 ```
 
-
 To view code snippets in JavaScript, Python, Ruby, and C#, see the [Selenium documentation on Browser Navigation](https://www.selenium.dev/documentation/webdriver/browser_manipulation/#browser-navigation).
+
 
 ### Step 3: Locate an HTML Element on a Web Page
 
-Once the test script accesses the page to test, it needs to find the elements that an end user would interact with.
-In this case, the login fields and **Submit** button.
+Once the test script accesses the page to test, it needs to find the elements that an end user would interact with. In this case, the login fields and **Submit** button.
 
-To find an element we need to right-click on the elements we are interested in and select "Inspect" from the context menu.
-The form elements look like this:
+To find an element we need to right-click on the elements we are interested in and select "Inspect" from the context menu. The form elements look like this:
 
 ```html title="Login Form"
 <html>
@@ -143,9 +140,7 @@ In your Selenium test scripts, identify test elements by their `name` or `id` at
 
 You can use any of the WebDriver API _locator methods_ to form locator expressions that find an element based on a specified locator type and value. In Java and .NET, locators are managed with a `By` class instance - `By.id("user-name")`.
 
-In Python, the locator method is merged with the finder method (as described below) - `find_element_by_id("user-name")`.
-
-Whereas Ruby uses key value pairs, typically as Hash values: `{id: "user-name"}`
+In Python, the locator method is merged with the [_finder method_](#finder-methods) (i.e.,  `find_element_by_id("user-name")`), whereas Ruby uses key value pairs, typically as Hash values (i.e., `{id: "user-name"}`).
 
 Most of the elements in our Swag Labs example have multiple unique attributes that make it easy to identify them. For this example we can identify them as follows:
 
@@ -172,15 +167,14 @@ https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/
 
 To view code snippets in JavaScript, Python, Ruby, and C#, see the [Selenium documentation on the Find Element](https://www.selenium.dev/documentation/en/webdriver/web_element/#find-element).
 
+
 #### Synchronization Strategies
 
 Synchronization is an advanced topic, but it is essential when locating an element that the application is ready for the element to be located. There are two main approaches to synchronization: implicit and explicit.
 
 #### Implicit Waits
 
-When Selenium executes a find element call and the driver can not find the element, an exception is thrown immediately.
-An implicit wait is set telling the driver how long to wait before throwing the exception.
-If the element is located right away, the value of the implicit wait does not matter.
+When Selenium executes a find element call and the driver can not find the element, an exception is thrown immediately. An implicit wait is set telling the driver how long to wait before throwing the exception. If the element is located right away, the value of the implicit wait does not matter.
 
 :::note
 Implicit waits are generally not recommended. It's a one-line code change that can potentially reduce the number of failed tests in your suite, but it is often more of a crutch than a successful long term solution. Should you decide to set an implicit wait, do it once when you create the session and keep it to a small value.
@@ -195,7 +189,6 @@ Mixing implicit and explicit waits can cause unpredictable outcomes, which is an
 :::
 
 Each language implements this slightly differently. Java and .NET have `ExpectedConditions` classes, but the recommended approach in all languages at this point is to use a lambda, like so:
-
 
 ```java reference title="Selenium Waits"
 https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L54-L55
@@ -222,7 +215,6 @@ The following example automates a user login by sending keys to the username and
 ```java reference title="Selenium Actions"
 https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L61-L63
 ```
-
 
 ### Step 5: Assert a Result
 
@@ -253,17 +245,18 @@ https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/
 
 ### Step 7: End the Session
 
-It is important to remember to close the browser when you are done with it by calling the quit method on the
-Remote WebDriver instance.
+It is important to remember to close the browser when you are done with it by calling the quit method on the Remote WebDriver instance.
 
 * quits the browser, closing all web pages
 * ends the Sauce session allowing timely processing of results and storage of artifacts.
 
 The following examples invokes the quit method on the driver variable:
 
+
 ```java reference title="Quit Selenium Session"
 https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L75
 ```
+
 
 ### Complete Example  
 

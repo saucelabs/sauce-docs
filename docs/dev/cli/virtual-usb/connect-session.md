@@ -4,7 +4,7 @@ title: "Virtual USB CLI: Connect to Existing Session"
 sidebar_label: Connect to Session
 ---
 
-The [`connect`](https://docs.saucelabs.com/mobile-apps/features/virtual-usb#start-test-session) command uses your user credentials and `sessionId` to connect to an existing live session, which will then connect the device to your local machine. This is one of two ways to start a Virtual USB test; the other is to [start a new test session from the command line](/dev/cli/virtual-usb/start-session).
+The [`connect`](/mobile-apps/features/virtual-usb#start-test-session) command uses your user credentials and `sessionId` to connect to an existing live session, which will then connect the device to your local machine. This is one of two ways to start a Virtual USB test; the other is to [start a new test session from the command line](/dev/cli/virtual-usb/start-session).
 
 ## Required
 

@@ -96,7 +96,7 @@ For the full list of supported real devices, see [Supported Browsers and Devices
 
 ### Security
 
-#### **Real Device Cleaning**
+#### Real Device Cleaning
 
 We use a proprietary process that wipes every real device clean at the end of the testing session:
 
@@ -112,9 +112,15 @@ We use a proprietary process that wipes every real device clean at the end of th
 While we take these actions to clean public real devices after each test session, we do not perform factory resets nor do we have anti-virus software installed on them. It is possible that other users of the public RDC may engage in malicious, careless or unsecure activity, and that sophisticated, persistent malware could therefore be present on any device in the public RDC.
 :::
 
+#### Passcode Usage on Public Devices
+Passcodes cannot be set on public devices. If your app requires authentication, you can:
+
+* Use our biometric authentication feature (see [Biometric Authentication](/mobile-apps/features/biometric-authentication)).
+* Use private devices (see [Private Device Cloud](#private-device-cloud)).
+
 For more information on Sauce Labs security settings, see [Security Settings for Organizations](/basics/acct-team-mgmt/org-settings).
 
-#### **Data Center Security**
+#### Data Center Security
 
 Real Device Cloud Data Center security is described in [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
 
@@ -122,7 +128,7 @@ Real Device Cloud Data Center security is described in [Data Center Endpoints](/
 
 Regardless of the test frameworks you're using (Appium, Espresso, XCUITest), you can configure your real device tests using static and dynamic device allocation. While the syntax may be different (i.e., `--device`, `deviceName`), the functionality is the same across all frameworks.
 
-#### **Static Device Allocation**
+#### Static Device Allocation
 
 This is specifying an exact device for your test by setting `deviceName` to the Device ID, which you can find under **Live** > **Mobile-App** > **Choose device** > Find Your Device > **Details**.
 <img src={useBaseUrl('img/mobile-apps/samsung-galaxyA10.jpg')} alt="Sauce Labs Device ID example" width="450"/>
@@ -162,7 +168,7 @@ capabilities.setCapability("deviceName", "iPhone_11_13_5_real_us");
 </Tabs>
 <br/>
 
-#### **Dynamic Device Allocation**
+#### Dynamic Device Allocation
 
 This is specifying basic parameters for the platform, operating system, and/or type of device you want to use in your tests using [regular expressions (regex)](https://en.wikipedia.org/wiki/Regular_expression) to dynamically allocate a device. A device(s) with your specifications will be selected from the real device pool.
 

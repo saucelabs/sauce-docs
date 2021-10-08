@@ -112,7 +112,7 @@ When injecting an image with a QR Code or barcode, the image size in your previe
 
 During an Automated test, you'll pass an image to the image injection endpoint. Image Injection intercepts the camera input and replaces the camera output with the image file via the camera APIs. When the app requests an image from the device's camera, we inject your uploaded image into the response (the app doesn't know the difference).
 
-In your test script, you'll need to input the desired capabilities specific to Camera Image Injection (see below code snippets). The code will execute your image upload and opening of the device camera.
+In your test script, you'll need to input the capabilities specific to Camera Image Injection (see below code snippets). The code will execute your image upload and opening of the device camera.
 
 1. First, you'll need add the camera instrumentation desired capability command,  `sauceLabsImageInjectionEnabled`, to your test script. This capability enables image injection functionality.
 
