@@ -26,7 +26,7 @@ If you are an org admin, you can view your organization's concurrency limits:
 
   <img src={useBaseUrl('img/team-mgmt/ccy-limits-teams.png')} alt="Team concurrency limits" width="600"/>
 
-For more information about usage, see [Viewing and Exporting Usage Data](https://docs.saucelabs.com/basics/acct-team-mgmt/viewing-exporting-usage-data/).
+For more information about usage, see [Viewing and Exporting Usage Data](/basics/acct-team-mgmt/viewing-exporting-usage-data/).
 
 ## How Concurrency Limits Work
 Through Sauce Labs, organization admins set the total concurrency of their organization's account. When setting the concurrency limit for a team, be mindful that team members share the concurrency limit of the team. If a team exceeds its concurrency limit, any additional tests will be queued (see [Queueing Tests](#queueing-tests) for more information).

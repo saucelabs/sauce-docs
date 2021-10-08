@@ -44,7 +44,7 @@ Set your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as [environment variables](http
 Download the iOS version of the [Swag Labs App](https://github.com/saucelabs/sample-app-mobile/releases) and upload it to your Sauce Labs account. You can do this through the Sauce Labs UI or by calling the API.
 
 * Sauce Labs UI: From the [Sauce Labs Live Testing](https://app.saucelabs.com/live/app-testing) page, select **App Upload** and select the `iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa` file.
-* API: Use the [Upload File to App Storage](https://docs.saucelabs.com/dev/api/storage#upload-file-to-app-storage) API request to upload the sample app to your account.
+* API: Use the [Upload File to App Storage](/dev/api/storage/#upload-file-to-app-storage) API request to upload the sample app to your account.
 
     ```title="Example API Upload Request"
     curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \

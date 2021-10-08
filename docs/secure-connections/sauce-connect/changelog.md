@@ -4,7 +4,7 @@ title: Sauce Connect Proxy Changelog
 sidebar_label: Changelog
 ---
 
-For best performance and to take advantage of our latest security enhancements, please upgrade to the latest version of [Sauce Connect Proxy](/secure-connections/sauce-connect/installation).
+For best performance and to take advantage of our latest security enhancements, upgrade to the [latest version](/secure-connections/sauce-connect/installation).
 
 ## v4.6.4 and above
 

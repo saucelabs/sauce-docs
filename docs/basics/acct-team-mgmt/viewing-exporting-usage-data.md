@@ -60,7 +60,7 @@ The USAGE widget provides a quick look at the device usage, by test session, for
 <img src={useBaseUrl('img/team-mgmt/usage-widget.png')} alt="USAGE widget" width="400"/>
 
 ## Minutes Used vs. Concurrency
-One way to tell if you're getting the most efficient use out of your Sauce Labs plan is to compare the minutes used with the number of concurrent tests run during the same period. If the ratio of minutes to concurrency is low, for example, 2:1 (100 minutes:50 concurrent tests), then you are using a lot of minutes to run very few tests. You should redesign your tests to take greater advantage of concurrency. See [Using Frameworks to Run Tests in Parallel](/web-apps/automated-testing/selenium#using-frameworks-to-run-tests-in-parallel) and [Concurrency Limits and Team Accounts](https://docs.saucelabs.com/basics/acct-team-mgmt/concurrency-limits/) for more information.
+One way to tell if you're getting the most efficient use out of your Sauce Labs plan is to compare the minutes used with the number of concurrent tests run during the same period. If the ratio of minutes to concurrency is low, for example, 2:1 (100 minutes:50 concurrent tests), then you are using a lot of minutes to run very few tests. You should redesign your tests to take greater advantage of concurrency. See [Using Frameworks to Run Tests in Parallel](/web-apps/automated-testing/selenium#using-frameworks-to-run-tests-in-parallel) and [Concurrency Limits and Team Accounts](/basics/acct-team-mgmt/concurrency-limits/) for more information.
 
 ## Exporting Usage Data
 
