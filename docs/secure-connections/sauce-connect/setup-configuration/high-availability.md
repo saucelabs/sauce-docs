@@ -48,15 +48,16 @@ Exclusive to our High Availability Sauce Connect Proxy Setup, you can launch mul
 Be mindful that each tunnel used in a pool will count toward your tunnel concurrency limit.
 
 #### Launching Tunnel Pools
-When using Sauce Connect Proxy (either a single tunnel or High Availability pool) to test your app, you'll need to provide the identifier of the Sauce Connect Proxy tunnel by using the desired capability
-[tunnelIdentifier](/secure-connections/sauce-connect/setup-configuration/basic-setup#using-tunnel-identifiers) in your test configuration (e.g. '"tunnelIdentifier": "tunnel_name_here"').
-Tunnel identifiers distinguish which tunnel or High Availability tunnel pool will be used to connect to your site under test.
+When using Sauce Connect Proxy (either a single tunnel or High Availability pool) to test your app, you'll need to provide the name of the Sauce Connect Proxy tunnel by using the desired capability
+[tunnelName](/secure-connections/sauce-connect/setup-configuration/basic-setup#using-tunnel-names) in your test configuration (e.g. '"tunnelName": "tunnel_name_here"').
+Tunnel names distinguish which tunnel or High Availability tunnel pool will be used to connect to your site under test.
 
-All tunnels in the individual pools need to be started with both the  [--tunnel-name "tunnel_name_here"](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy#--tunnel-name-or---tunnel-identifier)
+All tunnels in the individual pools need to be started with both the  [--tunnel-name "tunnel_name_here"](/dev/cli/sauce-connect-proxy#--tunnel-name-or---tunnel-identifier)
 and [--tunnel-pool](/dev/cli/sauce-connect-proxy#--tunnel-pool-or---no-remove-colliding-tunnels) command line options.
 
 #### What are Colliding Tunnels?
 Normally, if you attempt to start multiple tunnels with the same tunnel name, only the latest instance of the tunnel with that name will stay running.
+
 All tunnels with the same name started prior to the start of the latest instance will be considered colliding tunnels (tunnels with colliding names) and will shut down.
 
 When creating a tunnel pool, you need to prevent tunnel name collision by using Sauce Connect Proxy client command line option
@@ -82,7 +83,7 @@ You'll need to run this command on each machine where you want to have access to
 
 ```
 $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
-    --tunnel-identifier tunnel_name_here --tunnel-pool
+    --tunnel-name tunnel_name_here --tunnel-pool
 ```
 
 </TabItem>
@@ -91,7 +92,7 @@ $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
 
 ```
 > sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
-    --tunnel-identifier tunnel_name_here --tunnel-pool
+    --tunnel-name tunnel_name_here --tunnel-pool
 ```
 
 </TabItem>

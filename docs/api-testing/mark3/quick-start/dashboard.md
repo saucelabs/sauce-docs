@@ -24,34 +24,36 @@ There are two ways to access your API testing dashboard:
 
 To view all test logs across a project:
 
-* Select _Logs_
+* Select **Logs**
 * Set any filters (start date, end date, tags, etc.)
-* Then select _Start Query_
-  
+* Then select **Start Query**
+
   <img src={useBaseUrl('img/api-fortress/2021/02/dash-1.3.png')} alt="Dashboard Pic 1.3"/>
 
 You can then share, download, or print test logs.
 
 ## View Metrics
 
-View all performance metrics from tests (latency & fetch):
+View all performance metrics from tests (latency and fetch):
 
-* Select _Metrics_ 
+* Select **Metrics**
 * Set the start and end date
-* Then select _Start Query_
+* Then select **Start Query**
 
-<img src={useBaseUrl('img/api-fortress/2021/02/dash-1.4.png')} alt="Dashboard Pic 1.4"/>
+  <img src={useBaseUrl('img/api-fortress/2021/02/dash-1.4.png')} alt="Dashboard Pic 1.4"/>
 
 ## Set Alerts
 
 To set performance alerts and email notifications:
 
-* Select the Settings** tab
+* Select the **Settings** tab
 * Enter an email address
-* Select _Save Changes_
-<img src={useBaseUrl('img/api-fortress/2021/02/dash-1.5.png')} alt="Dashboard Pic 1.5"/>
+* Select **Save Changes**
 
-## Additional Topics
+  <img src={useBaseUrl('img/api-fortress/2021/02/dash-1.5.png')} alt="Dashboard Pic 1.5"/>
+
+
+## More Information
 
 The following links provide useful information about using the dashboard and its metrics:
 
