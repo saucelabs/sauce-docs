@@ -29,10 +29,10 @@ We recommend setting all of the values above as environment variables (see [Usin
 ### Selecting the Tunnel to Use
 Sauce Connect Proxy can have multiple tunnels running simultaneously, as described in [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). You can select which tunnel to use in a real device test in the same way as you would any other type of automated test.  
 
-1. Start Sauce Command Proxy from the command line, providing an [`-i` (`--tunnel-identifer`)](/dev/cli/sauce-connect-proxy) to start a new tunnel with that identifier.
+1. Start Sauce Command Proxy from the command line, using the [`--tunnel-name`)](/dev/cli/sauce-connect-proxy/#--tunnel-name-or---tunnel-identifier) flag to provide a name for the tunnel.
 
 ```
-'bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x $TEST_OBJECT_DC -i $TUNNEL_ID'
+'bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x $TEST_OBJECT_DC --tunnel-name $TUNNEL_NAME'
 ```
 
 :::note
@@ -44,7 +44,7 @@ where:
   a. `TEST_OBJECT_USERNAME` refers to your TestObject username.
   b. `TEST_OBJECT_API_KEY` refers to your TestObject API Key.
   c. `TEST_OBJECT_DC` refers to the Data Center API endpoint (see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints)).
-  d. `TUNNEL_ID` refers to the tunnel identifier (see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability)).
+  d. `TUNNEL_NAME` refers to the tunnel name (see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability)).
 
 So an example would look like this:
 
@@ -60,13 +60,13 @@ So an example would look like this:
 **Mac OSX/Linux Example**
 
 ```bash
-$ /bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x 'https://us1.api.testobject.com/sc/rest/v1' -i test-object-rdc-tunnel-us
+$ /bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x 'https://us1.api.testobject.com/sc/rest/v1' --tunnel-name test-object-rdc-tunnel-us
 ```
 
 **Windows Example**
 
 ```bash
-> \bin\sc -u %TEST_OBJECT_USERNAME% -k %TEST_OBJECT_API_KEY% -x 'https://us1.api.testobject.com/sc/rest/v1' -i test-object-rdc-tunnel-us
+> \bin\sc -u %TEST_OBJECT_USERNAME% -k %TEST_OBJECT_API_KEY% -x 'https://us1.api.testobject.com/sc/rest/v1' --tunnel-name test-object-rdc-tunnel-us
 ```
 
 </TabItem>
@@ -75,13 +75,13 @@ $ /bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x 'https://us1.api.t
 **Mac OSX/Linux Example**
 
 ```bash
-$ /bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x 'https://eu1.api.testobject.com/sc/rest/v1' -i test-object-rdc-tunnel-eu
+$ /bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x 'https://eu1.api.testobject.com/sc/rest/v1' --tunnel-name test-object-rdc-tunnel-eu
 ```
 
 **Windows Example**
 
 ```bash
-> \bin\sc -u %TEST_OBJECT_USERNAME% -k %TEST_OBJECT_API_KEY% -x 'https://eu1.api.testobject.com/sc/rest/v1' -i test-object-rdc-tunnel-eu
+> \bin\sc -u %TEST_OBJECT_USERNAME% -k %TEST_OBJECT_API_KEY% -x 'https://eu1.api.testobject.com/sc/rest/v1' --tunnel-name test-object-rdc-tunnel-eu
 ```
 
 </TabItem>

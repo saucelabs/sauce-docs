@@ -6,7 +6,7 @@ description: Documentation for running API tests with Sauce Labs
 hide_table_of_contents: true
 ---
 
-Check out the docs below to get started with testing your APIs on the Sauce Labs cloud.
+Check out the docs below to get started with API testing on the Sauce Labs cloud.
 
 
 <div className="box-wrapper" markdown="1">
