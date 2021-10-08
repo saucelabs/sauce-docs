@@ -121,7 +121,8 @@ Real Device testing on Sauce Labs is data center contingent, so you will only ha
 | Run only tests matching the specified annotation.  | `--e -i=annotation com.my.annotation` | Must use YAML |
 | Exclude tests matching the specified annotation.  | `--e -i=notAnnotation com.my.annotation` | Must use YAML |
 | Further specify Espresso test options using supported key-value pairs. | `--e` | Not supported |
-| Identify a running Sauce Connect tunnel to use for secure connectivity to the cloud. | `--tunnelIdentifier` | `--tunnel-id` |
+| Identify a running Sauce Connect tunnel to use for secure connectivity to the cloud. | `--tunnelIdentifier` | `--tunnel-name` <br/><small>`--tunnel-id`  <span className="sauceGold">DEPRECATED</span></small> |
+| Identify the user who created the tunnel, if it differs from the user running the test. | Not supported | `--tunnel-owner` <br/><small>`--tunnel-parent` <span className="sauceGold">DEPRECATED</span></small> |
 | Specify how often (seconds) the runner should check for test results. | `--checkFrequency` | Not supported |
 | Specify the maximum length of time (minutes) the test can run. | `--timeout` | `--timeout` |
 | Specify a folder to direct the JUnit XML output. | `--xmlFolder` | Not supported |
@@ -171,7 +172,8 @@ Real Device testing on Sauce Labs is data center contingent, so you will only ha
 | Run only tests matching the specified annotation.  | Must use CLI | `suites[].testOptions.annotation:`  (Espresso Only) |
 | Exclude tests matching the specified annotation.  | Must use CLI | `suites[].testOptions.notAnnotation:`  (Espresso Only) |
 | Break the test into separate shards. | Not supported | `suites[].testOptions.numShards:`  (Espresso Only) |
-| Identify a running Sauce Connect tunnel to use for secure connectivity to the cloud. | `tunnelIdentifier:` | `sauce.tunnel.id:` |
+| Identify a running Sauce Connect tunnel to use for secure connectivity to the cloud. | `tunnelIdentifier:` | `sauce.tunnel.name:`<br/><small>`id`  <span className="sauceGold">DEPRECATED</span></small>  |
+| Identify the user who created the tunnel, if it differs from the user running the test. | Not supported | `sauce.tunnel.owner` <br/><small>`parent` <span className="sauceGold">DEPRECATED</span></small> |
 | Specify how often (seconds) the runner should check for test results. | `checkFrequency:` | Not supported |
 | Specify the maximum length of time (minutes) the test can run. | `timeout:` | Must use CLI |
 | Specify a folder to direct the JUnit XML output. | `xmlFolder:` | Not supported |
