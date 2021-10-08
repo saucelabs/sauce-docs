@@ -7,7 +7,7 @@ description: "Using the API Fortress API or CLI you can easily and seamlessly in
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Requirements
+## What You'll Need
 * [Docker](https://docs.docker.com/get-docker/)
 * [Sauce Labs account `username` and `access_key`](https://app.saucelabs.com/user-settings)
 
@@ -52,8 +52,8 @@ To create a webhook:
 
 ### `run`
 
-__Description__: Runs a single test. Both `hookId` and `testId` are required. The `testId` is typically located in the URL when viewing the test through the API Testing UI, e.g. `/api-testing/project/<projectId>/test/<testId>/`.<br/>
-__Example__:
+Runs a single test. Both `hookId` and `testId` are required. The `testId` is typically located in the URL when viewing the test through the API Testing UI (e.g. `/api-testing/project/<projectId>/test/<testId>/`).
+
 ```bash
 docker run quay.io/saucelabs/apifctl run -H \
 https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId> \
@@ -63,8 +63,8 @@ https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<
 
 ### `run-all`
 
-__Description__: Runs all the complete tests in the project referenced by the hook.<br/>
-__Example__:
+Runs all the complete tests in the project referenced by the hook.
+
 ```bash
 docker run quay.io/saucelabs/apifctl run-all -H \
 https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId>
@@ -73,8 +73,8 @@ https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<
 
 ### `run-tag`
 
-__Description__: Runs all the tests tagged with a specific tag.<br/>
-__Example__:
+Runs all the tests tagged with a specific tag.
+
 ```bash
 docker run quay.io/saucelabs/apifctl run-tag -H \
 https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId> \
@@ -84,8 +84,8 @@ https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<
 
 ### `exec`
 
-__Description__: Sends a test residing in the local file system (directory with `unit.xml` and `input.xml`) to the cloud for execution.<br/>
-__Example__:
+Sends a test residing in the local file system (directory with `unit.xml` and `input.xml`) to the cloud for execution.
+
 ```bash
 docker run -v $(pwd)/tests:/tests quay.io/saucelabs/apifctl exec -H \
 https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId> \
@@ -95,8 +95,8 @@ https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<
 
 ### `upload`
 
-__Description__: Uploads a test residing in the local file system  (directory with `unit.xml` and `input.xml`) to the cloud for storage.<br/>
-__Example__:
+Uploads a test residing in the local file system  (directory with `unit.xml` and `input.xml`) to the cloud for storage.
+
 ```bash
 docker run -v $(pwd)/tests:/tests quay.io/saucelabs/apifctl upload -H \
 https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId> \
@@ -108,8 +108,7 @@ https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<
 
 ### `-E`
 
-__Description__: Sets environment variables with your command.<br/>
-__Example__:
+Sets environment variables with your command.
 
 ```bash
 -E domain=staging.com,id=123
@@ -119,8 +118,8 @@ __Example__:
 
 ### `-f`
 
-__Description__: Sets the data format: `json` || `junit`.<br/>
-__Example__:
+Sets the data format: `json` || `junit`.
+
 ```bash
 -f junit
 ```
@@ -128,8 +127,8 @@ __Example__:
 
 ### `-t`
 
-__Description__: Adds a set of tags to the resulting event.<br/>
-__Example__:
+Adds a set of tags to the resulting event.
+
 ```bash
 -t production,smoketest
 ```

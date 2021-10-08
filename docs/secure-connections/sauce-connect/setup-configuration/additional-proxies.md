@@ -125,7 +125,7 @@ $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
 #### Command Line Configuration Using PAC Files (`–pac url`)
 Your IT organization may have a PAC file that is used to specify how your own internal proxy servers should be configured.
 
-To have Sauce Connect Proxy with your PAC file, use the [--pac url](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy#--pac) command line option when starting Sauce Connect Proxy.
+To have Sauce Connect Proxy with your PAC file, use the [--pac url](/dev/cli/sauce-connect-proxy#--pac) command line option when starting Sauce Connect Proxy.
 The url argument can be an http(s) or local file: //URL. Absolute paths are required when specifying a local PAC file (e.g., `file:///Users/JohnSmith/Desktop/MyPac.pac`).
 
 If your PAC file contains multiple proxies, in addition to `-pac`, you'll need to specify the `-p` option to designate which proxy will receive the username and password.
