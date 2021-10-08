@@ -96,18 +96,18 @@ For version information, see [Sauce Connect Proxy Changelog](https://changelog.s
 
 ### Linux
 
-To install and extract Sauce Connect on your Linux machine, add sc to your system PATH:
+To install and extract Sauce Connect on Linux, add sc to your system PATH:
 
 ```bash
 cd $HOME
 curl -LO https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz
-tar xvf ./sc-4.7.-linux.tar.gz
+tar xvf ./sc-4.7.1-linux.tar.gz
 export PATH="$HOME/sc-4.7.1-linux/bin:$PATH"
 ```
 
 ## Log File
 
-Once you've started using Sauce Connect, a log file will populate in your computer's directory. The log file name depends on whether [--tunnel-name](/dev/cli/sauce-connect-proxy/#--tunnel-name-or---tunnel-identifier) was used.
+Once you've started using Sauce Connect, a log file will populate in your computer's directory. The log file name depends on whether [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name-or---tunnel-identifier) was used.
 
 For _anonymous_ tunnels, a log file name would be _sc.log_, for _named_ tunnels, a log file name would be _sc-TUNNEL_NAME.log_
 
