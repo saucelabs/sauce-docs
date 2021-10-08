@@ -510,6 +510,7 @@ module.exports = {
                         collapsed: true,
                         items: [
                             'secure-connections/sauce-connect/advanced/sc-architecture',
+                            'secure-connections/sauce-connect/advanced/sc-kgp',
                         ]
                     },
                     'secure-connections/sauce-connect/troubleshooting',
