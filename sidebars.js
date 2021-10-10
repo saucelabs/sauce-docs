@@ -600,6 +600,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'web-apps/automated-testing/selenium',
+                        'web-apps/automated-testing/selenium/selenium4',
                         'web-apps/automated-testing/selenium/pre-run-executables',
                         'web-apps/automated-testing/selenium/sample-scripts',
                     ]
