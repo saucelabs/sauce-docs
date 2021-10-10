@@ -79,7 +79,7 @@ As mentioned previously, Selenium 4 deprecates support for legacy JSON wire prot
 
 In Selenium 4, W3C capabilities will be supported by default under the hood. Your test capabilities must be structured to be W3C-compliant, otherwise they'll be ignored.
 
-Here is the list of [W3C WebDriver standard capabilities](https://www.w3.org/TR/webdriver1/#capabilities). Any capability not in this list must include a vendor prefix. This rule applies to browser-specific capabilities as well as Sauce Labs-specific capabilities. For example, if you want use the `build` and `name` capabilities in for your Sauce Labs tests, you'll need to wrap them in a `sauce:options` block (a complete example is shown below). For more information and examples, see our [W3C WebDriver Capabilities Support](/dev/w3c-capabilities) doc.
+Here is the list of [W3C WebDriver standard capabilities](https://www.w3.org/TR/webdriver1/#capabilities). Any capability not in this list must include a vendor prefix. This rule applies to browser-specific capabilities as well as Sauce Labs-specific capabilities. For example, if you want use the `build` and `name` capabilities in for your Sauce Labs tests, you'll need to wrap them in a `sauce:options` block (a complete example is shown below). For more information and examples, see our [W3C WebDriver Capabilities Support](/dev/w3c-webdriver-capabilities) doc.
 
 Below are examples showing the switch from `DesiredCapabilities` to `browserOptions`.
 
@@ -721,6 +721,8 @@ browserOptions.AddAdditionalCapability("sauce:options", sauceOptions, true);
 * [Selenium WebDriver official website](https://www.selenium.dev/documentation/webdriver/)
 * FAQs
 * [W3C Recommendations website | W3C WebDriver Capabilities](https://www.w3.org/TR/webdriver1/#capabilities)
+* [Sauce Labs W3C WebDriver Capabilities Support](/dev/w3c-webdriver-capabilities)
+* [Sauce Labs Test Configuration Options](/dev/w3c-webdriver-capabilities)
 
 https://gist.github.com/titusfortner/83933ee6417e3b83be1d2e32a2ebf257
 https://gist.github.com/titusfortner/ab3efe8b5dfac54b05ed53ffd2be444e
