@@ -282,3 +282,9 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
 
 ##### <sup>*</sup>Windows version no longer available for download.
 ##### <sup>**</sup>Sauce Connect Proxy versions below 4.6.1, which were supporting Private Certificates, reached end of life and are no longer available for download.
+
+
+## More Information
+
+* [Sauce Connect Proxy Architecture]
+* [Sauce Connect Proxy CLI Reference]
