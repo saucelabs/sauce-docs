@@ -19,15 +19,6 @@ The data center you use with Sauce Labs determines:
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 
-
-## Data Center Location - Real Device Cloud
-For real device testing, the location of your data center determines the format of some of the information you will see. Devices in US data centers default to EN-US, and will display information like date, currency, and temperature using US standard terms (i.e., MM/dd/yyyy, $, and F°), while devices in EU data centers default to EN-UK, and will display information like date, currency, and temperature using UK standard terms (i.e., dd/MM/yyyy, £, and C°).
-
-:::note
-This information only applies to real device testing. For all others, the default location will be EN-US, regardless of location.
-:::
-
-
 ## Access to Data Centers
 Your data center is determined based on your license type and your company's needs:
 
@@ -36,10 +27,17 @@ Your data center is determined based on your license type and your company's nee
 
 To see your data center, check the upper-right corner of the Sauce Labs user interface. Options include:
 
-* US West
-* EU Central
-* Headless US-East
-* APAC Southeast (beta)
+* [US West](#us-west-data-center)
+* [EU Central](#eu-central-data-center)
+* [Headless US-East](#headless-us-east-data-center)
+* [APAC Southeast](#apac-southeast-data-center) (beta)
+
+## Data Center Location - Real Device Cloud
+For real device testing, the location of your data center determines the format of some of the information you will see. Devices in US data centers default to EN-US, and will display information like date, currency, and temperature using US standard terms (i.e., MM/dd/yyyy, $, and F°), while devices in EU data centers default to EN-UK, and will display information like date, currency, and temperature using UK standard terms (i.e., dd/MM/yyyy, £, and C°).
+
+:::note
+This information only applies to real device testing. For all others, the default location will be EN-US, regardless of location.
+:::
 
 ### Restricted Access
 If you attempt to use a data center that you don't have access to:
