@@ -1,5 +1,5 @@
 ---
-id: sc-kgp
+id: kgp
 title: KGP
 sidebar_label: Tunneling Protocol
 ---

@@ -119,4 +119,4 @@ To create a secure connection, we strongly recommend using Sauce Connect or IPSe
 
 ## What is KGP in Sauce Connect Proxy logs?
 
-See [Sauce Connect Tunneling Procotol](/secure-connections/sauce-connect/advanced/sc-kgp) documentation.
+See [Sauce Connect Tunneling Procotol](/secure-connections/sauce-connect/advanced/kgp) documentation.
