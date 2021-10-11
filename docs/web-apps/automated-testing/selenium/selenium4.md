@@ -8,15 +8,18 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This guide will walk you through how to upgrade to Selenium 4, which is slated for production release in late 2021. We recommend preparing for the transition by reviewing the changes, listed below, that impact Sauce Labs automated testing.
+This doc will guide you through how to upgrade to Selenium 4, which is slated for production release in late 2021.
 
-Although Selenium 4 has been designed to be a drop-in replacement, please be aware that some Selenium 3 features have been deprecated. We've outlined some tips for adjusting your dependencies and tests to prevent and resolve potential issues that could arise during your upgrade. If you have built custom functionalities in your testing framework, you'll definitely want to review.
+Although Selenium 4 is designed to be a straightforward drop-in replacement, you'll need to be aware of the new and deprecated features that may impact your Sauce Labs automated tests. This is especially important if you've built custom functionalities in your testing framework.
 
+## What You'll Learn
+* Tips for adjusting your tests and dependencies.
+* How to prevent and resolve potential issues that could arise during your Selenium upgrade.
 
 ## What You’ll Need
 
-* Sauce Labs account
-* Strongly recommended: use one of the programming languages officially supported by Selenium 4 (Java, JavaScript, Python, Ruby, or C#)
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Strongly recommended: use one of the programming languages officially supported by Selenium 4 (Java, JavaScript, Python, Ruby, or C#).
 
 
 ## New Features
@@ -30,15 +33,15 @@ Below are features new to Selenium 4 that may impact your tests.
 </tr>
 <tr>
 <td>Force W3C Usage</td>
-<td>Legacy JSON wire protocol support deprecated → uses the W3C WebDriver standard by default under the hood Force W3C usage (except Java). You can no longer use outdated DesiredCapabilities. No longer backwards compatible.</td>
+<td>Selenium 4 deprecates support for legacy JSON wire protocol and its static <code>DesiredCapabilities</code> browser methods, replacing it with <a href="/dev/w3c-webdriver-capabilities">W3C WebDriver-compliant protocol</a> and the use of <code>browserOptions</code>. You must completely switch from using JWP to W3C; Selenium will no longer be backwards-compatible. The W3C standard will be supported by default under the hood. </td>
 </tr>
 <tr>
 <td>Relative Locators</td>
-<td>A new way of locating elements by using more natural language friendly terms, such as “above”, “below”, “left of”, “right of”, and “near”. In general, you could think about them as a way to locate elements based on the visual placement on the page. <a href="https://github.com/saucelabs-training/demo-java/blob/main/training-sessions/selenium4/src/test/java/com/saucelabs/selenium4/new_/RelativeLocatorsTest.java">Code example</a>.</td>
+<td>New way of locating elements based on the visual placement on the page. Relative locators use more natural language friendly terms, such as “above”, “below”, “left of”, “right of”, and “near”. <a href="https://github.com/saucelabs-training/demo-java/blob/main/training-sessions/selenium4/src/test/java/com/saucelabs/selenium4/new_/RelativeLocatorsTest.java">See a code example</a>.</td>
 </tr>
 <tr>
 <td>New Window and Tab Utilities</td>
-<td>New command to help users create a new tab or a new window. Better window and tabs managing <a href="https://github.com/saucelabs-training/demo-java/blob/main/training-sessions/selenium4/src/test/java/com/saucelabs/selenium4/new_/NewWindowSauceTest.java">Code example</a>.</td>
+<td>New command that allows you to create and manage new tabs and new windows. <a href="https://github.com/saucelabs-training/demo-java/blob/main/training-sessions/selenium4/src/test/java/com/saucelabs/selenium4/new_/NewWindowSauceTest.java">See a code example</a>.</td>
 </tr>
 <tr>
 <td>Print Page as PDF</td>
@@ -47,41 +50,40 @@ Below are features new to Selenium 4 that may impact your tests.
 <tr>
 <td>New Firefox Features</td>
 <td><ul>
-<li>Full page screenshot for bug reporting. <a href="https://github.com/saucelabs-training/demo-java/blob/main/training-sessions/selenium4/src/test/java/com/saucelabs/selenium4/new_/ViewPageFirefoxTest.java">Code example</a>.</li>
+<li>Full page screenshot for bug reporting. <a href="https://github.com/saucelabs-training/demo-java/blob/main/training-sessions/selenium4/src/test/java/com/saucelabs/selenium4/new_/ViewPageFirefoxTest.java">See a code example</a>.</li>
 <li>Simplified way to install/uninstall add-ons</li>
-<li>Updating browser preferences (such as the language) in the middle of the session. <a href="https://github.com/saucelabs-training/demo-java/blob/main/training-sessions/selenium4/src/test/java/com/saucelabs/selenium4/new_/FirefoxAddonTest.java">Code example</a>.</li>
-<li>Firefox Context If you want to change something like a profile where dirs are downloaded mid-test, you can change it on the fly. <a href="https://github.com/saucelabs-training/demo-java/blob/main/training-sessions/selenium4/src/test/java/com/saucelabs/selenium4/new_/FirefoxContextTest.java">Code example</a>.</li></ul></td>
+<li>Updating browser preferences (such as the language) in the middle of the session. <a href="https://github.com/saucelabs-training/demo-java/blob/main/training-sessions/selenium4/src/test/java/com/saucelabs/selenium4/new_/FirefoxAddonTest.java">See a code example</a>.</li>
+<li>Firefox Context If you want to change something like a profile where dirs are downloaded mid-test, you can change it on the fly. <a href="https://github.com/saucelabs-training/demo-java/blob/main/training-sessions/selenium4/src/test/java/com/saucelabs/selenium4/new_/FirefoxContextTest.java">See a code example</a>.</li></ul></td>
 </tr>
 <tr>
 <td>Setting Network Conditions with Chrome and Edge</td>
-<td>Selenium 4 exposes a set of utilities to modify network conditions in Chromium-based browsers, such as: Going offline, Setting a latency for the connection, Alter the upload or download throughput. This can be useful to test web applications under different network conditions. Allows throttling (extended debugging) without executing JavaScript. <a href="https://github.com/saucelabs-training/demo-java/blob/main/training-sessions/selenium4/src/test/java/com/saucelabs/selenium4/new_/ChromeNetworkTest.java">Code example.</a></td>
+<td>Selenium 4 exposes a set of utilities to modify network conditions in Chromium-based browsers, such as: Going offline, Setting a latency for the connection, Alter the upload or download throughput. This can be useful to test web applications under different network conditions. Allows throttling (extended debugging) without executing JavaScript. <a href="https://github.com/saucelabs-training/demo-java/blob/main/training-sessions/selenium4/src/test/java/com/saucelabs/selenium4/new_/ChromeNetworkTest.java">See a code example.</a></td>
 </tr>
 <tr>
 <td>Chromium Edge Options methods (Se3 technically only supported Edge HTML)</td>
-<td>z </td>
+<td>?</td>
 </tr>
 <tr>
 <td>RemoteWebDriverBuilder (Java Only)</td>
-<td>In order to use browser specific-options, you have to cast it & augment it (access local webdriver methods). The .builder() method allows you to send more than url & browseroptions. Now you can do more like send browser.options, timeout. Before there were a lot of defaults & you didn’t have as many options for starting a driver. Create a hashmap instead of having mutable capabilities. <a href="https://github.com/saucelabs-training/demo-java/blob/main/training-sessions/selenium4/src/test/java/com/saucelabs/selenium4/new_/RemoteWebDriverBuilderTest.java">Code example</a>.</td>
+<td>Prior to Selenium 4, in order to use browser specific-options, you had to cast it and augment it (access local webdriver methods). There were a lot of defaults and you didn’t have many options for starting a driver. With Selenium 4's new <code>.builder()</code> method, you can send <code>browser.options</code>, timeouts, and create a hashmap instead of having mutable capabilities. <a href="https://github.com/saucelabs-training/demo-java/blob/main/training-sessions/selenium4/src/test/java/com/saucelabs/selenium4/new_/RemoteWebDriverBuilderTest.java">See a code example</a>.</td>
 </tr>
 <tr>
 <td>New Element Attribute and Property methods</td>
-<td>Two new methods have been added to more precisely get a given element attribute or a property. These are especially useful for performance and preciseness in Sauce Labs tests. <a href="https://github.com/saucelabs-training/demo-java/blob/main/training-sessions/selenium4/src/test/java/com/saucelabs/selenium4/new_/AttributePropertyTest.java">Code example</a>.</td>
+<td>Two new methods have been added to more precisely get a given element attribute or a property. These are especially useful for performance and preciseness in Sauce Labs tests. <a href="https://github.com/saucelabs-training/demo-java/blob/main/training-sessions/selenium4/src/test/java/com/saucelabs/selenium4/new_/AttributePropertyTest.java">See a code example</a>.</td>
 </tr>
 </table>
 
 
 ## Preparing Your Test Code
 
-As mentioned previously, Selenium 4 deprecates support for legacy JSON wire protocol and its static browser methods `DesiredCapabilities`. It will be replaced by W3C WebDriver-compliant protocol and the use of `browserOptions`. Using `browserOptions` simplifies the configuration needed to start a new session, allows you to set browser-specific settings (like headless in Chrome), and reduces the chances of browser misconfiguration.
+Because Selenium 4 deprecates support for legacy JWP (`DesiredCapabilities`) &#8212; replacing it with W3C WebDriver-compliant (`browserOptions`) &#8212; you'll need to prepare your test code accordingly. Using W3C `browserOptions`:
+* Simplifies the configuration needed to start a new session.
+* Allows you to set browser-specific settings (like headless in Chrome).
+* Reduces the chances of browser misconfiguration.
 
-### W3C Capabilities
+### W3C WebDriver-Compliant Capabilities
 
-In Selenium 4, W3C capabilities will be supported by default under the hood. Your test capabilities must be structured to be W3C-compliant, otherwise they'll be ignored.
-
-Here is the list of [W3C WebDriver standard capabilities](https://www.w3.org/TR/webdriver1/#capabilities). Any capability not in this list must include a vendor prefix. This rule applies to browser-specific capabilities as well as Sauce Labs-specific capabilities. For example, if you want use the `build` and `name` capabilities in for your Sauce Labs tests, you'll need to wrap them in a `sauce:options` block (a complete example is shown below). For more information and examples, see our [W3C WebDriver Capabilities Support](/dev/w3c-webdriver-capabilities) doc.
-
-Below are examples showing the switch from `DesiredCapabilities` to `browserOptions`.
+You must structure your test capabilities to be W3C-compliant and switch from `DesiredCapabilities` (JWP) to `browserOptions` (W3C), otherwise they'll be ignored.
 
 <Tabs
   defaultValue="Chrome"
@@ -148,9 +150,21 @@ SafariOptions browserOptions = new SafariOptions();
 </TabItem>
 </Tabs>
 
-#### Full Example
+List of [W3C WebDriver standard capabilities](https://www.w3.org/TR/webdriver1/#capabilities):
+* `browserName`
+* `browserVersion`
+* `platformName`
+* `acceptInsecureCerts`
+* `pageLoadStrategy`
+* `proxy`
+* `timeouts`
+* `unhandledPromptBehavior`
 
-Below are code examples showing the comparison between the usage of legacy `DesiredCapabilities` and then how how to update it with `browserOptions`. Notably, platform and version are replaced by `platformName` and `browserVersion`, respectively, and Sauce-specific capabilities are placed inside a `sauce:options` block.
+Any capability not in this list must include a vendor prefix. This rule applies to browser-specific capabilities as well as Sauce Labs-specific capabilities. For example, if you want use the `build` and `name` capabilities in for your Sauce Labs tests, you'll need to wrap them in a `sauce:options` block ([see the examples below](/web-apps/automated-testing/selenium/selenium4/#platform-configuration-examples)).
+
+#### Platform Configuration Examples
+
+Below are examples comparing the usage of legacy `DesiredCapabilities` with the new `browserOptions`.
 
 <Tabs
   defaultValue="Java"
@@ -292,7 +306,7 @@ var driver = ​​new RemoteWebDriver(new Uri(SauceURL), options);
 </TabItem>
 </Tabs>
 
-For more combinations and examples, see the [Sauce Labs platform configurator](https://saucelabs.com/platform/platform-configurator).
+For more information, see [W3C WebDriver Capabilities Support](/dev/w3c-webdriver-capabilities). To view all possible platform configurations, see the [Sauce Labs platform configurator](https://saucelabs.com/platform/platform-configurator).
 
 
 ## Upgrading Your Dependencies
@@ -455,20 +469,22 @@ PM> Install-Package Selenium.WebDriver -Version 4.0.0-rc2
 
 Below are code examples that can help resolve deprecation messages you might encounter after upgrading to Selenium 4.
 
-### Find Element(s) Utility Methods (Java)
+### Find Element(s) Utility Methods
+<p><span className="sauceDBlue">Java only</span></p>
 
 FindsBy interfaces, utility methods to find elements in the Java bindings, have been removed, as they were meant for internal use only. In Example 2, you'll see that all the findElements* have been removed as well.
 
+**Example 1**
+
 <Tabs
-  defaultValue="Example 1"
+  defaultValue="Selenium 4"
   values={[
-    {label: 'Example 1', value: 'Example 1'},
-    {label: 'Example 2', value: 'Example 2'},
+    {label: 'Legacy', value: 'Legacy'},
+    {label: 'Selenium 4', value: 'Selenium 4'},
   ]}>
 
-<TabItem value="Example 1">
+<TabItem value="Legacy">
 
-Before
 ```java
 driver.findElementByClassName("className");
 driver.findElementByCssSelector(".className");
@@ -480,7 +496,9 @@ driver.findElementByTagName("elementTagName");
 driver.findElementByXPath("xPath");
 ```
 
-After
+</TabItem>
+<TabItem value="Selenium 4">
+
 ```java
 driver.findElement(By.className("className"));
 driver.findElement(By.cssSelector(".className"));
@@ -491,11 +509,21 @@ driver.findElement(By.partialLinkText("partialText"));
 driver.findElement(By.tagName("elementTagName"));
 driver.findElement(By.xpath("xPath"));
 ```
-
 </TabItem>
-<TabItem value="Example 2">
+</Tabs>
+<br/>
 
-Before
+**Example 2**
+
+<Tabs
+  defaultValue="Selenium 4"
+  values={[
+    {label: 'Legacy', value: 'Legacy'},
+    {label: 'Selenium 4', value: 'Selenium 4'},
+  ]}>
+
+<TabItem value="Legacy">
+
 ```java
 driver.findElementsByClassName("className");
 driver.findElementsByCssSelector(".className");
@@ -507,7 +535,9 @@ driver.findElementsByTagName("elementTagName");
 driver.findElementsByXPath("xPath");
 ```
 
-After
+</TabItem>
+<TabItem value="Selenium 4">
+
 ```java
 driver.findElements(By.className("className"));
 driver.findElements(By.cssSelector(".className"));
@@ -525,6 +555,7 @@ driver.findElements(By.xpath("xPath"));
 
 ### Timeout Parameters
 <p><span className="sauceDBlue">Java only</span></p>
+
 The parameters received in `Timeout` have switched from expecting (long time, `TimeUnit` unit) to expect (`Duration` duration).  
 
 <Tabs
@@ -593,11 +624,10 @@ Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 </TabItem>
 </Tabs>
 
-### Merging Capabilities is no longer changing the calling object
 
-Prior to Selenium 4, you could merge one set of capabilities into different set, and this would  mutate the calling object.
+### Merging Capabilities
 
-With Selenium 4, you'll need to manually assign the result of the merge operation.
+Prior to Selenium 4, you could merge one set of capabilities into different set, and this would mutate the calling object. With Selenium 4, this is deprecated; you'll need to manually assign the result of the merge operation.
 
 <Tabs
   defaultValue="Selenium 4"
@@ -659,7 +689,6 @@ With Selenium 4, the BrowserType interface will be deprecated and replaced by th
 
 <TabItem value="Selenium 4">
 
-After
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("browserVersion", "92");
@@ -669,7 +698,6 @@ capabilities.setCapability("browserName", Browser.FIREFOX);
 </TabItem>
 <TabItem value="Legacy">
 
-Before
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("browserVersion", "92");
