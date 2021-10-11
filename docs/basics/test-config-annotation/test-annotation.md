@@ -27,7 +27,7 @@ Test annotation refers to adding information to your tests after they have compl
 Selenium's JavascriptExecutor lets you use JavaScript commands in your test scripts to perform actions in the browser. We've developed a set of custom JavascriptExecutor methods you can use to annotate tests and record pass/fail status. You can also use these methods to track information in your Selenium log for debugging.
 
 ### Basic Example
-Here's a Java code sample setting a job's name to "My test":
+Below Java code sample demonstrates setting a job's name to "My test". Note that more elaborate data configuration, such as Spring profiles, may be recommended, but is beyond the scope of this article.
 
 ```
 ((JavascriptExecutor)driver).executeScript("sauce:job-name=My test");
