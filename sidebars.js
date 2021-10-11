@@ -509,7 +509,7 @@ module.exports = {
                         label: 'Advanced',
                         collapsed: true,
                         items: [
-                            'secure-connections/sauce-connect/advanced/sc-architecture',
+                            'secure-connections/sauce-connect/advanced/architecture',
                         ]
                     },
                     'secure-connections/sauce-connect/troubleshooting',
