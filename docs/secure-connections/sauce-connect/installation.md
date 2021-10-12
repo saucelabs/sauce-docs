@@ -5,6 +5,7 @@ sidebar_label: Installation
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import ScTable from '../../../src/components/scTable.jsx';
 
 This topic describes where and how to download Sauce Connect Proxy to your local machine.
 
@@ -18,46 +19,7 @@ This topic describes where and how to download Sauce Connect Proxy to your local
 ## Download Latest Version
 
 Click the one of the links below (Linux, Mac, or Windows) to download Sauce Connect Proxy to your local machine.
-
-[Latest version: 4.7.1](https://changelog.saucelabs.com/en/sauce-connect-proxy-version-30JTvzO0F)
-
-<table>
- <tr>
-  <td><strong>OS</strong>
-  </td>
-  <td><strong>Download Link</strong>
-  </td>
-  <td><strong>SHA1 Checksum</strong>
-  </td>
- </tr>
- <tr>
-  <td>Linux
-  </td>
-  <td>
-   <strong><small><a href="https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz">https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz</a></small></strong>
-  </td>
-  <td><small>e5d7f82ad98251a653d1b0537f1103e49eda5e11</small>
-  </td>
- </tr>
- <tr>
-  <td>Mac
-  </td>
-  <td>
-   <strong><small><a href="https://saucelabs.com/downloads/sc-4.7.1-osx.zip">https://saucelabs.com/downloads/sc-4.7.1-osx.zip</a></small></strong>
-  </td>
-  <td><small>1f18defa14a5cc4b663bf07213411f6bdd535b6d</small>
-  </td>
- </tr>
- <tr>
-  <td>Windows
-  </td>
-  <td>
-   <strong><small><a href="https://saucelabs.com/downloads/sc-4.7.1-win32.zip">https://saucelabs.com/downloads/sc-4.7.1-win32.zip</a></small></strong>
-  </td>
-  <td><small>9c91e5adbd023973efe0eb14d2d427d2c0ef3c25</small>
-  </td>
- </tr>
-</table>
+<ScTable></ScTable>
 
 ## Installation
 
