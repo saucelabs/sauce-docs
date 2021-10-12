@@ -15,7 +15,7 @@ to assist customer network and security engineering teams to better understand S
 
 ## What You'll Need
 
-    - Have a working understanding of [Sauce Connect Proxy&trade; architecture](/secure-connections/sauce-connect/advanced/sc-architecture)
+- Have a working understanding of [Sauce Connect Proxy&trade; architecture](/secure-connections/sauce-connect/advanced/architecture)
 
 ## KGP - Sauce Connect Proxy&trade; Tunneling Protocol
 
@@ -30,19 +30,19 @@ It is developed and maintained by Sauce Labs, and is used to multiplex establish
 
 KGP is preferred over conventional protocols (such as reverse SSH tunnel) for a number of reasons:
 
-    - It’s lightweight
-    - It reconnects when a connection accidentally disconnects
-    - It ensures that all the data is sent and received, even over an unstable or intermittent connection
-    - It provides information about the connection state
+- It’s lightweight
+- It reconnects when a connection accidentally disconnects
+- It ensures that all the data is sent and received, even over an unstable or intermittent connection
+- It provides information about the connection state
 
 ## KGP Packet types
 
 KGP defines the following packet types
 
-    - Data packets carrying HTTP(s) traffic
-    - Control packets, which include:
-    - Connection requests
-    - Keepalive timers
+- Data packets carrying HTTP(s) traffic
+- Control packets, which include:
+- Connection requests
+- Keepalive timers
 
 ## KGP Security
 
