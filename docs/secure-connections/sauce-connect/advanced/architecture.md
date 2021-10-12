@@ -12,7 +12,7 @@ This document provides an overview of Sauce Connect Proxy architecture to assist
 
 ## What You'll Need
 
-- If you're new to Sauce Connect, we recommend reviewing the [Sauce Connect Proxy overview documentation](/secure-connections/sauce-connect).
+- If you're new to Sauce Connect, we recommend reviewing the [Sauce Connect Proxy overview](/secure-connections/sauce-connect) documentation.
 
 
 ## Architecture Components

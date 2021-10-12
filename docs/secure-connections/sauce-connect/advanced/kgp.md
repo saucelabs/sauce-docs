@@ -18,7 +18,7 @@ In-depth understanding of the tunneling protocol used by Sauce Connect Proxy is 
 
 ## What You'll Need
 
-- Have a working understanding of [Sauce Connect Proxy architecture](/secure-connections/sauce-connect/advanced/architecture)
+- Have a working understanding of [Sauce Connect Proxy architecture](/secure-connections/sauce-connect/advanced/architecture).
 
 
 ## About KGP Tunneling Protocol
@@ -44,4 +44,4 @@ KGP defines the following packet types:
 
 ## KGP Security
 
-KGP, by itself, is not responsible for the connection security. It just allows to multiplex an existing TCP connection. However, all KGP packets are encrypted with the industry standard TLS 1.2 protocol using OpenSSL library.
+KGP, by itself, is not responsible for the connection security. It just allows you to multiplex an existing TCP connection. However, all KGP packets are encrypted with the industry standard TLS 1.2 protocol using OpenSSL library.
