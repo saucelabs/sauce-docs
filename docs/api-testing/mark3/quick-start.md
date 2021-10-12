@@ -7,18 +7,14 @@ description: Learn how to quickly generate a test in API Fortress. By using the 
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This page is a quickstart guide for getting up and running with our API Fortress tool. API Fortress may be deployed in our hosted cloud or self-hosted/on-premises via a container behind your firewall. Maintain complete test data ownership. [Learn more about the differences between the two types of deployments](/api-testing/mark2/self-hosted/on-prem-platform).
+This page is a quickstart guide for getting up and running with our API Fortress tool.
 
 Below, we walk through how to quickly create a test using an e-commerce API. Let's get started!
 
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* An API Fortress Account.
-
-:::caution Confirm your Email Address
-You should receive an email with your login credentials from the platform. If you haven’t, please email us at [support@saucelabs.com](mailto:support@saucelabs.com). If you’d like to trial mocking or load testing, please contact support or your API Fortress representative.
-:::
+* If your APIs are behind a firewall, see [Sauce Connect Proxy](/secure-connections/sauce-connect/).
 
 
 ## Step 1: Create a Project
