@@ -119,14 +119,4 @@ To create a secure connection, we strongly recommend using Sauce Connect or IPSe
 
 ## What is KGP in Sauce Connect Proxy logs?
 
-KGP is a protocol that is used to establish a tunnel between a customer environment and Sauce Labs data center.
-
-It's an application layer protocol that carries all HTTP(s) traffic as its payload.
-It is developed and maintained by Sauce Labs, and is used to multiplex established connections for multiple HTTP requests/responses.
-
-KGP packets contain the following components:
-
-- Data packets carrying HTTP(s) traffic
-- Control packets, which include:
-  - Connection requests
-  - Keepalive timers
+See [Sauce Connect Tunneling Procotol](/secure-connections/sauce-connect/advanced/kgp) documentation.
