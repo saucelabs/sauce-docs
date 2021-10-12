@@ -393,7 +393,7 @@ __Shorthand__: n/a
 
 ## Data Center Endpoints
 
-__Description__: depending on the Data Center location of the device you're testing on (US or EU), you may need to add a [Data Center endpoint](/basics/data-center-endpoints/data-center-endpoints).
+__Description__: depending on the Data Center location of the device you're testing on (US or EU), you may need to add a [Data Center endpoint](/basics/data-center-endpoints).
 
 <Tabs
   defaultValue="US-West"
