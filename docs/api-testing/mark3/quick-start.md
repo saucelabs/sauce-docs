@@ -14,7 +14,7 @@ Below, we walk through how to quickly create a test using an e-commerce API. Let
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* If your APIs are behind a firewall, see [API Testing with Sauce Connect Proxy](/api-testing/mark3/sauce-connect/).
+* If your APIs are behind a firewall, see [Sauce Connect Proxy](/secure-connections/sauce-connect/).
 
 
 ## Step 1: Create a Project
