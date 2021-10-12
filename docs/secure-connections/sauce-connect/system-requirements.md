@@ -671,11 +671,11 @@ You'll need to use the set of domains for your corresponding Sauce Labs Data Cen
 
 <img src={useBaseUrl('img/sauce-connect/data-center-ui.jpg')} alt="Sauce Connect download file contents" width="600" margin-bottom="50px"/>
 
-For more information on our Data Centers and how to choose the right one for you, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
+For more information on our Data Centers and how to choose the right one for you, see [Data Center Endpoints](/basics/data-center-endpoints).
 
 ### REST API Endpoints
 
-The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select your relevant [Data Center](/basics/data-center-endpoints/data-center-endpoints):
+The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select your relevant [Data Center](/basics/data-center-endpoints):
 
 <Tabs
   groupId="dc-url"
@@ -714,7 +714,7 @@ The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select y
 
 #### Sauce Connect Tunnel Service Domains
 
-The following domains must be allowlisted for outbound communication from you network in order to make connections to Sauce Connect tunnels. Select your relevant [Data Center](/basics/data-center-endpoints/data-center-endpoints):
+The following domains must be allowlisted for outbound communication from you network in order to make connections to Sauce Connect tunnels. Select your relevant [Data Center](/basics/data-center-endpoints):
 
 <Tabs
   groupId="dc-url"

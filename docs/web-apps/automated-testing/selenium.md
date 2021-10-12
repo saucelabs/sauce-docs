@@ -54,7 +54,7 @@ Create an instance of Selenium's Remote WebDriver class so you can invoke method
 
 #### Direct Tests to Sauce Labs
 
-Remote WebDriver classes are instantiated with the URL of the server or service you want for your tests. For Sauce Labs, choose a URL from our [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints/#endpoints).
+Remote WebDriver classes are instantiated with the URL of the server or service you want for your tests. For Sauce Labs, choose a URL from our [Data Center Endpoints](/basics/data-center-endpoints/#endpoints).
 
 #### Define Capabilities
 
