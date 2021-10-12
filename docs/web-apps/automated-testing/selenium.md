@@ -22,7 +22,7 @@ ensure your web application works on every operating system and browser.
 * A working development environment for one of the supported Selenium languages: Java, C#, Python, or Ruby.
 
 :::tip
-Selenium has JavaScript bindings, but we recommend using [WebdriverIO](https://webdriver.io) when running tets on Sauce Labs.
+Selenium has JavaScript bindings, but we recommend using [WebdriverIO](https://webdriver.io) when running tests on Sauce Labs.
 :::
 
 ## Architecture
@@ -98,28 +98,28 @@ authentication values and the OS/Browser targets for a test written in Selenium 
 <TabItem value="Java">
 
 ```java reference title="Starting a Sauce Labs Session"
-https://github.com/saucelabs-training/demo-java/blob/update_to_se4/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L34-L46
+https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L34-L46
 ```
 
 </TabItem>
 <TabItem value="Python">
 
 ```py reference title="Starting a Sauce Labs Session"
-https://github.com/saucelabs-training/demo-python/blob/se4/examples/selenium/conftest.py#L12-L23
+https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/conftest.py#L12-L23
 ```
 
 </TabItem>
 <TabItem value="Ruby">
 
 ```rb reference title="Starting a Sauce Labs Session"
-https://github.com/saucelabs-training/demo-ruby/blob/main/selenium-examples/rspec/spec/spec_helper.rb#L9-L20
+https://github.com/saucelabs-training/demo-ruby/blob/docs-1.1/selenium-examples/rspec/spec/spec_helper.rb#L9-L20
 ```
 
 </TabItem>
 <TabItem value="C#">
 
 ```cs reference title="Starting a Sauce Labs Session"
-https://github.com/saucelabs-training/demo-csharp/blob/se4/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L21-L31
+https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L21-L31
 ```
 
 </TabItem>
@@ -149,28 +149,28 @@ Invoke the `get` method on your WedDriver instance, using the variable name you 
 <TabItem value="Java">
 
 ```java reference title="Selenium Navigation"
-https://github.com/saucelabs-training/demo-java/blob/update_to_se4/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L52
+https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L52
 ```
 
 </TabItem>
 <TabItem value="Python">
 
 ```py reference title="Selenium Navigation"
-https://github.com/saucelabs-training/demo-python/blob/se4/examples/selenium/test_login_success.py#L7
+https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/test_login_success.py#L7
 ```
 
 </TabItem>
 <TabItem value="Ruby">
 
 ```rb reference title="Selenium Navigation"
-https://github.com/saucelabs-training/demo-ruby/blob/main/selenium-examples/rspec/spec/login_success_spec.rb#L13
+https://github.com/saucelabs-training/demo-ruby/blob/docs-1.1/selenium-examples/rspec/spec/login_success_spec.rb#L13
 ```
 
 </TabItem>
 <TabItem value="C#">
 
 ```cs reference title="Selenium Navigation"
-https://github.com/saucelabs-training/demo-csharp/blob/se4/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L39
+https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L39
 ```
 
 </TabItem>
@@ -238,28 +238,28 @@ Most of the elements in our Swag Labs example have multiple unique attributes th
 <TabItem value="Java">
 
 ```java reference title="Selenium Locator Definitions"
-https://github.com/saucelabs-training/demo-java/blob/update_to_se4/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L54-L56
+https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L54-L56
 ```
 
 </TabItem>
 <TabItem value="Python">
 
 ```py reference title="Selenium Locator Definitions"
-https://github.com/saucelabs-training/demo-python/blob/se4/examples/selenium/test_login_success.py#L9-L11
+https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/test_login_success.py#L9-L11
 ```
 
 </TabItem>
 <TabItem value="Ruby">
 
 ```rb reference title="Selenium Locator Definitions"
-https://github.com/saucelabs-training/demo-ruby/blob/main/selenium-examples/rspec/spec/login_success_spec.rb#L15-L17
+https://github.com/saucelabs-training/demo-ruby/blob/docs-1.1/selenium-examples/rspec/spec/login_success_spec.rb#L15-L17
 ```
 
 </TabItem>
 <TabItem value="C#">
 
 ```cs reference title="Selenium Locator Definitions"
-https://github.com/saucelabs-training/demo-csharp/blob/se4/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L41-L43
+https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L41-L43
 ```
 
 </TabItem>
@@ -294,28 +294,28 @@ defined locators in the last section:
 <TabItem value="Java">
 
 ```java reference title="Finding Selenium WebElements"
-https://github.com/saucelabs-training/demo-java/blob/update_to_se4/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L61-L63
+https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L61-L63
 ```
 
 </TabItem>
 <TabItem value="Python">
 
 ```py reference title="Finding Selenium WebElements"
-https://github.com/saucelabs-training/demo-python/blob/se4/examples/selenium/test_login_success.py#L16-L18
+https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/test_login_success.py#L16-L18
 ```
 
 </TabItem>
 <TabItem value="Ruby">
 
 ```rb reference title="Finding Selenium WebElements"
-https://github.com/saucelabs-training/demo-ruby/blob/main/selenium-examples/rspec/spec/login_success_spec.rb#L22-L24
+https://github.com/saucelabs-training/demo-ruby/blob/docs-1.1/selenium-examples/rspec/spec/login_success_spec.rb#L22-L24
 ```
 
 </TabItem>
 <TabItem value="C#">
 
 ```cs reference title="Finding Selenium WebElements"
-https://github.com/saucelabs-training/demo-csharp/blob/se4/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L48-L50
+https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L48-L50
 ```
 
 </TabItem>
@@ -326,7 +326,7 @@ For more information, see the [Selenium documentation on the Find Element](https
 
 #### Synchronization Strategies
 
-Synchronization is an advanced topic, but it is essential when locating an element that the application is ready for the element to be located. There are two main approaches to synchronization: implicit and explicit.
+Synchronization is an advanced topic, but it is essential when locating an element that the application is ready for the element to be located. There are two docs-1.1 approaches to synchronization: implicit and explicit.
 
 #### Implicit Waits
 
@@ -368,28 +368,28 @@ but the recommended approach in all languages at this point is to use a lambda e
 <TabItem value="Java">
 
 ```java reference title="Selenium Waits"
-https://github.com/saucelabs-training/demo-java/blob/update_to_se4/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L58-L59
+https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L58-L59
 ```
 
 </TabItem>
 <TabItem value="Python">
 
 ```py reference title="Selenium Waits"
-https://github.com/saucelabs-training/demo-python/blob/se4/examples/selenium/test_login_success.py#L13-L14
+https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/test_login_success.py#L13-L14
 ```
 
 </TabItem>
 <TabItem value="Ruby">
 
 ```ruby reference title="Selenium Waits"
-https://github.com/saucelabs-training/demo-ruby/blob/main/selenium-examples/rspec/spec/login_success_spec.rb#L19-L20
+https://github.com/saucelabs-training/demo-ruby/blob/docs-1.1/selenium-examples/rspec/spec/login_success_spec.rb#L19-L20
 ```
 
 </TabItem>
 <TabItem value="C#">
 
 ```cs reference title="Selenium Waits"
-https://github.com/saucelabs-training/demo-csharp/blob/se4/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L45-L46
+https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L45-L46
 ```
 
 </TabItem>
@@ -428,28 +428,28 @@ and clicking the **Submit** button:
 <TabItem value="Java">
 
 ```java reference title="Selenium Actions"
-https://github.com/saucelabs-training/demo-java/blob/update_to_se4/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L65-L67
+https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L65-L67
 ```
 
 </TabItem>
 <TabItem value="Python">
 
 ```py reference title="Selenium Actions"
-https://github.com/saucelabs-training/demo-python/blob/se4/examples/selenium/test_login_success.py#L20-L22
+https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/test_login_success.py#L20-L22
 ```
 
 </TabItem>
 <TabItem value="Ruby">
 
 ```rb reference title="Selenium Actions"
-https://github.com/saucelabs-training/demo-ruby/blob/main/selenium-examples/rspec/spec/login_success_spec.rb#L26-L28
+https://github.com/saucelabs-training/demo-ruby/blob/docs-1.1/selenium-examples/rspec/spec/login_success_spec.rb#L26-L28
 ```
 
 </TabItem>
 <TabItem value="C#">
 
 ```cs reference title="Selenium Actions"
-https://github.com/saucelabs-training/demo-csharp/blob/se4/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L52-L54
+https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L52-L54
 ```
 
 </TabItem>
@@ -460,7 +460,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/se4/DotnetCore/Sauce.Demo
 
 You can not have a test without an assertion. Each test should have something specific it is validating and 
 have at least one explicit line of code to ensure that this functionality is working as intended.
-What makes a test successful and how to evaluate success requires domain knowledge and can be more art than science.
+What makes a test successful and how to evaluate success requires dodocs-1.1 knowledge and can be more art than science.
 
 <Tabs
   groupId="lang-ex"
@@ -475,28 +475,28 @@ What makes a test successful and how to evaluate success requires domain knowled
 <TabItem value="Java">
 
 ```java reference title="Assertions"
-https://github.com/saucelabs-training/demo-java/blob/update_to_se4/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L69
+https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L69
 ```
 
 </TabItem>
 <TabItem value="Python">
 
 ```py reference title="Assertions"
-https://github.com/saucelabs-training/demo-python/blob/se4/examples/selenium/test_login_success.py#L24
+https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/test_login_success.py#L24
 ```
 
 </TabItem>
 <TabItem value="Ruby">
 
 ```rb reference title="Assertions"
-https://github.com/saucelabs-training/demo-ruby/blob/main/selenium-examples/rspec/spec/login_success_spec.rb#L30
+https://github.com/saucelabs-training/demo-ruby/blob/docs-1.1/selenium-examples/rspec/spec/login_success_spec.rb#L30
 ```
 
 </TabItem>
 <TabItem value="C#">
 
 ```cs reference title="Assertions"
-https://github.com/saucelabs-training/demo-csharp/blob/se4/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L56
+https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L56
 ```
 
 </TabItem>
@@ -531,28 +531,28 @@ values={[
 This will vary based on test runner, but here's an example with JUnit 5:
 
 ```java reference title="Report Test Result to Sauce Labs"
-https://github.com/saucelabs-training/demo-java/blob/update_to_se4/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L87-L88
+https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L87-L88
 ```
 
 </TabItem>
 <TabItem value="Python">
 
 ```py reference title="Report Test Result to Sauce Labs"
-https://github.com/saucelabs-training/demo-python/blob/se4/examples/selenium/conftest.py#L28-L29
+https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/conftest.py#L28-L29
 ```
 
 </TabItem>
 <TabItem value="Ruby">
 
 ```rb reference title="Report Test Result to Sauce Labs"
-https://github.com/saucelabs-training/demo-ruby/blob/main/selenium-examples/rspec/spec/spec_helper.rb#L24-L25
+https://github.com/saucelabs-training/demo-ruby/blob/docs-1.1/selenium-examples/rspec/spec/spec_helper.rb#L24-L25
 ```
 
 </TabItem>
 <TabItem value="C#">
 
 ```cs reference title="Report Test Result to Sauce Labs"
-https://github.com/saucelabs-training/demo-csharp/blob/se4/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L62-L64
+https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L62-L64
 ```
 
 </TabItem>
@@ -581,28 +581,28 @@ The following examples invokes the quit method on the driver variable:
 <TabItem value="Java">
 
 ```java reference title="Quit Selenium Session"
-https://github.com/saucelabs-training/demo-java/blob/update_to_se4/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L90
+https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L90
 ```
 
 </TabItem>
 <TabItem value="Python">
 
 ```py reference title="Quit Selenium Session"
-https://github.com/saucelabs-training/demo-python/blob/se4/examples/selenium/conftest.py#L31
+https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/conftest.py#L31
 ```
 
 </TabItem>
 <TabItem value="Ruby">
 
 ```rb reference title="Quit Selenium Session"
-https://github.com/saucelabs-training/demo-ruby/blob/main/selenium-examples/rspec/spec/spec_helper.rb#L26
+https://github.com/saucelabs-training/demo-ruby/blob/docs-1.1/selenium-examples/rspec/spec/spec_helper.rb#L26
 ```
 
 </TabItem>
 <TabItem value="C#">
 
 ```cs reference title="Quit Selenium Session"
-https://github.com/saucelabs-training/demo-csharp/blob/se4/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L66
+https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L66
 ```
 
 </TabItem>
@@ -621,7 +621,7 @@ Compare these equivalent Java implementations:
   </summary>
 
 ```java reference title="Complete Selenium Example"
-https://github.com/saucelabs-training/demo-java/blob/update_to_se4/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#
+https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#
 ```
 </details>
 
@@ -631,7 +631,7 @@ https://github.com/saucelabs-training/demo-java/blob/update_to_se4/selenium-exam
   </summary>
 
 ```java reference title="Simplify With Sauce Bindings"
-https://github.com/saucelabs-training/demo-java/blob/update_to_se4/selenium-examples/src/test/java/com/saucedemo/selenium/login/SauceBindingsLoginTest.java
+https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/src/test/java/com/saucedemo/selenium/login/SauceBindingsLoginTest.java
 ```
 </details>
 
