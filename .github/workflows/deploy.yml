@@ -8,11 +8,11 @@ on:
       - '.docsearch/**'
       - 'README.md'
   workflow_dispatch:
-    
+
 env:
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
-  SAUCECTL_VERSION: "0.59.0"
+  SAUCECTL_VERSION: "0.68.3"
   SC_VERSION: "4.7.1"
   ALGOLIA_APP_ID: ${{secrets.ALGOLIA_APP_ID}}
   ALGOLIA_KEY: ${{secrets.ALGOLIA_KEY}}
@@ -92,7 +92,7 @@ jobs:
           # Expose website
           cd build/ && python3 -m http.server 8000 &
 
-          saucectl run -c ./.sauce/config.yml --tunnel-id proxy-tunnel-$GITHUB_RUN_ID
+          saucectl run -c ./.sauce/config.yml --tunnel-name proxy-tunnel-$GITHUB_RUN_ID
   deploy-staging:
     needs: test
     runs-on: ubuntu-latest

@@ -377,28 +377,38 @@ saucectl run --timeout 30m
 ```
 ---
 
-### `--tunnel-id <string>`
-<p><small>| OPTIONAL | STRING | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
+### `--tunnel-name <string>`
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Sauce Cloud only</span> |</small></p>
 
 Specifies an active [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) tunnel to establish a secure connection to run this test on Sauce Labs.
 
-:::note Choose the Correct Tunnel Identifier
-When you launch a tunnel, you can accept the tunnel identifier name that Sauce Labs generates for your account (e.g., `{SL-username}_tunnel_id`) or specify a name in the launch command:
-
-```bash
-bin/sc -u {SL-username} -k {SL-access_key} -i {tunnel_identifier}
-```
-
-This is the value `saucectl` expects as the `tunnel_id`, even though the Sauce Labs UI refers to this value as the `Tunnel Name`.
+:::note
+Replaces the former `--tunnel-id` flag, which is deprecated.
 :::
 
 ```bash
-saucectl run --tunnel-id <tunnel-id>
+saucectl run --tunnel-name <tunnel-name>
 ```
 ---
 
+
+### `--tunnel-owner <string>`
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Sauce Cloud only</span> |</small></p>
+
+Identifies the Sauce Labs user who created the specified tunnel, which is required if the user running the tests did not create the tunnel.
+
+:::note
+Replaces the former `--tunnel-parent` flag, which is deprecated.
+:::
+
+```bash
+saucectl run --tunnel-owner <tunnel-owner-username>
+```
+---
+
+
 ### `--dry-run`
-<p><small>| OPTIONAL | BOOLEAN | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Sauce Cloud only</span> |</small></p>
 
 Simulate a test run without actually running any tests. This flag does not require a value; including it inline sets it to `true`.
 
@@ -441,7 +451,7 @@ If shell completion is not already enabled in your environment, enable it by exe
 ```bash
 $ echo "autoload -U compinit; compinit" >> ~/.zshrc
 ```
-  
+
 To load completions for each session, execute once:
 
 ```bash

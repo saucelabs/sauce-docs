@@ -483,6 +483,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'secure-connections/sauce-connect',
+                    'secure-connections/sauce-connect/quickstart',
                     'secure-connections/sauce-connect/system-requirements',
                     'secure-connections/sauce-connect/installation',
 
@@ -503,6 +504,15 @@ module.exports = {
                     },
                     'secure-connections/sauce-connect/proxy-tunnels',
                     'secure-connections/sauce-connect/security-authentication',
+                    {
+                        type: 'category',
+                        label: 'Advanced',
+                        collapsed: true,
+                        items: [
+                            'secure-connections/sauce-connect/advanced/architecture',
+                            'secure-connections/sauce-connect/advanced/kgp',
+                        ]
+                    },
                     'secure-connections/sauce-connect/troubleshooting',
                     'secure-connections/sauce-connect/faq',
                     'secure-connections/sauce-connect/changelog',

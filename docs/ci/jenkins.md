@@ -221,7 +221,7 @@ When options can be set at both levels, project settings override global setting
       </tr>
       <tr>
         <td><b>Create a new unique Sauce Connect tunnel per build</b></td>
-        <td>Generates a unique tunnel identifier for each build in this project and populates a <code>TUNNEL_IDENTIFIER</code> environment variable. You must then reference this variable in the desired capabilities for your tests.</td>
+        <td>Generates a unique tunnel identifier for each build in this project and populates a <code>TUNNEL_IDENTIFIER</code> environment variable. You must then reference this variable in the capabilities for your tests.</td>
       </tr>
       <tr>
         <td><b>Sauce Connect Binary Location</b></td>
