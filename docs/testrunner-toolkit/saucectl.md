@@ -278,9 +278,9 @@ saucectl run --artifacts.download.when always
 ---
 
 ### `--build <string>`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| OPTIONAL | STRING | VIRTUAL ONLY |</small></p>
 
-Associates the tests with a build.
+Associates the tests with a build. This flag is not yet supported for mobile real device tests.
 
 ```bash
 saucectl run --build myBuildID
@@ -357,9 +357,9 @@ Versions of saucectl before v0.52.4 use the flag  `--suite` instead.
 ---
 
 ### `--tags <tag1,tag2,...>`
-<p><small>| OPTIONAL | LIST |</small></p>
+<p><small>| OPTIONAL | LIST | VIRTUAL ONLY |</small></p>
 
-A keyword that may help you distinguish the test in Sauce Labs, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you.
+A keyword that may help you distinguish the test on Sauce Labs, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you. This flag is not yet supported for mobile real device tests.
 
 ```bash
 saucectl run --tags e2e,team2
@@ -377,28 +377,38 @@ saucectl run --timeout 30m
 ```
 ---
 
-### `--tunnel-id <string>`
-<p><small>| OPTIONAL | STRING | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
+### `--tunnel-name <string>`
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Sauce Cloud only</span> |</small></p>
 
 Specifies an active [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) tunnel to establish a secure connection to run this test on Sauce Labs.
 
-:::note Choose the Correct Tunnel Identifier
-When you launch a tunnel, you can accept the tunnel identifier name that Sauce Labs generates for your account (e.g., `{SL-username}_tunnel_id`) or specify a name in the launch command:
-
-```bash
-bin/sc -u {SL-username} -k {SL-access_key} -i {tunnel_identifier}
-```
-
-This is the value `saucectl` expects as the `tunnel_id`, even though the Sauce Labs UI refers to this value as the `Tunnel Name`.
+:::note
+Replaces the former `--tunnel-id` flag, which is deprecated.
 :::
 
 ```bash
-saucectl run --tunnel-id <tunnel-id>
+saucectl run --tunnel-name <tunnel-name>
 ```
 ---
 
+
+### `--tunnel-owner <string>`
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Sauce Cloud only</span> |</small></p>
+
+Identifies the Sauce Labs user who created the specified tunnel, which is required if the user running the tests did not create the tunnel.
+
+:::note
+Replaces the former `--tunnel-parent` flag, which is deprecated.
+:::
+
+```bash
+saucectl run --tunnel-owner <tunnel-owner-username>
+```
+---
+
+
 ### `--dry-run`
-<p><small>| OPTIONAL | BOOLEAN | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Sauce Cloud only</span> |</small></p>
 
 Simulate a test run without actually running any tests. This flag does not require a value; including it inline sets it to `true`.
 
@@ -414,4 +424,62 @@ Enables detailed output during the test run in order to facilitate troubleshooti
 
 ```bash
 saucectl run --verbose
+```
+
+## `$ saucectl completion`
+
+Allows you to generate a completion script for `bash`, `zsh`, `fish` and `powershell` shells.
+
+### bash
+
+#### Linux
+
+```bash
+saucectl completion bash > /etc/bash_completion.d/saucectl
+```
+
+#### macOS
+
+```bash
+saucectl completion bash > /usr/local/etc/bash_completion.d/saucectl
+```
+
+### zsh
+
+If shell completion is not already enabled in your environment, enable it by executing the following once:
+
+```bash
+$ echo "autoload -U compinit; compinit" >> ~/.zshrc
+```
+
+To load completions for each session, execute once:
+
+```bash
+saucectl completion zsh > "${fpath[1]}/_saucectl"
+```
+
+Start a new shell to apply this setup.
+
+### fish
+
+```bash
+saucectl completion fish | source
+```
+
+To load completions for each session, execute once:
+
+```bash
+saucectl completion fish > ~/.config/fish/completions/saucectl.fish
+```
+
+### PowerShell
+
+```bash
+saucectl completion powershell | Out-String | Invoke-Expression
+```
+
+To load completions for every new session, run the following and then source this file from your Powershell profile:
+
+```bash
+saucectl completion powershell > saucectl.ps1
 ```

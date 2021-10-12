@@ -1,10 +1,10 @@
 ---
-id: cross-browser-testing
-title: Visual Component Cross-Browser Testing
-sidebar_label: Cross-Browser Testing
+id: supported-browsers
+title: Browsers and Devices Supported for Visual Component Testing
+sidebar_label: Supported Browsers and Devices
 ---
 
-For cross-browser testing (i.e., testing across multiple browsers), Screener provides cloud browsers and device emulators.
+For cross-browser testing (i.e., testing across multiple browsers), we provide cloud browsers and device emulators.
 
 ## Supported Browsers
 
@@ -95,3 +95,10 @@ if (process.env.CIRCLE_BRANCH === 'main') {
 
 module.exports = config;
 ```
+
+
+## More Information
+
+For more information on what we support, see:
+* [Sauce Labs | Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices)
+* [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/)

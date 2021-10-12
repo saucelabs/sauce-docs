@@ -15,11 +15,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Get the most out of your live and automated testing by including a healthy mix of emulators, simulators, and real devices as your mobile testing platforms. Why? There are some aspects of the mobile experience you can test on emulators or simulators, and others that you'd need to test on real devices, such as location-based apps that use manufacturer-specific device sensors, memory consumption, and CPU usage.
+Getting the most out of your live and automated testing means including a healthy mix of emulators, simulators, and real devices as your mobile testing platforms. Why? Most  aspects of the mobile experience you can test on emulators or simulators, while some scenarios require testing on physical real devices (e.g., memory consumption, CPU usage, location-based apps that use manufacturer-specific device sensors).
 
 There are a variety of use cases to consider when you're deciding on the mix of emulators, simulators, and real devices to use in your testing.
 
-We support thousands of device/OS combinations and test automation frameworks such as Appium, Espresso, XCUITest, and Robotium. For a full list of Sauce Labs supported devices, operating systems, and browsers, [learn more here](https://saucelabs.com/platform/supported-browsers-devices).
+We support thousands of device/OS combinations and test automation frameworks such as Appium, Espresso, XCUITest, and Robotium. For a full list, [click here](https://saucelabs.com/platform/supported-browsers-devices).
+
 
 ## When to Test on Emulators and Simulators
 
@@ -95,12 +96,12 @@ For the full list of supported real devices, see [Supported Browsers and Devices
 
 ### Security
 
-#### **Real Device Cleaning**
+#### Real Device Cleaning
 
 We use a proprietary process that wipes every real device clean at the end of the testing session:
 
 * User accounts and data are cleared from the device.
-* History and user data is cleared from the browser.
+* History and user data is removed from the default system browser. Non-default browsers are uninstalled.
 * Network settings are reset.
 * Device settings are reset.
 * Your app is uninstalled.
@@ -111,9 +112,15 @@ We use a proprietary process that wipes every real device clean at the end of th
 While we take these actions to clean public real devices after each test session, we do not perform factory resets nor do we have anti-virus software installed on them. It is possible that other users of the public RDC may engage in malicious, careless or unsecure activity, and that sophisticated, persistent malware could therefore be present on any device in the public RDC.
 :::
 
+#### Passcode Usage on Public Devices
+Passcodes cannot be set on public devices. If your app requires authentication, you can:
+
+* Use our biometric authentication feature (see [Biometric Authentication](/mobile-apps/features/biometric-authentication)).
+* Use private devices (see [Private Device Cloud](#private-device-cloud)).
+
 For more information on Sauce Labs security settings, see [Security Settings for Organizations](/basics/acct-team-mgmt/org-settings).
 
-#### **Data Center Security**
+#### Data Center Security
 
 Real Device Cloud Data Center security is described in [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
 
@@ -121,7 +128,7 @@ Real Device Cloud Data Center security is described in [Data Center Endpoints](/
 
 Regardless of the test frameworks you're using (Appium, Espresso, XCUITest), you can configure your real device tests using static and dynamic device allocation. While the syntax may be different (i.e., `--device`, `deviceName`), the functionality is the same across all frameworks.
 
-#### **Static Device Allocation**
+#### Static Device Allocation
 
 This is specifying an exact device for your test by setting `deviceName` to the Device ID, which you can find under **Live** > **Mobile-App** > **Choose device** > Find Your Device > **Details**.
 <img src={useBaseUrl('img/mobile-apps/samsung-galaxyA10.jpg')} alt="Sauce Labs Device ID example" width="450"/>
@@ -161,7 +168,7 @@ capabilities.setCapability("deviceName", "iPhone_11_13_5_real_us");
 </Tabs>
 <br/>
 
-#### **Dynamic Device Allocation**
+#### Dynamic Device Allocation
 
 This is specifying basic parameters for the platform, operating system, and/or type of device you want to use in your tests using [regular expressions (regex)](https://en.wikipedia.org/wiki/Regular_expression) to dynamically allocate a device. A device(s) with your specifications will be selected from the real device pool.
 
@@ -217,7 +224,7 @@ A matching device must be present in your account in order for the test to run. 
 ## Additional Resources
 
 * [Appium Testing on Real Devices](/mobile-apps/automated-testing/appium/real-devices)
-  * [Test Configuration Options](/dev/test-configuration-options)
+* [Test Configuration Options](/dev/test-configuration-options)
 * [Espresso and XCUITest Testing](/mobile-apps/automated-testing/espresso-xcuitest)
 * [Sauce Labs Blog: How to Choose Mobile Devices for Testing](https://saucelabs.com/blog/how-to-choose-mobile-devices-for-testing)
 * [Better Together: Using Real Devices, Simulators, and Emulators for Mobile Testing](https://saucelabs.com/blog/better-together-real-devices-emulators-simulators-for-mobile-testing)

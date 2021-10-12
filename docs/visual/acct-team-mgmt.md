@@ -16,7 +16,10 @@ Before you can add teams to your account, you must give your account a name. Thi
 
 <img src={useBaseUrl('img/visual/e2e-add-account-name.png')} alt="E2E Add Account Name" />
 
->**NOTE**: Your account will be named **My Account** temporarily until you name your account.
+:::note
+Your account will be named **My Account** temporarily until you name your account.
+
+:::
 
 
 ## 2. User Roles
@@ -145,7 +148,10 @@ You will see the user added to the list. For new users, you will see **To Be Inv
 
 <img src={useBaseUrl('img/visual/e2e-add-user-team-save.png')} alt="E2E Add User Team Save" />
 
->**NOTE**: For new users who are invited to join Screener, they will receive an invitation email. They can follow the instructions in the email to complete the registration process. When they are registered, they will have access to your project(s).
+:::note
+For new users who are invited to join Screener, they will receive an invitation email. They can follow the instructions in the email to complete the registration process. When they are registered, they will have access to your project(s).
+
+:::
 
 
 

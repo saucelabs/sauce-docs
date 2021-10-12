@@ -18,6 +18,11 @@ There are different ways to deal with these situations, depending on the type of
 
 A pre-run executable is simply a script that you download to the Sauce Labs virtual machine and run prior to a test to change settings for Safari, Internet Explorer, or any other browser, or to configure the virtual machine that your tests will run on.
 
+
+## What You'll Need
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username](https://app.saucelabs.com/user-settings).
+
 ## Setting Up Pre-Run Executables
 You can configure your Sauce testing jobs to use  pre-run executables with the `prerun` capability as described in [Test Configuration Options](/dev/test-configuration-options#pre-run-executables).
 
@@ -105,11 +110,11 @@ You can use a pre-run executable script to download files from a public location
 <TabItem value="macOS">
 
 ### OS X 10.6, 10.8, 10.9, 10.10
-This shell script will fetch the file at the URL and save it to **/tmp/file.txt**.
+This shell script will fetch the file at the URL and save it to **/Users/chef/file.txt**.
 
 ```js
 #!/bin/bash
-curl -o /tmp/file.txt http://mywebsite.com/file.txt
+curl -o /Users/chef/file.txt http://mywebsite.com/file.txt
 ```
 </TabItem>
 
@@ -241,7 +246,7 @@ obj.Add("background", true);
 obj.Add("timeout", 120);
 ```
 
-When you set the desired capabilities of your test, refer to the object you created as the path to the executable, as in this example:
+When you set your test capabilities, refer to the object you created as the path to the executable, as in this example:
 
 ```
 DesiredCapabilities capabilities = new DesiredCapabilities();

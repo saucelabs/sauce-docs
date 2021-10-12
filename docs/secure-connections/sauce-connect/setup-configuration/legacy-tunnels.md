@@ -7,6 +7,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><span className="sauceGold">DEPRECATED</span></p>
+
+:::warning TestObject End-of-life
+TestObject was discontinued on September 1, 2021. If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+:::
+
 TestObject, our legacy real device cloud platform, allows for public and private mobile device testing. By setting up Sauce Connect Proxy, you’ll have a secure tunnel for testing apps and websites on your local machine (or behind a firewall) against devices and browsers in the TestObject Real Device Cloud. You can run a high volume of tests across a broad range of real devices without compromising performance, quality, or reliability.
 
 Connecting to real devices in TestObject through a Sauce Connect Proxy tunnel requires endpoints and authentication methods that are different from Sauce Labs. You'll need to launch an additional tunnel – separate from the one(s) you're using in Sauce Labs – so that your test code reaches the TestObject-specific real devices.
@@ -23,10 +29,10 @@ We recommend setting all of the values above as environment variables (see [Usin
 ### Selecting the Tunnel to Use
 Sauce Connect Proxy can have multiple tunnels running simultaneously, as described in [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). You can select which tunnel to use in a real device test in the same way as you would any other type of automated test.  
 
-1. Start Sauce Command Proxy from the command line, providing an [`-i` (`--tunnel-identifer`)](/dev/cli/sauce-connect-proxy) to start a new tunnel with that identifier.
+1. Start Sauce Command Proxy from the command line, using the [`--tunnel-name`)](/dev/cli/sauce-connect-proxy/#--tunnel-name-or---tunnel-identifier) flag to provide a name for the tunnel.
 
 ```
-'bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x $TEST_OBJECT_DC -i $TUNNEL_ID'
+'bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x $TEST_OBJECT_DC --tunnel-name $TUNNEL_NAME'
 ```
 
 :::note
@@ -35,10 +41,10 @@ Use the [`-B all`](/dev/cli/sauce-connect-proxy) flag to disable SSL bumping. Fa
 
 where:
 
-  a. `TEST_OBJECT_USERNAME` refers to your Test Object username.
-  b. `TEST_OBJECT_API_KEY` refers to your Test Object API Key.
+  a. `TEST_OBJECT_USERNAME` refers to your TestObject username.
+  b. `TEST_OBJECT_API_KEY` refers to your TestObject API Key.
   c. `TEST_OBJECT_DC` refers to the Data Center API endpoint (see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints)).
-  d. `TUNNEL_ID` refers to the tunnel identifier (see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability)).
+  d. `TUNNEL_NAME` refers to the tunnel name (see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability)).
 
 So an example would look like this:
 
@@ -53,14 +59,14 @@ So an example would look like this:
 
 **Mac OSX/Linux Example**
 
-```
-$ /bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x 'https://us1.api.testobject.com/sc/rest/v1' -i test-object-rdc-tunnel-us
+```bash
+$ /bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x 'https://us1.api.testobject.com/sc/rest/v1' --tunnel-name test-object-rdc-tunnel-us
 ```
 
 **Windows Example**
 
-```
-> \bin\sc -u %TEST_OBJECT_USERNAME% -k %TEST_OBJECT_API_KEY% -x 'https://us1.api.testobject.com/sc/rest/v1' -i test-object-rdc-tunnel-us
+```bash
+> \bin\sc -u %TEST_OBJECT_USERNAME% -k %TEST_OBJECT_API_KEY% -x 'https://us1.api.testobject.com/sc/rest/v1' --tunnel-name test-object-rdc-tunnel-us
 ```
 
 </TabItem>
@@ -68,14 +74,14 @@ $ /bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x 'https://us1.api.t
 
 **Mac OSX/Linux Example**
 
-```
-$ /bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x 'https://eu1.api.testobject.com/sc/rest/v1' -i test-object-rdc-tunnel-eu
+```bash
+$ /bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x 'https://eu1.api.testobject.com/sc/rest/v1' --tunnel-name test-object-rdc-tunnel-eu
 ```
 
 **Windows Example**
 
-```
-> \bin\sc -u %TEST_OBJECT_USERNAME% -k %TEST_OBJECT_API_KEY% -x 'https://eu1.api.testobject.com/sc/rest/v1' -i test-object-rdc-tunnel-eu
+```bash
+> \bin\sc -u %TEST_OBJECT_USERNAME% -k %TEST_OBJECT_API_KEY% -x 'https://eu1.api.testobject.com/sc/rest/v1' --tunnel-name test-object-rdc-tunnel-eu
 ```
 
 </TabItem>
@@ -83,7 +89,7 @@ $ /bin/sc -u $TEST_OBJECT_USERNAME -k $TEST_OBJECT_API_KEY -x 'https://eu1.api.t
 
 
 
-2. In your device testing script, specify the tunnel name with `tunnelIdentifier` in your desired capabilities, as shown in this Java example:
+2. In your device testing script, specify the tunnel name with `tunnelIdentifier` in your capabilities, as shown in this Java example:
 
 **Example `tunnelIdentifier` Java Snippet**
 ```java

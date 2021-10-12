@@ -1,6 +1,6 @@
 ---
 id: change-details
-title: Viewing Change Details
+title: Viewing Change Details for E2E Tests
 sidebar_label: Viewing Change Details
 ---
 

@@ -2,6 +2,7 @@
 id: glossary
 title: Glossary of Sauce Labs Terminology
 sidebar_label: Glossary
+description: A glossary of terminology used across Sauce Labs products.
 ---
 
 **[A](/dev/glossary#a)&nbsp;&nbsp;&nbsp; [B](/dev/glossary#b)&nbsp;&nbsp;&nbsp; [C](/dev/glossary#c)&nbsp;&nbsp;&nbsp; [D](/dev/glossary#d)&nbsp;&nbsp;&nbsp; [E](/dev/glossary#e)&nbsp;&nbsp;&nbsp; [F](/dev/glossary#f)&nbsp;&nbsp;&nbsp; [H](/dev/glossary#h)&nbsp;&nbsp;&nbsp; [I](/dev/glossary#i)&nbsp;&nbsp;&nbsp; [L](/dev/glossary#l)&nbsp;&nbsp; [M](/dev/glossary#m)&nbsp;&nbsp;&nbsp; [N](/dev/glossary#n)&nbsp;&nbsp;&nbsp; [O](/dev/glossary#o)&nbsp;&nbsp;&nbsp; [P](/dev/glossary#p)&nbsp;&nbsp;&nbsp; [R](/dev/glossary#r)&nbsp;&nbsp;&nbsp; [S](/dev/glossary#s)&nbsp;&nbsp;&nbsp; [T](/dev/glossary#t)&nbsp;&nbsp;&nbsp; [U](/dev/glossary#u)&nbsp;&nbsp;&nbsp; [V](/dev/glossary#v)&nbsp;&nbsp;&nbsp; [W](/dev/glossary#w)**
@@ -38,7 +39,7 @@ A testing method where you use separate software to control the execution of tes
 
 ### Build
 
-1. A suite of individual Sauce Labs tests on various parts (e.g., page objects) of a website or app using any platform/browser combination, bundled together in the same session. A build is defined when you add the same build number to the code for tests in that suite. More information: [Best Practice: Use Build IDs, Tags, and Names to Identify Your Tests](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation/index.html#use-build-ids-tags-and-names-to-identify-your-tests).
+1. A suite of individual Sauce Labs tests on various parts (e.g., page objects) of a website or app using any platform/browser combination, bundled together in the same session. A build is defined when you add the same build number to the code for tests in that suite. More information: [Best Practice: Use Build IDs, Tags, and Names to Identify Your Tests](/basics/test-config-annotation/test-annotation/#use-build-ids-tags-and-names-to-identify-your-tests).
 
 2. The process by which source code is compiled and converted into an executable or binary pre-release version of your software program. Builds are often comprised of multiple smaller builds.
 
@@ -71,7 +72,9 @@ See also: _[CI/CD pipeline](#cicd-pipeline), [continuous integration](#continuou
 
 ### Colliding Tunnels
 
-A Sauce Connect Proxy test scenario where two or more tunnels are launched with the same tunnel identifier name. By default, duplicate tunnels are removed from your test unless you append your code with the `--no-remove-colliding-tunnels` option. More information: [Sauce Connect Proxy Tunnel Modes: Ephemeral and Long-Running](/secure-connections/sauce-connect/proxy-tunnels).
+A Sauce Connect Proxy scenario where two or more tunnels are launched with the same tunnel name not in [High Availability Mode](/secure-connections/sauce-connect/setup-configuration/high-availability).
+By default, duplicated (already running) tunnels are halted unless a Sauce Connect Proxy is started with the `--tunnel-pool` option.
+More information: [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
 
 See also: _[sauce connect proxy](#sauce-connect-proxy), [tunnel identifier](#tunnel-identifier)_.
 
@@ -262,7 +265,7 @@ See also: _[hybrid app](#hybrid-app)_.
 
 ### Non-Functional Testing
 
-A type of software testing that validates behavioral, measurable aspects of the software (e.g., performance, compatibility, user experience). Functional testing determines if your software meets its business requirements, whereas non-functional testing determines _how_ it operates. When running non-functional tests in Sauce Labs, you can use custom extensions for WebDriver that will allow you test the performance of your website under specific network conditions and collect network and application-related metrics.
+A type of software testing that validates behavioral, measurable aspects of the software (e.g., performance, compatibility, user experience). Functional testing determines if your software meets its business requirements, whereas non-functional testing determines _how_ it operates. When running non-functional tests on Sauce Labs, you can use custom extensions for WebDriver that will allow you test the performance of your website under specific network conditions and collect network and application-related metrics.
 
 See also: _[functional testing](#functional-testing)_.
 
@@ -287,7 +290,7 @@ See also: _[team admin](#team-admin), [team management](#team-management)_.
 
 1. The practice of running multiple tests simultaneously.
 
-2. When signing up for a self-service license, this is equivalent to your account's concurrency settings. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect/system-requirements), [Using Frameworks to Run Tests in Parallel](https://docs.saucelabs.com/web-apps/automated-testing/selenium#using-frameworks-to-run-tests-in-parallel).
+2. When signing up for a self-service license, this is equivalent to your account's concurrency settings. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect/system-requirements), [Using Frameworks to Run Tests in Parallel](/web-apps/automated-testing/selenium/#using-frameworks-to-run-tests-in-parallel).
 
     See also: _[concurrency limit](#concurrency-limit)_.
 
@@ -311,7 +314,10 @@ See also: _[front-end performance testing](#front-end-performance-testing)_.
 
 ### pidfile
 
-A text file generated by Sauce Connect Proxy that records your tunnel's process identification number (pid) to confirm that the process is still running. Unless otherwise specified, the file will be cleaned up on exit or overwritten at startup. If needed, you can terminate a job mid-test by sending a kill signal to the pidfile. More information: [How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect/proxy-tunnels#starting-and-stopping-tunnels), [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
+A text file generated by Sauce Connect Proxy that records your tunnel's process identification number (PID).
+Unless otherwise specified, the file will be cleaned up on exit or overwritten at startup. If needed, you can terminate a tunnel any time by sending a kill signal to the PID recorded in pidfile.
+More information: [How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect/proxy-tunnels#starting-and-stopping-tunnels),
+[Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
 
 
 ### Platform Configurator
@@ -323,7 +329,8 @@ See also: _[capabilities](#capabilities)_.
 
 ### Proxy Auto-Configuration File (PAC)
 
-An optional file you can use in your Sauce Connect Proxy tests to define how web browsers and other user agents automatically choose the appropriate proxy server for fetching a given URL. To use a PAC file, include the `--pac <url>` command-line in your code. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
+An optional file you can use in your Sauce Connect Proxy tests to define how web browsers and other user agents automatically choose the appropriate proxy server for fetching a given URL.
+To use a PAC file, include the `--pac <url>` command-line in your code. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
 
 
 ## **R**
@@ -366,7 +373,7 @@ A Sauce Labs feature that allows organization admins to block their internal use
 
 ### Sauce Connect Host
 
-The machine in your network on which the Sauce Connect Proxy application is running, with a direct connection to the internet. More information: [Sauce Connect Proxy Setup and Configuration](/secure-connections/sauce-connect/setup-configuration/setup-configuration).
+The machine in your network on which the Sauce Connect Proxy application is running, with a direct connection to the internet. More information: [Sauce Connect Proxy Setup and Configuration](/secure-connections/sauce-connect/setup-configuration).
 
 
 ### Sauce Connect Proxy
@@ -386,7 +393,9 @@ A Sauce Connect Proxy configuration for users with a network configuration requi
 
 ### Sauce Connect Proxy Setup, High Availability (HA)
 
-A Sauce Connect Proxy configuration that allows you to run a high number of tunnels individually or collectively as a tunnel pool. From an end user or test runner perspective, a pool functions the same as a single Sauce Connect instance. More information: [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
+A Sauce Connect Proxy configuration that allows you to run a high number of tunnels individually or collectively as a tunnel pool.
+From an end user or test runner perspective, a pool functions the same as a single Sauce Connect instance.
+More information: [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
 
 See also: _[tunnel pool](#tunnel-pool)_.
 
@@ -413,7 +422,7 @@ An environment to execute tests against headless Chrome and Firefox on Linux con
 
 ### Sauce Labs Access Key
 
-A randomly generated string of alphanumeric characters assigned to your Sauce Labs account that you must include in your test scripts along with your Sauce Labs username to authenticate your request and allow access to the resources on your Sauce Labs account. Also known as Access Key in the Sauce Labs application and SAUCE_ACCESS_KEY as an environment variable. You can find it under **User Settings**.
+A randomly generated string of alphanumeric characters assigned to your Sauce Labs account that you must include in your test scripts along with your Sauce Labs username to authenticate your request and allow access to the resources on your Sauce Labs account. Also known as Access Key in [Sauce Labs](https://app.saucelabs.com/user-settings) and `SAUCE_ACCESS_KEY` as an environment variable.
 
 
 ### Sauce Labs Continuous Testing Benchmark
@@ -423,7 +432,7 @@ A Sauce Labs white paper – compiled periodically – that leverages anonymized
 
 ### Sauce Labs User Name
 
-An ID name that you define when you create your Sauce Labs account. You must include this (along with your Sauce Labs Access Key) in your test scripts to authenticate your request and allow access to the resources on your Sauce Labs account. Also known as _Username_ in the Sauce Labs application and _SAUCE_USERNAME_ as an environment variable. You can find it under **User Settings**.
+An ID name that you define when you create your Sauce Labs account. You must include this (along with your Sauce Labs Access Key) in your test scripts to authenticate your request and allow access to the resources on your Sauce Labs account. Also known as Username in [Sauce Labs](https://app.saucelabs.com/user-settings) and `SAUCE_USERNAME` as an environment variable.
 
 
 ### Selenium
@@ -552,7 +561,13 @@ See also: _[sauce connect proxy](#sauce-connect-proxy)._
 
 ### Tunnel Identifier
 
-The Sauce Connect Proxy test configuration option that allows you to assign a name of your tunnel(s), giving you more control and monitoring capability over the tunnel. If you launch a tunnel without identifying it, your test traffic will default to running through that unnamed tunnel. More information: [Using Sauce Connect Tunnel Identifiers](/secure-connections/sauce-connect/setup-configuration/basic-setup#using-tunnel-identifiers).
+<p><small><span className="sauceGold">DEPRECATED</span></small></p>
+
+See: [Tunnel Name](#tunnel-name)
+
+### Tunnel Name
+
+The Sauce Connect Proxy test configuration option that allows you to assign a name of your tunnel(s), giving you more control and monitoring capability over the tunnel. If you launch a tunnel without naming it, your test traffic will default to running through that unnamed tunnel. More information: [Using Sauce Connect Tunnel Identifiers](/secure-connections/sauce-connect/setup-configuration/basic-setup#using-tunnel-identifiers).
 
 See also: _[colliding tunnels](#colliding-tunnels)_.
 

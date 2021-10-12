@@ -2,7 +2,7 @@
 id: quickstart
 title: Appium Quickstart
 sidebar_label: Quickstart
-description: Use our demo scripts to quickly set up and run automated tests and view the results in the Sauce Labs app.
+description: Use our demo scripts to quickly set up and run automated tests and view the results in Sauce Labs.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -44,7 +44,7 @@ Set your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as [environment variables](http
 Download the iOS version of the [Swag Labs App](https://github.com/saucelabs/sample-app-mobile/releases) and upload it to your Sauce Labs account. You can do this through the Sauce Labs UI or by calling the API.
 
 * Sauce Labs UI: From the [Sauce Labs Live Testing](https://app.saucelabs.com/live/app-testing) page, select **App Upload** and select the `iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa` file.
-* API: Use the [Upload File to App Storage](https://docs.saucelabs.com/dev/api/storage#upload-file-to-app-storage) API request to upload the sample app to your account.
+* API: Use the [Upload File to App Storage](/dev/api/storage/#upload-file-to-app-storage) API request to upload the sample app to your account.
 
     ```title="Example API Upload Request"
     curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
@@ -62,5 +62,9 @@ mvn clean test
 ```
 Alternatively, you can right click the test and choose `Run` from most IDE interfaces.
 
+:::note
+For Android tests, if your emulator session fails to start, make sure the app you are targeting is an `\*.apk`, not an `\*.aab`, as the latter is not yet supported in emulator tests.
+:::
 
-Following this quickstart, you should be able to see the results of your test in the [Sauce Labs app](https://app.saucelabs.com/dashboard/tests/vdc).
+
+Following this quickstart, you should be able to see the [results of your test](https://app.saucelabs.com/dashboard/tests/vdc) in Sauce Labs.

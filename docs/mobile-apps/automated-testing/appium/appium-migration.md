@@ -7,26 +7,24 @@ description: Convert your TestObject Appium setup to Sauce Labs testing.
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::warning TestObject End-of-Life September 1, 2021
+<p><span className="sauceGold">DEPRECATED</span></p>
 
-**Action Required**: If you're currently using the Appium test framework on TestObject, please migrate all of your mobile apps and test files from TestObject Storage to Sauce Labs Application Storage by August 31, 2021 using the step-by-step guide on this page. Appium real device testing is fully supported on Sauce Labs.
-
-TestObject will remain accessible in the Sauce Labs app under **SAUCE APPS** > **LEGACY RDC** through August 31, 2021. As we begin phasing it out, we'll keep you posted on key end-of-life dates. If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+:::warning TestObject End-of-life
+TestObject was discontinued September 1, 2021. If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
 :::
 
 ## What You'll Need
 
-*  Your TestObject credentials (username and API key).
-*  Sauce Labs account `USERNAME` and `ACCESS_KEY` [Look them up](https://app.saucelabs.com/user-settings)
-*  Your preferred Sauce Labs Data Center (e.g., US-West-1, EU-Central-1).
-*  An app to test
-
-If you don't have a mobile app or test file, you can sample our [Sauce Labs sample app](https://github.com/saucelabs/sample-app-mobile/releases).
+* Your TestObject credentials (username and API key).
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+* Your preferred Sauce Labs Data Center (e.g., US-West-1, EU-Central-1).
+* An app to test. If you don't have a mobile app or test file, consider using our [Sauce Labs sample app](https://github.com/saucelabs/sample-app-mobile/releases).
 
 
 ## Sauce Labs User Management
 
-Confirm that your TestObject entitlements and platform privileges have carried over to Sauce Labs by reviewing your organization's [Team Management](https://app.saucelabs.com/team-management/users) page in the Sauce Labs app, where you can assign users to teams, bestow user privileges, and manage device/VM concurrency.
+Confirm that your TestObject entitlements and platform privileges have carried over to Sauce Labs by reviewing your organization's [**Team Management**](https://app.saucelabs.com/team-management/users) page, where you can assign users to teams, bestow user privileges, and manage device/VM concurrency.
 
 
 ## Modifying Real Device Test Builds
@@ -45,7 +43,7 @@ Follow the steps outlined here to modify your existing test builds to utilize an
 
 Replace the Remote URL endpoint in your tests to access the Sauce Labs platform, for example:
 
-|Region|Test Object URL|Sauce Labs URL|
+|Region|TestObject URL|Sauce Labs URL|
 |---|-----------|-----------|
 |US|<small>`https://us1.appium.testobject.com/wd/hub`</small>|<small>`https://ondemand.us-west-1.saucelabs.com/wd/hub`</small>|
 |EU|<small>`https://eu1.appium.testobject.com/wd/hub`</small>|<small>`https://ondemand.eu-central-1.saucelabs.com/wd/hub`</small>|
@@ -56,6 +54,10 @@ If you're using [Sauce Connect Proxy](/secure-connections/sauce-connect), our [R
 ### Step 3: Change Device Test Options
 
 Not all device model and operating system combinations will carry over from the TestObject platform to Sauce Labs. You may need to adjust your device capabilities in your test configuration.
+
+:::important
+Real Device testing on Sauce Labs is data center contingent, so you will only have access to the public and private devices available within the data center specified for the test, rather than the entire body of devices across all data centers. Each data center includes a very similar  variety of devices and operating systems to provide a broad selection for testing, but depending on your organization’s concurrency allowances, this separation may affect the number of tests you can run in parallel.
+:::
 
 #### **Device Allocations**
 To ensure your preferred [device allocations](/mobile-apps/automated-testing/appium/real-devices#configuring-appium-tests-for-real-devices) will still work when you move from TestObject to Sauce Labs, view the list of available devices for your region by logging into the Sauce Labs platform and going to **Live** > **Cross-Browser** > **Mobile Real**. For a full, non-region specific list of supported devices and platforms, see [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices).
@@ -94,7 +96,7 @@ Update the TestObject base URL `https://app.testobject.com/api/rest/` to the Bas
 
 |TestObject (Legacy RDC) Endpoints|Sauce Labs RDC Endpoints|
 |---------------|----------------|
-|<small>`storage/upload`</small>|<small>[`v1/storage/upload`](https://docs.saucelabs.com/dev/api/storage#upload-file-to-app-storage)</small>|
+|<small>`storage/upload`</small>|<small>[`v1/storage/upload`](/dev/api/storage/#upload-file-to-app-storage)</small>|
 
 #### **Appium Watcher API**
 
@@ -118,42 +120,42 @@ The following TestObject Appium suites API endpoints will be deprecated and not 
 
 |TestObject (Legacy RDC) Endpoints|Sauce Labs RDC Endpoints|
 |---------------|----------------|
-|<small>`v2/devices`</small>|<small>[`v1/rdc/devices`](https://docs.saucelabs.com/dev/api/rdc#get-devices)</small>|
-|<small>`v2/devices/available`</small>|<small>[`v1/rdc/devices/available`(https://docs.saucelabs.com/dev/api/rdc#get-available-devices)]</small>|
-|<small>`v2/devices/{deviceDescriptorId}`</small>|<small>[`v1/rdc/devices/$DEVICE_ID`](https://docs.saucelabs.com/dev/api/rdc#get-a-specific-device)</small>|
+|<small>`v2/devices`</small>|<small>[`v1/rdc/devices`](/dev/api/rdc/#get-devices)</small>|
+|<small>`v2/devices/available`</small>|<small>[`v1/rdc/devices/available`(/dev/api/rdc/#get-available-devices)]</small>|
+|<small>`v2/devices/{deviceDescriptorId}`</small>|<small>[`v1/rdc/devices/$DEVICE_ID`](/dev/api/rdc/#get-a-specific-device)</small>|
 
 #### **Test Reports API**
 
 |TestObject (Legacy RDC) Endpoints|Sauce Labs RDC Endpoints|
 |---------------|----------------|
-|<small>`v2/reports/{testReportId}`</small>|<small>[`v1/rdc/jobs/$JOB_ID`](https://docs.saucelabs.com/dev/api/rdc#get-a-specific-real-device-job)</small>|
+|<small>`v2/reports/{testReportId}`</small>|<small>[`v1/rdc/jobs/$JOB_ID`](/dev/api/rdc/#get-a-specific-real-device-job)</small>|
 
 #### **Session Report API**
 
 |TestObject (Legacy RDC) Endpoints|Sauce Labs RDC Endpoints|
 |---------------|----------------|
-|<small>`v1/devices/reports`</small>|<small>[`v1/rdc/jobs`](https://docs.saucelabs.com/dev/api/rdc#get-real-device-jobs)</small>|
+|<small>`v1/devices/reports`</small>|<small>[`v1/rdc/jobs`](/dev/api/rdc/#get-real-device-jobs)</small>|
 
 
 #### **Logs API**
 
 |TestObject (Legacy RDC) Endpoints|Sauce Labs RDC Endpoints|
 |---------------|----------------|
-|<small>`/v2/logs/{testReportId}/appium`</small><br/><small>`/v2/logs/{testReportId}/device`</small><br/><small>`/v2/logs/{testReportId}/vitals`</small><br/><small>`/v2/logs/{testReportId}/xcuitest`</small>|<small>[`/rest/v1/$SAUCE_RDC_USERNAME/jobs/$JOB_ID/assets/$FILE_NAME`](https://docs.saucelabs.com/dev/api/jobs#get-a-job-asset-file)</small>|
-|<small>`v2/logs/{testReportId}`</small>|<small>[`rest/v1/$SAUCE_RDC_USERNAME/jobs/$JOB_ID/assets`](https://docs.saucelabs.com/dev/api/jobs#list-job-assets)</small>|
+|<small>`/v2/logs/{testReportId}/appium`</small><br/><small>`/v2/logs/{testReportId}/device`</small><br/><small>`/v2/logs/{testReportId}/vitals`</small><br/><small>`/v2/logs/{testReportId}/xcuitest`</small>|<small>[`/rest/v1/$SAUCE_RDC_USERNAME/jobs/$JOB_ID/assets/$FILE_NAME`](/dev/api/jobs/#get-a-job-asset-file)</small>|
+|<small>`v2/logs/{testReportId}`</small>|<small>[`rest/v1/$SAUCE_RDC_USERNAME/jobs/$JOB_ID/assets`](/dev/api/jobs/#list-job-assets)</small>|
 
 
 #### **Screenshot API**
 
 |TestObject (Legacy RDC) Endpoints|Sauce Labs RDC Endpoints|
 |---------------|----------------|
-|<small>`v2/screenshots/{testReportId}/{screenshotId}.png`</small>|<small>[`rest/v1/$SAUCE_RDC_USERNAME/jobs/$JOB_ID/assets/$FILE_NAME`](https://docs.saucelabs.com/dev/api/jobs#get-a-job-asset-file)</small>|
+|<small>`v2/screenshots/{testReportId}/{screenshotId}.png`</small>|<small>[`rest/v1/$SAUCE_RDC_USERNAME/jobs/$JOB_ID/assets/$FILE_NAME`](/dev/api/jobs/#get-a-job-asset-file)</small>|
 
 #### **Session Video API**
 
 |TestObject (Legacy RDC) Endpoints|Sauce Labs RDC Endpoints|
 |---------------|----------------|
-|<small>`v2/video/{videoId}.mp4`</small>|<small>`[rest/v1/$SAUCE_RDC_USERNAME/jobs/$JOB_ID/assets/$FILE_NAME`](https://docs.saucelabs.com/dev/api/jobs#get-a-job-asset-file)</small>|
+|<small>`v2/video/{videoId}.mp4`</small>|<small>`[rest/v1/$SAUCE_RDC_USERNAME/jobs/$JOB_ID/assets/$FILE_NAME`](/dev/api/jobs/#get-a-job-asset-file)</small>|
 
 #### **Suites Reports API**
 

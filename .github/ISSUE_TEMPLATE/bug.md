@@ -5,7 +5,7 @@ about: Create a report to help us improve
 
 ## 🐛 Bug Report
 
-### Have you read the [Contributing Guidelines on issues?](https://github.com/saucelabs/sauce-docs/blob/master/CONTRIBUTING.MD#reporting-bugs)
+### Have you read the [Contributing Guidelines on issues?](https://github.com/saucelabs/sauce-docs/blob/main/CONTRIBUTING.md)
 
 - [ ] Yes
 

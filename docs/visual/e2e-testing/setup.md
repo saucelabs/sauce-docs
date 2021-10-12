@@ -1,14 +1,14 @@
 ---
-id: webdriver-integration
-title: Getting Started with WebDriver
-sidebar_label: Getting Started with WebDriver
+id: setup
+title: Setting Up Visual E2E Testing with WebDriver
+sidebar_label: Project Setup with WebDriver
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Follow the steps below to integrate Sauce Visual E2E into your Selenium WebDriver tests, using the language/library of your choice. Any programming language that Selenium WebDriver supports can be used without needing to install any additional libraries or SDKs.
+Follow the steps below to integrate Visual E2E Testing into your Selenium WebDriver tests, using the language/library of your choice. Any programming language that Selenium WebDriver supports can be used without needing to install any additional libraries or SDKs.
 
 It takes only a few minutes to integrate Screener into your existing Selenium WebDriver scripts:
 
@@ -109,7 +109,8 @@ browserOptions.AddAdditionalCapability("sauce:visual", sauceVisual, true);
 </TabItem>
 </Tabs>
 
-> **NOTE**: You can get your Screener API Key (`apiKey`) from [here](https://screener.io/v2/account/api-key).
+:::note You can get your Screener API Key (`apiKey`) from [here](https://screener.io/v2/account/api-key).
+:::
 
 :::tip Tip: Store API Key as an environment variable
 
@@ -119,7 +120,7 @@ For example, store it in an environment variable called `SCREENER_API_KEY`, and 
 
 :::
 
-For additional configuration options, view the [Visual Options](/visual/e2e-testing/options) documentation.
+For additional configuration options, see the [Visual E2E `sauce:visual`Capability Options](/visual/e2e-testing/commands-options/#saucevisual-capability-options).
 
 
 ## 3. Connect To Remote Hub
@@ -267,7 +268,7 @@ static void test() {
 </Tabs>
 
 
-For more details on commands, view the [Visual Commands](/visual/e2e-testing/commands) documentation.
+For more details on commands, refer to the [Visual Commands](/visual/e2e-testing/commands-options) documentation.
 
 For full examples, view [Code Examples](/visual/e2e-testing/code-examples).
 
@@ -278,7 +279,9 @@ Great, you're all set!
 
 Now run your first test and view your initial results in the [Screener Dashboard](https://screener.io/v2/dashboard).
 
->**NOTE**: your initial visual test will fail, and results will be labelled as "New"; [Review and Accept](https://screener.io/v2/docs/visual-e2e/review-flow) them as the baseline.
+:::note
+Your initial visual test will fail, and results will be labelled as "New"; [Review and Accept](https://screener.io/v2/docs/visual-e2e/review-flow) them as the baseline.
+:::
 
 
 ## Next Steps

@@ -18,13 +18,15 @@ The OnDemand plugin allows you to easily manage your Sauce Labs testing from [Je
 * How to set up reporting between Sauce Labs & Jenkins
 * How to implement the OnDemand plugin into your Jenkins pipeline
 
-### What You'll Need
+## What You'll Need
 
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * Allow access to the following from your Jenkins server:
     - IP range `162.222.72.0/21`
     - `saucelabs.com`
     - `ondemand.saucelabs.com`
-* [Jenkins documentation for setting up a Proxy](https://wiki.jenkins-ci.org/display/JENKINS/JenkinsBehindProxy)
+
 
 ## Installing the OnDemand Plugin
 
@@ -35,7 +37,9 @@ Install the Sauce OnDemand plugin from your Jenkins Administration page.
 1. Click **Download now and install after restart**.
 1. In the plugin installation process window, select the **Restart Jenkins when installation is complete and no jobs are running** checkbox.
 
-> **NOTE:** The plugin file is fairly large, so download may take several minutes.
+:::note
+The plugin file is fairly large, so download may take several minutes.
+:::
 
 ### Creating Your Sauce Labs Credentials
 
@@ -80,7 +84,9 @@ You can manage many of the plugin settings from within the Jenkins dashboard to 
 
  Some plugin options are set globally for all your Jenkins projects and some options are specific to individual projects.
 
- > **NOTE:** When options can be set at both levels, project settings override global settings.
+:::note
+When options can be set at both levels, project settings override global settings.
+:::
 
 ### Configure Global Sauce Settings
 
@@ -215,7 +221,7 @@ You can manage many of the plugin settings from within the Jenkins dashboard to 
       </tr>
       <tr>
         <td><b>Create a new unique Sauce Connect tunnel per build</b></td>
-        <td>Generates a unique tunnel identifier for each build in this project and populates a <code>TUNNEL_IDENTIFIER</code> environment variable. You must then reference this variable in the desired capabilities for your tests.</td>
+        <td>Generates a unique tunnel identifier for each build in this project and populates a <code>TUNNEL_IDENTIFIER</code> environment variable. You must then reference this variable in the capabilities for your tests.</td>
       </tr>
       <tr>
         <td><b>Sauce Connect Binary Location</b></td>
@@ -299,9 +305,10 @@ Jenkins populates the `SELENIUM_PLATFORM`, `SELENIUM_VERSION`, `SELENIUM_BROWSER
 
 The following sections describe how to share information about your Sauce Labs tests in both the Sauce Labs site and your Jenkins dashboard.
 
+
 ### Capture Build Details
 
-Set the `SAUCE_BUILD_NAME` environment variable as the value of the `build` desired capability to set the Sauce build name at runtime. This enables you to access your test reports by build in the Sauce Labs dashboard and also view them on the Jenkins **Build Details** page.
+Set the `SAUCE_BUILD_NAME` environment variable as the value of the `build` desired capability to set the Sauce build name at runtime. This enables you to access your test reports by build in Sauce Labs and view them on the Jenkins **Build Details** page.
 
 ```java title="Jave Build Capabilities Example"
 DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -393,4 +400,8 @@ The `{saucePublisher}` function lets you send test result data to Sauce Labs. Se
 1. Select **saucePublisher: Run Sauce Labs Test Publisher** and **Generate Groovy**.
 1. Add the returned snippet to your Groovy script.
 
-> **NOTE:** You need not wrap the `{saucePublisher}` in the `{sauce}` snippet, but do include the `{saucePublisher}` in some part of the Pipeline file in order to report the results.
+:::note
+You need not wrap the `{saucePublisher}` in the `{sauce}` snippet, but do include the `{saucePublisher}` in some part of the Pipeline file in order to report the results.
+:::
+
+<p className="deis">We recognize that there are times we use words that are part of a troublesome history. We're working toward replacing these as part of the move to inclusive language within the tech community as a whole.</p>

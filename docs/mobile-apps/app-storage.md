@@ -15,14 +15,13 @@ When testing mobile apps, you have the option to upload your app to our applicat
 * Storing apps for up to 60 days.
 
 ## What You'll Need
-* A Sauce Labs account.
-* Your mobile app file.
-
-If you don't have a mobile app on hand, consider using the [Sauce Labs Swag Labs sample app](https://github.com/saucelabs/sample-app-mobile) for validating this process.
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+* Your mobile app file. If you don't have one on hand, consider using the [Sauce Labs sample app](https://github.com/saucelabs/sample-app-mobile) for validating this process.
 
 ## Uploading Apps via UI
 
-For information about using the Sauce Labs UI to upload your mobile file to application storage, see [Uploading an App](https://docs.saucelabs.com/mobile-apps/live-testing/live-mobile-app-testing/index.html#uploading-an-app).
+For information about using the Sauce Labs UI to upload your mobile file to application storage, see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app).
 
 :::note
 This method currently supports live testing on **real devices only**. For virtual devices, upload your apps via the REST API.
@@ -30,19 +29,64 @@ This method currently supports live testing on **real devices only**. For virtua
 
 ## Uploading Apps via REST API
 
-See [File Storage API Methods](/dev/api/storage) to learn how to use the Sauce Labs REST API to upload your mobile file to application storage.
+You can upload your mobile app programmatically using the [File Storage API Methods](/dev/api/storage). The API endpoints are [Data center-specific](/basics/data-center-endpoints/data-center-endpoints), so make sure you are using the endpoint that is applicable for your account data center, as shown in the following example requests.
 
-There are two main contexts/branches for the storage API:
+### Considerations
 
-* One for working with separate application builds (individual builds, application files, etc.).
-* One for working with apps (groups of application builds with the same unique identifier, belonging to the same platform and team).
+When using the cURL sample requests below, consider the following:
 
-:::note
-[Data center-specific endpoints](/basics/data-center-endpoints/data-center-endpoints) should be used whenever possible.
-:::
+* The `<path/to/your/file>` variable must include the file itself, including the file extension.
+* The `<filename.ext>` variable is the portion of the path that is just the file itself and must also include the file extension. Otherwise, the upload will succeed, but your app will not be accessible to your tests.
+* The `$SAUCE_USERNAME:$SAUCE_ACCESS_KEY` variable assumes you have set your Sauce Labs credentials as [environment variables](/basics/environment-variables).
+
+<Tabs
+groupId="dc-url"
+defaultValue="usw"
+values={[
+{label: 'US West', value: 'usw'},
+{label: 'US East', value: 'use'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="usw">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
+--form 'payload=@"<path/to/your/file>"' \
+--form 'name="<filename.ext>"'
+```
+
+</TabItem>
+<TabItem value="use">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-east-1.saucelabs.com/v1/storage/upload' \
+--form 'payload=@"<path/to/your/file>"' \
+--form 'name="<filename.ext>"'
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/v1/storage/upload' \
+--form 'payload=@"<path/to/your/file>"' \
+--form 'name="<filename.ext>"'
+```
+
+</TabItem>
+</Tabs>
+
 
 ## Accepted File Types 
-Application storage recognizes *.apk files as Android apps and *.ipa files as iOS apps. For iOS apps, can also upload a *.zip file, which will be parsed to determine whether a valid *.app bundle exists.
+Application storage recognizes \*.apk and \*.aab files as Android apps and \*.ipa or \*.zip files as iOS apps. \*.zip files are parsed to determine whether a valid *.app bundle exists.
+
+:::caution Limited Support for *.aab Files
+At this time, \*.aab files are only supported for Android real device testing.
+:::
 
 You can also upload and store other file types for generic use, such as a pre-run executable, package, or binary. Some of the formats for this type of use case include:
 
@@ -54,9 +98,9 @@ You can also upload and store other file types for generic use, such as a pre-ru
 * *.bat
 
 ## Team Management Sync
-By default, all uploaded files are shared with the same team. Members can only access files that are shared with the team where you contribute/participate. Organization admins have access to all files in your organization.
+All uploaded files are shared with the same team. Members can only access files that are shared with the team where you contribute/participate. Organization admins have access to all files in your organization.
 
-For more information about managing access to your organization, see [Managing User Information](https://docs.saucelabs.com/basics/acct-team-mgmt/managing-user-info).
+For more information about managing access to your organization, see [Managing User Information](/basics/acct-team-mgmt/managing-user-info).
 
 ## Using Application Storage with Automated Test Builds
 After successfully uploading your file to application storage, you need to reference the unique app Identifier (`file_id`) in your test code to retrieve and use your app for automated tests.
@@ -265,9 +309,12 @@ espresso:
 ```
 
 ## Uploading to Legacy Sauce Storage
-Sauce Storage is our legacy private storage space for apps. Files uploaded will expire seven days after upload, and be removed. You can upload the app you want to test to Sauce Storage using our REST API, and then access it for testing by specifying `sauce-storage:myapp` for the app capability in your test script. You upload apps using the `upload_file` method of the Sauce Labs REST API.
 
-You can use any REST client; [cURL](https://curl.haxx.se/docs/manpage.html) is a convenient command-line option.
+Sauce Storage is a short term storage space for apps. Files uploaded here expire and are removed from the platform after seven days. You can upload an app you want to test using the applicable REST API request below, and then access it for testing by specifying `sauce-storage:myapp` for the app capability in your test script:
+
+```
+"appium:app": "storage:my-app"
+```
 
 <Tabs
   defaultValue="bash"
@@ -332,4 +379,4 @@ Windows Example:
 </TabItem>
 </Tabs>
 
-For information about uploading an app from a remote location, see [Uploading Mobile Apps from a Remote Location](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices/index.html#uploading-mobile-apps-from-a-remote-location).
+For information about uploading an app from a remote location, see [Uploading Mobile Apps from a Remote Location](/mobile-apps/automated-testing/appium/real-devices/#uploading-mobile-apps-from-a-remote-location).

@@ -16,19 +16,17 @@ Extended Debugging generates additional assets that impact test performance and 
 
 ## What You'll Need
 
-* Google Chrome (no older than 3 versions from latest) as the test browser
-
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+* Google Chrome (no older than 3 versions from latest) ***or*** Firefox browser (versions 53 and above) as the test browser
 :::caution Multi-Window Limitation on Chrome Browser
 In rare instances, tests running in Chrome that launch multiple browser windows may result in a Chrome DevTools socket interruption that throws a `408 Automation Server Error`. If this happens, discontinue extended debugging for tests that utilize multiple windows.
 :::
 
-or
-* Firefox browser (versions 53 and above)
-
 
 ## Enabling Extended Debugging
 
-To generate the JS console logs and HAR files, add the `extendedDebugging` capability to the desired capabilities of your test and set it to true. Here are some example scripts in both W3C WebDriver Protocol and legacy JSON Wire Protocol that show Extended Debugging enabled.
+To generate the JS console logs and HAR files, add the `extendedDebugging` capability to the capabilities of your test and set it to true. Here are some example scripts in both W3C WebDriver Protocol and legacy JSON Wire Protocol that show Extended Debugging enabled.
 
 <Tabs
   defaultValue="w3c"
@@ -63,9 +61,10 @@ const capabilities = {
 </TabItem>
 </Tabs>
 
-For more information and additional examples, see our [Extended Debugging Example GitHub repo](https://github.com/saucelabs-training/demo-js/tree/master/webdriverio/webdriver/examples/extended-debugging).
+For more information and additional examples, see our
+[Extended Debugging Example GitHub repo](https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/webdriver/examples/extended-debugging).
 
-When a test with extended debugging enabled completes, you can access the logs and files through the Sauce Labs application or with the REST API.
+When a test with extended debugging enabled completes, you can access the logs and files through Sauce Labs or with the REST API.
 
 :::note
 Extended Debugging is not supported for Headless test scripts.
@@ -502,7 +501,7 @@ The JS console collects security errors, warnings, and messages that are explici
 
 ### Accessing Console Logs
 
-Access the JS Console logs (`console.json`) under the **Logs** tab of the **Test Details** page in the Sauce Labs application, or through the REST API by calling the [assets endpoint](/dev/api/jobs#get-a-job-asset-file):
+Access the JS Console logs (`console.json`) under the **Logs** tab of the **Test Details** page, or through the REST API by calling the [assets endpoint](/dev/api/jobs#get-a-job-asset-file):
 
 ```
 curl --compressed -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.saucelabs.com/v1/eds/JOB_ID/console.json
@@ -510,7 +509,7 @@ curl --compressed -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.s
 
 ## HAR Files
 
-HTTP Archive Format (HAR) files collect all network requests and responses made and received by the browser during testing. HAR files offer useful debugging information, such as:
+[HTTP Archive Format (HAR) files](https://en.wikipedia.org/wiki/HAR_(file_format)) collect all network requests and responses made and received by the browser during testing. HAR files offer useful debugging information, such as:
 
 * Identifying browser requests that time out
 * Pinpointing requests slowing down the loading process
@@ -522,20 +521,21 @@ You need a HAR viewer to read HAR files. Sauce Labs provides a [React Network Vi
 
 Alternatively, some other commonly used HAR viewers include:
 
-* [HTTP Archive Viewer](http://www.softwareishard.com/har/viewer/) (*Software is Hard* blog)
-* [Chrome HAR Viewer](https://ericduran.github.io/chromeHAR/) (*Google, by Eric Duran*)
+* Chrome devtools builtin [HAR imports](https://developer.chrome.com/blog/new-in-devtools-62/#har-imports)
+* Google Admin Toolbox [HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/)
+* *Software is Hard* blog [HTTP Archive Viewer](http://www.softwareishard.com/har/viewer/)
 
 ### Accessing HAR Files
 
-To download HAR files from the Sauce Labs application:
+To download HAR files from Sauce Labs:
 
-1. From your Sauce Labs dashboard, navigate to **Live > Test Results**.
+1. Navigate to **Live** > **Test Results**.
 1. Select the applicable test.
 1. Click the **Metadata** tab.
 
 You can also download a HAR file programmatically using the following API request:
 
-```
+```curl
 curl --compressed -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.saucelabs.com/v1/eds/JOB_ID/network.har
 ```
 

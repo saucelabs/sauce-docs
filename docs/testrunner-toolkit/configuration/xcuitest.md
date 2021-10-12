@@ -81,9 +81,8 @@ The parent property containing all settings related to how tests are run and ide
 
 ```yaml
 sauce:
-  region: eu-central-1
+  region: eu-central-1  
   metadata:
-    name: Testing XCUITest Support
     tags:
       - e2e
       - release team
@@ -104,17 +103,20 @@ Specifies through which Sauce Labs data center tests will run. Valid values are:
 ---
 
 ### `metadata`
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT | VIRTUAL ONLY |</small></p>
 
-The set of properties that allows you to provide additional information about your project that helps you distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you, as shown in the following example:
+The set of properties that allows you to provide additional information about your project that helps distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you.
+
+:::note
+At this time, the `metadata` property is not supported for XCUITest, but is coming soon.
+:::
 
 ```yaml
 metadata:
-  name: Testing XCUITest Support
-  build: RC 10.4.a
+  build: RC 10.4.i
   tags:
     - e2e
-    - Android
+    - iPad
     - beta
     - featurex
 ```
@@ -159,21 +161,46 @@ saucectl run --retries 1
 ### `tunnel`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-`saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the identifier in this property.
+`saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
 
-:::note Choose the Correct Tunnel Identifier
-When you launch a tunnel, you can accept the tunnel identifier name that Sauce Labs generates for your account (e.g., `{SL-username}_tunnel_id`) or specify a name in the launch command:
-
+```yaml
+sauce:
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
 ```
-bin/sc -u {SL-username} -k {SL-access_key} -i {tunnel_identifier}
-```
+---
 
-This is the identifier `saucectl` expects as the `id` property, even though the Sauce Labs UI refers to this values as the `Tunnel Name`.
+#### `name`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Identifies an active Sauce Connect tunnel to use for secure connectivity to the Sauce Labs cloud.
+
+:::note
+This property replaces the former `id` property, which is deprecated.
 :::
 
 ```yaml
- tunnel:
-    id: your_tunnel_id
+sauce:
+  tunnel:
+    name: your_tunnel_name
+```
+---
+
+#### `owner`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Identifies the Sauce Labs user who created the specified tunnel, which is required if the user running the tests did not create the tunnel.
+
+:::note
+This property replaces the former `parent` property, which is deprecated.
+:::
+
+```yaml
+sauce:
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
 ```
 ---
 
@@ -392,7 +419,7 @@ devices:
 #### `id`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Request a specific device for this test suite by its ID. You can look up device IDs in the Sauce Labs app or using our [Get Devices API request](https://docs.saucelabs.com/dev/api/rdc#get-devices).
+Request a specific device for this test suite by its ID. You can look up device IDs on device selection pages or by using our [Get Devices API request](/dev/api/rdc/#get-devices).
 
 ```yaml
         id: iPhone_11_14_5_real_us
