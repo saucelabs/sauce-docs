@@ -13,7 +13,7 @@
       "sha1": "4431030b57dc0c416ea59a2afa6738b0de59dc80"
     }
   },
-  "latest_version": "This is a localhost test, URLs and checksums will update once pushed to production",
+  "latest_version": "Localhost test; URLs and checksums will update once pushed to production",
   "info_url": "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
   "warning": ["Client host platform is not specified, download URL cannot be determined"]
 }

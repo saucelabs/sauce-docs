@@ -1,10 +1,11 @@
-import React from "react";
+import React, {Fragment, useState} from "react";
 const axios = require("axios");
 
 export default class scTable extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading: true,
             data: [],
             latest_version: "",
         }
@@ -32,20 +33,23 @@ export default class scTable extends React.Component {
                 console.log('Updated Sauce Connect Table Versions fetched');
                 this.setState({
                     data: results,
-                    latest_version: version
+                    latest_version: version,
                 })
             }, 0)
         } catch (err) {
             console.log(err);
         }
-    }
+    };
     componentDidMount(){
-        this.getData();
+        this.getData().then(() => this.setState({loading: false}));
     }
     render() {
+        let content = this.state.loading ? "Fetching data, please wait..."
+            : <a href={"https://changelog.saucelabs.com/en?category=sauce%20connect"}>{this.state.latest_version}</a>
         return(
             <div className="Table">
-                <p>Latest Version: <a href={"https://changelog.saucelabs.com/en?category=sauce%20connect"}>{this.state.latest_version}</a> </p>
+                <p>Latest Version: {content}
+                </p>
                 <table>
                     <thead>
                         <tr>
