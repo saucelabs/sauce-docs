@@ -29,7 +29,8 @@ Selenium has JavaScript bindings, but we recommend using [WebdriverIO](https://w
 
 Selenium is built on a **client-server architecture**, which includes both client and server components.
 
-The API used by Selenium servers and browser drivers is defined in the W3C WebDriver specification and communicated
+The current API used by Selenium servers and browser drivers is defined in the 
+[W3C WebDriver specification](https://w3c.github.io/webdriver/) and communicated
 between the components using http commands.
 * The client code, specifically the Remote WebDriver class contains the methods that implement the API for automating the browser.
   Selenium translates this code into the https commands defined by the W3C, and sends
@@ -61,11 +62,13 @@ Create an instance of Selenium's Remote WebDriver class so you can invoke method
 
 #### Direct Tests to Sauce Labs
 
-Remote WebDriver classes are instantiated with the URL of the server or service you want for your tests. For Sauce Labs, choose a URL from our [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints/#endpoints).
+classes are instantiated with the URL of the server or service you want for your tests. For Sauce Labs, choose a URL from our [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints/#endpoints).
 
 #### Define Capabilities
 
-The way to define capabilities in recent versions of Selenium is with browser options classes. The configurations set on these classes do one of two things:
+The way to define capabilities in recent versions of Selenium is with browser options classes.
+These classes are designed to ensure users have [w3c compliant capabilities](/dev/w3c-webdriver-capabilities/).
+The configurations set on these classes do one of two things:
 * Ensure you have the session you want (e.g., browser name, browser version, operating system).
 * Set the behavior you want in your session. There are three types of options that set behavior:
   * [Common options](/dev/test-configuration-options/#browser-w3c-capabilities--optional):
@@ -94,28 +97,28 @@ authentication values and the OS/Browser targets for a test written in Selenium 
 
 <TabItem value="Java">
 
-```java reference title="Configuring a Driver"
+```java reference title="Starting a Sauce Labs Session"
 https://github.com/saucelabs-training/demo-java/blob/update_to_se4/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#L34-L46
 ```
 
 </TabItem>
 <TabItem value="Python">
 
-```py reference title="Configuring a Driver"
+```py reference title="Starting a Sauce Labs Session"
 https://github.com/saucelabs-training/demo-python/blob/se4/examples/selenium/conftest.py#L12-L23
 ```
 
 </TabItem>
 <TabItem value="Ruby">
 
-```rb reference title="Configuring a Driver"
+```rb reference title="Starting a Sauce Labs Session"
 https://github.com/saucelabs-training/demo-ruby/blob/main/selenium-examples/rspec/spec/spec_helper.rb#L9-L20
 ```
 
 </TabItem>
 <TabItem value="C#">
 
-```cs reference title="Configuring a Driver"
+```cs reference title="Starting a Sauce Labs Session"
 https://github.com/saucelabs-training/demo-csharp/blob/se4/DotnetCore/Sauce.Demo/Core.Selenium.Examples/Selenium4Demo.cs#L21-L31
 ```
 
@@ -178,7 +181,7 @@ For more information, see the [Selenium documentation on Browser Navigation](htt
 
 ### Step 3: Locate an HTML Element on a Web Page
 
-Once the test script accesses the page to test, it needs to find the elements that an end user would interact with. In this case, the login fields and **Submit** button.
+Once the test script accesses the page to test, it needs to find the elements that an end user would interact with. In this case, the Login text fields and Submit button.
 
 To find an element we need to right-click on the elements we are interested in and select "Inspect" from the context menu. The form elements look like this:
 
