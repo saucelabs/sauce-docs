@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Sauce Labs now supports the [W3C WebDriver-compliant capabilities and protocol](https://www.w3.org/TR/webdriver) featured in Selenium versions 3.11 and higher. This doc will help ensure that your tests are W3C WebDriver-compliant and can successfully execute on Sauce Labs.
+Sauce Labs supports the [W3C WebDriver-compliant capabilities and protocol](https://www.w3.org/TR/webdriver) featured in Selenium versions 3.11 and higher. This doc will help ensure that your tests are W3C WebDriver-compliant and can successfully execute on Sauce Labs.
 
 We early adopted the W3C WebDriver specification when it achieved the W3C standard level as the automation protocol for web browsers. As browser vendors update to support W3C WebDriver protocol and shift away from JSON Wire Protocol (JWP), this can bring increased stability in your Selenium tests across different browsers. It’s important to update your tests accordingly.
 
@@ -22,11 +22,14 @@ Some extended capabilities are not backwards-compatible with Selenium versions b
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 
+
+## W3C WebDriver Protocol Compliance
+
 To ensure W3C WebDriver compliance:
 
 * Use Selenium version 3.11 or higher.
-* Switch from using JWP (legacy) to the newer W3C WebDriver Protocol. Mixing JWP with W3C will result in an [error](/dev/w3c-webdriver-capabilities/#common-errors).
-* Learn the name changes effective with the W3C protocol capabilities. For example, W3C uses `platformName`, while JWP uses `platform`. W3C uses `browserVersion`, while JWP uses `version`. We recommend reviewing our [Test Configuration Options](/dev/test-configuration-options) and the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities).
+* Switch from using legacy JWP to the newer W3C WebDriver Protocol. Mixing JWP with W3C will result in an [error](/dev/w3c-webdriver-capabilities/#common-errors).
+* Learn the naming differences between legacy JWP and W3C WebDriver-compliant capabilities. For example, W3C uses `platformName` and `browserVersion`, while JWP uses `platform` and `version`, respectively. We recommend reviewing the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities).
 * Include our custom `sauce:options` W3C WebDriver-compliant capabilities in your Sauce Labs test scripts.
   <details><summary><strong>Click here</strong> to see the full list of <code>sauce:options</code> capabilities. See <a href="/dev/test-configuration-options">Test Configuration Options</a> for guidance on which are required and optional.</summary>
 
@@ -86,8 +89,6 @@ To ensure W3C WebDriver compliance:
 
    </details>
 
-
-## W3C WebDriver Protocol Compliance
 
 ### Sauce Labs WebDriver Protocol Support
 
@@ -156,7 +157,7 @@ By default, Sauce Labs uses older versions of Firefox, IE, and Safari. This is i
 
 For tests on Chrome versions 74 and lower, the `chromeOptions()` W3C WebDriver capability must be set as an experimental option. ChromeDriver version 75 [runs in W3C WebDriver standard compliant mode by default](http://chromedriver.chromium.org/downloads), so setting this capability won't be necessary in the future.
 
-`w3c` must be set as a boolean value (e.g., `true` in Java and `True` in Python) – not a string (e.g., `"true"`). Example:
+`w3c` must be set as a boolean value (i.e., `true` in Java and `True` in Python) – not a string (`"true"`). Example:
 
 ```java
 ChromeOptions chOpts = new ChromeOptions();
