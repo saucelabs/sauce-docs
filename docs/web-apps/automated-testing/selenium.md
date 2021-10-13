@@ -505,6 +505,7 @@ Since Sauce Labs doesn't know what you are asserting in your code, we rely on us
     {label: 'Python', value: 'Python'},
     {label: 'Ruby', value: 'Ruby'},
     {label: 'C#', value: 'C#'},
+  ]}>
 
 <TabItem value="Java">
 
