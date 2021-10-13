@@ -85,7 +85,7 @@ final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.us-west
 ## Selecting the Right Data Center Endpoint
 By default, Sauce Labs will automatically connect you to the main US-West-1 Data Center.
 For Sauce Connect-specific endpoints, see [CLI documentation](/dev/cli/sauce-connect-proxy/#data-center-endpoints).
-For more information about Sauce Labs data centers, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
+For more information about Sauce Labs data centers, see [Data Center Endpoints](/basics/data-center-endpoints).
 
 At present, real device testing is supported in the following data centers:
 

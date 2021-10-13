@@ -8,11 +8,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Sauce Labs supports and encourages our users to update their code to take advantage of 
-the [W3C WebDriver Protocol](/dev/glossary/#w3c-webdriver-protocol), 
-which is currently the default protocol used by all major browsers, 
-is fully supported in WebdriverIO 6 and higher, Selenium versions 3.11 and higher, and is required for Selenium 4.0.
-Using the WebDriver protocol on Sauce Labs requires setting specific capabilities in your code.
+Sauce Labs supports and encourages our users to update their code to take advantage of the [W3C WebDriver Protocol](/dev/glossary/#w3c-webdriver-protocol), 
+which is currently the default protocol used by all major browsers, is fully supported in WebdriverIO 6 and higher, Selenium versions 3.11 and higher, and is required for Selenium 4.0. Using the WebDriver protocol on Sauce Labs requires setting specific capabilities in your code.
 
 :::note
 Some extended capabilities are not backwards-compatible with Selenium versions below 4.0.
@@ -133,6 +130,7 @@ and the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/
    </td>
   </tr>
 </table>
+
 
 ### Verifying Your Tests for Compliance
 
