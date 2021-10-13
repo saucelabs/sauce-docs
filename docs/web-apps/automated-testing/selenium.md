@@ -9,7 +9,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Selenium browser automation tool allows you to write test code that runs through all the possible actions in your web application faster and more effectively that manual testing. This section of the Sauce Labs documentation provides an overview of how to use Selenium with Sauce Labs to achieve efficient and consistent test results to ensure your web application works on every operating system and browser.
+The Selenium browser automation tool allows you to write test code that runs through all the possible actions in your
+web application faster and more effectively that manual testing. This section of the Sauce Labs documentation
+provides an overview of how to use Selenium with Sauce Labs to achieve efficient and consistent test results to
+ensure your web application works on every operating system and browser.
 
 ## What You’ll Need
 
@@ -318,7 +321,9 @@ Synchronization is an advanced topic, but it is essential when locating an eleme
 
 #### Implicit Waits
 
-When Selenium executes a find element call and the driver can not find the element, an exception is thrown immediately. An implicit wait is set telling the driver how long to wait before throwing the exception. If the element is located right away, the value of the implicit wait does not matter.
+When Selenium executes a find element call and the driver can not find the element, an exception is thrown immediately.
+An implicit wait is set telling the driver how long to wait before throwing the exception.
+If the element is located right away, the value of the implicit wait does not matter.
 
 :::tip
 Do not use implicit waits! While it is a one-line code change that can potentially reduce the number of failed tests in your suite, it is more of a crutch than a successful long term solution.
@@ -328,7 +333,9 @@ than tests that do not set implicit waits. If you're in a bind, and want to try 
 
 #### Explicit Waits
 
-An explicit wait handles the synchronization in the code itself, typically with some form of while loop. When the desired condition is met, the test can continue, and only if the condition is not met after the maximum wait time will the code throw an exception.
+An explicit wait handles the synchronization in the code itself, typically with some form of while loop.
+When the desired condition is met, the test can continue, and only if the condition is not met after the maximum
+wait time will the code throw an exception.
 
 :::caution Do Not Mix Explicit and Implicit Waits
 Mixing implicit and explicit waits can cause unpredictable outcomes, which is another reason to avoid implicit waits.
@@ -391,7 +398,8 @@ Invoke an interaction method on an instance of the WebElement interface to simul
 The "submit" method does not accurately simulate how a user would submit the form, so it is recommended to click the **Submit** button instead.
 :::
 
-The following example automates a user login by sending keys to the username and password text fields, and clicking the **Submit** button:
+The following example automates a user login by sending keys to the username and password text fields,
+and clicking the **Submit** button:
 
 <Tabs
   groupId="lang-ex"
