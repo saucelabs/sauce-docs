@@ -63,7 +63,7 @@ At this time, \*.aab files are only supported for Android real device testing.
 
 ### Application Storage and Data Center Endpoints
 
-When uploading your app for testing with real devices, you must identify the [Data Center](/basics/data-center-endpoints/data-center-endpoints) where the devices you are testing are located by specifying the applicable API URL for that data center.
+When uploading your app for testing with real devices, you must identify the [Data Center](/basics/data-center-endpoints) where the devices you are testing are located by specifying the applicable API URL for that data center.
 
 Examples using the EU and US endpoints:
 
