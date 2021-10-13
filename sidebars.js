@@ -457,7 +457,7 @@ module.exports = {
                         label: 'Data Center Endpoints',
                         collapsed: true,
                         items: [
-                            'basics/data-center-endpoints/data-center-endpoints',
+                            'basics/data-center-endpoints',
                             'basics/data-center-endpoints/aust-early-access',
 
                         ],
@@ -601,6 +601,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'web-apps/automated-testing/selenium',
+                        'web-apps/automated-testing/selenium/selenium4',
                         'web-apps/automated-testing/selenium/pre-run-executables',
                         'web-apps/automated-testing/selenium/sample-scripts',
                     ]

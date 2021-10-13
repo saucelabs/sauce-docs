@@ -22,7 +22,7 @@ Connecting to real devices in TestObject through a Sauce Connect Proxy tunnel re
 
 You must know your account details, including:
   * Your TestObject username and API Key
-  * The Data Center endpoint associated with your geographic location (see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints))
+  * The Data Center endpoint associated with your geographic location (see [Data Center Endpoints](/basics/data-center-endpoints))
 
 We recommend setting all of the values above as environment variables (see [Using Environment Variables for Authentication Credentials](/basics/environment-variables)). This will protect your username and API key from exposure, and keep those values stored for future convenience.
 
@@ -43,7 +43,7 @@ where:
 
   a. `TEST_OBJECT_USERNAME` refers to your TestObject username.
   b. `TEST_OBJECT_API_KEY` refers to your TestObject API Key.
-  c. `TEST_OBJECT_DC` refers to the Data Center API endpoint (see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints)).
+  c. `TEST_OBJECT_DC` refers to the Data Center API endpoint (see [Data Center Endpoints](/basics/data-center-endpoints)).
   d. `TUNNEL_NAME` refers to the tunnel name (see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability)).
 
 So an example would look like this:
