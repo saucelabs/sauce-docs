@@ -87,7 +87,7 @@ sauce:
       - e2e
       - release team
       - other tag
-    build: Release $X_COMMIT_SHORT_SHA
+    build: Release $CI_COMMIT_SHORT_SHA
   concurrency: 5
 ```
 ---
