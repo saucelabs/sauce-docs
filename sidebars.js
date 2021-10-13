@@ -457,7 +457,7 @@ module.exports = {
                         label: 'Data Center Endpoints',
                         collapsed: true,
                         items: [
-                            'basics/data-center-endpoints/data-center-endpoints',
+                            'basics/data-center-endpoints',
                             'basics/data-center-endpoints/aust-early-access',
 
                         ],
@@ -509,7 +509,8 @@ module.exports = {
                         label: 'Advanced',
                         collapsed: true,
                         items: [
-                            'secure-connections/sauce-connect/advanced/sc-architecture',
+                            'secure-connections/sauce-connect/advanced/architecture',
+                            'secure-connections/sauce-connect/advanced/kgp',
                         ]
                     },
                     'secure-connections/sauce-connect/troubleshooting',
@@ -600,6 +601,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'web-apps/automated-testing/selenium',
+                        'web-apps/automated-testing/selenium/selenium4',
                         'web-apps/automated-testing/selenium/pre-run-executables',
                         'web-apps/automated-testing/selenium/sample-scripts',
                     ]
@@ -668,6 +670,7 @@ module.exports = {
                   },
              'api-testing/mark3/quick-start/importing-postman-collections',
              'api-testing/mark3/quick-start/integrate-with-your-cicd',
+             'api-testing/mark3/sauce-connect',
         ],
         "CI/CD": [
             'ci',

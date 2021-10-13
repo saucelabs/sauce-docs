@@ -124,7 +124,7 @@ A method of testing where you can verify the consistency of your web or mobile a
 
 ### Data Center (DC)
 
-A network that houses the set of Sauce Labs services relevant to your license type and your company's needs (i.e., geographic location, real vs. virtual device, and optional other services). To run a Sauce Labs test, you must connect to one or more data centers by including the appropriate endpoint URL(s) in your test script. More information: [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
+A network that houses the set of Sauce Labs services relevant to your license type and your company's needs (i.e., geographic location, real vs. virtual device, and optional other services). To run a Sauce Labs test, you must connect to one or more data centers by including the appropriate endpoint URL(s) in your test script. More information: [Data Center Endpoints](/basics/data-center-endpoints).
 
 
 ## **E**
@@ -359,7 +359,8 @@ See also: _[real device cloud](#real-device-cloud)_.
 
 ### RemoteWebDriver
 
-A remote instance of WebDriver that you must instantiate during a test to connect with the Selenium server via Sauce Labs. Afterwards, you can use the RemoteWebDriver to control the browser of your choice.
+A remote instance of WebDriver that you must instantiate during a test to connect with the Selenium server via Sauce Labs. 
+Afterwards, you can use the RemoteWebDriver to control the browser of your choice.
 
 See also: _[webdriver](#webdriver), [webdriverIO](#webdriverio)_.
 
@@ -588,7 +589,8 @@ The virtual machine that hosts Sauce Connect Proxy on the Sauce Labs side.
 
 ### UI Automation Library
 
-A library or tool used for writing, running and providing functionality for browser-based tests in a particular setting. Some examples are WebdriverIO (JavaScript), Cucumber (Ruby/JavaScript/C#/Java), XCUITest (iOS mobile only).
+A library or tool used for writing, running and providing functionality for browser-based tests in a particular setting. 
+Some examples are WebdriverIO (JavaScript), Cucumber (Ruby/JavaScript/C#/Java), XCUITest (iOS mobile only).
 
 See also: _[framework](#framework)_.
 
@@ -650,18 +652,29 @@ A Sauce Labs automated visual testing method that integrates with your WebDriver
 
 ### W3C WebDriver Protocol
 
-A platform- and language-neutral wire protocol that enables out-of-process programs to remotely instruct the behavior of web browsers. With Sauce Labs and all major browser vendors now supporting the W3C standard, automated Selenium tests will run with more stability and consistency between different browsers and devices. More information: [W3C Capabilities Support](/dev/w3c-webdriver-capabilities).
+[A platform- and language-neutral wire protocol](https://w3c.github.io/webdriver/) that 
+enables out-of-process programs to remotely instruct the 
+behavior of web browsers. The major browser vendors collaborated and agreed on what the correct behavior should be
+for each command, which dramatically improves stability and consistency between different browsers and devices.
+Selenium and WebdriverIO each implement the W3C protocol. Now that all major browsers
+use this protocol by default, its usage on Sauce Labs is highly encouraged. 
+More information: [W3C Capabilities Support](/dev/w3c-webdriver-capabilities).
 
 
 ### WebDriver
 
-Selenium's built-in library/API that drives web browser interactions in your automated tests. Supports all major browsers and programming languages. More information: [Selenium Projects](https://www.selenium.dev/projects).
+An implementation of the [W3C WebDriver Protocol](#w3c-webdriver-protocol), which defines how a user's code interacts
+with a web browser. All major browsers and programming languages support WebDriver.
+Supports all major browsers and programming languages. Look here for 
+[Examples of Test Libraries](/web-apps/automated-testing/selenium/#scaling-tests) that implement
+WebDriver.
 
 See also: _[appium](#appium), [UI automation library](#ui-automation-library), [webdriverIO](#webdriverIO)_.
 
 
 ### WebdriverIO
 
-A custom UI test automation library, written in JavaScript on Node.js, that is used for Selenium's W3C WebDriver API. It is not directly affiliated with the Selenium project.
+A custom UI test automation library, written in JavaScript on Node.js, that provides an alternate implementation
+to Selenium of the [W3C WebDriver Protocol](#w3c-webdriver-protocol).
 
 See also: _[UI automation library](#ui-automation-library), [webdriver](#webdriver)._

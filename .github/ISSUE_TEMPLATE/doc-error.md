@@ -6,7 +6,7 @@ labels: documentation, needs triage
 
 ## 📃 Documentation Issue
 
-### Have you read the [Contributing Guidelines on issues?](https://github.com/saucelabs/sauce-docs/blob/main/CONTRIBUTING.MD#reporting-bugs)
+### Have you read the [Contributing Guidelines on issues?](https://github.com/saucelabs/sauce-docs/blob/main/docs/contributing.md#reporting-bugs)
 
 - [ ] Yes
 
