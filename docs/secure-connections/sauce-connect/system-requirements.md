@@ -493,13 +493,13 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
   <tr>
    <td>200-399
    </td>
-   <td>Standard_D4a_v4 x 2
+   <td>Standard_D4a_v4
    </td>
-   <td>32 GiB
+   <td>16 GiB
    </td>
    <td>4
    </td>
-   <td>8000 Mbps
+   <td>4000 Mbps
    </td>
    <td>2
    </td>
@@ -507,13 +507,13 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
   <tr>
    <td>400-599
    </td>
-   <td>Standard_D4a_v4 x 4
+   <td>Standard_D4a_v4
    </td>
-   <td>64 GiB
+   <td>16 GiB
    </td>
    <td>4
    </td>
-   <td>10000 Mbps
+   <td>4000 Mbps
    </td>
    <td>3
    </td>
@@ -521,13 +521,13 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
   <tr>
    <td>600-799
    </td>
-   <td>Standard_D4a_v4 x 8
+   <td>Standard_D4a_v4
    </td>
-   <td>128 GiB
+   <td>16 GiB
    </td>
    <td>4
    </td>
-   <td>16000 Mbps
+   <td>4000 Mbps
    </td>
    <td>4
    </td>
@@ -535,13 +535,13 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
   <tr>
    <td>800+
    </td>
-   <td>Standard_D4a_v4 x 16
+   <td>Standard_D4a_v4
    </td>
-   <td>192 GiB
+   <td>16 GiB
    </td>
    <td>4
    </td>
-   <td>24000 Mbps
+   <td>4000 Mbps
    </td>
    <td>6
    </td>
@@ -599,13 +599,13 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
   <tr>
    <td>1000-1999
    </td>
-   <td>Standard_D4a_v4 x 2
+   <td>Standard_D4a_v4
    </td>
-   <td>32 GiB
+   <td>16 GiB
    </td>
    <td>6
    </td>
-   <td>16000 Gbps
+   <td>4000 Gbps
    </td>
    <td>4
    </td>
@@ -613,13 +613,13 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
   <tr>
    <td>2000+
    </td>
-   <td>Standard_D4a_v4 x 8
+   <td>Standard_D4a_v4
    </td>
-   <td>64 GiB
+   <td>16 GiB
    </td>
    <td>8
    </td>
-   <td>32000 Gbps
+   <td>4000 Gbps
    </td>
    <td>8
    </td>
