@@ -221,7 +221,7 @@ WebDriver driver = new RemoteWebDriver(new URL(sauceUrl), caps);
 ```
 
 :::note
-Your URL will depend on which [Data Center](/basics/data-center-endpoints) you are using
+Your URL will depend on which Data Center you are using.
 :::
 
 ## Creating Sauce Sessions
