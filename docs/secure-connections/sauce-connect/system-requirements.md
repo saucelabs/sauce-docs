@@ -434,7 +434,7 @@ Select a cloud provider from the tables below to view the recommended system req
 
 ### Microsoft Azure
 
-For Azure, we recommend using multiple instances of D4a to scale, rather than faster individual instances. The below recommendations are for Linux VMs.
+The below recommendations are for Linux VMs.
 
 <Tabs
   defaultValue="Virtual Machines"
