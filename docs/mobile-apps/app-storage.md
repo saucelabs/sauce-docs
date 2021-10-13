@@ -29,7 +29,7 @@ This method currently supports live testing on **real devices only**. For virtua
 
 ## Uploading Apps via REST API
 
-You can upload your mobile app programmatically using the [File Storage API Methods](/dev/api/storage). The API endpoints are [Data center-specific](/basics/data-center-endpoints/data-center-endpoints), so make sure you are using the endpoint that is applicable for your account data center, as shown in the following example requests.
+You can upload your mobile app programmatically using the [File Storage API Methods](/dev/api/storage). The API endpoints are [Data center-specific](/basics/data-center-endpoints), so make sure you are using the endpoint that is applicable for your account data center, as shown in the following example requests.
 
 ### Considerations
 

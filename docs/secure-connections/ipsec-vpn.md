@@ -101,7 +101,7 @@ The Sauce IPSec Proxy solution provides you with a static, secure connection, th
 Depending on the type of test you want to run, you may need to include certain capabilities in your test script. See below for use case examples.
 
 ### Automated Testing
-To connect to Sauce Labs real and virtual devices, assign your Sauce IPSec Proxy tunnel to the appropriate [Data Center Endpoint](/basics/data-center-endpoints/data-center-endpoints) in your test automation script.
+To connect to Sauce Labs real and virtual devices, assign your Sauce IPSec Proxy tunnel to the appropriate [Data Center Endpoint](/basics/data-center-endpoints) in your test automation script.
 
 #### Appium and Selenium
 

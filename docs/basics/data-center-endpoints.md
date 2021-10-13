@@ -19,15 +19,6 @@ The data center you use with Sauce Labs determines:
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 
-
-## Data Center Location - Real Device Cloud
-For real device testing, the location of your data center determines the format of some of the information you will see. Devices in US data centers default to EN-US, and will display information like date, currency, and temperature using US standard terms (i.e., MM/dd/yyyy, $, and F°), while devices in EU data centers default to EN-UK, and will display information like date, currency, and temperature using UK standard terms (i.e., dd/MM/yyyy, £, and C°).
-
-:::note
-This information only applies to real device testing. For all others, the default location will be EN-US, regardless of location.
-:::
-
-
 ## Access to Data Centers
 Your data center is determined based on your license type and your company's needs:
 
@@ -36,10 +27,17 @@ Your data center is determined based on your license type and your company's nee
 
 To see your data center, check the upper-right corner of the Sauce Labs user interface. Options include:
 
-* US West
-* EU Central
-* Headless US-East
-* APAC Southeast (beta)
+* [US West](#us-west-data-center)
+* [EU Central](#eu-central-data-center)
+* [Headless US-East](#headless-us-east-data-center)
+* [APAC Southeast](#apac-southeast-data-center) (beta)
+
+## Data Center Location - Real Device Cloud
+For real device testing, the location of your data center determines the format of some of the information you will see. Devices in US data centers default to EN-US, and will display information like date, currency, and temperature using US standard terms (i.e., MM/dd/yyyy, $, and F°), while devices in EU data centers default to EN-UK, and will display information like date, currency, and temperature using UK standard terms (i.e., dd/MM/yyyy, £, and C°).
+
+:::note
+This information only applies to real device testing. For all others, the default location will be EN-US, regardless of location.
+:::
 
 ### Restricted Access
 If you attempt to use a data center that you don't have access to:
@@ -126,20 +124,49 @@ To view planned maintenance windows for your data center, see [Maintenance Windo
 URLs vary based on the services you're using, your data center, and the types of tests you need to run.
 
 ### US West Data Center
-| Name | Details |
-|---|---|
-| **US West OnDemand Endpoints** |   |
-| Desktop Browser and Virtual Device Cloud | `https://ondemand.us-west-1.saucelabs.com/wd/hub` |
-| RDC on Sauce | `https://ondemand.us-west-1.saucelabs.com/` |
-| Legacy RDC/TestObject <small><span className="sauceGold">DEPRECATED</span></small>| `https://us1.appium.testobject.com/wd/hub` |
-| **US West REST API** |   |
-| Virtual Devices and Desktops | `https://api.us-west-1.saucelabs.com/v1` |
-| RDC on Sauce | `https://api.us-west-1.saucelabs.com/v1/rdc` |
-| Real Devices on TestObject <small><span className="sauceGold">DEPRECATED</span></small>| `https://app.testobject.com/api/rest/` |
-| Sauce Connect Proxy | Virtual and Real Devices on Sauce: `https://saucelabs.com/rest/v1/`<br/>Real Devices on TestObject: `https://us1.api.testobject.com/sc/rest/v1` <small><span className="sauceGold">DEPRECATED</span></small> |
-| Team Management | `https://api.us-west-1.saucelabs.com/team-management/v1/` |
-| Sauce Connect Proxy | Virtual and Real Devices on Sauce: `https://saucelabs.com/rest/v1/` |
-| IP Ranges | `162.222.72.0/21`<br/>`66.85.48.0/21`  |
+<table>
+<tr>
+<td>Name</td>
+<td>Details</td>
+</tr>
+<tr>
+<td colSpan='2'><strong>US West OnDemand Endpoints</strong></td>
+</tr>
+<tr>
+<td>Desktop Browser and Virtual Device Cloud</td><td><code>https://ondemand.us-west-1.saucelabs.com/wd/hub</code></td>
+</tr>
+<tr>
+<td>RDC on Sauce</td><td><code>https://ondemand.us-west-1.saucelabs.com/</code></td>
+</tr>
+<tr>
+<td>Legacy RDC/TestObject <small><span className="sauceGold">DEPRECATED</span></small></td><td><code>https://us1.appium.testobject.com/wd/hub</code></td>
+</tr>
+<tr>
+<td colSpan='2'><strong>US West REST API</strong></td>
+</tr>
+<tr>
+<td>Virtual Devices and Desktops</td><td><code>https://api.us-west-1.saucelabs.com/v1</code></td>
+</tr>
+<tr>
+<td>RDC on Sauce</td><td><code>https://api.us-west-1.saucelabs.com/v1/rdc</code></td>
+</tr>
+<tr>
+<td>Real Devices on TestObject <small><span className="sauceGold">DEPRECATED</span></small></td><td><code>https://app.testobject.com/api/rest/</code></td>
+</tr>
+<tr>
+<td>Sauce Connect Proxy</td><td>Virtual and Real Devices on Sauce: <code>https://saucelabs.com/rest/v1/</code><br/><br/>Real Devices on Legacy RDC/TestObject: <code>https://us1.api.testobject.com/sc/rest/v1</code> <small><span className="sauceGold">DEPRECATED</span></small></td>
+</tr>
+<tr>
+<td>Team Management</td><td><code>https://api.us-west-1.saucelabs.com/team-management/v1/</code></td>
+</tr>
+<tr>
+<td>Sauce Connect Proxy</td><td>Virtual and Real Devices on Sauce: <code>https://saucelabs.com/rest/v1/</code></td>
+</tr>
+<tr>
+<td>IP Ranges</td><td>Virtual and Real Devices on Sauce: <code>162.222.72.0/21</code><br/><code>66.85.48.0/21</code></td>
+</tr>
+</table>
+
 
 ### EU Central Data Center
 :::note
