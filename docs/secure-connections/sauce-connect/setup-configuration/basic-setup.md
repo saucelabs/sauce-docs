@@ -20,7 +20,7 @@ For information about user configuration settings, see [Organization Settings](/
   * If you're using virtual machines or devices, see the instructions below.
   * If you're testing real devices, see [Setting Up for Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/specialized-environments).
 * Know your account details including:
-  * The url of the datacenter you need to use. For more information, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
+  * The url of the datacenter you need to use. For more information, see [Data Center Endpoints](/basics/data-center-endpoints).
   * Your Sauce Labs username and access key, which you can find in Sauce Labs under **ACCOUNT > User settings**.
 
 :::note
