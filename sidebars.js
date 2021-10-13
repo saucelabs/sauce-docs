@@ -457,7 +457,7 @@ module.exports = {
                         label: 'Data Center Endpoints',
                         collapsed: true,
                         items: [
-                            'basics/data-center-endpoints/data-center-endpoints',
+                            'basics/data-center-endpoints',
                             'basics/data-center-endpoints/aust-early-access',
 
                         ],
