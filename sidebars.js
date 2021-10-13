@@ -601,6 +601,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'web-apps/automated-testing/selenium',
+                        'web-apps/automated-testing/selenium/selenium4',
                         'web-apps/automated-testing/selenium/pre-run-executables',
                         'web-apps/automated-testing/selenium/sample-scripts',
                     ]
@@ -669,6 +670,7 @@ module.exports = {
                   },
              'api-testing/mark3/quick-start/importing-postman-collections',
              'api-testing/mark3/quick-start/integrate-with-your-cicd',
+             'api-testing/mark3/sauce-connect',
         ],
         "CI/CD": [
             'ci',
