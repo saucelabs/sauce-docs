@@ -237,7 +237,7 @@ Head to [Sauce Labs Training: C# Example Scripts](https://github.com/saucelabs-t
 </Tabs>
 
 ## Data Center Endpoints for Headless
-The containers used for Sauce Headless testing are hosted in the Sauce Labs East Coast data center, which is entirely separate from our data centers in the West Coast and in the EU. You'll need to connect to the [US-East Data Center](/basics/data-center-endpoints/data-center-endpoints) to access the web UI, Selenium endpoint, and Sauce Connect Proxy endpoint for headless testing.
+The containers used for Sauce Headless testing are hosted in the Sauce Labs East Coast data center, which is entirely separate from our data centers in the West Coast and in the EU. You'll need to connect to the [US-East Data Center](/basics/data-center-endpoints) to access the web UI, Selenium endpoint, and Sauce Connect Proxy endpoint for headless testing.
 
 The US-East IP addresses should be reachable from your network. If there's an issue, please refer to the [Sauce Connect Proxy documentation](/secure-connections/sauce-connect/system-requirements) > allowlisting section.
 
@@ -257,7 +257,7 @@ If you want to use a Sauce Connect Proxy tunnel for your Sauce Headless tests, y
 ## Headless Testing with Sauce Connect Proxy
 If you're testing website that's on your local machine or behind a corporate firewall, we recommend using [Sauce Connect Proxy](/secure-connections/sauce-connect).
 
-To use Sauce Connect Proxy in conjunction with your Sauce Headless tests, be sure you have the [latest version](/secure-connections/sauce-connect/installation) on your machine. You'll need to start a new, separate tunnel from the one used for the Virtual and Real Device Cloud, by connecting to the [Sauce Headless-specific endpoint](/basics/data-center-endpoints/data-center-endpoints).
+To use Sauce Connect Proxy in conjunction with your Sauce Headless tests, be sure you have the [latest version](/secure-connections/sauce-connect/installation) on your machine. You'll need to start a new, separate tunnel from the one used for the Virtual and Real Device Cloud, by connecting to the [Sauce Headless-specific endpoint](/basics/data-center-endpoints).
 
 
 ## Video Tutorial: Running Headless Tests
