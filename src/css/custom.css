@@ -118,7 +118,6 @@ html[data-theme='dark'] .alert a {
   decoration: underline;
 }
 
-
 html[data-theme='light'] {
     --ifm-alert-color: #474c55;
 }
