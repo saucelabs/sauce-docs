@@ -9,11 +9,13 @@ import TabItem from '@theme/TabItem';
 
 This document provides an overview of Sauce Connect Proxy architecture to assist customer network and security engineering teams to better understand how it works.
 
+
 ## What You'll Need
 
-- If you're new to Sauce Connect, we recommend reviewing the [Sauce Connect Proxy overview documentation](/secure-connections/sauce-connect).
+- If you're new to Sauce Connect, we recommend reviewing the [Sauce Connect Proxy overview](/secure-connections/sauce-connect) documentation.
 
-## Architecture
+
+## Architecture Components
 
 From the Sauce Labs side, the Sauce Connect system includes the following components:
 
@@ -26,13 +28,9 @@ Here is an overview of how these components interact with the user environment:
 
 <img src={useBaseUrl('img/sauce-connect/sc-arch-components.png')} alt="Sauce Connect components interacting with user’s environment" width="800"/>
 
-## Components Overview
-
 ### Sauce Connect Proxy Client
 
-The [client (also known as SC)](/secure-connections/sauce-connect/installation/#download-latest-version) is distributed as a single binary that contains several distinct components.
-
-These include:
+The [client (also known as SC)](/secure-connections/sauce-connect/installation/#download-latest-version) is distributed as a single binary that contains several distinct components. These include:
 
 - SC Client controller: the “brain” of the SC client. It issues requests to the Sauce Labs REST API, starts all the other included components and ensures that everything is working as expected.
 - KGP Client: the client side implementation of [KGP, Sauce Labs proprietary protocol](/secure-connections/sauce-connect/advanced/kgp).
