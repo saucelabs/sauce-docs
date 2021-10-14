@@ -11,6 +11,7 @@ body {
 }
 
 h1,h2,h3,h4,h5,h6 {
+    color: #e2231a;
     font-family: museo-sans, sans-serif;
     font-weight: 500;
 }
@@ -53,12 +54,11 @@ footer {
 }
 
 .sauce_bot {
-    width: auto;
     grid-area: sb;
 }
 
-.sauce_bot img {
-    width: 50%;
+.gif {
+    width: 30%;
     height: auto;
 }
 .message {
