@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Once your test has run and generated a **Test Details** page, you have several options for sharing a link to that page with others.
 
-1. In Sauce Labs, in the left panel, click **LIVE** or **AUTOMATED**, and then click **Test Results**.
+1. On Sauce Labs, in the left panel, click **LIVE** or **AUTOMATED**, and then click **Test Results**.
 2. On the **Test Results** page, click a test in the list to view the test details.
 3. In the **Visibility** dropdown, select a sharing option for the test results.
 
@@ -42,7 +42,7 @@ When generating a shareable link, you'll need to know your specific data center.
 https://app.eu-central-1.saucelabs.com/tests/YOUR_TEST_ID).
 ```
 
-See [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints) for more info.
+See [Data Center Endpoints](/basics/data-center-endpoints) for more info.
 
 ### Linking to Tests that Require a Login to View
 You can create links to your tests that will only work if you're logged in with the account that ran the test.
@@ -61,7 +61,7 @@ As previously mentioned, all examples on this page use the US West 1 data center
 https://app.eu-central-1.saucelabs.com/tests/YOUR_TEST_ID
 ```
 
-See [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints) for more info.
+See [Data Center Endpoints](/basics/data-center-endpoints) for more info.
 
 ### Linking to Tests that Don't Require a Login to View
 

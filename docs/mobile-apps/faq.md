@@ -4,7 +4,7 @@ title: Mobile App Testing FAQ
 sidebar_label: FAQ
 ---
 
-## Emulators and Simulators
+## Virtual Devices
 
 #### **What type of keyboard and buttons do the Android emulators have?**
 
@@ -54,8 +54,15 @@ Yes. See [Camera Image Injection](/mobile-apps/features/camera-image-injection).
 * **Android Real Devices** - Yes. It works automatically with no action required.
 * **iOS Real Devices** - Yes. Prior to testing, you'll need to disable resigning; this enables notifications testing. Disabling resigning is a feature available for [private devices only](/mobile-apps/supported-devices#private-device-cloud). To disable resigning, go to **Live** > **Mobile App** > Locate your iOS mobile app from your list of uploaded app > Click **Settings** > Toggle **Instrumentation** so that it says **Disabled**. You'll need to start keeping track of the iOS device UDIDs (Unique Device Identifier) by maintaining them in your own Apple Developer profile used at app build time.
 * **Android emulators** - not supported.
-* **iOS simulators** - not supported.
+* **iOS simulators** - Yes, when using Appium version 1.21.0. See [Announcing support for Appium v1.21.0 on iOS Simulators](https://changelog.saucelabs.com/en/announcing-support-for-appium-v-on-ios-simulators) for more information.
 
+#### **Is there a maximum time I can use a real device for either manual or automated testing, provided I actually do interact with the device?**
+
+For real devices on the public cloud, the limit is 6 hours; for private cloud devices there is no limit.
+
+#### **Can I upload files to or download files from a real device?**
+
+Yes,  by using virtual USB, but only on private Android devices. Currently, iOS does not have an option to upload or download files from real devices. See [Virtual USB Testing on Real Mobile Devices](/mobile-apps/features/virtual-usb) for more information.
 
 ### Security
 

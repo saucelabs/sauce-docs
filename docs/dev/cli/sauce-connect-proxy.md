@@ -1,7 +1,7 @@
 ---
 id: sauce-connect-proxy
 title: Sauce Connect Proxy CLI Reference
-sidebar_label: Sauce Connect Proxy
+sidebar_label: Sauce Connect Proxy CLI
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -72,7 +72,7 @@ __Shorthand__: `-x`
 
 ---
 ### `--shared-tunnel`
-__Description__: Allows other users of the tunnel owner to use the tunnel. For more information, see [Sharing Sauce Connect Proxy Tunnels](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels).<br/>
+__Description__: Allows users other than the tunnel owner to use the tunnel. For more information, see [Sharing Sauce Connect Proxy Tunnels](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels).<br/>
 __Shorthand__: `-s`
 
 
@@ -84,7 +84,7 @@ __Shorthand__: `-s`
 Effective with version 4.7.0, `--tunnel-identifier` has been deprecated and replaced by `--tunnel-name`.
 :::
 
-__Description__: Assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is strongly recommended. Future jobs will use this tunnel only when explicitly specified by the [tunnelIdentifier](/dev/test-configuration-options#tunnelidentifier) in the desired capabilities of your automated tests.
+__Description__: Assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is strongly recommended. Future jobs will use this tunnel only when explicitly specified by the [tunnelIdentifier](/dev/test-configuration-options#tunnelidentifier) in your test capabilities.
 
 To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options). For information on using this option in the tunnel pool, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
 
@@ -393,7 +393,7 @@ __Shorthand__: n/a
 
 ## Data Center Endpoints
 
-__Description__: depending on the Data Center location of the device you're testing on (US or EU), you may need to add a [Data Center endpoint](/basics/data-center-endpoints/data-center-endpoints).
+__Description__: depending on the Data Center location of the device you're testing on (US or EU), you may need to add a [Data Center endpoint](/basics/data-center-endpoints).
 
 <Tabs
   defaultValue="US-West"
