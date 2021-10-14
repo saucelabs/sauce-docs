@@ -1,3 +1,5 @@
+// Author: James Tacker i.e. spider-sauce
+
 import React, {Fragment, useState} from "react";
 const axios = require("axios");
 
