@@ -81,6 +81,8 @@ footer {
     -moz-box-sizing: border-box;
     -webkit-user-select: none;
     cursor: default;
+    background: linear-gradient(270deg, rgb(238, 68, 57), rgb(217, 37, 25));
+    border-radius: 50px;
 }
 .button_base a {
     color: #e2231a;
