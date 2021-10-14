@@ -83,6 +83,7 @@ Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each s
 
 ```yaml
   timeout: 15m
+```
 ---
 
 ## `sauce`

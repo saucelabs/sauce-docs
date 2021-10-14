@@ -26,11 +26,15 @@ As an important step prior to downloading Sauce Connect Proxy, you or your syste
 
 2. Use cURL (or equivalent tool) to reach your Site Under Test. If you are relying on API to support a website or mobile app, you can cURL that as well. You should get a `200 OK HTTP` response. If you do NOT see a `200 OK HTTP` response, then Sauce Connect Proxy will not be able to reach it either.
 
-3. Use cURL (or equivalent tool) to reach the below URLs, as needed:
+3. Use cURL (or equivalent tool) to reach the below URLs, as needed. For example:
    * [https://saucelabs.com](https://saucelabs.com/)
-   * [https://eu-central-1.saucelabs.com](https://eu-central-1.saucelabs.com/)
+   * [https://api.us-west-1.saucelabs.com/rest/v1](https://api.us-west-1.saucelabs.com/rest/v1) for US-WEST region
+   * [https://us-east-1.saucelabs.com/rest/v1](https://us-east-1.saucelabs.com/rest/v1) for US-EAST region
+   * [https://eu-central-1.saucelabs.com](https://eu-central-1.saucelabs.com/) for EU-CENTRAL region
 
-   If you can get a `200 OK` response from all URLs above, you are ready to start Sauce Connect! As an alternative, you can use [Nethelp](https://github.com/mdsauce/nethelp) to quickly connect to multiple resources and save the output.
+   If you can get a `200 OK` response from all URLs above, you are ready to start Sauce Connect!
+   As an alternative, you can just try to [start a tunnel](/secure-connections/sauce-connect/setup-configuration/basic-setup/#validating-your-basic-setup)
+   and check the console output.
 
 
 ## Configuring Your System to Use Sauce Connect
@@ -428,6 +432,204 @@ Select a cloud provider from the tables below to view the recommended system req
 </Tabs>
 
 
+### Microsoft Azure
+
+For Azure, we recommend using multiple instances of D4a to scale, rather than faster individual instances.
+
+<Tabs
+  defaultValue="Virtual Machines"
+  values={[
+    {label: 'Virtual Machines', value: 'Virtual Machines'},
+    {label: 'Headless', value: 'Headless'},
+  ]}>
+
+<TabItem value="Virtual Machines">
+
+<table>
+  <tr>
+   <td>
+<strong>Parallel Tests</strong>
+   </td>
+   <td><strong>Machine Type</strong>
+   </td>
+   <td><strong>Memory</strong>
+   </td>
+   <td>
+<strong>Processor</strong>
+   </td>
+   <td><strong>Bandwidth</strong>
+   </td>
+   <td><strong>Recommended SC Tunnels</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>0-99
+   </td>
+   <td>Standard_D2a_v4
+   </td>
+   <td>7.5 GB
+   </td>
+   <td>2
+   </td>
+   <td>450 Mbps
+   </td>
+   <td>1
+   </td>
+  </tr>
+  <tr>
+   <td>100-199
+   </td>
+   <td>Standard_D4a_v4
+   </td>
+   <td>15 GB
+   </td>
+   <td>4
+   </td>
+   <td>750 Mbps
+   </td>
+   <td>1
+   </td>
+  </tr>
+  <tr>
+   <td>200-399
+   </td>
+   <td>Standard_D4a_v4 x 2
+   </td>
+   <td>15 GB
+   </td>
+   <td>4
+   </td>
+   <td>750 Mbps
+   </td>
+   <td>2
+   </td>
+  </tr>
+  <tr>
+   <td>400-599
+   </td>
+   <td>Standard_D4a_v4 x 4
+   </td>
+   <td>15 GB
+   </td>
+   <td>4
+   </td>
+   <td>750 Mbps
+   </td>
+   <td>3
+   </td>
+  </tr>
+  <tr>
+   <td>600-799
+   </td>
+   <td>Standard_D4a_v4 x 8
+   </td>
+   <td>15 GB
+   </td>
+   <td>4
+   </td>
+   <td>750 Mbps
+   </td>
+   <td>4
+   </td>
+  </tr>
+  <tr>
+   <td>800+
+   </td>
+   <td>Standard_D4a_v4 x 16
+   </td>
+   <td>15 GB
+   </td>
+   <td>4
+   </td>
+   <td>750 Mbps
+   </td>
+   <td>6
+   </td>
+  </tr>
+</table>
+
+</TabItem>
+<TabItem value="Headless">
+
+<table>
+  <tr>
+   <td>
+<strong>Parallel Tests</strong>
+   </td>
+   <td><strong>Machine Type</strong>
+   </td>
+   <td><strong>Memory</strong>
+   </td>
+   <td>
+<strong>Processor</strong>
+   </td>
+   <td><strong>Bandwidth</strong>
+   </td>
+   <td><strong>Recommended SC Tunnels</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>0-499
+   </td>
+   <td>Standard_D2a_v4
+   </td>
+   <td>7.5 GB
+   </td>
+   <td>2
+   </td>
+   <td>3.5 Gbps
+   </td>
+   <td>1
+   </td>
+  </tr>
+  <tr>
+   <td>500-999
+   </td>
+   <td>Standard_D4a_v4
+   </td>
+   <td>7.5 GB
+   </td>
+   <td>2
+   </td>
+   <td>3.5 Gbps
+   </td>
+   <td>2
+   </td>
+  </tr>
+  <tr>
+   <td>1000-1999
+   </td>
+   <td>Standard_D4a_v4 x 2
+   </td>
+   <td>7.5 GB
+   </td>
+   <td>2
+   </td>
+   <td>3.5 Gbps
+   </td>
+   <td>4
+   </td>
+  </tr>
+  <tr>
+   <td>2000+
+   </td>
+   <td>Standard_D4a_v4 x 8
+   </td>
+   <td>7.5 GB
+   </td>
+   <td>2
+   </td>
+   <td>3.5 Gbps
+   </td>
+   <td>8
+   </td>
+  </tr>
+</table>
+
+</TabItem>
+</Tabs>
+
+
 Tips for optimizing your tests running through Sauce Connect tunnels:
 
 *  If you're running **100 or more parallel tests**, we recommend a minimum network bandwidth of 750 Mbps to support the high volume of network traffic.
@@ -469,11 +671,11 @@ You'll need to use the set of domains for your corresponding Sauce Labs Data Cen
 
 <img src={useBaseUrl('img/sauce-connect/data-center-ui.jpg')} alt="Sauce Connect download file contents" width="600" margin-bottom="50px"/>
 
-For more information on our Data Centers and how to choose the right one for you, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
+For more information on our Data Centers and how to choose the right one for you, see [Data Center Endpoints](/basics/data-center-endpoints).
 
 ### REST API Endpoints
 
-The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select your relevant [Data Center](/basics/data-center-endpoints/data-center-endpoints):
+The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select your relevant [Data Center](/basics/data-center-endpoints):
 
 <Tabs
   groupId="dc-url"
@@ -512,7 +714,7 @@ The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select y
 
 #### Sauce Connect Tunnel Service Domains
 
-The following domains must be allowlisted for outbound communication from you network in order to make connections to Sauce Connect tunnels. Select your relevant [Data Center](/basics/data-center-endpoints/data-center-endpoints):
+The following domains must be allowlisted for outbound communication from you network in order to make connections to Sauce Connect tunnels. Select your relevant [Data Center](/basics/data-center-endpoints):
 
 <Tabs
   groupId="dc-url"

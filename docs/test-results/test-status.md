@@ -135,6 +135,6 @@ curl PUT -X -u USERNAME:ACCESS_KEY \'https://saucelabs.com/rest/v1/USERNAME/jobs
 You can obtain the JOB_ID either by:
 
 * Collecting and storing the web driver SessionId for the test, which Sauce Labs uses as the JOB_ID
-* testFinding the Id value in the test's Metadata tab in Sauce Labs, as shown in the following figure
+* testFinding the Id value in the test's Metadata tab on Sauce Labs, as shown in the following figure
 
 <img src={useBaseUrl('img/test-results/test-results-meta-id.png')} alt="Test results metadata - JOB_ID"/>

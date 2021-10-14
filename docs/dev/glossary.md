@@ -2,6 +2,7 @@
 id: glossary
 title: Glossary of Sauce Labs Terminology
 sidebar_label: Glossary
+description: A glossary of terminology used across Sauce Labs products.
 ---
 
 **[A](/dev/glossary#a)&nbsp;&nbsp;&nbsp; [B](/dev/glossary#b)&nbsp;&nbsp;&nbsp; [C](/dev/glossary#c)&nbsp;&nbsp;&nbsp; [D](/dev/glossary#d)&nbsp;&nbsp;&nbsp; [E](/dev/glossary#e)&nbsp;&nbsp;&nbsp; [F](/dev/glossary#f)&nbsp;&nbsp;&nbsp; [H](/dev/glossary#h)&nbsp;&nbsp;&nbsp; [I](/dev/glossary#i)&nbsp;&nbsp;&nbsp; [L](/dev/glossary#l)&nbsp;&nbsp; [M](/dev/glossary#m)&nbsp;&nbsp;&nbsp; [N](/dev/glossary#n)&nbsp;&nbsp;&nbsp; [O](/dev/glossary#o)&nbsp;&nbsp;&nbsp; [P](/dev/glossary#p)&nbsp;&nbsp;&nbsp; [R](/dev/glossary#r)&nbsp;&nbsp;&nbsp; [S](/dev/glossary#s)&nbsp;&nbsp;&nbsp; [T](/dev/glossary#t)&nbsp;&nbsp;&nbsp; [U](/dev/glossary#u)&nbsp;&nbsp;&nbsp; [V](/dev/glossary#v)&nbsp;&nbsp;&nbsp; [W](/dev/glossary#w)**
@@ -38,7 +39,7 @@ A testing method where you use separate software to control the execution of tes
 
 ### Build
 
-1. A suite of individual Sauce Labs tests on various parts (e.g., page objects) of a website or app using any platform/browser combination, bundled together in the same session. A build is defined when you add the same build number to the code for tests in that suite. More information: [Best Practice: Use Build IDs, Tags, and Names to Identify Your Tests](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation/index.html#use-build-ids-tags-and-names-to-identify-your-tests).
+1. A suite of individual Sauce Labs tests on various parts (e.g., page objects) of a website or app using any platform/browser combination, bundled together in the same session. A build is defined when you add the same build number to the code for tests in that suite. More information: [Best Practice: Use Build IDs, Tags, and Names to Identify Your Tests](/basics/test-config-annotation/test-annotation/#use-build-ids-tags-and-names-to-identify-your-tests).
 
 2. The process by which source code is compiled and converted into an executable or binary pre-release version of your software program. Builds are often comprised of multiple smaller builds.
 
@@ -71,7 +72,9 @@ See also: _[CI/CD pipeline](#cicd-pipeline), [continuous integration](#continuou
 
 ### Colliding Tunnels
 
-A Sauce Connect Proxy test scenario where two or more tunnels are launched with the same tunnel identifier name. By default, duplicate tunnels are removed from your test unless you append your code with the `--no-remove-colliding-tunnels` option. More information: [Sauce Connect Proxy Tunnel Modes: Ephemeral and Long-Running](/secure-connections/sauce-connect/proxy-tunnels).
+A Sauce Connect Proxy scenario where two or more tunnels are launched with the same tunnel name not in [High Availability Mode](/secure-connections/sauce-connect/setup-configuration/high-availability).
+By default, duplicated (already running) tunnels are halted unless a Sauce Connect Proxy is started with the `--tunnel-pool` option.
+More information: [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
 
 See also: _[sauce connect proxy](#sauce-connect-proxy), [tunnel identifier](#tunnel-identifier)_.
 
@@ -121,7 +124,7 @@ A method of testing where you can verify the consistency of your web or mobile a
 
 ### Data Center (DC)
 
-A network that houses the set of Sauce Labs services relevant to your license type and your company's needs (i.e., geographic location, real vs. virtual device, and optional other services). To run a Sauce Labs test, you must connect to one or more data centers by including the appropriate endpoint URL(s) in your test script. More information: [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
+A network that houses the set of Sauce Labs services relevant to your license type and your company's needs (i.e., geographic location, real vs. virtual device, and optional other services). To run a Sauce Labs test, you must connect to one or more data centers by including the appropriate endpoint URL(s) in your test script. More information: [Data Center Endpoints](/basics/data-center-endpoints).
 
 
 ## **E**
@@ -262,7 +265,7 @@ See also: _[hybrid app](#hybrid-app)_.
 
 ### Non-Functional Testing
 
-A type of software testing that validates behavioral, measurable aspects of the software (e.g., performance, compatibility, user experience). Functional testing determines if your software meets its business requirements, whereas non-functional testing determines _how_ it operates. When running non-functional tests in Sauce Labs, you can use custom extensions for WebDriver that will allow you test the performance of your website under specific network conditions and collect network and application-related metrics.
+A type of software testing that validates behavioral, measurable aspects of the software (e.g., performance, compatibility, user experience). Functional testing determines if your software meets its business requirements, whereas non-functional testing determines _how_ it operates. When running non-functional tests on Sauce Labs, you can use custom extensions for WebDriver that will allow you test the performance of your website under specific network conditions and collect network and application-related metrics.
 
 See also: _[functional testing](#functional-testing)_.
 
@@ -287,7 +290,7 @@ See also: _[team admin](#team-admin), [team management](#team-management)_.
 
 1. The practice of running multiple tests simultaneously.
 
-2. When signing up for a self-service license, this is equivalent to your account's concurrency settings. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect/system-requirements), [Using Frameworks to Run Tests in Parallel](https://docs.saucelabs.com/web-apps/automated-testing/selenium#using-frameworks-to-run-tests-in-parallel).
+2. When signing up for a self-service license, this is equivalent to your account's concurrency settings. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect/system-requirements), [Using Frameworks to Run Tests in Parallel](/web-apps/automated-testing/selenium/#using-frameworks-to-run-tests-in-parallel).
 
     See also: _[concurrency limit](#concurrency-limit)_.
 
@@ -311,7 +314,10 @@ See also: _[front-end performance testing](#front-end-performance-testing)_.
 
 ### pidfile
 
-A text file generated by Sauce Connect Proxy that records your tunnel's process identification number (pid) to confirm that the process is still running. Unless otherwise specified, the file will be cleaned up on exit or overwritten at startup. If needed, you can terminate a job mid-test by sending a kill signal to the pidfile. More information: [How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect/proxy-tunnels#starting-and-stopping-tunnels), [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
+A text file generated by Sauce Connect Proxy that records your tunnel's process identification number (PID).
+Unless otherwise specified, the file will be cleaned up on exit or overwritten at startup. If needed, you can terminate a tunnel any time by sending a kill signal to the PID recorded in pidfile.
+More information: [How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect/proxy-tunnels#starting-and-stopping-tunnels),
+[Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
 
 
 ### Platform Configurator
@@ -323,7 +329,8 @@ See also: _[capabilities](#capabilities)_.
 
 ### Proxy Auto-Configuration File (PAC)
 
-An optional file you can use in your Sauce Connect Proxy tests to define how web browsers and other user agents automatically choose the appropriate proxy server for fetching a given URL. To use a PAC file, include the `--pac <url>` command-line in your code. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
+An optional file you can use in your Sauce Connect Proxy tests to define how web browsers and other user agents automatically choose the appropriate proxy server for fetching a given URL.
+To use a PAC file, include the `--pac <url>` command-line in your code. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
 
 
 ## **R**
@@ -352,7 +359,8 @@ See also: _[real device cloud](#real-device-cloud)_.
 
 ### RemoteWebDriver
 
-A remote instance of WebDriver that you must instantiate during a test to connect with the Selenium server via Sauce Labs. Afterwards, you can use the RemoteWebDriver to control the browser of your choice.
+A remote instance of WebDriver that you must instantiate during a test to connect with the Selenium server via Sauce Labs. 
+Afterwards, you can use the RemoteWebDriver to control the browser of your choice.
 
 See also: _[webdriver](#webdriver), [webdriverIO](#webdriverio)_.
 
@@ -366,7 +374,7 @@ A Sauce Labs feature that allows organization admins to block their internal use
 
 ### Sauce Connect Host
 
-The machine in your network on which the Sauce Connect Proxy application is running, with a direct connection to the internet. More information: [Sauce Connect Proxy Setup and Configuration](/secure-connections/sauce-connect/setup-configuration/setup-configuration).
+The machine in your network on which the Sauce Connect Proxy application is running, with a direct connection to the internet. More information: [Sauce Connect Proxy Setup and Configuration](/secure-connections/sauce-connect/setup-configuration).
 
 
 ### Sauce Connect Proxy
@@ -386,7 +394,9 @@ A Sauce Connect Proxy configuration for users with a network configuration requi
 
 ### Sauce Connect Proxy Setup, High Availability (HA)
 
-A Sauce Connect Proxy configuration that allows you to run a high number of tunnels individually or collectively as a tunnel pool. From an end user or test runner perspective, a pool functions the same as a single Sauce Connect instance. More information: [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
+A Sauce Connect Proxy configuration that allows you to run a high number of tunnels individually or collectively as a tunnel pool.
+From an end user or test runner perspective, a pool functions the same as a single Sauce Connect instance.
+More information: [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
 
 See also: _[tunnel pool](#tunnel-pool)_.
 
@@ -413,7 +423,7 @@ An environment to execute tests against headless Chrome and Firefox on Linux con
 
 ### Sauce Labs Access Key
 
-A randomly generated string of alphanumeric characters assigned to your Sauce Labs account that you must include in your test scripts along with your Sauce Labs username to authenticate your request and allow access to the resources on your Sauce Labs account. Also known as Access Key in [Sauce Labs](https://app.saucelabs.com/user-settings) and `SAUCE_ACCESS_KEY` as an environment variable. 
+A randomly generated string of alphanumeric characters assigned to your Sauce Labs account that you must include in your test scripts along with your Sauce Labs username to authenticate your request and allow access to the resources on your Sauce Labs account. Also known as Access Key in [Sauce Labs](https://app.saucelabs.com/user-settings) and `SAUCE_ACCESS_KEY` as an environment variable.
 
 
 ### Sauce Labs Continuous Testing Benchmark
@@ -552,7 +562,13 @@ See also: _[sauce connect proxy](#sauce-connect-proxy)._
 
 ### Tunnel Identifier
 
-The Sauce Connect Proxy test configuration option that allows you to assign a name of your tunnel(s), giving you more control and monitoring capability over the tunnel. If you launch a tunnel without identifying it, your test traffic will default to running through that unnamed tunnel. More information: [Using Sauce Connect Tunnel Identifiers](/secure-connections/sauce-connect/setup-configuration/basic-setup#using-tunnel-identifiers).
+<p><small><span className="sauceGold">DEPRECATED</span></small></p>
+
+See: [Tunnel Name](#tunnel-name)
+
+### Tunnel Name
+
+The Sauce Connect Proxy test configuration option that allows you to assign a name of your tunnel(s), giving you more control and monitoring capability over the tunnel. If you launch a tunnel without naming it, your test traffic will default to running through that unnamed tunnel. More information: [Using Sauce Connect Tunnel Identifiers](/secure-connections/sauce-connect/setup-configuration/basic-setup#using-tunnel-identifiers).
 
 See also: _[colliding tunnels](#colliding-tunnels)_.
 
@@ -573,7 +589,8 @@ The virtual machine that hosts Sauce Connect Proxy on the Sauce Labs side.
 
 ### UI Automation Library
 
-A library or tool used for writing, running and providing functionality for browser-based tests in a particular setting. Some examples are WebdriverIO (JavaScript), Cucumber (Ruby/JavaScript/C#/Java), XCUITest (iOS mobile only).
+A library or tool used for writing, running and providing functionality for browser-based tests in a particular setting. 
+Some examples are WebdriverIO (JavaScript), Cucumber (Ruby/JavaScript/C#/Java), XCUITest (iOS mobile only).
 
 See also: _[framework](#framework)_.
 
@@ -635,18 +652,29 @@ A Sauce Labs automated visual testing method that integrates with your WebDriver
 
 ### W3C WebDriver Protocol
 
-A platform- and language-neutral wire protocol that enables out-of-process programs to remotely instruct the behavior of web browsers. With Sauce Labs and all major browser vendors now supporting the W3C standard, automated Selenium tests will run with more stability and consistency between different browsers and devices. More information: [W3C Capabilities Support](/dev/w3c-webdriver-capabilities).
+[A platform- and language-neutral wire protocol](https://w3c.github.io/webdriver/) that 
+enables out-of-process programs to remotely instruct the 
+behavior of web browsers. The major browser vendors collaborated and agreed on what the correct behavior should be
+for each command, which dramatically improves stability and consistency between different browsers and devices.
+Selenium and WebdriverIO each implement the W3C protocol. Now that all major browsers
+use this protocol by default, its usage on Sauce Labs is highly encouraged. 
+More information: [W3C Capabilities Support](/dev/w3c-webdriver-capabilities).
 
 
 ### WebDriver
 
-Selenium's built-in library/API that drives web browser interactions in your automated tests. Supports all major browsers and programming languages. More information: [Selenium Projects](https://www.selenium.dev/projects).
+An implementation of the [W3C WebDriver Protocol](#w3c-webdriver-protocol), which defines how a user's code interacts
+with a web browser. All major browsers and programming languages support WebDriver.
+Supports all major browsers and programming languages. Look here for 
+[Examples of Test Libraries](/web-apps/automated-testing/selenium/#scaling-tests) that implement
+WebDriver.
 
 See also: _[appium](#appium), [UI automation library](#ui-automation-library), [webdriverIO](#webdriverIO)_.
 
 
 ### WebdriverIO
 
-A custom UI test automation library, written in JavaScript on Node.js, that is used for Selenium's W3C WebDriver API. It is not directly affiliated with the Selenium project.
+A custom UI test automation library, written in JavaScript on Node.js, that provides an alternate implementation
+to Selenium of the [W3C WebDriver Protocol](#w3c-webdriver-protocol).
 
 See also: _[UI automation library](#ui-automation-library), [webdriver](#webdriver)._

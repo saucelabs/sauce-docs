@@ -77,7 +77,7 @@ Below are common use cases ideal for implementing Camera Image Injection in your
 
 During a Live test, you'll be prompted in the UI to upload a photo that will be fed to your app, rather than using your device camera to take the photo.
 
-1. In Sauce Labs, click **LIVE** and then click **Mobile App**.
+1. On Sauce Labs, click **LIVE** and then click **Mobile App**.
 2. On the **App Selection** test page, hover over the test and then click **Settings**.
 
   <img src={useBaseUrl('img/live-testing/live-mobile-app-settings-nav.png')} alt="Mobile app settings navigation" width="650"/>
@@ -112,7 +112,7 @@ When injecting an image with a QR Code or barcode, the image size in your previe
 
 During an Automated test, you'll pass an image to the image injection endpoint. Image Injection intercepts the camera input and replaces the camera output with the image file via the camera APIs. When the app requests an image from the device's camera, we inject your uploaded image into the response (the app doesn't know the difference).
 
-In your test script, you'll need to input the desired capabilities specific to Camera Image Injection (see below code snippets). The code will execute your image upload and opening of the device camera.
+In your test script, you'll need to input the capabilities specific to Camera Image Injection (see below code snippets). The code will execute your image upload and opening of the device camera.
 
 1. First, you'll need add the camera instrumentation desired capability command,  `sauceLabsImageInjectionEnabled`, to your test script. This capability enables image injection functionality.
 

@@ -14,7 +14,7 @@ Sauce Connect can only communicate with Sauce Labs via `port 443`. This is not c
 
 To share a tunnel, start a tunnel with the [`--shared-tunnel`](/dev/cli/sauce-connect-proxy) flag. For most Sauce Labs customers, your access to shared tunnels is determined by the permissions of the user who creates them. Organization admins can create tunnels that any user on any team can use. Team admins can create tunnels that any member of their team can use. Team members cannot share tunnels they create with any other team member.
 
-In order to use a tunnel that an admin or team member shares with you, you'll need to add `parentTunnel` to your desired capabilities and specify that person's username.
+In order to use a tunnel that an admin or team member shares with you, you'll need to add `parentTunnel` to your test capabilities and specify that person's username.
 
 More information: [Shared Tunnels](/dev/test-configuration-options).
 
@@ -112,3 +112,11 @@ Yes.
 ## Can you allowlist IP addresses instead of using Sauce Connect Proxy?
 
 To create a secure connection, we strongly recommend using Sauce Connect or IPSec VPN instead of allowlisting IP ranges. More information: [Why Sauce Labs Recommends Sauce Connect Proxy Over Allowlisting IP Addresses](/secure-connections/sauce-connect).
+
+## Where can I get more in-depth information about Sauce Connect Proxy?
+
+[Sauce Connect Proxy white paper](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview) contains an in-depth overview of the proxy and its security.
+
+## What is KGP in Sauce Connect Proxy logs?
+
+See [Sauce Connect Tunneling Procotol](/secure-connections/sauce-connect/advanced/kgp) documentation.
