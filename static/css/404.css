@@ -53,9 +53,14 @@ footer {
 }
 
 .sauce_bot {
+    width: auto;
     grid-area: sb;
 }
 
+.sauce_bot img {
+    width: 50%;
+    height: auto;
+}
 .message {
     font-size: 20px;
     grid-area: mt;
