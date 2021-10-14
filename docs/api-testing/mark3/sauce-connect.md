@@ -24,10 +24,8 @@ If you're new to Sauce Connect Proxy, check out [Using Sauce Connect Proxy](/sec
   rest-url: "https://api.us-west-4-i3er.saucelabs.com/rest/v1"
   user: "SAUCE_USERNAME"
   api-key: "SAUCE_ACCESS_KEY"
-  no-remove-colliding-tunnels: true
   vm-version: "v2alpha"
-  tunnel-cert: private
-  tunnel-identifier: your-tunnel-name
+  tunnel-identifier: "YOUR-TUNNEL-NAME"
   ```
 2. Save your .yaml file to the same folder as your Sauce Connect Proxy client. In this example, the file is named `api-config.yaml`.
   <img src={useBaseUrl('img/api-fortress/2021/api-sauceconnect-folders.png')} alt="API Testing Sauce Connect Nav" width="500" />
