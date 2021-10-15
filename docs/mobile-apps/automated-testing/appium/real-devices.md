@@ -41,42 +41,167 @@ The following application file types are supported for real device tests:
 
 Our [Test Configuration Options](/dev/test-configuration-options) reference documentation provides a complete index of required and optional parameters for Appium. Be aware that not all of the Appium capabilities list are supported for both virtual and real device tests.
 
-The following sections provide context and instructions for test configurations that are essential when using Appium to run automated tests on Sauce Labs real devices.
+The following sections provide context and instructions for test configurations that are essential when using Appium to run automated tests on Sauce Labs **real devices**.
+
+### Specifying Your `app`
+
+In order to install your app on the devices you select, you must identify the location from which your mobile app can be accessed. You can specify a Sauce Labs Application Storage ID or filename, or a remote location to which Sauce Labs has access.
+
+```js title=App Storage Example
+caps.setCapability("app","storage:filename=mapp.zip");
+```
+
+```js title=Remote App Example
+caps.setCapability("app","https://github.com/test-apps/ios-app.zip");
+```
 
 
-### Setting Your `appiumVersion`
+### Setting the `appiumVersion`
 
-If you omit the `appiumVersion` in your test configuration, your test will be running with our default Appium version. We recommend that you specify one of the newer Appium versions that provides a more extended API and fixes to known bugs.
+If you omit the `appiumVersion` in your test configuration, your test runs with our default Appium version, which is typically the version that supports the broadest number of device combinations, but may not be the latest version. We recommend that you specify the newest Appium version that supports the specific devices and operating systems you plan to use for your test, so you can leverage the most up-to-date features and patches.
+
+```js
+caps.setCapability("appiumVersion", "1.5.3");
+```
 
 #### **Checking the Appium Version for Your Test**
-1. Log in to Sauce Labs.
+1. Log into Sauce Labs.
 2. Go to **Test Details**.
 3. Find and select the test that you ran using Appium.
 4. Click the **Metadata** tab.
 5. Look for the **Logs** row and select **Appium Log**. The first line should indicate the Appium version. For example, `2019-05-05T17:45:07.541Z - info: Welcome to Appium v1.10.1`.
 
-#### Setting the `browserName`
+### Setting the `browserName`
 
-When testing a native mobile app, the value for `browserName` is an empty string, as in `caps.setCapability("browserName", "");`.
+When testing a native mobile app, set the value for `browserName` as an empty string.
 
-#### Setting the Location of Your Mobile App
+```js
+caps.setCapability("browserName", "");
+```
 
-If the app you want to test has been uploaded to a location other than our App Storage, you need to specify this location for `app`, and make sure that this location is accessible to Sauce Labs browsers. For example, `caps.setCapability("app","storage:filename=mapp.zip");`.
+### Selecting Your Test Device
 
-#### Setting the `automationName` for Android Apps
+Testing on real devices requires you to specify a device on which you plan to test your app. You can do this by specifying either:
 
-If you're testing a native mobile app against Android versions 4.0-4.1, or a hybrid mobile against Android versions 4.0 - 4.2, you need to set the capability `"automationName","selendroid"`.
+* A specific device from a Sauce Labs device pool (public or private) by its ID (static allocation)
+* A set of device attributes to use as criteria for selecting any available matching device (dynamic allocation)
+
+#### Static Device Allocation
+
+_Static Allocation_ allows you to specify a known device by its unique ID. This can be beneficial if, for examplle, you are testing features only available on a very specific device setup. However, what you gain in precision may be offset by the time it takes for a specific device to become available, especially if your tests do not require that level of precision. If you do require a specific device, you should always configrm the device's availability before launching your tests.
+
+```js
+caps.setCapability("deviceName", "HTC_One_M8_real");
+```
+
+:::note
+When you specify a device by it's ID, the `platformName` and `platformVersion` capabilities are populated automatically, so may be omitted in your test configuration. If included, they are ignored.
+:::
+
+You can obtain a list of available devices, including their IDs, using the [Get Devices](https://docs.saucelabs.com/dev/api/rdc/#get-devices) API request.
+
+Alternatively, you can find a device's ID in the Sauce Labs application:
+
+1. Log into Sauce Labs.
+1. Navigate to **Live** >> **Mobile App**.
+1. Choose your mobile app (or an applicable demo app) from the list and click **Choose Device** to bring up the pool of devices for your organization.
+1. Hover over the device you want a click **Details** to bring up the identification information for that device.
+
+
+#### Dynamic Device Allocation
+
+_Dynamic Allocation_ allows you to specify the device attributes that are important to you and then run your test against the first available device from the pool that matches your specifications, giving you greater flexibility and, likely, a faster test execution time, particularly if you are running tests in parallel.
+
+Dynamic allocation is advised, in particular, for all automated mobile application testing in CI/CD environments.
+
+To enable dynamic device allocation, you must specify the `deviceName`, `platformName`, and `platformVersion` capabilities at a minimum. The following table provides information about accepted values.
+
+:::note
+The following sample values are presented using case for readability, but capabilities values are not case-sensitive, so there is no distinction between `iPhone` and `iphone`, for example.
+:::
+
+<table id="table-cli">
+  <thead>
+    <tr>
+      <th width="20%">Capability</th>
+      <th>Description and Sample Values</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="/dev/test-configuration-options#deviceName"><code>deviceName</code></a></td>
+    <td><p>Provide a device display name, or use regular expressions to provide a partial name, thus increasing the potential pool of matches. Some examples include:</p>
+    <p>Any iPhone: <code>caps.setCapability("deviceName", "iPhone.\*", "iPhone .\*"</code></p>
+    <p>Any device with the word "nexus" in its display name: <code>caps.setCapability("deviceName", ".\*nexus.\*"</code></p>
+    <p>Either <i>iPhone 7</i> or <i>iPhone 6</i>: <code>caps.setCapability("deviceName", "iPhone [67]"</code> or <code>"iPhone [6-7]"</code></p>
+    <p>Either <i>iPhone 7S</i> or <i>iPhone 6S</i>: <code>caps.setCapability("deviceName", "iPhone [67]S"</code> or <code>"iPhone [6-7]S"</code></p></td>
+  </tr>
+  <tr>
+   <td><a href="/dev/test-configuration-options#platformname"><code>platformName</code></a></td>
+   <td>Specify the mobile operating system to use in your tests (i.e., <code>Android</code> or <code>iOS</code>.</td>
+  </tr>
+  <tr>
+   <td><a href="/dev/test-configuration-options#platformVersion"><code>platformVersion</code></a></td>
+   <td>Specify the OS version to use in your tests (i.e., <code>4</code> or <code>4.1</code>.
+     <p>This property uses a substring match, so you can specify major and/or incremental versions. For example, if you set only a major version <code>4</code>, any devices running incremental versions (e.g., <code>4.1</code>, <code>4.2</code>, <code>4.2.1</code>, <code>4.4.4</code>) will also match. This behavior extends to minor and point versions as well, so <code>11.4</code> matches <code>11.4.0</code> and <code>11.4.1</code>.</p></td>
+  </tr>
+  </tbody>
+</table>
+
+In addition to the required capabilities for device matching, you can also specify any of the following optional capabilities to ensure your tests run on a device that matches your ideal environment.
+
+*  [`tabletOnly`](/dev/test-configuration-options/#tabletonly)
+*  [`phoneOnly`](/dev/test-configuration-options/#phoneonly)
+*  [`privateDevicesOnly`](/dev/test-configuration-options/#privatedevicesonly)
+*  [`publicDevicesOnly`](/dev/test-configuration-options/#publicdevicesonly)
+*  [`carrierConnectivityOnly`](/dev/test-configuration-options/#carrierconnectivityonly)
+*  [`cacheId`](/dev/test-configuration-options/#cacheid)
+*  [`noReset`](/dev/test-configuration-options/#noreset)
+*  [`recordDeviceVitals`](/dev/test-configuration-options/#recorddevicevitals)
+*  [`crosswalkApplication`](/dev/test-configuration-options/#crosswalkapplication)
+*  [`autoGrantPermissions`](/dev/test-configuration-options/#autograntpermissions)
+*  [`enableAnimations`](/dev/test-configuration-options/#enableanimations)
+
+
+### Using `cacheId` and `noReset`
+
+By default, every time you complete a test session, the real device cloud uninstalls your app, performs device cleaning, and de-allocates the device. If you're running multiple tests on the same device, this is inconvenient and inefficient:
+
+* You must to wait for the cleaning process to complete between every test.
+* You lose time in your testing while your app gets reinstalled to the same device each time.
+* There is a small chance that the device could get allocated to another tester before your next test picks it up.
+
+To optimize device availability, consistency, and efficiency for multiple tests, assign a `cacheId` to your tests, which keeps the device allocated to you for 10 seconds after each test completes and skips the allocation and device cleaning process if you immediately start another test. The application and its data will still be uninstalled and reinstalled for the next test, however.
+
+```js
+caps.setCapability("cacheId", "jnc0x1256");
+```
+
+To skip the uninstallation and reinstallation of your app from the device, you can set `noReset` to `true` in conjunction with using a `cacheId`. This setting adds efficiency, but may not be suitable for test setups that require the application's state to be reset between tests.
+
+```js
+caps.setCapability("noReset", "true");
+```
+
+When using `cacheId` the value must match for all tests slated to run on the cached device. In addition, the application and project ID must be the same for all tests, as must the values for the following capabilities:
+
+* `deviceName`
+* `platformName`
+* `platformVersion`
+* `tabletOnly`
+* `phoneOnly`
+* `privateDevicesOnly`
+* `publicDevicesOnly`
+* `automationName`
+* `autoGrantPermissions`
+* `appiumVersion`
+
+### Setting the `automationName` for Android Apps
+
+If you're testing a native mobile app against Android versions 4.0-4.1, or a hybrid mobile against Android versions 4.0 - 4.2, you must set the capability `"automationName","selendroid"`.
 
 These Android versions are only supported via Appium’s bundled version of Selendroid, which utilizes [Instrumentation](http://developer.android.com/reference/android/app/Instrumentation.html). Later versions of Android are supported via Appium’s own UiAutomator library.
 
-#### Enabling Location Services for iOS Devices
-
-If you want to enable location services on an iOS simulator - to test GPS-dependent apps, for example - set these capabilities in your Appium script:
-
-```java
-locationServicesEnabled=true
-locationServicesAuthorized=true
-```
 
 ## Example Configuration Code Snippets
 
@@ -303,140 +428,10 @@ app:"http://saucelabs.com/example_files/ContactManager.apk",
 }
 ```
 
-### Dynamic Device Allocation
-
-_Dynamic Allocation_ involves providing basic parameters for the platform and operating system, or the type of device you want to use in your tests, and a device with those specifications is selected from the device pool.
-
-While static allocation allows you more fine-grained control over the device used in your tests, it can also cause delays in your test execution if that device isn't available when you run your tests. If you only need to test on a particular platform and OS version, such as an Android 4.1, or on a particular type of device, you should use dynamic allocation, and we recommend that you use dynamic allocation for all automated mobile application testing in CI/CD environments.
-
-#### Required Capabilities
-
-Below are capabilities required for dynamic allocation of [iOS and/or Android real devices for your tests](/mobile-apps/automated-testing/appium/real-devices).
-
-<table>
-  <tr>
-   <td><strong>Capability</strong>
-   </td>
-   <td><strong>Capability Explanation</strong>
-   </td>
-  </tr>
-  <tr>
-   <td><a href="/dev/test-configuration-options#platformname"><code>platformName</code></a>
-   </td>
-   <td><p>Defines the type of mobile platform to use in your tests (i.e., Android or iOS). The values for capabilities are not case-sensitive, so <code>android</code> is the same as <code>Android</code>, and <code>ios</code> is the same as <code>iOS</code>.</p>
-   </td>
-  </tr>
-  <tr>
-   <td><a href="/dev/test-configuration-options#platformVersion"><code>platformVersion</code></a>
-   </td>
-   <td><p>The platform version to use in your tests, for example "4" or "4.1". This is a substring match. You can specify both major versions and incremental versions of an operating system.</p><p>For example, if you set only a major version 4, you also have access to all devices running incremental versions (e.g., "4.1"," 4.2", "4.2.1", "4.4.4").</p><p>This also extends to minor and point versions. For example, if you specify "11.4", it will match "11.4.0", "11.4.1".</p>
-
-   </td>
-  </tr>
-  <tr>
-   <td><a href="/dev/test-configuration-options#deviceName"><code>deviceName</code></a>
-   </td>
-   <td><p>The display name of the device to use, such as "Samsung S7". You can also use regular expressions for setting the <code>deviceName</code>. Some examples:</p>
-
-<p>To allocate any iPhone:</p><sub>
-
-    "iPhone.*", "iPhone .*"
-</sub>
-<p>To allocate any device with the word "nexus" in its display name.</p><sub>
-
-    ".*nexus.*"
-</sub>
-<p>To allocate either "iPhone 7" or "iPhone 6" device.</p><sub>
-
-    "iPhone [67]" or "iPhone [6-7]"
-</sub>
-<p>To allocate either "iPhone 7S" or "iPhone 6S" device.</p><sub>
-
-    "iPhone [67]S" or "iPhone [6-7]S"
-</sub>
-<p>To allocate "iPhone 7" or "iPhone 7S", or any device that starts with the display name "iPhone 7".</p><sub>
-
-    "iPhone 7.*"
-</sub>
-<p><strong>NOTE</strong>: Regular expressions are not case sensitive.</p>
-   </td>
-  </tr>
-</table>
-
-#### Optional Capabilities
-
-Below are optional capabilities for dynamic allocation of iOS and/or Android real devices for your tests.
-
-*  [`tabletOnly`](/dev/test-configuration-options#tabletOnly)
-*  [`phoneOnly`](/dev/test-configuration-options#phoneOnly)
-*  [`privateDevicesOnly`](/dev/test-configuration-options#privateDevicesOnly)
-*  [`publicDevicesOnly`](/dev/test-configuration-options#publicDevicesOnly)
-*  [`carrierConnectivityOnly`](/dev/test-configuration-options#carrierConnectivityOnly)
-*  [`cacheId`](/dev/test-configuration-options#cacheId)
-*  [`noReset`](/dev/test-configuration-options#noreset)
-*  [`recordDeviceVitals`](/dev/test-configuration-options#recordDeviceVitals)
-*  [`crosswalkApplication`](/dev/test-configuration-options#crosswalkApplication)
-*  [`autoGrantPermissions`](/dev/test-configuration-options#autoGrantPermissions)
-*  [`enableAnimations`](/dev/test-configuration-options#enableAnimations)
-
-
-### Static Device Allocation
-
-With _Static Allocation_, you can specify the device to use in your tests, but if that device is not available when you run your tests, it will delay test execution. For this reason, you should always make sure that the device you want to use is available before launching your tests. The `platformName` and `platformVersion` capabilities will be set by default, and if these are included in your test script, they will be ignored.
-
-| Capability | Setting |
-|------------|----|
-| `deviceName` | The ID of the device you want to use in your test (e.g., `LG_Nexus_5X_real`). To find a device's ID number, go to its listing in the device selection menu, then click **Details** . |
-
-
-### Device Caching
-
-#### **`cacheId` Capability**
-
-By default, every time you complete a test session, the real device cloud uninstalls your app, performs device cleaning, and de-allocates the device. This means that if you're running multiple tests on the same device, you would need to wait for this cleaning process to complete between every test.
-
-To get around this, you can use the capability `cacheId`, which keeps the device allocated to you for 10 seconds after each test completes. If you immediately start another test on the device, you won't need to wait for the allocation and device cleaning process to be repeated. In this case, no device cleaning will take place in between sessions, with the only exception being the application under test and the data it owns.
-
-
-<table>
-  <tr>
-   <td><strong>Capability</strong>
-   </td>
-   <td><strong>Setting</strong>
-   </td>
-  </tr>
-  <tr>
-   <td><code>cacheId</code></td>
-   <td><p>A random string. This value for cacheId must be the same for all test methods that you want to run on the cached device. In addition, the application and project ID used for the tests must remain the same, along with the values for these capabilities:</p>
-<ul>
-
-<li><code>deviceName</code></li>
-<li><code>platformName</code></li>
-<li><code>platformVersion</code></li>
-<li><code>tabletOnly</code></li>
-<li><code>phoneOnly</code></li>
-<li><code>privateDevicesOnly</code></li>
-<li><code>publicDevicesOnly</code></li>
-<li><code>automationName</code></li>
-<li><code>autoGrantPermissions</code></li>
-<li><code>appiumVersion</code></li>
-
-</ul>
-   </td>
-  </tr>
-</table>
-
-
-#### Using Device Caching with `noReset`
-
-You can also use the `cacheId` capability in conjunction with the standard noReset Appium capability. In the default case, where noReset is set to false, your application will be uninstalled and reinstalled after every test. If `noReset` is set to `true`, the application you are testing won't be reinstalled after every test run. This might save you further time, but it won't be suitable for test setups that require the application's state to be reset between tests. Note that then cacheId is set, no device cleaning will take place in between sessions, regardless of noReset value.
-
-
 ## Additional Test Configuration Options
 
-Once you're up and running with your real device tests, check out our [Best Practices](https://community.saucelabs.com/search?q=best+practice&search_type=tag;) for making the most of your testing. Here are some examples:
+Once you're up and running with your real device tests, check out our [Best Practices](https://community.saucelabs.com/search?q=best+practice&search_type=tag;) for making the most of your testing. Some possible configurations include:
 
-* [Test Configuration Options](/dev/test-configuration-options)
 * [Implement timeouts to control text execution times](/dev/test-configuration-options#timeouts)
 * [Add test annotations](/basics/test-config-annotation/test-annotation)
 * [Setting test status to pass or fail](/test-results/test-status)
@@ -449,7 +444,7 @@ They use the [pytest](https://docs.pytest.org/en/latest/) test framework.
 Feel free to [clone these scripts directly from GitHub](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples),
 and follow the instructions in the [README file](https://github.com/saucelabs-training/demo-python#readme).
 
-* [conftest.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/conftest.py): this script initializes the test fixtures, as well as the prerequisite and post-requisite test tasks.
+* [conftest.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/conftest.py): initializes the test fixtures, as well as the prerequisite and post-requisite test tasks.
 * [test_login_success.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/test_login_success.py): this script represents an individual test.
 * [test_invalid_login.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/test_login_fail.py): this script represents an individual test.
 
