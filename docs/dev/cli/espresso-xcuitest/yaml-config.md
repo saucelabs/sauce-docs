@@ -29,7 +29,7 @@ The below flags are required when writing your YAML file.
 
 ### `app`
 
-__Description__: the path to the `*.ipa` or `*.apk` file of the app under test, or the ID number of an already uploaded app. In your command line, refer to the location where you have downloaded the <code>runner.jar</code> file and run the command from the folder from where you downloaded the runner.
+__Description__: the path to the `*.ipa` or `*.apk` file of the app under test, or the ID number of an already uploaded app, or a reference to an already uploaded file. In your command line, refer to the location where you have downloaded the <code>runner.jar</code> file and run the command from the folder from where you downloaded the runner.
 
 __Example__:
 
@@ -37,14 +37,30 @@ __Example__:
 app: ExampleTestApp.ipa
 ```
 
-### `test`
+```yaml
+app: storage:c78ec45e-ea3e-ac6a-b094-00364171addb
+```
 
-__Description__: the path to the `*.ipa` or `*.apk` file of the test.
+```yaml
+app: storage:filename=ExampleTestApp.ipa
+```
+
+### `testApp`
+
+__Description__: the path to the `*.ipa` or `*.apk` file of the test app or the ID number of an already uploaded app, or a reference to an already uploaded file. In your command line, refer to the location where you have downloaded the <code>runner.jar</code> file and run the command from the folder from where you downloaded the runner.
 
 __Examples__:
 
 ```yaml
-test: ExampleTestApp-Runner.ipa
+testApp: ExampleTestApp-Runner.ipa
+```
+
+```yaml
+testApp: storage:11f421f0-30e3-23c2-9026-d73a205dcd38
+```
+
+```yaml
+testApp: storage:filename=ExampleTestApp-Runner.ipa
 ```
 
 ### `--datacenter`
