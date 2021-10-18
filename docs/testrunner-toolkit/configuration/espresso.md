@@ -306,7 +306,7 @@ espresso:
 ### `app`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the application. The default directory is `{project-root}/apps/filename.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples. Supports \*.apk (\*.aab files supported for real device testing only).
+The path to the application. The default directory is `{project-root}/apps/filename.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded application reference. Supports \*.apk (\*.aab files supported for real device testing only).
 
 ```yaml
   app: ./apps/calc.apk
@@ -315,12 +315,21 @@ The path to the application. The default directory is `{project-root}/apps/filen
 ```yaml
   app: $APP
 ```
+
+```yaml
+  app: storage:099557f6-aabb-f8b3-6ad1-8f6200898b92
+```
+
+```yaml
+  app: storage:filename=calc.apk
+```
+
 ---
 
 ### `testApp`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the testing application. The relative file location is `{project-root}/apps/testfile.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples. Supports \*.apk (\*.aab files supported for real device testing only).
+The path to the testing application. The relative file location is `{project-root}/apps/testfile.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded test application reference. Supports \*.apk (\*.aab files supported for real device testing only).
 
 ```yaml
   testApp: ./apps/calc-success.apk
@@ -329,6 +338,15 @@ The path to the testing application. The relative file location is `{project-roo
 ```yaml
   testApp: $TEST_APP
 ```
+
+```yaml
+  testApp: storage:fbd59e8e-2555-0d3c-5583-1bba2cd17b64
+```
+
+```yaml
+  testApp: storage:filename=calc-success.apk
+```
+
 ---
 
 ### `otherApps`
@@ -344,6 +362,7 @@ Apps specified as `otherApps` inherit the configuration of the main app under te
   otherApps:
     - ./apps/pre-installed-app1.apk
     - $PRE_INSTALLED_APP2
+    - storage:d6aac80c-2000-a2f1-4c4e-539266e93ee6
     - storage:filename=pre-installed-app3.apk
 ```
 ---
