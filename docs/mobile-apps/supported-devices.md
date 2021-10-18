@@ -122,7 +122,7 @@ For more information on Sauce Labs security settings, see [Security Settings for
 
 #### Data Center Security
 
-Real Device Cloud Data Center security is described in [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
+Real Device Cloud Data Center security is described in [Data Center Endpoints](/basics/data-center-endpoints).
 
 ### Static and Dynamic Device Allocation
 

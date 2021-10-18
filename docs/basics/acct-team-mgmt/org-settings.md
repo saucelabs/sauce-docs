@@ -51,7 +51,7 @@ To access Security settings:
 When you set up SSO with Sauce Labs, you are establishing a connection between the IdP used by your organization, such as Okta or Microsoft's Active Directory, and your Sauce Labs account, that will enable users to log in to Sauce Labs with their IdP credentials.
 
 :::note
-For more detailed information about setting up SSO, see [Setting Up Single Sign-On](https://docs.saucelabs.com/basics/sso/setting-up-single-sign-on).
+For more detailed information about setting up SSO, see [Setting Up Single Sign-On](/basics/sso/setting-up-single-sign-on).
 :::
 
 1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
@@ -64,8 +64,8 @@ For more detailed information about setting up SSO, see [Setting Up Single Sign-
 <img src={useBaseUrl('img/team-mgmt/sso-settings-tab.jpg')} alt="SSO Settings tab" width="600" />
 
 4. Enter a **unique identifier string**. The string will be applied to user names to make sure that your users will have unique names associated with your account.
-5. Upload the SAML metadata file provided by your IdP that contains the list of your SSO users. Sauce Labs SSO supports most SAML 2.0 metadata files. For more information about specific IdPs, see [Configuring Active Directory Federation Services (AD FS)](https://docs.saucelabs.com/basics/sso/config-adfs) and [Configuring Okta](https://docs.saucelabs.com/basics/sso/config-okta).
-6. Under **Enable Single Sign On**, toggle the switch to **Enabled**. For more information about adding new users and SSO considerations, see [Adding and Deactivating Users](https://docs.saucelabs.com/basics/acct-team-mgmt/adding-deactivating-users).
+5. Upload the SAML metadata file provided by your IdP that contains the list of your SSO users. Sauce Labs SSO supports most SAML 2.0 metadata files. For more information about specific IdPs, see [Configuring Active Directory Federation Services (AD FS)](/basics/sso/config-adfs) and [Configuring Okta](/basics/sso/config-okta).
+6. Under **Enable Single Sign On**, toggle the switch to **Enabled**. For more information about adding new users and SSO considerations, see [Adding and Deactivating Users](/basics/acct-team-mgmt/adding-deactivating-users).
 
 :::note
 If the account you're setting up with SSO is not the only account your organization has with Sauce, the **EntityID** field must be unique for each account or the setup will fail. The **EntityID** field is a simple string that can be changed manually in the metadata file prior to upload. If users are added to your IdP after you've set up SSO with Sauce Labs, then Sauce Labs accounts will be created for them the first time they attempt to log in using their SSO credentials.
@@ -75,4 +75,4 @@ If the account you're setting up with SSO is not the only account your organizat
 | Option  | Description |
 | ------------- | ------------- |
 | Default Team Placement  | Assign SSO users to a default team when they are added to Sauce Labs.  |
-| Require SSO Login (Recommended)  | Enabling this option will require users to log in to Sauce Labs using their SSO credentials, even if they already have individual Sauce Labs accounts. These users can run test automation using credentials. For more information about adding new users and SSO considerations, see [Adding and Deactivating Users](https://docs.saucelabs.com/basics/acct-team-mgmt/adding-deactivating-users).  |
+| Require SSO Login (Recommended)  | Enabling this option will require users to log in to Sauce Labs using their SSO credentials, even if they already have individual Sauce Labs accounts. These users can run test automation using credentials. For more information about adding new users and SSO considerations, see [Adding and Deactivating Users](/basics/acct-team-mgmt/adding-deactivating-users).  |

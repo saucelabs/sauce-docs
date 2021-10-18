@@ -6,7 +6,7 @@ sidebar_label: Test Configuration Options
 
 This page includes a list of valid test configuration options (capabilities) for tests run on Sauce Labs.
 
-See the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to generate the code for setting the capabilities to execute a test. For examples, see [Examples of Test Configuration Options for Website Tests](https://docs.saucelabs.com/basics/test-config-annotation/test-config/#examples-of-test-configuration-options-for-website-tests)
+See the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to generate the code for setting the capabilities to execute a test. For examples, see [Examples of Test Configuration Options for Website Tests](/basics/test-config-annotation/test-config/#examples-of-test-configuration-options-for-website-tests)
 
 ## What You'll Need
 
@@ -19,7 +19,7 @@ When setting up your test, you'll need to configure your script with settings ca
 You'll need to add these configurations to the [capabilities](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_Capabilities.html) or [options](https://www.selenium.dev/documentation/en/driver_idiosyncrasies/driver_specific_capabilities/) classes.
 
 * **[W3C WebDriver Capabilities](#browser-w3c-capabilities--optional)**: Required for any test using Selenium or Appium to communicate with the browser. W3C WebDriver capabilities are universal capabilities for any test, and are usually combined with additional capabilities. [Learn more](/dev/w3c-webdriver-capabilities).
-* **[Sauce Labs Capabilities](#desktop-and-mobile-capabilities-sauce-specific--optional)**: Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the endpoint URL](/basics/data-center-endpoints/data-center-endpoints) and should pass the test name and status as capabilities to the remote webdriver.
+* **[Sauce Labs Capabilities](#desktop-and-mobile-capabilities-sauce-specific--optional)**: Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the endpoint URL](/basics/data-center-endpoints) and should pass the test name and status as capabilities to the remote webdriver.
 * **Appium Capabilities**: Required for tests using Appium on mobile apps and Appium on mobile web browsers.
   * **[Mobile App Capabilities](#mobile-app-capabilities-appium-settings--required)**: Required if you're running a test on a mobile app.
   * **Mobile Web Capabilities**: Required if you're using Appium to test a web app. You'll need to set the `deviceName`, `platformName` `platformVersion`, and `automationName` the same way you would for a mobile app test, along with settings for the browser.
@@ -80,7 +80,7 @@ This setting cannot be used for mobile browsers, as your test will use the defau
 ### `platformName`
 <p><small>| STRING |</small></p>
 
-Identifies the name of the operating system the browser or mobile device should be running on. You can use this for [dynamic device allocation](https://docs.saucelabs.com/mobile-apps/supported-devices#static-and-dynamic-device-allocation). Values are not case-sensitive (i.e., `"ios"` is the same as `"iOS"`). See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-platform-name) for more information.
+Identifies the name of the operating system the browser or mobile device should be running on. You can use this for [dynamic device allocation](/mobile-apps/supported-devices#static-and-dynamic-device-allocation). Values are not case-sensitive (i.e., `"ios"` is the same as `"iOS"`). See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-platform-name) for more information.
 
 ```java
 "platformName": "macOS 10.13", "platformName": "iOS", "platformName": "Android"
@@ -312,7 +312,7 @@ If you have an app you have uploaded to [Sauce storage](https://app.saucelabs.co
 
 Allows you to set the name of the simulator, emulator, or real device you want to use in the test.
 
-You can use this to set up a test with either [static or dynamic allocation for RDC](https://docs.saucelabs.com/mobile-apps/app-storage), and run individual or parallel tests. Static allocation allows you to run your tests on a very specific device, while dynamic allocation allows you to specify a family of devices or any device with a certain OS so you can quickly run your test on the first available RDC device.
+You can use this to set up a test with either [static or dynamic allocation for RDC](/mobile-apps/app-storage), and run individual or parallel tests. Static allocation allows you to run your tests on a very specific device, while dynamic allocation allows you to specify a family of devices or any device with a certain OS so you can quickly run your test on the first available RDC device.
 * Dynamic allocation example: for an Android emulator test, you can request a generic Android emulator by using the option `"deviceName":"Android Emulator"`.
 * Static allocation example: if you want to use an Android emulator that looks and feels like a specific Android phone or tablet (e.g., Google Nexus 7 HD Emulator or a Samsung Galaxy S4), you need to specify the exact Android emulator skin to use (e.g., `"appium:deviceName":"Samsung Galaxy S4 Emulator"`).
 
@@ -326,7 +326,7 @@ Each Android emulator skin will have a different configuration depending on the 
 ### `platformVersion`
 <p><small>| STRING |</small></p>
 
-Allows you to set the mobile OS platform version that you want to use in your test. You can use this for [dynamic device allocation](https://docs.saucelabs.com/mobile-apps/supported-devices/#static-and-dynamic-device-allocation) to specify incremental versions (e.g., `"4.1"`) or major versions (e.g., `"4"`). By setting a major version, you'd have access to all devices running incremental versions (`"4.1"`, `"4.2"`, `"4.2.1"`, "`4.4.4"`). This also extends to minor and point versions (e.g., specifying `"4.4"` will match `"4.4.0"`, `"4.4.1"`).
+Allows you to set the mobile OS platform version that you want to use in your test. You can use this for [dynamic device allocation](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation) to specify incremental versions (e.g., `"4.1"`) or major versions (e.g., `"4"`). By setting a major version, you'd have access to all devices running incremental versions (`"4.1"`, `"4.2"`, `"4.2.1"`, "`4.4.4"`). This also extends to minor and point versions (e.g., specifying `"4.4"` will match `"4.4.0"`, `"4.4.1"`).
 
 
 ```java
@@ -531,7 +531,7 @@ On iOS devices, the `noReset` value is permanently set to `true` and cannot be o
 ---
 
 ### `recordDeviceVitals`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| BOOLEAN | <span className="sauceDBlue">TestObject Only</span> <span className="sauceGold">DEPRECATED</span> |</small></p>
 
 Device vitals are a collection of the mobile device performance data taken in real time during test execution. Vitals includes CPU utilization, memory consumption, network usage for both wifi and carrier connectivity where applicable, file operation and more. Measuring device vitals during test execution provides insights for analyzing app performance during operation.
 
@@ -543,7 +543,7 @@ As described in [Appium Issue 4597](https://github.com/appium/appium/issues/4597
 
 ---
 ### `autoGrantPermissions`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> <span className="sauceDBlue">Android Only</span> |</small></p>
 
 By default, applications are installed on devices in the Sauce Labs real device cloud with autoGrantPermissions capability set to `true`. As long as the API number of the device is equal to 23 or higher, you can disable this by explicitly setting `autoGrantPermissions` to `false`.
 
@@ -702,33 +702,45 @@ Available visibility modes are:
 ```
 
 ---
-### `tunnelIdentifier`
-<p><small>| STRING |</small></p>
+### `tunnelName`
+<p><small>| STRING | </small></p>
 
-If you're using [Sauce Connect Proxy](/secure-connections/sauce-connect) to test an application that is behind a firewall or on your local machine that has been created with a `--tunnel-identifier` value, you must provide that identifier in order to use the tunnel. See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information.
+Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an application that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
+
+See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information.
 
 ```java
-"tunnelIdentifier": "MyTunnel01"
+"tunnelName": "MyTunnel01"
 ```
 
 ---
-### `parentTunnel`  
+### `tunnelOwner`  
 <p><small>| STRING |</small></p>
 
-For using shared tunnels in your organization.
+If the [tunnelName](#tunnelname) you've specified to establish connectivity with Sauce Labs for your test is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test.
 
-This capability will let the test job use any shared tunnels available from the specified parent account (i.e., any account that is upstream in the hierarchy).
+See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
 
-See [Using Tunnel Identifiers](https://docs.saucelabs.com/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-identifiers) for more information.
-
-:::note
-If you're using a shared tunnel, you'll need to specify both `tunnelIdentifier` and `parentTunnel`.
-:::
 
 ```java
-"tunnelIdentifier": "ParentTunnelName"
-"parentTunnel": "<username of parent>"
+"tunnelName": "MyTeamSharedTunnel"
+"tunnelOwner": "<username of tunnel originator>"
 ```
+
+---
+### `tunnelIdentifier`
+<p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
+
+Please use [`tunnelName`](#tunnelname) to specify the Sauce Connect tunnel you wish to use for your test.
+
+
+
+---
+### `parentTunnel`  
+<p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
+
+Please use [`tunnelOwner`](#tunnelowner) to identify the owner of a shared tunnel you're using for your test.
+
 
 ---
 ### `recordVideo`

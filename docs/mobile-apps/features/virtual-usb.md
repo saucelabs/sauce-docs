@@ -196,7 +196,7 @@ Method 1 is recommended for the following reasons:
   </TabItem>
   </Tabs>
 
-  To use Sauce Connect Proxy: launch a tunnel in the Sauce Connect client, then add your [`--tunnel-identifier`](https://docs.saucelabs.com/dev/cli/virtual-usb/start-session#--tunnelidentifier), which the vUSB client will use to retrieve and secure test data. You can also set up a device proxy using [proxy command options](/dev/cli/virtual-usb/start-session).
+  To use Sauce Connect Proxy: launch a tunnel in the Sauce Connect client, then add your [`--tunnel-identifier`](/dev/cli/virtual-usb/start-session/#--tunnelidentifier), which the vUSB client will use to retrieve and secure test data. You can also set up a device proxy using [proxy command options](/dev/cli/virtual-usb/start-session).
 
   If your vUSB test session launch is successful, you'll see a success message:
   <Tabs
@@ -250,7 +250,7 @@ Method 1 is recommended for the following reasons:
 
 ### Test and Debug
 
-8. Now, you can debug and run tests on your app. For guidance and ideas, see the [Example Use Cases](https://docs.saucelabs.com/mobile-apps/features/virtual-usb#example-use-cases).
+8. Now, you can debug and run tests on your app. For guidance and ideas, see the [Example Use Cases](/mobile-apps/features/virtual-usb/#example-use-cases).
 
 :::caution iOS Limitation
 To do proper debugging, the iOS device symbols will need to be downloaded to your local machine. This happens automatically when you're connecting to a Sauce Labs iOS device for the first time via a remote debug vUSB session with Xcode. **Xcode will attempt to download the iOS device symbols over the vUSB tunnel, causing a lag that can last up to a few minutes.**
@@ -372,7 +372,7 @@ To deploy and debug your iOS apps, you can use Xcode. To debug your website, we 
 
 #### **Xcode Debugging**
 :::note
-Before debugging with Xcode, please read the known limitations under [Test and Debug](https://docs.saucelabs.com/mobile-apps/features/virtual-usb#test-and-debug).
+Before debugging with Xcode, please read the known limitations under [Test and Debug](/mobile-apps/features/virtual-usb/#test-and-debug).
 :::
 
 To profile your app: from your Xcode nav, select **Product** > **Profile**. It will automatically profile the app and generate a new menu, as shown below.

@@ -120,7 +120,7 @@ For example, store it in an environment variable called `SCREENER_API_KEY`, and 
 
 :::
 
-For additional configuration options, see the [Visual E2E `sauce:visual`Capability Options](https://docs.saucelabs.com/visual/e2e-testing/commands-options/#saucevisual-capability-options).
+For additional configuration options, see the [Visual E2E `sauce:visual`Capability Options](/visual/e2e-testing/commands-options/#saucevisual-capability-options).
 
 
 ## 3. Connect To Remote Hub
