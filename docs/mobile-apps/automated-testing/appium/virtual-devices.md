@@ -52,7 +52,7 @@ Here are some tips for configuring your Appium tests:
 ### Set the Location of Your Mobile App
 
 Set the value of `app` to the location for where it can be accessed. This can be a full URL, or it can use
-[Sauce Labs Application Storage](https://docs.saucelabs.com/mobile-apps/app-storage/index.html#using-application-storage-with-automated-test-builds)
+[Sauce Labs Application Storage](/mobile-apps/app-storage/#using-application-storage-with-automated-test-builds)
 
 :::note
 Sauce Labs only allows you to set either `browserName` or `app`. If you have a value set for `browserName` Sauce will
@@ -352,9 +352,9 @@ For Android tests, if your emulator session fails to start, make sure the app yo
 Once you've been able to get a test running on Sauce, check out our best practices and available modifications you can make to your tests:
 
 * [Best Practices for Running Tests](https://community.saucelabs.com/search?q=best+practice&search_type=tag).
-* [Implement timeouts to control text execution times](https://docs.saucelabs.com/dev/test-configuration-options#virtual-device-capabilities-sauce-specific--optional).
-* [Annotating Tests with the Sauce Labs REST API](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation#sauce-labs-rest-api).
-* [Annotating Tests with Selenium's JavaScript Executor](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation#selenium-javascript-executor).
+* [Implement timeouts to control text execution times](/dev/test-configuration-options/#virtual-device-capabilities-sauce-specific--optional).
+* [Annotating Tests with the Sauce Labs REST API](/basics/test-config-annotation/test-annotation/#sauce-labs-rest-api).
+* [Annotating Tests with Selenium's JavaScript Executor](/basics/test-config-annotation/test-annotation/#selenium-javascript-executor).
 * [Setting Test Status to Pass or Fail](/test-results/test-status).
 * [Using Build IDs and tags to differentiate and identify test runs](/basics/test-config-annotation/test-annotation).
 * [Create your own test script examples using our Platform Configurator](https://saucelabs.com/platform/platform-configurator#/).

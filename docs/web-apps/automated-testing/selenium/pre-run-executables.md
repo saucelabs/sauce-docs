@@ -246,7 +246,7 @@ obj.Add("background", true);
 obj.Add("timeout", 120);
 ```
 
-When you set the desired capabilities of your test, refer to the object you created as the path to the executable, as in this example:
+When you set your test capabilities, refer to the object you created as the path to the executable, as in this example:
 
 ```
 DesiredCapabilities capabilities = new DesiredCapabilities();

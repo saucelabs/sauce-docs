@@ -40,8 +40,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Cypress Version|Supported Browsers|
  |----|----|
- |8.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.3.0)|
- |7.7.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.2.2)|
+ |8.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.4.0)|
+ |8.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.3.1)|
+ |7.7.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.2.3)|
  |7.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.1.0)|
  |7.1.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.0.3)|
  |6.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v6.0.1)|
@@ -91,3 +92,8 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 * [Try Cypress with Cucumber](https://github.com/saucelabs/saucectl-cypress-example/tree/master/examples/cucumber):
 `saucectl` supports Cypress using Cucumber, and the Cypress demo repo includes an example!
 * [Incorporate saucectl in your pipeline](/testrunner-toolkit/integrations): Cypress on Sauce supports CI integrations with Cirlce CI, GitLab, Jenkins, and GitHub Actions.
+
+
+## Cypress Plugin for Sauce Labs
+
+If you would prefer to stay in Cypress, try the new [Cypress Sauce Labs Plugin](https://github.com/saucelabs/sauce-cypress-plugin). Connect to your Sauce Labs account from within your Cypress project to configure and run your tests directly from Cypress.

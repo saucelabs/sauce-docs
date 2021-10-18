@@ -26,7 +26,7 @@ In rare instances, tests running in Chrome that launch multiple browser windows 
 
 ## Enabling Extended Debugging
 
-To generate the JS console logs and HAR files, add the `extendedDebugging` capability to the desired capabilities of your test and set it to true. Here are some example scripts in both W3C WebDriver Protocol and legacy JSON Wire Protocol that show Extended Debugging enabled.
+To generate the JS console logs and HAR files, add the `extendedDebugging` capability to the capabilities of your test and set it to true. Here are some example scripts in both W3C WebDriver Protocol and legacy JSON Wire Protocol that show Extended Debugging enabled.
 
 <Tabs
   defaultValue="w3c"
@@ -61,7 +61,7 @@ const capabilities = {
 </TabItem>
 </Tabs>
 
-For more information and additional examples, see our 
+For more information and additional examples, see our
 [Extended Debugging Example GitHub repo](https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/webdriver/examples/extended-debugging).
 
 When a test with extended debugging enabled completes, you can access the logs and files through Sauce Labs or with the REST API.
@@ -509,7 +509,7 @@ curl --compressed -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.s
 
 ## HAR Files
 
-HTTP Archive Format (HAR) files collect all network requests and responses made and received by the browser during testing. HAR files offer useful debugging information, such as:
+[HTTP Archive Format (HAR) files](https://en.wikipedia.org/wiki/HAR_(file_format)) collect all network requests and responses made and received by the browser during testing. HAR files offer useful debugging information, such as:
 
 * Identifying browser requests that time out
 * Pinpointing requests slowing down the loading process
@@ -521,8 +521,9 @@ You need a HAR viewer to read HAR files. Sauce Labs provides a [React Network Vi
 
 Alternatively, some other commonly used HAR viewers include:
 
-* [HTTP Archive Viewer](http://www.softwareishard.com/har/viewer/) (*Software is Hard* blog)
-* [Chrome HAR Viewer](https://ericduran.github.io/chromeHAR/) (*Google, by Eric Duran*)
+* Chrome devtools builtin [HAR imports](https://developer.chrome.com/blog/new-in-devtools-62/#har-imports)
+* Google Admin Toolbox [HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/)
+* *Software is Hard* blog [HTTP Archive Viewer](http://www.softwareishard.com/har/viewer/)
 
 ### Accessing HAR Files
 
