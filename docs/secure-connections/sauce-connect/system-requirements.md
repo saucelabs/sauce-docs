@@ -434,7 +434,7 @@ Select a cloud provider from the tables below to view the recommended system req
 
 ### Microsoft Azure
 
-For Azure, we recommend using multiple instances of D4a to scale, rather than faster individual instances.
+The below recommendations are for Linux VMs.
 
 <Tabs
   defaultValue="Virtual Machines"
@@ -448,14 +448,14 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
 <table>
   <tr>
    <td>
-<strong>Parallel Tests</strong>
+   <strong>Parallel Tests</strong>
    </td>
    <td><strong>Machine Type</strong>
    </td>
    <td><strong>Memory</strong>
    </td>
    <td>
-<strong>Processor</strong>
+   <strong>Processor</strong>
    </td>
    <td><strong>Bandwidth</strong>
    </td>
@@ -467,11 +467,11 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
    </td>
    <td>Standard_D2a_v4
    </td>
-   <td>7.5 GB
+   <td>8 GiB
    </td>
    <td>2
    </td>
-   <td>450 Mbps
+   <td>2000 Mbps
    </td>
    <td>1
    </td>
@@ -481,11 +481,11 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
    </td>
    <td>Standard_D4a_v4
    </td>
-   <td>15 GB
+   <td>16 GiB
    </td>
    <td>4
    </td>
-   <td>750 Mbps
+   <td>4000 Mbps
    </td>
    <td>1
    </td>
@@ -493,13 +493,13 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
   <tr>
    <td>200-399
    </td>
-   <td>Standard_D4a_v4 x 2
+   <td>Standard_D4a_v4
    </td>
-   <td>15 GB
+   <td>16 GiB
    </td>
    <td>4
    </td>
-   <td>750 Mbps
+   <td>4000 Mbps
    </td>
    <td>2
    </td>
@@ -507,13 +507,13 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
   <tr>
    <td>400-599
    </td>
-   <td>Standard_D4a_v4 x 4
+   <td>Standard_D4a_v4
    </td>
-   <td>15 GB
+   <td>16 GiB
    </td>
    <td>4
    </td>
-   <td>750 Mbps
+   <td>4000 Mbps
    </td>
    <td>3
    </td>
@@ -521,13 +521,13 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
   <tr>
    <td>600-799
    </td>
-   <td>Standard_D4a_v4 x 8
+   <td>Standard_D4a_v4
    </td>
-   <td>15 GB
+   <td>16 GiB
    </td>
    <td>4
    </td>
-   <td>750 Mbps
+   <td>4000 Mbps
    </td>
    <td>4
    </td>
@@ -535,13 +535,13 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
   <tr>
    <td>800+
    </td>
-   <td>Standard_D4a_v4 x 16
+   <td>Standard_D4a_v4
    </td>
-   <td>15 GB
+   <td>16 GiB
    </td>
    <td>4
    </td>
-   <td>750 Mbps
+   <td>4000 Mbps
    </td>
    <td>6
    </td>
@@ -554,14 +554,14 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
 <table>
   <tr>
    <td>
-<strong>Parallel Tests</strong>
+   <strong>Parallel Tests</strong>
    </td>
    <td><strong>Machine Type</strong>
    </td>
    <td><strong>Memory</strong>
    </td>
    <td>
-<strong>Processor</strong>
+   <strong>Processor</strong>
    </td>
    <td><strong>Bandwidth</strong>
    </td>
@@ -573,11 +573,11 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
    </td>
    <td>Standard_D2a_v4
    </td>
-   <td>7.5 GB
+   <td>8 GiB
    </td>
    <td>2
    </td>
-   <td>3.5 Gbps
+   <td>2000 Gbps
    </td>
    <td>1
    </td>
@@ -587,11 +587,11 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
    </td>
    <td>Standard_D4a_v4
    </td>
-   <td>7.5 GB
+   <td>16 GiB
    </td>
-   <td>2
+   <td>4
    </td>
-   <td>3.5 Gbps
+   <td>4000 Gbps
    </td>
    <td>2
    </td>
@@ -599,13 +599,13 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
   <tr>
    <td>1000-1999
    </td>
-   <td>Standard_D4a_v4 x 2
+   <td>Standard_D4a_v4
    </td>
-   <td>7.5 GB
+   <td>16 GiB
    </td>
-   <td>2
+   <td>6
    </td>
-   <td>3.5 Gbps
+   <td>4000 Gbps
    </td>
    <td>4
    </td>
@@ -613,13 +613,13 @@ For Azure, we recommend using multiple instances of D4a to scale, rather than fa
   <tr>
    <td>2000+
    </td>
-   <td>Standard_D4a_v4 x 8
+   <td>Standard_D4a_v4
    </td>
-   <td>7.5 GB
+   <td>16 GiB
    </td>
-   <td>2
+   <td>8
    </td>
-   <td>3.5 Gbps
+   <td>4000 Gbps
    </td>
    <td>8
    </td>
@@ -671,11 +671,11 @@ You'll need to use the set of domains for your corresponding Sauce Labs Data Cen
 
 <img src={useBaseUrl('img/sauce-connect/data-center-ui.jpg')} alt="Sauce Connect download file contents" width="600" margin-bottom="50px"/>
 
-For more information on our Data Centers and how to choose the right one for you, see [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
+For more information on our Data Centers and how to choose the right one for you, see [Data Center Endpoints](/basics/data-center-endpoints).
 
 ### REST API Endpoints
 
-The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select your relevant [Data Center](/basics/data-center-endpoints/data-center-endpoints):
+The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select your relevant [Data Center](/basics/data-center-endpoints):
 
 <Tabs
   groupId="dc-url"
@@ -714,7 +714,7 @@ The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select y
 
 #### Sauce Connect Tunnel Service Domains
 
-The following domains must be allowlisted for outbound communication from you network in order to make connections to Sauce Connect tunnels. Select your relevant [Data Center](/basics/data-center-endpoints/data-center-endpoints):
+The following domains must be allowlisted for outbound communication from you network in order to make connections to Sauce Connect tunnels. Select your relevant [Data Center](/basics/data-center-endpoints):
 
 <Tabs
   groupId="dc-url"
