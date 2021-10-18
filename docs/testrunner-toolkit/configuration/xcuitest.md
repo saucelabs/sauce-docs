@@ -8,6 +8,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+<span className="sauceDBlue">Real Devices Only</span>
+
 `saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your XCUITest tests, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running XCUITest tests.
 
 ## Setting an Alternative Configuration File
@@ -108,7 +110,7 @@ Specifies through which Sauce Labs data center tests will run. Valid values are:
 The set of properties that allows you to provide additional information about your project that helps distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you.
 
 :::note
-At this time, the `metadata` property is not supported for XCUITest, but is coming soon.
+At this time, the `metadata` property is not supported for XCUITest because XCUITest is only supported for real device testing.
 :::
 
 ```yaml
