@@ -12,9 +12,10 @@ Sauce Labs uses its framework agnostic test orchestrator [`saucectl`](/testrunne
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-* Your Espresso or XCUITest apps and files.
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+* Your Espresso apps and files for real devices and/or emulators
+* Your XCUITest apps and files for real devices (automated tests for simulators are not supported at this time)
 
 ## Installation & Setup
 
