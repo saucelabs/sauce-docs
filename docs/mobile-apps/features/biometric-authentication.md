@@ -9,57 +9,51 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-We provide testing capabilities for mobile app biometric authentication (fingerprint and facial recognition). Please note that not all iOS and Android mobile devices offer this feature.
+Sauce Labs provides biometrics interception for our customers to:
+
+* Access test flows that are dependent on biometrics support, such as a mandatory security layer.
+* Verify that an app responds as expected to biometrics settings (e.g., enabled/disabled and successful/unsuccessful).
+
+Biometrics test support in Sauce Labs is not intended to test actual biometrics values for authentication.
 
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your mobile app file. If you don't have one on hand, consider using our [React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases).
 
 
 ## Live Testing
 
-|                      | Supported    | Not Supported |   
-|----------------------|:------------:|:-------------:|
-| Android real devices | &checkmark;  |               |   
-| iOS real devices     | &checkmark;  |               |   
-| Android emulators    |              | &#x2715;      |
-| iOS simulators       |              | &#x2715;      |
+<span className="sauceDBlue">Real Devices Only</span>
 
-
-To enable biometric authentication for your app:
+To verify biometric interception in a live mobile app test:
 
 1. Click **LIVE** > **Mobile App** to navigate to Sauce Labs real devices.
-2. If you haven't already, upload your app file.
-3. Hover over your app row and click **Settings**.
-4. Set **Biometrics Interception** to **Enabled**.
-5. Return to the app menu by clicking **Back to App Selection**.
-6. Start up your live test session:
+1. If you haven't already, upload your app file.
+1. Hover over your app row and click **Settings**.
+1. Set **Biometrics Interception** to **Enabled**.
+1. Return to the app menu by clicking **Back to App Selection**.
+1. Start up your live test session:
     1. Hover over your app and click **Choose Device**.
     1. Choose an available device from the menu.
     1. Click **Launch**.
-
-To initiate a fingerprint or facial recognition action in your live test session:
-
-1. In the toolbar, click the **Authentication** fingerprint icon.
-2. Select a response:
+1. Once in the test, if a login screen appears, but the facial or fingerprint recognition prompt does not appear, you may need to allow biometrics in the app itself. For example, in the Sauce Labs My Demo App:
+    1. Click **Menu** at the bottom of the device screen.
+    1. Choose **FaceID** from the menu.
+    1. Enable **Allow login with FaceID**.
+1. Return to the Login screen to trigger the biometric interception prompt, then click the **More Device Options** icon in the right-side toolbar and select the **Biometric Authentication** fingerprint icon.
+    <img src={useBaseUrl('img/mobile-apps/biometric-auth-1.png')} alt="Biometric authorization live testing" width="200"/>
+8. Select a response:
     * Select **PASS** to imitate successful authentication.
     * Select **FAIL** to imitate unsuccessful authentication.  
 
-<img src={useBaseUrl('img/mobile-apps/biometric-auth-1.png')} alt="Biometric authorization live testing" width="200"/>
-<br/>
-<img src={useBaseUrl('img/mobile-apps/biometric-auth-2.gif')} alt="Biometric authorization live testing" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/biometric-auth-1.gif')} alt="Biometric authorization live testing" width="500"/>
 
 See [Live Mobile App Testing Toolbar](/mobile-apps/live-testing/live-mobile-app-testing/#app-settings) for more information.
 
 
 ## Automated Testing
 
-|                      | Supported    | Not Supported |   
-|----------------------|:------------:|:-------------:|
-| Android real devices | &checkmark;  |               |   
-| iOS real devices     | &checkmark;  |               |  
-| Android emulators    | &checkmark;  |               |
-| iOS simulators       | &checkmark;  |               |
 
 ### iOS Simulators
 
