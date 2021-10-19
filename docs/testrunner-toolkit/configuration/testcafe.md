@@ -533,6 +533,87 @@ The explicit name, file glob, or location of the test files to be included in th
 ```
 ---
 
+### `filter`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specify which filters to apply to know which tests to exectutes.
+
+```yaml
+  filter:
+    test: browser-should-display-time
+    testGrep: browser.*
+    fixture: browswer-expectations
+    fixtureGrep: browser.*
+    testMeta:
+      region: us-west-1
+    fixtureMeta:
+      env: staging
+```
+---
+
+#### `test`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Runs a test with the specified name.
+
+```yaml
+  test: browser-should-display-time
+```
+---
+
+#### `testGrep`
+<p><small>| OPTIONAL | STRING/REGEX |</small></p>
+
+Runs tests whose names match the specified `grep` pattern.
+
+```yaml
+  testGrep: should-.*
+```
+---
+
+#### `fixture`
+<p><small>| OPTIONAL | STRING/ARRAY |</small></p>
+
+Runs a test with the specified fixture name.
+
+```yaml
+  fixture: browswer-expectations
+```
+---
+
+#### `fixtureGrep`
+<p><small>| OPTIONAL | STRING/ARRAY |</small></p>
+
+Runs tests whose fixture names match the specified `grep` pattern.
+
+```yaml
+  fixtureGrep: browser-.*
+```
+---
+
+#### `testMeta`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Runs tests whose metadata matches the specified key-value pair.
+
+```yaml
+  testMeta:
+    region: us-west-1
+```
+---
+
+#### `fixtureMeta`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Runs tests whose fixture’s metadata matches the specified key-value pair.
+
+```yaml
+  fixtureMeta:
+    env: staging
+```
+---
+
+
 ### `simulators`
 <p><small>| OPTIONAL | OBJECT | <span class="highlight sauce-cloud">Sauce Cloud only</span>|</small></p>
 
