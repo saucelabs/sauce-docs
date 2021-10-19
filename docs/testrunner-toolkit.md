@@ -237,7 +237,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |TestCafe Version|Supported Browsers|
 |----|----|
-|1.16.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.11.0)|
+|1.16.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.12.0)|
 |1.15.3|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.10.0)|
 |1.15.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.9.0)|
 |1.14.2|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.7.0)|
