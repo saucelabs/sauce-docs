@@ -49,6 +49,16 @@ kind: cypress
 ```
 ---
 
+## `showConsoleLog`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Generates the `console.log` as local output and as a test asset in Sauce Labs for all tests. By default, `console.log` is only included in results for failed tests.
+
+```yaml
+showConsoleLog: true
+```
+---
+
 ## `defaults`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
