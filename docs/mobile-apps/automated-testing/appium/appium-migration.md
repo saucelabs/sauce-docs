@@ -19,7 +19,7 @@ TestObject was discontinued September 1, 2021. If you have any questions, please
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * Your preferred Sauce Labs Data Center (e.g., US-West-1, EU-Central-1).
-* An app to test. If you don't have a mobile app or test file, consider using our [Sauce Labs sample app](https://github.com/saucelabs/sample-app-mobile/releases).
+* Your mobile app file. If you don't have one on hand, consider using our [React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases).
 
 
 ## Sauce Labs User Management
