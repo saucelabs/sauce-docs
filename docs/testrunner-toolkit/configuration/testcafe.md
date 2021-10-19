@@ -536,7 +536,7 @@ The explicit name, file glob, or location of the test files to be included in th
 ### `filter`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specify which filters to apply to know which tests to exectutes.
+Specify a set of criteria to limit which tests in the `src` directory to execute for the suite.
 
 ```yaml
   filter:
