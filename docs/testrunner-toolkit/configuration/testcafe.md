@@ -598,7 +598,7 @@ filter:
 ---
 
 #### `testMeta`
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | KEY-VALUE |</small></p>
 
 Runs any tests whose metadata matches the specified key-value pairs. Accepts one or more key-value definitions. If multiple pairs are specified, matching tests must contain all of the specified metadata values.
 
@@ -610,7 +610,7 @@ filter:
 ---
 
 #### `fixtureMeta`
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | KEY-VALUE |</small></p>
 
 Runs any tests included in fixtures whose metadata matches the specified key-value pairs. Accepts one or more key-value definitions. If multiple pairs are specified, matching tests must contain all of the specified metadata values.
 
