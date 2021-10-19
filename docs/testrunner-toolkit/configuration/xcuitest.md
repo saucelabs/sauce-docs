@@ -8,6 +8,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+<span className="sauceDBlue">Real Devices Only</span>
+
 `saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your XCUITest tests, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running XCUITest tests.
 
 ## Setting an Alternative Configuration File
@@ -53,6 +55,16 @@ kind: xcuitest
 ```
 ---
 
+## `showConsoleLog`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Generates the `console.log` as local output and as a test asset in Sauce Labs for all tests. By default, `console.log` is only included in results for failed tests.
+
+```yaml
+showConsoleLog: true
+```
+---
+
 ## `defaults`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -87,7 +99,7 @@ sauce:
       - e2e
       - release team
       - other tag
-    build: Release $X_COMMIT_SHORT_SHA
+    build: Release $CI_COMMIT_SHORT_SHA
   concurrency: 5
 ```
 ---
@@ -108,7 +120,7 @@ Specifies through which Sauce Labs data center tests will run. Valid values are:
 The set of properties that allows you to provide additional information about your project that helps distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you.
 
 :::note
-At this time, the `metadata` property is not supported for XCUITest, but is coming soon.
+At this time, the `metadata` property is not supported for XCUITest because XCUITest is only supported for real device testing.
 :::
 
 ```yaml
@@ -311,7 +323,7 @@ xcuitest:
 ### `app`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the application. The property recognizes both .ipa and .app file types and supports expanded environment variables.
+The path to the application. The property recognizes both .ipa and .app file types and supports expanded environment variables or an already uploaded test application reference.
 
 ```yaml
   app: ./apps/xcuitest/SauceLabs.Mobile.Sample.XCUITest.App.ipa
@@ -320,6 +332,15 @@ The path to the application. The property recognizes both .ipa and .app file typ
 ```yaml
   app: $APP
 ```
+
+```yaml
+  app: storage:c78ec45e-ea3e-ac6a-b094-00364171addb
+```
+
+```yaml
+  app: storage:filename=SauceLabs.Mobile.Sample.XCUITest.App.ipa
+```
+
 ---
 
 ### `testApp`
@@ -334,6 +355,15 @@ The path to the testing application. The property recognizes both `.ipa` and `.a
 ```yaml
   testApp: $TEST_APP
 ```
+
+```yaml
+  testApp: storage:11f421f0-30e3-23c2-9026-d73a205dcd38
+```
+
+```yaml
+  testApp: storage:filename=./apps/SwagLabsMobileAppUITests-Runner.app.ipa
+```
+
 ---
 
 ### `otherApps`
@@ -349,6 +379,7 @@ Apps specified as `otherApps` inherit the configuration of the main app under te
   otherApps:
     - ./apps/pre-installed-app1.ipa
     - $PRE_INSTALLED_APP2
+    - storage:8d250fec-5ecb-535c-5d63-aed4da026293
     - storage:filename=pre-installed-app3.ipa
 ```
 ---

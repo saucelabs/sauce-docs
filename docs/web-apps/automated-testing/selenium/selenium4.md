@@ -49,7 +49,7 @@ So, Firefox specific capabilities need to be nested inside a `moz:firefoxOptions
 
 #### Converting from Capabilities to Options
 
-To customize your default settings, check out the new **Selenium 4** tab on the [Sauce Labs platform configurator](https://saucelabs.com/platform/platform-configurator). All the valid `sauce:options` parameters are described on the [Test Configurations](/dev/test-configuration-options/index.html) page.
+To customize your default settings, check out the new **Selenium 4** tab on the [Sauce Labs platform configurator](https://saucelabs.com/platform/platform-configurator). All the valid `sauce:options` parameters are described on the [Test Configurations](/dev/test-configuration-options) page.
 
 <Tabs
 groupId="lang-ex"
