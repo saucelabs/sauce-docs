@@ -82,61 +82,84 @@ https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/e
 
 ### iOS Simulators
 
-To enable Touch ID and Face ID on Sauce Labs iOS simulators or on your local machine, set the desired capability `allowTouchIdEnroll` to `true`. When the simulator starts, Touch ID enrollment will be enabled by default.
+Testing biometric interception on Sauce Labs iOS simulators or on your local machine involves writing your script to ensure biometrics is enabled for both the device and the app, and then simulating either a successful or failed authentication to ensure that the expected behavior results.
 
-You can also toggle Touch ID enrollment during a test session by calling, for example, the WebdriverIO client method `driver.toggleEnrollTouchId(true)`. More examples in different programming languages can be found [here](http://appium.io/docs/en/commands/device/simulator/toggle-touch-id-enrollment/#toggle-touch-id-enrollment).
+1. In your test script, check the device setting for biometrics, as shown in the `prepareBiometrics` function in our demo script:
 
-1. Add the `allowTouchIdEnroll` capability in your test script and set it to `true`.
-  ```js
-  allowTouchIdEnroll: true,
+  ```js reference title="WebdriverIO Biometrics Check Sample"
+  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L10-L31
   ```
-2. Use the `driver.toggleEnrollTouchId` method with a value of `true` or `false` in your test script to toggle the Touch ID enrollment during the test.
-  ```js reference
-  https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/appium-app/examples/biometric-login/test/specs/touch.face.id.spec.js#L5-L15
-  ```
-3. To run your test locally, call `npm run test.local.ios.simulator`. To run your test on an Sauce Labs iOS simulator, call one of the following data centers, based on your location:
-    * US Data Center: `npm run test.sauce.ios.simulator.us`
-    * EU Data Center: `npm run test.sauce.ios.simulator.eu`
 
-For additional sample tests and configurations, see our [demo repo](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio/appium-app/examples/biometric-login).
+  :::note Setting allowTouchIdEnroll capability is optional
+  You can set the desired capability `allowTouchIdEnroll` to `true` to enable enrollment by default for your app, but if you are checking the enrollment in your script anyway, this is not required.
+  :::
+
+2. If biometrics is disabled, call the `driver.toggleEnrollTouchId(true)` method to enable it.
+
+  ```js reference title="WebdriverIO Toggle Biometrics Sample"
+  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L33-L41
+  ```
+
+3. Now that biometrics is enabled for the device, make sure it is also enabled for the app.
+
+  ```js reference title="WebdriverIO Enable Biometrics in App"
+  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L48-L49
+  ```
+
+4. Wait for the login screen to appear, then call the `submitBiometrics(true)` method to simulate a successful biometric authentication.
+
+  ```js reference title="WebdriverIO Submit Bio Auth Sample"
+  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L60-L71
+  ```
+
+5. Run your test. Call:
+  * Local environment: `npm run test.local.ios.simulator`
+  * Sauce Labs US Data Center: `npm run test.sauce.ios.simulator.us`
+  * Sauce Labs EU Data Center: `npm run test.sauce.ios.simulator.eu`
+
 
 
 ### Android Emulators
 
-Android emulators do not have a capability to enable Touch ID enrollment. Rather, you must engage the device settings to enable Fingerprint enrollment and then use a command to emulate the fingerprint with a PIN.
+As with iOS, when testing on Android emulators, you can first perform a check to see whether the device is enabled for biometric authentication. The test script in this samples is actually the same script for both iOS and Android -- the only difference is in setting the device enrollment.
 
-To enable biometric authentication on Android emulators:
+1. In your test script, check the device setting for biometrics, as shown in the `prepareBiometrics` function in our demo script:
 
-1. Open an emulator.  
-2. Activate Screenlock by clicking the three dots icon, then choose **Settings** > **Security**.
-3. Go to **Fingerprint** to add a new fingerprint.
-4. When prompted to place your finger on the scanner, emulate the fingerprint using this ADB command:
-  ```js
-  adb -e emu finger touch <finger_id>
+  ```js reference title="WebdriverIO Biometrics Check Sample"
+  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L10-L31
   ```
-  For example, `adb -e emu finger touch 1234` sets `1234` as the virtual fingerprint. When you test the fingerprint in your automation script, use this value in your `adb` command for a successful authentication, or an incorrect value to test a failed authentication.
-  :::note
-  Make sure you have included the helper command to allow ADB commands in your script:
-  ```js reference
-  https://github.com/saucelabs/sample-app-mobile/blob/518ff8950374d472afbde22c93014c15a44f72c8/tests/e2e/screenObjects/AndroidSettings.js#L141-L149
+2. Android does not have a capability to control the device's biometric enablement. Instead, you must go through the device's enrollment process and call an ADB command to set the PIN values representing the successful and failed authentication. Our demo repo uses a separate script to do this, and then calls the script in the test.
+
+  ```js reference title'"AndroidSettings Biometric Enrollment Script Sample"
+  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/screen-objects/AndroidSettings.ts#L87-L105
   ```
-  :::
 
-5. After adding the fingerprint, the emulator displays a fingerprint detected message.  
-6. Return to your Android app, navigate to an action that requires fingerprint authentication, and execute the same command on the app screen.
+  ```js reference title="Enable Device Biometrics in Test Sample"
+  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L42-L46
+  ```
 
-```js reference
-https://github.com/saucelabs/sample-app-mobile/blob/518ff8950374d472afbde22c93014c15a44f72c8/tests/e2e/screenObjects/AndroidSettings.js#L18-L35
-```
+3. Now that biometrics is enabled for the device, make sure it is also enabled for the app.
 
+  ```js reference title="WebdriverIO Enable Biometrics in App"
+  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L48-L49
+  ```
+
+4. Wait for the login screen to appear, then call the `submitBiometrics(true)` method to simulate a successful biometric authentication.
+
+  ```js reference title="WebdriverIO Submit Bio Auth Sample"
+  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L60-L71
+  ```
+
+5. Run your test. Call:
+  * Local environment: `npm run test.local.ios.simulator`
+  * Sauce Labs US Data Center: `npm run test.sauce.ios.simulator.us`
+  * Sauce Labs EU Data Center: `npm run test.sauce.ios.simulator.eu`
 
 
 ## Additional Resources
-* [Using Biometric Login on Sauce Labs](https://github.com/saucelabs-training/demo-js/tree/b770bf13b7f12af1187176cbff344cd3117fd3ee/webdriverio/appium-app/examples/biometric-login) contains Android and iOS device configuration demo scripts for a variety of use cases, including:
-    * iOS local simulators
-    * iOS simulators in our Sauce Labs Simulator Cloud
-    * iOS real devices in our Legacy RDC platform
-    * iOS real devices in the Sauce Labs UI
-    * Android local emulators
-    * Android emulators in the Sauce Labs Emulator Cloud
-* [Documentation for iOS simulator Face ID | Appium on GitHub](https://github.com/appium/appium-xcuitest-driver/blob/master/docs/touch-id.md)
+* Our [Biometrics Demo](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio/appium-app/examples/biometric-login) contains all the configuration, helper, and test script files demonstrating Biometric Login use cases for both Android and iOS real and virtual devices, including:
+    * React Native Sample App for Android and iOS
+    * Test script to validate successful biometric login
+    * Test script to validate failed biometric login
+    * Test script to exit out of biometric auth modal
+* [Appium Documentation for iOS simulator Face ID](https://github.com/appium/appium-xcuitest-driver/blob/master/docs/touch-id.md)
