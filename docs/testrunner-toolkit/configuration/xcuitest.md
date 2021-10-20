@@ -55,6 +55,16 @@ kind: xcuitest
 ```
 ---
 
+## `showConsoleLog`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Generates the `console.log` as local output and as a test asset in Sauce Labs for all tests. By default, `console.log` is only included in results for failed tests.
+
+```yaml
+showConsoleLog: true
+```
+---
+
 ## `defaults`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -204,18 +214,7 @@ sauce:
     name: your_tunnel_name
     owner: tunnel_owner_username
 ```
----
 
-## `env`
-<p><small>| OPTIONAL | OBJECT |</small></p>
-
-A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
-
-```yaml
-  env:
-    hello: world
-    my_var: $MY_VAR
-```
 ---
 ## `reporters`
 <p><small>| OPTIONAL | OBJECT |</small></p>
@@ -313,7 +312,7 @@ xcuitest:
 ### `app`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the application. The property recognizes both .ipa and .app file types and supports expanded environment variables.
+The path to the application. The property recognizes both .ipa and .app file types and supports expanded environment variables or an already uploaded test application reference.
 
 ```yaml
   app: ./apps/xcuitest/SauceLabs.Mobile.Sample.XCUITest.App.ipa
@@ -322,6 +321,15 @@ The path to the application. The property recognizes both .ipa and .app file typ
 ```yaml
   app: $APP
 ```
+
+```yaml
+  app: storage:c78ec45e-ea3e-ac6a-b094-00364171addb
+```
+
+```yaml
+  app: storage:filename=SauceLabs.Mobile.Sample.XCUITest.App.ipa
+```
+
 ---
 
 ### `testApp`
@@ -336,6 +344,15 @@ The path to the testing application. The property recognizes both `.ipa` and `.a
 ```yaml
   testApp: $TEST_APP
 ```
+
+```yaml
+  testApp: storage:11f421f0-30e3-23c2-9026-d73a205dcd38
+```
+
+```yaml
+  testApp: storage:filename=./apps/SwagLabsMobileAppUITests-Runner.app.ipa
+```
+
 ---
 
 ### `otherApps`
@@ -351,6 +368,7 @@ Apps specified as `otherApps` inherit the configuration of the main app under te
   otherApps:
     - ./apps/pre-installed-app1.ipa
     - $PRE_INSTALLED_APP2
+    - storage:8d250fec-5ecb-535c-5d63-aed4da026293
     - storage:filename=pre-installed-app3.ipa
 ```
 ---
@@ -372,18 +390,6 @@ The name of the test suite, which will be reflected in the results and related a
 
 ```yaml
   - name: "saucy test"
-```
----
-
-### `env`
-<p><small>| OPTIONAL | OBJECT |</small></p>
-
-A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
-
-```yaml
-  env:
-    hello: world
-    my_var: $MY_VAR
 ```
 ---
 
