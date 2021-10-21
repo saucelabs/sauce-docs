@@ -1,5 +1,5 @@
 ---
-id: quick-start
+id: quickstart
 title: Create Your First Test
 sidebar_label: Quickstart
 description: Learn how to quickly generate a test in API Fortress. By using the payload from an API call or from a specification file.

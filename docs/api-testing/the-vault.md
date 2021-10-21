@@ -36,7 +36,7 @@ If a variable that exists in the Company Vault, also exists in the Project Vault
 For example, a password could be saved as a variable and reused in multiple places. See [password variable example](#the-password-variable) below for more details.
 
 :::tip Import Postman Collections into The Vault
-Additionally, you can import variables from Postman. See [here](/api-testing/mark3/quick-start/importing-postman-collections/) for more details.
+Additionally, you can import variables from Postman. See [here](/api-testing/importing-postman-collections/) for more details.
 :::
 
 ### Snippets Section
