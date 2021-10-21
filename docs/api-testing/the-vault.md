@@ -44,7 +44,7 @@ Additionally, you can import variables from Postman. See [here](/api-testing/imp
 All created or imported test component/code examples exist in the snippets section.
 
 :::tip What is a Snippet?
-See [here](/api-testing/mark2/reference/composer-snippets) for more details.
+See [here](/api-testing/on-prem/reference/composer-snippets) for more details.
 :::
 
 Much like with variable scope, code snippets saved in the specific **Project Vault** are only available in that project. Likewise, snippets saved in the **Company Vault** are available across all projects.

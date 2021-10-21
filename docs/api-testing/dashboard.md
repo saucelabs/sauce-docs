@@ -57,5 +57,5 @@ To set performance alerts and email notifications:
 
 The following links provide useful information about using the dashboard and its metrics:
 
-- [Simplest method to set up a basic monitor](/api-testing/mark2/quick-start/easy-monitoring)
-- [Creating a Connector](/api-testing/mark2/integrations/add-new-connector)
+- [Simplest method to set up a basic monitor](/api-testing/on-prem/quick-start/easy-monitoring)
+- [Creating a Connector](/api-testing/on-prem/integrations/add-new-connector)
