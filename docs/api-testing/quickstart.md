@@ -90,8 +90,8 @@ Go back to your test's **Compose** tab > **Visual** view and try adding more log
 
 ## More Information
 
-* For more information on building tests using a spec file, see [Build from Spec](/api-testing/mark2/quick-start/build-from-spec).
-* Check out the [Example Snippets](/api-testing/mark2/quick-start/using-the-example-snippets) provided by the API Fortress Dashboard.
-* Learn how to [import Postman Collections](/api-testing/mark2/quick-start/importing-postman-collections) so that you can generate more tests.
-* Learn how to schedule a test [here](/api-testing/mark2/quick-start/schedule-a-test).  
-* Learn about data and notifications connectors [here](/api-testing/mark2/quick-start/setup-connectors). Simple solutions to plug into the systems you use today (e.g., DataDog or New Relic).
+* For more information on building tests using a spec file, see [Build from Spec](/api-testing/on-prem/quick-start/build-from-spec).
+* Check out the [Example Snippets](/api-testing/on-prem/quick-start/using-the-example-snippets) provided by the API Fortress Dashboard.
+* Learn how to [import Postman Collections](/api-testing/on-prem/quick-start/importing-postman-collections) so that you can generate more tests.
+* Learn how to schedule a test [here](/api-testing/on-prem/quick-start/schedule-a-test).  
+* Learn about data and notifications connectors [here](/api-testing/on-prem/quick-start/setup-connectors). Simple solutions to plug into the systems you use today (e.g., DataDog or New Relic).
