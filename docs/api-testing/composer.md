@@ -10,7 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 The API Fortress Composer offers unparalleled flexibility and ease-of-use, with everything at your fingertips to build tests in minutes and eliminate many duplicate tasks. Users of all skill levels can begin using the Composer with little or no training to quickly generate sophisticated functional tests. You can then reuse these tests as end-to-end integration tests and load (stress) tests. In turn, load tests may easily be reused as monitors for performance testing.  
 
 :::note Learn more about End-to-End Tests / Integration Tests
-Read the following page to learn more about [Integration / Multistep Testing](/api-testing/mark2/quick-start/introduction-to-integration-testing)  
+Read the following page to learn more about [Integration / Multistep Testing](/api-testing/on-prem/quick-start/introduction-to-integration-testing)  
 :::
 
 ## Visual vs. Code View
@@ -48,7 +48,7 @@ Use the following image as a reference for the numbered items listed below:
 
 3. __Delete Component__: This button allows you to delete a selected component from the test while using visual mode.
 
-4. __Invoke Snippet__: This button allows you to use a previously created code snippet stored in [The Vault](/api-testing/mark2/quick-start/the-vault).
+4. __Invoke Snippet__: This button allows you to use a previously created code snippet stored in [The Vault](/api-testing/on-prem/quick-start/the-vault).
 
 5. __Export Snippet__: This button allows you to export a selected code snippet to the vault in order to be re-used later, or in another test.
 
@@ -73,4 +73,4 @@ Use the following image as a reference for the numbered items listed below:
 ## More Information
 
 * Learn how to [create a test quickly](/api-testing/quickstart).
-* Learn about [request components](/api-testing/mark2/io-components) and [assertion components](/api-testing/mark2/assertion-components/assert-compares).
+* Learn about [request components](/api-testing/on-prem/io-components) and [assertion components](/api-testing/on-prem/assertion-components/assert-compares).
