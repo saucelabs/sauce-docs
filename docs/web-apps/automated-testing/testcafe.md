@@ -32,6 +32,21 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
     </tr>
     <tbody>
     <tr>
+      <td rowspan='3'>1.16.1</td>
+      <td><b>macOS:</b> 11.0</td>
+      <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+      <td>Safari</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
       <td rowspan='3'>1.15.3</td>
       <td><b>macOS:</b> 11.0</td>
       <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
@@ -121,7 +136,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |TestCafe Version|Supported Browsers|
  |----|----|
- |1.16.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.11.0)|
+ |1.16.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.12.1)|
  |1.15.3|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.10.0)|
  |1.14.2|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.7.0)|
  |1.14.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.6.1)|
