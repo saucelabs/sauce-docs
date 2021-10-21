@@ -30,7 +30,7 @@ You can run live tests of your websites on a wide variety of operating system, b
 
 7. Your recent  configurations are listed in the right panel, under **Recent**.
 
-<img src={useBaseUrl('img/live-testing/desktop-recent-saved.jpg')} alt="Recent and saved tests" width="350"/>
+<img src={useBaseUrl('img/live-testing/desktop-recent-saved.jpg')} alt="Recent tests" width="350"/>
 
 8. Click **Start Session**.
 You'll see a loading screen, and then the application will launch in a live test window using the configuration you selected.
