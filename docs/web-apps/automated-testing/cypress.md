@@ -26,6 +26,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Cypress Version|Supported Platforms|Supported Browsers|
  |-----|-----|-----|
+ |8.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
  |8.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
  |7.7.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
  |7.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
