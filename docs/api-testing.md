@@ -15,9 +15,9 @@ Check out the docs below to get started with API testing on the Sauce Labs cloud
     <h2>Getting Started</h2>
     <p>Some quick facts and guides to get started with our API testing cloud.</p>
     <ul>
-        <li><a href="/api-testing/mark3/quick-start">Quickstart</a></li>
-        <li><a href="/api-testing/mark3/quick-start/composer">Test Composer Guide</a></li>
-        <li><a href="/api-testing/mark3/quick-start/build-from-spec">Build from Spec</a></li>
+        <li><a href="/api-testing/quickstart">Quickstart</a></li>
+        <li><a href="/api-testing/composer">Test Composer Guide</a></li>
+        <li><a href="/api-testing/build-from-spec">Build from Spec</a></li>
     </ul>
     </div>
   </div>
@@ -37,4 +37,4 @@ Check out the docs below to get started with API testing on the Sauce Labs cloud
 <br/>
 <br/>
 
-Looking for our on-premise docs? See the [API Fortress documentation](https://docs.saucelabs.com/api-testing/mark2/quick-start/).
+Looking for our on-premise docs? See the [API Fortress documentation](https://docs.saucelabs.com/api-testing/on-prem/quick-start/).

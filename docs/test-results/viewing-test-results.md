@@ -21,7 +21,7 @@ After you run a test, you can view the results on the Test Results page. From th
 Sauce Labs provides live test results for both real and virtual devices.
 
 To view live test results:
-1. On Sauce Labs, in the left panel, click **LIVE** and then click **Test Results.**
+1. In Sauce Labs, in the left panel, click **LIVE** and then click **Test Results.**
 
 <img src={useBaseUrl('img/test-results/test-results-live-nav.png')} alt="Live test results navigation" width="650"/>
 
@@ -29,7 +29,7 @@ To view live test results:
 
 <img src={useBaseUrl('img/test-results/test-results-live-devices.png')} alt="Live test results - Virtual or real devices" width="650"/>
 
-3. In the **Test Results** results list, click a test to view its details.
+3. In the **Test Results** results list, click a test to view its details. For more information, see [Screenshots, Commands, Logs, and Metadata](#screenshots-commands-logs-and-metadata).
 
 <img src={useBaseUrl('img/test-results/test-results-details-live.png')} alt="Live test results details" width="650"/>
 
@@ -37,15 +37,36 @@ To view live test results:
 To view automated test results:
 1. On Sauce Labs, in the left panel, click **AUTOMATED** and then click **Test Results**.
 
-<img src={useBaseUrl('img/test-results/test-results-auto-nav.png')} alt="Automated test results navigation" width="650"/>
-
 2. On the **Test Results** page, click the **Virtual Cloud** or **Real Devices** radio button to view the relevant device results.
 
 3. In the **Test Results** results list, click a test to view its details.
 
-4. To view and manage the results of past tests and builds, on Sauce Labs, in the left panel, click **AUTOMATED** and then click **Archive**. Here you can use status badges on your code repository or a web page to keep track of your latest test runs (see [Status Badges and the Browser Matrix Wizard](/test-results/badges-browser-matrix) for more information).
+4. To view and manage the results of past automated tests and builds, on Sauce Labs, in the left panel, click **AUTOMATED** and then click **Archive**. Here you can use status badges on your code repository or a web page to keep track of your latest test runs (see [Status Badges and the Browser Matrix Wizard](/test-results/badges-browser-matrix) for more information). For more information about the **Archive** page, see [Archived Test Results](/test-results/archived-test-results).
 
-<img src={useBaseUrl('img/test-results/test-results-archive.png')} alt="Test results archive" width="650"/>
+### Filtering Test Results
+If you have set up your tests to report whether they have passed or failed, those results will be listed on the automated builds or automated test results page. Once the results have been logged to the page, you can filter the results.
+
+<img src={useBaseUrl('img/test-results/test-results-auto-filters.png')} alt="Automated test results filters" width="750"/>
+
+| Filter | Description |
+| :--- | :--- |
+| Owner | Filter test results by: <ul><li>Tests that you have run</li><li>All the tests for your organization</li><li>Tests run by one of your selected sub-accounts</li></ul> |
+| Status | Filter tests by: <ul><li>Passed</li><li>Failed</li><li>Complete (the test completed but was not assigned a Pass/Fail status)</li><li>In Progress</li><li>Error</li><li>Queued</li></ul> |
+| Performance | Filter tests by level of performance: <ul><li>Highest Score</li><li>Average Score</li><li>Lowest Score</li><li>Running</li><li>Hide Score</li></ul> |
+
+## Automated Build Results
+To view automated build results:
+1. In Sauce Labs, in the left panel, click **AUTOMATED** and then click **Builds**.
+
+2. On the **Builds** page, click the **Virtual Cloud** or **Real Devices** radio button to view the relevant device results.
+
+3. In the **Builds** results list, click a build to view its details.
+
+### Filtering Build Results
+| Filter | Description |
+| :--- | :--- |
+| Owner | Filter builds by: <ul><li>Builds that you have run</li><li>All the builds for your organization</li><li>Builds run by one of your selected sub-accounts</li></ul> |
+| Status | Filter builds by: <ul><li>Success</li><li>Failed</li><li>Complete (the test completed but was not assigned a Pass/Fail status)</li><li>Running</li><li>Error</li></ul> |
 
 ## Screenshots, Commands, Logs, and Metadata
 You can review a variety of data about the tests you have run.
@@ -54,7 +75,7 @@ You can review a variety of data about the tests you have run.
 Your test assets, including videos, screenshots, and logs, are retained for 30 days. Test parameters and metadata are available indefinitely.
 :::
 
-1. On Sauce Labs, in the left panel, click **AUTOMATED** or **LIVE** and then click **Test Results**.
+1. In Sauce Labs, in the left panel, click **AUTOMATED** or **LIVE** and then click **Test Results**.
 2. Click the test whose results you want to view.
 3. On the **Test Details** page, you can do the following:
   * Click the play button to view screenshots and video of the test. Audio is not recorded.
@@ -63,7 +84,7 @@ Your test assets, including videos, screenshots, and logs, are retained for 30 d
   * Click the **METADATA** tab to see the metadata attached to your test. Some of the test metadata, such as Passed, can be updated via the the [Sauce REST API](/dev/api). You can also download video and screenshots of your test in this tab.
 
 ### Appium Logs
-The **Appium** Log tab in your test indicates that this test ran using the Appium driver. The first line of the log provides information about the Appium version used during your test (for example, `info: Welcome to Appium v1.4.0`).
+The **Appium Log** tab in your test indicates that this test ran using the Appium driver. The first line of the log provides information about the Appium version used during your test (for example, `info: Welcome to Appium v1.4.0`).
 
 To find logging specific to your OS:
 
