@@ -27,6 +27,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Playwright Version|Supported Platforms|Supported Browsers|
  |-----|-----|-----|
+ |1.15.2|Windows 10|Chromium, Firefox, Webkit|
  |1.14.1|Windows 10|Chromium, Firefox, Webkit|
  |1.12.3|Windows 10|Chromium, Firefox, Webkit|
  |1.11.1|Windows 10|Chromium, Firefox, Webkit|
