@@ -44,6 +44,7 @@ import TabItem from '@theme/TabItem';
 
 |Cypress Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
+|8.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |8.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |7.7.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |7.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
@@ -56,6 +57,7 @@ import TabItem from '@theme/TabItem';
 
 |Playwright Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
+|1.15.2|Windows 10|Chromium, Firefox, Webkit|
 |1.14.1|Windows 10|Chromium, Firefox, Webkit|
 |1.12.3|Windows 10|Chromium, Firefox, Webkit|
 |1.11.1|Windows 10|Chromium, Firefox, Webkit|
@@ -77,6 +79,21 @@ import TabItem from '@theme/TabItem';
     <th>Supported Platforms</th>
     <th>Supported Browsers</th>
   </tr>
+  <tbody>
+  <tr>
+    <td rowspan='3'>1.16.1</td>
+    <td><b>macOS:</b> 11.0</td>
+    <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  <tr>
+    <td><b>Windows:</b> 10</td>
+    <td>Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  <tr>
+    <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+    <td>Safari</td>
+  </tr>
+  </tbody>
   <tbody>
   <tr>
     <td rowspan='3'>1.15.3</td>
@@ -237,7 +254,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |TestCafe Version|Supported Browsers|
 |----|----|
-|1.16.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.11.0)|
+|1.16.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.12.1)|
 |1.15.3|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.10.0)|
 |1.15.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.9.0)|
 |1.14.2|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.7.0)|
