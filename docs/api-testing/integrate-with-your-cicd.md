@@ -16,7 +16,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The API Fortress (on Sauce Labs cloud) CLI tool (`apifctl`) allows you to execute tests and interact with API Fortress either locally, or in a pipeline by using the following docker image: [quay.io/saucelabs/apifctl](https://quay.io/repository/saucelabs/apifctl?tag=latest&tab=tags).
 
-To use most of the tool's functionalities, a webhook is required for the project (just like with the old CLI tool: [apif-auto](/api-testing/mark2/ci/apif-auto)). You can either create or retrieve a webhook from the dashboard. Visit the [webhooks section](#generating-a-webhook) for further details.
+To use most of the tool's functionalities, a webhook is required for the project (just like with the old CLI tool: [apif-auto](/api-testing/on-prem/ci/apif-auto)). You can either create or retrieve a webhook from the dashboard. Visit the [webhooks section](#generating-a-webhook) for further details.
 
 The webhooks are organized in the following manner:
 * `username`: your Sauce Labs user name

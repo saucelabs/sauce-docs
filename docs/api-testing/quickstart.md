@@ -52,7 +52,7 @@ From here, there are two avenues that you can take to build a test:
 For the purposes of this quickstart guide, the next page walks through how to use the _Visual Test Composer_ view.
 
 :::tip
-To build tests using spec file(s), [Build from Spec](/api-testing/mark2/quick-start/build-from-spec).
+To build tests using spec file(s), [Build from Spec](/api-testing/on-prem/quick-start/build-from-spec).
 :::
 
 ## Step 3: Add Test Components
@@ -63,7 +63,7 @@ The next step is to add the necessary test components when combined act as our t
 * Assertion Component
 
 :::note Full Component List
-Visit the [I/O Components](/api-testing/mark2/io-components) and [Assertion Components](/api-testing/mark2/assertion-components/assert-compares) sections for more details and descriptions of each test component.
+Visit the [I/O Components](/api-testing/on-prem/io-components) and [Assertion Components](/api-testing/on-prem/assertion-components/assert-compares) sections for more details and descriptions of each test component.
 :::
 
 For now, create a simple `GET` request and validate that response is correct.
@@ -139,8 +139,8 @@ At this stage, this test is only a draft. You should take a moment to verify eac
 
 Below are some topics worth exploration:
 
-* Check out the [Example Snippets](/api-testing/mark2/quick-start/using-the-example-snippets) provided by the API Fortress Dashboard.
-* Learn how to [import Postman Collections](/api-testing/mark2/quick-start/importing-postman-collections
+* Check out the [Example Snippets](/api-testing/on-prem/quick-start/using-the-example-snippets) provided by the API Fortress Dashboard.
+* Learn how to [import Postman Collections](/api-testing/on-prem/quick-start/importing-postman-collections
   ) so that you may generate more tests.
-* Learn how to schedule a test [here](/api-testing/mark2/quick-start/schedule-a-test).  
-* Learn about data and notifications connectors [here](/api-testing/mark2/quick-start/setup-connectors). Simple solutions to plug into the systems you use today (e.g DataDog or New Relic).
+* Learn how to schedule a test [here](/api-testing/on-prem/quick-start/schedule-a-test).  
+* Learn about data and notifications connectors [here](/api-testing/on-prem/quick-start/setup-connectors). Simple solutions to plug into the systems you use today (e.g DataDog or New Relic).

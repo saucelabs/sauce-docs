@@ -37,4 +37,4 @@ Check out the docs below to get started with API testing on the Sauce Labs cloud
 <br/>
 <br/>
 
-Looking for our on-premise docs? See the [API Fortress documentation](https://docs.saucelabs.com/api-testing/mark2/quick-start/).
+Looking for our on-premise docs? See the [API Fortress documentation](https://docs.saucelabs.com/api-testing/on-prem/quick-start/).
