@@ -7,9 +7,7 @@ description: Learn how to quickly generate a test in API Fortress. By using the 
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This page is a quickstart guide for getting up and running with our API Fortress tool.
-
-Below, we walk through how to quickly create a test using an e-commerce API. Let's get started!
+This page is a quickstart guide for getting up and running with API Testing on Sauce Labs. Let's get started!
 
 ## What You'll Need
 
@@ -17,130 +15,147 @@ Below, we walk through how to quickly create a test using an e-commerce API. Let
 * If your APIs are behind a firewall, see [Sauce Connect Proxy](/secure-connections/sauce-connect/).
 
 
-## Step 1: Create a Project
+## Set Up Your Project and Test
 
-1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**. This will bring you to the API Testing dashboard.
-2. Click the **Create Project** tab or button.
+1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/>
+  <img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
 
-  <img src={useBaseUrl('img/api-fortress/2021/01/createProject.png')} alt="Create a Project UI"/>
+2. On the API Testing dashboard, click the **Create Project** button.<br/>
+  <img src={useBaseUrl('img/api-fortress/2021/01/createProject.png')} alt="Create a Project UI" width="500" />
 
-3. Enter your project details in the **New Project** window.
-  <img src={useBaseUrl('img/api-fortress/2021/01/newProject.png')} alt="New Project Window"/>
+3. Enter your project details in the **New Project** window, then click **Save** when you're finished. This will bring you to the **Tests** dashboard under the project you've just created.
 
-4. Click **Save** when you're finished.
+4. From your **Tests** dashboard, click **HTTP Client**.<br/>
+  <img src={useBaseUrl('img/api-fortress/2021/01/HTTPClient.png')} alt="HTTP Client" width="400" />
+
+5. Choose from _one_ of the below methods:
+
+ * **5a. Input API Request URL**
+   * Type an API endpoint URL into the **Enter Request URL** field.
+    <img src={useBaseUrl('img/api-fortress/2021/01/enterRequestURL.png')} alt="Enter API URL" width="500" />
+
+<p align="center"><strong>or</strong></p>
+
+   * **5b. Import from [Spec file](/api-testing/build-from-spec/) or [Postman Collection file](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#exporting-postman-data)**
+     * Click **Import OpenAPI / Postman**, then select and upload the file from your local machine. <details><summary><small>Click here to see a sample file</small></summary>
+     This is a sample Postman collection file that you can use to test out our functionality. Just copy and paste it into a text editor on your local machine and save it as a .json file.
+      ```json title="demoapif.postman_collection.json"
+      {
+      	"info": {
+        	"_postman_id": "901ae894-37d4-45c1-b1bc-bd6b31762bfe",
+        	"name": "demoapif",
+        	"description": "Call to the APIF demo API All Products Get.",
+        	"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+      	},
+      	"item": [
+      		{
+          	"name": "product",
+          	"item": [
+          		{
+          			"name": "List All Products",
+          			"request": {
+          				"auth": {
+          					"type": "oauth2",
+          					"oauth2": [
+          						{
+          							"key": "addTokenTo",
+          							"value": "header",
+          							"type": "string"
+          						}
+          					]
+          				},
+          				"method": "GET",
+          				"header": [
+          					{
+          						"key": "Accept",
+          						"value": "application/json"
+          					},
+          					{
+          						"key": "key",
+          						"value": "ABC123",
+          						"type": "text"
+          					}
+          				],
+          				"url": {
+          					"raw": "http://demoapi.apifortress.com/api/retail/product",
+          					"protocol": "http",
+          					"host": [
+          						"demoapi",
+          						"apifortress",
+          					  "com"
+          					],
+          					"path": [
+          						"api",
+          						"retail",
+          						"product"
+          					]
+          				}
+          			},
+          			"response": []
+          		}
+          	],
+          	"description": "Folder for product"
+        	}
+      	]
+      }
+      ```
+     </details>
+     * Follow the prompt to select the position in your **Snapshots** tree where you'd like to import the spec file, then click **Save**.
+     * In your **Snapshots** tree, click the line item for the API call you'd like to test. This will auto-populate the URL in the **Enter Request URL** field.
 
 
-## Step 2: Create a Test
 
-1. After you create and name your project, click the **Create Test** button.
+## Send Request
 
-  <img src={useBaseUrl('img/api-fortress/2021/01/createTest.png')} alt="Create a Test button"/>
+6. Next to your URL, click **Send** to submit your API request.<br/>
+  <img src={useBaseUrl('img/api-fortress/2021/01/enterRequestSave.png')} alt="Create a Project UI" width="500" />
 
-2. Enter the details about your test and click **Save**.
 
-  <img src={useBaseUrl('img/api-fortress/2021/01/createTest2.png')} alt="Enter Test Details"/>
+## Generate Tests
 
-3. Once you've finished creating your test, you should see the __Test Composer__ page.
+7. If your request was successful, you'll see the response populate in the **Body** section along with a **200 OK** status. Then, click **Generate Test**.
 
-  <img src={useBaseUrl('img/api-fortress/2021/01/testComposerPage.png')} alt="Test Composer Page"/>
+8. Enter your test details in the **New Test** window, then click **Save**. This will generate a series of functional tests for your specific API request.
 
-From here, there are two avenues that you can take to build a test:
 
-* Use the _Visual Test Composer_
-* Use the _Live Code View_
+## Run Test
 
-For the purposes of this quickstart guide, the next page walks through how to use the _Visual Test Composer_ view.
+9. Click the **Run** button to run your test.
 
-:::tip
-To build tests using spec file(s), [Build from Spec](/api-testing/on-prem/quick-start/build-from-spec).
+10. In the right-hand nav, under **TEST RUNS**, you'll see that a new line item has populated with the name of your test. If successful, you'll see a green checkmark indicator and **Completed with success** message.<br/>
+  <img src={useBaseUrl('img/api-fortress/2021/01/testRuns.png')} alt="Test Runs Section" width="200" />
+
+
+## Check Your Results
+
+11. To view your test results, hover your mouse over your test line item and click **Open report document**.<br/>
+  <img src={useBaseUrl('img/api-fortress/2021/01/testResultsOpen.png')} alt="Open Test Results" width="200" />
+
+12. Take a moment to verify each object in your test report, which displays information regarding your test:
+    * **Test Outcome Report** section: session details (e.g., _Date_, _Mode_, and _Execution Time_).
+    * **Details on the events** section: input data details and other useful test information, such as:
+      * Outcome (pass or fail).
+      * Reasons for failure.
+      * HTTP request and response status codes.
+      * Assertion details (not applicable for this example).
+
+
+<img src={useBaseUrl('img/api-fortress/2021/01/testResultsPage.png')} alt="Test Results Page" width="600" />
+
+:::note
+
+At this stage, your test is still an unpublished draft. Sauce Labs API Testing has a lot of tools that allow for comprehensive continuous integration testing.
 :::
 
-## Step 3: Add Test Components
+:::info Advanced/Optional Step
 
-The next step is to add the necessary test components when combined act as our test logic. Generally, there are two types of test components in API Fortress:
-
-* Request (I/O) Component
-* Assertion Component
-
-:::note Full Component List
-Visit the [I/O Components](/api-testing/on-prem/io-components) and [Assertion Components](/api-testing/on-prem/assertion-components/assert-compares) sections for more details and descriptions of each test component.
+Go back to your test's **Compose** tab > **Visual** view and try adding more logic.
 :::
-
-For now, create a simple `GET` request and validate that response is correct.
-
-
-### Request Component
-
-1. Select the **+ Add Request / Assertions** button.
-
-  <img src={useBaseUrl('img/api-fortress/2021/01/addRequest.png')} alt="Add Request Component"/>
-
-2. Select the `GET` request component.
-
-  <img src={useBaseUrl('img/api-fortress/2021/01/getRequest.png')} alt="GET request Component"/>
-
-3. Edit the following details:
-   * In the **Url** field, input `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions`. This URL will return a `json` response body.
-   * In the **Variable** field, input `payload`. This variable stores the response.
-
-    <img src={useBaseUrl('img/api-fortress/2021/01/getFields.png')} alt="GET request fields"/>
-
-4. Leave the rest of the fields blank and click _Save_.
-
-This is what the end result will look like:
-  <img src={useBaseUrl('img/api-fortress/2021/01/getRequestEndResult.png')} alt="GET request end result"/>
-
-
-### Assertion Component
-
-1. Select the **+ Add Request / Assertions** button.
-  <img src={useBaseUrl('img/api-fortress/2021/01/addRequest.png')} alt="Add Request Component" width="600" />
-
-2. Select the `Assert Exists` assertion component.
-  <img src={useBaseUrl('img/api-fortress/2021/01/assertExists.png')} alt="Assert Exists Component"/>
-
-3. Edit the following details:
-   * Expression: `payload.downloads` - This expression checks for the field `"downloads"` in the `json` response body.
-  <img src={useBaseUrl('img/api-fortress/2021/01/assertDetails.png')} alt="Assert Exists Details"/>
-
-4. Leave the rest of the fields blank and select _Save_.
-
-
-## Step 4: Run the Test
-
-1. Before you run the test, select the **Save** icon <img src={useBaseUrl('img/api-fortress/2021/01/save.png')} alt="save icon"/> at the top of the Composer.
-
-2. Then select the **Run** icon <img src={useBaseUrl('img/api-fortress/2021/01/run.png')} alt="run test icon"/> directly next to the Save icon.
-
-<img src={useBaseUrl('img/api-fortress/2021/01/composerToolbar.png')} alt="Test Composer Tool Bar"/>
-
-All test runs appear to the right of the Composer, underneath the test details and environment sections.
-<img src={useBaseUrl('img/api-fortress/2021/01/testRuns.png')} alt="Test Runs Section" />
-
-
-### Viewing Test Results
-
-After the test completes, click on the test run and the test results page should appear. This page displays information regarding the test.
-
-**Test Outcome Report**: Session details such as _Date_, _Mode_, and _Execution Time_.
-
-**Event Details**: Details about the input data, and other useful test information such as:
-
-* Did the test pass or fail?
-* Reasons for failure
-* HTTP request and response status codes
-* Assertion details
-  <img src={useBaseUrl('img/api-fortress/2021/01/testResultsPage.png')} alt="Test Results Page" />
-
 
 ## More Information
 
-At this stage, this test is only a draft. You should take a moment to verify each object, and/or add more logic to it. API Fortress has a lot of tools that allow for comprehensive continuous integration testing.
-
-Below are some topics worth exploration:
-
+* For more information on building tests using a spec file, see [Build from Spec](/api-testing/build-from-spec).
 * Check out the [Example Snippets](/api-testing/on-prem/quick-start/using-the-example-snippets) provided by the API Fortress Dashboard.
-* Learn how to [import Postman Collections](/api-testing/on-prem/quick-start/importing-postman-collections
-  ) so that you may generate more tests.
-* Learn how to schedule a test [here](/api-testing/on-prem/quick-start/schedule-a-test).  
-* Learn about data and notifications connectors [here](/api-testing/on-prem/quick-start/setup-connectors). Simple solutions to plug into the systems you use today (e.g DataDog or New Relic).
+* Learn how to [import Postman Collections](/api-testing/importing-postman-collections) so that you can generate more tests.
+* Learn how to schedule a test [here](/api-testing/schedule-a-test).  
+* Learn about data and notifications connectors [here](/api-testing/on-prem/quick-start/setup-connectors). Simple solutions to plug into the systems you use today (e.g., DataDog or New Relic).

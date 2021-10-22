@@ -41,10 +41,11 @@ Use the following image as a reference for the numbered items listed below:
 
    <img src={useBaseUrl('img/api-fortress/2019/06/components.png')} alt="Test Components"/>
 
-  > __NOTE__: Free accounts do not give you access to all available components.  
-  > Read descriptions of each component in the Reference section of API Fortress Documentation.
+  :::note
+  Free trial accounts do not give you access to all available components.
+  :::
 
-2. __Transform  Component__: This button allows you to easily transform an existing component into another component of the same type.
+2. __Transform Component__: This button allows you to easily transform an existing component into another component of the same type.
 
 3. __Delete Component__: This button allows you to delete a selected component from the test while using visual mode.
 
