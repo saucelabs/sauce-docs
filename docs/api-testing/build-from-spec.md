@@ -22,7 +22,7 @@ Using the API Fortress **HTTP Client**, you can generate tests from external end
 * **Pending**: <Highlight color="#29d3fe">RAML</Highlight> <Highlight color="#9073d2">API Blueprint</Highlight> <Highlight color="#c3090c">I/O Docs</Highlight> <Highlight color="#025b9c">SOAP</Highlight> <Highlight color="#025b9c">WSDL</Highlight>
 :::
 
-## Generating a Test
+## Creating a Test
 
 There are two ways to build a test from a specification file:
 
