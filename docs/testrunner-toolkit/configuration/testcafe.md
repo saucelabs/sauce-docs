@@ -699,12 +699,14 @@ Determines whether to ignore JavaScript errors on a webpage. See [Testcafe defin
 ---
 
 ### `quarantineMode`
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
 Determines whether to enable quarantine mode for tests that fail. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#quarantinemode).
 
 ```yaml
-  quarantineMode: true
+  quarantineMode:
+    attemptLimit: 5
+    successThreshold: 3
 ```
 ---
 
