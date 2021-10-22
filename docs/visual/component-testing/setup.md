@@ -4,12 +4,12 @@ title: Setting Up Visual Component Testing with Storybook
 sidebar_label: Project Setup with Storybook
 ---
 
-## Getting Started with Storybook
+>**Screener Docs are Now Sauce Docs**<br/>
+As part of our efforts to bring you a single, unified documentation site, we've migrated all Visual Docs from [Screener.io](https://screener.io) to Sauce Docs.
 
 Get automated UI test results across your React, Vue or Angular components by integrating [Storybook](https://storybook.js.org/) with Sauce Labs Visual Component Testing.
 
 Follow the steps below to set up Component Testing with Storybook, or use the [New Project Wizard](https://screener.io/v2/new).
-
 
 ## What You'll Need
 
