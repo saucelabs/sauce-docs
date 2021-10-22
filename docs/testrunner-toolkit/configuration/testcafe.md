@@ -710,6 +710,28 @@ Determines whether to enable quarantine mode for tests that fail. See [Testcafe 
 ```
 ---
 
+#### `attemptLimit`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+The maximum number of test execution attempts. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemodeattemptlimit).
+
+```yaml
+  quarantineMode:
+    attemptLimit: 5
+```
+---
+
+#### `successThreshold`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+The number of successful attempts necessary to confirm a test’s success. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemodesuccessthreshold).
+
+```yaml
+  quarantineMode:
+    successThreshold: 3
+```
+---
+
 ### `skipUncaughtErrors`
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
