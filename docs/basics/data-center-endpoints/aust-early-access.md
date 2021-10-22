@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 Thanks to a new virtual cloud data center in Australia (Sydney), your testing teams in APAC will benefit from more performant test runs on Sauce Labs, along with improved security and reliability through our best-in-class cloud technology.
 
 :::note
-While the functionality that’s currently available for tests run in this region is limited, you also have access to the US West region as part of this trial license; for details, see Supported Features.
+While the functionality that’s currently available for tests run in this region is limited, you also have access to the US West region as part of this trial license; for details, see [Supported Features](#supported-browsers-and-features).
 :::
 
 ## Getting Started for New Free Trial Customers
@@ -29,13 +29,11 @@ Depending on your network configuration, your network administrator may need to 
 To allow inbound and outbound connections to Sauce Labs Services using IP addresses, use the following IP range(s): `34.87.251.80/28`
 
 ## Running Tests in the APAC Region
-1. To verify you have access to the new region, **APAC Southeast**, in Sauce Labs, click the data center dropdown.
+1. To verify you have access to the new region, **APAC Southeast**, in Sauce Labs, click the data center dropdown.<br/>
+  <img src={useBaseUrl('img/aust-early-access.png')} alt="APAC Southeast availability" width="400"/>
 
-<img src={useBaseUrl('img/aust-early-access.png')} alt="APAC Southeast availability" width="400"/>
-
-2. To run your automated tests, update your Selenium tests to point to the new region by changing the ondemand url during driver creation to `https://ondemand.apac-southeast-1.saucelabs.com`.
-
-<img src={useBaseUrl('img/data-center-selenium.png')} alt="Update your Selenium tests" width="400"/>
+2. To run your automated tests, update your Selenium tests to point to the new region by changing the ondemand url during driver creation to `https://ondemand.apac-southeast-1.saucelabs.com`.<br/>
+  <img src={useBaseUrl('img/data-center-selenium.png')} alt="Update your Selenium tests" width="400"/>
 
 3. To verify the results, log in to Sauce Labs and select the **APAC Southeast** region.
 
