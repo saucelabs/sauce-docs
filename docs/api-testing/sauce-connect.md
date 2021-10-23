@@ -3,7 +3,6 @@ id: sauce-connect
 title: Using Sauce Connect Proxy for API Testing
 sidebar_label: Sauce Connect Proxy
 description: Get a Sauce Connect Proxy tunnel up and running quickly for your API tests.
-hide_table_of_contents: true
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -15,11 +14,7 @@ If your APIs exist behind a firewall on your private network, you'll need to use
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * Your Sauce Labs [Username](https://app.saucelabs.com/user-settings) and [Access Key](https://app.saucelabs.com/user-settings).
 * Have the Sauce Connect Proxy client on your local machine ([download here](/secure-connections/sauce-connect/installation/)).
-
-:::info
-If you're new to Sauce Connect Proxy, check out [Using Sauce Connect Proxy](/secure-connections/sauce-connect), [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/), and [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/).
-
-:::
+* If you're new to Sauce Connect Proxy, check out the links under [More Information](#more-information).
 
 ## Starting a Tunnel for API Testing
 
@@ -106,3 +101,10 @@ Sauce Connect is up, you may start your tests.
   <img src={useBaseUrl('img/api-fortress/2021/09/sauceconnect-nav1.png')} alt="API Testing Sauce Connect Nav" width="600"/>
 
 Now you're set up to run your API tests through a Sauce Connect Proxy tunnel.
+
+
+## More information
+
+* [Using Sauce Connect Proxy](/secure-connections/sauce-connect)
+* [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/)
+* [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/)

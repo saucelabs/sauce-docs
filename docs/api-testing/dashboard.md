@@ -1,14 +1,13 @@
 ---
 id: dashboard
-title: The Dashboard
-sidebar_label: The Dashboard
-description: "The API Fortress platform offers a full-featured dashboard that centralizes testing management and simplifies collaboration and reporting. Key features of the dashboard allow you to: View all test logs across teams Share, download, or print test logs View all performance metrics from tests (latency & fetch) Set performance alerts Filter logs and alerts by time, endpoint."
+title: API Testing Dashboard
+sidebar_label: Dashboard Overview
+description: "API Testing on Sauce Labs offers a full-featured dashboard that centralizes testing management and simplifies collaboration and reporting. Key features of the dashboard allow you to: View all test logs across teams Share, download, or print test logs View all performance metrics from tests (latency & fetch) Set performance alerts Filter logs and alerts by time, endpoint."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-
-The API Fortress platform offers a full-featured dashboard that centralizes testing management and simplifies collaboration and reporting. Key features of the dashboard allow you to:
+API Testing on Sauce Labs offers a full-featured dashboard that centralizes testing management and simplifies collaboration and reporting. Key features of the dashboard allow you to:
 
 ## Accessing the Dashboard
 
