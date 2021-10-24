@@ -1,13 +1,13 @@
 ---
 id: composer
-title: Test Composer Guide
-sidebar_label: Test Composer Guide
+title: Writing API Tests with the Composer
+sidebar_label: Composer Guide
 description: The API Fortress Composer offers unparalleled flexibility and ease-of-use, with everything at your fingertips to build tests in minutes and eliminate many duplicate tasks.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The API Fortress Composer offers unparalleled flexibility and ease-of-use, with everything at your fingertips to build tests in minutes and eliminate many duplicate tasks. Users of all skill levels can begin using the Composer with little or no training to quickly generate sophisticated functional tests. You can then reuse these tests as end-to-end integration tests and load (stress) tests. In turn, load tests may easily be reused as monitors for performance testing.  
+The Sauce Labs API Testing _Composer_ feature empowers users of all skill levels to write API tests from scratch and quickly generate sophisticated functional tests with little to no training. You can then reuse these tests as end-to-end integration tests and load (stress) tests. In turn, load tests may easily be reused as monitors for performance testing. The Composer offers unparalleled flexibility and ease-of-use, with everything at your fingertips to build tests in minutes and eliminate duplicate tasks.
 
 :::note Learn more about End-to-End Tests / Integration Tests
 Read the following page to learn more about [Integration / Multistep Testing](/api-testing/on-prem/quick-start/introduction-to-integration-testing)  
@@ -17,11 +17,11 @@ Read the following page to learn more about [Integration / Multistep Testing](/a
 
 Begin using the Composer by selecting from two versions in terms of views. With both the Visual and Code views, you can easily make calls and add assertions for testing your APIs, and insert variables wherever needed.
 
-* __Visual__ - The Visual Composer does not require coding expertise, and provides real-time suggestions via predictive text to help you create ideal API tests for your needs.
+* __Visual__ - The Visual view does not require coding expertise. It provides real-time suggestions via predictive text to help you create ideal API tests for your needs.
 
   <img src={useBaseUrl('img/api-fortress/2021/01/visualView.png')} alt="Test Composer Visual View Pic"/>
 
-* __Code__ - The Code view is for users who are more comfortable working in code rather than a visual UI.
+* __Code__ - The Code view is for users who are more comfortable working in code.
 
   <img src={useBaseUrl('img/api-fortress/2021/01/codeView.png')} alt="Test Composer Code View Pic"/>
 
@@ -29,7 +29,7 @@ Begin using the Composer by selecting from two versions in terms of views. With 
 For information on API Testing Best Practices, visit our [Sauce School API Testing course](https://training.saucelabs.com/apiTesting/index.html).
 :::
 
-## Test Composer UI
+## Composer UI
 
 Use the following image as a reference for the numbered items listed below:
 

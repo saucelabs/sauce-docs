@@ -13,7 +13,7 @@ Gain a wide range of options to mix and match your test settings with our latest
 
 **Globals / Input set**: They belong to each test and contain the variables that are needed by the test to perform its duties. Since these variables can be overridden to hit different environments, we generally suggest considering these variables as containers of the default scenario. If the variable has been previously declared in the vault, globals/input sets will win over the Vault.
 
-**Overrides**: When an overridden variable is declared (using the API, the Scheduler or the Jenkins plugin) its value will be injected into the test when it's executed. If the variable has already been declared in the vault or the globals/input set, it will be rewritten with the new value.
+**Overrides**: When an overridden variable is declared (using the API, apifctl command line utility, or the Scheduler) its value will be injected into the test when it's executed. If the variable has already been declared in the vault or the globals/input set, it will be rewritten with the new value.
 
 **Environments and Pre-sets**: They are collections of overrides. You can save an environment with a name and reuse it when running a test.
 
@@ -25,7 +25,7 @@ Tests should be as self-contained as possible and should host as much informatio
 
 Environments and overrides should be used to **change** some of the values or introduce contextual values to hit a staging server instead of the production server, or run the test against a special product ID.
 
-## Double evaluation
+## Double Evaluation
 
 All variable containers have a “double evaluation” capability, meaning that a variable declaration can actually reference another variable.
 
@@ -47,13 +47,7 @@ domain: ${staging_domain}
 
 If run without environment selection or overrides, the test will hit the production domain. If run with the staging environment, the test will hit the staging domain. The Environments will not know the actual domain, therefore the actual data management will happen within the Vault.
 
-**Known Issue**: The double evaluation will not work on query params. As a workaround, in the test before performing the call, introduce a `SET` component to resolve the variable as in:
-
-```bash
-<set var=”apikey” value=”${apikey}”/>
-```
-
-## Environments loading
+## Environments Loading
 
 If you begin using environments heavily, you may soon realize that the integration using the APIF API (and any CI/CD plugin) may become a bit “unfriendly,” as lots of data will need to be copied around.
 

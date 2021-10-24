@@ -18,13 +18,8 @@ Almost any string can be hardcoded or referenced as a variable in API Fortress. 
 Most of the parametrization you will likely do relates to the HTTP request itself.
 
 ## Using the Vault
-You can access the vaults in one of two ways:
 
-1. From the Dashboard:
-   <img src={useBaseUrl('img/api-fortress/2021/04/fromDashboard.png')} alt="Access Vault from Dashboard"/>
-
-2. From the Project view:
-   <img src={useBaseUrl('img/api-fortress/2021/04/vaultFromProject.png')} alt="Access Vault from Project View "/>
+For instructions on accessing the Vault, see [Using the Vault](/api-testing/the-vault/#accessing-the-vault).
 
 Consider this variable:
 
@@ -32,7 +27,7 @@ Consider this variable:
 
 While the following variable is perfectly valid, it may become extremely painful to update tens or hundreds of tests if the domain changes.
 
-Alternatively, you may use the API Fortress Vault to store domain names to solve this problem. Simply add a “domain” variable in your vault as follows:
+Alternatively, you may use the API Testing Vault to store domain names to solve this problem. Simply add a “domain” variable in your vault as follows:
 
 <img src={useBaseUrl('img/api-fortress/2021/04/variableEntry.png')} alt="Domain Variables"/>
 

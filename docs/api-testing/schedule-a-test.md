@@ -7,7 +7,7 @@ description: "Introduction In API Fortress, it is simple to schedule a test to r
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-In API Fortress, it is simple to schedule a test to run as often as you’d like, from any location you choose (based on account type), and with granular control as to when it runs. Let’s take a look at how it works.
+With API Testing on Sauce Labs, you can schedule tests to run as often as you’d like, from any location you choose (based on account type), with granular control as to when it runs. Let’s take a look at how it works.
 
 ### Step 1: Publish the Working Copy
 
@@ -25,7 +25,7 @@ API Fortress has a unique working copy/published copy system. This system allows
 1. You can now access the Scheduler from the Test Project Panel:
    <img src={useBaseUrl('img/api-fortress/2021/02/createSchedule.png')} alt="Create Schedule"/>
 
-1. Click **+ Create Schedule** and the **New Schedule** window appears. Fill in the necessary details and select **Save** when finished.
+1. Click **Create Schedule** and the **New Schedule** window appears. Fill in the necessary details and select **Save** when finished.
    <img src={useBaseUrl('img/api-fortress/2021/02/exampleSchedule.png')} alt="Example Schedule"/>
 
 ### Step 3: Edit the Schedule
