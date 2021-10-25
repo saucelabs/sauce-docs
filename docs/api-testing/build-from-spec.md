@@ -1,7 +1,7 @@
 ---
 id: build-from-spec
-title: Build from a Spec File
-sidebar_label: Build from Spec File
+title: Build Tests from a Spec File
+sidebar_label: Build Tests from Spec File
 description: "The available spec files you can automatically generate from are: Swagger, RAML, OpenAPI 3, API Blueprint, I/O Docs, SOAP WSDL, and Postman Collection."
 ---
 
@@ -22,7 +22,7 @@ Using the API Fortress **HTTP Client**, you can generate tests from external end
 * **Pending**: <Highlight color="#29d3fe">RAML</Highlight> <Highlight color="#9073d2">API Blueprint</Highlight> <Highlight color="#c3090c">I/O Docs</Highlight> <Highlight color="#025b9c">SOAP</Highlight> <Highlight color="#025b9c">WSDL</Highlight>
 :::
 
-## Generating a Test
+## Creating a Test
 
 There are two ways to build a test from a specification file:
 
