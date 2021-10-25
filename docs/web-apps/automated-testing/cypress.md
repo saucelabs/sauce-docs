@@ -30,9 +30,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
  |8.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
  |7.7.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
  |7.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
- |7.1.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
- |6.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
- |5.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 
  </TabItem>
  <TabItem value="docker">
@@ -45,9 +42,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
  |8.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.3.1)|
  |7.7.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.2.3)|
  |7.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.1.0)|
- |7.1.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.0.3)|
- |6.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v6.0.1)|
- |5.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v5.9.1)|
 
 </TabItem>
 </Tabs>
