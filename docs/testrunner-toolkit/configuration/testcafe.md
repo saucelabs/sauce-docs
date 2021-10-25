@@ -699,12 +699,36 @@ Determines whether to ignore JavaScript errors on a webpage. See [Testcafe defin
 ---
 
 ### `quarantineMode`
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
 Determines whether to enable quarantine mode for tests that fail. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#quarantinemode).
 
 ```yaml
-  quarantineMode: true
+  quarantineMode:
+    attemptLimit: 5
+    successThreshold: 3
+```
+---
+
+#### `attemptLimit`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+The maximum number of test execution attempts. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemodeattemptlimit).
+
+```yaml
+  quarantineMode:
+    attemptLimit: 5
+```
+---
+
+#### `successThreshold`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+The number of successful attempts necessary to confirm a test’s success. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemodesuccessthreshold).
+
+```yaml
+  quarantineMode:
+    successThreshold: 3
 ```
 ---
 
