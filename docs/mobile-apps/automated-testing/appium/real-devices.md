@@ -71,9 +71,9 @@ caps.setCapability("appiumVersion", "1.5.3");
 4. Click the **Metadata** tab.
 5. Look for the **Logs** row and select **Appium Log**. The first line should indicate the Appium version. For example, `2019-05-05T17:45:07.541Z - info: Welcome to Appium v1.10.1`.
 
-### Setting the `browserName`
+### Excluding the `browserName`
 
-When testing a native mobile app, set the value for `browserName` as an empty string.
+When testing a native mobile app, no browser is accessed, so if you are re-using the capabilities from your mobile or desktop browser tests, you can omit the `browserName` capability or or set the value as an empty string.
 
 ```js
 caps.setCapability("browserName", "");
