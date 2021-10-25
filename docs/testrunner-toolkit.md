@@ -48,9 +48,6 @@ import TabItem from '@theme/TabItem';
 |8.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |7.7.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 |7.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
-|7.1.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
-|6.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
-|5.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 
 </TabItem>
 <TabItem value="playwright">
@@ -59,10 +56,6 @@ import TabItem from '@theme/TabItem';
 |-----|-----|-----|
 |1.15.2|Windows 10|Chromium, Firefox, Webkit|
 |1.14.1|Windows 10|Chromium, Firefox, Webkit|
-|1.12.3|Windows 10|Chromium, Firefox, Webkit|
-|1.11.1|Windows 10|Chromium, Firefox, Webkit|
-|1.10.0|Windows 10|Chromium, Firefox, Webkit|
-|1.7.1|Windows 10|Chromium, Firefox, Webkit|
 
 </TabItem>
 <TabItem value="puppeteer">
@@ -154,28 +147,6 @@ import TabItem from '@theme/TabItem';
     <td>Safari</td>
   </tr>
   </tbody>
-  <tbody>
-  <tr>
-    <td rowspan='3'>1.11.0</td>
-    <td><b>macOS:</b> 11.0</td>
-    <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  <tr>
-    <td><b>Windows:</b> 10</td>
-    <td>Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  <tr>
-    <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-    <td>Safari</td>
-  </tr>
-  </tbody>
-  <tbody>
-  <tr>
-    <td>1.10.1</td>
-    <td><b>Windows:</b> 10</td>
-    <td>Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  </tbody>
 </table>
 
 </TabItem>
@@ -218,9 +189,6 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 |8.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.3.1)|
 |7.7.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.2.3)|
 |7.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.1.0)|
-|7.1.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.0.3)|
-|6.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v6.0.1)|
-|5.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v5.9.1)|
 
 </TabItem>
 <TabItem value="playwright">
@@ -230,10 +198,6 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 |1.15.2|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.3.0)|
 |1.14.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.2.3)|
 |1.12.3|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.0.3)|
-|1.11.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.13.0)|
-|1.11.0|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.11.0)|
-|1.10.0|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.10.0)|
-|1.7.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.7.5)|
 
 </TabItem>
 
@@ -259,8 +223,6 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 |1.15.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.9.0)|
 |1.14.2|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.7.0)|
 |1.14.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.6.1)|
-|1.11.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.5.0)|
-|1.10.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.2.6)|
 
 </TabItem>
 </Tabs>
