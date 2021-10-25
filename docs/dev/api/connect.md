@@ -24,7 +24,7 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 <details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/tunnels</code></summary>
 <p/>
 
-Returns Tunnel IDs or Tunnels Info for any currently running tunnels launched by the specified user.
+Returns Tunnel IDs or Tunnels Info for any currently running tunnels launched by or shared with the specified user.
 It also allows to filter tunnels using an optional "filter" parameter that may take the following values:
 
 - <code>filter=v2alpha</code>  - a response will contain only tunnels that were started with `--vm-version v2alpha`.
@@ -44,7 +44,7 @@ It also allows to filter tunnels using an optional "filter" parameter that may t
     </tr>
     <tr>
      <td><code>all</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Set to <code>true</code> to return the tunnels IDs/info for the users in the specified user org. If this option is set, the response type would be a dictionary mapping user name to a list of tunnels. Defaults to <code>false</code>. </p></td>
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Set to <code>true</code> to return the tunnels IDs/info for all the tunnels shared with the specified user. If this option is set, the response type would be a dictionary mapping user name to a list of tunnels. Defaults to <code>false</code>. </p></td>
     </tr>
     <tr>
      <td><code>filter</code></td>

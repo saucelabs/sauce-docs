@@ -60,7 +60,7 @@ Below are examples of how to set environment variables in a given language/frame
 <TabItem value="java">
 
 ```java reference title="Authenticating with Environment Variables"
-https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/demo/SeleniumTest.java#L34-35
+https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/demo/SeleniumTest.java#L34-L35
 ```
 
 </TabItem>
