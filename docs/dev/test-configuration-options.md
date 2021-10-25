@@ -485,9 +485,9 @@ Use this capability to allocate only devices connected to a carrier network by s
 
 Keeps a device allocated to you between test sessions, bypassing the device cleaning process and session exit that occurs by default after each test completes. Normally, you'd need to start over and reopen another device. You'll need to launch your next test within 10 seconds of your previous test ending to ensure that the same device will be allocated for the test (not cleaned or reset).
 
-Your app under test and its data will remain as-is on the device.
+If [`noReset`](#noreset) is also set to `true`, the app under test and its data will remain as-is on the device.
 
-The value for `cacheId` must be the same for all test methods that you want to run on the cached device. In addition, the app and project ID used for the tests must remain the same, along with the values for these capabilities:
+If you are running multiple test suites in parallel, the values for `cacheId` should be unique for each suite (to avoid mixing up the devices), and the value for `cacheId` must be the same for all test methods that you want to run on the cached device. In addition, the app and project ID used for the tests must remain the same, along with the values for these capabilities:
 * `deviceName`
 * `platformName`
 * `platformVersion`
@@ -630,31 +630,40 @@ User-defined tags for grouping and filtering jobs on the **Test Results** dashbo
 ### `username`
 <p><small>| STRING |</small></p>
 
-Sets your Sauce Labs username for a test. You can either set `"username"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](#visual-testing)), this must be set in capabilities.
+Sets your Sauce Labs username for a test.
+
+You can either set `"username"` in capabilities or specify it in the Sauce URL as Basic Authentication. For [Visual Tests](#visual-testing)), this must be set in capabilities.
 
 :::tip
 You can find your `username` value under **Account** > **User Settings**.
 :::
 
-```java
-"username": "sauce-example-user"
+:::warning
+Good security practices include never putting credentials in plain text in your code. We highly encourage you to reference this value from an Environment Variable and [Set Environment Variables for Authentication](/basics/environment-variables/) on every machine that executes your code. The example below is in JavaScript.
+:::
+
+```js
+"username": process.env.SAUCE_USERNAME
 ```
 
 ---
 ### `accessKey`
 <p><small>| STRING |</small></p>
 
-Use this to set your Sauce Labs access key for the test. You can find this value under **Account** > **User Settings**.
+Sets your Sauce Labs access key for the test.
 
-You can either set `"accessKey"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](#visual-testing), this must be set in capabilities.
+You can either set `"accessKey"` in capabilities or specify it in the Sauce URL as Basic Authentication. For [Visual Tests](#visual-testing), this must be set in capabilities.
 
 :::tip
 You can find your `accessKey` value under **Account** > **User Settings**.
 :::
 
+:::warning
+Good security practices include never putting credentials in plain text in your code. We highly encourage you to reference this value from an Environment Variable and [Set Environment Variables for Authentication](/basics/environment-variables/) on every machine that executes your code. The example below is in JavaScript.
+:::
 
-```java
-"accessKey": "00000000-0000-0000-0000-000000000000"
+```js
+"accessKey": process.env.SAUCE_ACCESS_KEY
 ```
 
 ---

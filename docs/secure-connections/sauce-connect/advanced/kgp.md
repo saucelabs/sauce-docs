@@ -12,7 +12,7 @@ This document provides information about KGP, the tunneling protocol used by Sau
 
 :::note
 
-In-depth understanding of the tunneling protocol used by Sauce Connect Proxy is not required to use KGP.
+In-depth understanding of the tunneling protocol used by Sauce Connect Proxy is not required to use Sauce Connect.
 
 :::
 
@@ -34,9 +34,14 @@ KGP is preferred over conventional protocols (such as reverse SSH tunnel) for a 
 - It provides information about the connection state
 
 
-## KGP Packet Types
+## KGP Message Types
 
-KGP defines the following packet types:
+KGP messages (or packets) consist of a header and payload.
+KGP header contains infomation about the message type and payload is the original TCP payload that is received via the non-KGP port by the KGP client or server.
+
+<img src={useBaseUrl('img/sauce-connect/kgp-packet.png')} alt="KGP message" width="400"/>
+
+KGP defines the following message types:
 - Data packets carrying HTTP(s) traffic
 - Control packets, which include:
   - Connection requests
@@ -44,4 +49,4 @@ KGP defines the following packet types:
 
 ## KGP Security
 
-KGP, by itself, is not responsible for the connection security. It just allows you to multiplex an existing TCP connection. However, all KGP packets are encrypted with the industry standard TLS 1.2 protocol using OpenSSL library.
+All KGP packets are encrypted with the industry standard TLS 1.2 protocol using OpenSSL library.
