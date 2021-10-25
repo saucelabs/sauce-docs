@@ -653,8 +653,10 @@ module.exports = {
         "API Testing": [
             'api-testing',
             'api-testing/quickstart',
+            'api-testing/sauce-connect',
             'api-testing/composer',
             'api-testing/build-from-spec',
+            'api-testing/importing-postman-collections',
             'api-testing/test-reports',
             'api-testing/schedule-a-test',
             'api-testing/dashboard',
@@ -668,9 +670,7 @@ module.exports = {
                       'api-testing/the-vault',
                       ],
                   },
-             'api-testing/importing-postman-collections',
              'api-testing/integrate-with-your-cicd',
-             'api-testing/sauce-connect',
         ],
         "CI/CD": [
             'ci',

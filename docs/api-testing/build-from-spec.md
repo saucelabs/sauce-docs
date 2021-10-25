@@ -1,7 +1,7 @@
 ---
 id: build-from-spec
-title: Build from a Spec File
-sidebar_label: Build from Spec File
+title: Build Tests from a Spec File
+sidebar_label: Build Tests from Spec File
 description: "The available spec files you can automatically generate from are: Swagger, RAML, OpenAPI 3, API Blueprint, I/O Docs, SOAP WSDL, and Postman Collection."
 ---
 
