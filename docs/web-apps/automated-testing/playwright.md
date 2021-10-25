@@ -29,8 +29,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
  |-----|-----|-----|
  |1.15.2|Windows 10|Chromium, Firefox, Webkit|
  |1.14.1|Windows 10|Chromium, Firefox, Webkit|
- |1.12.3|Windows 10|Chromium, Firefox, Webkit  <small><span className="sauceGold">DEPRECATED</span></small> |
- |1.11.1|Windows 10|Chromium, Firefox, Webkit  <small><span className="sauceGold">DEPRECATED</span></small> |
 
  </TabItem>
  <TabItem value="docker">
@@ -41,8 +39,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
  |-----|----|
  |1.15.2|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.3.0)|
  |1.14.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.2.3)|
- |1.12.3|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.0.3) <small><span className="sauceGold">DEPRECATED</span></small> |
- |1.11.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.13.0) <small><span className="sauceGold">DEPRECATED</span></small> |
 
 </TabItem>
 </Tabs>
