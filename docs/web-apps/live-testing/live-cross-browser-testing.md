@@ -28,15 +28,11 @@ You can run live tests of your websites on a wide variety of operating system, b
 
 <img src={useBaseUrl('img/live-testing/desktop-test-setup.jpg')} alt="Desktop test setup" width="650"/>
 
-7. Your recent and saved configurations are listed in the right panel, under **Recent** and **Saved**, respectively.
+7. Your recent  configurations are listed in the right panel, under **Recent**.
 
-<img src={useBaseUrl('img/live-testing/desktop-recent-saved.jpg')} alt="Recent and saved tests" width="350"/>
+<img src={useBaseUrl('img/live-testing/desktop-recent-saved.jpg')} alt="Recent tests" width="350"/>
 
-8. To save your current configuration, select the **Save this configuration** check box.  
-
-<img src={useBaseUrl('img/live-testing/desktop-saved-config.jpg')} alt="Saved test configuration" width="350"/>
-
-9. Click **Start Session**.
+8. Click **Start Session**.
 You'll see a loading screen, and then the application will launch in a live test window using the configuration you selected.
 
 <img src={useBaseUrl('img/live-testing/desktop-test-running.jpg')} alt="Desktop test running" width="650"/>

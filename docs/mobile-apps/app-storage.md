@@ -336,6 +336,7 @@ espresso:
   otherApps:
     - ./apps/pre-installed-app1.apk
     - $PRE_INSTALLED_APP2
+    - storage:c78ec45e-ea3e-ac6a-b094-00364171addb
     - storage:filename=pre-installed-app3.apk
 ```
 
