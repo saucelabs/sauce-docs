@@ -853,9 +853,11 @@ When we run out of available virtual machines, or when you hit your concurrency 
 ### `timeZone`
 <p><small>| STRING |</small></p>
 
-Allows you to set a custom time zone for your test. If the `timeZone` name has two or more or words, you'll need to separate the words with either a space or an underscore (i.e., Los Angeles would be `Los_Angeles`). We support location names (not their paths), as shown in the example below.
+Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
 
-  * **For Desktop VMs**: can be configured with custom time zones. This feature should work on all operating systems, however time zones on Windows VMs are approximate. The time zone will usually default to whatever local time zone is on your selected data center, but this cannot be guaranteed. You can find a complete list of time zones [here](https://en.wikipedia.org/wiki/Lists_of_time_zones).
+  * **For Desktop VMs**: can be configured with custom time zones. This feature should work on all operating systems, 
+however time zones on Windows VMs are approximate. The time zone defaults to UTC. 
+Look for the "principal cities" examples on this [list of UTC time offsets](https://en.wikipedia.org/wiki/List_of_UTC_time_offsets).
   * **For iOS Devices**: you can use this capability to change the time on the Mac OS X VM, which will be picked up by the iOS simulator.
   * **For Android Devices**: this capability is not supported for Android devices, but for Android 7.2 or later, there is a workaround. Use the following ADB command to grant Appium notification read permission in order to use the time zone capability:
   ```java
@@ -863,6 +865,11 @@ Allows you to set a custom time zone for your test. If the `timeZone` name has t
   io.appium.settings/io.appium.settings.NLService
   ```
     * See the [Appium Android documentation](http://appium.io/docs/en/writing-running-appium/android/android-shell/#mobile-shell) for additional support.
+
+:::Note
+Most web applications serve localization content based on the computer's IP Address, not the Time Zone set
+in the Operating System. You may need to set up a proxy if you need to simulate the computer being in a different location.
+:::
 
 ```java
 "timeZone": "Los_Angeles", "timeZone": "New_York", "timeZone": "Honolulu", "timeZone": "Alaska"
