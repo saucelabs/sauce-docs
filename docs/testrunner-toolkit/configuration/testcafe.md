@@ -533,6 +533,95 @@ The explicit name, file glob, or location of the test files to be included in th
 ```
 ---
 
+### `filter`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specify a set of criteria to limit which tests in the `src` directory to execute for the suite.
+
+```yaml
+suites:
+  - name: Example Suite
+    filter:
+      test: browser-should-display-time
+      testGrep: browser.*
+      fixture: browswer-expectations
+      fixtureGrep: browser.*
+      testMeta:
+        region: us-west-1
+      fixtureMeta:
+        env: staging
+```
+---
+
+#### `test`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Runs a test with the specified name.
+
+```yaml
+filter:
+  test: browser-should-display-time
+```
+---
+
+#### `testGrep`
+<p><small>| OPTIONAL | STRING/REGEX |</small></p>
+
+Runs tests whose names match the specified `grep` pattern.
+
+```yaml
+filter:
+  testGrep: should-.*
+```
+---
+
+#### `fixture`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Runs a test with the specified fixture name.
+
+```yaml
+filter:
+  fixture: browswer-expectations
+```
+---
+
+#### `fixtureGrep`
+<p><small>| OPTIONAL | STRING/REGEX |</small></p>
+
+Runs any tests included in fixtures whose names match the specified `grep` patterns.
+
+```yaml
+filter:
+  fixtureGrep: browser-.*
+```
+---
+
+#### `testMeta`
+<p><small>| OPTIONAL | KEY-VALUE |</small></p>
+
+Runs any tests whose metadata matches the specified key-value pairs. Accepts one or more key-value definitions. If multiple pairs are specified, matching tests must contain all of the specified metadata values.
+
+```yaml
+filter:
+  testMeta:
+    region: us-west-1
+```
+---
+
+#### `fixtureMeta`
+<p><small>| OPTIONAL | KEY-VALUE |</small></p>
+
+Runs any tests included in fixtures whose metadata matches the specified key-value pairs. Accepts one or more key-value definitions. If multiple pairs are specified, matching fixtures must contain all of the specified metadata values.
+
+```yaml
+filter:
+  fixtureMeta:
+    env: staging
+```
+---
+
+
 ### `simulators`
 <p><small>| OPTIONAL | OBJECT | <span class="highlight sauce-cloud">Sauce Cloud only</span>|</small></p>
 
@@ -610,12 +699,36 @@ Determines whether to ignore JavaScript errors on a webpage. See [Testcafe defin
 ---
 
 ### `quarantineMode`
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
 Determines whether to enable quarantine mode for tests that fail. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#quarantinemode).
 
 ```yaml
-  quarantineMode: true
+  quarantineMode:
+    attemptLimit: 5
+    successThreshold: 3
+```
+---
+
+#### `attemptLimit`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+The maximum number of test execution attempts. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemodeattemptlimit).
+
+```yaml
+  quarantineMode:
+    attemptLimit: 5
+```
+---
+
+#### `successThreshold`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+The number of successful attempts necessary to confirm a test’s success. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemodesuccessthreshold).
+
+```yaml
+  quarantineMode:
+    successThreshold: 3
 ```
 ---
 

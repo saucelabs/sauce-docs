@@ -336,7 +336,7 @@ values={[
 <TabItem value="Java">
 
 ```java reference title="Attributes vs Properties"
-https://github.com/saucelabs-training/demo-java/blob/docs-1.1/training-sessions/selenium4/src/test/java/com/saucelabs/selenium4/new_/AttributePropertyTest.java
+https://github.com/saucelabs-training/demo-java/blob/docs-1.2/selenium-examples/src/test/java/com/saucedemo/selenium/se4newfeatures/AttributePropertyTest.java
 ```
 
 </TabItem>
@@ -675,9 +675,10 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 ## Upgrading Your Dependencies
 
-Currently, the latest version of Selenium 4 is RC-3 (release candidate 3). Check the sections below to install the RC-3 version of Selenium 4 and have your project dependencies upgraded.
+Selenium 4.0 has been released! Check the sections below to install Selenium 4 and have your project dependencies upgraded.
 
-The process of upgrading Selenium depends on which build tool is being used. We will cover the most common ones for Java &#8212; Maven and Gradle &#8212; plus JavaScript, Python, Ruby, and C#.
+The process of upgrading Selenium depends on which build tool is being used. We will cover the most common ones for Java &#8212; 
+Maven and Gradle &#8212; plus JavaScript, Python, Ruby, and C#.
 
 <Tabs
   defaultValue="Java/Maven"
@@ -694,30 +695,12 @@ The process of upgrading Selenium depends on which build tool is being used. We 
 
 Minimum Java version required is still 8.
 
-Before
-```java
-<dependencies>
-	<!-- more dependencies ... -->
-	<dependency>
-    	<groupId>org.seleniumhq.selenium</groupId>
-    	<artifactId>selenium-java</artifactId>
-    	<version>3.141.59</version>
-	</dependency>
-	<!-- more dependencies ... -->
-</dependencies>
+```java reference title="Selenium 3 Dependency"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.2/selenium3-examples/pom.xml#L17-L22
 ```
 
-After
-```java
-<dependencies>
-	<!-- more dependencies ... -->
-	<dependency>
-    	<groupId>org.seleniumhq.selenium</groupId>
-    	<artifactId>selenium-java</artifactId>
-    	<version>4.0.0-rc-3</version>
-	</dependency>
-	<!-- more dependencies ... -->
-</dependencies>
+```java reference title="Selenium 4 Dependency"
+https://github.com/saucelabs-training/demo-java/blob/docs-1.2/selenium-examples/pom.xml#L21-L25
 ```
 
 After making the change, you could execute `mvn clean compile` on the same directory where the `pom.xml` file is.
@@ -762,7 +745,7 @@ repositories {
 dependencies {
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
 	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
-	implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.0.0-rc-3'
+	implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.0.0'
 }
 test {
 	useJUnitPlatform()
@@ -774,7 +757,7 @@ After making the change, you could execute `./gradlew clean build` on the same d
 </TabItem>
 <TabItem value="JavaScript">
 
-The selenium-webdriver package can be found at the Node package manager, [npmjs](https://www.npmjs.com/). The latest JavaScript version, RC 2, can be found [here](https://www.npmjs.com/package/selenium-webdriver/v/4.0.0-rc-2). To install it, you could either:
+The selenium-webdriver package can be found at the Node package manager, [npmjs](https://www.npmjs.com/). The latest JavaScript version can be found [here](https://www.npmjs.com/package/selenium-webdriver/v/4.0.0). To install it, you could either:
 * Execute `npm install selenium-webdriver`
 * or update your package. json and run npm install:
   ```json
@@ -782,7 +765,7 @@ The selenium-webdriver package can be found at the Node package manager, [npmjs]
     "name": "selenium-tests",
     "version": "1.0.0",
     "dependencies": {
-  	"selenium-webdriver": "^4.0.0-rc-2"
+  	"selenium-webdriver": "^4.0.0"
     }
   }
   ```
@@ -793,21 +776,22 @@ The selenium-webdriver package can be found at the Node package manager, [npmjs]
 The most important change to use Python is the minimum required version. Selenium 4 will require a minimum Python 3.7 or higher. More details can be found at the [Python Package Index](https://pypi.org/project/selenium/4.0.0rc3). To upgrade from the command line, you can execute:
 
 ```py
-pip install selenium==4.0.0rc3
+pip install selenium==4.0.0
 ```
 
 </TabItem>
 <TabItem value="Ruby">
 
-The update details for Selenium 4 RC 3 can be seen at the [selenium-webdriver](https://rubygems.org/gems/selenium-webdriver/versions/4.0.0.rc3) gem in RubyGems. To install the latest version, you can execute:
+Ruby
+The update details for Selenium 4 can be seen at the selenium-webdriver gem in RubyGems. To install the latest version, you can execute:
 
 ```rb
-gem install selenium-webdriver --pre
+gem install selenium-webdriver
 ```
 
 To add it to your Gemfile:
 ```rb
-gem 'selenium-webdriver', '~> 4.0.0.rc3'
+gem 'selenium-webdriver', '~> 4.0'
 ```
 
 </TabItem>
@@ -816,7 +800,7 @@ gem 'selenium-webdriver', '~> 4.0.0.rc3'
 The place to get updates for Selenium 4 in C# is [NuGet](https://www.nuget.org). Under the [Selenium.WebDriver](https://www.nuget.org/packages/Selenium.WebDriver/4.0.0-rc3) package you can get the instructions to update to the latest version. Inside of Visual Studio, through the NuGet Package Manager you can execute:
 
 ```csharp
-PM> Install-Package Selenium.WebDriver -Version 4.0.0-rc3
+PM> Install-Package Selenium.WebDriver -Version 4.0.0
 ```
 
 </TabItem>
@@ -1024,9 +1008,12 @@ As a result, the options object was getting modified.
 
 ### Firefox Legacy
 
-Before GeckoDriver was around, the Selenium project had a driver implementation to automate Firefox versions below 48. With the release of Selenium 4, this implementation is not needed anymore, as it does not work in recent versions of Firefox.
+Before GeckoDriver was around, the Selenium project had a driver implementation to automate Firefox versions below 48. 
+With the release of Selenium 4, this implementation is not needed anymore, as it does not work in recent versions of Firefox.
 
-To avoid major issues when upgrading to Selenium 4, the `setLegacy` option will be shown as deprecated. We recommend relying only on GeckoDriver, rather than using the old implementation. The following code will show the `setLegacy` line deprecated after upgrading.
+To avoid major issues when upgrading to Selenium 4, the `setLegacy` option will be shown as deprecated. We recommend 
+relying only on GeckoDriver, rather than using the old implementation. 
+The following code will show the `setLegacy` line deprecated after upgrading.
 
 ```java
 FirefoxOptions options = new FirefoxOptions();

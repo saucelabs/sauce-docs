@@ -194,6 +194,7 @@ locationServicesAuthorized=true
 Appium capabilities for an iPhone project using iOS version 12.2:
 
 <Tabs
+  groupId="lang-ex"
   defaultValue="Java"
   values={[
     {label: 'Java', value: 'Java'},
@@ -284,6 +285,7 @@ DesiredCapabilities caps = new DesiredCapabilities();
 Appium capabilities for Samsung Galaxy device using Android version 8.1:
 
 <Tabs
+  groupId="lang-ex"
   defaultValue="Java"
   values={[
     {label: 'Java', value: 'Java'},

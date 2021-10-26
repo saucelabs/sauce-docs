@@ -214,18 +214,7 @@ sauce:
     name: your_tunnel_name
     owner: tunnel_owner_username
 ```
----
 
-## `env`
-<p><small>| OPTIONAL | OBJECT |</small></p>
-
-A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
-
-```yaml
-  env:
-    hello: world
-    my_var: $MY_VAR
-```
 ---
 ## `reporters`
 <p><small>| OPTIONAL | OBJECT |</small></p>
@@ -401,18 +390,6 @@ The name of the test suite, which will be reflected in the results and related a
 
 ```yaml
   - name: "saucy test"
-```
----
-
-### `env`
-<p><small>| OPTIONAL | OBJECT |</small></p>
-
-A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
-
-```yaml
-  env:
-    hello: world
-    my_var: $MY_VAR
 ```
 ---
 
