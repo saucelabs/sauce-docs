@@ -47,6 +47,28 @@ values={[
 ]}>
 
 <TabItem value="java">
+    
+* JUnit 4
+```java reference title="Test Reporting with JUnit 4 Test Watcher"
+    
+    @Rule
+    public SauceTestWatcher sauceTestWatcher = new SauceTestWatcher();
+
+    public class SauceTestWatcher extends TestWatcher {
+
+        @Override
+        public void succeeded(Description description) {
+            driver.executeScript("sauce:job-result=passed");
+            driver.quit();
+        }
+
+        @Override
+        public void failed(Throwable e, Description description) {
+            driver.executeScript("sauce:job-result=failed");
+            driver.quit();
+        }
+    }
+```
 
 * JUnit 5
 ```java reference title="Test Reporting with JUnit 5 Test Watcher"
