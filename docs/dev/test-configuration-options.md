@@ -855,9 +855,7 @@ When we run out of available virtual machines, or when you hit your concurrency 
 
 Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
 
-  * **For Desktop VMs**: can be configured with custom time zones. This feature should work on all operating systems, 
-however time zones on Windows VMs are approximate. The time zone defaults to UTC. 
-Look for the "principal cities" examples on this [list of UTC time offsets](https://en.wikipedia.org/wiki/List_of_UTC_time_offsets).
+  * **For Desktop VMs**: can be configured with custom time zones. This feature should work on all operating systems, however, time zones on Windows VMs are approximate. The time zone defaults to UTC. Look for the "principal cities" examples on this [list of UTC time offsets](https://en.wikipedia.org/wiki/List_of_UTC_time_offsets).
   * **For iOS Devices**: you can use this capability to change the time on the Mac OS X VM, which will be picked up by the iOS simulator.
   * **For Android Devices**: this capability is not supported for Android devices, but for Android 7.2 or later, there is a workaround. Use the following ADB command to grant Appium notification read permission in order to use the time zone capability:
   ```java
@@ -866,14 +864,15 @@ Look for the "principal cities" examples on this [list of UTC time offsets](http
   ```
     * See the [Appium Android documentation](http://appium.io/docs/en/writing-running-appium/android/android-shell/#mobile-shell) for additional support.
 
-:::Note
-Most web applications serve localization content based on the computer's IP Address, not the Time Zone set
-in the Operating System. You may need to set up a proxy if you need to simulate the computer being in a different location.
+:::note
+Most web applications serve localization content based on the computer's IP Address, not the time zone set
+in the operating system. If you need to simulate the computer being in a different location, you may need to set up a proxy.
+
 :::
 
-```java
-"timeZone": "Los_Angeles", "timeZone": "New_York", "timeZone": "Honolulu", "timeZone": "Alaska"
-```
+   ```java
+   "timeZone": "Los_Angeles", "timeZone": "New_York", "timeZone": "Honolulu", "timeZone": "Alaska"
+   ```
 
 ---
 #### Pre-Run Executables
@@ -925,6 +924,7 @@ Defines whether Sauce should wait for this executable to finish before your brow
 
 Defines the number of seconds Sauce Labs will wait for your executable to finish before your browser session starts. The default value is 90 seconds. Maximum is 360 seconds.
 
+---
 
 
 ## Additional Resources
