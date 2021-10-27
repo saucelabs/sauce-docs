@@ -251,5 +251,5 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
 
 ## More Information
 
-* [Sauce Connect Proxy Architecture]
-* [Sauce Connect Proxy CLI Reference]
+* [Sauce Connect Proxy Architecture](/secure-connections/sauce-connect/advanced/architecture/)
+* [Sauce Connect Proxy CLI Reference](/secure-connections/sauce-connect/advanced/kgp/)
