@@ -15,7 +15,7 @@ When an environment variable is used, it can still be overridden by the command 
 Some command-line arguments can be passed through a config file or an environment variable. When the same argument is passed through multiple methods, the order of precedence is as follows:
 
 1. Command-line argument
-1. Environment variable
+1. [Environment variables](https://www.youtube.com/watch?v=3K1Eu0eTha8)
 1. Config file
 
 For more information about using the  command line, see the [Sauce Connect Proxy Command-Line Reference](/dev/cli/sauce-connect-proxy).

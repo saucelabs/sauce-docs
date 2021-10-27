@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 Sauce Labs exposes a set of REST API endpoints that allow you to perform operations, manage accounts, and retrieve data programmatically so you can use the Sauce platform in the way that best suits your business logic.
 
 :::tip
-You can check the current accessibility of any Sauce Labs system on the [Sauce Labs System Status](https://status.saucelabs.com/) page.
+You can check the current accessibility of any Sauce Labs system on the [Sauce Labs Systems Status](https://status.saucelabs.com/) page.
 :::
 
 
