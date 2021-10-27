@@ -124,7 +124,7 @@ You can launch a test from the following screens:
 * Live tests for paid users will timeout after 15 minutes of inactivity
 
 ### Trusting Enterprise Certificates
-If you upload an app that is signed with an enterprise certificate, and **Instrumentation** is enabled in app settings, you must manually trust the certificate before it will successfully launch.
+If you upload an app that is signed with an enterprise certificate, and **Instrumentation** is disabled in app settings, you must manually trust the certificate before it will successfully launch.
 
 1. If you receive an app installation failed error, click the **X** in the app loading screen to exit to the device home screen.
 1. On the device home screen, navigate to **Settings** -> **General**.
