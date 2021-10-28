@@ -870,9 +870,9 @@ in the operating system. If you need to simulate the computer being in a differe
 
 :::
 
-   ```java
-   "timeZone": "Los_Angeles", "timeZone": "New_York", "timeZone": "Honolulu", "timeZone": "Alaska"
-   ```
+```java
+"timeZone": "Los_Angeles", "timeZone": "New_York", "timeZone": "Honolulu", "timeZone": "Alaska"
+```
 
 ---
 #### Pre-Run Executables
