@@ -65,7 +65,7 @@ To enable fingerprint and facial recognition on iOS and Android real devices:
   :::
 
   ```js reference title="JavaScript iOS Capabilities Example"
-  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.ios.sauce.rdc.conf.ts#L33
+  https://github.com/saucelabs-training/demo-js/blob/docs-1.1/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.ios.sauce.rdc.conf.ts#L33
   ```
 
 2. Use the following commands to trigger a successful or failed authentication in response to a biometric prompt:
@@ -76,7 +76,7 @@ To enable fingerprint and facial recognition on iOS and Android real devices:
 The following sample test script shows the selectors for Android and iOS, as well as the command to execute the authentication.
 
 ```js reference title="JS-Demo Biometrics Test Sample"
-https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.rdc.spec.ts#L25-L41
+https://github.com/saucelabs-training/demo-js/blob/docs-1.1/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.rdc.spec.ts#L25-L41
 ```
 
 
@@ -87,7 +87,7 @@ Testing biometric interception on Sauce Labs iOS simulators or on your local mac
 1. In your test script, check the device setting for biometrics, as shown in the `prepareBiometrics` function in our demo script:
 
   ```js reference title="WebdriverIO Biometrics Check Sample"
-  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L10-L31
+  https://github.com/saucelabs-training/demo-js/blob/docs-1.1/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L10-L31
   ```
 
   :::note Setting allowTouchIdEnroll capability is optional
@@ -97,19 +97,19 @@ Testing biometric interception on Sauce Labs iOS simulators or on your local mac
 2. If biometrics is disabled, call the `driver.toggleEnrollTouchId(true)` method to enable it.
 
   ```js reference title="WebdriverIO Toggle Biometrics Sample"
-  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L33-L41
+  https://github.com/saucelabs-training/demo-js/blob/docs-1.1/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L33-L41
   ```
 
 3. Now that biometrics is enabled for the device, make sure it is also enabled for the app.
 
   ```js reference title="WebdriverIO Enable Biometrics in App"
-  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L48-L49
+  https://github.com/saucelabs-training/demo-js/blob/docs-1.1/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L48-L49
   ```
 
 4. Wait for the login screen to appear, then call the `submitBiometrics(true)` method to simulate a successful biometric authentication.
 
   ```js reference title="WebdriverIO Submit Bio Auth Sample"
-  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L60-L71
+  https://github.com/saucelabs-training/demo-js/blob/docs-1.1/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L60-L71
   ```
 
 5. Run your test. Call:
@@ -126,28 +126,28 @@ As with iOS, when testing on Android emulators, you can first perform a check to
 1. In your test script, check the device setting for biometrics, as shown in the `prepareBiometrics` function in our demo script:
 
   ```js reference title="WebdriverIO Biometrics Check Sample"
-  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L10-L31
+  https://github.com/saucelabs-training/demo-js/blob/docs-1.1/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L10-L31
   ```
 2. Android does not have a capability to control the device's biometric enablement. Instead, you must go through the device's enrollment process and call an ADB command to set the PIN values representing the successful and failed authentication. Our demo repo uses a separate script to do this, and then calls the script in the test.
 
   ```js reference title'"AndroidSettings Biometric Enrollment Script Sample"
-  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/screen-objects/AndroidSettings.ts#L87-L105
+  https://github.com/saucelabs-training/demo-js/blob/docs-1.1/webdriverio/appium-app/examples/biometric-login/test/screen-objects/AndroidSettings.ts#L87-L105
   ```
 
   ```js reference title="Enable Device Biometrics in Test Sample"
-  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L42-L46
+  https://github.com/saucelabs-training/demo-js/blob/docs-1.1/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L42-L46
   ```
 
 3. Now that biometrics is enabled for the device, make sure it is also enabled for the app.
 
   ```js reference title="WebdriverIO Enable Biometrics in App"
-  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L48-L49
+  https://github.com/saucelabs-training/demo-js/blob/docs-1.1/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L48-L49
   ```
 
 4. Wait for the login screen to appear, then call the `submitBiometrics(true)` method to simulate a successful biometric authentication.
 
   ```js reference title="WebdriverIO Submit Bio Auth Sample"
-  https://github.com/saucelabs-training/demo-js/blob/main/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L60-L71
+  https://github.com/saucelabs-training/demo-js/blob/docs-1.1/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L60-L71
   ```
 
 5. Run your test. Call:
@@ -157,7 +157,7 @@ As with iOS, when testing on Android emulators, you can first perform a check to
 
 
 ## Additional Resources
-* Our [Biometrics Demo](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio/appium-app/examples/biometric-login) contains all the configuration, helper, and test script files demonstrating Biometric Login use cases for both Android and iOS real and virtual devices, including:
+* Our [Biometrics Demo](https://github.com/saucelabs-training/demo-js/tree/docs-1.1/webdriverio/appium-app/examples/biometric-login) contains all the configuration, helper, and test script files demonstrating Biometric Login use cases for both Android and iOS real and virtual devices, including:
     * React Native Sample App for Android and iOS
     * Test script to validate successful biometric login
     * Test script to validate failed biometric login
