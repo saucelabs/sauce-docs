@@ -49,31 +49,28 @@ On Sauce Labs, in the left navigation panel, click **Tunnels**. On the **Tunnels
 ### Stopping All Tunnels in Your Account in Sauce Labs
 On the Tunnels page, click **Stop My Tunnels**.
 
-### Stopping an Individual Tunnel via the Command Line**
+### Stopping an Individual Tunnel via the Command Line
 To stop an individual tunnel via the command line/prompt, you must send some sort of `KILL` signal to the running `Process ID` (pid).
 
 1. Start the Sauce Connect Proxy process.
-
-```
-    $ sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
-```
+  ```bash
+  $ sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
+  ```
 
 2. Fetch and Save the process IDs for later use.
+  ```bash
+  $ ps aux | grep bin/sc
+  ```
 
-```
-$ ps aux | grep bin/sc
-```
-
-Output:
-```
-$SAUCE_USERNAME   38312   0.1  0.1  4461780  20084 s000  S+    2:58PM   0:00.33 sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
-```
+  Output:
+  ```bash
+  $SAUCE_USERNAME   38312   0.1  0.1  4461780  20084 s000  S+    2:58PM   0:00.33 sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
+  ```
 
 3. Send a `KILL` signal to each `Process ID` (pid):
-
-```
-$ kill -2 38312
-```
+  ```bash
+  $ kill -2 38312
+  ```
 
 :::note Windows Users
 Windows has no "signals" command the way Linux/Unix/MacOS does, instead they use TaskKill iirc, for example: `taskill /PID 1234`.
@@ -107,7 +104,7 @@ Sauce Connect Proxy has a performance metrics feature that you can use to monito
 ### Configuring Performance Metrics Monitoring
 By default, the `expvar server` listens on 'localhost:8888', but you can change the interface and port with the `--metrics-address` command.
 
-```
+```bash
 --metrics-address :8000 # listens on all the interfaces' port 8080
 --metrics-address 1.2.3.4:80 # listens on 1.2.3.4 port 80
 ```
@@ -115,7 +112,7 @@ By default, the `expvar server` listens on 'localhost:8888', but you can change 
 ### Viewing Performance Metrics
 You can view performance metrics by using an HTTP client or web browser to access 'http://{SauceConnect IP or Localhost:8888}/debug/vars'. Once you've got access, the performance metrics will typically look like this:
 
-```
+```bash
 "cmdline": ["/Users/<USER_ID>/Downloads/sc-<VERSION>-<PLATFORM>/bin/sc","-u","User","-k","<ACCESS_KEY>"],
 
 "http": {
@@ -184,7 +181,7 @@ While Sauce Connect Proxy is running, a basic webpage with metrics is made avail
 | `kgpReconnectCount` | Integer | A running count of how many times Sauce Connect Proxy had to re-establish its KGP connection |
 
 
-```jsx title="Example Raw Output"
+```js title="Example Raw Output"
 {
 "cmdline": ["/Users/acampbell/Documents/sc-4.4.6-osx/bin/sc","-u","******","-k","******","--pidfile","currentA","--se-port","4445"],
 "healthMetrics": {"kgpIsConnected": true, "kgpLastStatusChange": 1492568535, "kgpReconnectCount": 0},
@@ -197,7 +194,7 @@ If you plan to run multiple instances of Sauce Connect Proxy on a single machine
 
 For example, if we were to start two instances of Sauce Connect Proxy on the same machine, using the following commands in the code block below, then the metrics for SCP1 would be available at `http://localhost:8001/debug/vars`. Similarly, SCP2's metrics would be available at `http://localhost:8000/debug/vars`.
 
-```
+```bash
 >./sc --user *** --api-key *** --metrics-address localhost:8000 --se-port 4445 --tunnel-name SCP1 --pidfile SCP1
 >...
 >./sc --user *** --api-key *** --metrics-address localhost:8001 --se-port 4446 --tunnel-name SCP2 --pidfile SCP2
@@ -250,40 +247,35 @@ When used to perform rolling restarts, systemd allows time for Sauce Connect Pro
 
 ### Setting Up systemd
 1. Create a system user to run the Sauce Connect Proxy.
-
-```
-sudo adduser --system --no-create-home --group --disabled-login --home /nonexistent sauceconnect
-```
+  ```bash
+  sudo adduser --system --no-create-home --group --disabled-login --home /nonexistent sauceconnect
+  ```
 
 2. [Download Sauce Connect Proxy](/secure-connections/sauce-connect/installation/).
-
-```
-wget https://saucelabs.com/downloads/sc-<VERSION>-linux.tar.gz
-```
+  ```bash
+  wget https://saucelabs.com/downloads/sc-<VERSION>-linux.tar.gz
+  ```
 
 3. Untar the Sauce Connect Proxy file.
-
-```
-tar -zxvf sc-<VERSION>-linux.tar.gz
-```
+  ```bash
+  tar -zxvf sc-<VERSION>-linux.tar.gz
+  ```
 
 4. Copy the Sauce Connect Proxy file into a dedicated directory.
-
-```
-cp sc-<VERSION>-linux/bin/sc /usr/local/bin/sc
-```
+  ```bash
+  cp sc-<VERSION>-linux/bin/sc /usr/local/bin/sc
+  ```
 
 5. Copy the 'systemd' config files.
-
-```
-cp sc-<VERSION>-linux/config_examples/systemd/ /etc/systemd/system
-```
+  ```bash
+  cp sc-<VERSION>-linux/config_examples/systemd/ /etc/systemd/system
+  ```
 
 6. In the system directory, edit the service file named `sc@.service`.
   * In the `User=nobody` and `Group=nobody` lines, you will need to replace nobody the with the name of the system user you created in Step 1.
   * In the `Environment` lines, you will need to replace 'username' and the placeholder string with your Sauce Labs username and access key.
 
-```
+```js
 [Unit]
 Description=Sauce Connect worker service on port %i
 PartOf=sc.service
@@ -315,67 +307,64 @@ WantedBy=multi-user.target
 ```
 
 7. Create a directory `sc.service.wants` in `/etc/systemd/system`. You'll have to create symbolic links inside this directory to set up new instances of Sauce Connect Proxy. For example, if you'd like to have two Sauce Connect Proxy instances listening on `port 8000` and `8001`, your script would look something like this.
-
-```
-sudo cd /etc/systemd/system/
-sudo mkdir -p ./sc.service.wants
-sudo ln -s /etc/systemd/system/sc@.service ./sc.service.wants/sc@8000.service
-sudo ln -s /etc/systemd/system/sc@.service ./sc.service.wants/sc@8001.service
-```
+  ```bash
+  sudo cd /etc/systemd/system/
+  sudo mkdir -p ./sc.service.wants
+  sudo ln -s /etc/systemd/system/sc@.service ./sc.service.wants/sc@8000.service
+  sudo ln -s /etc/systemd/system/sc@.service ./sc.service.wants/sc@8001.service
+  ```
 
 8. Reload the service file.
-
-```
-sudo systemctl daemon-reload
-```
+  ```bash
+  sudo systemctl daemon-reload
+  ```
 
 9. Start the service.
-
-```
-sudo systemctl start sc
-```
+  ```bash
+  sudo systemctl start sc
+  ```
 
 10. Check the status of the service.
-
-```
-sudo systemctl status sc
-```
+  ```bash
+  sudo systemctl status sc
+  ```
 
 11. You can also check the status of the individual instances.
-
-```
-sudo systemctl status 'sc@*'
-```
+  ```bash
+  sudo systemctl status 'sc@*'
+  ```
 
 12. You can stop the service with this command.
-
-```
-sudo systemctl stop sc
-```
+  ```bash
+  sudo systemctl stop sc
+  ```
 
 ## Running as a Microsoft Windows Service
 If you haven't yet, download the latest version of Sauce Connect Proxy (see [Downloading Sauce Connect Proxy](/secure-connections/sauce-connect/installation).
 
 1. Download [NSSM (Non-Sucking Service Manager)](http://nssm.cc/download), a free Windows Service manager utility that manages background and foreground services and processes. Please note that this is a third-party tool, not a product of Sauce Labs.
-
 2. Once you've downloaded NSSM, expand the program.
-
 3. Navigate to the NSSM directory via the command line and create the service with the following command:
-`nssm install SauceConnect "C:/SauceConnect/bin/sc.exe" "-u " "-k "`
-
+  ```bash
+  nssm install SauceConnect "C:/SauceConnect/bin/sc.exe" "-u " "-k "
+  ```
 4. Open the Windows services manager and ensure the new service (named SauceConnect) is set to start manually.
-
 5. Create a batch file (let's call it restartSC.bat) that contains the following:
-
-```
-NET STOP SauceConnect
-sleep 30
-NET START SauceConnect
-```
-
-6. Open Windows scheduler and set it to call `restartSC.bat` once a day.
+  ```bash
+  NET STOP SauceConnect
+  sleep 30
+  NET START SauceConnect
+  ```
+6. Open the Windows Task Scheduler and set it to call `restartSC.bat` once a day or at any other period of time.
 
 Once the above steps are in place, the Sauce Connect Proxy tunnel should restart itself daily at the time of your choosing.
+
+<details><summary>For information on manually configuring a shutdown time, refer to the NSSM GitHub page:</summary>
+
+```txt reference
+https://github.com/rticommunity/nssm/blob/master/README.txt#L210-L269
+```
+</details>
 
 ## Security Considerations with Tunnel Config
 
@@ -397,16 +386,16 @@ We also recommend verifying if your team has a tunnels setup that you can share.
 
 ### What You'll Need
 * If you haven't already, make sure you can cURL or ping the website or mobile app that you'll be testing from your computer. If you can't reach it, neither can Sauce Connect Proxy.
-* Check to see if you have any proxies that are required to access the public Internet
-* Review the [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for instructions on how to set your Sauce Labs username and access key and launch a tunnel
-* If you're using Jenkins or Bamboo, be sure to review [Sauce Connect Proxy for CI/CD Environments](/secure-connections/sauce-connect/setup-configuration/ci-cd-environments)
+* Check to see if you have any proxies that are required to access the public Internet.
+* Review the [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for instructions on how to set your Sauce Labs username and access key and launch a tunnel.
+* If you're using Jenkins or Bamboo, be sure to review [Sauce Connect Proxy for CI/CD Environments](/secure-connections/sauce-connect/setup-configuration/ci-cd-environments).
 
 ### Ephemeral (Short-Lived) Tunnels
 Ephemeral tunnels (short-lived tunnels) are ideal for the following test situations:
-* If you're testing from your laptop and start your tests from an Integrated Development Environment (IDE) or terminal
-* If you’re starting your builds/suites from a Jenkins or Bamboo server
-* If you plan to start and stop your tests quickly and need to be more hands-on
-* If you need to test potentially build-breaking changes like modifying the tunnel to fast-fail scripts/trackers, change the geolocation, or change how SSL/TLS encryption happens
+* If you're testing from your laptop and start your tests from an Integrated Development Environment (IDE) or terminal.
+* If you’re starting your builds/suites from a Jenkins or Bamboo server.
+* If you plan to start and stop your tests quickly and need to be more hands-on.
+* If you need to test potentially build-breaking changes like modifying the tunnel to fast-fail scripts/trackers, change the geolocation, or change how SSL/TLS encryption happens.
 
 #### Starting an Ephemeral Tunnel From Your Local Workstation
 One option to start Ephemeral tunnels is to do so from your local workstation.
@@ -414,14 +403,13 @@ One option to start Ephemeral tunnels is to do so from your local workstation.
 1. Set your Sauce Labs username and access key as environmental variables. For more information, see [Using Environment Variables for Authentication Credentials](/basics/environment-variables).
 
 2. Run the simplest of startup commands to ensure that the tunnel starts:
+  ```jsx title="MacOS/Linux"
+  $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
+  ```
 
-```jsx title="MacOS/Linux"
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
-```
-
-```jsx title="Windows Example"
-> sc -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY%
-```
+  ```jsx title="Windows Example"
+  > sc -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY%
+  ```
 
 Once you see a tunnel on Sauce Labs, you can start testing against a site that is hosted on your network. You can leave it up for as long as you'd like and test at a fairly reasonable volume. Start it and stop it as needed!
 
@@ -429,32 +417,30 @@ Once you see a tunnel on Sauce Labs, you can start testing against a site that i
 You can also launch Ephemeral tunnels from a continuous integration (CI) build server, where the code is being pulled from a repository.
 
 1. When putting together test suites or builds from a CI build server, we recommend first creating an automated loop that contains the following steps:
-  * Build starts (scheduled or user-initiated).
-* (Optional) Start an instance of the website or mobile app being tested.
-* Script starts your tunnel on the server.
-* Your tests start on Sauce Labs.
+   * Build starts (scheduled or user-initiated).
+   * (Optional) Start an instance of the website or mobile app being tested.
+   * Script starts your tunnel on the server.
+   * Your tests start on Sauce Labs.
 
 2. Determine the number of tunnels you'll need for your tests. For this example, we'll use one tunnel. As a rule of thumb, if you're running less than 200 parallel tests, one tunnel is fine; for 200 or more parallel tests, you'll need two tunnels. For more information, see [System and Network Requirements](/secure-connections/sauce-connect/system-requirements).
 
 3. How you start your tunnel is up to you. You can run a simple Bash shell script (or PowerShell script, if you're in Windows) that simply executes the start commands as if you were starting it locally:  
-
-```
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
-```
+  ```bash
+  $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
+  ```
 
 :::note
 If you don't specify a Data Center Sauce Connect Proxy uses the US Data Center for `SAUCE_DC` by default. So for example if you need to run tests on the Sauce Labs EU Data Center, you need to modify the '-r' flag like so:
 :::
 
-```
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-name singleton-eu-tunnel -r eu-central
-```
+  ```bash
+  $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-name singleton-eu-tunnel -r eu-central
+  ```
 
 Once you've established your automated loop, you should be able to kick off builds as needed, automatically.
 
 ### Long-Running Tunnels
 Long-running tunnels are especially useful for large enterprise customers, who often set their tunnels to run automatically for 12-48 hours over the course of their testing. They are ideal for situations like the following:
-
 * If you're running a high number of parallel tests (50 or more)
 * If you have a test automation infrastructure that can utilize the Sauce Connect Proxy service and wish to have your Sauce Connect client component up and running for a long time (i.e., 12-48 hours)
 * If you plan to share tunnels across teams
@@ -468,25 +454,20 @@ Long-running tunnels go hand in hand with our [High Availability Setup](/secure-
 * If the infrastructure for your site under test changes, you will have a known configuration that works. Keeping a group of tunnels alive 24/7 is generally easier than setting up new tunnels for every change that happens.
 
 #### Launching High Availability, Long-Running Tunnels via Command Lines
-**Single Tunnel**
-A single tunnel that you'd start from your laptop or CICD system would look like this on the command line:
 
-```
-/Users/you/sc-<VERSION>-<PLATFORM>/bin/sc \
-  -u $SAUCE_USERNAME -k $SAUCE_ACESS_KEY \
-  --tunnel-name my-single-tunnel
-```
+**Single Tunnel** &#8212; A single tunnel that you'd start from your laptop or CICD system would look like this on the command line:
+  ```bash
+  /Users/you/sc-<VERSION>-<PLATFORM>/bin/sc \
+    -u $SAUCE_USERNAME -k $SAUCE_ACESS_KEY \
+    --tunnel-name my-single-tunnel
+  ```
 
-**Multiple Tunnels**
-High Availability tunnels would look like this if they were run as part of a script or from the command line:
+**Multiple Tunnels** &#8212; High Availability tunnels would look like this if they were run as part of a script or from the command line:
 
-```
+```sh
 $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
-
 $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
-
 $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
-
 $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
 ```
 
@@ -532,20 +513,20 @@ Effective with Sauce Connect Proxy version 4.6.x and higher, this feature is dis
 
 For best test performance, we recommend sticking with HTTPS to connect with Sauce Labs or if you use a corporate proxy to control outbound traffic. Should you decide to enable the Selenium Relay, set the listener port with the `-P`, `--se-port` command (as described in the [Sauce Connect Proxy Command Line Quick Reference Guide](/dev/cli/sauce-connect-proxy)) and substitute the name of the server where Sauce Connect Proxy is installed for ondemand.saucelabs.com:
 
-```
+```bash
 public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@mymachine.mydomain.com:4445/wd/hub";
 ```
 
 If you have Sauce Connect Proxy installed on your local machine, you would use localhost for the name of the server:
 
-```
+```bash
 public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@localhost:4445/wd/hub";
 ```
 
 ### Recommended: Connecting Directly to Sauce Labs Over HTTPS
 This example shows how you would specify the connection to Sauce Labs over HTTPS in a Java test script:
 
-```
+```bash
 public static final String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:443/wd/hub";
 ```
 
@@ -556,7 +537,7 @@ You achieve this by pointing your Remote WebDriver at the address and port of th
 
 When using [Protractor](https://github.com/angular/protractor), the standard Sauce Connect Proxy configuration doesn't allow for alternative endpoint addresses. Instead, you can use the sauceSeleniumAddress config value to set a custom Selenium address:
 
-```
+```java
 exports.config = {
       sauceSeleniumAddress: 'localhost:4445/wd/hub',
       sauceUser: process.env.SAUCE_USERNAME,
