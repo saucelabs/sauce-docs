@@ -4,14 +4,10 @@ title: Running Tests with Sauce IPSec Proxy Tunnels
 sidebar_label: Sauce IPSec Proxy
 ---
 
-export const Highlight = ({children, color}) => ( <span style={{
-      backgroundColor: color,
-      borderRadius: '2px',
-      color: '#fff',
-      padding: '0.2rem',
-    }}>{children}</span> );
-
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 Internet Protocol Security VPN (IPSec VPN) is a technology that connects two private networks securely over the public internet.
 
@@ -101,25 +97,78 @@ The Sauce IPSec Proxy solution provides you with a static, secure connection, th
 Depending on the type of test you want to run, you may need to include certain capabilities in your test script. See below for use case examples.
 
 ### Automated Testing
-To connect to Sauce Labs real and virtual devices, assign your Sauce IPSec Proxy tunnel to the appropriate [Data Center Endpoint](/basics/data-center-endpoints) in your test automation script.
 
-#### Appium and Selenium
+To connect to Sauce Labs real and virtual devices, assign your Sauce IPSec Proxy tunnel to the appropriate [Data Center Endpoint](/basics/data-center-endpoints) in your test automation script. Then, specify the tunnel (and its owner, if applicable) using the appropriate capabilities or properties for your test environment and framework.
 
-* Set the `tunnelName` desired capability to the name of your organization's Sauce IPSec Proxy tunnel
+<Tabs
+    groupId="fws"
+    defaultValue="selenium"
+    values={[
+      {"label":"Selenium","value":"selenium"},
+      {"label":"Appium RDC","value":"app-rdc"},
+      {"label":"Appium VDC","value":"app-vdc"},
+      {"label":"Espresso","value":"espresso"},
+      {"label":"XCUITest","value":"xcuitest"}
+    ]}>
+<TabItem value="selenium">
 
-* Set the `tunnelOwner` capability to the username of your organization admin
+Set the `tunnelIdentifier` desired capability to the name of your organization's Sauce IPSec Proxy tunnel, and set the `parentTunnel` desired capability to the username of your Sauce Labs organization admin, as shown in the following Java example:
 
-As an example, let's say the name of your organization's tunnel is `awesometunnel` and your organization admin's username is `john.smith`. Here's how you'd set it up in Java:
+```java
+MutableCapabilities caps = new MutableCapabilities();
+caps.setCapability("tunnelIdentifier", "awesometunnel");
+caps.setCapability("parentTunnel","johnsmith");
+```
+</TabItem>
+<TabItem value="app-rdc">
 
-```sh
+Set the `tunnelName` capability to the name of your organization's Sauce IPSec Proxy tunnel, and set the `tunnelOwner` desired capability to the username of your Sauce Labs organization admin, as shown in the following Java example:
+
+```java
 MutableCapabilities caps = new MutableCapabilities();
 caps.setCapability("tunnelName", "awesometunnel");
 caps.setCapability("tunnelOwner","johnsmith");
 ```
+</TabItem>
+<TabItem value="app-vdc">
 
-#### Espresso Tests
+Set the `tunnelIdentifier` desired capability to the name of your organization's Sauce IPSec Proxy tunnel, and set the `parentTunnel` desired capability to the username of your Sauce Labs organization admin, as shown in the following Java example:
+
+```java
+MutableCapabilities caps = new MutableCapabilities();
+caps.setCapability("tunnelIdentifier", "awesometunnel");
+caps.setCapability("parentTunnel","johnsmith");
+```
+</TabItem>
+<TabItem value="espresso">
 
 Specify the applicable [`tunnel`](/testrunner-toolkit/configuration/espresso/#tunnel) settings in your saucectl config.yml file, or use the `--tunnel-name` and `--tunnel-owner` flags with the [saucectl run command](/testrunner-toolkit/saucectl/#-saucectl-run-flags) at test runtime.
+
+```yaml
+sauce:
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
+```
+
+</TabItem>
+<TabItem value="xcuitest">
+
+<p><small><span className="sauceDBlue">Real Devices Only</span></small></p>
+
+Specify the applicable [`tunnel`](/testrunner-toolkit/configuration/xcuitest/#tunnel) settings in your saucectl config.yml file, or use the `--tunnel-name` and `--tunnel-owner` flags with the [saucectl run command](/testrunner-toolkit/saucectl/#-saucectl-run-flags) at test runtime.
+
+```yaml
+sauce:
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
+```
+
+</TabItem>
+</Tabs>
+
+
 
 ### Live Testing
 

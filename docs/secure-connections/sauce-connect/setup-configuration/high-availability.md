@@ -48,11 +48,78 @@ Exclusive to our High Availability Sauce Connect Proxy Setup, you can launch mul
 Be mindful that each tunnel used in a pool will count toward your tunnel concurrency limit.
 
 #### Launching Tunnel Pools
-When using Sauce Connect Proxy (either a single tunnel or High Availability pool) to test your app, you'll need to provide the name of the Sauce Connect Proxy tunnel by using the desired capability
-[tunnelName](/secure-connections/sauce-connect/setup-configuration/basic-setup#using-tunnel-names) in your test configuration (e.g. '"tunnelName": "tunnel_name_here"').
-Tunnel names distinguish which tunnel or High Availability tunnel pool will be used to connect to your site under test.
 
-All tunnels in the individual pools need to be started with both the  [--tunnel-name "tunnel_name_here"](/dev/cli/sauce-connect-proxy#--tunnel-name-or---tunnel-identifier)
+When using Sauce Connect Proxy (either a single tunnel or High Availability pool) to test your app, you must identify the Sauce Connect Proxy tunnel by its [tunnel name](/secure-connections/sauce-connect/setup-configuration/basic-setup#using-tunnel-names) in your test configuration to distinguish which tunnel or High Availability tunnel pool will be used to connect to your site under test. Different test environments and frameworks support different capabilities when identifying a tunnel. Use the capabilities consistent with your test setup below.
+
+  <Tabs
+      groupId="fws"
+      defaultValue="selenium"
+      values={[
+        {"label":"Selenium","value":"selenium"},
+        {"label":"Appium RDC","value":"app-rdc"},
+        {"label":"Appium VDC","value":"app-vdc"},
+        {"label":"Espresso","value":"espresso"},
+        {"label":"XCUITest","value":"xcuitest"}
+      ]}>
+  <TabItem value="selenium">
+
+  Set the `tunnelIdentifier` desired capability to the name of your organization's Sauce IPSec Proxy tunnel, and set the `parentTunnel` desired capability to the username of your Sauce Labs organization admin, as shown in the following Java example:
+
+  ```java
+  MutableCapabilities caps = new MutableCapabilities();
+  caps.setCapability("tunnelIdentifier", "awesometunnel");
+  caps.setCapability("parentTunnel","johnsmith");
+  ```
+  </TabItem>
+  <TabItem value="app-rdc">
+
+  Set the `tunnelName` capability to the name of your organization's Sauce IPSec Proxy tunnel, and set the `tunnelOwner` desired capability to the username of your Sauce Labs organization admin, as shown in the following Java example:
+
+  ```java
+  MutableCapabilities caps = new MutableCapabilities();
+  caps.setCapability("tunnelName", "awesometunnel");
+  caps.setCapability("tunnelOwner","johnsmith");
+  ```
+  </TabItem>
+  <TabItem value="app-vdc">
+
+  Set the `tunnelIdentifier` desired capability to the name of your organization's Sauce IPSec Proxy tunnel, and set the `parentTunnel` desired capability to the username of your Sauce Labs organization admin, as shown in the following Java example:
+
+  ```java
+  MutableCapabilities caps = new MutableCapabilities();
+  caps.setCapability("tunnelIdentifier", "awesometunnel");
+  caps.setCapability("parentTunnel","johnsmith");
+  ```
+  </TabItem>
+  <TabItem value="espresso">
+
+  Specify the applicable [`tunnel`](/testrunner-toolkit/configuration/espresso/#tunnel) settings in your saucectl config.yml file, or use the `--tunnel-name` and `--tunnel-owner` flags with the [saucectl run command](/testrunner-toolkit/saucectl/#-saucectl-run-flags) at test runtime.
+
+  ```yaml
+  sauce:
+    tunnel:
+      name: your_tunnel_name
+      owner: tunnel_owner_username
+  ```
+
+  </TabItem>
+  <TabItem value="xcuitest">
+
+  <p><small><span className="sauceDBlue">Real Devices Only</span></small></p>
+
+  Specify the applicable [`tunnel`](/testrunner-toolkit/configuration/xcuitest/#tunnel) settings in your saucectl config.yml file, or use the `--tunnel-name` and `--tunnel-owner` flags with the [saucectl run command](/testrunner-toolkit/saucectl/#-saucectl-run-flags) at test runtime.
+
+  ```yaml
+  sauce:
+    tunnel:
+      name: your_tunnel_name
+      owner: tunnel_owner_username
+  ```
+
+  </TabItem>
+  </Tabs>
+
+All tunnels in the individual pools need to be started with both the [--tunnel-name](/dev/cli/sauce-connect-proxy#--tunnel-name-or---tunnel-identifier)
 and [--tunnel-pool](/dev/cli/sauce-connect-proxy#--tunnel-pool-or---no-remove-colliding-tunnels) command line options.
 
 #### What are Colliding Tunnels?

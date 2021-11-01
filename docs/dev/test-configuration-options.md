@@ -272,13 +272,35 @@ Specifies the screen resolution to be used during your test session. Default scr
 
 :::note
 You cannot set screen resolution on Windows 7 with IE 9.
-
 :::
-
 
 ```java
 "screenResolution": "1280x1024"
 ```
+
+---
+### `tunnelIdentifier`
+<p><small>| STRING | </small></p>
+
+Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with Sauce Labs OS/browser configurations for your test. Tunnels allow you to test URLs that may be behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
+
+See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
+
+```java
+"tunnelIdentifier": "MyTunnel01"
+```
+
+---
+### `parentTunnel`  
+<p><small>| STRING | </small></p>
+
+If the [tunnelIdentifier](#tunnelidentifier) you've specified to establish connectivity with Sauce Labs OS/browser configurations for your test is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test.
+
+```java
+"tunnelIdentifier": "MyTeamSharedTunnel"
+"parentTunnel": "<username of tunnel originator>"
+```
+<br/>
 
 ## Mobile App Appium Capabilities: Required
 
@@ -579,15 +601,62 @@ Appium override setting that enables the interception of biometric input, allowi
 
 ---
 ### `groupFolderRedirectEnabled`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">iOS Only</span> | </small></p>
 
 Appium override setting that enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.
 
 ---
 ### `systemAlertsDelayEnabled`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">iOS Only</span> | </small></p>
 
 Appium override setting that delays system alerts, such as alerts asking for permission to access the camera, to prevent app crashes at startup.
+
+---
+### `tunnelName`
+<p><small>| STRING | <span className="sauceDBlue">Real Devices Only</span> | </small></p>
+
+Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with a Sauce Labs real device for your test. Tunnels allow you to test an application that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
+
+See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
+
+```java
+"tunnelName": "MyTunnel01"
+```
+
+---
+### `tunnelOwner`  
+<p><small>| STRING | <span className="sauceDBlue">Real Devices Only</span> | </small></p>
+
+If the [tunnelName](#tunnelname) you've specified to establish connectivity with a Sauce Labs real device for your test is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test.
+
+
+```java
+"tunnelName": "MyTeamSharedTunnel"
+"tunnelOwner": "<username of tunnel originator>"
+```
+
+---
+### `tunnelIdentifier`
+<p><small>| STRING | <span className="sauceDBlue">Virtual Devices Only</span> | </small></p>
+
+Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with a Sauce Labs emulator or simulator for your test. Tunnels allow you to test an application that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
+
+See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
+
+```java
+"tunnelIdentifier": "MyTunnel01"
+```
+
+---
+### `parentTunnel`  
+<p><small>| STRING | <span className="sauceDBlue">Virtual Devices Only</span> | </small></p>
+
+If the [tunnelIdentifier](#tunnelidentifier) you've specified to establish connectivity with a Sauce Labs emulator or simulator for your test is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test.
+
+```java
+"tunnelIdentifier": "MyTeamSharedTunnel"
+"parentTunnel": "<username of tunnel originator>"
+```
 
 <br/>
 
@@ -709,47 +778,6 @@ Available visibility modes are:
 ```java
 "public": "team"
 ```
-
----
-### `tunnelName`
-<p><small>| STRING | </small></p>
-
-Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an application that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
-
-See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information.
-
-```java
-"tunnelName": "MyTunnel01"
-```
-
----
-### `tunnelOwner`  
-<p><small>| STRING |</small></p>
-
-If the [tunnelName](#tunnelname) you've specified to establish connectivity with Sauce Labs for your test is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test.
-
-See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
-
-
-```java
-"tunnelName": "MyTeamSharedTunnel"
-"tunnelOwner": "<username of tunnel originator>"
-```
-
----
-### `tunnelIdentifier`
-<p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
-
-Please use [`tunnelName`](#tunnelname) to specify the Sauce Connect tunnel you wish to use for your test.
-
-
-
----
-### `parentTunnel`  
-<p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
-
-Please use [`tunnelOwner`](#tunnelowner) to identify the owner of a shared tunnel you're using for your test.
-
 
 ---
 ### `recordVideo`

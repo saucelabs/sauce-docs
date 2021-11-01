@@ -146,99 +146,108 @@ Sauce Connect Proxy must be on the same network as the website or mobile app bei
 
 ## Using Tunnel Names
 
-When launching a Sauce Connect Proxy tunnel for automated web and mobile app tests, you have two options:
+When launching a Sauce Connect Proxy tunnel for automated web and mobile app tests, one way is to launch it as-is, without naming it, in which case that unnamed tunnel will automatically be used for all automated tests. This can be useful for small organizations with a limited number of tests.
 
-* Launch a Sauce Connect tunnel as-is, without naming it. That default, unnamed tunnel will automatically be used for all automated tests. This can be useful for small organizations with a limited number of tests.
-* Assign a name to help distinguish tunnels in a way that is meaningful to your organization. To accomplish this:
-  1. Use the [ `--tunnelName` flag](/dev/cli/sauce-connect-proxy/#--tunnel-name-or---tunnel-identifier) when you launch a tunnel.
-  1. Specify the named tunnel in your automated tests by adding the `tunnelName` capability.
+Alternatively, you can assign a name to your tunnel when you launch it to help distinguish it in a way that is meaningful to your organization to ensure that different teams or users always have access to specific tunnels. To accomplish this:
 
-### Sample Configurations Using Named Tunnels
+1. Launch a new tunnel on the `SC_HOST` using the [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy) and the [ `--tunnelName` flag](/dev/cli/sauce-connect-proxy/#--tunnel-name-or---tunnel-identifier) flag
 
-The following code samples demonstrate specifying a tunnel name when launching a tunnel and then referencing that tunnel in your automated test.
+  :::note
+  Ensure that your network configuration allows for communication between the `SC Host`, the Tunnel VM, and the SUT (site under test). See the basic network configuration diagram for further explanation.
+  :::
 
-Launch a new tunnel on the `SC_HOST` using the [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy) and the `--tunnelName` flag:
+  <Tabs
+    defaultValue="MacOS/Linux Example"
+    values={[
+      {label: 'MacOS/Linux Example', value: 'MacOS/Linux Example'},
+      {label: 'Windows Example', value: 'Windows Example'},
+    ]}>
 
-<Tabs
-  defaultValue="MacOS/Linux Example"
-  values={[
-    {label: 'MacOS/Linux Example', value: 'MacOS/Linux Example'},
-    {label: 'Windows Example', value: 'Windows Example'},
-  ]}>
+  <TabItem value="MacOS/Linux Example">
 
-<TabItem value="MacOS/Linux Example">
+  ```bash
+  $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DC --tunnelName sc-proxy-tunnel
+  ```
 
-```bash
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DC --tunnelName sc-proxy-tunnel
-```
+  </TabItem>
+  <TabItem value="Windows Example">
 
-</TabItem>
+  ```bash
+  > sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -r %SAUCE_DC% --tunnelName sc-proxy-tunnel
+  ```
 
-<TabItem value="Windows Example">
+  </TabItem>
+  </Tabs>
 
-```bash
-> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -r %SAUCE_DC% --tunnelName sc-proxy-tunnel
-```
+1. Specify the named tunnel in your automated tests by including the capability applicable for your test environment and framework:
 
-</TabItem>
+  <Tabs
+      groupId="fws"
+      defaultValue="selenium"
+      values={[
+        {"label":"Selenium","value":"selenium"},
+        {"label":"Appium RDC","value":"app-rdc"},
+        {"label":"Appium VDC","value":"app-vdc"},
+        {"label":"Espresso","value":"espresso"},
+        {"label":"XCUITest","value":"xcuitest"}
+      ]}>
+  <TabItem value="selenium">
 
-</Tabs>
+  Set the `tunnelIdentifier` desired capability to the name of your organization's Sauce IPSec Proxy tunnel, and set the `parentTunnel` desired capability to the username of your Sauce Labs organization admin, as shown in the following Java example:
 
-* Ensure that your network configuration allows for communication between the `SC Host`, the Tunnel VM, and the SUT (site under test). See the basic network configuration diagram for further explanation.
-* Select an example from [Sauce Labs Demonstration Scripts](https://github.com/saucelabs-training) and follow the instructions to configure the test in your dev environment.
-* Navigate to the desired test script and add the [tunnelName](/dev/test-configuration-options#tunnelname) capability to your [`sauce:options`](/dev/w3c-webdriver-capabilities).
+  ```java
+  MutableCapabilities caps = new MutableCapabilities();
+  caps.setCapability("tunnelIdentifier", "awesometunnel");
+  caps.setCapability("parentTunnel","johnsmith");
+  ```
+  </TabItem>
+  <TabItem value="app-rdc">
 
-<Tabs
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Node.js', value: 'Node.js'},
-    {label: 'C#', value: 'C#'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-  ]}>
+  Set the `tunnelName` capability to the name of your organization's Sauce IPSec Proxy tunnel, and set the `tunnelOwner` desired capability to the username of your Sauce Labs organization admin, as shown in the following Java example:
 
-<TabItem value="Java">
+  ```java
+  MutableCapabilities caps = new MutableCapabilities();
+  caps.setCapability("tunnelName", "awesometunnel");
+  caps.setCapability("tunnelOwner","johnsmith");
+  ```
+  </TabItem>
+  <TabItem value="app-vdc">
 
-```java
-caps.SetCapability("tunnelName", "sc-proxy-tunnel");
-```
+  Set the `tunnelIdentifier` desired capability to the name of your organization's Sauce IPSec Proxy tunnel, and set the `parentTunnel` desired capability to the username of your Sauce Labs organization admin, as shown in the following Java example:
 
-</TabItem>
+  ```java
+  MutableCapabilities caps = new MutableCapabilities();
+  caps.setCapability("tunnelIdentifier", "awesometunnel");
+  caps.setCapability("parentTunnel","johnsmith");
+  ```
+  </TabItem>
+  <TabItem value="espresso">
 
-<TabItem value="Node.js">
+  Specify the applicable [`tunnel`](/testrunner-toolkit/configuration/espresso/#tunnel) settings in your saucectl config.yml file, or use the `--tunnel-name` and `--tunnel-owner` flags with the [saucectl run command](/testrunner-toolkit/saucectl/#-saucectl-run-flags) at test runtime.
 
-```js
-'tunnelName': 'sc-proxy-tunnel'
-```
+  ```yaml
+  sauce:
+    tunnel:
+      name: your_tunnel_name
+      owner: tunnel_owner_username
+  ```
 
-</TabItem>
+  </TabItem>
+  <TabItem value="xcuitest">
 
-<TabItem value="C#">
+  <p><small><span className="sauceDBlue">Real Devices Only</span></small></p>
 
-```csharp
-caps.SetCapability("tunnelName", "sc-proxy-tunnel");
-```
+  Specify the applicable [`tunnel`](/testrunner-toolkit/configuration/xcuitest/#tunnel) settings in your saucectl config.yml file, or use the `--tunnel-name` and `--tunnel-owner` flags with the [saucectl run command](/testrunner-toolkit/saucectl/#-saucectl-run-flags) at test runtime.
 
-</TabItem>
+  ```yaml
+  sauce:
+    tunnel:
+      name: your_tunnel_name
+      owner: tunnel_owner_username
+  ```
 
-<TabItem value="Python">
-
-```py
-'tunnelName': 'sc-proxy-tunnel'
-```
-
-</TabItem>
-
-<TabItem value="Ruby">
-
-```rb
-tunnelName: 'sc-proxy-tunnel',
-```
-
-</TabItem>
-
-</Tabs>
+  </TabItem>
+  </Tabs>
 
 ## Sauce Connect Proxy Tunnel Startup Process
 Every Sauce Connect Proxy tunnel spins up a fresh virtual machine (VM) that is used only for your tests; VMs are destroyed once the tunnel is closed. A recommended Sauce Connect Proxy best practice is to create a new tunnel for each test suite or build and tear it down at the end of your test.
