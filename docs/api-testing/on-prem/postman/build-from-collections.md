@@ -10,7 +10,7 @@ keywords:
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
->**Legacy Documentation**: You're viewing the API Testing On-Premises (Legacy) documentation. To see the current documentation, see [API Testing on the Sauce Labs Cloud](/api-testing/).
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 API Fortress can now generate a test from a Postman collection!
 

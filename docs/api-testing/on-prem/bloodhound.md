@@ -2,12 +2,12 @@
 id: bloodhound
 title: Introduction
 sidebar_label: Introduction
-description: "Bloodhound is an HTTP API Microgateway that acts are a reverse proxy."
+description: "Bloodhound is an HTTP API microgateway that acts like a reverse proxy to capture, forward, measure, transform, filter and simulate API calls."
 ---
 
->**Legacy Documentation**: You're viewing the API Testing On-Premises (Legacy) documentation. To see the current documentation, see [API Testing on the Sauce Labs Cloud](/api-testing/).
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
-Bloodhound is an HTTP API Microgateway that acts are a reverse proxy.
+Bloodhound is an HTTP API microgateway that acts like a reverse proxy to capture, forward, measure, transform, filter and simulate API calls.
 
 The pillars of the project are:
 
