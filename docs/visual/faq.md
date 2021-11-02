@@ -38,10 +38,6 @@ If the overflow style on the body is "hidden", then the client could execute the
 document.body.style.overflow = 'auto'
 ```
 
-### Does Screener capture iframes?
-Yes; it is a Visual E2E feature. Look for [`iframes`](/visual/e2e-testing/commands-options) and [`iframesOptions`](/visual/e2e-testing/commands-options).
-
-
 
 ## Visual E2E
 
@@ -53,6 +49,9 @@ This can be done by setting [`viewportSize` in your `sauce:visual` capabilities]
 
 ### How do I run functional tests only after integrating Visual E2E?
 If you want to run their functional tests only, you do not need to modify any of your visual integration code. Just change your WebDriver endpoint from `hub.screener.io` to `ondemand.saucelabs.com`.
+
+### Does Screener capture `iframes`?
+Yes; this is a Visual E2E feature. Look for [`iframes`](/visual/e2e-testing/commands-options) and [`iframesOptions`](/visual/e2e-testing/commands-options).
 
 
 
