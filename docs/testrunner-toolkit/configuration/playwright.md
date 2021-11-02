@@ -505,12 +505,39 @@ Sets the number of separate shards to create for the test suite. Read more about
 
 When sharding is configured, `saucectl` automatically creates the sharded jobs based on the number of shards you specify. For example, for a suite that specifies 2 shards, `saucectl` clones the suite and runs shard `1/2` on the first suite, and the other shard `2/2` on the identical clone suite.
 
+<<<<<<< HEAD
+=======
+:::caution Shard Property Exclusivity
+The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a 
+single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
+:::
+>>>>>>> da7390e278f68d093227d629b9455f679a32514c
 
 ```yaml
   numShards: 2
 ```
 ---
 
+<<<<<<< HEAD
+=======
+### `shard`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+When sharding is configured, saucectl automatically splits the tests (e.g. by spec) so that they can easily run in parallel.
+Selectable values: `spec` to shard by spec file. Remove this field or leave it empty `""` for no sharding.
+
+:::caution Shard Property Exclusivity
+The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a 
+single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
+:::
+
+```yaml
+    shard: spec
+```
+
+---
+
+>>>>>>> da7390e278f68d093227d629b9455f679a32514c
 ### `params`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 

@@ -7,17 +7,27 @@ description: Learn how to quickly generate a test in API Fortress. By using the 
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+<<<<<<< HEAD
 This page is a Quickstart guide for getting up and running with the API Fortress tool. API Fortress may be deployed in our hosted cloud or self-hosted/on-premises via a container behind your firewall. Maintain complete test data ownership. [Learn more about the differences between the two types of deployments](/api-testing/on-prem/self-hosted/on-prem-platform). 
+=======
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
+This page is a Quickstart guide for getting up and running with the API Fortress tool. API Fortress may be deployed in our hosted cloud or self-hosted/on-premises via a container behind your firewall. Maintain complete test data ownership. [Learn more about the differences between the two types of deployments](/api-testing/on-prem/self-hosted/on-prem-platform).
+>>>>>>> da7390e278f68d093227d629b9455f679a32514c
 
 Below, we walk through how to quickly create a test using an e-commerce API. Let's get started!
 
 ## What You'll Need
 
 * An API Fortress Account
+<<<<<<< HEAD
 
 :::caution Confirm your Email Address
 You should receive an email with your login credentials from the platform. If you haven’t, please email us at [support@saucelabs.com](mailto:support@saucelabs.com). If you’d like to trial mocking or load testing, please contact support or your API Fortress representative.
 :::
+=======
+  * When first setting up your account, you should receive an email with your login credentials from the platform.  Before sure to confirm your email address. If you don't receive an email, contact us at [support@saucelabs.com](mailto:support@saucelabs.com). If you’d like to trial mocking or load testing, please contact support or your API Fortress representative.
+>>>>>>> da7390e278f68d093227d629b9455f679a32514c
 
 
 ## Step 1: Create a Project

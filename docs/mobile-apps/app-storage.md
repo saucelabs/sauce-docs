@@ -17,7 +17,14 @@ When testing mobile apps, you have the option to upload your app to our applicat
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+<<<<<<< HEAD
 * Your mobile app file. If you don't have one on hand, consider using the [Sauce Labs sample app](https://github.com/saucelabs/sample-app-mobile) for validating this process.
+=======
+* Your mobile app file. If you don't have one on hand, consider using our Demo Apps:
+     *[React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
+     *[iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
+     *[Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases) 
+>>>>>>> da7390e278f68d093227d629b9455f679a32514c
 
 ## Uploading Apps via UI
 
@@ -81,6 +88,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </Tabs>
 
 
+<<<<<<< HEAD
 ## Installing Apps from a Remote Location
 <p> <small><span className="sauceDBlue">Real Devices Only</span></small></p>
 
@@ -112,6 +120,8 @@ If you are using a remote app download for testing on a private device and wish 
 Each session is a "fresh" installation of your app, meaning, you will not be able to access information about previous versions of your app.
 :::
 
+=======
+>>>>>>> da7390e278f68d093227d629b9455f679a32514c
 ## Accepted File Types 
 Application storage recognizes \*.apk and \*.aab files as Android apps and \*.ipa or \*.zip files as iOS apps. \*.zip files are parsed to determine whether a valid *.app bundle exists.
 

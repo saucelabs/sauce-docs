@@ -4,6 +4,7 @@ title: Sauce Runner for Real Devices YAML File Configuration
 sidebar_label: YAML Config File
 ---
 
+<<<<<<< HEAD
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
       borderRadius: '2px',
@@ -318,3 +319,15 @@ java -jar runner.jar config --path ./MyFile.yml --accessKey ab015c1e-xxxx-xxxx-x
 :::
 
 This will launch your test. To see your results, go to Sauce Labs > **Automated** > **Test Results** > **Real Devices**.
+=======
+<span className="sauceGold">DEPRECATED</span>
+
+The Sauce Runner has been replaced by `saucectl`. Please refer to the configuration documentation applicable for your framework:
+
+* [Configure Cypress](/testrunner-toolkit/configuration/cypress)
+* [Configure Playwright](/testrunner-toolkit/configuration/playwright)
+* [Configure TestCafe](/testrunner-toolkit/configuration/testcafe)
+* [Configure Puppeteer](/testrunner-toolkit/configuration/puppeteer)
+* [Configure Espresso](/testrunner-toolkit/configuration/espresso)
+* [Configure XCUITest](/testrunner-toolkit/configuration/xcuitest)
+>>>>>>> da7390e278f68d093227d629b9455f679a32514c
