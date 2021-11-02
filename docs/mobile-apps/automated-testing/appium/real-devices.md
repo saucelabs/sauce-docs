@@ -73,7 +73,7 @@ caps.setCapability("appiumVersion", "1.5.3");
 
 ### Excluding the `browserName`
 
-When testing a native mobile app, no browser is accessed, so if you are re-using the capabilities from your mobile or desktop browser tests, you can omit the `browserName` capability or or set the value as an empty string.
+When testing a native mobile app, no browser is accessed, so if you are re-using the capabilities from your mobile or desktop browser tests, you can omit the `browserName` capability or or set the value as an empty string. This is an important exclusion because if values are set for _both_ `app` and `browserName`, Sauce Labs defaults to the `browserName`. Similarly, if neither capability is specified, Sauce Labs defaults to the `browserName` settings of Safari for iOS and Chrome for Android.
 
 ```js
 caps.setCapability("browserName", "");
@@ -438,20 +438,3 @@ Once you're up and running with your real device tests, check out our [Best Prac
 * [Add test annotations](/basics/test-config-annotation/test-annotation)
 * [Setting test status to pass or fail](/test-results/test-status)
 * [Use Build IDs and tags to differentiate and identify test runs](/basics/test-config-annotation/test-annotation)
-
-### Full Example Scripts
-
-These Appium script examples can help streamline your real device testing process.
-They use the [pytest](https://docs.pytest.org/en/latest/) test framework.
-Feel free to [clone these scripts directly from GitHub](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples),
-and follow the instructions in the [README file](https://github.com/saucelabs-training/demo-python#readme).
-
-* [conftest.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/conftest.py): initializes the test fixtures, as well as the prerequisite and post-requisite test tasks.
-* [test_login_success.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/test_login_success.py): this script represents an individual test.
-* [test_invalid_login.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/test_login_fail.py): this script represents an individual test.
-
-Visit our [sample test frameworks GitHub repository](https://github.com/saucelabs-sample-test-frameworks?utf8=%E2%9C%93&q=appium&type=&language=) for more detailed language-specific examples.
-
-:::note For Example Purposes Only
-The code in these scripts is provided on an "AS-IS” basis without warranty of any kind, either express or implied, including without limitation any implied warranties of condition, uninterrupted use, merchantability, fitness for a particular purpose, or non-infringement. Your tests and testing environments may require you to modify these scripts. Issues regarding these scripts should be submitted through <a href="https://github.com/saucelabs-training">Sauce Labs GitHub</a>. These scripts are not maintained by Sauce Labs Support.
-:::
