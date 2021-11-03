@@ -12,14 +12,11 @@ With Sauce Labs, you can test your mobile applications on a variety of Android a
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-<<<<<<< HEAD
-* A mobile app to test.
-=======
 * Your mobile app file. If you don't have one on hand, consider using our Demo Apps:
-     *[React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
-     *[iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
-     *[Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases) 
->>>>>>> da7390e278f68d093227d629b9455f679a32514c
+     * [React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
+     * [iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
+     * Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)
+
 
 ### Uploading an App
 You can upload your app via the Sauce Labs UI or via the REST API. For information about uploading via the API, see [Upload Files with the REST API](/mobile-apps/app-storage).
@@ -130,8 +127,6 @@ You can launch a test from the following screens:
 * Live tests for all other users are limited to six hours
 * Live tests for paid users will timeout after 15 minutes of inactivity
 
-<<<<<<< HEAD
-=======
 ### Trusting Enterprise Certificates
 If you upload an app that is signed with an enterprise certificate, and **Instrumentation** is DISABLED in app settings, you must manually trust the certificate before it will successfully launch.
 
@@ -141,7 +136,6 @@ If you upload an app that is signed with an enterprise certificate, and **Instru
 1. Tap **Trust "app name"** and then tap **Trust**.
 1. Reopen the app to continue the test.
 
->>>>>>> da7390e278f68d093227d629b9455f679a32514c
 ## Live Test Interface
 
 | Icon | Name | Description |

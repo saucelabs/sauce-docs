@@ -520,8 +520,6 @@ Specifies whether the individual suite will run on `docker` or `sauce`, potentia
 ```
 ---
 
-<<<<<<< HEAD
-=======
 ### `shard`
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -534,7 +532,6 @@ Selectable values: `spec` to shard by spec file. Remove this field or leave it e
 
 ---
 
->>>>>>> da7390e278f68d093227d629b9455f679a32514c
 ### `src`
 <p><small>| REQUIRED | OBJECT |</small></p>
 

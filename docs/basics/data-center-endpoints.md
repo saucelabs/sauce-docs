@@ -19,29 +19,18 @@ The data center you use with Sauce Labs determines:
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 
-<<<<<<< HEAD
-## Access to Data Centers
-Your data center is determined based on your license type and your company's needs:
-
-* Free-trial and self-service users select their data center when they sign up for Sauce Labs.
-* Enterprise customers select one or more data centers as part of their contract with Sauce Labs.
-=======
 
 ## Access to Data Centers
 Your data center is determined based on your license type and your company's needs:
 
 * Free-trial users and self-service users select their data center when they sign up for Sauce Labs.
 * Enterprise plan users select one or more data centers as part of their contract with Sauce Labs.
->>>>>>> da7390e278f68d093227d629b9455f679a32514c
 
 To see your data center, check the upper-right corner of the Sauce Labs user interface. Options include:
 
 * [US West](#us-west-data-center)
 * [EU Central](#eu-central-data-center)
 * [Headless US-East](#headless-us-east-data-center)
-<<<<<<< HEAD
-* [APAC Southeast](#apac-southeast-data-center) (beta)
-=======
 * [APAC Southeast](#apac-southeast-data-center) <small><span className="sauceDBlue">BETA</span></small>
 
 
