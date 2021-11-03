@@ -1,6 +1,6 @@
 ---
 id: proxy-tunnels
-title: Using Tunnels
+title: Using Sauce Connect Proxy Tunnels
 sidebar_label: Using Tunnels
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -28,6 +28,7 @@ If you're using Sauce Connect Proxy to build a tunnel between your application a
 
 If you're using a continuous integration platform like Jenkins, you can use the Sauce OnDemand plugin to launch and tear down your Sauce Connect Proxy instance. For more information, see [Setting Up CI Platform Integrations with Sauce Plugins](/ci)
 
+
 ## Starting and Stopping Tunnels
 Every Sauce Connect Proxy tunnel spins up a fresh virtual machine (VM) that is used only for your tests. Once the tunnel is closed, VMs are destroyed. As a best practice, we recommend you create a new tunnel for each test suite or build and tear it down at the end of your test. For information about user roles and permissions, see [User Roles](/basics/acct-team-mgmt/managing-user-info).
 
@@ -36,20 +37,17 @@ You can launch a new tunnel from the command line of the machine where the Sauce
 
 See [Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for full instructions on launching tunnels.
 
-### Stopping an Individual Tunnel via the Command Line
+### Stopping a Tunnel via Command Line
+There are two ways to do this:
+
+#### Method 1: `ctrl-c`
 Once Sauce Connect has been terminated (typically via `ctrl-c`), a call will be made from Sauce Connect to the REST API with instructions to terminate the Tunnel VM. Sauce Connect will continue to poll the REST API until the Tunnel VM has been halted and deleted.
 
 :::note
-If you are using the [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability) and attempt to terminate a running test with `ctrl-C`, you will see a message that Sauce Connect Proxy will not terminate until tests have completed. If you want to force Sauce Connect Proxy to terminate before the test finishes, enter 'ctrl-C' again to force it to quit.
+If you are using the [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability) and attempt to terminate a running test with `ctrl-c`, you will see a message that Sauce Connect Proxy will not terminate until tests have completed. If you want to force Sauce Connect Proxy to terminate before the test finishes, enter 'ctrl-C' again to force it to quit.
 :::
 
-### Stopping an Individual Tunnel in Sauce Labs
-On Sauce Labs, in the left navigation panel, click **Tunnels**. On the **Tunnels** page, the tunnel information table, click **Stop** in the **Actions** column.
-
-### Stopping All Tunnels in Your Account in Sauce Labs
-On the Tunnels page, click **Stop My Tunnels**.
-
-### Stopping an Individual Tunnel via the Command Line
+#### Method 2: `KILL` signal
 To stop an individual tunnel via the command line/prompt, you must send some sort of `KILL` signal to the running `Process ID` (pid).
 
 1. Start the Sauce Connect Proxy process.
@@ -76,7 +74,7 @@ To stop an individual tunnel via the command line/prompt, you must send some sor
 Windows has no "signals" command the way Linux/Unix/MacOS does, instead they use TaskKill iirc, for example: `taskill /PID 1234`.
 :::
 
-### Stopping Multiple Tunnels via the Command Line
+### Stopping Multiple Tunnels via Command Line
 Before you attempt to stop/teardown all your running tunnels, please understand the following workflow:
 
 Here is an example using Linux commands:
@@ -97,6 +95,17 @@ For more information about acceptable signals and parameters, see the [Linux kil
 ```jsx title="Example command for killing all running proxy tunnels"
 $ ps aux | grep sc | grep -v grep | awk  '{print $2}' | xargs kill -9
 ```
+
+
+### Starting a New Tunnel via Sauce Labs
+It's not possible to start a tunnel through the Sauce Labs UI. Follow the instructions under [Starting a New Tunnel via Command Line](/secure-connections/sauce-connect/proxy-tunnels/#starting-a-new-tunnel-via-command-line).
+
+### Stopping a Tunnel via Sauce Labs
+On Sauce Labs, in the left navigation panel, click **Tunnels**. On the **Tunnels** page, the tunnel information table, click **Stop** in the **Actions** column.
+
+### Stopping All Tunnels in Your Account via Sauce Labs
+On the Tunnels page, click **Stop My Tunnels**.
+
 
 ## Performance Metrics
 Sauce Connect Proxy has a performance metrics feature that you can use to monitor and measure the data and activities of your Sauce Connect Proxy client. You can access these metrics over an HTTP connection to a local expvar server, which will display the metrics as a JSON file.
