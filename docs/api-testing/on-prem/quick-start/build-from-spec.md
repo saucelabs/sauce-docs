@@ -13,11 +13,9 @@ export const Highlight = ({children, color}) => ( <span style={{
       color: '#fff',
       padding: '0.2rem',
     }}>{children}</span> );
-<<<<<<< HEAD
-    
+
 
 <p><small>Supported specs: <Highlight color="#37b732">Swagger</Highlight> <Highlight color="#29d3fe">RAML</Highlight> <Highlight  color="#4e5b2e">OpenAPI 3</Highlight> <Highlight color="#9073d2">API Blueprint</Highlight> <Highlight color="#c3090c">I/O Docs</Highlight> <Highlight color="#025b9c">SOAP</Highlight> <Highlight color="#025b9c">WSDL</Highlight> <Highlight color="#ff6c37">Postman Collection</Highlight> </small></p>
-=======
 
 >**Legacy Documentation**: You're viewing the API Testing On-Premises (Legacy) documentation. To see the current documentation, see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
@@ -28,7 +26,7 @@ There are generally two ways to generate tests from a spec file: [generate a sin
 
 ## Generate a Single Test From a Spec File
 <<<<<<< HEAD
-  
+
 This feature allows you to create a test starting with a specification file. From the interstitial page, choose the __Build from SPEC__ icon.
 
 >__Note__: This process deletes your working copy. Keep this in mind if you attempt to use a specification file with a test that has already been written.
@@ -46,8 +44,8 @@ This process deletes your working copy. Keep this in mind if you attempt to use 
 There are two ways to build a test from a specification file:
 
 <<<<<<< HEAD
-* Upload the specification file itself. 
-* Reference the URL that points to the specification file. 
+* Upload the specification file itself.
+* Reference the URL that points to the specification file.
 =======
 * Upload the specification file itself.
 * Reference the URL that points to the specification file.
@@ -75,7 +73,7 @@ Once you have chosen the file type and the method, click the Save button and you
 
 This feature allows you to create multiple tests from one specification file. From within the project page (where you would like the tests to be stored), choose the __New Tests from SPEC__ icon at the top.
 <<<<<<< HEAD
-  
+
 =======
 
 >>>>>>> da7390e278f68d093227d629b9455f679a32514c
@@ -85,9 +83,9 @@ This feature allows you to create multiple tests from one specification file. Fr
 
 There are two ways to build a test from a specification file. One way is to [upload the specification file itself](#upload-the-spec-file). Another way involves [providing the URL that points to the specification file](#reference-the-spec-file). The dropdown in the top right allows you to select your mode.  
 <<<<<<< HEAD
-  
+
 <img src={useBaseUrl('img/api-fortress/2020/02/newBuildFromFile.jpg')} alt="New Build from a Spec File"/>
-  
+
 =======
 
 <img src={useBaseUrl('img/api-fortress/2020/02/newBuildFromFile.jpg')} alt="New Build from a Spec File"/>
@@ -103,7 +101,7 @@ Once you have chosen the file type and the method, click the green check mark on
 
 Choose as many as you wish to test or select one then click __Select All__ in the top left to select all paths and then click __Import selected__. The tests will then be created and named in the following syntax `"method endpoint - status\_code"` (i.e. `"GET /v1/users/ - 200"`).  
 <<<<<<< HEAD
-  
+
 =======
 
 >>>>>>> da7390e278f68d093227d629b9455f679a32514c
