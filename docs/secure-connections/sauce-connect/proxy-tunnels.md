@@ -28,7 +28,6 @@ If you're using Sauce Connect Proxy to build a tunnel between your application a
 
 If you're using a continuous integration platform like Jenkins, you can use the Sauce OnDemand plugin to launch and tear down your Sauce Connect Proxy instance. For more information, see [Setting Up CI Platform Integrations with Sauce Plugins](/ci)
 
-
 ## Starting and Stopping Tunnels
 Every Sauce Connect Proxy tunnel spins up a fresh virtual machine (VM) that is used only for your tests. Once the tunnel is closed, VMs are destroyed. As a best practice, we recommend you create a new tunnel for each test suite or build and tear it down at the end of your test. For information about user roles and permissions, see [User Roles](/basics/acct-team-mgmt/managing-user-info).
 
@@ -41,10 +40,10 @@ See [Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-se
 There are two ways to do this:
 
 #### Method 1: `ctrl-c`
-Once Sauce Connect has been terminated (typically via `ctrl-c`), a call will be made from Sauce Connect to the REST API with instructions to terminate the Tunnel VM. Sauce Connect will continue to poll the REST API until the Tunnel VM has been halted and deleted.
+Once Sauce Connect Proxy has been terminated (typically via `ctrl-c`), a call will be made from Sauce Connect to the REST API with instructions to terminate the Tunnel VM. Sauce Connect will continue to poll the REST API until the Tunnel VM has been halted and deleted.
 
 :::note
-If you are using the [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability) and attempt to terminate a running test with `ctrl-c`, you will see a message that Sauce Connect Proxy will not terminate until tests have completed. If you want to force Sauce Connect Proxy to terminate before the test finishes, enter 'ctrl-C' again to force it to quit.
+If you attempt to terminate a Sauce Connect Proxy tunnel that is running a test with `ctrl-c`, you will see a message indicating that Sauce Connect Proxy will not terminate until tests are completed. To proceed with terminating Sauce Connect Proxy before the test finishes, enter `ctrl-c` again to force it to quit.
 :::
 
 #### Method 2: `KILL` signal
