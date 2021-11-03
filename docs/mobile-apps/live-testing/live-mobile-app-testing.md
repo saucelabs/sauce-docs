@@ -15,7 +15,7 @@ With Sauce Labs, you can test your mobile applications on a variety of Android a
 * Your mobile app file. If you don't have one on hand, consider using our Demo Apps:
      * [React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
      * [iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
-     * Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)
+     * [Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)
 
 
 ### Uploading an App

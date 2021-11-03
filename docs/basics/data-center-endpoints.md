@@ -229,7 +229,6 @@ For more information on Sauce Headless, including full test walkthroughs, see [S
 </tr>
 </table>
 
->>>>>>> da7390e278f68d093227d629b9455f679a32514c
 
 ## Data Center Location - Real Device Cloud
 For real device testing, the location of your data center determines the format of some of the information you will see. Devices in US data centers default to EN-US, and will display information like date, currency, and temperature using US standard terms (i.e., MM/dd/yyyy, $, and F°), while devices in EU data centers default to EN-UK, and will display information like date, currency, and temperature using UK standard terms (i.e., dd/MM/yyyy, £, and C°).
@@ -249,15 +248,9 @@ If you attempt to use a data center that you don't have access to:
 ### Access to Real Devices
 Real devices are kept in our data center, behind locked racks and doors. Other security measures include:
 
-<<<<<<< HEAD
-* WiFi APIs are password protected with WPA2 security protocol, so only our devices can connect to the subnet
-* Devices must have proper proxy information in order to have network connectivity
-* Access management is handled by Sauce Labs, and only specific individuals are allowed access to our devices, with logs that track all access attempts
-=======
 * WiFi APIs are password protected with WPA2 security protocol, so only our devices can connect to the subnet.
 * Devices must have proper proxy information in order to have network connectivity.
 * Access management is handled by Sauce Labs, and only specific individuals are allowed access to our devices, with logs that track all access attempts.
->>>>>>> da7390e278f68d093227d629b9455f679a32514c
 
 ### Automated Tests and APIs
 When you run automated tests or make API calls, your data center by default is US West. If you want to use a different data center, you'll need to specify it in the test code or API call.
@@ -266,13 +259,8 @@ In addition, if you want to run automated tests on real devices, you need to spe
 
 See the respective API documentation for the Real Device Cloud and Sauce Labs API:
 
-<<<<<<< HEAD
-* [TestObject: API Reference](https://api.testobject.com/) <small><span className="sauceGold">DEPRECATED</span></small>
-* [The Sauce Labs REST API](/dev/api)
-=======
 * [The Sauce Labs REST API](/dev/api)
 * [TestObject: API Reference](https://api.testobject.com/) <small><span className="sauceGold">DEPRECATED</span></small>
->>>>>>> da7390e278f68d093227d629b9455f679a32514c
 
 For more information about the Real Device Cloud and Sauce Labs API, see [API Reference](/dev/api).
 
@@ -280,21 +268,12 @@ For more information about the Real Device Cloud and Sauce Labs API, see [API Re
 The URL hostname and authorization credentials for APIs are different for each data center:
 
 | Sauce Data Center | Authorization Credentials |
-<<<<<<< HEAD
-|---|---|
-| US West virtual devices and desktops cloud  | Username and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
-| EU Central virtual devices and desktops cloud  | Username and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
-| APAC Southeast virtual devices and desktops cloud  | Username and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
-| US West real devices cloud  | Username and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
-| EU Central real devices cloud  | Username and access key can be found in [Sauce Labs](https://app.saucelabs.com/dashboard) under **ACCOUNT -> User settings**. |
-=======
 |:---|:---|
 | US West virtual devices and desktops cloud  | Username and access key can be found in Sauce Labs under **ACCOUNT** > **User settings**. |
 | EU Central virtual devices and desktops cloud  | Username and access key can be found in Sauce Labs under **ACCOUNT** > **User settings**. |
 | APAC Southeast virtual devices and desktops cloud  | Username and access key can be found in Sauce Labs under **ACCOUNT** > **User settings**. |
 | US West real devices cloud  | Username and access key can be found in Sauce Labs under **ACCOUNT** > **User settings**. |
 | EU Central real devices cloud  | Username and access key can be found in Sauce Labs under **ACCOUNT** > **User settings**. |
->>>>>>> da7390e278f68d093227d629b9455f679a32514c
 | APAC Southeast real devices cloud | N/A |
 | US Legacy TestObject cloud <small><span className="sauceGold">DEPRECATED</span></small>  | User name and API key can be found in [TestObject](https://app.testobject.com/) under **Account Settings**. |
 | EU Legacy TestObject cloud <small><span className="sauceGold">DEPRECATED</span></small>  | User name and API key can be found in [TestObject](https://app.testobject.com/) under **Account Settings**. |
@@ -303,11 +282,7 @@ The URL hostname and authorization credentials for APIs are different for each d
 If you use any of the following and your data center is EU Central, you need to make changes to your tests and/or framework to run those tests in the EU data center.
 
 | Framework | Change |
-<<<<<<< HEAD
-|---|---|
-=======
 |:---|:---|
->>>>>>> da7390e278f68d093227d629b9455f679a32514c
 | Java with JUnit or TestNG  | Set `SAUCE_REST_ENDPOINT=https://eu-central-1.saucelabs.com/` as a system/environment variable, otherwise test status will not be set. |
 | Protractor | Update to version 5.4.2 or later of Protractor and set `sauceRegion: 'eu'` in your `config` file. |
 | WebDriverIO | Update to version 4.14.1 or later, or 5.0.0 or later, of WebDriverIO and set `region: 'eu'` in your `wdio.conf` file. |
@@ -321,11 +296,7 @@ If you're using SSO with Sauce Labs, your data center determines the appropriate
 For details about setting up SSO for Sauce Labs, see [Setting Up Single Sign-On](/basics/sso/setting-up-single-sign-on).
 
 | Data Center | Signing/Encryption Certificate/Entity ID | Entity AssertionConsumeURL |
-<<<<<<< HEAD
-|---|---|---|
-=======
 |:---|:---|:---|
->>>>>>> da7390e278f68d093227d629b9455f679a32514c
 | US West | `https://saucelabs.com/sso/metadata` | `https://saucelabs.com/sso/acs` |
 | EU Central | `https://eu-central-1.saucelabs.com/sso/metadata` | `https://eu-central-1.saucelabs.com/sso/acs` |
 | Headless US-East | `https://us-east-1.saucelabs.com/sso/metadata` | `https://us-east-1.saucelabs.com/sso/acs` |
@@ -335,117 +306,6 @@ If you have access to more than one data center, you can switch data centers by 
 
 Changing your data center changes what you can see and do in the Sauce Labs UI:
 
-<<<<<<< HEAD
-* Live tests you run in the UI
-* Results for live tests and automated tests you run on the data center
-* Organization-wide concurrency settings specific to the data center
-* Teams associated with the data center
-* Sauce Connect Proxy tunnels connected to the data center
-
-## Data Center Status
-To check on the status of your data center, see the [Sauce Labs System Status](https://status.saucelabs.com/) page.
-
-### Maintenance Windows
-To view planned maintenance windows for your data center, see [Maintenance Windows](/dev/data-center-maint).
-
-## Endpoints
-URLs vary based on the services you're using, your data center, and the types of tests you need to run.
-
-### US West Data Center
-<table>
-<tr>
-<td>Name</td>
-<td>Details</td>
-</tr>
-<tr>
-<td colSpan='2'><strong>US West OnDemand Endpoints</strong></td>
-</tr>
-<tr>
-<td>Desktop Browser and Virtual Device Cloud</td><td><code>https://ondemand.us-west-1.saucelabs.com/wd/hub</code></td>
-</tr>
-<tr>
-<td>RDC on Sauce</td><td><code>https://ondemand.us-west-1.saucelabs.com/</code></td>
-</tr>
-<tr>
-<td>Legacy RDC/TestObject <small><span className="sauceGold">DEPRECATED</span></small></td><td><code>https://us1.appium.testobject.com/wd/hub</code></td>
-</tr>
-<tr>
-<td colSpan='2'><strong>US West REST API</strong></td>
-</tr>
-<tr>
-<td>Virtual Devices and Desktops</td><td><code>https://api.us-west-1.saucelabs.com/v1</code></td>
-</tr>
-<tr>
-<td>RDC on Sauce</td><td><code>https://api.us-west-1.saucelabs.com/v1/rdc</code></td>
-</tr>
-<tr>
-<td>Real Devices on TestObject <small><span className="sauceGold">DEPRECATED</span></small></td><td><code>https://app.testobject.com/api/rest/</code></td>
-</tr>
-<tr>
-<td>Sauce Connect Proxy</td><td>Virtual and Real Devices on Sauce: <code>https://saucelabs.com/rest/v1/</code><br/><br/>Real Devices on Legacy RDC/TestObject: <code>https://us1.api.testobject.com/sc/rest/v1</code> <small><span className="sauceGold">DEPRECATED</span></small></td>
-</tr>
-<tr>
-<td>Team Management</td><td><code>https://api.us-west-1.saucelabs.com/team-management/v1/</code></td>
-</tr>
-<tr>
-<td>Sauce Connect Proxy</td><td>Virtual and Real Devices on Sauce: <code>https://saucelabs.com/rest/v1/</code></td>
-</tr>
-<tr>
-<td>IP Ranges</td><td>Virtual and Real Devices on Sauce: <code>162.222.72.0/21</code><br/><code>66.85.48.0/21</code></td>
-</tr>
-</table>
-
-
-### EU Central Data Center
-:::note
-Depending on the framework or driver you use, you might need to make additional changes to your tests to run them in the EU-Central data center. See [Running Tests on EU Central](#running-tests-on-eu-central) for details.
-:::
-
-| Name | Details |
-|---|---|
-| **EU Central OnDemand Endpoints** |   |
-| Desktop Browser and Virtual Device Cloud | `https://ondemand.eu-central-1.saucelabs.com/wd/hub` |
-| RDC on Sauce | `https://ondemand.eu-central-1.saucelabs.com/` |
-| Legacy RDC/TestObject <small><span className="sauceGold">DEPRECATED</span></small> | `https://eu1.appium.testobject.com/wd/hub` |
-| **EU Central REST API** |   |
-| Virtual Devices and Desktops | `https://api.eu-central-1.saucelabs.com/v1` |
-| RDC on Sauce | `https://api.eu-central-1.saucelabs.com/v1/rdc` |
-| Real Devices on TestObject <small><span className="sauceGold">DEPRECATED</span></small> | `https://app.testobject.com/api/rest/` |
-| Sauce Connect Proxy | Virtual and Real Devices on Sauce: `https://eu-central-1.saucelabs.com/rest/v1`<br/>Real Devices on TestObject: `https://eu1.api.testobject.com/sc/rest/v1`<small><span className="sauceGold">DEPRECATED</span></small> |
-| Team Management | `https://api.eu-central-1.saucelabs.com/team-management/v1/` |
-| Sauce Connect Proxy | Virtual and Real Devices on Sauce: `https://eu-central-1.saucelabs.com/rest/v1` |
-| IP Ranges | `185.94.24.0/22` |
-
-### APAC Southeast Data Center
-| Name | Details |
-|---|---|
-| **APAC Southeast OnDemand Endpoints** |   |
-| Desktop Browser and Virtual Device Cloud | `https://ondemand.apac-southeast-1.saucelabs.com/wd/hub` |
-| RDC on Sauce | `https://ondemand.apac-southeast-1.saucelabs.com/` |
-| **APAC Southeast REST API** |   |
-| Virtual Devices and Desktops | `https://api.apac-southeast-1.saucelabs.com/v1` |
-| RDC on Sauce | N/A |
-| Team Management | `https://api.apac-southeast-1.saucelabs.com/team-management/v1/` |
-| Sauce Connect Proxy | Virtual and Real Devices on Sauce: `https://saucelabs.com/rest/v1/` |
-| IP Ranges | `34.87.251.80/28`  |
-
-
-### Headless US-East Data Center
-For more information on Sauce Headless, including full test walkthroughs, see [Sauce Headless Testing in the Cross-Browser Cloud](/headless).
-
-| Name | Details |
-|---|---|
-| **Headless US-East OnDemand Endpoints** |   |
-| Desktop Browser and Virtual Device Cloud | `https://ondemand.us-east-1.saucelabs.com/wd/hub` |
-| RDC on Sauce | N/A |
-| Legacy RDC/TestObject | <small><span className="sauceGold">DEPRECATED</span></small> |
-| **Headless US-East REST API** |   |
-| Virtual Devices and Desktops | `https://us-east-1.saucelabs.com/rest/v1` |
-| RDC on Sauce | N/A |
-| Real Devices on TestObject | <small><span className="sauceGold">DEPRECATED</span></small> |
-| Sauce Connect Proxy | `https://us-east-1.saucelabs.com/rest/v1` |
-| IP Ranges | N/A |
-=======
 * Live tests you run in the UI.
 * Results for live tests and automated tests you run on the data center.
 * Organization-wide concurrency settings specific to the data center.
@@ -457,4 +317,3 @@ To check on the status of your data center, see the [Sauce Labs Systems Status](
 
 ### Maintenance Windows
 To view planned maintenance windows for your data center, see [Maintenance Windows](/dev/data-center-maint).
->>>>>>> da7390e278f68d093227d629b9455f679a32514c

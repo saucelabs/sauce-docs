@@ -189,6 +189,7 @@ While Sauce Connect Proxy is running, a basic webpage with metrics is made avail
 }
 ```
 
+
 If you plan to run multiple instances of Sauce Connect Proxy on a single machine and wish to access the health metrics of each tunnel, then you'll need to assign a unique port to each instance of Sauce Connect Proxy that is running.
 
 For example, if we were to start two instances of Sauce Connect Proxy on the same machine, using the following commands in the code block below, then the metrics for SCP1 would be available at `http://localhost:8001/debug/vars`. Similarly, SCP2's metrics would be available at `http://localhost:8000/debug/vars`.

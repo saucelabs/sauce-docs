@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 ## Network Security
 Sauce Connect Proxy establishes a secure connection between your applications hosted on an internal server and the Sauce Labs VMs or real devices used during your tests.
 
-Data transmitted by Sauce Connect Proxy is encrypted through the TLS protocol, which uses perfect forward secrecy for maximum security.
+Data transmitted by Sauce Connect Proxy is encrypted through the TLS protocol, which uses perfect forward secrecy for maximum security. 
 
 ### Running in a Demilitarized Zone (DMZ)
 Within your infrastructure, Sauce Connect Proxy must be able to reach the application or server you want to test via your network, but can and should be firewalled from the rest of your internal network.
