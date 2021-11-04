@@ -190,6 +190,7 @@ Click on the copy button in the lower right, then paste into an editor, then cop
 ### How do I resolve `Error: Storybook object not found`?
 
 1. Run test with `--debug` flag enabled. For example: `npm run test-storybook -- --debug`.
+
 2. After running with the debug flag, reach out to the Sauce Labs Support Team and provide them with your log output.
 
 If the following logs are found, it means that Puppeteer could not be launched because of missing dependencies:
