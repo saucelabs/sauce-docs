@@ -44,7 +44,7 @@ values={[
 
 <TabItem value="us">
 
-```jsx title="cURL with jq Example"
+```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams?name=sauce' \
 --header 'Content-Type: application/json' | json_pp
@@ -54,7 +54,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 <TabItem value="eu">
 
-```jsx title="cURL with jq Example"
+```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams?name=sauce' \
 --header 'Content-Type: application/json' | json_pp
@@ -134,7 +134,7 @@ values={[
 
 <TabItem value="us">
 
-```jsx title="cURL with jq Example"
+```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>' \
 --header 'Content-Type: application/json' | json_pp
@@ -144,7 +144,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 <TabItem value="eu">
 
-```jsx title="cURL with jq Example"
+```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>' \
 --header 'Content-Type: application/json' | json_pp
