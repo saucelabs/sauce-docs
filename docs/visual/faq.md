@@ -18,6 +18,7 @@ Yes. After accepting a snapshot, you can revert its acceptance before running an
    <img src={useBaseUrl('img/visual/revertAccepted.png')} alt="Revert accepted screenshot" width="150" />
 
 ### How do I show lazy-loaded content in my screenshot?
+
 You will need to trigger the lazy-loaded content so that it loads and displays in your web page. How to do this depends on how the lazy-loaded content is triggered to load.
 
 For example, if content is loaded based on scrolling down to a particular section of your web page, then you will need to scroll to that section using JavaScript:
