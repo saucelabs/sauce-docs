@@ -18,7 +18,8 @@ Yes. After accepting a snapshot, you can revert its acceptance before running an
    <img src={useBaseUrl('img/visual/revertAccepted.png')} alt="Revert accepted screenshot" width="150" />
 
 ### How do I show lazy-loaded content in my screenshot?
-You need to trigger the lazy-loaded content so that it loads and displays in your web page. How to do this depends on how the lazy-loaded content is triggered to load.
+
+You will need to trigger the lazy-loaded content so that it loads and displays in your web page. How to do this depends on how the lazy-loaded content is triggered to load.
 
 For example, if content is loaded based on scrolling down to a particular section of your web page, then you will need to scroll to that section using JavaScript:
 
@@ -27,12 +28,12 @@ window.scroll(0, 1000);
 ```
 
 ### Why is my screenshot not full-page?
-Screener captures a full-page screenshot by default in all browsers. But the height of the full-page screenshot is based on the scrollable height of the main document body.
+Screener captures a full-page screenshot by default in all browsers. The height of the full-page screenshot is based on the scrollable height of the main document body.
 
 If the body is not scrollable, then the screenshot captured will appear to be cut off. For example, if the "overflow" style on the body is set to "hidden", then the body cannot be scrolled.
 
 #### Are there workarounds?
-Yes, but the workaround depends on how the website CSS was built and understanding what is causing the body to not be scrollable.
+Yes, but the workaround depends on how the website CSS was built, and understanding what is causing the body to not be scrollable.
 
 If the overflow style on the body is "hidden", then the client could execute the following JS in an Execute Script command in the test to set body overflow to `'auto'` before capturing a snapshot:
 
@@ -50,7 +51,7 @@ Visual E2E is unified with Sauce VMs, and uses Sauce browsers exclusively. For a
 This can be done by setting [`viewportSize` in your `sauce:visual` capabilities](/visual/e2e-testing/commands-options/#saucevisual-capability-options).
 
 ### How do I run functional tests only after integrating Visual E2E?
-If you want to run their functional tests only, you do not need to modify any of your visual integration code. Just change your WebDriver endpoint from `hub.screener.io` to `ondemand.saucelabs.com`.
+If you want to run functional tests only, you do not need to modify any of your visual integration code. Just change your WebDriver endpoint from `hub.screener.io` to `ondemand.saucelabs.com`.
 
 ### Does Screener capture `iframes`?
 Yes &#8212; look for [`iframes`](/visual/e2e-testing/commands-options) and [`iframesOptions`](/visual/e2e-testing/commands-options).
@@ -173,9 +174,9 @@ Screener Storybook supports version 3.0 to 6.x (latest) and [CSF](https://storyb
 React Hooks messes up using the Screener component because it executes its magic at runtime. So to use Screener Steps with React Hooks, you need to use Storybook Decorators to wrap the component story. Here is an example script: [Storybook + Screener Steps with Hooks](https://gist.github.com/screener-io/ada0e3c51137c907ba80728ad7fab23b).
 
 ### Does Sauce Visual interact with knobs within stories in Storybook and test as needed?
-Screener-storybook does not automatically interact with knobs, as there would be potentially an infinite number of permutations. but if there's a UI state that the user wants to get to using knobs, then this is possible with Screener Steps.
+Screener-storybook does not automatically interact with knobs, as there could potentially be an infinite number of permutations. If there's a UI state that the user wants to get to using knobs, then this is possible with Screener Steps.
 
-In the Storybook knobs add-on, there's a knobs UI where the user can copy a query string for the knobs configuration. They can copy this querystring, and use it with Screener Steps `executeScript` method to reproduce those knobs values.
+In the Storybook knobs add-on, there's a knobs UI where the user can copy a query string for the knobs configuration. They can copy this query string, and use it with the Screener Steps `executeScript` method to reproduce those knobs values.
 
 Click on the copy button in the lower right, then paste into an editor, then copy only the query-string portion (after the `?`) and paste that into a Screener step.
 
@@ -190,7 +191,7 @@ Click on the copy button in the lower right, then paste into an editor, then cop
 ### How do I resolve `Error: Storybook object not found`?
 
 1. Run test with `--debug` flag enabled. For example: `npm run test-storybook -- --debug`.
-2. After running with debug flag, reach out to Sauce Labs Support Team and provide them with your log output.
+2. After running with the debug flag, reach out to the Sauce Labs Support Team and provide them with your log output.
 
 If the following logs are found, it means that Puppeteer could not be launched because of missing dependencies:
   ```txt
