@@ -671,6 +671,16 @@ module.exports = {
                       ],
                   },
              'api-testing/integrate-with-your-cicd',
+              {
+                  type: 'category',
+                  label: 'Components',
+                  collapsed: true,
+                  items: [
+                      'api-testing/components/assertions',
+                      'api-testing/components/io-components',
+                      'api-testing/components/logical-components',
+                      ],
+                  },
         ],
         "CI/CD": [
             'ci',
