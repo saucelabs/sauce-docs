@@ -40,7 +40,7 @@ I/O components are a type of component that you can add to a test using the Comp
      - `500|INVALID`: 500 is expected with invalid payload
 
   Multiple status codes can be expected by adding them all (i.e., `200|302|400|500|VALID`)
-7. Under **Mode** (required field), enter the type of the response you want to test (must be 'json','xml', 'html',or 'text'.
+7. Under **Mode** (required field), enter the type of the response you want to test (must be 'json','xml', 'html',or 'text').
 8. Under **Query Params** (optional field), enter any params you want to add to the query string. To add, tap on **Add parameter**. The params can either be:
    * **String value**: the value will always be the same for all the requests. To do so, enter the value in the related field, then choose **String value** from the dropdown menu.
    * **Variable**: the value will be taken dynamically and could changed from time to time. To do so, enter the name of the variable in the field, then choose **Variable** from the dropdown menu.<br/>

@@ -16,7 +16,7 @@ Assertions are a type of component that you can add to a test using the Composer
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 
-## Assert Compare
+## Assert Compares
 
 Allows you to compare two payloads in terms of text, structure or values.
 

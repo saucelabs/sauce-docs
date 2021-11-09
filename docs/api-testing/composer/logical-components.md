@@ -17,7 +17,9 @@ Logical components are a type of component that you can add to a test using the 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 
-## Each
+## Logical Components
+
+### Each
 
 Allows you to iterate over a collection of elements and execute the piece of code for each element.
 
@@ -56,7 +58,7 @@ The **for each payload.content.flights** collection checks if 'price.amount' is 
 
 
 
-## If
+### If
 
 Allows you to run a specific piece of code only if a specific condition is met.
 
@@ -87,7 +89,7 @@ If `_1.intermediate` exists then the code within the element is executed, otherw
 </details>
 
 
-## While
+### While
 
 Allows you to run a block of assertions as long as a condition is valid.
 
@@ -108,7 +110,6 @@ Allows you to run a block of assertions as long as a condition is valid.
 <img src={useBaseUrl('img/api-fortress/2020/12/while.jpg')} alt="while.jpg"/>
 
 </details>
-
 
 
 ## Other Components

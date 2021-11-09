@@ -32,7 +32,7 @@ This button displays all available [assertion components](/api-testing/composer/
 If a component is not valid for the operation you are conducting, it will not be made available to help avoid mistakes. For instance, if you don’t add a `POST` first, you cannot add a `POST` Body or `POST` Param.
 
 :::note
-Sauce Labs free trials do not give you access to all available components.
+Sauce Labs free trials may not give you access to all available components.
 :::
 
 ## Transform Component

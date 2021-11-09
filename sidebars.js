@@ -669,10 +669,10 @@ module.exports = {
                       'api-testing/the-vault',
                       ],
                   },
-             'api-testing/integrate-with-your-cicd',
+            'api-testing/apifctl-cicd-integration',
               {
                   type: 'category',
-                  label: 'Composer',
+                  label: 'Test Composer',
                   collapsed: true,
                   items: [
                       'api-testing/composer',
@@ -681,6 +681,8 @@ module.exports = {
                       'api-testing/composer/logical-components',
                       ],
                   },
+            'api-testing/mocking',
+            'api-testing/logger',
         ],
         "CI/CD": [
             'ci',

@@ -18,8 +18,8 @@ Yes. After accepting a snapshot, you can revert its acceptance before running an
    <img src={useBaseUrl('img/visual/revertAccepted.png')} alt="Revert accepted screenshot" width="150" />
 
 ### How do I show lazy-loaded content in my screenshot?
-You will need to trigger the lazy-loaded content so that it loads and displays in your web page. How to do this depends on how the lazy-loaded content is triggered to load.
 
+You will need to trigger the lazy-loaded content so that it loads and displays in your web page. How to do this depends on how the lazy-loaded content is triggered to load.
 
 For example, if content is loaded based on scrolling down to a particular section of your web page, then you will need to scroll to that section using JavaScript:
 
@@ -30,7 +30,6 @@ window.scroll(0, 1000);
 ### Why is my screenshot not full-page?
 
 Screener captures a full-page screenshot by default in all browsers. The height of the full-page screenshot is based on the scrollable height of the main document body.
-
 
 If the body is not scrollable, then the screenshot captured will appear to be cut off. For example, if the "overflow" style on the body is set to "hidden", then the body cannot be scrolled.
 
