@@ -5,8 +5,8 @@
    ],
    "sitemap_urls": ["https://docs.saucelabs.com/sitemap.xml"],
    "stop_urls":[
-      "https://docs.saucelabs.com/api-testing/mark2/$",
-      "https://docs.saucelabs.com/api-testing/mark2",
+      "https://docs.saucelabs.com/api-testing/on-prem/$",
+      "https://docs.saucelabs.com/api-testing/on-prem",
       "/index.html"
    ],
    "selectors":{

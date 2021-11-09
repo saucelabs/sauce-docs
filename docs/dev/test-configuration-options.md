@@ -21,7 +21,7 @@ You'll need to add these configurations to the [capabilities](https://www.seleni
 * **[W3C WebDriver Capabilities](#browser-w3c-capabilities--optional)**: Required for any test using Selenium or Appium to communicate with the browser. W3C WebDriver capabilities are universal capabilities for any test, and are usually combined with additional capabilities. [Learn more](/dev/w3c-webdriver-capabilities).
 * **[Sauce Labs Capabilities](#desktop-and-mobile-capabilities-sauce-specific--optional)**: Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the endpoint URL](/basics/data-center-endpoints) and should pass the test name and status as capabilities to the remote webdriver.
 * **Appium Capabilities**: Required for tests using Appium on mobile apps and Appium on mobile web browsers.
-  * **[Mobile App Capabilities](#mobile-app-capabilities-appium-settings--required)**: Required if you're running a test on a mobile app.
+  * **[Mobile App Capabilities](#mobile-app-appium-capabilities-required)**: Required if you're running a test on a mobile app.
   * **Mobile Web Capabilities**: Required if you're using Appium to test a web app. You'll need to set the `deviceName`, `platformName` `platformVersion`, and `automationName` the same way you would for a mobile app test, along with settings for the browser.
 * **[Browser-Specific Capabilities](#desktop-browser-capabilities-sauce-specific--optional)**: Optional, browser-specific Sauce Labs capabilities.
 * **Browser Vendor Capabilities**: Each browser also has its own set of pre-defined options you can set to help you test. You can add these in regular capabilities or options, or use the browser-defined capabilities (browser options classes) to configure your browser tests:
@@ -485,9 +485,9 @@ Use this capability to allocate only devices connected to a carrier network by s
 
 Keeps a device allocated to you between test sessions, bypassing the device cleaning process and session exit that occurs by default after each test completes. Normally, you'd need to start over and reopen another device. You'll need to launch your next test within 10 seconds of your previous test ending to ensure that the same device will be allocated for the test (not cleaned or reset).
 
-Your app under test and its data will remain as-is on the device.
+If [`noReset`](#noreset) is also set to `true`, the app under test and its data will remain as-is on the device.
 
-The value for `cacheId` must be the same for all test methods that you want to run on the cached device. In addition, the app and project ID used for the tests must remain the same, along with the values for these capabilities:
+If you are running multiple test suites in parallel, the values for `cacheId` should be unique for each suite (to avoid mixing up the devices), and the value for `cacheId` must be the same for all test methods that you want to run on the cached device. In addition, the app and project ID used for the tests must remain the same, along with the values for these capabilities:
 * `deviceName`
 * `platformName`
 * `platformVersion`
@@ -531,7 +531,7 @@ On iOS devices, the `noReset` value is permanently set to `true` and cannot be o
 ---
 
 ### `recordDeviceVitals`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| BOOLEAN | <span className="sauceDBlue">TestObject Only</span> <span className="sauceGold">DEPRECATED</span> |</small></p>
 
 Device vitals are a collection of the mobile device performance data taken in real time during test execution. Vitals includes CPU utilization, memory consumption, network usage for both wifi and carrier connectivity where applicable, file operation and more. Measuring device vitals during test execution provides insights for analyzing app performance during operation.
 
@@ -630,31 +630,40 @@ User-defined tags for grouping and filtering jobs on the **Test Results** dashbo
 ### `username`
 <p><small>| STRING |</small></p>
 
-Sets your Sauce Labs username for a test. You can either set `"username"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](#visual-testing)), this must be set in capabilities.
+Sets your Sauce Labs username for a test.
+
+You can either set `"username"` in capabilities or specify it in the Sauce URL as Basic Authentication. For [Visual Tests](#visual-testing)), this must be set in capabilities.
 
 :::tip
 You can find your `username` value under **Account** > **User Settings**.
 :::
 
-```java
-"username": "sauce-example-user"
+:::warning
+Good security practices include never putting credentials in plain text in your code. We highly encourage you to reference this value from an Environment Variable and [Set Environment Variables for Authentication](/basics/environment-variables/) on every machine that executes your code. The example below is in JavaScript.
+:::
+
+```js
+"username": process.env.SAUCE_USERNAME
 ```
 
 ---
 ### `accessKey`
 <p><small>| STRING |</small></p>
 
-Use this to set your Sauce Labs access key for the test. You can find this value under **Account** > **User Settings**.
+Sets your Sauce Labs access key for the test.
 
-You can either set `"accessKey"` in capabilities or specify it in the URL you direct your tests to. For [Visual Tests](#visual-testing), this must be set in capabilities.
+You can either set `"accessKey"` in capabilities or specify it in the Sauce URL as Basic Authentication. For [Visual Tests](#visual-testing), this must be set in capabilities.
 
 :::tip
 You can find your `accessKey` value under **Account** > **User Settings**.
 :::
 
+:::warning
+Good security practices include never putting credentials in plain text in your code. We highly encourage you to reference this value from an Environment Variable and [Set Environment Variables for Authentication](/basics/environment-variables/) on every machine that executes your code. The example below is in JavaScript.
+:::
 
-```java
-"accessKey": "00000000-0000-0000-0000-000000000000"
+```js
+"accessKey": process.env.SAUCE_ACCESS_KEY
 ```
 
 ---
@@ -844,9 +853,9 @@ When we run out of available virtual machines, or when you hit your concurrency 
 ### `timeZone`
 <p><small>| STRING |</small></p>
 
-Allows you to set a custom time zone for your test. If the `timeZone` name has two or more or words, you'll need to separate the words with either a space or an underscore (i.e., Los Angeles would be `Los_Angeles`). We support location names (not their paths), as shown in the example below.
+Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
 
-  * **For Desktop VMs**: can be configured with custom time zones. This feature should work on all operating systems, however time zones on Windows VMs are approximate. The time zone will usually default to whatever local time zone is on your selected data center, but this cannot be guaranteed. You can find a complete list of time zones [here](https://en.wikipedia.org/wiki/Lists_of_time_zones).
+  * **For Desktop VMs**: can be configured with custom time zones. This feature should work on all operating systems, however, time zones on Windows VMs are approximate. The time zone defaults to UTC. Look for the "principal cities" examples on this [list of UTC time offsets](https://en.wikipedia.org/wiki/List_of_UTC_time_offsets).
   * **For iOS Devices**: you can use this capability to change the time on the Mac OS X VM, which will be picked up by the iOS simulator.
   * **For Android Devices**: this capability is not supported for Android devices, but for Android 7.2 or later, there is a workaround. Use the following ADB command to grant Appium notification read permission in order to use the time zone capability:
   ```java
@@ -854,6 +863,12 @@ Allows you to set a custom time zone for your test. If the `timeZone` name has t
   io.appium.settings/io.appium.settings.NLService
   ```
     * See the [Appium Android documentation](http://appium.io/docs/en/writing-running-appium/android/android-shell/#mobile-shell) for additional support.
+
+:::note
+Most web applications serve localization content based on the computer's IP Address, not the time zone set
+in the operating system. If you need to simulate the computer being in a different location, you may need to set up a proxy.
+
+:::
 
 ```java
 "timeZone": "Los_Angeles", "timeZone": "New_York", "timeZone": "Honolulu", "timeZone": "Alaska"
@@ -909,6 +924,7 @@ Defines whether Sauce should wait for this executable to finish before your brow
 
 Defines the number of seconds Sauce Labs will wait for your executable to finish before your browser session starts. The default value is 90 seconds. Maximum is 360 seconds.
 
+---
 
 
 ## Additional Resources

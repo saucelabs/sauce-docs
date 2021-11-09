@@ -23,7 +23,7 @@ This topic describes automated Appium testing on the Sauce Labs Real Device Clou
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * Ensure that your mobile app and project setup meet our [real device cloud requirements](/mobile-apps/supported-devices).
-* Have your mobile app file (.ipa for iOS, .apk for Android) and mobile test file on hand. If you don't have one and would like to test our functionality, consider using our [Sauce Labs demo app](https://github.com/saucelabs/sample-app-mobile/releases).
+* Have your mobile app file (.ipa for iOS, .apk for Android) and mobile test file on hand. Don't have one on hand? Try the [My Demo App](https://github.com/saucelabs/my-demo-app-rn/releases), which is available in Sauce Labs.
 
 
 ## Uploading Mobile Apps from a Remote Location
@@ -194,6 +194,7 @@ locationServicesAuthorized=true
 Appium capabilities for an iPhone project using iOS version 12.2:
 
 <Tabs
+  groupId="lang-ex"
   defaultValue="Java"
   values={[
     {label: 'Java', value: 'Java'},
@@ -284,6 +285,7 @@ DesiredCapabilities caps = new DesiredCapabilities();
 Appium capabilities for Samsung Galaxy device using Android version 8.1:
 
 <Tabs
+  groupId="lang-ex"
   defaultValue="Java"
   values={[
     {label: 'Java', value: 'Java'},
@@ -540,217 +542,6 @@ To get around this, you can use the capability `cacheId`, which keeps the device
 
 You can also use the `cacheId` capability in conjunction with the standard noReset Appium capability. In the default case, where noReset is set to false, your application will be uninstalled and reinstalled after every test. If `noReset` is set to `true`, the application you are testing won't be reinstalled after every test run. This might save you further time, but it won't be suitable for test setups that require the application's state to be reset between tests. Note that then cacheId is set, no device cleaning will take place in between sessions, regardless of noReset value.
 
-## Monitoring Real Device Performance for Appium Tests
-
-By including the desired capability `recordDeviceVitals` in your Appium test script, you can collect performance statistics for the real devices used in your tests, including CPU, Network, Memory, and Thread performance. This topic describes how to set up the desired capability in your tests, and collect the statistics when the test completes.
-
-**Setting `recordDeviceVitals`**
-
-Include this setting as part of your Appium test script capabilities:
-
-```java
-capabilities.setCapability("recordDeviceVitals", true);
-```
-
-**Collecting Performance Metrics**
-
-1. When your test completes, log into the Real Device Testing web interface, and select the app that you used in the test from your dashboard.
-2. Click **Automated Testing > Appium**.
-3. Select the **Test Results** for your test.
-4. Under **Mobile Vitals**, click the link to download the CSV file containing your test performance metrics.
-
-<br/>
-
-**Performance Metrics for Android Devices**
-
-The CSV file will contain these performance metrics for Android devices.
-
-<table>
-  <tr>
-   <td><strong>Metric</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
-  </tr>
-  <tr>
-   <td><code>unix_epoch_milliseconds</code>
-   </td>
-   <td>Unix epoch timestamp in milliseconds, which can be matched to events within your automated tests
-   </td>
-  </tr>
-  <tr>
-   <td><code>device_local_time </code>
-   </td>
-   <td>Device’s local date and time
-   </td>
-  </tr>
-  <tr>
-   <td><code>cpu_total</code>
-   </td>
-   <td>System-wide CPU usage in percentage across all CPU cores. 4 cores at max use would be shown as a value of 400%.
-   </td>
-  </tr>
-  <tr>
-   <td><code>cpu_user</code>
-   </td>
-   <td>CPU usage for user processes in percentage across all CPU cores. 4 cores at max use would be shown as a value of 400%.
-   </td>
-  </tr>
-  <tr>
-   <td><code>cpu_kernel</code>
-   </td>
-   <td>Android OS CPU usage in percentage across all CPU cores. 4 cores at max use would be shown as a value of 400%.
-   </td>
-  </tr>
-  <tr>
-   <td><code>n_processors</code>
-   </td>
-   <td>Amount of available CPU cores. Use this to divide the cpu values into per core
-   </td>
-  </tr>
-  <tr>
-   <td><code>n_threads</code>
-   </td>
-   <td>Total threads in use by the app
-   </td>
-  </tr>
-  <tr>
-   <td><code>memory_size_kb </code>
-   </td>
-   <td>Total memory currently used by device in kilobytes
-   </td>
-  </tr>
-  <tr>
-   <td><code>memory_resident_kb</code>
-   </td>
-   <td>Memory currently in use by application in kilobytes
-   </td>
-  </tr>
-  <tr>
-   <td><code>memory_shared_kb</code>
-   </td>
-   <td>Anonymous shared memory currently in use by system shared between application(s) and system
-   </td>
-  </tr>
-  <tr>
-   <td><code>network_wifi_receive_b</code>
-   </td>
-   <td>Data in bytes received over wifi connection
-   </td>
-  </tr>
-  <tr>
-   <td><code>network_wifi_sent_b</code>
-   </td>
-   <td>Data in bytes sent over wifi connection
-   </td>
-  </tr>
-  <tr>
-   <td><code>network_mobile_receive_b</code>
-   </td>
-   <td>Data in bytes received from the mobile carrier network
-   </td>
-  </tr>
-  <tr>
-   <td><code>network_mobile_sent_b </code>
-   </td>
-   <td>Data in bytes sent over mobile carrier network
-   </td>
-  </tr>
-</table>
-
-<br/>
-
-**Performance Metrics for iOS Devices**
-
-The CSV file will contain these performance metrics for iOS devices.
-
-<table>
-  <tr>
-   <td><strong>Metric</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
-  </tr>
-  <tr>
-   <td><code>Unix_epoch_milliseconds</code>
-   </td>
-   <td>Unix epoch timestamp in milliseconds, which can be matched to events within your automated tests
-   </td>
-  </tr>
-  <tr>
-   <td><code>device_local_time</code>
-   </td>
-   <td>Device’s local date and time
-   </td>
-  </tr>
-  <tr>
-   <td><code>cpu_total</code>
-   </td>
-   <td>System-wide CPU usage in percentage. Values between 0 and 100%.
-   </td>
-  </tr>
-  <tr>
-   <td><code>cpu_user</code>
-   </td>
-   <td>User processes CPU usage in percentage. Values between 0 and 100%.
-   </td>
-  </tr>
-  <tr>
-   <td><code>cpu_process</code>
-   </td>
-   <td>App under test CPU usage in percentage. Values between 0 and 100%.
-   </td>
-  </tr>
-  <tr>
-   <td><code>n_threads</code>
-   </td>
-   <td>Total threads in use by the process
-   </td>
-  </tr>
-  <tr>
-   <td><code>process_memory_used_b</code>
-   </td>
-   <td>Memory used in bytes by the app that is under test
-   </td>
-  </tr>
-  <tr>
-   <td><code>net_bytes_in</code>
-   </td>
-   <td>Total data in bytes received
-   </td>
-  </tr>
-  <tr>
-   <td><code>net_bytes_out</code>
-   </td>
-   <td>Total data in bytes sent
-   </td>
-  </tr>
-  <tr>
-   <td><code>net_packets_in</code>
-   </td>
-   <td>Total packets received
-   </td>
-  </tr>
-  <tr>
-   <td><code>net_packets_out</code>
-   </td>
-   <td>Total packets sent
-   </td>
-  </tr>
-  <tr>
-   <td><code>disk_write_ops</code>
-   </td>
-   <td>Disk write operations during time period
-   </td>
-  </tr>
-  <tr>
-   <td><code>disk_bytes_written</code>
-   </td>
-   <td>Bytes written to disk during time period
-   </td>
-  </tr>
-</table>
-
 
 ## Additional Test Configuration Options
 
@@ -764,9 +555,9 @@ Once you're up and running with your real device tests, check out our [Best Prac
 
 ### Full Example Scripts
 
-These Appium script examples can help streamline your real device testing process. 
-They use the [pytest](https://docs.pytest.org/en/latest/) test framework. 
-Feel free to [clone these scripts directly from GitHub](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples), 
+These Appium script examples can help streamline your real device testing process.
+They use the [pytest](https://docs.pytest.org/en/latest/) test framework.
+Feel free to [clone these scripts directly from GitHub](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples),
 and follow the instructions in the [README file](https://github.com/saucelabs-training/demo-python#readme).
 
 * [conftest.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/conftest.py): this script initializes the test fixtures, as well as the prerequisite and post-requisite test tasks.

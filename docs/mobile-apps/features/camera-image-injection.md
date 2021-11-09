@@ -19,8 +19,8 @@ You employ the built-in device camera in your live and automated testing and per
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* [Upload your app to Sauce Labs](/mobile-apps/app-storage) prior to testing. The camera image injection functionality will pointsto Sauce Labs storage to get your app information.
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* [Upload your app to Sauce Labs](/mobile-apps/app-storage) prior to testing. The camera image injection functionality  points to Sauce Labs storage to get your app information. Don't have one on hand? Try the [My Demo App](https://github.com/saucelabs/my-demo-app-rn/releases), which is available in Sauce Labs.
 
 
 ## Key Specs
@@ -114,7 +114,7 @@ During an Automated test, you'll pass an image to the image injection endpoint. 
 
 In your test script, you'll need to input the capabilities specific to Camera Image Injection (see below code snippets). The code will execute your image upload and opening of the device camera.
 
-1. First, you'll need add the camera instrumentation desired capability command,  `sauceLabsImageInjectionEnabled`, to your test script. This capability enables image injection functionality.
+1. First, add the camera instrumentation desired capability command,  `sauceLabsImageInjectionEnabled`, to your test script. This capability enables image injection functionality.
 
 <Tabs
   defaultValue="Webdriver.io example"
@@ -220,5 +220,4 @@ This error is displayed due to one or more of these reasons:
 ## Additional Resources
 
 * [Sauce Labs Image Injection code examples (GitHub)](https://github.com/saucelabs-training/demo-js/tree/master/webdriverio/appium-app/examples/image-injection).
-* [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile/releases/tag/2.3.0); try out image injection for yourself using our demo app.
 * [Android Camera API | Google Developer Documentation](https://developer.android.com/guide/topics/media/camera).
