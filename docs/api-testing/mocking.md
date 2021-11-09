@@ -6,36 +6,31 @@ sidebar_label: Mocking
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-What is Sauce Labs _Piestry_? A server that feeds solely on OpenAPI 3 specs. Provides dynamicity in the responses so that proper positive, negative and edge case testing can be performed. Effortless mocks. No extra work, just works.
-
-Why use mocking?
-* Allows you to create stubbed API is that you can use to in your testing flow.
-* You can get rid of any dependencies from third-party APIs that may be expensive, but you don’t have control over it.
-* Allows you to also get ahead of your testing when your API is still in development and not built out yet.
-* You could re-create it in our mocking platform, write all of your tests against it, and then you can have this jumpstart on testing before your API is out of development.
-
-Why the name Piestry?
-didn't want to drop the Sauce tradition of naming stuff after food, so Piestry is:
-"A pastry that acts as if it was a pie, but is nothing more than a pastry"
+Sauce Labs _Piestry_ is our API mocking tool that imitates a real API server's calls and responses, based on the OpenAPI spec file that you provide. You'll get dynamic responses that you can use to perform proper positive and negative testing, and edge case testing.
 
 
---use cases: you want to fake the payment transaction, you want to isolate the microservice from the rest of the API actions (ie everything else is stable and you want to drill down to find the error)
+**Benefits**
+* Get a jumpstart on API testing and debugging while your APIs are still in development by re-creating your APIs in our mocking platform and writing all of your tests against them.
+* No need to add third-party API dependencies, which can be expensive and restrictive.
+* No need to depend on potentially unreliable staging environments.
+* Allows you to create stubbed APIs to use to in your testing flow.
 
 
-Where can I run it?
-* Docker container in a CI/CI pipeline)=
-  * Image: quay.io/saucelabs/piestry
-  * Run it using the code snippet below:
-  ```bash
-  docker run -v "$(pwd)/specs:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
-  Where /specs/myspec.yaml is the URI to a YAML file, local or remote.
-  ```
+**Use cases**
+* Faking a payment transaction in a banking mobile app.
+* Isolating a microservice from the rest of the API actions so that everything else is stable and you can drill down to find the error.
 
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 * An OpenAPI spec file.
 
+## Getting Started
+
+Piestry must be started from a Docker container in your CI/CI pipeline using Docker image, `quay.io/saucelabs/piestry`. Use the code snippet below, where `/specs/myspec.yaml` is the URI to your YAML spec file (can be local or remote):
+  ```bash
+  docker run -v "$(pwd)/specs:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
+  ```
 
 ## Generating a Mock
 
@@ -250,9 +245,10 @@ This is similar to [**Validate examples** (mocking mode)](#validate-examples); t
 ### Capture Mode
 Capture mode is activated by passing the `--capture` parameter, followed by the path to a directory. As the requests go through, Piestry will capture the responses coming from the origin and save them to file.
 
-When `--capture` is executed without `--e2e`, Pietry will try to map the saved files to the OpenAPI definition and serve them as examples.
+When `--capture` is executed without `--e2e`, Piestry will try to map the saved files to the OpenAPI definition and serve them as examples.
 
 
 ## More Information
 
 * [API Testing Logger](/api-testing/logger)
+* Why the name [_Piestry_](/dev/glossary)?

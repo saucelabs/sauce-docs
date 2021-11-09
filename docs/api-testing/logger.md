@@ -14,18 +14,20 @@ The Logger tool helps with API Call recording by facilitating complete captures 
 
 ## Running the Logger
 1. From your Sauce Labs API Testing account, go to a Project.
-2. Create a webhook for that project by clicking **Webhooks** > **Create hook**.
-3. Copy Hook URL and add `/logger` at the end as in:
-`https://{user}:{key}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hook_id}/logger`.
-4. From your CLI, launch our API Mocking tool, along with the `--logger` switch, followed by the URL mentioned in the previous step:
+2. Create a webhook for that project by clicking **Webhooks** > **Create hook** > then entering a name and description for it.
+3. Copy the Hook URL and append it with `/logger`. Your Sauce Labs credentials and REST API endpoint will populate automatically.
+   ```bash
+   https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/logger
+   ```
+4. From your CLI, launch [Piestry, our API Mocking tool](/api-testing/mocking), by running the following code. The last line will be the `--logger` switch, followed by the URL from the previous step:
    ```bash
   docker run -v "$(pwd)/myspec:/specs" \
   -p 5000:5000 quay.io/saucelabs/piestry \
   -u /specs/myspec.yaml \
-  --logger https://{user}:{key}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hook_id}/logger
+  --logger https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/logger
   ```
-5. Make a call to any mocking endpoint (i.e., `curl localhost:5000/api/v1/release-notes`).
-6. Open the **Logger** section.
+5. In your CLI, make a call to any mocking endpoint (i.e., `curl localhost:5000/api/v1/release-notes`).
+6. From Sauce Labs API Testing, open the **Logger** section.
   <img src={useBaseUrl('img/api-fortress/2021/09/logger.png')} alt="Logger UI"/>
 7. See the data related to the captured request.
 8. Inspect the Request and Response.
