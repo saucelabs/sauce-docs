@@ -1,6 +1,6 @@
 ---
 id: io-components
-title: "I/O Components"
+title: I/O Test Components
 sidebar_label: I/O Components
 keywords:
     - api-testing
@@ -16,7 +16,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The I/O operations you can do are: `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`.
+I/O components are a type of component that you can add to a test using the Composer. They enable you to perform the I/O operations `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`. To access them, go to a **Project** > **Test** > **Compose** (aka Composer) > click **Add component** (**+** icon) in the Composer toolbar.
+
+<img src={useBaseUrl('img/api-fortress/2020/09/ioComponents.png')} alt="Assertion Components" width="600" />
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).

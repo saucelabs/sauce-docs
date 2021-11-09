@@ -1,13 +1,17 @@
 ---
-id: assertions
-title: API Testing Assertions
+id: assertion-components
+title: Assertion Test Components
 sidebar_label: Assertion Components
-description: Learn to write assertions in the Sauce Labs API Testing Composer.
+description: Learn to write test assertions in the Sauce Labs API Testing Composer.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+
+Assertions are a type of component that you can add to a test using the Composer. To access them, go to a **Project** > **Test** > **Compose** (aka Composer) > click **Add component** (**+** icon) in the Composer toolbar.
+
+<img src={useBaseUrl('img/api-fortress/2020/09/assertionComponents.png')} alt="Assertion Components" width="600" />
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
@@ -50,8 +54,8 @@ This assertion is used to check if the element described by the expression conta
 
 <details><summary><strong>Parameters</strong></summary>
 
-| **Name** | **Type/Value** | **Required** |
-| --- | --- | --- |
+| Field | Type/Value | Required |
+| :--- | :--- | :--- |
 | Expression | Expression | Yes |
 | Value | String | Yes |
 | Mode | 'all' or 'one' | No |
@@ -94,8 +98,8 @@ This assertion is used to check if the element value described by the expression
 
 <details><summary><strong>Parameters</strong></summary>
 
-| **Name** | **Type/Value** | **Required** |
-| --- | --- | --- |
+| Field | Type/Value | Required |
+| :--- | :--- | :--- |
 | Expression | Expression | Yes |
 | Value | String | Yes |
 | Type | 'integer' or 'float' | No |
@@ -140,8 +144,8 @@ This assertion is used to check if the element described by the expression exist
 
 <details><summary><strong>Parameters</strong></summary>
 
-| **Name** | **Type/Value** | **Required** |
-| --- | --- | --- |
+| Field | Type/Value | Required |
+| :--- | :--- | :--- |
 | Expression | Expression | Yes |
 | Mode | 'all' or 'one' | No |
 | Level | 'error' or 'warning' | No |
@@ -177,8 +181,8 @@ This assertion is used to check if the element value described by the expression
 
 <details><summary><strong>Parameters</strong></summary>
 
-| **Name** | **Type/Value** | **Required** |
-| --- | --- | --- |
+| Field | Type/Value | Required |
+| :--- | :--- | :--- |
 | Expression | Expression | Yes |
 | Value | String | Yes |
 | Type | 'integer' or 'float' | No |
@@ -222,8 +226,8 @@ This assertion is used to check if the element described by the expression match
 
 <details><summary><strong>Parameters</strong></summary>
 
-| **Name** | **Type/Value** | **Required** |
-| --- | --- | --- |
+| Field | Type/Value | Required |
+| :--- | :--- | :--- |
 | Expression | Expression | Yes |
 | Value | String | Yes |
 | Type | 'integer' of 'float' | No |
@@ -268,8 +272,8 @@ This assertion is used to check if the value of the element defined by the expre
 
 <details><summary><strong>Parameters</strong></summary>
 
-| **Name** | **Type/Value** | **Required** |
-| --- | --- | --- |
+| Field | Type/Value | Required |
+| :--- | :--- | :--- |
 | Expression | Expression | Yes |
 | Type | 'integer', 'float', 'url', 'boolean', 'phone', 'email', 'map', 'array' | Yes |
 | Mode | 'all' or 'one' | No |
@@ -315,8 +319,8 @@ This assertion is used to check if the element value described by the expression
 
 <details><summary><strong>Parameters</strong></summary>
 
-| **Name** | **Type/Value** | **Required** |
-| --- | --- | --- |
+| Field | Type/Value | Required |
+| :--- | :--- | :--- |
 | Expression | Expression | Yes |
 | Value | String | Yes |
 | Type | 'integer' or 'float' | No |
@@ -361,8 +365,8 @@ This assertion is used to check if the element value described by the expression
 
 <details><summary><strong>Parameters</strong></summary>
 
-| **Name** | **Type/Value** | **Required** |
-| --- | --- | --- |
+| Field | Type/Value | Required |
+| :--- | :--- | :--- |
 | Expression | Expression | Yes |
 | Type | 'regex' or 'US Zipcode' or 'USState' or 'credit card' or 'country codes' or 'currency codes' | Yes |
 | Regex value | String | Yes, if type is 'regex' |
@@ -456,8 +460,8 @@ This assertion is used to validate a JSON schema, based on the provided schema d
 
 <details><summary><strong>Parameters</strong></summary>
 
-| **Name** | **Type/Value** | **Required** |
-| --- | --- | --- |
+| Field | Type/Value | Required |
+| :--- | :--- | :--- |
 | Expression | Expression | Yes |
 | JsonSchema | JSON schema definition | Yes |
 | Comment | String | No |

@@ -1,6 +1,6 @@
 ---
 id: logical-components
-title: API Testing Logical Components
+title: Logical Test Components
 sidebar_label: Logical Components
 description: Learn to writing logical components using the Sauce Labs API Testing Composer.
 ---
@@ -8,6 +8,11 @@ description: Learn to writing logical components using the Sauce Labs API Testin
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+
+Logical components are a type of component that you can add to a test using the Composer. To access them, go to a **Project** > **Test** > **Compose** (aka Composer) > click **Add component** (**+** icon) in the Composer toolbar.
+
+<img src={useBaseUrl('img/api-fortress/2020/09/logicalComponents.png')} alt="Logical Components" width="600" />
+
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
@@ -108,43 +113,6 @@ Allows you to run a block of assertions as long as a condition is valid.
 
 ## Other Components
 
-### Flow (Pause/Stop Test)
-
-This component allows you to pause or stop a test entirely.
-
-<details><summary><strong>Parameters</strong></summary>
-
-<table id="table-api">
-  <tbody>
-  <tr>
-  <td colSpan='2'>Fields</td>
-  </tr>
-    <tr>
-     <td><strong>Command</strong></td>
-     <td><p><small>| REQUIRED | 'stop', 'wait' |</small></p><p>This parameter defines the action you want to take. 'Stop' will stop the test. 'Wait' will pause the test for a number of milliseconds defined in the 'Value' parameter.</p></td>
-    </tr>
-    <tr>
-     <td><strong>Value</strong></td>
-     <td><p><small>| REQUIRED | INTEGER |</small></p><p>Depends on 'Command = wait'. The number of milliseconds you want to pause the test for.</p></td>
-    </tr>
-  </tbody>
-</table>
-
-#### Examples
-
-This component is especially useful when combined with the "If" component. See the examples below:
-
-<img src={useBaseUrl('img/api-fortress/2020/12/flow_stop.jpg')} alt="flow_stop.jpg"/>
-
-If the statusCode is not `200`, the test will be halt; none of the remaining assertions will be checked.
-
-<img src={useBaseUrl('img/api-fortress/2020/12/flow_wait.jpg')} alt="flow_wait.jpg"/>
-
-In this example, the test will wait 1000 milliseconds before performing the `GET` request.
-
-</details>
-
-
 
 ### Tag
 
@@ -183,25 +151,8 @@ All tags, dynamic and static will mark the test execution documents. In the proj
 </details>
 
 
-### Comment
 
-This assertion allows you to print out (in test reports) information. It can have two sorts of values, as described below.
-
-#### Examples
-
-The first is a normal string value. An example of that would be to explain what a specific WHEN loop is being used for. Similar to when you write comments in code.
-
-```txt
-This is a comment
-```
-
-The second is useful for test debugging and analysis. You can pass variables into the comments. An example use of this would be to print out the product ID being used in the current loop of a test.
-
-```bash
-The value of the ID is ${payload.id}
-```
-
-### Set
+### Set (variable)
 
 Allows you to set a variable for future uses in the test. For example,  you can save a value retrieved from the response and use it in a subsequent call.
 
@@ -232,7 +183,6 @@ Var: queries Variable mode: Language Lang: Groovy Content: if (payload.id>100) r
 
 ### Parse
 
-
 This component allows you to parse a string into structured data, using one of the available parsers.
 
 <details><summary><strong>Parameters</strong></summary>
@@ -261,12 +211,71 @@ As you can see before parsing the string, the test will consider the variable �
 </details>
 
 
+### Comment
+
+This assertion allows you to print out (in test reports) information. It can have two sorts of values, as described below.
+
+#### Examples
+
+The first is a normal string value. An example of that would be to explain what a specific WHEN loop is being used for. Similar to when you write comments in code.
+
+```txt
+This is a comment
+```
+
+The second is useful for test debugging and analysis. You can pass variables into the comments. An example use of this would be to print out the product ID being used in the current loop of a test.
+
+```bash
+The value of the ID is ${payload.id}
+```
+
+
+
+
+### Flow
+
+This component allows you to pause or stop a test entirely.
+
+<details><summary><strong>Parameters</strong></summary>
+
+<table id="table-api">
+  <tbody>
+  <tr>
+  <td colSpan='2'>Fields</td>
+  </tr>
+    <tr>
+     <td><strong>Command</strong></td>
+     <td><p><small>| REQUIRED | 'stop', 'wait' |</small></p><p>This parameter defines the action you want to take. 'Stop' will stop the test. 'Wait' will pause the test for a number of milliseconds defined in the 'Value' parameter.</p></td>
+    </tr>
+    <tr>
+     <td><strong>Value</strong></td>
+     <td><p><small>| REQUIRED | INTEGER |</small></p><p>Depends on 'Command = wait'. The number of milliseconds you want to pause the test for.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+#### Examples
+
+This component is especially useful when combined with the "If" component. See the examples below:
+
+<img src={useBaseUrl('img/api-fortress/2020/12/flow_stop.jpg')} alt="flow_stop.jpg"/>
+
+If the statusCode is not `200`, the test will be halt; none of the remaining assertions will be checked.
+
+<img src={useBaseUrl('img/api-fortress/2020/12/flow_wait.jpg')} alt="flow_wait.jpg"/>
+
+In this example, the test will wait 1000 milliseconds before performing the `GET` request.
+
+</details>
+
+
+
 ### K/V Store
 
+The Key/Value store allows API Fortress users to create temporary key/value pairs that can be accessed across different tests. The Key/Value store is accessed via the Key/Value Store Component.
 
 <img src={useBaseUrl('img/api-fortress/2018/05/Screen-Shot-2018-05-24-at-1.22.48-PM-1.png')} alt="screenshot" />
 
-The Key/Value store allows API Fortress users to create temporary key/value pairs that can be accessed across different tests. The Key/Value store is accessed via the Key/Value Store Component.
 
 #### Methods
 
