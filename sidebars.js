@@ -670,7 +670,7 @@ module.exports = {
                       'api-testing/the-vault',
                       ],
                   },
-             'api-testing/integrate-with-your-cicd',
+             'api-testing/apifctl-cicd-integration',
         ],
         "CI/CD": [
             'ci',

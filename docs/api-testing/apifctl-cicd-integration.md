@@ -1,7 +1,7 @@
 ---
-id: integrate-with-your-cicd
-title: "Integrate with CI/CD Platforms"
-sidebar_label: "Integrate with CI/CD"
+id: apifctl-cicd-integration
+title: CI/CD Platform Integration with apifctl
+sidebar_label: CI/CD Integration with apifctl
 description: "Using Sauce Labs API Testing or CLI, you can seamlessly integrate continuous API testing into your CI/CD pipeline."
 ---
 
@@ -41,9 +41,7 @@ To generate a webhook:
    <img src={useBaseUrl('img/api-fortress/2021/04/hookURL.png')} alt="sample Hook URL"/>
 
 
-
 ## `apifctl` Commands
-
 
 ### `run`
 
@@ -54,12 +52,12 @@ docker run quay.io/saucelabs/apifctl run
 ```
 
 Available Options:
-* [<code>-H &#60;webhook&#62;</code>](/api-testing/integrate-with-your-cicd/#-h-webhook) <small>| REQUIRED | STRING |</small>
-* [<code>-i &#60;test ID&#62;</code>](/api-testing/integrate-with-your-cicd/#-i-test-id) <small>| REQUIRED | STRING |</small>
-* [<code>-E &#60;environment variable(s)&#62;</code>](/api-testing/integrate-with-your-cicd/#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
-* [<code>-S &#60;execute synchronously&#62;</code>](/api-testing/integrate-with-your-cicd/#-s) <small>| OPTIONAL | STRING |</small>
-* [<code>-T &#60;tunnel ID&#62;</code>](/api-testing/integrate-with-your-cicd/#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
-* [<code>-f &#60;format&#62;</code>](/api-testing/integrate-with-your-cicd/#-f-data-format) <small>| OPTIONAL | STRING |</small>  
+* [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
+* [<code>-i &#60;test ID&#62;</code>](#-i-test-id) <small>| REQUIRED | STRING |</small>
+* [<code>-E &#60;environment variable(s)&#62;</code>](#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
+* [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL | STRING |</small>
+* [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
+* [<code>-f &#60;format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>  
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run \
@@ -77,11 +75,11 @@ docker run quay.io/saucelabs/apifctl run-all
 ```
 
 Available Options:
-* [<code>-H &#60;webhook&#62;</code>](/api-testing/integrate-with-your-cicd/#-h-webhook) <small>| REQUIRED | STRING |</small>
-* [<code>-E &#60;environment variable(s)&#62;</code>](/api-testing/integrate-with-your-cicd/#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
-* [<code>-S &#60;execute synchronously&#62;</code>](/api-testing/integrate-with-your-cicd/#-s) <small>| OPTIONAL | STRING |</small>
-* [<code>-T &#60;tunnel ID&#62;</code>](/api-testing/integrate-with-your-cicd/#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
-* [<code>-f &#60;format&#62;</code>](/api-testing/integrate-with-your-cicd/#-f-data-format) <small>| OPTIONAL | STRING |</small>   
+* [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
+* [<code>-E &#60;environment variable(s)&#62;</code>](#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
+* [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL | STRING |</small>
+* [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
+* [<code>-f &#60;format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>   
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run-all -H \
@@ -98,12 +96,12 @@ docker run quay.io/saucelabs/apifctl run-tag
 ```
 
 Available Options:
-* [<code>-H &#60;webhook&#62;</code>](/api-testing/integrate-with-your-cicd/#-h-webhook) <small>| REQUIRED | STRING |</small>
-* [<code>-t &#60;tag(s)&#62;</code>](/api-testing/integrate-with-your-cicd/#-t-tags) <small>| REQUIRED | STRING |</small>
-* [<code>-E &#60;environment variable(s)&#62;</code>](/api-testing/integrate-with-your-cicd/#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
-* [<code>-S &#60;execute synchronously&#62;</code>](/api-testing/integrate-with-your-cicd/#-s) <small>| OPTIONAL | STRING |</small>
-* [<code>-T &#60;tunnel ID&#62;</code>](/api-testing/integrate-with-your-cicd/#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
-* [<code>-f &#60;format&#62;</code>](/api-testing/integrate-with-your-cicd/#-f-data-format) <small>| OPTIONAL | STRING |</small>   
+* [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
+* [<code>-t &#60;tag(s)&#62;</code>](#-t-tags) <small>| REQUIRED | STRING |</small>
+* [<code>-E &#60;environment variable(s)&#62;</code>](#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
+* [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL | STRING |</small>
+* [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
+* [<code>-f &#60;format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>   
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run-tag \
@@ -121,14 +119,14 @@ docker run quay.io/saucelabs/apifctl exec
 ```
 
 Available Options:
-* [<code>-H &#60;webhook&#62;</code>](/api-testing/integrate-with-your-cicd/#-h-webhook) <small>| REQUIRED | STRING |</small>
-* [<code>-p &#60;local path to test files&#62;</code>](/api-testing/integrate-with-your-cicd/#-p-local-path-to-file) <small>| REQUIRED | STRING |</small>
-* [<code>-E &#60;environment variable(s)&#62;</code>](/api-testing/integrate-with-your-cicd/#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
-* [<code>-S &#60;execute synchronously&#62;</code>](/api-testing/integrate-with-your-cicd/#-s) <small>| OPTIONAL | STRING |</small>
-* [<code>-T &#60;tunnel ID&#62;</code>](/api-testing/integrate-with-your-cicd/#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
-* [<code>-f &#60;format&#62;</code>](/api-testing/integrate-with-your-cicd/#-f-data-format) <small>| OPTIONAL | STRING |</small>  
-* [<code>-n &#60;name of test&#62;</code>](/api-testing/integrate-with-your-cicd/#-n-name-of-test) <small>| OPTIONAL | STRING |</small>  
-* [<code>-t &#60;tag(s)&#62;</code>](/api-testing/integrate-with-your-cicd/#-t-tags) <small>| OPTIONAL | STRING |</small>
+* [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
+* [<code>-p &#60;local path to test files&#62;</code>](#-p-local-path-to-file) <small>| REQUIRED | STRING |</small>
+* [<code>-E &#60;environment variable(s)&#62;</code>](#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
+* [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL | STRING |</small>
+* [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
+* [<code>-f &#60;format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>  
+* [<code>-n &#60;name of test&#62;</code>](#-n-name-of-test) <small>| OPTIONAL | STRING |</small>  
+* [<code>-t &#60;tag(s)&#62;</code>](#-t-tags) <small>| OPTIONAL | STRING |</small>
 
 
 ```bash title="Full Example"
@@ -149,11 +147,11 @@ docker run quay.io/saucelabs/apifctl upload
 ```
 
 Available Options:
-* [<code>-H &#60;webhook&#62;</code>](/api-testing/integrate-with-your-cicd/#-h-webhook) <small>| REQUIRED | STRING |</small>
-* [<code>-p &#60;local path to test files&#62;</code>](/api-testing/integrate-with-your-cicd/#-p-local-path-to-file) <small>| REQUIRED | STRING |</small>
-* [<code>-n &#60;name of test&#62;</code>](/api-testing/integrate-with-your-cicd/#-n-name-of-test) <small>| OPTIONAL | STRING |</small>  
-* [<code>-t &#60;tag(s)&#62;</code>](/api-testing/integrate-with-your-cicd/#-t-tags) <small>| OPTIONAL | STRING |</small>
-* [<code>-d &#60;test description&#62;</code>](/api-testing/integrate-with-your-cicd/#-d-test-description) <small>| OPTIONAL | STRING |</small>
+* [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
+* [<code>-p &#60;local path to test files&#62;</code>](#-p-local-path-to-file) <small>| REQUIRED | STRING |</small>
+* [<code>-n &#60;name of test&#62;</code>](#-n-name-of-test) <small>| OPTIONAL | STRING |</small>  
+* [<code>-t &#60;tag(s)&#62;</code>](#-t-tags) <small>| OPTIONAL | STRING |</small>
+* [<code>-d &#60;test description&#62;</code>](#-d-test-description) <small>| OPTIONAL | STRING |</small>
 
 ```bash title="Full Example"
 docker run -v $(pwd)/tests:/tests quay.io/saucelabs/apifctl upload \
@@ -171,7 +169,7 @@ docker run quay.io/saucelabs/apifctl vault-get
 ```
 
 Available Options:
-* [<code>-H &#60;webhook&#62;</code>](/api-testing/integrate-with-your-cicd/#-h-webhook) <small>| REQUIRED | STRING |</small>
+* [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
 
 ---
 ### `vault-update`
@@ -183,9 +181,9 @@ docker run quay.io/saucelabs/apifctl vault-update
 ```
 
 Available Options:
-* [<code>-H &#60;webhook&#62;</code>](/api-testing/integrate-with-your-cicd/#-h-webhook) <small>| REQUIRED | STRING |</small>
-* [<code>-p &#60;local path to file&#62;</code>](/api-testing/integrate-with-your-cicd/#-p-local-path-to-file) <small>| OPTIONAL | STRING |</small>
-* [<code>-v &#60;variables&#62;</code>](/api-testing/integrate-with-your-cicd/#-v-variables) <small>| OPTIONAL | STRING |</small>
+* [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
+* [<code>-p &#60;local path to file&#62;</code>](#-p-local-path-to-file) <small>| OPTIONAL | STRING |</small>
+* [<code>-v &#60;variables&#62;</code>](#-v-variables) <small>| OPTIONAL | STRING |</small>
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl vault-update \
@@ -203,11 +201,11 @@ docker run quay.io/saucelabs/apifctl events
 ```
 
 Available Options:
-* [<code>-H &#60;webhook&#62;</code>](/api-testing/integrate-with-your-cicd/#-h-webhook) <small>| REQUIRED | STRING |</small>
-* [<code>-f &#60;from time&#62;</code>](/api-testing/integrate-with-your-cicd/#-f-from-time) <small>| OPTIONAL | STRING |</small>
-* [<code>-l &#60;limit&#62;</code>](/api-testing/integrate-with-your-cicd/#-l-limit) <small>| OPTIONAL | INTEGER |</small>
-* [<code>-o &#60;offset&#62;</code>](/api-testing/integrate-with-your-cicd/#-o-offset) <small>| OPTIONAL | INTEGER |</small>
-* [<code>-t &#60;to time&#62;</code>](/api-testing/integrate-with-your-cicd/#-t-to-time) <small>| OPTIONAL | STRING |</small>
+* [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
+* [<code>-f &#60;from time&#62;</code>](#-f-from-time) <small>| OPTIONAL | STRING |</small>
+* [<code>-l &#60;limit&#62;</code>](#-l-limit) <small>| OPTIONAL | INTEGER |</small>
+* [<code>-o &#60;offset&#62;</code>](#-o-offset) <small>| OPTIONAL | INTEGER |</small>
+* [<code>-t &#60;to time&#62;</code>](#-t-to-time) <small>| OPTIONAL | STRING |</small>
 
 ---
 ### `event`
@@ -219,8 +217,8 @@ docker run quay.io/saucelabs/apifctl event
 ```
 
 Available Options:
-* [<code>-H &#60;webhook&#62;</code>](/api-testing/integrate-with-your-cicd/#-h-webhook) <small>| REQUIRED | STRING |</small>
-* [<code>-i &#60;event ID&#62;</code>](/api-testing/integrate-with-your-cicd/#-i-event-id) <small>| REQUIRED | STRING |</small>
+* [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
+* [<code>-i &#60;event ID&#62;</code>](#-i-event-id) <small>| REQUIRED | STRING |</small>
 
 ```bash title=Full Example"
 docker run quay.io/saucelabs/apifctl event \
@@ -238,11 +236,11 @@ docker run quay.io/saucelabs/apifctl metrics
 ```
 
 Available Options:
-* [<code>-H &#60;webhook&#62;</code>](/api-testing/integrate-with-your-cicd/#-h-webhook) <small>| REQUIRED | STRING |</small>
-* [<code>-f &#60;from time&#62;</code>](/api-testing/integrate-with-your-cicd/#-f-from-time) <small>| OPTIONAL | STRING |</small>
-* [<code>-l &#60;limit&#62;</code>](/api-testing/integrate-with-your-cicd/#-l-limit) <small>| OPTIONAL | INTEGER |</small>
-* [<code>-o &#60;offset&#62;</code>](/api-testing/integrate-with-your-cicd/#-o-offset) <small>| OPTIONAL | INTEGER |</small>
-* [<code>-t &#60;to time&#62;</code>](/api-testing/integrate-with-your-cicd/#-t-to-time) <small>| OPTIONAL | STRING |</small>
+* [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
+* [<code>-f &#60;from time&#62;</code>](#-f-from-time) <small>| OPTIONAL | STRING |</small>
+* [<code>-l &#60;limit&#62;</code>](#-l-limit) <small>| OPTIONAL | INTEGER |</small>
+* [<code>-o &#60;offset&#62;</code>](#-o-offset) <small>| OPTIONAL | INTEGER |</small>
+* [<code>-t &#60;to time&#62;</code>](#-t-to-time) <small>| OPTIONAL | STRING |</small>
 
 ---
 
@@ -352,11 +350,9 @@ Specifies your tunnel ID for running tests using Sauce Connect Proxy.
 ### `-p <local path to file>`
 <p><small>| STRING |</small></p>
 
-#### For the `vault-update` command
-Local path to the folder containing your Vault file. Example: `-p /tests/vault/vault.json`.
+**For the [`vault-update`](#vault-update) command**: This is the local path to the folder containing your Vault file. Example: `-p /tests/vault/vault.json`.
 
-#### For the  `exec` or `upload` command
-Local path to the folder containing your test files (both unit.xml and input.xml). Example: `-p /tests/product_update` (where product_update is the folder containing unit.xml and input.xml).
+**For the [`exec`](#exec) or [`upload`](#upload) command**: This is the local path to the folder containing your test files (both unit.xml and input.xml). Example: `-p /tests/product_update` (where product_update is the folder containing unit.xml and input.xml).
 
 ---
 ### `-d <test description>`
