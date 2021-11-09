@@ -9,8 +9,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Description
-
 Execute API tests and interact with Sauce Labs API Testing (either locally or in a pipeline) using our API Testing CLI tool, `apifctl`.
 
 ## Usage
@@ -23,23 +21,21 @@ Execute API tests and interact with Sauce Labs API Testing (either locally or in
 * Your Sauce Labs [Username](https://app.saucelabs.com/user-settings) and [Access Key](https://app.saucelabs.com/user-settings).
 
 ### Adding Webhooks
-To utilize most `apifctl` functionalities, you'll need to add a webhook to your API Testing Project by either generating one or retrieve one from your Dashboard.
-
-Below is how webhook URLs are formatted, where `<username>` is your Sauce Labs username, `<access_key>` is your Sauce Labs access key, and the `<hookId>` is what you would generate in the API Testing UI.
-```bash
-https://<username>:<access_key>@domain/api-testing/rest/v4/<hookId>
-```
-
-To generate a webhook:
+To utilize most `apifctl` functionalities, you'll need to add a webhook to your API Testing Project. To generate a webhook:
 1. Navigate to your Project and select the **WebHooks** tab.<br/>
    <img src={useBaseUrl('img/api-fortress/2021/04/webHooksSection.png')} alt="webhook screenshot"/>
 2. Select **Create Hook**.<br/>
    <img src={useBaseUrl('img/api-fortress/2021/04/createHook.png')} alt="Create New WebHook"/>
-3. Enter the field details and click **Save**.<br/>
+3. Enter a name for your webhook (description is optional), then click **Save**.<br/>
    <img src={useBaseUrl('img/api-fortress/2021/04/sampleHook.png')} alt="sample webhook details" width="500" />
-4. A generated **Hook URL** will then appear. Copy it to your clipboard and then you can use it either locally or as part of CI build.<br/>
+4. The generated **Hook URL** will then appear. Your Sauce Labs credentials, the Sauce Labs REST API endpoint, and the `{hookId}` will populate automatically. It be formatted like this:
+  ```bash
+  https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}
+  ```
+5. Copy the URL to your clipboard and then you can use it either locally or as part of CI build.<br/>
    <img src={useBaseUrl('img/api-fortress/2021/04/hookURL.png')} alt="sample Hook URL"/>
 
+You can then reuse this Webhook for future tests within that Project by returning to the **Webhooks** section and copying it. Webhooks are Project-specific.
 
 ## `apifctl` Commands
 
