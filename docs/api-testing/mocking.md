@@ -245,7 +245,7 @@ There are two types of validations you can activate, focusing on different areas
 If you want to make sure your requests are compliant with the origin, run it with the `--validate-request` switch to activate the validation of inbound requests."
 
 ### Validate Response
-The validate response is similar to the ["validate examples" (mocking mode)](/api-testing/mark3/mocking/#validate-examples); the difference is that will validate the actual responses in an end-to-end session. Use the switch `--validate-response` to enable it.
+This is similar to [**Validate examples** (mocking mode)](#validate-examples); the difference is that will validate the actual responses in an end-to-end session. Use the switch `--validate-response` to enable it.
 
 ### Capture Mode
 Capture mode is activated by passing the `--capture` parameter, followed by the path to a directory. As the requests go through, Piestry will capture the responses coming from the origin and save them to file.
