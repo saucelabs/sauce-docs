@@ -37,7 +37,7 @@ To generate a webhook:
    <img src={useBaseUrl('img/api-fortress/2021/04/createHook.png')} alt="Create New WebHook"/>
 3. Enter the field details and click **Save**.<br/>
    <img src={useBaseUrl('img/api-fortress/2021/04/sampleHook.png')} alt="sample webhook details" width="500" />
-4. A generated **Hook URL** will then appear. It will also become available in your [Sauce Labs user settings](https://app.saucelabs.com/user-settings). Copy the **Hook URL** to your clipboard and use it either locally or as part of CI build. <br/>
+4. A generated **Hook URL** will then appear. Copy it to your clipboard and then you can use it either locally or as part of CI build.<br/>
    <img src={useBaseUrl('img/api-fortress/2021/04/hookURL.png')} alt="sample Hook URL"/>
 
 
@@ -55,7 +55,7 @@ Available Options:
 * [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
 * [<code>-i &#60;test ID&#62;</code>](#-i-test-id) <small>| REQUIRED | STRING |</small>
 * [<code>-E &#60;environment variable(s)&#62;</code>](#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
-* [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL | STRING |</small>
+* [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
 * [<code>-f &#60;format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>  
 
@@ -77,7 +77,7 @@ docker run quay.io/saucelabs/apifctl run-all
 Available Options:
 * [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
 * [<code>-E &#60;environment variable(s)&#62;</code>](#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
-* [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL | STRING |</small>
+* [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
 * [<code>-f &#60;format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>   
 
@@ -97,9 +97,9 @@ docker run quay.io/saucelabs/apifctl run-tag
 
 Available Options:
 * [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
-* [<code>-t &#60;tag(s)&#62;</code>](#-t-tags) <small>| REQUIRED | STRING |</small>
+* [<code>-tag &#60;tag(s)&#62;</code>](#-tag-tags) <small>| REQUIRED | STRING |</small>
 * [<code>-E &#60;environment variable(s)&#62;</code>](#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
-* [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL | STRING |</small>
+* [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
 * [<code>-f &#60;format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>   
 
@@ -122,11 +122,11 @@ Available Options:
 * [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
 * [<code>-p &#60;local path to test files&#62;</code>](#-p-local-path-to-file) <small>| REQUIRED | STRING |</small>
 * [<code>-E &#60;environment variable(s)&#62;</code>](#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
-* [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL | STRING |</small>
+* [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
 * [<code>-f &#60;format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>  
 * [<code>-n &#60;name of test&#62;</code>](#-n-name-of-test) <small>| OPTIONAL | STRING |</small>  
-* [<code>-t &#60;tag(s)&#62;</code>](#-t-tags) <small>| OPTIONAL | STRING |</small>
+* [<code>-tag &#60;tag(s)&#62;</code>](#-tag-tags) <small>| OPTIONAL | STRING |</small>
 
 
 ```bash title="Full Example"
@@ -150,7 +150,7 @@ Available Options:
 * [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
 * [<code>-p &#60;local path to test files&#62;</code>](#-p-local-path-to-file) <small>| REQUIRED | STRING |</small>
 * [<code>-n &#60;name of test&#62;</code>](#-n-name-of-test) <small>| OPTIONAL | STRING |</small>  
-* [<code>-t &#60;tag(s)&#62;</code>](#-t-tags) <small>| OPTIONAL | STRING |</small>
+* [<code>-tag &#60;tag(s)&#62;</code>](#-tag-tags) <small>| OPTIONAL | STRING |</small>
 * [<code>-d &#60;test description&#62;</code>](#-d-test-description) <small>| OPTIONAL | STRING |</small>
 
 ```bash title="Full Example"
@@ -287,10 +287,10 @@ Identifies the start date of the events you want to see (e.g., `-f 2021-10-21T14
 Identifies the end date of the events you want to see (e.g., `-t 2021-10-31T15:00`).
 
 ---
-### `-t <tag(s)>`
+### `-tag <tag(s)>`
 <p><small>| STRING |</small></p>
 
-Adds a set of tags to the resulting event. Format as a comma-separated list of tags you want to assign to the test (e.g., `-t product,production`).
+Adds a set of tags to the resulting event. Format as a comma-separated list of tags you want to assign to the test (e.g., `-tag product,production`).
 
 ---
 ### `-n <name of test>`
@@ -306,7 +306,6 @@ Identifies the ID of a complete test (e.g., `-i 123a1a123456a12345aa1aaa`).
 
 ---
 ### `-S`
-<p><small>| ? |</small></p>
 
 Syncs execution so that `apifctl` will wait until all results are available, and then prints them.
 
