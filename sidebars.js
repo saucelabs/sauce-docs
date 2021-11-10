@@ -671,6 +671,8 @@ module.exports = {
                       ],
                   },
              'api-testing/apifctl-cicd-integration',
+             'api-testing/mocking',
+             'api-testing/logger',
         ],
         "CI/CD": [
             'ci',
