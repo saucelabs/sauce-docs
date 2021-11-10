@@ -664,9 +664,9 @@ module.exports = {
                   label: 'Environments, Vaults, and Variables',
                   collapsed: true,
                   items: [
-                      'api-testing/environments-vault-and-overrides-magic',
-                      'api-testing/flexible-variables-for-flexible-environments',
-                      'api-testing/the-vault',
+                      'api-testing/environments-vault-overrides',
+                      'api-testing/variables-flexible-environments',
+                      'api-testing/vault',
                       ],
                   },
             'api-testing/apifctl-cicd-integration',
@@ -681,8 +681,8 @@ module.exports = {
                       'api-testing/composer/logical-components',
                       ],
                   },
-            'api-testing/mocking',
-            'api-testing/logger',
+             'api-testing/mocking',
+             'api-testing/logger',
         ],
         "CI/CD": [
             'ci',
