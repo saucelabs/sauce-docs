@@ -45,7 +45,7 @@ Deletes a selected component from the test while using Visual view.<br/>
 <img src={useBaseUrl('img/api-fortress/2021/01/deleteComponent.png')} alt="Delete Component"/>
 
 ## Invoke Snippet
-Allows you to use a previously created code snippet stored in [The Vault](/api-testing/the-vault).<br/>
+Allows you to use a previously created code snippet stored in [The Vault](/api-testing/vault).<br/>
 <img src={useBaseUrl('img/api-fortress/2021/01/invokeSnippet.png')} alt="Invoke Snippet"/>
 
 ## Export Snippet
