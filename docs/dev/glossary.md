@@ -319,7 +319,6 @@ Unless otherwise specified, the file will be cleaned up on exit or overwritten a
 More information: [How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect/proxy-tunnels#starting-and-stopping-tunnels),
 [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
 
-
 ### Platform Configurator
 
 A Sauce Labs tool where you can select your capabilities and generate code snippets to copy and paste into your automated testing scripts. More information: [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/).
@@ -359,7 +358,7 @@ See also: _[real device cloud](#real-device-cloud)_.
 
 ### RemoteWebDriver
 
-A remote instance of WebDriver that you must instantiate during a test to connect with the Selenium server via Sauce Labs. 
+A remote instance of WebDriver that you must instantiate during a test to connect with the Selenium server via Sauce Labs.
 Afterwards, you can use the RemoteWebDriver to control the browser of your choice.
 
 See also: _[webdriver](#webdriver), [webdriverIO](#webdriverio)_.
@@ -589,7 +588,7 @@ The virtual machine that hosts Sauce Connect Proxy on the Sauce Labs side.
 
 ### UI Automation Library
 
-A library or tool used for writing, running and providing functionality for browser-based tests in a particular setting. 
+A library or tool used for writing, running and providing functionality for browser-based tests in a particular setting.
 Some examples are WebdriverIO (JavaScript), Cucumber (Ruby/JavaScript/C#/Java), XCUITest (iOS mobile only).
 
 See also: _[framework](#framework)_.
@@ -652,12 +651,12 @@ A Sauce Labs automated visual testing method that integrates with your WebDriver
 
 ### W3C WebDriver Protocol
 
-[A platform- and language-neutral wire protocol](https://w3c.github.io/webdriver/) that 
-enables out-of-process programs to remotely instruct the 
+[A platform- and language-neutral wire protocol](https://w3c.github.io/webdriver/) that
+enables out-of-process programs to remotely instruct the
 behavior of web browsers. The major browser vendors collaborated and agreed on what the correct behavior should be
 for each command, which dramatically improves stability and consistency between different browsers and devices.
 Selenium and WebdriverIO each implement the W3C protocol. Now that all major browsers
-use this protocol by default, its usage on Sauce Labs is highly encouraged. 
+use this protocol by default, its usage on Sauce Labs is highly encouraged.
 More information: [W3C Capabilities Support](/dev/w3c-webdriver-capabilities).
 
 
@@ -665,7 +664,7 @@ More information: [W3C Capabilities Support](/dev/w3c-webdriver-capabilities).
 
 An implementation of the [W3C WebDriver Protocol](#w3c-webdriver-protocol), which defines how a user's code interacts
 with a web browser. All major browsers and programming languages support WebDriver.
-Supports all major browsers and programming languages. Look here for 
+Supports all major browsers and programming languages. Look here for
 [Examples of Test Libraries](/web-apps/automated-testing/selenium/#scaling-tests) that implement
 WebDriver.
 
