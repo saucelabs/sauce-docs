@@ -27,7 +27,7 @@ Get up and running with a Sauce Connect Proxy tunnel in just a few minutes by fo
 
   <TabItem value="Mac">
 
-  Navigate to the folder where you downloaded Sauce Connect.
+  Navigate to the folder where you downloaded Sauce Connect Proxy. If you've saved it to your home directory:
 
   ```bash
   cd sc-4.7.1-osx
@@ -36,7 +36,7 @@ Get up and running with a Sauce Connect Proxy tunnel in just a few minutes by fo
   </TabItem>
   <TabItem value="Windows">
 
-  Navigate to the folder where you downloaded Sauce Connect.
+  Navigate to the folder where you downloaded Sauce Connect Proxy. If you've saved it to your home directory:
 
   ```bash
   cd sc-4.7.1-win32
@@ -45,7 +45,7 @@ Get up and running with a Sauce Connect Proxy tunnel in just a few minutes by fo
   </TabItem>
   <TabItem value="Linux">
 
-  Copy [this snippet](/secure-connections/sauce-connect/installation/#linux), then paste and run it in your local terminal.
+  Copy [this Linux snippet](/secure-connections/sauce-connect/installation/#linux), then paste and run it in your local terminal.
 
   </TabItem>
   </Tabs>

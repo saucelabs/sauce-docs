@@ -1,6 +1,6 @@
 ---
 id: supported-browsers
-title: Visual E2E Supported Browsers and Operation Systems
+title: Visual E2E Supported Browsers and Operating Systems
 sidebar_label: Supported Browsers and OSs
 ---
 
