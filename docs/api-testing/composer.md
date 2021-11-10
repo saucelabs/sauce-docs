@@ -45,7 +45,7 @@ Deletes a selected component from the test while using Visual view.<br/>
 <img src={useBaseUrl('img/api-fortress/2021/01/deleteComponent.png')} alt="Delete Component"/>
 
 ## Invoke Snippet
-Allows you to use a previously created code snippet stored in [The Vault](/api-testing/on-prem/quick-start/the-vault).<br/>
+Allows you to use a previously created code snippet stored in [The Vault](/api-testing/the-vault).<br/>
 <img src={useBaseUrl('img/api-fortress/2021/01/invokeSnippet.png')} alt="Invoke Snippet"/>
 
 ## Export Snippet
@@ -65,8 +65,8 @@ Displays the Input Set view where you can store input data sets to reuse across 
 <img src={useBaseUrl('img/api-fortress/2021/01/inputSets.png')} alt="Input Sets" width="500"/>
 
 There are two types of input data sets you can use:
-* __Global Parameters__: variables that are available across all tests in the project. Reference these variables simply by calling it within the test using the convention `“${VARIABLE}”`.
-* __Input Set__: group of input variables representing a scenario. The test will be executed once for each input set, overriding the variable values into your test.
+* __Global Parameters__: variables that are available within a test, valid for that specific test _only_. Reference these variables by calling it within the test using the convention `“${VARIABLE}”`.
+* __Input Set__: group of input variables representing a scenario, valid for that specific test _only_. The test will be executed once for each input set, overriding the variable values into your test.
 
 <table>
 <tr>
