@@ -17,7 +17,10 @@ When testing mobile apps, you have the option to upload your app to our applicat
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-* Your mobile app file. If you don't have one on hand, consider using the [Sauce Labs sample app](https://github.com/saucelabs/sample-app-mobile) for validating this process.
+* Your mobile app file. If you don't have one on hand, consider using our Demo Apps:
+     *[React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
+     *[iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
+     *[Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases) 
 
 ## Uploading Apps via UI
 

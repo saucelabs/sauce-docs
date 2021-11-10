@@ -670,7 +670,7 @@ module.exports = {
                       'api-testing/the-vault',
                       ],
                   },
-             'api-testing/integrate-with-your-cicd',
+             'api-testing/apifctl-cicd-integration',
         ],
         "CI/CD": [
             'ci',
@@ -810,6 +810,7 @@ module.exports = {
         'visual/css-animations',
         'visual/acct-team-mgmt',
         'visual/notifications',
+        'visual/faq',
         ],
         "Reference": [
             'dev/glossary',

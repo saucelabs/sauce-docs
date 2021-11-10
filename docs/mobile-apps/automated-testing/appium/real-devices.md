@@ -23,7 +23,7 @@ This topic describes automated Appium testing on the Sauce Labs Real Device Clou
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * Ensure that your mobile app and project setup meet our [real device cloud requirements](/mobile-apps/supported-devices).
-* Have your mobile app file (.ipa for iOS, .apk for Android) and mobile test file on hand. If you don't have one and would like to test our functionality, consider using our [Sauce Labs demo app](https://github.com/saucelabs/sample-app-mobile/releases).
+* Have your mobile app file (.ipa for iOS, .apk for Android) and mobile test file on hand. Don't have one on hand? Try the [My Demo App](https://github.com/saucelabs/my-demo-app-rn/releases), which is available in Sauce Labs.
 
 
 ## Uploading Mobile Apps from a Remote Location
