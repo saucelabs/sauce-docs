@@ -88,4 +88,3 @@ This button toggles back and forth between the Input Set and Unit Test Composer 
 * [Sauce School | API Testing Course and Best Practices](https://training.saucelabs.com/apiTesting/index.html).
 * Learn how to [create a test quickly](/api-testing/quickstart).
 * Learn about [request components](/api-testing/composer/io-components) and [assertion components](/api-testing/composer/assertion-components).
-* Learn about [End-to-End Tests / Integration Tests / Multistep Testing](/api-testing/on-prem/quick-start/introduction-to-integration-testing).
