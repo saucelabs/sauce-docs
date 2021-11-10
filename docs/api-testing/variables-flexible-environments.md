@@ -18,7 +18,7 @@ Most of the parametrization you will likely do relates to the HTTP request itsel
 
 ## Formatting Variables in the Vault
 
-For instructions on accessing vaults, see [Using the Vault](/api-testing/the-vault/#accessing-the-vault).
+For instructions on accessing vaults, see [Using the Vault](/api-testing/vault).
 
 Consider this variable:
 
