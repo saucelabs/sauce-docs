@@ -1,7 +1,7 @@
 ---
 id: dashboard
-title: API Testing Dashboard
-sidebar_label: Dashboard Overview
+title: API Testing Project Dashboard
+sidebar_label: Project Dashboard
 description: "API Testing on Sauce Labs offers a full-featured dashboard that centralizes testing management and simplifies collaboration and reporting. Key features of the dashboard allow you to: View all test logs across teams Share, download, or print test logs View all performance metrics from tests (latency & fetch) Set performance alerts Filter logs and alerts by time, endpoint."
 ---
 
