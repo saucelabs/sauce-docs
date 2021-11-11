@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 Sauce Labs supports Appium to test your application on a mobile device in multiple ways:
 
-* On any of a vast library of Android and iOS real devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices) in our data centers
+* On any of a vast library of [Android and iOS real devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices) in our data centers
 * On any of a vast library of [Android emulators or iOS simulators]((https://docs.saucelabs.com/mobile-apps/automated-testing/appium/virtual-devices) in our cloud
 * As a web-app running in any of a wide variety of supported mobile browser/OS combinations
 * As a native app running on any supported device, emulator, simulator, and OS

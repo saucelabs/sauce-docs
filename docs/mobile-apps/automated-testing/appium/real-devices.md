@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs provides thousands of real mobile devices for nearly every phone and tablet model and applicable OS version. You can run your Appium tests on these devices through the Sauce Labs Real Device Cloud (RDC) to ensure your app behaves accurately and consistently across different devices in the real world. Sauce Labs offers a massive pool of public devices available for all customers, as well as a private option in which customers can create a selection of devices for use by only their organization.
+Sauce Labs provides thousands of real mobile devices for nearly every phone and tablet model and applicable OS version. You can run your Appium tests on these devices through the Sauce Labs Real Device Cloud (RDC) to ensure your app behaves accurately and consistently across different devices in the real world. Sauce Labs offers a massive pool of public devices available for all customers, as well as a [private option](/mobile-apps/supported-devices/#private-device-cloud) in which customers can create a selection of devices for use by only their organization.
 
 Appium automated real device testing supports tests designed to run against a web application in a mobile browser or a native app on a mobile device.
 
@@ -21,66 +21,54 @@ See [When to Test on Real Devices](https://docs.saucelabs.com/mobile-apps/suppor
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * An Appium installation (See [Using Appium](/mobile-apps/automated-testing/appium))
 * A mobile app file (.ipa for iOS, .apk for Android) If you don't have one, consider using our Demo Apps:
-     *[React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
-     *[iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
-     *[Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)
-* An Appium mobile test file
+     * [React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
+     * [iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
+     * [Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)
+* An Appium mobile test script
 
 
-## Install Your Mobile App on Real Devices
+## Installing Your Mobile App on Real Devices
 
 If your Appium tests are intended to test a native mobile application on real devices, the app file must be available to Sauce Labs so it can be installed on the devices selected for testing. Sauce Labs provides a variety of methods for doing this, including:
 
+* Upload your app to Sauce Application Storage using the [Sauce Labs UI](/mobile-apps/app-storage/#uploading-apps-via-ui) or [REST API](/mobile-apps/app-storage/#uploading-apps-via-rest-api)
 * Install your app to a real device from a remote location [How?](/mobile-apps/app-storage/#installing-apps-from-a-remote-location)
-* Upload your app to Sauce Application Storage using the [Sauce Labs UI](/mobile-apps/app-storage/#uploading-apps-via-ui) or [REST API](/mobile-apps/app-storage/#uploading-apps-via-rest-api).
 
 The following application file types are supported for real device tests:
 
 * \*.apk or \*.aab for Android app files
-* \*.ipa or \*.zip for iOS app files (\*.zip files are parsed to determine whether a valid *.app bundle exists).
+* \*.ipa for iOS app files (See [Create .ipa Files for Appium](/mobile-apps/automated-testing/ipa-files/#real-devices))
 
 
 ## Configuring Appium Tests for Real Devices
 
-Our [Test Configuration Options](/dev/test-configuration-options) reference documentation provides a complete index of required and optional parameters for Appium. Be aware that not all of the Appium capabilities list are supported for both virtual and real device tests.
+Our [Test Configuration Options](/dev/test-configuration-options) reference documentation provides a complete index of required and optional parameters for Appium. Be aware that not all of the Appium capabilities list are supported for both virtual and real device tests and that some capabilities have driver-specific options for [Android](https://github.com/appium/appium-uiautomator2-driver) and [iOS](https://github.com/appium/appium-xcuitest-driver) client libraries.
 
 The following sections provide context and instructions for test configurations that are essential when using Appium to run automated tests on Sauce Labs **real devices**.
 
+### Specifying the `platformName`
+
+You can use real devices to test both native apps and web apps in a mobile browser. The `platformName` capability is the only test configuration that is mandatory regardless of which type of mobile test you are writing, as it specifies whether the test is for `iOS` or `Android`.
+
+
 ### Specifying Your `app`
 
-In order to install your app on the devices you select, you must identify the location from which your mobile app can be accessed. You can specify a Sauce Labs Application Storage ID or filename, or a remote location to which Sauce Labs has access.
+For native app tests, the `app` capability is the only other required configuration. If it is omitted, Sauce Labs infers the test is written for a mobile browser and automatically sets a default `browserName` based on the specified `platformName`.
+
+For native app tests on real devices, you must provide a location from which your mobile app can be accessed in the `app` capability so your app can be installed on the test devices. You can specify a Sauce Labs Application Storage ID or filename, or a remote location to which Sauce Labs has access. See [Application Storage](/mobile-apps/app-storage) for details.
 
 ```js title=App Storage Example
-caps.setCapability("app","storage:filename=mapp.zip");
+caps.setCapability("app","storage:filename=mapp.ipa");
 ```
 
 ```js title=Remote App Example
-caps.setCapability("app","https://github.com/test-apps/ios-app.zip");
+caps.setCapability("app","https://github.com/test-apps/ios-app.ipa");
 ```
-
-
-### Setting the `appiumVersion`
-
-If you omit the `appiumVersion` in your test configuration, your test runs with our default Appium version, which is typically the version that supports the broadest number of device combinations, but may not be the latest version. We recommend that you specify the newest Appium version that supports the specific devices and operating systems you plan to use for your test, so you can leverage the most up-to-date features and patches.
-
-```js
-caps.setCapability("appiumVersion", "1.5.3");
-```
-
-#### **Checking the Appium Version for Your Test**
-1. Log into Sauce Labs.
-2. Go to **Test Details**.
-3. Find and select the test that you ran using Appium.
-4. Click the **Metadata** tab.
-5. Look for the **Logs** row and select **Appium Log**. The first line should indicate the Appium version. For example, `2019-05-05T17:45:07.541Z - info: Welcome to Appium v1.10.1`.
 
 ### Excluding the `browserName`
 
-When testing a native mobile app, no browser is accessed, so if you are re-using the capabilities from your mobile or desktop browser tests, you can omit the `browserName` capability or or set the value as an empty string. This is an important exclusion because if values are set for _both_ `app` and `browserName`, Sauce Labs defaults to the `browserName`. Similarly, if neither capability is specified, Sauce Labs defaults to the `browserName` settings of Safari for iOS and Chrome for Android.
+When testing a native mobile app, no browser is accessed, so if you are re-using the capabilities from your mobile or desktop browser tests, omit the `browserName` capability. This is an important exclusion because if values are set for _both_ `app` and `browserName`, Sauce Labs defaults to the `browserName`. Similarly, if neither capability is specified, Sauce Labs automatically populates the `browserName` value that matches the `platformName` (Safari for iOS and Chrome for Android).
 
-```js
-caps.setCapability("browserName", "");
-```
 
 ### Selecting Your Test Device
 
@@ -91,7 +79,7 @@ Testing on real devices requires you to specify a device on which you plan to te
 
 #### Static Device Allocation
 
-_Static Allocation_ allows you to specify a known device by its unique ID. This can be beneficial if, for examplle, you are testing features only available on a very specific device setup. However, what you gain in precision may be offset by the time it takes for a specific device to become available, especially if your tests do not require that level of precision. If you do require a specific device, you should always configrm the device's availability before launching your tests.
+_Static Allocation_ allows you to specify a known device by its unique ID. This can be beneficial if, for example, you are testing features only available on a very specific device setup. However, what you gain in precision may be offset by the time it takes for a specific device to become available, especially if your tests do not require that level of precision. If you do require a specific device, you should always configure the device's availability before launching your tests.
 
 ```js
 caps.setCapability("deviceName", "HTC_One_M8_real");
@@ -117,7 +105,7 @@ _Dynamic Allocation_ allows you to specify the device attributes that are import
 
 Dynamic allocation is advised, in particular, for all automated mobile application testing in CI/CD environments.
 
-To enable dynamic device allocation, you must specify the `deviceName`, `platformName`, and `platformVersion` capabilities at a minimum. The following table provides information about accepted values.
+To enable dynamic device allocation, you should specify the `deviceName` and `platformName`, and `platformVersion` capabilities at a minimum. The following table provides information about accepted values.
 
 :::note
 The following sample values are presented using case for readability, but capabilities values are not case-sensitive, so there is no distinction between `iPhone` and `iphone`, for example.
@@ -198,12 +186,6 @@ When using `cacheId` the value must match for all tests slated to run on the cac
 * `automationName`
 * `autoGrantPermissions`
 * `appiumVersion`
-
-### Setting the `automationName` for Android Apps
-
-If you're testing a native mobile app against Android versions 4.0-4.1, or a hybrid mobile against Android versions 4.0 - 4.2, you must set the capability `"automationName","selendroid"`.
-
-These Android versions are only supported via Appium’s bundled version of Selendroid, which utilizes [Instrumentation](http://developer.android.com/reference/android/app/Instrumentation.html). Later versions of Android are supported via Appium’s own UiAutomator library.
 
 
 ## Example Configuration Code Snippets

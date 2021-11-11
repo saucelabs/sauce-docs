@@ -30,7 +30,6 @@ You can install the Appium Server directly via NPM by running the following comm
 npm install -g appium
 ```
 
-Alternatively, you can download [Appium Desktop](https://github.com/appium/appium-desktop/releases) for your for Mac, Windows, or Linux environment.  Appium Desktop is a Graphical User Interface application that bundles many of the system dependencies (including Node/NPM) of Appium Server and provides a clean and easy-to-use interface for launching the server and inspecting your app's elements, which can be very helpful in writing your tests.
 
 ### Installing a Client
 
@@ -43,34 +42,7 @@ Install the doctor: `npm install -g appium-doctor`.
 Run the command: `appium-doctor --ios|--android`
 :::
 
-
-
-
-
-## Installing Appium
-
-Appium is a client-server framework in which the user installs a client application locally that translates test session configuration details into requests to the remote Appium server, which processes them and responds with results and related material that Sauce Labs can then render into meaningful results in your dashboard. In order to use Appium, you must install both the server and a client.
-
-### Installing the Server
-
-You can install the Appium Server directly via NPM by running the following command:
-
-```
-npm install -g appium
-```
-
-Alternatively, you can download [Appium Desktop](https://github.com/appium/appium-desktop/releases) for your for Mac, Windows, or Linux environment.  Appium Desktop is a Graphical User Interface application that bundles many of the system dependencies (including Node/NPM) of Appium Server and provides a clean and easy-to-use interface for launching the server and inspecting your app's elements, which can be very helpful in writing your tests.
-
-### Installing a Client
-
-The Appium client is the application in which you write your test scripts and instruct Appium how and where to run them. Appium provides [client libraries](http://appium.io/downloads) for a variety of programming languages, so choose your favorite and download it to start creating tests for your mobile app or mobile browser app. Many of the examples throughout this documentation use the [JavaScript WebDriverIO client](https://webdriver.io/).
-
-:::tip Appium Doctor
-Use Appium's dependency validator CLI `appium-doctor` to ensure your installation is ready to go for your Android or iOS tests.
-
-Install the doctor: `npm install -g appium-doctor`.
-Run the command: `appium-doctor --ios|--android`
-:::
+Appium 2.0 users may choose to install [Appium Inspector](https://github.com/appium/appium-inspector), which is basically an Appium client that includes a graphical user interface to specify which Appium server to use, which capabilities to set, and then interact with your app's elements, which can be very helpful in writing your tests.
 
 
 ## How to Get Started

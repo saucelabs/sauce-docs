@@ -87,10 +87,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ## Installing Apps from a Remote Location
 <p> <small><span className="sauceDBlue">Real Devices Only</span></small></p>
 
-If your app is downloadable remote location (e.g., AWS S3 bucket, a GitHub repository), you can provide a URL as the value for the `app` capability in your test, which will install the app onto the real devices prior to test execution.
+If your app is downloadable from a remote location (e.g., AWS S3 bucket, a GitHub repository), you can provide a URL as the value for the `app` capability in your test, which will install the app onto the real devices prior to test execution.
 
 :::note
-Apps installed via remote download are removed from the real device following test completion, providing an added layer of security for your app.
+Appium cannot log into secure locations, so apps installed via remote download must be accessible, so are then removed from the real device immediately following test completion, providing an added layer of security.
 :::
 
 To install a remote app on a real device for a test:
@@ -118,7 +118,7 @@ Each session is a "fresh" installation of your app, meaning, you will not be abl
 
 ## Accepted File Types 
 
-Application storage recognizes \*.apk and \*.aab files as Android apps and \*.ipa or \*.zip files as iOS apps. \*.zip files are parsed to determine whether a valid *.app bundle exists.
+Application storage recognizes \*.apk and \*.aab files as Android apps and \*.ipa or \*.zip files as iOS apps. \*.zip files (for simulator tests only) are parsed to determine whether a valid *.app bundle exists.
 
 :::caution Limited Support for *.aab Files
 At this time, \*.aab files are only supported for Android real device testing.
