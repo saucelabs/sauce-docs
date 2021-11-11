@@ -1,5 +1,5 @@
 ---
-id: flexible-variables-for-flexible-environments
+id: variables-flexible-environments
 title: Using Variables for Environment Flexibility
 sidebar_label: Using Variables
 description: "In API Fortress, you do not have to be concerned with organizing variables in a hierarchy from global to local."
@@ -10,16 +10,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 In API Fortress, you do not have to be concerned with organizing variables in a hierarchy from global to local… why?
 
 Almost any string can be hardcoded or referenced as a variable in API Fortress. Hardcoding is fine as long as you’re building simple tests, however, it is advisable to parametrize some items when:
-
 - The number of tests is increasing
 - The complexity of tests is increasing
 - The number of tested environments is increasing
 
 Most of the parametrization you will likely do relates to the HTTP request itself.
 
-## Using the Vault
+## Formatting Variables in the Vault
 
-For instructions on accessing the Vault, see [Using the Vault](/api-testing/the-vault/#accessing-the-vault).
+For instructions on accessing vaults, see [Using the Vault](/api-testing/vault).
 
 Consider this variable:
 
@@ -27,9 +26,7 @@ Consider this variable:
 
 While the following variable is perfectly valid, it may become extremely painful to update tens or hundreds of tests if the domain changes.
 
-Alternatively, you may use the API Testing Vault to store domain names to solve this problem. Simply add a “domain” variable in your vault as follows:
-
-<img src={useBaseUrl('img/api-fortress/2021/04/variableEntry.png')} alt="Domain Variables"/>
+Alternatively, you can use the API Testing Vault to store domain names to solve this problem. Simply add a “domain” variable in your vault:<br/><img src={useBaseUrl('img/api-fortress/2021/04/variableEntry.png')} alt="Domain Variables"/>
 
 And then edit the `GET` request with `${domain}` like this:
 

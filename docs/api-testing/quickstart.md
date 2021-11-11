@@ -12,33 +12,36 @@ This page is a quickstart guide for getting up and running with API Testing on S
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* If your APIs are behind a firewall, see [Sauce Connect Proxy](/secure-connections/sauce-connect/).
+* If your APIs are behind a firewall, you'll need to use [Sauce Connect Proxy](/secure-connections/sauce-connect/).
 
 
-## Set Up Your Project and Test
+## Set Up Your Tests
 
 1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/>
   <img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
 
-2. On the API Testing dashboard, click the **Create Project** button.<br/>
+2. To set up a test, you'll need a Project first. On the API Testing dashboard, click the **Create Project** button.<br/>
   <img src={useBaseUrl('img/api-fortress/2021/01/createProject.png')} alt="Create a Project UI" width="500" />
 
-3. Enter your project details in the **New Project** window, then click **Save** when you're finished. This will bring you to the **Tests** dashboard under the project you've just created.
+3. In the **New Project** window, enter your **Project Name**. Optionally, you can also add a **Description** and **Notes**). Click **Save** when you're finished. <br/>
+  <img src={useBaseUrl('img/api-fortress/2021/01/newProject.png')} alt="New Project window" width="400" />
+
+  This will bring you to the **Tests** dashboard under the project you've just created.
 
 4. From your **Tests** dashboard, click **HTTP Client**.<br/>
   <img src={useBaseUrl('img/api-fortress/2021/01/HTTPClient.png')} alt="HTTP Client" width="400" />
 
 5. Choose from _one_ of the below methods:
 
- * **5a. Input API Request URL**
-   * Type an API endpoint URL into the **Enter Request URL** field.
-    <img src={useBaseUrl('img/api-fortress/2021/01/enterRequestURL.png')} alt="Enter API URL" width="500" />
+   *Method 1*:<br/>Type an API endpoint URL into the **Enter Request URL** field.<br/>
+   <img src={useBaseUrl('img/api-fortress/2021/01/enterRequestURL.png')} alt="Enter API URL" width="500" /><br/>
 
-<p align="center"><strong>or</strong></p>
+   If you don't have a URL available and would like to test our functionality, try this one: `https://dog.ceo/api/breeds/list/all`.
 
-   * **5b. Import from [Spec file](/api-testing/build-from-spec/) or [Postman Collection file](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#exporting-postman-data)**
-     * Click **Import OpenAPI / Postman**, then select and upload the file from your local machine. <details><summary><small>Click here to see a sample file</small></summary>
-     This is a sample Postman collection file that you can use to test out our functionality. Just copy and paste it into a text editor on your local machine and save it as a .json file.
+   or
+
+   *Method 2*:<br/>Click the **Import OpenAPI / Postman** button &#8212; <img src={useBaseUrl('img/api-fortress/2021/01/importSpec.png')} alt="Enter API URL" width="150"/> &#8212; to upload an [OpenAPI spec file](/api-testing/build-from-spec/) or [Postman Collection file](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#exporting-postman-data) from your local machine, follow the prompt to save your file your **Snapshots** tree, then click **Save**.
+   * If you don't have a file available, use the sample below to test out the functionality. <details><summary>View sample Postman Collection file</summary>Copy the text below > Paste text into a text editor > Save that as a .json file.
       ```json title="demoapif.postman_collection.json"
       {
       	"info": {
@@ -100,20 +103,21 @@ This page is a quickstart guide for getting up and running with API Testing on S
       }
       ```
      </details>
-     * Follow the prompt to select the position in your **Snapshots** tree where you'd like to import the spec file, then click **Save**.
-     * In your **Snapshots** tree, click the line item for the API call you'd like to test. This will auto-populate the URL in the **Enter Request URL** field.
 
-
+  Under **Snapshots**, click the line item for the API call you'd like to test. This will auto-populate the URL in the **Enter Request URL** field.<br/><img src={useBaseUrl('img/api-fortress/2021/01/importSpec2.png')} alt="Import spec file" width="500"/>
 
 ## Send Request
 
 6. Next to your URL, click **Send** to submit your API request.<br/>
-  <img src={useBaseUrl('img/api-fortress/2021/01/enterRequestSave.png')} alt="Create a Project UI" width="500" />
+  <img src={useBaseUrl('img/api-fortress/2021/01/enterRequestSave.png')} alt="Enter API Request save" width="500" />
+
+  If the request was successful, the response will populate in the **Body** section, along with a success status.
 
 
 ## Generate Tests
 
-7. If your request was successful, you'll see the response populate in the **Body** section along with a **200 OK** status. Then, click **Generate Test**.
+7. Click **Generate Test**.<br/>
+  <img src={useBaseUrl('img/api-fortress/2021/01/generateTest.png')} alt="Generate Test" />
 
 8. Enter your test details in the **New Test** window, then click **Save**. This will generate a series of functional tests for your specific API request.
 
@@ -155,7 +159,5 @@ Go back to your test's **Compose** tab > **Visual** view and try adding more log
 ## More Information
 
 * For more information on building tests using a spec file, see [Build from Spec](/api-testing/build-from-spec).
-* Check out the [Example Snippets](/api-testing/on-prem/quick-start/using-the-example-snippets) provided by the API Fortress Dashboard.
 * Learn how to [import Postman Collections](/api-testing/importing-postman-collections) so that you can generate more tests.
 * Learn how to schedule a test [here](/api-testing/schedule-a-test).  
-* Learn about data and notifications connectors [here](/api-testing/on-prem/quick-start/setup-connectors). Simple solutions to plug into the systems you use today (e.g., DataDog or New Relic).
