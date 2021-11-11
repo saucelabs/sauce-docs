@@ -669,7 +669,7 @@ module.exports = {
                       'api-testing/vault',
                       ],
                   },
-            'api-testing/apifctl-cicd-integration',
+             'api-testing/apifctl-cicd-integration',
               {
                   type: 'category',
                   label: 'Test Composer',
