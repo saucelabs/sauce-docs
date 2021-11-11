@@ -1,22 +1,20 @@
 ---
 id: mocking
 title: API Mocking with Piestry
-sidebar_label: Mocking
+sidebar_label: API Mocking Server
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Sauce Labs _Piestry_ is our API mocking tool that imitates a real API server's calls and responses, based on the OpenAPI spec file that you provide. You'll get dynamic responses that you can use to perform proper positive and negative testing, and edge case testing.
-
+Sauce Labs [_Piestry_](/dev/glossary/#piestry) is our API mocking server tool that imitates a real API server's calls and responses, based on the OpenAPI spec file that you provide. You'll get dynamic responses that you can use to perform proper positive and negative testing, and edge case testing.
 
 **Benefits**
 * Get a jumpstart on API testing and debugging while your APIs are still in development by re-creating your APIs in our mocking platform and writing all of your tests against them.
-* No need to add third-party API dependencies, which can be expensive and restrictive.
-* No need to depend on potentially unreliable staging environments.
+* Eliminates the need to add third-party API dependencies, which can be expensive and restrictive.
+* Eliminates the need to depend on potentially unreliable staging environments.
 * Allows you to create stubbed APIs to use to in your testing flow.
 
-
-**Use cases**
+**Common Use Cases**
 * Faking a payment transaction in a banking mobile app.
 * Isolating a microservice from the rest of the API actions so that everything else is stable and you can drill down to find the error.
 
@@ -251,4 +249,3 @@ When `--capture` is executed without `--e2e`, Piestry will try to map the saved 
 ## More Information
 
 * [API Testing Logger](/api-testing/logger)
-* Why the name [_Piestry_](/dev/glossary)?
