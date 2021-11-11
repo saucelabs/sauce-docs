@@ -27,7 +27,7 @@ Sauce Labs _Piestry_ is our API mocking tool that imitates a real API server's c
 
 ## Getting Started
 
-Piestry must be started from a Docker container in your CI/CI pipeline using Docker image, `quay.io/saucelabs/piestry`. Use the code snippet below, where `/specs/myspec.yaml` is the URI to your YAML spec file (can be local or remote):
+Piestry must be started from a Docker container in your CI/CD pipeline using Docker image, `quay.io/saucelabs/piestry`. Use the code snippet below, where `/specs/myspec.yaml` is the URI to your YAML spec file (can be local or remote):
   ```bash
   docker run -v "$(pwd)/specs:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
   ```
