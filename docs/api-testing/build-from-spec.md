@@ -1,7 +1,7 @@
 ---
 id: build-from-spec
-title: Build Tests from a Spec File
-sidebar_label: Build Tests from Spec File
+title: Building Tests from a Spec File
+sidebar_label: Build from Spec File
 description: "The available spec files you can automatically generate from are: Swagger, RAML, OpenAPI 3, API Blueprint, I/O Docs, SOAP WSDL, and Postman Collection."
 ---
 
@@ -22,30 +22,31 @@ Using the API Fortress **HTTP Client**, you can generate tests from external end
 * **Pending**: <Highlight color="#29d3fe">RAML</Highlight> <Highlight color="#9073d2">API Blueprint</Highlight> <Highlight color="#c3090c">I/O Docs</Highlight> <Highlight color="#025b9c">SOAP</Highlight> <Highlight color="#025b9c">WSDL</Highlight>
 :::
 
+## What You'll Need
+
+* * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
+
 ## Creating a Test
 
-There are two ways to build a test from a specification file:
+There are two ways to build a test from a specification (spec) file:
 
-* Upload the specification file itself.
-* Reference the URL that points to the specification file.
-
-Both methods involve using the **HTTP Client**.
+* Upload the spec file itself.
+* Reference the URL that points to the spec file.
 
 ### Upload a File
 
-From your project's home page:
+1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/>
+  <img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
 
-1. Choose the __HTTP Client__ button in the toolbar.
+1. Go into any Project.
+
+1. Click the __HTTP Client__ tab in the toolbar.
    <img src={useBaseUrl('img/api-fortress/2021/02/httpClient.png')} alt="HTTP Client Button"/>
 
-1. In the **Snapshots** section select the arrow icon:
-   <img src={useBaseUrl('img/api-fortress/2021/02/snapshotAdd.png')} alt="Add spec file"/>
+1. Click the **Import OpenAPI / Postman** button and select the desired file you wish to upload.
 
-1. Select the desired file and finish by selecting __Open__:
-   <img src={useBaseUrl('img/api-fortress/2021/02/desiredFile.png')} alt="Select Desired File"/>
-
-1. A prompt appears asking how the files should be imported, select the appropriate option:
-   <img src={useBaseUrl('img/api-fortress/2021/02/desiredImport.png')} alt="Select Desired Import"/>
+1. Follow the prompt that asks where in your **Snapshots** tree you'd like to import your file.
 
 1. Select the desired path in your project tree in which you wish to save the file/collection:
    <img src={useBaseUrl('img/api-fortress/2021/02/desiredPath.png')} alt="Select Desired Path"/>
