@@ -1,5 +1,5 @@
 ---
-id: the-vault
+id: vault
 title: "Storing Reusable Variables and Code Snippets with the Vault"
 sidebar_label: Using the Vault
 description: "The vault allows you to store variables and code snippets that can be used across an entire project."

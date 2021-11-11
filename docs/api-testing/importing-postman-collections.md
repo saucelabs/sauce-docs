@@ -1,7 +1,7 @@
 ---
 id: importing-postman-collections
 title: Importing Postman Collections, Variables, and Environments
-sidebar_label: Importing Postman Collections
+sidebar_label: Import from Postman
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
