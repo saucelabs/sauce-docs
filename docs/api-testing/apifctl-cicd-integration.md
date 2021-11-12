@@ -9,8 +9,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Description
-
 Execute API tests and interact with Sauce Labs API Testing (either locally or in a pipeline) using our API Testing CLI tool, `apifctl`.
 
 ## Usage
@@ -23,23 +21,21 @@ Execute API tests and interact with Sauce Labs API Testing (either locally or in
 * Your Sauce Labs [Username](https://app.saucelabs.com/user-settings) and [Access Key](https://app.saucelabs.com/user-settings).
 
 ### Adding Webhooks
-To utilize most `apifctl` functionalities, you'll need to add a webhook to your API Testing Project by either generating one or retrieve one from your Dashboard.
-
-Below is how webhook URLs are formatted, where `<username>` is your Sauce Labs username, `<access_key>` is your Sauce Labs access key, and the `<hookId>` is what you would generate in the API Testing UI.
-```bash
-https://<username>:<access_key>@domain/api-testing/rest/v4/<hookId>
-```
-
-To generate a webhook:
+To utilize most `apifctl` functionalities, you'll need to add a webhook to your API Testing Project. To generate a webhook:
 1. Navigate to your Project and select the **WebHooks** tab.<br/>
    <img src={useBaseUrl('img/api-fortress/2021/04/webHooksSection.png')} alt="webhook screenshot"/>
 2. Select **Create Hook**.<br/>
    <img src={useBaseUrl('img/api-fortress/2021/04/createHook.png')} alt="Create New WebHook"/>
-3. Enter the field details and click **Save**.<br/>
+3. Enter a name for your webhook (description is optional), then click **Save**.<br/>
    <img src={useBaseUrl('img/api-fortress/2021/04/sampleHook.png')} alt="sample webhook details" width="500" />
-4. A generated **Hook URL** will then appear. Copy it to your clipboard and then you can use it either locally or as part of CI build.<br/>
+4. The generated **Hook URL** will then appear. Your Sauce Labs credentials, the Sauce Labs REST API endpoint, and the `{hookId}` will populate automatically. It will be formatted like this:
+  ```bash
+  https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}
+  ```
+5. Copy the URL to your clipboard and then you can use it either locally or as part of CI build.<br/>
    <img src={useBaseUrl('img/api-fortress/2021/04/hookURL.png')} alt="sample Hook URL"/>
 
+You can then reuse this Webhook for future tests within that Project by returning to the **Webhooks** section and copying it. Webhooks are Project-specific.
 
 ## `apifctl` Commands
 
@@ -57,7 +53,7 @@ Available Options:
 * [<code>-E &#60;environment variable(s)&#62;</code>](#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
 * [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
-* [<code>-f &#60;format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>  
+* [<code>-f &#60;data format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>  
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run \
@@ -79,7 +75,7 @@ Available Options:
 * [<code>-E &#60;environment variable(s)&#62;</code>](#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
 * [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
-* [<code>-f &#60;format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>   
+* [<code>-f &#60;data format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>   
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run-all -H \
@@ -101,7 +97,7 @@ Available Options:
 * [<code>-E &#60;environment variable(s)&#62;</code>](#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
 * [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
-* [<code>-f &#60;format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>   
+* [<code>-f &#60;data format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>   
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run-tag \
@@ -124,7 +120,7 @@ Available Options:
 * [<code>-E &#60;environment variable(s)&#62;</code>](#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
 * [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
-* [<code>-f &#60;format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>  
+* [<code>-f &#60;data format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>  
 * [<code>-n &#60;name of test&#62;</code>](#-n-name-of-test) <small>| OPTIONAL | STRING |</small>  
 * [<code>-tag &#60;tag(s)&#62;</code>](#-tag-tags) <small>| OPTIONAL | STRING |</small>
 
@@ -203,9 +199,9 @@ docker run quay.io/saucelabs/apifctl events
 Available Options:
 * [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
 * [<code>-f &#60;from time&#62;</code>](#-f-from-time) <small>| OPTIONAL | STRING |</small>
+* [<code>-t &#60;to time&#62;</code>](#-t-to-time) <small>| OPTIONAL | STRING |</small>
 * [<code>-l &#60;limit&#62;</code>](#-l-limit) <small>| OPTIONAL | INTEGER |</small>
 * [<code>-o &#60;offset&#62;</code>](#-o-offset) <small>| OPTIONAL | INTEGER |</small>
-* [<code>-t &#60;to time&#62;</code>](#-t-to-time) <small>| OPTIONAL | STRING |</small>
 
 ---
 ### `event`
@@ -238,13 +234,13 @@ docker run quay.io/saucelabs/apifctl metrics
 Available Options:
 * [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
 * [<code>-f &#60;from time&#62;</code>](#-f-from-time) <small>| OPTIONAL | STRING |</small>
+* [<code>-t &#60;to time&#62;</code>](#-t-to-time) <small>| OPTIONAL | STRING |</small>
 * [<code>-l &#60;limit&#62;</code>](#-l-limit) <small>| OPTIONAL | INTEGER |</small>
 * [<code>-o &#60;offset&#62;</code>](#-o-offset) <small>| OPTIONAL | INTEGER |</small>
-* [<code>-t &#60;to time&#62;</code>](#-t-to-time) <small>| OPTIONAL | STRING |</small>
 
 ---
 
-
+<br/>
 
 
 ## `apifctl` Options
@@ -252,68 +248,42 @@ Available Options:
 ### `-H <webhook>`
 <p><small>| STRING |</small></p>
 
-Specifies the webhook URL (e.g., -H `https://<username>:<accesskey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookID>`)
+Specifies the webhook URL. This option is required for all commands.
+
+```bash
+-H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_REST_API_URL}/<hookID>
+```
 
 ---
 ### `-E <environment variable(s)>`
 <p><small>| STRING |</small></p>
 
-Sets environment variables with your command. Enter your variables as a comma-separated list.
+Sets environment variables with your command. Enter your variables as a comma-separated list. For use with **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, **[`exec`](#exec)** commands.
 
 ```bash
 -E domain=staging.example.com,id=123
 ```
 
 ---
+### `-S`
+
+Syncs execution so that `apifctl` will wait until all results are available, and then prints them. For use with **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, and **[`exec`](#exec)** commands.
+
+---
 ### `-f <data format>`
 <p><small>| STRING |</small></p>
 
-Sets the data format to one of two possible values: `json` or `junit`. Default is `json`.
+Sets the data format to one of two possible values: `json` or `junit`. Default is `json`. For use with **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, **[`exec`](#exec)** commands.
 
 ```bash
 -f junit
 ```
 
 ---
-### `-f <from time>`
-<p><small>| STRING |</small></p>
-
-Identifies the start date of the events you want to see (e.g., `-f 2021-10-21T14:00`).
-
----
-### `-t <to time>`
-<p><small>| STRING |</small></p>
-
-Identifies the end date of the events you want to see (e.g., `-t 2021-10-31T15:00`).
-
----
-### `-tag <tag(s)>`
-<p><small>| STRING |</small></p>
-
-Adds a set of tags to the resulting event. Format as a comma-separated list of tags you want to assign to the test (e.g., `-tag product,production`).
-
----
-### `-n <name of test>`
-<p><small>| STRING |</small></p>
-
-Identifies the name of the test you want to assign to. Default is the name of the test directory (e.g., `-n local_test`).
-
----
-### `-i <test ID>`
-<p><small>| STRING |</small></p>
-
-Identifies the ID of a complete test (e.g., `-i 123a1a123456a12345aa1aaa`).
-
----
-### `-S`
-
-Syncs execution so that `apifctl` will wait until all results are available, and then prints them.
-
----
 ### `-T <tunnel ID>`
 <p><small>| STRING |</small></p>
 
-Specifies your tunnel ID for running tests using Sauce Connect Proxy.
+Specifies your tunnel ID for running tests using Sauce Connect Proxy. For use with **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, **[`exec`](#exec)** commands.
 
 <table id="table-api">  
   <tbody>
@@ -349,42 +319,106 @@ Specifies your tunnel ID for running tests using Sauce Connect Proxy.
 ### `-p <local path to file>`
 <p><small>| STRING |</small></p>
 
-**For the [`vault-update`](#vault-update) command**: This is the local path to the folder containing your Vault file. Example: `-p /tests/vault/vault.json`.
+For the **[`exec`](#exec)** and **[`upload`](#upload)** commands: This is the local path to the folder containing both your unit.xml and input.xml test files. In the below example, `product_update` is the folder containing unit.xml and input.xml.
 
-**For the [`exec`](#exec) or [`upload`](#upload) command**: This is the local path to the folder containing your test files (both unit.xml and input.xml). Example: `-p /tests/product_update` (where product_update is the folder containing unit.xml and input.xml).
+```bash
+-p /tests/product_update
+```
+
+For the **[`vault-update`](#vault-update)** command: This is the local path to the folder containing your Vault file.
+
+```bash
+-p /tests/vault/vault.json
+```
+
+---
+### `-f <from time>`
+<p><small>| STRING |</small></p>
+
+Identifies the start date of the events you want to see. For use with **[`metrics`](#metrics)** and **[`events`](#events)** commands.
+
+```bash
+-f 2021-10-21T14:00
+```
+
+---
+### `-t <to time>`
+<p><small>| STRING |</small></p>
+
+Identifies the end date of the events you want to see. For use with **[`metrics`](#metrics)** and **[`events`](#events)** commands.
+
+```bash
+-t 2021-10-31T15:00
+```
+
+---
+### `-t <tag(s)>`
+<p><small>| STRING |</small></p>
+
+Adds a set of tags to the resulting event. Format as a comma-separated list of tags you want to assign to the test. For use with **[`exec`](#exec)** and **[`upload`](#upload)** commands.
+
+```bash
+-t product,production
+```
+
+---
+### `-tag <tag(s)>`
+<p><small>| STRING |</small></p>
+
+Adds a set of tags to the resulting event. Format as a comma-separated list of tags you want to assign to the test. For use with **[`run-tag`](#run-tag)** command only.
+
+```bash
+-tag product,production
+```
+
+---
+### `-n <name of test>`
+<p><small>| STRING |</small></p>
+
+Identifies the name of the test you want to assign to. Default is the name of the test directory. For use with **[`exec`](#exec)** and **[`upload`](#upload)** commands.
+
+```bash
+-n local_test
+```
+
+---
+### `-i <test ID>`
+<p><small>| STRING |</small></p>
+
+Identifies the ID of a complete test. For use with **[`run`](#run)** command only.
+
+```bash
+-i 123a1a123456a12345aa1aaa
+```
 
 ---
 ### `-d <test description>`
 <p><small>| STRING |</small></p>
 
-The description you want to add to your test.
+The description you want to add to your test. For use with **[`upload`](#upload)** command only.
 
 ---
 ### `-v <variables>`
 <p><small>| STRING |</small></p>
 
-It’s a String in the format `key=value` with the list of the variable separated by a comma.
+It’s a String in the format `key=value` with the list of the variable separated by a comma. For use with **[`vault-update`](#vault-update)** command only.
 
 ---
 ### `-l <limit>`
 <p><small>| INTEGER |</small></p>
 
-Identifies the maximum number of metrics to be shown in the list. Default value is `100`.
+Identifies the maximum number of metrics and events to be shown in the list. Default value is `100`. For use with **[`events`](#events)** and **[`metrics`](#metrics)** commands.
 
 ---
 ### `-o <offset>`
 <p><small>| INTEGER |</small></p>
 
-Specifies the number of events to be skipped from the beginning of the list. Default value is `0`.
+Specifies the number of events to be skipped from the beginning of the list. Default value is `0`. For use with **[`events`](#events)** and **[`metrics`](#metrics)** commands.
 
 ---
 ### `-i <event ID>`
 <p><small>| STRING |</small></p>
 
-Identifies the ID of the event you want to see.
+Identifies the ID of the event you want to see. For use with **[`event`](#event)** command only.
 
 ---
-
-## More Information
-
-* [Legacy API Fortress CLI tool, `apif-auto`](/api-testing/on-prem/ci/apif-auto)
