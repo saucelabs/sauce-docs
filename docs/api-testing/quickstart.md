@@ -32,8 +32,7 @@ This page is a quickstart guide for getting up and running with API Testing on S
 
 ## Create Test
 
-4. Click **HTTP Client**.<br/>
-  <img src={useBaseUrl('img/api-fortress/2021/01/HTTPClient.png')} alt="HTTP Client" width="400" />
+4. Click **HTTP Client**.<br/><img src={useBaseUrl('img/api-fortress/2021/01/HTTPClient.png')} alt="HTTP Client" width="400" />
 
 5. Choose from _one_ of the below methods:
 
