@@ -12,11 +12,8 @@ Get up and running with a Sauce Connect Proxy tunnel in just a few minutes by fo
 ## Starting a Tunnel
 
 1. Download the Sauce Connect Proxy client [here](/secure-connections/sauce-connect/installation).
-
 2. Extract the .zip download contents to your local machine.
-
 3. Open your local terminal.
-
   <Tabs
     defaultValue="Mac"
     values={[
@@ -27,19 +24,19 @@ Get up and running with a Sauce Connect Proxy tunnel in just a few minutes by fo
 
   <TabItem value="Mac">
 
-  Navigate to the folder where you downloaded Sauce Connect Proxy. If you've saved it to your home directory:
+  On your local machine, navigate to the bin folder, where the Sauce Connect Proxy client is located. If you've saved it to your home directory:
 
   ```bash
-  cd sc-4.7.1-osx
+  cd sc-4.7.1-osx/bin
   ```
 
   </TabItem>
   <TabItem value="Windows">
 
-  Navigate to the folder where you downloaded Sauce Connect Proxy. If you've saved it to your home directory:
+  On your local machine, navigate to the bin folder, where the Sauce Connect Proxy client is located. If you've saved it to your home directory:
 
   ```bash
-  cd sc-4.7.1-win32
+  cd sc-4.7.1-win32/bin
   ````
 
   </TabItem>
@@ -49,32 +46,74 @@ Get up and running with a Sauce Connect Proxy tunnel in just a few minutes by fo
 
   </TabItem>
   </Tabs>
-
 4. Log in to Sauce Labs.
-5. Go to the [**TUNNELS**](https://app.saucelabs.com/tunnels) page, scroll to **STEP 3: Configure & Authenticate**, and copy the code snippet listed there.
-6. Paste the snippet into your local terminal and then run it. This authenticates you, connects you to a Sauce Labs Data Center, assigns an ID for your tunnel, and starts your tunnel.
+5. Go to the [**TUNNELS**](https://app.saucelabs.com/tunnels) page > Scroll to **STEP 3: Configure & Authenticate** > Copy the code snippet.
+6. Paste the snippet into your local terminal. You can re-name your tunnel or leave it as-is.
+7. Run the snippet. This will authenticate you, connects you to a Sauce Labs Data Center, assign an ID for your tunnel, and start your tunnel.
+  ```bash
+  ./sc -u {SAUCE_USERNAME} \
+  -k {SAUCE_ACCESS_KEY} \
+  --region us-west \
+  --tunnel-name {TUNNEL_NAME}
+  ```
 
-That's it! Now that your tunnel is up, try running a test. To view additional configuration options, see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy/).
+That's it! Now that your tunnel is up, check out the additional learning resources under [More Information](#More-Information).
 
 
 ## Verifying a Tunnel
 
 To verify that your tunnel is up and running, there are two places you can check:
 
-#### Tunnel Page
+#### TUNNELS Page
+Look for the "Active Tunnel" confirmation.
 <img src={useBaseUrl('img/sauce-connect/tunnelsuccess-ui.png')} alt="Sauce Connect Tunnel Success" width="500"/>
 
 #### CLI/Terminal
-<img src={useBaseUrl('img/sauce-connect/tunnelsuccess-cli.png')} alt="Sauce Connect Tunnel Success CLI" width="700"/>
+Look for the confirmation message.
 
+```bash title="Tunnel Success Response"
+Sauce Connect 4.7.1, build 5439 fb74241
+
+Sauce Connect runtime information:
+- Name: {SAUCE_USERNAME}_tunnel_name
+- PID: 45650
+- PID file: /tmp/sc_client-{SAUCE_USERNAME}_tunnel_name.pid
+- Log file: /var/folders/xj/9gxlps1566917q90pdb707cm0000gn/T/sc-{SAUCE_USERNAME}_tunnel_name.log
+- SCProxy Port: 51915
+- Metric Port: None
+- Selenium listener: None
+- External proxy for REST API: None
+- Region: us-west
+
+Secure remote tunnel provisioned. Tunnel ID: 4e22f9950e0d4ef6a7b04dd935a1dad3
+
+Sauce Connect is up, you may start your tests.
+```
 
 ## Stopping a Tunnel
 
-To stop a tunnel, go to the [**TUNNELS**](https://app.saucelabs.com/tunnels) page and click the **Stop** icon next to your tunnel.
+There are two ways to stop a tunnel:
 
-<img src={useBaseUrl('img/sauce-connect/tunnelstop-ui.png')} alt="Sauce Connect Tunnel Success CLI" width="800"/>
+#### TUNNELS Page
+Go to the [**TUNNELS**](https://app.saucelabs.com/tunnels) page and click the **Stop** icon next to your tunnel.<br/><img src={useBaseUrl('img/sauce-connect/tunnelstop-ui.png')} alt="Sauce Connect Tunnel Success CLI" width="800"/>
 
+#### CLI/Terminal
+From your Terminal, enter CTRL+C.
+
+```bash title="Tunnel Termination Response"
+Sauce Connect is up, you may start your tests.
+^C
+Stopping client
+Will wait for up to 300s for any active jobs using this tunnel to finish.
+Note: Press CTRL-C again to shut down immediately.
+Note: If you do this, tests that are still running will fail.
+Waiting for the connection to terminate...
+Connection closed (8).
+Goodbye.
+```
 
 ## More Information
 
-* [Sauce School | Sauce Connect Proxy](https://training.saucelabs.com/sauceconnect/): an interactive course with video walkthroughs and practice activities.
+* [Sauce School | Sauce Connect Proxy](https://training.saucelabs.com/sauceconnect/): Learn how to run a Live (Manual) Cross-Browser test and lots more in this interactive course with video walkthroughs and practice activities.
+* [Sauce Connect Proxy CLI](h/dev/cli/sauce-connect-proxy/)
+* [Sauce Connect Proxy Configurations](/secure-connections/sauce-connect/setup-configuration/)
