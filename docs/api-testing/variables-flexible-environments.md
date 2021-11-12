@@ -2,14 +2,14 @@
 id: variables-flexible-environments
 title: Using Variables for Environment Flexibility
 sidebar_label: Using Variables
-description: "In API Fortress, you do not have to be concerned with organizing variables in a hierarchy from global to local."
+description: "In our API Testing, you do not have to be concerned with organizing variables in a hierarchy from global to local."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-In API Fortress, you do not have to be concerned with organizing variables in a hierarchy from global to local… why?
+"In our API Testing, you do not have to be concerned with organizing variables in a hierarchy from global to local... why?
 
-Almost any string can be hardcoded or referenced as a variable in API Fortress. Hardcoding is fine as long as you’re building simple tests, however, it is advisable to parametrize some items when:
+Almost any string can be hardcoded or referenced as a variable. Hardcoding is fine as long as you’re building simple tests, however, it is advisable to parametrize some items when:
 - The number of tests is increasing
 - The complexity of tests is increasing
 - The number of tested environments is increasing
@@ -79,7 +79,7 @@ Yes, we're using variables as expected values.
 
 ## Conclusion
 
-API Fortress provides the flexibility and freedom to combine the use of global, local, and hard coded variables as you want. In addition, API Fortress also provides helpful hints as you work with variables.
+Our API Testing provides the flexibility and freedom to combine the use of global, local, and hard coded variables as you want. In addition, we provide helpful hints as you work with variables.
 
 1. Fill the vault with data that is project-centric: Domains, protocols, API keys. They are all fine. We discourage you from introducing test-specific variables because it would produce an overhead of information that would go unused most of the time.
 2. Fill the globals/input set with test-specific variables, such as paths, IDs, dates, and serial numbers, etc.
