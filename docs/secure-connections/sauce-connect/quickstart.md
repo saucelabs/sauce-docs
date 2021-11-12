@@ -57,7 +57,7 @@ Get up and running with a Sauce Connect Proxy tunnel in just a few minutes by fo
   --tunnel-name {TUNNEL_NAME}
   ```
 
-That's it! Now that your tunnel is up, check out the additional learning resources under [More Information](#More-Information).
+That's it! Now that your tunnel is up, we recommend continuing on by running a simple Live Test with Sauce Connect. [Learn more](#More-Information).
 
 
 ## Verifying a Tunnel
@@ -115,5 +115,5 @@ Goodbye.
 ## More Information
 
 * [Sauce School | Sauce Connect Proxy](https://training.saucelabs.com/sauceconnect/): Learn how to run a Live (Manual) Cross-Browser test and lots more in this interactive course with video walkthroughs and practice activities.
-* [Sauce Connect Proxy CLI](h/dev/cli/sauce-connect-proxy/)
+* [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy/)
 * [Sauce Connect Proxy Configurations](/secure-connections/sauce-connect/setup-configuration/)
