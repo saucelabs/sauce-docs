@@ -100,10 +100,6 @@ If you don't have a file available, try out the sample below.
 
 ## Importing Postman a Environment
 
-<img src={useBaseUrl('img/api-fortress/2021/04/projectVault.png')} alt="Project Vault"/>
-
-Importing a Postman environment is the same process as importing a variable file.
-
 1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
 1. Click to open one of your Projects.
 1. Click the __Vault__ tab.<br/><img src={useBaseUrl('img/api-fortress/2021/04/vault.png')} alt="Project Vault" width="600"/>
@@ -115,8 +111,6 @@ Your environmental variables will now be available in the __Variables__ section 
 
 
 ## Importing Postman Variables
-
-The process for importing global variables from Postman is the same process as [importing an environment](#importing-postman-environments), except from where the import is executed.
 
 1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/>
   <img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
