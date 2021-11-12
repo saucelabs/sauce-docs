@@ -13,12 +13,12 @@ The vault feature allows you to store variables and code snippets to use in your
 
 ## Company Vault vs. Project Vault
 
-There are two types of API Testing vaults:
+There are two types of API Testing vaults, which serve different purposes:
 
-* **Company Vault**, which you can access from the main API Testing dashboard, where your projects are listed:
+* **Company Vault**, which you can access from your API Testing home page, where all of your Projects are listed:
    <img src={useBaseUrl('img/api-fortress/2021/04/fromDashboard.png')} alt="Access Vault from Dashboard" width="400" />
 
-* **Project Vault**, which you can access from inside one of your projects:
+* **Project Vault**, which you can access from within a Project:
    <img src={useBaseUrl('img/api-fortress/2021/04/vaultFromProject.png')} alt="Access Vault from Project View" />
 
 
@@ -30,7 +30,7 @@ In the **Variables** section, you'll have the option to define environment varia
 
 Variables you create under the **Project Vault** are only available in that specific project. You should define a variable at this level when you need to use the same one across multiple tests. This way, you don't need to rewrite it every time.
 
-As an example, you could save a password as a variable and reuse it in multiple places. See [password variable example](#the-password-variable) below for more details.
+As an example, you could save a password as a variable and reuse it in multiple places.
 
 :::info variable scope
 If a variable that exists in the Company Vault, also exists in the Project Vault with the same name definition, the latter will override the Company Vault value.
@@ -78,13 +78,15 @@ You can also reference this parameter in Code view with the following syntax: `p
 
 ## Code Snippets Section
 
-All created or imported test component/code examples exist in the snippets section.
+All created or imported test component/code examples exist in the snippets section. A snippet can range from one line of code to an entire test.
 
 :::tip What is a Snippet?
 See [here](/api-testing/on-prem/reference/composer-snippets) for more details.
 :::
 
-Much like with variable scope, code snippets saved in the specific **Project Vault** are only available in that project. Likewise, snippets saved in the **Company Vault** are available across all projects.
+When you save a snippet from the Composer, it will be saved in the **Vault** for that specific Project; you cannot save a snippet from the Composer to the **Company Vault**.
+
+Much like with variable scope, code snippets saved in the specific **[Project] Vault** are only available in that project. Likewise, snippets saved in the **Company Vault** are available across all projects.
 
 A good use case for the snippets feature is an authentication flow; you don't need nor want to rewrite all authentication steps for every test. Instead, call the snippet that contains these authentication details. See [The Authentication Snippet example below for more details](#the-authentication-snippet). Another good example is integration testing, where you can reuse various tests to create one larger flow.
 
