@@ -21,8 +21,8 @@ If you have a [Postman API Collection](https://www.postman.com/collection/), you
 1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/>
   <img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
 2. Click to open one of your Projects.
-3. Click the __HTTP Client__ tab.
-4. Click the **Import OpenAPI / Postman** button, then select and upload your Postman Collection file from your local machine.<br/><img src={useBaseUrl('img/api-fortress/2021/01/importSpec.png')} alt="Import OpenAPI / Postman button" width="200"/>
+3. Click the __HTTP Client__ tab.<br/><img src={useBaseUrl('img/api-fortress/2021/01/HTTPClient.png')} alt="HTTP Client" width="400" />
+4. Click the **Import OpenAPI / Postman** button, then select and upload your Postman Collection file from your local machine.<br/><img src={useBaseUrl('img/api-fortress/2021/01/importSpec.png')} alt="Import OpenAPI / Postman button" width="250"/>
 
 :::tip
 
@@ -95,7 +95,7 @@ If you don't have a file available, try out the sample below.
 
 5. Click the folder your **Snapshots** tree where you'd like to save your file.<br/><img src={useBaseUrl('img/api-fortress/2021/04/importFolder.png')} alt="Routes Rendered"/>
 6. Click **Save**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/importFolder2.png')} alt="Import file to Project"/>
-7. The routes from your collection will then populate in the list of saved requests.<br/><img src={useBaseUrl('img/api-fortress/2021/04/routesRendered.png')} alt="Import file to Project" width="400"/>
+7. The routes from your collection will now show in the list of saved requests.<br/><img src={useBaseUrl('img/api-fortress/2021/04/routesRendered.png')} alt="Import file to Project" width="400"/>
 
 
 ## Importing Postman a Environment
@@ -112,8 +112,7 @@ Your environmental variables will now be available in the __Variables__ section 
 
 ## Importing Postman Variables
 
-1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/>
-  <img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
 1. Click the __Company Vault__ tab.<br/><img src={useBaseUrl('img/api-fortress/2021/04/companyVault.png')} alt="Company Vault" width="400"/>
 1. Click the **Variables** radio button.<br/><img src={useBaseUrl('img/api-fortress/2021/04/companyVault2.png')} alt="Company Vault" width="400"/>
 1. Click **Import**.
