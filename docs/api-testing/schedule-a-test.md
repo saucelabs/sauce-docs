@@ -2,7 +2,7 @@
 id: schedule-a-test
 title: Schedule a Test
 sidebar_label: Schedule a Test
-description: "With Sauce Labs API Testing, you can schedule a test to run as often as you’d like, with granular control as to when it runs. Let’s take a look at how it works. Step 1: Publish the Working Copy API Fortress has a unique."
+description: "With Sauce Labs API Testing, you can schedule a test to run as often as you’d like, with granular control as to when it runs."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

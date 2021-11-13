@@ -7,10 +7,8 @@ description: "Sauce Labs API Test Reports include items such as session details,
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The screenshot below is the **Test Outcome Report** page.<br/>
+Below is a quick primer on API Testing **Test Outcome Reports**.<br/>
 <img src={useBaseUrl('img/api-fortress/2021/02/report.png')} alt="Test Report Primer Image" width="700" />
-
-Here's a quick primer on API Fortress Test Reports:
 
 1. Session Details: Metadata about the execution of the test; Timestamp, type of execution.
 2. General Details: Test name, test status, project.

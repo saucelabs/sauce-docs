@@ -2,12 +2,13 @@
 id: quickstart
 title: Create Your First Test
 sidebar_label: Quickstart
-description: Learn how to quickly generate a test in API Fortress. By using the payload from an API call or from a specification file.
+description: Learn how to quickly generate an API test using the payload from an API call or from a specification file.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 This page is a quickstart guide for getting up and running with API Testing on Sauce Labs. Let's get started!
+
 
 ## What You'll Need
 
@@ -15,7 +16,7 @@ This page is a quickstart guide for getting up and running with API Testing on S
 * If your APIs are behind a firewall, you'll need to use [Sauce Connect Proxy](/secure-connections/sauce-connect/).
 
 
-## Set Up Your Tests
+## Create Project
 
 1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/>
   <img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
@@ -28,99 +29,46 @@ This page is a quickstart guide for getting up and running with API Testing on S
 
   This will bring you to the **Tests** dashboard under the project you've just created.
 
-4. From your **Tests** dashboard, click **HTTP Client**.<br/>
+
+## Create Test
+
+4. Click **HTTP Client**.<br/>
   <img src={useBaseUrl('img/api-fortress/2021/01/HTTPClient.png')} alt="HTTP Client" width="400" />
 
 5. Choose from _one_ of the below methods:
 
-   *Method 1*:<br/>Type an API endpoint URL into the **Enter Request URL** field.<br/>
-   <img src={useBaseUrl('img/api-fortress/2021/01/enterRequestURL.png')} alt="Enter API URL" width="500" /><br/>
+   * *Method 1*: Type an API endpoint URL into the **Enter request URL** field. Here's one you can use for this test: `https://dog.ceo/api/breeds/list/all`.<br/>
+   <img src={useBaseUrl('img/api-fortress/2021/01/enterRequestURL.png')} alt="Enter API URL" width="500" /><br/><br/>
 
-   If you don't have a URL available and would like to test our functionality, try this one: `https://dog.ceo/api/breeds/list/all`.
-
-   or
-
-   *Method 2*:<br/>Click the **Import OpenAPI / Postman** button &#8212; <img src={useBaseUrl('img/api-fortress/2021/01/importSpec.png')} alt="Enter API URL" width="150"/> &#8212; to upload an [OpenAPI spec file](/api-testing/build-from-spec/) or [Postman Collection file](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#exporting-postman-data) from your local machine, follow the prompt to save your file your **Snapshots** tree, then click **Save**.
-   * If you don't have a file available, use the sample below to test out the functionality. <details><summary>View sample Postman Collection file</summary>Copy the text below > Paste text into a text editor > Save that as a .json file.
-      ```json title="demoapif.postman_collection.json"
-      {
-      	"info": {
-        	"_postman_id": "901ae894-37d4-45c1-b1bc-bd6b31762bfe",
-        	"name": "demoapif",
-        	"description": "Call to the APIF demo API All Products Get.",
-        	"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-      	},
-      	"item": [
-      		{
-          	"name": "product",
-          	"item": [
-          		{
-          			"name": "List All Products",
-          			"request": {
-          				"auth": {
-          					"type": "oauth2",
-          					"oauth2": [
-          						{
-          							"key": "addTokenTo",
-          							"value": "header",
-          							"type": "string"
-          						}
-          					]
-          				},
-          				"method": "GET",
-          				"header": [
-          					{
-          						"key": "Accept",
-          						"value": "application/json"
-          					},
-          					{
-          						"key": "key",
-          						"value": "ABC123",
-          						"type": "text"
-          					}
-          				],
-          				"url": {
-          					"raw": "http://demoapi.apifortress.com/api/retail/product",
-          					"protocol": "http",
-          					"host": [
-          						"demoapi",
-          						"apifortress",
-          					  "com"
-          					],
-          					"path": [
-          						"api",
-          						"retail",
-          						"product"
-          					]
-          				}
-          			},
-          			"response": []
-          		}
-          	],
-          	"description": "Folder for product"
-        	}
-      	]
-      }
-      ```
-     </details>
-
-  Under **Snapshots**, click the line item for the API call you'd like to test. This will auto-populate the URL in the **Enter Request URL** field.<br/><img src={useBaseUrl('img/api-fortress/2021/01/importSpec2.png')} alt="Import spec file" width="500"/>
+   * *Method 2*: Import an OpenAPI spec file or a Postman Collection by following the steps on the [Build from Spec doc](/api-testing/build-from-spec/) or [Import a Postman Collection doc](/api-testing/importing-postman-collections/). Once you're finished, click the API call under **Snapshots** you'd like to test. This will auto-populate the URL in the **Enter Request URL** field.<br/><img src={useBaseUrl('img/api-fortress/2021/01/importSpec2.png')} alt="Import spec file" width="500"/>
 
 ## Send Request
 
-6. Next to your URL, click **Send** to submit your API request.<br/>
+6. Click **Send** to submit your API request.<br/>
   <img src={useBaseUrl('img/api-fortress/2021/01/enterRequestSave.png')} alt="Enter API Request save" width="500" />
 
   If the request was successful, the response will populate in the **Body** section, along with a success status.
 
 
-## Generate Tests
+## Generate Test
 
 7. Click **Generate Test**.<br/>
   <img src={useBaseUrl('img/api-fortress/2021/01/generateTest.png')} alt="Generate Test" />
 
-8. Enter your test details in the **New Test** window, then click **Save**. This will generate a series of functional tests for your specific API request.
+8. Enter your test details in the **New Test** window, then click **Save**. This will generate a series of functional tests for your specific API request. If you imported from a spec or Postman, the test component data based on the request and response data.
 
+  Here is an example that shows the same test in Visual View versus Code View:
+
+  <table>
+  <tr>
+  <td>Code View</td>
+  <td><img src={useBaseUrl('img/api-fortress/2021/02/testCode.png')} alt="Sample Test Code View"/></td>
+  </tr>
+  <tr>
+  <td>Visual View</td>
+  <td><img src={useBaseUrl('img/api-fortress/2021/02/testVisual.png')} alt="Sample Test Visual View"/></td>
+  </tr>
+  </table>
 
 ## Run Test
 
