@@ -15,11 +15,11 @@ The Logger tool helps with API Call recording by facilitating complete captures 
 ## Running the Logger
 1. From your Sauce Labs API Testing account, go to a Project.
 2. Create a webhook for that project by clicking **Webhooks** > **Create hook** > then entering a name and description for it.
-3. Copy the Hook URL and append it with `/logger`. Your Sauce Labs credentials and REST API endpoint will populate automatically.
+3. Copy the Hook URL and append it with `/logger`. Your Sauce Labs username, Sauce API Testing endpoint, and hook_id will populate automatically. For security reasons, you'll need to add your own access key.
    ```bash
    https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/logger
    ```
-4. From your CLI, launch [Piestry, our API Mocking tool](/api-testing/mocking), by running the following code. The last line will be the `--logger` switch, followed by the URL from the previous step:
+4. From your CLI, launch [Piestry, our API Mocking server tool](/api-testing/mocking), by running the following code. The last line will be the `--logger` switch, followed by the URL from the previous step:
    ```bash
   docker run -v "$(pwd)/myspec:/specs" \
   -p 5000:5000 quay.io/saucelabs/piestry \
