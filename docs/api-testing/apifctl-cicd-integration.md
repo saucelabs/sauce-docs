@@ -120,7 +120,7 @@ Available Options:
 * [<code>-E &#60;environment variable(s)&#62;</code>](#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
 * [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
-* [<code>-f &#60;data format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>  
+* [<code>-t &#60;tags&#62;</code>](#-t-tags) <small>| OPTIONAL | STRING |</small>  
 * [<code>-n &#60;name of test&#62;</code>](#-n-name-of-test) <small>| OPTIONAL | STRING |</small>  
 * [<code>-tag &#60;tag(s)&#62;</code>](#-tag-tags) <small>| OPTIONAL | STRING |</small>
 
@@ -146,7 +146,7 @@ Available Options:
 * [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
 * [<code>-p &#60;local path to test files&#62;</code>](#-p-local-path-to-file) <small>| REQUIRED | STRING |</small>
 * [<code>-n &#60;name of test&#62;</code>](#-n-name-of-test) <small>| OPTIONAL | STRING |</small>  
-* [<code>-tag &#60;tag(s)&#62;</code>](#-tag-tags) <small>| OPTIONAL | STRING |</small>
+* [<code>-t &#60;tag(s)&#62;</code>](#-t-tags) <small>| OPTIONAL | STRING |</small>
 * [<code>-d &#60;test description&#62;</code>](#-d-test-description) <small>| OPTIONAL | STRING |</small>
 
 ```bash title="Full Example"
@@ -355,7 +355,7 @@ Identifies the end date of the events you want to see. For use with **[`metrics`
 ### `-t <tag(s)>`
 <p><small>| STRING |</small></p>
 
-Adds a set of tags to the resulting event. Format as a comma-separated list of tags you want to assign to the test. For use with **[`exec`](#exec)** and **[`upload`](#upload)** commands.
+"Adds a set of tags to the test. Format as a comma-separated list of tags you want to assign to the test. For use with **[`exec`](#exec)** and **[`upload`](#upload)** commands.
 
 ```bash
 -t product,production
@@ -365,10 +365,11 @@ Adds a set of tags to the resulting event. Format as a comma-separated list of t
 ### `-tag <tag(s)>`
 <p><small>| STRING |</small></p>
 
-Adds a set of tags to the resulting event. Format as a comma-separated list of tags you want to assign to the test. For use with **[`run-tag`](#run-tag)** command only.
+The **[`run-tag`](#run-tag)** command will run all the tests in your Project marked with that tag. Format as a comma-separated list of tags you want to assign to the test. For use with **[`run-tag`](#run-tag)** command only.
 
+In this example, it will run all the tests in Project labeled with the `production` tag.
 ```bash
--tag product,production
+-tag production
 ```
 
 ---
@@ -413,7 +414,7 @@ Identifies the maximum number of metrics and events to be shown in the list. Def
 ### `-o <offset>`
 <p><small>| INTEGER |</small></p>
 
-Specifies the number of events to be skipped from the beginning of the list. Default value is `0`. For use with **[`events`](#events)** and **[`metrics`](#metrics)** commands.
+Specifies the number of events and metrics to be skipped from the beginning of the list. Default value is `0`. For use with **[`events`](#events)** and **[`metrics`](#metrics)** commands.
 
 ---
 ### `-i <event ID>`
