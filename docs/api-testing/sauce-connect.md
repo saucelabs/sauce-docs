@@ -100,7 +100,7 @@ Sauce Connect is up, you may start your tests.
 8. Under **Run Configuration**, click the Sauce Connect Proxy tunnels dropdown menu (which defaults to **No Tunnel**), then click the name of your tunnel.<br/>
   <img src={useBaseUrl('img/api-fortress/2021/09/sauceconnect-nav1.png')} alt="API Testing Sauce Connect Nav" width="600"/>
 
-Now you're set up to run your API tests through a Sauce Connect Proxy tunnel.
+Now you're set up to run your API tests through a Sauce Connect Proxy tunnel. Tunnels can also be used in the HTTP Client, Scheduler and Composer.
 
 
 ## More information
