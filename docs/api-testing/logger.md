@@ -15,7 +15,7 @@ The Logger tool helps with API Call recording by facilitating complete captures 
 ## Running the Logger
 1. From your Sauce Labs API Testing account, go to a Project.
 2. Create a webhook for that project by clicking **Webhooks** > **Create hook** > then entering a name and description for it.
-3. Copy the Hook URL and append it with `/logger`. Your Sauce Labs username, Sauce API Testing endpoint, and hook_id will populate automatically. For security reasons, you'll need to add your own access key.
+3. Copy the Hook URL and append it with `/logger`. Your Sauce Labs username, Sauce API Testing endpoint, and `hook_id` will populate automatically. For security reasons, you'll need to add your own access key.
    ```bash
    https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/logger
    ```

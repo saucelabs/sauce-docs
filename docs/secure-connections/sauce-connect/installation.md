@@ -18,7 +18,7 @@ This topic describes where and how to download Sauce Connect Proxy to your local
 
 ## Download Latest Version
 
-Click the one of the links below (Linux, Mac, or Windows) to download Sauce Connect Proxy to your local machine. Download the Sauce Connect Proxy client to your local machine by clicking the link below specific to your operating system.
+Download the Sauce Connect Proxy client to your local machine by clicking the link below specific to your OS.
 
 <ScTable></ScTable>
 
@@ -61,9 +61,8 @@ For version information, see [Sauce Connect Proxy Changelog](https://changelog.s
 
 ### Linux
 
-To install and extract Sauce Connect on Linux, add sc to your system PATH:
-
-```bash
+To extract Sauce Connect on Linux, add sc to your system PATH:
+ ```bash
 cd $HOME
 curl -LO https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz
 tar xvf ./sc-4.7.1-linux.tar.gz
@@ -72,9 +71,9 @@ export PATH="$HOME/sc-4.7.1-linux/bin:$PATH"
 
 ## Log File
 
-Once you've started using Sauce Connect, a log file will populate in your computer's directory. The log file name depends on whether [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name-or---tunnel-identifier) was used.
+Once you've started using Sauce Connect Proxy, a log file will appear in your computer's directory. The log file name depends on whether [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name-or---tunnel-identifier) was used.
 
-For _anonymous_ tunnels, a log file name would be _sc.log_, for _named_ tunnels, a log file name would be _sc-TUNNEL_NAME.log_
+For anonymous (unnamed) tunnels, the log file name would be **sc.log**. For named tunnels, the log file name would be **sc-TUNNEL_NAME.log**.
 
 The location of the log file will vary, depending on your operating system. For Mac and Linux, the sc.log will use a tmp folder. For Windows, it'll use the current working directory.
 
@@ -251,5 +250,6 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
 
 ## More Information
 
+* [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/)
+* [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy/)
 * [Sauce Connect Proxy Architecture](/secure-connections/sauce-connect/advanced/architecture/)
-* [Sauce Connect Proxy CLI Reference](/secure-connections/sauce-connect/advanced/kgp/)
