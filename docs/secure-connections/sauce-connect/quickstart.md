@@ -14,13 +14,14 @@ Get up and running with a Sauce Connect Proxy tunnel in just a few minutes by fo
 1. Download the Sauce Connect Proxy client [here](/secure-connections/sauce-connect/installation).
 2. Extract the .zip download contents to your local machine.
 3. Open your local terminal.
+
   <Tabs
-    defaultValue="Mac"
-    values={[
-      {label: 'Mac', value: 'Mac'},
-      {label: 'Windows', value: 'Windows'},
-      {label: 'Linux', value: 'Linux'},
-    ]}>
+    defaultValue="Mac"
+    values={[
+      {label: 'Mac', value: 'Mac'},
+      {label: 'Windows', value: 'Windows'},
+      {label: 'Linux', value: 'Linux'},
+    ]}>
 
   <TabItem value="Mac">
 
@@ -37,8 +38,7 @@ Get up and running with a Sauce Connect Proxy tunnel in just a few minutes by fo
 
   ```bash
   cd sc-4.7.1-win32/bin
-  ````
-
+  ```
   </TabItem>
   <TabItem value="Linux">
 
@@ -50,70 +50,66 @@ Get up and running with a Sauce Connect Proxy tunnel in just a few minutes by fo
 5. Go to the [**TUNNELS**](https://app.saucelabs.com/tunnels) page > Scroll to **STEP 3: Configure & Authenticate** > Copy the code snippet.
 6. Paste the snippet into your local terminal. You can re-name your tunnel or leave it as-is.
 7. Run the snippet. This will authenticate you, connects you to a Sauce Labs Data Center, assign an ID for your tunnel, and start your tunnel.
-  ```bash
-  ./sc -u {SAUCE_USERNAME} \
-  -k {SAUCE_ACCESS_KEY} \
-  --region us-west \
-  --tunnel-name {TUNNEL_NAME}
-  ```
 
-That's it! Now that your tunnel is up, we recommend continuing on by running a simple Live Test with Sauce Connect. [Learn more](#More-Information).
-
+ ```bash
+ ./sc -u {SAUCE_USERNAME} \
+ -k {SAUCE_ACCESS_KEY} \
+ --region us-west \
+ --tunnel-name {TUNNEL_NAME}
+ ```
 
 ## Verifying a Tunnel
 
-To verify that your tunnel is up and running, there are two places you can check:
+8. To verify that your tunnel is up and running, there are two places you can check:
 
-#### TUNNELS Page
-Look for the "Active Tunnel" confirmation.
-<img src={useBaseUrl('img/sauce-connect/tunnelsuccess-ui.png')} alt="Sauce Connect Tunnel Success" width="500"/>
+   * **TUNNELS Page**: Look for the "Active Tunnel" confirmation.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsuccess-ui.png')} alt="Sauce Connect Tunnel Success" width="500"/>
+   * **CLI**: Look for the confirmation message in your terminal.
+     ```bash
+     Sauce Connect 4.7.1, build 5439 fb74241
 
-#### CLI/Terminal
-Look for the confirmation message.
+     Sauce Connect runtime information:
+      - Name: {SAUCE_USERNAME}_tunnel_name
+      - PID: 45650
+      - PID file: /tmp/sc_client-{SAUCE_USERNAME}_tunnel_name.pid
+      - Log file: /var/folders/xj/9gxlps1566917q90pdb707cm0000gn/T/sc-{SAUCE_USERNAME}_tunnel_name.log
+      - SCProxy Port: 51915
+      - Metric Port: None
+      - Selenium listener: None
+      - External proxy for REST API: None
+      - Region: us-west
 
-```bash title="Tunnel Success Response"
-Sauce Connect 4.7.1, build 5439 fb74241
+     Secure remote tunnel provisioned. Tunnel ID: 4e22f9950e0d4ef6a7b04dd935a1dad3
 
-Sauce Connect runtime information:
-- Name: {SAUCE_USERNAME}_tunnel_name
-- PID: 45650
-- PID file: /tmp/sc_client-{SAUCE_USERNAME}_tunnel_name.pid
-- Log file: /var/folders/xj/9gxlps1566917q90pdb707cm0000gn/T/sc-{SAUCE_USERNAME}_tunnel_name.log
-- SCProxy Port: 51915
-- Metric Port: None
-- Selenium listener: None
-- External proxy for REST API: None
-- Region: us-west
+     Sauce Connect is up, you may start your tests.
+     ```
 
-Secure remote tunnel provisioned. Tunnel ID: 4e22f9950e0d4ef6a7b04dd935a1dad3
+## Running a Local Test
 
-Sauce Connect is up, you may start your tests.
-```
+With your tunnel up and running, try using it to run a Live Cross-Browser Test on a local instance of your website. Without Sauce Connect, you'll get an error message if you try to run a local test.
+
+9. Go back to Sauce Labs and click **LIVE** > **Cross Browser**.
+10. From the **LIVE / Cross Browser** test page: In the **URL** field, input the local URL for your website under test (e.g., http://localhost:3000). Click the **Sauce Connect Proxy** dropdown and select the name of the tunnel you launched. Choose a browser/resolution/OS configuration from the **BROWSER SELECTION**, **RESOLUTION**, and **OS VERSION** selections. When you're done, click **Run Test**.
+11. For details on using Live Testing, see [Live Desktop Test Interface](/web-apps/live-testing/live-cross-browser-testing/#live-desktop-test-interface). When you're done testing, move on to the next step.
 
 ## Stopping a Tunnel
 
-There are two ways to stop a tunnel:
-
-#### TUNNELS Page
-Go to the [**TUNNELS**](https://app.saucelabs.com/tunnels) page and click the **Stop** icon next to your tunnel.<br/><img src={useBaseUrl('img/sauce-connect/tunnelstop-ui.png')} alt="Sauce Connect Tunnel Success CLI" width="800"/>
-
-#### CLI/Terminal
-From your Terminal, enter CTRL+C.
-
-```bash title="Tunnel Termination Response"
-Sauce Connect is up, you may start your tests.
-^C
-Stopping client
-Will wait for up to 300s for any active jobs using this tunnel to finish.
-Note: Press CTRL-C again to shut down immediately.
-Note: If you do this, tests that are still running will fail.
-Waiting for the connection to terminate...
-Connection closed (8).
-Goodbye.
-```
+12. There are two ways to stop a tunnel:
+    * **TUNNELS Page**: Go to the [**TUNNELS**](https://app.saucelabs.com/tunnels) page and click the **Stop** icon next to your tunnel.<br/><img src={useBaseUrl('img/sauce-connect/tunnelstop-ui.png')} alt="Sauce Connect Tunnel Success CLI" width="800"/>
+    * **CLI**: From your Terminal, enter CTRL+C to terminate the connection.
+     ```bash
+     Sauce Connect is up, you may start your tests.
+     ^C
+     Stopping client
+     Will wait for up to 300s for any active jobs using this tunnel to finish.
+     Note: Press CTRL-C again to shut down immediately.
+     Note: If you do this, tests that are still running will fail.
+     Waiting for the connection to terminate...
+     Connection closed (8).
+     Goodbye.
+     ```
 
 ## More Information
 
-* [Sauce School | Sauce Connect Proxy](https://training.saucelabs.com/sauceconnect/): Learn how to run a Live (Manual) Cross-Browser test and lots more in this interactive course with video walkthroughs and practice activities.
+* [Sauce School | Sauce Connect Proxy Course](https://training.saucelabs.com/sauceconnect/)
 * [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy/)
 * [Sauce Connect Proxy Configurations](/secure-connections/sauce-connect/setup-configuration/)
