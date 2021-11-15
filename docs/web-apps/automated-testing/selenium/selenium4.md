@@ -21,6 +21,7 @@ you'll need to be aware of the new and deprecated features that may impact your 
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * Strongly recommended: use one of the programming languages officially supported by Selenium 4 (Java, JavaScript, Python, Ruby, or C#).
+* A working development environment for one of the supported Selenium languages: Java, C#, Python, or Ruby. Although Selenium has JavaScript bindings, we generally recommend using WebdriverIO when running tests on Sauce Labs.
 
 
 ## W3C-Compliant Sessions
@@ -677,7 +678,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 Selenium 4.0 has been released! Check the sections below to install Selenium 4 and have your project dependencies upgraded.
 
-The process of upgrading Selenium depends on which build tool is being used. We will cover the most common ones for Java &#8212; 
+The process of upgrading Selenium depends on which build tool is being used. We will cover the most common ones for Java &#8212;
 Maven and Gradle &#8212; plus JavaScript, Python, Ruby, and C#.
 
 <Tabs
@@ -1008,11 +1009,11 @@ As a result, the options object was getting modified.
 
 ### Firefox Legacy
 
-Before GeckoDriver was around, the Selenium project had a driver implementation to automate Firefox versions below 48. 
+Before GeckoDriver was around, the Selenium project had a driver implementation to automate Firefox versions below 48.
 With the release of Selenium 4, this implementation is not needed anymore, as it does not work in recent versions of Firefox.
 
-To avoid major issues when upgrading to Selenium 4, the `setLegacy` option will be shown as deprecated. We recommend 
-relying only on GeckoDriver, rather than using the old implementation. 
+To avoid major issues when upgrading to Selenium 4, the `setLegacy` option will be shown as deprecated. We recommend
+relying only on GeckoDriver, rather than using the old implementation.
 The following code will show the `setLegacy` line deprecated after upgrading.
 
 ```java
