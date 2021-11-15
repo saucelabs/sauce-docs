@@ -6,7 +6,7 @@ sidebar_label: Logger
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The Logger tool helps with API Call recording by facilitating complete captures of HTTP requests and responses (including the request and response bodies). Once this data is captured, it is sent to the Logger section in API Testing tool for further inspections.
+The Logger tool helps with API call recording by facilitating complete captures of HTTP requests and responses (including the request and response bodies). Once this data is captured, it is sent to the **Logger** section in API Testing tool for further inspections.
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
