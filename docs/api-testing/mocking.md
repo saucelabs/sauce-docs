@@ -20,7 +20,7 @@ Sauce Labs [_Piestry_](/dev/glossary/#piestry) is our API mocking server tool th
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * An OpenAPI spec file.
 
 ## Getting Started
@@ -31,7 +31,7 @@ Piestry must be started from a Docker container in your CI/CD pipeline using Doc
   docker run -v "$(pwd)/specs:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
   ```
 
-## Generating a Mock
+## OpenAPI Spec Files
 
 If you provide a standard OpenAPI spec file, our system should bind a series of endpoints to simulate whatever is in the spec.
 * When only a response schema is present, the system will generate random data for each field.
@@ -39,7 +39,9 @@ If you provide a standard OpenAPI spec file, our system should bind a series of 
 * When multiple response examples are present, the system will present the first example.
 * When multiple content types are available, the system will pick the one closer to the "Accept" header, any JSON response if a match is not found.
 
-1. Place your spec file (or set of files in a folder) in a location of your choice. For this example, we'll call it `myspec.yaml`.
+## Generating a Mock
+
+1. On your local machine, place your spec file (or set of files in a folder) in a location of your choice. For this example, we'll call it `myspec.yaml`.
 2. Open your CLI terminal and navigate to right outside that folder, then run this command:
   ```bash
   docker run -v "$(pwd)/myspec:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
