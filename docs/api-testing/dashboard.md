@@ -1,13 +1,18 @@
 ---
 id: dashboard
 title: API Testing Project Dashboard
-sidebar_label: Project Dashboard
-description: "API Testing on Sauce Labs offers a full-featured dashboard that centralizes testing management and simplifies collaboration and reporting. Key features of the dashboard allow you to: View all test logs across teams Share, download, or print test logs View all performance metrics from tests (latency & fetch) Set performance alerts Filter logs and alerts by time, endpoint."
+sidebar_label: Metrics and Logs
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The API Testing Dashboard &#8212; accessible from with any Project &#8212; displays metrics and logs, giving you insight into your tests. It centralizes testing management reporting and facilitates team collaboration.
+
+Key features of the dashboard allow you to:
+* View all test logs across teams.
+* Share, download, or print test logs.
+* View all performance metrics from tests (latency & fetch).
+* Set performance alerts Filter logs and alerts by time, endpoint.
 
 ## What You'll Need
 
@@ -38,6 +43,7 @@ View all performance metrics from tests (latency and fetch):
 1. Select **Metrics**.<br/><img src={useBaseUrl('img/api-fortress/2021/02/metrics.png')} alt="Dashboard Metrics"/>
 2. Set the start and end date filters, if desired.<br/><img src={useBaseUrl('img/api-fortress/2021/02/metricsFilters.png')} alt="Dashboard Metrics Filters"/>
 
+
 ## Set Alerts
 To set performance alerts and email notifications:
 1. Select the **Settings** tab.
@@ -48,6 +54,4 @@ To set performance alerts and email notifications:
 
 ## More Information
 
-The following links provide useful information about using the dashboard and its metrics:
-- [Simplest method to set up a basic monitor](/api-testing/on-prem/quick-start/easy-monitoring)
-- [Creating a Connector](/api-testing/on-prem/integrations/add-new-connector)
+- [Test Outcome Reports](/api-testing/test-reports)
