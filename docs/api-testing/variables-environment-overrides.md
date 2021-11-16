@@ -17,7 +17,8 @@ Most of the parametrization you will likely do relates to the HTTP request itsel
 
 ## What You'll Need
 * An existing API Testing Project and Test. For details on how to create them, see [API Testing Quickstart](/api-testing/quickstart/).
-* Recommended: review [Creating Reusable Variables and Snippets with the Vault](/api-testing/vault/) and [Creating Test Environments](/api-testing/environments/)
+* Recommended: review [Creating Reusable Variables and Snippets with the Vault](/api-testing/vault/) and [Using Test Environments](/api-testing/environments/)
+
 
 ## Formatting Variables
 

@@ -12,7 +12,7 @@ Below is a quick primer on the API Testing **Test Outcome Report**.
 
 
 ## What You'll Need
-* An exsting test that you've already run. For instructions on setting up a test and accessing your results, see [API Testing Quickstart](/api-testing/quickstart).
+* An existing test that you've already run. For instructions on setting up a test and accessing your results, see [API Testing Quickstart](/api-testing/quickstart).
 
 
 ## Test Outcome Report Breakdown

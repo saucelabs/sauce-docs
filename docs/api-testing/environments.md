@@ -5,8 +5,9 @@ sidebar_label: Environments
 description: "Gain a wide range of options to mix and match your test settings with our latest Environments features."
 ---
 
-Gain a wide range of options to mix and match your test settings with our latest Environment features.
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
+Gain a wide range of options to mix and match your test settings with our latest Environment features.
 
 ## What You'll Need
 * An existing API Testing Project and Test. For details on how to create them, see [API Testing Quickstart](/api-testing/quickstart/).
