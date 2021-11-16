@@ -661,12 +661,12 @@ module.exports = {
             'api-testing/dashboard',
               {
                   type: 'category',
-                  label: 'Environments, Vaults, and Variables',
+                  label: 'Vaults, Variables, Environments',
                   collapsed: true,
                   items: [
-                      'api-testing/environments-vault-overrides',
-                      'api-testing/variables-flexible-environments',
                       'api-testing/vault',
+                      'api-testing/environments',
+                      'api-testing/variables-environment-overrides',
                       ],
                   },
              'api-testing/apifctl-cicd-integration',

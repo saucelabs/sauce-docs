@@ -7,12 +7,12 @@ description: "With Sauce Labs API Testing, you can schedule a test to run as oft
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-With API Testing on Sauce Labs, you can schedule tests to run as often as you’d like, with granular control as to when it runs. Let’s take a look at how it works.
+The **Schedule** tool, accessible from within each test, allows you to schedule API tests to run as often as you’d like, with granular control as to when it runs. Let’s take a look at how it works.
 
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* An existing API Testing Project and Test. For details on how to create them, see [API Testing Quickstart](/api-testing/quickstart/).
+* An existing API Testing Project and Test. For details on how to create them, see the [Quickstart](/api-testing/quickstart/) guide.
 
 ### Step 1: Publish the Working Copy
 
