@@ -8,21 +8,62 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Below is a list of flags to use on your Sauce Connect Proxy command line to specify parameters. See [Basic Setup for Sauce Connect Proxy](/secure-connections/sauce-connect/setup-configuration/basic-setup) for detailed setup instructions and use cases.
+Below is a list of flags to use on your Sauce Connect Proxy command line to specify parameters.
+
+
+## What You'll Need
+* Make sure you're using the latest [Sauce Connect Proxy version](secure-connections/sauce-connect/installation/). Otherwise, some flags may not work.
+* See [Sauce Connect Quickstart](/secure-connections/sauce-connect/quickstart/) and [Basic Setup for Sauce Connect Proxy](/secure-connections/sauce-connect/setup-configuration/basic-setup) for setup instructions and use cases.
 
 :::tip
-View the below options directly in the command line terminal by running the `--help` flag.
+View the below options directly in your command line terminal by running the `--help` flag.
 :::
 
 
 ## Main
 
 ---
+### `--user`
+<p><small>| REQUIRED | STRING |</small></p>
+
+__Description__: Sets your Sauce Labs username.<br/>
+__Shorthand__: `-u`
+
+
+---
 ### `--api-key`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| REQUIRED | STRING |</small></p>
 
 __Description__: Sets your Sauce Labs API key.<br/>
 __Shorthand__: `-k`
+
+
+---
+### `--region`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+:::caution
+New for Sauce Connect Proxy version 4.7.0; not compatible with prior versions. We recommend using `--region` over `--rest-url`, which will eventually be deprecated.
+:::
+
+__Description__: Sets your Sauce Labs data center region (e.g., EU-Central, US-West). For a full list, see [Data Center Endpoints](#data-center-endpoints). <br/>
+__Default__: `us-west`<br/>
+__Shorthand__: `-r`
+
+
+---
+### `--tunnel-name`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+__Description__: Assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is strongly recommended. Future jobs will use this tunnel only when explicitly specified by the [tunnelIdentifier](/dev/test-configuration-options#tunnelidentifier) in your test capabilities.
+
+To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options). For information on using this option in the tunnel pool, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
+
+:::note
+Your ID must be ASCII.
+:::
+
+__Shorthand__: n/a
 
 
 ---
@@ -34,27 +75,18 @@ __Shorthand__: `-c`
 
 
 ---
-### `--tunnel-pool` or `--no-remove-colliding-tunnels`
+### `--tunnel-pool`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-:::caution
-Effective with Sauce Connect Proxy version 4.7.0, `--no-remove-colliding-tunnels` has been deprecated and replaced by `--tunnel-pool`.
-:::
-__Description__: The tunnel is a part of the High Availability Sauce Connect Proxy Tunnel Pool. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
+__Description__: Launches a high availability tunnel pool along with the [`--tunnel-name`](#--tunnel-name) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
 __Shorthand__: n/a
 
 
 ---
-### `--region`
-<p><small>| OPTIONAL | STRING |</small></p>
+### `--no-remove-colliding-tunnels`
+<p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-:::caution
-Effective with Sauce Connect Proxy version 4.7.0, we recommend using `--region` over `--rest-url`.
-:::
-
-__Description__: Sauce Labs data center region (e.g., EU-Central, US-West). For a full list, see [Data Center Endpoints](#data-center-endpoints). Not compatible with Sauce Connect Proxy versions below 4.7.0.<br/>
-__Default__: `us-west`<br/>
-__Shorthand__: `-r`
+__Description__: Effective with Sauce Connect Proxy version 4.7.0, this flag was deprecated and replaced by [`--tunnel-pool`](#--tunnel-pool). Upgrade to the latest version [here](/secure-connections/sauce-connect/installation/).
 
 
 ---
@@ -62,50 +94,31 @@ __Shorthand__: `-r`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 :::caution
-Effective with Sauce Connect Proxy version 4.7.0, we recommend using `--region` over `--rest-url`.
+Effective with Sauce Connect Proxy version 4.7.0, we recommend using `--region` over `--rest-url`, which will eventually be deprecated.
 :::
 
-__Description__: Sauce Labs regional data center REST API URL (e.g., EU-Central, US-West). For a full list, see [Data Center Endpoints](#data-center-endpoints).<br/>
+__Description__: Sets your Sauce Labs regional data center REST API URL (e.g., EU-Central, US-West). For a full list, see [Data Center Endpoints](#data-center-endpoints).<br/>
 __Default__: `https://saucelabs.com/rest/v1`<br/>
 __Shorthand__: `-x`
 
 
 ---
 ### `--shared-tunnel`
+<p><small>| OPTIONAL |</small></p>
+
 __Description__: Allows users other than the tunnel owner to use the tunnel. For more information, see [Sharing Sauce Connect Proxy Tunnels](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels).<br/>
 __Shorthand__: `-s`
 
 
 ---
-### `--tunnel-name` or `--tunnel-identifier`
-<p><small>| OPTIONAL | STRING |</small></p>
+### `--tunnel-identifier`
+<p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-:::caution
-Effective with version 4.7.0, `--tunnel-identifier` has been deprecated and replaced by `--tunnel-name`.
-:::
-
-__Description__: Assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is strongly recommended. Future jobs will use this tunnel only when explicitly specified by the [tunnelIdentifier](/dev/test-configuration-options#tunnelidentifier) in your test capabilities.
-
-To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options). For information on using this option in the tunnel pool, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
-
-:::note
-Your ID must be ASCII.
-:::
-
-__Shorthand__: `-i` for `--tunnel-identifier`; n/a for `--tunnel-name`
-
-
----
-### `--user`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-__Description__: Sets your Sauce Labs username.<br/>
-__Shorthand__: `-u`
-
+__Description__: Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-name`](#--tunnel-name). Upgrade to the latest version [here](/secure-connections/sauce-connect/installation/).
+__Shorthand__: `-i` for `--tunnel-identifier`
 
 
 ## Tunnel Configuration
-
 
 ---
 ### `--direct-domains`
@@ -177,6 +190,14 @@ __Shorthand__: n/a
 
 __Description__: Proxy host and port that Sauce Connect should use to connect to the Sauce Labs REST API.<br/>
 __Shorthand__: `-p`
+
+
+---
+### `--proxy-localhost`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+__Description__: set this to `true` to support proxying upstream requests to localhost. By default, it is `false`. <br/>
+__Shorthand__: n/a
 
 
 ---
@@ -271,15 +292,9 @@ __Shorthand__: n/a
 
 ---
 ### `--capath`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-:::caution
-Effective with Sauce Connect Proxy version 4.7.0, `--capath` has been deprecated.
-:::
-
-__Description__: Directory of CA certs to use for verifying connections to Sauce Labs REST API.<br/>
-__Shorthand__: n/a  
-
+__Description__: Defines a directory of CA certs to use for verifying connections to Sauce Labs REST API. Effective with Sauce Connect Proxy version 4.7.0, `--capath` was deprecated. Upgrade to the latest version [here](/secure-connections/sauce-connect/installation/).<br/>
 
 ---
 ### `--dns`
@@ -315,13 +330,9 @@ __Shorthand__: n/a
 
 ---
 ### `--tunnel-capath`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-:::caution
-Effective with Sauce Connect Proxy version 4.7.0, `--tunnel-capath` has been deprecated.
-:::
-__Description__: Directory of CA certificates to use for verifying tunnel connections.<br/>
-__Shorthand__: n/a  
+__Description__: Directory of CA certificates to use for verifying tunnel connections. Effective with Sauce Connect Proxy version 4.7.0, `--tunnel-capath` was deprecated. Upgrade to the latest version [here](/secure-connections/sauce-connect/installation/).<br/>
 
 
 
