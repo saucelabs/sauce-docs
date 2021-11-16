@@ -193,6 +193,14 @@ __Shorthand__: `-p`
 
 
 ---
+### `--proxy-localhost`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+__Description__: set this to `true` to support proxying upstream requests to localhost. By default, it is `false`. <br/>
+__Shorthand__: n/a
+
+
+---
 ### `--proxy-tunnel`
 __Description__: Uses the proxy configured with `--proxy` or `--pac` for the tunnel connection. For more information about the `-T `option and configuring Sauce Connect Proxy with other proxies, see [Set Up with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies). You'll need to use this option if you have a PAC file that contains Sauce Labs DNS names.<br/>
 __Shorthand__: `-T`
