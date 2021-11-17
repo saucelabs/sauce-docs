@@ -16,6 +16,18 @@ description: A glossary of terminology used across Sauce Labs products.
 See: _[Insights](#insights)_.
 
 
+### API Mocking
+
+An API server that mimics a real API server's requests and responses, which are based on the data from the spec file you provide. Commonly used for testing and debugging APIs while they're still in development; environment is stable and third-party dependencies are not required.
+
+The Sauce Labs API Mocking tool is called Piestry. See: _[Piestry](#piestry)_.
+
+
+### API Monitoring
+
+Refers to the Sauce Labs API Testing functionality accessible from your Project Dashboard, where you can view testing activity, metrics, test outcome reports, tags, schedule tests, and more.
+
+
 ### Appium
 
 An open source mobile UI automation framework that uses the Selenium WebDriver protocol to control interaction with native apps, mobile web apps, and hybrid apps in your tests. Appium acts as a wrapper that translates Selenium WebDriver commands into iOS and Android commands. With Sauce Labs, you can use Appium to test mobile apps on emulators, simulators, and real devices.
@@ -77,6 +89,20 @@ By default, duplicated (already running) tunnels are halted unless a Sauce Conne
 More information: [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
 
 See also: _[sauce connect proxy](#sauce-connect-proxy), [tunnel identifier](#tunnel-identifier)_.
+
+
+### Company Vault
+
+A Sauce Labs API Testing storage space where you can save variables and code snippets to use across all of your Projects.
+
+See also: [_vault_](#vault).
+
+
+### Composer
+
+A Sauce Labs API Testing feature where you can generate API functional tests and write tests from scratch.
+
+See also: [http client](#http-client).
 
 
 ### Concurrency Limit
@@ -174,7 +200,7 @@ A period for prospective customers to explore the full functionality of the Sauc
 
 ### Front-End Performance Testing
 
-A method of performance testing that enables you to check UI functionality like forms, graphs, and menus, as well as associated JavaScript. Sauce Labs offers a front-end performance testing tool called Sauce Performance, which you can integrate with your existing CI/CD workflows. Please note that Sauce Performance refers to front-end testing only (i.e., tools like Google Lighthouse, GTmetrix that measure how quickly the user can see and interact with your website); it doesn't have back-end load testing functionality (i.e., JMeter, Gatling). More information: [Getting Started with Sauce Front-End Performance](/performance), [Sauce Labs White Paper: Best Practices for Front-End Performance Testing](https://saucelabs.com/resources/white-papers/best-practices-for-front-end-performance-testing).
+A method of performance testing that enables you to check UI functionality like forms, graphs, and menus, as well as associated JavaScript. You can integrate Sauce Performance, our front-end performance testing tool, with your existing CI/CD workflows. Front-end testing - using tools like Google Lighthouse and GTmetrix - measures how quickly you can see and interact with your website. It doesn't have back-end load testing functionality, where you'd use tools like JMeter, Gatling. More information: [Getting Started with Sauce Front-End Performance](/performance), [Sauce Labs White Paper: Best Practices for Front-End Performance Testing](https://saucelabs.com/resources/white-papers/best-practices-for-front-end-performance-testing).
 
 See also: _[performance testing](#performance-testing)_.
 
@@ -193,6 +219,15 @@ See also: _[non-functional testing](#non-functional-testing)_.
 A browser or browser simulation without a UI. It's considered by developers to be a lightweight and scalable option if you want to test and collect pass/fail data earlier in the development lifecycle. Available only for Chrome and Firefox.
 
 See also: _[sauce headless testing](#sauce-headless-testing)_.
+
+
+### HTTP Client
+
+A Sauce Labs API Testing tool and workspace where you can:
+  * Make HTTP API requests (i.e., `GET`, `POST`, `DELETE`) to a web server
+  * Generate API functional tests
+  * Import, store, and organize OpenAPI specs, Postman Collections, and API requests
+  * Use Sauce Connect Proxy to make calls to locally hosted APIs in a development environment
 
 
 ### Hybrid App
@@ -227,9 +262,14 @@ A protocol used to establish a secure VPN connection between applications hosted
 
 ### Live Testing (LT)
 
-A type of software testing where you'd execute test cases manually, without using any automation tools. More information: [Live Cross Browser Testing](/web-apps/live-testing/live-cross-browser-testing).
+A type of software testing where you execute test cases manually, without using any automation tools. More information: [Live Cross Browser Testing](/web-apps/live-testing/live-cross-browser-testing).
 
 See also: _[manual testing](#manual-testing)_.
+
+
+### Logger
+
+A Sauce Labs API Testing tool that captures and record API calls (HTTP requests and responses).
 
 
 ### logfile
@@ -265,7 +305,7 @@ See also: _[hybrid app](#hybrid-app)_.
 
 ### Non-Functional Testing
 
-A type of software testing that validates behavioral, measurable aspects of the software (e.g., performance, compatibility, user experience). Functional testing determines if your software meets its business requirements, whereas non-functional testing determines _how_ it operates. When running non-functional tests on Sauce Labs, you can use custom extensions for WebDriver that will allow you test the performance of your website under specific network conditions and collect network and application-related metrics.
+A type of software testing that validates behavioral, measurable aspects of the software (e.g., performance, compatibility, user experience). Functional testing determines if your software meets its business requirements, whereas non-functional testing determines how it operates. When running non-functional tests on Sauce Labs, you can use custom extensions for WebDriver that will allow you test the performance of your website under specific network conditions and collect network and application-related metrics.
 
 See also: _[functional testing](#functional-testing)_.
 
@@ -314,10 +354,14 @@ See also: _[front-end performance testing](#front-end-performance-testing)_.
 
 ### pidfile
 
-A text file generated by Sauce Connect Proxy that records your tunnel's process identification number (PID).
-Unless otherwise specified, the file will be cleaned up on exit or overwritten at startup. If needed, you can terminate a tunnel any time by sending a kill signal to the PID recorded in pidfile.
-More information: [How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect/proxy-tunnels#starting-and-stopping-tunnels),
-[Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
+A text file generated by Sauce Connect Proxy that records your tunnel's process identification number (PID). Unless otherwise specified, the file will be cleaned up on exit or overwritten at startup. If needed, you can terminate a tunnel any time by sending a kill signal to the PID recorded in pidfile. More information: [How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect/proxy-tunnels#starting-and-stopping-tunnels), [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
+
+
+### Piestry
+
+The name of our API mocking server tool. In keeping with the Sauce tradition of naming things after food, Piestry is a pastry masquerading as a pie. This is analogous to our API mocking server, which mimics a real API server's requests and responses.
+
+See [API Mocking](#api-mocking) to learn more about the concept.
 
 
 ### Platform Configurator
@@ -334,7 +378,6 @@ To use a PAC file, include the `--pac <url>` command-line in your code. More inf
 
 
 ## **R**
-
 
 ### RDC on Sauce
 
@@ -359,7 +402,7 @@ See also: _[real device cloud](#real-device-cloud)_.
 
 ### RemoteWebDriver
 
-A remote instance of WebDriver that you must instantiate during a test to connect with the Selenium server via Sauce Labs. 
+A remote instance of WebDriver that you must instantiate during a test to connect with the Selenium server via Sauce Labs.
 Afterwards, you can use the RemoteWebDriver to control the browser of your choice.
 
 See also: _[webdriver](#webdriver), [webdriverIO](#webdriverio)_.
@@ -589,7 +632,7 @@ The virtual machine that hosts Sauce Connect Proxy on the Sauce Labs side.
 
 ### UI Automation Library
 
-A library or tool used for writing, running and providing functionality for browser-based tests in a particular setting. 
+A library or tool used for writing, running and providing functionality for browser-based tests in a particular setting.
 Some examples are WebdriverIO (JavaScript), Cucumber (Ruby/JavaScript/C#/Java), XCUITest (iOS mobile only).
 
 See also: _[framework](#framework)_.
@@ -613,6 +656,13 @@ See: _[systemd](#systemd)_.
 
 
 ## **V**
+
+
+### Vault
+
+A Sauce Labs API Testing storage space where you can save Project-specific variables and code snippets.
+
+See also: [_company vault_](#company-vault).
 
 
 ### Virtual Device Cloud (VDC)
@@ -652,12 +702,12 @@ A Sauce Labs automated visual testing method that integrates with your WebDriver
 
 ### W3C WebDriver Protocol
 
-[A platform- and language-neutral wire protocol](https://w3c.github.io/webdriver/) that 
-enables out-of-process programs to remotely instruct the 
+[A platform- and language-neutral wire protocol](https://w3c.github.io/webdriver/) that
+enables out-of-process programs to remotely instruct the
 behavior of web browsers. The major browser vendors collaborated and agreed on what the correct behavior should be
 for each command, which dramatically improves stability and consistency between different browsers and devices.
 Selenium and WebdriverIO each implement the W3C protocol. Now that all major browsers
-use this protocol by default, its usage on Sauce Labs is highly encouraged. 
+use this protocol by default, its usage on Sauce Labs is highly encouraged.
 More information: [W3C Capabilities Support](/dev/w3c-webdriver-capabilities).
 
 
@@ -665,7 +715,7 @@ More information: [W3C Capabilities Support](/dev/w3c-webdriver-capabilities).
 
 An implementation of the [W3C WebDriver Protocol](#w3c-webdriver-protocol), which defines how a user's code interacts
 with a web browser. All major browsers and programming languages support WebDriver.
-Supports all major browsers and programming languages. Look here for 
+Supports all major browsers and programming languages. Look here for
 [Examples of Test Libraries](/web-apps/automated-testing/selenium/#scaling-tests) that implement
 WebDriver.
 
