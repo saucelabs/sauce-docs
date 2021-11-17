@@ -422,6 +422,10 @@ Identifies the ID of a complete test. For use with the **[`run`](#run)** command
 
 Identifies the ID of the event you want to see. For use with the **[`event`](#event)** command only.
 
+```bash
+-i 123456789abc1a1abcdef123
+```
+
 ---
 ### `-d <test description>`
 <p><small>| STRING |</small></p>
