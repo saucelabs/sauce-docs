@@ -1,13 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
-import HomeCallouts from './home-callouts';
-import DeveloperResources from './developer-resources';
-import ImportantLinks from './important-links';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+
+import Community from './community';
+import QuickStart from './quickstart';
+import Resources from './resources';
+
 import styles from './styles.module.css';
 
 function Home() {
@@ -15,8 +16,8 @@ function Home() {
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title={`Sauce Labs Documentation`}
-      description="Sauce Labs Documentation">
+      title={`Sauce Labs Documentation, Developer Community & Resources`}
+      description="Sauce Labs Documentation, Developer Community and Resources">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
@@ -36,10 +37,14 @@ function Home() {
       <main>
         <div className="main__container">
           <div className="main__container-inner">
-            <HomeCallouts></HomeCallouts>
+            <QuickStart />
           </div>
-          <DeveloperResources></DeveloperResources>
-          <ImportantLinks></ImportantLinks>
+          <div className="main__container-inner">
+            <Community />
+          </div>
+          <div className="main__container-inner">
+            <Resources />
+          </div>
         </div>
       </main>
     </Layout>
