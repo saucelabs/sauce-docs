@@ -118,11 +118,11 @@ Available Options:
 * [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
 * [<code>-p &#60;local path to test files&#62;</code>](#-p-local-path-to-file) <small>| REQUIRED | STRING |</small>
 * [<code>-E &#60;environment variable(s)&#62;</code>](#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
+* [<code>-f &#60;data format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>  
 * [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
 * [<code>-t &#60;tags&#62;</code>](#-t-tags) <small>| OPTIONAL | STRING |</small>  
 * [<code>-n &#60;name of test&#62;</code>](#-n-name-of-test) <small>| OPTIONAL | STRING |</small>  
-* [<code>-tag &#60;tag(s)&#62;</code>](#-tag-tags) <small>| OPTIONAL | STRING |</small>
 
 
 ```bash title="Full Example"
@@ -152,7 +152,10 @@ Available Options:
 ```bash title="Full Example"
 docker run -v $(pwd)/tests:/tests quay.io/saucelabs/apifctl upload \
 -H https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId> \
--p /tests/test_abc
+-p /tests/test_abc \
+-n local_test \
+-t product
+-d shoppingtransaction
 ```
 
 ---
@@ -166,6 +169,11 @@ docker run quay.io/saucelabs/apifctl vault-get
 
 Available Options:
 * [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
+
+```bash title="Full Example"
+docker run -v $(pwd)/tests:/tests quay.io/saucelabs/apifctl vault-get \
+-H https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId> \
+```
 
 ---
 ### `vault-update`
@@ -203,6 +211,15 @@ Available Options:
 * [<code>-l &#60;limit&#62;</code>](#-l-limit) <small>| OPTIONAL | INTEGER |</small>
 * [<code>-o &#60;offset&#62;</code>](#-o-offset) <small>| OPTIONAL | INTEGER |</small>
 
+```bash title=Full Example"
+docker run quay.io/saucelabs/apifctl event \
+-H https://john.smith:{access_key}@api.us-west-1.saucelabs.com/api-testing/rest/v4/36acf9c1-d5ad-4273-a233-a85470e1f502
+-f 2021-12-31T14:00 \
+-t 2021-12-31T15:00 \
+-l 50 \
+-o 10 \
+```
+
 ---
 ### `event`
 
@@ -238,6 +255,14 @@ Available Options:
 * [<code>-l &#60;limit&#62;</code>](#-l-limit) <small>| OPTIONAL | INTEGER |</small>
 * [<code>-o &#60;offset&#62;</code>](#-o-offset) <small>| OPTIONAL | INTEGER |</small>
 
+```bash title=Full Example"
+docker run quay.io/saucelabs/apifctl metrics \
+-H https://john.smith:{access_key}@api.us-west-1.saucelabs.com/api-testing/rest/v4/36acf9c1-d5ad-4273-a233-a85470e1f502
+-f 2021-12-31T14:00 \
+-t 2021-12-31T15:00 \
+-l 50 \
+-o 10 \
+```
 ---
 
 <br/>
@@ -258,7 +283,7 @@ Specifies the webhook URL. This option is required for all commands.
 ### `-E <environment variable(s)>`
 <p><small>| STRING |</small></p>
 
-Sets environment variables with your command. Enter your variables as a comma-separated list. For use with **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, **[`exec`](#exec)** commands.
+Sets environment variables with your command. Enter your variables as a comma-separated list. For use with the **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, **[`exec`](#exec)** commands.
 
 ```bash
 -E domain=staging.example.com,id=123
@@ -267,13 +292,13 @@ Sets environment variables with your command. Enter your variables as a comma-se
 ---
 ### `-S`
 
-Syncs execution so that `apifctl` will wait until all results are available, and then prints them. For use with **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, and **[`exec`](#exec)** commands.
+Syncs execution so that `apifctl` will wait until all results are available, and then prints them. For use with the **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, and **[`exec`](#exec)** commands.
 
 ---
 ### `-f <data format>`
 <p><small>| STRING |</small></p>
 
-Sets the data format to one of two possible values: `json` or `junit`. Default is `json`. For use with **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, **[`exec`](#exec)** commands.
+Sets the data format to one of two possible values: `json` or `junit`. Default is `json`. For use with the **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, **[`exec`](#exec)** commands.
 
 ```bash
 -f junit
@@ -283,7 +308,7 @@ Sets the data format to one of two possible values: `json` or `junit`. Default i
 ### `-T <tunnel ID>`
 <p><small>| STRING |</small></p>
 
-Specifies your tunnel ID for running tests using Sauce Connect Proxy. For use with **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, **[`exec`](#exec)** commands.
+Specifies your tunnel ID for running tests using Sauce Connect Proxy. For use with the **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, **[`exec`](#exec)** commands.
 
 <table id="table-api">  
   <tbody>
@@ -335,7 +360,7 @@ For the **[`vault-update`](#vault-update)** command: This is the local path to t
 ### `-f <from time>`
 <p><small>| STRING |</small></p>
 
-Identifies the start date of the events you want to see. For use with **[`metrics`](#metrics)** and **[`events`](#events)** commands.
+Identifies the start date of the events you want to see. For use with the **[`metrics`](#metrics)** and **[`events`](#events)** commands.
 
 ```bash
 -f 2021-10-21T14:00
@@ -345,7 +370,7 @@ Identifies the start date of the events you want to see. For use with **[`metric
 ### `-t <to time>`
 <p><small>| STRING |</small></p>
 
-Identifies the end date of the events you want to see. For use with **[`metrics`](#metrics)** and **[`events`](#events)** commands.
+Identifies the end date of the events you want to see. For use with the **[`metrics`](#metrics)** and **[`events`](#events)** commands.
 
 ```bash
 -t 2021-10-31T15:00
@@ -355,7 +380,7 @@ Identifies the end date of the events you want to see. For use with **[`metrics`
 ### `-t <tag(s)>`
 <p><small>| STRING |</small></p>
 
-"Adds a set of tags to the test. Format as a comma-separated list of tags you want to assign to the test. For use with **[`exec`](#exec)** and **[`upload`](#upload)** commands.
+Adds a set of tags to the test. Format as a comma-separated list of tags you want to assign to the test. For use with the **[`exec`](#exec)** and **[`upload`](#upload)** commands.
 
 ```bash
 -t product,production
@@ -365,18 +390,17 @@ Identifies the end date of the events you want to see. For use with **[`metrics`
 ### `-tag <tag(s)>`
 <p><small>| STRING |</small></p>
 
-The **[`run-tag`](#run-tag)** command will run all the tests in your Project marked with that tag. Format as a comma-separated list of tags you want to assign to the test. For use with **[`run-tag`](#run-tag)** command only.
+The **[`run-tag`](#run-tag)** command will run all the tests in your Project marked with that tag. For use with the run-tag command only. For use with the **[`run-tag`](#run-tag)** command only. The example below will run all the tests in the Project labeled with the `product` and `production` tags.
 
-In this example, it will run all the tests in Project labeled with the `production` tag.
 ```bash
--tag production
+-tag product,production
 ```
 
 ---
 ### `-n <name of test>`
 <p><small>| STRING |</small></p>
 
-Identifies the name of the test you want to assign to. Default is the name of the test directory. For use with **[`exec`](#exec)** and **[`upload`](#upload)** commands.
+Identifies the name of the test you want to assign to. Default is the name of the test directory. For use with the **[`exec`](#exec)** and **[`upload`](#upload)** commands.
 
 ```bash
 -n local_test
@@ -386,40 +410,54 @@ Identifies the name of the test you want to assign to. Default is the name of th
 ### `-i <test ID>`
 <p><small>| STRING |</small></p>
 
-Identifies the ID of a complete test. For use with **[`run`](#run)** command only.
+Identifies the ID of a complete test. For use with the **[`run`](#run)** command only.
 
 ```bash
 -i 123a1a123456a12345aa1aaa
 ```
 
 ---
+### `-i <event ID>`
+<p><small>| STRING |</small></p>
+
+Identifies the ID of the event you want to see. For use with the **[`event`](#event)** command only.
+
+---
 ### `-d <test description>`
 <p><small>| STRING |</small></p>
 
-The description you want to add to your test. For use with **[`upload`](#upload)** command only.
+The description you want to add to your test. For use with the **[`upload`](#upload)** command only.
+
+```bash
+-d shoppingtransaction
+```
 
 ---
 ### `-v <variables>`
 <p><small>| STRING |</small></p>
 
-It’s a String in the format `key=value` with the list of the variable separated by a comma. For use with **[`vault-update`](#vault-update)** command only.
+Format as `key=value`. To add multiple variables, enter them as a comma-separated list. For use with the **[`vault-update`](#vault-update)** command only.
+
+```bash
+-v key=production,id=123
+```
 
 ---
 ### `-l <limit>`
 <p><small>| INTEGER |</small></p>
 
-Identifies the maximum number of metrics and events to be shown in the list. Default value is `100`. For use with **[`events`](#events)** and **[`metrics`](#metrics)** commands.
+Identifies the maximum number of metrics and events to be shown in the list. Default value is `100`. For use with the **[`events`](#events)** and **[`metrics`](#metrics)** commands.
+
+```bash
+-l 50
+```
 
 ---
 ### `-o <offset>`
 <p><small>| INTEGER |</small></p>
 
-Specifies the number of events and metrics to be skipped from the beginning of the list. Default value is `0`. For use with **[`events`](#events)** and **[`metrics`](#metrics)** commands.
+Specifies the number of events and metrics to be skipped from the beginning of the list. Default value is `0`. For use with the the **[`events`](#events)** and **[`metrics`](#metrics)** commands.
 
----
-### `-i <event ID>`
-<p><small>| STRING |</small></p>
-
-Identifies the ID of the event you want to see. For use with **[`event`](#event)** command only.
-
----
+```bash
+-o 10
+```
