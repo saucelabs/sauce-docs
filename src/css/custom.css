@@ -560,31 +560,35 @@ a.hero__button {
   clear: both;
   position: relative;
   max-width: 1160px;
+
 }
+
+.title {
+  text-align: left;
+  color:  #1e2127;
+  margin-left: 24px;
+}
+
 .callouts__container {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 .callouts__container:first-of-type {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: 45px 0 15px 0;
+  padding: 24px;
   margin-bottom: 35px;
-  border-bottom: solid 1px #C1C3C7;
+  box-shadow: 0 45px 50px -50px #C1C3C7;
 }
 .callouts__container .callout {
   width: 33%;
   text-align: left;
-  padding: 0 10px 0 10px;
+  padding: 16px;
+  margin-right: 16px;
+  border: solid 1px #C1C3C7;
 }
 .callout h2 {
-  color: #E12726;
+  color:  #1e2127;
 }
 .main__container-bg {
   background-image: url(/img/dev-resources-bg.png);
