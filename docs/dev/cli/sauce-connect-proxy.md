@@ -22,6 +22,11 @@ You can view the entire list of CLI options by running the `--help` flag.
 <br/>
 
 
+## Usage
+
+`./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} [OPTION]`
+
+
 ## Required
 
 ---
@@ -63,10 +68,100 @@ __Shorthand__: `-c`
 We recommend using this flags over its predecessor, `--rest-url`, which will eventually be deprecated. Not compatible with versions below 4.7.0.
 :::
 
-__Description__: Sets your Sauce Labs data center region (e.g., EU-Central, US-West). For a full list, see [Data Center Endpoints](#data-center-endpoints). <br/>
+__Description__: sets your [regional Sauce Labs data center]((/dev/cli/sauce-connect-proxy/#data-center-endpoints). Possible values are `us-west`, `eu-central`, `us-east`, `apac-southeast`. If you omit this flag, it will default to `us-west`. For all other regions, this flag is required. <br/>
 __Default__: `us-west`<br/>
 __Shorthand__: `-r`
 
+<Tabs
+  defaultValue="US-West"
+  values={[
+    {label: 'US-West', value: 'US-West'},
+    {label: 'US-East', value: 'US-East'},
+    {label: 'EU-Central', value: 'EU-Central'},
+    {label: 'APAC-Southeast', value: 'APAC-Southeast'},
+  ]}>
+
+<TabItem value="US-West">
+
+**For Sauce Connect Proxy version 4.7.0**:
+
+To connect to the US-West Data Center, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the US-West Data Center:
+
+```java
+$ sc -r us-west -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY}
+```
+<br/>
+
+**For Sauce Connect Proxy versions below 4.7.0**:
+
+Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-West Data Center endpoint:
+
+```java
+$ sc -x https://api.us-west-1.saucelabs.com/rest/v1 -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY}
+```
+
+</TabItem>
+<TabItem value="US-East">
+
+**For Sauce Connect Proxy version 4.7.0**:
+
+To connect to the US-East Data Center, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the US-East Data Center:
+
+```java
+$ sc -r us-east -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY}
+```
+<br/>
+
+**For Sauce Connect Proxy versions below 4.7.0**:
+
+Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-East Data Center endpoint:
+
+```java
+$ sc -x https://us-east-1.saucelabs.com/rest/v1 -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY}
+```
+
+</TabItem>
+<TabItem value="EU-Central">
+
+**For Sauce Connect Proxy version 4.7.0**:
+
+To connect to the EU-Central Data Center, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the EU-Central Data Center:
+
+```java
+$ sc -r eu-central -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY}
+```
+<br/>
+
+**For Sauce Connect Proxy versions below 4.7.0**:
+
+Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the EU-Central Data Center endpoint:
+
+```java
+$ sc -x https://eu-central-1.saucelabs.com/rest/v1 -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY}
+```
+
+</TabItem>
+<TabItem value="APAC-Southeast">
+
+**For Sauce Connect Proxy versions 4.7.0+**:
+
+To connect to the [APAC-Southeast-1 Data Center](/basics/data-center-endpoints/aust-early-access), add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the APAC-Southeast Data Center:
+
+```java
+$ sc -r apac-southeast -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY}
+```
+<br/>
+
+**For Sauce Connect Proxy versions below 4.7.0**:
+
+Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the APAC-Southeast Data Center endpoint:
+
+```java
+$ sc -x https://api.apac-southeast-1.saucelabs.com/rest/v1 -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY}
+```
+
+</TabItem>
+</Tabs>
 
 ---
 ### `--tunnel-name`
@@ -402,104 +497,6 @@ You can specify a combination of several options. For example:
 --extra-info '{"inject-forwarded-for": true, "reply_body_max_size": "300 MB"}'
 ```
 __Shorthand__: n/a
-
-
-## Data Center Endpoints
-
-__Description__: depending on the Data Center location of the device you're testing on (US or EU), you may need to add a [Data Center endpoint](/basics/data-center-endpoints).
-
-<Tabs
-  defaultValue="US-West"
-  values={[
-    {label: 'US-West', value: 'US-West'},
-    {label: 'US-East', value: 'US-East'},
-    {label: 'EU-Central', value: 'EU-Central'},
-    {label: 'APAC-Southeast', value: 'APAC-Southeast'},
-  ]}>
-
-<TabItem value="US-West">
-
-**For Sauce Connect Proxy version 4.7.0**:
-
-To connect to the US-West Data Center, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the US-West Data Center:
-
-```java
-$ sc -r us-west -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
-```
-<br/>
-
-**For Sauce Connect Proxy versions below 4.7.0**:
-
-Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-West Data Center endpoint:
-
-```java
-$ sc -x https://api.us-west-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
-```
-
-</TabItem>
-<TabItem value="US-East">
-
-**For Sauce Connect Proxy version 4.7.0**:
-
-To connect to the US-East Data Center, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the US-East Data Center:
-
-```java
-$ sc -r us-east -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
-```
-<br/>
-
-**For Sauce Connect Proxy versions below 4.7.0**:
-
-Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-East Data Center endpoint:
-
-```java
-$ sc -x https://us-east-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
-```
-
-</TabItem>
-<TabItem value="EU-Central">
-
-**For Sauce Connect Proxy version 4.7.0**:
-
-To connect to the EU-Central Data Center, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the EU-Central Data Center:
-
-```java
-$ sc -r eu-central -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
-```
-<br/>
-
-**For Sauce Connect Proxy versions below 4.7.0**:
-
-Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the EU-Central Data Center endpoint:
-
-```java
-$ sc -x https://eu-central-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
-```
-
-</TabItem>
-<TabItem value="APAC-Southeast">
-
-**For Sauce Connect Proxy version 4.7.0**:
-
-To connect to the [APAC-Southeast-1 Data Center](/basics/data-center-endpoints/aust-early-access), add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the APAC-Southeast Data Center:
-
-```java
-$ sc -r apac-southeast -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
-```
-<br/>
-
-**For Sauce Connect Proxy versions below 4.7.0**:
-
-Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the APAC-Southeast Data Center endpoint:
-
-```java
-$ sc -x https://api.apac-southeast-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
-```
-
-</TabItem>
-
-</Tabs>
-<br/>
 
 
 ## Formatting Domains in the Command Line
