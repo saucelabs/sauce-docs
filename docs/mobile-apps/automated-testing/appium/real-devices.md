@@ -85,10 +85,6 @@ _Static Allocation_ allows you to specify a known device by its unique ID. This 
 caps.setCapability("deviceName", "HTC_One_M8_real");
 ```
 
-:::note
-When you specify a device by it's ID, the `platformName` and `platformVersion` capabilities are populated automatically, so may be omitted in your test configuration. If included, they are ignored.
-:::
-
 You can obtain a list of available devices, including their IDs, using the [Get Devices](https://docs.saucelabs.com/dev/api/rdc/#get-devices) API request.
 
 Alternatively, you can find a device's ID in the Sauce Labs application:
