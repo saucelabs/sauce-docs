@@ -587,6 +587,7 @@ a.hero__button {
   margin-right: 16px;
   border: solid 1px #C1C3C7;
 }
+
 .callout h2 {
   color:  #1e2127;
 }
@@ -594,6 +595,33 @@ a.hero__button {
 .callout h4{
   padding-bottom: 0px;
   margin-bottom: 0px;
+}
+
+.quickstart__container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.quickstart__container:first-of-type {
+  width: 100%;
+  padding: 24px;
+  margin-bottom: 35px;
+  box-shadow: 0 45px 50px -50px #C1C3C7;
+}
+
+.quickstart__container .quickstart {
+  width: 33%;
+  text-align: center;
+  font-weight: 100;
+  padding: 16px;
+  margin-right: 16px;
+}
+
+.quickstart img {
+  width: 120px;
+  max-height: 120px;
 }
 
 .main__container-bg {
