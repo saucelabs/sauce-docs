@@ -24,7 +24,7 @@ See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/
     </div>
     <div className="box box2 card">
       <div className="container">
-      <h3><a href="/secure-connections/sauce-connect/setup-configuration">Setup and Configuration</a></h3>
+      <h3><a href="/secure-connections/sauce-connect/#setup-and-configuration">Setup and Configuration</a></h3>
       <p>Find the right Sauce Connect Proxy tunnel configuration for you and your organization. Once you’re connected, use our code samples to run your first test.</p>
       </div>
     </div>
