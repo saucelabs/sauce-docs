@@ -15,6 +15,13 @@ Prior getting started, you'll need to validate that your local machine meets our
 
 From there, install the Sauce Connect Proxy client on your local network. Should you encounter issues when starting or using the client, we recommend consulting your network administrator. They may need to update firewall rules or help configure Sauce Connect Proxy to use a network proxy.
 
+We offer several different setup types, from the [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) to the [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
+
+As you’re configuring the setup type that’s right for you, it's important to understand how the program will interact with your network architecture components, such as proxies, firewalls, and geographically distributed data centers.
+
+Sauce Connect Proxy must be physically installed on the same _network_ as the app or website you're testing, but does not need to be on the same local machine. For this reason, when setting up Sauce Connect Proxy, be mindful of how it will interact with your network architecture.
+
+
 ## Why We Recommend Sauce Connect Proxy over Allowlisting IP Addresses
 
 Testing your internal systems with Sauce Labs requires that our service is able to establish a secure connection.

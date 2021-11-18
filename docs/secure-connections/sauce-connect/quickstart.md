@@ -49,7 +49,7 @@ Get up and running with a Sauce Connect Proxy tunnel in just a few minutes by fo
 3. Log in to Sauce Labs.
 4. Go to the [**TUNNELS**](https://app.saucelabs.com/tunnels) page.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsPage.png')} alt="Sauce Connect Proxy Tunnels page" width="250"/>
 5. Skip to **STEP 3: Configure & Authenticate** and copy the code snippet.<br/><img src={useBaseUrl('img/sauce-connect/configureAuth.png')} alt="Sauce Connect Proxy Tunnels page code snippet" width="500"/>
-6. Paste the entire snippet into your local terminal. Optionally, you can re-name your tunnel using the `--tunnel-name` flag.
+6. Paste the entire snippet into your local terminal. Although not required, we strongly recommend naming your tunnel using the `--tunnel-name` flag.
   ```bash
   ./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} --region us-west --tunnel-name {TUNNEL_NAME}
   ```
