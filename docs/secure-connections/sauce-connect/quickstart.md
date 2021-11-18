@@ -12,7 +12,7 @@ Get up and running with a Sauce Connect Proxy tunnel in just a few minutes by fo
 
 ## Starting a Tunnel
 
-1. If you haven't yet, download the Sauce Connect Proxy client from [Sauce Connect Proxy Installation](/secure-connections/sauce-connect/installation).
+1. If you haven't yet, [download the latest version of the Sauce Connect Proxy client](/secure-connections/sauce-connect/installation).
 2. Open your local terminal.
 
   <Tabs
