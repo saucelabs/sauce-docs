@@ -36,7 +36,7 @@ function Home() {
       </header>
       <main>
         <div className="main__container">
-          <div className="main__container-inner">
+          <div>
             <QuickStart />
           </div>
           <div className="main__container-inner">
