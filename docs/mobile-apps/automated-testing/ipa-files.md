@@ -90,7 +90,9 @@ This will also overwrite the **Build Settings** at the Project level to that iOS
 5. Navigate to your Xcode project's **Products** directory and find the generated **.app** file.
 6. Compress the **.app** file into an archive (**.zip** file). The **.zip** file is now ready to upload to Sauce Labs.
 
-## Sauce Resigning Enablements
+## Sauce Labs Resigning Enablements
+
+### Public Devices
 
 Sauce Labs applies its own resigning to apps that are installed on our public iOS devices. Our resigner includes the following `keychain-access-groups` entitlements:
 
@@ -107,7 +109,9 @@ Sauce Labs applies its own resigning to apps that are installed on our public iO
 |`com.apple.developer.siri` | `<true/>` |
 |`com.apple.developer.pass-type-identifiers` | `<array>`<br/>&nbsp;&nbsp;   `<string>XXXXXXXXXX.*</string>`<br/>`</array>` |
 
-On Sauce Labs private devices, you may choose to resign using your own provisioning profile, in which case, we support all entitlements in:
+### Private Devices
+
+If your organization requires specific entitlements, Sauce Labs gives you the option to [disable resigning](/dev/test-configuration-options/#resigningenabled) for devices in your private pool. When resigning is disabled, you may sign your app using your own provisioning profile, which can include any entitlements in:
 
 *  `com.apple.developer.associated-domains`
 *  `com.apple.security.application-groups`

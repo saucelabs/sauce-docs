@@ -557,37 +557,37 @@ Use this capability to enable animations for real devices by setting it to `true
 ### `resigningEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Appium override setting that enables the resigning (iOS) or instrumentation (Android) of apps on the Sauce Labs side, allowing the usage of the other capabilities listed in this section. See [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-resigning-enablements) for more information.
+A `sauce:options` setting that controls Sauce Labs default resigning (iOS) or instrumentation (Android) of mobile apps installed on our devices. By default, this property is always `true`, but it can be set to `false` for private devices to allow testing of specific behaviors that are not permitted under the Sauce Labs provisioning. See [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-resigning-enablements) for more information.
 
 ---
 ### `sauceLabsImageInjectionEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Appium override setting that enables the [camera image injection](/mobile-apps/features/camera-image-injection) feature.
+A `sauce:options` setting that enables the [camera image injection](/mobile-apps/features/camera-image-injection) feature.
 
 ---
 ### `sauceLabsBypassScreenshotRestriction`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Android Only</span> |</small></p>
 
-Appium override setting that bypasses the restriction on taking screenshots for secure screens (i.e., secure text entry).
+A `sauce:options` setting that bypasses the restriction on taking screenshots for secure screens (i.e., secure text entry).
 
 ---
 ### `allowTouchIdEnroll`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Appium override setting that enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).Z
+A `sauce:options` setting that enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).Z
 
 ---
 ### `groupFolderRedirectEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
 
-Appium override setting that enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.
+A `sauce:options` setting that enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.
 
 ---
 ### `systemAlertsDelayEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
 
-Appium override setting that delays system alerts, such as alerts asking for permission to access the camera, to prevent app crashes at startup.
+A `sauce:options` setting that delays system alerts, such as alerts asking for permission to access the camera, to prevent app crashes at startup.
 
 <br/>
 
