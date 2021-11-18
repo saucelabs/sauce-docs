@@ -97,4 +97,4 @@ With your tunnel up and running, try running a Live Cross-Browser Test on a loca
 
 * [Sauce School | Sauce Connect Proxy Course](https://training.saucelabs.com/sauceconnect/)
 * [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy/)
-* [Sauce Connect Proxy Configurations](/secure-connections/sauce-connect/setup-configuration/)
+* [Sauce Connect Proxy Configurations](/secure-connections/sauce-connect/setup-configuration/basic-setup/)

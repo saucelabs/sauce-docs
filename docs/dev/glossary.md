@@ -417,7 +417,7 @@ A Sauce Labs feature that allows organization admins to block their internal use
 
 ### Sauce Connect Host
 
-The machine in your network on which the Sauce Connect Proxy application is running, with a direct connection to the internet. More information: [Sauce Connect Proxy Setup and Configuration](/secure-connections/sauce-connect/setup-configuration).
+The machine in your network on which the Sauce Connect Proxy application is running, with a direct connection to the internet. More information: [Sauce Connect Proxy Setup and Configuration](/secure-connections/sauce-connect/#setup-and-configuration).
 
 
 ### Sauce Connect Proxy
