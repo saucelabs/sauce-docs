@@ -12,7 +12,7 @@ Below is a list of flags to use on your Sauce Connect Proxy command line to spec
 
 
 ## What You'll Need
-* Make sure you're using the latest [Sauce Connect Proxy version](secure-connections/sauce-connect/installation/). Otherwise, some flags may not work.
+* Make sure you're using the latest [Sauce Connect Proxy version](/secure-connections/sauce-connect/installation/). Otherwise, some flags may not work.
 * See [Sauce Connect Quickstart](/secure-connections/sauce-connect/quickstart/) and [Basic Setup for Sauce Connect Proxy](/secure-connections/sauce-connect/setup-configuration/basic-setup) for setup instructions and use cases.
 
 :::tip
