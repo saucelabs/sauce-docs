@@ -9,23 +9,23 @@ class Community extends Component {
           <div className="callout">
             <h2>Selenium</h2>
             <p>Learn how to use Selenium like a pro.</p>
-            <h4><a href="https://training.saucelabs.com/">&gt;&gt;Take a course</a></h4>
-            <h4><a href="https://github.com/saucelabs-training">&gt;&gt;Go to sample code</a></h4>
+            <h4><a href="https://training.saucelabs.com/" target="_blank" rel="noopener noreferrer">&gt;&gt;Take a course</a></h4>
+            <h4><a href="https://github.com/saucelabs-training" target="_blank" rel="noopener noreferrer">&gt;&gt;Go to sample code</a></h4>
           </div>
           <div className="callout">
             <h2>Stack Overflow</h2>
             <p>Tag saucelabs to get your questions answered by our experts.</p>
-            <h4><a href="https://stackoverflow.com/questions/tagged/saucelabs">&gt;&gt;Join the conversation</a></h4>
+            <h4><a href="https://stackoverflow.com/questions/tagged/saucelabs" target="_blank" rel="noopener noreferrer">&gt;&gt;Join the conversation</a></h4>
           </div>
           <div className="callout">
             <h2>Engineering Blog</h2>
             <p>Get expert advice from our engineering and open source teams.</p>
-            <h4><a href="https://opensource.saucelabs.com/blog/">&gt;&gt;Read the tips</a></h4>
+            <h4><a href="https://opensource.saucelabs.com/blog/" target="_blank" rel="noopener noreferrer">&gt;&gt;Read the tips</a></h4>
           </div>
           <div className="callout">
             <h2>Sample Scripts</h2>
             <p>Get up and running quickly using Sauce Labs training code samples.</p>
-            <h4><a href="https://github.com/saucelabs-training">&gt;&gt;Go to GitHub</a></h4>
+            <h4><a href="https://github.com/saucelabs-training" target="_blank" rel="noopener noreferrer">&gt;&gt;Go to GitHub</a></h4>
           </div>
         </div>
       </div>

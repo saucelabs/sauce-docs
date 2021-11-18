@@ -14,7 +14,7 @@ class Resources extends Component {
           <div className="callout">
             <h2>Sauce School</h2>
             <p>Tutorials and best practices for beginners and experienced testers.</p>
-            <h4><a href="https://training.saucelabs.com/">&gt;&gt;Visit Sauce School</a></h4>
+            <h4><a href="https://training.saucelabs.com/" target="_blank" rel="noopener noreferrer">&gt;&gt;Visit Sauce School</a></h4>
           </div>
           <div className="callout">
             <h2>Reference Docs</h2>
@@ -25,7 +25,7 @@ class Resources extends Component {
           <div className="callout">
             <h2>Support</h2>
             <p>Get answers to your  questions from our knowledge base.</p>
-            <h4><a href="https://support.saucelabs.com/">&gt;&gt;Visit support</a></h4>
+            <h4><a href="https://support.saucelabs.com/" target="_blank" rel="noopener noreferrer">&gt;&gt;Visit support</a></h4>
           </div>
         </div>
       </div>
