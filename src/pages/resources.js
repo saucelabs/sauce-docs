@@ -7,25 +7,25 @@ class Resources extends Component {
         <h2 className="title">Resources</h2>
         <div className="callouts__container">
           <div className="callout">
-            <h2>Selenium</h2>
-            <p>Learn how to use Selenium like a pro.</p>
-            <h4><a href="">&gt;&gt;Take a course</a></h4>
-            <h4><a href="">&gt;&gt;Go to sample code</a></h4>
+            <h2>Documentation</h2>
+            <p>Everything you need to know about testing with Sauce Labs.</p>
+            <h4><a href="https://docs.saucelabs.com/overview/">&gt;&gt;Go to docs</a></h4>
           </div>
           <div className="callout">
-            <h2>Stack Overflow</h2>
-            <p>Tag saucelabs to get your questions answered by our experts.</p>
-            <h4><a href="">&gt;&gt;Join the conversation</a></h4>
+            <h2>Sauce School</h2>
+            <p>Tutorials and best practices for beginners and experienced testers.</p>
+            <h4><a href="https://training.saucelabs.com/">&gt;&gt;Visit Sauce School</a></h4>
           </div>
           <div className="callout">
-            <h2>Engineering Blog</h2>
-            <p>Get expert advice from our engineering and open source teams.</p>
-            <h4><a href="">&gt;&gt;Read the tips</a></h4>
+            <h2>Reference Docs</h2>
+            <p>Use the Sauce platform to best suit your needs. </p>
+            <h4><a href="https://docs.saucelabs.com/dev/api/">&gt;&gt;API reference</a></h4>
+            <h4><a href="https://docs.saucelabs.com/dev/api/">&gt;&gt;CLI reference</a></h4>
           </div>
           <div className="callout">
-            <h2>Sample Scripts</h2>
-            <p>Get up and running quickly using Sauce Labs training code samples.</p>
-            <h4><a href="">&gt;&gt;Go to GitHub</a></h4>
+            <h2>Support</h2>
+            <p>Get answers to your  questions from our knowledge base.</p>
+            <h4><a href="https://support.saucelabs.com/">&gt;&gt;Visit support</a></h4>
           </div>
         </div>
       </div>
