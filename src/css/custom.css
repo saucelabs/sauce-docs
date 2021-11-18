@@ -171,7 +171,7 @@ h3, .h3 {
 h4, .h4 {
     padding-bottom: 5px;
     font-size: 18px;
-    margin-bottom: 20px !important;
+    margin-bottom: 20px;
     font-weight: 750;
 }
 /* h4, .h4 {
@@ -590,6 +590,12 @@ a.hero__button {
 .callout h2 {
   color:  #1e2127;
 }
+
+.callout h4{
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
 .main__container-bg {
   background-image: url(/img/dev-resources-bg.png);
   background-repeat: no-repeat;
