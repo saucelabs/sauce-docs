@@ -15,9 +15,9 @@ It is also a key step for any Sauce Connect Proxy deployment as a way to verify 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-* Have Sauce Connect Proxy [installed on your local machine](/secure-connections/sauce-connect/installation).
+* Have Sauce Connect Proxy [installed on your local machine](/secure-connections/sauce-connect/installation). Make sure it's the latest version - otherwise, you may run into technical issues.
   * Review [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements) to confirm that your system and network architecture will be compatible with Sauce Connect Proxy.
-* The endpoint for your regional Sauce Labs Data Center. You can find it at [Data Center Endpoints](/basics/data-center-endpoints). Make sure it's labeled with Sauce Connect Proxy.
+* Know your regional [Sauce Labs Data Center](/dev/cli/sauce-connect-proxy/#--region).
 * Understand what kinds of tests you're running:
   * If you're using virtual machines or devices, see the instructions below.
   * If you're testing real devices, see [Setting Up for Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/specialized-environments).

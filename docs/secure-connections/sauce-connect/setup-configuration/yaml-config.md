@@ -9,22 +9,21 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
+The standard way to launch a Sauce Connect Proxy tunnel is executing a command line comprised of all required and optional flags, as described in the [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/).
+
+Another way is to write YAML specification file comprised of all flags, then point to that file path from your command line using the `--config-file` flag. To customize Sauce Connect Proxy tunnels, you'd just modify the properties in the YAML file.
+
+
 ## What You'll Need
-* Have Sauce Connect Proxy installed on your local machine.
+
+See [Sauce Connect Proxy Basic Setup > What You'll Need](/secure-connections/sauce-connect/setup-configuration/basic-setup/#what-youll-need).
 
 
-## Command Line
+## Writing a YAML Configuration File
 
-As described in the [Quickstart](/secure-connections/sauce-connect/quickstart/), the standard way to launch a Sauce Connect Proxy tunnel is by writing and executing one command line consisting all required and optional flags.
-
-
-## Command Line Plus YAML Configuration File
-
-Another way is to write YAML specification file consisting of all optional flags, then point to the file path from your command line using the `--config-file` flag. To customize Sauce Connect Proxy tunnels, modify the properties of the YAML file accordingly.
-
-1. Go to your Sauce Connect Proxy folder and open the config.yml template.<br/><img src={useBaseUrl('img/sauce-connect/scp-yaml.png')} alt="Sauce Connect download file contents" width="500" />
+1. Go to your Sauce Connect Proxy folder and open the config.yml template.<br/><img src={useBaseUrl('img/sauce-connect/scp-yaml.png')} alt="Sauce Connect download file contents" width="400" />
 2. Enter values for the properties you'd like to use. To view the definitions for the properties supported for launching Sauce Connect Proxy tunnels, look up the corresponding CLI flag.
-3. Save the config.yml to a location of your choice.
+3. Save the `config.yml` to a location of your choice. For this example, we'll save it at ~/sc-4.7.1-osx/config_examples.
 4. From your command line, navigate to the Sauce Connect Proxy client bin folder on your local machine.
 
 <Tabs
@@ -36,7 +35,6 @@ Another way is to write YAML specification file consisting of all optional flags
     ]}>
 
 <TabItem value="Mac">
-
 
 ```bash
 cd sc-4.7.1-osx/bin
