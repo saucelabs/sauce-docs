@@ -37,11 +37,12 @@ To utilize most `apifctl` functionalities, you'll need to add a webhook to your 
 
 You can then reuse this Webhook for future tests within that Project by returning to the **Webhooks** section and copying it. Webhooks are Project-specific.
 
+
 ## `apifctl` Commands
 
 ### `run`
 
-Runs a single test, using `hookId` and `testId`. The `testId` is typically located in the URL when viewing the test through the API Testing UI (e.g., `/api-testing/project/<projectId>/test/<testId>/`).
+Runs a single test, using `hookId` and `testId`. The `testId` is located in the URL when viewing the test through the API Testing UI (e.g., `/api-testing/project/<projectId>/test/<testId>/`).
 
 ```bash
 docker run quay.io/saucelabs/apifctl run
@@ -57,7 +58,7 @@ Available Options:
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run \
--H https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId> \
+-H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId} \
 -i 123a1a123456a12345aa1aaa
 ```
 
@@ -79,7 +80,7 @@ Available Options:
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run-all -H \
-https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId>
+https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId}
 ```
 
 ---
@@ -101,7 +102,7 @@ Available Options:
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run-tag \
--H https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId> \
+-H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId} \
 -tag production
 ```
 
@@ -126,8 +127,8 @@ Available Options:
 
 
 ```bash title="Full Example"
-docker run -v $(pwd)/tests:/tests quay.io/saucelabs/apifctl exec \
--H https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId> \
+docker run quay.io/saucelabs/apifctl exec \
+-H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId} \
 -p /tests/test_abc \
 -n local_test \
 -t product,production
@@ -150,8 +151,8 @@ Available Options:
 * [<code>-d &#60;test description&#62;</code>](#-d-test-description) <small>| OPTIONAL | STRING |</small>
 
 ```bash title="Full Example"
-docker run -v $(pwd)/tests:/tests quay.io/saucelabs/apifctl upload \
--H https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId> \
+docker run quay.io/saucelabs/apifctl upload \
+-H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId} \
 -p /tests/test_abc \
 -n local_test \
 -t product
@@ -171,8 +172,8 @@ Available Options:
 * [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
 
 ```bash title="Full Example"
-docker run -v $(pwd)/tests:/tests quay.io/saucelabs/apifctl vault-get \
--H https://<username>:<accessKey>@api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId> \
+docker run quay.io/saucelabs/apifctl vault-get \
+-H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId} \
 ```
 
 ---
@@ -276,7 +277,7 @@ docker run quay.io/saucelabs/apifctl metrics \
 Specifies the webhook URL. This option is required for all commands.
 
 ```bash
--H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_REST_API_URL}/<hookID>
+-H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_REST_API_URL}/{hookId}
 ```
 
 ---
