@@ -80,8 +80,10 @@ When you declare an overridden variable (using the API, [apifctl command line ut
 
 Environments are collections of overrides. You can save an environment as a preset with a name and reuse it when running a test.
 
-### `SET` Commands
-The last item of the chain, the `SET` commands within a test will introduce a runtime variable. If a variable with that name has already been declared, it will be overwritten by this.
+### `Set` Variable Component
+The last item of the chain, the `Set` commands within a test, will introduce a runtime variable. If a variable with that name has already been declared, it will be overwritten by this.
+
+From a test, go to **Compose** > click **Add Component** (**+** icon) > click the **Set (variable)** component > enter your **Var**, **Variable Mode** (data, string, or langauge) and **Value** > click the checkmark icon to add to your test.
 
 
 ### Double Evaluation Capability
