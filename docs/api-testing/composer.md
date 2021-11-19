@@ -61,11 +61,10 @@ Executes a test.<br/>
 <img src={useBaseUrl('img/api-fortress/2021/01/runTest.png')} alt="Run Test"/>
 
 ## Input Sets
-Displays the Input Set view where you can store input data sets to reuse across all your tests.<br/>
-<img src={useBaseUrl('img/api-fortress/2021/01/inputSets.png')} alt="Input Sets" width="500"/>
+Displays the Input Set view where you can store input data sets to reuse within the specific test you're working on.<br/><img src={useBaseUrl('img/api-fortress/2021/01/inputSets.png')} alt="Input Sets" width="500"/>
 
 There are two types of input data sets you can use:
-* __Global Parameters__: variables that are available within a test, valid for that specific test _only_. Reference these variables by calling it within the test using the convention `“${VARIABLE}”`.
+* __Global Parameters__: variables that are available within a test, valid for that specific test _only_.
 * __Input Set__: group of input variables representing a scenario, valid for that specific test _only_. The test will be executed once for each input set, overriding the variable values into your test.
 
 <table>
