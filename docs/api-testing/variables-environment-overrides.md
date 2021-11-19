@@ -22,6 +22,8 @@ Most of the parametrization you will likely do relates to the HTTP request itsel
 
 ## Formatting Variables
 
+### From the Vault
+
 Go into your [Company Vault or Project-specific Vault](/api-testing/vault).
 
 Consider this variable:<br/><img src={useBaseUrl('img/api-fortress/2017/09/harcoded.png')} alt="Hardcoded Variables"/>
@@ -41,7 +43,7 @@ You can also set URL endpoints as variables, for example:
 In this way, you can eliminate duplicate tasks by editing the **Vault** variable to instantly update all tests based on domains and url changes.
 
 
-### In Request Bodies
+### From a Request Body
 
 Variables are not only bound to URLs. Request bodies can also be handled like "templates" when needed, incorporating variables as in:
 
@@ -60,23 +62,25 @@ Yes, we're using variables as expected values.
 
 Explore our variable containers from the lowest to the highest priority:
 
+### Company Vault
+The [**Company Vault**](/api-testing/vault/#company-vault) is where you can store variables and snippets to use across globally (i.e., across all of your Projects).
+
 ### Project Vault
-Each Project has a **Vault** where you can save Project-specific variables and snippets. It is global to the Project (i.e., across all tests) and its variables are injected during test execution.
+The [Project **Vault**](/api-testing/vault/#project-vault) is where you can save variables and snippets that will be specific to that Project (i.e., across all tests). Its variables are injected during test execution.
 
 ### Globals/Input Set
-These are _test__-specific and contain the variables needed by the test to perform its duties.
+These are _test_-specific and contain the variables needed by the test to perform its duties.
 
 Since Globals/Input Set variables can be overridden to hit different Environments, we recommend considering these variables as containers of the default scenario.
 
 If the same variable exists in both in the **Globals/Input Set** and Project-specific **Vault**, the one used in the **Globals/Input Set** will win over the **Vault**.
 
-### Overriding Variables
+### Overriding Variables, Environments
 When you declare an overridden variable (using the API, [apifctl command line utility](/api-testing/apifctl-cicd-integration/), or the [**Schedule** tool](/api-testing/schedule-a-test/)) its value will be injected into the test when it's executed. If the variable has already been declared in the **Vault** or the **Globals/Input Set**, it will be rewritten with the new value.
 
-### Environments and Presets
-They are collections of overrides. You can save an environment with a name and reuse it when running a test.
+Environments are collections of overrides. You can save an environment as a preset with a name and reuse it when running a test.
 
-### `SET` commands
+### `SET` Commands
 The last item of the chain, the `SET` commands within a test will introduce a runtime variable. If a variable with that name has already been declared, it will be overwritten by this.
 
 
