@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 <p><span className="sauceDBlue">COMING SOON</span></p>
 
-The Sauce Labs Slack app allows you to send test result notifications to selected workspace channels.
+The Sauce Labs Slack app allows you to send test result notifications to selected channels in your Slack workspace.
 
 ## What You'll Need
 
@@ -23,21 +23,30 @@ The Sauce Labs Slack app allows you to send test result notifications to selecte
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * A [Slack](https://slack.com/) workspace
 
-## Install the Slack Plugin
+## Install the Sauce Slack App
+
+<p><span className="sauceDBlue">ORG ADMIN RIGHTS REQUIRED</span></p>
+
+Before the Sauce Slack app can be used by members of the organization, an Org Admin must install it for the rest of the organization. If you are an Org Admin, you can do this by:
+
+1. something
+1. something else
+1. finish
+
+If you are not an Org Admin and the Slack Integration **Install** button is disabled, contact your Org Admin to enable the integration with your workspace.
+
+
+
+## Integration with the Sauce Slack App
 
 In order to capture your Sauce Labs user account information for use in Slack notifications, you must create a link between your Sauce account and your Slack workspace.
 
 1. From your Sauce Labs account, navigate to the [Account Integrations](https://app.staging.saucelabs.net/integrations) page.
 1. Click the Slack **Install** button.
 1. Click **Allow** to give Sauce Labs permission to access your Slack workspace.
-1. Enter your Sauce Labs account details in the **Slack Integration** form:
-    * **Sauce Username**: The Username value with which you log into Sauce Labs.
-    * **Access Key**: The [Access Key](https://app.saucelabs.com/user-settings) associated with your Sauce Labs account.
-    * **Primary Data Center**: The Data Center associated with your Sauce Labs account.
-1. Click **Submit here**.
 
 :::note Multiple Data Centers
-If your Sauce Labs account has access to multiple data centers, you need only install the plugin once and it will be available for all data centers to which the account has access. If you have access to different data centers through different Sauce Labs accounts, you must install and setup the plugin separately for each Sauce Labs account.
+If your Sauce Labs account has access to multiple data centers, you need only install the plugin once and it will be available for all data centers to which the account has access. If your access to different data centers is through different Sauce Labs accounts, you must install and setup the plugin separately for each Sauce Labs account.
 :::
 
 ## Add the Sauce App to Notification Channels
@@ -61,6 +70,10 @@ You must add the Sauce Labs app to any channels to which you would like send not
           - "cypress-tests"
         send: always
     ```
+    Make sure you have [added the app to the channels](#add-the-sauce-app-to-notification-channels) you specify in your configuration. Otherwise, `saucectl` will return an error that the app is not in the channel:
+
+    <img src={useBaseUrl('img/integrations/slack/not-in-channel-error.png')} alt="No App in Channel Error" width="900"/>
+
 1. Specify the relevant values for one or more channels in your Slack workspace to which you want the test results sent.
 1. Specify when and under what circumstances to send notifications to specified Slack channels. Valid values are:
     * `always`: Send notifications for all test results.
