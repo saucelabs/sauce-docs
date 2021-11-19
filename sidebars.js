@@ -492,7 +492,6 @@ module.exports = {
                         label: 'Setup and Configuration',
                         collapsed: true,
                         items: [
-                            'secure-connections/sauce-connect/setup-configuration',
                             'secure-connections/sauce-connect/setup-configuration/basic-setup',
                             'secure-connections/sauce-connect/setup-configuration/environment-variables',
                             'secure-connections/sauce-connect/setup-configuration/additional-proxies',
