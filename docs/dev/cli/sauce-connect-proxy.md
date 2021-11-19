@@ -8,53 +8,93 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Below is a list of flags to use on your Sauce Connect Proxy command line to specify parameters. See [Basic Setup for Sauce Connect Proxy](/secure-connections/sauce-connect/setup-configuration/basic-setup) for detailed setup instructions and use cases.
+Below is a list of flags to use on your Sauce Connect Proxy command line to specify parameters.
+
+
+## What You'll Need
+* Make sure you're using the latest [Sauce Connect Proxy version](/secure-connections/sauce-connect/installation/). Otherwise, some flags may not work.
+* See [Sauce Connect Quickstart](/secure-connections/sauce-connect/quickstart/) and [Basic Setup for Sauce Connect Proxy](/secure-connections/sauce-connect/setup-configuration/basic-setup) for setup instructions and use cases.
 
 :::tip
-View the below options directly in the command line terminal by running the `--help` flag.
+You can view the entire list of CLI options by running the `--help` flag.
 :::
 
+<br/>
 
-## Main
+
+## Required
+
+---
+### `--user`
+<p><small>| REQUIRED | STRING |</small></p>
+
+__Description__: Sets your Sauce Labs username.<br/>
+__Shorthand__: `-u`
+
 
 ---
 ### `--api-key`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| REQUIRED | STRING |</small></p>
 
-__Description__: Sets your Sauce Labs API key.<br/>
+__Description__: Sets your Sauce Labs API key. This will be the same as your [Access Key](https://app.saucelabs.com/user-settings).<br/>
 __Shorthand__: `-k`
 
 
 ---
 ### `--config-file`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| REQUIRED | STRING |</small></p>
 
-__Description__: Sets the local path to a YAML file containing a Sauce Connect Proxy configuration. An example YAML configuration file, `config.yaml`, is included for your reference as part of the Sauce Connect Proxy download package. We recommend using a YAML configuration file in production environments, rather than command-line options, as it facilitates tracking configuration changes, managing tunnel-domains and direct-domains options (which can get very long), and securing Sauce Connect Proxy credentials with tighter access control over the config file.<br/>
+:::caution For YAML Configuration Files ONLY
+This is required _only_ if you're using a YAML configuration file to start your tunnel(s), in addition to the above required flags. We recommend using a YAML config file in production environments, rather than command-line options, as it facilitates tracking configuration changes, managing tunnel-domains and direct-domains options (which can get very long), and securing Sauce Connect Proxy credentials with tighter access control. You can find a template config file, `config.yaml`, as part of the SC Proxy download package.
+:::
+
+__Description__: defines the local path to a YAML file containing a Sauce Connect Proxy configuration. <br/>
 __Shorthand__: `-c`
 
 
----
-### `--tunnel-pool` or `--no-remove-colliding-tunnels`
-<p><small>| OPTIONAL | STRING |</small></p>
 
-:::caution
-Effective with Sauce Connect Proxy version 4.7.0, `--no-remove-colliding-tunnels` has been deprecated and replaced by `--tunnel-pool`.
-:::
-__Description__: The tunnel is a part of the High Availability Sauce Connect Proxy Tunnel Pool. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
-__Shorthand__: n/a
-
+## Strongly Recommended
 
 ---
 ### `--region`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 :::caution
-Effective with Sauce Connect Proxy version 4.7.0, we recommend using `--region` over `--rest-url`.
+We recommend using this flags over its predecessor, `--rest-url`, which will eventually be deprecated. Not compatible with versions below 4.7.0.
 :::
 
-__Description__: Sauce Labs data center region (e.g., EU-Central, US-West). For a full list, see [Data Center Endpoints](#data-center-endpoints). Not compatible with Sauce Connect Proxy versions below 4.7.0.<br/>
+__Description__: Sets your Sauce Labs data center region (e.g., EU-Central, US-West). For a full list, see [Data Center Endpoints](#data-center-endpoints). <br/>
 __Default__: `us-west`<br/>
 __Shorthand__: `-r`
+
+
+---
+### `--tunnel-name`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+__Description__: Assigns an ID to a Sauce Connect Proxy tunnel. Future jobs will use this tunnel only when explicitly specified by the [`tunnelName`](/dev/test-configuration-options/#tunnelname) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options). For information on using this option in the tunnel pool, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
+__Shorthand__: n/a
+
+:::note
+Your ID must be ASCII.
+:::
+
+
+## Tunnel Configuration
+
+---
+### `--tunnel-pool`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+__Description__: Launches a high availability tunnel pool along with the [`--tunnel-name`](#--tunnel-name) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
+__Shorthand__: n/a
+
+---
+### `--shared-tunnel`
+<p><small>| OPTIONAL |</small></p>
+
+__Description__: Allows users other than the tunnel owner to use the tunnel. For more information, see [Sharing Sauce Connect Proxy Tunnels](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels).<br/>
+__Shorthand__: `-s`
 
 
 ---
@@ -62,50 +102,26 @@ __Shorthand__: `-r`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 :::caution
-Effective with Sauce Connect Proxy version 4.7.0, we recommend using `--region` over `--rest-url`.
+Effective with Sauce Connect Proxy version 4.7.0, we recommend using `--region` over `--rest-url`, which will eventually be deprecated.
 :::
 
-__Description__: Sauce Labs regional data center REST API URL (e.g., EU-Central, US-West). For a full list, see [Data Center Endpoints](#data-center-endpoints).<br/>
+__Description__: Sets your Sauce Labs regional data center REST API URL (e.g., EU-Central, US-West). For a full list, see [Data Center Endpoints](#data-center-endpoints).<br/>
 __Default__: `https://saucelabs.com/rest/v1`<br/>
 __Shorthand__: `-x`
 
-
 ---
-### `--shared-tunnel`
-__Description__: Allows users other than the tunnel owner to use the tunnel. For more information, see [Sharing Sauce Connect Proxy Tunnels](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels).<br/>
-__Shorthand__: `-s`
+### `--no-remove-colliding-tunnels`
+<p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-
----
-### `--tunnel-name` or `--tunnel-identifier`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-:::caution
-Effective with version 4.7.0, `--tunnel-identifier` has been deprecated and replaced by `--tunnel-name`.
-:::
-
-__Description__: Assigns an ID to a Sauce Connect Proxy tunnel. While not required, this option is strongly recommended. Future jobs will use this tunnel only when explicitly specified by the [tunnelIdentifier](/dev/test-configuration-options#tunnelidentifier) in your test capabilities.
-
-To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options). For information on using this option in the tunnel pool, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
-
-:::note
-Your ID must be ASCII.
-:::
-
-__Shorthand__: `-i` for `--tunnel-identifier`; n/a for `--tunnel-name`
+__Description__: Effective with Sauce Connect Proxy version 4.7.0, this flag was deprecated and replaced by [`--tunnel-pool`](#--tunnel-pool). Upgrade to the latest version [here](/secure-connections/sauce-connect/installation/).
 
 
 ---
-### `--user`
-<p><small>| OPTIONAL | STRING |</small></p>
+### `--tunnel-identifier`
+<p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-__Description__: Sets your Sauce Labs username.<br/>
-__Shorthand__: `-u`
-
-
-
-## Tunnel Configuration
-
+__Description__: Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-name`](#--tunnel-name). Upgrade to the latest version [here](/secure-connections/sauce-connect/installation/).
+__Shorthand__: `-i` for `--tunnel-identifier`
 
 ---
 ### `--direct-domains`
@@ -127,7 +143,7 @@ __Shorthand__: `-F`
 ### `--tunnel-domains`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__:  Performs the inverse of `--direct-domains`; sends domains that you request through the Sauce Connect Proxy tunnel. Be sure to format your domains as a comma-separated list (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)).<br/>
+__Description__: Performs the inverse of `--direct-domains`; sends domains that you request through the Sauce Connect Proxy tunnel. Be sure to format your domains as a comma-separated list (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)).<br/>
 __Shorthand__: `-t`
 
 
@@ -136,12 +152,11 @@ __Shorthand__: `-t`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 __Description__: Comma-separated list of domains (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)). Requests that include hosts matching one of these domains, will not be SSL re-encrypted. See [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) for more information about scenarios in which you would want to use this command.<br/>
+__Shorthand__: `-B`
 
 :::note
-HTTP Header Injection is disabled for all HTTPS domains passed to --no-ssl-bump-domains argument.
+HTTP Header Injection is disabled for all HTTPS domains passed to `--no-ssl-bump-domains` argument.
 :::
-
-__Shorthand__: `-B`
 
 
 ## External Proxy Configuration
@@ -177,6 +192,14 @@ __Shorthand__: n/a
 
 __Description__: Proxy host and port that Sauce Connect should use to connect to the Sauce Labs REST API.<br/>
 __Shorthand__: `-p`
+
+
+---
+### `--proxy-localhost`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+__Description__: set this to `true` to support proxying upstream requests to localhost. By default, it is `false`. <br/>
+__Shorthand__: n/a
 
 
 ---
@@ -271,15 +294,9 @@ __Shorthand__: n/a
 
 ---
 ### `--capath`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-:::caution
-Effective with Sauce Connect Proxy version 4.7.0, `--capath` has been deprecated.
-:::
-
-__Description__: Directory of CA certs to use for verifying connections to Sauce Labs REST API.<br/>
-__Shorthand__: n/a  
-
+__Description__: Defines a directory of CA certs to use for verifying connections to Sauce Labs REST API. Effective with Sauce Connect Proxy version 4.7.0, `--capath` was deprecated. Upgrade to the latest version [here](/secure-connections/sauce-connect/installation/).<br/>
 
 ---
 ### `--dns`
@@ -315,13 +332,9 @@ __Shorthand__: n/a
 
 ---
 ### `--tunnel-capath`
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-:::caution
-Effective with Sauce Connect Proxy version 4.7.0, `--tunnel-capath` has been deprecated.
-:::
-__Description__: Directory of CA certificates to use for verifying tunnel connections.<br/>
-__Shorthand__: n/a  
+__Description__: Directory of CA certificates to use for verifying tunnel connections. Effective with Sauce Connect Proxy version 4.7.0, `--tunnel-capath` was deprecated. Upgrade to the latest version [here](/secure-connections/sauce-connect/installation/).<br/>
 
 
 
@@ -500,7 +513,7 @@ Here are some guidelines to follow when formatting domains:
 * Prefix domain names with `*.` or simply `.` to match all its subdomains.
   * Example: You could refer to `docs.saucelabs.com` and `my.saucelabs.com` as "`*.saucelabs.com"` or` ".saucelabs.com"`. Enclose the argument in quotes to prevent shell expansion of asterisk.
 * If you don't want any domains to be SSL re-encrypted, you can specify `all` with the argument (i.e., `-B all` or `--no-ssl-bump-domains all`)
-* WebSockets domains are not compatible with SSL bumping, so you'll need to disable SSL Bumping for those.
+* WebSockets domains are not compatible with SSL bumping, so you'll need to [disable SSL Bumping](#--no-ssl-bump-domains) for those.
 
 
 ## Additional Resources

@@ -2,12 +2,12 @@ module.exports = {
     apif: [
         {
             type: 'category',
-            label: 'On-Premise (Legacy)',
+            label: 'API Testing On-Prem (Legacy)',
             collapsed: true,
             items: [
                 {
                     type: 'category',
-                    label: 'Quickstart',
+                    label: 'Quickstart (Legacy)',
                     collapsed: true,
                     items: [
                         'api-testing/on-prem/quick-start',
@@ -32,7 +32,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'APIs and Webhooks',
+                    label: 'APIs and Webhooks (Legacy)',
                     collapsed: true,
                     items: [
                         'api-testing/on-prem/api/v3',
@@ -41,7 +41,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Assertion Components',
+                    label: 'Assertion Components (Legacy)',
                     collapsed: true,
                     items: [
                         'api-testing/on-prem/assertion-components/assert-compares',
@@ -58,7 +58,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Bloodhound',
+                    label: 'Bloodhound (Legacy)',
                     collapsed: true,
                     items: [
                         'api-testing/on-prem/bloodhound',
@@ -87,7 +87,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'CI/CD',
+                    label: 'CI/CD (Legacy)',
                     collapsed: true,
                     items: [
                         'api-testing/on-prem/ci/apif-auto',
@@ -111,7 +111,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'How To Guides',
+                    label: 'How To Guides (Legacy)',
                     collapsed: true,
                     items: [
                         'api-testing/on-prem/how-to/assertions-for-metrics-performance',
@@ -144,7 +144,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'I/O Components',
+                    label: 'I/O Components (Legacy)',
                     collapsed: true,
                     items: [
                         'api-testing/on-prem/io-components',
@@ -155,7 +155,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Integrations',
+                    label: 'Integrations (Legacy)',
                     collapsed: true,
                     items: [
                         'api-testing/on-prem/integrations/add-new-connector',
@@ -184,7 +184,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Learn More',
+                    label: 'Learn More (Legacy)',
                     collapsed: true,
                     items: [
                         'api-testing/on-prem/learn-more/downloader-101',
@@ -199,7 +199,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Logical Components',
+                    label: 'Logical Components (Legacy)',
                     collapsed: true,
                     items: [
                         'api-testing/on-prem/logical-components/each',
@@ -211,7 +211,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Mocking / Service Virtualization',
+                    label: 'Mocking / Service Virtualization (Legacy)',
                     collapsed: true,
                     items: [
                         'api-testing/on-prem/mocking/expressions-in-mocked-apis',
@@ -220,7 +220,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Monitoring',
+                    label: 'Monitoring (Legacy)',
                     collapsed: true,
                     items: [
                         'api-testing/on-prem/how-to/generate-a-status-page',
@@ -229,7 +229,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Postman',
+                    label: 'Postman (Legacy)',
                     collapsed: true,
                     items: [
                         'api-testing/on-prem/postman/build-from-collections',
@@ -237,7 +237,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Product Information',
+                    label: 'Product Information (Legacy)',
                     collapsed: true,
                     items: [
                         'api-testing/on-prem/product-information/api-tests-vs-schema-validation',
@@ -246,7 +246,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Reference',
+                    label: 'Reference (Legacy)',
                     collapsed: true,
                     items: [
                         'api-testing/on-prem/assertion-components/assert-compares',
@@ -278,7 +278,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Security Testing',
+                    label: 'Security Testing (Legacy)',
                     collapsed: true,
                     items: [
                         'api-testing/on-prem/security-testing/example-security-tests',
@@ -286,7 +286,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Self Hosted',
+                    label: 'Self Hosted (Legacy)',
                     collapsed: true,
                     items: [{
                         type: 'category',
@@ -492,7 +492,6 @@ module.exports = {
                         label: 'Setup and Configuration',
                         collapsed: true,
                         items: [
-                            'secure-connections/sauce-connect/setup-configuration',
                             'secure-connections/sauce-connect/setup-configuration/basic-setup',
                             'secure-connections/sauce-connect/setup-configuration/environment-variables',
                             'secure-connections/sauce-connect/setup-configuration/additional-proxies',
@@ -661,12 +660,12 @@ module.exports = {
             'api-testing/dashboard',
               {
                   type: 'category',
-                  label: 'Environments, Vaults, and Variables',
+                  label: 'Vaults, Variables, Environments',
                   collapsed: true,
                   items: [
-                      'api-testing/environments-vault-overrides',
-                      'api-testing/variables-flexible-environments',
                       'api-testing/vault',
+                      'api-testing/environments',
+                      'api-testing/variables-environment-overrides',
                       ],
                   },
              'api-testing/apifctl-cicd-integration',

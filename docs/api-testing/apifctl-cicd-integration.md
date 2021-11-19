@@ -16,23 +16,23 @@ Execute API tests and interact with Sauce Labs API Testing (either locally or in
 `$ docker run quay.io/saucelabs/apifctl [COMMAND] [OPTIONS]`
 
 ## What You'll Need
-* A [Docker](https://docs.docker.com/get-docker/) account.
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * Your Sauce Labs [Username](https://app.saucelabs.com/user-settings) and [Access Key](https://app.saucelabs.com/user-settings).
+* An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
+
 
 ### Adding Webhooks
 To utilize most `apifctl` functionalities, you'll need to add a webhook to your API Testing Project. To generate a webhook:
-1. Navigate to your Project and select the **WebHooks** tab.<br/>
-   <img src={useBaseUrl('img/api-fortress/2021/04/webHooksSection.png')} alt="webhook screenshot"/>
-2. Select **Create Hook**.<br/>
-   <img src={useBaseUrl('img/api-fortress/2021/04/createHook.png')} alt="Create New WebHook"/>
-3. Enter a name for your webhook (description is optional), then click **Save**.<br/>
-   <img src={useBaseUrl('img/api-fortress/2021/04/sampleHook.png')} alt="sample webhook details" width="500" />
-4. The generated **Hook URL** will then appear. Your Sauce Labs credentials, the Sauce Labs REST API endpoint, and the `{hookId}` will populate automatically. It will be formatted like this:
+
+1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+1. Navigate to your Project and select the **WebHooks** tab.<br/><img src={useBaseUrl('img/api-fortress/2021/04/webHooksSection.png')} alt="webhook screenshot"/>
+1. Select **Create Hook**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/createHook.png')} alt="Create New WebHook"/>
+1. Enter a name for your webhook (description is optional), then click **Save**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/sampleHook.png')} alt="sample webhook details" width="500" />
+1. The generated **Hook URL** will then appear. Your Sauce Labs username, Sauce API Testing endpoint, and `{hook_id}` will populate automatically. For security reasons, you'll need to add your own access key.
   ```bash
   https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}
   ```
-5. Copy the URL to your clipboard and then you can use it either locally or as part of CI build.<br/>
+1. Copy the URL to your clipboard and then you can use it either locally or as part of CI build.<br/>
    <img src={useBaseUrl('img/api-fortress/2021/04/hookURL.png')} alt="sample Hook URL"/>
 
 You can then reuse this Webhook for future tests within that Project by returning to the **Webhooks** section and copying it. Webhooks are Project-specific.
@@ -120,7 +120,7 @@ Available Options:
 * [<code>-E &#60;environment variable(s)&#62;</code>](#-e-environment-variables) <small>| OPTIONAL | STRING |</small>  
 * [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
-* [<code>-f &#60;data format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>  
+* [<code>-t &#60;tags&#62;</code>](#-t-tags) <small>| OPTIONAL | STRING |</small>  
 * [<code>-n &#60;name of test&#62;</code>](#-n-name-of-test) <small>| OPTIONAL | STRING |</small>  
 * [<code>-tag &#60;tag(s)&#62;</code>](#-tag-tags) <small>| OPTIONAL | STRING |</small>
 
@@ -146,7 +146,7 @@ Available Options:
 * [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
 * [<code>-p &#60;local path to test files&#62;</code>](#-p-local-path-to-file) <small>| REQUIRED | STRING |</small>
 * [<code>-n &#60;name of test&#62;</code>](#-n-name-of-test) <small>| OPTIONAL | STRING |</small>  
-* [<code>-tag &#60;tag(s)&#62;</code>](#-tag-tags) <small>| OPTIONAL | STRING |</small>
+* [<code>-t &#60;tag(s)&#62;</code>](#-t-tags) <small>| OPTIONAL | STRING |</small>
 * [<code>-d &#60;test description&#62;</code>](#-d-test-description) <small>| OPTIONAL | STRING |</small>
 
 ```bash title="Full Example"
@@ -355,7 +355,7 @@ Identifies the end date of the events you want to see. For use with **[`metrics`
 ### `-t <tag(s)>`
 <p><small>| STRING |</small></p>
 
-Adds a set of tags to the resulting event. Format as a comma-separated list of tags you want to assign to the test. For use with **[`exec`](#exec)** and **[`upload`](#upload)** commands.
+"Adds a set of tags to the test. Format as a comma-separated list of tags you want to assign to the test. For use with **[`exec`](#exec)** and **[`upload`](#upload)** commands.
 
 ```bash
 -t product,production
@@ -365,10 +365,11 @@ Adds a set of tags to the resulting event. Format as a comma-separated list of t
 ### `-tag <tag(s)>`
 <p><small>| STRING |</small></p>
 
-Adds a set of tags to the resulting event. Format as a comma-separated list of tags you want to assign to the test. For use with **[`run-tag`](#run-tag)** command only.
+The **[`run-tag`](#run-tag)** command will run all the tests in your Project marked with that tag. Format as a comma-separated list of tags you want to assign to the test. For use with **[`run-tag`](#run-tag)** command only.
 
+In this example, it will run all the tests in Project labeled with the `production` tag.
 ```bash
--tag product,production
+-tag production
 ```
 
 ---
@@ -413,7 +414,7 @@ Identifies the maximum number of metrics and events to be shown in the list. Def
 ### `-o <offset>`
 <p><small>| INTEGER |</small></p>
 
-Specifies the number of events to be skipped from the beginning of the list. Default value is `0`. For use with **[`events`](#events)** and **[`metrics`](#metrics)** commands.
+Specifies the number of events and metrics to be skipped from the beginning of the list. Default value is `0`. For use with **[`events`](#events)** and **[`metrics`](#metrics)** commands.
 
 ---
 ### `-i <event ID>`

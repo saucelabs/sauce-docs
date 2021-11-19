@@ -4,6 +4,8 @@ title: Sauce Trusted Connection
 sidebar_label: Getting Started
 ---
 
+If your company has firewall rules that limit your ability to run tests on Sauce Labs, you can use our Secure Connection features to connect to Sauce Labs in the cloud without exposing your company's IT infrastructure to security risks.
+
 We offer two options to provide an extra layer of security to protect test data in flight between the Sauce Labs cloud and your app or site under test on your network. Both of these solutions, Sauce IPSec Proxy and Sauce Connect Proxy, support secure connectivity using TLS 1.2 or above.
 
 To determine which solution is best for you, see [Overview of Sauce Labs Security Processes](https://saucelabs.com/resources/white-papers/overview-of-sauce-labs-security-processes).
@@ -22,7 +24,7 @@ See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/
     </div>
     <div className="box box2 card">
       <div className="container">
-      <h3><a href="/secure-connections/sauce-connect/setup-configuration">Setup and Configuration</a></h3>
+      <h3><a href="/secure-connections/sauce-connect/#setup-and-configuration">Setup and Configuration</a></h3>
       <p>Find the right Sauce Connect Proxy tunnel configuration for you and your organization. Once you’re connected, use our code samples to run your first test.</p>
       </div>
     </div>

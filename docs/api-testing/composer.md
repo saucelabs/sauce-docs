@@ -2,7 +2,7 @@
 id: composer
 title: Writing API Tests with the Composer
 sidebar_label: Using the Composer
-description: The API Fortress Composer offers unparalleled flexibility and ease-of-use, with everything at your fingertips to build tests in minutes and eliminate many duplicate tasks.
+description: Our API Testing Composer offers enables you to auto-generate and build functional API tests in minutes.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

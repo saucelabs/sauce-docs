@@ -15,7 +15,7 @@ export const Highlight = ({children, color}) => ( <span style={{
     }}>{children}</span> );
 
 
-Using the API Fortress **HTTP Client**, you can generate tests from external endpoints or files such as an OpenAPI Specification.
+Using the API Testing **HTTP Client**, you can generate tests from external endpoints or files such as an OpenAPI Specification (spec) file.
 
 :::info Supported Spec Formats
 * **Currently supported**: <Highlight color="#37b732">Swagger</Highlight> <Highlight  color="#4e5b2e">OpenAPI 3</Highlight> <Highlight color="#ff6c37">Postman Collection</Highlight>
@@ -24,50 +24,24 @@ Using the API Fortress **HTTP Client**, you can generate tests from external end
 
 ## What You'll Need
 
-* * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
-## Creating a Test
-
-There are two ways to build a test from a specification (spec) file:
-
-* Upload the spec file itself.
-* Reference the URL that points to the spec file.
-
-### Upload a File
+## Importing Your Spec File
 
 1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/>
   <img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+2. Go into any Project.
+3. From within a Project, click the __HTTP Client__ tab.<br/><img src={useBaseUrl('img/api-fortress/2021/01/HTTPClient.png')} alt="HTTP Client Button" width="400"/>
+4. Click the **Import OpenAPI / Postman** button.<br/><img src={useBaseUrl('img/api-fortress/2021/01/importSpec.png')} alt="Import OpenAPI / Postman button" width="250" />
+5. Select the file on your local machine you wish to upload.
+6. Select the folder your **Snapshots** tree where you'd like to save your file.<br/><img src={useBaseUrl('img/api-fortress/2021/04/importFolder.png')} alt="Import to Snapshots folder"/>
+7. Click **Save**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/importFolder2.png')} alt="Import file to Project"/>Now you can view all of your endpoints grouped by subdirectory.<br/><img src={useBaseUrl('img/api-fortress/2021/02/versions.png')} alt="Import to Snapshots folder" width="250"/>
+8. Select the sample request, it populates in the HTTP Client with all the necessary details:<br/><img src={useBaseUrl('img/api-fortress/2021/02/sampleRequest.png')} alt="Sample request"/>
+9. Click **Send**. The response body will then appear.<br/><img src={useBaseUrl('img/api-fortress/2021/02/responseBody.png')} alt="Response Body"/>
 
-1. Go into any Project.
 
-1. Click the __HTTP Client__ tab in the toolbar.
-   <img src={useBaseUrl('img/api-fortress/2021/02/httpClient.png')} alt="HTTP Client Button"/>
 
-1. Click the **Import OpenAPI / Postman** button and select the desired file you wish to upload.
+## More Information
 
-1. Follow the prompt that asks where in your **Snapshots** tree you'd like to import your file.
-
-1. Select the desired path in your project tree in which you wish to save the file/collection:
-   <img src={useBaseUrl('img/api-fortress/2021/02/desiredPath.png')} alt="Select Desired Path"/>
-
-   When you're finished select **Save**. Now you can view the test endpoints, as well as their respective components, by using the dropdown icons:
-   <img src={useBaseUrl('img/api-fortress/2021/02/versions.png')} alt="Example versions endpoint"/>
-
-1. Select the sample request, it populates in the HTTP Client with all the necessary details:
-   <img src={useBaseUrl('img/api-fortress/2021/02/sampleRequest.png')} alt="Sample request"/>
-
-1. Select the **Send** button and the response body appears:
-   <img src={useBaseUrl('img/api-fortress/2021/02/responseBody.png')} alt="Response Body"/>
-
-   Select the **Generate Test** button. API Fortress then generates test component data based on the request and response data from the spec file. Below is the same example in both _Visual_ and _Code_ view:
-
-   | Code View                                                                                    | Visual View                                                                                       |
-   |----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-   | <img src={useBaseUrl('img/api-fortress/2021/02/testCode.png')} alt="Sample Test Code View"/> | <img src={useBaseUrl('img/api-fortress/2021/02/testVisual.png')} alt="Sample Test Visual View"/>  |
-
-### Reference the Spec File
-
-:::caution Coming Soon to Sauce Labs
-Currently, you can access this feature on the legacy (on-prem) API Fortress.
-:::
+Coming soon: you'll be able to create a test by referencing the URL that points to your spec file. This feature is still available on the Legacy (On-Prem) API Fortress.
