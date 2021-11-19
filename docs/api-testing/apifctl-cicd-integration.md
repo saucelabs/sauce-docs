@@ -212,7 +212,7 @@ Available Options:
 * [<code>-o &#60;offset&#62;</code>](#-o-offset) <small>| OPTIONAL | INTEGER |</small>
 
 ```bash title=Full Example"
-docker run quay.io/saucelabs/apifctl event \
+docker run quay.io/saucelabs/apifctl events \
 -H https://john.smith:{access_key}@api.us-west-1.saucelabs.com/api-testing/rest/v4/36acf9c1-d5ad-4273-a233-a85470e1f502
 -f 2021-12-31T14:00 \
 -t 2021-12-31T15:00 \
@@ -390,7 +390,7 @@ Adds a set of tags to the test. Format as a comma-separated list of tags you wan
 ### `-tag <tag(s)>`
 <p><small>| STRING |</small></p>
 
-The **[`run-tag`](#run-tag)** command will run all the tests in your Project marked with that tag. For use with the run-tag command only. For use with the **[`run-tag`](#run-tag)** command only. The example below will run all the tests in the Project labeled with the `product` and `production` tags.
+The **[`run-tag`](#run-tag)** command will run all the tests in your Project marked with that tag. For use with the **[`run-tag`](#run-tag)** command only. The example below will run all the tests in the Project labeled with the `product` and `production` tags.
 
 ```bash
 -tag product,production
@@ -410,7 +410,8 @@ Identifies the name of the test you want to assign to. Default is the name of th
 ### `-i <test ID>`
 <p><small>| STRING |</small></p>
 
-Identifies the ID of a complete test. For use with the **[`run`](#run)** command only.
+Identifies the ID of a complete test. For use with the **[`run`](#run)** command only. To find a test ID, go to a test, open **Compose**, then it will appear in your browser URL --> `/api-testing/project/{project_id}/test/{test_id}/compose`.
+
 
 ```bash
 -i 123a1a123456a12345aa1aaa
@@ -420,7 +421,7 @@ Identifies the ID of a complete test. For use with the **[`run`](#run)** command
 ### `-i <event ID>`
 <p><small>| STRING |</small></p>
 
-Identifies the ID of the event you want to see. For use with the **[`event`](#event)** command only.
+Identifies the ID of the event you want to see. For use with the **[`event`](#event)** command only. You can find an event ID from the “events” response payload.
 
 ```bash
 -i 123456789abc1a1abcdef123
