@@ -36,7 +36,6 @@ Before the Sauce Slack app can be used by members of the organization, an Org Ad
 If you are not an Org Admin and the Slack Integration **Install** button is disabled, contact your Org Admin to enable the integration with your workspace.
 
 
-
 ## Integration with the Sauce Slack App
 
 In order to capture your Sauce Labs user account information for use in Slack notifications, you must create a link between your Sauce account and your Slack workspace.
