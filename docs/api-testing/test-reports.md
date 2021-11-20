@@ -1,19 +1,34 @@
 ---
 id: test-reports
-title: API Testing Reports
+title: API Test Outcome Reports
 sidebar_label: Test Reports
-hide_table_of_contents: true
-description: "Primer on API Fortress Test Reports. Includes items like session details, timestamp, downloader, test execution general details: test name, test status, company, project, request component, etc."
+description: "Sauce Labs API Test Reports include items such as session details, timestamp, test status, project, request components."
 ---
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<img src={useBaseUrl('img/api-fortress/2021/02/report.png')} alt="Test Report Primer Image" width="700" />
+Below is a quick primer on the API Testing **Test Outcome Report**. It includes input data details and other useful test information, such as reasons for failure, HTTP request and response status codes.
 
-## Test Report Details
 
-The screenshot above is the **Test Outcome Report** page. Here's a quick primer on API Fortress Test Reports:
+## What You'll Need
+* An existing test that you've already run. For instructions on setting up a test and accessing your results, see [API Testing Quickstart](/api-testing/quickstart).
 
-1. **Session Details** - Metadata about the execution of the test; Timestamp, downloader, type of execution.
-2. **General Details** - Test name, test status, company, project.
-3. A Request Component - Click **See More** to reveal the Request Details pane.
-4. An Assertion - A gray dot indicates a pass, a red dot indicates a fail, and a yellow dot indicates a warning.
+
+## Test Outcome Report Breakdown
+Here's an example of a full report:<br/><img src={useBaseUrl('img/api-fortress/2021/02/fullReport.png')} alt="Test Report Primer Image" width="700" />
+
+
+### Session Details
+Timestamp, execution type, and metadata about the execution of the test (e.g., _Date_, _Mode_, and _Execution Time_).<br/><img src={useBaseUrl('img/api-fortress/2021/02/sessionDetails.png')} alt="Test Report Primer Image" width="300" />
+
+
+### General Details
+Test name, test status (pass or fail), project.<br/><img src={useBaseUrl('img/api-fortress/2021/02/generalDetails.png')} alt="Test Report Primer Image" width="200" />
+
+
+### Request Component
+Shows the specific component that you tested. Click **See Stack Details** to see more in-depth **Request Details** and **Headers**.<br/><img src={useBaseUrl('img/api-fortress/2021/02/requestComponent.png')} alt="Test Report Primer Image" width="650" />
+
+
+### Assertions
+Gray dot indicates a pass, red dot indicates a fail, and yellow dot indicates a warning.<br/><img src={useBaseUrl('img/api-fortress/2021/02/assertions.png')} alt="Test Report Primer Image" width="500" />
