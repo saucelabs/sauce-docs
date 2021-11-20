@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Get up and running with a Sauce Connect Proxy tunnel in just a few minutes by following the instructions below.
 
-## Starting a Tunnel
+## Start Tunnel
 
 1. If you haven't yet, [download the latest version of the Sauce Connect Proxy client](/secure-connections/sauce-connect/installation).
 2. Open your local terminal.
@@ -55,7 +55,7 @@ Get up and running with a Sauce Connect Proxy tunnel in just a few minutes by fo
   ```
 7. Run the snippet. This will authenticate you, connects you to a Sauce Labs Data Center, assign an ID for your tunnel, and start your tunnel.
 
-## Verifying a Tunnel
+## Verify Tunnel
 
 8. To verify that your tunnel is up and running, there are two places you can check:
 
@@ -114,17 +114,51 @@ Get up and running with a Sauce Connect Proxy tunnel in just a few minutes by fo
 #### From the TUNNELS Page
 Look for the **Active Tunnel** confirmation.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsuccess-ui.png')} alt="Sauce Connect Tunnel Success" width="500"/>
 
-## Running a Local Test
+## Run a Local Test
 
-With your tunnel up and running, try running a Live Cross-Browser Test on a local instance of your website. Without Sauce Connect, you'd get an error message if you try to run a local test.
+With your tunnel up and running, try running a Live Cross-Browser or Mobile App Test on a local instance of your website. Sauce Connect is required to run a local test (otherwise, you'll get an error message).
+
+<Tabs
+    defaultValue="Web"
+    values={[
+      {label: 'Web', value: 'Web'},
+      {label: 'Mobile Browser', value: 'Mobile Browser'},
+      {label: 'Mobile App', value: 'Mobile App'},
+    ]}>
+
+<TabItem value="Web">
 
 9. Go back to Sauce Labs and click **LIVE** > **Cross Browser** > **Desktop** tab.
-10. Select desired configurations:
+10. Select desired configuration:
     * In the **URL** field, input the URL for your local website under test (e.g., `http://localhost:3000`).
     * Click the **Sauce Connect Proxy** dropdown and select the name of the tunnel you've launched.
-    * Choose a browser, resolution, and OS from the **BROWSER SELECTION**, **RESOLUTION**, and **OS VERSION** settings.
-    * Click **Run Test** to launch your test.
+    * Choose a **BROWSER SELECTION**, **RESOLUTION**, and **OS VERSION** from those dropdown menus.
+    * Click **Start Test** to launch your test.
 11. Use your mouse cursor and keyboard to interact with your website under test. For more details, see [Live Desktop Test Interface](/web-apps/live-testing/live-cross-browser-testing/#live-desktop-test-interface). When you're done testing, move to the next step to learn how to stop a tunnel.
+
+</TabItem>
+<TabItem value="Mobile Browser">
+
+9. Go back to Sauce Labs and click **LIVE** > **Cross Browser** > **Mobile Virtual** or **Mobile Real** tab.
+10. Select desired configuration:
+    * In the **URL** field, input the URL for your local website under test (e.g., `http://localhost:3000`).
+    * Click the **Sauce Connect Proxy** dropdown and select the name of the tunnel you've launched.
+    * For **Mobile Virtual**, choose a **MANUFACTURER**, **DEVICE**, and **OS VERSION** from those dropdown menus. For **Mobile Real**, click a device from the menu.
+    * Click **Start Test** to launch your test.
+11. Use your mouse cursor and keyboard to interact with your website under test. For more details, see [Testing on a Mobile Browser](/web-apps/live-testing/live-cross-browser-testing/#testing-on-a-mobile-browser). When you're done testing, move to the next step to learn how to stop a tunnel.
+
+</TabItem>
+<TabItem value="Mobile App">
+
+9. If you haven't yet, [upload your mobile app](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app).
+10. Hover your mouse over the app line item and click **Choose Device**, then select desired configuration:
+    * Click the **Sauce Connect Proxy** dropdown and select the name of the tunnel you've launched.
+    * For **Mobile Virtual**, choose a **MANUFACTURER**, **DEVICE**, and **OS VERSION** from those dropdown menus. For **Mobile Real**, click a device from the menu.
+    * Click **Start Test** to launch your test.
+11. Use your mouse cursor and keyboard to interact with your website under test. For more details, see [Live Mobile App Test Interface](/mobile-apps/live-testing/live-mobile-app-testing/#live-test-interface). When you're done testing, move to the next step to learn how to stop a tunnel.
+
+</TabItem>
+</Tabs>
 
 ## Stopping a Tunnel
 
