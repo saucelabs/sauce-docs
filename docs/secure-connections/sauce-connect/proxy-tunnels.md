@@ -367,12 +367,7 @@ If you haven't yet, download the latest version of Sauce Connect Proxy (see [Dow
 
 Once the above steps are in place, the Sauce Connect Proxy tunnel should restart itself daily at the time of your choosing.
 
-<details><summary>For information on manually configuring a shutdown time, refer to the NSSM GitHub page:</summary>
-
-```txt reference
-https://github.com/rticommunity/nssm/blob/master/README.txt#L210-L269
-```
-</details>
+When using NSSM, we recommend changing the shutdown timeout from milliseconds to several minutes. This will prevent NSSM from shutting down the Sauce Connect Proxy client while active jobs are still running through it. For information, refer to the [NSSM README page](https://github.com/rticommunity/nssm/blob/master/README.txt).
 
 ## Security Considerations with Tunnel Config
 
