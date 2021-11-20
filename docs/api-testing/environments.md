@@ -1,6 +1,6 @@
 ---
 id: environments
-title: Using Test Environments
+title: Creating Environments for Tests
 sidebar_label: Environments
 description: "Gain a wide range of options to mix and match your test settings with our latest Environments features."
 ---
