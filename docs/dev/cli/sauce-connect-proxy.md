@@ -334,7 +334,7 @@ __Description__: Defines a directory of CA certs to use for verifying connection
 
 ---
 ### `--log-stats`
-__Description__: Logs statistics about HTTP traffic every <seconds>. Information includes bytes transmitted, requests made, and responses received.<br/>
+__Description__: Logs statistics about HTTP traffic every &#60;seconds&#62;. Information includes bytes transmitted, requests made, and responses received.<br/>
 __Shorthand__: `-z`  
 
 
