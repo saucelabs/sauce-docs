@@ -39,21 +39,18 @@ __Shorthand__: `-u`
 __Description__: Sets your Sauce Labs API key. This will be the same as your [Access Key](https://app.saucelabs.com/user-settings).<br/>
 __Shorthand__: `-k`
 
-__Description__: defines the local path to a YAML file containing a Sauce Connect Proxy configuration. <br/>
-__Shorthand__: `-c`
 
 ---
 ### `--config-file`
 <p><small>| REQUIRED | STRING |</small></p>
 
 :::caution For YAML Configuration Files ONLY
-This is required _only_ if you're using a YAML configuration file to start your tunnel(s), in addition to the above required flags. We recommend using a YAML config file in production environments, rather than command-line options, as it facilitates tracking configuration changes, managing tunnel-domains and direct-domains options (which can get very long), and securing Sauce Connect Proxy credentials with tighter access control. You can find a template config file, `config.yaml`, as part of the SC Proxy download package.
+This is required only if you're using a YAML file to configure your tunnels.
 :::
 
-__Description__: defines the local path to a YAML file containing a Sauce Connect Proxy configuration. <br/>
+__Description__: Defines the local path to a YAML file containing a Sauce Connect Proxy configuration. For instructions, [Configuring Tunnels with a YAML File](/secure-connections/sauce-connect/setup-configuration/yaml-config/).<br/>
 __Shorthand__: `-c`
 
-## Strongly Recommended
 
 ---
 ### `--region`
@@ -84,20 +81,12 @@ __Description__: Assigns a name to a Sauce Connect Proxy tunnel. It can also ass
 Future jobs will use this tunnel only when explicitly specified by the [`tunnelName`](/dev/test-configuration-options/#tunnelname) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
 __Shorthand__: n/a
 
-## Tunnel Configuration
 
 ---
 ### `--tunnel-pool`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 __Description__: Launches a high availability tunnel pool along with the [`--tunnel-name`](#--tunnel-name) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
-__Shorthand__: n/a
-
----
-### `--tunnel-pool`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-__Description__: Launches a high availability tunnel pool, when used in conjunction with the [`--tunnel-name`](#--tunnel-name) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
 __Shorthand__: n/a
 
 
@@ -127,12 +116,9 @@ __Description__: Effective with Sauce Connect Proxy version 4.7.0, this flag was
 __Description__: Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-name`](#--tunnel-name). Upgrade to the latest version [here](/secure-connections/sauce-connect/installation/).
 __Shorthand__: `-i` for `--tunnel-identifier`
 
----
-### `--tunnel-identifier`
-<p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-__Description__: Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-name`](#--tunnel-name). Upgrade to the latest version [here](/secure-connections/sauce-connect/installation/).
-__Shorthand__: `-i` for `--tunnel-identifier`
+
+## Tunnel Configuration
 
 ---
 ### `--direct-domains`
@@ -168,6 +154,7 @@ __Shorthand__: `-F`
 
 __Description__: Sets domain(s) that need to be sent through the Sauce Connect Proxy tunnel. This is the inverse of `--direct-domains`.  When adding multiple domains, [format as a comma-separated list](#formatting-domains-in-the-command-line). Be sure to format your domains as a comma-separated list (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)).<br/>
 __Shorthand__: `-t`
+
 
 
 ## External Proxy Configuration
@@ -323,7 +310,7 @@ __Shorthand__: n/a
 ### `--ocsp`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: OSCP verification mode. Options are: strict, log-only, and disable. The default is log-only.
+__Description__: OCSP verification mode. Options are: strict, log-only, and disable. The default is log-only.
 
 :::note
 `--ocsp strict` may fail if a certificate in the chain does not support OCSP. It's recommended to leave it to the default "log-only" mode.
@@ -426,12 +413,12 @@ __Description__: depending on the Data Center location of the device you're test
 
 <TabItem value="US-West">
 
-**For Sauce Connect Proxy version 4.7.0**:
+**For Sauce Connect Proxy version 4.7.0+**:
 
 To connect to the US-West Data Center, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the US-West Data Center:
 
 ```java
-$ sc -r us-west -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -r us-west 
 ```
 <br/>
 
@@ -440,18 +427,18 @@ $ sc -r us-west -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
 Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-West Data Center endpoint:
 
 ```java
-$ sc -x https://api.us-west-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -x https://api.us-west-1.saucelabs.com/rest/v1
 ```
 
 </TabItem>
 <TabItem value="US-East">
 
-**For Sauce Connect Proxy version 4.7.0**:
+**For Sauce Connect Proxy version 4.7.0+**:
 
 To connect to the US-East Data Center, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the US-East Data Center:
 
 ```java
-$ sc -r us-east -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -r us-east
 ```
 <br/>
 
@@ -460,18 +447,18 @@ $ sc -r us-east -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
 Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-East Data Center endpoint:
 
 ```java
-$ sc -x https://us-east-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -x https://us-east-1.saucelabs.com/rest/v1
 ```
 
 </TabItem>
 <TabItem value="EU-Central">
 
-**For Sauce Connect Proxy version 4.7.0**:
+**For Sauce Connect Proxy version 4.7.0+**:
 
 To connect to the EU-Central Data Center, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the EU-Central Data Center:
 
 ```java
-$ sc -r eu-central -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -r eu-central
 ```
 <br/>
 
@@ -479,19 +466,19 @@ $ sc -r eu-central -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
 
 Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the EU-Central Data Center endpoint:
 
-```java
-$ sc -x https://eu-central-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+```bash
+./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -x https://eu-central-1.saucelabs.com/rest/v1
 ```
 
 </TabItem>
 <TabItem value="APAC-Southeast">
 
-**For Sauce Connect Proxy version 4.7.0**:
+**For Sauce Connect Proxy version 4.7.0+**:
 
 To connect to the [APAC-Southeast-1 Data Center](/basics/data-center-endpoints/aust-early-access), add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the APAC-Southeast Data Center:
 
-```java
-$ sc -r apac-southeast -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+```bash
+./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -r apac-southeast
 ```
 <br/>
 
@@ -500,7 +487,7 @@ $ sc -r apac-southeast -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
 Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the APAC-Southeast Data Center endpoint:
 
 ```java
-$ sc -x https://api.apac-southeast-1.saucelabs.com/rest/v1 -u john.smith -k ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+./sc -x https://api.apac-southeast-1.saucelabs.com/rest/v1 -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY}
 ```
 
 </TabItem>

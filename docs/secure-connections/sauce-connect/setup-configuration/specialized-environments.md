@@ -53,10 +53,9 @@ Sauce Connect Proxy can have multiple tunnels running simultaneously, as describ
 ```
 
 `SAUCE_USERNAME` refers to your Sauce Labs username, where:
-
 * `SAUCE_ACCESS_KEY` refers to your Sauce Labs access key
-* `SAUCE_DC` refers to the [data center](/dev/cli/sauce-connect-proxy/#data-center-endpoints) (us-west, eu-central, etc...)
-* `TUNNEL_ID` refers to the tunnel identifier
+* `SAUCE_DC` refers to the [Sauce Labs data center](/dev/cli/sauce-connect-proxy/#data-center-endpoints) (us-west, eu-central, etc...)
+* `TUNNEL_ID` refers to the tunnel name
 
 So an example, starting a tunnel in US West Data Center, would look like this:
 
@@ -64,27 +63,26 @@ So an example, starting a tunnel in US West Data Center, would look like this:
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-name rdc-on-sauce-tunnel-us
 ```
 
-2. In your device testing script, specify the tunnel name with `tunnelIdentifier` in your capabilities, as shown in this Java example:
+2. In your device testing script, specify the tunnel name with `tunnelName` in your capabilities, as shown in this Java example:
 
-```js
+```java
 final DesiredCapabilities capabilities = new DesiredCapabilities();
     capabilities.setCapability("username", System.getenv("SAUCE_USERNAME"));
     capabilities.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
     capabilities.setCapability("platformName", "Android");
     capabilities.setCapability("platformVersion,"  "81.0");
     capabilities.setCapability("deviceName", "Samsung_Galaxy_Note_5_real"); // Will only run on the specified device
-    capabilities.setCapability("tunnelIdentifier", "rdc-on-sauce-tunnel-us");
+    capabilities.setCapability("tunnelName", "rdc-on-sauce-tunnel-us");
 final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub"), capabilities);
 ```
 
 
 ### Selecting the Right Data Center Endpoint
-By default, Sauce Labs will automatically connect you to the main US-West-1 Data Center. For Sauce Connect-specific endpoints, see [CLI documentation](/dev/cli/sauce-connect-proxy/#data-center-endpoints). For more information about Sauce Labs data centers, see [Data Center Endpoints](/basics/data-center-endpoints).
+By default, Sauce Labs will automatically connect you to the main US-West-1 Data Center. For information on Sauce Connect Proxy endpoints, see the [Sauce Connect Proxy CLI documentation](/dev/cli/sauce-connect-proxy/#data-center-endpoints) and [Data Center Endpoints](/basics/data-center-endpoints).
 
 At present, real device testing is supported in the following data centers:
-
- - US West Data Center (Sauce Connect default CLI option `-r us-west`)
- - EU Central Data Center (Sauce Connect CLI option `-r eu-central`)
+ - US West Data Center (`us-west`)
+ - EU Central Data Center (`eu-central`)
 
 :::note
 Once you establish a Sauce Connect Proxy tunnel for real device testing, you can also use it for virtual devices (and vice versa).
@@ -128,13 +126,12 @@ final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.eu-cent
 Sauce Headless is a lightweight infrastructure that allows developers to run early pipeline component tests and sanity checks at scale. It is a container-based architecture for the Virtual Machines that host our headless browsers.
 
 At present, Sauce Headless testing is supported in the following data centers:
-
- - US East Data Center (Sauce Connect CLI option `-r us-east`)
+ - US East Data Center (`us-east`)
 
 Example of starting Sauce Connect Proxy in conjunction with your Sauce Headless tests:
 
 ```bash
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
      -r us-east \
-     --tunnel-name $TUNNEL_ID
+     --tunnel-name {TUNNEL_NAME}
 ```

@@ -71,7 +71,7 @@ and the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/
   * `source`
   * `tags`
   * `timeZone`
-  * `tunnelIdentifier`
+  * `tunnelName`
   * `username`
   * `videoUploadOnPass`
 

@@ -51,7 +51,7 @@ To stop an individual tunnel via the command line/prompt, you must send some sor
 
 1. Start the Sauce Connect Proxy process.
   ```bash
-  $ sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
+  $ ./sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
   ```
 
 2. Fetch and Save the process IDs for later use.
@@ -120,7 +120,7 @@ By default, the `expvar server` listens on 'localhost:8888', but you can change 
 ### Viewing Performance Metrics
 You can view performance metrics by using an HTTP client or web browser to access 'http://{SauceConnect IP or Localhost:8888}/debug/vars'. Once you've got access, the performance metrics will typically look like this:
 
-```bash
+```java
 "cmdline": ["/Users/<USER_ID>/Downloads/sc-<VERSION>-<PLATFORM>/bin/sc","-u","User","-k","<ACCESS_KEY>"],
 
 "http": {
@@ -437,7 +437,7 @@ If you don't specify a Data Center Sauce Connect Proxy uses the US Data Center f
 :::
 
   ```bash
-  $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-name singleton-eu-tunnel -r eu-central
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-name singleton-eu-tunnel -r eu-central
   ```
 
 Once you've established your automated loop, you should be able to kick off builds as needed, automatically.
@@ -468,10 +468,10 @@ Long-running tunnels go hand in hand with our [High Availability Setup](/secure-
 **Multiple Tunnels** &#8212; High Availability tunnels would look like this if they were run as part of a script or from the command line:
 
 ```sh
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
 ```
 
 ## Code Block Legend
