@@ -262,7 +262,7 @@ The Charles Proxy is useful for monitoring traffic passing between your Sauce VM
 
 7. Start your Sauce Connect Proxy tunnel:
   ```bash
-  $ ./sc --pac file:///Users/JohnSmith/workspace/scstuff/pac.js
+  ./sc --pac file:///Users/JohnSmith/workspace/scstuff/pac.js
   ```
 
 8. Start your test using the proxy, then observe the traffic in Charles Proxy.
