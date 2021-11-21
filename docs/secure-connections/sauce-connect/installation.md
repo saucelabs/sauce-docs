@@ -18,7 +18,11 @@ This topic describes where and how to download Sauce Connect Proxy to your local
 
 ## Download Latest Version
 
-Download the Sauce Connect Proxy client to your local machine by clicking the link below specific to your OS.
+Download the latest Sauce Connect Proxy client version to your local machine by clicking the link below corresponding to your OS. If applicable, delete any previous versions you have.
+
+:::caution
+Using older versions may impact your ability to launch a tunnel or cause other technical issues.
+:::
 
 <ScTable></ScTable>
 
@@ -137,7 +141,7 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    <td>4.7.1
    </td>
    <td>
-    See <a href="#downloading">Downloading</a>
+    See <a href="#download-latest-version">Linux, Mac, Windows</a>
    </td>
    <td rowspan="2" >June 31, 2022
    </td>

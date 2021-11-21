@@ -1,6 +1,6 @@
 ---
 id: environments
-title: Using Test Environments
+title: Creating Environments for Tests
 sidebar_label: Environments
 description: "Gain a wide range of options to mix and match your test settings with our latest Environments features."
 ---
@@ -42,7 +42,7 @@ The same selection can be performed while creating a schedule to create specific
 
 If you begin using environments heavily, you may soon realize that the integration using the APIF API (and any CI/CD plugin) may become a bit “unfriendly,” as lots of data will need to be copied around.
 
-For this reason, we have introduced a special override variable that tells our API Testing to load a specific environment when invoking a test using the API.
+For this reason, we have introduced a special override variable that tells our API to load a specific environment when invoking a test using the API.
 
 The `apif_env` variable, passed as an override, will cause the system to load a specific environment.
 ```bash
