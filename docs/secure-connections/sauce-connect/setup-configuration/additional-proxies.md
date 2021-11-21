@@ -75,8 +75,8 @@ Here are some examples for starting a tunnel using  `-p` and `-w`:
 <TabItem value="maclinux">
 
 ```bash
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
-    -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
+  -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD
 ```
 
 </TabItem>
@@ -84,8 +84,8 @@ $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
 <TabItem value="windows">
 
 ```bash
-> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
-    -p %PROXY_HOST%:%PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD%
+sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
+  -p %PROXY_HOST%:%PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD%
 ```
 
 </TabItem>
@@ -106,8 +106,8 @@ Here are some examples for starting a Sauce Connect Proxy tunnel using `-p` and 
 <TabItem value="maclinux">
 
 ```bash
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
-    -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD -T
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
+  -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD -T
 ```
 
 </TabItem>
@@ -115,8 +115,8 @@ $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
 <TabItem value="windows">
 
 ```bash
-> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
-    -p %PROXY_HOST:PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD% -T
+sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
+  -p %PROXY_HOST:PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD% -T
 ```
 
 </TabItem>
@@ -142,7 +142,7 @@ Here are some examples for starting a Sauce Connect Proxy tunnel using `--pac ur
 <TabItem value="maclinux">
 
 ```bash
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac PAC_FILE_URL
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac PAC_FILE_URL
 ```
 
 </TabItem>
@@ -150,7 +150,7 @@ $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac PAC_FILE_URL
 <TabItem value="windows">
 
 ```bash
-> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --pac PAC_FILE_URL
+sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --pac PAC_FILE_URL
 ```
 
 </TabItem>
