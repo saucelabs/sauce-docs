@@ -39,6 +39,8 @@ __Shorthand__: `-u`
 __Description__: Sets your Sauce Labs API key. This will be the same as your [Access Key](https://app.saucelabs.com/user-settings).<br/>
 __Shorthand__: `-k`
 
+__Description__: defines the local path to a YAML file containing a Sauce Connect Proxy configuration. <br/>
+__Shorthand__: `-c`
 
 ---
 ### `--config-file`
@@ -51,6 +53,7 @@ This is required _only_ if you're using a YAML configuration file to start your 
 __Description__: defines the local path to a YAML file containing a Sauce Connect Proxy configuration. <br/>
 __Shorthand__: `-c`
 
+## Strongly Recommended
 
 ---
 ### `--region`
@@ -81,6 +84,14 @@ __Description__: Assigns a name to a Sauce Connect Proxy tunnel. It can also ass
 Future jobs will use this tunnel only when explicitly specified by the [`tunnelName`](/dev/test-configuration-options/#tunnelname) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
 __Shorthand__: n/a
 
+## Tunnel Configuration
+
+---
+### `--tunnel-pool`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+__Description__: Launches a high availability tunnel pool along with the [`--tunnel-name`](#--tunnel-name) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
+__Shorthand__: n/a
 
 ---
 ### `--tunnel-pool`
@@ -116,8 +127,12 @@ __Description__: Effective with Sauce Connect Proxy version 4.7.0, this flag was
 __Description__: Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-name`](#--tunnel-name). Upgrade to the latest version [here](/secure-connections/sauce-connect/installation/).
 __Shorthand__: `-i` for `--tunnel-identifier`
 
+---
+### `--tunnel-identifier`
+<p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-## Tunnel Configuration
+__Description__: Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-name`](#--tunnel-name). Upgrade to the latest version [here](/secure-connections/sauce-connect/installation/).
+__Shorthand__: `-i` for `--tunnel-identifier`
 
 ---
 ### `--direct-domains`

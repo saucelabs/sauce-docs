@@ -493,6 +493,7 @@ module.exports = {
                         collapsed: true,
                         items: [
                             'secure-connections/sauce-connect/setup-configuration/basic-setup',
+                            'secure-connections/sauce-connect/setup-configuration/yaml-config',
                             'secure-connections/sauce-connect/setup-configuration/environment-variables',
                             'secure-connections/sauce-connect/setup-configuration/additional-proxies',
                             'secure-connections/sauce-connect/setup-configuration/high-availability',
