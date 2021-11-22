@@ -214,7 +214,7 @@ Available Options:
 
 ```bash title=Full Example"
 docker run quay.io/saucelabs/apifctl events \
--H https://john.smith:{access_key}@api.us-west-1.saucelabs.com/api-testing/rest/v4/36acf9c1-d5ad-4273-a233-a85470e1f502
+-H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/36acf9c1-d5ad-4273-a233-a85470e1f502
 -f 2021-12-31T14:00 \
 -t 2021-12-31T15:00 \
 -l 50 \
@@ -236,7 +236,7 @@ Available Options:
 
 ```bash title=Full Example"
 docker run quay.io/saucelabs/apifctl event \
--H https://john.smith:{access_key}@api.us-west-1.saucelabs.com/api-testing/rest/v4/36acf9c1-d5ad-4273-a233-a85470e1f502
+-H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/36acf9c1-d5ad-4273-a233-a85470e1f502
 -i 123456789abc1a1abcdef123 \
 ```
 
@@ -258,7 +258,7 @@ Available Options:
 
 ```bash title=Full Example"
 docker run quay.io/saucelabs/apifctl metrics \
--H https://john.smith:{access_key}@api.us-west-1.saucelabs.com/api-testing/rest/v4/36acf9c1-d5ad-4273-a233-a85470e1f502
+-H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/36acf9c1-d5ad-4273-a233-a85470e1f502
 -f 2021-12-31T14:00 \
 -t 2021-12-31T15:00 \
 -l 50 \
