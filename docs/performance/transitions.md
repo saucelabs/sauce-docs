@@ -303,7 +303,13 @@ The following response is returned when the Page Load metric is above the expect
 
 ## Logging Performance Results
 
-If you would rather send your performance results to a log instead of asserting on them in your test, configure the `sauce:performance` command to export to a log file, as shown in the following code samples:
+You can also send your performance results to the log that is viewable from the Sauce Labs test result page.
+
+<img src={useBaseUrl('img/performance/full-rpt-log.png')}  alt="View Logs"  width="900"/>
+
+<p/>
+
+To enable this, configure `sauce:performance` within the `sauce:log` command. Set the `fullReport` option to `true` in the configuration to capture extended details about the performance configuration, aside from just the metrics output.
 
 <Tabs
   defaultValue="python"
@@ -321,7 +327,7 @@ def test_speed_index(self, driver):
     self.setUpClass(driver)
     metrics = ["load", "speedIndex", "pageWeight", "pageWeightEncoded", "timeToFirstByte",
                "timeToFirstInteractive", "firstContentfulPaint", "perceptualSpeedIndex", "domContentLoaded"]
-    performance = driver.execute_script("sauce:log", {"type": "sauce:performance"})
+    performance = driver.execute_script("sauce:log", {"type": "sauce:performance", options: {fullReport: true}})
     for metric in metrics:
         assert performance["speedIndex"] < 1000
 ```
@@ -330,35 +336,14 @@ def test_speed_index(self, driver):
 
 See the complete [JavaScript performance demo](https://github.com/saucelabs/performance-js-examples/blob/main/WebDriver.io/tests/performance.js).
 
-```js {1}
-it('logs (sauce:performance) should check if all metrics were captured', () => {
-    //
-    // The expected metrics
-    const metrics = [
-      'load',
-      'speedIndex',
-      'firstInteractive',
-      'firstVisualChange',
-      'lastVisualChange',
-      'firstMeaningfulPaint',
-      'firstCPUIdle',
-      'timeToFirstByte',
-      'firstPaint',
-      'estimatedInputLatency',
-      'firstContentfulPaint',
-      'totalBlockingTime',
-      'score',
-      'domContentLoaded',
-      'cumulativeLayoutShift',
-      'serverResponseTime',
-      'largestContentfulPaint',
-    ];
-    //
+```js {2}
+// Get the performance logs
+const performance = browser.execute('sauce:log', {type: 'sauce:performance', options: {fullReport: true}});
 ```
 </TabItem>
 </Tabs>
 
-Retrieve the log by calling:
+In addition to reviewing the log in Sauce Labs, you can retrieve the log locally by calling:
 
 `driver.execute('sauce:log', {type: 'sauce:performance'});`
 

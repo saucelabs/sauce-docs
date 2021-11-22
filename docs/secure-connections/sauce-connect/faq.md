@@ -96,9 +96,6 @@ No, tunnels to the Real Device Cloud are automatically shared with all of your t
 
 Yes, you can use the same Sauce Connect Proxy tunnel and/or same machine to test with the Virtual Device Cloud Real Device Cloud.
 
-:::note
-TestObject <small><span className="sauceGold">DEPRECATED</span></small> environments must configure separate, unique tunnels for virtual devices and real devices. See [Creating Tunnels in TestObject (Legacy)](/secure-connections/sauce-connect/setup-configuration/legacy-tunnels).
-:::
 
 ## Are there any special parameters when using a PAC file in real device tests?
 
@@ -119,14 +116,4 @@ To create a secure connection, we strongly recommend using Sauce Connect or IPSe
 
 ## What is KGP in Sauce Connect Proxy logs?
 
-KGP is a protocol that is used to establish a tunnel between a customer environment and Sauce Labs data center.
-
-It's an application layer protocol that carries all HTTP(s) traffic as its payload.
-It is developed and maintained by Sauce Labs, and is used to multiplex established connections for multiple HTTP requests/responses.
-
-KGP packets contain the following components:
-
-- Data packets carrying HTTP(s) traffic
-- Control packets, which include:
-  - Connection requests
-  - Keepalive timers
+See [Sauce Connect Tunneling Protocol](/secure-connections/sauce-connect/advanced/kgp) documentation.

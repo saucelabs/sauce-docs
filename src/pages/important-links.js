@@ -19,8 +19,8 @@ class ImportantLinks extends Component {
                 <li><a href="https://docs.saucelabs.com/dev/w3c-webdriver-capabilities">W3C Capabilities</a></li>
                 <li><a href="https://docs.saucelabs.com/dev/glossary">Glossary</a></li>
                 <li><a href="https://changelog.saucelabs.com/en">Product Announcements</a></li>
-                <li><a href="https://docs.saucelabs.com/basics/data-center-endpoints/data-center-endpoints">Data Center Endpoints</a></li>
-                <li><a href="https://status.saucelabs.com/">System Status</a></li>
+                <li><a href="https://docs.saucelabs.com/basics/data-center-endpoints">Data Center Endpoints</a></li>
+                <li><a href="https://status.saucelabs.com/">Systems Status</a></li>
               </ul>
             </div>
 

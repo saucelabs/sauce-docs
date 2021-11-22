@@ -29,15 +29,15 @@ The following attributes must be included in your SAML assertion, with the expec
 ## NameID Specification
 By default, many IdPs don't set the NameID attribute to be the email address of the user. If the value for this attribute is something other than an email address, you can still integrate your IdP with Sauce SSO.
 
-We recommend setting it to the email address, as this makes it easier to manage through the IdP. When the SSO user name is created, only the section preceding the @ is used. For example, from the email **john.smith<span></span>@<span></span>yourcompany.com**, only **john.smith** would be used.
+We recommend setting it to the email address, as this makes it easier to manage through the IdP. When the SSO user name is created, only the section preceding the @ is used. For example, from the email **saucebot<span></span>@<span></span>yourcompany.com**, only **saucebot** would be used.
 
-If the **saml:NameID** field contains only a user name and no @ symbol, then the SSO username will be based on your Domain Name. If your domain was sauce and the field value was **john.smith**, the SSO user name would be **sso-sauce-john.smith**.
+If the **saml:NameID** field contains only a user name and no @ symbol, then the SSO username will be based on your Domain Name. If your domain was sauce and the field value was **saucebot**, the SSO user name would be **sso-sauce-saucebot**.
 
 ## AudienceRestriction
 This is a required attribute within the SAML assertion that indicates the specific users the assertion is intended for. It must be equal to the value of entityID from SauceLabs metadata based on your data center. For details, see the **Single Sign-On Configuration** section in [Data Center Endpoints](/dev/cli/sauce-connect-proxy).
 
 ## Configuration Information for SSO
-The Signing/Encryption Certificate and Entity AssertionConsumeURLs required for configuring Sauce Labs SSO vary based on your data center. For details, see [Data Center Endpoints](https://docs.saucelabs.com/basics/data-center-endpoints/data-center-endpoints/#single-sign-on-sso-configuration). Here are some things to be aware of:
+The Signing/Encryption Certificate and Entity AssertionConsumeURLs required for configuring Sauce Labs SSO vary based on your data center. For details, see [Data Center Endpoints](/basics/data-center-endpoints/#single-sign-on-sso-configuration). Here are some things to be aware of:
 
 - The Assertion/Issuer Name is **Sauce Labs**
 - Sauce Labs does not provide a staging environment for pre-integration testing of SSO

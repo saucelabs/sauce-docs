@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 Thanks to a new virtual cloud data center in Australia (Sydney), your testing teams in APAC will benefit from more performant test runs on Sauce Labs, along with improved security and reliability through our best-in-class cloud technology.
 
 :::note
-While the functionality that’s currently available for tests run in this region is limited, you also have access to the US West region as part of this trial license; for details, see Supported Features.
+While the functionality that’s currently available for tests run in this region is limited, you also have access to the US West region as part of this trial license; for details, see [Supported Features](#supported-browsers-and-features).
 :::
 
 ## Getting Started for New Free Trial Customers
@@ -29,13 +29,11 @@ Depending on your network configuration, your network administrator may need to 
 To allow inbound and outbound connections to Sauce Labs Services using IP addresses, use the following IP range(s): `34.87.251.80/28`
 
 ## Running Tests in the APAC Region
-1. To verify you have access to the new region, **APAC Southeast**, in Sauce Labs, click the data center dropdown.
+1. To verify you have access to the new region, **APAC Southeast**, in Sauce Labs, click the data center dropdown.<br/>
+  <img src={useBaseUrl('img/aust-early-access.png')} alt="APAC Southeast availability" width="400"/>
 
-<img src={useBaseUrl('img/aust-early-access.png')} alt="APAC Southeast availability" width="400"/>
-
-2. To run your automated tests, update your Selenium tests to point to the new region by changing the ondemand url during driver creation to `https://ondemand.apac-southeast-1.saucelabs.com`.
-
-<img src={useBaseUrl('img/data-center-selenium.png')} alt="Update your Selenium tests" width="400"/>
+2. To run your automated tests, update your Selenium tests to point to the new region by changing the ondemand url during driver creation to `https://ondemand.apac-southeast-1.saucelabs.com`.<br/>
+  <img src={useBaseUrl('img/data-center-selenium.png')} alt="Update your Selenium tests" width="400"/>
 
 3. To verify the results, log in to Sauce Labs and select the **APAC Southeast** region.
 
@@ -43,46 +41,13 @@ To allow inbound and outbound connections to Sauce Labs Services using IP addres
 During the transition from the alpha to beta programs, our ability to retain historical data, including test results, is limited.
 :::
 
-### Supported Features
-The following features are currently supported in the APAC region with more features coming online soon.
+### Supported Browsers and Features
+Currently, Sauce Labs does not support macOS or mobile testing for the APAC region. To access the full functionality, use the US West region.
 
-:::note
-Through this early access program you also have access to the full functionality of Sauce Labs using the US West region.
-:::
+The APAC region currently supports all popular versions of Chrome, Firefox, and Edge. Support of Safari is TBD, based on the future support of macOS (above).  
 
-To tell us more about features that are most important to improve your experience with Sauce Labs, please provide feedback.
-
-| Feature | Now | Q1 2021 | Q2 2021 |
-|---|---|---|---|
-| Selenium Browser Tests (Win10 +  Latest Chrome) | ✅ |  |  |
-| Sauce Connect |  | ✅ |  |
-| Live Testing |  | ✅ |  |
-| Expand OS + Browser Support |  | ✅ |  |
-| Sauce Test Runner Toolkit |  |  | ✅ |
-| Mac Support | TBD | TBD | TBD |
-| Mobile Testing | TBD | TBD | TBD |
-
-
-### Supported Browsers
-The following OSs and browsers are supported now, with more coming in the future.
-
-| OS + Browser | Now | Q1 2020 | Q2 2020 |
-|---|---|---|---|
-| Windows 10 (Windows 8 support in Q2) |  |  |  |
-| Latest Chrome | ✅ |  |  |
-| Latest 3 versions of Chrome |  | ✅ |  |
-| Latest 3 versions of Firefox |  | ✅ |  |
-| Chrome v75+ |  |  | ✅ |
-| Firefox v55+ |  |  | ✅ |
-| All Chromium Edge |  |  | ✅ |
-
-The timeline for Linux and Mac OS is still being determined.
-
-By participating in this program and providing feedback, we can prioritize OS and browser support in the best way possible!
 
 ## Getting Help and Providing Feedback
-We want to be there every step of the way to ensure you are successful in this new region. We also greatly value your feedback on ways we can improve our services for you. By enrolling into this alpha program you will gain direct access to our product and engineering teams to both get help and provide feedback:
+We want to be there every step of the way to ensure you are successful in this new region. We also greatly value your feedback on ways we can improve our services for you. By enrolling into this alpha program you will gain direct access to our product and engineering teams to both get help and provide feedback.
 
-* Slack - you will be invited to the #apac-alpha-external slack channel
-* Email [support@saucelabs.com](mailto:support@saucelabs.com) or your CSM
-* Scheduled office hours with the Product and Engineering teams
+To tell us more about features that are most important to improve your experience with Sauce Labs, contact [support@saucelabs.com](mailto:support@saucelabs.com) or your CSM.

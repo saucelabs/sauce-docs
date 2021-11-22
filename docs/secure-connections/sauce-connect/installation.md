@@ -5,6 +5,7 @@ sidebar_label: Installation
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import ScTable from '../../../src/components/scTable.jsx';
 
 This topic describes where and how to download Sauce Connect Proxy to your local machine.
 
@@ -17,56 +18,21 @@ This topic describes where and how to download Sauce Connect Proxy to your local
 
 ## Download Latest Version
 
-Download the Sauce Connect Proxy client to your local machine by clicking the link below specific to your operating system.
+Download the latest Sauce Connect Proxy client version to your local machine by clicking the link below corresponding to your OS. If applicable, delete any previous versions you have.
 
-<table>
- <tr>
-  <td>OS
-  </td>
-  <td>Download Link
-  </td>
-  <td>SHA1 Checksum
-  </td>
- </tr>
- <tr>
-  <td>Linux
-  </td>
-  <td>
-   <strong><a href="https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz">https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz</a></strong>
-  </td>
-  <td><small>e5d7f82ad98251a653d1b0537f1103e49eda5e11</small>
-  </td>
- </tr>
- <tr>
-  <td>Mac
-  </td>
-  <td>
-   <strong><a href="https://saucelabs.com/downloads/sc-4.7.1-osx.zip">https://saucelabs.com/downloads/sc-4.7.1-osx.zip</a></strong>
-  </td>
-  <td><small>1f18defa14a5cc4b663bf07213411f6bdd535b6d</small>
-  </td>
- </tr>
- <tr>
-  <td>Windows
-  </td>
-  <td>
-   <strong><a href="https://saucelabs.com/downloads/sc-4.7.1-win32.zip">https://saucelabs.com/downloads/sc-4.7.1-win32.zip</a></strong>
-  </td>
-  <td><small>9c91e5adbd023973efe0eb14d2d427d2c0ef3c25</small>
-  </td>
- </tr>
-</table>
+:::caution
+Using older versions may impact your ability to launch a tunnel or cause other technical issues.
+:::
+
+<ScTable></ScTable>
 
 For version information, see [Sauce Connect Proxy Changelog](https://changelog.saucelabs.com/en?category=sauce%20connect).
 
 ## Installation
 
 ### Mac and Windows
-
 1. Extract the contents of the .zip download.
-2. Open the download folder. You'll see the following contents:
-<img src={useBaseUrl('img/sauce-connect/sc-download.png')} alt="Sauce Connect download file contents" width="500" />
-
+2. Open the download folder. You'll see the following contents:<br/><img src={useBaseUrl('img/sauce-connect/scp-download.png')} alt="Sauce Connect download file contents" width="450" />
   <table>
   <tr>
    <td><strong>File</strong></td>
@@ -78,7 +44,7 @@ For version information, see [Sauce Connect Proxy Changelog](https://changelog.s
    </tr>
    <tr>
     <td><strong>config.yml</strong></td>
-   <td>YAML configuration file template for use with the <a href="/dev/cli/sauce-connect-proxy/#--config-file"><code>--config-file</code> command-line option</a>.</td>
+   <td>Sauce Connect Proxy YAML configuration file template. Use with the <a href="/dev/cli/sauce-connect-proxy/#--config-file"><code>--config-file</code></a>. See <a href="/secure-connections/sauce-connect/setup-configuration/yaml-config">Configuring Tunnels with a YAML File</a>.</td>
    </tr>  
    <tr>
    <td><strong>README.md</strong>, <strong>sc.service</strong>, <strong>sc@.service</strong></td>
@@ -96,20 +62,19 @@ For version information, see [Sauce Connect Proxy Changelog](https://changelog.s
 
 ### Linux
 
-To install and extract Sauce Connect on your Linux machine, add sc to your system PATH:
-
-```bash
+To extract Sauce Connect on Linux, add sc to your system PATH:
+ ```bash
 cd $HOME
 curl -LO https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz
-tar xvf ./sc-4.7.-linux.tar.gz
+tar xvf ./sc-4.7.1-linux.tar.gz
 export PATH="$HOME/sc-4.7.1-linux/bin:$PATH"
 ```
 
 ## Log File
 
-Once you've started using Sauce Connect, a log file will populate in your computer's directory. The log file name depends on whether [--tunnel-name](/dev/cli/sauce-connect-proxy/#--tunnel-name-or---tunnel-identifier) was used.
+Once you've started using Sauce Connect Proxy, a log file will appear in your computer's directory. The log file name depends on whether [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name-or---tunnel-identifier) was used.
 
-For _anonymous_ tunnels, a log file name would be _sc.log_, for _named_ tunnels, a log file name would be _sc-TUNNEL_NAME.log_
+For anonymous (unnamed) tunnels, the log file name would be **sc.log**. For named tunnels, the log file name would be **sc-TUNNEL_NAME.log**.
 
 The location of the log file will vary, depending on your operating system. For Mac and Linux, the sc.log will use a tmp folder. For Windows, it'll use the current working directory.
 
@@ -173,7 +138,7 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    <td>4.7.1
    </td>
    <td>
-    See <a href="#downloading">Downloading</a>
+    See <a href="#download-latest-version">Linux, Mac, Windows</a>
    </td>
    <td rowspan="2" >June 31, 2022
    </td>
@@ -282,3 +247,11 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
 
 ##### <sup>*</sup>Windows version no longer available for download.
 ##### <sup>**</sup>Sauce Connect Proxy versions below 4.6.1, which were supporting Private Certificates, reached end of life and are no longer available for download.
+
+
+
+## More Information
+
+* [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/)
+* [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy/)
+* [Sauce Connect Proxy Architecture](/secure-connections/sauce-connect/advanced/architecture/)

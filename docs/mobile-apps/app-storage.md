@@ -17,11 +17,14 @@ When testing mobile apps, you have the option to upload your app to our applicat
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-* Your mobile app file. If you don't have one on hand, consider using the [Sauce Labs sample app](https://github.com/saucelabs/sample-app-mobile) for validating this process.
+* Your mobile app file. If you don't have one on hand, consider using our Demo Apps:
+     *[React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
+     *[iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
+     *[Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases) 
 
 ## Uploading Apps via UI
 
-For information about using the Sauce Labs UI to upload your mobile file to application storage, see [Uploading an App](https://docs.saucelabs.com/mobile-apps/live-testing/live-mobile-app-testing/index.html#uploading-an-app).
+For information about using the Sauce Labs UI to upload your mobile file to application storage, see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app).
 
 :::note
 This method currently supports live testing on **real devices only**. For virtual devices, upload your apps via the REST API.
@@ -29,7 +32,7 @@ This method currently supports live testing on **real devices only**. For virtua
 
 ## Uploading Apps via REST API
 
-You can upload your mobile app programmatically using the [File Storage API Methods](/dev/api/storage). The API endpoints are [Data center-specific](/basics/data-center-endpoints/data-center-endpoints), so make sure you are using the endpoint that is applicable for your account data center, as shown in the following example requests.
+You can upload your mobile app programmatically using the [File Storage API Methods](/dev/api/storage). The API endpoints are [Data center-specific](/basics/data-center-endpoints), so make sure you are using the endpoint that is applicable for your account data center, as shown in the following example requests.
 
 ### Considerations
 
@@ -100,7 +103,7 @@ You can also upload and store other file types for generic use, such as a pre-ru
 ## Team Management Sync
 All uploaded files are shared with the same team. Members can only access files that are shared with the team where you contribute/participate. Organization admins have access to all files in your organization.
 
-For more information about managing access to your organization, see [Managing User Information](https://docs.saucelabs.com/basics/acct-team-mgmt/managing-user-info).
+For more information about managing access to your organization, see [Managing User Information](/basics/acct-team-mgmt/managing-user-info).
 
 ## Using Application Storage with Automated Test Builds
 After successfully uploading your file to application storage, you need to reference the unique app Identifier (`file_id`) in your test code to retrieve and use your app for automated tests.
@@ -305,6 +308,7 @@ espresso:
   otherApps:
     - ./apps/pre-installed-app1.apk
     - $PRE_INSTALLED_APP2
+    - storage:c78ec45e-ea3e-ac6a-b094-00364171addb
     - storage:filename=pre-installed-app3.apk
 ```
 
@@ -379,4 +383,4 @@ Windows Example:
 </TabItem>
 </Tabs>
 
-For information about uploading an app from a remote location, see [Uploading Mobile Apps from a Remote Location](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices/index.html#uploading-mobile-apps-from-a-remote-location).
+For information about uploading an app from a remote location, see [Uploading Mobile Apps from a Remote Location](/mobile-apps/automated-testing/appium/real-devices/#uploading-mobile-apps-from-a-remote-location).
