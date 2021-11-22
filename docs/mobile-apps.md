@@ -70,26 +70,6 @@ Accelerate and scale your testing and broaden coverage by running automated test
   </div>
 </div>
 
-## TestObject (Legacy RDC)
-
-<p><span className="sauceGold">DEPRECATED</span></p>
-
-<div className="box-wrapper" markdown="1">
-
-  <div className="box box1 card">
-    <div className="container">
-    <a href="/mobile-apps/automated-testing/appium/migration"><h3>TestObject Appium Migration Guide</h3></a>
-    <p>Convert your legacy TestObject Appium tests to run on Sauce Labs.</p>
-    </div>
-  </div>
-  <div className="box box2 card">
-    <div className="container">
-    <a href="/mobile-apps/automated-testing/espresso-xcuitest/#legacy-to-saucectl-commands-map"><h3>TestObject Espresso/XCUITest Migration Guide</h3></a>
-    <p>Convert your legacy TestObject Espresso and XCUITest tests to run on Sauce Labs.</p>
-    </div>
-  </div>
-</div>
-
 ## Training
 
 Get up and running quickly with your existing automated Android Appium test code using Sauce Schools' [quickstart tutorial on Running Appium Android Tests on Sauce Labs](https://training.saucelabs.com/codelabs/Module2-Quickstart/?index=..%2F..quickstart#0).
