@@ -53,13 +53,11 @@ This is required only if you're using a YAML file to configure your tunnels.
 __Description__: Defines the local path to a YAML file containing a Sauce Connect Proxy configuration. For instructions, [Configuring Tunnels with a YAML File](/secure-connections/sauce-connect/setup-configuration/yaml-config/).<br/>
 __Shorthand__: `-c`
 
-## Strongly Recommended
-
 ---
 ### `--region`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets your Sauce Labs data center region. Possible values are `us-west`, `eu-central`, `us-east`, and `apac-southeast`. For more information, see [Data Center Endpoints](#data-center-endpoints). <br/>
+__Description__: Sets your Sauce Labs region data center. Strongly recommended for best performance. Possible values are `us-west`, `eu-central`, `us-east`, and `apac-southeast`. For more information, see [Data Center Endpoints](#data-center-endpoints). <br/>
 __Default__: `us-west`<br/>
 __Shorthand__: `-r`
 
@@ -79,10 +77,12 @@ __Shorthand__: `-s`
 ### `--tunnel-name`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Assigns a name to a Sauce Connect Proxy tunnel. It can also assign a name a group of tunnels in the same [High Availability pool]((/secure-connections/sauce-connect/setup-configuration/high-availability), when used with [`--tunnel-pool`](#--tunnel-pool). Must be in ASCII format.
+__Description__: Assigns a name to a Sauce Connect Proxy tunnel. Strongly recommended for best performance. It can also assign a name to group of tunnels in the same [High Availability pool]((/secure-connections/sauce-connect/setup-configuration/high-availability), when used with [`--tunnel-pool`](#--tunnel-pool). Must be in ASCII format.
 
 Future jobs will use this tunnel only when explicitly specified by the [`tunnelName`](/dev/test-configuration-options/#tunnelname) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
 __Shorthand__: n/a
+
+
 
 ## Tunnel Configuration
 
@@ -432,7 +432,7 @@ __Description__: depending on the Data Center location of the device you're test
 To connect to the US-West Data Center, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the US-West Data Center:
 
 ```java
-./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -r us-west 
+./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -r us-west
 ```
 <br/>
 
