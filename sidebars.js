@@ -393,7 +393,6 @@ module.exports = {
                         items: [
                             'basics/acct-team-mgmt-hub',
                             'basics/acct-team-mgmt/org-settings',
-                            'basics/acct-team-mgmt/real-devices',
 
                             {
                                 type: 'category',
@@ -561,7 +560,6 @@ module.exports = {
                             'mobile-apps/automated-testing/appium/quickstart',
                             'mobile-apps/automated-testing/appium/real-devices',
                             'mobile-apps/automated-testing/appium/virtual-devices',
-                            'mobile-apps/automated-testing/appium/migration',
                         ],
                     },
                     {
