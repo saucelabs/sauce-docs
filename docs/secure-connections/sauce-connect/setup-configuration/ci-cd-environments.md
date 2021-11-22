@@ -1,6 +1,6 @@
 ---
 id: ci-cd-environments
-title: CI/CD Environments
+title: Sauce Connect Proxy with CI/CD Environments
 sidebar_label: CI/CD Environments
 ---
 
