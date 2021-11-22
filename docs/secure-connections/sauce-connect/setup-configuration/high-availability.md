@@ -1,6 +1,6 @@
 ---
 id: high-availability
-title: High Availability Setup
+title: Sauce Connect Proxy High Availability Setup
 sidebar_label: High Availability Setup
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
