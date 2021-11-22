@@ -47,7 +47,7 @@ The authentication access key associated with the Sauce Labs user account making
 ### `--app <string>`
 <p><small>| OPTIONAL | STRING | XCUITEST/ESPRESSO ONLY |</small></p>
 
-The path to a valid mobile application to test.
+The path to a valid mobile app to test.
 
 ---
 
@@ -170,7 +170,7 @@ Specifies the Sauce Labs data center through which tests will run. Valid values 
 ### `--testApp <string>`
 <p><small>| REQUIRED | STRING | XCUITEST/ESPRESSO ONLY |</small></p>
 
-The path to the mobile testing application.
+The path to the mobile testing app.
 
 **Shorthand:** `-t <string>`
 

@@ -69,7 +69,7 @@ For iOS devices, the camera can be configured with different outputs. We support
 Below are common use cases ideal for implementing Camera Image Injection in your tests.
 
 * **Scanning a Check for a Mobile Banking App Deposit**: Many mobile banking apps allow customers to deposit checks using their smartphone. The customer takes and uploads an image of their physical paper check, and the image is then submitted to the bank for processing.
-* **Using a QR Code to Link to an Embedded URL**: QR codes are often used as a way to bridge print media to digital. Users take a photo with a QR code reader app, the app scans the code and directs them to an embedded URL. For use cases that involve scanning barcodes or QR codes, your own application in testing must do the actual image processing. Camera Image Injection passes your uploaded image directly to your app as if it came from the device camera; it does not do any processing.
+* **Using a QR Code to Link to an Embedded URL**: QR codes are often used as a way to bridge print media to digital. Users take a photo with a QR code reader app, the app scans the code and directs them to an embedded URL. For use cases that involve scanning barcodes or QR codes, your own app in testing must do the actual image processing. Camera Image Injection passes your uploaded image directly to your app as if it came from the device camera; it does not do any processing.
 * **Taking a Selfie for a User Profile Photo**: This could be taking a selfie or uploading a picture for apps that require a user profile photo. You can use Camera Image Injection to test image formats and sizes.
 * **Taking an Image to Store or Send via Mobile App**: Whether it’s a social media app or photo sharing, this use case can encompass many different scenarios. In its simplest form, it could be taking pictures from the front or back camera to send and/or archive within the app.
 
@@ -214,7 +214,7 @@ This error is displayed when you attempt to inject your image before the app ful
 This error is displayed due to one or more of these reasons:
 
 *  **Enable Image Injection** checkbox is not checked; this needs to be checked.
-*  For Android tests, the debuggable flag (`android:debuggable="true"`) is missing from your application's manifest file.
+*  For Android tests, the debuggable flag (`android:debuggable="true"`) is missing from your app's manifest file.
 
 
 ## Additional Resources

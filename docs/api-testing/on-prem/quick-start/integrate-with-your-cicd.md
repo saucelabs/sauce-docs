@@ -42,7 +42,7 @@ Depending on your CI/CD platform, you may need to install a plugin that allows f
 
 ### Step 2 - Generate an API Hook
 
-The first step of integrating API Fortress into your CI/CD process is to grab the generated API hook for the project in question. To do so, go to the Settings panel in API Fortress. This view, seen below, can be accessed from anywhere in the application by clicking the gear icon in the top right corner. Please note that you need Manager access to generate a webhook. From Settings, click the API Hooks section to generate the hook for your project.
+The first step of integrating API Fortress into your CI/CD process is to grab the generated API hook for the project in question. To do so, go to the Settings panel in API Fortress. This view, seen below, can be accessed from anywhere in the app by clicking the gear icon in the top right corner. Please note that you need Manager access to generate a webhook. From Settings, click the API Hooks section to generate the hook for your project.
 
 <img src={useBaseUrl('img/api-fortress/2018/04/hook.gif')} alt="Hook Gif"/>
 
@@ -54,11 +54,11 @@ As it stands, our API hook is as follows:
 https://mastiff.apifortress.com/app/api/rest/v3/86f81b19-2d29-4879-91d9-6dbb2271fec0861
 ```
 
-The normal command to run all of the tests in the project, per the API Fortress docs is _/tests/run-all_, so we append this onto the end of the API call. You may need to request a JUnit output. To do that, simply collect a few query parameters. First, set _sync_ to _true_ so that we can set _format_ to _JUnit_. 
+The normal command to run all of the tests in the project, per the API Fortress docs is _/tests/run-all_, so we append this onto the end of the API call. You may need to request a JUnit output. To do that, simply collect a few query parameters. First, set _sync_ to _true_ so that we can set _format_ to _JUnit_.
 
 In short, we need to append `?sync=true&format=junit` to the webhook call. That gives us the final API call:
 
-```http request 
+```http request
 https://mastiff.apifortress.com/app/api/rest/v3/86f81b19-2d29-4879-91d9-6dbb2271fec0861/tests/run-all?sync=true&format=junit
 ```
 

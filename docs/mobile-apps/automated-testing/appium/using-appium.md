@@ -8,12 +8,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This page is intended to provide you with a quick overview of how Appium works so that you can get started with mobile application testing.
+This page is intended to provide you with a quick overview of how Appium works so that you can get started with mobile app testing.
 
 ## Appium Overview
 
-* Originally developed by Dan Cueller as a way to take advantage of the UIAutomation framework for Apple iOS to run tests against native mobile applications.
-* Most commonly used for testing native and hybrid mobile applications for iOS and Android.
+* Originally developed by Dan Cueller as a way to take advantage of the UIAutomation framework for Apple iOS to run tests against native mobile apps.
+* Most commonly used for testing native and hybrid mobile apps for iOS and Android.
 * You can also leverage it to test websites on a mobile device.
 * Uses the same syntax as [Selenium](https://www.selenium.dev).
 * Shares similarities with Selenium's ability to automate interaction with a website through a mobile browser.
@@ -34,7 +34,7 @@ The Appium client is a programming language-specific [set of client libraries](h
 
 The Appium server component, based on node.js, exposes a superset of the [JSON Wire Protocol](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol), known as the [Mobile JSON Wire Protocol](https://github.com/SeleniumHQ/mobile-spec/blob/master/spec-draft.md). The Appium server also supports elements of the [W3C Webdriver spec](https://w3c.github.io/webdriver/webdriver-spec.html)
 
-Additionally, an [Appium desktop application](http://appium.io/downloads) exists that runs on Mac, Windows, and Linux. This application provides a graphical interface of the Appium server where you can set test configuration options, and use an inspector to view application elements. Please visit the [following page](https://github.com/appium/appium-desktop) for further technical information.
+Additionally, an [Appium desktop app](http://appium.io/downloads) exists that runs on Mac, Windows, and Linux. This app provides a graphical interface of the Appium server where you can set test configuration options, and use an inspector to view app elements. Please visit the [following page](https://github.com/appium/appium-desktop) for further technical information.
 
 :::note
 Appium Desktop is currently supported by the [Appium core team](https://appium.io/docs/en/contributing-to-appium/developers-overview/#developer-community).
@@ -42,14 +42,14 @@ Appium Desktop is currently supported by the [Appium core team](https://appium.i
 
 ## Creating an Appium Test
 
-Here are the basic steps for creating an Appium test script for your application under test (AUT):
+Here are the basic steps for creating an Appium test script for your app under test (AUT):
 
 ### 1. Set your app location
 When you write an Appium test script, the most basic component is the [capabilities object](/basics/test-config-annotation/test-annotation). This is where you set your test parameters, such as the mobile platform and operating system you want to test against.
 
-Within that object, one of the [required capabilities](/dev/test-configuration-options) is the `app` capability: the path to your application (e.g., Sauce Storage, AWS, GitHub). One of the advantages of the Appium architecture is that the application you want to test can be hosted anywhere, from a local path to any other web host on the network, since the Appium server will send the commands it receives from the client to any application path you specify. Practically, you have three options. 
+Within that object, one of the [required capabilities](/dev/test-configuration-options) is the `app` capability: the path to your app (e.g., Sauce Storage, AWS, GitHub). One of the advantages of the Appium architecture is that the app you want to test can be hosted anywhere, from a local path to any other web host on the network, since the Appium server will send the commands it receives from the client to any app path you specify. Practically, you have three options. 
 
-To learn about Application Storage on Sauce Labs, [click here](/mobile-apps/app-storage.md).
+To learn about App Storage on Sauce Labs, [click here](/mobile-apps/app-storage.md).
 
 <br/>
 
@@ -57,7 +57,7 @@ To learn about Application Storage on Sauce Labs, [click here](/mobile-apps/app-
 
 In this step, you'll create an Appium driver instance which points to a running Appium server (e.g., the servers on Sauce Labs). The WebDriver instance is the starting point for all uses of the Mobile JSON Wire Protocol.
 
-You'll need to create an instance of the WebDriver interface using a constructor for either Android or iOS. For mobile native application tests, you set both the platform and browser to test against by setting the `browserName` capability. 
+You'll need to create an instance of the WebDriver interface using a constructor for either Android or iOS. For mobile native app tests, you set both the platform and browser to test against by setting the `browserName` capability. 
 
 Once you have created an instance of the WebDriver interface, you use this instance to invoke methods, such as tap and swipe, to access other interfaces used in basic test steps. You do so by assigning the instance to a variable when you create it, and by using that variable to invoke methods.
 
@@ -259,7 +259,7 @@ driver.find_element_by_xpath('//UIAApplication[1]/UIAWindow[1]/UIATextField[1]')
 </TabItem>
 </Tabs>
 
-#### **Best Practices for Identifying Application Elements**
+#### **Best Practices for Identifying App Elements**
 
 We recommend using an element locator that uniquely identifies the element, like an `id` or an `accessibility id`. `class name` and `xpath` are best used only when IDs are not available.
 
@@ -301,7 +301,7 @@ The WebDriver API supports two basic techniques for anticipating browser respons
 
 #### **Implicit Waits Strategy**
 
-_Implicit waits_ set a maximum time that the Appium server will continue trying to find an element. Using implicit waits is not recommended because application response times are not definitely predictable and fixed elapsed times are not applicable to all interactions. Using explicit waits requires more technical sophistication, but is a Sauce Labs best practice.
+_Implicit waits_ set a maximum time that the Appium server will continue trying to find an element. Using implicit waits is not recommended because app response times are not definitely predictable and fixed elapsed times are not applicable to all interactions. Using explicit waits requires more technical sophistication, but is a Sauce Labs best practice.
 
 This example below illustrates how you could use an implicit wait to anticipate web browser response after submitting the login form:
 
@@ -381,9 +381,9 @@ In this step, you'll shut down the connection to Sauce Labs.
 #### `quit` Method
 Conclude your test by invoking the _`quit` method_ on an instance of the WebDriver interface (e.g., on the driver variable). 
 
-The `quit` method concludes a test by disposing of resources, which allows later tests to run without resources and application state affected by earlier tests. The quit method:
+The `quit` method concludes a test by disposing of resources, which allows later tests to run without resources and app state affected by earlier tests. The quit method:
 
-* quits the web browser application, closing all web pages.
+* quits the web browser app, closing all web pages.
 * quits the WebDriver server, which interacts with the web browser.
 * releases driver, the variable referencing the unique instance of the WebDriver interface. 
 

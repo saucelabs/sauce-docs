@@ -177,7 +177,7 @@ Yes. Please contact your Customer Success Manager or SE to discuss your specific
 No.
 
 
-#### **Do you have any UI inspection tool built into your application like UI Automator viewer?**
+#### **Do you have any UI inspection tool built into your app like UI Automator viewer?**
 
 No, there are no inspection tools. We recommend using [Appium Desktop](https://github.com/appium/appium-desktop) for UI inspection, it has built in support for devices on the Real Device Cloud.
 

@@ -6,10 +6,10 @@ description: Overview of Sauce Labs automated testing methods and supported fram
 hide_table_of_contents: true
 ---
 
-Sauce Labs empowers you to run automation tests using the test instrumentation you prefer, so you can achieve total digital confidence in your application's behavior and performance on any mobile device.
+Sauce Labs empowers you to run automation tests using the test instrumentation you prefer, so you can achieve total digital confidence in your app's behavior and performance on any mobile device.
 
 :::note
-While "mobile testing" can also refer to testing web applications within a browser on a mobile device, the Sauce Labs mobile automated testing documentation is predominantly addressing concepts and practices related to testing a mobile application designed to be installed on a mobile device.
+While "mobile testing" can also refer to testing web apps within a browser on a mobile device, the Sauce Labs mobile automated testing documentation is predominantly addressing concepts and practices related to testing a mobile app designed to be installed on a mobile device.
 :::
 
 ## High Level Steps
@@ -18,15 +18,15 @@ Most automated mobile app testing strategies will follow the same basic process,
 
 ### 1. Link to your Sauce Labs account.
 
-No matter which tool you are using to write and run your automation test scripts, you will need to provide your Sauce Labs credentials in order to access the devices on which you plan to test, and to view your test results and insights in the Sauce Labs application. The best and most secure way to provide your credentials is to [set your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as environment variables](/basics/environment-variables).
+No matter which tool you are using to write and run your automation test scripts, you will need to provide your Sauce Labs credentials in order to access the devices on which you plan to test, and to view your test results and insights in the Sauce Labs app. The best and most secure way to provide your credentials is to [set your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as environment variables](/basics/environment-variables).
 
-### 2. Make the iOS and Android application files available to Sauce Labs.
+### 2. Make the iOS and Android app files available to Sauce Labs.
 
 Sauce Labs supports several ways to do this, so the method that best suits your circumstances may vary depending on:
   * Whether you have the file locally or whether it is available through a remote URL
   * Whether you plan to test on virtual devices (Android Emulator or iOS Simulator) or real devices
   * Whether you wish to use a graphical interface or a programmatic API request
-  For additional information about choosing your best method, see [Application Storage](/mobile-apps/app-storage).
+  For additional information about choosing your best method, see [App Storage](/mobile-apps/app-storage).
 
 ### 3. Configure your tests for Sauce Labs.
 

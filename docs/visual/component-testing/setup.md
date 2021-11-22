@@ -30,7 +30,7 @@ npm install --save-dev screener-storybook
 
 1. Go to the [New Project Wizard](https://screener.io/v2/new).
 2. Follow the wizard steps to generate your Screener Config code.
-3. Save the code into a file named `screener.config.js` in the root directory of your application.
+3. Save the code into a file named `screener.config.js` in the root directory of your app.
 
 We recommend securing your API Key by storing it as an environment variable (i.e., store it in an environment variable called `SCREENER_API_KEY`, then reference it in your `screener.config.js` file with `process.env.SCREENER_API_KEY`).
 

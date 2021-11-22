@@ -8,12 +8,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Network Security
-Sauce Connect Proxy establishes a secure connection between your applications hosted on an internal server and the Sauce Labs VMs or real devices used during your tests.
+Sauce Connect Proxy establishes a secure connection between your apps hosted on an internal server and the Sauce Labs VMs or real devices used during your tests.
 
 Data transmitted by Sauce Connect Proxy is encrypted through the TLS protocol, which uses perfect forward secrecy for maximum security.
 
 ### Running in a Demilitarized Zone (DMZ)
-Within your infrastructure, Sauce Connect Proxy must be able to reach the application or server you want to test via your network, but can and should be firewalled from the rest of your internal network.
+Within your infrastructure, Sauce Connect Proxy must be able to reach the app or server you want to test via your network, but can and should be firewalled from the rest of your internal network.
 
 We recommend running Sauce Connect Proxy in a firewalled DMZ on a dedicated machine and setting up firewall rules to restrict access from that DMZ to your internal network. Use caution when locating and configuring Sauce Connect in a DMZ.
 

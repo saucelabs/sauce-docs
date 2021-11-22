@@ -7,7 +7,7 @@ description: "Integration testing is a core feature of the API Fortress platform
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Integration testing is a core feature of the API Fortress platform. Watch our video about how to write an [Integration Test](https://www.youtube.com/watch?v=eQ8WFGFHq4I&feature=youtu.be). 
+Integration testing is a core feature of the API Fortress platform. Watch our video about how to write an [Integration Test](https://www.youtube.com/watch?v=eQ8WFGFHq4I&feature=youtu.be).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eQ8WFGFHq4I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -25,11 +25,11 @@ First, we need to make our `POST` call to the authorization server.
 
 In this case, the request body is the username and password. Given proper credentials, the authentication server will return a user token.
 
-Next, we need to use this token to make further calls to the application.
+Next, we need to use this token to make further calls to the app.
 
 ## Setting a Variable
 
-First, we need to assign the token to a variable. Variables are used to store data temporarily for a test. You can use the API Fortress Vault for more permanent variables ([learn more about variables here](/api-testing/on-prem/quick-start/the-vault#variable-section)). 
+First, we need to assign the token to a variable. Variables are used to store data temporarily for a test. You can use the API Fortress Vault for more permanent variables ([learn more about variables here](/api-testing/on-prem/quick-start/the-vault#variable-section)).
 
 We do this so we don’t have to manually invoke or set a variable every time it is needed. Next, add a `“Set”` component, and enter the information as seen in the image below.
 

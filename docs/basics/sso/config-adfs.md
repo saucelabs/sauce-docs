@@ -13,7 +13,7 @@ These instructions are for setting up Microsoft's Active Directory Federated Ser
 Microsoft has an extensive library of how-to and step-by-step guides for AD FS in their [documentation library](https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services).
 
 ## Configuration
-1. Log in to the Server Manager application for your Windows Server 2012 R2 instance as an administrator and go to the **Dashboard**.
+1. Log in to the Server Manager app for your Windows Server 2012 R2 instance as an administrator and go to the **Dashboard**.
 2. In the **Tools** menu, select **AD FS Management**.
 3. In the **Actions** menu, under **AD FS**, select **Add Relying Party Trust**.
 This will launch the **Add Relying Party Trust Wizard**.<br></br>

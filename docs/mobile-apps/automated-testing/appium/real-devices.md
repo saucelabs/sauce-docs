@@ -61,7 +61,7 @@ Use the [App Storage REST API](/dev/api/storage/#upload-file-to-app-storage) to 
 At this time, \*.aab files are only supported for Android real device testing.
 :::
 
-### Application Storage and Data Center Endpoints
+### App Storage and Data Center Endpoints
 
 When uploading your app for testing with real devices, you must identify the [Data Center](/basics/data-center-endpoints) where the devices you are testing are located by specifying the applicable API URL for that data center.
 
@@ -134,7 +134,7 @@ Certain Appium capabilities behave differently when running Appium tests on our 
 ### Supported Use Cases for Sauce Labs Real Device Testing
 
 * Execute Appium tests against a private real device hosted in the U.S., using your Sauce Labs username and access key.
-* Use our application storage for Appium testing as you usually do for emulators and simulators tests.
+* Use our app storage for Appium testing as you usually do for emulators and simulators tests.
 * Analyze Appium test executions, on Sauce Labs similar to the way you do it for desktop, emulators and simulators.
 * Consume Real Device Cloud (RDC) API similar to the way you do for emulators and simulators (with applicable RDC settings).
 
@@ -418,7 +418,7 @@ app:"http://saucelabs.com/example_files/ContactManager.apk",
 
 _Dynamic Allocation_ involves providing basic parameters for the platform and operating system, or the type of device you want to use in your tests, and a device with those specifications is selected from the device pool.
 
-While static allocation allows you more fine-grained control over the device used in your tests, it can also cause delays in your test execution if that device isn't available when you run your tests. If you only need to test on a particular platform and OS version, such as an Android 4.1, or on a particular type of device, you should use dynamic allocation, and we recommend that you use dynamic allocation for all automated mobile application testing in CI/CD environments.
+While static allocation allows you more fine-grained control over the device used in your tests, it can also cause delays in your test execution if that device isn't available when you run your tests. If you only need to test on a particular platform and OS version, such as an Android 4.1, or on a particular type of device, you should use dynamic allocation, and we recommend that you use dynamic allocation for all automated mobile app testing in CI/CD environments.
 
 #### Required Capabilities
 
@@ -506,7 +506,7 @@ With _Static Allocation_, you can specify the device to use in your tests, but i
 
 By default, every time you complete a test session, the real device cloud uninstalls your app, performs device cleaning, and de-allocates the device. This means that if you're running multiple tests on the same device, you would need to wait for this cleaning process to complete between every test.
 
-To get around this, you can use the capability `cacheId`, which keeps the device allocated to you for 10 seconds after each test completes. If you immediately start another test on the device, you won't need to wait for the allocation and device cleaning process to be repeated. In this case, no device cleaning will take place in between sessions, with the only exception being the application under test and the data it owns.
+To get around this, you can use the capability `cacheId`, which keeps the device allocated to you for 10 seconds after each test completes. If you immediately start another test on the device, you won't need to wait for the allocation and device cleaning process to be repeated. In this case, no device cleaning will take place in between sessions, with the only exception being the app under test and the data it owns.
 
 
 <table>
@@ -518,7 +518,7 @@ To get around this, you can use the capability `cacheId`, which keeps the device
   </tr>
   <tr>
    <td><code>cacheId</code></td>
-   <td><p>A random string. This value for cacheId must be the same for all test methods that you want to run on the cached device. In addition, the application and project ID used for the tests must remain the same, along with the values for these capabilities:</p>
+   <td><p>A random string. This value for cacheId must be the same for all test methods that you want to run on the cached device. In addition, the app and project ID used for the tests must remain the same, along with the values for these capabilities:</p>
 <ul>
 
 <li><code>deviceName</code></li>
@@ -540,7 +540,7 @@ To get around this, you can use the capability `cacheId`, which keeps the device
 
 #### Using Device Caching with `noReset`
 
-You can also use the `cacheId` capability in conjunction with the standard noReset Appium capability. In the default case, where noReset is set to false, your application will be uninstalled and reinstalled after every test. If `noReset` is set to `true`, the application you are testing won't be reinstalled after every test run. This might save you further time, but it won't be suitable for test setups that require the application's state to be reset between tests. Note that then cacheId is set, no device cleaning will take place in between sessions, regardless of noReset value.
+You can also use the `cacheId` capability in conjunction with the standard noReset Appium capability. In the default case, where noReset is set to false, your app will be uninstalled and reinstalled after every test. If `noReset` is set to `true`, the app you are testing won't be reinstalled after every test run. This might save you further time, but it won't be suitable for test setups that require the app's state to be reset between tests. Note that then cacheId is set, no device cleaning will take place in between sessions, regardless of noReset value.
 
 
 ## Additional Test Configuration Options

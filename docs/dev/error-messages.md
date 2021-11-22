@@ -192,7 +192,7 @@ You'll see this error when Sauce Labs doesn't receive a response from Selenium o
 
 There are a few potential causes for this error.
 
-*   The most common causes for this error are either unresponsive JavaScript in your application, or a bug in Selenium/Appium.
+*   The most common causes for this error are either unresponsive JavaScript in your app, or a bug in Selenium/Appium.
 *   A less common, but still possible cause, is Selenium or Appium legitimately needing more than five minutes to run your command.
 *   This error will also be thrown if the browser crashes during your test.
 
@@ -262,7 +262,7 @@ Break out your long tests into shorter tests and/or make sure that your tests ar
 
 **Description**
 
-The capabilities you've supplied include a URL to a mobile application to install and test. This may be a URL pointing to [Application Storage](/mobile-apps/app-storage), or a hosted app online. When we started your test, we were unable to correctly download a valid application from that URL. We may have been able to download something, but that something was not a valid application.
+The capabilities you've supplied include a URL to a mobile app to install and test. This may be a URL pointing to [App Storage](/mobile-apps/app-storage), or a hosted app online. When we started your test, we were unable to correctly download a valid app from that URL. We may have been able to download something, but that something was not a valid app.
 
 **Cause(s)**
 
@@ -270,11 +270,11 @@ The capabilities you've supplied include a URL to a mobile application to instal
 * You've specified an app hosted online, but the URL you've used can't be contacted by Sauce Labs.
 * You've specified an app hosted in your corporate network which can't be accessed via the Internet.
 * You're not providing the full path to the app file itself.
-* The site serving your application requires authentication.
+* The site serving your app requires authentication.
 
 **How to Resolve**
 
-We recommend avoiding all problems with apps hosted internally by uploading to Sauce Labs [Application Storage](/mobile-apps/app-storage) instead.
+We recommend avoiding all problems with apps hosted internally by uploading to Sauce Labs [App Storage](/mobile-apps/app-storage) instead.
 
 If you're already using storage, check to make sure that:
 

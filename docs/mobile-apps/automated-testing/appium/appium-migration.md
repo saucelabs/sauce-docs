@@ -68,11 +68,11 @@ If you switch your Sauce Labs Data Center in the UI, you may see a different set
 
 Validate that the Appium capabilities you've used on TestObject will still work when you move tests to Sauce Labs; see [Mobile App Appium Capabilities](/dev/test-configuration-options).
 
-### Step 4: Upload your Application to Sauce Application Storage
+### Step 4: Upload your App to Sauce App Storage
 
-Any mobile apps in TestObject storage will no longer be accessible after TestObject reaches end-of-life. Please upload these to Sauce Application Storage.
+Any mobile apps in TestObject storage will no longer be accessible after TestObject reaches end-of-life. Please upload these to Sauce App Storage.
 
-*   For instructions on uploading your mobile apps (.apk or .ipa files) to Sauce Labs, see [Application Storage](/mobile-apps/app-storage).
+*   For instructions on uploading your mobile apps (.apk or .ipa files) to Sauce Labs, see [App Storage](/mobile-apps/app-storage).
 *   Update all app references in your test code capabilities. For example, in the `app` capability, you must use `storage:<app-id>` or `storage:filename=<some-app.apk>`, rather than `storage:filename=<myapp.apk>` as you would in TestObject. See [Using Appium for Automated Mobile App Testing](/mobile-apps/automated-testing/appium) for more information.
 *  Migrate your [MicroSoft App Center Integration](/mobile-apps/ms-app-center) to a Sauce Labs Data Center using a post-build script.
 
