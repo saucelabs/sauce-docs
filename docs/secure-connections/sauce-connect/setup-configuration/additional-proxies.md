@@ -1,6 +1,6 @@
 ---
 id: additional-proxies
-title: Set Up with Additional Proxies
+title: Sauce Connect Proxy Setup with Additional Proxies
 sidebar_label: Set Up with Additional Proxies
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
