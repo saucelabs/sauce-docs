@@ -8,12 +8,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The API Testing Dashboard &#8212; accessible from with any Project &#8212; displays metrics and logs, giving you insight into your tests. It centralizes testing management reporting and facilitates team collaboration.
 
-Key features of the dashboard allow you to:
-* View all test logs across teams.
-* Share, download, or print test logs.
-* View all performance metrics from tests (latency & fetch).
-* Set performance alerts Filter logs and alerts by time, endpoint.
-
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).

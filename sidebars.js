@@ -493,12 +493,12 @@ module.exports = {
                         collapsed: true,
                         items: [
                             'secure-connections/sauce-connect/setup-configuration/basic-setup',
+                            'secure-connections/sauce-connect/setup-configuration/yaml-config',
                             'secure-connections/sauce-connect/setup-configuration/environment-variables',
                             'secure-connections/sauce-connect/setup-configuration/additional-proxies',
                             'secure-connections/sauce-connect/setup-configuration/high-availability',
                             'secure-connections/sauce-connect/setup-configuration/specialized-environments',
                             'secure-connections/sauce-connect/setup-configuration/ci-cd-environments',
-                            'secure-connections/sauce-connect/setup-configuration/legacy-tunnels',
                         ]
                     },
                     'secure-connections/sauce-connect/proxy-tunnels',

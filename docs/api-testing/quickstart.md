@@ -82,16 +82,7 @@ This page is a quickstart guide for getting up and running with API Testing on S
 11. To view your test results, hover your mouse over your test line item and click **Open report document**.<br/>
   <img src={useBaseUrl('img/api-fortress/2021/01/testResultsOpen.png')} alt="Open Test Results" width="200" />
 
-12. Take a moment to verify each object in your test report, which displays information regarding your test:
-    * **Test Outcome Report** section: session details (e.g., _Date_, _Mode_, and _Execution Time_).
-    * **Details on the events** section: input data details and other useful test information, such as:
-      * Outcome (pass or fail).
-      * Reasons for failure.
-      * HTTP request and response status codes.
-      * Assertion details (not applicable for this example).
-
-
-<img src={useBaseUrl('img/api-fortress/2021/01/testResultsPage.png')} alt="Test Results Page" width="600" />
+12. Take a moment to verify each object in your test report, which displays information regarding your test. See [Test Outcome Reports](/api-testing/test-reports/).<br/><img src={useBaseUrl('img/api-fortress/2021/01/testResultsPage.png')} alt="Test Results Page" width="600" />
 
 :::note
 
