@@ -15,9 +15,9 @@ It is also a key step for any Sauce Connect Proxy deployment as a way to verify 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-* Have Sauce Connect Proxy [installed on your local machine](/secure-connections/sauce-connect/installation).
+* Have Sauce Connect Proxy [installed on your local machine](/secure-connections/sauce-connect/installation). Make sure it's the latest version - otherwise, you may run into technical issues.
   * Review [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements) to confirm that your system and network architecture will be compatible with Sauce Connect Proxy.
-* The endpoint for your regional Sauce Labs Data Center. You can find it at [Data Center Endpoints](/basics/data-center-endpoints). Make sure it's labeled with Sauce Connect Proxy.
+* Know your regional [Sauce Labs Data Center](/dev/cli/sauce-connect-proxy/#--region).
 * Understand what kinds of tests you're running:
   * If you're using virtual machines or devices, see the instructions below.
   * If you're testing real devices, see [Setting Up for Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/specialized-environments).
@@ -26,22 +26,23 @@ It is also a key step for any Sauce Connect Proxy deployment as a way to verify 
 We recommend setting your username and api key values as environment variables to protect them from exposure. They'll be reusable (you won't need to type them in every time). [Learn how](/secure-connections/sauce-connect/setup-configuration/environment-variables/).
 :::
 
+
 ## Basic Setup without a Test Script
 
 See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/).
+
 
 ## Basic Setup with a Test Script
 
 1. Open your terminal and navigate to the Sauce Connect Proxy client bin folder on your local machine.
  <Tabs
-    defaultValue="Mac"
+    defaultValue="Mac/Linux"
     values={[
-      {label: 'Mac', value: 'Mac'},
+      {label: 'Mac/Linux', value: 'Mac/Linux'},
       {label: 'Windows', value: 'Windows'},
-      {label: 'Linux', value: 'Linux'},
     ]}>
 
-  <TabItem value="Mac">
+  <TabItem value="Mac/Linux">
 
   ```bash
   cd sc-4.7.1-osx/bin
@@ -53,19 +54,36 @@ See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstar
   cd sc-4.7.1-win32/bin
   ```
   </TabItem>
-  <TabItem value="Linux">
-
-  Use [this Linux snippet](/secure-connections/sauce-connect/installation/#linux).
-  </TabItem>
   </Tabs>
-2. From your command line terminal, launch a tunnel with the following flags, per the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy): `-u {SAUCE_USERNAME}`, `-k {SAUCE_ACCESS_KEY}`, `--region {SAUCE_DC}`, `--tunnel-name {TUNNEL_NAME}`.
-  ```bash
-  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region $SAUCE_DC --tunnel-name {TUNNEL_NAME}
-  ```
+2. From your command line terminal, launch a tunnel with the below commands. You can also find this snippet on Sauce Labs, with your credentials populated. Go to the **TUNNELS** page > Skip to **STEP 3: Configure & Authenticate**.
+  <Tabs
+      defaultValue="Mac/Linux"
+      values={[
+        {label: 'Mac/Linux', value: 'Mac/Linux'},
+        {label: 'Windows', value: 'Windows'},
+      ]}>
+
+   <TabItem value="Mac/Linux">
+
+   ```bash
+   ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region $SAUCE_DC --tunnel-name {TUNNEL_NAME}
+   ```
+
+   </TabItem>
+   <TabItem value="Windows">
+
+   ```bash
+   sc -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region %SAUCE_DC% --tunnel-name {TUNNEL_NAME}
+   ```
+
+   </TabItem>
+   </Tabs>
+
+   [`-u (--user)`](/dev/cli/sauce-connect-proxy/#--user) and [`-k (--api-key)`](/dev/cli/sauce-connect-proxy/#--api-key) are required. While the [`-r` (`--region`)](/dev/cli/sauce-connect-proxy/#--region) and [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) flags are technically not required, we strongly recommend them for best performance.
 3. Select an appropriate test script. Options might include:
    * An existing test, if available.
-   * Create a new test using an example from [Sauce Labs Demonstration Scripts](https://github.com/saucelabs-training). Follow the instructions to configure the test before proceeding to the step.
-4. If you are using a name for your tunnel, add the following to the capabilities section of your test script. Use the same `TUNNEL_NAME` name from step 1.
+   * Create a new test using an example from [Sauce Labs Demonstration Scripts](https://github.com/saucelabs-training). Follow those instructions to configure the test before proceeding to the next step.
+4. If you are using a name for your tunnel, add the [`TUNNEL_NAME`](/dev/test-configuration-options/#tunnelname) to the capabilities section of your test script. Use the same name you used in Step 1.
 
 <Tabs
   defaultValue="Java"
