@@ -55,9 +55,6 @@ URLs vary based on the services you're using, your data center, and the types of
 <td>RDC on Sauce</td><td><code>https://ondemand.us-west-1.saucelabs.com/</code></td>
 </tr>
 <tr>
-<td>Real Devices on TestObject (Legacy) <small><span className="sauceGold">DEPRECATED</span></small></td><td><code>https://us1.appium.testobject.com/wd/hub</code></td>
-</tr>
-<tr>
 <td colSpan='2'><strong>US West REST API</strong></td>
 </tr>
 <tr>
@@ -67,14 +64,8 @@ URLs vary based on the services you're using, your data center, and the types of
 <td>RDC on Sauce</td><td><code>https://api.us-west-1.saucelabs.com/v1/rdc</code></td>
 </tr>
 <tr>
-<td>Real Devices on TestObject (Legacy) <small><span className="sauceGold">DEPRECATED</span></small></td><td><code>https://app.testobject.com/api/rest/</code></td>
-</tr>
-<tr>
 <td rowspan="2" >Sauce Connect Proxy</td>
 <td>Virtual and Real Devices on Sauce: <code>https://saucelabs.com/rest/v1/</code></td>
-</tr>
-<tr>
-<td>Real Devices on TestObject (Legacy): <code>https://us1.api.testobject.com/sc/rest/v1</code> <small><span className="sauceGold">DEPRECATED</span></small></td>
 </tr>
 <tr>
 <td>Team Management</td><td><code>https://api.us-west-1.saucelabs.com/team-management/v1/</code></td>
@@ -105,9 +96,6 @@ Depending on the framework or driver you use, you might need to make additional 
 <td>RDC on Sauce</td><td><code>https://ondemand.eu-central-1.saucelabs.com/</code></td>
 </tr>
 <tr>
-<td>Real Devices on TestObject (Legacy) <small><span className="sauceGold">DEPRECATED</span></small></td><td><code>https://eu1.appium.testobject.com/wd/hub</code></td>
-</tr>
-<tr>
 <td colSpan='2'><strong>EU Central REST API</strong></td>
 </tr>
 <tr>
@@ -117,14 +105,8 @@ Depending on the framework or driver you use, you might need to make additional 
 <td>RDC on Sauce</td><td><code>https://api.eu-central-1.saucelabs.com/v1/rdc</code></td>
 </tr>
 <tr>
-<td>Real Devices on TestObject (Legacy) <small><span className="sauceGold">DEPRECATED</span></small></td><td><code>https://app.testobject.com/api/rest/</code></td>
-</tr>
-<tr>
 <td rowspan="2" >Sauce Connect Proxy</td>
 <td>Virtual and Real Devices on Sauce: <code>https://eu-central-1.saucelabs.com/rest/v1</code></td>
-</tr>
-<tr>
-<td>Real Devices on TestObject (Legacy): <code>https://eu1.api.testobject.com/sc/rest/v1</code> <small><span className="sauceGold">DEPRECATED</span></small></td>
 </tr>
 <tr>
 <td>Team Management</td><td><code>https://api.eu-central-1.saucelabs.com/team-management/v1/</code></td>
@@ -152,9 +134,6 @@ Depending on the framework or driver you use, you might need to make additional 
 <td>RDC on Sauce</td><td><code>https://ondemand.apac-southeast-1.saucelabs.com/</code></td>
 </tr>
 <tr>
-<td>Real Devices on TestObject (Legacy)<small><span className="sauceGold">DEPRECATED</span></small></td><td>N/A</td>
-</tr>
-<tr>
 <td colSpan='2'><strong>APAC Southeast REST API</strong></td>
 </tr>
 <tr>
@@ -164,14 +143,8 @@ Depending on the framework or driver you use, you might need to make additional 
 <td>RDC on Sauce</td><td>N/A</td>
 </tr>
 <tr>
-<td>Real Devices on TestObject (Legacy)<small><span className="sauceGold">DEPRECATED</span></small></td><td>N/A</td>
-</tr>
-<tr>
 <td rowspan="2" >Sauce Connect Proxy</td>
 <td>Virtual and Real Devices on Sauce: <code>https://saucelabs.com/rest/v1/</code></td>
-</tr>
-<tr>
-<td>Real Devices on TestObject (Legacy): N/A</td>
 </tr>
 <tr>
 <td>Team Management</td><td><code>https://api.apac-southeast-1.saucelabs.com/team-management/v1/</code></td>
@@ -200,9 +173,6 @@ For more information on Sauce Headless, including full test walkthroughs, see [S
 <td>RDC on Sauce</td><td>N/A</td>
 </tr>
 <tr>
-<td>Real Devices on TestObject (Legacy)<small><span className="sauceGold">DEPRECATED</span></small></td><td>N/A</td>
-</tr>
-<tr>
 <td colSpan='2'><strong>Headless US-East REST API</strong></td>
 </tr>
 <tr>
@@ -212,14 +182,8 @@ For more information on Sauce Headless, including full test walkthroughs, see [S
 <td>RDC on Sauce</td><td>N/A</td>
 </tr>
 <tr>
-<td>Real Devices on TestObject (Legacy)<small><span className="sauceGold">DEPRECATED</span></small></td><td>N/A</td>
-</tr>
-<tr>
 <td rowspan="2" >Sauce Connect Proxy</td>
 <td>Virtual and Real Devices on Sauce: <code>https://us-east-1.saucelabs.com/rest/v1</code></td>
-</tr>
-<tr>
-<td>Real Devices on TestObject (Legacy): N/A <small><span className="sauceGold">DEPRECATED</span></small></td>
 </tr>
 <tr>
 <td>Team Management</td><td>N/A</td>
@@ -257,12 +221,8 @@ When you run automated tests or make API calls, your data center by default is U
 
 In addition, if you want to run automated tests on real devices, you need to specify the correct real device endpoint based on your data center. For details, see [Endpoints](#endpoints).
 
-See the respective API documentation for the Real Device Cloud and Sauce Labs API:
+See the [Sauce Labs REST API](/dev/api/rdc) documentation for information about accessing real device endpoints.
 
-* [The Sauce Labs REST API](/dev/api)
-* [TestObject: API Reference](https://api.testobject.com/) <small><span className="sauceGold">DEPRECATED</span></small>
-
-For more information about the Real Device Cloud and Sauce Labs API, see [API Reference](/dev/api).
 
 #### Authorization Credentials
 The URL hostname and authorization credentials for APIs are different for each data center:
@@ -275,8 +235,6 @@ The URL hostname and authorization credentials for APIs are different for each d
 | US West real devices cloud  | Username and access key can be found in Sauce Labs under **ACCOUNT** > **User settings**. |
 | EU Central real devices cloud  | Username and access key can be found in Sauce Labs under **ACCOUNT** > **User settings**. |
 | APAC Southeast real devices cloud | N/A |
-| US Legacy TestObject cloud <small><span className="sauceGold">DEPRECATED</span></small>  | User name and API key can be found in [TestObject](https://app.testobject.com/) under **Account Settings**. |
-| EU Legacy TestObject cloud <small><span className="sauceGold">DEPRECATED</span></small>  | User name and API key can be found in [TestObject](https://app.testobject.com/) under **Account Settings**. |
 
 #### Running Tests on EU Central
 If you use any of the following and your data center is EU Central, you need to make changes to your tests and/or framework to run those tests in the EU data center.

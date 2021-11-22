@@ -31,11 +31,8 @@ For version information, see [Sauce Connect Proxy Changelog](https://changelog.s
 ## Installation
 
 ### Mac and Windows
-
 1. Extract the contents of the .zip download.
-2. Open the download folder. You'll see the following contents:
-<img src={useBaseUrl('img/sauce-connect/sc-download.png')} alt="Sauce Connect download file contents" width="500" />
-
+2. Open the download folder. You'll see the following contents:<br/><img src={useBaseUrl('img/sauce-connect/scp-download.png')} alt="Sauce Connect download file contents" width="450" />
   <table>
   <tr>
    <td><strong>File</strong></td>
@@ -47,7 +44,7 @@ For version information, see [Sauce Connect Proxy Changelog](https://changelog.s
    </tr>
    <tr>
     <td><strong>config.yml</strong></td>
-   <td>YAML configuration file template for use with the <a href="/dev/cli/sauce-connect-proxy/#--config-file"><code>--config-file</code> command-line option</a>.</td>
+   <td>Sauce Connect Proxy YAML configuration file template. Use with the <a href="/dev/cli/sauce-connect-proxy/#--config-file"><code>--config-file</code></a>. See <a href="/secure-connections/sauce-connect/setup-configuration/yaml-config">Configuring Tunnels with a YAML File</a>.</td>
    </tr>  
    <tr>
    <td><strong>README.md</strong>, <strong>sc.service</strong>, <strong>sc@.service</strong></td>
