@@ -8,6 +8,7 @@ import QuickStart from './quickstart';
 import Resources from './resources';
 
 import styles from './styles.module.css';
+import HomeSearch from "./home-search";
 
 function Home() {
   const context = useDocusaurusContext();
@@ -21,12 +22,7 @@ function Home() {
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
           <div>
-            <form>
-              <div>
-                <input class="navbar__search-input search" placeholder="Search Docs &amp; Training" />
-                <button class="button button--primary search-button">Search</button>
-              </div>
-            </form>
+                <HomeSearch />
           </div>
         </div>
       </header>
