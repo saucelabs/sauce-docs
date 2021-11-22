@@ -1,7 +1,7 @@
 ---
 id: specialized-environments
-title: Specialized Environment Setup
-sidebar_label: Specialized Environment Setup
+title: Specialized Environment Setups
+sidebar_label: Specialized Environment Setups
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
   * We recommend setting these values as [environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/) to protect your username and api key from exposure, and also for future convenience.
-* The Data Center endpoint associated with your geographic location.
+* The name of your closest regional Sauce Labs Data Center (see the [SC CLI](/dev/cli/sauce-connect-proxy/#--region) and [Data Center Endpoints](/basics/data-center-endpoints/).
 
 
 ## Real Device Cloud Setup
@@ -46,22 +46,15 @@ While rare, there are some test cases that will require you to disable SSL Bumpi
 ### Selecting the Tunnel to Use
 Sauce Connect Proxy can have multiple tunnels running simultaneously, as described in [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). You can select which tunnel to use in a real device test in the same way as you would any other type of automated test.
 
-1. Start Sauce Command Proxy from the command line, using the `--tunnel-name` flag to start a new tunnel with that name (see [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy.md/#--tunnel-name-or---tunnel-identifier) for more information).
+1. Start Sauce Command Proxy from the command line, using the [`-u (--user)`](/dev/cli/sauce-connect-proxy/#--user), [`-k (--api-key)`](/dev/cli/sauce-connect-proxy/#--api-key), [`-r (--region`)](/dev/cli/sauce-connect-proxy/#--region), and [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) flags.
+  ```bash
+  ./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -r {SAUCE_DATA_CENTER} --tunnel-name {TUNNEL_NAME}
+  ```
 
-```bash
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DC --tunnel-name $TUNNEL_NAME
-```
-
-`SAUCE_USERNAME` refers to your Sauce Labs username, where:
-* `SAUCE_ACCESS_KEY` refers to your Sauce Labs access key
-* `SAUCE_DC` refers to the [Sauce Labs data center](/dev/cli/sauce-connect-proxy/#data-center-endpoints) (us-west, eu-central, etc...)
-* `TUNNEL_ID` refers to the tunnel name
-
-So an example, starting a tunnel in US West Data Center, would look like this:
-
-```bash
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-name rdc-on-sauce-tunnel-us
-```
+  In this example, we'll [set our credentials (username/access key) as environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/), start a tunnel in US West Data Center and name the tunnel `rdc-on-sauce-tunnel-us`.
+  ```bash
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-name rdc-on-sauce-tunnel-us
+  ```
 
 2. In your device testing script, specify the tunnel name with `tunnelName` in your capabilities, as shown in this Java example:
 
@@ -122,7 +115,7 @@ final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.eu-cent
 </Tabs>
 
 
-## Headless Sauce Connect Proxy Setup
+## Headless Setup
 Sauce Headless is a lightweight infrastructure that allows developers to run early pipeline component tests and sanity checks at scale. It is a container-based architecture for the Virtual Machines that host our headless browsers.
 
 At present, Sauce Headless testing is supported in the following data centers:
@@ -131,7 +124,15 @@ At present, Sauce Headless testing is supported in the following data centers:
 Example of starting Sauce Connect Proxy in conjunction with your Sauce Headless tests:
 
 ```bash
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
+./sc -u $SAUCE_USERNAME
+     -k $SAUCE_ACCESS_KEY \
      -r us-east \
      --tunnel-name {TUNNEL_NAME}
 ```
+
+
+## API Testing Setup
+
+See [API Testing with Sauce Connect Proxy](/api-testing/sauce-connect/) to learn how to start a tunnel for API Testing. It requires the use of a YAML config file.
+
+This setup has a unique endpoint, `https://api.us-west-4-i3er.saucelabs.com/rest/v1`. Currently, only the US-West region is supported.
