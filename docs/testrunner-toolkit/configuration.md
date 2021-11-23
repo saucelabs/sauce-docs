@@ -69,7 +69,7 @@ When you launch a tunnel, you can accept the tunnel identifier name that Sauce L
 ./sc -u {SL-username} -k {SL-access_key} -i {tunnel_name}
 ```
 
-This is the identifier `saucectl` expects as the `id` value in the config file, even though the Sauce Labs UI refers to this values as the `Tunnel Name`.
+`saucectl` expects this `tunnel_name` value in the `tunnel.name` property of your config file.
 :::
 
 ## Setting up a Proxy

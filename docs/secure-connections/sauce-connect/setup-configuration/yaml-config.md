@@ -1,6 +1,6 @@
 ---
 id: yaml-config
-title: Configuring Tunnels with a YAML File
+title: Sauce Connect Proxy YAML File Configuration
 sidebar_label: YAML Configuration
 ---
 
