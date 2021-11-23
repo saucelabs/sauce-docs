@@ -149,8 +149,58 @@ html[data-theme='light'] footer.row.docusaurus-mt-lg {
     --ifm-hero-text-color: var(--ifm-font-color-base-inverse);
 }
 
-.navbar {
-    --ifm-navbar-background-color: #f8f8f8;
+/* navbar*/
+html[data-theme='light'] .navbar {
+  background-color: var(--ifm-navbar-background-color);
+}
+
+html[data-theme='dark'] .navbar {
+  background-color: var(--ifm-navbar-background-color-dark);
+}
+
+.navbar__items {
+  font-size: 110%;
+  font-weight: 500;
+  color:rgb(70, 75, 84) !important;
+  text-decoration-color:rgb(70, 75, 84) !important;
+}
+
+html[data-theme='dark'] .navbar__link {
+  color: var(--ifm-font-color-base);
+  text-decoration-color: var(--ifm-font-color-base);
+}
+
+html[data-theme='dark'] .navbar__link:hover {
+  color: var(--ifm-menu-color-active);
+  text-decoration: underline;
+}
+
+.navbar__items.navbar__items--right a:nth-child(1) {
+  background: var(--ifm-color-primary);
+  background: -webkit-gradient(linear,right top, left top,from(#ee4439),to(#d92519));
+  background: linear-gradient(270deg,#ee4439,#d92519);
+  box-shadow: -3px 0 16px -11px #000;
+  border-radius: 50px;
+  border-radius: 50px;
+  color: #fff;
+  padding: 4px 16px;
+  --ifm-menu-color-background-hover: #fff;
+}
+
+.navbar__items.navbar__items--right a:nth-child(1):hover {
+  background: #f85d5d;
+  background: -webkit-gradient(linear,right top,left top,from(#f85d5d),to(#f83838));
+  background: linear-gradient(270deg,#f85d5d,#f83838);
+}
+
+.menu__link--sublist:after {
+  background-size: 1.5em 1.5em !important;
+}
+
+.dropdown > .navbar__link:after {
+  border-left: 0.25em solid transparent !important;
+  border-right: 0.25em solid transparent !important;
+  border-top: 0.25em solid !important;
 }
 
 body {
