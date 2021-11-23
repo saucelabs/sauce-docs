@@ -12,21 +12,17 @@ This topic describes where and how to download Sauce Connect Proxy to your local
 ## What You’ll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* For macOS Catalina 10.15+ compatibility, enable your Mac to allow apps from the App Store and identified developers.
-    1. Go to **System Preferences** > **Security & Privacy** > **General**.
-    2. Under the header **Allow apps downloaded from**, select the option **App Store and identified developers**.
+* Review [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/).
 
 ## Download Latest Version
 
-Download the latest Sauce Connect Proxy client version to your local machine by clicking the link below corresponding to your OS. If applicable, delete any previous versions you have.
+Download the latest Sauce Connect Proxy client version to your local machine by clicking the link below corresponding to your OS. If applicable, delete any previous versions you have. Using older versions may impact your ability to launch a tunnel or cause other technical issues.
 
-:::caution
-Using older versions may impact your ability to launch a tunnel or cause other technical issues.
-:::
 
 <ScTable></ScTable>
 
 For version information, see [Sauce Connect Proxy Changelog](https://changelog.saucelabs.com/en?category=sauce%20connect).
+
 
 ## Installation
 
@@ -48,7 +44,7 @@ For version information, see [Sauce Connect Proxy Changelog](https://changelog.s
    </tr>  
    <tr>
    <td><strong>README.md</strong>, <strong>sc.service</strong>, <strong>sc@.service</strong></td>
-   <td>Collection of sample files for use with the systemd service manager to start and stop Sauce Connect Proxy. Consult the <strong>README.md</strong> for more information.</td>
+   <td>Collection of sample files intended for use with the <a href="/secure-connections/sauce-connect/proxy-tunnels/#service-management-tools">systemd service manager</a>, an alternative way to start and stop Sauce Connect Proxy tunnels. Consult the <strong>README.md</strong> for more information.</td>
    </tr>  
    <tr>
     <td><strong>COPYRIGHT.md</strong></td>
@@ -69,6 +65,19 @@ curl -LO https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz
 tar xvf ./sc-4.7.1-linux.tar.gz
 export PATH="$HOME/sc-4.7.1-linux/bin:$PATH"
 ```
+
+
+## Using Docker Containers to Install/Run Sauce Connect
+
+You can use the Sauce Connect Proxy Docker image, maintained by the Sauce Labs [Open Source Program Office](https://opensource.saucelabs.com/), to build a Docker container. This means is an alternative to the above Download/Installation steps.
+
+If you’re not sure where Docker fits, consider these use cases:
+* If you want to creating automation (or manual testing) for multiple apps that reside in different environments or Sauce Labs Data Centers (i.e., US-East and US-West).
+* If you want to create multiple High Availability Sauce Connect tunnels on the same system, without having to manage or use different ports.
+* If you no longer want to manage Sauce Connect Proxy versions.
+* If you want to run Sauce Connect Proxy as part of a dockerized CI.
+
+To learn how to run the Sauce Connect Proxy Docker image as a container and manage tunnels that way, see [Sauce Connect Docker Container Setup](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#sauce-connect-docker-container-setup).
 
 ## Log File
 
@@ -254,3 +263,4 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
 * [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/)
 * [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy/)
 * [Sauce Connect Proxy Architecture](/secure-connections/sauce-connect/advanced/architecture/)
+* [Leveraging Docker Containers to Manage Sauce Connect Proxy Tunnels](https://saucelabs.com/blog/leveraging-docker-containers-to-manage-sauce-connect-tunnels)

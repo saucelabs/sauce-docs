@@ -15,6 +15,63 @@ import TabItem from '@theme/TabItem';
 * The name of your closest regional Sauce Labs Data Center (see the [SC CLI](/dev/cli/sauce-connect-proxy/#--region) and [Data Center Endpoints](/basics/data-center-endpoints/).
 
 
+## Sauce Connect Docker Container Setup
+
+As an alternative to downloading and installing the SC Client, you can leverage Docker containers to manage Sauce Connect Proxy tunnels. See [Using Docker Containers to Install/Run Sauce Connect](/secure-connections/sauce-connect/installation/#using-docker-containers-to-installrun-sauce-connect) for use cases.
+
+### Running the SC Docker Image
+
+1. Before running the container, you'll need to pull the Sauce Connect Proxy Docker Image from the Docker Hub. This will always pull the latest version of Sauce Connect Proxy.
+  ```bash
+  $ docker pull saucelabs/sauce-connect
+  ```
+   * Or - if you _do_ want to use a specific SC version - you can specify that as a tag. The example below pulls v4.7.0.
+   ```bash
+   $ docker pull saucelabs/sauce-connect:4.7.0
+   ```
+2. To run the Sauce Connect Proxy Docker image, execute the below script, which will also set your Sauce Labs username and access key as [environment variables](/basics/environment-variables/).
+  ```bash
+  $ export SAUCE_USERNAME="my-user"
+  $ export SAUCE_ACCESS_KEY="my-access-key"
+  docker run \
+      -e SAUCE_USERNAME=${SAUCE_USERNAME} \
+      -e SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} \
+      --network="host" \
+      -it saucelabs/sauce-connect
+  ```
+
+If desired, you can specify any additional [SC CLI arguments](/dev/cli/sauce-connect-proxy/) here. Ensure that you have `--network="host"` set as an argument, otherwise Sauce Connect within the Docker container will not be able to access your local services in the host machine.
+
+### Running the SC Docker Image with a CI/CD Pipeline
+If you want to run this Docker image as part of your CI/CD pipeline, you can run the following steps:
+1. Create a `wait-for-sc.sh` file to ensure we only continue our pipeline.
+1. Once Sauce Connect is fully connected, we need a simple shell script that waits for Sauce Connect to be ready:
+   ```bash title="wait-for-sc.sh"
+   until [ -f /tmp/sc.ready ]
+   do
+       sleep 5
+   done
+   echo "SC ready"
+   1. exit
+   2. Pull docker image
+   $ docker pull saucelabs/sauce-connect
+   ```
+1. Start Sauce Connect using the script below. It is important that you mount a temp folder here so that `wait-for-sc.sh` can detect when Sauce Connect has launched. Also, make sure that you set `--network="host"` to allow Sauce Connect to access your application in the host machine. This script also sets your Sauce Labs username and access key as [environment variables](/basics/environment-variables/).
+  ```bash
+  $ docker run \
+      -e SAUCE_USERNAME=${SAUCE_USERNAME} \
+      -e SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} \
+      -v /tmp:/tmp \
+      --network="host" \
+      -t saucelabs/sauce-connect:latest \
+      -f /tmp/sc.ready \
+      -i some-identifier &
+    $ ./wait-for-sc.sh
+  ```
+
+For additional help, contact [Sauce Labs Support](https://saucelabs.com/training-support) or create a GitHub Issue from the [Stack Overflow GitHub Repository](https://github.com/saucelabs/sauce-connect-docker).
+
+
 ## Real Device Cloud Setup
 
 Real Device Cloud on Sauce Labs offers public and private mobile devices for users looking to expedite automated and live testing for their mobile apps. You can run a high volume of tests across a broad range of real devices without compromising performance, quality, or reliability.
