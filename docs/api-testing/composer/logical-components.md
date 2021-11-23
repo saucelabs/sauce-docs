@@ -273,7 +273,7 @@ In this example, the test will wait 1000 milliseconds before performing the `GET
 
 ### K/V Store
 
-The Key/Value store allows API Fortress users to create temporary key/value pairs that can be accessed across different tests. The Key/Value store is accessed via the Key/Value Store Component.
+The Key/Value store allows you to create temporary key/value pairs that can be accessed across different tests. The Key/Value store is accessed via the Key/Value Store Component.
 
 <img src={useBaseUrl('img/api-fortress/2018/05/Screen-Shot-2018-05-24-at-1.22.48-PM-1.png')} alt="screenshot" />
 
