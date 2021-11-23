@@ -43,14 +43,21 @@ If your APIs exist behind a firewall on your private network, you'll need to use
   ```
 5. If the tunnel was launched successfully, you'll see a [CLI response like this](/secure-connections/sauce-connect/quickstart/#verifying-a-tunnel), indicating that you can start your tests.
 
+
 ## Run an API Test with a Tunnel
 
-6. Now that you're set up to run API tests through a Sauce Connect Proxy tunnel, follow the directions under [Quickstart](/api-testing/quickstart/) to Create a Test (using your local API endpoint), Send a Request, Generate Test.
-7. Tunnels can be selected in all of the places where you can run tests: from the **HTTP Client**, **Schedule** tab, and the **Compose** tab (Composer). Under **Run Configuration**, click the Sauce Connect Proxy tunnels dropdown menu (which defaults to **No Tunnel**), then click the name of your tunnel.<br/><img src={useBaseUrl('img/api-fortress/2021/09/sauceconnect-nav1.png')} alt="API Testing Sauce Connect Nav" width="200"/>
-8. Now you can [run your test](/api-testing/quickstart/#run-test).
+6. Now you're set up to run API tests through a Sauce Connect Proxy tunnel. To create a test, follow the directions under [Quickstart](/api-testing/quickstart/) to:
+   * Create a Test (use your local API endpoint here)
+   * Send a Request
+   * Generate Test
+7. Tunnels can be selected in any of the places where tests can be run: from the **Tests** tab, **HTTP Client** tab, **Schedule** tab, and **Compose** tab.
+
+  Under **Run Configuration**, click the Sauce Connect Proxy tunnels dropdown menu (which defaults to **No Tunnel**), then click the name of your tunnel.<br/><img src={useBaseUrl('img/api-fortress/2021/09/sauceconnect-nav1.png')} alt="API Testing Sauce Connect Nav" width="200"/>
+8. [Run your test](/api-testing/quickstart/#run-test).
 
 
 ## More Information
 
+* [API Testing Quickstart](/api-testing/quickstart)
 * [Sauce Connect Proxy homepage](/secure-connections/sauce-connect)
 * [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/)
