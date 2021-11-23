@@ -77,7 +77,7 @@ __Shorthand__: `-s`
 ### `--tunnel-name`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Assigns a name to a Sauce Connect Proxy tunnel. Strongly recommended for best performance. It can also assign a name to group of tunnels in the same [High Availability pool]((/secure-connections/sauce-connect/setup-configuration/high-availability), when used with [`--tunnel-pool`](#--tunnel-pool). Must be in ASCII format.
+__Description__: Assigns a name to a Sauce Connect Proxy tunnel. Strongly recommended for best performance. It can also assign a name to a group of tunnels in the same [High Availability pool]((/secure-connections/sauce-connect/setup-configuration/high-availability), when used with [`--tunnel-pool`](#--tunnel-pool). Must be in ASCII format.
 
 Future jobs will use this tunnel only when explicitly specified by the [`tunnelName`](/dev/test-configuration-options/#tunnelname) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
 __Shorthand__: n/a
