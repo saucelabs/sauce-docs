@@ -50,7 +50,7 @@ const docusaurusConfig = {
       hideOnScroll: false,
       logo: {
         alt: 'Sauce Labs logo',
-        src: 'img/logo-saucelabs.png',
+        src: 'img/logo-saucelabs.svg',
       },
       items: [
         {
