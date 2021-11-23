@@ -33,7 +33,7 @@ You can manage and monitor all Sauce Connect Proxy tunnel activity from the Sauc
 Every Sauce Connect Proxy tunnel spins up a fresh virtual machine (VM) that is used only for your tests. Once the tunnel is closed, VMs are destroyed. For information about user roles and permissions, see [User Roles](/basics/acct-team-mgmt/managing-user-info).
 
 #### From the Command Line
-Tunnels can be launched from the command line of the machine where the Sauce Connect Proxy client is installed. See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/) and [Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for full instructions on launching tunnels. You can also add any Sauce Connect Proxy parameters you want to use in configuring your tunnel.
+Tunnels must be started from the command line of the machine where the Sauce Connect Proxy client is installed. As a shortcut, you can copy the run command (see **TUNNELS** page > Step 3) and paste it into your CLI. Optionally, you can add [tunnel configuration parameters](/dev/cli/sauce-connect-proxy/). See [Quickstart](/secure-connections/sauce-connect/quickstart/) and [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for instructions.
 
 #### From the TUNNELS Page
 Currently, this is not supported.
@@ -185,7 +185,7 @@ From the **TUNNELS** page, click **Stop My Tunnels**.
 Sauce Connect Proxy has a performance metrics feature that you can use to monitor and measure the data and activities of your Sauce Connect Proxy client. You can access these metrics over an HTTP connection to a local expvar server, which will display the metrics as a JSON file.
 
 ### Configuring Performance Metrics Monitoring
-By default, the `expvar server` listens on 'localhost:8888', but you can change the interface and port with the `--metrics-address` command.
+By default, the `expvar server` listens on 'localhost:8888', but you can change the interface and port with the [`--metrics-address`](/dev/cli/sauce-connect-proxy/#--metrics-address) command.
 
 ```bash
 --metrics-address :8000 # listens on all the interfaces' port 8080
@@ -308,15 +308,12 @@ fe80::1%lo0 localhost
 Once the host file has been altered, start Sauce Connect Proxy with the added argument `--metrics-address tunnelmetrics.com:8080`. Then, on the machine hosting Sauce Connect Proxy, you will see the metrics served at `http://tunnelmetrics.com:8080/debug/vars`.
 
 ## Improving Performance
-During testing, your website or application may load resources (e.g., tracking services, images/videos, advertisements), which can impact page load times and even cause tests to fail. If these external assets are publicly available on the Internet, then they can be cached to speed up requests. If these are not needed at all for testing purposes, you can disable or redirect traffic to improve performance.
+During testing, your website or application may load resources (e.g., tracking services, images/videos, advertisements), which can impact page load times and even cause tests to fail. If these external assets are publicly available on the Internet, then they can be fetched directly without using a tunnel. If these are not needed at all for testing purposes, you can disable the traffic to improve performance.
 
-### Disable Traffic to External Resources
-You can improve your overall test performance by disabling these third-party resource calls. If you're using Sauce Connect Proxy, the additional network hops required to access external resources has the potential to slow test execution dramatically. To retrieve resources directly, you can use the `--tunnel-domains` and `--direct-domains` flags to control which domains Sauce Connect will access during the test. To blocklist traffic so it is immediately dropped, use the `--fast-fail-regexps` command.
+### Configuring Traffic to External Resources
+You can improve your overall test performance by disabling these third-party resource calls. If you're using Sauce Connect Proxy, the additional network hops required to access external resources have the potential to slow test execution dramatically. To retrieve resources directly, you can use the [`--direct-domains`](/dev/cli/sauce-connect-proxy/#--direct-domains) flag. To blocklist traffic so it is immediately dropped, use the [`--fast-fail-regexps`](/dev/cli/sauce-connect-proxy/#--fast-fail-regexps) command.
 
-See the following for more information:
-
-* [Sauce Connect Proxy Command Line Quick Reference Guide](/dev/cli/sauce-connect-proxy)
-* [How to Remove Third Party Resources](http://elementalselenium.com/tips/66-blacklist) by Dave Haeffner, Elemental Selenium
+See [How to Remove Third Party Resources](http://elementalselenium.com/tips/66-blacklist) for more information.
 
 ### Be Aware of How Sauce Connect Proxy Caches Traffic
 By default, Sauce Connect Proxy will cache all traffic with SSL Bumping (see [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication)). Caching of resources takes place on the Sauce Labs side, resulting in faster test execution.
