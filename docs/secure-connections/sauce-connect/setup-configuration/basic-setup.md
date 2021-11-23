@@ -29,7 +29,7 @@ We recommend setting your username and api key values as environment variables t
 
 ## Basic Setup without a Test Script
 
-See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/).
+See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/) for instructions on running Live (manual) local tests on websites and mobile apps.
 
 
 ## Basic Setup with a Test Script
