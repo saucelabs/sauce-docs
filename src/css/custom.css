@@ -124,6 +124,14 @@ html[data-theme='light'] {
     --ifm-alert-color: #474c55;
 }
 
+html[data-theme='light'] h2 {
+  color: var(--ifm-font-color-base)
+}
+
+html[data-theme='dark'] h2 {
+  color: var(--ifm-font-color-base)
+}
+
 html[data-theme='dark'] footer.row.docusaurus-mt-lg {
     background-color: #18191a;
 }
