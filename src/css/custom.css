@@ -555,6 +555,7 @@ a.hero__button {
 
 }
 
+/* landpage resources search input */
 .search{
   border-radius: 4px;
   background-color: #fff;
@@ -569,6 +570,12 @@ a.hero__button {
   border-color: #0E75DD;
   font-weight: 100;
   font-size: 12px;
+}
+
+html[data-theme='dark'] .search-button{
+  background-color: var(--ifm-menu-color-active);
+  border-color: var(--ifm-menu-color-active);
+  font-weight: 600;
 }
 
 /* landpage, quickstart, community and resources sections */
