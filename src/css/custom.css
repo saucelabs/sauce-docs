@@ -323,7 +323,7 @@ h6, .h6 {
 /* Information badges below */
 
 .sauceRed {
-  background:#E2231A;
+  background:var(--ifm-color-primary);
   color:white;
   padding:.2rem;
   font-weight:750;
@@ -505,10 +505,10 @@ h6, .h6 {
   display: none!important;
 }
 .hero--primary {
-  background-color: #F1F2F2;
+  background-color: var(--ifm-code-background);
 }
 .hero__title, .hero__subtitle {
-  color: #464B54;
+  color: var(--ifm-font-color-base);
 }
 .hero__subtitle {
   font-size: 16px;
