@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Get up and running with a Sauce Connect Proxy tunnel in just a few minutes by following the instructions below.
+Get up and running with a Sauce Connect Proxy tunnel in just a few minutes using the steps below.
 
 ## Start Tunnel
 
@@ -91,7 +91,7 @@ Try running a Live Cross-Browser or Mobile App local test through your tunnel. S
 </TabItem>
 <TabItem value="Mobile App">
 
-9. If you haven't yet, [upload your mobile app](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app).
+9. If you want to test a native mobile app, you'll need to [upload it to Sauce Storage](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app) or to [another location](/mobile-apps/app-storage/#uploading-apps-via-rest-api) where our emulators, simulators, and real devices can connect to it.
 10. Hover your mouse over the app line item and click **Choose Device**, then select desired configuration:
     * Click the **Sauce Connect Proxy** dropdown and select the name of the tunnel you've launched.
     * For **Mobile Virtual**, choose a **MANUFACTURER**, **DEVICE**, and **OS VERSION** from those dropdown menus. For **Mobile Real**, click a device from the menu.
@@ -104,8 +104,8 @@ Try running a Live Cross-Browser or Mobile App local test through your tunnel. S
 ## Stop Tunnel
 
 12. To stop your tunnel, choose from one of the below options:
-    * [From the Command Line (Using Ctrl+C)](/secure-connections/sauce-connect/proxy-tunnels/#to-stop-a-single-tunnel-ctrlc)
-    * [From the TUNNELS Page (Using Stop button)](/secure-connections/sauce-connect/proxy-tunnels/#to-stop-a-single-tunnel)
+    * [Command Line (Using Ctrl+C)](/secure-connections/sauce-connect/proxy-tunnels/#to-stop-a-single-tunnel-ctrlc)
+    * [TUNNELS Page (Using Stop button)](/secure-connections/sauce-connect/proxy-tunnels/#to-stop-a-single-tunnel)
 
 
 ## More Information
