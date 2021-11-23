@@ -637,6 +637,8 @@ a.hero__button {
   max-height: 120px;
 }
 
+/* main configuration */
+
 .main__container-bg {
   background-image: url(/img/dev-resources-bg.png);
   background-repeat: no-repeat;
@@ -668,6 +670,8 @@ a.hero__button {
 .main__container-bg.--dev-resources .main__container-inner {
   border-bottom: solid 1px #C1C3C7;
 }
+
+
 .dev-resources__title {
   width: 100%;
   text-align: center;
