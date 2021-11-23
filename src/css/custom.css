@@ -567,6 +567,7 @@ a.hero__button {
   font-size: 12px;
 }
 
+/* landpage, quickstart, community and resources sections */
 .title {
   text-align: left;
   color:  #1e2127;
@@ -598,8 +599,8 @@ a.hero__button {
   border: solid 1px #C1C3C7;
 }
 
-.callout h2 {
-  color:  #1e2127;
+.callouts__container .callout:last-of-type {
+  margin-right: 0px;
 }
 
 .callout h4{
@@ -626,6 +627,10 @@ a.hero__button {
   font-weight: 100;
   padding: 16px;
   margin-right: 16px;
+}
+
+.quickstart__container .quickstart:last-of-type {
+  margin-right: 0px;
 }
 
 .quickstart img {
