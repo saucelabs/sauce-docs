@@ -1,6 +1,6 @@
 ---
 id: basic-setup
-title: Basic Setup
+title: Sauce Connect Proxy Basic Setup
 sidebar_label: Basic Setup
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
