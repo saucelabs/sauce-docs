@@ -145,21 +145,13 @@ body {
     font-family: museo-sans, sans-serif;
     font-weight: semi-bold;
 }
-
 h1,h2,h3,h4,h5,h6 {
     font-family: museo-sans, sans-serif;
     font-weight: 500;
 }
-
-/*nav.navbar.navbar--fixed-top.navbarHideable {*/
-/*    !*top: calc(var(--ifm-navbar-height) * -5) !important;*!*/
-/*    transition: top 0.2.5s ease-in-out;*/
-/*}*/
-
 h1, .h1 {
     font-size: 32px !important;
 }
-
 h2, .h2 {
     padding-bottom: 5px;
     font-size: 24px;
@@ -176,23 +168,6 @@ h4, .h4 {
     margin-bottom: 20px;
     font-weight: 750;
 }
-/* h4, .h4 {
-    padding-bottom: 5px;
-    font-size: 18px;
-    margin-bottom: 20px !important;
-    position:relative;
-} */
-/* h4::before {
-  content: "";
-  position: absolute;
-  left: 6%;
-  bottom: 5px;
-  width: 150px;
-  height: 10px;
-  transform: skew(-12deg) translateX(-25%);
-  background: rgba(197,210,214,0.5);
-  z-index: -1;
-} */
 h6, .h6 {
     padding-bottom: 2px;
     font-size: 16px;
@@ -238,9 +213,6 @@ h6, .h6 {
     background: -webkit-gradient(linear,right top,left top,from(#f85d5d),to(#f83838));
     background: linear-gradient(270deg,#f85d5d,#f83838);
 }
-/*.navbar__brand {*/
-/*    height: 1.5em !important;*/
-/*}*/
 .menu__link--sublist:after {
     background-size: 1.5em 1.5em !important;
 }
@@ -395,9 +367,6 @@ h6, .h6 {
     font-weight:600;
 }
 
-
-
-
 /* announcementBar button */
 
 .announcementBar {
@@ -424,8 +393,6 @@ h6, .h6 {
   box-shadow: 0px 1px 0px #b71d15, 0px 1px 1px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 1px rgba(255,255,255,.5);
   transform:translate(0, 2px);
 }
-
-
 
 /*Playing with ribbons*/
 
@@ -490,10 +457,6 @@ h6, .h6 {
   transform:translate(0, 4px);
 }
 
-/* .redocusaurus h2,h3,h4 {
-  color: #E2231A;;
-} */
-
 /* Get Started button styles */
 #__docusaurus > div.main-wrapper > header > div > div > a {
     --ifm-font-color-base: #1c1e22;
@@ -505,15 +468,6 @@ h6, .h6 {
     background-color: #5dc1e5;
     color: white !important;
 }
-/*.navbar__inner {*/
-/*  width: 1160px;*/
-/*  display: inline-block;*/
-/*  margin: 0 auto;*/
-/*  padding-top: 40px;*/
-/*}*/
-/*.navbar--fixed-top {*/
-/*  height: 110px;*/
-/*}*/
 
 .DocSearch-Button {
   /*display: inline-block!important;*/
