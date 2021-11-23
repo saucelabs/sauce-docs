@@ -63,6 +63,7 @@
     --ifm-code-font-size: 85%;
     --ifm-code-background: #F1F2F2;
     --ifm-font-color-base: #464b54;
+    --ifm-navbar-background-color: #f8f8f8;
 
     /*--ifm-*/
 }
@@ -77,6 +78,7 @@ html[data-theme='dark'] {
     --ifm-menu-color-active: #57C1E8;
     --ifm-alert-color: #f0f0f0 !important;
     --ifm-navbar-link-color: #464b54;
+    --ifm-navbar-background-color-dark: #18191a;
     --docsearch-muted-color: #969faf !important;
     /*--docsearch-searchbox-background: #ebedf0 !important;*/
     --docsearch-text-color: #fff !important;
@@ -92,25 +94,25 @@ html[data-theme='dark'] .alert--secondary {
 
 
 html[data-theme='dark'] .table-of-contents__link--active {
-    color: #57C1E8;
+    color: var(--ifm-menu-color-active);
 }
 
 html[data-theme='dark'] .table-of-contents__link--active code {
-    color: #57C1E8;
+    color: var(--ifm-menu-color-active);
 }
 
 html[data-theme='dark'] .table-of-contents__link:hover code {
-    color: #57C1E8;
+    color: var(--ifm-menu-color-active);
 }
 
 html[data-theme='dark'] .table-of-contents__link:hover {
-    color: #57C1E8;
+    color: var(--ifm-menu-color-active);
     cursor: pointer;
 }
 
 html[data-theme='dark'] .tabs__item--active {
-    color: #57C1E8;
-    border-bottom-color: #57C1E8;
+    color: var(--ifm-menu-color-active);
+    border-bottom-color: var(--ifm-menu-color-active);
 }
 
 html[data-theme='dark'] .alert a {
@@ -495,7 +497,7 @@ h6, .h6 {
 /* Get Started button styles */
 #__docusaurus > div.main-wrapper > header > div > div > a {
     --ifm-font-color-base: #1c1e22;
-    background-color: #f8f8f8;
+    background-color: var(--ifm-navbar-background-color);
 }
 
 #__docusaurus > div.main-wrapper > header > div > div > a:hover {
