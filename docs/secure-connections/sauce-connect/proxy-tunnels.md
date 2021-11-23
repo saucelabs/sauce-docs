@@ -70,15 +70,17 @@ If you attempt to terminate a Sauce Connect Proxy tunnel that is running a test 
 :::
 
 #### To Stop a Single Tunnel: `KILL` signal
-Another way to stop an individual tunnel via command line is to send a `KILL` signal to the running `Process ID` (pid).
+Another way to stop an individual tunnel via command line is to send a `KILL` command to the running `Process ID` (pid). The kill command sends various signals:
+* `kill -9` sends a kill signal (SIGKILL), which forces the program to shut down.
+* `kill -2` sends a SIGINT signal, which interrupts the program for a graceful shutdown. This is what we'll use in the below example.
 
-1. Start a Sauce Connect Proxy tunnel [per normal procedure](/secure-connections/sauce-connect/quickstart/).
-2. Fetch and Save the process IDs for later use.
+1. Start a Sauce Connect Proxy tunnel [per standard procedure](/secure-connections/sauce-connect/quickstart).
+2. Fetch and save the process IDs for later use.
   ```bash
   $ ps aux | grep bin/sc
   ```
 
-  Output:
+  Expected Response:
   ```bash
   $SAUCE_USERNAME   38312   0.1  0.1  4461780  20084 s000  S+    2:58PM   0:00.33 sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
   ```
@@ -89,7 +91,12 @@ Another way to stop an individual tunnel via command line is to send a `KILL` si
   ```
 
 :::note Windows Users
-Windows has no "signals" command the way Linux/Unix/MacOS does, instead they use TaskKill iirc, for example: `taskill /PID 1234`.
+Windows does not have signals the same way as Linux, Unix, and macOS. Instead, `taskkill` can be used to immediately disrupt the process, similar to sending a `SIGKILL` signal:
+
+```bash
+taskkill /pid 1234
+```
+
 :::
 
 #### To Stop Multiple Tunnels
@@ -420,7 +427,7 @@ Ephemeral tunnels (short-lived tunnels) are ideal for the following test situati
 One option to start Ephemeral tunnels is to do so from your local workstation.
 
 1. [Set your Sauce Labs username and access key as environmental variables](/basics/environment-variables).
-2. Run the basic startup commands (i.e., no optional flags) to ensure that the tunnel starts:
+2. Run the basic startup commands to ensure that your tunnel starts. Be sure to include the [`--region`](/dev/cli/sauce-connect-proxy/#--region) and [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) flags for best performance.
 
   <Tabs
       defaultValue="Mac/Linux"
@@ -430,20 +437,22 @@ One option to start Ephemeral tunnels is to do so from your local workstation.
       ]}>
 
   <TabItem value="Mac/Linux">
+
   ```bash
-  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region {SAUCE_DATA_CENTER} --tunnel-name {TUNNEL_NAME}
   ```
 
   </TabItem>
   <TabItem value="Windows">
 
   ```bash
-  sc -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY%
+  sc -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region {SAUCE_DATA_CENTER} --tunnel-name {TUNNEL_NAME}
   ```
+
   </TabItem>
   </Tabs>
 
-Once you see a tunnel on Sauce Labs, you can start testing against a site that is hosted on your network. You can leave it up for as long as you'd like and test at a fairly reasonable volume. Start it and stop it as needed!
+  Once you see a tunnel on Sauce Labs, you can start testing against a site that is hosted on your network. You can leave it up for as long as you'd like and test at a fairly reasonable volume. Start it and stop it as needed!
 
 #### Starting an Ephemeral Tunnel From a Continuous Integration (CI) Build Server
 You can also launch Ephemeral tunnels from a continuous integration (CI) build server, where the code is being pulled from a repository.
