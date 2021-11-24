@@ -278,9 +278,9 @@ If you plan to run multiple instances of Sauce Connect Proxy on a single machine
 For example, if we were to start two instances of Sauce Connect Proxy on the same machine, using the following commands in the code block below, then the metrics for SCP1 would be available at `http://localhost:8001/debug/vars`. Similarly, SCP2's metrics would be available at `http://localhost:8000/debug/vars`.
 
 ```bash
-./sc --user *** --api-key *** --metrics-address localhost:8000 --se-port 4445 --tunnel-name SCP1 --pidfile SCP1
+./sc --u $SAUCE_USERNAME --k $SAUCE_ACCESS_KEY -r us-west --metrics-address localhost:8000 --se-port 4445 --tunnel-name SCP1 --pidfile SCP1
 ...
-./sc --user *** --api-key *** --metrics-address localhost:8001 --se-port 4446 --tunnel-name SCP2 --pidfile SCP2
+./sc --u $SAUCE_USERNAME --api-key $SAUCE_ACCESS_KEY -r us-west --metrics-address localhost:8001 --se-port 4446 --tunnel-name SCP2 --pidfile SCP2
 ```
 
 :::note
@@ -288,7 +288,7 @@ If you start multiple instances of Sauce Connect Proxy without assigning unique 
 :::
 
 ### Specifying a Custom URL for Client Metrics
-If you wish to customize the URL where metrics are served, you can do so by adding an entry to the host file on the machine where Sauce Connect Proxy is running and then updating the `--metrics-address` command line arguments when starting Sauce Connect Proxy.
+If you wish to customize the URL where metrics are served, you can do so by adding an entry to the host file on the machine where Sauce Connect Proxy is running and then updating the [`--metrics-address`](/dev/cli/sauce-connect-proxy/#--metrics-address) command line arguments when starting Sauce Connect Proxy.
 
 For example, let's say we want to have the metrics available at `http://tunnelmetrics.com:8080/debug/vars`. In order to accomplish this, add the entry `127.0.0.1 tunnelmetrics.com` to the host file where Sauce Connect Proxy is running.
 
@@ -315,7 +315,7 @@ You can improve your overall test performance by disabling these third-party res
 
 See the following for more information:
 
-* [Sauce Connect Proxy Command Line Quick Reference Guide](/dev/cli/sauce-connect-proxy)
+* [Sauce Connect Proxy CLI Guide](/dev/cli/sauce-connect-proxy)
 * [How to Remove Third Party Resources](http://elementalselenium.com/tips/66-blacklist) by Dave Haeffner, Elemental Selenium
 
 ### Be Aware of How Sauce Connect Proxy Caches Traffic
@@ -447,7 +447,7 @@ When using NSSM, we recommend changing the shutdown timeout from milliseconds to
 ## Security Considerations with Tunnel Config
 
 :::warning
-If the SC client is running on a multi-user system, we recommend using config files or environment variables instead of command line arguments to hide sensitive information like [`--api-key`](/dev/cli/sauce-connect-proxy/#--api-key-string) and proxy credentials so they aren't visible in the list of running processes.
+If your Sauce Connect client is running on a multi-user system, we recommend using a [YAML config file](/secure-connections/sauce-connect/setup-configuration/yaml-config/) or [setting environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/) instead of command line arguments to hide sensitive information like [`--api-key`](/dev/cli/sauce-connect-proxy/#--api-key) and proxy credentials. This way, they won't be visible in the list of running processes.
 :::
 
 ## Tunnel Types
@@ -519,24 +519,16 @@ You can also launch Ephemeral tunnels from a continuous integration (CI) build s
 
 3. How you start your tunnel is up to you. You can run a simple Bash shell script (or PowerShell script, if you're in Windows) that simply executes the start commands as if you were starting it locally:  
   ```bash
-  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
-  ```
-
-:::note
-If you don't specify a Data Center Sauce Connect Proxy uses the US Data Center for `SAUCE_DC` by default. So for example if you need to run tests on the Sauce Labs EU Data Center, you need to modify the '-r' flag like so:
-:::
-
-  ```bash
-  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-name singleton-eu-tunnel -r eu-central
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r eu-central --tunnel-name {TUNNEL_NAME}
   ```
 
 Once you've established your automated loop, you should be able to kick off builds as needed, automatically.
 
 ### Long-Running Tunnels
 Long-running tunnels are especially useful for large enterprise customers, who often set their tunnels to run automatically for 12-48 hours over the course of their testing. They are ideal for situations like the following:
-* If you're running a high number of parallel tests (50 or more)
-* If you have a test automation infrastructure that can utilize the Sauce Connect Proxy service and wish to have your Sauce Connect client component up and running for a long time (i.e., 12-48 hours)
-* If you plan to share tunnels across teams
+* If you're running a high number of parallel tests (50 or more).
+* If you have a test automation infrastructure that can utilize the Sauce Connect Proxy service and wish to have your Sauce Connect client component up and running for a long time (i.e., 12-48 hours).
+* If you plan to share tunnels across teams.
 
 Long-running tunnels go hand in hand with our [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability), which allows you to run multiple tunnels to support a very high number of parallel tests. If you're part of a team of multiple people and/or departments running tests simultaneously on Sauce Labs, we strongly recommend utilizing long-running tunnels in High Availability Mode. Once you (or your systems administrator) set your long-running tunnel configuration for your account on Sauce Labs, the settings will be remembered in your account and you won't have to set them again. Here are some benefits to this:
 

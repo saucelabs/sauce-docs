@@ -53,16 +53,17 @@ This is required only if you're using a YAML file to configure your tunnels.
 __Description__: Defines the local path to a YAML file containing a Sauce Connect Proxy configuration. For instructions, [Configuring Tunnels with a YAML File](/secure-connections/sauce-connect/setup-configuration/yaml-config/).<br/>
 __Shorthand__: `-c`
 
+
 ---
 ### `--region`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 __Description__: Sets your Sauce Labs region data center. Strongly recommended for best performance. Possible values are `us-west`, `eu-central`, `us-east`, and `apac-southeast`. For more information, see [Data Center Endpoints](#data-center-endpoints). <br/>
-__Default__: `us-west`<br/>
+__Default__: If you don't specify a Data Center at all, Sauce Connect will default to `us-west`. <br/>
 __Shorthand__: `-r`
 
 :::caution
-We recommend using this flags over its predecessor, `--rest-url`, which will eventually be deprecated. Not compatible with versions below 4.7.0.
+We recommend using this flag over its predecessor, `--rest-url`, which will eventually be deprecated. Not compatible with versions below 4.7.0.
 :::
 
 ---
