@@ -19,50 +19,50 @@ Before getting started with the High Availability setup, our recommendation is t
 to confirm that your network architecture is compatible with Sauce Connect Proxy.
 
 ## Basic Setup Leveraging High Availability
-The following diagram shows the basic Sauce Connect Proxy setup using High Availability.
+The diagram below shows the basic Sauce Connect Proxy setup using High Availability.<br/><img src={useBaseUrl('img/sauce-connect/scp-basic-ha.png')} alt="Basic setup using High Availability" width="600"/>
+
 On the Sauce Labs side, there are three major components: Sauce Test VM, Sauce Connect Tunnel VM, and Tunnel Pool. The logic flow is:
 
-1. Test framework makes a request for a new Sauce Test VM, which specifies the tunnel ID of the pool (or uses an unnamed, "default" pool).
+1. Test framework makes a request for a new Sauce Test VM, which specifies the tunnel ID of the pool (or uses an unnamed "default" pool).
 2. A service in Sauce Labs chooses a tunnel from the existing pool at random.
 3. The resulting tunnel from step 2 is assigned to the new test VM.
 
-### Basic Setup Using High Availability
-
-<img src={useBaseUrl('img/sauce-connect/scp-basic-ha.png')} alt="Basic setup using High Availability" width="400"/>
-
-## Multiple Network Routes
+## Multiple Network Routes to Site Under Test (SUT)
 In this diagram, we see a setup that allows for multiple network routes when reaching the site(s) under test. There are variations to this, of course. For example, some of the Sauce Connect Proxy instances could be in the same network infrastructure as the site(s) under test. You can also imagine leveraging different virtual routes inside the same physical network. What is gained by setting up tunnels in this manner is redundancy for Sauce Connect Proxy tests, should one network route fail.
 
-### Multiple Network Routes to Site Under Test (SUT)
-
-<img src={useBaseUrl('img/sauce-connect/scp-mult-routes.png')} alt="Multiple network routes to Site Under Test (SUT)" width="400"/>
+<img src={useBaseUrl('img/sauce-connect/scp-mult-routes.png')} alt="Multiple network routes to Site Under Test (SUT)" width="600"/>
 
 ## High Availability Tunnel Settings and Commands
-You can customize your High Availability tests using these options below. For a full list of High Availability commands and other Sauce Connect Proxy options, see the [Sauce Connect Proxy Command Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
+You can customize your High Availability tests using these options below. For a full list of High Availability commands and other Sauce Connect Proxy options, see the [Sauce Connect Proxy CLI Guide](/dev/cli/sauce-connect-proxy).
 
 ### Tunnel Pools
-Exclusive to our High Availability Sauce Connect Proxy Setup, you can launch multiple tunnels as a tunnel pool that's treated as a single tunnel. Be mindful that each tunnel used in a pool will count toward your tunnel concurrency limit.
+Exclusive to our High Availability Sauce Connect Proxy Setup, you can launch multiple tunnels as a tunnel pool that's treated as a single tunnel. Each individualtunnel used in a pool will count toward your tunnel concurrency limit.
 
 #### Launching Tunnel Pools
-When using Sauce Connect Proxy (either a single tunnel or High Availability pool) to test your app, you'll need to provide the name of the Sauce Connect Proxy tunnel by using the desired capability [tunnelName](/secure-connections/sauce-connect/setup-configuration/basic-setup#using-tunnel-names) in your test configuration (e.g., `"tunnelName": "tunnel_name_here"`). Tunnel names distinguish which tunnel or High Availability tunnel pool will be used to connect to your site under test.
+When using Sauce Connect Proxy (either a single tunnel or High Availability pool) to test your app:
+* In your test script configuration, provide the name of the Sauce Connect Proxy tunnel by using the [`tunnelName`](/secure-connections/sauce-connect/setup-configuration/basic-setup#using-tunnel-names) capability:
+  ```java
+  "tunnelName": "tunnel_name_here"
+  ```
+* In your CLI, tunnels in the individual pools need to be started with both the [`--tunnel-name`](/dev/cli/sauce-connect-proxy#--tunnel-name) and [`--tunnel-pool`](/dev/cli/sauce-connect-proxy#--tunnel-pool) flags.
+  ```bash
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name {TUNNEL_NAME}
+  ```
+Tunnel names distinguish which tunnel or High Availability tunnel pool will be used to connect to your site under test.
 
-All tunnels in the individual pools need to be started with both the [--tunnel-name "tunnel_name_here"](/dev/cli/sauce-connect-proxy#--tunnel-name-or---tunnel-identifier)
-and [`--tunnel-pool`](/dev/cli/sauce-connect-proxy#--tunnel-pool-or---no-remove-colliding-tunnels) command line options.
 
 #### What are Colliding Tunnels?
 Normally, if you attempt to start multiple tunnels with the same tunnel name, only the latest instance of the tunnel with that name will stay running.
 
 All tunnels with the same name started prior to the start of the latest instance will be considered colliding tunnels (tunnels with colliding names) and will shut down.
 
-When creating a tunnel pool, you need to prevent tunnel name collision by using Sauce Connect Proxy client command line option [`--tunnel-pool`](/dev/cli/sauce-connect-proxy#--tunnel-pool-or---no-remove-colliding-tunnels) when starting the tunnels for your tunnel pool.
-Tunnels will then remain active and tests will be distributed among them.
+When creating a tunnel pool, you need to prevent tunnel name collision by using Sauce Connect Proxy client command line option [`--tunnel-pool`](/dev/cli/sauce-connect-proxy#--tunnel-pool) when starting the tunnels for your tunnel pool. Tunnels will then remain active and tests will be distributed among them.
 
 #### Monitoring Tunnel Pools
 When running a tunnel pool, we recommend monitoring your activity in Sauce Labs to ensure your tunnel configuration stability and overall testing efficiency. Here, you can gain insight into all individual tunnels and tunnel pools. You can also check the health of an individual tunnel by running a test on it.
 
 ### Launching Sauce Connect Proxy with High Availability
-Once you've confirmed that your network is configured to use High Availability, launch Sauce Connect Proxy using one of these commands below.
-You'll need to run this command on each machine where you want to have access to the tunnel pool.
+Once you've confirmed that your network is configured to use High Availability, launch Sauce Connect Proxy using one of these commands below. You'll need to run this command on each machine where you want to have access to the tunnel pool.
 
 <Tabs
   defaultValue="maclinux"
@@ -75,7 +75,8 @@ You'll need to run this command on each machine where you want to have access to
 
 ```bash
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
-  --tunnel-name tunnel_name_here --tunnel-pool
+  --tunnel-name tunnel_name_here \
+  --tunnel-pool
 ```
 
 </TabItem>
@@ -84,7 +85,8 @@ You'll need to run this command on each machine where you want to have access to
 
 ```bash
 sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
-  --tunnel-name tunnel_name_here --tunnel-pool
+  --tunnel-name tunnel_name_here ^
+  --tunnel-pool
 ```
 
 </TabItem>
@@ -101,8 +103,8 @@ Tunnel pools do not self-heal (see [Self-management](https://en.wikipedia.org/wi
 
 When in High Availability mode, we recommend restarting Sauce Connect Proxy tunnels every 24 hours. The tunnel will stay open until all tests associated with it have completed. At the same time, once the shutdown command has been sent, the tunnel is marked inactive in the eyes of the pool, and no new jobs will use it.
 
-* Windows users: [Running as a Microsoft Windows Service](/secure-connections/sauce-connect/proxy-tunnels)
-* Linux users: [Monitoring with Service Management Tools](/secure-connections/sauce-connect/proxy-tunnels)
+* Windows users: [Running as a Microsoft Windows Service](/secure-connections/sauce-connect/proxy-tunnels/#running-as-a-microsoft-windows-service)
+* Linux users: [Monitoring with Service Management Tools](/secure-connections/sauce-connect/proxy-tunnels/#service-management-tools)
 
 ### Using Multiple Machines for Failover Functionality
 If you're configuring your High Availability Setup with multiple tunnels to provide failover functionality, we recommend setting up each tunnel to run on a separate machine. This way, if a port availability issue or machine failure arises, you will still have active tunnels.
