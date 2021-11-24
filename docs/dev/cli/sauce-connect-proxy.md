@@ -28,7 +28,7 @@ You can view the entire list of CLI options by running the `--help` flag.
 ### `--user`
 <p><small>| REQUIRED | STRING |</small></p>
 
-__Description__: Sets your Sauce Labs username.<br/>
+__Description__: Sets your Sauce Labs username. For additional security, you can set this as an [environment variable](/secure-connections/sauce-connect/setup-configuration/environment-variables/).<br/>
 __Shorthand__: `-u`
 
 
@@ -36,7 +36,7 @@ __Shorthand__: `-u`
 ### `--api-key`
 <p><small>| REQUIRED | STRING |</small></p>
 
-__Description__: Sets your Sauce Labs API key. This will be the same as your [Access Key](https://app.saucelabs.com/user-settings).<br/>
+__Description__: Sets your Sauce Labs API key. This will be the same as your [Access Key](https://app.saucelabs.com/user-settings). For additional security, you can set this as an [environment variable](/secure-connections/sauce-connect/setup-configuration/environment-variables/).<br/>
 __Shorthand__: `-k`
 
 __Description__: defines the local path to a YAML file containing a Sauce Connect Proxy configuration. <br/>
@@ -526,4 +526,5 @@ Here are some guidelines to follow when formatting domains:
 
 ## Additional Resources
 
-For quickstart info, see the [**Tunnels** page](https://app.saucelabs.com/tunnels) and [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
+* [Using Sauce Connect Proxy Environment Variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/)
+* [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
