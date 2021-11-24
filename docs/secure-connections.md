@@ -42,7 +42,7 @@ See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/
     </div>
     <div className="box box4 card">
       <div className="container">
-      <h3><a href="/secure-connections/sauce-connect/setup-configuration/ci-cd-environments">CI/CD Environments</a></h3>
+      <h3><a href="/secure-connections/sauce-connect/setup-configuration/ci-cd-integration">CI/CD Integration</a></h3>
       <p>Streamline your Sauce Connect Proxy automated functional testing by integrating your preferred build provider with Sauce Labs.</p>
       </div>
     </div>
