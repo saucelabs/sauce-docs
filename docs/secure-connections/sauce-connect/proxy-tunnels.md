@@ -14,6 +14,10 @@ We recommend using a single Sauce Connect Proxy tunnel or tunnel pool for each t
 
 If you're using a continuous integration platform like Jenkins, you can use the Sauce OnDemand plugin to launch and tear down your Sauce Connect Proxy instance. For more information, see [Setting Up CI Platform Integrations with Sauce Plugins](/ci).
 
+### Security Considerations
+
+If your Sauce Connect client is running on a multi-user system, we recommend using a [YAML config file](/secure-connections/sauce-connect/setup-configuration/yaml-config/) or [setting environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/) instead of command line arguments to hide sensitive information like [`--api-key`](/dev/cli/sauce-connect-proxy/#--api-key) and proxy credentials. This way, they won't be visible in the list of running processes.
+
 ## Tunnel Management
 You can manage and monitor all Sauce Connect Proxy tunnel activity from the Sauce Labs **TUNNELS** page, which displays useful information, such as the number of active tunnels, tunnel status, specific attributes for each tunnel.
 
@@ -33,7 +37,7 @@ You can manage and monitor all Sauce Connect Proxy tunnel activity from the Sauc
 Every Sauce Connect Proxy tunnel spins up a fresh virtual machine (VM) that is used only for your tests. Once the tunnel is closed, VMs are destroyed. For information about user roles and permissions, see [User Roles](/basics/acct-team-mgmt/managing-user-info).
 
 #### From the Command Line
-Tunnels can be launched from the command line of the machine where the Sauce Connect Proxy client is installed. See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/) and [Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for full instructions on launching tunnels. You can also add any Sauce Connect Proxy parameters you want to use in configuring your tunnel.
+Tunnels must be started from the command line of the machine where the Sauce Connect Proxy client is installed. As a shortcut, you can copy the run command (see **TUNNELS** page > Step 3) and paste it into your CLI. Optionally, you can add [tunnel configuration parameters](/dev/cli/sauce-connect-proxy/). See [Quickstart](/secure-connections/sauce-connect/quickstart/) and [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for instructions.
 
 #### From the TUNNELS Page
 Currently, this is not supported.
@@ -181,11 +185,137 @@ From the **TUNNELS** page, click the **Stop** icon next to your tunnel.<br/><img
 From the **TUNNELS** page, click **Stop My Tunnels**.
 
 
+## Tunnel Types
+When testing with Sauce Labs, there are two different types of tunnel scenarios:
+
+* **Ephemeral (short-lived)**: Starts a tunnel when you start a build. The tunnel is shut down when the build is completed.
+* **Long-running**: Starts one or more tunnels that remain active indefinitely. We recommend restarting them every 24 hours for best performance.
+
+Which one is right for you? That depends on your testing goals, number of parallel tests, duration of testing, number of Sauce Connect Proxy users in your team.
+
+Regarding of the type of tunnel you launch, it is important to be diligent about assigning names (tunnel identifiers) to each tunnel to distinguish them and ensure smooth testing.
+
+We also recommend verifying if your team has a tunnels setup that you can share. Please note that tunnel sharing should only be undertaken by well-coordinated users. For more information on sharing Sauce Connect Proxy tunnels within your organization, see [Sharing Sauce Connect Proxy Tunnels](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels).
+
+### What You'll Need
+* If you haven't already, make sure you can cURL or ping the website or mobile app that you'll be testing from your computer. If you can't reach it, neither can Sauce Connect Proxy.
+* Check to see if you have any proxies that are required to access the public Internet.
+* Review the [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for instructions on how to set your Sauce Labs username and access key and launch a tunnel.
+* If you're using Jenkins or Bamboo, be sure to review [Sauce Connect Proxy for CI/CD Environments](/secure-connections/sauce-connect/setup-configuration/ci-cd-environments).
+
+### Ephemeral (Short-Lived) Tunnels
+Ephemeral tunnels (short-lived tunnels) are ideal for the following test situations:
+* If you're testing from your laptop and start your tests from an Integrated Development Environment (IDE) or terminal.
+* If you’re starting your builds/suites from a Jenkins or Bamboo server.
+* If you plan to start and stop your tests quickly and need to be more hands-on.
+* If you need to test potentially build-breaking changes like modifying the tunnel to fast-fail scripts/trackers, change the geolocation, or change how SSL/TLS encryption happens.
+
+#### Starting an Ephemeral Tunnel From Your Local Workstation
+One option to start Ephemeral tunnels is to do so from your local workstation.
+
+1. [Set your Sauce Labs username and access key as environmental variables](/basics/environment-variables).
+2. Run the basic startup commands to ensure that your tunnel starts. Be sure to include the [`--region`](/dev/cli/sauce-connect-proxy/#--region) and [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) flags for best performance.
+
+  <Tabs
+      defaultValue="Mac/Linux"
+      values={[
+        {label: 'Mac/Linux', value: 'Mac/Linux'},
+        {label: 'Windows', value: 'Windows'},
+      ]}>
+
+  <TabItem value="Mac/Linux">
+
+  ```bash
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region {SAUCE_DATA_CENTER} --tunnel-name {TUNNEL_NAME}
+  ```
+
+  </TabItem>
+  <TabItem value="Windows">
+
+  ```bash
+  sc -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region {SAUCE_DATA_CENTER} --tunnel-name {TUNNEL_NAME}
+  ```
+
+  </TabItem>
+  </Tabs>
+
+  Once you see a tunnel on Sauce Labs, you can start testing against a site that is hosted on your network. You can leave it up for as long as you'd like and test at a fairly reasonable volume. Start it and stop it as needed!
+
+#### Starting an Ephemeral Tunnel From a Continuous Integration (CI) Build Server
+You can also launch Ephemeral tunnels from a continuous integration (CI) build server, where the code is being pulled from a repository.
+
+1. When putting together test suites or builds from a CI build server, we recommend first creating an automated loop that contains the following steps:
+   * Build starts (scheduled or user-initiated).
+   * (Optional) Start an instance of the website or mobile app being tested.
+   * Script starts your tunnel on the server.
+   * Your tests start on Sauce Labs.
+
+2. Determine the number of tunnels you'll need for your tests. For this example, we'll use one tunnel. As a rule of thumb, if you're running less than 200 parallel tests, one tunnel is fine; for 200 or more parallel tests, you'll need two tunnels. For more information, see [System and Network Requirements](/secure-connections/sauce-connect/system-requirements).
+
+3. How you start your tunnel is up to you. You can run a simple Bash shell script (or PowerShell script, if you're in Windows) that simply executes the start commands as if you were starting it locally:  
+  ```bash
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r eu-central --tunnel-name {TUNNEL_NAME}
+  ```
+
+Once you've established your automated loop, you should be able to kick off builds as needed, automatically.
+
+### Long-Running Tunnels
+Long-running tunnels are especially useful for large enterprise customers, who often set their tunnels to run automatically for 12-48 hours over the course of their testing. They are ideal for situations like the following:
+* If you're running a high number of parallel tests (50 or more).
+* If you have a test automation infrastructure that can utilize the Sauce Connect Proxy service and wish to have your Sauce Connect client component up and running for a long time (i.e., 12-48 hours).
+* If you plan to share tunnels across teams.
+
+Long-running tunnels go hand in hand with our [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability), which allows you to run multiple tunnels to support a very high number of parallel tests. If you're part of a team of multiple people and/or departments running tests simultaneously on Sauce Labs, we strongly recommend utilizing long-running tunnels in High Availability Mode. Once you (or your systems administrator) set your long-running tunnel configuration for your account on Sauce Labs, the settings will be remembered in your account and you won't have to set them again. Here are some benefits to this:
+
+* When provisioning new user accounts, these tunnel settings will be ready and waiting for them when they log in
+* All Sauce Labs users in your organization will have immediate access to existing, launched tunnels
+* Redundancy; if a tunnel fails, tests will flow to the other tunnel(s)
+* Tunnel logs can be rotated automatically and used to troubleshoot as needed
+* If the infrastructure for your site under test changes, you will have a known configuration that works. Keeping a group of tunnels alive 24/7 is generally easier than setting up new tunnels for every change that happens.
+
+#### Launching High Availability, Long-Running Tunnels via Command Line
+
+**Single Tunnel** &#8212; A single tunnel that you'd start from your laptop or CICD system would look like this on the command line:
+  ```bash
+  /Users/you/sc-<VERSION>-<PLATFORM>/bin/sc \
+    -u $SAUCE_USERNAME -k $SAUCE_ACESS_KEY \
+    --tunnel-name my-single-tunnel
+  ```
+
+**Multiple Tunnels** &#8212; High Availability tunnels would look like this if they were run as part of a script or from the command line:
+
+```sh
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
+```
+
+The `--tunnel-pool` flag prevents the removal of tunnels with the same name and any default tunnels, if you're using them. Jobs will be distributed across these tunnels, enabling load balancing and High Availability. It is required when running High Availability tunnels to allow multiple tunnels with the same name. What happens if you don't use this command? By default, colliding tunnels (i.e., tunnels with the same name) would be removed when Sauce Connect is starting up. If you start another tunnel with the same name as an existing pool without adding `--no-remove-colliding-tunnels`, the new tunnel would be established, but all tunnels in the pre-existing pool would be closed
+
+The `--tunnel-name` flag defines the tunnel name, `main-tunnel-pool`. This is required so that your tests can find your tunnels. This is required to start a long-running pool of tunnels.
+
+For more information, see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy).
+
+#### Keeping Your Long-Running Tunnels Fresh
+
+Tunnels running for an extended period of time (i.e., more than a day) are actively and continuously used for running Sauce Labs website and mobile app tests throughout their duration. That said, keeping your Sauce Connect Proxy instances up and running for weeks or longer may result in maintenance difficulties, instability or performance degradation.
+
+To keep tunnels working their best, we recommend not letting your tunnels run for more than 24 hours. Your systems administrator would need to write a script to restart Sauce Connect Proxy clients daily or at the time of your choosing. Rolling restarts to refresh the tunnels is preferred--restarting only a portion of your tunnel pool at a time will allow for continuous testing without interruption.
+
+:::note
+If a tunnel fails or is absent, your tests will also fail. You'll be able to see this from Sauce Labs.
+:::
+
+### Combining Ephemeral and Long-Running Tunnels
+If needed, you can also start a combination of Ephemeral and Long-Running tunnels (i.e., your teams aren't bound to one type or the other) provided you're staying within your concurrency limit. This may be useful if you're a large enterprise user. As an example, if you have long-running tunnels already going, you can still start up ephemeral on the side.
+
+
 ## Performance Metrics
 Sauce Connect Proxy has a performance metrics feature that you can use to monitor and measure the data and activities of your Sauce Connect Proxy client. You can access these metrics over an HTTP connection to a local expvar server, which will display the metrics as a JSON file.
 
 ### Configuring Performance Metrics Monitoring
-By default, the `expvar server` listens on 'localhost:8888', but you can change the interface and port with the `--metrics-address` command.
+By default, the `expvar server` listens on 'localhost:8888', but you can change the interface and port with the [`--metrics-address`](/dev/cli/sauce-connect-proxy/#--metrics-address) command.
 
 ```bash
 --metrics-address :8000 # listens on all the interfaces' port 8080
@@ -308,15 +438,12 @@ fe80::1%lo0 localhost
 Once the host file has been altered, start Sauce Connect Proxy with the added argument `--metrics-address tunnelmetrics.com:8080`. Then, on the machine hosting Sauce Connect Proxy, you will see the metrics served at `http://tunnelmetrics.com:8080/debug/vars`.
 
 ## Improving Performance
-During testing, your website or application may load resources (e.g., tracking services, images/videos, advertisements), which can impact page load times and even cause tests to fail. If these external assets are publicly available on the Internet, then they can be cached to speed up requests. If these are not needed at all for testing purposes, you can disable or redirect traffic to improve performance.
+During testing, your website or application may load resources (e.g., tracking services, images/videos, advertisements), which can impact page load times and even cause tests to fail. If these external assets are publicly available on the Internet, then they can be fetched directly without using a tunnel. If these are not needed at all for testing purposes, you can disable the traffic to improve performance.
 
-### Disable Traffic to External Resources
-You can improve your overall test performance by disabling these third-party resource calls. If you're using Sauce Connect Proxy, the additional network hops required to access external resources has the potential to slow test execution dramatically. To retrieve resources directly, you can use the `--tunnel-domains` and `--direct-domains` flags to control which domains Sauce Connect will access during the test. To blocklist traffic so it is immediately dropped, use the `--fast-fail-regexps` command.
+### Configuring Traffic to External Resources
+You can improve your overall test performance by disabling these third-party resource calls. If you're using Sauce Connect Proxy, the additional network hops required to access external resources have the potential to slow test execution dramatically. To retrieve resources directly, you can use the [`--direct-domains`](/dev/cli/sauce-connect-proxy/#--direct-domains) flag. To blocklist traffic so it is immediately dropped, use the [`--fast-fail-regexps`](/dev/cli/sauce-connect-proxy/#--fast-fail-regexps) command.
 
-See the following for more information:
-
-* [Sauce Connect Proxy CLI Guide](/dev/cli/sauce-connect-proxy)
-* [How to Remove Third Party Resources](http://elementalselenium.com/tips/66-blacklist) by Dave Haeffner, Elemental Selenium
+See [How to Remove Third Party Resources](http://elementalselenium.com/tips/66-blacklist) for more information.
 
 ### Be Aware of How Sauce Connect Proxy Caches Traffic
 By default, Sauce Connect Proxy will cache all traffic with SSL Bumping (see [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication)). Caching of resources takes place on the Sauce Labs side, resulting in faster test execution.
@@ -444,136 +571,6 @@ Once the above steps are in place, the Sauce Connect Proxy tunnel should restart
 
 When using NSSM, we recommend changing the shutdown timeout from milliseconds to several minutes. This will prevent NSSM from shutting down the Sauce Connect Proxy client while active jobs are still running through it. For information, refer to the [NSSM README page](https://github.com/rticommunity/nssm/blob/master/README.txt).
 
-## Security Considerations with Tunnel Config
-
-:::warning
-If your Sauce Connect client is running on a multi-user system, we recommend using a [YAML config file](/secure-connections/sauce-connect/setup-configuration/yaml-config/) or [setting environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/) instead of command line arguments to hide sensitive information like [`--api-key`](/dev/cli/sauce-connect-proxy/#--api-key) and proxy credentials. This way, they won't be visible in the list of running processes.
-:::
-
-## Tunnel Types
-When testing with Sauce Labs, there are two different types of tunnel scenarios:
-
-* **Ephemeral (short-lived)**: Starts a tunnel when you start a build. The tunnel is shut down when the build is completed.
-* **Long-running**: Starts one or more tunnels that remain active indefinitely. We recommend restarting them every 24 hours for best performance.
-
-Which one is right for you? That depends on your testing goals, number of parallel tests, duration of testing, number of Sauce Connect Proxy users in your team.
-
-Regarding of the type of tunnel you launch, it is important to be diligent about assigning names (tunnel identifiers) to each tunnel to distinguish them and ensure smooth testing.
-
-We also recommend verifying if your team has a tunnels setup that you can share. Please note that tunnel sharing should only be undertaken by well-coordinated users. For more information on sharing Sauce Connect Proxy tunnels within your organization, see [Sharing Sauce Connect Proxy Tunnels](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels).
-
-### What You'll Need
-* If you haven't already, make sure you can cURL or ping the website or mobile app that you'll be testing from your computer. If you can't reach it, neither can Sauce Connect Proxy.
-* Check to see if you have any proxies that are required to access the public Internet.
-* Review the [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for instructions on how to set your Sauce Labs username and access key and launch a tunnel.
-* If you're using Jenkins or Bamboo, be sure to review [Sauce Connect Proxy for CI/CD Environments](/secure-connections/sauce-connect/setup-configuration/ci-cd-environments).
-
-### Ephemeral (Short-Lived) Tunnels
-Ephemeral tunnels (short-lived tunnels) are ideal for the following test situations:
-* If you're testing from your laptop and start your tests from an Integrated Development Environment (IDE) or terminal.
-* If you’re starting your builds/suites from a Jenkins or Bamboo server.
-* If you plan to start and stop your tests quickly and need to be more hands-on.
-* If you need to test potentially build-breaking changes like modifying the tunnel to fast-fail scripts/trackers, change the geolocation, or change how SSL/TLS encryption happens.
-
-#### Starting an Ephemeral Tunnel From Your Local Workstation
-One option to start Ephemeral tunnels is to do so from your local workstation.
-
-1. [Set your Sauce Labs username and access key as environmental variables](/basics/environment-variables).
-2. Run the basic startup commands to ensure that your tunnel starts. Be sure to include the [`--region`](/dev/cli/sauce-connect-proxy/#--region) and [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) flags for best performance.
-
-  <Tabs
-      defaultValue="Mac/Linux"
-      values={[
-        {label: 'Mac/Linux', value: 'Mac/Linux'},
-        {label: 'Windows', value: 'Windows'},
-      ]}>
-
-  <TabItem value="Mac/Linux">
-
-  ```bash
-  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region {SAUCE_DATA_CENTER} --tunnel-name {TUNNEL_NAME}
-  ```
-
-  </TabItem>
-  <TabItem value="Windows">
-
-  ```bash
-  sc -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region {SAUCE_DATA_CENTER} --tunnel-name {TUNNEL_NAME}
-  ```
-
-  </TabItem>
-  </Tabs>
-
-  Once you see a tunnel on Sauce Labs, you can start testing against a site that is hosted on your network. You can leave it up for as long as you'd like and test at a fairly reasonable volume. Start it and stop it as needed!
-
-#### Starting an Ephemeral Tunnel From a Continuous Integration (CI) Build Server
-You can also launch Ephemeral tunnels from a continuous integration (CI) build server, where the code is being pulled from a repository.
-
-1. When putting together test suites or builds from a CI build server, we recommend first creating an automated loop that contains the following steps:
-   * Build starts (scheduled or user-initiated).
-   * (Optional) Start an instance of the website or mobile app being tested.
-   * Script starts your tunnel on the server.
-   * Your tests start on Sauce Labs.
-
-2. Determine the number of tunnels you'll need for your tests. For this example, we'll use one tunnel. As a rule of thumb, if you're running less than 200 parallel tests, one tunnel is fine; for 200 or more parallel tests, you'll need two tunnels. For more information, see [System and Network Requirements](/secure-connections/sauce-connect/system-requirements).
-
-3. How you start your tunnel is up to you. You can run a simple Bash shell script (or PowerShell script, if you're in Windows) that simply executes the start commands as if you were starting it locally:  
-  ```bash
-  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r eu-central --tunnel-name {TUNNEL_NAME}
-  ```
-
-Once you've established your automated loop, you should be able to kick off builds as needed, automatically.
-
-### Long-Running Tunnels
-Long-running tunnels are especially useful for large enterprise customers, who often set their tunnels to run automatically for 12-48 hours over the course of their testing. They are ideal for situations like the following:
-* If you're running a high number of parallel tests (50 or more).
-* If you have a test automation infrastructure that can utilize the Sauce Connect Proxy service and wish to have your Sauce Connect client component up and running for a long time (i.e., 12-48 hours).
-* If you plan to share tunnels across teams.
-
-Long-running tunnels go hand in hand with our [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability), which allows you to run multiple tunnels to support a very high number of parallel tests. If you're part of a team of multiple people and/or departments running tests simultaneously on Sauce Labs, we strongly recommend utilizing long-running tunnels in High Availability Mode. Once you (or your systems administrator) set your long-running tunnel configuration for your account on Sauce Labs, the settings will be remembered in your account and you won't have to set them again. Here are some benefits to this:
-
-* When provisioning new user accounts, these tunnel settings will be ready and waiting for them when they log in
-* All Sauce Labs users in your organization will have immediate access to existing, launched tunnels
-* Redundancy; if a tunnel fails, tests will flow to the other tunnel(s)
-* Tunnel logs can be rotated automatically and used to troubleshoot as needed
-* If the infrastructure for your site under test changes, you will have a known configuration that works. Keeping a group of tunnels alive 24/7 is generally easier than setting up new tunnels for every change that happens.
-
-#### Launching High Availability, Long-Running Tunnels via Command Line
-
-**Single Tunnel** &#8212; A single tunnel that you'd start from your laptop or CICD system would look like this on the command line:
-  ```bash
-  /Users/you/sc-<VERSION>-<PLATFORM>/bin/sc \
-    -u $SAUCE_USERNAME -k $SAUCE_ACESS_KEY \
-    --tunnel-name my-single-tunnel
-  ```
-
-**Multiple Tunnels** &#8212; High Availability tunnels would look like this if they were run as part of a script or from the command line:
-
-```sh
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
-```
-
-The `--tunnel-pool` flag prevents the removal of tunnels with the same name and any default tunnels, if you're using them. Jobs will be distributed across these tunnels, enabling load balancing and High Availability. It is required when running High Availability tunnels to allow multiple tunnels with the same name. What happens if you don't use this command? By default, colliding tunnels (i.e., tunnels with the same name) would be removed when Sauce Connect is starting up. If you start another tunnel with the same name as an existing pool without adding `--no-remove-colliding-tunnels`, the new tunnel would be established, but all tunnels in the pre-existing pool would be closed
-
-The `--tunnel-name` flag defines the tunnel name, `main-tunnel-pool`. This is required so that your tests can find your tunnels. This is required to start a long-running pool of tunnels.
-
-For more information, see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy).
-
-## Keeping Your Long-Running Tunnels Fresh
-
-Tunnels running for an extended period of time (i.e., more than a day) are actively and continuously used for running Sauce Labs website and mobile app tests throughout their duration. That said, keeping your Sauce Connect Proxy instances up and running for weeks or longer may result in maintenance difficulties, instability or performance degradation.
-
-To keep tunnels working their best, we recommend not letting your tunnels run for more than 24 hours. Your systems administrator would need to write a script to restart Sauce Connect Proxy clients daily or at the time of your choosing. Rolling restarts to refresh the tunnels is preferred--restarting only a portion of your tunnel pool at a time will allow for continuous testing without interruption.
-
-:::note
-If a tunnel fails or is absent, your tests will also fail. You'll be able to see this from Sauce Labs.
-:::
-
-## Combining Ephemeral and Long-Running Tunnels
-If needed, you can also start a combination of Ephemeral and Long-Running tunnels (i.e., your teams aren't bound to one type or the other) provided you're staying within your concurrency limit. This may be useful if you're a large enterprise user. As an example, if you have long-running tunnels already going, you can still start up ephemeral on the side.
 
 ## Using the Selenium Relay
 The Selenium Relay is an optional configuration, built into Sauce Connect Proxy, that acts as a listener for Selenium commands. When enabled, it sends all inbound and outbound Selenium commands through an encrypted Sauce Connect tunnel (instead of HTTP/HTTPS) to the Sauce Labs browser cloud. Your tests would not use a Sauce Labs OnDemand endpoint (see [Data Center Endpoints](/basics/data-center-endpoints) for more information).

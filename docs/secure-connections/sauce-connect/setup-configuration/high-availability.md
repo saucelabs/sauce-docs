@@ -56,10 +56,10 @@ Normally, if you attempt to start multiple tunnels with the same tunnel name, on
 
 All tunnels with the same name started prior to the start of the latest instance will be considered colliding tunnels (tunnels with colliding names) and will shut down.
 
-When creating a tunnel pool, you need to prevent tunnel name collision by using Sauce Connect Proxy client command line option [`--tunnel-pool`](/dev/cli/sauce-connect-proxy#--tunnel-pool) when starting the tunnels for your tunnel pool. Tunnels will then remain active and tests will be distributed among them.
+When creating a tunnel pool, you need to prevent tunnel name collision by using the [`--tunnel-pool`](/dev/cli/sauce-connect-proxy#--tunnel-pool) flag when starting the tunnels for your tunnel pool. Tunnels will then remain active and tests will be distributed among them.
 
 #### Monitoring Tunnel Pools
-When running a tunnel pool, we recommend monitoring your activity in Sauce Labs to ensure your tunnel configuration stability and overall testing efficiency. Here, you can gain insight into all individual tunnels and tunnel pools. You can also check the health of an individual tunnel by running a test on it.
+When running a tunnel pool, we recommend monitoring your activity on the Sauce Labs **TUNNELS** page to ensure your tunnel configuration stability and overall testing efficiency. Here, you can gain insight into all individual tunnels and tunnel pools. You can also check the health of an individual tunnel by running a test on it.
 
 ### Launching Sauce Connect Proxy with High Availability
 Once you've confirmed that your network is configured to use High Availability, launch Sauce Connect Proxy using one of these commands below. You'll need to run this command on each machine where you want to have access to the tunnel pool.
@@ -110,3 +110,6 @@ When in High Availability mode, we recommend restarting Sauce Connect Proxy tunn
 If you're configuring your High Availability Setup with multiple tunnels to provide failover functionality, we recommend setting up each tunnel to run on a separate machine. This way, if a port availability issue or machine failure arises, you will still have active tunnels.
 
 If you're using the same machine for multiple tunnels, you should start Sauce Connect Proxy with unique log file names.
+
+## More Information
+* [Sauce Connect Proxy Performance Metrics](/secure-connections/sauce-connect/proxy-tunnels/#performance-metrics)
