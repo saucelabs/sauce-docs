@@ -36,11 +36,13 @@ As an alternative to downloading and installing the SC Client, you can leverage 
   docker run \
       -e SAUCE_USERNAME=${SAUCE_USERNAME} \
       -e SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} \
-      --network="host" \
       -it saucelabs/sauce-connect
   ```
 
-If desired, you can specify any additional [SC CLI arguments](/dev/cli/sauce-connect-proxy/) here. Ensure that you have `--network="host"` set as an argument, otherwise Sauce Connect within the Docker container will not be able to access your local services in the host machine.
+If desired, you can specify any additional [SC CLI arguments](/dev/cli/sauce-connect-proxy/) here.
+
+If your tests are using localhost addresses, you should also set `--network="host"` as an argument in the above script. Otherwise Sauce Connect within the Docker container will not be able to access your local services in the host machine.
+
 
 ### Running the SC Docker Image with a CI/CD Pipeline
 If you want to run this Docker image as part of your CI/CD pipeline, you can run the following steps:
@@ -65,7 +67,7 @@ If you want to run this Docker image as part of your CI/CD pipeline, you can run
       --network="host" \
       -t saucelabs/sauce-connect:latest \
       -f /tmp/sc.ready \
-      -i some-identifier &
+      -i some-identifier --detach
     $ ./wait-for-sc.sh
   ```
 

@@ -69,7 +69,7 @@ export PATH="$HOME/sc-4.7.1-linux/bin:$PATH"
 
 ## Using Docker Containers to Install/Run Sauce Connect
 
-You can use the Sauce Connect Proxy Docker image, maintained by the Sauce Labs [Open Source Program Office](https://opensource.saucelabs.com/), to build a Docker container. This means is an alternative to the above Download/Installation steps.
+You can use the Sauce Connect Proxy Docker image, maintained by the Sauce Labs [Open Source Program Office](https://opensource.saucelabs.com/), to build a Docker container. This means it is an alternative to the above Download/Installation steps.
 
 If you’re not sure where Docker fits, consider these use cases:
 * If you want to creating automation (or manual testing) for multiple apps that reside in different environments or Sauce Labs Data Centers (i.e., US-East and US-West).
