@@ -4,7 +4,9 @@ title: Using Sauce Connect Proxy
 sidebar_label: Using Sauce Connect Proxy
 ---
 
-Sauce Connect Proxy&trade; is a proxy server that opens a secure connection between a Sauce Labs virtual machine, emulator, simulator or real device running your browser or native app tests, and an application or website you want to test that is on your local machine or behind a corporate firewall.
+If your company has firewall rules that limit your ability to run tests on Sauce Labs, you can use our Sauce Connect Proxy feature to connect to Sauce Labs in the cloud without exposing your company's IT infrastructure to security risks.
+
+Sauce Connect is a proxy server that opens a secure connection between a Sauce Labs virtual machine, emulator, simulator or real device running your browser or native app tests, and an app or website you want to test that is on your local machine or behind a corporate firewall.
 
 
 ## Getting Started
@@ -12,6 +14,16 @@ Sauce Connect Proxy&trade; is a proxy server that opens a secure connection betw
 Prior getting started, you'll need to validate that your local machine meets our system requirements and confirm that your firewall rules allow for outbound traffic.
 
 From there, install the Sauce Connect Proxy client on your local network. Should you encounter issues when starting or using the client, we recommend consulting your network administrator. They may need to update firewall rules or help configure Sauce Connect Proxy to use a network proxy.
+
+Sauce Connect Proxy must be physically installed on the same _network_ as the app or website you're testing, but does not need to be on the same local machine. For this reason, when setting up Sauce Connect Proxy, be mindful of how it will interact with your network architecture.
+
+
+### Setup and Configuration
+
+We offer several different setup types, from the [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) to the [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
+
+As you’re configuring the setup type that’s right for you, it's important to understand how the program will interact with your network architecture components, such as proxies, firewalls, and geographically distributed data centers.
+
 
 ## Why We Recommend Sauce Connect Proxy over Allowlisting IP Addresses
 
@@ -51,5 +63,6 @@ For more information about Sauce Connect Proxy&trade; and its security, see [thi
 
 ## More Information
 
-* [Sauce Connect Proxy Setup and Configuration](/secure-connections/sauce-connect/setup-configuration)
+* [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/)
+* [Sauce Connect Proxy Basic Setup and Configuration](/secure-connections/sauce-connect/setup-configuration/basic-setup/)
 * [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy)

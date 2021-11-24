@@ -21,7 +21,7 @@ __Description__: your Sauce Labs username.
 __Description__: your Sauce Labs access key for authentication.
 
 ```java title="Basic Example (required flags only)"
-java -jar virtual-usb-client.jar deleteSession --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+java -jar virtual-usb-client.jar deleteSession --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 --username {SAUCE_USERNAME} --accessKey {SAUCE_ACCESS_KEY}
 ```
 
 ```java title="Sample Response"
@@ -45,8 +45,8 @@ __Description__: Virtual USB server port. Default value: `33657`.
 ```bash title="Full Example (includes optional flags)"
 java -jar virtual-usb-client.jar deleteSession \
     --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 \
-    --username john.smith \
-    --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxx
+    --username {SAUCE_USERNAME} \
+    --accessKey {SAUCE_ACCESS_KEY}
     --serverHost http://127.0.0.1 \
     --serverPort 8080 \
 ```

@@ -1,53 +1,53 @@
 ---
 id: mocking
 title: API Mocking with Piestry
-sidebar_label: Mocking
+sidebar_label: API Mocking Server
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Sauce Labs _Piestry_ is our API mocking tool that imitates a real API server's calls and responses, based on the OpenAPI spec file that you provide. You'll get dynamic responses that you can use to perform proper positive and negative testing, and edge case testing.
-
+Sauce Labs [_Piestry_](/dev/glossary/#piestry) is our API mocking server tool that mimics a real API server's calls and responses, based on the OpenAPI spec file data you provide. Get a jumpstart on testing and debugging your APIs while they're still in development by re-creating them in our mocking platform and writing tests against them.
 
 **Benefits**
-* Get a jumpstart on API testing and debugging while your APIs are still in development by re-creating your APIs in our mocking platform and writing all of your tests against them.
-* No need to add third-party API dependencies, which can be expensive and restrictive.
-* No need to depend on potentially unreliable staging environments.
+* Get dynamic responses that you can use to perform proper positive testing, negative testing, and edge case testing.
+* Eliminates the need to add third-party API dependencies, which can be expensive and restrictive.
+* Eliminates the need to depend on potentially unreliable staging environments.
 * Allows you to create stubbed APIs to use to in your testing flow.
 
-
-**Use cases**
-* Faking a payment transaction in a banking mobile app.
+**Common Use Cases**
+* Simulating a payment transaction in a banking mobile app.
 * Isolating a microservice from the rest of the API actions so that everything else is stable and you can drill down to find the error.
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * An OpenAPI spec file.
 
 ## Getting Started
 
-Piestry must be started from a Docker container in your CI/CI pipeline using Docker image, `quay.io/saucelabs/piestry`. Use the code snippet below, where `/specs/myspec.yaml` is the URI to your YAML spec file (can be local or remote):
+Piestry must be started from a Docker container in your CI/CD pipeline using Docker image, `quay.io/saucelabs/piestry`. Use the code snippet below, where `/specs/myspec.yaml` is the URI to your YAML spec file (can be local or remote):
+
   ```bash
   docker run -v "$(pwd)/specs:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
   ```
 
+## OpenAPI Spec Files
+
+If you provide a standard OpenAPI spec file, our system should bind a series of endpoints to simulate whatever is in the spec.
+* When only a response schema is present, the system will generate random data for each field.
+* When one response example is present, the system will present the example.
+* When multiple response examples are present, the system will present the first example.
+* When multiple content types are available, the system will pick the one closer to the "Accept" header, any JSON response if a match is not found.
+
 ## Generating a Mock
 
-If you provide a regular OpenAPI spec file, the system should bind a series of endpoints to simulate whatever is in the spec.
-
-* When only a response schema is present: the system will generate random data for each field.
-* When one response example is present: the system will present the example.
-* When multiple response examples are present: the system will present the first example.
-* When multiple content types are available: the system will pick the one closer to the "Accept" header, any JSON response if a match is not found.
-
-1. Place your spec file (or set of files in a folder) in a location of your choice. For this example, we'll call it `myspec.yaml`.
-2. Open your CLI terminal and navigate to right outside that folder, then run this command in your terminal:
+1. On your local machine, place your spec file (or set of files in a folder) in a location of your choice. For this example, we'll call it `myspec.yaml`.
+2. Open your CLI terminal and navigate to right outside that folder, then run this command:
   ```bash
   docker run -v "$(pwd)/myspec:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
   ```
   `$(pwd)/myspec` means the `{current_directory}/myspec` that gets mounted to the container in the `/specs` folder. Therefore, the -u (relative to the container is) `/specs/myspec.yaml`.
-3. If all goes well, you should see the listing of the available routes:
+3. If successful, you should see the listing of the available routes:
   ```json
   2021-10-05T07:32:35.157Z info: Piestry booting on port: 5000
   2021-10-05T07:32:35.189Z info: Registering GET /api/v1/release-notes
@@ -58,17 +58,17 @@ If you provide a regular OpenAPI spec file, the system should bind a series of e
   2021-10-05T07:32:35.192Z info: Registering POST /api/v1/post-check
   2021-10-05T07:32:35.193Z info: Registering POST /api/v1/check-in
   ```
-4. At this point, you can use any HTTP client to query one of these endpoints (i.e., `curl localhost:5000/api/v1/release-notes`). It should return a mock for release notes). On top of this, you can add the option to connect the [Logger](/api-testing/logger/), and there you go.
+4. At this point, you can use any HTTP client to query one of these endpoints. For example, `curl localhost:5000/api/v1/release-notes` would should return a mock for release notes. Additionally, you can add the option to connect our [Logger](/api-testing/logger/).
 
 
-### Enhancing OpenAPI with x-sauce
-You can enrich OpenAPI schemas using the x-sauce vendor extension. This extension will have no impact on the docs.
+### Enhancing OpenAPI with x-sauce-cond
+You can enrich OpenAPI schemas using the `x-sauce` vendor extension. This extension will have no impact on the docs.
 
 There currently are three types of `x-sauce-cond` operations: `exists`, `equals` and `matches`.
 
 There also are four collections you can evaluate: `uriParams`, `queryParams`, `headers`, `body`.
 
-On the status code:
+In the below example, `x-sauce-cond` extension tells the mock to take the `200` status code as response only when an `authorization` header is present and its value matches the `Basic .*` regex. The `priority` field determines the order of evaluation of multiple objects at the same level. For example, if both `200` and `404` have an `x-sauce-cond` instruction, they will be evaluated by descending priority.
 ```yaml
 responses:
   '200':
@@ -80,9 +80,7 @@ responses:
       priority: 10
 ```      
 
-This extension tells the mock to take the `200` as response only when an 'authorization' header is present and its value matches the Basic .* regex.
-
-The priority field determines the order of evaluation of multiple objects at the same level. For example, if both `200` and `404` have an `x-sauce-cond` instruction, they will be evaluated by descending priority. Items with no `x-sauce-cond` will be picked up last and treated as fallback.
+Items with no `x-sauce-cond` will be picked up last and treated as fallback.
 
 On the examples:
 ```yaml
@@ -120,8 +118,8 @@ On the examples:
 Pick one specific example based on the value of a URI param.
 
 
-### Enhancing Schemas with Faker
-If you don't want to add examples because they're not useful to you, that's ok. But you can still force the system to generate data that makes specific sense to you, using the Faker extension, `x-sauce-faker`.
+### Enhancing Schemas with x-sauce-faker
+If you don't want to add examples because they're not useful to you, that's ok. You can still force the system to generate data that makes specific sense to you, using the Faker extension, `x-sauce-faker`.
 
 ```yaml
 releaseNotes:
@@ -143,12 +141,12 @@ Learn more about the faker library [here](https://www.npmjs.com/package/faker).
 ## Mocking Mode
 
 ### Contract Validators
-There are two types of validations you can activate, focusing on different areas.
+There are two types of validations, focusing on different areas, that you can activate.
 
 ### Validate Examples
 Examples may go out of sync when the schema gets updated, but the example does not.
 
-Run Piestry with the `--validate-examples` to activate the validation of examples. Once activated, whenever a request is performed, the response example (if available) is validated against the response schema (if available). If the example does not match the request, then an error is returned - for example:
+Run Piestry with `--validate-examples` to activate the validation of examples. Once activated, whenever a request is performed, the response example (if available) is validated against the response schema (if available). If the example does not match the request, then an error is returned - for example:
 
 ```json
 {
@@ -177,7 +175,7 @@ Run Piestry with the `--validate-examples` to activate the validation of example
 The response will also contain the `x-sauce-error: true` header, signifying that the response is not mocked, but it's an internal error.
 
 ### Validate Request
-If you want to make sure your requests are compliant with the schema, Piestry can help you.
+If you want to ensure your requests are compliant with the schema, Piestry can help you.
 
 Run it with the `--validate-request` switch to activate the validation of inbound requests. Whenever a request is performed, it will be validated against the schema, and if a mismatch is present, an error like the following will be returned:
 
@@ -204,7 +202,7 @@ Run it with the `--validate-request` switch to activate the validation of inboun
 }
 ```
 
-The response will also contain the x-sauce-error: true header, signifying that the response is not mocked, but it's an internal error.
+The response will also contain the `x-sauce-error: true` header, signifying that the response is not mocked, but it's an internal error.
 
 
 ### Dynamic examples
@@ -212,7 +210,7 @@ The system allows for examples containing dynamic data using the Handlebars mark
 
 To have dynamic parameters, you simply place an expression between double curly brackets as in `{{requestUrl}}`.
 
-The available objects in the scope are the same as the ones used by x-sauce-cond, so: `uriParams`, `queryParams`, `headers`, `body`.
+The available objects in the scope are the same as the ones used by `x-sauce-cond`, so: `uriParams`, `queryParams`, `headers`, `body`.
 
 As an example, the following template will echo the shape of the request back in the response:
 
@@ -225,7 +223,7 @@ As an example, the following template will echo the shape of the request back in
 }
 ```
 
-The "json" keyword will convert a full data structure into its JSON equivalent.
+Using the `json` keyword will convert a full data structure into its JSON equivalent.
 
 
 ## E2E Mode
@@ -251,4 +249,3 @@ When `--capture` is executed without `--e2e`, Piestry will try to map the saved 
 ## More Information
 
 * [API Testing Logger](/api-testing/logger)
-* Why the name [_Piestry_](/dev/glossary)?

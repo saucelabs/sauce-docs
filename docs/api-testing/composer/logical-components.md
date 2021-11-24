@@ -17,7 +17,6 @@ Logical components are a type of component that you can add to a test using the 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 
-
 ## Logical Components
 
 ### Each
@@ -138,7 +137,7 @@ In the composer, you will have the 'tag' component as option to be added. In thi
 
 #### Examples
 
-Here's an example of how you could use the tag in the **Compose** tab.
+Here's an example of how you could use a tag in the **Compose** tab.
 
 <img src={useBaseUrl('img/api-fortress/2020/12/tagComposer.png')} alt="tagComposer.jpg"/>
 

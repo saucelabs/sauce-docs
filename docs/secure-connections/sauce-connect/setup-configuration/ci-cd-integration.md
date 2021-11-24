@@ -1,7 +1,7 @@
 ---
-id: ci-cd-environments
-title: CI/CD Environments
-sidebar_label: CI/CD Environments
+id: ci-cd-integration
+title: Sauce Connect Proxy CI/CD Integration
+sidebar_label: CI/CD Integration
 ---
 
 ## Bamboo Configuration
