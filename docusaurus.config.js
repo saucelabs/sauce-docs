@@ -25,9 +25,9 @@ const docusaurusConfig = {
     //   textColor: '#F0F0F0', // Defaults to `#000`.
     //   isCloseable: true, // Defaults to `true`.
     // },
-    // googleAnalytics: {
-    //   trackingID: 'UA-6735579-1',
-    // },
+    googleAnalytics: {
+      trackingID: 'UA-6735579-1',
+    },
     hideableSidebar: true,
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
