@@ -13,6 +13,8 @@ Execute API tests and interact with Sauce Labs API Testing (either locally or in
 
 ## Usage
 
+You'll need to run our Docker image as a container:
+
 `$ docker run quay.io/saucelabs/apifctl [COMMAND] [OPTIONS]`
 
 ## What You'll Need
