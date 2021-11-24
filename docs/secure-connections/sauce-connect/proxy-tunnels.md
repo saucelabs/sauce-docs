@@ -291,11 +291,11 @@ Long-running tunnels go hand in hand with our [High Availability Setup](/secure-
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
 ```
 
-The `--tunnel-pool` flag prevents the removal of tunnels with the same name and any default tunnels, if you're using them. Jobs will be distributed across these tunnels, enabling load balancing and High Availability. It is required when running High Availability tunnels to allow multiple tunnels with the same name. What happens if you don't use this command? By default, colliding tunnels (i.e., tunnels with the same name) would be removed when Sauce Connect is starting up. If you start another tunnel with the same name as an existing pool without adding `--no-remove-colliding-tunnels`, the new tunnel would be established, but all tunnels in the pre-existing pool would be closed
+`--tunnel-pool` flag prevents the removal of tunnels with the same name and any default tunnels, if you're using them. Jobs will be distributed across these tunnels, enabling load balancing and High Availability. This flag is required when running High Availability tunnels to allow multiple tunnels with the same name. What happens if you don't use this command? By default, colliding tunnels (i.e., tunnels with the same name) would be removed when Sauce Connect is starting up. If you start another tunnel with the same name as an existing pool without adding `--tunnel-pool`, the new tunnel would be established, but all tunnels in the pre-existing pool would be closed.
 
-The `--tunnel-name` flag defines the tunnel name, `main-tunnel-pool`. This is required so that your tests can find your tunnels. This is required to start a long-running pool of tunnels.
+`--tunnel-name` flag defines the tunnel name (in the above example, it's `main-tunnel-pool`). This is required so that your tests can find your tunnels. This is required to start a long-running pool of tunnels.
 
-For more information, see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy).
+For more information, see [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy).
 
 #### Keeping Your Long-Running Tunnels Fresh
 
