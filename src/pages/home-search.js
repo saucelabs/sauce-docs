@@ -11,13 +11,18 @@ const searchClient = algoliasearch(
 const  SearchBox = ({ currentRefinement, isSearchStalled, refine }) => (
     <form>
         <div>
-            <input type="search"
-                   value={currentRefinement}
-                   onChange={event => refine(event.currentTarget.value)}
-                   className="navbar__search-input search" placeholder="Search Docs &amp; Training"/>
+            <input
+                className="navbar__search-input search" placeholder="Search Docs &amp; Training"
+                onChange={event => refine(event.currentTarget.value)}
+                type="search"
+                value={currentRefinement}
+            />
             <button
+                className="button button--primary search-button"
                 onClick={() => refine('')}
-                className="button button--primary search-button">Search</button>
+            >
+                Search
+            </button>
             {isSearchStalled ? 'My search is stalled' : ''}
         </div>
     </form>
