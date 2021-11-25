@@ -4,4 +4,17 @@
 }
 
 .ais-Hits {
+    border-radius: 4px;
+    background-color: #fff;
+    width: 42%;
+    margin: 0;
+    padding: 8px;
+    display: inline-table;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.ais-Hits ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
