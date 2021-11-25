@@ -39,7 +39,7 @@ const Results = connectStateResults(
             children
         ) : (
             <div className="search-results">
-                <h2>No results found for {searchState.query}.</h2>
+                <h3>No results found for {searchState.query}.</h3>
             </div>
         )
 );
