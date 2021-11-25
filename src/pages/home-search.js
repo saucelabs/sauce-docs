@@ -55,10 +55,9 @@ const HomeSearch = () => (
             <CustomSearchBox />
             <Results>
             <div className="search-results">
-                <h2>Results</h2>
-                <div className="ais-Hits">
-                        <Hits hitComponent={Hit} />
-                </div>
+                <h2>Relevant Searches</h2>
+                {/* Hits has a className="ais-Hits" built in */}
+                <Hits hitComponent={Hit} />
             </div>
             </Results>
         </InstantSearch>
