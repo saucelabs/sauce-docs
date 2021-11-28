@@ -28,7 +28,7 @@ You can view the entire list of CLI options by running the `--help` flag.
 ### `--user`
 <p><small>| REQUIRED | STRING |</small></p>
 
-__Description__: Sets your Sauce Labs username.<br/>
+__Description__: Sets your Sauce Labs username. For additional security, you can set this as an [environment variable](/secure-connections/sauce-connect/setup-configuration/environment-variables/).<br/>
 __Shorthand__: `-u`
 
 
@@ -36,7 +36,7 @@ __Shorthand__: `-u`
 ### `--api-key`
 <p><small>| REQUIRED | STRING |</small></p>
 
-__Description__: Sets your Sauce Labs API key. This will be the same as your [Access Key](https://app.saucelabs.com/user-settings).<br/>
+__Description__: Sets your Sauce Labs API key. This will be the same as your [Access Key](https://app.saucelabs.com/user-settings). For additional security, you can set this as an [environment variable](/secure-connections/sauce-connect/setup-configuration/environment-variables/).<br/>
 __Shorthand__: `-k`
 
 __Description__: defines the local path to a YAML file containing a Sauce Connect Proxy configuration. <br/>
@@ -53,16 +53,17 @@ This is required only if you're using a YAML file to configure your tunnels.
 __Description__: Defines the local path to a YAML file containing a Sauce Connect Proxy configuration. For instructions, [Configuring Tunnels with a YAML File](/secure-connections/sauce-connect/setup-configuration/yaml-config/).<br/>
 __Shorthand__: `-c`
 
+
 ---
 ### `--region`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 __Description__: Sets your Sauce Labs region data center. Strongly recommended for best performance. Possible values are `us-west`, `eu-central`, `us-east`, and `apac-southeast`. For more information, see [Data Center Endpoints](#data-center-endpoints). <br/>
-__Default__: `us-west`<br/>
+__Default__: If you don't specify a Data Center at all, Sauce Connect will default to `us-west`. <br/>
 __Shorthand__: `-r`
 
 :::caution
-We recommend using this flags over its predecessor, `--rest-url`, which will eventually be deprecated. Not compatible with versions below 4.7.0.
+We recommend using this flag over its predecessor, `--rest-url`, which will eventually be deprecated. Not compatible with versions below 4.7.0.
 :::
 
 ---
@@ -106,32 +107,31 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | STRING |</small></p>
 
 :::caution
-Effective with Sauce Connect Proxy version 4.7.0, we recommend using `--region` over `--rest-url`, which will eventually be deprecated.
+Effective with Sauce Connect Proxy version 4.7.0, we recommend using [`--region`](/dev/cli/sauce-connect-proxy/#--region) instead. `--rest-url` will eventually be deprecated. Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
 :::
 
-__Description__: Sets your Sauce Labs regional data center REST API URL (e.g., EU-Central, US-West). For a full list, see [Data Center Endpoints](#data-center-endpoints).<br/>
-__Default__: `https://saucelabs.com/rest/v1`<br/>
+__Description__: Sets your [Sauce Labs regional data center REST API URL](#data-center-endpoints) (e.g., EU-Central, US-West).<br/>
 __Shorthand__: `-x`
 
 ---
 ### `--no-remove-colliding-tunnels`
 <p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-__Description__: Effective with Sauce Connect Proxy version 4.7.0, this flag was deprecated and replaced by [`--tunnel-pool`](#--tunnel-pool). Upgrade to the latest version [here](/secure-connections/sauce-connect/installation/).
+__Description__: Effective with Sauce Connect Proxy version 4.7.0, this flag was deprecated and replaced by [`--tunnel-pool`](#--tunnel-pool). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
 
 
 ---
 ### `--tunnel-identifier`
 <p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-__Description__: Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-name`](#--tunnel-name). Upgrade to the latest version [here](/secure-connections/sauce-connect/installation/).
+__Description__: Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-name`](#--tunnel-name). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
 __Shorthand__: `-i` for `--tunnel-identifier`
 
 ---
 ### `--tunnel-identifier`
 <p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-__Description__: Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-name`](#--tunnel-name). Upgrade to the latest version [here](/secure-connections/sauce-connect/installation/).
+__Description__: Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-name`](#--tunnel-name). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
 __Shorthand__: `-i` for `--tunnel-identifier`
 
 ---
@@ -336,13 +336,13 @@ __Shorthand__: n/a
 ### `--tunnel-capath`
 <p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-__Description__: Directory of CA certificates to use for verifying tunnel connections. Effective with Sauce Connect Proxy version 4.7.0, `--tunnel-capath` was deprecated. Upgrade to the latest version [here](/secure-connections/sauce-connect/installation/).<br/>
+__Description__: Directory of CA certificates to use for verifying tunnel connections. Effective with Sauce Connect Proxy version 4.7.0, `--tunnel-capath` was deprecated. Download the latest SC version [here](/secure-connections/sauce-connect/installation/).<br/>
 
 ---
 ### `--capath`
 <p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-__Description__: Defines a directory of CA certs to use for verifying connections to Sauce Labs REST API. Effective with Sauce Connect Proxy version 4.7.0, `--capath` was deprecated. Upgrade to the latest version [here](/secure-connections/sauce-connect/installation/).<br/>
+__Description__: Defines a directory of CA certs to use for verifying connections to Sauce Labs REST API. Effective with Sauce Connect Proxy version 4.7.0, `--capath` was deprecated. Download the latest SC version [here](/secure-connections/sauce-connect/installation/).<br/>
 
 
 
@@ -526,4 +526,5 @@ Here are some guidelines to follow when formatting domains:
 
 ## Additional Resources
 
-For quickstart info, see the [**Tunnels** page](https://app.saucelabs.com/tunnels) and [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
+* [Using Sauce Connect Proxy Environment Variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/)
+* [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
