@@ -100,6 +100,10 @@ options = {browser_name: browser_name,
 
 The custom `sauce:performance` command measures the performance output against a baseline of previously accepted performance values. If no baseline has been set, the Performance test will create one by measuring performance output 10 times to get an aggregate baseline. The command returns `pass` when the current results are within the baseline allowances or `fail` when the results fall outside the baseline. A fail result gives you the option to handle [regressions](#handle-regressions).
 
+:::caution
+Enabling performance capturing can add up to 60 seconds per URL change in a test. We, therefore, advise separating your performance tests from your functional tests. See our [Performance Requirements and Recommendations](https://docs.saucelabs.com/performance/about/#sauce-performance-requirements-and-recommendations) for more advice on optimizing your performance test results.
+:::
+
 ### Command
 
 `sauce:performance`

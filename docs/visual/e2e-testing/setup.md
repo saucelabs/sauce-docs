@@ -19,11 +19,11 @@ It takes only a few minutes to integrate Screener into your existing Selenium We
 
 * Your WebDriver test(s) use W3C capabilities and Sauce Labs Browsers that are in our [supported list](/visual/e2e-testing/supported-browsers).
 * Your Sauce Labs credentials are set in the `sauce:options` capability:
-  ```java
+  ```javascript
   'sauce:options': {
     username: 'user',
     accesskey: 'xxxxx'
-      }
+  }
   ```
 
 ## 2. Update WebDriver Capabilities
@@ -52,8 +52,7 @@ var capabilities = {
     projectName: 'my-project',
     viewportSize: '1280x1024'
   }
-    }
-
+}
 ```
 
 </TabItem>

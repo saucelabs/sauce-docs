@@ -16,6 +16,20 @@ description: A glossary of terminology used across Sauce Labs products.
 See: _[Insights](#insights)_.
 
 
+### API Contract Testing
+
+A lightweight form of API testing that checks each endpoint's contract -- that is, the content and format of static API requests and responses. It ensures that spec files (e.g., Swagger, OpenAPI, and RAML) fulfill the contract between API consumers and producers.
+
+More information: [Accelerating Releases with Quality: Contract Testing vs. E2E Functional Testing](https://saucelabs.com/blog/accelerating-releases-with-quality-contract-testing-vs-e2e-functional-testing).
+
+
+### API E2E Testing
+
+An API testing method that validates the logic of dynamic APIs, ensuring that the API consumer can fully support the user story’s goals.
+
+More information: [Accelerating Releases with Quality: Contract Testing vs. E2E Functional Testing](https://saucelabs.com/blog/accelerating-releases-with-quality-contract-testing-vs-e2e-functional-testing).
+
+
 ### API Mocking
 
 An API server that mimics a real API server's requests and responses, which are based on the data from the spec file you provide. Commonly used for testing and debugging APIs while they're still in development; environment is stable and third-party dependencies are not required.
@@ -417,7 +431,7 @@ A Sauce Labs feature that allows organization admins to block their internal use
 
 ### Sauce Connect Host
 
-The machine in your network on which the Sauce Connect Proxy application is running, with a direct connection to the internet. More information: [Sauce Connect Proxy Setup and Configuration](/secure-connections/sauce-connect/setup-configuration).
+The machine in your network on which the Sauce Connect Proxy application is running, with a direct connection to the internet. More information: [Sauce Connect Proxy Setup and Configuration](/secure-connections/sauce-connect/#setup-and-configuration).
 
 
 ### Sauce Connect Proxy

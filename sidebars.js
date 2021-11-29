@@ -393,7 +393,6 @@ module.exports = {
                         items: [
                             'basics/acct-team-mgmt-hub',
                             'basics/acct-team-mgmt/org-settings',
-                            'basics/acct-team-mgmt/real-devices',
 
                             {
                                 type: 'category',
@@ -492,13 +491,13 @@ module.exports = {
                         label: 'Setup and Configuration',
                         collapsed: true,
                         items: [
-                            'secure-connections/sauce-connect/setup-configuration',
                             'secure-connections/sauce-connect/setup-configuration/basic-setup',
+                            'secure-connections/sauce-connect/setup-configuration/yaml-config',
                             'secure-connections/sauce-connect/setup-configuration/environment-variables',
-                            'secure-connections/sauce-connect/setup-configuration/additional-proxies',
                             'secure-connections/sauce-connect/setup-configuration/high-availability',
+                            'secure-connections/sauce-connect/setup-configuration/additional-proxies',
                             'secure-connections/sauce-connect/setup-configuration/specialized-environments',
-                            'secure-connections/sauce-connect/setup-configuration/ci-cd-environments',
+                            'secure-connections/sauce-connect/setup-configuration/ci-cd-integration',
                             'secure-connections/sauce-connect/setup-configuration/legacy-tunnels',
                         ]
                     },
@@ -562,7 +561,6 @@ module.exports = {
                             'mobile-apps/automated-testing/appium/quickstart',
                             'mobile-apps/automated-testing/appium/real-devices',
                             'mobile-apps/automated-testing/appium/virtual-devices',
-                            'mobile-apps/automated-testing/appium/migration',
                         ],
                     },
                     {
@@ -655,21 +653,8 @@ module.exports = {
             'api-testing/quickstart',
             'api-testing/sauce-connect',
             'api-testing/build-from-spec',
-            'api-testing/importing-postman-collections',
-            'api-testing/test-reports',
+            'api-testing/import-postman-collection',
             'api-testing/schedule-a-test',
-            'api-testing/dashboard',
-              {
-                  type: 'category',
-                  label: 'Vaults, Variables, Environments',
-                  collapsed: true,
-                  items: [
-                      'api-testing/vault',
-                      'api-testing/environments',
-                      'api-testing/variables-environment-overrides',
-                      ],
-                  },
-             'api-testing/apifctl-cicd-integration',
               {
                   type: 'category',
                   label: 'Test Composer',
@@ -681,6 +666,20 @@ module.exports = {
                       'api-testing/composer/logical-components',
                       ],
                   },
+                  {
+                      type: 'category',
+                      label: 'Vaults, Variables, Environments',
+                      collapsed: true,
+                      items: [
+                          'api-testing/vault',
+                          'api-testing/environments',
+                          'api-testing/variables-environment-overrides',
+                          ],
+                      },
+             'api-testing/apifctl-cicd-integration',
+             'api-testing/test-reports',
+             'api-testing/metrics-logs',
+             'api-testing/import-export-tests',
              'api-testing/mocking',
              'api-testing/logger',
         ],

@@ -33,6 +33,11 @@ To view live test results:
 
 <img src={useBaseUrl('img/test-results/test-results-details-live.png')} alt="Live test results details" width="650"/>
 
+### Filtering Test Results
+You can filter live test results by owner. If the **Enable Job Visibility Across Teams** organization setting is enabled, the filter dropdown will include all owners in your organization. If it is disabled, you will only see the owners on your team. For more information about this setting, see [Security Settings](https://docs.saucelabs.com/basics/acct-team-mgmt/org-settings/#security-settings).
+
+<img src={useBaseUrl('img/test-results/test-results-live-filter.png')} alt="Filtering live test results" width="650"/>
+
 ## Automated Test Results
 To view automated test results:
 1. On Sauce Labs, in the left panel, click **AUTOMATED** and then click **Test Results**.
