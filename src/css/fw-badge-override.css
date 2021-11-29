@@ -45,3 +45,12 @@
 #table-fw tbody:nth-child(odd) {
   background-color: #FFFFFF;
 }
+
+html[data-theme='dark'] #table-fw tbody:nth-child(even) {
+    background-color: #595858;
+}
+
+
+html[data-theme='dark'] #table-fw tbody:nth-child(odd) {
+  background-color: #000000;
+}
