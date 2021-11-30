@@ -98,10 +98,6 @@ html[data-theme='dark'] .table-of-contents__link--active {
     color: var(--ifm-menu-color-active);
 }
 
-html[data-theme='dark'] a {
-    --ifm-link-color: #57C1E8;
-}
-
 html[data-theme='dark'] .table-of-contents__link--active code {
     color: var(--ifm-menu-color-active);
 }
