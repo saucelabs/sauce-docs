@@ -1,7 +1,7 @@
 ---
 id: sauce-connect
 title: Using Sauce Connect Proxy Tunnels for API Tests
-sidebar_label: Sauce Connect Proxy Tunnels
+sidebar_label: Sauce Connect Tunnels
 description: Get a Sauce Connect Proxy tunnel up and running quickly for your API tests.
 ---
 

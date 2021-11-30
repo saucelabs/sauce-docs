@@ -1,7 +1,7 @@
 ---
 id: apifctl-cicd-integration
 title: CI/CD Platform Integration with apifctl
-sidebar_label: CI/CD Integration with apifctl
+sidebar_label: CI/CD Integration (apifctl)
 description: "Using Sauce Labs API Testing or CLI, you can seamlessly integrate continuous API testing into your CI/CD pipeline."
 ---
 
@@ -12,6 +12,8 @@ import TabItem from '@theme/TabItem';
 Execute API tests and interact with Sauce Labs API Testing (either locally or in a pipeline) using our API Testing CLI tool, `apifctl`.
 
 ## Usage
+
+You'll need to run our Docker image as a container:
 
 `$ docker run quay.io/saucelabs/apifctl [COMMAND] [OPTIONS]`
 

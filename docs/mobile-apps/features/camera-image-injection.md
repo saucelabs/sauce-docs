@@ -20,7 +20,7 @@ You employ the built-in device camera in your live and automated testing and per
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* [Upload your app to Sauce Labs](/mobile-apps/app-storage) prior to testing. The camera image injection functionality  points to Sauce Labs storage to get your app information. Don't have one on hand? Try the [My Demo App](https://github.com/saucelabs/my-demo-app-rn/releases), which is available in Sauce Labs.
+* [Upload your app to Sauce Labs](/mobile-apps/app-storage) prior to testing. The camera image injection functionality  points to Sauce Labs storage to get your app information. Don't have one on hand? Try the [My Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
 
 
 ## Key Specs
@@ -113,6 +113,7 @@ When injecting an image with a QR Code or barcode, the image size in your previe
 During an Automated test, you'll pass an image to the image injection endpoint. Image Injection intercepts the camera input and replaces the camera output with the image file via the camera APIs. When the app requests an image from the device's camera, we inject your uploaded image into the response (the app doesn't know the difference).
 
 In your test script, you'll need to input the capabilities specific to Camera Image Injection (see below code snippets). The code will execute your image upload and opening of the device camera.
+
 
 1. First, add the camera instrumentation desired capability command,  `sauceLabsImageInjectionEnabled`, to your test script. This capability enables image injection functionality.
 
