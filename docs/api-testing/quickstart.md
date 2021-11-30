@@ -10,7 +10,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 This page is a quickstart guide for getting up and running a Sauce Labs API Test using the **HTTP Client** and importing from **Postman or Spec File**. Let's get started!
 
 
-
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
