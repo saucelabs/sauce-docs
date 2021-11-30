@@ -18,9 +18,9 @@ When testing mobile apps, you have the option to upload your app to our applicat
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * Your mobile app file. If you don't have one on hand, consider using our Demo Apps:
-     *[React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
-     *[iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
-     *[Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases) 
+     * [React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
+     * [iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
+     * [Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)
 
 ## Uploading Apps via UI
 
@@ -84,8 +84,41 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </Tabs>
 
 
+## Installing Apps from a Remote Location
+<p> <small><span className="sauceDBlue">Real Devices Only</span></small></p>
+
+If your app is downloadable from a remote location (e.g., AWS S3 bucket, a GitHub repository), you can provide a URL as the value for the `app` capability in your test, which will install the app onto the real devices prior to test execution.
+
+:::note
+Appium cannot log into secure locations, so apps installed via remote download must be accessible, so are then removed from the real device immediately following test completion, providing an added layer of security.
+:::
+
+To install a remote app on a real device for a test:
+
+1. Make sure the app meets the [requirements](/mobile-apps/supported-devices) for Android and iOS Mobile App Testing.
+1. Ensure Sauce Labs has READ access to the app URL.
+1. In your Appium test script, enter the app file location URL as the `app` desired capability:
+
+  ```java title="Example Java Remote App URL Capability"
+  caps.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.3.0/Android.SauceLabs.Mobile.Sample.app.2.3.0.apk?raw=true");
+  ```
+
+### Private Device Considerations
+
+If you are using a remote app download for testing on a private device and wish to also prevent the device from broad internet access while under test, you need to use a secure connection to reach the app URL.
+
+* Ensure the app is available from a private hosting solution with the necessary permissions (e.g. GitHub repository or Amazon S3 with a strict bucket policy).
+* Ensure the hosted app URL is available to the machine running the automated test.
+* Enable the **Require Sauce Connect/VPN** setting in your [organization's security settings](/basics/acct-team-mgmt/org-settings).
+
+:::note
+Each session is a "fresh" installation of your app, meaning, you will not be able to access information about previous versions of your app.
+:::
+
+
 ## Accepted File Types 
-Application storage recognizes \*.apk and \*.aab files as Android apps and \*.ipa or \*.zip files as iOS apps. \*.zip files are parsed to determine whether a valid *.app bundle exists.
+
+Application storage recognizes \*.apk and \*.aab files as Android apps and \*.ipa or \*.zip files as iOS apps. \*.zip files (for simulator tests only) are parsed to determine whether a valid *.app bundle exists.
 
 :::caution Limited Support for *.aab Files
 At this time, \*.aab files are only supported for Android real device testing.
@@ -382,5 +415,3 @@ Windows Example:
 
 </TabItem>
 </Tabs>
-
-For information about uploading an app from a remote location, see [Uploading Mobile Apps from a Remote Location](/mobile-apps/automated-testing/appium/real-devices/#uploading-mobile-apps-from-a-remote-location).
