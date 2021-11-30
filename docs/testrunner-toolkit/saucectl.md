@@ -64,6 +64,13 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 
 ---
 
+### `--async`
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Sauce Cloud only</span> |</small></p>
+
+Launches tests without waiting for test results.
+
+---
+
 ### `--browserName <string>`
 <p><small>| REQUIRED | STRING | WEB-APP ONLY |</small></p>
 

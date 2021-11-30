@@ -1,5 +1,5 @@
 ---
-id: importing-postman-collections
+id: import-postman-collection
 title: Importing Postman Collections, Variables, and Environments
 sidebar_label: Import from Postman
 ---
@@ -12,11 +12,11 @@ If you have a [Postman API Collection](https://www.postman.com/collection/), you
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Postman Collection that's v2 or higher. We no longer support the Postman v1 Collection format, which was deprecated by Postman.
+* A Postman Collection that's v2 or higher. We no longer support the Postman v1 Collection format, which was deprecated by Postman.
 * An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
 
-## Importing a Postman Collection
+## Importing Postman Collections
 
 1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/>
   <img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
@@ -98,7 +98,7 @@ If you don't have a file available, try out the sample below.
 7. The routes from your collection will now show in the list of saved requests.<br/><img src={useBaseUrl('img/api-fortress/2021/04/routesRendered.png')} alt="Import file to Project" width="400"/>
 
 
-## Importing Postman a Environment
+## Importing Postman Environments
 
 1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
 1. Click to open one of your Projects.

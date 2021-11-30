@@ -45,7 +45,7 @@ If you choose to upload your spec file, start by clicking the __Attach File__ bu
 
 ### Reference the Spec File
 
-You may also reference the specification file with a URL. Selecting the URL field in the dropdown will open the SPEC URL field.
+You may also reference the specification file with a URL. Selecting the URL field in the dropdown will open the SPEC URL field.
 
 Once you have chosen the file type and the method, click the Save button and you will be redirected to the next step where the available endpoints are listed in a dropdown. Choose the one that you wish to test and click "Continue." The test will then be created. You can now make any further adjustments, save and publish them for later use and scheduling.
 

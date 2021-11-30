@@ -1,44 +1,31 @@
 ---
-id: using-appium
-title: Appium on Sauce Labs
-sidebar_label: Using Appium
+id: configuration
+title: Configuring Your Appium Tests
+sidebar_label: Configuration
+description: Reference the property settings for running Appium mobile app tests in any of our supported environments.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This page is intended to provide you with a quick overview of how Appium works so that you can get started with mobile application testing.
+Sauce Labs supports Appium to test your application on a mobile device in multiple ways:
 
-## Appium Overview
+* On any of a vast library of [Android and iOS real devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices) in our data centers
+* On any of a vast library of [Android emulators or iOS simulators]((https://docs.saucelabs.com/mobile-apps/automated-testing/appium/virtual-devices) in our cloud
+* As a web-app running in any of a wide variety of supported mobile browser/OS combinations
+* As a native app running on any supported device, emulator, simulator, and OS
 
-* Originally developed by Dan Cueller as a way to take advantage of the UIAutomation framework for Apple iOS to run tests against native mobile applications.
-* Most commonly used for testing native and hybrid mobile applications for iOS and Android.
-* You can also leverage it to test websites on a mobile device.
-* Uses the same syntax as [Selenium](https://www.selenium.dev).
-* Shares similarities with Selenium's ability to automate interaction with a website through a mobile browser.
+Depending on which combination of environments you wish to apply to your testing, the Appium configurations may be different. This page provides descriptions for the settings that are applicable to each of the testing scenarios support for Appium on Sauce Labs.
+
 
 ## What You'll Need
 
-Review [Appium's system requirements](http://appium.io/).
-
-## Appium Architecture
-
-Appium has a client-server architecture. The general way this process works is that a client (you) sends requests to the Appium server. The server then processes each request based on the test session details, and then responds with the test results and/or log files. Read below for further details about the client-server architecture.
-
-### Appium Client
-
-The Appium client is a programming language-specific [set of client libraries](http://appium.io/downloads) in which you write your test scripts. The Appium client library wraps the [Selenium client libraries](https://www.selenium.dev/documentation/en/selenium_installation/installing_selenium_libraries/) and provides all the base selenium commands, along with extra commands specifically for automating mobile devices.
-
-### Appium Server
-
-The Appium server component, based on node.js, exposes a superset of the [JSON Wire Protocol](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol), known as the [Mobile JSON Wire Protocol](https://github.com/SeleniumHQ/mobile-spec/blob/master/spec-draft.md). The Appium server also supports elements of the [W3C Webdriver spec](https://w3c.github.io/webdriver/webdriver-spec.html)
-
-Additionally, an [Appium desktop application](http://appium.io/downloads) exists that runs on Mac, Windows, and Linux. This application provides a graphical interface of the Appium server where you can set test configuration options, and use an inspector to view application elements. Please visit the [following page](https://github.com/appium/appium-desktop) for further technical information.
-
-:::note
-Appium Desktop is currently supported by the [Appium core team](https://appium.io/docs/en/contributing-to-appium/developers-overview/#developer-community).
-:::
+* [Sample Tests](https://github.com/saucelabs-training/quickstart-appium-java)
+* The [Swag Labs Sample App](https://github.com/saucelabs/sample-app-mobile/releases)
+* A [Sauce Labs Username and Access Key](https://app.saucelabs.com/user-settings)
+* An IDE such as [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=mac)
+* [Maven](https://maven.apache.org/install.html)
 
 ## Creating an Appium Test
 
