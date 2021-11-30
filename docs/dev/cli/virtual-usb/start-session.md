@@ -21,7 +21,7 @@ __Description__: your Sauce Labs access key for authentication.
 __Description__: the name of the private device that you want to use for testing.
 
 ```java title="Basic Example (required flags only)"
-java -jar virtual-usb-client.jar startSession --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx --deviceName iPhone_XS
+java -jar virtual-usb-client.jar startSession --username {SAUCE_USERNAME} --accessKey {SAUCE_ACCESS_KEY}x --deviceName iPhone_XS
 ```
 
 ```java title="Sample Response"
@@ -65,7 +65,7 @@ __Description__: specifies a tunnel identifier for Sauce Connect Proxy.
 
 ```bash title="Full Example (includes optional flags)"
 java -jar virtual-usb-client.jar startSession \
-    --username john.smith \
+    --username {SAUCE_USERNAME} \
     --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxx \
     --deviceName iPhone_XS \
     --serverHost http://127.0.0.1 \

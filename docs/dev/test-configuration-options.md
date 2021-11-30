@@ -396,15 +396,23 @@ Optional, Sauce-specific capabilities that you can use in your Appium tests. The
 ### `appiumVersion`
 <p><small>| STRING |</small></p>
 
-Specifies the Appium driver version you want to use. If you don’t select a version, this capability will automatically default to the latest version of Appium that is compatible with your selected OS. If you prefer to use a different version of Appium for your test, enter the version number you want as the value for the `appiumVersion` capability. We recommend using the default version.
+Specifies the Appium driver version you want to use. For most use cases, setting the `appiumVersion` is unnecessary because Sauce Labs defaults to the version that supports the broadest number of device combinations. Sauce Labs advises against setting this property unless you need to test a particular Appium feature or patch.
 
-To allow a window of time to check the compatibility of your test suites with the latest Appium version, it won't be set as the default version on Sauce until one week after the version release.
-
-We recommend using the default Appium Version. For Appium version release notes, see the [Appium GitHub repository](https://github.com/appium/appium/releases).
+:::note
+Sauce Labs waits a week following new Appium releases before setting them as the default version to provide time to verify compatibility with your tests. You can find version details in the [Appium release notes](https://github.com/appium/appium/releases).
+:::
 
 ```java
-"appiumVersion": "1.5.3"
+"appiumVersion": "1.22.0"
 ```
+
+#### Check on which Appium version your test ran:
+
+1. Log into Sauce Labs.
+2. Go to **Test Details**.
+3. Find and select the test that you ran using Appium.
+4. Click the **Metadata** tab.
+5. Look for the **Logs** row and select **Appium Log**. The first line indicates the Appium version. For example, `2019-05-05T17:45:07.541Z - info: Welcome to Appium v1.21.0`.
 
 ---
 ### `deviceType`
@@ -502,10 +510,6 @@ Suitable for test setups that require the app's state to be reset between tests.
 
 We recommend reviewing [Device Management for Real Devices](/mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
-:::note
-`cacheId` replaces the deprecated `testobject_cache_device` capability formerly used in TestObject (Legacy RDC).
-:::
-
 ---
 
 ### `newCommandTimeout`
@@ -528,12 +532,6 @@ Set `noReset` to `true` to keep a device allocated to you during the device clea
 On iOS devices, the `noReset` value is permanently set to `true` and cannot be overridden using `noReset:false`. If you check your Appium logs, you'll see that the value is `true`, even though the default setting technically is false. We've done this intentionally to ensure that your post-test iOS device cleaning process is optimal and secure.
 :::
 
----
-
-### `recordDeviceVitals`
-<p><small>| BOOLEAN | <span className="sauceDBlue">TestObject Only</span> <span className="sauceGold">DEPRECATED</span> |</small></p>
-
-Device vitals are a collection of the mobile device performance data taken in real time during test execution. Vitals includes CPU utilization, memory consumption, network usage for both wifi and carrier connectivity where applicable, file operation and more. Measuring device vitals during test execution provides insights for analyzing app performance during operation.
 
 ---
 ### `crosswalkApplication`
@@ -557,37 +555,37 @@ Use this capability to enable animations for real devices by setting it to `true
 ### `resigningEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Appium override setting that enables the resigning (iOS) or instrumentation (Android) of apps on the Sauce Labs side, allowing the usage of the other capabilities listed in this section.
+Controls Sauce Labs default resigning (iOS) or instrumentation (Android) of mobile apps installed on our devices. By default, this property is always `true`, but it can be set to `false` for private devices to allow testing of specific behaviors that are not permitted under the Sauce Labs provisioning. See [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-resigning-enablements) for more information.
 
 ---
 ### `sauceLabsImageInjectionEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Appium override setting that enables the [camera image injection](/mobile-apps/features/camera-image-injection) feature.
+Enables the [camera image injection](/mobile-apps/features/camera-image-injection) feature.
 
 ---
 ### `sauceLabsBypassScreenshotRestriction`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Android Only</span> |</small></p>
 
-Appium override setting that bypasses the restriction on taking screenshots for secure screens (i.e., secure text entry).
+Bypasses the restriction on taking screenshots for secure screens (i.e., secure text entry).
 
 ---
 ### `allowTouchIdEnroll`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Appium override setting that enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).Z
+Enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).Z
 
 ---
 ### `groupFolderRedirectEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
 
-Appium override setting that enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.
+Enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.
 
 ---
 ### `systemAlertsDelayEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
 
-Appium override setting that delays system alerts, such as alerts asking for permission to access the camera, to prevent app crashes at startup.
+Delays system alerts, such as alerts asking for permission to access the camera, to prevent app crashes at startup.
 
 <br/>
 
