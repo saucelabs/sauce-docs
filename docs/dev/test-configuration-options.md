@@ -7,7 +7,11 @@ description: An index of automation test configuration settings compatible with 
 
 This page provides a reference for the valid test configuration options (capabilities) you can set to specify the variable settings for your automated tests running on Sauce Labs.
 
-Try our [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/)! It provides a graphical user interface where you can specify your settings using option buttons and drop-down menus, then automatically generates the corresponding capabilities code based on your selections. For examples, see [Examples of Test Configuration Options for Website Tests](/basics/test-config-annotation/test-config/#examples-of-test-configuration-options-for-website-tests)
+Try our [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/)! It provides a graphical user interface where you can specify your settings using option buttons and drop-down menus, then automatically generates the corresponding capabilities code based on your selections. For examples, see [Examples of Test Configuration Options for Website Tests](/basics/test-config-annotation/test-config/#examples-of-test-configuration-options-for-website-tests).
+
+:::note Desktop and VDC Only
+The Platform Configurator does not support capabilities generation for real device (RDC) tests at this time.
+:::
 
 ## What You'll Need
 
@@ -283,7 +287,7 @@ You cannot set screen resolution on Windows 7 with IE 9.
 
 ## Mobile App Appium Capabilities: Required
 
-Sauce Labs encourages adoption of the W3C WebDriver protocol for your Appium mobile app tests, but continues to support JSON Wire Protocol (JWP) in all currently supported Appium versions. The capabilities defined here assume the W3C protocol, but it is important to make sure your test configurations accurately reflect your intended protocol so your settings are applied correctly. See [Appium Real Device W3C Specification](http://localhost:3000/mobile-apps/automated-testing/appium/real-devices/#using-the-w3c-webdriver-specification) for details.
+Sauce Labs encourages adoption of the W3C WebDriver protocol for your Appium mobile app tests, but continues to support JSON Wire Protocol (JWP) in all currently supported Appium 1.X versions (Appium 2.0 will deprecate support for JWP). The capabilities defined here assume the W3C protocol, but it is important to make sure your test configurations accurately reflect your intended protocol so your settings are applied correctly. See [Appium Real Device W3C Specification](http://localhost:3000/mobile-apps/automated-testing/appium/real-devices/#using-the-w3c-webdriver-specification) for details.
 
 ---
 ### `app`

@@ -262,7 +262,7 @@ Your endpoint URL will depend on which [Sauce Labs Data Center](/basics/data-cen
 
 ## Creating Sauce Sessions
 
-Basic examples of w3c compliant sessions can be created using Sauce Labs [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) in the Selenium 4 or Selenium 3 tabs. Complete code examples for [starting a Sauce Labs Session](/web-apps/automated-testing/selenium/#define-capabilities) can be found in our [Selenium Documentation](/web-apps/automated-testing/selenium).
+Basic examples of W3C compliant sessions can be created using Sauce Labs [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) in the Selenium 4 or Selenium 3 tabs. Complete code examples for [starting a Sauce Labs Session](/web-apps/automated-testing/selenium/#define-capabilities) can be found in our [Selenium Documentation](/web-apps/automated-testing/selenium).
 
 :::note
 WebdriverIO has been W3C-compliant by default since v5.0.

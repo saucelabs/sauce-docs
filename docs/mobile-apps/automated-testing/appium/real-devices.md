@@ -41,13 +41,13 @@ The following application file types are supported for real device tests:
 
 ## Using the W3C WebDriver Specification
 
-Sauce Labs encourages adoption of the W3C WebDriver protocol, but supports both JSON Wire Protocol (JWP) or W3C in all currently supported Appium versions.
+Sauce Labs encourages adoption of the W3C WebDriver protocol, but supports both JSON Wire Protocol (JWP) or W3C in all currently supported Appium 1.X versions (Appium 2.0 will deprecate support for JWP).
 
 Since W3C and JWP use different formats for specifying your test capabilities, it is important to make sure you configure your tests accurately so your intended protocol is followed and your settings are applied correctly.
 
 ### How Sauce Labs Determines Your Protocol
 
-When Sauce Labs executes your test configuration, it looks for the presence of certain indicators in the session creation request to determine whether it should apply the JWT or W3C protocol. The following table outlines how Sauce Labs evaluates your creation request.
+When Sauce Labs executes your test configuration, it looks for the presence of certain indicators in the session creation request to determine whether it should apply the JWP or W3C protocol. The following table outlines how Sauce Labs evaluates your creation request.
 
 |Indicator|Determination|
 |:---|:---|
@@ -113,7 +113,7 @@ The following examples illustrate this difference in the respective specificatio
 </Tabs>
 
 :::note
-You can avoid having to add the `appium:` prefix to Appium specific capabilities by upgrading your Appium client library to a version that automatically applies the prefix or installing the relaxed-caps plugin. Learn more in [Appium’s 2.0 Migration Capability Prefixes documentation](https://appiumpro.com/editions/123-migrating-to-appium-20-part-1-capability-prefixes).
+You can avoid having to add the `appium:` prefix to Appium specific capabilities by upgrading your [Appium client library](http://appium.io/docs/en/about-appium/appium-clients/) to a version that automatically applies the prefix or installing the [relaxed-caps plugin](https://github.com/appium/appium-plugins/tree/master/packages/relaxed-caps).
 :::
 
 
@@ -135,11 +135,11 @@ For native app tests, the `app` capability is the only other required configurat
 For native app tests on real devices, you must provide a location from which your mobile app can be accessed in the `app` capability so your app can be installed on the test devices. You can specify a Sauce Labs Application Storage ID or filename, or a remote location to which Sauce Labs has access. See [Application Storage](/mobile-apps/app-storage) for details.
 
 ```js title=App Storage Example
-"appium:app" : "storage:filename=mapp.ipa";
+"appium:app","storage:filename=mapp.ipa";
 ```
 
 ```js title=Remote App Example
-"appium:app" : "app","https://github.com/test-apps/ios-app.ipa";
+"appium:app","https://github.com/test-apps/ios-app.ipa";
 ```
 
 ### Excluding the `browserName`
