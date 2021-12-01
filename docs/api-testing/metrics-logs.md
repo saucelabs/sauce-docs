@@ -29,7 +29,7 @@ If you hover your mouse over a line item, you'll see the option to go to the [Te
 
 ## Test Metrics
 
-To view all tests performance metrics (latency and fetch) within a Project:
+To view all test performance metrics (latency and fetch) within a Project:
 
 1. Follow steps 1 and 2 from [Test Logs](#test-logs).
 2. From inside the **Dashboard**, select **Metrics**.<br/><img src={useBaseUrl('img/api-fortress/2021/02/metrics.png')} alt="Dashboard Metrics"/>
