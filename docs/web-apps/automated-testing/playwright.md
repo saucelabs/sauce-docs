@@ -28,7 +28,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
  |Playwright Version|Supported Platforms|Supported Browsers|
  |-----|-----|-----|
  |1.15.2|Windows 10|Chromium, Firefox, Webkit|
- |1.14.1|Windows 10|Chromium, Firefox, Webkit|
 
  </TabItem>
  <TabItem value="docker">
@@ -38,7 +37,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
  |Playwright Version|Supported Browsers|
  |-----|----|
  |1.15.2|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.3.0)|
- |1.14.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.2.3)|
 
 </TabItem>
 </Tabs>
