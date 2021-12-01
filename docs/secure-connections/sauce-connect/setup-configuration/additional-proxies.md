@@ -1,7 +1,7 @@
 ---
 id: additional-proxies
 title: Sauce Connect Proxy Setup with Additional Proxies
-sidebar_label: Set Up with Additional Proxies
+sidebar_label: Setup with Additional Proxies
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
@@ -9,8 +9,8 @@ import TabItem from '@theme/TabItem';
 
 This is a guide for users who have an existing internal network proxy through which outbound communication is routed from their network to the public internet. If this sounds like your setup, additional proxy configuration of the Sauce Connect Proxy tunnel is required:
 
-* Between the internet and the machine hosting Sauce Connect Proxy
-* Between the machine hosting Sauce Connect and the machine hosting the website or mobile app you want to test
+* Between the internet and the machine hosting Sauce Connect Proxy.
+* Between the machine hosting Sauce Connect and the machine hosting the website or mobile app you want to test.
 
 To configure Sauce Connect Proxy to use your proxy or proxies, you will need to include one or more Sauce Connect command-line options (see the [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy)) in your test script.
 
