@@ -555,12 +555,6 @@ A parent property that details any additional parameters you wish to set for the
       project: "project name"
 ```
 
-__Description__: This field is for specific test run parameters, for example:
-* `browserName` ( *string* ) : the browser in which to run tests
-* `headful` ( *boolean* ) : whether to run browsers in headless mode
-* `sloMo` ( *int* ) : whether to implement artificially slow load times in milliseconds
-* `project` ( *string* ): the playwright project name
-
 #### `browserName`
 <p><small>| OPTIONAL | STRING |</small></p>
 
