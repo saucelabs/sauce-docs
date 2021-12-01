@@ -1,6 +1,6 @@
 ---
 id: installation
-title: Installation
+title: Sauce Connect Proxy Installation
 sidebar_label: Installation
 ---
 
@@ -14,7 +14,10 @@ This topic describes where and how to download Sauce Connect Proxy to your local
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * Review [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/).
 
-## Download Latest Version
+
+## Sauce Connect Proxy Client
+
+### Download Latest Version
 
 Download the latest Sauce Connect Proxy client version to your local machine by clicking the link below corresponding to your OS. If applicable, delete any previous versions you have. Using older versions may impact your ability to launch a tunnel or cause other technical issues.
 
@@ -24,9 +27,9 @@ Download the latest Sauce Connect Proxy client version to your local machine by 
 For version information, see [Sauce Connect Proxy Changelog](https://changelog.saucelabs.com/en?category=sauce%20connect).
 
 
-## Installation
+### Installation
 
-### Mac and Windows
+#### Mac and Windows
 1. Extract the contents of the .zip download.
 2. Open the download folder. You'll see the following contents:<br/><img src={useBaseUrl('img/sauce-connect/scp-download.png')} alt="Sauce Connect download file contents" width="450" />
   <table>
@@ -56,8 +59,8 @@ For version information, see [Sauce Connect Proxy Changelog](https://changelog.s
    </tr>
   </table>
 
-### Linux
 
+#### Linux
 To extract Sauce Connect on Linux, add sc to your system PATH:
  ```bash
 cd $HOME
@@ -67,17 +70,16 @@ export PATH="$HOME/sc-4.7.1-linux/bin:$PATH"
 ```
 
 
-## Using Docker Containers to Install/Run Sauce Connect
+## Running Sauce Connect in Docker
 
-You can use the Sauce Connect Proxy Docker image, maintained by the Sauce Labs [Open Source Program Office](https://opensource.saucelabs.com/), to build a Docker container. This means it is an alternative to the above Download/Installation steps.
+As an alternative to downloading/installing the client (described above), you can use the Sauce Connect Proxy Docker image to run Sauce Connect Proxy in a Docker container.
 
-If you’re not sure where Docker fits, consider these use cases:
-* If you want to creating automation (or manual testing) for multiple apps that reside in different environments or Sauce Labs Data Centers (i.e., US-East and US-West).
-* If you want to create multiple High Availability Sauce Connect tunnels on the same system, without having to manage or use different ports.
-* If you no longer want to manage Sauce Connect Proxy versions.
-* If you want to run Sauce Connect Proxy as part of a dockerized CI.
+Here are some benefits/use cases:
+* If you want to run Sauce Connect Proxy as part of a Dockerized CI.
+* If you'd prefer to manage Docker image tags instead of Sauce Connect Proxy versions.
+* If your setup involves several instances running on the same system, Docker would simplify Sauce Connect Proxy port management.
 
-To learn how to run the Sauce Connect Proxy Docker image as a container and manage tunnels that way, see [Sauce Connect Docker Container Setup](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#sauce-connect-docker-container-setup).
+To learn more, see [Sauce Connect Docker Container Setup](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#sauce-connect-docker-container-setup).
 
 ## Log File
 

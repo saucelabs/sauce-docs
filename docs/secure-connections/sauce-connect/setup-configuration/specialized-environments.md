@@ -13,11 +13,12 @@ import TabItem from '@theme/TabItem';
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
   * We recommend setting these values as [environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/) to protect your username and api key from exposure, and also for future convenience.
 * The name of your closest regional Sauce Labs Data Center (see the [SC CLI](/dev/cli/sauce-connect-proxy/#--region) and [Data Center Endpoints](/basics/data-center-endpoints/).
+* For the Docker Setup, you'll need to have [Docker installed and configured](https://docs.docker.com/get-docker/).
 
 
 ## Sauce Connect Docker Container Setup
 
-As an alternative to downloading and installing the SC Client, you can leverage Docker containers to manage Sauce Connect Proxy tunnels. See [Using Docker Containers to Install/Run Sauce Connect](/secure-connections/sauce-connect/installation/#using-docker-containers-to-installrun-sauce-connect) for use cases.
+As an alternative to downloading and installing the SC Client, you can leverage Docker containers to manage Sauce Connect Proxy tunnels. See [Using Docker Containers to Install/Run Sauce Connect](/secure-connections/sauce-connect/installation/#using-docker-containers-to-installrun-sauce-connect) for use cases. Our Docker image maintained by the Sauce Labs [Open Source Program Office](https://opensource.saucelabs.com/).
 
 ### Running the SC Docker Image
 
@@ -25,9 +26,9 @@ As an alternative to downloading and installing the SC Client, you can leverage 
   ```bash
   $ docker pull saucelabs/sauce-connect
   ```
-   * Or - if you _do_ want to use a specific SC version - you can specify that as a tag. The example below pulls v4.7.0.
+   * Or - if you _do_ want to use a specific SC version - you can specify that as a tag. This example pulls v4.7.1.
    ```bash
-   $ docker pull saucelabs/sauce-connect:4.7.0
+   $ docker pull saucelabs/sauce-connect:4.7.1
    ```
 2. To run the Sauce Connect Proxy Docker image, execute the below script, which will also set your Sauce Labs username and access key as [environment variables](/basics/environment-variables/).
   ```bash
