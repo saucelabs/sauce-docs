@@ -416,6 +416,7 @@ The parent property containing the details specific to the Playwright project.
 ```yaml
 playwright:
   version: 1.11.1
+  configFile: config.ts
 ```
 ---
 
@@ -426,6 +427,17 @@ The version of Playwright that is compatible with the tests defined in this file
 
 ```yaml
   version: 1.11.1
+```
+---
+
+### `configFile`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+The designated `playwright` configuration file. `saucectl` determines related files based on the location of the config file. It can be typescript and TypeScript and JavaScript both.
+If it's not set, `saucectl` will pick default playwright config file(`playwright.config.ts` or `playwright.config.js`).
+
+```yaml
+  configFile: config.ts
 ```
 ---
 
@@ -540,13 +552,14 @@ A parent property that details any additional parameters you wish to set for the
       browserName: "firefox"
       headful: false
       slowMo: 1000
+      project: "project name"
 ```
 
 __Description__: This field is for specific test run parameters, for example:
 * `browserName` ( *string* ) : the browser in which to run tests
 * `headful` ( *boolean* ) : whether to run browsers in headless mode
 * `sloMo` ( *int* ) : whether to implement artificially slow load times in milliseconds
-
+* `project` ( *string* ): the playwright project name
 
 #### `browserName`
 <p><small>| OPTIONAL | STRING |</small></p>
@@ -576,6 +589,16 @@ Allows you to alter the test execution speed for the test suite in milliseconds,
 
 ```yaml
     sloMo: 1000
+```
+---
+
+#### `project`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Determines which projet to run the test. `saucectl` will override the project browserName with suite browserName. Read more about [playwright project](https://playwright.dev/docs/test-advanced/#projects).
+
+```yaml
+    project: "project name"
 ```
 ---
 
