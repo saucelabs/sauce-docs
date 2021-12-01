@@ -661,9 +661,10 @@ module.exports = {
                   collapsed: true,
                   items: [
                       'api-testing/composer',
-                      'api-testing/composer/assertion-components',
                       'api-testing/composer/io-components',
+                      'api-testing/composer/assertion-components',
                       'api-testing/composer/logical-components',
+                      'api-testing/composer/other-components',
                       ],
                   },
                   {

@@ -7,7 +7,8 @@ description: Learn how to quickly generate an API test using the payload from an
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This page is a quickstart guide for getting up and running a Sauce Labs API Test using the **HTTP Client** and importing from **Postman or Spec File**. Let's get started!
+This is a quickstart guide for getting up and running with a Sauce Labs API Test using the **HTTP Client** or **Import from Postman/Spec File** feature. Let's get started!
+
 
 
 ## What You'll Need
