@@ -595,7 +595,11 @@ Allows you to alter the test execution speed for the test suite in milliseconds,
 #### `project`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Determines which projet to run the test. `saucectl` will override the project browserName with suite browserName. Read more about [playwright project](https://playwright.dev/docs/test-advanced/#projects).
+Allows you to apply the configurations from your [Playwright project](https://playwright.dev/docs/test-advanced/#projects) to the suite.
+
+:::note
+`saucectl` browserName overrides the Playwright project browserName in the event of a conflict.
+:::
 
 ```yaml
     project: "project name"
