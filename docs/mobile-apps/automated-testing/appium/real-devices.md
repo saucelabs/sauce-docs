@@ -113,7 +113,7 @@ The following examples illustrate this difference in the respective specificatio
 </Tabs>
 
 :::note
-You can avoid having to add the `appium:` prefix to Appium specific capabilities by upgrading your [Appium client library](http://appium.io/docs/en/about-appium/appium-clients/) to a version that automatically applies the prefix or installing the [relaxed-caps plugin](https://github.com/appium/appium-plugins/tree/master/packages/relaxed-caps).
+You can avoid having to add the `appium:` prefix to Appium specific capabilities by upgrading your [Appium client library](http://appium.io/docs/en/about-appium/appium-clients/) to a version that automatically applies the prefix or installing the [relaxed-caps plugin](https://github.com/appium/appium-plugins/tree/master/packages/relaxed-caps), but Sauce Labs advises including the prefix to avoid any confusion in the future.
 :::
 
 
