@@ -716,12 +716,7 @@ A Sauce Labs automated visual testing method that integrates with your WebDriver
 
 ### W3C WebDriver Protocol
 
-[A platform- and language-neutral wire protocol](https://w3c.github.io/webdriver/) that
-enables out-of-process programs to remotely instruct the
-behavior of web browsers. The major browser vendors collaborated and agreed on what the correct behavior should be
-for each command, which dramatically improves stability and consistency between different browsers and devices.
-Selenium and WebdriverIO each implement the W3C protocol. Now that all major browsers
-use this protocol by default, its usage on Sauce Labs is highly encouraged.
+[A platform- and language-neutral wire protocol](https://w3c.github.io/webdriver/) that enables out-of-process programs to remotely instruct the behavior of web browsers and native mobile apps. Collaboration among industry  providers to standardize command syntax makes the W3C protocol a dramatic improvement in stability and consistency between different browsers and devices. Selenium, Appium, and WebdriverIO each implement the W3C protocol and Sauce Labs encourages its adoption.
 More information: [W3C Capabilities Support](/dev/w3c-webdriver-capabilities).
 
 
