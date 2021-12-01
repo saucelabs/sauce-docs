@@ -2,11 +2,16 @@
 id: test-configuration-options
 title: Test Configuration Options
 sidebar_label: Test Configuration Options
+description: An index of automation test configuration settings compatible with Sauce Labs test protocols.
 ---
 
-This page includes a list of valid test configuration options (capabilities) for tests run on Sauce Labs.
+This page provides a reference for the valid test configuration options (capabilities) you can set to specify the variable settings for your automated tests running on Sauce Labs.
 
-See the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to generate the code for setting the capabilities to execute a test. For examples, see [Examples of Test Configuration Options for Website Tests](/basics/test-config-annotation/test-config/#examples-of-test-configuration-options-for-website-tests)
+Try our [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/)! It provides a graphical user interface where you can specify your settings using option buttons and drop-down menus, then automatically generates the corresponding capabilities code based on your selections. For examples, see [Examples of Test Configuration Options for Website Tests](/basics/test-config-annotation/test-config/#examples-of-test-configuration-options-for-website-tests).
+
+:::note Desktop and VDC Only
+The Platform Configurator does not support capabilities generation for real device (RDC) tests at this time.
+:::
 
 ## What You'll Need
 
@@ -282,14 +287,7 @@ You cannot set screen resolution on Windows 7 with IE 9.
 
 ## Mobile App Appium Capabilities: Required
 
-These common Appium test configuration settings can be added with an `appium:` prefix in your test session creation code.
-
-If you are not using the official Appium bindings, make sure to prefix all Appium capabilities with `appium:` to make them W3C WebDriver-compliant. For more information about Appium-specific options, see the [Appium Server Capabilities page of the Appium.io website](http://appium.io/docs/en/writing-running-appium/caps).
-
-:::note
-[`browserName`](#browsername) and [`platformName`](#platformname) are frequently used in Appium tests, however, because they are W3C capabilities, you do not need to prepend them with `appium:`.
-
-:::
+Sauce Labs encourages adoption of the W3C WebDriver protocol for your Appium mobile app tests, but continues to support JSON Wire Protocol (JWP) in all currently supported Appium 1.X versions (Appium 2.0 will deprecate support for JWP). The capabilities defined here assume the W3C protocol, but it is important to make sure your test configurations accurately reflect your intended protocol so your settings are applied correctly. See [Appium Real Device W3C Specification](http://localhost:3000/mobile-apps/automated-testing/appium/real-devices/#using-the-w3c-webdriver-specification) for details.
 
 ---
 ### `app`
