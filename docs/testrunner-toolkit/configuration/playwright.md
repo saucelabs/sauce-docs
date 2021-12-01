@@ -433,7 +433,7 @@ The version of Playwright that is compatible with the tests defined in this file
 ### `configFile`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-The designated `playwright` configuration file. `saucectl` determines related files based on the location of the config file. It can be typescript and TypeScript and JavaScript both.
+The designated `playwright` configuration file. `saucectl` determines related files based on the location of the config file. Supports both TypeScript and JavaScript files.
 If it's not set, `saucectl` will pick default playwright config file(`playwright.config.ts` or `playwright.config.js`).
 
 ```yaml
