@@ -25,7 +25,7 @@ Some extended capabilities are not backwards-compatible with Selenium versions b
 
 To ensure W3C WebDriver compliance:
 
-* Use Selenium version 3.11 or higher, WebdriverIO 5 or higher, or an Appium client that supports W3C.
+* Use Selenium version 3.11 or higher, WebdriverIO 6 or higher, or an Appium client that supports W3C.
 * Switch from using the legacy JSON Wire Protocol (JWP) to the newer W3C WebDriver Protocol.
 Mixing JWP with W3C will result in an [error](/dev/w3c-webdriver-capabilities/#common-errors).
 * Learn the naming differences between legacy JWP and W3C WebDriver-compliant capabilities.
