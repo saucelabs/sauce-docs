@@ -40,7 +40,7 @@ The screenshot below shows the **Company Vault**; these variables are available 
 You should define a variable at the Project-specific **Vault** when you need to use the same one across multiple tests. As an example, you could save a password here as a variable and reuse it in multiple tests.
 
 :::tip Import Postman Collections into The Vault
-Additionally, you can import variables from Postman. See [here](/api-testing/importing-postman-collections/) for more details.
+Additionally, you can import variables from Postman. See [here](/api-testing/import-postman-collection) for more details.
 :::
 
 :::note

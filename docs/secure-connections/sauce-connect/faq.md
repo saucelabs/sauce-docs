@@ -11,11 +11,11 @@ If you're new to Sauce Connect Proxy or troubleshooting, this list of frequently
 
 Sauce Connect can only communicate with Sauce Labs via `port 443`. This is not configurable.
 
-## What is the difference between port:443 and --proxy <host:port>?
+## When do I need to use Port 443 and how does it relate to the --proxy flag?
 
-`port:443` is HTTPS, is the universal default port for https traffic. You need to open this on your firewall to use Sauce Connect. Any page with a SSL/TLS certificate would be secured using HTTPS.
+Port 443 is the the typical default port for HTTPS traffic. Sauce Connect will use port 443 when sending traffic to your network when trying to reach the site(s) under test.
 
-`--proxy` is where you specify the `hostname:port` number of the destination where all Sauce Connect Proxy traffic should be forwarded. Some companies have it setup where you MUST pass traffic through a proxy to reach the internet. You can configure this on the command line using the [--proxy](/dev/cli/sauce-connect-proxy/#--proxy) flag.
+You can use the [`--proxy`](/dev/cli/sauce-connect-proxy/#--proxy) command-line option to specify the `hostname:port` number of the destination where all Sauce Connect Proxy traffic should be forwarded. Some companies have it setup where you MUST pass traffic through a proxy to reach the internet. 
 
 ## How can I share a Sauce Connect Proxy tunnel between multiple accounts?
 

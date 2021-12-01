@@ -9,26 +9,40 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Looking to incorporate Appium in your mobile testing strategy? This page can help you understand the system architecture and requirements, as well as how to design a test strategy that yields the most meaningful results.
+Looking to incorporate Appium in your mobile testing strategy? This page can help you understand the system architecture and installation requirements.
 
 [Appium](http://appium.io/) is an automation testing framework that allows you to write tests using the [Selenium](https://www.selenium.dev) syntax that are for use in testing native, mobile web, and hybrid applications on iOS and Android devices. Run your Appium tests on Sauce Labs to benefit from speed, parallelization, clear test result history, failure analysis, issue tracking, and more.
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* [Node.js v10+ and NPM](http://nodejs.org/)
 
-## Appium Architecture
 
-Appium has a client-server architecture, meaning the user installs a client application locally that translates test session configuration details into requests to the remote Appium server, which processes them and responds with results and related material that Sauce Labs can then render into meaningful results in your dashboard.
+## Installing Appium
 
-The **Appium client** is a programming language-specific [set of client libraries](http://appium.io/downloads) in which you write your test scripts. The Appium client library is a wrapper of Selenium client libraries designed specifically for use with the unique needs of mobile device operating systems.
+Appium is a client-server framework in which the user installs a client application locally that translates test session configuration details into requests to the remote Appium server, which processes them and responds with results and related material that Sauce Labs can then render into meaningful results in your dashboard. In order to use Appium, you must install both the server and a client.
 
-The **Appium server** component, based on node.js, exposes a superset of the [JSON Wire Protocol](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol), known as the [Mobile JSON Wire Protocol](https://github.com/SeleniumHQ/mobile-spec/blob/master/spec-draft.md). The Appium server also supports elements of the [W3C Webdriver spec](https://w3c.github.io/webdriver/webdriver-spec.html), which allows it to support a wide variety of test specification formats.
+### Installing the Server
 
-There is also an [Appium desktop application](https://github.com/appium/appium-desktop) option available for Mac, Windows, and Linux environments that offers a graphical interface experience for the Appium server and bundles many of the system dependencies (including Node/NPM).
+You can install the Appium Server directly via NPM by running the following command:
 
-:::note
-Appium Desktop is currently supported by the [Appium core team](https://appium.io/docs/en/contributing-to-appium/developers-overview/#developer-community).
+```
+npm install -g appium
+```
+
+### Installing a Client
+
+The Appium client is the application in which you write your test scripts and instruct Appium how and where to run them. Appium provides [client libraries](http://appium.io/downloads) for a variety of programming languages, so choose your favorite and download it to start creating tests for your mobile app or mobile browser app. Many of the examples throughout this documentation use the [JavaScript WebDriverIO client](https://webdriver.io/).
+
+:::tip Appium Doctor
+Use Appium's dependency validator CLI `appium-doctor` to ensure your installation is ready to go for your Android or iOS tests.
+
+Install the doctor: `npm install -g appium-doctor`.
+Run the command: `appium-doctor --ios|--android`
 :::
+
+Appium 2.0 users may choose to install [Appium Inspector](https://github.com/appium/appium-inspector), which is basically an Appium client that includes a graphical user interface to specify which Appium server to use, which capabilities to set, and then interact with your app's elements, which can be very helpful in writing your tests.
+
 
 ## How to Get Started
 
