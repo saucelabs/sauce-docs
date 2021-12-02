@@ -10,15 +10,7 @@ const docusaurusConfig = {
   favicon: 'img/favicon.ico',
   organizationName: 'saucelabs',
   projectName: 'sauce-docs',
-  scripts: [
-    {
-      src: 'src="https://gist.github.com/discombobulateme/7dbf32500790c00ce6a398a6ff06cf9f.js'
-    },
-    {
-      src: 'https://gist.github.com/spider-sauce/4395e4541fef2c15a285cc949ca561f9.js',
-      async: true,
-    }
-  ],
+  scripts: [],
   themeConfig: {
     // announcementBar: {
     //   id: 'site_announcement', // Any value that will identify this message.
