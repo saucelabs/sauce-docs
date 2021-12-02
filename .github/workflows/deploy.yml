@@ -33,7 +33,7 @@ jobs:
         with:
           path: |
             **/node_modules
-          key: ${{ runner.os }}-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/package.json') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
 
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
