@@ -213,6 +213,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |Playwright Version|Supported Browsers|
 |-----|----|
+|1.17.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.5.0)|
 |1.16.3|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.4.0)|
 |1.15.2|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.3.0)|
 |1.14.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.2.3)|
