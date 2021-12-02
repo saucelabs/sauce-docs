@@ -62,6 +62,7 @@ const docusaurusConfig = {
       logo: {
         alt: 'Sauce Labs logo',
         src: 'img/logo-saucelabs.svg',
+        srcDark:'img/logo-saucelabs-white.svg',
       },
       items: [
         {
