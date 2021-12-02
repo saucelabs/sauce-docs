@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
-import Head from '@docusaurus/Head';
 import HomeCallouts from './home-callouts';
 import DeveloperResources from './developer-resources';
 import ImportantLinks from './important-links';
@@ -18,13 +17,6 @@ function Home() {
     <Layout
       title={`Sauce Labs Documentation`}
       description="Sauce Labs Documentation">
-      <Head>
-        <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript"
-                charSet="UTF-8" data-domain-script="9e4c4ce3-8349-4030-9de7-0b1d368edfce"></script>
-        <script type="text/javascript">
-          function OptanonWrapper() {}
-        </script>
-      </Head>
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>

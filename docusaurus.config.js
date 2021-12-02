@@ -10,7 +10,15 @@ const docusaurusConfig = {
   favicon: 'img/favicon.ico',
   organizationName: 'saucelabs',
   projectName: 'sauce-docs',
-  scripts: [],
+  scripts: [
+    {
+      src:  'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
+      type: 'text/javascript',
+      charset: 'UTF-8',
+      "data-domain-script": '9e4c4ce3-8349-4030-9de7-0b1d368edfce',
+    },
+    'function OptanonWrapper() { }',
+  ],
   themeConfig: {
     // announcementBar: {
     //   id: 'site_announcement', // Any value that will identify this message.
