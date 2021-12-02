@@ -93,6 +93,7 @@ jobs:
           cd build/ && python3 -m http.server 8000 &
 
           saucectl run -c ./.sauce/config.yml --tunnel-name proxy-tunnel-$GITHUB_RUN_ID
+  
   deploy-staging:
     needs: test
     runs-on: ubuntu-latest
@@ -112,20 +113,11 @@ jobs:
           project_id: ${{ secrets.RUN_PROJECT }}
           service_account_key: ${{ secrets.RUN_SA_KEY }}
 
-      - uses: actions/cache@v2
-        id: cache-build
-        with:
-          path: |
-            build
-          key: ${{ runner.os }}-${{ github.sha }}
-
       - name: Install Dependencies
-        if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         run: |
           npm install
 
       - name: Run Build
-        if: steps.cache-build.outputs.cache-hit != 'true'
         run: |
           npm run build
 
@@ -153,20 +145,11 @@ jobs:
           project_id: ${{ secrets.RUN_PROJECT_PROD }}
           service_account_key: ${{ secrets.RUN_SA_KEY_PROD }}
 
-      - uses: actions/cache@v2
-        id: cache-build
-        with:
-          path: |
-            build
-          key: ${{ runner.os }}-${{ github.sha }}
-
       - name: Install Dependencies
-        if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         run: |
           npm install
 
       - name: Run Build
-        if: steps.cache-build.outputs.cache-hit != 'true'
         run: |
           npm run build
 
