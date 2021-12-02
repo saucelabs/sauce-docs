@@ -108,9 +108,9 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@master
         with:
+          version: '290.0.1'
           project_id: ${{ secrets.RUN_PROJECT }}
           service_account_key: ${{ secrets.RUN_SA_KEY }}
-          export_default_credentials: true
 
       - uses: actions/cache@v2
         id: cache-build
@@ -149,9 +149,9 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@master
         with:
+          version: '290.0.1'
           project_id: ${{ secrets.RUN_PROJECT_PROD }}
           service_account_key: ${{ secrets.RUN_SA_KEY_PROD }}
-          export_default_credentials: true
 
       - uses: actions/cache@v2
         id: cache-build
