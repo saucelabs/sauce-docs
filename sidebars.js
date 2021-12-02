@@ -755,6 +755,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'visual/e2e-testing/setup',
+                    'visual/e2e-testing/quickstart',
                     {
                         type: 'category',
                         label: 'Integrations',
