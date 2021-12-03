@@ -17,7 +17,6 @@ Get up and running quickly on Visual E2E with a simple automated test using our 
 * A [Sauce Labs self-serve or enterprise account](https://saucelabs.com/pricing). Visual Testing is not available for free trials. Please [contact us](https://saucelabs.com/contact) if you have any questions.
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * Your [Screener API Key](https://screener.io/v2/account/api-key).
-* A VPN connection.
 * A GitHub account.
 * Have Node.js installed.
 * Optional: have Mocha and/or Jest installed.
@@ -25,23 +24,22 @@ Get up and running quickly on Visual E2E with a simple automated test using our 
 
 ## Set Up Environment
 
-1. Establish a VPN connection on your local machine.
 1. From your terminal, clone the [Visual E2E demo repository](https://github.com/luishernandezv/visual-e2e) to your machine:
   ```bash
   git clone https://github.com/luishernandezv/visual-e2e
   ```
-1. Navigate to the visual-e2e project.
+2. Navigate to the visual-e2e project.
   ```bash
   cd visual-e2e
   ```
 :::tip
 For best experience, open the [`visual-e2e` repository](https://github.com/luishernandezv/visual-e2e) in an IDE.
 :::
-1. Install all dependencies by running:
+3. Install all dependencies by running:
   ```bash
   npm install
   ```
-1. Set your Sauce Labs credentials as environment variables:
+4. Set your Sauce Labs credentials as environment variables:
 
  <Tabs
       defaultValue="Mac/Linux"
@@ -83,7 +81,7 @@ For best experience, open the [`visual-e2e` repository](https://github.com/luish
 
 ## Set Up Test
 
-1. Choose which test script you'd like to run: WebdriverIO ([simple-test.js](https://github.com/luishernandezv/visual-e2e/blob/main/simple-test.js)), WebdriverIO with Mocha ([simple-mocha-test.js](https://github.com/luishernandezv/visual-e2e/blob/main/simple-jest.test.js)), or WebdriverIO with Jest ([simple-mocha-test.js](https://github.com/luishernandezv/visual-e2e/blob/main/simple-jest.test.js)). No need to edit the scripts unless you want to change your `projectName`. They already contain everything you need to run the tests:
+5. Choose which test script you'd like to run: WebdriverIO ([simple-test.js](https://github.com/luishernandezv/visual-e2e/blob/main/simple-test.js)), WebdriverIO with Mocha ([simple-mocha-test.js](https://github.com/luishernandezv/visual-e2e/blob/main/simple-jest.test.js)), or WebdriverIO with Jest ([simple-mocha-test.js](https://github.com/luishernandezv/visual-e2e/blob/main/simple-jest.test.js)). No need to edit the scripts unless you want to change your `projectName`. They already contain everything you need to run the tests:
    * Your Sauce Labs credentials.
      ```js
      'sauce:options': {
@@ -111,7 +109,7 @@ For best experience, open the [`visual-e2e` repository](https://github.com/luish
 
 ## Run Test
 
-1. In your terminal, enter the run command that corresponds to your test script framework:
+6. In your terminal, enter the run command that corresponds to your test script framework:
   <Tabs
       defaultValue="WebdriverIO"
       values={[
@@ -149,11 +147,11 @@ For best experience, open the [`visual-e2e` repository](https://github.com/luish
 ## View Test Results
 
 ### On Screener
-1. Go your Visual Testing Dashboard (Screener) by logging into Sauce Labs, then clicking **SAUCE APPS** > **Visual** > **Login**.
-1. Check to make sure your test is running:<br/><img src={useBaseUrl('img/visual/e2e-quickstart-all-projects.png')} alt="Visual E2E Quickstart running test" width="300" />
+7. Go your Visual Testing Dashboard (Screener) by logging into Sauce Labs, then clicking **SAUCE APPS** > **Visual** > **Login**.
+8. Check to make sure your test is running:<br/><img src={useBaseUrl('img/visual/e2e-quickstart-all-projects.png')} alt="Visual E2E Quickstart running test" width="300" />
 
   **This first test will fail** &#8212; this is expected &#8212; because there's no preexisting baseline for Visual E2E to compare against. The results will be labeled as **New**. You should also receive an email summary indicating that this build has failed. It'll be sent to the address associated with your Sauce Labs account. If you don't see it, learn how to subscribe [here](/visual/notifications/).
-1. To resolve the failure, you'll need to accept these new states as the baseline:
+9. To resolve the failure, you'll need to accept these new states as the baseline:
    * Click the **Review 2 New** button.
    * Click on the first state, **Swag Labs: Login**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-changed-states.png')} alt="Visual E2E Quickstart first state" width="400" />   
    * Click **New** > **Accept**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-new-accept.png')} alt="Visual E2E Quickstart running test" width="400" />   
@@ -163,7 +161,7 @@ For best experience, open the [`visual-e2e` repository](https://github.com/luish
 
 ### On Sauce Labs
 
-1. You can view additional test information on Sauce Labs by clicking **Show Logs** > **View Logs on Sauce Labs**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /><img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
+10. You can view additional test information on Sauce Labs by clicking **Show Logs** > **View Logs on Sauce Labs**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /><img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
 
   This brings you to your test results on Sauce Labs (under **Automated** > **Test Results** > **VDC**).
 
@@ -182,7 +180,7 @@ To view granular debugging details on Sauce Labs, add our [`extendedDebugging` 
 
 ## Rerun Test
 
-1. This time, we will rerun the test with a small change applied to the Swag Labs site: the login button will be green instead of red. The change is written into the script and will activate once you execute one of the run commands:
+11. This time, we will rerun the test with a small change applied to the Swag Labs site: the login button will be green instead of red. The change is written into the script and will activate once you execute one of the run commands:
 
   <Tabs
       defaultValue="WebdriverIO"
@@ -215,9 +213,9 @@ To view granular debugging details on Sauce Labs, add our [`extendedDebugging` 
   </TabItem>
   </Tabs>
 
-1. On your Visual Testing Dashboard, you should see a new test running under the same project and branch as before. The test will fail again because it detected a change. Click **Review 1 Changed**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-changed-state.png')} alt="Visual E2E Quickstart changed state" width="500" />
-1. You'll see that the login button color has changed from red to green. Click **Changed** > **Accept**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-accept.png')} alt="Visual E2E Quickstart accept state" width="450" />
-1. Return to the Dashboard, and you'll see that the two states will update to **Accepted**. If you re-run this test again, using the run commands under step ??, the result will be **Success**.
+12. On your Visual Testing Dashboard, you should see a new test running under the same project and branch as before. The test will fail again because it detected a change. Click **Review 1 Changed**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-changed-state.png')} alt="Visual E2E Quickstart changed state" width="500" />
+13. You'll see that the login button color has changed from red to green. Click **Changed** > **Accept**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-accept.png')} alt="Visual E2E Quickstart accept state" width="450" />
+14. Return to the Dashboard, and you'll see that the two states will update to **Accepted**. If you re-run this test again, using the run commands under step 11, the result will be **Success**.
 
 
 ## Next Steps
