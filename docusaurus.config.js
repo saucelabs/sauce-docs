@@ -12,9 +12,12 @@ const docusaurusConfig = {
   projectName: 'sauce-docs',
   scripts: [
     {
-      src: 'https://gist.github.com/spider-sauce/4395e4541fef2c15a285cc949ca561f9.js',
-      async: true,
-    }
+      src:  'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
+      type: 'text/javascript',
+      charset: 'UTF-8',
+      "data-domain-script": '9e4c4ce3-8349-4030-9de7-0b1d368edfce',
+    },
+    'function OptanonWrapper() { }',
   ],
   themeConfig: {
     // announcementBar: {
