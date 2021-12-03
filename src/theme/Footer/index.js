@@ -31,7 +31,7 @@ function Footer() {
                                         >
                                             <source
                                                 sizes="(max-width: 380px) 380px, (max-width: 460px) 460px"
-                                                srcset="
+                                                srcSet="
                         /img/logo-saucelabs-inverted.png?fm=webp&amp;w=380 380w,
                         /img/logo-saucelabs-inverted.png?fm=webp&amp;w=460 460w
                         "
@@ -39,7 +39,7 @@ function Footer() {
                                             <img
                                                 sizes="(max-width: 380px) 380px, (max-width: 460px) 460px"
                                                 src="/images/logo-saucelabs-inverted.png?w=460"
-                                                srcset="
+                                                srcSet="
                         /img/logo-saucelabs-inverted.png?w=380 380w,
                         /img/logo-saucelabs-inverted.png?w=460 460w
                         "
