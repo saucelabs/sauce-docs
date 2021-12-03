@@ -49,8 +49,8 @@ Each event sends a POST request containing the job object with the following dat
 |Data Field|Format|Description|
 |---|---|---|
 |`id` | STRING | Sauce Labs unique identifier of the test.|
-|`creation_time` | DATE-TIME | The date-time value, in `YYYY-MM-DDTHH:mm:ssZ` format, at which the test launched.|
-|`modification_time` | DATE-TIME | The date-time value, in `YYYY-MM-DDTHH:mm:ssZ` format, at which the test changed. This is typically due to a change in status, which triggers a new event and new webhook post.|
+|`creation_time` | DATE-TIME | The date-time value, in `YYYY-MM-DDTHH:mm:ss.fffZ` format, at which the test launched.|
+|`modification_time` | DATE-TIME | The date-time value, in `YYYY-MM-DDTHH:mm:ss.fffZ` format, at which the test changed. This is typically due to a change in status, which triggers a new event and new webhook post.|
 |`owner` | STRING | The Sauce Labs user who initiated the test.|
 |`owner_id` | STRING | The unique identifier of the test owner.|
 |`org_id` | STRING | The unique identifier of the Sauce Labs organization to which the test owner belongs.|
@@ -64,7 +64,7 @@ Each event sends a POST request containing the job object with the following dat
 |`browser_version` | INTEGER | The version of the browser in which the test ran.|
 |`os_name` | STRING | The operating system on which the test ran.|
 |`os_version` | STRING | The version of the operating system on which the test ran.|
-|`duration_sec`| INTEGER | The length of time that elapsed between the start of the test and the webhook event.|
+|`duration_sec`| INTEGER | The length of time that the test took to complete. This value wis only populated in the final event push for the test.|
 |`visibility`| ENUM | Who within the Sauce Labs organization can see the test.|
 |`tags`| ARRAY | A set of string values representing custom labels for the test.|
 |`device` | STRING | For mobile app tests, the Sauce Labs unique identifier of the device on which the test was run. |
