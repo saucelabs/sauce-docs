@@ -789,7 +789,7 @@ module.exports = {
                 label: 'Component Testing',
                 collapsed: true,
                 items: [
-                    'visual/component-testing/setup',
+                    'visual/component-testing/quickstart',
                     {
                         type: 'category',
                         label: 'Integrations',
