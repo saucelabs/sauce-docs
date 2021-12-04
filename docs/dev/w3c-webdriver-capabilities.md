@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Sauce Labs supports and encourages our users to update their code to take advantage of the [W3C WebDriver Protocol](/dev/glossary/#w3c-webdriver-protocol), which is currently the default protocol used by all major browsers, is fully supported in WebdriverIO 6 and higher, Selenium versions 3.11 and higher, and is required for Selenium 4.0. Using the WebDriver protocol on Sauce Labs requires setting specific capabilities in your code.
+Sauce Labs supports and encourages our users to update their code to take advantage of the [W3C WebDriver Protocol](/dev/glossary/#w3c-webdriver-protocol), which is currently the default protocol used by all major browsers, is fully supported in WebdriverIO 6 and higher, Selenium versions 3.11 and higher, Appium 1.6.5 and higher, and is required for Selenium 4.0 and Appium 2.0. Using the WebDriver protocol on Sauce Labs requires setting specific capabilities in your code.
 
 :::note
 Some extended capabilities are not backwards-compatible with Selenium versions below 4.0.
@@ -25,7 +25,7 @@ Some extended capabilities are not backwards-compatible with Selenium versions b
 
 To ensure W3C WebDriver compatibility:
 
-* Use Selenium version 3.11 or higher or WebdriverIO 5 or higher.
+* Use Selenium version 3.11 or higher, WebdriverIO 6 or higher, or an Appium client that supports W3C.
 * Switch from using the legacy JSON Wire Protocol (JWP) to the newer W3C WebDriver Protocol.
 Mixing JWP with W3C will result in an [error](/dev/w3c-webdriver-capabilities/#common-errors).
 * Learn the differences between legacy JWP and W3C WebDriver-compliant capability names.
@@ -293,6 +293,7 @@ sauce:options: {
 ## Additional Resources
 
 * [Upgrading to Selenium 4 for Sauce Labs Testing](/web-apps/automated-testing/selenium/selenium4/)
-* [A Comprehensive Guide to Selenium 4](https://saucelabs.com/selenium-4): run compliant tests on every browser.
+* [Migrating Appium Real Device Tests to W3C](https://support.saucelabs.com/hc/en-us/articles/4412359870231)
+* [A Comprehensive Guide to Selenium 4](https://saucelabs.com/selenium-4): run compliant tests on every browser
 * [W3C-Compliant Selenium 4 Code](/web-apps/automated-testing/selenium/#seven-steps-of-selenium-tests)
-* [Test Configuration Options](/dev/test-configuration-options): Sauce Labs capabilities for Selenium and Appium.
+* [Test Configuration Options](/dev/test-configuration-options): Sauce Labs capabilities for Selenium and Appium
