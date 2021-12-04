@@ -21,14 +21,14 @@ Some extended capabilities are not backwards-compatible with Selenium versions b
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 
 
-## W3C WebDriver Protocol Compliance
+## W3C WebDriver-Compliant Protocol
 
-To ensure W3C WebDriver compliance:
+To ensure W3C WebDriver compatibility:
 
 * Use Selenium version 3.11 or higher or WebdriverIO 5 or higher.
 * Switch from using the legacy JSON Wire Protocol (JWP) to the newer W3C WebDriver Protocol.
 Mixing JWP with W3C will result in an [error](/dev/w3c-webdriver-capabilities/#common-errors).
-* Learn the naming differences between legacy JWP and W3C WebDriver-compliant capabilities.
+* Learn the differences between legacy JWP and W3C WebDriver-compliant capability names.
 For example, W3C uses `platformName` and `browserVersion`, while JWP uses `platform` and `version`, respectively.
 We recommend reviewing our [Test Configuration Options](/dev/test-configuration-options)
 and the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities).
@@ -130,25 +130,13 @@ and the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/
   </tr>
 </table>
 
-
-### Verifying Your Tests for Compliance
-
-To confirm that your Sauce Labs tests are adhering the new W3C WebDriver protocol:
-
-1. Go to **Test Details** and click on the line item for your test.
-2. Click the **Commands** tab.
-3. Click the `POST /session` command to expand its details.
-4. Go the **PARAMETERS** section and check the capabilities that were used in your test. If the code begins with `capabilities`, you're running the new W3C WebDriver-compliant protocol.
-If it begins with `desiredCapabilities`, you're running the legacy, non-W3C WebDriver protocol.
-<img src={useBaseUrl('img/test-results/test-results-w3c.jpg')} alt="Check W3C compliance in your test results" />
-
 ### Language Changes in Selenium 3.11+
 
 There are some changes to specific Selenium language bindings you should be aware of when migrating to the W3C WebDriver protocol.
 
 #### Selenium Browser Options
 
-At one point Selenium tried to differentiate between "Required Capabilities" and "Desired Capabilities", but everyone essentially used "Desired Capabilities" as if they were required, and this caused confusion. Selenium has moved away from this syntax to Browser Options syntax. Using the provided methods available on the Browser Options classes will make it easier to ensure you are getting the session you expect.
+At one point, Selenium tried to differentiate between "Required Capabilities" and "Desired Capabilities", but everyone essentially used "Desired Capabilities" as if they were required, and this caused confusion. Selenium has moved away from this syntax to Browser Options syntax. Using the provided methods available on the Browser Options classes will make it easier to ensure you are getting the session you expect.
 
 Browser Options classes are used to manage both browser specific functionality as well as
 [top-level W3C defined commands](https://w3c.github.io/webdriver/#capabilities).
@@ -186,12 +174,21 @@ options.setBrowserVersion("latest");
 </TabItem>
 </Tabs>
 
-#### W3C Sauce Labs Options
 
-Sauce Labs specific capabilities used to be able to go in the top-level Capabilities. To be W3C-compliant, users must now put Sauce Labs configurations inside a `sauce:options` key.
+## Writing W3C Sauce Labs Sessions
+
+You can generate basic code snippets for W3C-compliant sessions using the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) in the Selenium 4 or Selenium 3 tabs. Complete code examples for [starting a Sauce Labs Session](/web-apps/automated-testing/selenium/#define-capabilities) can be found in our [Selenium Documentation](/web-apps/automated-testing/selenium).
+
+:::note
+WebdriverIO has been W3C-compliant by default since v5.0.
+:::
+
+### Use sauce:options
+
+To be W3C-compliant, you'll need to put your Sauce-specific configurations inside of a `sauce:options` key, whereas with JWP they were added to the top-level capabilities.
 
 <Tabs
-  defaultValue="Deprecated Code"
+  defaultValue="Recommended Code (Selenium 4)"
   values={[
     {label: 'Deprecated Code', value: 'Deprecated Code'},
     {label: 'Recommended Code (Selenium 4)', value: 'Recommended Code (Selenium 4)'},
@@ -224,12 +221,10 @@ caps.setCapability("sauce:options", sauceOptions);
 </TabItem>
 </Tabs>
 
-Many early Sauce Labs examples show putting credentials in the URL instead of the options.
-We currently recommend putting them in the options, so you might want to change your code from
-the first example here to the second:
+Many early Sauce Labs examples show credentials being defined in the `sauceUrl` instead of the options. We currently recommend putting your credentials in `sauce:options` - as described in the previous example - and just use `sauceUrl` to define your Sauce Labs Data Center:
 
 <Tabs
-  defaultValue="Outdated Code"
+  defaultValue="Recommended Code (Selenium 4)"
   values={[
     {label: 'Outdated Code', value: 'Outdated Code'},
     {label: 'Recommended Code (Selenium 4)', value: 'Recommended Code (Selenium 4)'},
@@ -259,19 +254,15 @@ Your endpoint URL will depend on which [Sauce Labs Data Center](/basics/data-cen
 </TabItem>
 </Tabs>
 
-## Creating Sauce Sessions
 
-Basic examples of w3c compliant sessions can be created using Sauce Labs [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) in the Selenium 4 or Selenium 3 tabs. Complete code examples for [starting a Sauce Labs Session](/web-apps/automated-testing/selenium/#define-capabilities) can be found in our [Selenium Documentation](/web-apps/automated-testing/selenium).
+### Test Compatibility
 
-:::note
-WebdriverIO has been W3C-compliant by default since v5.0.
-:::
+To confirm that your Sauce Labs tests are adhering to W3C WebDriver protocol, go to **Automated** > **Test Results** > Click on your test > **METADATA** tab > Look for **WebDriver Protocol: W3C**.<br/><img src={useBaseUrl('/img/dev/w3c-compability.png')} alt="Mobile" width="400"/>
 
 
 ## Common Errors
 
-W3C WebDriver-compliant capabilities and JWP Capabilities are not compatible.
-Using both in the same test script will result in a system error when spinning up a WebDriver session:
+W3C WebDriver-compliant capabilities and JWP Capabilities are not compatible. Using both in the same test script will result in a system error when spinning up a WebDriver session:
 
 ```java title="Mixed Capabilities Error"
 selenium.common.exceptions.WebDriverException: Message: Misconfigured -- Mixed Capabilities Error.
@@ -284,9 +275,7 @@ The following desired capabilities were received:
  'platform': 'Windows'}
 ```
 
-Solution:
-1. Change `platform` to `platformName`.
-1. Change `version` to `browserVersion`.
+In this example, you'd need to change `platform` to `platformName` and change `version` to `browserVersion`.
 
 ```js
 browserName: 'chrome',
