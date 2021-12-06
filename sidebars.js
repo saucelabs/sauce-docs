@@ -661,9 +661,10 @@ module.exports = {
                   collapsed: true,
                   items: [
                       'api-testing/composer',
-                      'api-testing/composer/assertion-components',
                       'api-testing/composer/io-components',
+                      'api-testing/composer/assertion-components',
                       'api-testing/composer/logical-components',
+                      'api-testing/composer/other-components',
                       ],
                   },
                   {
@@ -754,6 +755,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'visual/e2e-testing/setup',
+                    'visual/e2e-testing/quickstart',
                     {
                         type: 'category',
                         label: 'Integrations',
@@ -787,7 +789,7 @@ module.exports = {
                 label: 'Component Testing',
                 collapsed: true,
                 items: [
-                    'visual/component-testing/setup',
+                    'visual/component-testing/quickstart',
                     {
                         type: 'category',
                         label: 'Integrations',
