@@ -17,7 +17,6 @@ const docusaurusConfig = {
       charset: 'UTF-8',
       "data-domain-script": '9e4c4ce3-8349-4030-9de7-0b1d368edfce',
     },
-    'function OptanonWrapper() { }',
   ],
   themeConfig: {
     // announcementBar: {
