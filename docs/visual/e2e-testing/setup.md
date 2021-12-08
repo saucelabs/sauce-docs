@@ -1,7 +1,7 @@
 ---
 id: setup
 title: Setting Up Visual E2E Testing with WebDriver
-sidebar_label: Project Setup with WebDriver
+sidebar_label: Setup with WebDriver
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -9,40 +9,49 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 >**Screener Docs are Now Sauce Docs**<br/>
-As part of our efforts to bring you a single, unified documentation site, we've migrated all Visual Docs from [Screener.io](https://screener.io) to Sauce Docs.
+As part of our efforts to bring you a unified documentation site, we've migrated all Visual Docs from [Screener.io](https://screener.io) to Sauce Docs.
 
 Follow the steps below to integrate Visual E2E Testing into your Selenium WebDriver tests, using the language/library of your choice. Any programming language that Selenium WebDriver supports can be used without needing to install any additional libraries or SDKs.
 
 It takes only a few minutes to integrate Screener into your existing Selenium WebDriver scripts:
 
-## 1. Verify Requirements
 
-* Your WebDriver test(s) use W3C capabilities and Sauce Labs Browsers that are in our [supported list](/visual/e2e-testing/supported-browsers).
-* Your Sauce Labs credentials are set in the `sauce:options` capability:
-  ```javascript
+## What You'll Need
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username](https://app.saucelabs.com/user-settings) and [Access Key](https://app.saucelabs.com/user-settings).
+* Your [Screener API Key](https://screener.io/v2/account/api-key).
+* Confirm that your WebDriver test scripts use [W3C WebDriver-compliant capabilities](/dev/w3c-webdriver-capabilities/).
+* Confirm that the browsers in your tests are in the list of [supported Sauce Labs browsers](/visual/e2e-testing/supported-browsers).
+
+
+## Setting Up Visual E2E Testing with WebDriver
+
+
+### Set Your Credentials as Environment Variables
+1. Recommended: set your Sauce Labs username, Sauce Labs access key, and Screener API key as [environment variables](/basics/environment-variables/). In JavaScript, for example, you could store your Screener API key in an environment variable called `SCREENER_API_KEY`, and then reference it in NodeJS file with `process.env.SCREENER_API_KEY`.
+
+### Set Your W3C Capabilities
+
+2. In your WebDriver test configuration, add the `sauce:options` capability and set your Sauce Labs credentials there:
+  ```javascript title="JavaScript example"
   'sauce:options': {
-    username: 'user',
-    accesskey: 'xxxxx'
+    username: '$SAUCE_USERNAME',
+    accesskey: '$SAUCE_ACCESS_KEY'
   }
   ```
-
-## 2. Update WebDriver Capabilities
-
-Add "sauce:visual" capability to your WebDriver test configuration:
+3. In your WebDriver test configuration, add the `sauce:visual` capability, where you'll define your [Screener API key](https://screener.io/v2/account/api-key), project name, and viewportSize. For additional configuration options, see the [`sauce:visual` Capabilities](/visual/e2e-testing/commands-options/#saucevisual-capability-options).
 
 <Tabs
-  defaultValue="JavaScript"
+  defaultValue="JS/WebdriverIO"
   values={[
-    {label: 'JavaScript', value: 'JavaScript'},
+    {label: 'JS/WebdriverIO', value: 'JS/WebdriverIO'},
     {label: 'Java', value: 'Java'},
     {label: 'Python', value: 'Python'},
     {label: 'Ruby', value: 'Ruby'},
     {label: 'C#', value: 'C#'},
   ]}>
 
-<TabItem value="JavaScript">
-
-WebDriverIO Example:
+<TabItem value="JS/WebdriverIO">
 
 ```javascript
 var capabilities = {
@@ -111,41 +120,22 @@ browserOptions.AddAdditionalCapability("sauce:visual", sauceVisual, true);
 </TabItem>
 </Tabs>
 
-:::note You can get your Screener API Key (`apiKey`) from [here](https://screener.io/v2/account/api-key).
-:::
 
-:::tip Tip: Store API Key as an environment variable
+### Connect to Our Remote Hub
 
-Secure your API Key by storing it as an environment variable.
-
-For example, store it in an environment variable called `SCREENER_API_KEY`, and then reference it in NodeJS file with: `process.env.SCREENER_API_KEY`.
-
-:::
-
-For additional configuration options, see the [Visual E2E `sauce:visual`Capability Options](/visual/e2e-testing/commands-options/#saucevisual-capability-options).
-
-
-## 3. Connect To Remote Hub
-
-Configure your WebDriver tests to connect to our remote hub at the following url:
-
-```java
-https://hub.screener.io
-```
+4. Configure your WebDriver tests to connect to our remote hub at `https://hub.screener.io`.
 
 <Tabs
-  defaultValue="JavaScript"
+  defaultValue="JS/WebdriverIO"
   values={[
-    {label: 'JavaScript', value: 'JavaScript'},
+    {label: 'JS/WebdriverIO', value: 'JS/WebdriverIO'},
     {label: 'Java', value: 'Java'},
     {label: 'Python', value: 'Python'},
     {label: 'Ruby', value: 'Ruby'},
     {label: 'C#', value: 'C#'},
   ]}>
 
-<TabItem value="JavaScript">
-
-WebDriverIO Example:
+<TabItem value="JS/WebdriverIO">
 
 ```javascript
 exports.config = {
@@ -191,26 +181,23 @@ driver = new RemoteWebDriver(new Uri("https://hub.screener.io:443/wd/hub"), capa
 </Tabs>
 
 
-## 4. Add Visual Commands
+### Add Visual Commands
 
-To integrate Visual Commands, we wanted a very simple, safe, and unobtrusive way to integrate it into your existing code without needing to install anything; it is simply a JavaScript comment placed in a WebDriver execute command.
+We've set up a simple, safe, and unobtrusive way to integrate [Visual E2E Commands](/visual/e2e-testing/commands-options) into your existing code. Each command is simply a JavaScript comment placed in a WebDriver execute command &#8212; no need to install anything.
 
-* Add a `@visual.init` command to set the name for each test. Add this before capturing snapshots.
-* Add `@visual.snapshot` command when you want to capture a visual snapshot; use this whenever you want a snapshot to be taken.
+5. Add a [`@visual.init`](/visual/e2e-testing/commands-options/#init-command) command to set the name for each test. Add this before capturing snapshots. Then add the [`@visual.snapshot`](/visual/e2e-testing/commands-options/#snapshot-command) command when you want to capture a visual snapshot; use this whenever you want a snapshot to be taken.
 
 <Tabs
-  defaultValue="JavaScript"
+  defaultValue="JS/WebdriverIO"
   values={[
-    {label: 'JavaScript', value: 'JavaScript'},
+    {label: 'JS/WebdriverIO', value: 'JS/WebdriverIO'},
     {label: 'Java', value: 'Java'},
     {label: 'Python', value: 'Python'},
     {label: 'Ruby', value: 'Ruby'},
     {label: 'C#', value: 'C#'},
   ]}>
 
-<TabItem value="JavaScript">
-
-WebDriverIO Example:
+<TabItem value="JS/WebdriverIO">
 
 ```javascript
 it('should take snapshot', () => {
@@ -269,25 +256,20 @@ static void test() {
 </TabItem>
 </Tabs>
 
+### Run Test
 
-For more details on commands, refer to the [Visual Commands](/visual/e2e-testing/commands-options) documentation.
-
-For full examples, view [Code Examples](/visual/e2e-testing/code-examples).
-
-
-## 5. Run
-
-Great, you're all set!
-
-Now run your first test and view your initial results in the [Screener Dashboard](https://screener.io/v2/dashboard).
+6. Great, you're all set! Now run your first test and view your initial results in the [Screener Dashboard](https://screener.io/v2/dashboard).
 
 :::note
-Your initial visual test will fail, and results will be labelled as "New"; [Review and Accept](https://screener.io/v2/docs/visual-e2e/review-flow) them as the baseline.
+Your initial visual test will fail, and results will be labelled as **New**. [Review and Accept](https://screener.io/v2/docs/visual-e2e/review-flow) them as the baseline.
 :::
 
 
 ## Next Steps
+* [Visual E2E Testing Review Workflow](/visual/e2e-testing/workflow/review-workflow): Learn the workflow for reviewing UI test results with Visual E2E
+* [Integrate Visual E2E Testing Into Your CI](/visual/e2e-testing/integrations/continuous-integration): Return results into your WebDriver tests and integrate into your CI process for continuous visual testing
 
-* [Learn the Review Flow](/visual/e2e-testing/workflow/review-workflow) for reviewing UI test results.
-* [Return results into your WebDriver tests and integrate into your CI process](/visual/e2e-testing/integrations/continuous-integration) for continuous visual testing.
-* [Troubleshooting](/visual/e2e-testing/troubleshooting) or view full [Code Examples](/visual/e2e-testing/code-examples).
+## More Information
+* [Visual E2E Commands](/visual/e2e-testing/commands-options)
+* [Visual E2E Troubleshooting](/visual/e2e-testing/troubleshooting)
+* [Visual E2E Full Test Script Examples](/visual/e2e-testing/code-examples)
