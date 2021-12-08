@@ -34,6 +34,10 @@ The Sauce Labs Webhooks integration allows you specify a URL to which Sauce Labs
 1. For each selected event type, choose whether you wish to receive data for all completed tests or only tests that failed.
 1. Click **Save** to complete your configuration. Your webhook enablement appears under the **Saved Configurations** section. You can configure up to ten webhook integrations.
 
+:::note Multiple Data Centers
+Webhooks are specific to the data center that is active for your Sauce Labs account during integration. If you have access to multiple data centers, you must switch into each data center and repeat the webhooks setup process in order to push jobs data from both data centers to the configured webhook.
+:::
+
 ## Delete a Webhook
 
 1. From your Sauce Labs account, navigate to the [Account Integrations](https://app.staging.saucelabs.net/integrations) page.
