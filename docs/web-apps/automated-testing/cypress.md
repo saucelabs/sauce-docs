@@ -26,6 +26,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Cypress Version|Supported Platforms|Supported Browsers|
  |-----|-----|-----|
+ |9.1.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
  |8.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
  |8.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
  |7.7.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
@@ -37,6 +38,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Cypress Version|Supported Browsers|
  |----|----|
+ |9.1.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.0.0)|
  |8.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.4.0)|
  |8.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.3.1)|
  |7.7.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.2.3)|
