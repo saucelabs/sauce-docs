@@ -30,6 +30,8 @@ For a list of Sauce Connect Proxy environment variables, see [Environment Variab
 4. Press **Esc**.
 5. Hold **Shift** and press **Z** twice (shift+Z+Z) to save your file and quit vi.
 6. In the terminal, enter `source ~/.bash_profile`.
+7. Confirm that your environment variables have been set by typing `echo $SAUCE_USERNAME` in your terminal. The response should be your username value. Then do the same for your access key.
+
 
 ## Setting Up Environment Variables on Windows Systems
 1. Click **Start** on the task bar.
@@ -41,6 +43,7 @@ For a list of Sauce Connect Proxy environment variables, see [Environment Variab
 7. For **Variable value**, enter your Sauce username.
 8. Click **OK**.
 9. Repeat 4 - 8 to set up the **SAUCE_ACCESS_KEY**.
+10. Confirm that your environment variables have been set by typing `echo $SAUCE_USERNAME` in your terminal. The response should be your username value.  Then do the same for your access key. 
 
 ## Referencing Environment Variables in Test Scripts
 Once you've set up the environment variables for your credentials, you need to reference them within the test scripts that you want to run on Sauce. You can find examples of test scripts that use environment variables for authentication in the demo directory for each language in the [Sauce Labs Training repo](https://github.com/saucelabs-training) on GitHub.

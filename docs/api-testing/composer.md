@@ -140,5 +140,5 @@ This button toggles back and forth between the Input Set and Unit Test Composer 
 
 
 ## More Information
-* [API Testing Quickstart](/api-testing/quickstart): learn how to create a test quickly using the HTTP Client or by importing a spec file
 * [Sauce School | API Testing Course and Best Practices](https://training.saucelabs.com/apiTesting/index.html)
+* [API Testing Quickstart](/api-testing/quickstart)
