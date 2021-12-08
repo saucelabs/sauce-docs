@@ -38,7 +38,7 @@ If you are a paying customer, please open a [Sauce Labs support ticket](http://s
 
 This is a rare but known error. It indicates that the OnDemand portion of the Sauce Labs service lost its connection with the Virtual Machine running a test. Because the connection with the VM was lost, the details of the test (logs, video, metadata) will also be lost.  
 
-The error is expected to occur no more often than 0.1% (1 out of 1000 tests) over a sustained period of time. The same test, when run a second time, is very likely (999 out of 1000 times) to succeed.
+The expected rate of occurrence for this error is very low over a sustained period of time and very rarely persists across a retry of the same test. That said, it is possible to see slightly higher rates of occurrence (up to 0.3%) in mobile app tests and when the number of data points is lower. This error is not indicative of platform instability.
 
 **Cause(s)**
 
@@ -49,7 +49,7 @@ The first explanation is that the VM crashed. When that happens, the VM stops co
 
 It's difficult to reliably distinguish between these two cases automatically. The error message `“internal server error”` is meant to cover both of them.  
 
-Of the two causes above, the second is more common. Unfortunately, these crashes are hard to isolate much less prevent. They are usually not under our control and quite intermittent. This is the rate at which VMs and browsers crash, and crashes in those components can be triggered more or less often depending on what actions you choose to run within their tests.
+Of the two causes above, the second is more common. Unfortunately, these crashes are hard to isolate, much less prevent. They are usually not under our control and quite intermittent. This is the rate at which VMs and browsers crash, and crashes in those components can be triggered more or less often depending on what actions you choose to run within their tests.
 
 A second possible explanation is an infrastructure problem within Sauce's service. The state of a VM running a test is kept track of by a number of daemons and database entries, which are frequently updated. Collectively, they make up the “connection” between OnDemand and the VM. The connection can be lost if the network drops packets, the database becomes corrupt, or daemons crash.
 
@@ -57,11 +57,11 @@ A third, very rare case is when the error can be correlated to a particular comb
 
 **How to Resolve**
 
-Check the error rate over time. It is expected to occur approximately 0.1% of the time (1 out of 1000 tests). If the error rate remains below this level, add a retry for this kind of error into your Continuous Integration program. You can contact help@saucelabs.com to check the error rate if it’s not easy to ascertain from your own CI program.
+Check the error rate over time. It is expected to occur less than 0.3% of the time. If the error rate remains below this level, add a retry for this kind of error into your Continuous Integration program. You can contact help@saucelabs.com to check the error rate if it’s not easy to ascertain from your own CI program.
 
-If the error rate is over 0.1% for a short period of time, check our [Systems Status page](http://status.saucelabs.com/) for signs of an incident at a time corresponding to the elevated error rate. Some types of incidents (but not all) will cause Internal Server Errors.
+If the error rate is over 0.3% for a short period of time, check our [Systems Status page](http://status.saucelabs.com/) for signs of an incident at a time corresponding to the elevated error rate. Some types of incidents (but not all) will cause Internal Server Errors.
 
-If the error rate is over 0.1% for a sustained period of time (days or weeks), contact help@saucelabs.com. We'll try to identify a pattern to the errors (for example, is it particular to one type of browser, OS, or test). Note that this is the least likely explanation.
+If the error rate is over 0.3% for a sustained period of time (days or weeks), contact help@saucelabs.com. We'll try to identify a pattern to the errors (for example, is it particular to one type of browser, OS, or test). Note that this is the least likely explanation, but we do occasionally see higher rates of this error relevant to certain test environments.
 
 
 ### Test Exceeded Maximum Duration of 1800 Seconds

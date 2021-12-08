@@ -755,6 +755,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'visual/e2e-testing/setup',
+                    'visual/e2e-testing/quickstart',
                     {
                         type: 'category',
                         label: 'Integrations',
@@ -788,7 +789,7 @@ module.exports = {
                 label: 'Component Testing',
                 collapsed: true,
                 items: [
-                    'visual/component-testing/setup',
+                    'visual/component-testing/quickstart',
                     {
                         type: 'category',
                         label: 'Integrations',
