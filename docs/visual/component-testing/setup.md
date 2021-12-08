@@ -1,5 +1,5 @@
 ---
-id: quickstart
+id: setup
 title: Visual Component Testing with Storybook Quickstart
 sidebar_label: Quickstart
 ---
