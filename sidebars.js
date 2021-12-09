@@ -818,6 +818,7 @@ module.exports = {
                     },
                     'visual/component-testing/supported-browsers',
                     'visual/component-testing/storybook-interactions-testing',
+                    'visual/component-testing/storybook-static',
                 ],
             },
         'visual/css-animations',
