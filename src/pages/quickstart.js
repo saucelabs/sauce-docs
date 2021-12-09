@@ -25,11 +25,11 @@ class QuickStart extends Component {
             </h3>
           </div>
           <div className="quickstart">
-            <img src='img/quickstart/playwright.svg'  alt="PlayWright Logo"/>
+            <img src='img/quickstart/playwright.svg'  alt="Playwright Logo"/>
             <h3>
               <a href="https://docs.saucelabs.com/web-apps/automated-testing/playwright/quickstart/"
                 target="_blank" rel="noopener noreferrer">
-                PlayWright
+                Playwright
               </a>
             </h3>
           </div>

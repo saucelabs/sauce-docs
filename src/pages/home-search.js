@@ -47,10 +47,10 @@ const Results = connectStateResults(
 const HomeSearch = () => (
     <div className="ais-InstantSearch">
         <InstantSearch
-            indexName="crawler_test_hierarchy"
+            indexName="saucelabs_crawler_new_sauce"
             searchClient={searchClient}
         >
-            <RefinementList attribute="content" />
+            <RefinementList attribute="categoy" />
             <Configure hitsPerPage={5} />
             <CustomSearchBox />
             <Results>
@@ -68,7 +68,7 @@ function Hit(props) {
     return (
         <div>
             <div className="hit-name">
-                <a href={props.hit.url}><Highlight attribute="content" hit={props.hit} /> </a>
+                <a href={props.hit.url}><Highlight attribute="category" hit={props.hit} /> </a>
             </div>
         </div>
     );
