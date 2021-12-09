@@ -23,7 +23,6 @@ You'll need to have a [Sauce Labs self-serve or enterprise account](https://sauc
 * Have [Node.js installed](https://nodejs.org/en/download/).
 * Optional: have [Mocha](https://mochajs.org/) and/or [Jest](https://jestjs.io/) installed.
 
-
 ## Set Up Environment
 
 1. From your terminal, clone the [Visual E2E Quickstart repository](https://github.com/luishernandezv/visual-e2e) to your machine:
@@ -181,6 +180,7 @@ To view more debugging details on Sauce Labs, add [`extendedDebugging`](/dev/tes
 
 :::
 
+
 ## Apply UI Changes
 
 12. Next, we will apply a change to the Swag Labs website: the login button will be green instead of red. This change is already pre-written into the test scripts and will activate once you execute one of the following run commands:
@@ -216,14 +216,13 @@ To view more debugging details on Sauce Labs, add [`extendedDebugging`](/dev/tes
   </TabItem>
   </Tabs>
 
+
 13. Go to your [Visual Testing Dashboard](https://screener.io/). You should see a new test running under the same project and branch.
 14. Because an element changed in one of your baseline snapshots - login button color - the test will fail because it detected a change. Click **Review 1 Changed**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-changed-state.png')} alt="Visual E2E Quickstart changed state" width="500" />
 15. You'll see that the login button color has changed from red to green. Click **Changed** > **Accept**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-accept.png')} alt="Visual E2E Quickstart accept state" width="450" />
 16. Return to the Dashboard, and you'll see that the two states will update to **Accepted**. If you re-run this test again, using the run commands under step 11, the result will be **Success**.
 
-
 You should also receive an email summary for each build indicating whether it's passed or failed. It will sent to the address associated with your Sauce Labs account. If you don't see it, learn how to subscribe [here](/visual/notifications/).
-
 
 
 ## Next Steps

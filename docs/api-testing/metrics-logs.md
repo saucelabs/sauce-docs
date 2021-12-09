@@ -29,21 +29,31 @@ If you hover your mouse over a line item, you'll see the option to go to the [Te
 
 ## Test Metrics
 
-To view all performance metrics from tests (latency and fetch) within a Project:
+To view all test performance metrics (latency and fetch) within a Project:
 
 1. Follow steps 1 and 2 from [Test Logs](#test-logs).
 2. From inside the **Dashboard**, select **Metrics**.<br/><img src={useBaseUrl('img/api-fortress/2021/02/metrics.png')} alt="Dashboard Metrics"/>
 3. Set the start and end date filters, if desired.<br/><img src={useBaseUrl('img/api-fortress/2021/02/metricsFilters.png')} alt="Dashboard Metrics Filters"/>
 
 
-## Set Alerts
-To set performance alerts and email notifications:
+## Email Notifications
+
+Email notifications will alert you when a test starts failing, and notify you again when the test is back in full working order. The incident identifier number, used to track the events, will be the same as the test ID.
+
+To enable this feature:
 1. Select the **Settings** tab.
 1. Click **Email Notifications**.
-1. Enter an email address.
+1. Enter your email address.
 1. Select **Save Changes**.<br/><img src={useBaseUrl('img/api-fortress/2021/02/dash-1.5.png')} alt="Dashboard Pic 1.5"/>
+
+::: tip
+Use the [Fact component](/api-testing/composer/other-components/#fact) to control the behavior of email notifications. This is especially helpful if you're testing in multiple environments.
+
+:::
 
 
 ## More Information
 
+- [Fact Component](/api-testing/composer/other-components/#fact)
+- [Writing Tests with the Composer](/api-testing/composer/)
 - [Test Outcome Reports](/api-testing/test-reports)
