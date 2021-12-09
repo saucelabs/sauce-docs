@@ -10,7 +10,9 @@ import TabItem from '@theme/TabItem';
 >**Screener Docs are Now Sauce Docs**<br/>
 As part of our efforts to bring you a single, unified documentation site, we've migrated all Visual Docs from [Screener.io](https://screener.io) to Sauce Docs.
 
-Our Visual Component Testing facilitates debugging by providing automated UI test results across your React, Vue, and Angular components. Follow this quickstart guide to integrate Sauce Labs Visual Component Testing with [Storybook](https://storybook.js.org/), a UI component development tool.
+Follow this quickstart guide to integrate Screener (Sauce Labs Visual Component Testing) with Storybook, a UI component development tool.
+
+Our Storybook integration can facilitate debugging will run your existing Storybook stories as UI regression test cases in our automated visual testing platform. You'll get detailed UI test results across your React, Vue, Angular, and HTML components.
 
 
 ## What You'll Need
@@ -116,55 +118,27 @@ See [Install Storybook](#install-storybook) before beginning the tutorial below.
 
 7. Log in to Screener (Sauce Labs > **SAUCE APPS** > **Visual** > **Login**) to view your running test in progress. This first test will be labeled as "Failed" because there's no existing baseline to compare against. The results will be labeled as **New**.
 
-
-## Run a Static Storybook Build Using Sauce Connect
-
-8. Open your ".storybook/preview.js" file and add the following snippet to the end:
-  ```js
-  if (typeof window === 'object') {
-    window.__screener_storybook__ = require('@storybook/react').getStorybook;
-  }
-  ```
-9. Build a static version of your Storybook project by running:
-  ```bash
-  npm run build-storybook
-  ```
-10. Open your "screener.config.js" file and add the below snippet to add your Sauce credentials/capabilities and launch [Sauce Connect](/secure-connections/sauce-connect/):
-  ```js
-  module.exports = {
-    projectRepo: 'sb-6.1-test',
-    storybookConfigDir: '.storybook',
-    apiKey: process.env.SCREENER_API_KEY,
-    resolution: '1024x768',
-    storybookStaticBuildDir: 'storybook-static',
-    browsers: [
-      {browserName: 'chrome', version: '87.0'}
-    ],
-    sauce: {
-      username: process.env.SAUCE_USERNAME,
-      accessKey: process.env.SAUCE_ACCESS_KEY,
-      maxConcurrent: 5,
-      launchSauceConnect: true
-    }
-  };
-  ```
-11. Run your test:
-  ```bash
-  npm run test-storybook
-  ```
+  You should also receive an email summary for each build, indicating whether it's passed or failed. It will sent to the address associated with your Sauce Labs account. If you're not seeing them, learn how to subscribe [here](/visual/notifications/).
 
 
 ## More Information
 
 ### Next Steps
-* Learn the [Review Workflow](/visual/component-testing/workflow/review-workflow) for UI test results.
-* Try out additional [Visual Component testing configuration options](https://github.com/screener-io/screener-storybook#config-options).
-* Use the [New Project Wizard](https://screener.io/v2/new) to open a new Visual Component Project or E2E Project in the UI.
-* You should receive an email summary for each build indicating whether it's passed or failed. It will sent to the address associated with your Sauce Labs account. If you're not seeing them, learn how to subscribe [here](/visual/notifications/).
+* Learn about the [Component Testing review workflow](/visual/component-testing/workflow/review-workflow) for UI test results.
+* Add [Visual Component test configuration options](https://github.com/screener-io/screener-storybook#config-options) to your tests.
+
+
+### Related Links
+* [What is Automated Visual Regression Testing?](https://saucelabs.com/blog/what-is-automated-visual-regression-testing)
+* [New Project Wizard](https://screener.io/v2/new): create a new project directly in the UI.
+* [CI Integration](/visual/component-testing/integrations/continuous-integration)
+* [GitHub Integration](/visual/component-testing/integrations/github)
+
 
 ### Install Storybook
 
-Open a terminal and run the following commands, one at a time. This will install Storybook and its CLI, create a Storybook project, and launch your project in Storybook.
+Open a terminal and run the following commands, one at a time. This will install Storybook, create a Storybook project, and launch your project in Storybook.
+
   ```bash
   npx create-react-app my-storybook
   ```
@@ -180,6 +154,7 @@ Open a terminal and run the following commands, one at a time. This will install
   ```bash
   npm run storybook
   ```
+
 
 ### Related Links
 * [CI Integration](/visual/component-testing/integrations/continuous-integration)
