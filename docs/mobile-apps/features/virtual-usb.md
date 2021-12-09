@@ -102,7 +102,7 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
   First, launch your test on Sauce Labs (**Live** > **Cross Browser** > **Mobile Real** > Find your **Private Device** > **Launch**). Next, locate your `--sessionId` by opening a new command line terminal and running the [`sessions`](/dev/cli/virtual-usb/find-sessionid) command, along with your credentials.
 
   ```java
-  java -jar virtual-usb-client.jar sessions --username {SAUCE_USERNAME} --accessKey {SAUCE_ACCESS_KEY}x
+  java -jar virtual-usb-client.jar sessions --username {SAUCE_USERNAME} --accessKey {SAUCE_ACCESS_KEY}
   ```
 
   If [Sauce Connect Proxy](/secure-connections/sauce-connect) is required to access your corporate network or your local machine for secure test data, you'll need to select a **SAUCE CONNECT PROXY** from the dropdown before launching your device.
