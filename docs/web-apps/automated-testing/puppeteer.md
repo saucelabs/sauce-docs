@@ -42,6 +42,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Puppeteer Version|Supported Browsers|
  |-----|----|
+ |12.0.1|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v2.0.0)|
  |10.4.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.6.0)|
  |10.2.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.5.1)|
  |10.1.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.4.1)|
