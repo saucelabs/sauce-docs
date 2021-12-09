@@ -84,55 +84,17 @@ Future jobs will use this tunnel only when explicitly specified by the [`tunnelN
 __Shorthand__: n/a
 
 
+---
+### `--tunnel-pool`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+__Description__: Launches a high availability tunnel pool along with the [`--tunnel-name`](#--tunnel-name) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
+__Shorthand__: n/a
+
+
+
 
 ## Tunnel Configuration
-
----
-### `--tunnel-pool`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-__Description__: Launches a high availability tunnel pool along with the [`--tunnel-name`](#--tunnel-name) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
-__Shorthand__: n/a
-
----
-### `--tunnel-pool`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-__Description__: Launches a high availability tunnel pool along with the [`--tunnel-name`](#--tunnel-name) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
-__Shorthand__: n/a
-
-
----
-### `--rest-url`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-:::caution
-Effective with Sauce Connect Proxy version 4.7.0, we recommend using [`--region`](/dev/cli/sauce-connect-proxy/#--region) instead. `--rest-url` will eventually be deprecated. Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
-:::
-
-__Description__: Sets your [Sauce Labs regional data center REST API URL](#data-center-endpoints) (e.g., EU-Central, US-West).<br/>
-__Shorthand__: `-x`
-
----
-### `--no-remove-colliding-tunnels`
-<p><small><span className="sauceGold">DEPRECATED</span></small></p>
-
-__Description__: Effective with Sauce Connect Proxy version 4.7.0, this flag was deprecated and replaced by [`--tunnel-pool`](#--tunnel-pool). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
-
-
----
-### `--tunnel-identifier`
-<p><small><span className="sauceGold">DEPRECATED</span></small></p>
-
-__Description__: Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-name`](#--tunnel-name). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
-__Shorthand__: `-i` for `--tunnel-identifier`
-
----
-### `--tunnel-identifier`
-<p><small><span className="sauceGold">DEPRECATED</span></small></p>
-
-__Description__: Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-name`](#--tunnel-name). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
-__Shorthand__: `-i` for `--tunnel-identifier`
 
 ---
 ### `--direct-domains`
@@ -168,6 +130,33 @@ __Shorthand__: `-F`
 
 __Description__: Sets domain(s) that need to be sent through the Sauce Connect Proxy tunnel. This is the inverse of `--direct-domains`.  When adding multiple domains, [format as a comma-separated list](#formatting-domains-in-the-command-line). Be sure to format your domains as a comma-separated list (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)).<br/>
 __Shorthand__: `-t`
+
+
+---
+### `--rest-url`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+:::caution
+Effective with Sauce Connect Proxy version 4.7.0, we recommend using [`--region`](/dev/cli/sauce-connect-proxy/#--region) instead. `--rest-url` will eventually be deprecated. Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
+:::
+
+__Description__: Sets your [Sauce Labs regional data center REST API URL](#data-center-endpoints) (e.g., EU-Central, US-West).<br/>
+__Shorthand__: `-x`
+
+
+---
+### `--no-remove-colliding-tunnels`
+<p><small><span className="sauceGold">DEPRECATED</span></small></p>
+
+__Description__: Effective with Sauce Connect Proxy version 4.7.0, this flag was deprecated and replaced by [`--tunnel-pool`](#--tunnel-pool). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
+
+
+---
+### `--tunnel-identifier`
+<p><small><span className="sauceGold">DEPRECATED</span></small></p>
+
+__Description__: Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-name`](#--tunnel-name). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
+__Shorthand__: `-i` for `--tunnel-identifier`
 
 
 
@@ -288,7 +277,7 @@ __Shorthand__: `-P`
 __Description__: Performs basic authentication when a URL on `host:port` asks for a username and password (`host:port:username:password` format). This option can be used multiple times. For examples, see [Authentication Using `--auth`](/secure-connections/sauce-connect/security-authentication).
 
 Sauce Connect Proxy's `--auth` flag will only send the header Authorization with a type of 'Basic'. If a resource responds with the header WWW-Authenticate of a type any other than 'Basic,' your authentication will fail and return a non-200 HTTP response. HTTP Header Injection is disabled for SSL domains that are not re-encrypted by Sauce Connect Proxy, which means performing basic authentication in this way is disabled for all HTTPS domains passed to `--no-ssl-bump-domains` argument.<br/>
-__Shorthand__: `-a` <br/>
+__Shorthand__: `-a`
 
 ```java
 --auth mysite.com:80:awesometester:supersekrit
@@ -331,6 +320,7 @@ __Description__: OCSP verification mode. Options are: strict, log-only, and disa
 :::
 
 __Shorthand__: n/a  
+
 
 ---
 ### `--tunnel-capath`
@@ -396,6 +386,7 @@ __Shorthand__: n/a
 
 ---
 ### `--extra-info`
+<p><small>| OPTIONAL | STRING |</small></p>
 
 __Description__: JSON string that contains an advanced tunnel configuration.<br/>
 
@@ -526,5 +517,6 @@ Here are some guidelines to follow when formatting domains:
 
 ## Additional Resources
 
+* [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/)
 * [Using Sauce Connect Proxy Environment Variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/)
 * [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
