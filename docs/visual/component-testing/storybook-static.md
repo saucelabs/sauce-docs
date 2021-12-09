@@ -11,7 +11,7 @@ To run Screener against a static Storybook build, instead of starting the Storyb
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * Your [Screener API Key](https://screener.io/v2/account/api-key).
 * Have [Node.js installed](https://nodejs.org).
-* An existing [Storybook project](https://storybook.js.org/basics/quick-start-guide/) containing [component stories](https://storybook.js.org/basics/writing-stories/).
+* An existing [Storybook project](https://storybook.js.org/basics/quick-start-guide/) with some [component stories](https://storybook.js.org/basics/writing-stories/).
 
 ## Run a Static Storybook Build
 

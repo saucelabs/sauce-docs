@@ -64,7 +64,7 @@ If you want to create a more complex search using AND, OR, or special operators 
 
 #### Tips for Writing Structured Searches
 
-* Strings must always be enclosed with quotation marks, but criteria values that are supplied by the application (for example, status:failed) do not.
+* Strings must always be enclosed with quotation marks, but criteria values that are supplied by the app (for example, status:failed) do not.
 * If you want to search using text only, enter text: in the search field, and then enter the text you want to search for enclosed in quotation marks.
 * You can use * as a wildcard in any of your filter criteria.
 * Use quotation marks around a string to search for that exact string. For example, "ruby test" will return "ruby test 1" and "ruby test 2," but not "ruby example test."
