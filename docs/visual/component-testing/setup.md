@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 >**Screener Docs are Now Sauce Docs**<br/>
 As part of our efforts to bring you a single, unified documentation site, we've migrated all Visual Docs from [Screener.io](https://screener.io) to Sauce Docs.
 
-Follow this quickstart guide to integrate Screener (Sauce Labs Visual Component Testing) with Storybook, a UI component development tool.
+Follow this quickstart guide to integrate Sauce Labs Visual Component Testing (Screener) with Storybook, a UI component development tool.
 
-Our Storybook integration can facilitate debugging will run your existing Storybook stories as UI regression test cases in our automated visual testing platform. You'll get detailed UI test results across your React, Vue, Angular, and HTML components.
+Our Storybook integration will run your existing Storybook stories as UI regression test cases in our automated visual testing platform, which can accelerate debugging and shorten release cycles. You'll get detailed UI test results across your React, Vue, Angular, and HTML components.
 
 
 ## What You'll Need
@@ -20,13 +20,14 @@ Our Storybook integration can facilitate debugging will run your existing Storyb
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * Your [Screener API Key](https://screener.io/v2/account/api-key).
 * Have [Node.js installed](https://nodejs.org).
-* Recommended: have [Storybook installed](https://storybook.js.org/basics/quick-start-guide/) along with some [existing stories](https://storybook.js.org/basics/writing-stories/) for your components.
+* Recommended: an existing [Storybook project](https://storybook.js.org/basics/quick-start-guide/) with some [component stories](https://storybook.js.org/basics/writing-stories/).
+
 
 
 ## Setting Up Visual Component Testing with Storybook
 
-:::info New to storybook?
-See [Install Storybook](#install-storybook) before beginning the tutorial below.
+:::info New to Storybook?
+See [Install Storybook](#install-storybook) before proceeding.
 
 :::
 
@@ -37,7 +38,6 @@ See [Install Storybook](#install-storybook) before beginning the tutorial below.
   ```bash
   cd my-storybook
   ```
-
 2. Install the [screener-storybook package](https://github.com/screener-io/screener-storybook) as a dependency in your project:
   ```bash
   npm install screener-storybook --save-dev
@@ -116,7 +116,7 @@ See [Install Storybook](#install-storybook) before beginning the tutorial below.
 
 ### View Results
 
-7. Log in to Screener (Sauce Labs > **SAUCE APPS** > **Visual** > **Login**) to view your running test in progress. This first test will be labeled as "Failed" because there's no existing baseline to compare against. The results will be labeled as **New**.
+7. Log in to Screener (Sauce Labs > **SAUCE APPS** > **Visual** > **Login**) to view your running test in progress. This initial test will fail because there's no preexisting baseline to compare against. To resolve this, [review and accept](https://screener.io/v2/docs/visual-e2e/review-flow) the new states as the baseline.
 
   You should also receive an email summary for each build, indicating whether it's passed or failed. It will sent to the address associated with your Sauce Labs account. If you're not seeing them, learn how to subscribe [here](/visual/notifications/).
 
