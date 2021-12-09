@@ -684,7 +684,7 @@ module.exports = {
              'api-testing/mocking',
              'api-testing/logger',
         ],
-        "CI/CD": [
+        "CI": [
             'ci',
             'ci/bamboo',
             'ci/bitbucket',

@@ -1,17 +1,17 @@
 ---
 id: ci
-title: Incorporating Sauce Labs in Your CI/CD Pipeline
+title: Incorporating Sauce Labs in Your CI Pipeline
 sidebar_label: Getting Started
-description: Sauce Labs coordinates seamlessly with the most popular CI/CD platforms.
+description: Sauce Labs coordinates seamlessly with the most popular Continuous Integration platforms.
 ---
 
-Incorporating continuous testing into your CI/CD pipeline means designing your tests to fit appropriately into each stage of your application development and delivery cycle. If you are already using one of the many platforms for continuous delivery of your application, we've got instructions for integrating your Sauce Labs test suite right into that pipeline.
+Incorporating continuous testing into your CI pipeline means designing your tests to fit appropriately into each stage of your application development and delivery cycle. If you are already using one of the many platforms for continuous integration of your of your application development, we've got instructions for integrating your Sauce Labs test suite right into that pipeline.
 
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
     <h2>Sauce OnDemand Plugin</h2>
-    <p>Use the Sauce Labs OnDemand plugin in conjunction with your existing CI/CD pipeline to integrate your tests.<br/>
+    <p>Use the Sauce Labs OnDemand plugin in conjunction with your existing CI pipeline to integrate your tests.<br/>
       <ul>
         <li><a href="/ci/bamboo">Bamboo</a></li>
         <li><a href="/ci/bitbucket">Bitbucket</a></li>
@@ -23,7 +23,7 @@ Incorporating continuous testing into your CI/CD pipeline means designing your t
   <div className="box box2 card">
     <div className="container">
     <h2>3rd Party Integrations</h2>
-    <p>Get set up instructions provided by external developers for CI/CD platforms for which we don't yet have a plugin.<br/>
+    <p>Get set up instructions provided by external developers for CI platforms for which we don't yet have a dedicated plugin.<br/>
       <ul>
         <li><a href="https://circleci.com/integrations/saucelabs/">CircleCI</a></li>
         <li><a href="https://docs.travis-ci.com/user/sauce-connect/">Travis CI</a></li>

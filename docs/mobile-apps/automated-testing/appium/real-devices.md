@@ -176,7 +176,7 @@ Alternatively, you can find a device's ID in the Sauce Labs application:
 
 _Dynamic Allocation_ allows you to specify the device attributes that are important to you and then run your test against the first available device from the pool that matches your specifications, giving you greater flexibility and, likely, a faster test execution time, particularly if you are running tests in parallel.
 
-Dynamic allocation is advised, in particular, for all automated mobile application testing in CI/CD environments.
+Dynamic allocation is advised, in particular, for all automated mobile application testing in CI environments.
 
 To enable dynamic device allocation, you should specify the `deviceName` and `platformName`, and `platformVersion` capabilities at a minimum. The following table provides information about accepted values.
 
