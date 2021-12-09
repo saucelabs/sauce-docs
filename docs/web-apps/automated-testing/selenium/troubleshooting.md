@@ -12,7 +12,7 @@ Occasionally, your Selenium test scripts may produce unexpected results. This pa
 
 ## Open Commands time out, even though I see the app loaded in the video.
 
-This is generally caused by a connection gap or a problem with the application's server handling requests incorrectly. As a first step, you should proceed with a deep analysis of the network traffic. If you make it automated and run several tests at the same time, you will have higher chances of replicating the error.
+This is generally caused by a connection gap or a problem with the app's server handling requests incorrectly. As a first step, you should proceed with a deep analysis of the network traffic. If you make it automated and run several tests at the same time, you will have higher chances of replicating the error.
 
 Try starting the Selenium instance with the option `captureNetworkTraffic=true` and set the browser as Firefox. This will let you pull the request info back out as JSON/XML/plain text, where you can parse that content to find any problems.
 

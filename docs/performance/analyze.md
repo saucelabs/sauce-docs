@@ -41,7 +41,7 @@ In this view, you can see the overall score for the test, plus individual scores
 
 ### Performance Score
 
-A performance score is a rating between 0 and 100 indicating how well your page is performing compared to the industry standard. 0 is the lowest possible score and indicates a serious performance issue, while 100 indicates a top-performing application.
+A performance score is a rating between 0 and 100 indicating how well your page is performing compared to the industry standard. 0 is the lowest possible score and indicates a serious performance issue, while 100 indicates a top-performing app.
 
 The metric is similar to the performance score you can find in a [Google Lighthouse Report](https://developers.google.com/web/tools/lighthouse). The scoring distribution is a log-normal distribution derived from the performance metrics of real website performance data on HTTPArchive.
 
