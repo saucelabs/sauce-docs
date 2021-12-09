@@ -154,3 +154,8 @@ Open a terminal and run the following commands, one at a time. This will install
   ```bash
   npm run storybook
   ```
+
+
+### Related Links
+* [CI Integration](/visual/component-testing/integrations/continuous-integration)
+* [GitHub Integration](/visual/component-testing/integrations/github)

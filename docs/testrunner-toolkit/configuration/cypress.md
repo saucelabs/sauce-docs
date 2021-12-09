@@ -432,7 +432,7 @@ cypress:
 The version of Cypress that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/cypress#supported-testing-platforms) for the list of Cypress versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
-  version: 7.3.0
+  version: 8.6.0
 ```
 ---
 
