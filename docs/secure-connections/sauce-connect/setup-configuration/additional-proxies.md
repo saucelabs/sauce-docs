@@ -169,7 +169,7 @@ The following diagrams illustrate different Sauce Connect Proxy network flow con
 
 | Term | Definition |
 | :--- | :--- |
-| SC Host (Sauce Connect Host) | Machine in your network on which the Sauce Connect Proxy application is running. |
+| SC Host (Sauce Connect Host) | Machine in your network on which the Sauce Connect Proxy app is running. |
 | SUT (Site Under Test) | The site that you're testing. |
 | Sauce SC Host (Tunnel VM) | Virtual machine that hosts Sauce Connect Proxy on the Sauce Labs side. |
 
@@ -233,7 +233,7 @@ At this point, the tunnel is established between the Sauce Connect Proxy client 
 #### Charles Proxy Configuration
 The Charles Proxy is useful for monitoring traffic passing between your Sauce VM or RDC device and your site under test. To begin, you'll need to create a PAC file that matches the REST and tunnel VM hostnames, then use the Charles Proxy for everything else.
 
-1. Download and install Charles Proxy (see the [Charles Web Debugging Proxy Application](https://www.charlesproxy.com/).
+1. Download and install Charles Proxy (see the [Charles Web Debugging Proxy App](https://www.charlesproxy.com/).
 2. Open **Charles Proxy**.
 3. To enable your machine to trust SSL/TLS certificates, in Charles Proxy, click **Help**, and then click **SSL Proxying** > **Install Charles Root Certificate**. For more information, see [SSL Certificates](https://www.charlesproxy.com/documentation/using-charles/ssl-certificates/).
 

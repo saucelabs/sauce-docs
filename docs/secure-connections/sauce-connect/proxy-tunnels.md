@@ -445,7 +445,7 @@ fe80::1%lo0 localhost
 Once the host file has been altered, start Sauce Connect Proxy with the added argument `--metrics-address tunnelmetrics.com:8080`. Then, on the machine hosting Sauce Connect Proxy, you will see the metrics served at `http://tunnelmetrics.com:8080/debug/vars`.
 
 ## Improving Performance
-During testing, your website or application may load resources (e.g., tracking services, images/videos, advertisements), which can impact page load times and even cause tests to fail. If these external assets are publicly available on the Internet, then they can be fetched directly without using a tunnel. If these are not needed at all for testing purposes, you can disable the traffic to improve performance.
+During testing, your website or app may load resources (e.g., tracking services, images/videos, advertisements), which can impact page load times and even cause tests to fail. If these external assets are publicly available on the Internet, then they can be fetched directly without using a tunnel. If these are not needed at all for testing purposes, you can disable the traffic to improve performance.
 
 ### Configuring Traffic to External Resources
 You can improve your overall test performance by disabling these third-party resource calls. If you're using Sauce Connect Proxy, the additional network hops required to access external resources have the potential to slow test execution dramatically. To retrieve resources directly, you can use the [`--direct-domains`](/dev/cli/sauce-connect-proxy/#--direct-domains) flag. To blocklist traffic so it is immediately dropped, use the [`--fast-fail-regexps`](/dev/cli/sauce-connect-proxy/#--fast-fail-regexps) command.

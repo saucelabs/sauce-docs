@@ -59,7 +59,7 @@ If you want to run this Docker image as part of your CI/CD pipeline, you can run
    2. Pull docker image
    $ docker pull saucelabs/sauce-connect
    ```
-1. Start Sauce Connect using the script below. It is important that you mount a temp folder here so that `wait-for-sc.sh` can detect when Sauce Connect has launched. Also, make sure that you set `--network="host"` to allow Sauce Connect to access your application in the host machine. This script also sets your Sauce Labs username and access key as [environment variables](/basics/environment-variables/).
+1. Start Sauce Connect using the script below. It is important that you mount a temp folder here so that `wait-for-sc.sh` can detect when Sauce Connect has launched. Also, make sure that you set `--network="host"` to allow Sauce Connect to access your app in the host machine. This script also sets your Sauce Labs username and access key as [environment variables](/basics/environment-variables/).
   ```bash
   $ docker run \
       -e SAUCE_USERNAME=${SAUCE_USERNAME} \
@@ -79,7 +79,7 @@ For additional help, contact [Sauce Labs Support](https://saucelabs.com/training
 
 Real Device Cloud on Sauce Labs offers public and private mobile devices for users looking to expedite automated and live testing for their mobile apps. You can run a high volume of tests across a broad range of real devices without compromising performance, quality, or reliability.
 
-With Sauce Connect Proxy, you’ll have a secure tunnel for testing applications and websites on your local machine (or behind a firewall) against devices and browsers in the Sauce Labs Real Device Cloud.
+With Sauce Connect Proxy, you’ll have a secure tunnel for testing apps and websites on your local machine (or behind a firewall) against devices and browsers in the Sauce Labs Real Device Cloud.
 
 
 ### Security Considerations

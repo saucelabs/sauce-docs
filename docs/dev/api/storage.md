@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-Use the Storage API methods to upload and manage your application and any file dependencies required for testing.
+Use the Storage API methods to upload and manage your app and any file dependencies required for testing.
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
@@ -37,7 +37,7 @@ Returns the set of files that have been uploaded to Sauce Storage by the request
   <tbody>
     <tr>
      <td><code>kind</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The application type associated with the file, such as <code>android</code> or <code>ios</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The app type associated with the file, such as <code>android</code> or <code>ios</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -160,7 +160,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v1/storage/groups</code></summary>
 <p/>
 
-Returns an array of groups (applications containing multiple files) currently in storage for the authenticated requestor.
+Returns an array of groups (apps containing multiple files) currently in storage for the authenticated requestor.
 
 #### Parameters
 
@@ -174,7 +174,7 @@ Returns an array of groups (applications containing multiple files) currently in
   <tbody>
     <tr>
      <td><code>kind</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The application type associated with the group, such as <code>android</code> or <code>ios</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The app type associated with the group, such as <code>android</code> or <code>ios</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -313,7 +313,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api post">POST</span> <code>/v1/storage/upload</code></summary>
 <p/>
 
-Uploads an application file to Sauce Storage for the purpose of mobile application testing and returns a unique file ID assigned to the app. Sauce Storage supports app files in \*.apk, \*.aab, \*.ipa, or \*.zip format, up to 4GB.
+Uploads an app file to Sauce Storage for the purpose of mobile app testing and returns a unique file ID assigned to the app. Sauce Storage supports app files in \*.apk, \*.aab, \*.ipa, or \*.zip format, up to 4GB.
 
 :::caution Limited Support for *.aab Files
 At this time, \*.aab files are only supported for Android real device testing.
@@ -437,7 +437,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v1/storage/download/&#123;file_id&#125;</code></summary>
 <p/>
 
-Returns an application file from Sauce Storage as a payload object in the response.
+Returns an app file from Sauce Storage as a payload object in the response.
 
 #### Parameters
 

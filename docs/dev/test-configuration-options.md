@@ -293,7 +293,7 @@ Sauce Labs encourages adoption of the W3C WebDriver protocol for your Appium mob
 ### `app`
 <p><small>| STRING |</small></p>
 
-Allows you to set a path to an .ipa, .apk or .zip file containing the mobile app you want to test. This could be the location of your app in [Application Storage](/mobile-apps/app-storage) (e.g., `storage:filename=myapp.zip`) or the URL to a remote location where your app is located (e.g., `http://myappurl.zip`). If you're running a mobile browser test, this capability can be left blank.
+Allows you to set a path to an .ipa, .apk or .zip file containing the mobile app you want to test. This could be the location of your app in [App Storage](/mobile-apps/app-storage) (e.g., `storage:filename=myapp.zip`) or the URL to a remote location where your app is located (e.g., `http://myappurl.zip`). If you're running a mobile browser test, this capability can be left blank.
 
 ```java
 "appium:app": "storage:filename=my_app.zip"
@@ -444,7 +444,7 @@ For virtual device mobile tests, the capability is `deviceOrientation`, but for 
 ### `otherApps`
 <p><small>| ARRAY | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-A dependent app that has already been uploaded to [Sauce Labs Application Storage](/mobile-apps/app-storage) that will be pre-installed on the device under test for use during testing the main app. You can specify the app using its `storage:<fileId>` or `storage:filename=<filename>` reference.
+A dependent app that has already been uploaded to [App Storage](/mobile-apps/app-storage) that will be pre-installed on the device under test for use during testing the main app. You can specify the app using its `storage:<fileId>` or `storage:filename=<filename>` reference.
 
 Dependent apps inherit the configuration of the main app under test for [`Device Language`](https://app.saucelabs.com/live/app-testing#group-details), [`Device Orientation`](https://app.saucelabs.com/live/app-testing#group-details), and [`Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of what settings may have been applied to the app at the time of upload, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
 
@@ -541,7 +541,7 @@ As described in [Appium Issue 4597](https://github.com/appium/appium/issues/4597
 ### `autoGrantPermissions`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> <span className="sauceDBlue">Android Only</span> |</small></p>
 
-By default, applications are installed on devices in the Sauce Labs real device cloud with autoGrantPermissions capability set to `true`. As long as the API number of the device is equal to 23 or higher, you can disable this by explicitly setting `autoGrantPermissions` to `false`.
+By default, apps are installed on devices in the Sauce Labs real device cloud with autoGrantPermissions capability set to `true`. As long as the API number of the device is equal to 23 or higher, you can disable this by explicitly setting `autoGrantPermissions` to `false`.
 
 ---
 ### `enableAnimations`
@@ -710,7 +710,7 @@ Available visibility modes are:
 ### `tunnelName`
 <p><small>| STRING | </small></p>
 
-Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an application that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
+Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an app that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
 
 See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information.
 
@@ -861,7 +861,7 @@ Allows you to set a custom time zone for your test based on a city name. Most ma
     * See the [Appium Android documentation](http://appium.io/docs/en/writing-running-appium/android/android-shell/#mobile-shell) for additional support.
 
 :::note
-Most web applications serve localization content based on the computer's IP Address, not the time zone set
+Most web apps serve localization content based on the computer's IP Address, not the time zone set
 in the operating system. If you need to simulate the computer being in a different location, you may need to set up a proxy.
 
 :::
@@ -887,7 +887,7 @@ Read the descriptions of each key below the example.
 ```
 
 ### `prerun` (primary key)
-Use this to define pre-run executables. You can provide a URL to an executable file, which will be downloaded and executed to configure the VM before the test starts. For faster performance, you may want to upload the executable to your [Sauce Application Storage](/mobile-apps/app-storage) space. This capability takes a JSON object with four main keys. See [Using Pre-Run Executables to Configure Browsers and VMs](/web-apps/automated-testing/selenium/pre-run-executables) for more information.
+Use this to define pre-run executables. You can provide a URL to an executable file, which will be downloaded and executed to configure the VM before the test starts. For faster performance, you may want to upload the executable to your [Sauce Apps Storage](/mobile-apps/app-storage) space. This capability takes a JSON object with four main keys. See [Using Pre-Run Executables to Configure Browsers and VMs](/web-apps/automated-testing/selenium/pre-run-executables) for more information.
 
 * Running AutoIt Scripts: If you want to run an AutoIt script during your test, compile it as an .exe, send it using this capability, and set background to true to allow AutoIt to continue running throughout the full duration of your test.
 * Using Multiple Pre-Run Executables: If you need to send multiple pre-run executables, the best way is to bundle them into a single executable file, such as a self-extracting zip file.
