@@ -17,12 +17,12 @@ const  SearchBox = ({ currentRefinement, isSearchStalled, refine }) => (
                 type="search"
                 value={currentRefinement}
             />
-            <button
-                className="button button--primary search-button"
-                onClick={() => refine('')}
-            >
-                Search
-            </button>
+            {/*<button*/}
+            {/*    className="button button--primary search-button"*/}
+            {/*    onClick={() => refine('')}*/}
+            {/*>*/}
+            {/*    Search*/}
+            {/*</button>*/}
             {isSearchStalled ? 'My search is stalled' : ''}
         </div>
     </form>
