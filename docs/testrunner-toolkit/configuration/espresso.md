@@ -305,7 +305,7 @@ espresso:
 ### `app`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the application. The default directory is `{project-root}/apps/filename.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded application reference. Supports \*.apk (\*.aab files supported for real device testing only).
+The path to the app. The default directory is `{project-root}/apps/filename.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded app reference. Supports \*.apk (\*.aab files supported for real device testing only).
 
 ```yaml
   app: ./apps/calc.apk
@@ -328,7 +328,7 @@ The path to the application. The default directory is `{project-root}/apps/filen
 ### `testApp`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the testing application. The relative file location is `{project-root}/apps/testfile.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded test application reference. Supports \*.apk (\*.aab files supported for real device testing only).
+The path to the testing app. The relative file location is `{project-root}/apps/testfile.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded test app reference. Supports \*.apk (\*.aab files supported for real device testing only).
 
 ```yaml
   testApp: ./apps/calc-success.apk

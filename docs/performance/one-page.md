@@ -82,7 +82,7 @@ The Speedo run command initiates a series of tests on Sauce Labs against a singl
     `Stored performance logs in /var/folders/11/p0wfqdkd4wgct7jdpfzxk4j40000gn/T/tmp-8379w4yCSzRBXqN2`
 * Automatically updates the job status to PASS or FAIL based on previously established baseline
 * Outputs reference URLs to the job in the Sauce Labs UI and the Google Lighthouse report
-* Exits with a proper exit code so that your pipeline can potentially block the release of your web application in the event a performance regression was introduced
+* Exits with a proper exit code so that your pipeline can potentially block the release of your web app in the event a performance regression was introduced
 
 #### Run Command Syntax
 

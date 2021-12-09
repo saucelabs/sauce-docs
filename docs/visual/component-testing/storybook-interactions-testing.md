@@ -10,7 +10,7 @@ Example use cases:
 
 * Testing stateful components.
 * Testing functional flows.
-* Integration testing multiple layers of your application.
+* Integration testing multiple layers of your app.
 
 
 ## Integrating Steps into Stories
