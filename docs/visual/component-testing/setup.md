@@ -1,7 +1,7 @@
 ---
 id: setup
-title: Visual Component Testing with Storybook Quickstart
-sidebar_label: Quickstart
+title: Setting Up Visual Component Testing with Storybook
+sidebar_label: Setup with Storybook
 ---
 
 import Tabs from '@theme/Tabs';
