@@ -680,6 +680,7 @@ module.exports = {
              'api-testing/apifctl-cicd-integration',
              'api-testing/test-reports',
              'api-testing/metrics-logs',
+             'api-testing/project-access',
              'api-testing/import-export-tests',
              'api-testing/mocking',
              'api-testing/logger',
