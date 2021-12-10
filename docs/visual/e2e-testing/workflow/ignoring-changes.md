@@ -35,7 +35,7 @@ Screener also provides you the ability to exclude areas from your visual test. A
 
 To ignore a visual area, you have two options:
 
-* Add a special class name - `qa-screener-ignore` - to your application's HTML code on the element you want to ignore. Then the element, and everything contained within it, will be ignored.
+* Add a special class name - `qa-screener-ignore` - to your app's HTML code on the element you want to ignore. Then the element, and everything contained within it, will be ignored.
 * Add an `ignore` option in your WebDriver capabilities, with its value set to a comma-delimited string of CSS Selectors that represent areas to be ignored. Example:
   ```java
   capabilities = {

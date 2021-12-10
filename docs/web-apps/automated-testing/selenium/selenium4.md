@@ -467,7 +467,7 @@ Selenium 4 provides a set of parameters to modify network conditions, such as:
 * Setting a latency for the connection
 * Altering the upload or download throughput.
 
-This can be useful to test web applications under different network conditions.
+This can be useful to test web apps under different network conditions.
 
 :::note
 Since 2017, we've provided the ability to [throttle network settings](/insights/debug/#saucethrottlenetwork) through our [Extended Debugging](/insights/debug/) feature.
