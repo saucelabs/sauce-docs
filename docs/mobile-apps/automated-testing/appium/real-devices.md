@@ -42,7 +42,7 @@ The following application file types are supported for real device tests:
 ## Using the W3C WebDriver Specification
 
 :::caution W3C for RDC Delayed
-In order to support customers for whom the enablement of dual support for JWP and W3C will cause conflicts in active projects, we have delayed the release of W3C for real device testing on Appium until January 2022.
+In order to support customers who have active projects with conflicting configuration protocols that will be affected by the enablement of dual support for JWP and W3C, we have delayed the release of W3C for real device testing on Appium until January 2022.
 :::
 
 Sauce Labs encourages adoption of the W3C WebDriver protocol, but supports both JSON Wire Protocol (JWP) or W3C in all currently supported Appium 1.X versions (Appium 2.0 will deprecate support for JWP).
