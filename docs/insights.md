@@ -34,4 +34,16 @@ Learn more about how to use Insights to help you get the most out of your test r
     <p>Let Sauce machine learning evaluate your test suite to detect underlying weaknesses in your tests or app.</p>
     </div>
   </div>
+  <div className="box box5 card">
+    <div className="container">
+    <h2><a href="/insights/coverage">Measure Coverage</a></h2>
+    <p>See how many different browser and device variations your tests cover.</p>
+    </div>
+  </div>
+  <div className="box box6 card">
+    <div className="container">
+    <h2><a href="/insights/debug">Troubleshoot</a></h2>
+    <p>Use our debugging tools to dig into specific test failures and pinpoint root causes.</p>
+    </div>
+  </div>
 </div>
