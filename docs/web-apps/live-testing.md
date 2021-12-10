@@ -1,7 +1,7 @@
 ---
 id: live-testing
-title: Live Testing Web Applications
+title: Live Testing Web Apps
 sidebar_label: Getting Started
 ---
 
-Live Testing Web Applications
+Live Testing Web Apps

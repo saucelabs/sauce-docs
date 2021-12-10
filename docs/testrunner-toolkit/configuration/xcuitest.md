@@ -312,7 +312,7 @@ xcuitest:
 ### `app`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the application. The property recognizes both .ipa and .app file types and supports expanded environment variables or an already uploaded test application reference.
+The path to the app. The property recognizes both .ipa and .app file types and supports expanded environment variables or an already uploaded test app reference.
 
 ```yaml
   app: ./apps/xcuitest/SauceLabs.Mobile.Sample.XCUITest.App.ipa
@@ -335,7 +335,7 @@ The path to the application. The property recognizes both .ipa and .app file typ
 ### `testApp`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the testing application. The property recognizes both `.ipa` and `.app` file types and supports expanded environment variables.
+The path to the testing app. The property recognizes both `.ipa` and `.app` file types and supports expanded environment variables.
 
 ```yaml
   testApp: ./apps/SwagLabsMobileAppUITests-Runner.app

@@ -15,7 +15,7 @@ Sauce Connect can only communicate with Sauce Labs via `port 443`. This is not c
 
 Port 443 is the the typical default port for HTTPS traffic. Sauce Connect will use port 443 when sending traffic to your network when trying to reach the site(s) under test.
 
-You can use the [`--proxy`](/dev/cli/sauce-connect-proxy/#--proxy) command-line option to specify the `hostname:port` number of the destination where all Sauce Connect Proxy traffic should be forwarded. Some companies have it setup where you MUST pass traffic through a proxy to reach the internet. 
+You can use the [`--proxy`](/dev/cli/sauce-connect-proxy/#--proxy) command-line option to specify the `hostname:port` number of the destination where all Sauce Connect Proxy traffic should be forwarded. Some companies have it setup where you MUST pass traffic through a proxy to reach the internet.
 
 ## How can I share a Sauce Connect Proxy tunnel between multiple accounts?
 
@@ -39,11 +39,11 @@ Entering this code -- `(www.)?google-analytics.com,(www.)?googletagmanager.com,(
 * Any subdomain of `facebook.com`, but not `facebook.com`
 
 
-## Can I access applications on localhost?
+## Can I access apps on localhost?
 
 When using Sauce Connect Proxy, local web apps running on commonly used ports are available to test at localhost URLs, just as if the Sauce Labs cloud were your local machine.
 
-However, because an additional proxy is required for localhost URLs, tests may perform better when using a locally defined domain name (which can be set in your [`hosts file`](http://en.wikipedia.org/wiki/Hosts_file)) rather than localhost. Using a locally defined domain name also allows access to applications on any port.
+However, because an additional proxy is required for localhost URLs, tests may perform better when using a locally defined domain name (which can be set in your [`hosts file`](http://en.wikipedia.org/wiki/Hosts_file)) rather than localhost. Using a locally defined domain name also allows access to apps on any port.
 
 :::note
 On Android devices, ports 5555 and 8080 cannot be used with Sauce Connect Proxy.
