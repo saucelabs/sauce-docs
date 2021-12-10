@@ -27,9 +27,9 @@ For example, if content is loaded based on scrolling down to a particular sectio
 window.scroll(0, 1000);
 ```
 
-### Why is my screenshot not full-page?
+### Why is my screenshot not showing as a full page?
 
-Screener captures a full-page screenshot by default in all browsers. The height of the full-page screenshot is based on the scrollable height of the main document body.
+Sauce Visual captures a full-page screenshot by default in all browsers. The height of the full-page screenshot is based on the scrollable height of the main document body.
 
 If the body is not scrollable, then the screenshot captured will appear to be cut off. For example, if the "overflow" style on the body is set to "hidden", then the body cannot be scrolled.
 
@@ -42,6 +42,11 @@ If the overflow style on the body is "hidden", then the client could execute the
 ```js
 document.body.style.overflow = 'auto'
 ```
+
+
+### What happens if my page has broken HTML tags?
+
+Sauce Visual assumes that there are no broken HTML tags on your pages and will not check for this.
 
 
 ## Visual E2E
