@@ -8,12 +8,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Network Security
-Sauce Connect Proxy establishes a secure connection between your applications hosted on an internal server and the Sauce Labs VMs or real devices used during your tests.
+Sauce Connect Proxy establishes a secure connection between your apps hosted on an internal server and the Sauce Labs VMs or real devices used during your tests.
 
 Data transmitted by Sauce Connect Proxy is encrypted through the TLS protocol, which uses perfect forward secrecy for maximum security.
 
 ### Running in a Demilitarized Zone (DMZ)
-Within your infrastructure, Sauce Connect Proxy must be able to reach the application or server you want to test via your network, but can and should be firewalled from the rest of your internal network.
+Within your infrastructure, Sauce Connect Proxy must be able to reach the app or server you want to test via your network, but can and should be firewalled from the rest of your internal network.
 
 We recommend running Sauce Connect Proxy in a firewalled DMZ on a dedicated machine and setting up firewall rules to restrict access from that DMZ to your internal network. Use caution when locating and configuring Sauce Connect in a DMZ.
 
@@ -23,7 +23,7 @@ For more information, see [DMZ (computing)](https://en.wikipedia.org/wiki/DMZ_(c
 There are several ways to secure Sauce Connect Proxy in your network. With our recommended configuration, firewall rules are set so that Sauce Connect Proxy has only one point of access to the customer's internal network &#8212; through a single HTTP proxy &#8212; and all inbound traffic will be relayed. You'll have a secure setup with fine-grained access control and complete logging.
 
 ### Recommended Configuration
-The [sc client program](/secure-connections/sauce-connect/installation/#download-latest-version) establishes a TLS connection (tunnel connection) to a dedicated tunnel endpoint server hosted in the Sauce Labs cloud. During test sessions, browsers and mobile apps use this tunnel endpoint as an HTTP proxy. HTTP requests are multiplexed and relayed back through the tunnel connection to the sc client program, which proxies these HTTP requests, providing access to the Application Under Test within your network.
+The [sc client program](/secure-connections/sauce-connect/installation/#download-latest-version) establishes a TLS connection (tunnel connection) to a dedicated tunnel endpoint server hosted in the Sauce Labs cloud. During test sessions, browsers and mobile apps use this tunnel endpoint as an HTTP proxy. HTTP requests are multiplexed and relayed back through the tunnel connection to the sc client program, which proxies these HTTP requests, providing access to the App Under Test within your network.
 
 There are two options to control and monitor the access sc has to your network: firewall rules and proxy settings. In our recommended configuration, both are used.
 
@@ -58,7 +58,7 @@ Benefits to this configuration:
 * Single point of entry for requests relayed through Sauce Connect Proxy to access the customer network
 * Layer 3 access restricted to a single proxy
 * Fine-grained access control at the HTTP level
-* Only the Application Under Test is exposed to requests originating from Sauce Labs
+* Only the App Under Test is exposed to requests originating from Sauce Labs
 * Complete logging of access
 * Easy monitoring with Intrusion Detection Systems
 

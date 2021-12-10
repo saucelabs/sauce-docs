@@ -40,7 +40,7 @@ between the components using http commands.
 
 ## Seven Steps of Selenium Tests
 
-There are seven basic elements of a Selenium test script, which apply to any test case and any application under test (AUT):
+There are seven basic elements of a Selenium test script, which apply to any test case and any app under test (AUT):
 
 1. [Create a WebDriver session](#step-1-create-a-remote-session).
 2. [Navigate to a Web page](#step-2-navigate-to-a-web-page).
@@ -313,7 +313,7 @@ For more information, see the [Selenium documentation on the Find Element](https
 
 #### Synchronization Strategies
 
-Synchronization is an advanced topic, but it is essential when locating an element that the application is ready for the element to be located. There are two docs-1.1 approaches to synchronization: implicit and explicit.
+Synchronization is an advanced topic, but it is essential when locating an element that the app is ready for the element to be located. There are two docs-1.1 approaches to synchronization: implicit and explicit.
 
 #### Implicit Waits
 

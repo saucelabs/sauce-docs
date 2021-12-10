@@ -21,7 +21,7 @@ If you need to maintain your own provisioning profile in the .ipa file, disable 
 You can also use the Appium capability `resigningEnabled=false` to disable app resigning. This option is available for private devices only.
 
 #### Building an .app Bundle
-1. Open your application project in Xcode.
+1. Open your app project in Xcode.
 2. Select a **Generic iOS Device** or **Any iOS Device (arm64)** as your product's device target.
 3. In the **Product** menu, select **Clean**.
 4. In the **Product** menu, select **Build**.
@@ -56,7 +56,7 @@ You can use any of the existing methods of distribution for your iOS app, except
 
 `saucectl v0.47.0+` supports archiving from .app to .ipa [Testing with XCUITest](/mobile-apps/automated-testing/espresso-xcuitest).
 
-1. Open your application project in Xcode.
+1. Open your app project in Xcode.
 2. Select **Generic iOS Device** or **Any iOS Device (arm64)** as your project's device target.
 3. Make sure that the your UI tests are part of a **Target Membership** and that those Targets are selected to be built in your Xcode **Build scheme**. _Targets containing UI Tests are typically selected to be built at the "Test" build action._
 <img src={useBaseUrl('img/xcuitest/xcode-build.png')} alt="Xcode Build Options" width="800" />
@@ -83,7 +83,7 @@ This will also overwrite the **Build Settings** at the Project level to that iOS
 
 ## Virtual Devices
 ### Building an .app Bundle
-1. Open your application project in Xcode.
+1. Open your app project in Xcode.
 2. Select any available simulator as your product's device target.
 3. In the **Product** menu, select **Clean**.
 4. In the **Product** menu, select **Build**.
