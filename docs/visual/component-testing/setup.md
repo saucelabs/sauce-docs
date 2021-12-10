@@ -118,17 +118,18 @@ See [Install Storybook](#install-storybook) before proceeding.
 
 7. Log in to Screener (Sauce Labs > **SAUCE APPS** > **Visual** > **Login**) to view your running test in progress. This initial test will fail because there's no preexisting baseline to compare against. To resolve this, [review and accept](https://screener.io/v2/docs/visual-e2e/review-flow) the new states as the baseline.
 
-  You should also receive an email summary for each build, indicating whether it's passed or failed. It will sent to the address associated with your Sauce Labs account. If you're not seeing them, learn how to subscribe [here](/visual/notifications/).
+  You should also receive an [email summary](/visual/notifications/) for each build, indicating whether it's passed or failed, sent to the address associated with your Sauce Labs account.
 
 
 ## More Information
 
 ### Next Steps
-* Learn about the [Component Testing review workflow](/visual/component-testing/workflow/review-workflow) for UI test results.
-* Add [Visual Component test configuration options](https://github.com/screener-io/screener-storybook#config-options) to your tests.
+* Learn about the [Visual Component Testing UI review workflow](/visual/component-testing/workflow/review-workflow) for UI test results.
+* Add [Visual Component test configuration options](https://github.com/screener-io/screener-storybook#config-options).
 
 
 ### Related Links
+* [Testing a Static Storybook Web App](/visual/component-testing/storybook-static/)
 * [What is Automated Visual Regression Testing?](https://saucelabs.com/blog/what-is-automated-visual-regression-testing)
 * [New Project Wizard](https://screener.io/v2/new): create a new project directly in the UI.
 * [CI Integration](/visual/component-testing/integrations/continuous-integration)
@@ -154,8 +155,3 @@ Open a terminal and run the following commands, one at a time. This will install
   ```bash
   npm run storybook
   ```
-
-
-### Related Links
-* [CI Integration](/visual/component-testing/integrations/continuous-integration)
-* [GitHub Integration](/visual/component-testing/integrations/github)
