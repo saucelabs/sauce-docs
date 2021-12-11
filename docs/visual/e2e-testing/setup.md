@@ -477,6 +477,11 @@ static void test() {
 Now you can run your test and [view your results](#view-test-results) in the Visual Testing Dashboard. Be sure to [review and accept](#accept-baseline) your baseline.
 
 
+## Setting Timeouts
+
+If you're using several visual assertions (such as [snapshots](/visual/e2e-testing/commands-options/#snapshot-command)) in your WebdriverIO test, you may need to increase the `timeout` value in your configuration to help with test stability.
+
+A single visual assertion can take up to 30-45 seconds. So if you had three assertions, you'd need to set your `timeout` to a value above 180000 milliseconds (3 mins) to prevent your test from failing. [Click here](/visual/e2e-testing/commands-options/#snapshot-command) to see some example code snippets.
 
 ## Next Steps
 * Learn the [Visual E2E review workflow](/visual/e2e-testing/workflow/review-workflow/) for your UI test results
@@ -497,6 +502,7 @@ To view more debugging details on Sauce Labs, add [`extendedDebugging`](/dev/tes
 ```
 
 :::
+
 
 
 ## More Information
