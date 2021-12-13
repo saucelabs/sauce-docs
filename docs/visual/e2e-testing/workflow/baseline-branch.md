@@ -8,21 +8,18 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-In this section, you'll learn how to pull baseline when branching and auto-accept when merging.
+In this section, you'll learn how to pull the baseline when branching and how to auto-accept when merging.
 
 <img src={useBaseUrl('img/visual/e2e-branching-merging.png')} alt="E2E Baseline Branching and Merging" />
 
-When working with feature branches, Screener can save you time and optimize your workflow by automating the following:
+## Workflow Optimization
 
-1. **Automatically Accept updates when merging to or from the base branch**: When merging an accepted base branch into a feature branch, Screener auto-accepts UI states that match the latest base branch test. And when merging into the base branch, Screener auto-accepts UI states that match the latest accepted feature branch test.
-2. **Automatically pull initial baseline from the base branch**: This is useful for having a set of UI states to initially compare a new branch against. For example, if you create a new feature branch based off of the main branch, and you have a set of UI states on the main branch, you can then compare the new branch's visual changes to the main branch's UI states.
+When working with feature branches, Visual E2E can save you time and optimize your workflow by automating the following:
 
-What this means:
+* **Automatically Accept updates when merging to or from the base branch**: When merging an accepted base branch into a feature branch, Screener auto-accepts UI states that match the latest base branch test. And when merging into the base branch, Screener auto-accepts UI states that match the latest accepted feature branch test.
+* **Automatically pull initial baseline from the base branch**: This is useful for having a set of UI states to initially compare a new branch against. For example, if you create a new feature branch based off of the main branch, and you have a set of UI states on the main branch, you can then compare the new branch's visual changes to the main branch's UI states.
 
-* **Accept Once**: no need to accept again when merging accepted updates from your base branch into a feature branch.
-* **Faster Workflow**: no need to re-review UI states or re-run builds to pass again.
-
-Follow the steps below to enable in your Visual E2E project:
+This can accelerate your workflow since you'll only need to accept once, when merging accepted updates from your base branch into a feature branch. No need to re-review UI states or re-run builds to pass again.
 
 
 ## Setup Steps
@@ -147,6 +144,6 @@ capabilities: {
 </TabItem>
 </Tabs>
 
-## Additional Resources
 
-* [Visual E2E Testing Commands and `sauce:visual` Options](/visual/e2e-testing/commands-options)
+## Additional Options
+See the full list of available `sauce:visual` options [here](/visual/e2e-testing/commands-options).

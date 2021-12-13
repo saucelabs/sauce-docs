@@ -49,7 +49,7 @@ An open source mobile UI automation framework that uses the Selenium WebDriver p
 See also: _[selenium](#selenium)_, _[webdriver](#webdriver)_.
 
 
-### Application Under Test (AUT)
+### App Under Test (AUT)
 
 A web or mobile app in the test phase of the software development cycle.
 
@@ -74,7 +74,7 @@ A testing method where you use separate software to control the execution of tes
 
 ### Camera Image Injection
 
-A Sauce Labs feature that enables you to mimic camera behavior when testing applications on the Real Device Cloud by letting you upload an image (in .jpeg .jpg, or .png format) from your computer or another location and presenting it to the application as if it was read by the device camera.
+A Sauce Labs feature that enables you to mimic camera behavior when testing apps on the Real Device Cloud by letting you upload an image (in .jpeg .jpg, or .png format) from your computer or another location and presenting it to the app as if it was read by the device camera.
 
 ### Capabilities (Caps)
 
@@ -172,7 +172,7 @@ A network that houses the set of Sauce Labs services relevant to your license ty
 
 ### Emulator
 
-A virtual machine used to mimic the software, operating system, and certain device features (e.g., camera, touch ID, GPS) of the Android mobile application that you're testing in Sauce Labs. Can be used to test multiple browser/device combinations and use cases.
+A virtual machine used to mimic the software, operating system, and certain device features (e.g., camera, touch ID, GPS) of the Android mobile app that you're testing in Sauce Labs. Can be used to test multiple browser/device combinations and use cases.
 
 See also: _[simulator](#simulator), [real device testing](#real-device-testing)_.
 
@@ -221,7 +221,7 @@ See also: _[performance testing](#performance-testing)_.
 
 ### Functional Testing
 
-A method of testing that validates some functionality or feature of your application. The output of these tests should generally be a simple "pass" or "fail" – either your functionality worked as expected, or it didn't.
+A method of testing that validates some functionality or feature of your app. The output of these tests should generally be a simple "pass" or "fail" – either your functionality worked as expected, or it didn't.
 
 See also: _[non-functional testing](#non-functional-testing)_.
 
@@ -269,7 +269,7 @@ See: _[enterprise customer](#enterprise)_.
 
 ### IPSecVPN
 
-A protocol used to establish a secure VPN connection between applications hosted on an internal server and the Sauce Labs virtual machines or real devices used for testing. More information: [IPSec VPN](/secure-connections/ipsec-vpn).
+A protocol used to establish a secure VPN connection between apps hosted on an internal server and the Sauce Labs virtual machines or real devices used for testing. More information: [IPSec VPN](/secure-connections/ipsec-vpn).
 
 
 ## **L**
@@ -319,7 +319,7 @@ See also: _[hybrid app](#hybrid-app)_.
 
 ### Non-Functional Testing
 
-A type of software testing that validates behavioral, measurable aspects of the software (e.g., performance, compatibility, user experience). Functional testing determines if your software meets its business requirements, whereas non-functional testing determines how it operates. When running non-functional tests on Sauce Labs, you can use custom extensions for WebDriver that will allow you test the performance of your website under specific network conditions and collect network and application-related metrics.
+A type of software testing that validates behavioral, measurable aspects of the software (e.g., performance, compatibility, user experience). Functional testing determines if your software meets its business requirements, whereas non-functional testing determines how it operates. When running non-functional tests on Sauce Labs, you can use custom extensions for WebDriver that will allow you test the performance of your website under specific network conditions and collect network and app-related metrics.
 
 See also: _[functional testing](#functional-testing)_.
 
@@ -431,12 +431,12 @@ A Sauce Labs feature that allows organization admins to block their internal use
 
 ### Sauce Connect Host
 
-The machine in your network on which the Sauce Connect Proxy application is running, with a direct connection to the internet. More information: [Sauce Connect Proxy Setup and Configuration](/secure-connections/sauce-connect/#setup-and-configuration).
+The machine in your network on which the Sauce Connect Proxy client is running, with a direct connection to the internet. More information: [Sauce Connect Proxy Setup and Configuration](/secure-connections/sauce-connect/#setup-and-configuration).
 
 
 ### Sauce Connect Proxy
 
-A built-in HTTP proxy server that opens a secure tunnel connection for testing between a Sauce Labs virtual machine or real device and a website or mobile app hosted on your local computer ("localhost") or behind a corporate firewall. Sauce Connect Proxy securely connects Sauce Labs and your application or website under test.
+A built-in HTTP proxy server that opens a secure tunnel connection for testing between a Sauce Labs virtual machine or real device and a website or mobile app hosted on your local computer ("localhost") or behind a corporate firewall. Sauce Connect Proxy securely connects Sauce Labs and your app or website under test.
 
 
 ### Sauce Connect Proxy Setup, Additional Proxy
@@ -495,7 +495,7 @@ An ID name that you define when you create your Sauce Labs account. You must inc
 
 ### Selenium
 
-A portable framework for testing web applications.
+A portable framework for testing web apps.
 
 
 ### Selenium Grid
@@ -542,7 +542,7 @@ See also: _[emulator](#emulator), [real device testing](#real-device-test)_.
 
 A website in the test phase of the development cycle, following the planning, coding, and building phases. When testing in Sauce Connect Proxy, the Site Under Test will be on the same local network as the Sauce Connect Host machine.
 
-See also: _[application under test](#application-under-test), [CI/CD pipeline](#cicd-pipeline)_.
+See also: _[app under test](#app-under-test), [CI/CD pipeline](#cicd-pipeline)_.
 
 
 ### Software Development Lifecycle (SDLC)

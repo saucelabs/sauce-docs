@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This topic covers:
-* For Appium: How to create an iOS .ipa file using self-signed application files.
+* For Appium: How to create an iOS .ipa file using self-signed app files.
 * For XCUITest: How to create iOS .app files with our XCUITest Real Device Test Runner and Virtual Device Test Runner.
 
 We use a resigning process to embed our own provisioning profile into the uploaded .ipa file. With your own profile in place, the app will be allowed to install and launch on cloud devices. The functionality of the app itself remains completely unmodified.
@@ -25,7 +25,7 @@ You can also use the Appium capability `resigningEnabled=false` to disable app r
 :::
 
 ### Building an .app Bundle
-1. Open your application project in Xcode.
+1. Open your app project in Xcode.
 2. Select your product's device target:
     1. On a real device: **Generic iOS Device** or **Any iOS Device (arm64)**.
     2. On a simulator: Select any available simulator.
@@ -66,7 +66,7 @@ Our XCUITest test runner accepts both .app and .ipa file formats for the `--app`
 
 ### -Runner.app
 
-1. Open your application project in Xcode.
+1. Open your app project in Xcode.
 2. Select **Generic iOS Device** or **Any iOS Device (arm64)** as your project's device target.
 3. Make sure that the your UI tests are part of a **Target Membership** and that those Targets are selected to be built in your Xcode **Build scheme**. _Targets containing UI Tests are typically selected to be built at the "Test" build action._
 <img src={useBaseUrl('img/xcuitest/xcode-build.png')} alt="Xcode Build Options" width="800" />

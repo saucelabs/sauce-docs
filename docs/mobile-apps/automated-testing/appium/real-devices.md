@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 Sauce Labs provides thousands of real mobile devices for nearly every phone and tablet model and applicable OS version. You can run your Appium tests on these devices through the Sauce Labs Real Device Cloud (RDC) to ensure your app behaves accurately and consistently across different devices in the real world. Sauce Labs offers a massive pool of public devices available for all customers, as well as a [private option](/mobile-apps/supported-devices/#private-device-cloud) in which customers can create a selection of devices for use by only their organization.
 
-Appium automated real device testing supports tests designed to run against a web application in a mobile browser or a native app on a mobile device.
+Appium automated real device testing supports tests designed to run against a web app in a mobile browser or a native app on a mobile device.
 
 See [When to Test on Real Devices](https://docs.saucelabs.com/mobile-apps/supported-devices/#when-to-test-on-real-devices) for deails about real device testing use cases, benefits, and system requirements.
 
@@ -29,17 +29,21 @@ See [When to Test on Real Devices](https://docs.saucelabs.com/mobile-apps/suppor
 
 ## Installing Your Mobile App on Real Devices
 
-If your Appium tests are intended to test a native mobile application on real devices, the app file must be available to Sauce Labs so it can be installed on the devices selected for testing. Sauce Labs provides a variety of methods for doing this, including:
+If your Appium tests are intended to test a native mobile app on real devices, the app file must be available to Sauce Labs so it can be installed on the devices selected for testing. Sauce Labs provides a variety of methods for doing this, including:
 
-* Upload your app to Sauce Application Storage using the [Sauce Labs UI](/mobile-apps/app-storage/#uploading-apps-via-ui) or [REST API](/mobile-apps/app-storage/#uploading-apps-via-rest-api)
+* Upload your app to Sauce App Storage using the [Sauce Labs UI](/mobile-apps/app-storage/#uploading-apps-via-ui) or [REST API](/mobile-apps/app-storage/#uploading-apps-via-rest-api)
 * Install your app to a real device from a remote location [How?](/mobile-apps/app-storage/#installing-apps-from-a-remote-location)
 
-The following application file types are supported for real device tests:
+The following app file types are supported for real device tests:
 
 * \*.apk or \*.aab for Android app files
 * \*.ipa for iOS app files (See [Create .ipa Files for Appium](/mobile-apps/automated-testing/ipa-files/#real-devices))
 
 ## Using the W3C WebDriver Specification
+
+:::caution W3C for RDC Delayed
+In order to support customers who have active projects with conflicting configuration protocols that will be affected by the enablement of dual support for JWP and W3C, we have delayed the release of W3C for real device testing on Appium until January 2022.
+:::
 
 Sauce Labs encourages adoption of the W3C WebDriver protocol, but supports both JSON Wire Protocol (JWP) or W3C in all currently supported Appium 1.X versions (Appium 2.0 will deprecate support for JWP).
 
@@ -132,7 +136,7 @@ You can use real devices to test both native apps and web apps in a mobile brows
 
 For native app tests, the `app` capability is the only other required configuration. If it is omitted, Sauce Labs infers the test is written for a mobile browser and automatically sets a default `browserName` based on the specified `platformName`.
 
-For native app tests on real devices, you must provide a location from which your mobile app can be accessed in the `app` capability so your app can be installed on the test devices. You can specify a Sauce Labs Application Storage ID or filename, or a remote location to which Sauce Labs has access. See [Application Storage](/mobile-apps/app-storage) for details.
+For native app tests on real devices, you must provide a location from which your mobile app can be accessed in the `app` capability so your app can be installed on the test devices. You can specify a Sauce Labs App Storage ID or filename, or a remote location to which Sauce Labs has access. See [Application Storage](/mobile-apps/app-storage) for details.
 
 ```js title=App Storage Example
 "appium:app","storage:filename=mapp.ipa";
@@ -164,7 +168,7 @@ _Static Allocation_ allows you to specify a known device by its unique ID. This 
 
 You can obtain a list of available devices, including their IDs, using the [Get Devices](https://docs.saucelabs.com/dev/api/rdc/#get-devices) API request.
 
-Alternatively, you can find a device's ID in the Sauce Labs application:
+Alternatively, you can find a device's ID in the Sauce Labs app:
 
 1. Log into Sauce Labs.
 1. Navigate to **Live** >> **Mobile App**.
@@ -176,7 +180,7 @@ Alternatively, you can find a device's ID in the Sauce Labs application:
 
 _Dynamic Allocation_ allows you to specify the device attributes that are important to you and then run your test against the first available device from the pool that matches your specifications, giving you greater flexibility and, likely, a faster test execution time, particularly if you are running tests in parallel.
 
-Dynamic allocation is advised, in particular, for all automated mobile application testing in CI/CD environments.
+Dynamic allocation is advised, in particular, for all automated mobile app testing in CI/CD environments.
 
 To enable dynamic device allocation, you should specify the `deviceName` and `platformName`, and `platformVersion` capabilities at a minimum. The following table provides information about accepted values.
 
@@ -235,7 +239,7 @@ By default, every time you complete a test session, the real device cloud uninst
 * You lose time in your testing while your app gets reinstalled to the same device each time.
 * There is a small chance that the device could get allocated to another tester before your next test picks it up.
 
-To optimize device availability, consistency, and efficiency for multiple tests, assign a `cacheId` to your tests, which keeps the device allocated to you for 10 seconds after each test completes and skips the allocation and device cleaning process if you immediately start another test. The application and its data will still be uninstalled and reinstalled for the next test, however.
+To optimize device availability, consistency, and efficiency for multiple tests, assign a `cacheId` to your tests, which keeps the device allocated to you for 10 seconds after each test completes and skips the allocation and device cleaning process if you immediately start another test. The app and its data will still be uninstalled and reinstalled for the next test, however.
 
 ```js
 "sauce:options" : {
@@ -243,7 +247,7 @@ To optimize device availability, consistency, and efficiency for multiple tests,
 }
 ```
 
-To skip the uninstallation and reinstallation of your app from the device, you can set `noReset` to `true` in conjunction with using a `cacheId`. This setting adds efficiency, but may not be suitable for test setups that require the application's state to be reset between tests.
+To skip the uninstallation and reinstallation of your app from the device, you can set `noReset` to `true` in conjunction with using a `cacheId`. This setting adds efficiency, but may not be suitable for test setups that require the app's state to be reset between tests.
 
 ```js
 "sauce:options" : {
@@ -251,7 +255,7 @@ To skip the uninstallation and reinstallation of your app from the device, you c
 }
 ```
 
-When using `cacheId` the value must match for all tests slated to run on the cached device. In addition, the application and project ID must be the same for all tests, as must the values for the following capabilities:
+When using `cacheId` the value must match for all tests slated to run on the cached device. In addition, the app and project ID must be the same for all tests, as must the values for the following capabilities:
 
 * `deviceName`
 * `platformName`
