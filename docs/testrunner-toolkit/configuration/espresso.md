@@ -651,12 +651,17 @@ Espresso may not distribute tests evenly across the number of shards specified, 
 ---
 
 #### `clearPackageData`
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | REAL DEVICES ONLY |</small></p>
 
 Removes all shared states from the testing device's CPU and memory at the completion of each test.
 
+:::note
+The flag `clearPackageData` has to be used in conjunction with `useTestOrchestrator`.
+:::
+
 ```yaml
   clearPackageData: true
+  useTestOrchestrator: true
 ```
 ---
 
