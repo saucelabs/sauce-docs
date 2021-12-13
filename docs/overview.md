@@ -10,10 +10,10 @@ hide_table_of_contents: true
   <div className="box box1 card">
     <div className="container">
     <h2>Live Testing</h2>
-    <p>Browse through the Live Testing documentation to manually test your application on Sauce Labs Cloud.</p>
+    <p>Browse through the Live Testing documentation to manually test your app on Sauce Labs Cloud.</p>
     <ul>
-        <li><a href="/web-apps/live-testing/live-cross-browser-testing">Web Applications</a></li>
-        <li><a href="/mobile-apps/live-testing/live-mobile-app-testing/">Mobile Applications</a></li>
+        <li><a href="/web-apps/live-testing/live-cross-browser-testing">Web Apps</a></li>
+        <li><a href="/mobile-apps/live-testing/live-mobile-app-testing/">Mobile Apps</a></li>
     </ul>
     </div>
   </div>

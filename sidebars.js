@@ -756,7 +756,6 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'visual/e2e-testing/setup',
-                    'visual/e2e-testing/quickstart',
                     {
                         type: 'category',
                         label: 'Integrations',
@@ -790,7 +789,7 @@ module.exports = {
                 label: 'Component Testing',
                 collapsed: true,
                 items: [
-                    'visual/component-testing/quickstart',
+                    'visual/component-testing/setup',
                     {
                         type: 'category',
                         label: 'Integrations',
@@ -819,6 +818,7 @@ module.exports = {
                     },
                     'visual/component-testing/supported-browsers',
                     'visual/component-testing/storybook-interactions-testing',
+                    'visual/component-testing/storybook-static',
                 ],
             },
         'visual/css-animations',
