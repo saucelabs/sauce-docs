@@ -21,9 +21,15 @@ function Home() {
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <div>
-            <HomeSearch />
-          </div>
+          <HomeSearch />
+          <span className="hero__popular">
+            Popular Searches:
+              <a href="https://docs.saucelabs.com/testrunner-toolkit/installation/"> saucectl | </a>
+              <a href="https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/"> Sauce Connect | </a>
+              <a href="https://docs.saucelabs.com/api-testing/metrics-logs/"> API Testing |</a>
+              <a href="/docs/getting-started/tutorials/getting-started-with-sauce-connect"> Selenium 4 | </a>
+              <a href="https://docs.saucelabs.com/dev/api/"> REST API</a>
+          </span>
         </div>
       </header>
       <main>
