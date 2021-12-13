@@ -704,6 +704,7 @@ module.exports = {
             'insights/scope',
             'insights/history',
             'insights/trends',
+            'insights/coverage',
             'insights/failure-analysis',
             'insights/debug',
         ],
