@@ -15,7 +15,10 @@ import TabItem from '@theme/TabItem';
 
 <p><span className="sauceDBlue">COMING SOON</span></p>
 
-The Sauce Labs Slack app allows you to send test result notifications to selected channels in your Slack workspace.
+The Sauce Labs Slack app allows you to easily share your test results in Slack. You can:
+
+* Share a test result link in Slack, and it automatically expands to show the test summary
+* Configure `saucectl` to automatically post test result notifications to selected channels in Slack
 
 ## What You'll Need
 
@@ -23,34 +26,36 @@ The Sauce Labs Slack app allows you to send test result notifications to selecte
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * A [Slack](https://slack.com/) workspace
 
-## Install the Sauce Slack App
 
-<p><span className="sauceDBlue">ORG ADMIN RIGHTS REQUIRED</span></p>
+## Install the Sauce Slack App for Your Organization
 
-Before the Sauce Slack app can be used by members of the organization, an Org Admin must install it for the rest of the organization. If you are an Org Admin, you can do this by:
+<p><span className="sauceDBlue">Org Admin Required</span></p>
 
-1. something
-1. something else
-1. finish
-
-If you are not an Org Admin and the Slack Integration **Install** button is disabled, contact your Org Admin to enable the integration with your workspace.
-
-
-## Integration with the Sauce Slack App
-
-In order to capture your Sauce Labs user account information for use in Slack notifications, you must create a link between your Sauce account and your Slack workspace.
+Before the Sauce Slack app can be used by members of the organization, an Org Admin must install it for whole the organization and associate it with your Slack workspace. If you are an Org Admin, you can do this by:
 
 1. From your Sauce Labs account, navigate to the [Account Integrations](https://app.staging.saucelabs.net/integrations) page.
-1. Click the Slack **Install** button.
-1. Click **Allow** to give Sauce Labs permission to access your Slack workspace.
+1. Click the **Install** button of the Slack integration app.
+1. A secondary browser window opens, prompting you to sign into your Slack workspace.
+1. Once you have signed in, click **Allow** to give Sauce Labs permission to access your Slack workspace.
+1. At the confirmation screen, close the secondary browser window to return to your Sauce Labs screen.
 
 :::note Multiple Data Centers
 If your Sauce Labs account has access to multiple data centers, you need only install the plugin once and it will be available for all data centers to which the account has access. If your access to different data centers is through different Sauce Labs accounts, you must install and setup the plugin separately for each Sauce Labs account.
 :::
 
-## Add the Sauce App to Notification Channels
+If you are not an Org Admin and the Slack Integration **Install** button is disabled, contact your Org Admin to enable the integration with your workspace.
 
-You must add the Sauce Labs app to any channels to which you would like send notifications.
+## Send Test Results in Slack
+
+Once the Sauce Labs Slack app has been enabled for your Sauce Labs organization and Slack workspace, when you post a link to a test results page in a Slack channel, the link will automatically unfurl to show the Test Results summary, as shown in the following image.
+
+<img src={useBaseUrl('img/integrations/slack/slack-unfurl-link.png')} alt="Test Result Summary Example" width="500"/>
+
+## Configure Notifications from `saucectl`
+
+Setting up automatic notifications from `saucectl` requires you to first add the Sauce Labs app to any channels to which you will send notifications, then edit your saucectl configuration file to specify when to send notifications and to what channel.
+
+### Add the Sauce App to Notification Channels
 
 1. In your Slack workspace, select the channel from the sidebar.
 1. Click the dropdown at the end of the channel title to access the settings menu for the channel.
@@ -69,12 +74,12 @@ You must add the Sauce Labs app to any channels to which you would like send not
           - "cypress-tests"
         send: always
     ```
-    Make sure you have [added the app to the channels](#add-the-sauce-app-to-notification-channels) you specify in your configuration. Otherwise, `saucectl` will return an error that the app is not in the channel:
+    Make sure you have [added the app to the channels](#add-the-sauce-app-to-notification-channels) you specify in your configuration. Otherwise, `saucectl` will return an error at the completion of your test stating that the app is not in the channel:
 
     <img src={useBaseUrl('img/integrations/slack/not-in-channel-error.png')} alt="No App in Channel Error" width="900"/>
 
-1. Specify the relevant values for one or more channels in your Slack workspace to which you want the test results sent.
-1. Specify when and under what circumstances to send notifications to specified Slack channels. Valid values are:
+1. Specify the names of one or more channels in your Slack workspace to which you want the test results sent.
+1. Specify when to send notifications to specified Slack channels. Valid values are:
     * `always`: Send notifications for all test results.
     * `never`: Do not send any test result notifications.
     * `pass`: Send notifications for passing suites only.
@@ -84,7 +89,9 @@ When you run your tests with the notifications configuration applied, any comple
 
 <img src={useBaseUrl('img/integrations/slack/sample-alert.png')} alt="Sample Alert" width="600"/>
 
-As the image shows, each notification provides details about the job and the results of each suite within the job.
+## Test Summary Information
+
+When test results are shared to Slack, they include the following details about the job and the results of each suite within the job.
 
 **Job Details**
 
@@ -103,3 +110,15 @@ As the image shows, each notification provides details about the job and the res
 * The duration of the test
 
 In addition, the notifications include a color-coded sidebar for a quick indication of the test result; green if all suites in the job passed, and red if any of the the suites in the job failed.
+
+##Troubleshooting
+
+I set up notifications in saucectl, but got a 500 error:
+
+```
+ERR Failed to get slack token error="unexpected status '500' from test-composer: Internal Server Error\n"
+```
+
+You need to [add the Slack App to your Sauce Labs organization](#install-the-sauce-slack-app).
+
+***
