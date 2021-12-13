@@ -110,15 +110,3 @@ When test results are shared to Slack, they include the following details about 
 * The duration of the test
 
 In addition, the notifications include a color-coded sidebar for a quick indication of the test result; green if all suites in the job passed, and red if any of the the suites in the job failed.
-
-##Troubleshooting
-
-I set up notifications in saucectl, but got a 500 error:
-
-```
-ERR Failed to get slack token error="unexpected status '500' from test-composer: Internal Server Error\n"
-```
-
-You need to [add the Slack App to your Sauce Labs organization](#install-the-sauce-slack-app).
-
-***
