@@ -24,8 +24,8 @@ Once you have completed your selections, the report shows a breakdown of all tes
 
 <img src={useBaseUrl('img/insights/coverage.png')} alt="Coverage Report" width="900"/>
 
-:::note Zero Coverage Data
-The coverage reports are not intended to identify test environments for which you have no coverage. That is to say, the report does not show the set of browsers or devices that are supported by Sauce Labs but for which the number of sessions run is zero.
+:::note Untested Browsers and Devices
+Browsers and devices for which you have no test data are omitted from the coverage report, meaning that the report will not help identify browser or device versions that you have _missed_. The report is intended to show how evenly you are distributing your tests across browsers are devices on which you are actually testing.
 :::
 
 ## Sorting the Data
