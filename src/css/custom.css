@@ -551,7 +551,7 @@ h6, .h6 {
 .hero--primary {
   background-color: var(--ifm-code-background);
 }
-.hero__title, .hero__subtitle {
+.hero__title, .hero__subtitle, .hero__popular{
   color: var(--ifm-font-color-base);
 }
 .hero__subtitle {
@@ -559,6 +559,12 @@ h6, .h6 {
   max-width: 650px;
   margin: 0 auto;
 }
+
+.hero__popular {
+  font-size: 12px;
+  font-weight: 600;
+}
+
 a.hero__button {
   background-image: linear-gradient(#F83838, #D92619)!important;
   color: #fff;
@@ -600,7 +606,7 @@ a.hero__button {
   border-radius: 4px;
   background-color: #fff;
   width: 30%;
-  margin: 16px 8px 0 0;
+  margin: 16px 0 16px 0;
   font-size: 12px;
 }
 
@@ -794,6 +800,15 @@ ul.dropdown__menu li a {
 ul.dropdown__menu li a:hover {
   background: none;
   color: #E12726;
+}
+
+.popular-searches {
+  margin: 16px 8px 0 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+.popular-searches p {
+  color: --ifm-font-color-base;
 }
 
 /* mobile overrides */
