@@ -57,7 +57,6 @@ Each demo repo includes a sample `config.yml` file (in the `<root>/.sauce` direc
 
 Modify the `config.yml` file according to the configuration documentation for [Espresso](/testrunner-toolkit/configuration/espresso) and [XCUITest](/testrunner-toolkit/configuration/xcuitest).
 
-For Android tests, if your emulator session fails to start, make sure the app you are targeting is an `\*.apk`, not an `\*.aab`, as the latter is not yet supported in emulator tests.
 
 :::tip Alternative Config Files
 You can create multiple configuration files to support different frameworks or different test setups and then reference the applicable configuration file at runtime using the CLI command:
