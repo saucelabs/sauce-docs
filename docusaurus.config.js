@@ -83,16 +83,16 @@ const docusaurusConfig = {
           position: 'left',
           to: '/dev/cli',
         },
-        {
-          label: 'Try it Free',
-          position: 'right',
-          href: 'https://saucelabs.com/sign-up',
-        },
-        {
-          label: 'Sign In',
-          position: 'right',
-          href: 'https://accounts.saucelabs.com/',
-        },
+        // {
+        //   label: 'Try it Free',
+        //   position: 'right',
+        //   href: 'https://saucelabs.com/sign-up',
+        // },
+        // {
+        //   label: 'Sign In',
+        //   position: 'right',
+        //   href: 'https://accounts.saucelabs.com/',
+        // },
       ],
     },
     footer: {
