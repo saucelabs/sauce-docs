@@ -28,7 +28,7 @@ The Sauce Labs Webhooks integration allows you specify a URL to which Sauce Labs
 1. Enter the URL of the endpoint to which you would like Sauce Labs events pushed.
 1. Select the events you wish to receive:
     * **Virtual Devices**: Receive test result events for jobs run on Sauce Labs desktop browsers and mobile emulators and simulators.
-    * **Real Devices**: Receive test result events for Appium jobs run on Sauce Labs real devices.
+    * <small><span className="sauceDBlue">Coming Soon</span></small> <b>Real Devices</b>: Receive test result events for Appium jobs run on Sauce Labs real devices.
 1. For each selected event type, choose whether you wish to receive data for all completed tests or only tests that failed.
 1. Click **Save** to complete your configuration. Your webhook enablement appears under the **Saved Configurations** section. You can configure up to ten webhook integrations.
 
@@ -60,21 +60,21 @@ Each event sends a POST request containing the job object with the following dat
 |`team_name` | STRING | The name of the team of which the test owner is a member.|
 |`group_id` | STRING | The unique identifier of the Sauce Labs group of which the test owner is a member.|
 |`status` | ENUM | The status of the test at the time the webhook event was triggered. Possible values are:<br/><ul><li>`in-progress`</li><li>`complete`</li></ul>|
-|`passed` | BOOLEAN | If the test includes pass/fail assertions, this field states whether the test passed (`true`).|
+|`passed` | BOOLEAN | If the test includes pass/fail assertions, this field states whether the test passed. Possible values are:<br/><ul><li>`1` true</li><li>`0` false</li></ul>|
 |`name` | STRING | The name of the test.|
 |`browser_name` | STRING | The browser in which the test ran.|
 |`browser_version` | INTEGER | The version of the browser in which the test ran.|
 |`os_name` | STRING | The operating system on which the test ran.|
 |`os_version` | STRING | The version of the operating system on which the test ran.|
-|`duration_sec`| INTEGER | The length of time that the test took to complete. This value wis only populated in the final event push for the test.|
-|`visibility`| ENUM | Who within the Sauce Labs organization can see the test.|
+|`duration_sec`| INTEGER | The length of time that the test took to complete. This value is only populated in the final event push for the test.|
+|`visibility`| ENUM | Who within the Sauce Labs organization can see the test. Possible values are:<br/><ul><li>`PUBLIC`</li><li>`PUBLIC RESTRICTED`</li><li>`SHARE`</li><li>`TEAM`</li><li>`PRIVATE`</li></ul><br/>See [Sharing Test Results](/test-results/sharing-test-results/) for visibility definitions.|
 |`tags`| ARRAY | A set of string values representing custom labels for the test.|
 |`device` | STRING | For mobile app tests, the Sauce Labs unique identifier of the device on which the test was run. |
-|`app` | STRING | For mobile app tests, the unique identifier of the mobile app under test.|
+|`app` | STRING | The App Storage identifier of uploaded test materials, such as the mobile app under test or a project test file.|
 |`error`| STRING | An error that occurred during the test.|
 |`exception`| STRING | An exception that was thrown during the test.|
 |`commit_id` | STRING | _Reserved for future integration with application versioning._ |
 |`branch_name` | STRING | _Reserved for future integration with application versioning._ |
 |`build` | STRING | A custom value that can group multiple related tests.|
 |`automation_backend` | STRING | The framework on which the test is run.|
-|`data_type` | ENUM | The type of event that triggered the webhook. Possible values are: <br/><ul><li>`vdc_test`</li><li>`rdc_test`</li></ul>|
+|`data_type` | ENUM | The type of event that triggered the webhook. Possible values are: <br/><ul><li>`vdc_test`</li><li>`rdc_test` <small><span className="sauceDBlue">Coming Soon</span></small></li></ul>|
