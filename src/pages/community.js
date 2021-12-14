@@ -27,10 +27,10 @@ class Community extends Component {
           </div>
           <div className="box box3 card">
             <div className="container">
-              <h2>Engineering Blog</h2>
-              <p>Get expert advice from our engineering and open source teams.</p>
+              <h2>Sauce Labs Blog</h2>
+              <p>Hear from testing experts about best practices, how-tos, and industry trends.</p>
               <ul>
-                <li><h4><a href="https://opensource.saucelabs.com/blog/" target="_blank" rel="noopener noreferrer">Read the tips</a></h4></li>
+                <li><h4><a href="http://saucelabs.com/blog" target="_blank" rel="noopener noreferrer">Read the blog</a></h4></li>
               </ul>
             </div>
           </div>
