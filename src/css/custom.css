@@ -631,15 +631,23 @@ html[data-theme='dark'] .search-button{
 /* landpage, quickstart, community and resources sections */
 .title {
   text-align: left;
-  color:  #1e2127;
+  color:  --ifm-font-color-base;
   margin-left: 24px;
+}
+
+html[data-theme='dark'] .title {
+  color:  --ifm-color-primary-lightest;
 }
 
 .title-quickstart{
   text-align: left;
-  color:  #1e2127;
+  color:  --ifm-font-color-base;
   margin-left: 24px;
   margin-top: 24px;
+}
+
+html[data-theme='dark'] .title-quickstart{
+  color:  --ifm-color-primary-lightest;
 }
 
 .callouts__container {
@@ -695,8 +703,8 @@ html[data-theme='dark'] .search-button{
 }
 
 .quickstart img {
-  width: 120px;
-  max-height: 120px;
+  width: 100px;
+  max-height: 100px;
 }
 
 .community {

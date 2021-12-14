@@ -10,7 +10,7 @@ class QuickStart extends Component {
             <img src='img/quickstart/appium.svg'  alt="Appium Logo"/>
             <h3>
               <a href="https://docs.saucelabs.com/mobile-apps/automated-testing/appium/quickstart/"
-                target="_blank" rel="noopener noreferrer">
+                target="_self">
                 Appium
               </a>
             </h3>
@@ -19,35 +19,44 @@ class QuickStart extends Component {
             <img src='img/quickstart/cypress.svg'  alt="Cypress Logo"/>
             <h3>
               <a href="https://docs.saucelabs.com/web-apps/automated-testing/cypress/quickstart/"
-                target="_blank" rel="noopener noreferrer">
+                target="_self">
                 Cypress
               </a>
             </h3>
           </div>
           <div className="quickstart">
-            <img src='img/quickstart/playwright.svg'  alt="Playwright Logo"/>
+            <img src='img/quickstart/espresso.png'  alt="Espresso Logo"/>
+            <h3>
+              <a href="https://docs.saucelabs.com/mobile-apps/automated-testing/espresso-xcuitest/"
+                target="_self">
+                Espresso
+              </a>
+            </h3>
+          </div>
+          <div className="quickstart">
+            <img src='img/quickstart/playwright.png'  alt="Playwright Logo"/>
             <h3>
               <a href="https://docs.saucelabs.com/web-apps/automated-testing/playwright/quickstart/"
-                target="_blank" rel="noopener noreferrer">
+                target="_self">
                 Playwright
               </a>
             </h3>
           </div>
           <div className="quickstart">
-            <img src='img/quickstart/puppeteer.svg'  alt="Puppeteer Logo"/>
+            <img src='img/quickstart/selenium.svg'  alt="Selenium Logo"/>
             <h3>
-              <a href="https://docs.saucelabs.com/web-apps/automated-testing/puppeteer/quickstart/"
-                target="_blank" rel="noopener noreferrer">
-                Puppeteer
+              <a href="https://docs.saucelabs.com/web-apps/automated-testing/selenium/"
+                target="_self">
+                Selenium
               </a>
             </h3>
           </div>
           <div className="quickstart">
-            <img src='img/quickstart/testcafe.svg' alt="TestCafe Logo"/>
+            <img src='img/quickstart/xcuitest.png' alt="XCUITest Logo"/>
             <h3>
-              <a href="https://docs.saucelabs.com/web-apps/automated-testing/testcafe/quickstart/"
-                target="_blank" rel="noopener noreferrer">
-                TestCafe
+              <a href="https://docs.saucelabs.com/mobile-apps/automated-testing/espresso-xcuitest/"
+                target="_self">
+                XCUITest
             </a>
           </h3>
           </div>
