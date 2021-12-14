@@ -4,7 +4,7 @@ class QuickStart extends Component {
   render() {
     return (
       <div>
-        <h2 className="title-quickstart">Quickstart with Sauce Labs</h2>
+        <h1 className="title-quickstart">Quickstart with Sauce Labs</h1>
         <div className="quickstart__container">
           <div className="quickstart">
             <img src='img/quickstart/appium.svg'  alt="Appium Logo"/>

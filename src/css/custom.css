@@ -699,6 +699,10 @@ html[data-theme='dark'] .search-button{
   max-height: 120px;
 }
 
+.community {
+  text-align: left;
+}
+
 /* main configuration */
 
 .main__container-bg {
