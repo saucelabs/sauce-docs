@@ -325,6 +325,16 @@ module.exports = {
             ],
         },
     ],
+    backtrace: [
+        {
+            type: 'category',
+            label: 'Backtrace IO Docs',
+            collapsed: true,
+            items: [
+                'error-reporting/getting-started',
+            ],
+        },
+    ],
     dev: [
         'dev',
         {

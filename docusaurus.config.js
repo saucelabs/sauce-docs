@@ -79,6 +79,11 @@ const docusaurusConfig = {
           to: '/dev/cli',
         },
         {
+          label: 'Backtrace.io',
+          position: 'left',
+          to: '/error-reporting/getting-started',
+        },
+        {
           label: 'Try it Free',
           position: 'right',
           href: 'https://saucelabs.com/sign-up',
