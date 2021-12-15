@@ -8,7 +8,7 @@ import QuickStart from './quickstart';
 import Resources from './resources';
 
 import styles from './styles.module.css';
-import HomeSearch from "./home-search";
+import SearchBar from "../theme/SearchBar";
 
 function Home() {
   const context = useDocusaurusContext();
@@ -21,7 +21,9 @@ function Home() {
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <HomeSearch />
+          <div className={"new-search"}>
+            <SearchBar/>
+          </div>
           <span className="hero__popular">
             Popular Searches:
               <a href="https://docs.saucelabs.com/testrunner-toolkit/installation/"> saucectl | </a>
