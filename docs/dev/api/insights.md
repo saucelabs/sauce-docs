@@ -30,13 +30,13 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
   <tbody>
     <tr>
      <td><code>start</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYY-MM-DDTHH:MM:SSZ</code> or Unix time format.</p></td>
+       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>end</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYY-MM-DDTHH:MM:SSZ</code> or Unix time format.</p></td>
+       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -214,13 +214,13 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
   <tbody>
     <tr>
      <td><code>start</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYY-MM-DDTHH:MM:SSZ</code> or Unix time format.</p></td>
+       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>end</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYY-MM-DDTHH:MM:SSZ</code> or Unix time format.</p></td>
+       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -401,13 +401,13 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
   <tbody>
     <tr>
      <td><code>start</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYY-MM-DDTHH:MM:SSZ</code> or Unix time format.</p></td>
+       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>end</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYY-MM-DDTHH:MM:SSZ</code> or Unix time format.</p></td>
+       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -605,13 +605,13 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
   <tbody>
     <tr>
      <td><code>start</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYY-MM-DDTHH:MM:SSZ</code> or Unix time format.</p></td>
+       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>end</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYY-MM-DDTHH:MM:SSZ</code> or Unix time format.</p></td>
+       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -790,13 +790,13 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
   <tbody>
     <tr>
      <td><code>start</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYY-MM-DDTHH:MM:SSZ</code> or Unix time format.</p></td>
+       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>end</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYY-MM-DDTHH:MM:SSZ</code> or Unix time format.</p></td>
+       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
     </tr>
   </tbody>
   <tbody>

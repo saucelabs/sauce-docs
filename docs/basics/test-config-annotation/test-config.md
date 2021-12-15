@@ -161,7 +161,7 @@ name:'S5 real device google.com'
 ```
 
 ### Examples for Mobile Native Application Tests
-This following includes tips and examples of how to configure your mobile native application tests with Appium. For more detailed descriptions about the capabilities of Appium tests, check out the [Server Capabilities](http://appium.io/slate/en/master/?python#appium-server-capabilities) section of the official Appium website. All examples are for Java, but you can use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to set the capabilities in the language of your choice.
+This following includes tips and examples of how to configure your mobile native app tests with Appium. For more detailed descriptions about the capabilities of Appium tests, check out the [Server Capabilities](http://appium.io/slate/en/master/?python#appium-server-capabilities) section of the official Appium website. All examples are for Java, but you can use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to set the capabilities in the language of your choice.
 
 ### Mobile Native Application Test Configuration Tips
 #### Setting `appiumVersion`
@@ -177,11 +177,11 @@ The first line should indicate the Appium version. For example, `2014-05-05T17:4
 
 #### Setting Browser Name
 
-When testing a native mobile application, the value for browserName is an empty string, as in `caps.setCapability("browserName", "");`
+When testing a native mobile app, the value for browserName is an empty string, as in `caps.setCapability("browserName", "");`
 
 #### Setting the Location of the Mobile App
 
-If the application you want to test has been uploaded to a location other than our App Storage, you need to specify this location for app, and make sure that this location is accessible to Sauce Labs browsers. For example, `caps.setCapability("app","storage:filename=mapp.zip");`
+If the app you want to test has been uploaded to a location other than our App Storage, you need to specify this location for app, and make sure that this location is accessible to Sauce Labs browsers. For example, `caps.setCapability("app","storage:filename=mapp.zip");`
 
 #### Setting `automationName` for Android Apps
 
@@ -189,7 +189,7 @@ If you're testing a native mobile app against Android versions 4.0 - 4.1, or a h
 
 #### Enabling Location Services for iOS Devices
 
-If you want to enable location services in an iOS simulator, for example to test GPS-dependent applications, you should set these capabilities in your Appium test script:
+If you want to enable location services in an iOS simulator, for example to test GPS-dependent apps, you should set these capabilities in your Appium test script:
 
 * `locationServicesEnabled=true`
 * `locationServicesAuthorized=true`

@@ -17,7 +17,6 @@ const docusaurusConfig = {
       charset: 'UTF-8',
       "data-domain-script": '9e4c4ce3-8349-4030-9de7-0b1d368edfce',
     },
-    'function OptanonWrapper() { }',
   ],
   themeConfig: {
     googleAnalytics: {
@@ -31,9 +30,9 @@ const docusaurusConfig = {
     //   textColor: '#F0F0F0', // Defaults to `#000`.
     //   isCloseable: true, // Defaults to `true`.
     // },
-    // googleAnalytics: {
-    //   trackingID: 'UA-6735579-1',
-    // },
+    googleAnalytics: {
+      trackingID: 'UA-6735579-1',
+    },
     hideableSidebar: true,
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],

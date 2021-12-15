@@ -6,7 +6,7 @@ sidebar_label: CI/CD Integration
 
 ## Bamboo Configuration
 
-[Atlassian Bamboo](https://www.atlassian.com/software/bamboo) is a continuous integration server that can be used to automate the release management for your software applications, creating a continuous delivery pipeline.
+[Atlassian Bamboo](https://www.atlassian.com/software/bamboo) is a continuous integration server that can be used to automate the release management for your software apps, creating a continuous delivery pipeline.
 
 We offer a plug-in that will integrate your Bamboo builds with Sauce Connect Proxy for automating functional tests. Installation is an easy one-time admin configuration. From there, you can designate builds to test on your preferred browser/OS combinations.
 

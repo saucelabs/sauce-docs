@@ -97,7 +97,7 @@ Sauce IPSec Proxy establishes a VPN connection between two IPSec gateways, and a
 
 ## Choosing the Right Solution
 
-Sauce Connect Proxy and Sauce IPSec Proxy accomplish the same thing: establishing a secure connection between applications hosted on a customer's private network and Sauce Labs cloud virtual machines and real devices. The main differences are:
+Sauce Connect Proxy and Sauce IPSec Proxy accomplish the same thing: establishing a secure connection between apps hosted on a customer's private network and Sauce Labs cloud virtual machines and real devices. The main differences are:
 
 <table>
   <tr>
@@ -121,7 +121,7 @@ Sauce Connect Proxy and Sauce IPSec Proxy accomplish the same thing: establishin
   <tr>
    <td>Sauce Connect Proxy client (binary) runs within the customer's network to establish the tunnels, which use proprietary protocol over TLS 1.2.
    </td>
-   <td>Sauce IPSec Proxy tunnels use industry standards to establish connection and offer two options for routing traffic to sites and applications under test.
+   <td>Sauce IPSec Proxy tunnels use industry standards to establish connection and offer two options for routing traffic to sites and apps under test.
    </td>
   </tr>
   <tr>

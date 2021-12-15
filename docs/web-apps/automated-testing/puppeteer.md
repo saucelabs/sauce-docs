@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
- [Puppeteer](https://github.com/puppeteer) is an easy-to-use testing framework that you can use to test your web applications locally in Docker and automatically transmit your results to Sauce Labs to take advantage of our streamlined dashboard and view up to 30 days of results and data analytics.
+ [Puppeteer](https://github.com/puppeteer) is an easy-to-use testing framework that you can use to test your web apps locally in Docker and automatically transmit your results to Sauce Labs to take advantage of our streamlined dashboard and view up to 30 days of results and data analytics.
 
 ## What You'll Need
 
@@ -42,6 +42,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Puppeteer Version|Supported Browsers|
  |-----|----|
+ |12.0.1|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v2.0.0)|
  |10.4.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.6.0)|
  |10.2.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.5.1)|
  |10.1.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.4.1)|

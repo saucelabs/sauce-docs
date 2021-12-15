@@ -13,33 +13,258 @@ As part of our efforts to bring you a unified documentation site, we've migrated
 
 Follow the steps below to integrate Visual E2E Testing into your Selenium WebDriver tests, using the language/library of your choice. Any programming language that Selenium WebDriver supports can be used without needing to install any additional libraries or SDKs.
 
-It takes only a few minutes to integrate Screener into your existing Selenium WebDriver scripts:
-
 
 ## What You'll Need
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username](https://app.saucelabs.com/user-settings) and [Access Key](https://app.saucelabs.com/user-settings).
+
+* A [Sauce Labs self-serve or enterprise account](https://saucelabs.com/pricing). Visual Testing is not available for free trials.
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * Your [Screener API Key](https://screener.io/v2/account/api-key).
-* Confirm that your WebDriver test scripts use [W3C WebDriver-compliant capabilities](/dev/w3c-webdriver-capabilities/).
-* Confirm that the browsers in your tests are in the list of [supported Sauce Labs browsers](/visual/e2e-testing/supported-browsers).
+* A [GitHub account](https://github.com/).
+* Have [Node.js installed](https://nodejs.org/en/download/).
+* Optional: have [Mocha](https://mochajs.org/) and/or [Jest](https://jestjs.io/) installed.
 
 
-## Setting Up Visual E2E Testing with WebDriver
+## Quickstart
 
+The quickstart example below show how to run a simple automated test on our demo website, [Swag Labs](http://saucedemo.com).
 
-### Set Your Credentials as Environment Variables
-1. Recommended: set your Sauce Labs username, Sauce Labs access key, and Screener API key as [environment variables](/basics/environment-variables/). In JavaScript, for example, you could store your Screener API key in an environment variable called `SCREENER_API_KEY`, and then reference it in NodeJS file with `process.env.SCREENER_API_KEY`.
+### Example 1
 
-### Set Your W3C Capabilities
+#### Set Up Environment
 
-2. In your WebDriver test configuration, add the `sauce:options` capability and set your Sauce Labs credentials there:
-  ```javascript title="JavaScript example"
-  'sauce:options': {
-    username: '$SAUCE_USERNAME',
-    accesskey: '$SAUCE_ACCESS_KEY'
-  }
+1. From your terminal, clone the [Visual E2E Quickstart repository](https://github.com/luishernandezv/visual-e2e) to your machine:
+  ```bash
+  git clone https://github.com/luishernandezv/visual-e2e
   ```
-3. In your WebDriver test configuration, add the `sauce:visual` capability, where you'll define your [Screener API key](https://screener.io/v2/account/api-key), project name, and viewportSize. For additional configuration options, see the [`sauce:visual` Capabilities](/visual/e2e-testing/commands-options/#saucevisual-capability-options).
+2. Navigate to the project:
+  ```bash
+  cd visual-e2e
+  ```
+:::tip
+For best experience, open the [`visual-e2e` repository](https://github.com/luishernandezv/visual-e2e) in an IDE.
+:::
+3. Install all dependencies:
+  ```bash
+  npm install
+  ```
+4. Set your Sauce Labs username, Sauce Labs access key, and Screener API key as environment variables:
+     <Tabs
+          defaultValue="Mac/Linux"
+          values={[
+            {label: 'Mac/Linux', value: 'Mac/Linux'},
+            {label: 'Windows Powershell', value: 'Windows Powershell'},
+          ]}>
+
+     <TabItem value="Mac/Linux">
+
+     ```bash
+     export SAUCE_USERNAME="REPLACE WITH SAUCE USERNAME"
+     ```
+
+     ```bash
+     export SAUCE_ACCESS_KEY="REPLACE WITH SAUCE ACCESS KEY"
+     ```
+
+     ```bash
+     export SCREENER_API_KEY="REPLACE WITH SCREENER API KEY"
+     ```
+
+     </TabItem>
+     <TabItem value="Windows Powershell">
+
+     ```bash
+     $Env:SAUCE_USERNAME = "REPLACE WITH SAUCE USERNAME"
+     ```
+
+     ```bash
+     $Env:SAUCE_ACCESS_KEY = "REPLACE WITH SAUCE ACCESS KEY"
+     ```
+
+    ```bash
+     $Env:SCREENER_API_KEY = "REPLACE WITH SCREENER API KEY"
+     ```
+
+     </TabItem>
+     </Tabs>
+
+To learn more about Sauce Labs environment variables and how to set them at your system level (instead of test-level), see [Setting Up Environment Variables](/basics/environment-variables/).
+
+
+#### Set Up Test
+
+5. Choose which test script you'd like to run. No need to edit them.
+   * [WebdriverIO (simple-test.js)](https://github.com/luishernandezv/visual-e2e/blob/main/simple-test.js)
+   * [WebdriverIO with Mocha (simple-mocha-test.js)](https://github.com/luishernandezv/visual-e2e/blob/main/simple-jest.test.js)
+   * [WebdriverIO with Jest (simple-mocha-test.js)](https://github.com/luishernandezv/visual-e2e/blob/main/simple-jest.test.js)
+
+   <br/>
+
+   <details><summary><strong>Click here</strong> to view the test script breakdown.</summary>
+
+   ```js reference title="Sauce Labs credentials"
+   https://github.com/luishernandezv/visual-e2e/blob/main/simple-test.js#L12-L15
+   ```
+
+   ```js reference title="Visual Testing API key and project name"
+   https://github.com/luishernandezv/visual-e2e/blob/main/simple-test.js#L16-L20
+     ```
+
+   ```js reference title="WebDriver configuration with our remote hub"
+   https://github.com/luishernandezv/visual-e2e/blob/main/simple-test.js#L5-L8
+   ```
+
+   ```js reference title="Test Details"
+   https://github.com/luishernandezv/visual-e2e/blob/main/simple-test.js#L27-L50
+   ```
+
+   What's in the test:
+   - Launches our [demo site](http://saucedemo.com)
+   - Initializes a Visual E2E Test [`/*@visual.init*/` command](/visual/e2e-testing/commands-options/#init-command)
+   - Takes a snapshot of the login page [`/*@visual.snapshot*/` command](/visual/e2e-testing/commands-options/#snapshot-command)
+   - Executes a login to the Products page
+   - Takes a snapshot of the Products page [`/*@visual.snapshot*/` command](/visual/e2e-testing/commands-options/#snapshot-command)
+   - Ends the Visual Testing session [`/*@visual.end*/` command](/visual/e2e-testing/commands-options/#end-command)
+
+   </details>
+
+
+#### Run Test
+
+6. In your terminal, enter the run command corresponding to the test framework you chose in the previous step:
+  <Tabs
+      defaultValue="WebdriverIO"
+      values={[
+        {label: 'WebdriverIO', value: 'WebdriverIO'},
+        {label: 'WebdriverIO + Mocha', value: 'WebdriverIO + Mocha'},
+        {label: 'WebdriverIO + Jest', value: 'WebdriverIO + Jest'},
+      ]}>
+
+  <TabItem value="WebdriverIO">
+
+  ```bash
+  npm run webdriverio
+  ```
+
+  </TabItem>
+  <TabItem value="WebdriverIO + Mocha">
+
+  ```bash
+  npm run test:mocha
+  ```
+
+  </TabItem>
+  <TabItem value="WebdriverIO + Jest">
+
+  ```bash
+  npm run test:jest
+  ```
+
+  </TabItem>
+  </Tabs>
+
+
+#### View Test Results
+
+7. Go your Visual Testing Dashboard (Sauce Labs > **SAUCE APPS** > **Visual** > **Login**) to confirm that your test is running. It should take a few minutes to complete. You'll see a new project under the name "sauce-demos/swag-labs", plus a new [branch](/visual/e2e-testing/workflow/baseline-branch/) called "default".<br/><img src={useBaseUrl('img/visual/e2e-quickstart-all-projects.png')} alt="Visual E2E Quickstart running test" width="300" />
+
+#### Accept Baseline
+8. This first test will be labeled as failed because there's no existing baseline for Visual E2E to compare against. To resolve this, you'll need to [review and accept](/visual/e2e-testing/workflow/review-workflow/) them as the baseline. the new snapshots as your baseline:
+   * Click the **Review 2 New** button.<br/><img src={useBaseUrl('img/visual/e2e-review2New.png')} alt="Visual E2E review new state" width="400" />   
+   * Click on the first snapshot, **Swag Labs: Login** snapshot.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-changed-states.png')} alt="Visual E2E Quickstart first state" width="500" />   
+   * Click **New** > **Accept**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-new-accept.png')} alt="Visual E2E Quickstart running test" width="500" />   
+   * Click the snapshot, **Swag Labs: Products**, then **New** > **Accept**.
+9. Return to your Visual Testing Dashboard and confirm that the two states are now labeled **Accepted**.<br/><img src={useBaseUrl('img/visual/e2e-accepted.png')} alt="Visual E2E Quickstart accepted states" width="450" />   
+
+10. Click **Show Logs** > **View Logs on Sauce Labs** to view [detailed test information](/test-results/) on Sauce Labs.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /><img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
+
+
+#### Apply UI Changes
+
+11. Next, we will run a test containing a change to the Swag Labs website: the login button will be green instead of red. The change is pre-written into the test scripts and will activate once you execute one of the run commands:
+
+  <Tabs
+      defaultValue="WebdriverIO"
+      values={[
+        {label: 'WebdriverIO', value: 'WebdriverIO'},
+        {label: 'WebdriverIO + Mocha', value: 'WebdriverIO + Mocha'},
+        {label: 'WebdriverIO + Jest', value: 'WebdriverIO + Jest'},
+      ]}>
+
+  <TabItem value="WebdriverIO">
+
+  ```bash
+  npm run webdriverio-changes
+  ```
+
+  </TabItem>
+  <TabItem value="WebdriverIO + Mocha">
+
+  ```bash
+  npm run test:mocha-changes
+  ```
+
+  </TabItem>
+  <TabItem value="WebdriverIO + Jest">
+
+  ```bash
+  npm run test:jest-changes
+  ```
+
+  </TabItem>
+  </Tabs>
+
+
+#### Review Changes
+12. On your Visual Testing Dashboard, you should see a new test running under the same project and branch. Because an element changed in one of your baseline snapshots, the test will be labeled as failed. To resolve this, you'll need to [review and accept](/visual/e2e-testing/workflow/review-workflow/) them:
+    * Click **Review 1 Changed**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-changed-state.png')} alt="Visual E2E Quickstart changed state" width="500" />
+    * You'll see that the login button color has changed from red to green. Click **Changed** > **Accept**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-accept.png')} alt="Visual E2E Quickstart accept state" width="450" />
+13. Return to your Visual Testing Dashboard. The two states should now be labeled **Accepted**. If you run this test again (using the [run commands](#apply-ui-changes)), the result will be labeled **Success**.
+
+You should also receive an email summary for each build indicating whether it's passed or failed. If you don't see it, learn how to subscribe [here](/visual/notifications/).
+
+
+### Example 2
+
+1. From your terminal, clone the Sauce Labs JS Training repository, where the [Visual E2E WebdriverIO examples are located](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio/webdriver/examples/visual-e2e), to your machine:
+  ```bash
+  git clone https://github.com/saucelabs-training/demo-js.git
+  ```
+2. Navigate to the project:
+  ```bash
+  cd webdriverio/webdriver/examples/visual-e2e
+  ```
+:::tip
+For best experience, open the [`visual-e2e` repository](https://github.com/luishernandezv/visual-e2e) in an IDE.
+:::
+3. Install all dependencies:
+  ```bash
+  npm install
+  ```
+4. Run test(s):
+   * To run a simple test on the Sauce Labs US Data Center:
+    ```bash
+    npm run test.visual.sauce
+    ```
+   * To run a cross-platform test with multiple resolutions on the Sauce Labs US Data Center:
+    ```bash
+    npm run test.visual.crossplatform
+    ```
+5. Check out the results on your [Visual Testing Dashboard](#view-test-results) and [Sauce Labs](https://app.saucelabs.com/dashboard/tests/vdc).
+
+
+## Integrating with Existing WebDriver Tests
+
+Here's how to integrate Visual E2E with your existing Selenium WebDriver test scripts.
+
+1. Set your Sauce Labs credentials as environment variables (see [Setting Up Environment](/visual/e2e-testing/setup/#set-up-environment)). In JavaScript, for example, you could store your Screener API key in an environment variable called `SCREENER_API_KEY`, then reference it in a NodeJS file with `process.env.SCREENER_API_KEY`.
+2. Add the [`sauce:options` capability](/dev/test-configuration-options/) to your WebDriver test configuration and set your Sauce Labs credentials there. Here's a JavaScript example:
+  ```js
+  'sauce:options': {
+    username: process.env.SAUCE_USERNAME,
+    accessKey: process.env.SAUCE_ACCESS_KEY,
+  },
+  ```
+3. Add the `sauce:visual` capability and set your project name and viewport size there. For additional options, see [`sauce:visual` Capabilities](/visual/e2e-testing/commands-options/#saucevisual-capability-options).
 
 <Tabs
   defaultValue="JS/WebdriverIO"
@@ -120,10 +345,7 @@ browserOptions.AddAdditionalCapability("sauce:visual", sauceVisual, true);
 </TabItem>
 </Tabs>
 
-
-### Connect to Our Remote Hub
-
-4. Configure your WebDriver tests to connect to our remote hub at `https://hub.screener.io`.
+4. Configure your test to connect to our remote hub, `https://hub.screener.io`.
 
 <Tabs
   defaultValue="JS/WebdriverIO"
@@ -181,11 +403,7 @@ driver = new RemoteWebDriver(new Uri("https://hub.screener.io:443/wd/hub"), capa
 </Tabs>
 
 
-### Add Visual Commands
-
-We've set up a simple, safe, and unobtrusive way to integrate [Visual E2E Commands](/visual/e2e-testing/commands-options) into your existing code. Each command is simply a JavaScript comment placed in a WebDriver execute command &#8212; no need to install anything.
-
-5. Add a [`@visual.init`](/visual/e2e-testing/commands-options/#init-command) command to set the name for each test. Add this before capturing snapshots. Then add the [`@visual.snapshot`](/visual/e2e-testing/commands-options/#snapshot-command) command when you want to capture a visual snapshot; use this whenever you want a snapshot to be taken.
+5. Add our [`@visual.init` command](/visual/e2e-testing/commands-options/#init-command) to set the name for each test. Then add the [`@visual.snapshot` command](/visual/e2e-testing/commands-options/#snapshot-command) in the places where you want to capture a visual snapshot.
 
 <Tabs
   defaultValue="JS/WebdriverIO"
@@ -256,18 +474,30 @@ static void test() {
 </TabItem>
 </Tabs>
 
-### Run Test
+Now you can run your test and [view your results](#view-test-results) in the Visual Testing Dashboard. Be sure to [review and accept](#accept-baseline) your baseline.
 
-6. Great, you're all set! Now run your first test and view your initial results in the [Screener Dashboard](https://screener.io/v2/dashboard).
-
-:::note
-Your initial visual test will fail, and results will be labelled as **New**. [Review and Accept](https://screener.io/v2/docs/visual-e2e/review-flow) them as the baseline.
-:::
 
 
 ## Next Steps
-* [Visual E2E Testing Review Workflow](/visual/e2e-testing/workflow/review-workflow): Learn the workflow for reviewing UI test results with Visual E2E
-* [Integrate Visual E2E Testing Into Your CI](/visual/e2e-testing/integrations/continuous-integration): Return results into your WebDriver tests and integrate into your CI process for continuous visual testing
+* Learn the [Visual E2E review workflow](/visual/e2e-testing/workflow/review-workflow/) for your UI test results
+* [Integrate Visual E2E Testing into your CI](/visual/e2e-testing/integrations/continuous-integration) to return results into your WebDriver tests for continuous visual testing
+* Confirm that your WebDriver test scripts are using [W3C WebDriver capabilities](/dev/w3c-webdriver-capabilities/).
+* Confirm that the browsers in your tests are in our list of [supported browsers](/visual/e2e-testing/supported-browsers).
+
+:::tip Advanced Debugging
+
+To view more debugging details on Sauce Labs, add [`extendedDebugging`](/dev/test-configuration-options/#extendeddebugging) to your test capabilities:
+
+```java
+'sauce:options': {
+  username: process.env.SAUCE_USERNAME,
+  accessKey: process.env.SAUCE_ACCESS_KEY,
+  extendedDebugging: true,
+},
+```
+
+:::
+
 
 ## More Information
 * [Visual E2E Commands](/visual/e2e-testing/commands-options)

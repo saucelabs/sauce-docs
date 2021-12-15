@@ -100,7 +100,7 @@ Cross-Origin Resource Sharing (CORS) errors could be caused by a variety of reas
 
 ## Common Mistakes in Network Configurations
 
-As a primer, the diagram below is the ideal network configuration with regards to Sauce Connect Proxy. Your firewall only needs to allow for outbound connections to Sauce Labs. Sauce Connect Proxy establishes a TLS connection (tunnel) to a dedicated tunnel endpoint server hosted in the Sauce Labs cloud. For best performance, Sauce Connect Proxy should be running close to the Site Under Test or Application Under Test.
+As a primer, the diagram below is the ideal network configuration with regards to Sauce Connect Proxy. Your firewall only needs to allow for outbound connections to Sauce Labs. Sauce Connect Proxy establishes a TLS connection (tunnel) to a dedicated tunnel endpoint server hosted in the Sauce Labs cloud. For best performance, Sauce Connect Proxy should be running close to the Site Under Test or App Under Test.
 
 <img src={useBaseUrl('img/sauce-connect/correct-network-config.png')} alt="Correct network configuration" width="400"/>
 
@@ -121,7 +121,7 @@ The way to prevent this is to ensure the SC Host is placed in the same geographi
 
 | Term | Definition |
 | :--- | :--- |
-| SC Host (Sauce Connect Host) | Machine in your network on which the Sauce Connect Proxy application is running. |
+| SC Host (Sauce Connect Host) | Machine in your network on which the Sauce Connect Proxy app is running. |
 | SUT (Site Under Test) | The site that you're testing. |
 | Tunnel VM (Tunnel Virtual Machine) | Virtual machine that hosts Sauce Connect Proxy on the Sauce Labs side. |
 
@@ -134,7 +134,7 @@ Another common mistake is placing the SUT in the same network as the [Demilitari
 
 | Term | Definition |
 | :--- | :--- |
-| SC Host (Sauce Connect Host) | Machine in your network on which the Sauce Connect Proxy application is running. |
+| SC Host (Sauce Connect Host) | Machine in your network on which the Sauce Connect Proxy app is running. |
 | SUT (Site Under Test) | The site that you're testing. |
 | Tunnel VM (Tunnel Virtual Machine) | Virtual machine that hosts Sauce Connect Proxy on the Sauce Labs side. |
 

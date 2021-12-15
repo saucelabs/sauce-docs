@@ -12,7 +12,7 @@ Test your iOS and Android native mobile apps and hybrid apps on emulators, simul
 <div>
   <div className="box boxwidetop card">
     <div className="container">
-    <a href="/mobile-apps/app-storage"><h3>Application Storage</h3></a>
+    <a href="/mobile-apps/app-storage"><h3>App Storage</h3></a>
     <p>Upload your mobile app to Sauce Labs to start testing on virtual devices and real devices.</p>
     </div>
   </div>
@@ -27,7 +27,7 @@ Debug faster, facilitate collaboration, increase mobile device coverage, and com
 
   <div className="box box1 card">
     <div className="container">
-    <a href="/mobile-apps/live-testing/live-mobile-app-testing"><h3>Live Mobile Application Testing</h3></a>
+    <a href="/mobile-apps/live-testing/live-mobile-app-testing"><h3>Live Mobile App Testing</h3></a>
     <p>Learn about testing your mobile apps manually and interactively on a variety of Android and iOS real mobile devices.</p>
     </div>
   </div>
