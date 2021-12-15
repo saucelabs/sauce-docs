@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-[TestCafe](https://github.com/DevExpress/testcafe) is an easy-to-use testing framework that you can use to test your applications either locally in Docker or through Sauce Labs using the [saucectl CLI](/testrunner-toolkit/saucectl), giving you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
+[TestCafe](https://github.com/DevExpress/testcafe) is an easy-to-use testing framework that you can use to test your apps either locally in Docker or through Sauce Labs using the [saucectl CLI](/testrunner-toolkit/saucectl), giving you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
 
 ### Supported Testing Platforms
 
@@ -30,6 +30,21 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
       <th>Supported Platforms</th>
       <th>Supported Browsers</th>
     </tr>
+    <tbody>
+    <tr>
+      <td rowspan='3'>1.17.1</td>
+      <td><b>macOS:</b> 11.0</td>
+      <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+      <td>Safari</td>
+    </tr>
+    </tbody>
     <tbody>
     <tr>
       <td rowspan='3'>1.16.1</td>
@@ -90,21 +105,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
       <td>Safari</td>
     </tr>
     </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='3'>1.14.0</td>
-      <td><b>macOS:</b> 11.0</td>
-      <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10</td>
-      <td>Chrome, Firefox, MicrosoftEdge</td>
-    </tr>
-    <tr>
-      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-      <td>Safari</td>
-    </tr>
-    </tbody>
   </table>
 
 </TabItem>
@@ -114,10 +114,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |TestCafe Version|Supported Browsers|
  |----|----|
+ |1.17.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v1.0.0)|
  |1.16.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.12.1)|
  |1.15.3|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.10.0)|
  |1.14.2|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.7.0)|
- |1.14.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.6.1)|
 
 </TabItem>
 </Tabs>

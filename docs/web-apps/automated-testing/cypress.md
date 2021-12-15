@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
- [Cypress](https://docs.cypress.io/guides/overview/why-cypress.html) is an end-to-end javascript testing framework that you can use to test your web applications either locally in Docker or through Sauce Labs using the [saucectl CLI](/testrunner-toolkit/saucectl), giving you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
+ [Cypress](https://docs.cypress.io/guides/overview/why-cypress.html) is an end-to-end javascript testing framework that you can use to test your web apps either locally in Docker or through Sauce Labs using the [saucectl CLI](/testrunner-toolkit/saucectl), giving you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
 
 ## Supported Testing Platforms
 
@@ -26,10 +26,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Cypress Version|Supported Platforms|Supported Browsers|
  |-----|-----|-----|
+ |9.1.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
  |8.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
  |8.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
  |7.7.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
- |7.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
 
  </TabItem>
  <TabItem value="docker">
@@ -38,10 +38,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Cypress Version|Supported Browsers|
  |----|----|
+ |9.1.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.0.0)|
  |8.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.4.0)|
  |8.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.3.1)|
  |7.7.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.2.3)|
- |7.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.1.0)|
 
 </TabItem>
 </Tabs>

@@ -51,7 +51,7 @@ https://github.com/saucelabs/saucectl-cypress-example/blob/master/.github/workfl
 ## Create the Test Job
 
 In the examples below, we illustrate the different run modes that `saucectl` has: __Docker__ and the __Sauce Cloud__— both determine where tests execute. Docker refers to executing tests locally in a container, while Sauce refers to executing tests on Sauce Cloud (i.e. Sauce Labs infrastructure).
-If you run your tests on the Sauce Cloud, you will likely require a tunnel back to where your application is running. A tunnel enables the remote browser to access your local network.
+If you run your tests on the Sauce Cloud, you will likely require a tunnel back to where your app is running. A tunnel enables the remote browser to access your local network.
 For this, we are going to use [Sauce Connect](/secure-connections/sauce-connect).
 
 :::note
