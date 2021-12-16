@@ -554,7 +554,7 @@ html[data-theme='dark'] .card:hover {
 .hero--primary {
   background-color: var(--ifm-code-background);
 }
-.hero__title, .hero__subtitle, .hero__popular{
+.hero__title, .hero__subtitle, .hero__popular-searches{
   color: var(--ifm-font-color-base);
 }
 .hero__subtitle {
@@ -563,9 +563,17 @@ html[data-theme='dark'] .card:hover {
   margin: 0 auto;
 }
 
-.hero__popular {
+.hero__popular-searches {
   font-size: 12px;
   font-weight: 600;
+}
+
+a.hero__popular-searches {
+  color: var(--ifm-color-primary-darkest) !important;
+}
+
+html[data-theme='dark'] a.hero__popular-searches {
+  color:  #68C7EA !important;
 }
 
 a.hero__button {
@@ -639,7 +647,7 @@ html[data-theme='dark'] .search-button{
 }
 
 html[data-theme='dark'] .title {
-  color:  --ifm-color-primary-lightest;
+  color:  var(--ifm-color-primary-lightest);
 }
 
 .title-quickstart{
@@ -650,7 +658,7 @@ html[data-theme='dark'] .title {
 }
 
 html[data-theme='dark'] .title-quickstart{
-  color:  --ifm-color-primary-lightest;
+  color:  var(--ifm-color-primary-lightest);
 }
 
 .callouts__container {
