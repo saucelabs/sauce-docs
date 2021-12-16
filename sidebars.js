@@ -662,9 +662,10 @@ module.exports = {
                   collapsed: true,
                   items: [
                       'api-testing/composer',
-                      'api-testing/composer/assertion-components',
                       'api-testing/composer/io-components',
+                      'api-testing/composer/assertion-components',
                       'api-testing/composer/logical-components',
+                      'api-testing/composer/other-components',
                       ],
                   },
                   {
@@ -680,6 +681,7 @@ module.exports = {
              'api-testing/apifctl-cicd-integration',
              'api-testing/test-reports',
              'api-testing/metrics-logs',
+             'api-testing/project-access',
              'api-testing/import-export-tests',
              'api-testing/mocking',
              'api-testing/logger',
@@ -817,6 +819,7 @@ module.exports = {
                     },
                     'visual/component-testing/supported-browsers',
                     'visual/component-testing/storybook-interactions-testing',
+                    'visual/component-testing/storybook-static',
                 ],
             },
         'visual/css-animations',

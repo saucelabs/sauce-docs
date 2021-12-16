@@ -12,9 +12,11 @@ const docusaurusConfig = {
   projectName: 'sauce-docs',
   scripts: [
     {
-      src: 'https://gist.github.com/spider-sauce/4395e4541fef2c15a285cc949ca561f9.js',
-      async: true,
-    }
+      src:  'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
+      type: 'text/javascript',
+      charset: 'UTF-8',
+      "data-domain-script": '9e4c4ce3-8349-4030-9de7-0b1d368edfce',
+    },
   ],
   themeConfig: {
     // announcementBar: {
@@ -25,9 +27,9 @@ const docusaurusConfig = {
     //   textColor: '#F0F0F0', // Defaults to `#000`.
     //   isCloseable: true, // Defaults to `true`.
     // },
-    // googleAnalytics: {
-    //   trackingID: 'UA-6735579-1',
-    // },
+    googleAnalytics: {
+      trackingID: 'UA-6735579-1',
+    },
     hideableSidebar: true,
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],

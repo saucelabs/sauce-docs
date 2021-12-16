@@ -256,7 +256,7 @@ tunnelName: 'sc-proxy-tunnel',
 
 | Term | Definition |
 | :--- | :--- |
-| SC Host (Sauce Connect Host) | The machine in your network on which the Sauce Connect Proxy application is running. In this setup, it has a direct connection to the internet. |
+| SC Host (Sauce Connect Host) | The machine in your network on which the Sauce Connect Proxy app is running. In this setup, it has a direct connection to the internet. |
 | SUT (Site Under Test) | The site that you're testing. It is on the same local network as the SC Host machine. |
 | Tunnel VM (Tunnel Virtual Machine) | Virtual machine that hosts Sauce Connect on the Sauce Labs side. |
 

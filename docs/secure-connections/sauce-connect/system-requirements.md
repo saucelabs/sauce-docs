@@ -1,6 +1,6 @@
 ---
 id: system-requirements
-title: System and Network Requirements
+title: Sauce Connect Proxy System and Network Requirements
 sidebar_label: System and Network Requirements
 ---
 
@@ -14,7 +14,10 @@ Keep in mind that these are guidelines. Most environments have their own workloa
 
 ## What You'll Need
 
-* Minimum 2 core x 8 GB Machine
+* Minimum 2 core x 8 GB Machine.
+* For Sauce Connect Proxy compatibility with macOS Catalina 10.15+, enable your Mac to allow apps from the App Store and identified developers.  
+    1. Go to **System Preferences** > **Security & Privacy** > **General**.
+    2. Under the header **Allow apps downloaded from**, select the option **App Store and identified developers**.
 * We strongly recommend using the [cURL command line](https://curl.haxx.se/download.html) or an equivalent tool to ensure that any error messages you receive are precise and actionable. If you're not familiar with the tool, [review their docs here](https://curl.se/docs) and then install cURL on your local machine.
 * For Unix-based systems, you may need to increase your open file limit if you plan to run a high number of parallel tests (i.e., `ulimit -n 8192`).
 
