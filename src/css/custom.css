@@ -592,7 +592,6 @@ a.hero__button {
 }
 .main__container-inner {
   margin: 0 auto;
-  display: flex;
   max-width: 1160px;
   padding: 15px 0 35px 0;
 }
