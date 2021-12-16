@@ -18,3 +18,7 @@
       var(--ifm-navbar-item-padding-horizontal);
   }
 }
+
+button span {
+  align-items: baseline !important;
+}
