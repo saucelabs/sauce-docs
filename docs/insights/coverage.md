@@ -6,7 +6,11 @@ description: See a breakdown of the browser and device variations covered by you
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The Coverage report allows Org Admins to view and download the breakdown of browsers and mobile devices the tests across their organization have run against.
+The Coverage report allows Org Admins to view and download the breakdown of browsers and mobile devices the tests across their organization have run against. Having insight into your coverage data helps companies:
+
+* See at a glance whether their testing is in sync with the environments in which it is most often accessed
+* Design their test strategy to keep up with newly release browser and device versions
+* Utilize their concurrency to spread testing across test environments for greater efficiency and comprehensiveness
 
 :::note Org Admins Only
 You must have [Org Admin](/basics/acct-team-mgmt/managing-user-info/#user-roles) privileges for your organization in order to view and download coverage data.
