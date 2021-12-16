@@ -1,6 +1,6 @@
 const docusaurusConfig = {
   title: 'Resources & Community',
-  tagline: "Accelerating your ability to ship code while maintaining high quality experiences is hard. Sauce Labs is here to help.",
+  tagline: "Accelerating your ability to ship code while maintaining high quality experiences is hard. We are here to help.",
   url: 'https://docs.saucelabs.com',
   noIndex: false,
   trailingSlash: true,
