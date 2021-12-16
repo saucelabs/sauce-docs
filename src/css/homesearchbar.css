@@ -13,9 +13,20 @@ div.new-search .DocSearch-Button-Placeholder {
 }
 
 div.new-search span.DocSearch-Button-Placeholder {
-    color: #464b54;
+    color: #464b54; /* --ifm-navbar-link-color */
 }
 
 html[data-theme='dark'] div.new-search svg.DocSearch-Search-Icon {
-    fill: black;
+    visibility: visible;
+    color: rgb(204, 205, 207); /* ---ifm-color-primary-light */;
 }
+
+html[data-theme='dark'] div.new-search button.DocSearch-Button {
+    background: black;
+}
+
+html[data-theme='dark'] span.DocSearch-Button-Placeholder {
+    color: rgb(204, 205, 207); /* ---ifm-color-primary-light */;
+}
+
+
