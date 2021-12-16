@@ -167,7 +167,6 @@ function DocSearch({contextualSearch, ...props}) {
 
       <div className={styles.searchBox}>
         <DocSearchButton
-          style={{ borderRadius: '8px' }}
           onTouchStart={importDocSearchModalIfNeeded}
           onFocus={importDocSearchModalIfNeeded}
           onMouseOver={importDocSearchModalIfNeeded}
