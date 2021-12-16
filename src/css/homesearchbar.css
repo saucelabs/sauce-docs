@@ -29,4 +29,46 @@ html[data-theme='dark'] span.DocSearch-Button-Placeholder {
     color: rgb(204, 205, 207); /* ---ifm-color-primary-light */;
 }
 
+/* mobile overrides */
+@media only screen
+and (min-width: 600px) and (max-width: 998px),
+only screen and (max-device-width: 998px),
+only screen and (max-width: 998px) {
 
+    div.new-search .searchBox_src-theme-SearchBar-styles-module {
+        position: relative;
+        right: unset;
+        display: inline-block;
+        width: 100%;
+    }
+    div.new-search button.DocSearch.DocSearch-Button{
+        width: 30%;
+        margin: auto;
+    }
+
+}
+
+
+@media only screen
+and (min-width: 300px) and (max-width: 600px),
+only screen and (max-device-width: 600px),
+only screen and (max-width: 600px) {
+    div.new-search .searchBox_src-theme-SearchBar-styles-module {
+        position: relative;
+        right: unset;
+        display: inline-block;
+        width: 100%;
+    }
+    div.new-search button.DocSearch.DocSearch-Button{
+        width: 80%;
+        margin: auto;
+    }
+}
+@media only screen
+and (max-width: 750px),
+only screen and (max-device-width: 750px),
+only screen and (max-width: 750px) {
+    div.new-search .DocSearch-Button-Placeholder {
+        display: none;
+    }
+}

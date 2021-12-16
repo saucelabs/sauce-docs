@@ -569,7 +569,7 @@ html[data-theme='dark'] .card:hover {
 }
 
 a.hero__popular-searches {
-  color: var(--ifm-color-primary-darkest) !important;
+  color: var(--ifm-link-color) !important;
 }
 
 html[data-theme='dark'] a.hero__popular-searches {
@@ -830,7 +830,7 @@ ul.dropdown__menu li a:hover {
   font-weight: 700;
 }
 .popular-searches p {
-  color: --ifm-font-color-base;
+  color: var(--ifm-font-color-base);
 }
 
 /* mobile overrides */
