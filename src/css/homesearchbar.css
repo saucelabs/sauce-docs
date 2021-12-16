@@ -6,8 +6,8 @@ div.new-search button.DocSearch.DocSearch-Button{
     margin: auto;
 }
 div.new-search svg.DocSearch-Search-Icon {
-    visibility: hidden;
+    visibility: visible;
 }
 div.new-search .DocSearch-Button-Placeholder {
-    display: none;
+    display: inherit;
 }
