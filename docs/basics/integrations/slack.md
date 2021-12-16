@@ -13,8 +13,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<p><span className="sauceDBlue">COMING SOON</span></p>
-
 The Sauce Labs Slack app allows you to easily share your test results in Slack. You can:
 
 * Share a test result link in Slack, and it automatically expands to show the test summary
@@ -45,13 +43,13 @@ If your Sauce Labs account has access to multiple data centers, you need only in
 
 If you are not an Org Admin and the Slack Integration **Install** button is disabled, contact your Org Admin to enable the integration with your workspace.
 
-## Send Test Results in Slack
+## Share Test Results in Slack
 
 Once the Sauce Labs Slack app has been enabled for your Sauce Labs organization and Slack workspace, when you post a link to a test results page in a Slack channel, the link will automatically unfurl to show the Test Results summary, as shown in the following image.
 
 <img src={useBaseUrl('img/integrations/slack/slack-unfurl-link.png')} alt="Test Result Summary Example" width="500"/>
 
-## Configure Notifications from `saucectl`
+## Enable Notifications from `saucectl`
 
 Setting up automatic notifications from `saucectl` requires you to first add the Sauce Labs app to any channels to which you will send notifications, then edit your saucectl configuration file to specify when to send notifications and to what channel.
 
@@ -63,7 +61,7 @@ Setting up automatic notifications from `saucectl` requires you to first add the
 1. Select the **Integrations** tab, then the **Add an App** button.
 1. Click the **Add** button for the Sauce Labs app to enable notifications for the channel.
 
-## Configure Notifications from `saucectl`
+### Configure Notifications from `saucectl`
 
 1. In the `config.yaml` file that defines your [`saucectl`](/testrunner-toolkit/configuration) test configuration settings, add the `notifications.slack` property.
     ```yml
