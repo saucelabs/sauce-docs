@@ -24,13 +24,29 @@ function Home() {
           <div className="new-search">
             <SearchBar />
           </div>
-          <span className="hero__popular">
-            Popular Searches:
-              <a href="https://docs.saucelabs.com/testrunner-toolkit/installation/"> saucectl | </a>
-              <a href="https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/"> Sauce Connect | </a>
-              <a href="https://docs.saucelabs.com/api-testing/metrics-logs/"> API Testing |</a>
-              <a href="/docs/getting-started/tutorials/getting-started-with-sauce-connect"> Selenium 4 | </a>
-              <a href="https://docs.saucelabs.com/dev/api/"> REST API</a>
+          {/* style needs to contain hero to override as hero has priority */}
+          <span className="hero__popular-searches">
+            Popular Searches:&nbsp;
+              <a className="hero__popular-searches"
+                href="https://docs.saucelabs.com/testrunner-toolkit/installation/">
+                &nbsp;saucectl |
+              </a>
+              <a className="hero__popular-searches"
+                href="https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/">
+                &nbsp;Sauce Connect |
+              </a>
+              <a className="hero__popular-searches"
+                href="https://docs.saucelabs.com/api-testing/metrics-logs/">
+                &nbsp;API Testing |
+              </a>
+              <a className="hero__popular-searches"
+                href="/docs/getting-started/tutorials/getting-started-with-sauce-connect">
+                &nbsp;Selenium 4 |
+              </a>
+              <a className="hero__popular-searches"
+                href="https://docs.saucelabs.com/dev/api/">
+                &nbsp;REST API
+              </a>
           </span>
         </div>
       </header>
