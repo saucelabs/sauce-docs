@@ -13,9 +13,9 @@ export const Highlight = ({children, color}) => ( <span style={{
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Internet Protocol Security VPN (IPSec VPN) is a technology that connects two private networks securely over the public internet.
+Internet Protocol Security VPN (IPSec VPN) is a technology that connects two private networks securely over the public internet. If your company has firewall rules that limit your ability to run tests on Sauce Labs, you can use our IPSec Proxy feature to connect to Sauce Labs in the cloud without exposing your company's IT infrastructure to security risks.
 
-Sauce Labs offers an enterprise-grade IPSec VPN solution that enables a secure connection between applications hosted on a customer's private network (or local machine) and Sauce Labs cloud virtual machines and real devices. Topics in this section include architecture, setup information, and troubleshooting tips.
+Sauce IPSec Proxy is an enterprise-grade IPSec VPN solution that enables a secure connection between apps hosted on a customer's private network (or local machine) and Sauce Labs cloud virtual machines and real devices. Topics in this section include architecture, setup information, and troubleshooting tips.
 
 ### What You'll Need
 
@@ -98,47 +98,46 @@ WebSocket servers with self-signed certificates are not supported.
 
 The Sauce IPSec Proxy solution provides you with a static, secure connection, through which you can run live and automated tests on all Sauce Labs virtual machines and real devices.
 
-Depending on the type of test you want to run, you may need to include certain desired capabilities in your test script. See below for use case examples.
+Depending on the type of test you want to run, you may need to include certain capabilities in your test script. See below for use case examples.
 
 ### Automated Testing
-To connect to Sauce Labs real and virtual devices, assign your Sauce IPSec Proxy tunnel to the appropriate [Data Center Endpoint](/basics/data-center-endpoints/data-center-endpoints) in your test automation script.
+To connect to Sauce Labs real and virtual devices, assign your Sauce IPSec Proxy tunnel to the appropriate [Data Center Endpoint](/basics/data-center-endpoints) in your test automation script.
 
-#### __Appium and Selenium__
+#### Appium and Selenium
 
-* Set the `tunnelIdentifier` desired capability to the name of your organization's Sauce IPSec Proxy tunnel
+* Set the `tunnelName` desired capability to the name of your organization's Sauce IPSec Proxy tunnel
+* Set the `tunnelOwner` capability to the username of your organization admin
 
-* Set the `parentTunnel` capability to the username of your organization admin
-
-As an example, let's say the name of your organization's tunnel is `awesometunnel` and your organization admin's username is `john.smith`. Here's how you'd set it up in Java:
-
-```sh
+```java title="Java example"
 MutableCapabilities caps = new MutableCapabilities();
-caps.setCapability("tunnelIdentifier", "awesometunnel");
-caps.setCapability("parentTunnel","johnsmith");
+caps.setCapability("tunnelName", "{TUNNEL_NAME}");
+caps.setCapability("tunnelOwner","{SAUCE_USERNAME}");
 ```
 
-#### __Espresso Tests on Emulators__
-* Set the `tunnel-identifier` argument for Sauce-Runner-Virtual to the name of your Sauce IPSec Proxy tunnel.
+#### Espresso Tests
+
+Specify the applicable [`tunnel`](/testrunner-toolkit/configuration/espresso/#tunnel) settings in your saucectl config.yml file, or use the `--tunnel-name` and `--tunnel-owner` flags with the [saucectl run command](/testrunner-toolkit/saucectl/#-saucectl-run-flags) at test runtime.
 
 ### Live Testing
 
-#### __Cross Browser App Testing__
+#### Cross Browser App Testing
 
-For cross browser app testing, in Sauce Labs, click **LIVE** and then click **Cross Browser**. In the **Sauce Connect Proxy** dropdown, select your Sauce IPSec Proxy tunnel.
+For cross browser app testing, on Sauce Labs, click **LIVE** and then click **Cross Browser**. In the **Sauce Connect Proxy** dropdown, select your Sauce IPSec Proxy tunnel.
 
-#### __Mobile Device Testing__
+#### Mobile Device Testing
 
-For mobile device testing, in Sauce Labs, click **LIVE** and then click **Mobile App**. Choose your app from the list, and then, in the **Sauce Connect Proxy** dropdown, select your Sauce IPSec Proxy tunnel.
+For mobile device testing, on Sauce Labs, click **LIVE** > **Mobile App**. Choose your app from the list, and then, in the **Sauce Connect Proxy** dropdown, select your Sauce IPSec Proxy tunnel.
 
 :::note
 To ensure compliance with your company's settings and network policy, we recommend checking with your organization admin before running tests on virtual and real devices over a Sauce IPSec Proxy connection.
 :::
 
-#### __Public Real Device Testing__
+#### Public Real Device Testing
 
 To run tests on public real devices in the Sauce Labs cloud using Sauce IPSec Proxy, your organization admin must switch on **Enable Sauce Connect Proxy/IPSec VPN for Public Cloud Devices** (see [Security Settings](/basics/acct-team-mgmt/org-settings)), a security setting that is disabled by default.
 
 The setting enables all users across your organization to run live and automated tests on public devices over Sauce IPSec Proxy.
+
 Each time you initiate a test, you'll see a temporary pop-up alert window with a reminder that the utilization of a trusted Sauce IPSec Proxy connection combined with RDC public real device tests may not be compliant with your organization's network policy.
 
 ## Setting Tunnel Permissions
@@ -160,4 +159,4 @@ To monitor tunnel stability, we recommend pinging the tunnel gateway or checking
 * [White Paper: Overview of Sauce Labs Security Processes](https://saucelabs.com/resources/white-papers/overview-of-sauce-labs-security-processes)
 * [Sauce Connect Proxy™ Security Overview](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview)
 
-If you need help with your tunnel(s) or are interested in getting set up, please contact your CSM, SE, or Sauce Labs Support.
+If you need help with your tunnel(s) or are interested in getting set up, contact your CSM, SE, or Sauce Labs Support.

@@ -44,7 +44,7 @@ values={[
 
 <TabItem value="us">
 
-```jsx title="cURL with jq Example"
+```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams?name=sauce' \
 --header 'Content-Type: application/json' | json_pp
@@ -54,7 +54,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 <TabItem value="eu">
 
-```jsx title="cURL with jq Example"
+```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams?name=sauce' \
 --header 'Content-Type: application/json' | json_pp
@@ -134,7 +134,7 @@ values={[
 
 <TabItem value="us">
 
-```jsx title="cURL with jq Example"
+```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>' \
 --header 'Content-Type: application/json' | json_pp
@@ -144,7 +144,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 <TabItem value="eu">
 
-```jsx title="cURL with jq Example"
+```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>' \
 --header 'Content-Type: application/json' | json_pp
@@ -218,7 +218,7 @@ Creates a new team under the organization of the requesting account.
   <tbody>
     <tr>
      <td><code>organization</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The unique ID of the organization under which the team is created. You can look up your organization ID using the [Lookup Teams(#lookup-teams)] endpoint.</p></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The unique ID of the organization under which the team is created. You can look up your organization ID by calling the <code>GET https://api.&#123;region&#125;.saucelabs.com/team-management/v1/organizations/</code> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1085,7 +1085,7 @@ Creates a new user in the Sauce Labs platform.
   <tbody>
     <tr>
      <td><code>organization</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The identifier of the organization to create the user's account. You can look up organization IDs by calling <code>GET https://api.saucelabs.com/v1/organizations</code></p></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The identifier of the organization to create the user's account. You can look up organization IDs by calling the <code>GET https://api.&#123;region&#125;.saucelabs.com/team-management/v1/organizations/</code> endpoint.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1508,7 +1508,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get User Concurrency
 
-<details><summary><span className="get">GET</span> <code>/rest/v1.2/users/&#123;username&#125;/concurrency</code></summary>
+<details><summary><span className="api get">GET</span> <code>/rest/v1.2/users/&#123;username&#125;/concurrency</code></summary>
 <p/>
 
 Allows you to update individual user values without replacing the entire profile.

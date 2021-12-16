@@ -205,7 +205,7 @@ By assigning unique attributes (such as test name, tags, and build ID) in your t
 You can set these capabilities to be any combination of letters and numbers. To differentiate between builds, it's also a good practice to add a timestamp or CI job/build number at the end of your build tag.
 
 :::note
-The build name and tags capabilities are not supported in automated real device testing at this time, please check back for future updates with regards to this functionality.
+The tag capability is not supported in automated real device testing at this time. Please check back for future updates with regards to this functionality.
 :::
 
 :::note

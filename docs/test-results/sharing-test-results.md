@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Once your test has run and generated a **Test Details** page, you have several options for sharing a link to that page with others.
 
-1. In Sauce Labs, in the left panel, click **LIVE** or **AUTOMATED**, and then click **Test Results**.
+1. On Sauce Labs, in the left panel, click **LIVE** or **AUTOMATED**, and then click **Test Results**.
 2. On the **Test Results** page, click a test in the list to view the test details.
 3. In the **Visibility** dropdown, select a sharing option for the test results.
 
@@ -32,17 +32,13 @@ You can generate a sharable link to your test results that limits who can view t
 
 You can also change the visibility of a test (e.g., Public, Private, or Team) directly on the **Test Results** page.
 
-:::caution Does Not Work with Legacy RDC Platform
-The following information does not currently work with the legacy RDC platform (TestObject).
-:::
-
 When generating a shareable link, you'll need to know your specific data center. All examples on this page use the US West 1 data center endpoint, app.saucelabs.com. If you're using a different data center, such as EU Central 1, your link should be edited accordingly:
 
 ```
 https://app.eu-central-1.saucelabs.com/tests/YOUR_TEST_ID).
 ```
 
-See [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints) for more info.
+See [Data Center Endpoints](/basics/data-center-endpoints) for more info.
 
 ### Linking to Tests that Require a Login to View
 You can create links to your tests that will only work if you're logged in with the account that ran the test.
@@ -61,7 +57,7 @@ As previously mentioned, all examples on this page use the US West 1 data center
 https://app.eu-central-1.saucelabs.com/tests/YOUR_TEST_ID
 ```
 
-See [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints) for more info.
+See [Data Center Endpoints](/basics/data-center-endpoints) for more info.
 
 ### Linking to Tests that Don't Require a Login to View
 

@@ -33,7 +33,7 @@ To undo an **Ignore** action:
 Screener also provides you the ability to exclude areas from your visual test. An example of where this could be useful is a third-party widget or ads.
 
 To ignore a visual area, you have two options. You can either:
-* Add a special class name - `qa-screener-ignore` - to your application's HTML code on the element you want to ignore. Then the element, and everything contained within it, will be ignored.
+* Add a special class name - `qa-screener-ignore` - to your app's HTML code on the element you want to ignore. Then the element, and everything contained within it, will be ignored.
 * Edit your `screener.config.js` file, and add an ignore option with its value set to a comma-delimited string of CSS Selectors that represent areas to be ignored.
    * Example of second option:
       ```bash

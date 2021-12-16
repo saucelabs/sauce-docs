@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-[Playwright](https://github.com/microsoft/playwright) is a testing framework that you can use to test your web applications either locally in Docker or through Sauce Labs using the [saucectl CLI](/testrunner-toolkit/saucectl), giving you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
+[Playwright](https://github.com/microsoft/playwright) is a testing framework that you can use to test your web apps either locally in Docker or through Sauce Labs using the [saucectl CLI](/testrunner-toolkit/saucectl), giving you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
 
 
 ### Supported Testing Platforms
@@ -27,11 +27,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Playwright Version|Supported Platforms|Supported Browsers|
  |-----|-----|-----|
- |1.14.1|Windows 10|Chromium, Firefox, Webkit|
- |1.12.3|Windows 10|Chromium, Firefox, Webkit|
- |1.11.1|Windows 10|Chromium, Firefox, Webkit|
- |1.10.0|Windows 10|Chromium, Firefox, Webkit|
- |1.7.1|Windows 10|Chromium, Firefox, Webkit|
+ |1.17.1|Windows 10|Chromium, Firefox, Webkit|
+ |1.16.3|Windows 10|Chromium, Firefox, Webkit|
+ |1.15.2|Windows 10|Chromium, Firefox, Webkit|
 
  </TabItem>
  <TabItem value="docker">
@@ -40,12 +38,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Playwright Version|Supported Browsers|
  |-----|----|
- |1.14.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.2.1)|
- |1.12.3|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.0.3)|
- |1.11.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.13.0)|
- |1.11.0|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.11.0)|
- |1.10.0|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.10.0)|
- |1.7.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v1.7.5)|
+ |1.17.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.5.0)|
+ |1.16.3|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.4.0)|
+ |1.15.2|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.3.0)|
 
 </TabItem>
 </Tabs>

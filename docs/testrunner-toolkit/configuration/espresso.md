@@ -52,6 +52,16 @@ kind: espresso
 ```
 ---
 
+## `showConsoleLog`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Generates the `console.log` as local output and as a test asset in Sauce Labs for all tests. By default, `console.log` is only included in results for failed tests.
+
+```yaml
+showConsoleLog: true
+```
+---
+
 ## `defaults`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -86,7 +96,7 @@ sauce:
       - e2e
       - release team
       - other tag
-    build: Release $ES_COMMIT_SHORT_SHA
+    build: Release $CI_COMMIT_SHORT_SHA
   concurrency: 5
 ```
 ---
@@ -156,35 +166,48 @@ saucectl run --retries 1
 ### `tunnel`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-`saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the identifier in this property.
-
-:::note Choose the Correct Tunnel Identifier
-When you launch a tunnel, you can accept the tunnel identifier name that Sauce Labs generates for your account (e.g., `{SL-username}_tunnel_id`) or specify a name in the launch command:
-
-```
-bin/sc -u {SL-username} -k {SL-access_key} -i {tunnel_identifier}
-```
-
-This is the identifier `saucectl` expects as the `id` property, even though the Sauce Labs UI refers to this values as the `Tunnel Name`.
-:::
+`saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
 
 ```yaml
- tunnel:
-    id: your_tunnel_id
-    parent: parent_owner_of_tunnel # if applicable, specify the owner of the tunnel
+sauce:
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
 ```
 ---
 
-## `env`
-<p><small>| OPTIONAL | OBJECT |</small></p>
+#### `name`
+<p><small>| OPTIONAL | STRING |</small></p>
 
-A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
+Identifies an active Sauce Connect tunnel to use for secure connectivity to the Sauce Labs cloud.
+
+:::note
+This property replaces the former `id` property, which is deprecated.
+:::
 
 ```yaml
-  env:
-    hello: world
-    my_var: $MY_VAR
+sauce:
+  tunnel:
+    name: your_tunnel_name
 ```
+---
+
+#### `owner`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Identifies the Sauce Labs user who created the specified tunnel, which is required if the user running the tests did not create the tunnel.
+
+:::note
+This property replaces the former `parent` property, which is deprecated.
+:::
+
+```yaml
+sauce:
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
+```
+
 ---
 ## `reporters`
 <p><small>| OPTIONAL | OBJECT |</small></p>
@@ -340,7 +363,7 @@ espresso:
 ### `app`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the application. The default directory is `{project-root}/apps/filename.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples. Supports \*.apk (\*.aab files supported for real device testing only).
+The path to the app. The default directory is `{project-root}/apps/filename.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded app reference. Supports \*.apk and \*.aab files.
 
 ```yaml
   app: ./apps/calc.apk
@@ -349,12 +372,21 @@ The path to the application. The default directory is `{project-root}/apps/filen
 ```yaml
   app: $APP
 ```
+
+```yaml
+  app: storage:099557f6-aabb-f8b3-6ad1-8f6200898b92
+```
+
+```yaml
+  app: storage:filename=calc.apk
+```
+
 ---
 
 ### `testApp`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the testing application. The relative file location is `{project-root}/apps/testfile.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples. Supports \*.apk (\*.aab files supported for real device testing only).
+The path to the testing app. The relative file location is `{project-root}/apps/testfile.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded test app reference. Supports \*.apk and \*.aab files.
 
 ```yaml
   testApp: ./apps/calc-success.apk
@@ -363,12 +395,21 @@ The path to the testing application. The relative file location is `{project-roo
 ```yaml
   testApp: $TEST_APP
 ```
+
+```yaml
+  testApp: storage:fbd59e8e-2555-0d3c-5583-1bba2cd17b64
+```
+
+```yaml
+  testApp: storage:filename=calc-success.apk
+```
+
 ---
 
 ### `otherApps`
 <p><small>| OPTIONAL | ARRAY | REAL DEVICES ONLY |</small></p>
 
-Set of up to seven apps to pre-install for your tests. You can upload an \*.apk (\*.aab supported for real device testing only) app file from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
+Set of up to seven apps to pre-install for your tests. You can upload an \*.apk  or \*.aab app file from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
 
 :::note
 Apps specified as `otherApps` inherit the configuration of the main app under test for [`Device Language`, `Device Orientation`, and `Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
@@ -378,6 +419,7 @@ Apps specified as `otherApps` inherit the configuration of the main app under te
   otherApps:
     - ./apps/pre-installed-app1.apk
     - $PRE_INSTALLED_APP2
+    - storage:d6aac80c-2000-a2f1-4c4e-539266e93ee6
     - storage:filename=pre-installed-app3.apk
 ```
 ---
@@ -399,18 +441,6 @@ The name of the test suite, which will be reflected in the results and related a
 
 ```yaml
   - name: "saucy test"
-```
----
-
-### `env`
-<p><small>| OPTIONAL | OBJECT |</small></p>
-
-A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
-
-```yaml
-  env:
-    hello: world
-    my_var: $MY_VAR
 ```
 ---
 
@@ -496,7 +526,7 @@ devices:
 #### `id`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Request a specific device for this test suite by its ID. You can look up device IDs on device selection pages or by using our [Get Devices API request](https://docs.saucelabs.com/dev/api/rdc#get-devices).
+Request a specific device for this test suite by its ID. You can look up device IDs on device selection pages or by using our [Get Devices API request](/dev/api/rdc/#get-devices).
 
 ```yaml
         id: Google_Pixel_2_real_us
@@ -573,18 +603,20 @@ Request that the matching device is from your organization's private pool.
 A set of parameters allowing you to provide additional details about which test class should be run for the suite and how to apply them.
 
 ```yaml
-testOptions:
-  class:
-    - com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
-  notClass:
-    - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest
-  size: small
-  package: com.example.android.testing.androidjunitrunnersample
-  annotation: com.android.buzz.MyAnnotation
-  notAnnotation: com.android.buzz.NotMyAnnotation
-  numShards: 4
-  clearPackageData: true
-  useTestOrchestrator: true
+suites:
+  testOptions:
+    class:
+      - com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
+    notClass:
+      - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest
+    size: small
+    package: com.example.android.testing.androidjunitrunnersample
+    notPackage: com.example.android.testing.androidMyDemoTests
+    annotation: com.android.buzz.MyAnnotation
+    notAnnotation: com.android.buzz.NotMyAnnotation
+    numShards: 4
+    clearPackageData: true
+    useTestOrchestrator: true
 ```
 ---
 
@@ -630,6 +662,16 @@ Instructs `saucectl` to run only tests in the specified package.
 ```
 ---
 
+#### `notPackage`
+<p><small>| OPTIONAL | STRING | REAL DEVICES ONLY |</small></p>
+
+Instructs `saucectl` to run run all tests *except* those in the specified package.
+
+```yaml
+  notPackage: com.example.android.testing.androidMyDemoTests
+```
+---
+
 #### `annotation`
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -667,12 +709,17 @@ Espresso may not distribute tests evenly across the number of shards specified, 
 ---
 
 #### `clearPackageData`
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | REAL DEVICES ONLY |</small></p>
 
 Removes all shared states from the testing device's CPU and memory at the completion of each test.
 
+:::note
+The flag `clearPackageData` has to be used in conjunction with `useTestOrchestrator`.
+:::
+
 ```yaml
   clearPackageData: true
+  useTestOrchestrator: true
 ```
 ---
 

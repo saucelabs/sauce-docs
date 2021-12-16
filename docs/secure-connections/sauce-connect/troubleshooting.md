@@ -7,11 +7,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::note --doctor flag deprecated
+Below are some tips to help troubleshoot Sauce Connect Proxy.
 
-Effective with Sauce Connect Proxy version 4.7.0, we've [deprecated the `--doctor` flag](https://changelog.saucelabs.com/en/sauce-connect-proxy-version-30JTvzO0F). Diagnostics are now automatically triggered.
+:::caution Important
+Make sure you're using the latest version of Sauce Connect Proxy, which you can download [here](/secure-connections/sauce-connect/installation/). Using older versions may cause technical issues. If you run into an error trying to launch a tunnel, this should be your first step.
+
 :::
-
 
 ## Generating Tunnel Logs to Help with Troubleshooting
 
@@ -99,7 +100,7 @@ Cross-Origin Resource Sharing (CORS) errors could be caused by a variety of reas
 
 ## Common Mistakes in Network Configurations
 
-As a primer, the diagram below is the ideal network configuration with regards to Sauce Connect Proxy. Your firewall only needs to allow for outbound connections to Sauce Labs. Sauce Connect Proxy establishes a TLS connection (tunnel) to a dedicated tunnel endpoint server hosted in the Sauce Labs cloud. For best performance, Sauce Connect Proxy should be running close to the Site Under Test or Application Under Test.
+As a primer, the diagram below is the ideal network configuration with regards to Sauce Connect Proxy. Your firewall only needs to allow for outbound connections to Sauce Labs. Sauce Connect Proxy establishes a TLS connection (tunnel) to a dedicated tunnel endpoint server hosted in the Sauce Labs cloud. For best performance, Sauce Connect Proxy should be running close to the Site Under Test or App Under Test.
 
 <img src={useBaseUrl('img/sauce-connect/correct-network-config.png')} alt="Correct network configuration" width="400"/>
 
@@ -120,7 +121,7 @@ The way to prevent this is to ensure the SC Host is placed in the same geographi
 
 | Term | Definition |
 | :--- | :--- |
-| SC Host (Sauce Connect Host) | Machine in your network on which the Sauce Connect Proxy application is running. |
+| SC Host (Sauce Connect Host) | Machine in your network on which the Sauce Connect Proxy app is running. |
 | SUT (Site Under Test) | The site that you're testing. |
 | Tunnel VM (Tunnel Virtual Machine) | Virtual machine that hosts Sauce Connect Proxy on the Sauce Labs side. |
 
@@ -133,16 +134,16 @@ Another common mistake is placing the SUT in the same network as the [Demilitari
 
 | Term | Definition |
 | :--- | :--- |
-| SC Host (Sauce Connect Host) | Machine in your network on which the Sauce Connect Proxy application is running. |
+| SC Host (Sauce Connect Host) | Machine in your network on which the Sauce Connect Proxy app is running. |
 | SUT (Site Under Test) | The site that you're testing. |
 | Tunnel VM (Tunnel Virtual Machine) | Virtual machine that hosts Sauce Connect Proxy on the Sauce Labs side. |
 
 
 ## Additional Support
 
-For additional help, please reach out to our Support Team. To better assist you, include the following information with your request:
+For additional help, please reach out to the Sauce Labs Support Team. To better assist you, include the following information with your request:
 
-* Link to your Sauce Labs test from the Test Results page in Sauce Labs, showing reproduction of the problem
+* Link to your Sauce Labs test from the Test Results page on Sauce Labs, showing reproduction of the problem
 * Your Sauce Connect Proxy verbose log, which you can get by adding the `-v` and `-l sc.log` options to your Sauce Connect Proxy command line:
 
   ```bash
@@ -150,3 +151,7 @@ For additional help, please reach out to our Support Team. To better assist you,
   ```
 
 Then, attach the resulting `sc.log` file to your support request.
+
+## More Information
+
+* Effective with Sauce Connect Proxy version 4.7.0, the `--doctor` flag was deprecated. Diagnostics are now automatically triggered. Refer to our [Changelog](https://changelog.saucelabs.com/en/sauce-connect-proxy-version-30JTvzO0F) for more information.

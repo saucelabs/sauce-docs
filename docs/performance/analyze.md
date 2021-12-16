@@ -6,7 +6,7 @@ description: Drill into the results of your Sauce Labs performance testing to is
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Every time you run a performance test, whether it is through the Speedo command line or an automation script testing page load or motion effects, the results of the test are compiled and displayed in Sauce Labs, and available to all members of your team for analysis and debugging.
+Every time you run a performance test, whether it is through the Speedo command line or an automation script testing page load or motion effects, the results of the test are compiled and displayed on Sauce Labs, and available to all members of your team for analysis and debugging.
 
 ## Viewing Performance Results in Sauce Labs
 
@@ -41,7 +41,7 @@ In this view, you can see the overall score for the test, plus individual scores
 
 ### Performance Score
 
-A performance score is a rating between 0 and 100 indicating how well your page is performing compared to the industry standard. 0 is the lowest possible score and indicates a serious performance issue, while 100 indicates a top-performing application.
+A performance score is a rating between 0 and 100 indicating how well your page is performing compared to the industry standard. 0 is the lowest possible score and indicates a serious performance issue, while 100 indicates a top-performing app.
 
 The metric is similar to the performance score you can find in a [Google Lighthouse Report](https://developers.google.com/web/tools/lighthouse). The scoring distribution is a log-normal distribution derived from the performance metrics of real website performance data on HTTPArchive.
 

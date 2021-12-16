@@ -1,6 +1,6 @@
 ---
 id: supported-browsers
-title: Visual E2E Supported Browsers and Operation Systems
+title: Visual E2E Supported Browsers and Operating Systems
 sidebar_label: Supported Browsers and OSs
 ---
 
@@ -118,7 +118,7 @@ sidebar_label: Supported Browsers and OSs
   </tr>
 </table>
 
-## Additional Information
+## More Information
 
 For more information on what we support, see:
 * [Sauce Labs | Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices)

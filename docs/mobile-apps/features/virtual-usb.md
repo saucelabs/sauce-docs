@@ -102,7 +102,7 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
   First, launch your test on Sauce Labs (**Live** > **Cross Browser** > **Mobile Real** > Find your **Private Device** > **Launch**). Next, locate your `--sessionId` by opening a new command line terminal and running the [`sessions`](/dev/cli/virtual-usb/find-sessionid) command, along with your credentials.
 
   ```java
-  java -jar virtual-usb-client.jar sessions --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  java -jar virtual-usb-client.jar sessions --username {SAUCE_USERNAME} --accessKey {SAUCE_ACCESS_KEY}
   ```
 
   If [Sauce Connect Proxy](/secure-connections/sauce-connect) is required to access your corporate network or your local machine for secure test data, you'll need to select a **SAUCE CONNECT PROXY** from the dropdown before launching your device.
@@ -119,7 +119,7 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
   Copy the `--sessionId` of your desired test, then run that along with the [`connect`](/dev/cli/virtual-usb/connect-session) command and your credentials.
 
   ```java
-  java -jar virtual-usb-client.jar connect --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  java -jar virtual-usb-client.jar connect --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 --username {SAUCE_USERNAME} --accessKey {SAUCE_ACCESS_KEY}x
   ```
 
 :::note
@@ -183,20 +183,20 @@ Method 1 is recommended for the following reasons:
   <TabItem value="Android">
 
   ```java
-  java -jar virtual-usb-client.jar startSession --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx --deviceName Motorola_Moto_Z_real
+  java -jar virtual-usb-client.jar startSession --username {SAUCE_USERNAME} --accessKey {SAUCE_ACCESS_KEY}x --deviceName Motorola_Moto_Z_real
   ```
 
   </TabItem>
   <TabItem value="iOS">
 
   ```java
-  java -jar virtual-usb-client.jar startSession --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx --deviceName iPhone_XS
+  java -jar virtual-usb-client.jar startSession --username {SAUCE_USERNAME} --accessKey {SAUCE_ACCESS_KEY}x --deviceName iPhone_XS
   ```
 
   </TabItem>
   </Tabs>
 
-  To use Sauce Connect Proxy: launch a tunnel in the Sauce Connect client, then add your [`--tunnel-identifier`](https://docs.saucelabs.com/dev/cli/virtual-usb/start-session#--tunnelidentifier), which the vUSB client will use to retrieve and secure test data. You can also set up a device proxy using [proxy command options](/dev/cli/virtual-usb/start-session).
+  To use Sauce Connect Proxy: launch a tunnel in the Sauce Connect client, then add your [`--tunnel-identifier`](/dev/cli/virtual-usb/start-session/#--tunnelidentifier), which the vUSB client will use to retrieve and secure test data. You can also set up a device proxy using [proxy command options](/dev/cli/virtual-usb/start-session).
 
   If your vUSB test session launch is successful, you'll see a success message:
   <Tabs
@@ -250,7 +250,7 @@ Method 1 is recommended for the following reasons:
 
 ### Test and Debug
 
-8. Now, you can debug and run tests on your app. For guidance and ideas, see the [Example Use Cases](https://docs.saucelabs.com/mobile-apps/features/virtual-usb#example-use-cases).
+8. Now, you can debug and run tests on your app. For guidance and ideas, see the [Example Use Cases](/mobile-apps/features/virtual-usb/#example-use-cases).
 
 :::caution iOS Limitation
 To do proper debugging, the iOS device symbols will need to be downloaded to your local machine. This happens automatically when you're connecting to a Sauce Labs iOS device for the first time via a remote debug vUSB session with Xcode. **Xcode will attempt to download the iOS device symbols over the vUSB tunnel, causing a lag that can last up to a few minutes.**
@@ -277,7 +277,7 @@ This a one-time action that you won't need to do again for future tests.
     * If you started your test session with `startSession` (option 2), close it out by running the [`deleteSession`](/dev/cli/virtual-usb/delete-session) command, followed by your `--sessionId` and credentials.
 
      ```java
-     java -jar virtual-usb-client.jar deleteSession --sessionId 37D274BC3A65A34BB3DA4DDF7B77E341 --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+     java -jar virtual-usb-client.jar deleteSession --sessionId 37D274BC3A65A34BB3DA4DDF7B77E341 --username {SAUCE_USERNAME} --accessKey {SAUCE_ACCESS_KEY}x
      ```
      * **Android Only**: You'll also need to disconnect your device from ADB. Run `adb disconnect` followed by your `<IPAddress>:<portNumber>`:
        ```java
@@ -372,7 +372,7 @@ To deploy and debug your iOS apps, you can use Xcode. To debug your website, we 
 
 #### **Xcode Debugging**
 :::note
-Before debugging with Xcode, please read the known limitations under [Test and Debug](https://docs.saucelabs.com/mobile-apps/features/virtual-usb#test-and-debug).
+Before debugging with Xcode, please read the known limitations under [Test and Debug](/mobile-apps/features/virtual-usb/#test-and-debug).
 :::
 
 To profile your app: from your Xcode nav, select **Product** > **Profile**. It will automatically profile the app and generate a new menu, as shown below.

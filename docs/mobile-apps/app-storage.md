@@ -1,14 +1,14 @@
 ---
 id: app-storage
-title: Mobile Application Storage
-sidebar_label: Application Storage
+title: Mobile App Storage
+sidebar_label: App Storage
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-When testing mobile apps, you have the option to upload your app to our application storage. The benefits of application storage include:
+When testing mobile apps, you have the option to upload your app to our app storage. The benefits of app storage include:
 
 * Uploading all of your mobile apps to the same location for cross-device automated and live testing with virtual devices and real devices.
 * Sharing your uploaded apps with your team members.
@@ -17,11 +17,14 @@ When testing mobile apps, you have the option to upload your app to our applicat
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-* Your mobile app file. If you don't have one on hand, consider using the [Sauce Labs sample app](https://github.com/saucelabs/sample-app-mobile) for validating this process.
+* Your mobile app file. If you don't have one on hand, consider using our Demo Apps:
+     * [React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
+     * [iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
+     * [Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)
 
 ## Uploading Apps via UI
 
-For information about using the Sauce Labs UI to upload your mobile file to application storage, see [Uploading an App](https://docs.saucelabs.com/mobile-apps/live-testing/live-mobile-app-testing/index.html#uploading-an-app).
+For information about using the Sauce Labs UI to upload your mobile file to app storage, see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app).
 
 :::note
 This method currently supports live testing on **real devices only**. For virtual devices, upload your apps via the REST API.
@@ -29,23 +32,93 @@ This method currently supports live testing on **real devices only**. For virtua
 
 ## Uploading Apps via REST API
 
-See [File Storage API Methods](/dev/api/storage) to learn how to use the Sauce Labs REST API to upload your mobile file to application storage.
+You can upload your mobile app programmatically using the [File Storage API Methods](/dev/api/storage). The API endpoints are [Data center-specific](/basics/data-center-endpoints), so make sure you are using the endpoint that is applicable for your account data center, as shown in the following example requests.
 
-There are two main contexts/branches for the storage API:
+### Considerations
 
-* One for working with separate application builds (individual builds, application files, etc.).
-* One for working with apps (groups of application builds with the same unique identifier, belonging to the same platform and team).
+When using the cURL sample requests below, consider the following:
+
+* The `<path/to/your/file>` variable must include the file itself, including the file extension.
+* The `<filename.ext>` variable is the portion of the path that is just the file itself and must also include the file extension. Otherwise, the upload will succeed, but your app will not be accessible to your tests.
+* The `$SAUCE_USERNAME:$SAUCE_ACCESS_KEY` variable assumes you have set your Sauce Labs credentials as [environment variables](/basics/environment-variables).
+
+<Tabs
+groupId="dc-url"
+defaultValue="usw"
+values={[
+{label: 'US West', value: 'usw'},
+{label: 'US East', value: 'use'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="usw">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
+--form 'payload=@"<path/to/your/file>"' \
+--form 'name="<filename.ext>"'
+```
+
+</TabItem>
+<TabItem value="use">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-east-1.saucelabs.com/v1/storage/upload' \
+--form 'payload=@"<path/to/your/file>"' \
+--form 'name="<filename.ext>"'
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/v1/storage/upload' \
+--form 'payload=@"<path/to/your/file>"' \
+--form 'name="<filename.ext>"'
+```
+
+</TabItem>
+</Tabs>
+
+
+## Installing Apps from a Remote Location
+<p> <small><span className="sauceDBlue">Real Devices Only</span></small></p>
+
+If your app is downloadable from a remote location (e.g., AWS S3 bucket, a GitHub repository), you can provide a URL as the value for the `app` capability in your test, which will install the app onto the real devices prior to test execution.
 
 :::note
-Use [Data center-specific endpoints](/basics/data-center-endpoints/data-center-endpoints) whenever possible.
+Appium cannot log into secure locations, so apps installed via remote download must be accessible, so are then removed from the real device immediately following test completion, providing an added layer of security.
 :::
+
+To install a remote app on a real device for a test:
+
+1. Make sure the app meets the [requirements](/mobile-apps/supported-devices) for Android and iOS Mobile App Testing.
+1. Ensure Sauce Labs has READ access to the app URL.
+1. In your Appium test script, enter the app file location URL as the `app` desired capability:
+
+  ```java title="Example Java Remote App URL Capability"
+  caps.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.3.0/Android.SauceLabs.Mobile.Sample.app.2.3.0.apk?raw=true");
+  ```
+
+### Private Device Considerations
+
+If you are using a remote app download for testing on a private device and wish to also prevent the device from broad internet access while under test, you need to use a secure connection to reach the app URL.
+
+* Ensure the app is available from a private hosting solution with the necessary permissions (e.g. GitHub repository or Amazon S3 with a strict bucket policy).
+* Ensure the hosted app URL is available to the machine running the automated test.
+* Enable the **Require Sauce Connect/VPN** setting in your [organization's security settings](/basics/acct-team-mgmt/org-settings).
+
+:::note
+Each session is a "fresh" installation of your app, meaning, you will not be able to access information about previous versions of your app.
+:::
+
 
 ## Accepted File Types 
-Application storage recognizes \*.apk and \*.aab files as Android apps and \*.ipa or \*.zip files as iOS apps. \*.zip files are parsed to determine whether a valid *.app bundle exists.
 
-:::caution Limited Support for *.aab Files
-At this time, \*.aab files are only supported for Android real device testing.
-:::
+App storage recognizes \*.apk and \*.aab files as Android apps and \*.ipa or \*.zip files as iOS apps. \*.zip files (for simulator tests only) are parsed to determine whether a valid *.app bundle exists.
 
 You can also upload and store other file types for generic use, such as a pre-run executable, package, or binary. Some of the formats for this type of use case include:
 
@@ -59,10 +132,10 @@ You can also upload and store other file types for generic use, such as a pre-ru
 ## Team Management Sync
 All uploaded files are shared with the same team. Members can only access files that are shared with the team where you contribute/participate. Organization admins have access to all files in your organization.
 
-For more information about managing access to your organization, see [Managing User Information](https://docs.saucelabs.com/basics/acct-team-mgmt/managing-user-info).
+For more information about managing access to your organization, see [Managing User Information](/basics/acct-team-mgmt/managing-user-info).
 
 ## Using Application Storage with Automated Test Builds
-After successfully uploading your file to application storage, you need to reference the unique app Identifier (`file_id`) in your test code to retrieve and use your app for automated tests.
+After successfully uploading your file to app storage, you need to reference the unique app Identifier (`file_id`) in your test code to retrieve and use your app for automated tests.
 
 For example, let's assume you've updated a new version of your app using the `/upload` endpoint. The JSON response would be something like:
 
@@ -93,10 +166,10 @@ For example, let's assume you've updated a new version of your app using the `/u
    }
 }
 ```
-Then the file_id would be  `"id":"379c301a-199c-4b40-ad45-4a95e5f30a3a"`. If you're unsure of the id of an existing app, you can use the [Storage API](/dev/api/storage) to lookup the ID of an application in storage or look into the apps details in the [Sauce UI](https://app.saucelabs.com/live/app-testing).
+Then the file_id would be  `"id":"379c301a-199c-4b40-ad45-4a95e5f30a3a"`. If you're unsure of the id of an existing app, you can use the [Storage API](/dev/api/storage) to lookup the ID of an app in storage or look into the apps details in the [Sauce UI](https://app.saucelabs.com/live/app-testing).
 
 ### File Name instead of File ID
-You can also use the app `name` field from the storage API in the `app` capability. This approach is particularly useful if you uploaded your build to application storage via a CI pipeline, and you either don't know the id, or you do not wish to perform JSON parsing in order to retrieve the id. The filename field also includes any supported file that can be uploaded to application storage.
+You can also use the app `name` field from the storage API in the `app` capability. This approach is particularly useful if you uploaded your build to app storage via a CI pipeline, and you either don't know the id, or you do not wish to perform JSON parsing in order to retrieve the id. The filename field also includes any supported file that can be uploaded to app storage.
 
 Example of uploading an Android .apk file:
 
@@ -153,7 +226,7 @@ caps.SetCapability("app","storage:filename=<file-name>.apk");
 * `build` capability not supported in VDC at this time.
 
 ## Updating WebDriver Capabilities
-If you were previously using application stored in  sauce-storage, you can convert your existing test capabilities by replacing `sauce-storage:myapp` with `storage:<file_id>`.
+If you were previously using app stored in  sauce-storage, you can convert your existing test capabilities by replacing `sauce-storage:myapp` with `storage:<file_id>`.
 
 ### Example Code
 These examples assume `file_id = c8511dd6-38ec-4f58-b8b9-4ec8c23ad882`
@@ -264,18 +337,17 @@ espresso:
   otherApps:
     - ./apps/pre-installed-app1.apk
     - $PRE_INSTALLED_APP2
+    - storage:c78ec45e-ea3e-ac6a-b094-00364171addb
     - storage:filename=pre-installed-app3.apk
 ```
 
 ## Uploading to Legacy Sauce Storage
 
-<p><span className="sauceGold">DEPRECATED</span></p>
+Sauce Storage is a short term storage space for apps. Files uploaded here expire and are removed from the platform after seven days. You can upload an app you want to test using the applicable REST API request below, and then access it for testing by specifying `sauce-storage:myapp` for the app capability in your test script:
 
-TestObject was discontinued on September 1, 2021.
-
-If you have any questions about migrating your apps to Sauce Labs, please reach out to your Customer Success Manager or Sauce Labs Support.
-
-Sauce Storage is our legacy private storage space for apps. Files uploaded will expire seven days after upload, and be removed. You can upload the app you want to test to Sauce Storage using our REST API, and then access it for testing by specifying `sauce-storage:myapp` for the app capability in your test script. You upload apps using the [`upload_file`](/dev/api/storage/#upload-file-to-app-storage) method of the Sauce Labs REST API.
+```
+"appium:app": "storage:my-app"
+```
 
 <Tabs
   defaultValue="bash"
@@ -339,5 +411,3 @@ Windows Example:
 
 </TabItem>
 </Tabs>
-
-For information about uploading an app from a remote location, see [Uploading Mobile Apps from a Remote Location](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices/index.html#uploading-mobile-apps-from-a-remote-location).

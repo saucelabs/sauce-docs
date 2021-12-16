@@ -54,6 +54,16 @@ kind: testcafe
 ```
 ---
 
+## `showConsoleLog`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Generates the `console.log` as local output and as a test asset in Sauce Labs for all tests. By default, `console.log` is only included in results for failed tests.
+
+```yaml
+showConsoleLog: true
+```
+---
+
 ## `defaults`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -169,24 +179,48 @@ saucectl run --retries 1
 ---
 
 ### `tunnel`
-<p><small>| OPTIONAL | OBJECT | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
-`saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection when running your tests on Sauce Labs. To do so, launch a tunnel; then provide the identifier in this property.
+`saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
 
-:::note Choose the Correct Tunnel Identifier
-When you launch a tunnel, you can accept the tunnel identifier name that Sauce Labs generates for your account (e.g., `{SL-username}_tunnel_id`) or specify a name in the launch command:
-
+```yaml
+sauce:
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
 ```
-bin/sc -u {SL-username} -k {SL-access_key} -i {tunnel_identifier}
-```
+---
 
-This is the identifier `saucectl` expects as the `id` property, even though the Sauce Labs UI refers to this values as the `Tunnel Name`.
+#### `name`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Identifies an active Sauce Connect tunnel to use for secure connectivity to the Sauce Labs cloud.
+
+:::note
+This property replaces the former `id` property, which is deprecated.
 :::
 
 ```yaml
- tunnel:
-    id: your_tunnel_id
-    parent: parent_owner_of_tunnel # if applicable, specify the owner of the tunnel
+sauce:
+  tunnel:
+    name: your_tunnel_name
+```
+---
+
+#### `owner`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Identifies the Sauce Labs user who created the specified tunnel, which is required if the user running the tests did not create the tunnel.
+
+:::note
+This property replaces the former `parent` property, which is deprecated.
+:::
+
+```yaml
+sauce:
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
 ```
 ---
 
@@ -545,6 +579,18 @@ Specifies whether the individual suite will run on `docker` or `sauce`, potentia
 ```
 ---
 
+### `shard`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+When sharding is configured, saucectl automatically splits the tests (e.g. by spec) so that they can easily run in parallel.
+Selectable values: `spec` to shard by spec file. Remove this field or leave it empty `""` for no sharding.
+
+```yaml
+    shard: spec
+```
+
+---
+
 ### `src`
 <p><small>| REQUIRED | OBJECT |</small></p>
 
@@ -557,6 +603,95 @@ The explicit name, file glob, or location of the test files to be included in th
     - "*/*.test.js"
 ```
 ---
+
+### `filter`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specify a set of criteria to limit which tests in the `src` directory to execute for the suite.
+
+```yaml
+suites:
+  - name: Example Suite
+    filter:
+      test: browser-should-display-time
+      testGrep: browser.*
+      fixture: browswer-expectations
+      fixtureGrep: browser.*
+      testMeta:
+        region: us-west-1
+      fixtureMeta:
+        env: staging
+```
+---
+
+#### `test`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Runs a test with the specified name.
+
+```yaml
+filter:
+  test: browser-should-display-time
+```
+---
+
+#### `testGrep`
+<p><small>| OPTIONAL | STRING/REGEX |</small></p>
+
+Runs tests whose names match the specified `grep` pattern.
+
+```yaml
+filter:
+  testGrep: should-.*
+```
+---
+
+#### `fixture`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Runs a test with the specified fixture name.
+
+```yaml
+filter:
+  fixture: browswer-expectations
+```
+---
+
+#### `fixtureGrep`
+<p><small>| OPTIONAL | STRING/REGEX |</small></p>
+
+Runs any tests included in fixtures whose names match the specified `grep` patterns.
+
+```yaml
+filter:
+  fixtureGrep: browser-.*
+```
+---
+
+#### `testMeta`
+<p><small>| OPTIONAL | KEY-VALUE |</small></p>
+
+Runs any tests whose metadata matches the specified key-value pairs. Accepts one or more key-value definitions. If multiple pairs are specified, matching tests must contain all of the specified metadata values.
+
+```yaml
+filter:
+  testMeta:
+    region: us-west-1
+```
+---
+
+#### `fixtureMeta`
+<p><small>| OPTIONAL | KEY-VALUE |</small></p>
+
+Runs any tests included in fixtures whose metadata matches the specified key-value pairs. Accepts one or more key-value definitions. If multiple pairs are specified, matching fixtures must contain all of the specified metadata values.
+
+```yaml
+filter:
+  fixtureMeta:
+    env: staging
+```
+---
+
 
 ### `simulators`
 <p><small>| OPTIONAL | OBJECT | <span class="highlight sauce-cloud">Sauce Cloud only</span>|</small></p>
@@ -635,12 +770,36 @@ Determines whether to ignore JavaScript errors on a webpage. See [Testcafe defin
 ---
 
 ### `quarantineMode`
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
 Determines whether to enable quarantine mode for tests that fail. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#quarantinemode).
 
 ```yaml
-  quarantineMode: true
+  quarantineMode:
+    attemptLimit: 5
+    successThreshold: 3
+```
+---
+
+#### `attemptLimit`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+The maximum number of test execution attempts. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemodeattemptlimit).
+
+```yaml
+  quarantineMode:
+    attemptLimit: 5
+```
+---
+
+#### `successThreshold`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+The number of successful attempts necessary to confirm a test’s success. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemodesuccessthreshold).
+
+```yaml
+  quarantineMode:
+    successThreshold: 3
 ```
 ---
 

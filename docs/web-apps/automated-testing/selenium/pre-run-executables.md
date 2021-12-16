@@ -110,11 +110,11 @@ You can use a pre-run executable script to download files from a public location
 <TabItem value="macOS">
 
 ### OS X 10.6, 10.8, 10.9, 10.10
-This shell script will fetch the file at the URL and save it to **/tmp/file.txt**.
+This shell script will fetch the file at the URL and save it to **/Users/chef/file.txt**.
 
 ```js
 #!/bin/bash
-curl -o /tmp/file.txt http://mywebsite.com/file.txt
+curl -o /Users/chef/file.txt http://mywebsite.com/file.txt
 ```
 </TabItem>
 
@@ -246,7 +246,7 @@ obj.Add("background", true);
 obj.Add("timeout", 120);
 ```
 
-When you set the desired capabilities of your test, refer to the object you created as the path to the executable, as in this example:
+When you set your test capabilities, refer to the object you created as the path to the executable, as in this example:
 
 ```
 DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -255,7 +255,7 @@ capabilities.setCapability("prerun", obj);
 
 ## Running an AutoIt Script
 
-When using Sauce Connect to run local tests on a Windows machine, you may encounter an Integrated Windows Authentication (IWA) dialog, also known as NTLM or Domain authentication. This is because the machine that Sauce Connect is running on is used to look up the host where the site or application under test is located. If the host has IWA enabled, the authentication request will be passed back through Sauce Connect to the Sauce Labs browser. Because there is no registry key available on our Windows virtual machines to disable this authentication, the solution is to create an AutoIT script to respond to the dialog.
+When using Sauce Connect to run local tests on a Windows machine, you may encounter an Integrated Windows Authentication (IWA) dialog, also known as NTLM or Domain authentication. This is because the machine that Sauce Connect is running on is used to look up the host where the site or app under test is located. If the host has IWA enabled, the authentication request will be passed back through Sauce Connect to the Sauce Labs browser. Because there is no registry key available on our Windows virtual machines to disable this authentication, the solution is to create an AutoIT script to respond to the dialog.
 
 You can use the AutoIT Script editor to write and save your script.
 

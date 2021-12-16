@@ -38,7 +38,6 @@ If you need...
 
 | | iOS Mobile Apps | Android Mobile Apps |
 :-------:| :-------:| :----:|
-|  | <img src={useBaseUrl('img/mobile-apps/apple-logo.png')} alt="Apple logo" width="50"/> | <img src={useBaseUrl('img/mobile-apps/android-logo.png')} alt="Android logo" width="50"/> |
 | **Requirements** | <p>Your iOS app must be:</p><p>Compiled for the simulator/device version of your choice</p><p>Compressed into a .zip package/archive file (must include app directory)</p><p>[Uploaded and hosted](mobile-apps/app-storage.md) in a place that Sauce Labs can access (for example: AWS, GitHub, or Sauce Labs App Storage)</p> | <p>Your Android app must be:</p><p>Compiled for the simulator/device version of your choice</p><p>Configured to have internet permissions</p><p>Built into an .apk package/archive file</p><p>[Uploaded and hosted](mobile-apps/app-storage.md) in a place that Sauce Labs can access (for example: AWS, GitHub, or Sauce Labs App Storage).</p> <p>_Appium only. For Espresso, `saucectl` uploads the referenced app for you._</p> |
 | **Versions supported** | iOS versions 10.3 and higher | Android versions 5.0 and higher |
 | **Tips** | <p>If you're using App Storage, get the returned location, which will look something like storage:filename=myApplication.zip.</p><p>In your [test capabilities](/dev/test-configuration-options), specify the location of the .zip file, or the `storage:filename=myApplication.zip` URL as described in [App Storage](mobile-apps/app-storage.md).</p> | <p>This StackOverflow article contains instructions on how to build an .apk file in Eclipse.</p><p>In your test capabilities, specify the location of the .apk file, or the `storage:filename=app.apk` URL as described in [App Storage](mobile-apps/app-storage.md).</p> |
@@ -88,7 +87,6 @@ This is dedicated pool of devices just for your organization. On the mobile devi
 
 | | iOS Mobile Apps | Android Mobile Apps |
 :-------:| :-------:| :----:|
-|  | <img src={useBaseUrl('img/mobile-apps/apple-logo.png')} alt="Apple logo" width="50"/> | <img src={useBaseUrl('img/mobile-apps/android-logo.png')} alt="Android logo" width="50"/> |
 | **Requirements** | <p>Your iOS app must be:</p><p>Formatted as a .app or .ipa file. Refer to the documentation on [how to create an .ipa file](/mobile-apps/automated-testing/ipa-files)</p><p>Uploaded and hosted in [Sauce Labs storage](/mobile-apps/app-storage.md) or installed from a remote location.</p><p>_Appium only. For XCUITest, `saucectl` uploads the referenced app for you._</p>| <p>Your Android app must be:</p><p>Built into an .apk package/archive file.</p><p>Configured to have [internet permissions](http://developer.android.com/reference/android/Manifest.permission.html#INTERNET)</p><p>Uploaded and hosted in [Sauce Labs storage](/mobile-apps/app-storage.md) or installed from a remote location.</p><p>_Appium only. For Expresso, `saucectl` uploads the referenced app for you._</p>|
 | **Versions supported** | iOS versions 9.3.6 and higher | Android versions 5.0 and higher |
 
@@ -96,7 +94,7 @@ For the full list of supported real devices, see [Supported Browsers and Devices
 
 ### Security
 
-#### **Real Device Cleaning**
+#### Real Device Cleaning
 
 We use a proprietary process that wipes every real device clean at the end of the testing session:
 
@@ -112,17 +110,15 @@ We use a proprietary process that wipes every real device clean at the end of th
 While we take these actions to clean public real devices after each test session, we do not perform factory resets nor do we have anti-virus software installed on them. It is possible that other users of the public RDC may engage in malicious, careless or unsecure activity, and that sophisticated, persistent malware could therefore be present on any device in the public RDC.
 :::
 
-For more information on Sauce Labs security settings, see [Security Settings for Organizations](/basics/acct-team-mgmt/org-settings).
+#### Data Center Security
 
-#### **Data Center Security**
-
-Real Device Cloud Data Center security is described in [Data Center Endpoints](/basics/data-center-endpoints/data-center-endpoints).
+Real Device Cloud Data Center security is described in [Data Center Endpoints](/basics/data-center-endpoints).
 
 ### Static and Dynamic Device Allocation
 
 Regardless of the test frameworks you're using (Appium, Espresso, XCUITest), you can configure your real device tests using static and dynamic device allocation. While the syntax may be different (i.e., `--device`, `deviceName`), the functionality is the same across all frameworks.
 
-#### **Static Device Allocation**
+#### Static Device Allocation
 
 This is specifying an exact device for your test by setting `deviceName` to the Device ID, which you can find under **Live** > **Mobile-App** > **Choose device** > Find Your Device > **Details**.
 <img src={useBaseUrl('img/mobile-apps/samsung-galaxyA10.jpg')} alt="Sauce Labs Device ID example" width="450"/>
@@ -162,7 +158,7 @@ capabilities.setCapability("deviceName", "iPhone_11_13_5_real_us");
 </Tabs>
 <br/>
 
-#### **Dynamic Device Allocation**
+#### Dynamic Device Allocation
 
 This is specifying basic parameters for the platform, operating system, and/or type of device you want to use in your tests using [regular expressions (regex)](https://en.wikipedia.org/wiki/Regular_expression) to dynamically allocate a device. A device(s) with your specifications will be selected from the real device pool.
 
