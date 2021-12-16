@@ -27,7 +27,7 @@ class Resources extends Component {
           <div className="box box3 card">
             <div className="container">
               <h3>Reference Docs</h3>
-              <p>Use the Sauce platform to best suit your needs. </p>
+              <p>Use the Sauce platform to best suit your needs.</p>
               <ul>
                 <li><h4><a href="https://docs.saucelabs.com/dev/api/">API reference</a></h4></li>
                 <li><h4><a href="https://docs.saucelabs.com/dev/cli/">CLI reference</a></h4></li>
