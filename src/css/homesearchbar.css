@@ -11,3 +11,11 @@ div.new-search svg.DocSearch-Search-Icon {
 div.new-search .DocSearch-Button-Placeholder {
     display: inherit;
 }
+
+div.new-search span.DocSearch-Button-Placeholder {
+    color: #464b54;
+}
+
+html[data-theme='dark'] div.new-search svg.DocSearch-Search-Icon {
+    fill: black;
+}
