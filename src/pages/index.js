@@ -40,7 +40,7 @@ function Home() {
                 &nbsp;API Testing |
               </a>
               <a className="hero__popular-searches"
-                href="/docs/getting-started/tutorials/getting-started-with-sauce-connect">
+                href="https://docs.saucelabs.com/web-apps/automated-testing/selenium/selenium4/">
                 &nbsp;Selenium 4 |
               </a>
               <a className="hero__popular-searches"
