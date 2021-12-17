@@ -469,6 +469,7 @@ module.exports = {
                             'basics/integrations/deque',
                             'basics/integrations/jira',
                             'basics/integrations/slack',
+                            'basics/integrations/webhooks',
                         ],
                     },
                 ],
