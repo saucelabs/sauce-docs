@@ -39,9 +39,6 @@ __Shorthand__: `-u`
 __Description__: Sets your Sauce Labs API key. This will be the same as your [Access Key](https://app.saucelabs.com/user-settings). For additional security, you can set this as an [environment variable](/secure-connections/sauce-connect/setup-configuration/environment-variables/).<br/>
 __Shorthand__: `-k`
 
-__Description__: defines the local path to a YAML file containing a Sauce Connect Proxy configuration. <br/>
-__Shorthand__: `-c`
-
 ---
 ### `--config-file`
 <p><small>| REQUIRED | STRING |</small></p>
