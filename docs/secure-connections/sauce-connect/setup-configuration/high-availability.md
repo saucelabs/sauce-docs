@@ -64,7 +64,7 @@ All tunnels with the same name started prior to the start of the latest instance
 When creating a tunnel pool, you need to prevent tunnel name collision by using the [`--tunnel-pool`](/dev/cli/sauce-connect-proxy#--tunnel-pool) flag when starting the tunnels for your tunnel pool. Tunnels will then remain active and tests will be distributed among them.
 
 #### Monitoring Tunnel Pools
-When running a tunnel pool, we recommend monitoring your activity on the Sauce Labs [**TUNNELS**](https://app.saucelabs.com/tunnels) page to ensure your tunnel configuration stability and overall testing efficiency. Here, you can gain insight into all individual tunnels and tunnel pools. See [Monitoring Tunnels](/secure-connections/sauce-connect/proxy-tunnels/#monitoring-tunnels) for more information.
+When running a tunnel pool, we recommend monitoring your activity on the Sauce Labs [**Tunnels**](https://app.saucelabs.com/tunnels) page to ensure your tunnel configuration stability and overall testing efficiency. Here, you can gain insight into all individual tunnels and tunnel pools. See [Monitoring Tunnels](/secure-connections/sauce-connect/proxy-tunnels/#monitoring-tunnels) for more information.
 
 ### Launching Sauce Connect Proxy with High Availability
 Once you've confirmed that your network is configured to use HA, launch Sauce Connect Proxy using one of these commands below. You'll need to run this command on each machine where you want to have access to the tunnel pool.
