@@ -366,6 +366,64 @@ Specifies the path to the folder location in which to download artifacts. A sepa
 ```
 ---
 
+## `notifications`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies how to set up automatic test result alerts.
+
+```yaml
+notifications:
+  slack:
+    channels:
+      - "saucectl-results"
+      - "cypress-tests"
+    send: always
+```
+---
+
+### `slack`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/basics/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
+
+```yaml
+  slack:
+    channels: "saucectl-cypress-tests"
+    send: always
+```
+---
+
+#### `channels`
+<p><small>| OPTIONAL | STRING/ARRAY |</small></p>
+
+The set of Slack channels to which the test result notifications are to be sent.
+
+```yaml
+  slack:
+    channels:
+      - "saucectl-results"
+      - "cypress-team"
+    send: always
+```
+---
+
+#### `send`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies when and under what circumstances to send notifications to specified Slack channels. Valid values are:
+
+* `always`: Send notifications for all test results.
+* `never`: Do not send any test result notifications.
+* `pass`: Send notifications for passing suites only.
+* `fail`: Send notifications for failed suites only.
+
+```yaml
+  slack:
+    channels: "saucectl-cypress-tests"
+    send: always
+```
+---
+
 ## `{framework}`
 <p><small>| REQUIRED | OBJECT |</small></p>
 

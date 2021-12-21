@@ -469,6 +469,7 @@ module.exports = {
                             'basics/integrations/deque',
                             'basics/integrations/jira',
                             'basics/integrations/slack',
+                            'basics/integrations/webhooks',
                         ],
                     },
                 ],
@@ -498,7 +499,6 @@ module.exports = {
                             'secure-connections/sauce-connect/setup-configuration/additional-proxies',
                             'secure-connections/sauce-connect/setup-configuration/specialized-environments',
                             'secure-connections/sauce-connect/setup-configuration/ci-cd-integration',
-                            'secure-connections/sauce-connect/setup-configuration/legacy-tunnels',
                         ]
                     },
                     'secure-connections/sauce-connect/proxy-tunnels',
@@ -680,6 +680,7 @@ module.exports = {
              'api-testing/apifctl-cicd-integration',
              'api-testing/test-reports',
              'api-testing/metrics-logs',
+             'api-testing/project-access',
              'api-testing/import-export-tests',
              'api-testing/mocking',
              'api-testing/logger',
