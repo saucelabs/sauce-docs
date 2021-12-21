@@ -28,11 +28,11 @@ If your Sauce Connect client is running on a multi-user system, we recommend usi
 ## Starting Tunnels
 Every Sauce Connect Proxy tunnel spins up a fresh virtual machine (VM) that is used only for your tests. Once the tunnel is closed, VMs are destroyed. For information about user roles and permissions, see [User Roles](/basics/acct-team-mgmt/managing-user-info).
 
-Tunnels must be started from the command line of the machine where the Sauce Connect Proxy client is installed. As a shortcut, you can copy the run command (see **TUNNELS** page > Step 3) and paste it into your CLI. Optionally, you can add [tunnel configuration parameters](/dev/cli/sauce-connect-proxy/). See [Quickstart](/secure-connections/sauce-connect/quickstart/) and [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for instructions.
+Tunnels must be started from the command line of the machine where the Sauce Connect Proxy client is installed. As a shortcut, you can copy the run command (see **Tunnels** page > Step 3) and paste it into your CLI. Optionally, you can add [tunnel configuration parameters](/dev/cli/sauce-connect-proxy/). See [Quickstart](/secure-connections/sauce-connect/quickstart/) and [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for instructions.
 
 
 ## Monitoring Tunnels
-You can manage and monitor all Sauce Connect Proxy tunnel activity from the Sauce Labs [**TUNNELS**](https://app.saucelabs.com/tunnels) page, which displays useful information, such as the number of active tunnels, tunnel status, and specific attributes for each tunnel. You can also check the health of an individual tunnel by running a test on it.
+You can manage and monitor all Sauce Connect Proxy tunnel activity from the Sauce Labs [**Tunnels**](https://app.saucelabs.com/tunnels) page, which displays useful information, such as the number of active tunnels, tunnel status, and specific attributes for each tunnel. You can also check the health of an individual tunnel by running a test on it.
 
 | Column | Description |
 | :--- | :--- |
@@ -185,10 +185,10 @@ $ ps aux | grep sc | grep -v grep | awk  '{print $2}' | xargs kill -9
 ### From the TUNNELS Page
 
 #### To Stop a Single Tunnel
-From the **TUNNELS** page, click the **Stop** icon next to your tunnel.<br/><img src={useBaseUrl('img/sauce-connect/tunnelstop-ui.png')} alt="Sauce Connect Tunnel Stop" width="800"/>
+From the **Tunnels** page, click the **Stop** icon next to your tunnel.<br/><img src={useBaseUrl('img/sauce-connect/tunnelstop-ui.png')} alt="Sauce Connect Tunnel Stop" width="800"/>
 
 #### To Stop Multiple Tunnels
-From the **TUNNELS** page, click **Stop My Tunnels**.
+From the **Tunnels** page, click **Stop My Tunnels**.
 
 
 ## Tunnel Types

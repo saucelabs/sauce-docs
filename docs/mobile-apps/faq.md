@@ -86,7 +86,7 @@ It is of great importance for us to make sure that no other user can have access
 
 #### **Do you support SSO (Single Sign-On)?**
 
-Yes. We support OAuth login via LinkedIn, Google and GitHub.
+Yes. We support OAuth login via Google and GitHub.
 
 
 ### Automated Testing
