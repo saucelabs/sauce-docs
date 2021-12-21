@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 The Coverage report allows Org Admins to view and download the breakdown of browsers and mobile devices the tests across their organization have run against. Having insight into your coverage data helps companies:
 
 * See at a glance whether their testing is in sync with the environments in which it is most often accessed
-* Design their test strategy to keep up with newly release browser and device versions
+* Design their test strategy to keep up with newly released browser and device versions
 * Utilize their concurrency to spread testing across test environments for greater efficiency and comprehensiveness
 
 :::note Org Admins Only
@@ -28,8 +28,8 @@ Once you have completed your selections, the report shows a breakdown of all tes
 
 <img src={useBaseUrl('img/insights/coverage.png')} alt="Coverage Report" width="900"/>
 
-:::note Untested Browsers and Devices
-Browsers and devices for which you have no test data are omitted from the coverage report, meaning that the report will not help identify browser or device versions that you have _missed_. The report is intended to show how evenly you are distributing your tests across browsers are devices on which you are actually testing.
+:::note Browsers and Devices with No Coverage
+If you have not run any tests against certain browsers and devices during the period shown, those browsers and devices are not shown in the report. The report is intended to show how evenly you are distributing your tests across browsers and devices on which you are actually testing, not to alert you to browser and device versions you have not covered.
 :::
 
 ## Sorting the Data
@@ -47,7 +47,7 @@ You can download your report locally as a CSV file by clicking the **Export CSV*
 
 <img src={useBaseUrl('img/insights/export-coverage.png')} alt="Export to CSV File" width="400"/>
 
-The resulting file includes the data set as it is filtered (by environment, owner, and time period) in the default order, regardless of any sorting you have specified in the UI.
+The resulting file includes the data as it is filtered (by environment, owner, and time period) in the default order, regardless of any sorting you have specified in the UI.
 
 ```text title="Sample CSV Output"
 ,name,sessions,total_duration
