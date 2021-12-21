@@ -31,7 +31,7 @@ The Sauce Labs Slack app allows you to easily share your test results in Slack. 
 
 Before the Sauce Slack app can be used by members of the organization, an Org Admin must install it for whole the organization and associate it with your Slack workspace. If you are an Org Admin, you can do this by:
 
-1. From your Sauce Labs account, navigate to the [Account Integrations](https://app.staging.saucelabs.net/integrations) page.
+1. From your Sauce Labs account, navigate to the [Account Integrations](https://app.saucelabs.com/integrations) page.
 1. Click the **Install** button of the Slack integration app.
 1. A secondary browser window opens, prompting you to sign into your Slack workspace.
 1. Once you have signed in, click **Allow** to give Sauce Labs permission to access your Slack workspace.

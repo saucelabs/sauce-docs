@@ -12,12 +12,15 @@ import TabItem from '@theme/TabItem';
 Using older Sauce Connect versions may impact your ability to launch a tunnel or cause other technical issues. Download the latest version [here](/secure-connections/sauce-connect/installation/).
 :::
 
-Get up and running with a Sauce Connect Proxy tunnel in just a few minutes using the steps below.
+Get up and running with a basic Sauce Connect Proxy tunnel in minutes using the steps below.
+
+## What You'll Need
+
+* Have the [latest Sauce Connect Proxy client version](/secure-connections/sauce-connect/installation) downloaded to your local machine's home directory.
 
 ## Start Tunnel
 
-1. If you haven't yet, [download and install the latest version of the Sauce Connect Proxy client](/secure-connections/sauce-connect/installation). In this example, we'll download it to our home directory.
-2. Open your local terminal and navigate to the bin folder, where the Sauce Connect Proxy client is located.<br/><img src={useBaseUrl('img/sauce-connect/scp-bin.png')} alt="Sauce Connect download file contents" width="350" />
+1. Open your local terminal and navigate to the bin folder, which contains the Sauce Connect Proxy client.<br/><img src={useBaseUrl('img/sauce-connect/scp-bin.png')} alt="Sauce Connect download file contents" width="350" />
 
   <Tabs
     defaultValue="Mac/Linux"
@@ -41,18 +44,15 @@ Get up and running with a Sauce Connect Proxy tunnel in just a few minutes using
   </TabItem>
   </Tabs>
 
-3. Log in to Sauce Labs.
-4. Go to the **TUNNELS** page.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsPage.png')} alt="Sauce Connect Proxy Tunnels page" width="200"/>
-5. Skip to **STEP 3: Configure & Authenticate**, then copy the code snippet.<br/><img src={useBaseUrl('img/sauce-connect/configureAuth.png')} alt="Sauce Connect Proxy Tunnels page code snippet" width="500"/>
-6. Paste the entire snippet into your local terminal. Optionally, you can rename your tunnel by replacing the variable after the [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) flag.
-  ```bash
-  ./sc -u {SAUCE_USERNAME} --k {SAUCE_ACCESS_KEY} --region us-west --tunnel-name {TUNNEL_NAME}
-  ```
-7. Run the snippet. This will authenticate you, connects you to a Sauce Labs Data Center, assign an ID for your tunnel, and start your tunnel.
+2. Log in to Sauce Labs.
+3. Go to the **Tunnels** page.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsPage.png')} alt="Sauce Connect Proxy Tunnels page" width="200"/>
+4. On the **Tunnels** page, skip to **STEP 3: Configure & Authenticate** and copy the run command. This snippet contains your [username](/dev/cli/sauce-connect-proxy/#--user), [access key](/dev/cli/sauce-connect-proxy/#--api-key), [data center](/dev/cli/sauce-connect-proxy/#--region), and a [tunnel name](/dev/cli/sauce-connect-proxy/#--tunnel-name).<br/><img src={useBaseUrl('img/sauce-connect/configureAuth.png')} alt="Sauce Connect Proxy Tunnels page snippet" width="500"/>
+5. Paste the entire snippet into your local terminal. Optionally, you can rename your tunnel by replacing the variable after the [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) flag.
+6. Run the snippet. This will authenticate you, connects you to a Sauce Labs Data Center, assign an ID for your tunnel, and start your tunnel.
 
 ## Verify Tunnel Success
 
-8. To verify that your tunnel is up and running, there are two places you can check:
+7. To verify that your tunnel is up and running, there are two places you can check:
    * [Command Line](/secure-connections/sauce-connect/proxy-tunnels/#from-the-command-line-1)
    * [TUNNELS Page](/secure-connections/sauce-connect/proxy-tunnels/#from-the-tunnels-page-1)
 
