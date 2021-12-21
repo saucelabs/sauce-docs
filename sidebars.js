@@ -328,13 +328,32 @@ module.exports = {
     backtrace: [
         {
             type: 'category',
-            label: 'Backtrace IO Docs',
+            label: 'Error Reporting',
             collapsed: true,
             items: [
                 'error-reporting/getting-started',
             ],
         },
-    ],
+        {
+            type: 'category',
+            label: 'Platform Integrations',
+            collapsed: true,
+            items: [
+
+              {
+                type: 'category',
+                label: 'Unity',
+                collapsed: true,
+                items: [
+                    'error-reporting/platform-integrations/unity',
+                    'error-reporting/platform-integrations/unity/installation',
+                    'error-reporting/platform-integrations/unity/configuration',
+                  ],
+                },
+              ],
+            },
+          ],
+
     dev: [
         'dev',
         {
