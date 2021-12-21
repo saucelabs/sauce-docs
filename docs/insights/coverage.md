@@ -9,6 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 The Coverage report allows Org Admins to view and download the breakdown of browsers and mobile devices the tests across their organization have run against. Having insight into your coverage data helps companies:
 
 * See at a glance whether their testing is in sync with the environments in which it is most often accessed
+* Evaluate how evenly tests are being distributing across browsers and devices
 * Design their test strategy to keep up with newly released browser and device versions
 * Utilize their concurrency to spread testing across test environments for greater efficiency and comprehensiveness
 
@@ -16,25 +17,25 @@ The Coverage report allows Org Admins to view and download the breakdown of brow
 You must have [Org Admin](/basics/acct-team-mgmt/managing-user-info/#user-roles) privileges for your organization in order to view and download coverage data.
 :::
 
-## Access the Coverage Reports
+## Accessing the Coverage Reports
 
 1. Click the **Insights** tab to expand its submenu.
 1. Click **Coverage** (only visible to Org Admin users).
 1. Specify the type of coverage you wish to view by selecting the **Devices** or **Browsers** tab.
 1. Specify whether you wish to see coverage data for **Virtual Cloud** tests (desktop web-apps, mobile emulators and simulators) or **Real Devices** (physical devices located in our data centers and connected to our platform).
-1.Use the [filters](scope.md#using-filters-to-adjust-the-scope-of-your-data) to show results for a particular user's tests and/or a specific time period.
+1. Apply the **Owner** and time period [filters](scope.md#using-filters-to-adjust-the-scope-of-your-data) to show data for a particular user's tests and/or a specific time period.
 
 Once you have completed your selections, the report shows a breakdown of all tests that have been run for the specified user during the specified time period, providing the exact number and total duration of tests run in each environment with a bar graph for easy visualization.
 
 <img src={useBaseUrl('img/insights/coverage.png')} alt="Coverage Report" width="900"/>
 
-:::note Browsers and Devices with No Coverage
-If you have not run any tests against certain browsers and devices during the period shown, those browsers and devices are not shown in the report. The report is intended to show how evenly you are distributing your tests across browsers and devices on which you are actually testing, not to alert you to browser and device versions you have not covered.
+:::note
+Browsers and devices not tested during the period shown are not shown in the report.
 :::
 
 ## Sorting the Data
 
-By default, coverage is shown in descending order based on the number of tests run, but you can modify the sort order by clicking on any of the column headings and then toggle using the ascending/descending icon.
+By default, coverage is shown in descending order based on the number of tests run. You can modify the sort order by clicking on any of the column headings and then toggling the ascending/descending icon.
 
 <img src={useBaseUrl('img/insights/sorting.png')} alt="Edit Sort Order" width="600"/>
 
