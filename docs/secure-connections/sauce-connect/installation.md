@@ -15,18 +15,15 @@ This topic describes where and how to download Sauce Connect Proxy to your local
 * Review [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/).
 
 
-## Sauce Connect Proxy Client
+## Running the Sauce Connect Proxy Client
 
-### Download
-
-1. Download the latest Sauce Connect Proxy client version to your local machine by clicking the link below corresponding to your OS. For easy access, we recommend downloading to your home folder. If applicable, delete any previous versions you have. Using older versions may impact your ability to launch a tunnel or cause other technical issues.
+1. Download the latest Sauce Connect Proxy client to your local machine by clicking the link below corresponding to your OS. If applicable, delete any previous versions you have. Using older versions may impact your ability to launch a tunnel or cause other technical issues.
   <ScTable></ScTable>
 
   For version information, see [Sauce Connect Proxy Changelog](https://changelog.saucelabs.com/en?category=sauce%20connect).
 
-### Extract to Local Machine
 
-2. Extract the contents of the .zip download, then open the download folder. You'll see the following contents:<br/><img src={useBaseUrl('img/sauce-connect/scp-download.png')} alt="Sauce Connect download file contents" width="450" />
+2. Extract the contents of the .zip download to your local machine. For easy access, we recommend saving the Sauce Connect Proxy folder to your home directory. The folder contains the following:<br/><img src={useBaseUrl('img/sauce-connect/scp-download.png')} alt="Sauce Connect download file contents" width="450" />
   <table>
   <tr>
    <td><strong>File</strong></td>
@@ -55,24 +52,21 @@ This topic describes where and how to download Sauce Connect Proxy to your local
   </table>
 
 
-:::caution Linux Requirement
-If you're using Linux, extract Sauce Connect by adding sc to your system PATH:
- ```bash
-cd $HOME
-curl -LO https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz
-tar xvf ./sc-4.7.1-linux.tar.gz
-export PATH="$HOME/sc-4.7.1-linux/bin:$PATH"
-```
+3. If you're using Linux, you'll need to add Sauce Connect to your system PATH:
+  ```bash
+  cd $HOME
+  curl -LO https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz
+  tar xvf ./sc-4.7.1-linux.tar.gz
+  export PATH="$HOME/sc-4.7.1-linux/bin:$PATH"
+  ```
+
+:::tip Next Steps
+See the [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/) to learn how to start a basic tunnel.
 :::
-
-
-### Next Step
-
-See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/) to learn how to start a basic tunnel.
 
 ## Running Sauce Connect in Docker
 
-As an alternative to downloading the client, you can use the Sauce Connect Proxy Docker image to run Sauce Connect Proxy in a Docker container. To learn more, see [Sauce Connect Docker Container Setup](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#sauce-connect-docker-container-setup).
+As an alternative to downloading the client, you can use the Sauce Connect Proxy Docker image to run it in a Docker container. To learn more, see [Sauce Connect Docker Container Setup](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#sauce-connect-docker-container-setup).
 
 
 ## Log File
