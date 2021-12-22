@@ -49,7 +49,8 @@ You can manage and monitor all Sauce Connect Proxy tunnel activity from the Sauc
 To verify that your tunnel is up and running, there are two places you can check:
 
 #### Command-Line Interface
-<details><summary><strong>Click here to expand</strong><br/>If successful, you'll see a confirmation response like this, indicating that you can start your tests.</summary>
+If successful, you'll see a confirmation response like the one below, indicating that you can start your tests.
+<details><summary><strong>Click here to expand</strong><br/></summary>
 
    ```bash
 
@@ -100,7 +101,7 @@ To verify that your tunnel is up and running, there are two places you can check
 
 </details>
 
-#### TUNNELS Page
+#### Tunnels Page
 Look for the **Active Tunnel** confirmation.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsuccess-ui.png')} alt="Sauce Connect Tunnel Success" width="500"/>
 
 
@@ -182,7 +183,7 @@ For more information about acceptable signals and parameters, see the [Linux kil
 $ ps aux | grep sc | grep -v grep | awk  '{print $2}' | xargs kill -9
 ```
 
-### From the TUNNELS Page
+### From the Tunnels Page
 
 #### To Stop a Single Tunnel
 From the **Tunnels** page, click the **Stop** icon next to your tunnel.<br/><img src={useBaseUrl('img/sauce-connect/tunnelstop-ui.png')} alt="Sauce Connect Tunnel Stop" width="800"/>
