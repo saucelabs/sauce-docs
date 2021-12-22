@@ -18,7 +18,7 @@ The API Testing Dashboard &#8212; accessible from with any Project &#8212; displ
 
 To view all test logs across a project:
 
-1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
 2. Click on any Project, then click the **Dashboard** tab.<br/><img src={useBaseUrl('img/api-fortress/2021/02/dash-1.2.png')} alt="Dashboard Pic 1.2"/>.<br/>
   As a shortcut, you can also click the Dashboard (graph) icon on any Project.<br/><img src={useBaseUrl('img/api-fortress/2021/02/dash-1.1.png')} alt="Dashboard Pic 1.1" width="250"/>
 3. From inside the **Dashboard**, select **Logs**.<br/><img src={useBaseUrl('img/api-fortress/2021/02/dashboardLogs.png')} alt="Dashboard Logs"/>
