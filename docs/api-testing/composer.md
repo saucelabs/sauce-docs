@@ -19,7 +19,7 @@ The API Test **Compose** tab (aka _Composer_) enables you to generate sophistica
 
 ### Create a Test
 
-1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
 2. Go into any Project.
 3. On the **Tests** tab, click **Create Test** > **From Scratch**.<br/><img src={useBaseUrl('img/api-fortress/2021/01/createTest.png')} alt="Create a Test button" width="500"/>
 4. In the **New Test** fields, enter a **Test Name** (required), **Test Description** (optional), and **Tag(s)** (optional), then click **Save**.<br/><img src={useBaseUrl('img/api-fortress/2021/01/createTest2.png')} alt="Enter Test Details" width="450"/>

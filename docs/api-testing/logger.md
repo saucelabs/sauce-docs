@@ -15,7 +15,7 @@ The Logger tool helps with API call recording by facilitating complete captures 
 ## Running the Logger
 
 ### Access Project
-1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
 2. Go into a Project.
 
 ### Create Webhook

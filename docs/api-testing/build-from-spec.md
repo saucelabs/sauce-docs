@@ -30,7 +30,7 @@ Using the API Testing **HTTP Client**, you can generate tests from external endp
 
 ## Importing Your Spec File
 
-1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/>
+1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/>
   <img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
 2. Go into any Project.
 3. From within a Project, click the __HTTP Client__ tab.<br/><img src={useBaseUrl('img/api-fortress/2021/01/HTTPClient.png')} alt="HTTP Client Button" width="400"/>
