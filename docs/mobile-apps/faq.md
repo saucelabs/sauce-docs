@@ -115,9 +115,9 @@ You'll need to export your app as an .ipa file for Ad Hoc Deployment as describe
 You can upload your .ipa manually to create a project, then upload subsequent versions either manually or through our REST API, as described in [Uploading Your App to Real Device Storage with the REST API](/mobile-apps/app-storage).
 
 
-#### **Can I upload multiple .apk files for testing?**
+#### **Can I upload multiple .apk or .aab files for testing?**
 
-Yes. You can upload more than one .apk using the “dependency app” functionality.
+Yes. You can upload more than one .apk or .aab using the “dependency app” functionality.
 
 
 #### **Can I choose different browsers on a device?**
