@@ -297,7 +297,7 @@ At this time, the W3C protocol is not supported for real device testing, so you 
 ### `app`
 <p><small>| STRING |</small></p>
 
-Allows you to set a path to an .ipa, .apk or .zip file containing the mobile app you want to test. This could be the location of your app in [App Storage](/mobile-apps/app-storage) (e.g., `storage:filename=myapp.zip`) or the URL to a remote location where your app is located (e.g., `http://myappurl.zip`). If you're running a mobile browser test, this capability can be left blank.
+Allows you to set a path to an .ipa, .apk, .aab or .zip file containing the mobile app you want to test. This could be the location of your app in [App Storage](/mobile-apps/app-storage) (e.g., `storage:filename=myapp.zip`) or the URL to a remote location where your app is located (e.g., `http://myappurl.zip`). If you're running a mobile browser test, this capability can be left blank.
 
 ```java
 "appium:app": "storage:filename=my_app.zip"
