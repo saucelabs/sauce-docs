@@ -19,7 +19,7 @@ This is a quickstart guide for getting up and running with a Sauce Labs API Test
 
 ## Create Project
 
-1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/>
+1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/>
   <img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
 
 2. To set up a test, you'll need a Project first. On the API Testing dashboard, click the **Create Project** button.<br/>

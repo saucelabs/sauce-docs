@@ -120,10 +120,6 @@ Each session is a "fresh" installation of your app, meaning, you will not be abl
 
 App storage recognizes \*.apk and \*.aab files as Android apps and \*.ipa or \*.zip files as iOS apps. \*.zip files (for simulator tests only) are parsed to determine whether a valid *.app bundle exists.
 
-:::caution Limited Support for *.aab Files
-At this time, \*.aab files are only supported for Android real device testing.
-:::
-
 You can also upload and store other file types for generic use, such as a pre-run executable, package, or binary. Some of the formats for this type of use case include:
 
 * *.js
