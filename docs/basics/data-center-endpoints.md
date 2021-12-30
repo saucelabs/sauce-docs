@@ -68,7 +68,7 @@ URLs vary based on the services you're using, your data center, and the types of
 <td>Virtual and Real Devices on Sauce: <code>https://saucelabs.com/rest/v1/</code></td>
 </tr>
 <tr>
-<td>Team Management</td><td><code>https://api.us-west-1.saucelabs.com/team-management/v1/</code></td>
+<td>Team Management: <code>https://api.us-west-1.saucelabs.com/team-management/v1/</code></td>
 </tr>
 <tr>
 <td>IP Ranges</td><td><code>162.222.72.0/21</code><br/><code>66.85.48.0/21</code></td>
@@ -109,7 +109,7 @@ Depending on the framework or driver you use, you might need to make additional 
 <td>Virtual and Real Devices on Sauce: <code>https://eu-central-1.saucelabs.com/rest/v1</code></td>
 </tr>
 <tr>
-<td>Team Management</td><td><code>https://api.eu-central-1.saucelabs.com/team-management/v1/</code></td>
+<td>Team Management: <code>https://api.eu-central-1.saucelabs.com/team-management/v1/</code></td>
 </tr>
 <tr>
 <td>IP Ranges</td><td><code>185.94.24.0/22</code></td>
@@ -147,7 +147,7 @@ Depending on the framework or driver you use, you might need to make additional 
 <td>Virtual and Real Devices on Sauce: <code>https://saucelabs.com/rest/v1/</code></td>
 </tr>
 <tr>
-<td>Team Management</td><td><code>https://api.apac-southeast-1.saucelabs.com/team-management/v1/</code></td>
+<td>Team Management: <code>https://api.apac-southeast-1.saucelabs.com/team-management/v1/</code></td>
 </tr>
 <tr>
 <td>IP Ranges</td><td><code>34.87.251.80/28</code></td>
@@ -186,7 +186,7 @@ For more information on Sauce Headless, including full test walkthroughs, see [S
 <td>Virtual and Real Devices on Sauce: <code>https://us-east-1.saucelabs.com/rest/v1</code></td>
 </tr>
 <tr>
-<td>Team Management</td><td>N/A</td>
+<td>Team Management: N/A</td>
 </tr>
 <tr>
 <td>IP Ranges</td><td>N/A</td>
@@ -229,11 +229,11 @@ The URL hostname and authorization credentials for APIs are different for each d
 
 | Sauce Data Center | Authorization Credentials |
 |:---|:---|
-| US West virtual devices and desktops cloud  | Username and access key can be found in Sauce Labs under **ACCOUNT** > **User settings**. |
-| EU Central virtual devices and desktops cloud  | Username and access key can be found in Sauce Labs under **ACCOUNT** > **User settings**. |
-| APAC Southeast virtual devices and desktops cloud  | Username and access key can be found in Sauce Labs under **ACCOUNT** > **User settings**. |
-| US West real devices cloud  | Username and access key can be found in Sauce Labs under **ACCOUNT** > **User settings**. |
-| EU Central real devices cloud  | Username and access key can be found in Sauce Labs under **ACCOUNT** > **User settings**. |
+| US West virtual devices and desktops cloud  | Username and access key can be found in Sauce Labs under **Account** > **User settings**. |
+| EU Central virtual devices and desktops cloud  | Username and access key can be found in Sauce Labs under **Account** > **User settings**. |
+| APAC Southeast virtual devices and desktops cloud  | Username and access key can be found in Sauce Labs under **Account** > **User settings**. |
+| US West real devices cloud  | Username and access key can be found in Sauce Labs under **Account** > **User settings**. |
+| EU Central real devices cloud  | Username and access key can be found in Sauce Labs under **Account** > **User settings**. |
 | APAC Southeast real devices cloud | N/A |
 
 #### Running Tests on EU Central
