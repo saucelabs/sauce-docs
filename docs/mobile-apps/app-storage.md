@@ -26,10 +26,6 @@ When testing mobile apps, you have the option to upload your app to our app stor
 
 For information about using the Sauce Labs UI to upload your mobile file to app storage, see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app).
 
-:::note
-This method currently supports live testing on **real devices only**. For virtual devices, upload your apps via the REST API.
-:::
-
 ## Uploading Apps via REST API
 
 You can upload your mobile app programmatically using the [File Storage API Methods](/dev/api/storage). The API endpoints are [Data center-specific](/basics/data-center-endpoints), so make sure you are using the endpoint that is applicable for your account data center, as shown in the following example requests.
