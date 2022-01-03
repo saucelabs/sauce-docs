@@ -27,7 +27,7 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 Returns Tunnel IDs or Tunnels Info for any currently running tunnels launched by or shared with the specified user.
 It also allows to filter tunnels using an optional "filter" parameter that may take the following values:
 
-- <code>filter=v2alpha</code>  - a response will contain only tunnels that were started with `--vm-version v2alpha`.
+- <code>filter=v2alpha</code>  - a response will contain only tunnels that were started with <code>--vm-version v2alpha</code>.
 - <code>filter=one_per_pool</code> - a response will contain only one (arbitrary) tunnel per tunnel pool.
 
 #### Parameters
