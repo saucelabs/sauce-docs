@@ -7,7 +7,12 @@ description: "Gain a wide range of options to mix and match your test settings w
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Gain a wide range of options to mix and match your test settings with our latest Environment features.
+:::info Importing from API Fortress (Legacy)
+As API Fortress does not support exporting Vault and Environment variables, you'll need to re-enter them manually in Sauce Labs API Testing.
+:::
+
+Our Environment feature provides you with a range of options to mix and match your Test settings.
+
 
 ## What You'll Need
 * An existing API Testing Project and Test. For details on how to create them, see [API Testing Quickstart](/api-testing/quickstart/).

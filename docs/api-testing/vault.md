@@ -7,7 +7,11 @@ description: "The vault allows you to store variables and code snippets that can
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The vault feature allows you to store variables and code snippets to use in your tests in one project, or across all projects.
+:::info Importing from API Fortress (Legacy)
+As API Fortress does not support exporting Vault and Environment variables, you'll need to re-enter them manually in Sauce Labs API Testing.
+:::
+
+Our Vault feature allows you to store variables and code snippets to use in your tests in one project, or across all projects.
 
 <!--[Explanation Video](https://www.youtube.com/watch?v=cBNMi30Fj9Q)-->
 
