@@ -37,8 +37,11 @@ Before the Sauce Slack app can be used by members of the organization, an Org Ad
 1. Once you have signed in, click **Allow** to give Sauce Labs permission to access your Slack workspace.
 1. At the confirmation screen, close the secondary browser window to return to your Sauce Labs screen.
 
-:::note Multiple Data Centers
-If your Sauce Labs account has access to multiple data centers, you need only install the plugin once and it will be available for all data centers to which the account has access. If your access to different data centers is through different Sauce Labs accounts, you must install and setup the plugin separately for each Sauce Labs account.
+:::caution US Data Center Required
+At this time, installing the Sauce Slack app depends on the US data center endpoint, so customers who have only an EU or APAC account cannot install the app for their organization.
+
+If your Sauce Labs organization supports multiple data centers, make sure the US data center is active before installing the Sauce Slack app and then the app features are available for all users, regardless of data center.
+<img src={useBaseUrl('img/integrations/slack/usdc.png')} alt="Data Center Selection" width="350"/>
 :::
 
 If you are not an Org Admin and the Slack Integration **Install** button is disabled, contact your Org Admin to enable the integration with your workspace.
