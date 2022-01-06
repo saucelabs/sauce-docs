@@ -365,6 +365,12 @@ espresso:
 
 The path to the app. The default directory is `{project-root}/apps/filename.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded app reference. Supports \*.apk and \*.aab files.
 
+:::caution AAB Files Must be Resigned
+If you supply an .aab file, Sauce Labs must extract the .apk, which necessitates resigning and instrumenting both the `app` and `testApp` in order to maintain matching signatures, without which tests will fail.
+
+If your testing requires you to disable instrumentation on private devices, consider using .apk files for your `app` and `testApp`.
+:::
+
 ```yaml
   app: ./apps/calc.apk
 ```
@@ -387,6 +393,12 @@ The path to the app. The default directory is `{project-root}/apps/filename.apk`
 <p><small>| REQUIRED | STRING |</small></p>
 
 The path to the testing app. The relative file location is `{project-root}/apps/testfile.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded test app reference. Supports \*.apk and \*.aab files.
+
+:::caution AAB Files Must be Resigned
+If you supply an .aab file, Sauce Labs must extract the .apk, which necessitates resigning and instrumenting both the `app` and `testApp` in order to maintain matching signatures, without which tests will fail.
+
+If your testing requires you to disable instrumentation on private devices, consider using .apk files for your `app` and `testApp`.
+:::
 
 ```yaml
   testApp: ./apps/calc-success.apk

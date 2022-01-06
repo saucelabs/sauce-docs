@@ -120,6 +120,12 @@ Each session is a "fresh" installation of your app, meaning, you will not be abl
 
 App storage recognizes \*.apk and \*.aab files as Android apps and \*.ipa or \*.zip files as iOS apps. \*.zip files (for simulator tests only) are parsed to determine whether a valid *.app bundle exists.
 
+:::caution AAB Files are Resigned in Espresso Tests
+With Espresso, if you supply an .aab file, Sauce Labs must extract the .apk during installation, which necessitates resigning and instrumenting both the `app` and `testApp` in order to maintain matching signatures, without which tests will fail.
+
+If your Espresso tests require you to disable instrumentation on private devices, consider using .apk files for your `app` and `testApp`.
+:::
+
 You can also upload and store other file types for generic use, such as a pre-run executable, package, or binary. Some of the formats for this type of use case include:
 
 * *.js
