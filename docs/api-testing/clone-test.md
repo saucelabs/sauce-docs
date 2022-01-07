@@ -18,7 +18,7 @@ The **Clone Test** feature allows you to clone one or more tests from a Project 
 ## Cloning Tests
 
 :::caution
-You can only clone **Published** tests.
+Only **Published** tests can be cloned.
 :::
 
 1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />

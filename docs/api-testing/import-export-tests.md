@@ -18,6 +18,12 @@ Importing and exporting your existing API tests can be useful for:
 
 
 ## Exporting Tests
+
+:::caution
+
+Only **Published** tests can be exported.
+:::
+
 To export a Sauce Labs API test,
 
 1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
