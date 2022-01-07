@@ -365,10 +365,8 @@ espresso:
 
 The path to the app. The default directory is `{project-root}/apps/filename.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded app reference. Supports \*.apk and \*.aab files.
 
-:::caution AAB Files Must be Resigned
-If you supply an .aab file, Sauce Labs must extract the .apk, which necessitates resigning and instrumenting both the `app` and `testApp` in order to maintain matching signatures, without which tests will fail.
-
-If your testing requires you to disable instrumentation on private devices, consider using .apk files for your `app` and `testApp`.
+:::caution AAB App Signing
+To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must sign the \*.apk using its own signature. In such cases, Sauce Labs signs both the `app` and `testApp` to ensure matching signatures, even if instrumentation is disabled. Otherwise, the app installation will fail.
 :::
 
 ```yaml
@@ -394,10 +392,8 @@ If your testing requires you to disable instrumentation on private devices, cons
 
 The path to the testing app. The relative file location is `{project-root}/apps/testfile.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded test app reference. Supports \*.apk and \*.aab files.
 
-:::caution AAB Files Must be Resigned
-If you supply an .aab file, Sauce Labs must extract the .apk, which necessitates resigning and instrumenting both the `app` and `testApp` in order to maintain matching signatures, without which tests will fail.
-
-If your testing requires you to disable instrumentation on private devices, consider using .apk files for your `app` and `testApp`.
+:::caution AAB App Signing
+To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must sign the \*.apk using its own signature. In such cases, Sauce Labs signs both the `app` and `testApp` to ensure matching signatures, even if instrumentation is disabled. Otherwise, the app installation will fail.
 :::
 
 ```yaml
