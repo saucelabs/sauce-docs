@@ -9,7 +9,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Importing and exporting existing tests from within Sauce Labs API Testing can be useful for:
 * Moving tests from one Project to another
-* Making another API Fortress deployment
 * Sharing tests with Sauce Labs Support team for help
 
 For information on moving tests from API Fortress (our legacy platform) to Sauce Labs API Testing, see [API Fortress Legacy Migration Guide](/api-testing/legacy).
