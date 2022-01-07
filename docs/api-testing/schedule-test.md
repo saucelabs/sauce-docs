@@ -1,5 +1,5 @@
 ---
-id: schedule-a-test
+id: schedule-test
 title: Schedule a Test
 sidebar_label: Schedule a Test
 description: "With Sauce Labs API Testing, you can schedule a test to run as often as you’d like, with granular control as to when it runs."
