@@ -7,10 +7,6 @@ description: "Gain a wide range of options to mix and match your test settings w
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::info Importing from API Fortress (Legacy)
-As API Fortress does not support exporting Vault and Environment variables, you'll need to re-enter them manually in Sauce Labs API Testing.
-:::
-
 Our Environment feature provides you with a range of options to mix and match your Test settings.
 
 
@@ -55,3 +51,7 @@ apif_env: staging
 ```
 
 This will load the `staging` environment and all its override variables.
+
+## More information
+
+* [API Fortress Legacy Migration Guide](/api-testing/legacy)

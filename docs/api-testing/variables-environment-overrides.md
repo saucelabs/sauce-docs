@@ -6,10 +6,6 @@ sidebar_label: Variables and Environment Overrides
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::info Importing from API Fortress (Legacy)
-As API Fortress does not support exporting Vault and Environment variables, you'll need to re-enter them manually in Sauce Labs API Testing.
-:::
-
 Our API Testing provides the flexibility to combine the use of global, local, and hard-coded variables. In addition, we provide helpful hints as you work with variables.
 
 You do not have to be concerned with organizing variables in a hierarchy from global to local... why? Almost any string can be hardcoded or referenced as a variable. Hardcoding is fine as long as you’re building simple tests, however, it is advisable to parametrize some items when:
@@ -130,3 +126,4 @@ As you become acquainted with the platform, you may be tempted to use all of the
 ## More Information
 * [Creating Reusable Variables and Snippets with the Vault](/api-testing/vault)
 * [Creating Environments for Tests](/api-testing/environments/)
+* [API Fortress Legacy Migration Guide](/api-testing/legacy)
