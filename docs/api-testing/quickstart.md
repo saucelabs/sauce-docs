@@ -97,4 +97,4 @@ Go back to your test's **Compose** tab > **Visual** view and try adding more log
 
 * For more information on building tests using a spec file, see [Build from Spec](/api-testing/build-from-spec).
 * Learn how to [import Postman Collections](/api-testing/import-postman-collection) so that you can generate more tests.
-* Learn how to schedule a test [here](/api-testing/schedule-a-test).  
+* Learn how to schedule a test [here](/api-testing/schedule-test).  
