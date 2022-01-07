@@ -126,3 +126,4 @@ As you become acquainted with the platform, you may be tempted to use all of the
 ## More Information
 * [Creating Reusable Variables and Snippets with the Vault](/api-testing/vault)
 * [Creating Environments for Tests](/api-testing/environments/)
+* [API Fortress Legacy Migration Guide](/api-testing/legacy)
