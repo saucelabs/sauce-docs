@@ -682,6 +682,7 @@ module.exports = {
              'api-testing/metrics-logs',
              'api-testing/project-access',
              'api-testing/import-export-tests',
+             'api-testing/clone-test',
              'api-testing/mocking',
              'api-testing/logger',
         ],
