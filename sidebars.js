@@ -654,7 +654,7 @@ module.exports = {
             'api-testing/sauce-connect',
             'api-testing/build-from-spec',
             'api-testing/import-postman-collection',
-            'api-testing/schedule-a-test',
+            'api-testing/schedule-test',
               {
                   type: 'category',
                   label: 'Test Composer',
@@ -681,7 +681,9 @@ module.exports = {
              'api-testing/test-reports',
              'api-testing/metrics-logs',
              'api-testing/project-access',
+             'api-testing/legacy',
              'api-testing/import-export-tests',
+             'api-testing/clone-test',
              'api-testing/mocking',
              'api-testing/logger',
         ],
