@@ -15,41 +15,41 @@ The **Alert Details** page displays information about the alerts given for your 
 
 <table>
   <tr>
-    <td colspan='2'>Component
+    <td colspan='2'><b>Component</b>
     </td>
-    <td>Description
+    <td><b>Description</b>
     </td>
   </tr>
   <tr>
-    <td colspan='2'>Project Name column
+    <td colspan='2'><b>Project Name</b> column
     </td>
     <td>The name given to the project.<br/><br/>Click the up or down arrow next to the column name to sort the table by project name.
     </td>
   </tr>
   <tr>
-    <td colspan='2'>Criticals column
+    <td colspan='2'><b>Criticals</b> column
     </td>
     <td>The number of critical alerts for the test case.<br/><br/>Click the up or down arrow next to the column name to sort the table by number of critical alerts.
     </td>
   </tr>
   <tr>
-    <td colspan='2'>Warnings column
+    <td colspan='2'><b>Warnings</b> column
     </td>
     <td>The number of warnings for the test case.<br/><br/>Click the up or down arrow next to the column name to sort the table by number of warnings.
     </td>
   </tr>
   <tr>
-    <td rowspan='2'>Actions column
+    <td rowspan='2'><b>Actions</b> column
     </td>
-    <td>Go to Step Editor button
+    <td><b>Go to Step Editor</b> button
     </td>
-    <td>Opens the step editor page for the test case. See Using the Step Editor for more information.
+    <td>Opens the step editor page for the test case. See <a href="/dev/low-code/plan/projects/project-details-page#using-the-step-editor">Using the Step Editor</a> for more information.
     </td>
   </tr>
   <tr>
-    <td>Show All button
+    <td><b>Show All</b> button
     </td>
-    <td>Opens the Alerts window, which includes details about all of the alerts for the test case.
+    <td>Opens the <b>Alerts</b> window, which includes details about all of the alerts for the test case.
     </td>
   </tr>
 </table>
@@ -60,21 +60,21 @@ The **Alert Details** page displays information about the alerts given for your 
 
 <table>
   <tr>
-    <td>Component
+    <td><b>Component</b>
     </td>
-    <td>Description
-    </td>
-  </tr>
-  <tr>
-    <td>Select Change API button
-    </td>
-    <td>Opens the Select Change API window.
+    <td><b>Description</b>
     </td>
   </tr>
   <tr>
-    <td>Settings button
+    <td><b>Select Change API</b> button
     </td>
-    <td>Opens the Manage Columns window, where you can manage which columns are displayed on the Smart Maintenance page.
+    <td>Opens the <b>Select Change API</b> window.
+    </td>
+  </tr>
+  <tr>
+    <td><b>Settings</b> button
+    </td>
+    <td>Opens the <b>Manage Columns</b> window, where you can manage which columns are displayed on the <b>Smart Maintenance</b> page.
     </td>
   </tr>
 </table>

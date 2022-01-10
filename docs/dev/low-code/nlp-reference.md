@@ -16,8 +16,6 @@ This is usually the first step in a test case, but you can also add this step du
   <tr>
     <td>Action
     </td>
-    <td>Example
-    </td>
   </tr>
   <tr>
     <td colspan='2'><code>Go to...</code>
@@ -26,32 +24,27 @@ This is usually the first step in a test case, but you can also add this step du
   <tr>
     <td>Go to
     </td>
-    <td><code>Go to https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Go to page
     </td>
-    <td><code>Go to page https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Go to site
     </td>
-    <td><code>Go to site https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Go to web page
     </td>
-    <td><code>Go to web page https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Go to website
     </td>
-    <td><code>Go to website https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td colspan='2'><code>Launch...</code>
@@ -60,8 +53,7 @@ This is usually the first step in a test case, but you can also add this step du
   <tr>
     <td>Launch website
     </td>
-    <td><code>Launch website https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td colspan='2'><code>Navigate...</code>
@@ -70,56 +62,47 @@ This is usually the first step in a test case, but you can also add this step du
   <tr>
     <td>Navigate
     </td>
-    <td><code>Navigate https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Navigate page
     </td>
-    <td><code>Navigate page https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Navigate site
     </td>
-    <td><code>Navigate site https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Navigate to
     </td>
-    <td><code>Navigate to https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Navigate to page
     </td>
-    <td><code>Navigate to page https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Navigate to site
     </td>
-    <td><code>Navigate to site https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Navigate to website
     </td>
-    <td><code>Navigate to website https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Navigate web page
     </td>
-    <td><code>Navigate web page https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Navigate website
     </td>
-    <td><code>Navigate website https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td colspan='2'><code>Open...</code>
@@ -128,26 +111,22 @@ This is usually the first step in a test case, but you can also add this step du
   <tr>
     <td>Open page
     </td>
-    <td><code>Open page https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Open site
     </td>
-    <td><code>Open site https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Open web page
     </td>
-    <td><code>Open web page https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Open website
     </td>
-    <td><code>Open website https://saucelabs.com</code>
-    </td>
+
   </tr>
 </table>
 
@@ -158,8 +137,7 @@ This command moves focus to another window or tab.
   <tr>
     <td>Action
     </td>
-    <td>Example
-    </td>
+
   </tr>
   <tr>
     <td colspan='2'><code>Swicth to...</code>
@@ -168,56 +146,47 @@ This command moves focus to another window or tab.
   <tr>
     <td>Switch to 2nd tab
     </td>
-    <td><code>Switch to 2nd tab https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Switch to 2nd window
     </td>
-    <td><code>Switch to 2nd window https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Switch to 3rd tab
     </td>
-    <td><code>Switch to 3rd tab https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Switch to 3rd window
     </td>
-    <td><code>Switch to 3rd window https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Switch to new tab
     </td>
-    <td><code>Switch to new tab https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Switch to new window
     </td>
-    <td><code>Switch to new window https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Switch to original tab
     </td>
-    <td><code>Switch to original tab https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Switch to original window
     </td>
-    <td><code>Switch to original window https://saucelabs.com</code>
-    </td>
+
   </tr>
   <tr>
     <td>Switch to window with title [title1]
     </td>
-    <td><code>Switch to window with title [title1]</code>
-    </td>
+
   </tr>
 </table>
 
@@ -317,8 +286,7 @@ If a window is not displaying at the correct size, you can use the `Set screen s
   <tr>
     <td><b>Action</b>
     </td>
-    <td><b>Example</b>
-    </td>
+
   </tr>
   <tr>
     <td colspan='2'><code>Set...</code>
@@ -327,14 +295,12 @@ If a window is not displaying at the correct size, you can use the `Set screen s
   <tr>
     <td>Set screen size - [width] * [height]
     </td>
-    <td><code>Set screen size - [500] * [500]</code>
-    </td>
+
   </tr>
   <tr>
     <td>Set window size - [width] * [height]
     </td>
-    <td><code>Set window size - [500] * [500]</code>
-    </td>
+
   </tr>
 </table>
 

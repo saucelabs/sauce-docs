@@ -6,69 +6,68 @@ sidebar_label: Schedules Page
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The **Schedules** page includes information about your scheduled tests. From this page you can also create a new schedule (see [Creating a Schedule]() for more information).
+The **Schedules** page includes information about your scheduled tests. From this page you can also create a new schedule (see [Creating a Schedule](#creating-a-schedule) for more information).
 
 ## Schedules Page Components
 
 <table>
   <tr>
-    <td colspan='3'>Component
+    <td colspan='3'><b>Component</b>
     </td>
-    <td>Description
+    <td><b>Description</b>
     </td>
   </tr>
   <tr>
-    <td colspan='3'>Schedule column
+    <td colspan='3'><b>Schedule</b> column
     </td>
     <td>The name given to the schedule.<br/><br/>Click the up or down arrow next to the column name to sort the table by schedule name.
     </td>
   </tr>
   <tr>
-    <td colspan='3'>Test Suite column
+    <td colspan='3'><b>Test Suite</b> column
     </td>
     <td>The name given to the test suite.<br/><br/>Click the up or down arrow next to the column name to sort the table by test suite name.
     </td>
   </tr>
   <tr>
-    <td colspan='3'>Schedule Owner column
+    <td colspan='3'><b>Schedule Owner</b> column
     </td>
     <td>The name of the user who created the schedule.<br/><br/>Click the up or down arrow next to the column name to sort the table by schedule owner name.
     </td>
   </tr>
   <tr>
-    <td colspan='3'>Start Date column
+    <td colspan='3'><b>Start Date</b> column
     </td>
     <td>The scheduled start date.<br/><br/>Click the up or down arrow next to the column name to sort the table by the start date.
     </td>
   </tr>
   <tr>
-    <td colspan='3'>End Date column
+    <td colspan='3'><b>End Date</b> column
     </td>
     <td>The scheduled end date.<br/><br/>Click the up or down arrow next to the column name to sort the table by the end date.
     </td>
   </tr>
   <tr>
-    <td colspan='3'>Execution History button
+    <td colspan='3'><b>Execution History</b> button
     </td>
-    <td>Clicking the Execution History button opens the Execution History page. See Execution History Page for more information.
+    <td>Clicking the <b>Execution History</b> button opens the <b>Execution History</b> page. See <a href="/dev/low-code/execute/execution-history-page">Execution History Page</a> for more information.
     </td>
   </tr>
   <tr>
-    <td rowspan='3'>Actions
+    <td rowspan='3'><b>Actions</b>
     </td>
-    <td colspan='2'>Assign to Me button
+    <td colspan='2'><b>Assign to Me</b> button
     </td>
     <td>Makes you the schedule owner.
     </td>
   </tr>
   <tr>
-    <td colspan='2'>Update Schedule
-    </td>
-    <td>Modify job and schedule details. See Creating a Schedule for more information.
+    <td colspan='2'><b>Update Schedule</b>
+    </td>Modify job and schedule details. See <a href="#creating-a-schedule">Creating a Schedule</a> for more information.
     </td>
   </tr>
   <tr>
-    <td colspan='2'>Delete Schedule
+    <td colspan='2'><b>Delete Schedule</b>
     </td>
     <td>Deletes the schedule.
     </td>
@@ -76,33 +75,33 @@ The **Schedules** page includes information about your scheduled tests. From thi
   <tr>
     <td rowspan='5'>Dropdown
     </td>
-    <td colspan='2'>Case column
+    <td colspan='2'><b>Case</b> column
     </td>
     <td>The name given to the test case.
     </td>
   </tr>
   <tr>
-    <td colspan='2'>Last Scheduled Run column
+    <td colspan='2'><b>Last Scheduled Run</b> column
     </td>
     <td>The date the last run was scheduled for.
     </td>
   </tr>
   <tr>
-    <td colspan='2'>Schedule Execution Status column
+    <td colspan='2'><b>Schedule Execution Status</b> column
     </td>
     <td>The status of the scheduled execution.
     </td>
   </tr>
   <tr>
-    <td rowspan='2'>Actions
+    <td rowspan='2'><b>Actions</b>
     </td>
-    <td>Go To Execution
+    <td><b>Go To Execution</b>
     </td>
     <td>Takes you to the execution page for the test case.
     </td>
   </tr>
   <tr>
-    <td>Go To Step Editor
+    <td><b>Go To Step Editor</b>
     </td>
     <td>Takes you to the step editor for the test case.
     </td>
@@ -113,28 +112,28 @@ The **Schedules** page includes information about your scheduled tests. From thi
 From the **Schedules** page, you can create new schedules, as well as update existing schedules.
 
 To create a new schedule:
-1. In the dashboard, in the left navigation, click **Execute** and then click **Schedule**.
+1. On the dashboard, in the left navigation, click **Execute** and then click **Schedule**.
 
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+<img src={useBaseUrl('/img/dev/low-code/schedules-nav.png')} alt="Navigating to the Create Schedule window"/>
 
 1. On the **Schedules** page, click the plus sign button.
 
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+<img src={useBaseUrl('/img/dev/low-code/schedules-create-button.png')} alt="The Create button"/>
 
 1. In the **Create Schedule** window, on the **Job** tab, enter a name for the schedule, and select its project from the dropdown. Select a test suite from the list, or enter text in the search field to search for a specific test suite. Click **Next**.
 
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+<img src={useBaseUrl('/img/dev/low-code/schedule-create-job.png')} alt="Create Schedule window - Job tab"/>
 
 1. On the **Schedule** tab, enter a start and end time for the test. Below that, enter a length of time, in months, days, or hours.
 
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+<img src={useBaseUrl('/img/dev/low-code/schedule-create-schedule1.png')} alt="Create Schedule window - Schedule tab"/>
 
-1. Click Create.
+1. Click **Create**.
 
 To update a schedule:
-1. In the dashboard, in the left navigation, click **Execute** and then click **Schedule**.
+1. On the dashboard, in the left navigation, click **Execute** and then click **Schedule**.
 1. On the **Schedules** page, in the **Actions** column, click the more actions button and then click **Update Schedule**.
 
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+<img src={useBaseUrl('/img/dev/low-code/schedule-update-nav.png')} alt="Navigating to the Update Schedule window "/>
 
-Follow the instructions for [Creating a Schedule](#creatingaschedule) and then click **Update**.
+1. Follow the instructions for [Creating a Schedule](#creating-a-schedule) and then click **Update**.

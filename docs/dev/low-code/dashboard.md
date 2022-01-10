@@ -19,7 +19,7 @@ The left navigation panel, which is viewable from all screens, gives you quick a
 ## Dashboard Management Settings
 Use the **Dashboard Management** settings to customize what you see on your dashboard. Select and deselect checkboxes to display or hide detail cards, and select a time duration for the displayed details.
 
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+<img src={useBaseUrl('/img/dev/low-code/dashboard-mgmt-settings.png')} alt="Dashboard Management settings"/>
 
 ## Dashboard Detail Cards
 The dashboard detail cards give a quick look at data that might be important to you. Each card displays the time period of the data in the lower-left corner, which can be modified in the **Dashboard Management** settings.
