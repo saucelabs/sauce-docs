@@ -331,7 +331,8 @@ module.exports = {
             label: 'Autonomiq Docs',
             collapsed: true,
             items: [
-                'low-code/getting-started',
+                'dev/low-code',
+                'dev/low-code/getting-started',
             ],
         },
     ],

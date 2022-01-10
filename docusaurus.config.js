@@ -85,7 +85,7 @@ const docusaurusConfig = {
         {
           label: 'Low Code',
           position: 'left',
-          to: '/low-code/getting-started',
+          to: '/dev/low-code',
         },
         // {
         //   label: 'Try it Free',
