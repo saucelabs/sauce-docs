@@ -325,6 +325,16 @@ module.exports = {
             ],
         },
     ],
+    aiq: [
+        {
+            type: 'category',
+            label: 'Autonomiq Docs',
+            collapsed: true,
+            items: [
+                'low-code/getting-started',
+            ],
+        },
+    ],
     dev: [
         'dev',
         {
