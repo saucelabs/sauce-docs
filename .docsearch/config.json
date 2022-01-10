@@ -1,5 +1,5 @@
 {
-   "index_name":"saucelabs",
+   "index_name":"federate_research",
    "start_urls":[
       "https://docs.saucelabs.com/"
    ],
