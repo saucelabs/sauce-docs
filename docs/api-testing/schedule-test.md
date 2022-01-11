@@ -1,8 +1,8 @@
 ---
-id: schedule-a-test
-title: Schedule a Test
-sidebar_label: Schedule a Test
-description: "With Sauce Labs API Testing, you can schedule a test to run as often as you’d like, with granular control as to when it runs."
+id: schedule-test
+title: Scheduling API Tests
+sidebar_label: Scheduling Tests
+description: "With Sauce Labs API Testing, you can schedule tests to run as often as you’d like, with granular control as to when they run."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -14,9 +14,10 @@ The **Schedule** tool, accessible from within each test, allows you to schedule 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * An existing API Testing Project and Test. For details on how to create them, see the [Quickstart](/api-testing/quickstart/) guide.
 
+
 ## Publish the Working Copy
 
-Our API Testing interface has a unique working copy/published copy system. This allows you to edit a test without affecting the live, currently active version.
+Our API Testing interface has a unique _Working Copy_ / _Published Copy_ system that allows you to edit a test without affecting the live, currently active version.
 
 1. Once you've finish editing your test, navigate to the **Unpublished changes** section, where it states that your test is currently unpublished.<br/>
 <img src={useBaseUrl('img/api-fortress/2021/02/unpublished.png')} alt="Unpublished Test" width="200" />
@@ -28,7 +29,7 @@ Our API Testing interface has a unique working copy/published copy system. This 
 ## Create a New Schedule
 
 4. Click the **Schedule** tab to access the Scheduler.<br/><img src={useBaseUrl('img/api-fortress/2021/02/scheduleTab.png')} alt="Schedule Tab"/>
-5. Click **Create Schedule**.<br/><img src={useBaseUrl('img/api-fortress/2021/02/createSchedule.png')} alt="Create Schedule" width="500"/>
+5. Click **Create Schedule**.<br/><img src={useBaseUrl('img/api-fortress/2021/02/createSchedule.png')} alt="Create Schedule" width="450"/>
 
   The **New Schedule** window will appear.<br/><img src={useBaseUrl('img/api-fortress/2021/02/exampleSchedule.png')} alt="Example Schedule"/>
 6. Enter a **Schedule Name** (**Description** is optional).
@@ -43,9 +44,9 @@ Our API Testing interface has a unique working copy/published copy system. This 
 
 If you need to edit the schedule or any other part of the test, here's a shortcut:
 1. Go to your the **Tests** tab of your Project.
-1. Hover your mouse over the test line item. You'll see icons that allow you to apply edits to your actual test and to the schedule.<br/><img src={useBaseUrl('img/api-fortress/2021/02/scheduleIcons.png')} alt="Schedules Icons" width="150"/>
-1. Click the icon that align with what you want to do. From left to right:
-   * Pencil icon: Edits the test (opens the **Compose** tab).
-   * Play icon: Runs the test manually.
-   * Calendar icon: Opens the scheduler directly without opening the test first.
-   * Trash icon: Deletes the test.
+1. Hover your mouse over the test line item. You'll see icons that allow you to apply edits to your actual test and to the schedule.<br/><img src={useBaseUrl('img/api-fortress/2021/02/scheduleIcons.png')} alt="Schedules Icons" width="150"/><br/>
+   From left to right:
+    * Pencil icon: Edits the test (opens the **Compose** tab).
+    * Play icon: Runs the test manually.
+    * Calendar icon: Opens the scheduler directly without opening the test first.
+    * Trash icon: Deletes the test.
