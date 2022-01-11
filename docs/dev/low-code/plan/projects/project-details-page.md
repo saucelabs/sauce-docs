@@ -125,6 +125,7 @@ To merge multiple test cases into a new test case:
     </td>
     <td>Displays the steps in the test and gives you the option to download the information as a .csv or a .xlsx file.
     </td>
+  </tr>
   <tr>
     <td>Data  
     </td>
@@ -440,31 +441,31 @@ For information about specific variables, see [Variables](/dev/low-code/variable
 <table>
   <tr>
     <td><b>Column</b>
-    </td
+    </td>
     <td><b>Description</b>
     </td>
   </tr>
   <tr>
     <td><b>Variable</b>
-    </td
+    </td>
     <td>The variables associated with the project. Click a variable name to modify its name or value.<br/><br/>Click the up or down arrow next to the column name to sort the table alphabetically by variable name.
     </td>
   </tr>
   <tr>
     <td><b>Value</b>
-    </td
+    </td>
     <td>Click the up or down arrow next to the column name to sort the table alphabetically by value.
     </td>
   </tr>
   <tr>
     <td><b>Clone</b>
-    </td
+    </td>
     <td>Hover in the <b>Clone</b> column and then click the <b>Clone</b> button.
     </td>
   </tr>
   <tr>
     <td><b>Delete</b>
-    </td
+    </td>
     <td>Hover in the <b>Delete</b> column and then click the <b>Delete</b> button.
     </td>
   </tr>

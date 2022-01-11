@@ -63,7 +63,8 @@ The **Schedules** page includes information about your scheduled tests. From thi
   </tr>
   <tr>
     <td colspan='2'><b>Update Schedule</b>
-    </td>Modify job and schedule details. See <a href="#creating-a-schedule">Creating a Schedule</a> for more information.
+    </td>
+    <td>Modify job and schedule details. See <a href="#creating-a-schedule">Creating a Schedule</a> for more information.
     </td>
   </tr>
   <tr>

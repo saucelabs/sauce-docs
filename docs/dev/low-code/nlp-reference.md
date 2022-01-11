@@ -140,7 +140,7 @@ This command moves focus to another window or tab.
 
   </tr>
   <tr>
-    <td colspan='2'><code>Swicth to...</code>
+    <td colspan='2'><code>Switch to...</code>
     </td>
   </tr>
   <tr>
@@ -316,11 +316,11 @@ If a window is not displaying at the correct size, you can use the `Set screen s
     </td>
   </tr>
   <tr>
-    <td>Click _css{“[selector]"}
+    <td>Click _css{"[selector]"}
     </td>
   </tr>
   <tr>
-    <td>Click {xpath: "[address]"}
+    <td>Click &#123;xpath: "[address]"&#125;
     </td>
   </tr>
   <tr>
@@ -356,11 +356,11 @@ If a window is not displaying at the correct size, you can use the `Set screen s
     </td>
   </tr>
   <tr>
-    <td>Click on _xy{x, y} of _css{#some_html_node_id}<br/><br/><b>Note:</b> The x, y coordinates are the location on the page of an HTML node.
+    <td>Click on _xy&#123;x, y&#125; of _css&#123;#some_html_node_id&#125;<br/><br/><b>Note:</b> The x, y coordinates are the location on the page of an HTML node.
     </td>
   </tr>
   <tr>
-    <td>Click on _xy{x, y} of _xpath{“[//img]”}<br/><br/><b>Note:</b> The x, y coordinates are the location on the page of an image, and the text is the image name.
+    <td>Click on _xy&#123;x, y&#125; of _xpath&#123;“[//img]”&#125;<br/><br/><b>Note:</b> The x, y coordinates are the location on the page of an image, and the text is the image name.
     </td>
   </tr>
   <tr>
@@ -368,7 +368,7 @@ If a window is not displaying at the correct size, you can use the `Set screen s
     </td>
   </tr>
   <tr>
-    <td>Double Click on _xy{x, y} of [text]
+    <td>Double Click on _xy&#123;x, y&#125; of [text]
     </td>
   </tr>
   <tr>
@@ -376,11 +376,11 @@ If a window is not displaying at the correct size, you can use the `Set screen s
     </td>
   </tr>
   <tr>
-    <td>Press _css{"[selector]"}
+    <td>Press _css&#123;"[selector]"&#125;
     </td>
   </tr>
   <tr>
-    <td>Press {xpath: "[address]"}
+    <td>Press &#123;xpath: "[address]"&#125;
     </td>
   </tr>
   <tr>
@@ -400,7 +400,7 @@ If a window is not displaying at the correct size, you can use the `Set screen s
     </td>
   </tr>
   <tr>
-    <td>Select _css{"[selector]"}
+    <td>Select _css&#123;"[selector]"&#125;
     </td>
   </tr>
   <tr>
@@ -412,7 +412,7 @@ If a window is not displaying at the correct size, you can use the `Set screen s
     </td>
   </tr>
   <tr>
-    <td>Select {xpath: "[address]"}
+    <td>Select &#123;xpath: "[address]"&#125;
     </td>
   </tr>
 </table>
@@ -430,15 +430,15 @@ In order to capture the full page screenshot of the application, Sauce Labs Low-
     </td>
   </tr>
   <tr>
-    <td>Hover on _css{“[selector]”}
+    <td>Hover on _css&#123;“[selector]”&#125;
     </td>
   </tr>
   <tr>
-    <td>Hover on _xy{x, y} of _xpath{//img[@id=”some_html_node_id”]}
+    <td>Hover on _xy&#123;x, y&#125; of _xpath&#123;//img[@id=”some_html_node_id”]&#125;
     </td>
   </tr>
   <tr>
-    <td>Hover on {xpath: “[address]”}
+    <td>Hover on &#123;xpath: “[address]”&#125;
     </td>
   </tr>
   <tr>
@@ -450,11 +450,11 @@ In order to capture the full page screenshot of the application, Sauce Labs Low-
     </td>
   </tr>
   <tr>
-    <td>Hover over _css{“[selector]”}
+    <td>Hover over _css&#123;“[selector]”&#125;
     </td>
   </tr>
   <tr>
-    <td>Hover over {xpath: “[address]”}
+    <td>Hover over &#123;xpath: “[address]”&#125;
     </td>
   </tr>
   <tr>
@@ -479,11 +479,11 @@ In order to capture the full page screenshot of the application, Sauce Labs Low-
     </td>
   </tr>
   <tr>
-    <td>Enter text in _css{“[selector]”}
+    <td>Enter text in _css&#123;“[selector]”&#125;
     </td>
   </tr>
   <tr>
-    <td>Enter text in {xpath: “[address]”}
+    <td>Enter text in &#123;xpath: “[address]”&#125;
     </td>
   </tr>
   <tr>
@@ -503,11 +503,11 @@ In order to capture the full page screenshot of the application, Sauce Labs Low-
     </td>
   </tr>
   <tr>
-    <td>Fill in text in _css{“[selector]”}
+    <td>Fill in text in _css&#123;“[selector]”&#125;
     </td>
   </tr>
   <tr>
-    <td>Fill in text in {xpath: “[address]”}
+    <td>Fill in text in &#123;xpath: “[address]”&#125;
     </td>
   </tr>
   <tr>
@@ -519,11 +519,11 @@ In order to capture the full page screenshot of the application, Sauce Labs Low-
     </td>
   </tr>
   <tr>
-    <td>Set text in _css{“[selector]”}
+    <td>Set text in _css&#123;“[selector]”&#125;
     </td>
   </tr>
   <tr>
-    <td>Set text in {xpath: “[address]”}
+    <td>Set text in &#123;xpath: “[address]”&#125;
     </td>
   </tr>
   <tr>
@@ -539,11 +539,11 @@ In order to capture the full page screenshot of the application, Sauce Labs Low-
     </td>
   </tr>
   <tr>
-    <td>Type in text in _css{“[selector]”}
+    <td>Type in text in _css&#123;“[selector]”&#125;
     </td>
   </tr>
   <tr>
-    <td>Type in text in {xpath: “[address]”}
+    <td>Type in text in &#123;xpath: “[address]”&#125;
     </td>
   </tr>
   <tr>
@@ -563,7 +563,7 @@ The default timeout for a file download to start is five minutes, but it can be 
 
 Once a download starts, the system will wait 30 minutes for it to complete.
 
-You can also modify the download timeout on the **Variables** tab with the `download_complete_timeout` variable. (See [Variables]() for more information.)
+You can also modify the download timeout on the **Variables** tab with the `download_complete_timeout` variable. (See [Variables](/dev/low-code/variables) for more information.)
 
 ### Example
 **Variable:** `download_complete_timeout`
@@ -587,7 +587,7 @@ File download and upload are supported on the following browsers:
     </td>
   </tr>
   <tr>
-    <td>Upload file to _css{“[selector]”}
+    <td>Upload file to _css&#123;“[selector]”&#125;
     </td>
   </tr>
   <tr>
@@ -595,7 +595,7 @@ File download and upload are supported on the following browsers:
     </td>
   </tr>
   <tr>
-    <td>Upload file to {xpath: “[address]”}
+    <td>Upload file to &#123;xpath: “[address]”&#125;
     </td>
   </tr>
 </table>
@@ -625,59 +625,59 @@ Using `Assert` will cause the test case to fail and stop at the failed step. Usi
     </td>
   </tr>
   <tr>
-    <td>Verify _css{“[selector]”} begins with [text]
+    <td>Verify _css&#123;“[selector]”&#125; begins with [text]
     </td>
   </tr>
   <tr>
-    <td>Verify _css{“[selector]”} begins with [text] or begins with [text]
+    <td>Verify _css&#123;“[selector]”&#125; begins with [text] or begins with [text]
     </td>
   </tr>
   <tr>
-    <td>Verify _css{“[selector]”} begins with [text] or ends with [text]
+    <td>Verify _css&#123;“[selector]”&#125; begins with [text] or ends with [text]
     </td>
   </tr>
   <tr>
-    <td>Verify _css{“[selector]”} contains [text]
+    <td>Verify _css&#123;“[selector]”&#125; contains [text]
     </td>
   </tr>
   <tr>
-    <td>Verify _css{“[selector]”} contains [text] or begins with [text]
+    <td>Verify _css&#123;“[selector]”&#125; contains [text] or begins with [text]
     </td>
   </tr>
   <tr>
-    <td>Verify _css{“[selector]”} contains [text] or contains [text]
+    <td>Verify _css&#123;“[selector]”&#125; contains [text] or contains [text]
     </td>
   </tr>
   <tr>
-    <td>Verify _css{“[selector]”} contains [text] or ends with [text]
+    <td>Verify _css&#123;“[selector]”&#125; contains [text] or ends with [text]
     </td>
   </tr>
   <tr>
-    <td>Verify _css{“[selector]”} ends with [text]
+    <td>Verify _css&#123;“[selector]”&#125; ends with [text]
     </td>
   </tr>
   <tr>
-    <td>Verify _css{“[selector]”} ends with [text] or ends with [text]
+    <td>Verify _css&#123;“[selector]”&#125; ends with [text] or ends with [text]
     </td>
   </tr>
   <tr>
-    <td>Verify _css{“[selector]”} is _css{“[selector]”}
+    <td>Verify _css&#123;“[selector]”&#125; is _css&#123;“[selector]”&#125;
     </td>
   </tr>
   <tr>
-    <td>Verify _css{“[selector]”} is disabled
+    <td>Verify _css&#123;“[selector]”&#125; is disabled
     </td>
   </tr>
   <tr>
-    <td>Verify _css{“[selector]”} is enabled
+    <td>Verify _css&#123;“[selector]”&#125; is enabled
     </td>
   </tr>
   <tr>
-    <td>Verify _css{“[selector]”} is not visible
+    <td>Verify _css&#123;“[selector]”&#125; is not visible
     </td>
   </tr>
   <tr>
-    <td>Verify _css{“[selector]”} is visible
+    <td>Verify _css&#123;“[selector]”&#125; is visible
     </td>
   </tr>
   <tr>
@@ -685,79 +685,79 @@ Using `Assert` will cause the test case to fail and stop at the failed step. Usi
     </td>
   </tr>
   <tr>
-    <td>Verify {xpath: “[address]”} background-color is #ffffff
+    <td>Verify &#123;xpath: “[address]”&#125; background-color is #ffffff
     </td>
   </tr>
   <tr>
-    <td>Verify {xpath: “[address]”} begins with [text]<br/<<br/>Example: `Verify {xpath: "[//img[@class='gb_Wa']"} begins with [google]`
+    <td>Verify &#123;xpath: “[address]”&#125; begins with [text]<br/><br/>Example: `Verify &#123;xpath: "[//img[@class='gb_Wa']"&#125; begins with [google]`
     </td>
   </tr>
   <tr>
-    <td>Verify {xpath: “[address]”} begins with [text] or begins with [text]
+    <td>Verify &#123;xpath: “[address]”&#125; begins with [text] or begins with [text]
     </td>
   </tr>
   <tr>
-    <td>Verify {xpath: “[address]”} begins with [text] or ends with [text]
+    <td>Verify &#123;xpath: “[address]”&#125; begins with [text] or ends with [text]
     </td>
   </tr>
   <tr>
-    <td>Verify {xpath: “[address]”} color is [#e01719]<br/><br/><b>Note:</b> Any CSS attribute value can be validated using the xpath of the element (width, height, font-family, text-align, font-size, display, color, background-color, etc.).<br/><br/>Example: `Verify {xpath: "[//img[@class='gb_Wa']"} color is [#e01719]`
+    <td>Verify &#123;xpath: “[address]”&#125; color is [#e01719]<br/><br/><b>Note:</b> Any CSS attribute value can be validated using the xpath of the element (width, height, font-family, text-align, font-size, display, color, background-color, etc.).<br/><br/>Example: `Verify &#123;xpath: "[//img[@class='gb_Wa']"&#125; color is [#e01719]`
     </td>
   </tr>
   <tr>
-    <td>Verify {xpath: “[address]”} contains [text]
+    <td>Verify &#123;xpath: “[address]”&#125; contains [text]
     </td>
   </tr>
   <tr>
-    <td>Verify {xpath: “[address]”} contains [text] or begins with [text]
+    <td>Verify &#123;xpath: “[address]”&#125; contains [text] or begins with [text]
     </td>
   </tr>
   <tr>
-    <td>Verify {xpath: “[address]”} contains [text] or contains [text]
+    <td>Verify &#123;xpath: “[address]”&#125; contains [text] or contains [text]
     </td>
   </tr>
   <tr>
-    <td>Verify {xpath: “[address]”} contains [text] or ends with [text]
+    <td>Verify &#123;xpath: “[address]”&#125; contains [text] or ends with [text]
     </td>
   </tr>
   <tr>
-    <td>Verify {xpath: “[address]”} ends with [text]
+    <td>Verify &#123;xpath: “[address]”&#125; ends with [text]
     </td>
   </tr>
   <tr>
-    <td>Verify {xpath: “[address]”} ends with [text] or ends with [text]
+    <td>Verify &#123;xpath: “[address]”&#125; ends with [text] or ends with [text]
     </td>
   </tr>
   <tr>
-    <td>Verify {xpath: “[address]”} font-size 26px
+    <td>Verify &#123;xpath: “[address]”&#125; font-size 26px
     </td>
   </tr>
   <tr>
-    <td>Verify {xpath: “[address]”} is {xpath: “[address]”}
+    <td>Verify &#123;xpath: “[address]”&#125; is &#123;xpath: “[address]”&#125;
     </td>
   </tr>
   <tr>
-    <td>Verify {xpath: “[address]”} is disabled
+    <td>Verify &#123;xpath: “[address]”&#125; is disabled
     </td>
   </tr>
   <tr>
-    <td>Verify {xpath: “[address]”} is enabled
+    <td>Verify &#123;xpath: “[address]”&#125; is enabled
     </td>
   </tr>
   <tr>
-    <td>Verify {xpath: “[address]”} is not visible
+    <td>Verify &#123;xpath: “[address]”&#125; is not visible
     </td>
   </tr>
   <tr>
-    <td>Verify {xpath: “[address]”} is visible
+    <td>Verify &#123;xpath: “[address]”&#125; is visible
     </td>
   </tr>
   <tr>
-    <td>Verify ${var_name} is on the screen<br/><br/><b>Note:</b>Used to verify if a saved variable exists on the screen.
+    <td>Verify $&#123;var_name&#125; is on the screen<br/><br/><b>Note:</b>Used to verify if a saved variable exists on the screen.
     </td>
   </tr>
   <tr>
-    <td>Verify ${var_name} on the page<br/><br/><b>Note:</b>Used to verify if a saved variable exists on the page.
+    <td>Verify $&#123;var_name&#125; on the page<br/><br/><b>Note:</b>Used to verify if a saved variable exists on the page.
     </td>
   </tr>
   <tr>
@@ -789,7 +789,7 @@ Using `Assert` will cause the test case to fail and stop at the failed step. Usi
     </td>
   </tr>
   <tr>
-    <td>Verify variable ${var_name} is [text]<br/><br/><b>Note:</b> Verify if a saved variable matches with some text. Can also be used to verify the value saved for a variable.<br/><br/>Example: `Verify variable ${variableName} is [someText]`
+    <td>Verify variable $$&#123;var_name$&#125; is [text]<br/><br/><b>Note:</b> Verify if a saved variable matches with some text. Can also be used to verify the value saved for a variable.<br/><br/>Example: `Verify variable $$&#123;variableName$&#125; is [someText]`
     </td>
   </tr>
   <tr>
@@ -811,7 +811,7 @@ Conditional actions are executed if certain conditions are true, and can be used
     </td>
   </tr>
   <tr>
-    <td>if {xpath: “[address]”} is visible, click on [exact attribute value]
+    <td>if &#123;xpath: “[address]”&#125; is visible, click on [exact attribute value]
     </td>
   </tr>
   <tr>
@@ -885,7 +885,7 @@ Blocks can be used to loop through commands as many times as required.
 
 To run through multiple data sets for input in each loop, use separate data files with multiple data. After uploading the data file, link it to the relevant test case. In the following example, each row of data will correspond to an iteration of the loop.
 
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+<img src={useBaseUrl('/img/dev/low-code/looping-blocks-example.png')} alt="An example of looping blocks"/>
 
 ### Nested Blocks
 Nested blocks are blocks within blocks. You can have a single or multiple levels of nesting blocks.
@@ -943,7 +943,7 @@ An `if` action is used to decide whether a certain action or block of actions wi
     </td>
   </tr>
   <tr>
-    <td>if {xpath: “[address]”} is visible, click on [exact attribute value]
+    <td>if &#123;xpath: “[address]”&#125; is visible, click on [exact attribute value]
     </td>
   </tr>
   <tr>
@@ -995,7 +995,7 @@ In this example, the `if` condition is not satisfied so the `else` part is execu
 
 `if...else...` actions can be nested inside other if or else actions.
 
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+<img src={useBaseUrl('/img/dev/low-code/if-else-example.png')} alt="An example of an if...else... action"/>
 
 ### `else...if...`
 
@@ -1015,13 +1015,13 @@ End block
 End block
 ```
 
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+<img src={useBaseUrl('/img/dev/low-code/else-if-example.png')} alt="An example of an else...if... action"/>
 
 In this example, if the condition is not satisfied and `block login1` is not executed, then the control moves to the `elif` action. Here the condition is satisfied and `block login2` is executed.
 
 ### Data-Driven Parsing
 
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+<img src={useBaseUrl('/img/dev/low-code/dd-parsing-example.png')} alt="An example of a data-driven parsing action"/>
 
 In this example, `run${block1} for all rows` will iterate through all rows in the data file. When the condition matches the current row, only that `if block` will be executed. Any subsequent `elif`/`else` actions won’t be executed, as well as any conditions that do not match.
 
@@ -1052,19 +1052,19 @@ In an `if...continue...` action, when the `if` condition is satisfied, the contr
     </td>
   </tr>
   <tr>
-    <td>Wait until _css{“[selector]”} is exists
+    <td>Wait until _css&#123;“[selector]”&#125; is exists
     </td>
   </tr>
   <tr>
-    <td>Wait until _css{“[selector]”} is visible
+    <td>Wait until _css&#123;“[selector]”&#125; is visible
     </td>
   </tr>
   <tr>
-    <td>Wait until {xpath: “[address]”} is exists
+    <td>Wait until &#123;xpath: “[address]”&#125; is exists
     </td>
   </tr>
   <tr>
-    <td>Wait until {xpath: “[address]”} is visible
+    <td>Wait until &#123;xpath: “[address]”&#125; is visible
     </td>
   </tr>
   <tr>
@@ -1090,7 +1090,7 @@ Files should be uploaded to the **Artifacts** section.
     </td>
   </tr>
   <tr>
-    <td>Upload file to _css{“[selector]”}
+    <td>Upload file to _css&#123;“[selector]”&#125;
     </td>
   </tr>
   <tr>
@@ -1098,7 +1098,7 @@ Files should be uploaded to the **Artifacts** section.
     </td>
   </tr>
   <tr>
-    <td>Upload file to {xpath: “[address]”}
+    <td>Upload file to &#123;xpath: “[address]”&#125;
     </td>
   </tr>
 </table>

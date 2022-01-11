@@ -33,6 +33,7 @@ To download the information on the Reports page, click the **Download** button a
     <td><b>Start Time</b>
     </td>
     <td><b>Actual Date (Default)</b> - The date the report was created.<br/><br/><b>Relative Date</b> - The time since the report was created.<br/><br/>Click the up or down arrow next to the column name to sort the table by date.
+    </td>
   </tr>
   <tr>
     <td><b>Total</b>

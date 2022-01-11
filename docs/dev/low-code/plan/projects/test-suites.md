@@ -13,43 +13,43 @@ On the **Plan -> Test Suites** page you can view, update, execute, clone, or del
 <table>
   <tr>
     <td colspan='2'><b>Component</b>
-    <td>
+    </td>
     <td><b>Description</b>
     </td>
   </tr>
   <tr>
     <td colspan='2'><b>Suite</b>
-    <td>
+    </td>
     <td>The name given to the test suite.<br/><br/>Click the up or down arrow next to the column name to sort the table by suite name.
     </td>
   </tr>
   <tr>
     <td colspan='2'><b>Project</b>
-    <td>
+    </td>
     <td>The name of the project to which the test suite belongs.<br/><br/>Click the up or down arrow next to the column name to sort the table by project name.
     </td>
   </tr>
   <tr>
     <td colspan='2'><b>Created</b>
-    <td>
+    </td>
     <td>The date the test suite was created.<br/><br/>Click the up or down arrow next to the column name to sort the table by created date.
     </td>
   </tr>
   <tr>
     <td colspan='2'><b>Last Run</b>
-    <td>
+    </td>
     <td>The date the test suite was last run.<br/><br/>Click the up or down arrow next to the column name to sort the table by last run date.
     </td>
   </tr>
   <tr>
     <td colspan='2'><b>Last Status</b>
-    <td>
+    </td>
     <td>The most recent status of the test suite.<br/><br/>Click the up or down arrow next to the column name to sort the table by last status.
     </td>
   </tr>
   <tr>
     <td rowspan='6'><b>Actions</b>
-    <td>
+    </td>
     <td><b>Update Suite</b>
     </td>
     <td>Update the name and description for the test suite. See <a href="#updating-a-test-suite">Updating a Test Suite</a> for more information.

@@ -8,44 +8,44 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## `Click` Errors
 ### `Element was not found`
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+<img src={useBaseUrl('/img/dev/low-code/troubleshooting_1.1.png')} />
 ### `xpath not found`
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+<img src={useBaseUrl('/img/dev/low-code/troubleshooting_1.4.png')} />
 
 
 ## `Click` Issues
 ### `Click` is successful, but not on intended element
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+<img src={useBaseUrl('/img/dev/low-code/troubleshooting_1.2.png')} />
 ### `Click` is successful on the right element, but action is not performed
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+<img src={useBaseUrl('/img/dev/low-code/troubleshooting_1.3.png')} />
 
 
 ## `Enter` Errors
 ### `Element was not found`
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+See [`Element was not found`](#element-was-not-found).
 ### `xpath not found`
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+See [`xpath not found`](#xpath-not-found).
 
 
 ## `Enter` Issues
 ###`Enter` is successful but not on intended element
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+See [`Click` is successful, but not on intended element](#click-is-successful-but-not-on-intended-element).
 ### Unable to `Enter` on text box
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+<img src={useBaseUrl('/img/dev/low-code/troubleshooting_2.3.png')} />
 ### Element is entered in the correct text box, but data disappears in the next step
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/
+<img src={useBaseUrl('/img/dev/low-code/troubleshooting_2.4.png')} />
 
 
 ## `Select` Errors
 ### `Element was not found`
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+<img src={useBaseUrl('/img/dev/low-code/troubleshooting_3.1.png')} />
 ### `xpath not found`
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+See [`xpath not found`](#xpath-not-found).
 
 
 ## `Select` Issues
 ### `Select` is successful but not on intended element
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+See [`Click` is successful, but not on intended element](#click-is-successful-but-not-on-intended-element).
 
 
 ## `Upload` Errors
@@ -54,17 +54,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 **Cause:** The file name or upload method is incorrect.
 **Solution:**
   1. Check if the file was uploaded to **Artifact** on the **Data** tab.
-      <img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
   2. Check if the file is attached to the correct test case.
-      <img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
   3. Check if the file name includes the extension.
-      <img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
 
 
 ## Other Errors
 ### `Parsing Error`
 **Problem:** `Parsing Error` is displayed and the test steps disappear.
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
 **Cause:** The block is incomplete or incorrect.
 **Solution:**
   1. Check if the block in the test case includes `End Block`.

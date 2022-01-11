@@ -66,6 +66,7 @@ Clicking the maximize icon will open a larger version of the details card, and c
     <br/>
     By default, this card is not displayed. To display it, select the <b>Top Fail</b> checkbox in <b>Dashboard Management</b> settings.
     </td>
+  </tr>
   <tr>
     <td><b>Active Users</b> card
     </td>

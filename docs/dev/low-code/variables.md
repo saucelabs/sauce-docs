@@ -34,11 +34,9 @@ Local variables cannot be declared on the **Variables** tab.
 ## `safe_click` Variable
 If the `safe_click` variable is set to true, stale enter and click actions will be rediscovered after restarting the page.
 
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
-
 ## Other Actions
 ### `--ignoreAlert`
-By default, Sauce Labs Low-Code will check if a browser alert is present before interacting with any element on the screen. If an unhandled alert is present (see [Switch to alert...]() for more information), the test step will fail with an error message stating that the alert is unhandled. To prevent the test step failing, use the `ignoreAlert` action.
+By default, Sauce Labs Low-Code will check if a browser alert is present before interacting with any element on the screen. If an unhandled alert is present (see [Switch to alert...](/dev/low-code/nlp-reference#switch-to-tab-or-window) for more information), the test step will fail with an error message stating that the alert is unhandled. To prevent the test step failing, use the `ignoreAlert` action.
 
 #### Example
 
@@ -108,16 +106,12 @@ The `get element details` action returns the object of the element attributes an
 #### Example
 `get element details(enter username) and save as xyz`
 
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
-
 ### `use_full_screenshot`
 If you don’t require full screenshots of test steps, you can set the `use_full_screenshot` option to `false` on the **Variables** tab. Setting the option on the **Variables** tab applies it to the entire project.
 
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
-
 Alternatively, in **Project Properties**, you can turn off the **Show full screen images** option. This also applies the change to the entire project.
 
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+<img src={useBaseUrl('/img/dev/low-code/full-screen-images.png')} alt="The Show full screen images toggle"/>
 
 #### `maintenance`
 The `maintenance` option self-corrects `xpath` and rediscovers the element if the older `xpath` points to an invalid element.
@@ -125,8 +119,6 @@ The `maintenance` option self-corrects `xpath` and rediscovers the element if th
 Multiple `xpaths` are generated when test cases are recorded or uploaded, and then they are passed on to the tools engine. The tools engine then validates the `xpaths` and discards those that are pointing to incorrect elements. If all the `xpaths` are pointing to incorrect elements, then the engine performs a rediscovery and forms a new `xpath` that may not have the attribute of the old `xpath`.
 
 By default, this option is enabled, but it can be turned off by setting the maintenance variable to `false`.
-
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
 
 ### `page_scroll`
 By default, the auto-scroll setting is disabled, but it can be enabled with the `page_scroll` variable.
@@ -331,9 +323,7 @@ Numeric comparison:
 `_xl{DAYS(${date1}.${date2})} as date_diff`
 
 ### Currency Symbols as Prefix
-The corresponding currency symbol–-in this case `$`-–can be concatenated at the beginning of a function.
-
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
+The corresponding currency symbol can be concatenated at the beginning of a function.
 
 ### Other
 #### Excel with Numbers

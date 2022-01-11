@@ -20,31 +20,31 @@ On the **Plan -> Test Cases** page you can view, update, move, or disable a test
   <tr>
     <td colspan='2'><b>Case</b>
     </td>
-    <td>The name given to the test case.<br/<br/>Click the up or down arrow next to the column name to sort the table by case name.
+    <td>The name given to the test case.<br/><br/>Click the up or down arrow next to the column name to sort the table by case name.
     </td>
   </tr>
   <tr>
     <td colspan='2'><b>Project</b>
     </td>
-    <td>The project the test case is associated with.<br/<br/>Click the up or down arrow next to the column name to sort the table by project name.
+    <td>The project the test case is associated with.<br/><br/>Click the up or down arrow next to the column name to sort the table by project name.
     </td>
   </tr>
   <tr>
     <td colspan='2'><b>Created</b>
     </td>
-    <td>The date the test case was created.<br/<br/>Click the up or down arrow next to the column name to sort the table by created date.
+    <td>The date the test case was created.<br/><br/>Click the up or down arrow next to the column name to sort the table by created date.
     </td>
   </tr>
   <tr>
     <td colspan='2'><b>Last Generated</b>
     </td>
-    <td>The date the test case was last generated.<br/<br/>Click the up or down arrow next to the column name to sort the table by the last generated date.
+    <td>The date the test case was last generated.<br/><br/>Click the up or down arrow next to the column name to sort the table by the last generated date.
     </td>
   </tr>
   <tr>
     <td colspan='2'><b>Last Status</b>
     </td>
-    <td>The most recent status of the test case.<br/<br/>Click the up or down arrow next to the column name to sort the table by last status.
+    <td>The most recent status of the test case.<br/><br/>Click the up or down arrow next to the column name to sort the table by last status.
     </td>
   </tr>
   <tr>
@@ -70,7 +70,7 @@ On the **Plan -> Test Cases** page you can view, update, move, or disable a test
   <tr>
     <td><b>Disable Test Case</b>
     </td>
-    <td>Disable the test case.<br/<br/>You can also disable a test case by selecting its check box and then clicking the <b>Disable Test Case</b> button.
+    <td>Disable the test case.<br/><br/>You can also disable a test case by selecting its check box and then clicking the <b>Disable Test Case</b> button.
     </td>
   </tr>
   <tr>
