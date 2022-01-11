@@ -378,7 +378,6 @@ module.exports = {
             collapsed: true,
             items: [
                 'dev/low-code',
-                'dev/low-code/getting-started',
                 'dev/low-code/dashboard',
                 {
                     type: 'category',
@@ -398,7 +397,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'dev/low-code/execute/execute-step',
-                        'dev/low-code/execute/execute-history-page',
+                        'dev/low-code/execute/execution-history-page',
                         'dev/low-code/execute/reports-page',
                         'dev/low-code/execute/schedules-page',
                       ]
