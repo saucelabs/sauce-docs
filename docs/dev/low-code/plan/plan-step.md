@@ -1,7 +1,7 @@
 ---
 id: plan-step
-title: Plan
-sidebar_label: Plan
+title: Plan Overview
+sidebar_label: Plan Overview
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

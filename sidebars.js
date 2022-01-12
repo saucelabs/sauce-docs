@@ -325,17 +325,7 @@ module.exports = {
             ],
         },
     ],
-    aiq: [
-        {
-            type: 'category',
-            label: 'Autonomiq Docs',
-            collapsed: true,
-            items: [
-                'dev/low-code',
-                'dev/low-code/getting-started',
-            ],
-        },
-    ],
+
     dev: [
         'dev',
         {
@@ -384,43 +374,7 @@ module.exports = {
             ],
         },
         {
-            type: 'category',
-            label: 'Low-Code Testing',
-            collapsed: true,
-            items: [
-                'dev/low-code',
-                'dev/low-code/dashboard',
-                {
-                    type: 'category',
-                    label: 'Plan',
-                    collapsed: true,
-                    items: [
-                        'dev/low-code/plan/plan-step',
-                        'dev/low-code/plan/projects/projects',
-                        'dev/low-code/plan/projects/project-details-page',
-                        'dev/low-code/plan/projects/test-suites',
-                        'dev/low-code/plan/projects/test-cases',
-                      ]
-                },
-                {
-                    type: 'category',
-                    label: 'Execute',
-                    collapsed: true,
-                    items: [
-                        'dev/low-code/execute/execute-step',
-                        'dev/low-code/execute/execution-history-page',
-                        'dev/low-code/execute/reports-page',
-                        'dev/low-code/execute/schedules-page',
-                      ]
-                },
-                'dev/low-code/analyze-step',
-                'dev/low-code/profile',
-                'dev/low-code/nlp-reference',
-                'dev/low-code/variables',
-                'dev/low-code/troubleshooting',
-            ],
-        },
-      ],
+
     docs: {
         "Home": [
             'overview',

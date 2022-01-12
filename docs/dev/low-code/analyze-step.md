@@ -1,6 +1,6 @@
 ---
 id: analyze-step
-title: Analyze
+title: Analyze 
 sidebar_label: Analyze
 ---
 

@@ -1,7 +1,7 @@
 ---
 id: execute-step
-title: Execute
-sidebar_label: Execute
+title: Execute Overview
+sidebar_label: Execute Overview
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
