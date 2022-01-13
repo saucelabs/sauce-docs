@@ -105,12 +105,12 @@ To connect to Sauce Labs real and virtual devices, assign your Sauce IPSec Proxy
 
 #### Appium and Selenium
 
-* Set the `tunnelName` desired capability to the name of your organization's Sauce IPSec Proxy tunnel
+* Set the `tunnelIdentifier` desired capability to the name of your organization's Sauce IPSec Proxy tunnel
 * Set the `tunnelOwner` capability to the username of your organization admin
 
 ```java title="Java example"
 MutableCapabilities caps = new MutableCapabilities();
-caps.setCapability("tunnelName", "{TUNNEL_NAME}");
+caps.setCapability("tunnelIdentifier", "{TUNNEL_IDENTIFIER}");
 caps.setCapability("tunnelOwner","{SAUCE_USERNAME}");
 ```
 
