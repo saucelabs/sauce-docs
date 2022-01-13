@@ -18,7 +18,12 @@ import TabItem from '@theme/TabItem';
 
 ## Sauce Connect Docker Container Setup
 
-As an alternative to downloading and installing the SC Client, you can leverage Docker containers to manage Sauce Connect Proxy tunnels. See [Using Docker Containers to Install/Run Sauce Connect](/secure-connections/sauce-connect/installation/#using-docker-containers-to-installrun-sauce-connect) for use cases. Our Docker image maintained by the Sauce Labs [Open Source Program Office](https://opensource.saucelabs.com/).
+As an alternative to downloading and installing the SC Client, you can [leverage Docker containers to manage Sauce Connect Proxy tunnels](/secure-connections/sauce-connect/installation/#running-sauce-connect-in-docker). Our Docker image maintained by the Sauce Labs [Open Source Program Office](https://opensource.saucelabs.com/).
+
+Here are some benefits/use cases:
+* If you want to run Sauce Connect Proxy as part of a Dockerized CI.
+* If you'd prefer to manage Docker image tags instead of Sauce Connect Proxy versions.
+* If your setup involves several instances running on the same system, Docker would simplify Sauce Connect Proxy port management.
 
 ### Running the SC Docker Image
 
@@ -26,7 +31,7 @@ As an alternative to downloading and installing the SC Client, you can leverage 
   ```bash
   $ docker pull saucelabs/sauce-connect
   ```
-   * Or - if you _do_ want to use a specific SC version - you can specify that as a tag. This example pulls v4.7.1.
+   * Or - if you _do_ want to use specific SC version - you can specify that as a tag:
    ```bash
    $ docker pull saucelabs/sauce-connect:4.7.1
    ```
@@ -196,3 +201,7 @@ Example of starting Sauce Connect Proxy in conjunction with your Sauce Headless 
 See [API Testing with Sauce Connect Proxy](/api-testing/sauce-connect/) to learn how to start a tunnel for API Testing. It requires the use of a YAML config file.
 
 This setup has a unique endpoint, `https://api.us-west-4-i3er.saucelabs.com/rest/v1`. Currently, only the US-West region is supported.
+
+
+## More Information
+* [Leveraging Docker Containers to Manage Sauce Connect Proxy Tunnels](https://saucelabs.com/blog/leveraging-docker-containers-to-manage-sauce-connect-tunnels)
