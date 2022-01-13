@@ -254,7 +254,7 @@ For best experience, open the [`visual-e2e` repository](https://github.com/luish
 
 ## Integrating with Existing WebDriver Tests
 
-Here's how to integrate Visual E2E with your existing Selenium WebDriver test scripts.
+Here's how to integrate Visual E2E with existing Selenium WebDriver test scripts.
 
 1. Set your Sauce Labs credentials as environment variables (see [Setting Up Environment](/visual/e2e-testing/setup/#set-up-environment)). In JavaScript, for example, you could store your Screener API key in an environment variable called `SCREENER_API_KEY`, then reference it in a NodeJS file with `process.env.SCREENER_API_KEY`.
 2. Add the [`sauce:options` capability](/dev/test-configuration-options/) to your WebDriver test configuration and set your Sauce Labs credentials there. Here's a JavaScript example:
@@ -477,21 +477,16 @@ static void test() {
 Now you can run your test and [view your results](#view-test-results) in the Visual Testing Dashboard. Be sure to [review and accept](#accept-baseline) your baseline.
 
 
-## Setting Timeouts
+### Setting Timeouts
 
-If you're using several visual assertions (such as [snapshots](/visual/e2e-testing/commands-options/#snapshot-command)) in your WebdriverIO test, you may need to increase the `timeout` value in your configuration to help with test stability.
+If you're using several [visual assertions](/visual/e2e-testing/commands-options/#visual-e2e-commands) in your test, you may need to increase the `timeout` value in your configuration to help with test stability.
 
-A single visual assertion can take up to 30-45 seconds. So if you had three assertions, you'd need to set your `timeout` to a value above 180000 milliseconds (3 mins) to prevent your test from failing. [Click here](/visual/e2e-testing/commands-options/#snapshot-command) to see some example code snippets.
+A single assertion can take up to 45 seconds. So if you had a WebdriverIO test with three [snapshots (`/*@visual.snapshot*/`)](/visual/e2e-testing/commands-options/#snapshot-command), for example, you'd need to [set your `timeout` value](https://webdriver.io/docs/timeouts/#framework-related-timeouts) above 180000 milliseconds (3 mins) to prevent your test from failing.
 
-## Next Steps
-* Learn the [Visual E2E review workflow](/visual/e2e-testing/workflow/review-workflow/) for your UI test results
-* [Integrate Visual E2E Testing into your CI](/visual/e2e-testing/integrations/continuous-integration) to return results into your WebDriver tests for continuous visual testing
-* Confirm that your WebDriver test scripts are using [W3C WebDriver capabilities](/dev/w3c-webdriver-capabilities/).
-* Confirm that the browsers in your tests are in our list of [supported browsers](/visual/e2e-testing/supported-browsers).
 
-:::tip Advanced Debugging
+### Advanced Debugging
 
-To view more debugging details on Sauce Labs, add [`extendedDebugging`](/dev/test-configuration-options/#extendeddebugging) to your test capabilities:
+To view more in-depth debugging details on Sauce Labs, add [`extendedDebugging`](/dev/test-configuration-options/#extendeddebugging) to your test capabilities:
 
 ```java
 'sauce:options': {
@@ -501,7 +496,14 @@ To view more debugging details on Sauce Labs, add [`extendedDebugging`](/dev/tes
 },
 ```
 
-:::
+
+
+## Next Steps
+* Learn the [Visual E2E review workflow](/visual/e2e-testing/workflow/review-workflow/) for your UI test results
+* [Integrate Visual E2E Testing into your CI](/visual/e2e-testing/integrations/continuous-integration) to return results into your WebDriver tests for continuous visual testing
+* Confirm that your WebDriver test scripts are using [W3C WebDriver capabilities](/dev/w3c-webdriver-capabilities/).
+* Confirm that the browsers in your tests are in our list of [supported browsers](/visual/e2e-testing/supported-browsers).
+
 
 
 
