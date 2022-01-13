@@ -16,11 +16,11 @@ If you want to cancel an Enterprise plan, contact your Sauce Labs account execut
 
 1. On Sauce Labs, click **ACCOUNT** and then click **Billing**.
 
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-billing-nav.png')} alt="Team management billing navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-billing-nav.png')} alt="Team management billing navigation" width="300"/>
 
 2. On the **SELECT PLAN** tab, click **Cancel Your Subscription**.
 
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-billing-cancel.png')} alt="Canceling your subscription" width="500"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-billing-cancel.png')} alt="Canceling your subscription" width="600"/>
 
 
 ## Upgrading Your Subscription
@@ -33,4 +33,4 @@ If you want to upgrade an Enterprise plan, contact your Sauce Labs account execu
 1. On Sauce Labs, click **ACCOUNT** and then click **Billing**.
 2. On the **SELECT PLAN** tab, update the relevant settings and then click **Update Plan**.
 
-    <img src={useBaseUrl('img/team-mgmt/team-mgmt-billing-update.png')} alt="Updating your subscription" width="400"/>
+    <img src={useBaseUrl('img/team-mgmt/team-mgmt-billing-update.png')} alt="Updating your subscription" width="600"/>
