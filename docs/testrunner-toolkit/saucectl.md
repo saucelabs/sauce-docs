@@ -339,7 +339,7 @@ saucectl run --env <key1>=value1> --env <key2>=<value2> ...
 ### `--fail-fast`
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Sauce Cloud only</span> |</small></p>
 
-Stops suites after the first failure. This will not interrupt suites that have been already started.
+Stops suites after the first failure. This will not interrupt suites that have been started already. This flag does not require a value; including it inline sets it to `true`.
 
 ```bash
 saucectl run --fail-fast ...
