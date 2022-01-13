@@ -1,7 +1,7 @@
 ---
-id: getting-started
-title: Getting Started
-sidebar_label: Getting Started
+id: low-code
+title: Low-Code Testing
+sidebar_label: Low-Code Testing
 hide_table_of_contents: true
 ---
 

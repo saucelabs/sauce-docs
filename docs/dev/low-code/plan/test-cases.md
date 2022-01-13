@@ -85,15 +85,16 @@ On the **Plan -> Test Cases** page you can view, update, move, or disable a test
 To tag a test case:
 1. On the dashboard, in the left navigation, click **Plan** and then click **Test Cases**.
 
-<img src={useBaseUrl('/img/dev/low-code/tag-test-case-nav.png')} alt="Navigating to the test case tagging page"/>
-1. Select the checkbox of the test case you want to tag, and then click the **Tag Test Case** button.
+<img src={useBaseUrl('/img/dev/low-code/tag-test-case-nav.png')} alt="Navigating to the test case tagging page" width="300"/>
 
-<img src={useBaseUrl('/img/dev/low-code/tag-test-case-button.png')} alt="The tag test case button"/>
+2. Select the checkbox of the test case you want to tag, and then click the **Tag Test Case** button.
 
-1. In the **Create Tags** window, enter the text for the tag and then click **ADD**.
+<img src={useBaseUrl('/img/dev/low-code/tag-test-case-button.png')} alt="The tag test case button" width="600"/>
 
-<img src={useBaseUrl('/img/dev/low-code/create-tags-window.png')} alt="The Create Tags window"/>
+3. In the **Create Tags** window, enter the text for the tag and then click **ADD**.
 
-1. To view the tags added to a test case, click the **Actions** icon and then click **View Tags**.
+<img src={useBaseUrl('/img/dev/low-code/create-tags-window.png')} alt="The Create Tags window" width="300"/>
 
-1. To remove a tag, in the **Current Tags** window, click the **x** next to the tag.
+4. To view the tags added to a test case, click the **Actions** icon and then click **View Tags**.
+
+5. To remove a tag, in the **Current Tags** window, click the **x** next to the tag.

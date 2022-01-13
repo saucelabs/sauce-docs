@@ -10,16 +10,16 @@ The dashboard is the landing page from which you can access the **Plan**, **Exec
 
 The dashboard includes detail cards that show you a snapshot of information related to your projects and tests, and provides links to the relevant pages to view, manage, and create tests.
 
-<img src={useBaseUrl('/img/dev/low-code/dashboard-nav.png')} alt="Dashboard"/>
+<img src={useBaseUrl('/img/dev/low-code/dashboard-nav.png')} alt="Dashboard" width="500"/>
 
 The left navigation panel, which is viewable from all screens, gives you quick access to the pages relevant to your projects. Click the menu icon to expand the menu temporarily.
 
-<img src={useBaseUrl('/img/dev/low-code/dashboard-left-nav.png')} alt="Dashboard - Left navigation panel"/>
+<img src={useBaseUrl('/img/dev/low-code/dashboard-left-nav.png')} alt="Dashboard - Left navigation panel" width="400"/>
 
 ## Dashboard Management Settings
 Use the **Dashboard Management** settings to customize what you see on your dashboard. Select and deselect checkboxes to display or hide detail cards, and select a time duration for the displayed details.
 
-<img src={useBaseUrl('/img/dev/low-code/dashboard-mgmt-settings.png')} alt="Dashboard Management settings"/>
+<img src={useBaseUrl('/img/dev/low-code/dashboard-mgmt-settings.png')} alt="Dashboard Management settings" width="500"/>
 
 ## Dashboard Detail Cards
 The dashboard detail cards give a quick look at data that might be important to you. Each card displays the time period of the data in the lower-left corner, which can be modified in the **Dashboard Management** settings.
@@ -163,4 +163,4 @@ The <b>Execution</b> panel displays currently running test cases, as well as tes
   </tr>
 </table>
 
-<img src={useBaseUrl('/img/dev/low-code/execution-panel.png')} alt="The Execution panel"/>
+<img src={useBaseUrl('/img/dev/low-code/execution-panel.png')} alt="The Execution panel" width="400"/>
