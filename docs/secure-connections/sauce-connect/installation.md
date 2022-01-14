@@ -15,40 +15,33 @@ This topic describes where and how to download Sauce Connect Proxy to your local
 * Review [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/).
 
 
-## Running the Sauce Connect Proxy Client
+## Sauce Connect Proxy Client
 
-1. Download the latest Sauce Connect Proxy client to your local machine by clicking the link below corresponding to your OS. If applicable, delete any previous versions you have. Using older versions may impact your ability to launch a tunnel or cause other technical issues.
+1. Download the latest Sauce Connect Proxy client to your local machine by clicking the link below corresponding to your OS.
   <ScTable></ScTable>
 
-  For version information, see [Sauce Connect Proxy Changelog](https://changelog.saucelabs.com/en?category=sauce%20connect).
+  If applicable, delete any previous versions you have. Using older versions may impact your ability to launch a tunnel or cause other technical issues.
 
+2. Extract the contents of the .zip download to your local machine. For easy access, we recommend saving the Sauce Connect Proxy folder to your home directory (i.e., ~/sc-4.7.1-osx).
 
-2. Extract the contents of the .zip download to your local machine. For easy access, we recommend saving the Sauce Connect Proxy folder to your home directory. The folder contains the following:<br/><img src={useBaseUrl('img/sauce-connect/scp-download.png')} alt="Sauce Connect download file contents" width="450" />
+  The folder contains the following:<br/><img src={useBaseUrl('img/sauce-connect/scp-download.png')} alt="Sauce Connect download file contents" width="400" />
   <table>
   <tr>
-   <td><strong>File</strong></td>
+   <td>File</td>
    <td>Description</td>
   </tr>
   <tr>
-    <td><strong>sc</strong> (Mac) / <strong>sc.exe</strong> (Windows)</td>
-    <td>Sauce Connect client executable file.</td>
+    <td><strong>sc</strong> (macOS) or <strong>sc.exe</strong> (Windows)</td>
+    <td>Sauce Connect Proxy client executable file.</td>
    </tr>
    <tr>
     <td><strong>config.yml</strong></td>
-   <td><a href="/secure-connections/sauce-connect/setup-configuration/yaml-config">Sauce Connect Proxy YAML configuration file template</a>.</td>
+   <td>Sauce Connect Proxy <a href="/secure-connections/sauce-connect/setup-configuration/yaml-config">YAML configuration file template</a>.</td>
    </tr>  
    <tr>
    <td><strong>sc.service</strong>, <strong>sc@.service</strong></td>
    <td>Sample files intended for use with the <a href="/secure-connections/sauce-connect/proxy-tunnels/#service-management-tools">systemd service manager</a>, an alternative way to start and stop Sauce Connect Proxy tunnels. Consult the <strong>README.md</strong> for more information.</td>
    </tr>  
-   <tr>
-    <td><strong>COPYRIGHT.md</strong></td>
-    <td>Sauce Connect Open Source Software Declaration.</td>
-   </tr>
-   <tr>
-    <td><strong>license.html</strong></td>
-    <td>Sauce Labs, Inc. End User Agreement.</td>
-   </tr>
   </table>
 
 
@@ -64,7 +57,7 @@ This topic describes where and how to download Sauce Connect Proxy to your local
 See the [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/) to learn how to start a basic tunnel.
 :::
 
-## Running Sauce Connect in Docker
+## Sauce Connect in Docker
 
 As an alternative to downloading the client, you can use the Sauce Connect Proxy Docker image to run it in a Docker container. To learn more, see [Sauce Connect Docker Container Setup](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#sauce-connect-docker-container-setup).
 
@@ -249,5 +242,6 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
 
 ## More Information
 
+* [Sauce Connect Proxy Changelog](https://changelog.saucelabs.com/en?category=sauce%20connect)
 * [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy/)
 * [Sauce Connect Proxy Architecture](/secure-connections/sauce-connect/advanced/architecture/)
