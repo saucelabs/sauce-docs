@@ -542,7 +542,7 @@ The set of additional reporters to execute as part of your Cypress tests.
   reporters:
     - name: cypress-mochawesome
       options:
-        reportDir: cypress/report
+        reportDir: __assets__/cypress/report
         charts: true
         reportPageTitle: Cypress running on Sauce
 ```
@@ -574,11 +574,10 @@ Some reporters may require you to install dependencies.
 Any relevant settings that are be supported by the specified reporter. These properties correspond to the `reporterOptions` object in the `cypress.json` file.
 ```yaml
       options:
-        reportDir: cypress/report
+        reportDir: __assets__/cypress/report
         charts: true
         reportPageTitle: Cypress running on Sauce
 ```
-
 
 ---
 
@@ -759,6 +758,14 @@ $> saucectl run -e HTTP_PROXY=${HTTP_PROXY} -e HTTPS_PROXY=${HTTPS_PROXY}
 ### Tailoring Your Test File Bundle
 
 The `saucectl` command line bundles your root directory (`rootDir` parameter of `config.yml`) and transmits it to the Sauce Labs cloud or your own infrastructure via Docker, then unpacks the bundle and runs the tests. This functionality is partly what allows Sauce Control to operate in a framework-agnostic capacity. However, you can and should manage the inclusion and exclusion of files that get bundled to optimize performance and ensure security.
+
+#### Including Test Assets in Your Bundle
+
+Any test asset files (such as logs or screenshots) you wish to upload to Sauce Labs with your test results must be placed in the `__assets__` directory of your project root. Tests run on Sauce may create this directory automatically, but not always, and locally run tests likely do not, so it's best to make sure. Please note that the `Assets` directory in [saucectl cypress demo repo](https://github.com/saucelabs/saucectl-cypress-example) is an internal resource folder and _not_ the `__assets__` directory into which you must place your test asset files.
+
+:::note Screenshots not Viewable in UI
+Test Screenshots uploaded to Sauce Labs are currently not viewable in Test Results screen of the Sauce Labs UI, but can be retrieved using the [Get All Screenshots](/dev/api/jobs/#get-all-screenshots) API. Alternatively, you can use the [artifacts.download](#download) configuration parameter to download test assets to a local file upon completion of your test.
+:::
 
 #### Excluding Files from the Bundle
 

@@ -390,7 +390,7 @@ __Description__: JSON string that contains an advanced tunnel configuration.<br/
 |Option|Description|Example|
 |---|---|---|
 |`inject-forwarded-for`| Do not remove X-FORWARDED-FOR header from the proxied HTTP requests.|```--extra-info '{"inject-forwarded-for": true}'```|
-|`reply_body_max_size`| Set limit to the reply body size (unlimited by default).|```--extra-info '{"reply_body_max_size": "30 MB"}'```|
+|`reply_body_max_size`| Set limit to the reply body size (the default is 500 MB).|```--extra-info '{"reply_body_max_size": "30 MB"}'```|
 
 You can specify a combination of several options. For example:
 
