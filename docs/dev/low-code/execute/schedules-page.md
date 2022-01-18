@@ -115,26 +115,26 @@ From the **Schedules** page, you can create new schedules, as well as update exi
 To create a new schedule:
 1. On the dashboard, in the left navigation, click **Execute** and then click **Schedule**.
 
-<img src={useBaseUrl('/img/dev/low-code/schedules-nav.png')} alt="Navigating to the Create Schedule window"/>
+<img src={useBaseUrl('/img/dev/low-code/schedules-nav.png')} alt="Navigating to the Create Schedule window" width="300"/>
 
-1. On the **Schedules** page, click the plus sign button.
+2. On the **Schedules** page, click the plus sign button.
 
-<img src={useBaseUrl('/img/dev/low-code/schedules-create-button.png')} alt="The Create button"/>
+<img src={useBaseUrl('/img/dev/low-code/schedules-create-button.png')} alt="The Create button" width="300"/>
 
-1. In the **Create Schedule** window, on the **Job** tab, enter a name for the schedule, and select its project from the dropdown. Select a test suite from the list, or enter text in the search field to search for a specific test suite. Click **Next**.
+3. In the **Create Schedule** window, on the **Job** tab, enter a name for the schedule, and select its project from the dropdown. Select a test suite from the list, or enter text in the search field to search for a specific test suite. Click **Next**.
 
-<img src={useBaseUrl('/img/dev/low-code/schedule-create-job.png')} alt="Create Schedule window - Job tab"/>
+<img src={useBaseUrl('/img/dev/low-code/schedule-create-job.png')} alt="Create Schedule window - Job tab" width="300"/>
 
-1. On the **Schedule** tab, enter a start and end time for the test. Below that, enter a length of time, in months, days, or hours.
+4. On the **Schedule** tab, enter a start and end time for the test. Below that, enter a length of time, in months, days, or hours.
 
-<img src={useBaseUrl('/img/dev/low-code/schedule-create-schedule1.png')} alt="Create Schedule window - Schedule tab"/>
+<img src={useBaseUrl('/img/dev/low-code/schedule-create-schedule1.png')} alt="Create Schedule window - Schedule tab" width="400"/>
 
-1. Click **Create**.
+5. Click **Create**.
 
 To update a schedule:
 1. On the dashboard, in the left navigation, click **Execute** and then click **Schedule**.
-1. On the **Schedules** page, in the **Actions** column, click the more actions button and then click **Update Schedule**.
+2. On the **Schedules** page, in the **Actions** column, click the more actions button and then click **Update Schedule**.
 
-<img src={useBaseUrl('/img/dev/low-code/schedule-update-nav.png')} alt="Navigating to the Update Schedule window "/>
+<img src={useBaseUrl('/img/dev/low-code/schedule-update-nav.png')} alt="Navigating to the Update Schedule window" width="300"/>
 
-1. Follow the instructions for [Creating a Schedule](#creating-a-schedule) and then click **Update**.
+3. Follow the instructions for [Creating a Schedule](#creating-a-schedule) and then click **Update**.

@@ -12,7 +12,7 @@ There are two options for viewing report dates: **Actual Date (Default)** and **
 
 To download the information on the Reports page, click the **Download** button and then click **Download CSV** or **Download XLSX**.
 
-<img src={useBaseUrl('/img/dev/low-code/reports-page.png')} alt="The Reports page"/>
+<img src={useBaseUrl('/img/dev/low-code/reports-page.png')} alt="The Reports page" width="600"/>
 
 ## Reports Page Columns
 

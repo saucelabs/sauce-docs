@@ -91,11 +91,11 @@ On the **Plan -> Test Suites** page you can view, update, execute, clone, or del
 To update a test suite:
 1. On the dashboard, in the left navigation, click **Plan** and then click **Test Suites**.
 
-<img src={useBaseUrl('/img/dev/low-code/test-suites-nav.png')} alt="Navigating to the Test Suites page" width="400"/>
+<img src={useBaseUrl('/img/dev/low-code/test-suites-nav.png')} alt="Navigating to the Test Suites page" width="350"/>
 
 2. Next to the test suite you want to update, click the **Actions** icon and then click **Update Suite**.
 
-<img src={useBaseUrl('/img/dev/low-code/test-suites-update-nav.png')} alt="Navigating to the Update Suite window" width="400"/>
+<img src={useBaseUrl('/img/dev/low-code/test-suites-update-nav.png')} alt="Navigating to the Update Suite window" width="300"/>
 
 See [Creating a Test Suite](/dev/low-code/plan/projects/project-details-page#creating-a-test-suite) for information about the tabs in the **Update Suite** window.
 
@@ -104,15 +104,15 @@ To clone a test suite:
 1. On the dashboard, in the left navigation, click **Plan** and then click **Test Suites**.
 2. Next to the test suite you want to clone, click the **Actions** icon and then click **Clone Suite**.
 
-<img src={useBaseUrl('/img/dev/low-code/test-suites-clone-nav.png')} alt="Navigating to the Clone Suite window" width="400"/>
+<img src={useBaseUrl('/img/dev/low-code/test-suites-clone-nav.png')} alt="Navigating to the Clone Suite window" width="350"/>
 
 3. In the **Clone Suite** window, enter a name for the cloned suite, and select a project to add it to. Click **Clone**.
 
-<img src={useBaseUrl('/img/dev/low-code/test-suites-clone-window.png')} alt="The Clone Suite window" width="400"/>
+<img src={useBaseUrl('/img/dev/low-code/test-suites-clone-window.png')} alt="The Clone Suite window" width="300"/>
 
 ## Executing a Test Suite
 To execute a test suite:
 1. On the dashboard, in the left navigation, click **Plan** and then click **Test Suites**.
 2. Next to the test suite you want to clone, click the **Actions** icon and then click **Execute**.
 
-<img src={useBaseUrl('/img/dev/low-code/test-suites-execute-nav.png')} alt="Navigating to the test suite execution window" width="400"/>
+<img src={useBaseUrl('/img/dev/low-code/test-suites-execute-nav.png')} alt="Navigating to the test suite execution window" width="350"/>

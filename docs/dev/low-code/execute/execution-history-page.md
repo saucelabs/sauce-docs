@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The **Execution History** page displays extensive information about the test that was executed. Use the **Prev** and **Next** buttons to navigate back and forth between tests in the **Reports** page view, and clicking the **Refresh** button will update the list.
 
-<img src={useBaseUrl('/img/dev/low-code/execution-history-page.png')} alt="The Execution History page"/>
+<img src={useBaseUrl('/img/dev/low-code/execution-history-page.png')} alt="The Execution History page" width="600"/>
 
 ## Execution History Page Components
 
@@ -56,7 +56,7 @@ The **Execution History** page displays extensive information about the test tha
     </td>
   </tr>
   <tr>
-    <td rowspan='4'><b>Details</b> dropdown
+    <td rowspan='6'><b>Details</b> dropdown
     </td>
     <td colspan='2'><b>Case</b> column
     </td>
