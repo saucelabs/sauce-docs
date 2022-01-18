@@ -61,7 +61,7 @@ For more detailed information about setting up SSO, see [Setting Up Single Sign-
 
 3. On the **Organization Settings** page, click the **SINGLE SIGN-ON** tab.
 
-<img src={useBaseUrl('img/team-mgmt/sso-settings-tab.jpg')} alt="SSO Settings tab" width="600" />
+<img src={useBaseUrl('img/team-mgmt/sso-settings-tab.png')} alt="SSO Settings tab" width="600" />
 
 4. Enter a **unique identifier string**. The string will be applied to user names to make sure that your users will have unique names associated with your account.
 5. Upload the SAML metadata file provided by your IdP that contains the list of your SSO users. Sauce Labs SSO supports most SAML 2.0 metadata files. For more information about specific IdPs, see [Configuring Active Directory Federation Services (AD FS)](/basics/sso/config-adfs) and [Configuring Okta](/basics/sso/config-okta).

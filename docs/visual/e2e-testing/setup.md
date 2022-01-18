@@ -495,16 +495,16 @@ static void test() {
 Now you can run your test and [view your results](#view-test-results) in the Visual Testing Dashboard. Be sure to [review and accept](#accept-baseline) your baseline.
 
 
+### Setting Timeouts
 
-## Next Steps
-* Learn the [Visual E2E review workflow](/visual/e2e-testing/workflow/review-workflow/) for your UI test results
-* [Integrate Visual E2E Testing into your CI](/visual/e2e-testing/integrations/continuous-integration) to return results into your WebDriver tests for continuous visual testing
-* Confirm that your WebDriver test scripts are using [W3C WebDriver capabilities](/dev/w3c-webdriver-capabilities/).
-* Confirm that the browsers in your tests are in our list of [supported browsers](/visual/e2e-testing/supported-browsers).
+If you're using several [visual assertions](/visual/e2e-testing/commands-options/#visual-e2e-commands) in your test, you may need to increase the `timeout` value in your configuration to help with test stability.
 
-:::tip Advanced Debugging
+A single assertion can take up to 45 seconds. So if you had a WebdriverIO test with three [snapshots (`/*@visual.snapshot*/`)](/visual/e2e-testing/commands-options/#snapshot-command), for example, you'd need to [set your `timeout` value](https://webdriver.io/docs/timeouts/#framework-related-timeouts) above 180000 milliseconds (3 mins) to prevent your test from failing.
 
-To view more debugging details on Sauce Labs, add [`extendedDebugging`](/dev/test-configuration-options/#extendeddebugging) to your test capabilities:
+
+### Advanced Debugging
+
+To view more in-depth debugging details on Sauce Labs, add [`extendedDebugging`](/dev/test-configuration-options/#extendeddebugging) to your test capabilities:
 
 ```java
 'sauce:options': {
@@ -514,7 +514,15 @@ To view more debugging details on Sauce Labs, add [`extendedDebugging`](/dev/tes
 },
 ```
 
-:::
+
+
+## Next Steps
+* Learn the [Visual E2E review workflow](/visual/e2e-testing/workflow/review-workflow/) for your UI test results
+* [Integrate Visual E2E Testing into your CI](/visual/e2e-testing/integrations/continuous-integration) to return results into your WebDriver tests for continuous visual testing
+* Confirm that your WebDriver test scripts are using [W3C WebDriver capabilities](/dev/w3c-webdriver-capabilities/).
+* Confirm that the browsers in your tests are in our list of [supported browsers](/visual/e2e-testing/supported-browsers).
+
+
 
 
 ## More Information
