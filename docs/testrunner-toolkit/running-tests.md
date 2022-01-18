@@ -126,12 +126,18 @@ sauce:
 
 ### Analyze Test Results in Sauce Labs
 
-After tests complete, Testrunner Toolkit uploads the test assets (logs, test results, and test videos) to your [Sauce Labs account](https://app.saucelabs.com) and displays a job link like so:
+After tests complete, `saucectl` uploads test assets such as logs, test results, screenshots and videos to your [Sauce Labs account](https://app.saucelabs.com), as long as they are in the `__Assets__` directory of your project root. Some frameworks automatically place assets in the correct directory, but other frameworks may require you to manually set the location.
+
+The CLI output includes a link to the job test results page in Sauce Labs:
 
 ```html
-https://app.saucelabs.com/tests/<job-number>
+Open job details page: https://app.saucelabs.com/tests/<job-number>
 ```
-From this job link you can review, share, and analyze the test results just as you would with any other test framework executed on Sauce Labs.
+
+:::note Media Assets Not Viewable in UI
+Any screenshots and video recorded during the test execution and uploaded to Sauce Labs are not currently viewable in the Sauce Labs UI, but can be accessed and downloaded through the [Job Assets API endpoints](/dev/api/jobs/#list-job-assets). Alternatively, you can automatically download your test assets locally using the [`artifacts`](/testrunner-toolkit/configuration/) parameter in your config file.
+:::
+
 
 ### Quick demo
 
@@ -250,7 +256,3 @@ test(testName, async t => {
 
 </TabItem>
 </Tabs>
-
-::note
-For Android tests, if your emulator session fails to start, make sure the app you are targeting is an `\*.apk`, not an `\*.aab`, as the latter is not yet supported in emulator tests.
-:::

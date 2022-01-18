@@ -19,7 +19,7 @@ This topic describes how to migrate your apps from Microsoft App Center to a Sau
 
 2. Create a script called `appcenter-post-build.sh` and add it to your project source code repository.
 
-3. If you're testing a cross-platform application using a framework such as React Native, add the following environment variables: `APP_NAME` and `BUILD_NAME`. If you're building a single project (iOS or Android), skip to the last step.
+3. If you're testing a cross-platform app using a framework such as React Native, add the following environment variables: `APP_NAME` and `BUILD_NAME`. If you're building a single project (iOS or Android), skip to the last step.
 
   ```bash
   #!/usr/bin/env bash
@@ -30,7 +30,7 @@ This topic describes how to migrate your apps from Microsoft App Center to a Sau
   BUILD_NAME="your.build.name"
   ```
 
-4. Set the correct app name based on the application platform.
+4. Set the correct app name based on the app platform.
   ```bash reference
   https://github.com/saucelabs/sample-app-mobile/blob/main/appcenter-post-build.sh#L30-L36
   ```

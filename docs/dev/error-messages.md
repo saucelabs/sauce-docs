@@ -38,7 +38,7 @@ If you are a paying customer, please open a [Sauce Labs support ticket](http://s
 
 This is a rare but known error. It indicates that the OnDemand portion of the Sauce Labs service lost its connection with the Virtual Machine running a test. Because the connection with the VM was lost, the details of the test (logs, video, metadata) will also be lost.  
 
-The error is expected to occur no more often than 0.1% (1 out of 1000 tests) over a sustained period of time. The same test, when run a second time, is very likely (999 out of 1000 times) to succeed.
+The expected rate of occurrence for this error is very low over a sustained period of time and very rarely persists across a retry of the same test. That said, it is possible to see slightly higher rates of occurrence (up to 0.3%) in mobile app tests and when the number of data points is lower. This error is not indicative of platform instability.
 
 **Cause(s)**
 
@@ -49,7 +49,7 @@ The first explanation is that the VM crashed. When that happens, the VM stops co
 
 It's difficult to reliably distinguish between these two cases automatically. The error message `“internal server error”` is meant to cover both of them.  
 
-Of the two causes above, the second is more common. Unfortunately, these crashes are hard to isolate much less prevent. They are usually not under our control and quite intermittent. This is the rate at which VMs and browsers crash, and crashes in those components can be triggered more or less often depending on what actions you choose to run within their tests.
+Of the two causes above, the second is more common. Unfortunately, these crashes are hard to isolate, much less prevent. They are usually not under our control and quite intermittent. This is the rate at which VMs and browsers crash, and crashes in those components can be triggered more or less often depending on what actions you choose to run within their tests.
 
 A second possible explanation is an infrastructure problem within Sauce's service. The state of a VM running a test is kept track of by a number of daemons and database entries, which are frequently updated. Collectively, they make up the “connection” between OnDemand and the VM. The connection can be lost if the network drops packets, the database becomes corrupt, or daemons crash.
 
@@ -57,11 +57,11 @@ A third, very rare case is when the error can be correlated to a particular comb
 
 **How to Resolve**
 
-Check the error rate over time. It is expected to occur approximately 0.1% of the time (1 out of 1000 tests). If the error rate remains below this level, add a retry for this kind of error into your Continuous Integration program. You can contact help@saucelabs.com to check the error rate if it’s not easy to ascertain from your own CI program.
+Check the error rate over time. It is expected to occur less than 0.3% of the time. If the error rate remains below this level, add a retry for this kind of error into your Continuous Integration program. You can contact help@saucelabs.com to check the error rate if it’s not easy to ascertain from your own CI program.
 
-If the error rate is over 0.1% for a short period of time, check our [Systems Status page](http://status.saucelabs.com/) for signs of an incident at a time corresponding to the elevated error rate. Some types of incidents (but not all) will cause Internal Server Errors.
+If the error rate is over 0.3% for a short period of time, check our [Systems Status page](http://status.saucelabs.com/) for signs of an incident at a time corresponding to the elevated error rate. Some types of incidents (but not all) will cause Internal Server Errors.
 
-If the error rate is over 0.1% for a sustained period of time (days or weeks), contact help@saucelabs.com. We'll try to identify a pattern to the errors (for example, is it particular to one type of browser, OS, or test). Note that this is the least likely explanation.
+If the error rate is over 0.3% for a sustained period of time (days or weeks), contact help@saucelabs.com. We'll try to identify a pattern to the errors (for example, is it particular to one type of browser, OS, or test). Note that this is the least likely explanation, but we do occasionally see higher rates of this error relevant to certain test environments.
 
 
 ### Test Exceeded Maximum Duration of 1800 Seconds
@@ -192,7 +192,7 @@ You'll see this error when Sauce Labs doesn't receive a response from Selenium o
 
 There are a few potential causes for this error.
 
-*   The most common causes for this error are either unresponsive JavaScript in your application, or a bug in Selenium/Appium.
+*   The most common causes for this error are either unresponsive JavaScript in your app, or a bug in Selenium/Appium.
 *   A less common, but still possible cause, is Selenium or Appium legitimately needing more than five minutes to run your command.
 *   This error will also be thrown if the browser crashes during your test.
 
@@ -262,7 +262,7 @@ Break out your long tests into shorter tests and/or make sure that your tests ar
 
 **Description**
 
-The capabilities you've supplied include a URL to a mobile application to install and test. This may be a URL pointing to [Application Storage](/mobile-apps/app-storage), or a hosted app online. When we started your test, we were unable to correctly download a valid application from that URL. We may have been able to download something, but that something was not a valid application.
+The capabilities you've supplied include a URL to a mobile app to install and test. This may be a URL pointing to [App Storage](/mobile-apps/app-storage), or a hosted app online. When we started your test, we were unable to correctly download a valid app from that URL. We may have been able to download something, but that something was not a valid app.
 
 **Cause(s)**
 
@@ -270,11 +270,11 @@ The capabilities you've supplied include a URL to a mobile application to instal
 * You've specified an app hosted online, but the URL you've used can't be contacted by Sauce Labs.
 * You've specified an app hosted in your corporate network which can't be accessed via the Internet.
 * You're not providing the full path to the app file itself.
-* The site serving your application requires authentication.
+* The site serving your app requires authentication.
 
 **How to Resolve**
 
-We recommend avoiding all problems with apps hosted internally by uploading to Sauce Labs [Application Storage](/mobile-apps/app-storage) instead.
+We recommend avoiding all problems with apps hosted internally by uploading to Sauce Labs [App Storage](/mobile-apps/app-storage) instead.
 
 If you're already using storage, check to make sure that:
 

@@ -5,6 +5,16 @@
     color: #E2231A;
 }
 
+html[data-theme='dark'] .alert a {
+  color: #57C1E8;
+  text-decoration:none;
+}
+html[data-theme='dark'] .alert a:hover {
+  text-decoration: underline;
+  text-decoration-color: #57C1E8;
+  cursor: pointer;
+}
+
 .alert {
     border-left: 5px solid #C1C3C7;
     margin-left: 50px;
@@ -19,6 +29,10 @@
     border-bottom: none;
     border-right: none;
     border-radius: 0px;
+}
+
+html[data-theme='dark'] .alert {
+    color: #EDEDEF;
 }
 
 .admonition-note {
@@ -47,6 +61,7 @@
     stroke: #474c55;
     fill: #C1C3C7;
 }
+
 
 .admonition-tip {
     border-left: 5px solid #01c3a5;

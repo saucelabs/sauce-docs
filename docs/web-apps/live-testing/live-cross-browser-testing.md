@@ -19,21 +19,21 @@ You can run live tests of your websites on a wide variety of operating system, b
 1. On Sauce Labs, in the left navigation panel, click **LIVE** and then click **Cross Browser**.
 2. Click the **Desktop** tab.
 
-<img src={useBaseUrl('img/live-testing/desktop-test-nav.jpg')} alt="Live desktop test navigation" width="650"/>
+<img src={useBaseUrl('img/live-testing/desktop-test-nav.png')} alt="Live desktop test navigation" width="450"/>
 
 3. In the **URL** field, enter the URL of the website you want to test.
-4. If you use Sauce Connect Proxy to test applications on a local host or behind a firewall, select the tunnel from the **SAUCE CONNECT PROXY** dropdown.
+4. If you use Sauce Connect Proxy to test apps on a local host or behind a firewall, select the tunnel from the **SAUCE CONNECT PROXY** dropdown.
 5. Under **BROWSER SELECTION**, select the browser version and screen resolution you want to use in your test.
 6. In the **OS VERSION** dropdown, select the OS version you want to use.
 
-<img src={useBaseUrl('img/live-testing/desktop-test-setup.jpg')} alt="Desktop test setup" width="650"/>
+<img src={useBaseUrl('img/live-testing/desktop-test-setup.jpg')} alt="Desktop test setup" width="550"/>
 
 7. Your recent  configurations are listed in the right panel, under **Recent**.
 
 <img src={useBaseUrl('img/live-testing/desktop-recent-saved.jpg')} alt="Recent tests" width="350"/>
 
 8. Click **Start Session**.
-You'll see a loading screen, and then the application will launch in a live test window using the configuration you selected.
+You'll see a loading screen, and then the app will launch in a live test window using the configuration you selected.
 
 <img src={useBaseUrl('img/live-testing/desktop-test-running.jpg')} alt="Desktop test running" width="650"/>
 
@@ -108,7 +108,7 @@ Know if your app is designed to run on internal or otherwise restricted networks
 | <img src={useBaseUrl('img/live-testing/download-log-icon.png')} alt="Download Log icon" width="40"/> | Download Log | Downloads the log as a .txt file. |
 
 ### Device Vitals
-Device Vitals is a feature that collects useful performance data in real time from a device during a live session. Data such as network, CPU, and memory usage helps users understand the general performance of a device and the application under test. Users can view a graph of this performance data in real time as the app is processing.
+Device Vitals is a feature that collects useful performance data in real time from a device during a live session. Data such as network, CPU, and memory usage helps users understand the general performance of a device and the app under test. Users can view a graph of this performance data in real time as the app is processing.
 
 <img src={useBaseUrl('img/live-testing/device-vitals.png')} alt="Device Vitals" width="450"/>
 
@@ -130,8 +130,8 @@ The graph and csv file will contain these performance metrics for devices.
 | `cpu_kernal` | Android OS CPU usage in percentage across all CPU cores. 4 cores at max use would be shown as a value of 400% |
 | `n_threads` | Total threads in use by the app |
 | `memory_size_kb` | Total threads in use by the app |
-| `memory_resident_kb` | Memory currently in use by application in kilobytes |
-| `memory_shared_kb` | Anonymous shared memory currently in use by system shared between application(s) and system |
+| `memory_resident_kb` | Memory currently in use by app in kilobytes |
+| `memory_shared_kb` | Anonymous shared memory currently in use by system shared between app(s) and system |
 | `network_wifi_receive_b` | Data in bytes received over wifi connection |
 | `network_wifi_sent_b` | Data in bytes sent over wifi connection |
 | `network_mobile_receive_b` | Data in bytes received from the mobile carrier network |
@@ -219,7 +219,7 @@ You can run multiple live test sessions at the same time, with the number of tes
 Below are resolutions to common errors that you may experience in live cross browser testing.
 
 ### Seeing a Security Error Message (Error #2048)
-This error is displayed when the ports used by manual testing relies are being blocked by a firewall on your end. This may also be caused by running applications such as Avast! antivirus software.
+This error is displayed when the ports used by manual testing relies are being blocked by a firewall on your end. This may also be caused by running apps such as Avast! antivirus software.
 
 Below are the servers and ports used by manual testing. If you plan to launch manual tests locally installed browsers, we recommend checking with your network administrator to confirm that you can make secure websocket connections to: `api.us-west-1.saucelabs.com:443` (for US-West-1 DC) or `api.eu-central-1.saucelabs.com:443` (for EU-Central-1 DC).
 
@@ -246,6 +246,6 @@ We recommend running Sauce tests from a machine with a wired Ethernet connection
 We've streamlined our service to provide the best possible load times. If you're experiencing slow live testing sessions, head to the [Sauce Labs Systems Status page](https://status.saucelabs.com/) and follow us on Twitter ([@SauceOps](https://twitter.com/sauceops)) for the latest updates on service issues and operations.
 
 ### Links Opening in New Tabs Instead of New Windows
-It's possible for the manual testing VNC client to have a modifier key "stuck" down, causing any clicked links to open in new tabs. This happens if the client loses focus while a key is held down (e.g., when using Alt-Tab to switch application windows). In this case, VNC never receives the keyUp event.
+It's possible for the manual testing VNC client to have a modifier key "stuck" down, causing any clicked links to open in new tabs. This happens if the client loses focus while a key is held down (e.g., when using Alt-Tab to switch app windows). In this case, VNC never receives the keyUp event.
 
 To prevent this from happening: every time you focus back on the manual testing window, click in the middle of the page, then press and release all the modifier keys (i.e., Alt, Control, Command, and Shift).

@@ -34,7 +34,7 @@ The [client (also known as SC)](/secure-connections/sauce-connect/installation/#
 
 - SC Client controller: the “brain” of the SC client. It issues requests to the Sauce Labs REST API, starts all the other included components and ensures that everything is working as expected.
 - KGP Client: the client side implementation of [KGP, Sauce Labs proprietary protocol](/secure-connections/sauce-connect/advanced/kgp).
-- HTTP Proxy: this contains a non-caching HTTP proxy that sends HTTP requests coming from tests that run on virtual machines (VMs) or devices on the Sauce Labs infrastructure to the website or application that is hosted inside the user’s firewall (either on an intranet or a local machine).
+- HTTP Proxy: this contains a non-caching HTTP proxy that sends HTTP requests coming from tests that run on virtual machines (VMs) or devices on the Sauce Labs infrastructure to the website or app that is hosted inside the user’s firewall (either on an intranet or a local machine).
 
 
 ### Sauce Connect Proxy Server

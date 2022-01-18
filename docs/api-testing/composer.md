@@ -1,77 +1,144 @@
 ---
 id: composer
 title: Writing API Tests with the Composer
-sidebar_label: Composer Guide
-description: The API Fortress Composer offers unparalleled flexibility and ease-of-use, with everything at your fingertips to build tests in minutes and eliminate many duplicate tasks.
+sidebar_label: Using the Composer
+description: Our API Testing Composer enables you to auto-generate and build functional API tests in minutes.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The Sauce Labs API Testing _Composer_ feature empowers users of all skill levels to write API tests from scratch and quickly generate sophisticated functional tests with little to no training. You can then reuse these tests as end-to-end integration tests and load (stress) tests. In turn, load tests may easily be reused as monitors for performance testing. The Composer offers unparalleled flexibility and ease-of-use, with everything at your fingertips to build tests in minutes and eliminate duplicate tasks.
+The API Test **Compose** tab (aka _Composer_) enables you to generate sophisticated API functional tests in minutes (no coding experience required) and/or code them from scratch. You can reuse these tests as end-to-end integration tests and load (stress) tests. In turn, load tests can be reused as monitors for performance testing.
 
-:::note Learn more about End-to-End Tests / Integration Tests
-Read the following page to learn more about [Integration / Multistep Testing](/api-testing/on-prem/quick-start/introduction-to-integration-testing)  
-:::
 
-## Visual vs. Code View
+## What You'll Need
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
-Begin using the Composer by selecting from two versions in terms of views. With both the Visual and Code views, you can easily make calls and add assertions for testing your APIs, and insert variables wherever needed.
 
-* __Visual__ - The Visual view does not require coding expertise. It provides real-time suggestions via predictive text to help you create ideal API tests for your needs.
+## How to Write a Composer Test
 
-  <img src={useBaseUrl('img/api-fortress/2021/01/visualView.png')} alt="Test Composer Visual View Pic"/>
+### Create a Test
 
-* __Code__ - The Code view is for users who are more comfortable working in code.
-
-  <img src={useBaseUrl('img/api-fortress/2021/01/codeView.png')} alt="Test Composer Code View Pic"/>
-
-:::tip
-For information on API Testing Best Practices, visit our [Sauce School API Testing course](https://training.saucelabs.com/apiTesting/index.html).
-:::
-
-## Composer UI
-
-Use the following image as a reference for the numbered items listed below:
-
-<img src={useBaseUrl('img/api-fortress/2021/01/testComposerPage-annotated.png')} alt="Test Composer Page Annotated"/>
-
-1. __Add Request__ / __Assertions__: This button displays all available components.
-   If a component is not valid for the operation you are conducting, it will not be made available to help avoid mistakes.
-   For instance, if you don’t add a `POST` first, you cannot add a `POST` Body or `POST` Param.
-
-   <img src={useBaseUrl('img/api-fortress/2019/06/components.png')} alt="Test Components"/>
-
-  :::note
-  Free trial accounts do not give you access to all available components.
+1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+2. Go into any Project.
+3. On the **Tests** tab, click **Create Test** > **From Scratch**.<br/><img src={useBaseUrl('img/api-fortress/2021/01/createTest.png')} alt="Create a Test button" width="500"/>
+4. In the **New Test** fields, enter a **Test Name** (required), **Test Description** (optional), and **Tag(s)** (optional), then click **Save**.<br/><img src={useBaseUrl('img/api-fortress/2021/01/createTest2.png')} alt="Enter Test Details" width="450"/>
+5. Make sure you're now in the **Compose** tab (aka Composer) with the [**Input**](/api-testing/composer/#input-sets) and [**Visual**](/api-testing/composer/#visual-view-and-code-view) views toggled.<br/><img src={useBaseUrl('img/api-fortress/2020/09/addComponentView.png')} alt="Add Components from Composer" width="500" />
+  :::note Composing tests
+  You can use either [**Visual** composer](#visual-view-and-code-view) (guides you through building components - no coding required) or [**Code** composer](#visual-view-and-code-view) (requires you to write code from scratch). For this guide, we're using **Visual**.
   :::
 
-2. __Transform Component__: This button allows you to easily transform an existing component into another component of the same type.
+To go back and edit a Test at any time, go into your Project's **Tests** tab, hover over a test name, then click **Edit Test** (pencil icon).<br/><img src={useBaseUrl('img/api-fortress/2020/09/editTest.png')} alt="Components available" width="600" />
 
-3. __Delete Component__: This button allows you to delete a selected component from the test while using visual mode.
+### Add Test Components
+The next of set steps is to add the necessary test components. When combined, they act as our test logic. You can choose from [I/O (Request) Components](/api-testing/composer/io-components), [Assertion Components](/api-testing/composer/assertion-components/), and [Logical Components](/api-testing/composer/logical-components/).
 
-4. __Invoke Snippet__: This button allows you to use a previously created code snippet stored in [The Vault](/api-testing/on-prem/quick-start/the-vault).
+#### Add I/O Request Component
+Create a simple `GET` request and validate that response is correct.
 
-5. __Export Snippet__: This button allows you to export a selected code snippet to the vault in order to be re-used later, or in another test.
+6. Click the **Add Component** button (**+** icon).<br/><img src={useBaseUrl('img/api-fortress/2021/01/addComponent.png')} alt="Add Request Component" width="400"/>
+7. Select the `GET` request component.<br/><img src={useBaseUrl('img/api-fortress/2021/01/getRequest.png')} alt="GET request Component"/>
+8. In the **Url** field, write `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions`. This URL will return a `json` response body.
+9. In the **Variable** field, write `payload`. This variable stores the response.<br/><img src={useBaseUrl('img/api-fortress/2021/01/getFields.png')} alt="GET request fields"/>
+10. Leave the rest of the fields blank and click **Save**. This is what the end result will look like:<br/><img src={useBaseUrl('img/api-fortress/2021/01/getRequestEndResult.png')} alt="GET request end result"/>
 
-6. __Save Test__: This button saves your progress.
+:::tip
+For detailed information, see [Request (I/O) Components](/api-testing/composer/io-components/).
+:::
 
-7. __Run Test__: This button executes a test.
+#### Add Assertion Component
+11. Click the **Add Component** button (**+** icon).<br/><img src={useBaseUrl('img/api-fortress/2021/01/addComponent.png')} alt="Add Request Component" width="400" />
+12. Select the **Assert Exists** assertion component.<br/><img src={useBaseUrl('img/api-fortress/2021/01/assertExists.png')} alt="Assert Exists Component"/>
+13. Edit the following details:
+    * **Expression**: `payload.downloads` - This expression checks for the field `"downloads"` in the `json` response body.<br/><img src={useBaseUrl('img/api-fortress/2021/01/assertDetails.png')} alt="Assert Exists Details"/>
+    * Leave the rest of the fields blank and click **Confirm changes** (checkmark icon).
 
-8. __Input Sets__: This button displays the Input Set view where you can store input data sets to reuse across all your tests. There are two types of input data sets you can use:
+:::tip
+For detailed information, see [Assertion Components](/api-testing/composer/assertion-components/).
+:::
 
-    * _Global Parameters_ - variables that are available across all tests in the project. Reference these variables simply by calling it within the test using the convention `“${VARIABLE}”`.
-    * _Input Sets_-  group of input variables representing a scenario. The test will be executed once for each input set, overriding the variable values into your test.
+### Run Test
+14. Before you run the test, select the **Save** icon.<img src={useBaseUrl('img/api-fortress/2021/01/save.png')} alt="save icon"/> at the top of the Composer.
+15. Then select the **Run** icon <img src={useBaseUrl('img/api-fortress/2021/01/run.png')} alt="run test icon"/> directly next to the Save icon.<img src={useBaseUrl('img/api-fortress/2021/01/composerToolbar.png')} alt="Test Composer Tool Bar"/>
 
-  | Input Set Code View                                                                                   | Input Set Visual View                                                                 |
-  |---------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
-  | <img src={useBaseUrl('img/api-fortress/2021/01/inputCode.png')} alt="Input Set Code View"/> | <img src={useBaseUrl('img/api-fortress/2021/01/inputVisual.png')} alt="Input Set Visual View"/> |
+All test runs appear to the right of the Composer, underneath the test details and environment sections.
+<img src={useBaseUrl('img/api-fortress/2021/01/testRuns.png')} alt="Test Runs Section" />
 
-9. __Unit View__: This button toggles back and forth between the  Input Set and Unit Test Composer view.
+### Review Test Results
+To view your results, click on the test run. This will open the [**Test Outcome Report**](/api-testing/test-reports/), which displays information regarding the test.
 
-10. __Code and Visual View__: This button toggles back and forth between the Visual and Code Test Composer view.
+
+## Terminology
+
+### Visual View and Code View
+This button toggles back and forth between the Visual and Code Test Composer views. You can make calls and add assertions for testing your APIs, and insert variables wherever needed. You can use either, depending on which you're more comfortable with.
+
+#### Visual View
+Guides you through creating API tests using automated real-time suggestions via predictive text. No coding experience is required.<br/><img src={useBaseUrl('img/api-fortress/2021/01/visualView.png')} alt="Test Composer Visual View Pic"/>
+
+#### Code View
+Enables you to write tests here from scratch, if you feel more comfortable working in code.<br/><img src={useBaseUrl('img/api-fortress/2021/01/codeView.png')} alt="Test Composer Code View Pic"/>
+
+### Add Component
+This button displays all available [assertion components](/api-testing/composer/assertion-components/), [I/O components](/api-testing/composer/io-components/), and [logical components](/api-testing/composer/logical-components/).<br/>
+<img src={useBaseUrl('img/api-fortress/2021/01/addComponent.png')} alt="Add Component"/>
+
+If a component is not valid for the operation you are conducting, it will not be made available to help avoid mistakes. For instance, if you don’t add a `POST` first, you cannot add a `POST` Body or `POST` Param.
+
+:::note
+Sauce Labs free trials may not give you access to all available components.
+:::
+
+### Transform Component
+Transforms an existing component into another component of the same type.<br/>
+<img src={useBaseUrl('img/api-fortress/2021/01/transformComponent.png')} alt="Add Component"/>
+
+### Delete Component
+Deletes a selected component from the test while using Visual view.<br/>
+<img src={useBaseUrl('img/api-fortress/2021/01/deleteComponent.png')} alt="Delete Component"/>
+
+### Invoke Snippet
+Allows you to use a previously created code snippet stored in [The Vault](/api-testing/vault).<br/>
+<img src={useBaseUrl('img/api-fortress/2021/01/invokeSnippet.png')} alt="Invoke Snippet"/>
+
+### Export Snippet
+Allows you to export a selected code snippet to the vault in order to be re-used later, or in another test.<br/>
+<img src={useBaseUrl('img/api-fortress/2021/01/exportSnippet.png')} alt="Export Snippet"/>
+
+### Save Test
+Saves your progress.<br/>
+<img src={useBaseUrl('img/api-fortress/2021/01/saveTest.png')} alt="Save Test"/>
+
+### Run Test
+Executes a test.<br/>
+<img src={useBaseUrl('img/api-fortress/2021/01/runTest.png')} alt="Run Test"/>
+
+### Input Sets
+Displays the Input Set view where you can store input data sets to reuse within the specific test you're working on.<br/><img src={useBaseUrl('img/api-fortress/2021/01/inputSets.png')} alt="Input Sets" width="500"/>
+
+There are two types of input data sets you can use:
+* __Global Parameters__: variables that are available within a test, valid for that specific test _only_.
+* __Input Set__: group of input variables representing a scenario, valid for that specific test _only_. The test will be executed once for each input set, overriding the variable values into your test.
+
+<table>
+<tr>
+<td><strong>Input Set with Visual View</strong></td>
+<td> <img src={useBaseUrl('img/api-fortress/2021/01/inputVisual.png')} alt="Input Set Visual View"/> </td>
+</tr>
+<tr>
+<td><strong>Input Set with Code View</strong></td>
+<td><img src={useBaseUrl('img/api-fortress/2021/01/inputCode.png')} alt="Input Set Code View"/> </td>
+</tr>
+</table>
+
+### Unit View
+This button toggles back and forth between the Input Set and Unit Test Composer view.<br/>
+<img src={useBaseUrl('img/api-fortress/2021/01/unitView.png')} alt="Unit View"/>
+
+
+
 
 
 ## More Information
-
-* Learn how to [create a test quickly](/api-testing/quickstart).
-* Learn about [request components](/api-testing/on-prem/io-components) and [assertion components](/api-testing/on-prem/assertion-components/assert-compares).
+* [Sauce School | API Testing Course and Best Practices](https://training.saucelabs.com/apiTesting/index.html)
+* [API Testing Quickstart](/api-testing/quickstart)

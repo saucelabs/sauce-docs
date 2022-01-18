@@ -1,6 +1,6 @@
 ---
 id: installation
-title: Installation
+title: Sauce Connect Proxy Installation
 sidebar_label: Installation
 ---
 
@@ -12,26 +12,18 @@ This topic describes where and how to download Sauce Connect Proxy to your local
 ## What You’ll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* For macOS Catalina 10.15+ compatibility, enable your Mac to allow apps from the App Store and identified developers.
-    1. Go to **System Preferences** > **Security & Privacy** > **General**.
-    2. Under the header **Allow apps downloaded from**, select the option **App Store and identified developers**.
+* Review [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/).
 
-## Download Latest Version
 
-Click the one of the links below (Linux, Mac, or Windows) to download Sauce Connect Proxy to your local machine. Download the Sauce Connect Proxy client to your local machine by clicking the link below specific to your operating system.
+## Running the Sauce Connect Proxy Client
 
-<ScTable></ScTable>
+1. Download the latest Sauce Connect Proxy client to your local machine by clicking the link below corresponding to your OS. If applicable, delete any previous versions you have. Using older versions may impact your ability to launch a tunnel or cause other technical issues.
+  <ScTable></ScTable>
 
-For version information, see [Sauce Connect Proxy Changelog](https://changelog.saucelabs.com/en?category=sauce%20connect).
+  For version information, see [Sauce Connect Proxy Changelog](https://changelog.saucelabs.com/en?category=sauce%20connect).
 
-## Installation
 
-### Mac and Windows
-
-1. Extract the contents of the .zip download.
-2. Open the download folder. You'll see the following contents:
-<img src={useBaseUrl('img/sauce-connect/sc-download.png')} alt="Sauce Connect download file contents" width="500" />
-
+2. Extract the contents of the .zip download to your local machine. For easy access, we recommend saving the Sauce Connect Proxy folder to your home directory. The folder contains the following:<br/><img src={useBaseUrl('img/sauce-connect/scp-download.png')} alt="Sauce Connect download file contents" width="450" />
   <table>
   <tr>
    <td><strong>File</strong></td>
@@ -43,11 +35,11 @@ For version information, see [Sauce Connect Proxy Changelog](https://changelog.s
    </tr>
    <tr>
     <td><strong>config.yml</strong></td>
-   <td>YAML configuration file template for use with the <a href="/dev/cli/sauce-connect-proxy/#--config-file"><code>--config-file</code> command-line option</a>.</td>
+   <td><a href="/secure-connections/sauce-connect/setup-configuration/yaml-config">Sauce Connect Proxy YAML configuration file template</a>.</td>
    </tr>  
    <tr>
-   <td><strong>README.md</strong>, <strong>sc.service</strong>, <strong>sc@.service</strong></td>
-   <td>Collection of sample files for use with the systemd service manager to start and stop Sauce Connect Proxy. Consult the <strong>README.md</strong> for more information.</td>
+   <td><strong>sc.service</strong>, <strong>sc@.service</strong></td>
+   <td>Sample files intended for use with the <a href="/secure-connections/sauce-connect/proxy-tunnels/#service-management-tools">systemd service manager</a>, an alternative way to start and stop Sauce Connect Proxy tunnels. Consult the <strong>README.md</strong> for more information.</td>
    </tr>  
    <tr>
     <td><strong>COPYRIGHT.md</strong></td>
@@ -59,22 +51,29 @@ For version information, see [Sauce Connect Proxy Changelog](https://changelog.s
    </tr>
   </table>
 
-### Linux
 
-To install and extract Sauce Connect on Linux, add sc to your system PATH:
+3. If you're using Linux, you'll need to add Sauce Connect to your system PATH:
+  ```bash
+  cd $HOME
+  curl -LO https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz
+  tar xvf ./sc-4.7.1-linux.tar.gz
+  export PATH="$HOME/sc-4.7.1-linux/bin:$PATH"
+  ```
 
-```bash
-cd $HOME
-curl -LO https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz
-tar xvf ./sc-4.7.1-linux.tar.gz
-export PATH="$HOME/sc-4.7.1-linux/bin:$PATH"
-```
+:::tip Next Steps
+See the [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/) to learn how to start a basic tunnel.
+:::
+
+## Running Sauce Connect in Docker
+
+As an alternative to downloading the client, you can use the Sauce Connect Proxy Docker image to run it in a Docker container. To learn more, see [Sauce Connect Docker Container Setup](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#sauce-connect-docker-container-setup).
+
 
 ## Log File
 
-Once you've started using Sauce Connect, a log file will populate in your computer's directory. The log file name depends on whether [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name-or---tunnel-identifier) was used.
+Once you've started using Sauce Connect Proxy, a log file will appear in your computer's directory. The log file name depends on whether [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name-or---tunnel-identifier) was used.
 
-For _anonymous_ tunnels, a log file name would be _sc.log_, for _named_ tunnels, a log file name would be _sc-TUNNEL_NAME.log_
+For anonymous (unnamed) tunnels, the log file name will be **sc.log**. For named tunnels, the log file name would be **sc-{tunnel_name}.log**.
 
 The location of the log file will vary, depending on your operating system. For Mac and Linux, the sc.log will use a tmp folder. For Windows, it'll use the current working directory.
 
@@ -106,7 +105,7 @@ The location of the log file will vary, depending on your operating system. For 
    </td>
    <td>(DD Month) (Time)
    Log file:
-   <code>C:\Users\sauce_username\Downloads\sc-4.7.1-win32\sc-4.7.1-win32\sc-TUNNEL_NAME.log</code>
+   <code>C:\Users\sauce_username\Downloads\sc-4.7.1-win32\sc-TUNNEL_NAME.log</code>
    </td>
   </tr>
 </table>
@@ -115,7 +114,6 @@ The location of the log file will vary, depending on your operating system. For 
 ## Version Lifecycle Information
 
 The launch of Sauce Connect 4.7.1 makes it the officially supported version of the Sauce Connect client. All previous versions are in maintenance mode, with the oldest versions nearing the end of their support life.
-
 
 <table>
   <tr>
@@ -138,7 +136,7 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    <td>4.7.1
    </td>
    <td>
-    See <a href="#downloading">Downloading</a>
+    See <a href="#download-latest-version">Linux, Mac, Windows</a>
    </td>
    <td rowspan="2" >June 31, 2022
    </td>
@@ -251,5 +249,5 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
 
 ## More Information
 
+* [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy/)
 * [Sauce Connect Proxy Architecture](/secure-connections/sauce-connect/advanced/architecture/)
-* [Sauce Connect Proxy CLI Reference](/secure-connections/sauce-connect/advanced/kgp/)

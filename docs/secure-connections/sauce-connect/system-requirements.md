@@ -1,6 +1,6 @@
 ---
 id: system-requirements
-title: System and Network Requirements
+title: Sauce Connect Proxy System and Network Requirements
 sidebar_label: System and Network Requirements
 ---
 
@@ -14,7 +14,10 @@ Keep in mind that these are guidelines. Most environments have their own workloa
 
 ## What You'll Need
 
-* Minimum 2 core x 8 GB Machine
+* Minimum 2 core x 8 GB Machine.
+* For Sauce Connect Proxy compatibility with macOS Catalina 10.15+, enable your Mac to allow apps from the App Store and identified developers.  
+    1. Go to **System Preferences** > **Security & Privacy** > **General**.
+    2. Under the header **Allow apps downloaded from**, select the option **App Store and identified developers**.
 * We strongly recommend using the [cURL command line](https://curl.haxx.se/download.html) or an equivalent tool to ensure that any error messages you receive are precise and actionable. If you're not familiar with the tool, [review their docs here](https://curl.se/docs) and then install cURL on your local machine.
 * For Unix-based systems, you may need to increase your open file limit if you plan to run a high number of parallel tests (i.e., `ulimit -n 8192`).
 
@@ -665,13 +668,13 @@ When your tests are running through a Sauce Connect tunnel, the client on your n
 
 ### Allowlisting for Restricted Networks
 
-If you're testing in a restricted network setting, you may need to allowlist the Sauce Labs domains below to allow outbound communication to Sauce Labs Selenium and Appium endpoints. Allowlisting for inbound traffic coming into your network is not necessary. To check if your setup is successful, see [Validating Your Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
+If you're testing in a restricted network setting, you may need to allowlist the Sauce Labs domains below to allow outbound communication to Sauce Labs Selenium and Appium endpoints. Allowlisting for inbound traffic coming into your network is not necessary. To confirm your setup is successful, try running a test using the [basic setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
 
-You'll need to use the set of domains for your corresponding Sauce Labs Data Center: US Data Center (US-West-1**), Headless Data Center (US-East-1), or European Data Center (EU-Central-1). The Data Center you're connected to is indicated in your navigation menu.
+You'll need to use the set of domains for your corresponding Sauce Labs data center: US data center (US West 1), European data center (EU Central 1), headless data center (Headless US-East), or Australian data center (APAC Southeast 1) . The data center you're connected to will be indicated in your navigation.<br/>
 
-<img src={useBaseUrl('img/sauce-connect/data-center-ui.jpg')} alt="Sauce Connect download file contents" width="600" margin-bottom="50px"/>
+<img src={useBaseUrl('img/sauce-connect/data-center-ui.png')} alt="Sauce Connect download file contents" width="450" margin-bottom="50px"/>
 
-For more information on our Data Centers and how to choose the right one for you, see [Data Center Endpoints](/basics/data-center-endpoints).
+For more information on our data centers and how to choose the right one for you, see [Data Center Endpoints](/basics/data-center-endpoints).
 
 ### REST API Endpoints
 

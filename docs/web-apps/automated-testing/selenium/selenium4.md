@@ -20,10 +20,11 @@ you'll need to be aware of the new and deprecated features that may impact your 
 ## What You’ll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* A working development environment for one of the supported Selenium languages: Java, C#, Python, or Ruby. Although Selenium has JavaScript bindings, we recommend using WebdriverIO when running tests on Sauce Labs.
 * Strongly recommended: use one of the programming languages officially supported by Selenium 4 (Java, JavaScript, Python, Ruby, or C#).
 
 
-## W3C-Compliant Sessions
+## W3C WebDriver-Compliant Sessions
 
 Selenium 4 deprecates support for legacy JSON Wire Protocol (JWP). As part of this change, Selenium is moving away from the less structured Desired Capabilities classes to Browser Options classes.
 * Facilitates creation of [W3C-Compliant WebDriver Capabilities](/dev/w3c-webdriver-capabilities).
@@ -31,9 +32,8 @@ Selenium 4 deprecates support for legacy JSON Wire Protocol (JWP). As part of th
 * Allows you to set both defined W3C Capabilities, and browser-specific settings.
 * Reduces the chances of browser misconfiguration.
 
-### W3C Defined WebDriver Capabilities
-
-List of [W3C WebDriver capabilities](https://www.w3.org/TR/webdriver1/#capabilities) applicable to Sauce Labs:
+#### W3C-Defined WebDriver Capabilities
+Here's a list of [W3C WebDriver capabilities](https://www.w3.org/TR/webdriver1/#capabilities) applicable to Sauce Labs:
 * `browserName`
 * `browserVersion`
 * `platformName`
@@ -149,9 +149,9 @@ https://github.com/saucelabs-training/demo-java/blob/docs-1.1/training-sessions/
 
 ## New Features
 
-Here are 10 new features in Selenium 4.0 that you can use in your Sauce Labs Tests, with examples in each language.
+Here are 10 new features in Selenium 4 that you can use in your Sauce Labs tests, with code examples in each programming language.
 
-#### 1. Relative Locators
+### 1. Relative Locators
 
 Relative locators allow you to identify elements in relationship to each other as they are displayed on the page using more natural, language friendly terms, such as “above”, “below”, “left of”, “right of”, and “near”.
 
@@ -200,7 +200,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </Tabs>
 
-#### 2. New Window
+### 2. New Window
 
 Create and Switch to a new (blank) tab or window.
 
@@ -260,7 +260,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </Tabs>
 
-#### 3. Print Page
+### 3. Print Page
 
 The ability to print a page as a PDF in Chrome, Firefox and Edge. There are quite a few customizations that can be made including page size, range, margins, background, and shrink to fit. Here are code examples with the defaults:
 
@@ -309,7 +309,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </Tabs>
 
-#### 4. Element Attribute vs Property
+### 4. Element Attribute vs Property
 
 The Selenium 3 method for getting an element's attribute does not actually give you the element's attribute.
 Because most people don't know the difference between an element and an attribute, Selenium created a way
@@ -365,7 +365,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 </Tabs>
 </details>
 
-#### 5. Chromium Edge Options
+### 5. Chromium Edge Options
 
 When the latest version of Selenium 3 was released, Microsoft Edge was still implemented with the now deprecated EdgeHTML browser engine. So none of the custom options for working with the Chromium version of Edge were available in Selenium 3.
 
@@ -410,7 +410,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </Tabs>
 
-#### 6. Timeout Getters
+### 6. Timeout Getters
 
 This is a long requested feature. Selenium 3 allowed you to set timeouts whenever you liked, but provided no way to query the driver for the current timeout values. Selenium 4 provides that ability now.
 
@@ -459,7 +459,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </Tabs>
 
-#### 7. Network Conditions
+### 7. Network Conditions
 <p><span className="sauceDBlue">Chrome and Edge only</span></p>
 
 Selenium 4 provides a set of parameters to modify network conditions, such as:
@@ -467,10 +467,10 @@ Selenium 4 provides a set of parameters to modify network conditions, such as:
 * Setting a latency for the connection
 * Altering the upload or download throughput.
 
-This can be useful to test web applications under different network conditions.
+This can be useful to test web apps under different network conditions.
 
 :::note
-Sauce Labs has provided the means for our users to [throttle network settings](/insights/debug/#saucethrottlenetwork) for several years now through our [Extended Debugging](/insights/debug/) feature
+Since 2017, we've provided the ability to [throttle network settings](/insights/debug/#saucethrottlenetwork) through our [Extended Debugging](/insights/debug/) feature.
 :::
 
 <Tabs
@@ -492,7 +492,7 @@ https://github.com/saucelabs-training/demo-java/blob/docs-1.1/training-sessions/
 </TabItem>
 <TabItem value="Python">
 
-**Python does not support this feature in Remote driver sessions**
+Python does not support this feature in Remote driver sessions.
 
 </TabItem>
 <TabItem value="Ruby">
@@ -506,8 +506,7 @@ https://github.com/saucelabs-training/demo-ruby/blob/docs-1.1/training-sessions/
 
 <details>
   <summary>
-    <strong>Click here</strong> to see the full example of setting Network Conditions.<br />
-    (The C# implementation of this is a little more complex).
+    <strong>Click here</strong> to see the full C# example of setting Network Conditions. The C# implementation of this is more complex.
   </summary>
 
 ```cs reference title="Network Conditions"
@@ -520,7 +519,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </Tabs>
 
-#### 8. Full Page Screenshots
+### 8. Full Page Screenshots
 <p><span className="sauceDBlue">Firefox only</span></p>
 
 Features like "infinite scroll" makes it impossible to explicitly define what a "full page" entails for a W3C specification. As such, the default screenshot method in Selenium 3 only returns what is visible in the Viewport. Mozilla implemented a separate method to allow for a full page screenshot.
@@ -544,7 +543,7 @@ https://github.com/saucelabs-training/demo-java/blob/docs-1.1/training-sessions/
 </TabItem>
 <TabItem value="Python">
 
-**Python does not support this feature in Remote driver sessions**
+Python does not support this feature in Remote driver sessions.
 
 </TabItem>
 <TabItem value="Ruby">
@@ -564,7 +563,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </Tabs>
 
-#### 9. Install and Uninstall Addons
+### 9. Install and Uninstall Addons
 <p><span className="sauceDBlue">Firefox only</span></p>
 
 All the other browsers drivers allow you to install extensions with the Browser Options class. Firefox requires a separate method after the browser has been started.
@@ -588,7 +587,7 @@ https://github.com/saucelabs-training/demo-java/blob/docs-1.1/training-sessions/
 </TabItem>
 <TabItem value="Python">
 
-**Python does not support this feature in Remote driver sessions**
+Python does not support this feature in Remote driver sessions.
 
 </TabItem>
 <TabItem value="Ruby">
@@ -615,7 +614,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </Tabs>
 
-#### 10. Change Preferences During Session
+### 10. Change Preferences During Session
 <p><span className="sauceDBlue">Firefox only</span></p>
 
 In Selenium 3, you can only set preferences in the Capabilities at the beginning of a test. Firefox has provided a way in Selenium 4 to update things whenever you want during a session. This is done by toggling the *context* between "chrome" and "content".
@@ -645,7 +644,7 @@ https://github.com/saucelabs-training/demo-java/blob/docs-1.1/training-sessions/
 </TabItem>
 <TabItem value="Python">
 
-**Python does not support this feature in Remote driver sessions**
+Python does not support this feature in Remote driver sessions.
 
 </TabItem>
 <TabItem value="Ruby">
@@ -673,11 +672,19 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 </Tabs>
 
 
+:::note Bidirectional APIs
+We support all new Selenium 4 features except for Bidirectional APIs. While we're working hard to add full support, we do provide similar functionality through our [Extended Debugging](/insights/debug) feature, which allows you to:
+* Intercept network requests to mock backends
+* Throttling performance of both network and CPU
+* Access console and network logs
+:::
+
+
 ## Upgrading Your Dependencies
 
-Selenium 4.0 has been released! Check the sections below to install Selenium 4 and have your project dependencies upgraded.
+Selenium 4 has been released! Check the sections below to install Selenium 4 and have your project dependencies upgraded.
 
-The process of upgrading Selenium depends on which build tool is being used. We will cover the most common ones for Java &#8212; 
+The process of upgrading Selenium depends on which build tool is being used. We will cover the most common ones for Java &#8212;
 Maven and Gradle &#8212; plus JavaScript, Python, Ruby, and C#.
 
 <Tabs
@@ -710,8 +717,7 @@ After making the change, you could execute `mvn clean compile` on the same direc
 
 Minimum Java version required is still 8.
 
-Before
-
+**Before**
 ```java
 plugins {
 	id 'java'
@@ -731,7 +737,7 @@ test {
 }
 ```
 
-After
+**After**
 ```java
 plugins {
 	id 'java'
@@ -782,7 +788,6 @@ pip install selenium==4.0.0
 </TabItem>
 <TabItem value="Ruby">
 
-Ruby
 The update details for Selenium 4 can be seen at the selenium-webdriver gem in RubyGems. To install the latest version, you can execute:
 
 ```rb
@@ -811,10 +816,10 @@ PM> Install-Package Selenium.WebDriver -Version 4.0.0
 
 Below are code examples that can help resolve deprecation messages you might encounter after upgrading to Selenium 4.
 
-### Find Element(s) Utility Methods
+#### Find Element(s) Utility Methods
 <p><span className="sauceDBlue">Java only</span></p>
 
-FindsBy interfaces, utility methods to find elements in the Java bindings, have been removed, as they were meant for internal use only. In Example 2, you'll see that all the findElements* have been removed as well.
+FindsBy interfaces, utility methods to find elements in the Java bindings, have been removed, as they were meant for internal use only. In Example 2, you'll see that all the `findElements*` have been removed as well.
 
 **Example 1**
 
@@ -895,7 +900,7 @@ driver.findElements(By.xpath("xPath"));
 </Tabs>
 
 
-### Timeout Parameters
+#### Timeout Parameters
 <p><span className="sauceDBlue">Java only</span></p>
 
 The parameters received in `Timeout` have switched from expecting (long time, `TimeUnit` unit) to expect (`Duration` duration).  
@@ -928,7 +933,7 @@ driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 </Tabs>
 
 
-### Wait Parameters
+#### Wait Parameters
 Waits are also expecting different parameters now. `WebDriverWait` is now expecting a Duration instead of a long for timeout in seconds and milliseconds. The `withTimeout` and `pollingEvery` utility methods from `FluentWait` have switched from expecting (long time, `TimeUnit` unit) to expect (`Duration` duration).
 
 <Tabs
@@ -967,7 +972,7 @@ Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 </Tabs>
 
 
-### Merging Capabilities
+#### Merging Capabilities
 
 Prior to Selenium 4, you could merge one set of capabilities into different set, and this would mutate the calling object. With Selenium 4, this is deprecated; you'll need to manually assign the result of the merge operation.
 
@@ -1006,13 +1011,13 @@ As a result, the options object was getting modified.
 </TabItem>
 </Tabs>
 
-### Firefox Legacy
+#### Firefox Legacy
 
-Before GeckoDriver was around, the Selenium project had a driver implementation to automate Firefox versions below 48. 
+Before GeckoDriver was around, the Selenium project had a driver implementation to automate Firefox versions below 48.
 With the release of Selenium 4, this implementation is not needed anymore, as it does not work in recent versions of Firefox.
 
-To avoid major issues when upgrading to Selenium 4, the `setLegacy` option will be shown as deprecated. We recommend 
-relying only on GeckoDriver, rather than using the old implementation. 
+To avoid major issues when upgrading to Selenium 4, the `setLegacy` option will be shown as deprecated. We recommend
+relying only on GeckoDriver, rather than using the old implementation.
 The following code will show the `setLegacy` line deprecated after upgrading.
 
 ```java
@@ -1021,7 +1026,7 @@ options.setLegacy(true);
 ```
 
 
-### Browser Interface
+#### Browser Interface
 
 With Selenium 4, the BrowserType interface will be deprecated and replaced by the new Browser interface.
 
@@ -1052,7 +1057,7 @@ capabilities.setCapability("browserName", BrowserType.FIREFOX);
 </TabItem>
 </Tabs>
 
-### AddAdditionalOption
+#### AddAdditionalOption
 <p><span className="sauceDBlue">C# only</span></p>
 
 The [`AddAdditionalCapability` capability](https://www.selenium.dev/selenium/docs/api/dotnet/html/M_OpenQA_Selenium_DriverOptions_AddAdditionalCapability.htm) is deprecated in Selenium 4. Instead of it, `AddAdditionalOption` is recommended.
@@ -1090,10 +1095,17 @@ browserOptions.AddAdditionalCapability("sauce:options", sauceOptions, true);
 
 ## More Information
 
-* Sauce Labs resources:
-  * [A Comprehensive Guide to Selenium 4.0](https://saucelabs.com/selenium-4)
-  * [Platform configurator](https://saucelabs.com/platform/platform-configurator)
-  * [W3C WebDriver Capabilities Support](/dev/w3c-webdriver-capabilities)
-  * [Test Configuration Options](/dev/w3c-webdriver-capabilities)
-* [Selenium WebDriver official website](https://www.selenium.dev/documentation/webdriver/)
-* [W3C Recommendations website | W3C WebDriver Capabilities](https://www.w3.org/TR/webdriver1/#capabilities)
+### Comprehensive Guide to S4
+See [Sauce Labs | A Comprehensive Guide to Selenium 4](https://saucelabs.com/selenium-4).
+
+
+### Frequently Asked Questions
+See [Frequently Asked Questions About Selenium 4](https://saucelabs.com/blog/frequently-asked-questions-about-selenium-4).
+
+### Related Resources
+
+* [Selenium WebDriver website](https://www.selenium.dev/documentation/webdriver/)
+* [W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities)
+* [Sauce Labs W3C WebDriver Capabilities Support](/dev/w3c-webdriver-capabilities)
+* [Sauce Labs Test Configuration Options](/dev/w3c-webdriver-capabilities)
+* [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator)

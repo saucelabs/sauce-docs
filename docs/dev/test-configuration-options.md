@@ -2,11 +2,16 @@
 id: test-configuration-options
 title: Test Configuration Options
 sidebar_label: Test Configuration Options
+description: An index of automation test configuration settings compatible with Sauce Labs test protocols.
 ---
 
-This page includes a list of valid test configuration options (capabilities) for tests run on Sauce Labs.
+This page provides a reference for the valid test configuration options (capabilities) you can set to specify the variable settings for your automated tests running on Sauce Labs.
 
-See the [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to generate the code for setting the capabilities to execute a test. For examples, see [Examples of Test Configuration Options for Website Tests](/basics/test-config-annotation/test-config/#examples-of-test-configuration-options-for-website-tests)
+Try our [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/)! It provides a graphical user interface where you can specify your settings using option buttons and drop-down menus, then automatically generates the corresponding capabilities code based on your selections. For examples, see [Examples of Test Configuration Options for Website Tests](/basics/test-config-annotation/test-config/#examples-of-test-configuration-options-for-website-tests).
+
+:::note Desktop and VDC Only
+The Platform Configurator does not support capabilities generation for real device (RDC) tests at this time.
+:::
 
 ## What You'll Need
 
@@ -304,20 +309,17 @@ If the [tunnelIdentifier](#tunnelidentifier) you've specified to establish conne
 
 ## Mobile App Appium Capabilities: Required
 
-These common Appium test configuration settings can be added with an `appium:` prefix in your test session creation code.
+Sauce Labs encourages adoption of the W3C WebDriver protocol for your Appium mobile app tests, but continues to support JSON Wire Protocol (JWP) in all currently supported Appium 1.X versions (Appium 2.0 will deprecate support for JWP). The capabilities defined here assume the W3C protocol, but it is important to make sure your test configurations accurately reflect your intended protocol so your settings are applied correctly. See [Appium Real Device W3C Specification](/mobile-apps/automated-testing/appium/real-devices/#using-the-w3c-webdriver-specification) for details.
 
-If you are not using the official Appium bindings, make sure to prefix all Appium capabilities with `appium:` to make them W3C WebDriver-compliant. For more information about Appium-specific options, see the [Appium Server Capabilities page of the Appium.io website](http://appium.io/docs/en/writing-running-appium/caps).
-
-:::note
-[`browserName`](#browsername) and [`platformName`](#platformname) are frequently used in Appium tests, however, because they are W3C capabilities, you do not need to prepend them with `appium:`.
-
+:::note W3C Support for Virtual Devices Only
+At this time, the W3C protocol is not supported for real device testing, so you must still use the JWP format for specifying desired capabilities.
 :::
 
 ---
 ### `app`
 <p><small>| STRING |</small></p>
 
-Allows you to set a path to an .ipa, .apk or .zip file containing the mobile app you want to test. This could be the location of your app in [Application Storage](/mobile-apps/app-storage) (e.g., `storage:filename=myapp.zip`) or the URL to a remote location where your app is located (e.g., `http://myappurl.zip`). If you're running a mobile browser test, this capability can be left blank.
+Allows you to set a path to an .ipa, .apk, .aab or .zip file containing the mobile app you want to test. This could be the location of your app in [App Storage](/mobile-apps/app-storage) (e.g., `storage:filename=myapp.zip`) or the URL to a remote location where your app is located (e.g., `http://myappurl.zip`). If you're running a mobile browser test, this capability can be left blank.
 
 ```java
 "appium:app": "storage:filename=my_app.zip"
@@ -334,7 +336,7 @@ If you have an app you have uploaded to [Sauce storage](https://app.saucelabs.co
 
 Allows you to set the name of the simulator, emulator, or real device you want to use in the test.
 
-You can use this to set up a test with either [static or dynamic allocation for RDC](/mobile-apps/app-storage), and run individual or parallel tests. Static allocation allows you to run your tests on a very specific device, while dynamic allocation allows you to specify a family of devices or any device with a certain OS so you can quickly run your test on the first available RDC device.
+You can use this to set up a test with either [static or dynamic allocation for RDC](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation), and run individual or parallel tests. Static allocation allows you to run your tests on a very specific device, while dynamic allocation allows you to specify a family of devices or any device with a certain OS so you can quickly run your test on the first available RDC device.
 * Dynamic allocation example: for an Android emulator test, you can request a generic Android emulator by using the option `"deviceName":"Android Emulator"`.
 * Static allocation example: if you want to use an Android emulator that looks and feels like a specific Android phone or tablet (e.g., Google Nexus 7 HD Emulator or a Samsung Galaxy S4), you need to specify the exact Android emulator skin to use (e.g., `"appium:deviceName":"Samsung Galaxy S4 Emulator"`).
 
@@ -418,15 +420,23 @@ Optional, Sauce-specific capabilities that you can use in your Appium tests. The
 ### `appiumVersion`
 <p><small>| STRING |</small></p>
 
-Specifies the Appium driver version you want to use. If you don’t select a version, this capability will automatically default to the latest version of Appium that is compatible with your selected OS. If you prefer to use a different version of Appium for your test, enter the version number you want as the value for the `appiumVersion` capability. We recommend using the default version.
+Specifies the Appium driver version you want to use. For most use cases, setting the `appiumVersion` is unnecessary because Sauce Labs defaults to the version that supports the broadest number of device combinations. Sauce Labs advises against setting this property unless you need to test a particular Appium feature or patch.
 
-To allow a window of time to check the compatibility of your test suites with the latest Appium version, it won't be set as the default version on Sauce until one week after the version release.
-
-We recommend using the default Appium Version. For Appium version release notes, see the [Appium GitHub repository](https://github.com/appium/appium/releases).
+:::note
+Sauce Labs waits a week following new Appium releases before setting them as the default version to provide time to verify compatibility with your tests. You can find version details in the [Appium release notes](https://github.com/appium/appium/releases).
+:::
 
 ```java
-"appiumVersion": "1.5.3"
+"appiumVersion": "1.22.0"
 ```
+
+#### Check on which Appium version your test ran:
+
+1. Log into Sauce Labs.
+2. Go to **Test Details**.
+3. Find and select the test that you ran using Appium.
+4. Click the **Metadata** tab.
+5. Look for the **Logs** row and select **Appium Log**. The first line indicates the Appium version. For example, `2019-05-05T17:45:07.541Z - info: Welcome to Appium v1.21.0`.
 
 ---
 ### `deviceType`
@@ -460,7 +470,7 @@ For virtual device mobile tests, the capability is `deviceOrientation`, but for 
 ### `otherApps`
 <p><small>| ARRAY | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-A dependent app that has already been uploaded to [Sauce Labs Application Storage](/mobile-apps/app-storage) that will be pre-installed on the device under test for use during testing the main app. You can specify the app using its `storage:<fileId>` or `storage:filename=<filename>` reference.
+A dependent app that has already been uploaded to [App Storage](/mobile-apps/app-storage) that will be pre-installed on the device under test for use during testing the main app. You can specify the app using its `storage:<fileId>` or `storage:filename=<filename>` reference.
 
 Dependent apps inherit the configuration of the main app under test for [`Device Language`](https://app.saucelabs.com/live/app-testing#group-details), [`Device Orientation`](https://app.saucelabs.com/live/app-testing#group-details), and [`Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of what settings may have been applied to the app at the time of upload, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
 
@@ -524,10 +534,6 @@ Suitable for test setups that require the app's state to be reset between tests.
 
 We recommend reviewing [Device Management for Real Devices](/mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
-:::note
-`cacheId` replaces the deprecated `testobject_cache_device` capability formerly used in TestObject (Legacy RDC).
-:::
-
 ---
 
 ### `newCommandTimeout`
@@ -550,12 +556,6 @@ Set `noReset` to `true` to keep a device allocated to you during the device clea
 On iOS devices, the `noReset` value is permanently set to `true` and cannot be overridden using `noReset:false`. If you check your Appium logs, you'll see that the value is `true`, even though the default setting technically is false. We've done this intentionally to ensure that your post-test iOS device cleaning process is optimal and secure.
 :::
 
----
-
-### `recordDeviceVitals`
-<p><small>| BOOLEAN | <span className="sauceDBlue">TestObject Only</span> <span className="sauceGold">DEPRECATED</span> |</small></p>
-
-Device vitals are a collection of the mobile device performance data taken in real time during test execution. Vitals includes CPU utilization, memory consumption, network usage for both wifi and carrier connectivity where applicable, file operation and more. Measuring device vitals during test execution provides insights for analyzing app performance during operation.
 
 ---
 ### `crosswalkApplication`
@@ -567,7 +567,7 @@ As described in [Appium Issue 4597](https://github.com/appium/appium/issues/4597
 ### `autoGrantPermissions`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> <span className="sauceDBlue">Android Only</span> |</small></p>
 
-By default, applications are installed on devices in the Sauce Labs real device cloud with autoGrantPermissions capability set to `true`. As long as the API number of the device is equal to 23 or higher, you can disable this by explicitly setting `autoGrantPermissions` to `false`.
+By default, apps are installed on devices in the Sauce Labs real device cloud with autoGrantPermissions capability set to `true`. As long as the API number of the device is equal to 23 or higher, you can disable this by explicitly setting `autoGrantPermissions` to `false`.
 
 ---
 ### `enableAnimations`
@@ -579,37 +579,41 @@ Use this capability to enable animations for real devices by setting it to `true
 ### `resigningEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Appium override setting that enables the resigning (iOS) or instrumentation (Android) of apps on the Sauce Labs side, allowing the usage of the other capabilities listed in this section.
+Controls Sauce Labs default resigning (iOS) or instrumentation (Android) of mobile apps installed on our devices. By default, this property is always `true`, but it can be set to `false` for private devices to allow testing of specific behaviors that are not permitted under the Sauce Labs provisioning. See [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-resigning-enablements) for more information.
+
+:::caution AAB App Signing
+To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must sign the \*.apk using its own signature. In such cases, Sauce Labs signs both the `app` and `testApp` to ensure matching signatures, even if this capability is set to `false`. Otherwise, the app installation will fail.
+:::
 
 ---
 ### `sauceLabsImageInjectionEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Appium override setting that enables the [camera image injection](/mobile-apps/features/camera-image-injection) feature.
+Enables the [camera image injection](/mobile-apps/features/camera-image-injection) feature.
 
 ---
 ### `sauceLabsBypassScreenshotRestriction`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Android Only</span> |</small></p>
 
-Appium override setting that bypasses the restriction on taking screenshots for secure screens (i.e., secure text entry).
+Bypasses the restriction on taking screenshots for secure screens (i.e., secure text entry).
 
 ---
 ### `allowTouchIdEnroll`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Appium override setting that enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).Z
+Enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).Z
 
 ---
 ### `groupFolderRedirectEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">iOS Only</span> | </small></p>
 
-Appium override setting that enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.
+Enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.
 
 ---
 ### `systemAlertsDelayEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">iOS Only</span> | </small></p>
 
-Appium override setting that delays system alerts, such as alerts asking for permission to access the camera, to prevent app crashes at startup.
+Delays system alerts, such as alerts asking for permission to access the camera, to prevent app crashes at startup.
 
 ---
 ### `tunnelName`
@@ -893,7 +897,7 @@ Allows you to set a custom time zone for your test based on a city name. Most ma
     * See the [Appium Android documentation](http://appium.io/docs/en/writing-running-appium/android/android-shell/#mobile-shell) for additional support.
 
 :::note
-Most web applications serve localization content based on the computer's IP Address, not the time zone set
+Most web apps serve localization content based on the computer's IP Address, not the time zone set
 in the operating system. If you need to simulate the computer being in a different location, you may need to set up a proxy.
 
 :::
@@ -919,7 +923,7 @@ Read the descriptions of each key below the example.
 ```
 
 ### `prerun` (primary key)
-Use this to define pre-run executables. You can provide a URL to an executable file, which will be downloaded and executed to configure the VM before the test starts. For faster performance, you may want to upload the executable to your [Sauce Application Storage](/mobile-apps/app-storage) space. This capability takes a JSON object with four main keys. See [Using Pre-Run Executables to Configure Browsers and VMs](/web-apps/automated-testing/selenium/pre-run-executables) for more information.
+Use this to define pre-run executables. You can provide a URL to an executable file, which will be downloaded and executed to configure the VM before the test starts. For faster performance, you may want to upload the executable to your [Sauce Apps Storage](/mobile-apps/app-storage) space. This capability takes a JSON object with four main keys. See [Using Pre-Run Executables to Configure Browsers and VMs](/web-apps/automated-testing/selenium/pre-run-executables) for more information.
 
 * Running AutoIt Scripts: If you want to run an AutoIt script during your test, compile it as an .exe, send it using this capability, and set background to true to allow AutoIt to continue running throughout the full duration of your test.
 * Using Multiple Pre-Run Executables: If you need to send multiple pre-run executables, the best way is to bundle them into a single executable file, such as a self-extracting zip file.

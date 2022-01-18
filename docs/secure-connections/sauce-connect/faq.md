@@ -6,9 +6,16 @@ sidebar_label: FAQ
 
 If you're new to Sauce Connect Proxy or troubleshooting, this list of frequently asked questions can help you with what you need to know.
 
+
 ## What outbound ports do I need open for Sauce Connect Proxy?
 
 Sauce Connect can only communicate with Sauce Labs via `port 443`. This is not configurable.
+
+## When do I need to use Port 443 and how does it relate to the --proxy flag?
+
+Port 443 is the the typical default port for HTTPS traffic. Sauce Connect will use port 443 when sending traffic to your network when trying to reach the site(s) under test.
+
+You can use the [`--proxy`](/dev/cli/sauce-connect-proxy/#--proxy) command-line option to specify the `hostname:port` number of the destination where all Sauce Connect Proxy traffic should be forwarded. Some companies have it setup where you MUST pass traffic through a proxy to reach the internet.
 
 ## How can I share a Sauce Connect Proxy tunnel between multiple accounts?
 
@@ -32,11 +39,11 @@ Entering this code -- `(www.)?google-analytics.com,(www.)?googletagmanager.com,(
 * Any subdomain of `facebook.com`, but not `facebook.com`
 
 
-## Can I access applications on localhost?
+## Can I access apps on localhost?
 
 When using Sauce Connect Proxy, local web apps running on commonly used ports are available to test at localhost URLs, just as if the Sauce Labs cloud were your local machine.
 
-However, because an additional proxy is required for localhost URLs, tests may perform better when using a locally defined domain name (which can be set in your [`hosts file`](http://en.wikipedia.org/wiki/Hosts_file)) rather than localhost. Using a locally defined domain name also allows access to applications on any port.
+However, because an additional proxy is required for localhost URLs, tests may perform better when using a locally defined domain name (which can be set in your [`hosts file`](http://en.wikipedia.org/wiki/Hosts_file)) rather than localhost. Using a locally defined domain name also allows access to apps on any port.
 
 :::note
 On Android devices, ports 5555 and 8080 cannot be used with Sauce Connect Proxy.
@@ -96,9 +103,6 @@ No, tunnels to the Real Device Cloud are automatically shared with all of your t
 
 Yes, you can use the same Sauce Connect Proxy tunnel and/or same machine to test with the Virtual Device Cloud Real Device Cloud.
 
-:::note
-TestObject <small><span className="sauceGold">DEPRECATED</span></small> environments must configure separate, unique tunnels for virtual devices and real devices. See [Creating Tunnels in TestObject (Legacy)](/secure-connections/sauce-connect/setup-configuration/legacy-tunnels).
-:::
 
 ## Are there any special parameters when using a PAC file in real device tests?
 
@@ -119,4 +123,4 @@ To create a secure connection, we strongly recommend using Sauce Connect or IPSe
 
 ## What is KGP in Sauce Connect Proxy logs?
 
-See [Sauce Connect Tunneling Procotol](/secure-connections/sauce-connect/advanced/kgp) documentation.
+See [Sauce Connect Tunneling Protocol](/secure-connections/sauce-connect/advanced/kgp) documentation.

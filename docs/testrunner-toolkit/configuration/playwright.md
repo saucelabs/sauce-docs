@@ -408,6 +408,65 @@ Specifies the path to the folder location in which to download artifacts. A sepa
 ```
 ---
 
+## `notifications`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies how to set up automatic test result alerts.
+
+```yaml
+notifications:
+  slack:
+    channels:
+      - "saucectl-results"
+      - "playwright-tests"
+    send: always
+```
+---
+
+### `slack`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/basics/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
+
+```yaml
+  slack:
+    channels: "saucectl-pw-tests"
+    send: always
+```
+---
+
+#### `channels`
+<p><small>| OPTIONAL | STRING/ARRAY |</small></p>
+
+The set of Slack channels to which the test result notifications are to be sent.
+
+```yaml
+  slack:
+    channels:
+      - "saucectl-results"
+      - "playwright-team"
+    send: always
+```
+---
+
+#### `send`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies when and under what circumstances to send notifications to specified Slack channels. Valid values are:
+
+* `always`: Send notifications for all test results.
+* `never`: Do not send any test result notifications.
+* `pass`: Send notifications for passing suites only.
+* `fail`: Send notifications for failed suites only.
+
+```yaml
+  slack:
+    channels: "saucectl-pw-tests"
+    send: always
+```
+---
+
+
 ## `playwright`
 <p><small>| REQUIRED | OBJECT |</small></p>
 
@@ -416,6 +475,7 @@ The parent property containing the details specific to the Playwright project.
 ```yaml
 playwright:
   version: 1.11.1
+  configFile: config.ts
 ```
 ---
 
@@ -426,6 +486,17 @@ The version of Playwright that is compatible with the tests defined in this file
 
 ```yaml
   version: 1.11.1
+```
+---
+
+### `configFile`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+The path (relative to `rootDir`) to your Playwright configuration file. `saucectl` determines related files based on the location of this config file. Supports both TypeScript and JavaScript files.
+If it's not set, `saucectl` defaults to `playwright.config.ts` or `playwright.config.js`.
+
+```yaml
+  configFile: config.ts
 ```
 ---
 
@@ -506,8 +577,7 @@ Sets the number of separate shards to create for the test suite. Read more about
 When sharding is configured, `saucectl` automatically creates the sharded jobs based on the number of shards you specify. For example, for a suite that specifies 2 shards, `saucectl` clones the suite and runs shard `1/2` on the first suite, and the other shard `2/2` on the identical clone suite.
 
 :::caution Shard Property Exclusivity
-The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a 
-single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
+The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
 :::
 
 ```yaml
@@ -522,8 +592,7 @@ When sharding is configured, saucectl automatically splits the tests (e.g. by sp
 Selectable values: `spec` to shard by spec file. Remove this field or leave it empty `""` for no sharding.
 
 :::caution Shard Property Exclusivity
-The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a 
-single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
+The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
 :::
 
 ```yaml
@@ -542,13 +611,8 @@ A parent property that details any additional parameters you wish to set for the
       browserName: "firefox"
       headful: false
       slowMo: 1000
+      project: "project name"
 ```
-
-__Description__: This field is for specific test run parameters, for example:
-* `browserName` ( *string* ) : the browser in which to run tests
-* `headful` ( *boolean* ) : whether to run browsers in headless mode
-* `sloMo` ( *int* ) : whether to implement artificially slow load times in milliseconds
-
 
 #### `browserName`
 <p><small>| OPTIONAL | STRING |</small></p>
@@ -578,6 +642,20 @@ Allows you to alter the test execution speed for the test suite in milliseconds,
 
 ```yaml
     sloMo: 1000
+```
+---
+
+#### `project`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Allows you to apply the configurations from your [Playwright project](https://playwright.dev/docs/test-advanced/#projects) to the suite.
+
+:::note
+`saucectl` browserName overrides the Playwright project browserName in the event of a conflict.
+:::
+
+```yaml
+    project: "project name"
 ```
 ---
 

@@ -1,7 +1,7 @@
 ---
 id: additional-proxies
-title: Set Up with Additional Proxies
-sidebar_label: Set Up with Additional Proxies
+title: Sauce Connect Proxy Setup with Additional Proxies
+sidebar_label: Setup with Additional Proxies
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
@@ -9,8 +9,8 @@ import TabItem from '@theme/TabItem';
 
 This is a guide for users who have an existing internal network proxy through which outbound communication is routed from their network to the public internet. If this sounds like your setup, additional proxy configuration of the Sauce Connect Proxy tunnel is required:
 
-* Between the internet and the machine hosting Sauce Connect Proxy
-* Between the machine hosting Sauce Connect and the machine hosting the website or mobile app you want to test
+* Between the internet and the machine hosting Sauce Connect Proxy.
+* Between the machine hosting Sauce Connect and the machine hosting the website or mobile app you want to test.
 
 To configure Sauce Connect Proxy to use your proxy or proxies, you will need to include one or more Sauce Connect command-line options (see the [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy)) in your test script.
 
@@ -75,8 +75,8 @@ Here are some examples for starting a tunnel using  `-p` and `-w`:
 <TabItem value="maclinux">
 
 ```bash
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
-    -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
+  -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD
 ```
 
 </TabItem>
@@ -84,8 +84,8 @@ $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
 <TabItem value="windows">
 
 ```bash
-> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
-    -p %PROXY_HOST%:%PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD%
+sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
+  -p %PROXY_HOST%:%PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD%
 ```
 
 </TabItem>
@@ -106,8 +106,8 @@ Here are some examples for starting a Sauce Connect Proxy tunnel using `-p` and 
 <TabItem value="maclinux">
 
 ```bash
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
-    -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD -T
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
+  -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD -T
 ```
 
 </TabItem>
@@ -115,8 +115,8 @@ $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
 <TabItem value="windows">
 
 ```bash
-> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
-    -p %PROXY_HOST:PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD% -T
+sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
+  -p %PROXY_HOST:PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD% -T
 ```
 
 </TabItem>
@@ -142,7 +142,7 @@ Here are some examples for starting a Sauce Connect Proxy tunnel using `--pac ur
 <TabItem value="maclinux">
 
 ```bash
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac PAC_FILE_URL
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac PAC_FILE_URL
 ```
 
 </TabItem>
@@ -150,7 +150,7 @@ $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac PAC_FILE_URL
 <TabItem value="windows">
 
 ```bash
-> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --pac PAC_FILE_URL
+sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --pac PAC_FILE_URL
 ```
 
 </TabItem>
@@ -169,7 +169,7 @@ The following diagrams illustrate different Sauce Connect Proxy network flow con
 
 | Term | Definition |
 | :--- | :--- |
-| SC Host (Sauce Connect Host) | Machine in your network on which the Sauce Connect Proxy application is running. |
+| SC Host (Sauce Connect Host) | Machine in your network on which the Sauce Connect Proxy app is running. |
 | SUT (Site Under Test) | The site that you're testing. |
 | Sauce SC Host (Tunnel VM) | Virtual machine that hosts Sauce Connect Proxy on the Sauce Labs side. |
 
@@ -233,7 +233,7 @@ At this point, the tunnel is established between the Sauce Connect Proxy client 
 #### Charles Proxy Configuration
 The Charles Proxy is useful for monitoring traffic passing between your Sauce VM or RDC device and your site under test. To begin, you'll need to create a PAC file that matches the REST and tunnel VM hostnames, then use the Charles Proxy for everything else.
 
-1. Download and install Charles Proxy (see the [Charles Web Debugging Proxy Application](https://www.charlesproxy.com/).
+1. Download and install Charles Proxy (see the [Charles Web Debugging Proxy App](https://www.charlesproxy.com/).
 2. Open **Charles Proxy**.
 3. To enable your machine to trust SSL/TLS certificates, in Charles Proxy, click **Help**, and then click **SSL Proxying** > **Install Charles Root Certificate**. For more information, see [SSL Certificates](https://www.charlesproxy.com/documentation/using-charles/ssl-certificates/).
 
@@ -262,7 +262,7 @@ The Charles Proxy is useful for monitoring traffic passing between your Sauce VM
 
 7. Start your Sauce Connect Proxy tunnel:
   ```bash
-  $ ./sc --pac file:///Users/JohnSmith/workspace/scstuff/pac.js
+  ./sc --pac file:///Users/JohnSmith/workspace/scstuff/pac.js
   ```
 
 8. Start your test using the proxy, then observe the traffic in Charles Proxy.
