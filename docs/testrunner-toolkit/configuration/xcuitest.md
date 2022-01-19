@@ -247,7 +247,7 @@ artifacts:
 ### `cleanup`
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Specifies whether to remove all contents of artifacts directory.
+When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
 
 ```yaml
   cleanup: true
