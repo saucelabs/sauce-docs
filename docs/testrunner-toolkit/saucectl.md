@@ -284,6 +284,16 @@ saucectl run --artifacts.download.when always
 ```
 ---
 
+### `--artifacts.cleanup <boolean>`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
+
+```bash
+saucectl run --artifacts.cleanup true
+```
+---
+
 ### `--build <string>`
 <p><small>| OPTIONAL | STRING | VIRTUAL ONLY |</small></p>
 
