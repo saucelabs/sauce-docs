@@ -307,11 +307,22 @@ Specifies how to manage test artifacts, such as logs, videos, and screenshots.
 
 ```yaml
 artifacts:
+  cleanup: true
   download:
     when: always
     match:
       - junit.xml
     directory: ./artifacts/
+```
+---
+
+### `cleanup`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Specifies whether to remove all contents of artifacts directory.
+
+```yaml
+  cleanup: true
 ```
 ---
 

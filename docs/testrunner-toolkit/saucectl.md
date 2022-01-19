@@ -284,6 +284,16 @@ saucectl run --artifacts.download.when always
 ```
 ---
 
+### `--artifacts.cleanup <boolean>`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Specifies whether to remove all contents of artifacts directory.
+
+```bash
+saucectl run --artifacts.cleanup true
+```
+---
+
 ### `--build <string>`
 <p><small>| OPTIONAL | STRING | VIRTUAL ONLY |</small></p>
 
