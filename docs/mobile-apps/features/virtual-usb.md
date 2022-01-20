@@ -102,7 +102,7 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
   First, launch your test on Sauce Labs (**Live** > **Cross Browser** > **Mobile Real** > Find your **Private Device** > **Launch**). Next, locate your `--sessionId` by opening a new command line terminal and running the [`sessions`](/dev/cli/virtual-usb/find-sessionid) command, along with your credentials.
 
   ```java
-  java -jar virtual-usb-client.jar sessions --username ${SAUCE_USERNAME} --accessKey ${SAUCE_ACCESS_KEY}
+  java -jar virtual-usb-client.jar sessions --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY
   ```
 
   If [Sauce Connect Proxy](/secure-connections/sauce-connect) is required to access your corporate network or your local machine for secure test data, you'll need to select a **SAUCE CONNECT PROXY** from the dropdown before launching your device.
@@ -119,7 +119,7 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
   Copy the `--sessionId` of your desired test, then run that along with the [`connect`](/dev/cli/virtual-usb/connect-session) command and your credentials.
 
   ```java
-  java -jar virtual-usb-client.jar connect --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 --username ${SAUCE_USERNAME} --accessKey ${SAUCE_ACCESS_KEY}
+  java -jar virtual-usb-client.jar connect --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY
   ```
 
 :::note
@@ -183,14 +183,14 @@ Method 1 is recommended for the following reasons:
   <TabItem value="Android">
 
   ```java
-  java -jar virtual-usb-client.jar startSession --username ${SAUCE_USERNAME} --accessKey ${SAUCE_ACCESS_KEY} --deviceName Motorola_Moto_Z_real
+  java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY --deviceName Motorola_Moto_Z_real
   ```
 
   </TabItem>
   <TabItem value="iOS">
 
   ```java
-  java -jar virtual-usb-client.jar startSession --username ${SAUCE_USERNAME} --accessKey ${SAUCE_ACCESS_KEY} --deviceName iPhone_XS
+  java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY --deviceName iPhone_XS
   ```
 
   </TabItem>
@@ -277,7 +277,7 @@ This a one-time action that you won't need to do again for future tests.
     * If you started your test session with `startSession` (option 2), close it out by running the [`deleteSession`](/dev/cli/virtual-usb/delete-session) command, followed by your `--sessionId` and credentials.
 
      ```java
-     java -jar virtual-usb-client.jar deleteSession --sessionId 37D274BC3A65A34BB3DA4DDF7B77E341 --username ${SAUCE_USERNAME} --accessKey ${SAUCE_ACCESS_KEY}
+     java -jar virtual-usb-client.jar deleteSession --sessionId 37D274BC3A65A34BB3DA4DDF7B77E341 --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY
      ```
      * **Android Only**: You'll also need to disconnect your device from ADB. Run `adb disconnect` followed by your `<IPAddress>:<portNumber>`:
        ```java
