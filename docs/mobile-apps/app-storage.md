@@ -1,14 +1,14 @@
 ---
 id: app-storage
-title: Mobile Application Storage
-sidebar_label: Application Storage
+title: Mobile App Storage
+sidebar_label: App Storage
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-When testing mobile apps, you have the option to upload your app to our application storage. The benefits of application storage include:
+When testing mobile apps, you have the option to upload your app to our app storage. The benefits of app storage include:
 
 * Uploading all of your mobile apps to the same location for cross-device automated and live testing with virtual devices and real devices.
 * Sharing your uploaded apps with your team members.
@@ -24,7 +24,7 @@ When testing mobile apps, you have the option to upload your app to our applicat
 
 ## Uploading Apps via UI
 
-For information about using the Sauce Labs UI to upload your mobile file to application storage, see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app).
+For information about using the Sauce Labs UI to upload your mobile file to app storage, see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app).
 
 :::note
 This method currently supports live testing on **real devices only**. For virtual devices, upload your apps via the REST API.
@@ -118,10 +118,10 @@ Each session is a "fresh" installation of your app, meaning, you will not be abl
 
 ## Accepted File Types 
 
-Application storage recognizes \*.apk and \*.aab files as Android apps and \*.ipa or \*.zip files as iOS apps. \*.zip files (for simulator tests only) are parsed to determine whether a valid *.app bundle exists.
+App storage recognizes \*.apk and \*.aab files as Android apps and \*.ipa or \*.zip files as iOS apps. \*.zip files (for simulator tests only) are parsed to determine whether a valid *.app bundle exists.
 
-:::caution Limited Support for *.aab Files
-At this time, \*.aab files are only supported for Android real device testing.
+:::caution AAB App Signing
+To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must sign the \*.apk using its own signature. In such cases, Sauce Labs signs both the `app` and `testApp` to ensure matching signatures, even if instrumentation is disabled. Otherwise, the app installation will fail.
 :::
 
 You can also upload and store other file types for generic use, such as a pre-run executable, package, or binary. Some of the formats for this type of use case include:
@@ -139,7 +139,7 @@ All uploaded files are shared with the same team. Members can only access files 
 For more information about managing access to your organization, see [Managing User Information](/basics/acct-team-mgmt/managing-user-info).
 
 ## Using Application Storage with Automated Test Builds
-After successfully uploading your file to application storage, you need to reference the unique app Identifier (`file_id`) in your test code to retrieve and use your app for automated tests.
+After successfully uploading your file to app storage, you need to reference the unique app Identifier (`file_id`) in your test code to retrieve and use your app for automated tests.
 
 For example, let's assume you've updated a new version of your app using the `/upload` endpoint. The JSON response would be something like:
 
@@ -170,10 +170,10 @@ For example, let's assume you've updated a new version of your app using the `/u
    }
 }
 ```
-Then the file_id would be  `"id":"379c301a-199c-4b40-ad45-4a95e5f30a3a"`. If you're unsure of the id of an existing app, you can use the [Storage API](/dev/api/storage) to lookup the ID of an application in storage or look into the apps details in the [Sauce UI](https://app.saucelabs.com/live/app-testing).
+Then the file_id would be  `"id":"379c301a-199c-4b40-ad45-4a95e5f30a3a"`. If you're unsure of the id of an existing app, you can use the [Storage API](/dev/api/storage) to lookup the ID of an app in storage or look into the apps details in the [Sauce UI](https://app.saucelabs.com/live/app-testing).
 
 ### File Name instead of File ID
-You can also use the app `name` field from the storage API in the `app` capability. This approach is particularly useful if you uploaded your build to application storage via a CI pipeline, and you either don't know the id, or you do not wish to perform JSON parsing in order to retrieve the id. The filename field also includes any supported file that can be uploaded to application storage.
+You can also use the app `name` field from the storage API in the `app` capability. This approach is particularly useful if you uploaded your build to app storage via a CI pipeline, and you either don't know the id, or you do not wish to perform JSON parsing in order to retrieve the id. The filename field also includes any supported file that can be uploaded to app storage.
 
 Example of uploading an Android .apk file:
 
@@ -230,7 +230,7 @@ caps.SetCapability("app","storage:filename=<file-name>.apk");
 * `build` capability not supported in VDC at this time.
 
 ## Updating WebDriver Capabilities
-If you were previously using application stored in  sauce-storage, you can convert your existing test capabilities by replacing `sauce-storage:myapp` with `storage:<file_id>`.
+If you were previously using app stored in  sauce-storage, you can convert your existing test capabilities by replacing `sauce-storage:myapp` with `storage:<file_id>`.
 
 ### Example Code
 These examples assume `file_id = c8511dd6-38ec-4f58-b8b9-4ec8c23ad882`
@@ -346,6 +346,8 @@ espresso:
 ```
 
 ## Uploading to Legacy Sauce Storage
+
+<p> <span className="sauceDBlue">VDC Only</span> </p>
 
 Sauce Storage is a short term storage space for apps. Files uploaded here expire and are removed from the platform after seven days. You can upload an app you want to test using the applicable REST API request below, and then access it for testing by specifying `sauce-storage:myapp` for the app capability in your test script:
 

@@ -668,13 +668,13 @@ When your tests are running through a Sauce Connect tunnel, the client on your n
 
 ### Allowlisting for Restricted Networks
 
-If you're testing in a restricted network setting, you may need to allowlist the Sauce Labs domains below to allow outbound communication to Sauce Labs Selenium and Appium endpoints. Allowlisting for inbound traffic coming into your network is not necessary. To check if your setup is successful, see [Validating Your Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
+If you're testing in a restricted network setting, you may need to allowlist the Sauce Labs domains below to allow outbound communication to Sauce Labs Selenium and Appium endpoints. Allowlisting for inbound traffic coming into your network is not necessary. To confirm your setup is successful, try running a test using the [basic setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
 
-You'll need to use the set of domains for your corresponding Sauce Labs Data Center: US Data Center (US-West-1**), Headless Data Center (US-East-1), or European Data Center (EU-Central-1). The Data Center you're connected to is indicated in your navigation menu.
+You'll need to use the set of domains for your corresponding Sauce Labs data center: US data center (US West 1), European data center (EU Central 1), headless data center (Headless US-East), or Australian data center (APAC Southeast 1) . The data center you're connected to will be indicated in your navigation.<br/>
 
-<img src={useBaseUrl('img/sauce-connect/data-center-ui.jpg')} alt="Sauce Connect download file contents" width="600" margin-bottom="50px"/>
+<img src={useBaseUrl('img/sauce-connect/data-center-ui.png')} alt="Sauce Connect download file contents" width="450" margin-bottom="50px"/>
 
-For more information on our Data Centers and how to choose the right one for you, see [Data Center Endpoints](/basics/data-center-endpoints).
+For more information on our data centers and how to choose the right one for you, see [Data Center Endpoints](/basics/data-center-endpoints).
 
 ### REST API Endpoints
 

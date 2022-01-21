@@ -11,7 +11,7 @@ Front-end performance testing complements your functional testing strategy by he
 
 Sauce Performance is a pre-integrated tool within the Sauce portfolio that is available to all users. When incorporated into existing development workflows, front end performance testing allows you to continuously measure the speed and reliability of your app, thereby ensuring your customers enjoy an optimal experience every time, in every environment. Some specific advantages to using Sauce Performance include:
 
-* Save time and money by testing your application's function and performance in a single testing platform.
+* Save time and money by testing your app's function and performance in a single testing platform.
 * Leverage existing functional test scripts (that are validated and executing well) as a starting point to implement performance test scripts.
 * Measure performance alongside your functional tests to identify related failure patterns.
 * Test performance earlier in the development cycle, when it's easier to make adjustments that improve your user's experience.
@@ -34,7 +34,7 @@ Capturing all the individual metrics associated with page rendering is more time
 
 ### Understanding Your Baselines
 
-Baselines are determined by calculating a confidence interval over multiple runs of the same test name for each URL rendered during the test. The confidence interval is calculated to estimate the range of values which are expected in future runs, based on past observed performance. Results outside of the baseline range are statistically unlikely to be observed in the absence of some fundamental change in the application’s performance and should, therefore, be investigated as to root cause before resetting the baseline.
+Baselines are determined by calculating a confidence interval over multiple runs of the same test name for each URL rendered during the test. The confidence interval is calculated to estimate the range of values which are expected in future runs, based on past observed performance. Results outside of the baseline range are statistically unlikely to be observed in the absence of some fundamental change in the app’s performance and should, therefore, be investigated as to root cause before resetting the baseline.
 
 ### Using Explicit Page Transitions
 

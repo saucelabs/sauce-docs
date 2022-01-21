@@ -39,9 +39,6 @@ __Shorthand__: `-u`
 __Description__: Sets your Sauce Labs API key. This will be the same as your [Access Key](https://app.saucelabs.com/user-settings). For additional security, you can set this as an [environment variable](/secure-connections/sauce-connect/setup-configuration/environment-variables/).<br/>
 __Shorthand__: `-k`
 
-__Description__: defines the local path to a YAML file containing a Sauce Connect Proxy configuration. <br/>
-__Shorthand__: `-c`
-
 ---
 ### `--config-file`
 <p><small>| REQUIRED | STRING |</small></p>
@@ -84,55 +81,17 @@ Future jobs will use this tunnel only when explicitly specified by the [`tunnelN
 __Shorthand__: n/a
 
 
+---
+### `--tunnel-pool`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+__Description__: Launches a high availability tunnel pool along with the [`--tunnel-name`](#--tunnel-name) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
+__Shorthand__: n/a
+
+
+
 
 ## Tunnel Configuration
-
----
-### `--tunnel-pool`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-__Description__: Launches a high availability tunnel pool along with the [`--tunnel-name`](#--tunnel-name) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
-__Shorthand__: n/a
-
----
-### `--tunnel-pool`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-__Description__: Launches a high availability tunnel pool along with the [`--tunnel-name`](#--tunnel-name) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
-__Shorthand__: n/a
-
-
----
-### `--rest-url`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-:::caution
-Effective with Sauce Connect Proxy version 4.7.0, we recommend using [`--region`](/dev/cli/sauce-connect-proxy/#--region) instead. `--rest-url` will eventually be deprecated. Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
-:::
-
-__Description__: Sets your [Sauce Labs regional data center REST API URL](#data-center-endpoints) (e.g., EU-Central, US-West).<br/>
-__Shorthand__: `-x`
-
----
-### `--no-remove-colliding-tunnels`
-<p><small><span className="sauceGold">DEPRECATED</span></small></p>
-
-__Description__: Effective with Sauce Connect Proxy version 4.7.0, this flag was deprecated and replaced by [`--tunnel-pool`](#--tunnel-pool). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
-
-
----
-### `--tunnel-identifier`
-<p><small><span className="sauceGold">DEPRECATED</span></small></p>
-
-__Description__: Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-name`](#--tunnel-name). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
-__Shorthand__: `-i` for `--tunnel-identifier`
-
----
-### `--tunnel-identifier`
-<p><small><span className="sauceGold">DEPRECATED</span></small></p>
-
-__Description__: Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-name`](#--tunnel-name). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
-__Shorthand__: `-i` for `--tunnel-identifier`
 
 ---
 ### `--direct-domains`
@@ -158,7 +117,7 @@ HTTP Header Injection is disabled for all HTTPS domains passed to `--no-ssl-bump
 ### `--fast-fail-regexps`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Allows you to set a deny-list of URL patterns. Requests with URLs matching one of these will get dropped instantly and will not go through the tunnel. Tests for application and site degradation based on missing assets or resources. Can be used to simulate non-loading of scripts, styles, or other resources. Use this option followed by a comma-separated list of regular expressions. See the [Sauce Connect Proxy FAQ](/secure-connections/sauce-connect/faq) for an example.<br/>
+__Description__: Allows you to set a deny-list of URL patterns. Requests with URLs matching one of these will get dropped instantly and will not go through the tunnel. Tests for app and site degradation based on missing assets or resources. Can be used to simulate non-loading of scripts, styles, or other resources. Use this option followed by a comma-separated list of regular expressions. See the [Sauce Connect Proxy FAQ](/secure-connections/sauce-connect/faq) for an example.<br/>
 __Shorthand__: `-F`
 
 
@@ -168,6 +127,33 @@ __Shorthand__: `-F`
 
 __Description__: Sets domain(s) that need to be sent through the Sauce Connect Proxy tunnel. This is the inverse of `--direct-domains`.  When adding multiple domains, [format as a comma-separated list](#formatting-domains-in-the-command-line). Be sure to format your domains as a comma-separated list (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)).<br/>
 __Shorthand__: `-t`
+
+
+---
+### `--rest-url`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+:::caution
+Effective with Sauce Connect Proxy version 4.7.0, we recommend using [`--region`](/dev/cli/sauce-connect-proxy/#--region) instead. `--rest-url` will eventually be deprecated. Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
+:::
+
+__Description__: Sets your [Sauce Labs regional data center REST API URL](#data-center-endpoints) (e.g., EU-Central, US-West).<br/>
+__Shorthand__: `-x`
+
+
+---
+### `--no-remove-colliding-tunnels`
+<p><small><span className="sauceGold">DEPRECATED</span></small></p>
+
+__Description__: Effective with Sauce Connect Proxy version 4.7.0, this flag was deprecated and replaced by [`--tunnel-pool`](#--tunnel-pool). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
+
+
+---
+### `--tunnel-identifier`
+<p><small><span className="sauceGold">DEPRECATED</span></small></p>
+
+__Description__: Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-name`](#--tunnel-name). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
+__Shorthand__: `-i` for `--tunnel-identifier`
 
 
 
@@ -288,7 +274,7 @@ __Shorthand__: `-P`
 __Description__: Performs basic authentication when a URL on `host:port` asks for a username and password (`host:port:username:password` format). This option can be used multiple times. For examples, see [Authentication Using `--auth`](/secure-connections/sauce-connect/security-authentication).
 
 Sauce Connect Proxy's `--auth` flag will only send the header Authorization with a type of 'Basic'. If a resource responds with the header WWW-Authenticate of a type any other than 'Basic,' your authentication will fail and return a non-200 HTTP response. HTTP Header Injection is disabled for SSL domains that are not re-encrypted by Sauce Connect Proxy, which means performing basic authentication in this way is disabled for all HTTPS domains passed to `--no-ssl-bump-domains` argument.<br/>
-__Shorthand__: `-a` <br/>
+__Shorthand__: `-a`
 
 ```java
 --auth mysite.com:80:awesometester:supersekrit
@@ -331,6 +317,7 @@ __Description__: OCSP verification mode. Options are: strict, log-only, and disa
 :::
 
 __Shorthand__: n/a  
+
 
 ---
 ### `--tunnel-capath`
@@ -396,13 +383,14 @@ __Shorthand__: n/a
 
 ---
 ### `--extra-info`
+<p><small>| OPTIONAL | STRING |</small></p>
 
 __Description__: JSON string that contains an advanced tunnel configuration.<br/>
 
 |Option|Description|Example|
 |---|---|---|
 |`inject-forwarded-for`| Do not remove X-FORWARDED-FOR header from the proxied HTTP requests.|```--extra-info '{"inject-forwarded-for": true}'```|
-|`reply_body_max_size`| Set limit to the reply body size (unlimited by default).|```--extra-info '{"reply_body_max_size": "30 MB"}'```|
+|`reply_body_max_size`| Set limit to the reply body size (the default is 500 MB).|```--extra-info '{"reply_body_max_size": "30 MB"}'```|
 
 You can specify a combination of several options. For example:
 
@@ -526,5 +514,6 @@ Here are some guidelines to follow when formatting domains:
 
 ## Additional Resources
 
+* [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/)
 * [Using Sauce Connect Proxy Environment Variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/)
 * [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).

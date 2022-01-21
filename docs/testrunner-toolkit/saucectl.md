@@ -47,7 +47,7 @@ The authentication access key associated with the Sauce Labs user account making
 ### `--app <string>`
 <p><small>| OPTIONAL | STRING | XCUITEST/ESPRESSO ONLY |</small></p>
 
-The path to a valid mobile application to test.
+The path to a valid mobile app to test.
 
 ---
 
@@ -177,7 +177,7 @@ Specifies the Sauce Labs data center through which tests will run. Valid values 
 ### `--testApp <string>`
 <p><small>| REQUIRED | STRING | XCUITEST/ESPRESSO ONLY |</small></p>
 
-The path to the mobile testing application.
+The path to the mobile testing app.
 
 **Shorthand:** `-t <string>`
 
@@ -284,6 +284,16 @@ saucectl run --artifacts.download.when always
 ```
 ---
 
+### `--artifacts.cleanup <boolean>`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
+
+```bash
+saucectl run --artifacts.cleanup true
+```
+---
+
 ### `--build <string>`
 <p><small>| OPTIONAL | STRING | VIRTUAL ONLY |</small></p>
 
@@ -333,6 +343,16 @@ An environment variable key value pair that may be referenced in the tests execu
 
 ```bash
 saucectl run --env <key1>=value1> --env <key2>=<value2> ...
+```
+---
+
+### `--fail-fast`
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Sauce Cloud only</span> |</small></p>
+
+Stops suites after the first failure. This will not interrupt suites that have been started already. This flag does not require a value; including it inline sets it to `true`.
+
+```bash
+saucectl run --fail-fast ...
 ```
 ---
 

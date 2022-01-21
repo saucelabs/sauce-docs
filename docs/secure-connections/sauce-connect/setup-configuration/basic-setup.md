@@ -23,13 +23,13 @@ It is also a key step for any Sauce Connect Proxy deployment as a way to verify 
   * If you're testing real devices, see [Setting Up for Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/specialized-environments).
 
 :::note Security Recommendation
-We recommend setting your username and api key values as environment variables to protect them from exposure. They'll be reusable (you won't need to type them in every time). [Learn how](/secure-connections/sauce-connect/setup-configuration/environment-variables/).
+We recommend setting your [username and api key values as environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/) to protect them from exposure. They'll be reusable (you won't need to type them in every time).
 :::
 
 
 ## Basic Setup without a Test Script
 
-See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/) for instructions on running Live (manual) local tests on websites and mobile apps.
+See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/) for instructions on how to run a Live (Manual) test on a locally hosted app.
 
 
 ## Basic Setup with a Test Script
@@ -55,7 +55,7 @@ See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstar
   ```
   </TabItem>
   </Tabs>
-2. From your command line terminal, launch a tunnel with the below commands. You can also find this snippet on Sauce Labs, with your credentials populated. Go to the **TUNNELS** page > Skip to **STEP 3: Configure & Authenticate**.
+2. From your command line terminal, launch a tunnel with the below commands. You can also find this snippet on Sauce Labs, with your credentials populated. Go to the **Tunnels** page > Skip to **STEP 3: Configure & Authenticate**.
   <Tabs
       defaultValue="Mac/Linux"
       values={[
@@ -168,13 +168,13 @@ The following code samples demonstrate specifying a tunnel name when launching a
 Launch a new tunnel on the `SC_HOST` using the [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy) and the `--tunnelName` flag:
 
 <Tabs
-  defaultValue="MacOS/Linux Example"
+  defaultValue="macOS/Linux"
   values={[
-    {label: 'MacOS/Linux Example', value: 'MacOS/Linux Example'},
-    {label: 'Windows Example', value: 'Windows Example'},
+    {label: 'macOS/Linux', value: 'macOS/Linux'},
+    {label: 'Windows', value: 'Windows'},
   ]}>
 
-<TabItem value="MacOS/Linux Example">
+<TabItem value="macOS/Linux">
 
 ```bash
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DC --tunnelName sc-proxy-tunnel
@@ -182,7 +182,7 @@ Launch a new tunnel on the `SC_HOST` using the [Sauce Connect Proxy CLI](/dev/cl
 
 </TabItem>
 
-<TabItem value="Windows Example">
+<TabItem value="Windows">
 
 ```bash
 sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -r %SAUCE_DC% --tunnelName sc-proxy-tunnel
@@ -256,7 +256,7 @@ tunnelName: 'sc-proxy-tunnel',
 
 | Term | Definition |
 | :--- | :--- |
-| SC Host (Sauce Connect Host) | The machine in your network on which the Sauce Connect Proxy application is running. In this setup, it has a direct connection to the internet. |
+| SC Host (Sauce Connect Host) | The machine in your network on which the Sauce Connect Proxy app is running. In this setup, it has a direct connection to the internet. |
 | SUT (Site Under Test) | The site that you're testing. It is on the same local network as the SC Host machine. |
 | Tunnel VM (Tunnel Virtual Machine) | Virtual machine that hosts Sauce Connect on the Sauce Labs side. |
 
