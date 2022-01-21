@@ -21,9 +21,9 @@ See [When to Test on Real Devices](https://docs.saucelabs.com/mobile-apps/suppor
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * An Appium installation (See [Using Appium](/mobile-apps/automated-testing/appium))
 * A mobile app file (.ipa for iOS, .apk or .aab for Android) If you don't have one, consider using our Demo Apps:
-     * [React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
-     * [iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
-     * [Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)
+    * [React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
+    * [iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
+    * [Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)
 * An Appium mobile test script
 
 
@@ -66,23 +66,26 @@ The main difference between JWP and W3C is the format required to specify your t
 The following examples illustrate this difference in the respective specifications.
 
 <Tabs
-  groupId="protocol"
-  defaultValue="jwp"
-  values={[
-    {label: 'JWP', value: 'jwp'},
-    {label: 'W3C', value: 'w3c'},
-  ]}>
+groupId="protocol"
+defaultValue="jwp"
+values={[
+{label: 'JWP', value: 'jwp'},
+{label: 'W3C', value: 'w3c'},
+]}>
 
 <TabItem value="jwp">
 
 ```
 "desiredCapabilities": {
-    "platformName" : "android";
-    "app" : "./apps/mda-1.0.6-8.apk";
-    “deviceName" : "Samsung.*Galaxy.*”;
-    “orientation” : “portrait”;
-    “platformVersion" : "8.1";
-    "appiumVersion" : "1.21.0";
+    "platformName" : "android",
+    "app","storage:filename=mapp.pk",
+    “deviceName" : "Samsung.*Galaxy.*”,
+    “orientation” : “portrait”,
+    “platformVersion" : "8.1",
+    "appiumVersion" : "1.21.0"
+    "sessionCreationRetry" : "2",
+    "sessionCreationTimeout" : "300000",
+    "name" : "MobileWebsiteTest (jwp)"
  }
 ```
 
@@ -94,12 +97,12 @@ The following examples illustrate this difference in the respective specificatio
     "firstMatch": [
       {
         "platformName" : "android",                    #standard capability
-        "appium:app" : "./apps/mda-1.0.6-8.apk";       #Appium capabilities
-        “appium:deviceName" : "Samsung.*Galaxy.*”;
-        “appium:orientation” : “portrait”;
-        “appium:platformVersion" : "8.1";
+        "appium:app","storage:filename=mapp.apk";       #Appium capabilities
+        “appium:deviceName" : "Samsung.*Galaxy.*”,
+        “appium:orientation” : “portrait”,
+        “appium:platformVersion" : "8.1",
         "sauce:options" : {                           #Sauce custom capabilities
-           "appiumVersion" : "1.21.0";
+           "appiumVersion" : "1.21.0",
            "sessionCreationRetry" : "2",
            "sessionCreationTimeout" : "300000",
            "name" : "MobileWebsiteTest (w3c)"
@@ -135,11 +138,11 @@ For native app tests, the `app` capability is the only other required configurat
 For native app tests on real devices, you must provide a location from which your mobile app can be accessed in the `app` capability so your app can be installed on the test devices. You can specify a Sauce Labs App Storage ID or filename, or a remote location to which Sauce Labs has access. See [Application Storage](/mobile-apps/app-storage) for details.
 
 ```js title=App Storage Example
-"appium:app","storage:filename=mapp.ipa";
+"appium:app","storage:filename=mapp.ipa"
 ```
 
 ```js title=Remote App Example
-"appium:app","https://github.com/test-apps/ios-app.ipa";
+"appium:app","https://github.com/test-apps/ios-app.ipa"
 ```
 
 ### Excluding the `browserName`
@@ -159,7 +162,7 @@ Testing on real devices requires you to specify a device on which you plan to te
 _Static Allocation_ allows you to specify a known device by its unique ID. This can be beneficial if, for example, you are testing features only available on a very specific device setup. However, what you gain in precision may be offset by the time it takes for a specific device to become available, especially if your tests do not require that level of precision. If you do require a specific device, you should always configure the device's availability before launching your tests.
 
 ```js
-"appium:deviceName" : "HTC_One_M8_real");
+"appium:deviceName" : "HTC_One_M8_real";
 ```
 
 You can obtain a list of available devices, including their IDs, using the [Get Devices](https://docs.saucelabs.com/dev/api/rdc/#get-devices) API request.
@@ -195,8 +198,8 @@ The following sample values are presented using case for readability, but capabi
   <tr>
     <td><a href="/dev/test-configuration-options#deviceName"><code>deviceName</code></a></td>
     <td><p>Provide a device display name, or use regular expressions to provide a partial name, thus increasing the potential pool of matches. Some examples include:</p>
-    <p>Any iPhone: <code>"appium:deviceName", "iPhone.\*", "iPhone .\*"</code></p>
-    <p>Any device with the word "nexus" in its display name: <code>"appium:deviceName", ".\*nexus.\*"</code></p>
+    <p>Any iPhone: <code>"appium:deviceName", "iPhone.*", "iPhone .*"</code></p>
+    <p>Any device with the word "nexus" in its display name: <code>"appium:deviceName", ".*nexus.*"</code></p>
     <p>Either <i>iPhone 7</i> or <i>iPhone 6</i>: <code>"appium:deviceName", "iPhone [67]"</code> or <code>"iPhone [6-7]"</code></p>
     <p>Either <i>iPhone 7S</i> or <i>iPhone 6S</i>: <code>"appium:deviceName", "iPhone [67]S"</code> or <code>"iPhone [6-7]S"</code></p></td>
   </tr>
@@ -212,19 +215,13 @@ The following sample values are presented using case for readability, but capabi
   </tbody>
 </table>
 
-In addition to the required capabilities for device matching, you can also specify any of the following optional capabilities to ensure your tests run on a device that matches your ideal environment.
+In addition to the required capabilities for device matching, you can also specify any of the following optional Sauce custom capabilities to ensure your tests run on a device that matches your ideal environment. These capabilities need to be put in the `"sauce:options": {}`.
 
 *  [`tabletOnly`](/dev/test-configuration-options/#tabletonly)
 *  [`phoneOnly`](/dev/test-configuration-options/#phoneonly)
 *  [`privateDevicesOnly`](/dev/test-configuration-options/#privatedevicesonly)
 *  [`publicDevicesOnly`](/dev/test-configuration-options/#publicdevicesonly)
 *  [`carrierConnectivityOnly`](/dev/test-configuration-options/#carrierconnectivityonly)
-*  [`cacheId`](/dev/test-configuration-options/#cacheid)
-*  [`noReset`](/dev/test-configuration-options/#noreset)
-*  [`recordDeviceVitals`](/dev/test-configuration-options/#recorddevicevitals)
-*  [`crosswalkApplication`](/dev/test-configuration-options/#crosswalkapplication)
-*  [`autoGrantPermissions`](/dev/test-configuration-options/#autograntpermissions)
-*  [`enableAnimations`](/dev/test-configuration-options/#enableanimations)
 
 
 ### Using `cacheId` and `noReset`
@@ -239,15 +236,16 @@ To optimize device availability, consistency, and efficiency for multiple tests,
 
 ```js
 "sauce:options" : {
-  "cacheId" : "jnc0x1256";
+  "cacheId" : "jnc0x1256",
 }
 ```
 
 To skip the uninstallation and reinstallation of your app from the device, you can set `noReset` to `true` in conjunction with using a `cacheId`. This setting adds efficiency, but may not be suitable for test setups that require the app's state to be reset between tests.
 
 ```js
+"appium: noReset" : "true",
 "sauce:options" : {
-  "noReset" : "true";
+  "cacheId" : "jnc0x1256",
 }
 ```
 
@@ -269,31 +267,32 @@ When using `cacheId` the value must match for all tests slated to run on the cac
 
 ### iOS and Android Project Configuration
 
-Appium capabilities for an iPhone project using iOS version 12.2:
+Appium capabilities for an iPhone project using iOS version 15:
 
 <Tabs
-  groupId="lang-ex"
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'node.js', value: 'node.js'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+groupId="lang-ex"
+defaultValue="Java"
+values={[
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'node.js', value: 'node.js'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="Java">
 
 ```java
-DesiredCapabilities caps = DesiredCapabilities();
-    caps.setCapability("username", "SAUCE_USERNAME");
-    caps.setCapability("accessKey", "SAUCE_ACCESS_KEY");
-    caps.setCapability("deviceName","iPhone .*");
-    caps.setCapability("orientation", "portrait");
-    caps.setCapability("platformVersion","12.2");
-    caps.setCapability("platformName", "iOS");
-    caps.setCapability("browserName", "");
-    caps.setCapability("app", "storage:filename=<file-name>");
+MutableCapabilities caps = new MutableCapabilities();
+caps.setCapability("platformName", "iOS");
+caps.setCapability("appium:platformVersion", "15.0");
+caps.setCapability("appium:deviceName", "iPhone .*");
+caps.setCapability("appium:orientation", "portrait");
+caps.setCapability("appium:app", "storage:filename=<file-name>");
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("username", "SAUCE_USERNAME");
+sauceOptions.setCapability("accessKey", "SAUCE_ACCESS_KEY");
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 </TabItem>
@@ -301,90 +300,94 @@ DesiredCapabilities caps = DesiredCapabilities();
 
 ```py
 caps = {}
-caps['username'] = "SAUCE_USERNAME"
-caps['accessKey'] = "SAUCE_ACCESS_KEY"
-caps['browserName'] = ""
-caps['deviceName'] = "iPhone .*"
-caps['orientation'] = "portrait"
-caps['platformVersion'] = "12.2"
-caps['platformName'] = "iOS"
-caps['app'] = "storage:filename=<file-name>"
+caps['platformName'] = 'Android'
+caps['appium:platformVersion'] = '15'
+caps['appium:deviceName'] = 'iPhone .*'
+caps['appium:orientation'] = "portrait"
+caps['appium:app'] = 'storage:filename=<file-name>'
+caps['sauce:options'] = {}
+caps['sauce:options']['username'] = 'SAUCE_USERNAME'
+caps['sauce:options']['accessKey'] = 'SAUCE_ACCESS_KEY'
 ```
 
 </TabItem>
 <TabItem value="node.js">
 
 ```js
-caps = {};
-caps['username'] = 'SAUCE_USERNAME';
-caps['accessKey'] = 'SAUCE_ACCESS_KEY';
-caps['browserName'] = '';
-caps['deviceName'] = 'iPhone .*';
-caps['orientation'] = 'portrait';
-caps['platformVersion'] = '12.2';
-caps['platformName'] = 'iOS';
-caps['app'] = 'storage:filename=<file-name>';
+caps = {
+    'platformName': 'iOS',
+    'appium:platformVersion': '15',
+    'appium:deviceName': 'iPhone .*',
+    'appium:orientation': 'portrait',
+    'appium:app': 'storage:filename=<file-name>',
+    'sauce:options': {
+        'username': 'SAUCE_USERNAME',
+        'accessKey': 'SAUCE_ACCESS_KEY'
+    }
+}
 ```
 
 </TabItem>
 <TabItem value="Ruby">
 
 ```rb
-caps = Selenium::WebDriver::Remote::Capabilities()
-caps['username'] = 'SAUCE_USERNAME'
-caps['accessKey'] = 'SAUCE_ACCESS_KEY'
-caps['deviceName'] = 'iPhone .*'
-caps['orientation'] = 'portrait'
-caps['platformVersion'] = '12.2'
-caps['platformName'] = 'iOS'
-caps['browserName'] = ''
-caps['app'] = 'storage:filename=<file-name>'
+caps = Selenium::WebDriver::Remote::Capabilities.new
+caps[:platform_name] = 'iOS'
+caps['appium:platformVersion'] = '15'
+caps['appium:deviceName'] = 'iPhone .*'
+caps['appium:orientation'] = 'portrait'
+caps['appium:app'] = 'storage:filename=<file-name>'
+caps['sauce:options'] = {}
+caps['sauce:options'][:username] = 'SAUCE_USERNAME'
+caps['sauce:options'][:accessKey] = 'SAUCE_ACCESS_KEY'
 ```
 
 </TabItem>
 <TabItem value="C#">
 
 ```csharp
-DesiredCapabilities caps = new DesiredCapabilities();
-    caps.SetCapability("username", "SAUCE_USERNAME");
-    caps.SetCapability("accessKey", "SAUCE_ACCESS_KEY");
-    caps.SetCapability("deviceName", "iPhone .*");
-    caps.SetCapability("orientation", "portrait");
-    caps.SetCapability("platformVersion", "12.2");
-    caps.SetCapability("platformName", "iOS");
-    caps.SetCapability("browserName", "");
-    caps.SetCapability("app", "storage:filename=<file-name>");
+AppiumOptions options = new AppiumOptions();
+options.AddAdditionalCapability("platformName", "iOS");
+options.AddAdditionalCapability("appium:platformVersion", "15");
+options.AddAdditionalCapability("appium:deviceName", "iPhone .*");
+options.AddAdditionalCapability("appium:app", "storage:filename=<file-name>");
+options.AddAdditionalCapability("appium:orientation", "portrait");
+var sauceOptions = new Dictionary<string, object>();
+sauceOptions.Add("username", "SAUCE_USERNAME");
+sauceOptions.Add("accessKey", "SAUCE_ACCESS_KEY");
+options.AddAdditionalCapability("sauce:options", sauceOptions);
 ```
 
 </TabItem>
 </Tabs>
 <br/>
 
-Appium capabilities for Samsung Galaxy device using Android version 8.1:
+Appium capabilities for Samsung Galaxy device using Android version 11:
 
 <Tabs
-  groupId="lang-ex"
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'node.js', value: 'node.js'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+groupId="lang-ex"
+defaultValue="Java"
+values={[
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'node.js', value: 'node.js'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="Java">
 
 ```java
-DesiredCapabilities caps = DesiredCapabilities();
-    caps.setCapability("username", "SAUCE_USERNAME");
-    caps.setCapability("accessKey", "SAUCE_ACCESS_KEY");
-    caps.setCapability("deviceName","Samsung.*Galaxy.*");
-    caps.setCapability("orientation", "portrait");
-    caps.setCapability("browserName", "");
-    caps.setCapability("platformVersion","8.1");
-    caps.setCapability("platformName","Android");
-    caps.setCapability("app", "storage:filename=<file-name>");
+MutableCapabilities caps = new MutableCapabilities();
+caps.setCapability("platformName", "Android");
+caps.setCapability("appium:platformVersion", "11");
+caps.setCapability("appium:deviceName", "Samsung.*Galaxy.*");
+caps.setCapability("appium:orientation", "portrait");
+caps.setCapability("appium:app", "storage:filename=<file-name>");
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("username", "SAUCE_USERNAME");
+sauceOptions.setCapability("accessKey", "SAUCE_ACCESS_KEY");
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 </TabItem>
@@ -392,105 +395,66 @@ DesiredCapabilities caps = DesiredCapabilities();
 
 ```py
 caps = {}
-caps['username'] = "SAUCE_USERNAME"
-caps['accessKey'] = "SAUCE_ACCESS_KEY"
-caps['deviceName'] = "Samsung.*Galaxy.*"
-caps['orientation'] = "portrait"
-caps['platformVersion'] = "8.1"
-caps['platformName'] = "Android"
-caps['app'] = "storage:filename=<file-name>"
+caps['platformName'] = 'Android'
+caps['appium:platformVersion'] = '11'
+caps['appium:deviceName'] = 'Samsung.*Galaxy.*'
+caps['appium:orientation'] = "portrait"
+caps['appium:app'] = 'storage:filename=<file-name>'
+caps['sauce:options'] = {}
+caps['sauce:options']['username'] = 'SAUCE_USERNAME'
+caps['sauce:options']['accessKey'] = 'SAUCE_ACCESS_KEY'
 ```
 
 </TabItem>
 <TabItem value="node.js">
 
 ```js
-caps = {};
-caps['username'] = 'SAUCE_USERNAME';
-caps['accessKey'] = 'SAUCE_ACCESS_KEY';
-caps['deviceName'] = 'Samsung.*Galaxy.*';
-caps['orientation'] = 'portrait';
-caps['browserName'] = '';
-caps['platformVersion'] = '8.1';
-caps['platformName'] = 'Android';
-caps['app'] = 'storage:filename=<file-name>';
+caps = {
+    'platformName': 'Android',
+    'appium:platformVersion': '11',
+    'appium:deviceName': 'Samsung.*Galaxy.*',
+    'appium:orientation': 'portrait',
+    'appium:app': 'storage:filename=<file-name>',
+    'sauce:options': {
+        'username': 'SAUCE_USERNAME',
+        'accessKey': 'SAUCE_ACCESS_KEY'
+    }
+}
 ```
 
 </TabItem>
 <TabItem value="Ruby">
 
 ```rb
-caps = Selenium::WebDriver::Remote::Capabilities()
-caps['username'] = 'SAUCE_USERNAME'
-caps['accessKey'] = 'SAUCE_ACCESS_KEY'
-caps['deviceName'] = 'Samsung.*Galaxy.*'
-caps['orientation'] = 'portrait'
-caps['browserName'] = ''
-caps['platformVersion'] = '8.1'
-caps['platformName'] = 'Android'
-caps['app'] = 'storage:filename=<file-name>'
+caps = Selenium::WebDriver::Remote::Capabilities.new
+caps[:platform_name] = 'Android'
+caps['appium:platformVersion'] = '11'
+caps['appium:deviceName'] = 'Samsung.*Galaxy.*'
+caps['appium:orientation'] = 'portrait'
+caps['appium:app'] = 'storage:filename=<file-name>'
+caps['sauce:options'] = {}
+caps['sauce:options'][:username] = 'SAUCE_USERNAME'
+caps['sauce:options'][:accessKey] = 'SAUCE_ACCESS_KEY'
 ```
 
 </TabItem>
 <TabItem value="C#">
 
 ```csharp
-DesiredCapabilities caps = new DesiredCapabilities();
-    caps.SetCapability("username", "SAUCE_USERNAME");
-    caps.SetCapability("accessKey", "SAUCE_ACCESS_KEY");
-    caps.SetCapability("deviceName", "Samsung.*Galaxy.*");
-    caps.SetCapability("orientation", "portrait");
-    caps.SetCapability("browserName", "");
-    caps.SetCapability("platformVersion", "8.1");
-    caps.SetCapability("platformName", "Android");
-    caps.SetCapability("app", "storage:filename=<file-name>");
+AppiumOptions options = new AppiumOptions();
+options.AddAdditionalCapability("platformName", "Android");
+options.AddAdditionalCapability("appium:platformVersion", "11");
+options.AddAdditionalCapability("appium:deviceName", "Samsung.*Galaxy.*");
+options.AddAdditionalCapability("appium:app", "storage:filename=<file-name>");
+options.AddAdditionalCapability("appium:orientation", "portrait");
+var sauceOptions = new Dictionary<string, object>();
+sauceOptions.Add("username", "SAUCE_USERNAME");
+sauceOptions.Add("accessKey", "SAUCE_ACCESS_KEY");
+options.AddAdditionalCapability("sauce:options", sauceOptions);
 ```
 
 </TabItem>
 </Tabs>
-
-
-### Native vs. Hybrid Apps
-
-**iPhone 6 Real Device**
-
-```java
-{
-deviceName:'iPhone 6 Device',
-platformName:'iOS',
-platformVersion:'8.4',
-app:'storage:filename=SampleIOSApp.ipa',
-"appium-version":"1.4.16"
-}
-```
-
-**Samsung Galaxy S5 Real Device**
-
-```java
-{
-deviceName:'Samsung Galaxy S5 Device',
-platformVersion:'4.4',
-platformName:'Android',
-"appActivity": ".ContactManager",
-"appPackage": "com.example.android.contactmanager",
-app:"http://saucelabs.com/example_files/ContactManager.apk",
-"appium-version":"1.4.16"
-}
-```
-
-**Samsung Galaxy S4**
-
-```java
-{
-deviceName:'Samsung Galaxy S4 Device',
-platformVersion:'4.4',
-platformName:'Android',
-"appActivity": ".ContactManager",
-"appPackage": "com.example.android.contactmanager",
-app:"http://saucelabs.com/example_files/ContactManager.apk",
-"appium-version":"1.4.16"
-}
-```
 
 
 ## Additional Test Configuration Options
