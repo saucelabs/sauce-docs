@@ -33,6 +33,7 @@ If you need...
 * To save costs.
 * Immediate availability.
 * Extremely low error rates for your test environment.
+* Longer test times -- real devices enforce a maximum test duration limit of 60 minutes.
 
 ### System Requirements
 
