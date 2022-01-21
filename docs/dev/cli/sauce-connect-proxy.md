@@ -224,6 +224,10 @@ __Shorthand__: `-w`
 __Description__: Captures the Sauce Connect Proxy logs in a file. If a path is not specified, the file location will default to the location where the Sauce Connect Proxy executable can be found on your machine.<br/>
 __Shorthand__: `-l`
 
+:::note
+`--logfile -` allows to print the log to the console (stdout).
+:::
+
 
 ---
 ### `--max-logsize`
