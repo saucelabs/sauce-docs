@@ -439,7 +439,7 @@ Identifies the ID of the event you want to see. For use with the **[`event`](#ev
 ### `-b <build ID>`
 <p><small>| STRING |</small></p>
 
-Adding this parameter allows you to specify the build ID you want to run your tests against. For use with the the **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, and **[`exec`](#exec)** commands. For more information, see [Test Builds](/api-testing/project-dashboard/#test-builds).
+Adding this parameter allows you to specify the build ID you want to run your tests against. For use with the **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, and **[`exec`](#exec)** commands. For more information, see [Test Builds](/api-testing/project-dashboard/#test-builds).
 
 ```bash
 -b build-12345
@@ -479,7 +479,7 @@ Identifies the maximum number of metrics and events to be shown in the list. Def
 ### `-o <offset>`
 <p><small>| INTEGER |</small></p>
 
-Specifies the number of events and metrics to be skipped from the beginning of the list. Default value is `0`. For use with the the **[`events`](#events)** and **[`metrics`](#metrics)** commands.
+Specifies the number of events and metrics to be skipped from the beginning of the list. Default value is `0`. For use with the **[`events`](#events)** and **[`metrics`](#metrics)** commands.
 
 ```bash
 -o 10
