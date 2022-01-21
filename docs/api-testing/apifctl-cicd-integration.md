@@ -57,6 +57,7 @@ Available Options:
 * [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
 * [<code>-f &#60;data format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>  
+* [<code>-b &#60;build ID&#62;</code>](#-b-build-id) <small>| OPTIONAL | STRING |</small>  
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run \
@@ -79,6 +80,8 @@ Available Options:
 * [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
 * [<code>-f &#60;data format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>   
+* [<code>-b &#60;build ID&#62;</code>](#-b-build-id) <small>| OPTIONAL | STRING |</small>  
+
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run-all -H \
@@ -101,6 +104,7 @@ Available Options:
 * [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
 * [<code>-f &#60;data format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>   
+* [<code>-b &#60;build ID&#62;</code>](#-b-build-id) <small>| OPTIONAL | STRING |</small>  
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run-tag \
@@ -126,6 +130,7 @@ Available Options:
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
 * [<code>-t &#60;tags&#62;</code>](#-t-tags) <small>| OPTIONAL | STRING |</small>  
 * [<code>-n &#60;name of test&#62;</code>](#-n-name-of-test) <small>| OPTIONAL | STRING |</small>  
+* [<code>-b &#60;build ID&#62;</code>](#-b-build-id) <small>| OPTIONAL | STRING |</small>  
 
 
 ```bash title="Full Example"
@@ -428,6 +433,16 @@ Identifies the ID of the event you want to see. For use with the **[`event`](#ev
 
 ```bash
 -i 123456789abc1a1abcdef123
+```
+
+---
+### `-b <build ID>`
+<p><small>| STRING |</small></p>
+
+Adding this parameter allows you to specify the build ID you want to run your tests against. For use with the the **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, and **[`exec`](#exec)** commands. For more information, see [Test Builds](/api-testing/project-dashboard/#test-builds).
+
+```bash
+-b build-12345
 ```
 
 ---
