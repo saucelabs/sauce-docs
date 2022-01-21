@@ -1594,11 +1594,11 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
      <td>The total concurrency for each device type currently in use by the organization.</td>
     </tr>
     <tr>
-     <td><code>concurrency.team.current</code></td>
+     <td><code>concurrency.team.allowed</code></td>
      <td>The total concurrency for each device type allocated to the logged-in user's team.</td>
     </tr>
     <tr>
-     <td><code>concurrency.organization.current</code></td>
+     <td><code>concurrency.team.current</code></td>
      <td>The total concurrency for each device type currently in use by the user's team.</td>
     </tr>
     <tr>
