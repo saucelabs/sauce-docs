@@ -1511,7 +1511,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/rest/v1.2/users/&#123;username&#125;/concurrency</code></summary>
 <p/>
 
-Allows you to update individual user values without replacing the entire profile.
+Returns details about the current in-use virtual machines and real devices along with the maximum allowed values.
 
 #### Parameters
 
@@ -1579,6 +1579,39 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     <td colSpan='2'>Not found.</td>
   </tr>
 </tbody>
+</table>
+
+#### Response Details
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>concurrency.organization.allowed</code></td>
+     <td>The total allowed concurrency for each device type allocated to the organization.</td>
+    </tr>
+    <tr>
+     <td><code>concurrency.organization.current</code></td>
+     <td>The total concurrency for each device type currently in use by the organization.</td>
+    </tr>
+    <tr>
+     <td><code>concurrency.team.current</code></td>
+     <td>The total concurrency for each device type allocated to the logged-in user's team.</td>
+    </tr>
+    <tr>
+     <td><code>concurrency.organization.current</code></td>
+     <td>The total concurrency for each device type currently in use by the user's team.</td>
+    </tr>
+    <tr>
+     <td><code>*.&#123;device_type&#125;</code></td>
+     <td><p>Each set of concurrency reported in the response is broken down by the following device types:
+     <ul>
+      <li><code>mac_vms</code> - Mac virtual machines represent any live, automated, desktop, or mobile test running in a Mac OS, which includes iOS Simulator tests.</li>
+      <li><code>rds</code> - real devices represent any live or automated mobile test running on a Sauce Labs real device. </li>
+      <li><code>vms</code> - Windows virtual machines represent any live, automated, desktop, or mobile test running in a Windows or Android OS, which includes Android Emulator tests.</li>
+    </ul>
+    </p><p>Note that <code>mac_vms</code> and <code>vms</code> are separated here, although they are typically presented as a combined total of virtual machine usage in other areas of the Sauce Labs platform.</p></td>
+    </tr>
+  </tbody>
 </table>
 
 ```jsx title="Sample Response"
