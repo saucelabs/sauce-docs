@@ -93,8 +93,6 @@ You can turn off the `fuzzy` option during test case generation and execution by
 #### Example
 `Enter Username --nofuzzy`
 
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="Placeholder"/>
-
 The `--nofuzzy` action forces you to enter the exact label or the step fails. This action can be used with **Click**, **Select**, and **Enter** commands.
 
 ### `Print...`

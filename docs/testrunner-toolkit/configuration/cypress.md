@@ -355,11 +355,22 @@ Specifies how to manage test artifacts, such as logs, videos, and screenshots.
 
 ```yaml
 artifacts:
+  cleanup: true
   download:
     when: always
     match:
       - junit.xml
     directory: ./artifacts/
+```
+---
+
+### `cleanup`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
+
+```yaml
+  cleanup: true
 ```
 ---
 
@@ -662,7 +673,8 @@ Provides details related to the Cypress test configuration that are relevant for
       config:
         env:
           hello: world
-        testFiles: [ "**/*.*" ]
+        testFiles: [ "**/*.spec.js" ]
+        headless: false
 ```
 ---
 
@@ -696,6 +708,17 @@ One or more paths to the Cypress test files to run for this suite, if not otherw
 :::note
 `testFiles` must be a regex or a path relative to `cypress/integration` or the `integrationFolder` value set in `cypress.json`.
 :::
+
+---
+
+#### `headless`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Controls whether or not tests are run in headless mode.
+
+```yaml
+      headless: true
+```
 
 ---
 
