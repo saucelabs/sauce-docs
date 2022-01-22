@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Our **Connector** feature enables you to track your Sauce Labs API Testing results in third-party apps outside of our platform. It seamlessly integrates API Testing into your day-to-day operations without disrupting workflows. Data is sent as an HTTP POST request containing a JSON payload.
 
 :::tip
-To stay organized and make monitoring easier, make sure to add clear names and/or tags to your Sauce Labs API Tests and Projects.
+Stay organized and facilitate monitoring by adding [tags](/api-testing/composer/other-components/#tag) and clear naming conventions to your API Tests and Projects.
 :::
 
 ## What You'll Need
@@ -31,7 +31,7 @@ To set up this feature:
 2. Click on any Project.
 3. Within that Project, go to **Settings** > **Connector** > **Create Connector**.
 4. Under the **Choose Connector Type** dropdown, select **PagerDuty**.
-5. In the **Template** section, you'll need to replace the `“routing_key"` value with your PagerDuty Integration Key. You can find this in PagerDuty by creating an App in Developer Mode.<br/><img src={useBaseUrl('img/api-fortress/2022/pagerduty-template.png')} alt="pagerduty-template field"/>
+5. In the **Template** section, you'll need to replace the `“routing_key"` value with your PagerDuty Integration Key, which you can find in PagerDuty by creating an App in Developer Mode. Optionally, you can also edit the other template values meet your needs.<br/><img src={useBaseUrl('img/api-fortress/2022/pagerduty-template.png')} alt="pagerduty-template field"/>
    * **URL** field is pre-populated with the PagerDuty URL (no action required).
    * **Content-Type** field will pre-populate with **application/json** (no action required).
    * **Headers** Key/Value pair fields are optional.
@@ -58,7 +58,7 @@ Like the PagerDuty Connector, setting up an outgoing webbook connector allows Sa
 5. In the **URL** field, you'll need to enter the webhook URL for the third-party app you want to integrate.
    * **Content-Type** field will pre-populate with **application/json** (no action required).
    * **Headers** Key/Value pair fields are optional.
-   * **Template** section is pre-populated with the JSON payload indicating what data will be sent from API Testing to the third-party app (no action required).
+   * **Template** section is pre-populated with the JSON payload indicating what data will be sent from API Testing to the third-party app. Optionally, you can also edit the other template values meet your needs.
    * **On_success**
      * Turn the toggle to **True** if you'd like to receive data on all events, including successes, which can be handy when the service needs to log everything or alter a state.
      * Turn the toggle to **False** to receive notifications for test failures only. This is typical for stateless services such as Slack.
