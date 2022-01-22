@@ -20,24 +20,45 @@ Our Storybook integration will run your existing Storybook stories as UI regress
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * Your [Screener API Key](https://screener.io/v2/account/api-key).
 * Have [Node.js installed](https://nodejs.org).
-* Recommended: an existing [Storybook project](https://storybook.js.org/basics/quick-start-guide/) with some [component stories](https://storybook.js.org/basics/writing-stories/).
+* An existing [Storybook project](https://storybook.js.org/basics/quick-start-guide/) with some [component stories](https://storybook.js.org/basics/writing-stories/) written.
 
 
 
-## Setting Up Visual Component Testing with Storybook
+## Confirm Screener Installation
 
-:::info New to Storybook?
-See [Install Storybook](#install-storybook) before proceeding.
+1. First, confirm that Storybook is installed correctly on your local machine by running `npm run storybook`.
+
+:::caution New to Storybook?
+
+If you've never used Storybook, follow the steps below to install it and create your first project. Then proceed to step 1.
+
+<details><summary>Install Storybook</summary>
+
+Open a terminal and run the following commands, one at a time.
+
+  ```bash title="Installs Storybook and Creates Storybook Project Called 'my-storybook'"
+  npx create-react-app my-storybook
+  ```
+
+  ```bash title="Navigates to Storybook Project"
+  cd my-storybook
+  ```
+
+  ```bash title="Initializes Storybook"
+  npx -p @storybook/cli sb init
+  ```
+
+  ```bash title="Launches Your Storybook Project"
+  npm run storybook
+  ```
+</details>
 
 :::
 
-
 ### Install Screener Package
 
-1. In your terminal, navigate to your Storybook project. For example:
-  ```bash
-  cd my-storybook
-  ```
+1. From your terminal, navigate to the file path where you downloaded your Storybook sample project (i.e., `cd my-storybook` or `cd downloads/my-storybook`).
+
 2. Install the [screener-storybook package](https://github.com/screener-io/screener-storybook) as a dependency in your project:
   ```bash
   npm install screener-storybook --save-dev
@@ -45,7 +66,7 @@ See [Install Storybook](#install-storybook) before proceeding.
 
 ### Set Environment Variables
 
-3. Set your Sauce Labs username, Sauce Labs access key, and Screener API key as environment variables:
+3. In your terminal, set your Screener API key as an [environment variable](basics/environment-variables/):
    <Tabs
         defaultValue="Mac/Linux"
         values={[
@@ -56,14 +77,6 @@ See [Install Storybook](#install-storybook) before proceeding.
    <TabItem value="Mac/Linux">
 
    ```bash
-   export SAUCE_USERNAME="REPLACE WITH SAUCE USERNAME"
-   ```
-
-   ```bash
-   export SAUCE_ACCESS_KEY="REPLACE WITH SAUCE ACCESS KEY"
-   ```
-
-   ```bash
    export SCREENER_API_KEY="REPLACE WITH SCREENER API KEY"
    ```
 
@@ -71,54 +84,59 @@ See [Install Storybook](#install-storybook) before proceeding.
    <TabItem value="Windows Powershell">
 
    ```bash
-   $Env:SAUCE_USERNAME = "REPLACE WITH SAUCE USERNAME"
-   ```
-
-   ```bash
-   $Env:SAUCE_ACCESS_KEY = "REPLACE WITH SAUCE ACCESS KEY"
-   ```
-
-  ```bash
    $Env:SCREENER_API_KEY = "REPLACE WITH SCREENER API KEY"
    ```
 
    </TabItem>
    </Tabs>
 
-  To learn more, see [Using Environment Variables for Authentication Credentials](/basics/environment-variables/).
 
+### Create Screener Config File
 
-### Save Screener Config File
+4. Create a new JavaScript file, name it **screener.config.js**, and save it to the root folder of your Storybook project.
+5. Choose one the two options:<br/>
+  a. If you're using the `my-storybook` sample project, copy and paste this code snippet into your **screener.config.js** file, then save it.
+   ```js
+   module.exports = {
+     projectRepo: 'sb-6.1-test',
+     storybookConfigDir: '.storybook',
+     apiKey: process.env.SCREENER_API_KEY,
+     resolution: '1024x768'
+   };
+   ```
 
-4. Create a new JavaScript file called "screener.config.js" containing the snippet below, then save it to the root folder of your Storybook project:
-  ```js
-  module.exports = {
-    projectRepo: 'sb-6.1-test',
-    storybookConfigDir: '.storybook',
-    apiKey: process.env.SCREENER_API_KEY,
-    resolution: '1024x768'
-  };
+  b. If you're integrating Visual Component Testing into your own Storybook project, copy and paste this code snippet into your **screener.config.js** file, then replace the placeholder values with your own. `projectRepo` is the name of your project's repository (e.g., GitHub repos are in the "owner/repository-name" format) and `resolution` is your desired browser resolution. <br/><br/>`storybookConfigDir`/`storybookStaticDir` are your Storybook server options; you may not need to add both. In your project directory, find the `start-storybook` command, usually a script in **package.json** file. If the `-c` or `--config-dir` option is set, add `storybookConfigDir` and that value to your code snippet. If the `-s` or `--static-dir` option is set, add the `storybookStaticDir` with its value.
+   ```js
+   module.exports = {
+     projectRepo: '<your-repo>',
+     storybookConfigDir: '<directory>',
+     storybookStaticDir: '<directory>',
+     apiKey: process.env.SCREENER_API_KEY,
+     resolution: '<resolution>'
+   };
   ```
 
 ### Add Screener Script
 
-5. Open the "package.json" file in your Storybook project and add following line to your  `"scripts": {` section:
+6. Open your project's **package.json** file and add the following npm script to `"scripts": {` section:
    ```json
-   "test-storybook": "screener-storybook --conf screener.config.js"
+   "scripts": {
+      "test-storybook": "screener-storybook --conf screener.config.js"
+   }  
    ```
 
 ### Run Test
 
-6. You can then run a test with:
+7. Run your test with the following command:
   ```bash
   npm run test-storybook
   ```
 
 ### View Results
 
-7. Log in to Screener (Sauce Labs > **SAUCE APPS** > **Visual** > **Login**) to view your running test in progress. This initial test will fail because there's no preexisting baseline to compare against. To resolve this, [review and accept](https://screener.io/v2/docs/visual-e2e/review-flow) the new states as the baseline.
+8. Log in to Visual Testing Dashboard (Sauce Labs > **SAUCE APPS** > **Visual** > **Login**) to view your running test in progress. This initial test will be labeled as failed because there's no preexisting baseline state to compare against. To resolve this, [review and accept](https://screener.io/v2/docs/visual-e2e/review-flow) the new states as the baseline.
 
-  You should also receive an [email summary](/visual/notifications/) for each build, indicating whether it's passed or failed, sent to the address associated with your Sauce Labs account.
+  For each build, you should receive an [email summary](/visual/notifications/) indicating the pass/fail status, delivered to the address associated with your Sauce Labs account.
 
 
 ## More Information
@@ -134,24 +152,3 @@ See [Install Storybook](#install-storybook) before proceeding.
 * [New Project Wizard](https://screener.io/v2/new): create a new project directly in the UI.
 * [CI Integration](/visual/component-testing/integrations/continuous-integration)
 * [GitHub Integration](/visual/component-testing/integrations/github)
-
-
-### Install Storybook
-
-Open a terminal and run the following commands, one at a time. This will install Storybook, create a Storybook project, and launch your project in Storybook.
-
-  ```bash
-  npx create-react-app my-storybook
-  ```
-
-  ```bash
-  cd my-storybook
-  ```
-
-  ```bash
-  npx -p @storybook/cli sb init
-  ```
-
-  ```bash
-  npm run storybook
-  ```
