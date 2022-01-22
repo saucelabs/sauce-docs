@@ -77,7 +77,7 @@ __Shorthand__: `-s`
 
 __Description__: Assigns a name to a Sauce Connect Proxy tunnel. Strongly recommended for best performance. It can also assign a name to a group of tunnels in the same [High Availability pool]((/secure-connections/sauce-connect/setup-configuration/high-availability), when used with [`--tunnel-pool`](#--tunnel-pool). Must be in ASCII format.
 
-Future jobs will use this tunnel only when explicitly specified by the [`tunnelName`](/dev/test-configuration-options/#tunnelname) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
+Future jobs will use this tunnel only when explicitly specified by the [`tunnelIdentifier`](/dev/test-configuration-options/#tunnelidentifier) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
 __Shorthand__: n/a
 
 
@@ -223,6 +223,10 @@ __Shorthand__: `-w`
 
 __Description__: Captures the Sauce Connect Proxy logs in a file. If a path is not specified, the file location will default to the location where the Sauce Connect Proxy executable can be found on your machine.<br/>
 __Shorthand__: `-l`
+
+:::note
+`--logfile -` allows to print the log to the console (stdout).
+:::
 
 
 ---
