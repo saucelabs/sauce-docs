@@ -517,6 +517,7 @@ module.exports = {
                          'basics/integrations/jira',
                          'basics/integrations/slack',
                          'basics/integrations/webhooks',
+                         'basics/integrations/sumo',
                      ],
                  },
              ],
