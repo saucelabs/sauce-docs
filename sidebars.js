@@ -695,7 +695,6 @@ module.exports = {
              ],
          },
      ],
-
      "API Testing": [
          'api-testing',
          'api-testing/quickstart',
@@ -743,7 +742,7 @@ module.exports = {
           'api-testing/logger',
           'api-testing/legacy',
      ],
-     "CI/CD": [
+     "CI": [
          'ci',
          'ci/bamboo',
          'ci/bitbucket',
