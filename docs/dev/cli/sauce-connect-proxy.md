@@ -225,7 +225,7 @@ __Description__: Captures the Sauce Connect Proxy logs in a file. If a path is n
 __Shorthand__: `-l`
 
 :::note
-`--logfile -` allows to print the log to the console (stdout).
+Use `--logfile -` to print your log to the console window (stdout) instead of the physical log file.
 :::
 
 
