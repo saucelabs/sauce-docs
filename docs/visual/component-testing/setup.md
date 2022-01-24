@@ -72,7 +72,7 @@ Open a terminal and run the following commands, one at a time.
   <details><summary>What is this?</summary>
 
   :::warning PROTECT YOUR CREDENTIALS
-  To protect your authentication data from exposure, the example code in this Quickstart requires you to set your Sauce Labs credentials as [environment variables](basics/environment-variables/). We recommend doing this for all Sauce Labs automated tests.
+  To protect your authentication data from exposure, the example code in this Quickstart requires you to set your Sauce Labs credentials as [environment variables](/basics/environment-variables). We recommend doing this for all Sauce Labs automated tests.
   :::
   </details>
    <Tabs
