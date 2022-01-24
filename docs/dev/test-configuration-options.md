@@ -718,16 +718,29 @@ Available visibility modes are:
 ---
 ### `tunnelIdentifier`
 <p><small>| STRING |</small></p>
-Use to specify the Sauce Connect tunnel you wish to use for your test.
 
+Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with a Sauce Labs test platform. Tunnels allow you to test an application that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
 
+:::note Choose the Correct Tunnel Identifier
+The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
+:::
+
+See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
+
+```java
+"tunnelIdentifier": "MyTunnel01"
+```
 
 ---
 ### `parentTunnel`  
 <p><small>| STRING |</small></p>
 
-Use in conjunction with tunnelIdentifier to identify the owner of a shared tunnel you're using for your test.
+If the [tunnelIdentifier](#tunnelidentifier) you've specified to establish connectivity with a Sauce Labs test platform is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test.
 
+```java
+"tunnelIdentifier": "MyTeamSharedTunnel"
+"parentTunnel": "<username of tunnel originator>"
+```
 
 ---
 ### `recordVideo`

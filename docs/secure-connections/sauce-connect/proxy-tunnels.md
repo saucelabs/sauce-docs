@@ -38,7 +38,7 @@ You can manage and monitor all Sauce Connect Proxy tunnel activity from the Sauc
 | :--- | :--- |
 | Type | The icon shows whether the tunnel is a Sauce Connect Proxy tunnel, or an IPSec VPN tunnel. |
 | State | The icon shows whether the tunnel is running or stopped. |
-| Tunnel Name | The name of the tunnel. This is the [`--tunnel-identifier`](/dev/cli/sauce-connect-proxy/#--tunnel-name) used when starting the Sauce Connect tunnel. |
+| Tunnel Name | The name of the tunnel. This is the [`--tunnel-identifier`](/dev/cli/sauce-connect-proxy/#--tunnel-identifier) used when starting the Sauce Connect tunnel. |
 | Client Hostname | The name of the machine where the Sauce Connect Proxy client is running. |
 | Owner | The name of the account that is running the tunnel. |
 | Sharing | Indicates whether or not the tunnel is shared. |
@@ -216,7 +216,7 @@ Ephemeral tunnels (short-lived tunnels) are ideal for the following test situati
 One option to start Ephemeral tunnels is to do so from your local workstation.
 
 1. [Set your Sauce Labs username and access key as environmental variables](/basics/environment-variables).
-2. Run the basic startup commands to ensure that your tunnel starts. Be sure to include the [`--region`](/dev/cli/sauce-connect-proxy/#--region) and [`--tunnel-identifier`](/dev/cli/sauce-connect-proxy/#--tunnel-name) flags for best performance.
+2. Run the basic startup commands to ensure that your tunnel starts. Be sure to include the [`--region`](/dev/cli/sauce-connect-proxy/#--region) and [`--tunnel-identifier`](/dev/cli/sauce-connect-proxy/#--tunnel-identifier) flags for best performance.
 
   <Tabs
       defaultValue="Mac/Linux"
