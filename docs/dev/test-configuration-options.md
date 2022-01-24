@@ -289,10 +289,6 @@ You cannot set screen resolution on Windows 7 with IE 9.
 
 Sauce Labs encourages adoption of the W3C WebDriver protocol for your Appium mobile app tests, but continues to support JSON Wire Protocol (JWP) in all currently supported Appium 1.X versions (Appium 2.0 will deprecate support for JWP). The capabilities defined here assume the W3C protocol, but it is important to make sure your test configurations accurately reflect your intended protocol so your settings are applied correctly. See [Appium Real Device W3C Specification](/mobile-apps/automated-testing/appium/real-devices/#using-the-w3c-webdriver-specification) for details.
 
-:::note W3C Support for Virtual Devices Only
-At this time, the W3C protocol is not supported for real device testing, so you must still use the JWP format for specifying desired capabilities.
-:::
-
 ---
 ### `app`
 <p><small>| STRING |</small></p>
@@ -314,7 +310,7 @@ If you have an app you have uploaded to [Sauce storage](https://app.saucelabs.co
 
 Allows you to set the name of the simulator, emulator, or real device you want to use in the test.
 
-You can use this to set up a test with either [static or dynamic allocation for RDC](/mobile-apps/app-storage), and run individual or parallel tests. Static allocation allows you to run your tests on a very specific device, while dynamic allocation allows you to specify a family of devices or any device with a certain OS so you can quickly run your test on the first available RDC device.
+You can use this to set up a test with either [static or dynamic allocation for RDC](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation), and run individual or parallel tests. Static allocation allows you to run your tests on a very specific device, while dynamic allocation allows you to specify a family of devices or any device with a certain OS so you can quickly run your test on the first available RDC device.
 * Dynamic allocation example: for an Android emulator test, you can request a generic Android emulator by using the option `"deviceName":"Android Emulator"`.
 * Static allocation example: if you want to use an Android emulator that looks and feels like a specific Android phone or tablet (e.g., Google Nexus 7 HD Emulator or a Samsung Galaxy S4), you need to specify the exact Android emulator skin to use (e.g., `"appium:deviceName":"Samsung Galaxy S4 Emulator"`).
 
