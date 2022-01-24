@@ -17,7 +17,7 @@ You'll need to run our Docker image as a container:<br/>`$ docker run quay.io/sa
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username](https://app.saucelabs.com/user-settings) and [Access Key](https://app.saucelabs.com/user-settings).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
 
@@ -60,6 +60,7 @@ Available Options:
 * [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
 * [<code>-f &#60;data format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>  
+* [<code>-b &#60;build ID&#62;</code>](#-b-build-id) <small>| OPTIONAL | STRING |</small>  
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run \
@@ -82,6 +83,8 @@ Available Options:
 * [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
 * [<code>-f &#60;data format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>   
+* [<code>-b &#60;build ID&#62;</code>](#-b-build-id) <small>| OPTIONAL | STRING |</small>  
+
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run-all -H \
@@ -104,6 +107,7 @@ Available Options:
 * [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
 * [<code>-f &#60;data format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>   
+* [<code>-b &#60;build ID&#62;</code>](#-b-build-id) <small>| OPTIONAL | STRING |</small>  
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run-tag \
@@ -129,6 +133,7 @@ Available Options:
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
 * [<code>-t &#60;tags&#62;</code>](#-t-tags) <small>| OPTIONAL | STRING |</small>  
 * [<code>-n &#60;name of test&#62;</code>](#-n-name-of-test) <small>| OPTIONAL | STRING |</small>  
+* [<code>-b &#60;build ID&#62;</code>](#-b-build-id) <small>| OPTIONAL | STRING |</small>  
 
 
 ```bash title="Full Example"
@@ -434,6 +439,16 @@ Identifies the ID of the event you want to see. For use with the **[`event`](#ev
 ```
 
 ---
+### `-b <build ID>`
+<p><small>| STRING |</small></p>
+
+Adding this parameter allows you to specify the build ID you want to run your tests against. For use with the **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, and **[`exec`](#exec)** commands. For more information, see [Test Builds](/api-testing/project-dashboard/#test-builds).
+
+```bash
+-b build-12345
+```
+
+---
 ### `-d <test description>`
 <p><small>| STRING |</small></p>
 
@@ -467,7 +482,7 @@ Identifies the maximum number of metrics and events to be shown in the list. Def
 ### `-o <offset>`
 <p><small>| INTEGER |</small></p>
 
-Specifies the number of events and metrics to be skipped from the beginning of the list. Default value is `0`. For use with the the **[`events`](#events)** and **[`metrics`](#metrics)** commands.
+Specifies the number of events and metrics to be skipped from the beginning of the list. Default value is `0`. For use with the **[`events`](#events)** and **[`metrics`](#metrics)** commands.
 
 ```bash
 -o 10

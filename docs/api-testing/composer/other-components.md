@@ -22,7 +22,7 @@ Here are some other components that you can add to a test using the Composer. To
 
 The Tag component within the Composer enables you to dynamically tag the resulting document of a test execution. You can add different tags based on dynamic events happening during the test execution, such as a certain value retrieved in the payload. You can assign multiple tags to each test by adding more 'tag' components to it.
 
-This is different from the tags applied when you first [create the test](/api-testing/composer/#create-a-composer-test). That feature enables you to search for that tag(s) filter in your Project **Tests** tab or [**Dashboard**](/api-testing/metrics-logs/) tab.
+This is different from the tags applied when you first [create the test](/api-testing/composer/#create-a-composer-test). That feature enables you to search for that tag(s) filter in your Project **Tests** tab or [**Dashboard**](/api-testing/project-dashboard) tab.
 
 <details><summary><strong>Parameters</strong></summary>
 
@@ -231,7 +231,7 @@ In this example, the test will wait 1000 milliseconds before performing the `GET
 
 ## Fact
 
-The Fact component enables you to add information (facts) about the nature of the test execution, along with static or dynamic data. It's used to control the behavior of [Email notifications](/api-testing/metrics-logs/#email-notifications), which (if enabled) alert you to test failures.
+The Fact component enables you to add information (facts) about the nature of the test execution, along with static or dynamic data. It's used to control the behavior of [Email notifications](/api-testing/project-dashboard/#email-notifications), which (if enabled) alert you to test failures.
 
 Test activity is tracked using test ID number. This may not work if you're testing in multiple environments (i.e., production, staging, QA), as an incident could be environment-specific. When a Fact component is added to a test, it will inform our system which environment the execution relates to so that the incident signature will carry the environment as well.
 

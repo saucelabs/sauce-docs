@@ -735,7 +735,7 @@ module.exports = {
                     ],
                 },
           'api-testing/test-reports',
-          'api-testing/metrics-logs',
+          'api-testing/project-dashboard',
           'api-testing/project-access',
           'api-testing/import-export-tests',
           'api-testing/clone-test',
