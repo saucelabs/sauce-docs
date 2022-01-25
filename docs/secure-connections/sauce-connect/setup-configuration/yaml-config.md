@@ -13,6 +13,59 @@ The standard way to launch a Sauce Connect Proxy tunnel is to execute a single c
 
 Another way to launch a tunnel is to fill out our YAML config file template and then use the [`-c (--config-file)`](/dev/cli/sauce-connect-proxy/#--config-file) flag in your command line to specify the YAML file path. Instead of writing out all tunnel configuration options on your command line, you'd just modify the properties in your YAML file.
 
+Config file may contain any Sauce Connect Proxy CLI flag. It may also contain comments that could help make its content more readable, for example:
+
+```yaml
+---
+region: "us-west"
+user: "janedoe-sauce"
+api-key: "xxxx-xxx-xxx"
+# this is my log file for SC I use for Mac OS tests.
+logfile: "/tmp/sc-mac.log"
+# this is the tunnel I use for Mac OS tests
+tunnel-identifier: "my-macos"
+```
+
+For the reference, below is the complete config file that contains the latest Sauce Connect Proxy version defaults.
+To view the description for a YAML file property, look up the corresponding [CLI flag](/dev/cli/sauce-connect-proxy/).
+
+```bash
+$ cat /sc-4.7.1-osx/config_examples/config.yml
+---
+api-key: ""
+auth: []
+cainfo: ""
+direct-domains: []
+dns: []
+fast-fail-regexps: []
+log-stats: 0
+logfile: "-"
+max-logsize: 0
+metrics-address: "localhost:0"
+no-autodetect: false
+no-remove-colliding-tunnels: false
+no-ssl-bump-domains: []
+pac: ""
+pidfile: ""
+proxy: ""
+proxy-tunnel: false
+proxy-userpwd: ""
+readyfile: ""
+region: "us-west"
+rest-url: ""
+scproxy-port: 0
+se-port: 0
+shared-tunnel: false
+tunnel-domains: []
+tunnel-identifier: ""
+user: ""
+verbose: 0
+```
+
+:::note
+You can find a complete configuration file example in the extracted .zip file content in `config_examples` folder (see [the download instructions](/secure-connections/sauce-connect/installation/)).
+:::
+
 
 ## What You'll Need
 * See [Sauce Connect Proxy Basic Setup requirements](/secure-connections/sauce-connect/setup-configuration/basic-setup/#what-youll-need).
@@ -22,58 +75,41 @@ Another way to launch a tunnel is to fill out our YAML config file template and 
 
 We recommend using a YAML config file in production environments.
 * **Facilitates tracking tunnel configuration changes** because they're all included in a single YAML file.
-* **Facilitates management of tunnel-domains and direct-domains options**, which can get very long.
+* **Facilitates management of potentially long CLI options such as tunnel-domains, direct-domains, etc...**
 * **Secures Sauce Connect Proxy credentials with tighter access control**.
 
 
 ## Using the YAML Config File
 
-To launch a tunnel using our **config.yml** file template:
+To launch a tunnel using a **config.yml** file option.
 
-1. Go to your Sauce Connect Proxy folder and open the **config.yml** template.<br/><img src={useBaseUrl('img/sauce-connect/scp-yaml.png')} alt="Sauce Connect download file contents" width="400" />
-2. Enter values for the properties you'd like to use. To view the description for a YAML file property, look up the corresponding [CLI flag](/dev/cli/sauce-connect-proxy/).<br/><img src={useBaseUrl('img/sauce-connect/sc-config1.png')} alt="Sauce Connect download file contents" width="265" /> <img src={useBaseUrl('img/sauce-connect/sc-config2.png')} alt="Sauce Connect download file contents" width="200" />
-3. Save your **config.yml** to its original location, `~/sc-4.7.1-osx/config_examples/config.yml`.
-4. From your command line, navigate to the Sauce Connect Proxy client bin folder.
+1. Create Sauce Connect Proxy config file in any location, for example: `~/sc/config.yml`.
+2. Enter values for the properties you'd like to use.
+3. Navigate to the Sauce Connect Proxy client bin folder as described [here](/secure-connections/sauce-connect/setup-configuration/basic-setup#basic-setup-with-a-test-script).
+4. Use the following command line to start Sauce Connect Proxy with the configuration from your YAML file.
 
   <Tabs
-      defaultValue="Mac"
+      defaultValue="Mac/Linux"
       values={[
-        {label: 'Mac', value: 'Mac'},
+        {label: 'Mac/Linux', value: 'Mac/Linux'},
         {label: 'Windows', value: 'Windows'},
-        {label: 'Linux', value: 'Linux'},
       ]}>
 
-  <TabItem value="Mac">
+  <TabItem value="Mac/Linux">
 
   ```bash
-  cd sc-4.7.1-osx/bin
+  ./sc -c ~/sc/config.yml
   ```
 
   </TabItem>
   <TabItem value="Windows">
 
   ```bash
-  cd sc-4.7.1-win32/bin
-  ```
-
-  </TabItem>
-  <TabItem value="Linux">
-
-  ```bash
-  cd sc-4.7.1-linux.tar.gz/bin
+  sc -c %HOMEPATH%\sc\config.yml
   ```
 
   </TabItem>
   </Tabs>
-
-5. Use the following command line configuration at runtime to direct Sauce Connect Proxy to pull from your YAML configuration file.
-  ```bash
-  ./sc -u $SAUCE_USERNAME \
-       -k $SAUCE_ACCESS_KEY \
-       -c ~/sc-4.7.1-osx/config_examples/config.yml \
-       --region us-west \
-       --tunnel-name $TUNNEL_NAME
-  ```
 
 
 ## More Information
