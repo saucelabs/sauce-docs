@@ -76,11 +76,11 @@ __Shorthand__: `-s`
 
 __Description__: Assigns a name to a Sauce Connect Proxy tunnel. It can also assign a name to a group of tunnels in the same [High Availability pool](/secure-connections/sauce-connect/setup-configuration/high-availability), when used with [`--tunnel-pool`](#--tunnel-pool). Must be in ASCII format.
 
-You can run tests using this tunnel by specifying the [`tunnelidentifier`](/dev/test-configuration-options/#tunnelidentifier) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
-__Shorthand__: n/a
+You can run tests using this tunnel by specifying the [`tunnelIdentifier`](/dev/test-configuration-options/#tunnelidentifier) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
+__Shorthand__: `-i`
 
 :::note Tunnel Identifier = Tunnel Name
-This value populates the **Tunnel Name** identifier on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value. In Sauce Connect v4.7 and later, you can use the flags `tunnel-identifier` or `--tunnel-name` interchangeably.
+This value populates the **Tunnel Name** field on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** (which is an auto-generated tunnel UUID). In Sauce Connect v4.7.0 and later, you can use the flags `tunnel-identifier` or `--tunnel-name` interchangeably.
 :::
 
 ---
@@ -89,6 +89,10 @@ This value populates the **Tunnel Name** identifier on the Sauce Labs Tunnels pa
 
 __Description__: Launches a high availability tunnel pool along with the [`--tunnel-identifier`](#--tunnel-identifier) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
 __Shorthand__: n/a
+
+:::caution
+Not compatible with versions below 4.7.0.
+:::
 
 
 

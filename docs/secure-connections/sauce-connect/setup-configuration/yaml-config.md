@@ -75,8 +75,8 @@ You can find a complete configuration file example in the extracted .zip file co
 
 We recommend using a YAML config file in production environments.
 * **Facilitates tracking tunnel configuration changes** because they're all included in a single YAML file.
-* **Facilitates management of potentially long CLI options such as tunnel-domains, direct-domains, etc...**
-* **Secures Sauce Connect Proxy credentials with tighter access control**.
+* **Facilitates management of potentially long CLI options such as tunnel-domains and direct-domains.**
+* **Secures Sauce Connect Proxy credentials with tighter access control.**
 
 
 ## Using the YAML Config File
