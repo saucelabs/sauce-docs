@@ -72,7 +72,7 @@ To launch a tunnel using our **config.yml** file template:
        -k $SAUCE_ACCESS_KEY \
        -c ~/sc-4.7.1-osx/config_examples/config.yml \
        --region us-west \
-       --tunnel-name $TUNNEL_NAME
+       --tunnel-identifier $TUNNEL_NAME
   ```
 
 
