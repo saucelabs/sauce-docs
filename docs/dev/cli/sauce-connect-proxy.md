@@ -55,12 +55,12 @@ __Shorthand__: `-c`
 ### `--region`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets your Sauce Labs region data center. Strongly recommended for best performance. Possible values are `us-west`, `eu-central`, `us-east`, and `apac-southeast`. For more information, see [Data Center Endpoints](#data-center-endpoints). <br/>
+__Description__: Sets your Sauce Labs region data center such as `us-west`, `eu-central`, etc... For more information, see [Data Center Endpoints](#data-center-endpoints). <br/>
 __Default__: If you don't specify a Data Center at all, Sauce Connect will default to `us-west`. <br/>
 __Shorthand__: `-r`
 
 :::caution
-We recommend using this flag over its predecessor, `--rest-url`, which will eventually be deprecated. Not compatible with versions below 4.7.0.
+We recommend using this flag over `--rest-url` for keeping CLI options more readable. Not compatible with versions below 4.7.0.
 :::
 
 ---
@@ -74,7 +74,7 @@ __Shorthand__: `-s`
 ### `--tunnel-identifier`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Assigns a name to a Sauce Connect Proxy tunnel. Strongly recommended for best performance. It can also assign a name to a group of tunnels in the same [High Availability pool]((/secure-connections/sauce-connect/setup-configuration/high-availability), when used with [`--tunnel-pool`](#--tunnel-pool). Must be in ASCII format.
+__Description__: Assigns a name to a Sauce Connect Proxy tunnel. It can also assign a name to a group of tunnels in the same [High Availability pool](/secure-connections/sauce-connect/setup-configuration/high-availability), when used with [`--tunnel-pool`](#--tunnel-pool). Must be in ASCII format.
 
 You can run tests using this tunnel by specifying the [`tunnelidentifier`](/dev/test-configuration-options/#tunnelidentifier) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
 __Shorthand__: n/a
