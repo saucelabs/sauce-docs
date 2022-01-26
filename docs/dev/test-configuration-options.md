@@ -710,46 +710,33 @@ Available visibility modes are:
 "public": "team"
 ```
 
----
-### `tunnelName`
-<p><small>| STRING | </small></p>
-
-Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an app that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
-
-See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information.
-
-```java
-"tunnelName": "MyTunnel01"
-```
-
----
-### `tunnelOwner`  
-<p><small>| STRING |</small></p>
-
-If the [tunnelName](#tunnelname) you've specified to establish connectivity with Sauce Labs for your test is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test.
-
-See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
-
-
-```java
-"tunnelName": "MyTeamSharedTunnel"
-"tunnelOwner": "<username of tunnel originator>"
-```
 
 ---
 ### `tunnelIdentifier`
-<p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
+<p><small>| STRING |</small></p>
 
-Please use [`tunnelName`](#tunnelname) to specify the Sauce Connect tunnel you wish to use for your test.
+Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with a Sauce Labs test platform. Tunnels allow you to test an application that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
 
+:::note Choose the Correct Tunnel Identifier
+The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
+:::
 
+See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
+
+```java
+"tunnelIdentifier": "MyTunnel01"
+```
 
 ---
 ### `parentTunnel`  
-<p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
+<p><small>| STRING |</small></p>
 
-Please use [`tunnelOwner`](#tunnelowner) to identify the owner of a shared tunnel you're using for your test.
+If the [tunnelIdentifier](#tunnelidentifier) you've specified to establish connectivity with a Sauce Labs test platform is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test.
 
+```java
+"tunnelIdentifier": "MyTeamSharedTunnel"
+"parentTunnel": "<username of tunnel originator>"
+```
 
 ---
 ### `recordVideo`

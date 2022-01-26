@@ -38,7 +38,7 @@ You can manage and monitor all Sauce Connect Proxy tunnel activity from the Sauc
 | :--- | :--- |
 | Type | The icon shows whether the tunnel is a Sauce Connect Proxy tunnel, or an IPSec VPN tunnel. |
 | State | The icon shows whether the tunnel is running or stopped. |
-| Tunnel Name | The name of the tunnel. This is the [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) used when starting the Sauce Connect tunnel. |
+| Tunnel Name | The name of the tunnel. This is the [`--tunnel-identifier`](/dev/cli/sauce-connect-proxy/#--tunnel-identifier) used when starting the Sauce Connect tunnel. |
 | Client Hostname | The name of the machine where the Sauce Connect Proxy client is running. |
 | Owner | The name of the account that is running the tunnel. |
 | Sharing | Indicates whether or not the tunnel is shared. |
@@ -216,7 +216,7 @@ Ephemeral tunnels (short-lived tunnels) are ideal for the following test situati
 One option to start Ephemeral tunnels is to do so from your local workstation.
 
 1. [Set your Sauce Labs username and access key as environmental variables](/basics/environment-variables).
-2. Run the basic startup commands to ensure that your tunnel starts. Be sure to include the [`--region`](/dev/cli/sauce-connect-proxy/#--region) and [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) flags for best performance.
+2. Run the basic startup commands to ensure that your tunnel starts. Be sure to include the [`--region`](/dev/cli/sauce-connect-proxy/#--region) and [`--tunnel-identifier`](/dev/cli/sauce-connect-proxy/#--tunnel-identifier) flags for best performance.
 
   <Tabs
       defaultValue="Mac/Linux"
@@ -228,14 +228,14 @@ One option to start Ephemeral tunnels is to do so from your local workstation.
   <TabItem value="Mac/Linux">
 
   ```bash
-  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region {SAUCE_DATA_CENTER} --tunnel-name {TUNNEL_NAME}
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region {SAUCE_DATA_CENTER} --tunnel-identifier {TUNNEL_NAME}
   ```
 
   </TabItem>
   <TabItem value="Windows">
 
   ```bash
-  sc -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region {SAUCE_DATA_CENTER} --tunnel-name {TUNNEL_NAME}
+  sc -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region {SAUCE_DATA_CENTER} --tunnel-identifier {TUNNEL_NAME}
   ```
 
   </TabItem>
@@ -256,7 +256,7 @@ You can also launch Ephemeral tunnels from a continuous integration (CI) build s
 
 3. How you start your tunnel is up to you. You can run a simple Bash shell script (or PowerShell script, if you're in Windows) that simply executes the start commands as if you were starting it locally:  
   ```bash
-  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r eu-central --tunnel-name {TUNNEL_NAME}
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r eu-central --tunnel-identifier {TUNNEL_NAME}
   ```
 
 Once you've established your automated loop, you should be able to kick off builds as needed, automatically.
@@ -281,21 +281,21 @@ Long-running tunnels go hand in hand with our [High Availability (HA) Setup](/se
   ```bash
   /Users/you/sc-<VERSION>-<PLATFORM>/bin/sc \
     -u $SAUCE_USERNAME -k $SAUCE_ACESS_KEY \
-    --tunnel-name my-single-tunnel
+    --tunnel-identifier my-single-tunnel
   ```
 
 **Multiple Tunnels** &#8212; HA tunnels would look like this if they were run as part of a script or from the command line:
 
 ```sh
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-identifier main-tunnel-pool
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-identifier main-tunnel-pool
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-identifier main-tunnel-pool
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-identifier main-tunnel-pool
 ```
 
 The `--tunnel-pool` flag prevents the removal of tunnels with the same name and any default tunnels, if you're using them. Jobs will be distributed across these tunnels, enabling load balancing and HA. This flag is required when running HA tunnels to allow multiple tunnels with the same name. What happens if you don't use this command? By default, colliding tunnels (i.e., tunnels with the same name) would be removed when Sauce Connect is starting up. If you start another tunnel with the same name as an existing pool without adding `--tunnel-pool`, the new tunnel would be established, but all tunnels in the pre-existing pool would be closed.
 
-The `--tunnel-name` flag defines the tunnel name (in the above example, it's `main-tunnel-pool`). This is required so that your tests can find your tunnels. This is required to start a long-running pool of tunnels.
+The `--tunnel-identifier` flag defines the tunnel name (in the above example, it's `main-tunnel-pool`). This is required so that your tests can find your tunnels. This is required to start a long-running pool of tunnels.
 
 For more information, see the [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy).
 
@@ -416,9 +416,9 @@ If you plan to run multiple instances of Sauce Connect Proxy on a single machine
 For example, if we were to start two instances of Sauce Connect Proxy on the same machine, using the following commands in the code block below, then the metrics for SCP1 would be available at `http://localhost:8001/debug/vars`. Similarly, SCP2's metrics would be available at `http://localhost:8000/debug/vars`.
 
 ```bash
-./sc --u $SAUCE_USERNAME --k $SAUCE_ACCESS_KEY -r us-west --metrics-address localhost:8000 --se-port 4445 --tunnel-name SCP1 --pidfile SCP1
+./sc --u $SAUCE_USERNAME --k $SAUCE_ACCESS_KEY -r us-west --metrics-address localhost:8000 --se-port 4445 --tunnel-identifier SCP1 --pidfile SCP1
 ...
-./sc --u $SAUCE_USERNAME --api-key $SAUCE_ACCESS_KEY -r us-west --metrics-address localhost:8001 --se-port 4446 --tunnel-name SCP2 --pidfile SCP2
+./sc --u $SAUCE_USERNAME --api-key $SAUCE_ACCESS_KEY -r us-west --metrics-address localhost:8001 --se-port 4446 --tunnel-identifier SCP2 --pidfile SCP2
 ```
 
 :::note
