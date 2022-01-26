@@ -55,12 +55,12 @@ __Shorthand__: `-c`
 ### `--region`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets your Sauce Labs region data center. Strongly recommended for best performance. Possible values are `us-west`, `eu-central`, `us-east`, and `apac-southeast`. For more information, see [Data Center Endpoints](#data-center-endpoints). <br/>
+__Description__: Sets your Sauce Labs region data center such as `us-west`, `eu-central`, etc... For more information, see [Data Center Endpoints](#data-center-endpoints). <br/>
 __Default__: If you don't specify a Data Center at all, Sauce Connect will default to `us-west`. <br/>
 __Shorthand__: `-r`
 
 :::caution
-We recommend using this flag over its predecessor, `--rest-url`, which will eventually be deprecated. Not compatible with versions below 4.7.0.
+We recommend using this flag over `--rest-url` for keeping CLI options more readable. Not compatible with versions below 4.7.0.
 :::
 
 ---
@@ -70,24 +70,29 @@ We recommend using this flag over its predecessor, `--rest-url`, which will even
 __Description__: changes tunnel sharing permissions so that all users in an organization can use Sauce Connect Proxy tunnels, rather than just the tunnel owner (admin). For more information, see [Sharing Sauce Connect Proxy Tunnels](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels).<br/>
 __Shorthand__: `-s`
 
-
 ---
-### `--tunnel-name`
+### `--tunnel-identifier`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Assigns a name to a Sauce Connect Proxy tunnel. Strongly recommended for best performance. It can also assign a name to a group of tunnels in the same [High Availability pool]((/secure-connections/sauce-connect/setup-configuration/high-availability), when used with [`--tunnel-pool`](#--tunnel-pool). Must be in ASCII format.
+__Description__: Assigns a name to a Sauce Connect Proxy tunnel. It can also assign a name to a group of tunnels in the same [High Availability pool](/secure-connections/sauce-connect/setup-configuration/high-availability), when used with [`--tunnel-pool`](#--tunnel-pool). Must be in ASCII format.
 
-Future jobs will use this tunnel only when explicitly specified by the [`tunnelName`](/dev/test-configuration-options/#tunnelname) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
-__Shorthand__: n/a
+You can run tests using this tunnel by specifying the [`tunnelIdentifier`](/dev/test-configuration-options/#tunnelidentifier) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
+__Shorthand__: `-i`
 
+:::note Tunnel Identifier = Tunnel Name
+This value populates the **Tunnel Name** field on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** (which is an auto-generated tunnel UUID). In Sauce Connect v4.7.0 and later, you can use the flags `tunnel-identifier` or `--tunnel-name` interchangeably.
+:::
 
 ---
 ### `--tunnel-pool`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Launches a high availability tunnel pool along with the [`--tunnel-name`](#--tunnel-name) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
+__Description__: Launches a high availability tunnel pool along with the [`--tunnel-identifier`](#--tunnel-identifier) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
 __Shorthand__: n/a
 
+:::caution
+Not compatible with versions below 4.7.0.
+:::
 
 
 
@@ -146,14 +151,6 @@ __Shorthand__: `-x`
 <p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
 __Description__: Effective with Sauce Connect Proxy version 4.7.0, this flag was deprecated and replaced by [`--tunnel-pool`](#--tunnel-pool). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
-
-
----
-### `--tunnel-identifier`
-<p><small><span className="sauceGold">DEPRECATED</span></small></p>
-
-__Description__: Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-name`](#--tunnel-name). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
-__Shorthand__: `-i` for `--tunnel-identifier`
 
 
 
@@ -223,6 +220,10 @@ __Shorthand__: `-w`
 
 __Description__: Captures the Sauce Connect Proxy logs in a file. If a path is not specified, the file location will default to the location where the Sauce Connect Proxy executable can be found on your machine.<br/>
 __Shorthand__: `-l`
+
+:::note
+Use `--logfile -` to print your log to the console window (stdout) instead of the physical log file.
+:::
 
 
 ---
