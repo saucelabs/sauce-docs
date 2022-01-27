@@ -151,7 +151,7 @@ https://github.com/saucelabs-training/demo-java/blob/docs-1.1/training-sessions/
 
 Here are 10 new features in Selenium 4 that you can use in your Sauce Labs tests, with code examples in each programming language.
 
-### 1. Relative Locators
+### Relative Locators
 
 Relative locators allow you to identify elements in relationship to each other as they are displayed on the page using more natural, language friendly terms, such as “above”, “below”, “left of”, “right of”, and “near”.
 
@@ -200,7 +200,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </Tabs>
 
-### 2. New Window
+### New Window
 
 Create and Switch to a new (blank) tab or window.
 
@@ -260,7 +260,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </Tabs>
 
-### 3. Print Page
+### Print Page
 
 The ability to print a page as a PDF in Chrome, Firefox and Edge. There are quite a few customizations that can be made including page size, range, margins, background, and shrink to fit. Here are code examples with the defaults:
 
@@ -309,7 +309,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </Tabs>
 
-### 4. Element Attribute vs Property
+### Element Attribute vs Property
 
 The Selenium 3 method for getting an element's attribute does not actually give you the element's attribute.
 Because most people don't know the difference between an element and an attribute, Selenium created a way
@@ -365,7 +365,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 </Tabs>
 </details>
 
-### 5. Chromium Edge Options
+### Chromium Edge Options
 
 When the latest version of Selenium 3 was released, Microsoft Edge was still implemented with the now deprecated EdgeHTML browser engine. So none of the custom options for working with the Chromium version of Edge were available in Selenium 3.
 
@@ -410,7 +410,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </Tabs>
 
-### 6. Timeout Getters
+### Timeout Getters
 
 This is a long requested feature. Selenium 3 allowed you to set timeouts whenever you liked, but provided no way to query the driver for the current timeout values. Selenium 4 provides that ability now.
 
@@ -459,7 +459,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </Tabs>
 
-### 7. Network Conditions
+### Network Conditions
 <p><span className="sauceDBlue">Chrome and Edge only</span></p>
 
 Selenium 4 provides a set of parameters to modify network conditions, such as:
@@ -519,7 +519,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </Tabs>
 
-### 8. Full Page Screenshots
+### Full Page Screenshots
 <p><span className="sauceDBlue">Firefox only</span></p>
 
 Features like "infinite scroll" makes it impossible to explicitly define what a "full page" entails for a W3C specification. As such, the default screenshot method in Selenium 3 only returns what is visible in the Viewport. Mozilla implemented a separate method to allow for a full page screenshot.
@@ -563,7 +563,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </Tabs>
 
-### 9. Install and Uninstall Addons
+### Install and Uninstall Addons
 <p><span className="sauceDBlue">Firefox only</span></p>
 
 All the other browsers drivers allow you to install extensions with the Browser Options class. Firefox requires a separate method after the browser has been started.
@@ -614,7 +614,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </Tabs>
 
-### 10. Change Preferences During Session
+### Change Preferences During Session
 <p><span className="sauceDBlue">Firefox only</span></p>
 
 In Selenium 3, you can only set preferences in the Capabilities at the beginning of a test. Firefox has provided a way in Selenium 4 to update things whenever you want during a session. This is done by toggling the *context* between "chrome" and "content".

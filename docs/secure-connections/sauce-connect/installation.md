@@ -73,7 +73,7 @@ As an alternative to downloading the client, you can use the Sauce Connect Proxy
 
 Once you've started using Sauce Connect Proxy, a log file will appear in your computer's directory. The log file name depends on whether [`--tunnel-identifier`](/dev/cli/sauce-connect-proxy/#--tunnel-identifier) was used.
 
-For anonymous (unnamed) tunnels, the log file name will be **sc.log**. For named tunnels, the log file name would be **sc-{tunnel_name}.log**.
+For anonymous (unnamed) tunnels, the log file name will be **sc.log**. For named tunnels, the log file name would be **sc-{tunnel_identifier}.log**.
 
 The location of the log file will vary, depending on your operating system. For Mac and Linux, the sc.log will use a tmp folder. For Windows, it'll use the current working directory.
 
