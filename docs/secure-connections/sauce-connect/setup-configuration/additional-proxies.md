@@ -84,7 +84,7 @@ Here are some examples for starting a tunnel using  `-p` and `-w`:
 <TabItem value="windows">
 
 ```bash
-sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
+.\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
   -p %PROXY_HOST%:%PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD%
 ```
 
@@ -115,7 +115,7 @@ Here are some examples for starting a Sauce Connect Proxy tunnel using `-p` and 
 <TabItem value="windows">
 
 ```bash
-sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
+.\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
   -p %PROXY_HOST:PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD% -T
 ```
 
@@ -150,7 +150,7 @@ Here are some examples for starting a Sauce Connect Proxy tunnel using `--pac ur
 <TabItem value="windows">
 
 ```bash
-sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --pac PAC_FILE_URL
+.\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --pac PAC_FILE_URL
 ```
 
 </TabItem>
