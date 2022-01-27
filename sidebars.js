@@ -346,8 +346,9 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'error-reporting/platform-integrations/unity',
-                    'error-reporting/platform-integrations/unity/installation',
+                    'error-reporting/platform-integrations/unity/setup',
                     'error-reporting/platform-integrations/unity/configuration',
+                    'error-reporting/platform-integrations/unity/attributes',
                   ],
                 },
               ],
