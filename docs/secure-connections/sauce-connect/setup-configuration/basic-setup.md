@@ -66,14 +66,14 @@ See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstar
    <TabItem value="Mac/Linux">
 
    ```bash
-   ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region $SAUCE_DC --tunnel-identifier {TUNNEL_IDENTIFIER}
+   ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region $SAUCE_DC --tunnel-identifier $TUNNEL_IDENTIFIER
    ```
 
    </TabItem>
    <TabItem value="Windows">
 
    ```bash
-   sc -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region %SAUCE_DC% --tunnel-identifier {TUNNEL_IDENTIFIER}
+   sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region %SAUCE_DC% --tunnel-identifier $TUNNEL_IDENTIFIER
    ```
 
    </TabItem>

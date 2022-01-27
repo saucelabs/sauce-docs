@@ -110,8 +110,8 @@ To connect to Sauce Labs real and virtual devices, assign your Sauce IPSec Proxy
 
 ```java title="Java example"
 MutableCapabilities caps = new MutableCapabilities();
-caps.setCapability("tunnelIdentifier", "{TUNNEL_IDENTIFIER}");
-caps.setCapability("parentTunnel","{SAUCE_USERNAME}");
+caps.setCapability("tunnelIdentifier", "$TUNNEL_IDENTIFIER");
+caps.setCapability("parentTunnel","$SAUCE_USERNAME");
 ```
 
 #### Espresso Tests

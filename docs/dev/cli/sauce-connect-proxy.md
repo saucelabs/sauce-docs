@@ -416,8 +416,8 @@ __Description__: depending on the Data Center location of the device you're test
 
 To connect to the US-West Data Center, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the US-West Data Center:
 
-```java
-./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -r us-west
+```bash
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west
 ```
 <br/>
 
@@ -425,8 +425,8 @@ To connect to the US-West Data Center, add the region name and place an `-r` imm
 
 Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-West Data Center endpoint:
 
-```java
-./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -x https://api.us-west-1.saucelabs.com/rest/v1
+```bash
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.us-west-1.saucelabs.com/rest/v1
 ```
 
 </TabItem>
@@ -436,8 +436,8 @@ Add the endpoint URL and place an `-x` immediately before it. Here's a full exam
 
 To connect to the US-East Data Center, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the US-East Data Center:
 
-```java
-./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -r us-east
+```bash
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-east
 ```
 <br/>
 
@@ -445,8 +445,8 @@ To connect to the US-East Data Center, add the region name and place an `-r` imm
 
 Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-East Data Center endpoint:
 
-```java
-./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -x https://us-east-1.saucelabs.com/rest/v1
+```bash
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://us-east-1.saucelabs.com/rest/v1
 ```
 
 </TabItem>
@@ -456,8 +456,8 @@ Add the endpoint URL and place an `-x` immediately before it. Here's a full exam
 
 To connect to the EU-Central Data Center, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the EU-Central Data Center:
 
-```java
-./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -r eu-central
+```bash
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r eu-central
 ```
 <br/>
 
@@ -466,7 +466,7 @@ To connect to the EU-Central Data Center, add the region name and place an `-r` 
 Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the EU-Central Data Center endpoint:
 
 ```bash
-./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -x https://eu-central-1.saucelabs.com/rest/v1
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://eu-central-1.saucelabs.com/rest/v1
 ```
 
 </TabItem>
@@ -477,7 +477,7 @@ Add the endpoint URL and place an `-x` immediately before it. Here's a full exam
 To connect to the [APAC-Southeast-1 Data Center](/basics/data-center-endpoints/aust-early-access), add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the APAC-Southeast Data Center:
 
 ```bash
-./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -r apac-southeast
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r apac-southeast
 ```
 <br/>
 
@@ -485,8 +485,8 @@ To connect to the [APAC-Southeast-1 Data Center](/basics/data-center-endpoints/a
 
 Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the APAC-Southeast Data Center endpoint:
 
-```java
-./sc -x https://api.apac-southeast-1.saucelabs.com/rest/v1 -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY}
+```bash
+./sc -x https://api.apac-southeast-1.saucelabs.com/rest/v1 -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
 ```
 
 </TabItem>
