@@ -27,6 +27,8 @@ catch(Exception exception)
 }
 ```
 
+After you've [setup](/error-reporting/platform-integrations/unity/setup) the Backtrace client and database configuration, you can retrieve database and client instances by using `GameObject`, then use a try/catch statement to throw an exception and start sending reports.
+
 ## Configuration Settings
 
 The configuration settings for the Backtrace client and database are defined by the Backtrace Configuration file in the Assets folder of your Unity project. It's recommended to change the configuration settings for the Backtrace client and database in the Unity Inspector:
@@ -35,27 +37,6 @@ The configuration settings for the Backtrace client and database are defined by 
 
 Alternatively, you can also specify the configuration settings in the C# code for your app.
 
-After you've [setup](/error-reporting/platform-integrations/unity/setup) the Backtrace client and database configuration, you can retrieve database and client instances by using GameObject, then use a try / catch block to throw an exception and start sending reports.
-
- ```c#
-  //Read from manager BacktraceClient instance
- var backtraceClient = GameObject.Find("manager name").GetComponent<BacktraceClient>();
-
- //Set custom client attribute
- backtraceClient["attribute"] = "attribute value";
-
-  //Read from manager BacktraceClient instance
- var database = GameObject.Find("manager name").GetComponent<BacktraceDatabase>();
-
-
- try{
-     //throw exception here
- }
- catch(Exception exception){
-     var report = new BacktraceReport(exception);
-     backtraceClient.Send(report);
- }
- ```
 
 ### Backtrace Client
 
