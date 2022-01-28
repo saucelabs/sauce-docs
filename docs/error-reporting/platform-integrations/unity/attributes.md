@@ -13,7 +13,7 @@ Attributes are additional metadata that can be attached to crash and error repor
 All attributes listed below are captured by the Backtrace Unity SDK, although not all attributes are indexed by default. Non-indexed attributes cannot be used in queries. For more information about indexing, see [add link].
 
 :::note
-You can also define custom attributes to be captured, sent, and indexed. For more information, see BacktraceReport Options [add link].
+You can also define custom attributes to be captured, sent, and indexed. For more information, see [Configuration](/error-reporting/platform-integrations/unity/configuration/#attributes-and-attachment-paths).
 :::
 
 ### Indexed Attributes

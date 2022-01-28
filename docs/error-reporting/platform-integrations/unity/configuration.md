@@ -73,7 +73,7 @@ After you've [setup](/error-reporting/platform-integrations/unity/setup) the Bac
   <summary>Enable Stack Traces for WebGL</summary>
   <div>
   In your Unity project's Player Settings:
-  <ul><li>Under Publishing, set Enable Exceptions to 'Full With Stacktrace'.</li>
+  <ul><li>Under Publishing Settings, set Enable Exceptions to 'Full With Stacktrace'.</li>
   <img src={useBaseUrl('img/error-reporting/unity-webgl-player-settings-enable-exceptions.png')} alt="Player setting in Unity required to enable stack traces for WebGL." /></ul>
   </div>
 </details>
@@ -84,7 +84,7 @@ After you've [setup](/error-reporting/platform-integrations/unity/setup) the Bac
 |Backtrace database path|Specifies the absolute path that the local database will use to store reports for your game or app. Note that the Backtrace database will remove all existing files in the database directory when the client is first initialized. <br /><br />You can use interpolated strings such as `${Application.persistentDataPath}/backtrace/database`.|String|
 |Client-Side deduplication|Aggregates duplicated reports. The available options are: <ul><li>Disable: Duplicated reports are not aggregated.</li> <li>Everything: Aggregates by faulting call stack, exception type, and exception message.</li> <li>Faulting callstack: Aggregates based on the current stack trace.</li> <li>Exception type: Aggregates by stack trace and exception type.</li> <li>Exception message: Aggregates by stack trace and exception message.</li></ul>|Enum|Disable|
 |Attach Unity Player.log|Attaches the Unity player log file to the Backtrace report. Available only for Windows and MacOS.|Boolean|False|
-|Auto send mode|Sends reports to the server based on the retry settings described below. <br /><br />When the value is set to 'False', you can use the `Flush` method as an alternative.|Boolean|True|
+|Auto send mode|Sends reports to the server based on the retry settings described below. <br /><br />When the value is set to 'False', you can use the [`Flush`](/error-reporting/platform-integrations/unity/configuration/#backtracedatabaseflush) method as an alternative.|Boolean|True|
 |Create database directory|Creates the offline database directory if the provided path doesn't exist.|Boolean|True|
 |Attach screenshot|Generates a screenshot and creates an attachment of the frame when an exception occurs in a game scene.|Boolean|False|
 |Maximum number of records|The maximum number of reports stored in the offline database. When the limit is reached, the oldest reports are removed. If the value is equal to '0', then no limit is set.|Number|8|
@@ -99,7 +99,7 @@ After you've [setup](/error-reporting/platform-integrations/unity/setup) the Bac
 |---------|---------|---------|---------|
 |Use normalized exception message|Generates a fingerprint with a normalized exception message if an exception doesn't have a stack trace.|Boolean|False|
 |Send unhandled native game crashes on startup|Sends native crashes when the game or app starts. Available only for Windows.|Boolean|True|
-|Filter reports|Filters reports based on report type: <ul><li>Everything</li> <li>Message</li> <li>Handled Exception</li> <li>Unhandled Exception</li> <li>Hang</li> <li>Game Error</li></ul> For more advanced configuration, you can use `backtraceClient.SkipReport`.|Enum|Disable|
+|Filter reports|Filters reports based on report type: <ul><li>Everything</li> <li>Message</li> <li>Handled Exception</li> <li>Unhandled Exception</li> <li>Hang</li> <li>Game Error</li></ul> For more advanced configuration, you can use [`backtraceClient.SkipReport`](/error-reporting/platform-integrations/unity/configuration/#backtraceclientskipreport).|Enum|Disable|
 |Collect last n game logs|Collects last n number of logs generated in the game.|Number|10|
 |Enable performance statistics|Allows the Backtrace client to measure execution time and include performance information as report attributes.|Boolean|False|
 |Destroy client on new scene load|Persists the Backtrace Client when a new game scene is loaded so it's available in every game scene.|Boolean|False|
@@ -150,7 +150,7 @@ For more information about other data that is captured, see [Attributes](/error-
 
 #### Uploading Debug Symbols
 
-You can configure `BacktraceClient` to automatically upload debug symbols in IL2CPP builds for Android apps.
+You can configure the Backtrace client to automatically upload debug symbols in IL2CPP builds for Android apps.
 
 To generate a symbol upload token, in Backtrace go to Project Settings > Symbols > Access tokens > and select + to generate a new token.
 
@@ -173,7 +173,7 @@ For more information about debug symbols, see [add link to product guide].
   |Capture native crashes|Captures and symbolicates stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start.|Boolean|True|
   |Capture ANR (Application not responding)|Generates a hang report whenever an app hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.|Boolean|True|
   |Send Out of Memory exceptions to Backtrace|Detects and flags low memory conditions. If the app crashes due to a memory condition, a crash report will be submitted to Backtrace with the `memory.warning` and `memory.warning.date` attributes.|Boolean|False|
-  |Enable client-side unwinding|Enables call stack unwinding. If you're unable to upload all debug symbols for your app, you can use this setting to get debug information. Available only for supported versions of Android (NDK 19; Unity 2019+). You can also enable this setting via the `BacktraceConfiguration` object and the `.ClientSideUnwinding = true;` option.|Boolean|False|
+  |Enable client-side unwinding|Enables call stack unwinding. If you're unable to upload all debug symbols for your app, you can use this setting to get debug information. Available only for supported versions of Android (NDK 19; Unity 2019+). <br /><br /> You can also enable this setting via the [`BacktraceConfiguration`](/error-reporting/platform-integrations/unity/configuration/#backtraceclient) object and the `.ClientSideUnwinding = true;` option.|Boolean|False|
   |Symbols upload token|Required to automatically upload debug symbols to Backtrace.|String|
 
 
@@ -500,6 +500,7 @@ Class that defines a single error report.
 
 Class that validates send requests from `backtraceApi` to the Backtrace endpoint. If `ReportPerMin` is set to a value greater than '0' in the `backtraceClient` configuration, `reportWatcher` will limit the number of reports sent by the client.
 
+---
 
 ## Data Management
 
