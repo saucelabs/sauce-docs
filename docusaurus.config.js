@@ -79,7 +79,7 @@ const docusaurusConfig = {
           to: '/dev/cli',
         },
         {
-          label: 'Backtrace',
+          label: 'Error Reporting',
           position: 'left',
           to: '/error-reporting/getting-started',
         },

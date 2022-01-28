@@ -59,43 +59,53 @@ After you've [setup](/error-reporting/platform-integrations/unity/setup) the Bac
 
 ### Backtrace Client
 
-|Setting|Description|
-|---------|---------|
-|Server Address|The [server address](/error-reporting/platform-integrations/unity/setup/#step-3-enter-the-server-address) (submission URL) is required to submit exceptions from your Unity project to your Backtrace instance. The Server Address must be in the following format: `https://submit.backtrace.io/<subdomain-name>/<submission-token>/json`.|
-|Handle unhandled exceptions|Handles unhandled exceptions that are not captured by try/catch statements. By default, the value is set to 'True'.|
-|Reports per minute|Limits the number of reports the client will send per minute. If set to 0, there is no limit. If set to a greater value and the value is reached, the client will not send any reports until the next minute. The `BacktraceClient.Send` and `BacktraceClient.SendAsync` methods will return false.|
-|Ignore SSL validation|Ignores validation of SSL certificates. The default value is 'False'.|
+|Setting|Description|Type|Default|
+|---------|---------|---------|---------|
+|Server Address|The [server address](/error-reporting/platform-integrations/unity/setup/#step-3-enter-the-server-address) (submission URL) is required to submit exceptions from your Unity project to your Backtrace instance. <br /><br />The Server Address must be in the following format: `https://submit.backtrace.io/<subdomain-name>/<submission-token>/json`.|String|
+|Handle unhandled exceptions|Handles unhandled exceptions that are not captured by try/catch statements.|Boolean|True|
+|Reports per minute|Limits the number of reports the client will send per minute. <ul><li>If set to '0', there is no limit.</li> <li>If set to a value greater than '0' value and the value is reached, the client will not send any reports until the next minute.</li></ul> The `BacktraceClient.Send` and `BacktraceClient.SendAsync` methods will return 'false'.|Number|50|
+|Ignore SSL validation|By default, Unity validates SSL certificates. If you don't want to validate SSL certificates, set the value to 'true'.|Boolean|False|
 
 
 ### Backtrace Database
 
-|Setting|Description|
-|---------|---------|
-|Enable Database|Enables an offline database to store reports locally.|
-|Backtrace database path|Specifies the absolute path that the local database will use to store reports for your game or app. You can use interpolated strings such as `${Application.persistentDataPath}/backtrace/database`. Note that the Backtrace database will remove all existing files in the database directory when the client is first initialized.|
-|Client-Side deduplication|Specifies how to aggregate duplicated reports. The available options are: <ul><li>Disable: Duplicated reports are not aggregated.</li> <li>Everything: Aggregates by faulting call stack, exception type, and exception message.</li> <li>Faulting callstack: Aggregates based on the current stack trace.</li> <li>Exception type: Aggregates by stack trace and exception type.</li> <li>Exception message: Aggregates by stack trace and exception message.</li></ul> The default value is set to 'Everything'.|
-|Attach Unity Player.log|Attaches the Unity player log file to the Backtrace report. Available only for Windows and MacOS.|
-|Auto send mode|Indicates whether to send reports to the server based on the retry settings described below. When the value is set to 'False', you can use the `Flush` method as an alternative. The recommended value is 'True'.|
-|Create database directory|Indicates whether to create the offline database directory if the provided path doesn't exist.|
-|Attach screenshot|Generates a screenshot and creates an attachment of the frame when an exception occurs in a game scene.|
-|Maximum number of records|Indicates the maximum number of reports stored in the offline database. When the limit is reached, the oldest reports are removed. If the value is equal to '0', then no limit is set.|
-|Maximum database size (mb)|Indicates the maximum database size in MB. When the limit is reached, the oldest reports are removed. If the value is equal to '0', then no limit is set.|
-|Retry interval|Indicates how much time (in seconds) to wait between retries if the database is unable to send a report.|
-|Maximum retries|Indicates the maximum number of retries to attempt if the database is unable to send a report.|
-|Retry order (FIFO/LIFO)|Specifies in which order reports are sent to the Backtrace server: <ul><li>If you set the value to 'Queue' (FIFO), then the first report into the queue is the first report to leave the queue.</li> <li>If you set the value to 'Stack' (LIFO), then the last report into the stack is the last report to leave the stack.</li></ul>|
+<details>
+  <summary>Enable Stack Traces for WebGL</summary>
+  <div>
+  In your Unity project's Player Settings:
+  <ul><li>Under Publishing, set Enable Exceptions to 'Full With Stacktrace'.</li>
+  <img src={useBaseUrl('img/error-reporting/unity-webgl-player-settings-enable-exceptions.png')} alt="Player setting in Unity required to enable stack traces for WebGL." /></ul>
+  </div>
+</details>
+
+|Setting|Description|Type|Default|
+|---------|---------|---------|---------|
+|Enable Database|Enables an offline database to store reports locally.|Boolean|False|
+|Backtrace database path|Specifies the absolute path that the local database will use to store reports for your game or app. Note that the Backtrace database will remove all existing files in the database directory when the client is first initialized. <br /><br />You can use interpolated strings such as `${Application.persistentDataPath}/backtrace/database`.|String|
+|Client-Side deduplication|Aggregates duplicated reports. The available options are: <ul><li>Disable: Duplicated reports are not aggregated.</li> <li>Everything: Aggregates by faulting call stack, exception type, and exception message.</li> <li>Faulting callstack: Aggregates based on the current stack trace.</li> <li>Exception type: Aggregates by stack trace and exception type.</li> <li>Exception message: Aggregates by stack trace and exception message.</li></ul>|Enum|Disable|
+|Attach Unity Player.log|Attaches the Unity player log file to the Backtrace report. Available only for Windows and MacOS.|Boolean|False|
+|Auto send mode|Sends reports to the server based on the retry settings described below. <br /><br />When the value is set to 'False', you can use the `Flush` method as an alternative.|Boolean|True|
+|Create database directory|Creates the offline database directory if the provided path doesn't exist.|Boolean|True|
+|Attach screenshot|Generates a screenshot and creates an attachment of the frame when an exception occurs in a game scene.|Boolean|False|
+|Maximum number of records|The maximum number of reports stored in the offline database. When the limit is reached, the oldest reports are removed. If the value is equal to '0', then no limit is set.|Number|8|
+|Maximum database size (mb)|The maximum database size in MB. When the limit is reached, the oldest reports are removed. If the value is equal to '0', then no limit is set.|Number|0|
+|Retry interval|The amount of time (in seconds) to wait between retries if the database is unable to send a report.|Number|60|
+|Maximum retries|The maximum number of retries to attempt if the database is unable to send a report.|Number|3|
+|Retry order (FIFO/LIFO)|The order in which reports are sent to the Backtrace server: <ul><li>If you set the value to 'Queue' (FIFO), then the first report into the queue is the first report to leave the queue.</li> <li>If you set the value to 'Stack' (LIFO), then the last report into the stack is the last report to leave the stack.</li></ul>|Enum|Stack|
 
 ### Advanced Client Settings
 
-|Setting|Description|
-|---------|---------|
-|Use normalized exception message|If an exception does not have a stack trace, the Backtrace client will use a normalized exception message to generate fingerprint.|
-|Filter reports|Filters reports based on report type: <ul><li>Everything</li> <li>Message</li> <li>Handled Exception</li> <li>Unhandled Exception</li> <li>Hang</li> <li>Game Error</li></ul> By default, reports are not filtered. For more advance configuration, you can use `backtraceClient.SkipReport`.|
-|Collect last n game logs|Collects last n number of logs generated in the game.
-|Enable performance statistics|Allows the Backtrace client to measure execution time and include performance information as report attributes.|
-|Destroy client on new scene load|Specifies whether the Backtrace Client is available when a new game scene is loaded. The default value is set to "False", which indicates that the Backtrace client will be available in every game scene.|
-|Log random sampling rate|Enables random sampling for DebugLog.error messages. The default value is '0.01', which indicates that 1% of the random sample reports will be sent to Backtrace. To send all DebugLog.error messages to Backtrace, set the value to '1'.|
-|Game object depth limit|Filters the number of GameObject children in Backtrace reports.|
-|Disable error reporting integration in editor|Ignores errors encountered while the project is running in the Unity Editor and only reports errors encountered in a build. The default value is set to 'False'.|  
+|Setting|Description|Type|Default|
+|---------|---------|---------|---------|
+|Use normalized exception message|Generates a fingerprint with a normalized exception message if an exception doesn't have a stack trace.|Boolean|False|
+|Send unhandled native game crashes on startup|Sends native crashes when the game or app starts. Available only for Windows.|Boolean|True|
+|Filter reports|Filters reports based on report type: <ul><li>Everything</li> <li>Message</li> <li>Handled Exception</li> <li>Unhandled Exception</li> <li>Hang</li> <li>Game Error</li></ul> For more advanced configuration, you can use `backtraceClient.SkipReport`.|Enum|Disable|
+|Collect last n game logs|Collects last n number of logs generated in the game.|Number|10|
+|Enable performance statistics|Allows the Backtrace client to measure execution time and include performance information as report attributes.|Boolean|False|
+|Destroy client on new scene load|Persists the Backtrace Client when a new game scene is loaded so it's available in every game scene.|Boolean|False|
+|Log random sampling rate|The rate at which random sample reports for DebugLog.error messages are sent to Backtrace. <br /><br />By default, 1% of the DebugLog.error messages will be sent to Backtrace. To send all DebugLog.error messages to Backtrace, set the value to '1'.|Decimal|0.01|
+|Game object depth limit|Filters the number of GameObject children in Backtrace reports.|Number|-1|
+|Disable error reporting integration in editor|Ignores errors encountered while the project is running in the Unity Editor and only reports errors encountered in a build.|Boolean|False|
 
 
 ### Crash Free Metrics Reporting
@@ -106,10 +116,10 @@ Once enabled, unique application launches and unique player identifiers (default
 This functionality is supported on all platforms except WebGL.
 :::
 
-|Setting|Description|
-|---------|---------|
-|Enable crash free metrics reporting|Enables metrics such as crash free users and crash free sessions.|
-|Auto send interval in min|Indicates how often crash free metrics are sent to Backtrace. By default, session events are sent on application startup, when the game ends, and every 30 minutes while the game is running.|
+|Setting|Description|Type|Default|
+|---------|---------|---------|---------|
+|Enable crash free metrics reporting|Enables metrics such as crash free users and crash free sessions.|Boolean|True|
+|Auto send interval in min|Indicates how often crash free metrics are sent to Backtrace. <br /><br />By default, session events are sent on application startup, when the game ends, and every 30 minutes while the game is running.|Number|30|
 
 You can also enable crash free metrics at runtime with `BacktraceClient.EnableMetrics()`.
 
@@ -158,13 +168,13 @@ For more information about debug symbols, see [add link to product guide].
   </details>
 
 
-  |Setting|Description|
-  |---------|---------|
-  |Capture native crashes|Captures and symbolicates stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start. By default, the value is set to 'True'.|
-  |Capture ANR (Application not responding)|Generates a hang report whenever an app hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`. The default value is set to 'True'.|
-  |Send Out of Memory exceptions to Backtrace|Detects and flags low memory conditions. If the app crashes due to a memory condition, a crash report will be submitted to Backtrace with the `memory.warning` and `memory.warning.date` attributes.|
-  |Enable client-side unwinding|Enables call stack unwinding. If you're unable to upload all debug symbols for your app, you can use this setting to get debug information. Available only for supported versions of Android (NDK 19; Unity 2019+). You can also enable this setting via the `BacktraceConfiguration` object and the `.ClientSideUnwinding = true;` option.|
-  |Symbols upload token|Required to automatically upload debug symbols to Backtrace.|
+  |Setting|Description|Type|Default|
+  |---------|---------|---------|---------|
+  |Capture native crashes|Captures and symbolicates stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start.|Boolean|True|
+  |Capture ANR (Application not responding)|Generates a hang report whenever an app hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.|Boolean|True|
+  |Send Out of Memory exceptions to Backtrace|Detects and flags low memory conditions. If the app crashes due to a memory condition, a crash report will be submitted to Backtrace with the `memory.warning` and `memory.warning.date` attributes.|Boolean|False|
+  |Enable client-side unwinding|Enables call stack unwinding. If you're unable to upload all debug symbols for your app, you can use this setting to get debug information. Available only for supported versions of Android (NDK 19; Unity 2019+). You can also enable this setting via the `BacktraceConfiguration` object and the `.ClientSideUnwinding = true;` option.|Boolean|False|
+  |Symbols upload token|Required to automatically upload debug symbols to Backtrace.|String|
 
 
   </TabItem>
@@ -206,22 +216,22 @@ For more information about debug symbols, see [add link to product guide].
 </details>
 
 
-  |Setting|Description|
-  |---------|---------|
-  |Capture native crashes|Captures and symbolicates stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start. By default, the value is set to 'True'.|
-  |Capture ANR (Application not responding)|Generates a hang report whenever an app hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`. The default value is set to 'True'.|
-  |Send Out of Memory exceptions to Backtrace|Captures snapshots of the app's state when there is a low memory condition. If the app crashes due to a low memory condition, the information is sent to Backtrace. Note that snapshots are captured every 2 minutes as long as the low memory condition persists.|
+  |Setting|Description|Type|Default|
+  |---------|---------|---------|---------|
+  |Capture native crashes|Captures and symbolicates stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start.|Boolean|True|
+  |Capture ANR (Application not responding)|Generates a hang report whenever an app hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.|Boolean|True|
+  |Send Out of Memory exceptions to Backtrace|Captures snapshots of the app's state when there is a low memory condition. If the app crashes due to a low memory condition, the information is sent to Backtrace. Snapshots are captured every 2 minutes as long as the low memory condition persists.|Boolean|False|
 
   </TabItem>
   <TabItem value="windows">
 
   The Backtrace Unity SDK includes support for capturing native Windows crashes.
 
-  |Setting|Description|
-  |---------|---------|
-  |Capture native crashes|Captures stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start. By default, the value is set to 'True'.|
-  |Capture ANR (Application not responding)|Generates a hang report whenever an app hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`. The default value is set to 'True'.|
-  |Minidump type|The type of memory information to capture from Windows minidump reports.|
+  |Setting|Description|Type|Default|
+  |---------|---------|---------|---------|
+  |Minidump type|The type of memory information to capture from Windows minidump reports.|Enum|None|
+  |Capture native crashes|Captures stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start.|Boolean|True|
+  |Capture ANR (Application not responding)|Generates a hang report whenever an app hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.|Boolean|True|
 
   </TabItem>
   </Tabs>
@@ -229,11 +239,11 @@ For more information about debug symbols, see [add link to product guide].
 
 ### Logging Breadcrumbs
 
-|Setting|Description|
-|---------|---------|
-|Enable breadcrumbs support| Indicates whether to log breadcrumb events, such as the app going to a background process, logging messages, network connectivity lost, and more. By default, breadcrumbs are limited to 64kB and older events will automatically be removed.|
-|Breadcrumbs event type| Specifies which type of events to log.|
-|Breadcrumbs log level| Specifies which log level severity to include.|
+|Setting|Description|Type|Default|
+|---------|---------|---------|---------|
+|Enable breadcrumbs support|Logs breadcrumb events, such as the app going to a background process, logging messages, network connectivity lost, and more. <br /> <br />By default, breadcrumbs are limited to 64kB and older events will automatically be removed.|Boolean|False|
+|Breadcrumbs event type|Specifies which type of events to log.|Enum|Everything|
+|Breadcrumbs log level|Specifies which log level severity to include.|Enum|Everything|
 
 You can also add custom breadcrumb events, with information like "player completed a level" and sub attributes:
 

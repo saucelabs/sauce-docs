@@ -27,6 +27,10 @@ The Backtrace Unity SDK reports on 6 classes of errors:
 |Web|WebGL|
 |Game Consoles|PlayStation 4, PlayStation 5, Xbox One, Xbox Series X, Nintendo Switch, Google Stadia|
 
+:::note
+Offline database capabilities are currently not supported for Nintendo Switch.
+:::
+
 ## How to Get Started
 
 * [Setup](/error-reporting/platform-integrations/unity/setup): Install and setup the Backtrace client and database object in your Unity project.

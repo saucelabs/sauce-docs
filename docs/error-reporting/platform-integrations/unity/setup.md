@@ -36,10 +36,6 @@ Backtrace supports the following player configuration settings for Unity:
 
 The following methods are available to install the Backtrace Unity SDK.
 
-:::note
-If you're building a game or an app for Android with Unity version 2018.4 (NDK16b) and need support for native events (crashes, ANR, low memory), version [3.6.0-ndk16b](https://github.com/backtrace-labs/backtrace-unity/tree/3.6.0-ndk16b) is required. In this case, the manual installation method is recommended.
-:::
-
 <Tabs
   groupId="platforms"
   defaultValue="openupm"
