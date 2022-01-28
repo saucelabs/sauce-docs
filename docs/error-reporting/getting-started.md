@@ -1,6 +1,6 @@
 ---
 id: getting-started
-title: Backtrace Error Reporting
+title: Error Reporting
 sidebar_label: Getting Started
 description: Capture crash and error reports from your games and mobile apps with Backtrace.
 ---
