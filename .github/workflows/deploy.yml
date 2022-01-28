@@ -7,6 +7,7 @@ on:
       - '.github/**'
       - '.docsearch/**'
       - 'README.md'
+      - '.gitpod.yml'
   workflow_dispatch:
 
 env:
