@@ -12,7 +12,7 @@ The High Availability (HA) setup enables you to run parallel tests through multi
 
 A major benefit to using the HA setup is load balancing. Jobs will be distributed among the tunnels in your tunnel pool. If one of your tunnels goes down, any tests started after that will be routed through another tunnel. That said, if a tunnel instance on your side or a VM tunnel instance on the Sauce Labs side goes down once you've already started running tests, these tests in motion will be impacted.
 
-With this setup, we strongly recommend applying a `--tunnel-name`, which will make it easier for tracking tunnels. Otherwise, test traffic initiated using your account will use an unnamed tunnel automatically.  
+With this setup, we strongly recommend applying a `--tunnel-identifier`, which will make it easier for tracking tunnels. Otherwise, test traffic initiated using your account will use an unnamed tunnel automatically.  
 
 
 ## What You'll Need
@@ -45,13 +45,13 @@ Exclusive to our HA Sauce Connect Proxy Setup, you can launch multiple tunnels a
 
 #### Launching Tunnel Pools
 
-* In your test script configuration, provide the name of the Sauce Connect Proxy tunnel by using the [`tunnelName`](/secure-connections/sauce-connect/setup-configuration/basic-setup#using-tunnel-names) capability:
+* In your test script configuration, provide the name of the Sauce Connect Proxy tunnel by using the [`tunnelIdentifier`](/secure-connections/sauce-connect/setup-configuration/basic-setup#using-tunnel-identifiers) capability:
   ```java
-  "tunnelName": "tunnel_name_here"
+  "tunnelIdentifier": "tunnel_name_here"
   ```
-* In your CLI, tunnels in the individual pools need to be started with both the [`--tunnel-name`](/dev/cli/sauce-connect-proxy#--tunnel-name) and [`--tunnel-pool`](/dev/cli/sauce-connect-proxy#--tunnel-pool) flags.
+* In your CLI, tunnels in the individual pools need to be started with both the [`--tunnel-identifier`](/dev/cli/sauce-connect-proxy#--tunnel-identifier) and [`--tunnel-pool`](/dev/cli/sauce-connect-proxy#--tunnel-pool) flags.
   ```bash
-  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name {TUNNEL_NAME}
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-identifier $TUNNEL_IDENTIFIER
   ```
 Tunnel names distinguish which tunnel or HA tunnel pool will be used to connect to your site under test.
 
@@ -64,7 +64,7 @@ All tunnels with the same name started prior to the start of the latest instance
 When creating a tunnel pool, you need to prevent tunnel name collision by using the [`--tunnel-pool`](/dev/cli/sauce-connect-proxy#--tunnel-pool) flag when starting the tunnels for your tunnel pool. Tunnels will then remain active and tests will be distributed among them.
 
 #### Monitoring Tunnel Pools
-When running a tunnel pool, we recommend monitoring your activity on the Sauce Labs [**TUNNELS**](https://app.saucelabs.com/tunnels) page to ensure your tunnel configuration stability and overall testing efficiency. Here, you can gain insight into all individual tunnels and tunnel pools. See [Monitoring Tunnels](/secure-connections/sauce-connect/proxy-tunnels/#monitoring-tunnels) for more information.
+When running a tunnel pool, we recommend monitoring your activity on the Sauce Labs [**Tunnels**](https://app.saucelabs.com/tunnels) page to ensure your tunnel configuration stability and overall testing efficiency. Here, you can gain insight into all individual tunnels and tunnel pools. See [Monitoring Tunnels](/secure-connections/sauce-connect/proxy-tunnels/#monitoring-tunnels) for more information.
 
 ### Launching Sauce Connect Proxy with High Availability
 Once you've confirmed that your network is configured to use HA, launch Sauce Connect Proxy using one of these commands below. You'll need to run this command on each machine where you want to have access to the tunnel pool.
@@ -80,7 +80,7 @@ Once you've confirmed that your network is configured to use HA, launch Sauce Co
 
 ```bash
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
-  --tunnel-name tunnel_name_here \
+  --tunnel-identifier tunnel_name_here \
   --tunnel-pool
 ```
 
@@ -90,7 +90,7 @@ Once you've confirmed that your network is configured to use HA, launch Sauce Co
 
 ```bash
 sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
-  --tunnel-name tunnel_name_here ^
+  --tunnel-identifier tunnel_name_here ^
   --tunnel-pool
 ```
 

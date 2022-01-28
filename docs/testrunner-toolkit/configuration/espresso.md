@@ -228,11 +228,22 @@ Specifies how to manage test output, such as logs, videos, and screenshots.
 
 ```yaml
 artifacts:
+  cleanup: true
   download:
     when: always
     match:
       - junit.xml
     directory: ./artifacts/
+```
+---
+
+### `cleanup`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
+
+```yaml
+  cleanup: true
 ```
 ---
 
@@ -287,6 +298,64 @@ Specifies the path to the folder location in which to download artifacts. A sepa
 ```
 ---
 
+## `notifications`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies how to set up automatic test result alerts.
+
+```yaml
+notifications:
+  slack:
+    channels:
+      - "saucectl-results"
+      - "espresso-tests"
+    send: always
+```
+---
+
+### `slack`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/basics/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
+
+```yaml
+  slack:
+    channels: "saucectl-espresso-tests"
+    send: always
+```
+---
+
+#### `channels`
+<p><small>| OPTIONAL | STRING/ARRAY |</small></p>
+
+The set of Slack channels to which the test result notifications are to be sent.
+
+```yaml
+  slack:
+    channels:
+      - "saucectl-results"
+      - "espresso-team"
+    send: always
+```
+---
+
+#### `send`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies when and under what circumstances to send notifications to specified Slack channels. Valid values are:
+
+* `always`: Send notifications for all test results.
+* `never`: Do not send any test result notifications.
+* `pass`: Send notifications for passing suites only.
+* `fail`: Send notifications for failed suites only.
+
+```yaml
+  slack:
+    channels: "saucectl-espresso-tests"
+    send: always
+```
+---
+
 ## `espresso`
 <p><small>| REQUIRED | OBJECT |</small></p>
 
@@ -306,6 +375,10 @@ espresso:
 <p><small>| REQUIRED | STRING |</small></p>
 
 The path to the app. The default directory is `{project-root}/apps/filename.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded app reference. Supports \*.apk and \*.aab files.
+
+:::caution AAB App Signing
+To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must sign the \*.apk using its own signature. In such cases, Sauce Labs signs both the `app` and `testApp` to ensure matching signatures, even if instrumentation is disabled. Otherwise, the app installation will fail.
+:::
 
 ```yaml
   app: ./apps/calc.apk
@@ -329,6 +402,10 @@ The path to the app. The default directory is `{project-root}/apps/filename.apk`
 <p><small>| REQUIRED | STRING |</small></p>
 
 The path to the testing app. The relative file location is `{project-root}/apps/testfile.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded test app reference. Supports \*.apk and \*.aab files.
+
+:::caution AAB App Signing
+To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must sign the \*.apk using its own signature. In such cases, Sauce Labs signs both the `app` and `testApp` to ensure matching signatures, even if instrumentation is disabled. Otherwise, the app installation will fail.
+:::
 
 ```yaml
   testApp: ./apps/calc-success.apk

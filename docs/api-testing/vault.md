@@ -7,7 +7,7 @@ description: "The vault allows you to store variables and code snippets that can
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The vault feature allows you to store variables and code snippets to use in your tests in one project, or across all projects.
+Our Vault feature allows you to store variables and code snippets to use in your tests in one project, or across all projects.
 
 <!--[Explanation Video](https://www.youtube.com/watch?v=cBNMi30Fj9Q)-->
 
@@ -94,7 +94,7 @@ When you save a snippet from the [**Composer**](/api-testing/composer/), it will
 
 ### Create a Snippet
 
-1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
 2. Click on a **Project**.
 3. Click on a **Test**.
 4. Click on the first component you want to include in your snippet.
@@ -138,3 +138,6 @@ Below is an example of how to create an Authentication Snippet.
 Consider a scenario where this login will be required for all the endpoints we have to test. It makes sense for this call to be stored in the Vault.
 
 Now you can choose to insert or invoke this snippet in future tests that require a Basic Authentication header.
+
+## More Information 
+* [API Fortress Legacy Migration Guide](/api-testing/legacy)

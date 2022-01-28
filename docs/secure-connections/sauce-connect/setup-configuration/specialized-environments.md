@@ -18,7 +18,12 @@ import TabItem from '@theme/TabItem';
 
 ## Sauce Connect Docker Container Setup
 
-As an alternative to downloading and installing the SC Client, you can leverage Docker containers to manage Sauce Connect Proxy tunnels. See [Using Docker Containers to Install/Run Sauce Connect](/secure-connections/sauce-connect/installation/#using-docker-containers-to-installrun-sauce-connect) for use cases. Our Docker image maintained by the Sauce Labs [Open Source Program Office](https://opensource.saucelabs.com/).
+As an alternative to downloading and installing the SC Client, you can [leverage Docker containers to manage Sauce Connect Proxy tunnels](/secure-connections/sauce-connect/installation/#running-sauce-connect-in-docker). Our Docker image maintained by the Sauce Labs [Open Source Program Office](https://opensource.saucelabs.com/).
+
+Here are some benefits/use cases:
+* If you want to run Sauce Connect Proxy as part of a Dockerized CI.
+* If you'd prefer to manage Docker image tags instead of Sauce Connect Proxy versions.
+* If your setup involves several instances running on the same system, Docker would simplify Sauce Connect Proxy port management.
 
 ### Running the SC Docker Image
 
@@ -26,7 +31,7 @@ As an alternative to downloading and installing the SC Client, you can leverage 
   ```bash
   $ docker pull saucelabs/sauce-connect
   ```
-   * Or - if you _do_ want to use a specific SC version - you can specify that as a tag. This example pulls v4.7.1.
+   * Or - if you _do_ want to use specific SC version - you can specify that as a tag:
    ```bash
    $ docker pull saucelabs/sauce-connect:4.7.1
    ```
@@ -106,17 +111,17 @@ While rare, there are some test cases that will require you to disable SSL Bumpi
 ### Selecting the Tunnel to Use
 Sauce Connect Proxy can have multiple tunnels running simultaneously, as described in [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). You can select which tunnel to use in a real device test in the same way as you would any other type of automated test.
 
-1. Start Sauce Command Proxy from the command line, using the [`-u (--user)`](/dev/cli/sauce-connect-proxy/#--user), [`-k (--api-key)`](/dev/cli/sauce-connect-proxy/#--api-key), [`-r (--region`)](/dev/cli/sauce-connect-proxy/#--region), and [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) flags.
+1. Start Sauce Command Proxy from the command line, using the [`-u (--user)`](/dev/cli/sauce-connect-proxy/#--user), [`-k (--api-key)`](/dev/cli/sauce-connect-proxy/#--api-key), [`-r (--region`)](/dev/cli/sauce-connect-proxy/#--region), and [`--tunnel-identifier`](/dev/cli/sauce-connect-proxy/#--tunnel-identifier) flags.
   ```bash
-  ./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -r {SAUCE_DATA_CENTER} --tunnel-name {TUNNEL_NAME}
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DATA_CENTER --tunnel-identifier $TUNNEL_IDENTIFIER
   ```
 
   In this example, we'll [set our credentials (username/access key) as environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/), start a tunnel in US West Data Center and name the tunnel `rdc-on-sauce-tunnel-us`.
   ```bash
-  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-name rdc-on-sauce-tunnel-us
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-identifier rdc-on-sauce-tunnel-us
   ```
 
-2. In your device testing script, specify the tunnel name with `tunnelName` in your capabilities, as shown in this Java example:
+2. In your device testing script, specify the tunnel name with `tunnelIdentifier` in your capabilities, as shown in this Java example:
 
 ```java
 final DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -125,7 +130,7 @@ final DesiredCapabilities capabilities = new DesiredCapabilities();
     capabilities.setCapability("platformName", "Android");
     capabilities.setCapability("platformVersion,"  "81.0");
     capabilities.setCapability("deviceName", "Samsung_Galaxy_Note_5_real"); // Will only run on the specified device
-    capabilities.setCapability("tunnelName", "rdc-on-sauce-tunnel-us");
+    capabilities.setCapability("tunnelIdentifier", "rdc-on-sauce-tunnel-us");
 final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub"), capabilities);
 ```
 
@@ -187,7 +192,7 @@ Example of starting Sauce Connect Proxy in conjunction with your Sauce Headless 
 ./sc -u $SAUCE_USERNAME
      -k $SAUCE_ACCESS_KEY \
      -r us-east \
-     --tunnel-name {TUNNEL_NAME}
+     --tunnel-identifier $TUNNEL_IDENTIFIER
 ```
 
 
@@ -196,3 +201,7 @@ Example of starting Sauce Connect Proxy in conjunction with your Sauce Headless 
 See [API Testing with Sauce Connect Proxy](/api-testing/sauce-connect/) to learn how to start a tunnel for API Testing. It requires the use of a YAML config file.
 
 This setup has a unique endpoint, `https://api.us-west-4-i3er.saucelabs.com/rest/v1`. Currently, only the US-West region is supported.
+
+
+## More Information
+* [Leveraging Docker Containers to Manage Sauce Connect Proxy Tunnels](https://saucelabs.com/blog/leveraging-docker-containers-to-manage-sauce-connect-tunnels)

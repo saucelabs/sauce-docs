@@ -355,11 +355,22 @@ Specifies how to manage test artifacts, such as logs, videos, and screenshots.
 
 ```yaml
 artifacts:
+  cleanup: true
   download:
     when: always
     match:
       - junit.xml
     directory: ./artifacts/
+```
+---
+
+### `cleanup`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
+
+```yaml
+  cleanup: true
 ```
 ---
 
@@ -413,6 +424,65 @@ Specifies the path to the folder location in which to download artifacts. A sepa
     directory: ./artifacts/
 ```
 ---
+
+## `notifications`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies how to set up automatic test result alerts.
+
+```yaml
+notifications:
+  slack:
+    channels:
+      - "saucectl-results"
+      - "cypress-tests"
+    send: always
+```
+---
+
+### `slack`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/basics/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
+
+```yaml
+  slack:
+    channels: "saucectl-cypress-tests"
+    send: always
+```
+---
+
+#### `channels`
+<p><small>| OPTIONAL | STRING/ARRAY |</small></p>
+
+The set of Slack channels to which the test result notifications are to be sent.
+
+```yaml
+  slack:
+    channels:
+      - "saucectl-results"
+      - "cypress-team"
+    send: always
+```
+---
+
+#### `send`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies when and under what circumstances to send notifications to specified Slack channels. Valid values are:
+
+* `always`: Send notifications for all test results.
+* `never`: Do not send any test result notifications.
+* `pass`: Send notifications for passing suites only.
+* `fail`: Send notifications for failed suites only.
+
+```yaml
+  slack:
+    channels: "saucectl-cypress-tests"
+    send: always
+```
+---
+
 
 ## `cypress`
 <p><small>| REQUIRED | OBJECT |</small></p>
@@ -483,7 +553,7 @@ The set of additional reporters to execute as part of your Cypress tests.
   reporters:
     - name: cypress-mochawesome
       options:
-        reportDir: cypress/report
+        reportDir: __assets__/cypress/report
         charts: true
         reportPageTitle: Cypress running on Sauce
 ```
@@ -515,11 +585,10 @@ Some reporters may require you to install dependencies.
 Any relevant settings that are be supported by the specified reporter. These properties correspond to the `reporterOptions` object in the `cypress.json` file.
 ```yaml
       options:
-        reportDir: cypress/report
+        reportDir: __assets__/cypress/report
         charts: true
         reportPageTitle: Cypress running on Sauce
 ```
-
 
 ---
 
@@ -604,7 +673,8 @@ Provides details related to the Cypress test configuration that are relevant for
       config:
         env:
           hello: world
-        testFiles: [ "**/*.*" ]
+        testFiles: [ "**/*.spec.js" ]
+        headless: false
 ```
 ---
 
@@ -638,6 +708,17 @@ One or more paths to the Cypress test files to run for this suite, if not otherw
 :::note
 `testFiles` must be a regex or a path relative to `cypress/integration` or the `integrationFolder` value set in `cypress.json`.
 :::
+
+---
+
+#### `headless`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Controls whether or not tests are run in headless mode.
+
+```yaml
+      headless: true
+```
 
 ---
 
@@ -700,6 +781,14 @@ $> saucectl run -e HTTP_PROXY=${HTTP_PROXY} -e HTTPS_PROXY=${HTTPS_PROXY}
 ### Tailoring Your Test File Bundle
 
 The `saucectl` command line bundles your root directory (`rootDir` parameter of `config.yml`) and transmits it to the Sauce Labs cloud or your own infrastructure via Docker, then unpacks the bundle and runs the tests. This functionality is partly what allows Sauce Control to operate in a framework-agnostic capacity. However, you can and should manage the inclusion and exclusion of files that get bundled to optimize performance and ensure security.
+
+#### Including Test Assets in Your Bundle
+
+Any test asset files (such as logs or screenshots) you wish to upload to Sauce Labs with your test results must be placed in the `__assets__` directory of your project root. Tests run on Sauce may create this directory automatically, but not always, and locally run tests likely do not, so it's best to make sure. Please note that the `Assets` directory in [saucectl cypress demo repo](https://github.com/saucelabs/saucectl-cypress-example) is an internal resource folder and _not_ the `__assets__` directory into which you must place your test asset files.
+
+:::note Screenshots not Viewable in UI
+Test Screenshots uploaded to Sauce Labs are currently not viewable in Test Results screen of the Sauce Labs UI, but can be retrieved using the [Get All Screenshots](/dev/api/jobs/#get-all-screenshots) API. Alternatively, you can use the [artifacts.download](#download) configuration parameter to download test assets to a local file upon completion of your test.
+:::
 
 #### Excluding Files from the Bundle
 
