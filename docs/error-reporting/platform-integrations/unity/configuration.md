@@ -256,6 +256,22 @@ GetComponent<BacktraceClient>().Breadcrumbs.Info("Player Base Upgraded", new Dic
 
 ## Advanced Configuration
 
+### `backtraceApi`
+<p><small>| CLASS | REQUIRED |</small></p>
+
+Class used to send diagnostic data in JSON format to the Backtrace endpoint, including asynchronous reports. `backtraceApi` is instantiated when the `backtraceClient` awake method is called.
+
+---
+
+### `backtraceClient`
+<p><small>| CLASS | REQUIRED |</small></p>
+
+Class used to send `backtraceReport` to the Backtrace server by using `backtraceApi`. `backtraceClient` requires a Backtrace Configuration to manage the behavior of the error reporting library.
+
+:::note
+This class inherits `MonoBehavior` functions.
+:::
+
 If you need to use more advanced configuration settings, the `Initialize` method accepts a `BacktraceConfiguration` scriptable object. For example:
 
 ```c#
@@ -405,6 +421,20 @@ BacktraceClient.SkipReport = (ReportFilterType type, Exception e, string msg) =>
 
 ---
 
+### `backtraceData`
+<p><small>| CLASS | OPTIONAL |</small></p>
+
+Serializable class that holds the diagnostic data in JSON format to be sent to the backtrace endpoint via `backtraceApi`.
+
+---
+
+### `backtraceDatabase`
+<p><small>| CLASS | REQUIRED |</small></p>
+
+Class that stores error report data in your local hard drive when reports fail to send due to network outages or server unavailability. `backtraceDatabase` will periodically try to resend reports cached in the database.
+
+---
+
 ### `backtraceDatabase.Clear`
 <p><small>| METHOD | OPTIONAL |</small></p>
 
@@ -458,6 +488,19 @@ Sends all reports to the Backtrace server, as defined by the client side dedupli
 backtraceDatabase.Send();
 ```
 
+### `backtraceReport`
+<p><small>| CLASS | OPTIONAL |</small></p>
+
+Class that defines a single error report.
+
+---
+
+### `reportWatcher`
+<p><small>| CLASS | REQUIRED |</small></p>
+
+Class that validates send requests from `backtraceApi` to the Backtrace endpoint. If `ReportPerMin` is set to a value greater than '0' in the `backtraceClient` configuration, `reportWatcher` will limit the number of reports sent by the client.
+
+
 ## Data Management
 
 The Backtrace Unity SDK allows you to modify and remove data that the library collects when an exception occurs using the following methods:
@@ -507,51 +550,3 @@ client.BeforeSend = (BacktraceData data) =>
     return data;
 }
 ```
-
----
-
-## Architecture Components
-
-### `backtraceApi`
-<p><small>| CLASS | REQUIRED |</small></p>
-
-Class used to send diagnostic data in JSON format to the Backtrace endpoint, including asynchronous reports. `backtraceApi` is instantiated when the `backtraceClient` awake method is called.
-
----
-
-### `backtraceClient`
-<p><small>| CLASS | REQUIRED |</small></p>
-
-Class used to send `backtraceReport` to the Backtrace server by using `backtraceApi`. `backtraceClient` requires a Backtrace Configuration to manage the behavior of the error reporting library.
-
-:::note
-This class inherits `MonoBehavior` functions.
-:::
-
----
-
-### `backtraceData`
-<p><small>| CLASS | OPTIONAL |</small></p>
-
-Serializable class that holds the diagnostic data in JSON format to be sent to the backtrace endpoint via `backtraceApi`.
-
----
-
-### `backtraceDatabase`
-<p><small>| CLASS | REQUIRED |</small></p>
-
-Class that stores error report data in your local hard drive when reports fail to send due to network outages or server unavailability. `backtraceDatabase` will periodically try to resend reports cached in the database.
-
----
-
-### `backtraceReport`
-<p><small>| CLASS | OPTIONAL |</small></p>
-
-Class that defines a single error report.
-
----
-
-### `reportWatcher`
-<p><small>| CLASS | REQUIRED |</small></p>
-
-Class that validates send requests from `backtraceApi` to the Backtrace endpoint. If `ReportPerMin` is set to a value greater than '0' in the `backtraceClient` configuration, `reportWatcher` will limit the number of reports sent by the client.
