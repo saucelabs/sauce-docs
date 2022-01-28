@@ -675,7 +675,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.us-west-1.saucelabs.com/v1/analytics/trends/builds_tests?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z" |json_pp
+--request GET "https://api.us-west-1.saucelabs.com/v1/analytics/trends/builds_tests?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z" | json_pp
 ```
 
 </TabItem>

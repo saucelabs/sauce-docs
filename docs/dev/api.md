@@ -24,37 +24,39 @@ You can check the current accessibility of any Sauce Labs system on the [Sauce L
 
 ## Accessing the APIs
 
-The Sauce Labs APIs are organized around REST and each endpoint is structured as a resource-oriented URL that accepts inline query parameters and form-encoded request bodies, then returns JSON-encoded responses.
+The Sauce Labs APIs are organized around REST. Each endpoint is structured as a resource-oriented URL that accepts inline query parameters and form-encoded request bodies, then returns JSON-encoded responses.
 
 Each endpoint is constructed from a `{base-url}` prefix that is based on the data center associated with the Sauce Labs account for which the request is relevant, plus the latests version for the given method. The following table provide the base URLs for each data center.
 
 |Data Center|API Base URL|
-|---|-------|
+|:---|:-------|
 |US|`https://api.us-west-1.saucelabs.com/`|
 |Europe|`https://api.eu-central-1.saucelabs.com/`|
+|APAC Southeast|`https://api.apac-southeast-1.saucelabs.com/`|
+
 
 ### Authentication
 
-The Sauce Labs API uses API keys to authenticate requests. You can view and manage your API key in the Sauce Labs [User Settings](https://app.saucelabs.com/user-settings) page.
+:::tip
+The request examples throughout the API documentation utilize variables in place of Sauce Labs authentication credentials. Consider [setting your credentials as environment variables](/basics/environment-variables/) so that you can simply copy, paste, and run the code examples rather than manually passing your credentials for each call.
+:::
+
+The Sauce Labs API uses API keys to authenticate requests. You can view and manage your API key under your [Sauce Labs User Settings](https://app.saucelabs.com/user-settings).
 
 Authentication to the API is performed via [HTTP Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication). Provide your username and API key as the basic auth username and password values, respectively. All requests must be made over HTTPS. Calls made over HTTP or without proper authentication will fail.
 
 You can provide your authentication credentials as inline parameters of your request or using a Basic Header.
 
-```curl "Inline Authenticated Request Example"
+```bash title="Inline Authenticated Request Example"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams'
 ```
 
-```curl "Header Authenticated Request Example"
-curl -L -X GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/' -H 'Authorization: Basic' -U <SAUCE_USERNAME> -K <SAUCE_ACCESS_KEY>
-```
-
-The request examples throughout the API documentation utilize variables for the authentication credentials. Consider setting your credentials as environment variables using the following commands so you can simply copy the request samples and run them without having to manually pass your credentials for each call.
-
-```jsx "Set Credential Environment Variables"
-$ export SAUCE_USERNAME=<your.user.name>
-$ export SAUCE_ACCESS_KEY=<your access key>
+```bash title="Header Authenticated Request Example"
+curl -L -X GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/' \
+-H 'Authorization: Basic' \
+-u $SAUCE_USERNAME \
+-k $SAUCE_ACCESS_KEY
 ```
 
 
@@ -62,7 +64,7 @@ $ export SAUCE_ACCESS_KEY=<your access key>
 
 The API is versioned by URL, each of which may be in a different stage of release. The currently published version of each endpoint is reflected in the URL itself, as demonstrated in the following two endpoints:
 
-* `https://api.us-west-1.saucelabs.com/rest/v1/<USERNAME>/jobs`
+* `https://api.us-west-1.saucelabs.com/rest/v1/{username}/jobs`
 * `https://api.us-west-1.saucelabs.com/v2/performance/metrics/`
 
 ### Methods
@@ -138,6 +140,6 @@ Requests received after the rate limit is reached return a [429 response code](h
 
 ## JSON Response Formatting
 
-The request samples throughout the API documentation are appended with `| json_pp` as a convenience to return the response in a more readable format that does not require the installation of any additional tools.
+The request examples throughout the API documentation are appended with `| json_pp` as a convenience to return the response in a more readable format that does not require the installation of any additional tools.
 
-You can remove the `|json_pp` reference from your requests to have responses returned as raw JSON, or you can specify a different syntax formatter of your choosing, such as [JQ](https://stedolan.github.io/jq/).
+You can remove the `| json_pp` reference from your requests to have responses returned as raw JSON, or you can specify a different syntax formatter of your choosing, such as [JQ](https://stedolan.github.io/jq/).

@@ -1,13 +1,13 @@
 ---
 id: project-access
-title: Assigning Project Access Levels
-sidebar_label: Project Access Levels
+title: Setting API Project-Level Permissions
+sidebar_label: Setting Project Permissions
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 
-When you create a new Project, you can assign one of two access level permissions: team-specific (if you're part of one) or **Organization**-wide.
+When creating a new Project, you can assign one of two access level permissions: Team-specific (if you're part of one) or **Organization**-wide.
 
 <img src={useBaseUrl('img/api-fortress/2021/12/accessOrg1.png')} alt="New user UI" width="300" />
 
@@ -25,10 +25,10 @@ This user would have the option to set Organization-wide Project access and woul
 ### Team Member
 A user who belongs to a Team can create and interact with their own Team's Projects and Organization-wide Projects.
 
-This user would have the option to set team-specific and Organization-wide Project access. They would not be able to view Projects that are restricted to outside Teams.
+This user would have the option to set Team-specific and Organization-wide Project access. They would not be able to view Projects that are restricted to outside Teams.
 
 ### Organization Admin
-Organization Admins can create and interact with all data in all Projects &#8212; Organization-wide and team-specific.
+Organization Admins can create and interact with all data in all Projects &#8212; Organization-wide and Team-specific.
 
 ## Viewing Access Levels
 You can view the access level on your Projects page.<br/><img src={useBaseUrl('img/api-fortress/2021/12/accessOrg2.png')} alt="New user UI" width="500" />
