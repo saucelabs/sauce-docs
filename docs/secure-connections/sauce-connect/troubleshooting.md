@@ -147,7 +147,7 @@ For additional help, please reach out to the Sauce Labs Support Team. To better 
 * Your Sauce Connect Proxy verbose log, which you can get by adding the `-v` and `-l sc.log` options to your Sauce Connect Proxy command line:
 
   ```bash
-  sc -u [Your Sauce Username] -k [Your Sauce Access Key] -v -l sc.log
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -v -l sc.log
   ```
 
 Then, attach the resulting `sc.log` file to your support request.

@@ -14,7 +14,7 @@ Learn how to move your data from API Fortress (our legacy platform) to Sauce Lab
 
 ## Moving Tests from API Fortress to Sauce Labs
 
-### Export Tests from API Fortress
+### Exporting Tests from API Fortress
 
 1. Log in to API Fortress.
 2. Choose the Project containing the Tests you want to move to Sauce Labs.
@@ -24,7 +24,7 @@ Learn how to move your data from API Fortress (our legacy platform) to Sauce Lab
 5. Click **Export Selected**. This will give you a zip folder containing all of your tests.<br/><img src={useBaseUrl('img/api-testing/import-tests/export-selected.png')} alt="Export selected" width="600" />
 
 
-### Import Tests to Sauce Labs
+### Importing Tests to Sauce Labs
 
 6. Follow the instructions under [Importing API Tests to Sauce Labs](/api-testing/import-export-tests/#importing-api-tests-to-sauce-labs).
 
