@@ -351,6 +351,14 @@ module.exports = {
                     'error-reporting/platform-integrations/unity/attributes',
                   ],
                 },
+              {
+                type: 'category',
+                label: 'Unreal',
+                collapsed: true,
+                items: [
+                    'error-reporting/platform-integrations/unreal',
+                  ],
+                },
               ],
             },
           ],

@@ -2,7 +2,7 @@
 id: unity
 title: Unity Integration Guide
 sidebar_label: Getting Started
-description: Capture and report handled and unhandled exceptions in Unity.
+description: Capture and report handled and unhandled exceptions in Unity games and apps.
 ---
 Backtrace's integration with Unity allows you to capture and report handled and unhandled Unity exceptions to a Backtrace instance, instantly offering the ability to prioritize and debug software errors.
 
