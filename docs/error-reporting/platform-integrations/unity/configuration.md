@@ -102,7 +102,9 @@ This functionality is supported on all platforms except WebGL.
 |Enable crash free metrics reporting|Enables metrics such as crash free users and crash free sessions.|Boolean|True|
 |Auto send interval in min|Indicates how often crash free metrics are sent to Backtrace. <br /><br />By default, session events are sent on application startup, when the game ends, and every 30 minutes while the game is running.|Number|30|
 
-You can also enable crash free metrics at runtime with `BacktraceClient.EnableMetrics()`.
+You can enable crash free metrics at runtime with `BacktraceClient.EnableMetrics()`.
+
+You can also add custom metrics groups and attributes with [`BacktraceClient.EnableMetrics()`](/error-reporting/platform-integrations/unity/configuration/#backtraceclientinstancemetricsaddsummedevent).
 
 
 ### Capturing Native Crashes
@@ -247,11 +249,47 @@ Class used to send diagnostic data in JSON format to the Backtrace endpoint, inc
 ### `backtraceClient`
 <p><small>| CLASS | REQUIRED |</small></p>
 
-Class used to send `backtraceReport` to the Backtrace server by using `backtraceApi`. `backtraceClient` requires a Backtrace Configuration to manage the behavior of the error reporting library.
+Class used to send `backtraceReport` to the Backtrace server by using `backtraceApi`. `backtraceClient` requires a Backtrace Configuration window.
 
 :::note
 This class inherits `MonoBehavior` functions.
 :::
+
+```c#
+
+ //Read from manager BacktraceClient instance
+var backtraceClient = GameObject.Find("manager name").GetComponent<BacktraceClient>();
+
+//Set custom client attribute
+backtraceClient["attribute"] = "attribute value";
+
+ //Read from manager BacktraceClient instance
+var database = GameObject.Find("manager name").GetComponent<BacktraceDatabase>();
+
+
+try{
+    //throw exception here
+}
+catch(Exception exception){
+    var report = new BacktraceReport(exception);
+    backtraceClient.Send(report);
+}
+```
+
+---
+
+### `backtraceClient.Initialize`
+<p><small>| METHOD | REQUIRED |</small></p>
+
+Method used to initialize the Backtrace Unity SDK directly in the C# code of your Unity project.
+
+```c#
+var backtraceClient = BacktraceClient.Initialize(
+    url: serverUrl,
+    databasePath: "${Application.persistentDataPath}/sample/backtrace/path",
+    gameObjectName: "game-object-name",
+    attributes: attributes);
+```
 
 If you need to use more advanced configuration settings, the `Initialize` method accepts a `BacktraceConfiguration` scriptable object. For example:
 
@@ -271,10 +309,61 @@ _backtraceClient = BacktraceClient.Initialize(
 
 ---
 
+### `backtraceClient.Instance.Metrics.AddSummedEvent()`
+<p><small>| METHOD | OPTIONAL |</small></p>
+
+Used to add custom metrics groups and attributes to capture your game or apps' stability.
+
+For example, if you want to know details about the levels that a user has played in your game, you can add a "LevelsPlayed" event with the `application.version` and `score` attributes.
+
+```c#
+BacktraceClient.Instance.Metrics.AddSummedEvent("levels_played", new Dictionary<string, string>() {
+  {"application.version", BacktraceClient.Instance["application.version"]},
+  {"score", "" + score}
+ }
+);
+```
+
+As another example, if you want to know how many minutes a user has played your game, you can add a "MinutesPlayed" event with the `application.version` and `uname.sysname` attributes.
+
+```c#
+private void Update()
+{
+    timeElapsedSeconds += Time.deltaTime;
+
+    // Every second, add an event for this metric group
+    if (timeElapsedSeconds >= 60)
+    {
+      timeElapsedSeconds = 0;
+
+      // Generate your attribute values for the attributes you want linked
+      Dictionary<string,string> attributes = new Dictionary<string, string>()
+      {
+        { "application.version", BacktraceClient.Instance["application.version"] },
+        { "uname.sysname", BacktraceClient.Instance["uname.sysname"] },
+        { "custom.field", "custom.value" },
+      };
+
+      // Add the summed event using the metric group name and attributes
+      BacktraceClient.Instance.Metrics.AddSummedEvent("MinutesPlayed", attributes);
+    }
+}
+```
+
+The example above adds an event for this metric group to a queue, which will be sent based on the Auto send interval setting in the Backtrace Configuration in Unity.  
+
+You can adjust the frequency of that send process to suit your needs and/or manually send the events with `BacktraceClient.Instance.Metrics.Send()`.
+
+:::caution
+Adding multiple events with many linked attributes or sending the metrics events too frequently may affect the performance of your game or app and contribute a lot of data towards your Backtrace data storage limits.
+:::
+
+---
+
 ### `backtraceClient.Refresh`
 <p><small>| METHOD | OPTIONAL |</small></p>
 
-If you change the configuration settings dynamically, make sure to use the `Refresh` method to apply the configuration changes. For example:
+Method used to refresh and apply the configuration settings for the Backtrace client when you change the configuration dynamically. For example:
 
 ```c#
 //Read from manager BacktraceClient instance
