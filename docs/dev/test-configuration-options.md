@@ -727,9 +727,8 @@ See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/b
 "tunnelIdentifier": "MyTunnel01"
 ```
 
-:::warning
-BREAKING CHANGE
-Appium tests for the Real Device Cloud using the W3C protocol MUST use tunnelName instead of tunnelIdentifier.
+:::caution Breaking Change
+Appium tests for the Real Device Cloud using the W3C protocol MUST use `tunnelName` instead of `tunnelIdentifier`.
 :::
 
 ---
