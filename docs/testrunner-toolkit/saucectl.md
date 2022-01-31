@@ -399,7 +399,7 @@ saucectl run --tags e2e,team2
 Sets a limit (in seconds or minutes) for how long `saucectl` can run this test (no limit by default).
 
 :::caution Real Device Max Duration
-When setting the timeout values for your suites, consider that real devices enforce a maximum test duration limit of 60 minutes.
+When setting the timeout values for your suites, consider that native framework tests on real devices enforce a maximum test duration limit of 60 minutes.
 :::
 
 ```bash

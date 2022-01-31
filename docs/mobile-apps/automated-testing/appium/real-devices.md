@@ -15,9 +15,6 @@ Appium automated real device testing supports tests designed to run against a we
 
 See [When to Test on Real Devices](https://docs.saucelabs.com/mobile-apps/supported-devices/#when-to-test-on-real-devices) for deails about real device testing use cases, benefits, and system requirements.
 
-:::caution Real Device Max Duration
-Real devices enforce a maximum test duration limit of 60 minutes. If your tests are likely to run for an extended duration, consider testing on virtual devices.
-:::
 
 ## What You'll Need
 
