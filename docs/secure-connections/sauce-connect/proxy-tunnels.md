@@ -228,14 +228,14 @@ One option to start Ephemeral tunnels is to do so from your local workstation.
   <TabItem value="Mac/Linux">
 
   ```bash
-  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region {SAUCE_DATA_CENTER} --tunnel-identifier {TUNNEL_NAME}
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region {SAUCE_DATA_CENTER} --tunnel-identifier $TUNNEL_IDENTIFIER
   ```
 
   </TabItem>
   <TabItem value="Windows">
 
   ```bash
-  sc -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region {SAUCE_DATA_CENTER} --tunnel-identifier {TUNNEL_NAME}
+  sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region {SAUCE_DATA_CENTER} --tunnel-identifier $TUNNEL_IDENTIFIER
   ```
 
   </TabItem>
@@ -256,7 +256,7 @@ You can also launch Ephemeral tunnels from a continuous integration (CI) build s
 
 3. How you start your tunnel is up to you. You can run a simple Bash shell script (or PowerShell script, if you're in Windows) that simply executes the start commands as if you were starting it locally:  
   ```bash
-  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r eu-central --tunnel-identifier {TUNNEL_NAME}
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r eu-central --tunnel-identifier $TUNNEL_IDENTIFIER
   ```
 
 Once you've established your automated loop, you should be able to kick off builds as needed, automatically.
