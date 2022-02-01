@@ -89,7 +89,7 @@ Once you've confirmed that your network is configured to use HA, launch Sauce Co
 <TabItem value="windows">
 
 ```bash
-sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
+.\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
   --tunnel-identifier tunnel_name_here ^
   --tunnel-pool
 ```
