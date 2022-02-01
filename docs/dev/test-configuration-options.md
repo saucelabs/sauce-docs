@@ -727,6 +727,10 @@ See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/b
 "tunnelIdentifier": "MyTunnel01"
 ```
 
+:::caution Breaking Change
+Appium tests for the Real Device Cloud using the W3C protocol MUST use `tunnelName` instead of `tunnelIdentifier`.
+:::
+
 ---
 ### `parentTunnel`  
 <p><small>| STRING |</small></p>
@@ -737,6 +741,11 @@ If the [tunnelIdentifier](#tunnelidentifier) you've specified to establish conne
 "tunnelIdentifier": "MyTeamSharedTunnel"
 "parentTunnel": "<username of tunnel originator>"
 ```
+
+:::warning
+BREAKING CHANGE
+Appium tests for the Real Device Cloud using the W3C protocol MUST use tunnelOwner instead of parentTunnel.
+:::
 
 ---
 ### `recordVideo`

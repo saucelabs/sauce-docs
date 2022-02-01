@@ -235,7 +235,7 @@ One option to start Ephemeral tunnels is to do so from your local workstation.
   <TabItem value="Windows">
 
   ```bash
-  sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region {SAUCE_DATA_CENTER} --tunnel-identifier $TUNNEL_IDENTIFIER
+  .\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region {SAUCE_DATA_CENTER} --tunnel-identifier $TUNNEL_IDENTIFIER
   ```
 
   </TabItem>

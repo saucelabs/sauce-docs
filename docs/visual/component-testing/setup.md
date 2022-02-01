@@ -10,30 +10,31 @@ import TabItem from '@theme/TabItem';
 >**Screener Docs are Now Sauce Docs**<br/>
 As part of our efforts to bring you a single, unified documentation site, we've migrated all Visual Docs from [Screener.io](https://screener.io) to Sauce Docs.
 
-Follow this quickstart guide to integrate Sauce Labs Visual Component Testing (Screener) with Storybook, a UI component development tool. Whether you're an experienced Storybook user or have never used it, we've got you covered in the Quickstart steps below.
+Follow the steps to integrate Sauce Labs Visual Component Testing with Storybook, a UI component development tool. The integration will run your existing Storybook stories as UI regression test cases in our automated visual testing platform.
+* Get detailed UI test results across your React, Vue, Angular, and HTML components
+* Facilitate accelerate debugging and shorten release cycles
 
-Our Storybook integration will run your existing Storybook stories as UI regression test cases in our automated visual testing platform, which can accelerate debugging and shorten release cycles. You'll get detailed UI test results across your React, Vue, Angular, and HTML components.
-
+:::caution New to Storybook?
+Follow Storybook installation instructions under [step 1](#confirm-screener-installation).
+:::
 
 ## What You'll Need
 * A [Sauce Labs self-serve or enterprise account](https://saucelabs.com/pricing) with access to Visual Testing. To request access, contact your CSM or Sauce Labs Support. Not available for free-trial accounts.
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * Your [Screener API Key](https://screener.io/v2/account/api-key).
-* A GitHub account.
+* A [GitHub account](https://github.com/).
 * Have [Node.js installed](https://nodejs.org).
-* An existing [Storybook project](https://storybook.js.org/basics/quick-start-guide/) with some [component stories](https://storybook.js.org/basics/writing-stories/) written.
+* Recommended: an existing [Storybook project](https://storybook.js.org/basics/quick-start-guide/) with some [component stories](https://storybook.js.org/basics/writing-stories/) written.
 
 
 
 ## Confirm Screener Installation
 
-:::caution New to Storybook?
+1. First, confirm that Storybook is installed correctly on your local machine by running `npm run storybook`.
 
-If you've never used Storybook, follow the steps below to install it and create your first project. Then proceed to step 1.
+  <details><summary>New to Storybook? <strong>Click here</strong> to install.</summary>
 
-<details><summary>Install Storybook</summary>
-
-Open a terminal and run the following commands, one at a time.
+  Follow the steps below to install Storybook and create your first project. Open a terminal and run the following commands, one at a time.
 
   ```bash title="Installs Storybook and Creates Storybook Project Called 'my-storybook'"
   npx create-react-app my-storybook
@@ -50,17 +51,12 @@ Open a terminal and run the following commands, one at a time.
   ```bash title="Launches Your Storybook Project"
   npm run storybook
   ```
-</details>
-
-:::
-
-1. First, confirm that Storybook is installed correctly on your local machine by running `npm run storybook`.
+  </details>
 
 
 ## Install Screener Package
 
-2. From your terminal, navigate to the file path where you downloaded your Storybook sample project (i.e., `cd my-storybook` or `cd downloads/my-storybook`).
-
+2. From your terminal, navigate to the file path where you downloaded your Storybook sample project (i.e., `cd my-storybook`).
 3. Install the [screener-storybook package](https://github.com/screener-io/screener-storybook) as a dependency in your project:
   ```bash
   npm install screener-storybook --save-dev
@@ -99,11 +95,14 @@ Open a terminal and run the following commands, one at a time.
    </Tabs>
 
 
-### Create Screener Config File
+## Create Screener Config File
 
 5. Create a new JavaScript file, name it **screener.config.js**, and save it to the root folder of your Storybook project.
-6. Choose one the two options:<br/>
-  a. If you're using the `my-storybook` sample project, copy and paste this code snippet into your **screener.config.js** file, then save it.
+6. Choose one of the options below:
+
+  <details><summary>If you're using the sample Storybook project, <strong>click here</strong>.</summary>
+
+  copy and paste this code snippet into your **screener.config.js** file, then save it.
    ```js
    module.exports = {
      projectRepo: 'sb-6.1-test',
@@ -112,8 +111,12 @@ Open a terminal and run the following commands, one at a time.
      resolution: '1024x768'
    };
    ```
+  </details>
 
-  b. If you're integrating Visual Component Testing into your own Storybook project, copy and paste this code snippet into your **screener.config.js** file, then replace the placeholder values with your own. `projectRepo` is the name of your project's repository (e.g., GitHub repos are in the "owner/repository-name" format) and `resolution` is your desired browser resolution. <br/><br/>`storybookConfigDir`/`storybookStaticDir` are your Storybook server options; you may not need to add both. In your project directory, find the `start-storybook` command, usually a script in **package.json** file. If the `-c` or `--config-dir` option is set, add `storybookConfigDir` and that value to your code snippet. If the `-s` or `--static-dir` option is set, add the `storybookStaticDir` with its value.
+  <details><summary>If you're using your own Storybook project, <strong>click here</strong>.</summary>
+
+  Copy and paste this code snippet into your **screener.config.js** file, then replace the placeholder values with your own.
+
    ```js
    module.exports = {
      projectRepo: '<your-repo>',
@@ -124,21 +127,26 @@ Open a terminal and run the following commands, one at a time.
    };
   ```
 
-### Add Screener Script
+   `projectRepo` the name of your project's repository (e.g., GitHub repos are in the "owner/repository-name" format).<br/>
+   `resolution` is your desired browser resolution. <br/>
+   `storybookConfigDir`/ `storybookStaticDir` are your Storybook server options; you may not need to add both. In your project directory, find the `start-storybook` command, usually a script in **package.json** file. If the `-c` or `--config-dir` option is set, add `storybookConfigDir` and that value to your code snippet. If the `-s` or `--static-dir` option is set, add the `storybookStaticDir` with its value.
+  </details>
+
+## Add Screener Script
 
 7. Open your project's **package.json** file and add the following npm script to your `"scripts": {` section:
    ```json
    "test-storybook": "screener-storybook --conf screener.config.js"  
    ```
 
-### Run Test
+## Run Test
 
 8. Run your test:
   ```bash
   npm run test-storybook
   ```
 
-### View Results
+## View Results
 
 9. Log in to Visual Testing Dashboard (Sauce Labs > **SAUCE APPS** > **Visual** > **Login**) to view your running test in progress. This initial test will be labeled as failed because there's no preexisting baseline state to compare against. To resolve this, [review and accept](https://screener.io/v2/docs/visual-e2e/review-flow) the new states as the baseline.
 
@@ -154,7 +162,7 @@ Open a terminal and run the following commands, one at a time.
 
 ### Related Links
 * [Testing a Static Storybook Web App](/visual/component-testing/storybook-static/)
-* [What is Automated Visual Regression Testing?](https://saucelabs.com/blog/what-is-automated-visual-regression-testing)
+* [Automated Visual Regression Testing](https://saucelabs.com/blog/what-is-automated-visual-regression-testing)
 * [New Project Wizard](https://screener.io/v2/new): create a new project directly in the UI.
 * [CI Integration](/visual/component-testing/integrations/continuous-integration)
 * [GitHub Integration](/visual/component-testing/integrations/github)
