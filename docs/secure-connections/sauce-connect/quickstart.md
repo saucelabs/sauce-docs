@@ -14,14 +14,17 @@ Using older Sauce Connect versions may impact your ability to launch a tunnel or
 
 Get up and running with a basic Sauce Connect Proxy tunnel in minutes using the steps below.
 
+
 ## What You'll Need
 
-* Have the [latest Sauce Connect Proxy client version](/secure-connections/sauce-connect/installation) downloaded to your local machine's home directory.
+* Have the [Sauce Connect Proxy client](/secure-connections/sauce-connect/installation) downloaded to your local machine.
+
 
 ## Start Tunnel
 
-1. Open your local terminal and navigate to the bin folder, which contains the Sauce Connect Proxy client.<br/><img src={useBaseUrl('img/sauce-connect/scp-bin.png')} alt="Sauce Connect download file contents" width="350" />
+These instructions assume that Sauce Connect Proxy is downloaded to your machine's home directory (i.e., ~/sc-4.7.1-osx).
 
+1. Open your local terminal and navigate to the bin folder, which contains the Sauce Connect Proxy client.
   <Tabs
     defaultValue="Mac"
     values={[
@@ -44,6 +47,8 @@ Get up and running with a basic Sauce Connect Proxy tunnel in minutes using the 
   </TabItem>
   </Tabs>
 
+  <img src={useBaseUrl('img/sauce-connect/scp-bin.png')} alt="Sauce Connect download file contents" width="350" />
+
 2. Log in to Sauce Labs.
 3. Go to the **Tunnels** page.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsPage.png')} alt="Sauce Connect Proxy Tunnels page" width="200"/>
 4. On the **Tunnels** page, skip to **STEP 3: Configure & Authenticate** and copy the run command. This snippet contains your [username](/dev/cli/sauce-connect-proxy/#--user), [access key](/dev/cli/sauce-connect-proxy/#--api-key), [data center](/dev/cli/sauce-connect-proxy/#--region), and a [tunnel name](/dev/cli/sauce-connect-proxy/#--tunnel-identifier).<br/><img src={useBaseUrl('img/sauce-connect/configureAuth.png')} alt="Sauce Connect Proxy Tunnels page snippet" width="500"/>
@@ -52,12 +57,12 @@ Get up and running with a basic Sauce Connect Proxy tunnel in minutes using the 
 
 ## Verify Tunnel Success
 
-7. To verify that your tunnel is up and running, there are two places you can check: the [command-line interface](/secure-connections/sauce-connect/proxy-tunnels/#command-line-interface) and [**Tunnels** page](/secure-connections/sauce-connect/proxy-tunnels/#tunnels-page).
+7. To verify that your tunnel is up and running, there are two places you can check: the [CLI](/secure-connections/sauce-connect/proxy-tunnels/#command-line-interface) or the [**Tunnels** page](/secure-connections/sauce-connect/proxy-tunnels/#tunnels-page).
 
 
 ## Run Local Test
 
-Try running a Live Cross-Browser or Mobile App local test through your tunnel. Sauce Connect is required to run a test on app or website that's on your local machine or behind a firewall.
+Try running a Live local test (either Cross-Browser or Mobile App) through your tunnel. Sauce Connect is required to run a test on an app or website located on your local machine or behind a firewall.
 
 <Tabs
     defaultValue="Web"
@@ -69,48 +74,35 @@ Try running a Live Cross-Browser or Mobile App local test through your tunnel. S
 
 <TabItem value="Web">
 
-9. Go back to Sauce Labs and click **LIVE** > **Cross Browser** > **Desktop** tab.
-10. Select desired configuration:
-    * In the **URL** field, input the URL for your local website under test (e.g., `http://localhost:3000`).
-    * Click the **Sauce Connect Proxy** dropdown and select the name of the tunnel you've launched.
-    * Choose a **BROWSER SELECTION**, **RESOLUTION**, and **OS VERSION** from those dropdown menus.
-    * Click **Start Test** to launch your test.
-11. Use your mouse cursor and keyboard to interact with your website under test. For more details, see [Live Desktop Test Interface](/web-apps/live-testing/live-cross-browser-testing/#live-desktop-test-interface). When you're done testing, move to the next step to learn how to stop a tunnel.
+8. From Sauce Labs, click **Live** > **Cross Browser** > **Desktop**.
+9. Enter the URL for your local website under test (e.g., `http://localhost:3000`), select your tunnel from the **Sauce Connect Proxy** dropdown, and choose your [desired browser configuration](/web-apps/live-testing/live-cross-browser-testing/#testing-on-a-desktop-browser).
+10. Click **Start Test** to launch your test, then use your mouse cursor and keyboard to [interact with your website under test](/web-apps/live-testing/live-cross-browser-testing/#live-desktop-test-interface).
 
 </TabItem>
 <TabItem value="Mobile Browser">
 
-9. Go back to Sauce Labs and click **LIVE** > **Cross Browser** > **Mobile Virtual** or **Mobile Real** tab.
-10. Select desired configuration:
-    * In the **URL** field, input the URL for your local website under test (e.g., `http://localhost:3000`).
-    * Click the **Sauce Connect Proxy** dropdown and select the name of the tunnel you've launched.
-    * For **Mobile Virtual**, choose a **MANUFACTURER**, **DEVICE**, and **OS VERSION** from those dropdown menus. For **Mobile Real**, click a device from the menu.
-    * Click **Start Test** to launch your test.
-11. Use your mouse cursor and keyboard to interact with your website under test. For more details, see [Testing on a Mobile Browser](/web-apps/live-testing/live-cross-browser-testing/#testing-on-a-mobile-browser). When you're done testing, move to the next step to learn how to stop a tunnel.
+8. From Sauce Labs, click **Live** > **Cross Browser** > **Mobile Virtual** or **Mobile Real**.
+9. Enter the URL for your local website under test (e.g., `http://localhost:3000`), select your tunnel from the **Sauce Connect Proxy** dropdown, and choose your [**Mobile Virtual**](/web-apps/live-testing/live-cross-browser-testing/#virtual-device) or [**Mobile Real** configuration](/web-apps/live-testing/live-cross-browser-testing/#real-device).
+10. Click **Start Test** to launch your test, then use your mouse cursor and keyboard to [interact with your site under test](/web-apps/live-testing/live-cross-browser-testing/#testing-on-a-mobile-browser).
 
 </TabItem>
 <TabItem value="Mobile App">
 
-9. If you want to test a native mobile app, you'll need to [upload it to Sauce Storage](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app) or to [another location](/mobile-apps/app-storage/#uploading-apps-via-rest-api) where our emulators, simulators, and real devices can connect to it.
-10. Hover your mouse over the app line item and click **Choose Device**, then select desired configuration:
-    * Click the **Sauce Connect Proxy** dropdown and select the name of the tunnel you've launched.
-    * For **Mobile Virtual**, choose a **MANUFACTURER**, **DEVICE**, and **OS VERSION** from those dropdown menus. For **Mobile Real**, click a device from the menu.
-    * Click **Start Test** to launch your test.
-11. Use your mouse cursor and keyboard to interact with your website under test. For more details, see [Live Mobile App Test Interface](/mobile-apps/live-testing/live-mobile-app-testing/#live-test-interface). When you're done testing, move to the next step to learn how to stop a tunnel.
+8. Upload your native mobile app file to [Sauce Storage](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app) or to another location where our emulators, simulators, and real devices can connect to it (see [Uploading via REST API](/mobile-apps/app-storage/#uploading-apps-via-rest-api)).
+9. [Choose your device](/mobile-apps/live-testing/live-mobile-app-testing/#selecting-a-device), select your desired [**Mobile Virtual**](/mobile-apps/live-testing/live-mobile-app-testing/#virtual-devices) or [**Mobile Real**](/mobile-apps/live-testing/live-mobile-app-testing/#real-devices) configuration, and select your tunnel from the **Sauce Connect Proxy** dropdown.
+10. Click **Start Test** to launch your test, then use your mouse cursor and keyboard to [interact with your app under test](/mobile-apps/live-testing/live-mobile-app-testing/#live-test-interface).
 
 </TabItem>
 </Tabs>
 
 ## Stop Tunnel
 
-12. To stop your tunnel, choose from one of the below options:
-    * [Command Line (Using Ctrl+C)](/secure-connections/sauce-connect/proxy-tunnels/#to-stop-a-single-tunnel-ctrlc)
-    * [Tunnels Page (Using Stop button)](/secure-connections/sauce-connect/proxy-tunnels/#to-stop-a-single-tunnel)
+11. To stop your tunnel when you're finished testing, you can do so from the [CLI](/secure-connections/sauce-connect/proxy-tunnels/#to-stop-a-single-tunnel-ctrlc) or [Tunnels Page](/secure-connections/sauce-connect/proxy-tunnels/#from-the-tunnels-page).
 
 
 ## More Information
 
 * [Sauce School | Sauce Connect Proxy Course](https://training.saucelabs.com/sauceconnect/)
 * [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy/)
-* [Sauce Connect Proxy Configurations](/secure-connections/sauce-connect/setup-configuration/basic-setup/)
-* [Recommended: Set Your Username and Access Key as Environment Variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/)
+* [Sauce Connect Proxy Basic Configuration](/secure-connections/sauce-connect/setup-configuration/basic-setup/)
+* [Setting Your Username and Access Key as Environment Variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/)
