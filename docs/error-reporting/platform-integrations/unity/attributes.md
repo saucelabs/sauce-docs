@@ -120,11 +120,11 @@ You can also define custom attributes to be captured, sent, and indexed. For mor
 |`scene.name`|The name of the active scene at the time the report is sent.|User Defined|User Defined|
 |`scene.path`|The path to the scene.|User Defined|User Defined|
 |`scripting.backend`|The scripting backend. Defined in the Player Settings for the Unity project.|User Defined|User Defined|
-|`state`|Description.|User Defined|User Defined|
+|`state`|The current state of the process.|User Defined|User Defined|
 |`uname.family`|The operating system (OS) family running the app.|User Defined|User Defined|
 |`uname.fullname`|The name and version of the operating system (OS).|User Defined|User Defined|
-|`vm.data`|Description.|User Defined|User Defined|
-|`vm.exe`|Description.|User Defined|User Defined|
-|`vm.shdpnd`|Description.|User Defined|User Defined|
-|`vm.sigpnd`|Description.|User Defined|User Defined|
-|`vm.threads`|Description.|User Defined|User Defined|
+|`vm.data`|The size of data.|User Defined|User Defined|
+|`vm.exe`|The size of text segments.|User Defined|User Defined|
+|`vm.shdpnd`|The mask of signals pending for the thread in hexadecimal.|User Defined|User Defined|
+|`vm.sigpnd`|The mask of signals pending for the process in hexadecimal.|User Defined|User Defined|
+|`vm.threads`|The number of threads in the process.|User Defined|User Defined|

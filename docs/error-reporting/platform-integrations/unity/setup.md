@@ -85,17 +85,7 @@ This installation method is supported for Unity 2018.3 or higher.
 </TabItem>
 </Tabs>
 
-## Step 2: Initialize the Backtrace Client
-
-<Tabs
-  groupId="initialization"
-  defaultValue="unity"
-  values={[
-    {label: 'Unity', value: 'unity'},
-    {label: 'C#', value: 'code'},
-  ]}>
-
-  <TabItem value="unity">
+## Step 2: Initialize the Backtrace Client with GameObject
 
 In this step, you create the Backtrace Configuration asset, create a new GameObject, add the Backtrace Client component to the GameObject, then add the Backtrace Configuration to the Backtrace Client component.
 
@@ -119,26 +109,11 @@ Typically, the Backtrace Client component is added to a global GameManager or Ga
 
   1. From the Assets folder, drag the Backtrace Configuration file to the Backtrace configuration field.
 
-Additional fields now display for the Backtrace client configuration and database configuration options. For more information about the available configuration options, see [Configuration](/error-reporting/platform-integrations/unity/configuration).
+Additional fields now display for the Backtrace client configuration and database configuration options.
 
-  </TabItem>
-  <TabItem value="code">
+To change Backtrace client and database options, we recommend to change these values in the Unity UI via Backtrace Configuration file. Alternatively, you can also make changes to the configuration in the C# code for your Unity project.
 
-If you want to initialize the Backtrace client programatically, you can use `Initialize` method available in the `BacktraceClient` class.
-
-```c#
-var backtraceClient = BacktraceClient.Initialize(
-      url: serverUrl,
-      databasePath: "${Application.persistentDataPath}/sample/backtrace/path",
-      gameObjectName: "game-object-name",
-      attributes: attributes);
-```
-
-To change Backtrace client and database options, we recommend to change these values in the Unity UI via Backtrace Configuration file. Alternatively, you can also make changes to the configuration in the C# code for your Unity project. For more information about the available configuration options, see [Configuration](/error-reporting/platform-integrations/unity/configuration).
-
-</TabItem>
-</Tabs>
-
+For more information about the available configuration options, see [Configuration](/error-reporting/platform-integrations/unity/configuration).
 
 ## Step 3: Enter the Server Address
 

@@ -33,7 +33,7 @@ After you've [setup](/error-reporting/platform-integrations/unity/setup) the Bac
 
 The configuration settings for the Backtrace client and database are defined by the Backtrace Configuration file in the Assets folder of your Unity project. It's recommended to change the configuration settings for the Backtrace client and database in the Unity Inspector:
 
-  <img src={useBaseUrl('img/error-reporting/unity-backtrace-client-config.png')} alt="Customizing Backtrace Client configuration options in the Unity Inspector" />
+  <img src={useBaseUrl('img/error-reporting/unity-backtrace-client-config.png')} alt="Customizing Backtrace client configuration options in the Unity Inspector" />
 
 Alternatively, you can also specify the configuration settings in the C# code for your app.
 
@@ -83,7 +83,7 @@ Alternatively, you can also specify the configuration settings in the C# code fo
 |Filter reports|Filters reports based on report type: <ul><li>Everything</li> <li>Message</li> <li>Handled Exception</li> <li>Unhandled Exception</li> <li>Hang</li> <li>Game Error</li></ul> For more advanced configuration, you can use [`backtraceClient.SkipReport`](/error-reporting/platform-integrations/unity/configuration/#backtraceclientskipreport).|Enum|Disable|
 |Collect last n game logs|Collects last n number of logs generated in the game.|Number|10|
 |Enable performance statistics|Allows the Backtrace client to measure execution time and include performance information as report attributes.|Boolean|False|
-|Destroy client on new scene load|Persists the Backtrace Client when a new game scene is loaded so it's available in every game scene.|Boolean|False|
+|Destroy client on new scene load|Removes the Backtrace client component when loading a new game scene. <br /><br /> By default, the Backtrace client will be available in every game scene.|Boolean|False|
 |Log random sampling rate|The rate at which random sample reports for DebugLog.error messages are sent to Backtrace. <br /><br />By default, 1% of the DebugLog.error messages will be sent to Backtrace. To send all DebugLog.error messages to Backtrace, set the value to '1'.|Decimal|0.01|
 |Game object depth limit|Filters the number of GameObject children in Backtrace reports.|Number|-1|
 |Disable error reporting integration in editor|Ignores errors encountered while the project is running in the Unity Editor and only reports errors encountered in a build.|Boolean|False|
