@@ -11,6 +11,7 @@ const docusaurusConfig = {
   organizationName: 'saucelabs',
   projectName: 'sauce-docs',
   scripts: [
+      "/scripts/hide.js",
     {
       src:  'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
       type: 'text/javascript',
