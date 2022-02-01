@@ -13,23 +13,23 @@ Execute API tests and interact with Sauce Labs API Testing (either locally or in
 
 ## Usage
 
-You'll need to run our Docker image as a container:
-
-`$ docker run quay.io/saucelabs/apifctl [COMMAND] [OPTIONS]`
+You'll need to run our Docker image as a container:<br/>`$ docker run quay.io/saucelabs/apifctl [COMMAND] [OPTIONS]`
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username](https://app.saucelabs.com/user-settings) and [Access Key](https://app.saucelabs.com/user-settings).
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
 
-### Adding Webhooks
-To utilize most `apifctl` functionalities, you'll need to add a webhook to your API Testing Project. To generate a webhook:
+## Adding Incoming Webhooks
+To utilize most `apifctl` CI/CD integration functionalities, you'll need to generate a webhook for your API Testing Project. Once generated, you add this webhook URL to your `apifctl` code to allow your third-party CI/CD app(s) to send data to Sauce Labs API Testing.
+
+To generate a webhook:
 
 1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
 1. Navigate to your Project and select the **WebHooks** tab.<br/><img src={useBaseUrl('img/api-fortress/2021/04/webHooksSection.png')} alt="webhook screenshot"/>
-1. Select **Create Hook**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/createHook.png')} alt="Create New WebHook"/>
-1. Enter a name for your webhook (description is optional), then click **Save**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/sampleHook.png')} alt="sample webhook details" width="500" />
+1. Select **Create Hook**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/createHook.png')} alt="Create New WebHook" width="300"/>
+1. Enter a **Hook Name** for your webhook (**Description** is optional), then click **Save**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/sampleHook.png')} alt="sample webhook details" width="300" />
 1. The generated **Hook URL** will then appear. Your Sauce Labs username, Sauce API Testing endpoint, and `{hook_id}` will populate automatically. For security reasons, you'll need to add your own access key.
   ```bash
   https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}
@@ -37,8 +37,11 @@ To utilize most `apifctl` functionalities, you'll need to add a webhook to your 
 1. Copy the URL to your clipboard and then you can use it either locally or as part of CI build.<br/>
    <img src={useBaseUrl('img/api-fortress/2021/04/hookURL.png')} alt="sample Hook URL"/>
 
-You can then reuse this Webhook for future tests within that Project by returning to the **Webhooks** section and copying it. Webhooks are Project-specific.
+You can then reuse this Webhook for future tests within that Project by returning to the **Webhooks** tab and copying it there. Webhooks are Project-specific.
 
+:::info
+Looking for information on _outgoing webhooks_? See [] for instructions on how to sending your API Testing data and results to third-party apps, allowing you to monitor your tests from external sources.
+:::
 
 ## `apifctl` Commands
 
@@ -57,6 +60,7 @@ Available Options:
 * [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
 * [<code>-f &#60;data format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>  
+* [<code>-b &#60;build ID&#62;</code>](#-b-build-id) <small>| OPTIONAL | STRING |</small>  
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run \
@@ -79,6 +83,8 @@ Available Options:
 * [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
 * [<code>-f &#60;data format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>   
+* [<code>-b &#60;build ID&#62;</code>](#-b-build-id) <small>| OPTIONAL | STRING |</small>  
+
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run-all -H \
@@ -101,6 +107,7 @@ Available Options:
 * [<code>-S &#60;execute synchronously&#62;</code>](#-s) <small>| OPTIONAL |</small>
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
 * [<code>-f &#60;data format&#62;</code>](#-f-data-format) <small>| OPTIONAL | STRING |</small>   
+* [<code>-b &#60;build ID&#62;</code>](#-b-build-id) <small>| OPTIONAL | STRING |</small>  
 
 ```bash title="Full Example"
 docker run quay.io/saucelabs/apifctl run-tag \
@@ -126,6 +133,7 @@ Available Options:
 * [<code>-T &#60;tunnel ID&#62;</code>](#-t-tunnel-id) <small>| OPTIONAL | STRING |</small>  
 * [<code>-t &#60;tags&#62;</code>](#-t-tags) <small>| OPTIONAL | STRING |</small>  
 * [<code>-n &#60;name of test&#62;</code>](#-n-name-of-test) <small>| OPTIONAL | STRING |</small>  
+* [<code>-b &#60;build ID&#62;</code>](#-b-build-id) <small>| OPTIONAL | STRING |</small>  
 
 
 ```bash title="Full Example"
@@ -431,6 +439,16 @@ Identifies the ID of the event you want to see. For use with the **[`event`](#ev
 ```
 
 ---
+### `-b <build ID>`
+<p><small>| STRING |</small></p>
+
+Adding this parameter allows you to specify the build ID you want to run your tests against. For use with the **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, and **[`exec`](#exec)** commands. For more information, see [Test Builds](/api-testing/project-dashboard/#test-builds).
+
+```bash
+-b build-12345
+```
+
+---
 ### `-d <test description>`
 <p><small>| STRING |</small></p>
 
@@ -464,7 +482,7 @@ Identifies the maximum number of metrics and events to be shown in the list. Def
 ### `-o <offset>`
 <p><small>| INTEGER |</small></p>
 
-Specifies the number of events and metrics to be skipped from the beginning of the list. Default value is `0`. For use with the the **[`events`](#events)** and **[`metrics`](#metrics)** commands.
+Specifies the number of events and metrics to be skipped from the beginning of the list. Default value is `0`. For use with the **[`events`](#events)** and **[`metrics`](#metrics)** commands.
 
 ```bash
 -o 10

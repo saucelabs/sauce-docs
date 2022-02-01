@@ -284,6 +284,16 @@ saucectl run --artifacts.download.when always
 ```
 ---
 
+### `--artifacts.cleanup <boolean>`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
+
+```bash
+saucectl run --artifacts.cleanup true
+```
+---
+
 ### `--build <string>`
 <p><small>| OPTIONAL | STRING | VIRTUAL ONLY |</small></p>
 
@@ -387,6 +397,10 @@ saucectl run --tags e2e,team2
 <p><small>| OPTIONAL | DURATION |</small></p>
 
 Sets a limit (in seconds or minutes) for how long `saucectl` can run this test (no limit by default).
+
+:::caution Real Device Max Duration
+When setting the timeout values for your suites, consider that native framework tests on real devices enforce a maximum test duration limit of 60 minutes.
+:::
 
 ```bash
 saucectl run --timeout 10s

@@ -17,6 +17,12 @@ const docusaurusConfig = {
       charset: 'UTF-8',
       "data-domain-script": '9e4c4ce3-8349-4030-9de7-0b1d368edfce',
     },
+    {
+      src: "https://solve-widget.forethought.ai/embed.js",
+      type: "application/javascript",
+      'data-api-key': "1f0243be-fd74-4205-bbff-cf72bc3c96b3",
+      'data-ft-location': "docs",
+    },
   ],
   themeConfig: {
     googleAnalytics: {
@@ -81,6 +87,11 @@ const docusaurusConfig = {
           label: 'CLI',
           position: 'left',
           to: '/dev/cli',
+        },
+        {
+          label: 'Low Code',
+          position: 'left',
+          to: '/dev/low-code',
         },
         // {
         //   label: 'Try it Free',
