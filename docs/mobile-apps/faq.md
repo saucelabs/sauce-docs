@@ -88,6 +88,10 @@ It is of great importance for us to make sure that no other user can have access
 
 Yes. We support OAuth login via Google and GitHub.
 
+#### **Are your devices jailbroken?**
+
+No. We do not offer jailbroken devices.
+
 
 ### Automated Testing
 
