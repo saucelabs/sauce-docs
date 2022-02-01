@@ -90,7 +90,7 @@ Yes. We support OAuth login via Google and GitHub.
 
 #### **Are your devices jailbroken?**
 
-No. We do not offer jailbroken devices.
+No. We do not offer jailbroken or rooted devices.
 
 
 ### Automated Testing
