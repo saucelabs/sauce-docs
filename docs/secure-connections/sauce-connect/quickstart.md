@@ -24,7 +24,7 @@ Sauce Connect is required to run a local test on an app or website located behin
 1. Download and extract the Sauce Connect Proxy client to your machine's home directory.
    * [Sauce Connect Proxy client for Mac](https://saucelabs.com/downloads/sc-4.7.1-osx.zip)
    * [Sauce Connect Proxy client for Windows](https://saucelabs.com/downloads/sc-4.7.1-win32.zip)
-2. Open your terminal and navigate to the client bin directory.
+2. Open your terminal and navigate to the Sauce Connect Proxy client bin directory.
   <Tabs
     defaultValue="Mac"
     values={[
@@ -42,7 +42,7 @@ Sauce Connect is required to run a local test on an app or website located behin
   <TabItem value="Windows">
 
   ```bash
-  cd sc-4.7.1-win32/bin
+  cd C:\sc-4.7.1-win32\bin
   ```
   </TabItem>
   </Tabs>
