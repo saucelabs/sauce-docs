@@ -61,7 +61,7 @@ This snippet contains your authentication credentials (username and access key),
 
 ## Run a Local Test
 
-With your tunnel up and running, try doing a Live or Automated local test.
+With your tunnel up and running, try doing a Live <!--or Automated--> local test.
 
 ### Live
 
@@ -105,6 +105,8 @@ With your tunnel up and running, try doing a Live or Automated local test.
 </TabItem>
 </Tabs>
 
+
+<!--
 
 ### Automated
 
@@ -170,7 +172,7 @@ With your tunnel up and running, try doing a Live or Automated local test.
 </TabItem>
 </Tabs>
 
-
+-->
 
 ## Stop Tunnel
 
