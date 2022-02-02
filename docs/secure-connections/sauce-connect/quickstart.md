@@ -22,7 +22,7 @@ Get up and running with a basic Sauce Connect Proxy tunnel in minutes using the 
 
 ## Start Tunnel
 
-These instructions assume that Sauce Connect Proxy is downloaded to your machine's home directory (i.e., ~/sc-4.7.1-osx).
+These instructions assume that Sauce Connect Proxy is downloaded to your machine's home directory.
 
 1. Open your local terminal and navigate to the bin folder, which contains the Sauce Connect Proxy client.
   <Tabs
@@ -42,7 +42,7 @@ These instructions assume that Sauce Connect Proxy is downloaded to your machine
   <TabItem value="Windows">
 
   ```bash
-  cd sc-4.7.1-win32/bin
+  cd C:\sc-4.7.1-win32\bin
   ```
   </TabItem>
   </Tabs>
