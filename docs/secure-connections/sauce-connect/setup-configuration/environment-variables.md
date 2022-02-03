@@ -33,7 +33,7 @@ Sauce Connect Proxy environment variables can be divided into 3 groups:
 
 ### Use Cases
 
-We recommend configuring credentials via enviroment variables in the following scenarios.
+We recommend configuring credentials via environment variables in the following scenarios.
 
 * Sauce Connect Proxy command containing credentials may be exposed via process monitoring tools such as `ps`.
 
@@ -45,10 +45,10 @@ Each option description includes the corresponding environment variable.
 
 ### Use Cases
 
-We recommend configuring options via enviroment variables in the following scenarios.
+We recommend configuring options via environment variables in the following scenarios.
 
 * Sauce Connect Proxy command is too long and not easily readable.
-* Sauce Connect Proxy runs in docker container and CI system (such as Gitlab) allows a simple way to set enviroment variables.
+* Sauce Connect Proxy runs in docker container and CI system (such as Gitlab) allows a simple way to set environment variables.
 
 
 ## System Proxy Environment Variables
@@ -66,7 +66,7 @@ Sauce Labs supports the following [proxy auto-configuration](/secure-connections
 :::
 
 
-## Running Sauce Connect Proxy With Enviroment Variables
+## Running Sauce Connect Proxy With Environment Variables
 
   <Tabs
       defaultValue="Mac/Linux"
@@ -77,21 +77,21 @@ Sauce Labs supports the following [proxy auto-configuration](/secure-connections
 
 <TabItem value="Mac/Linux">
 
-Follow the steps below to configure Sauce Connect Proxy using enviroment variables in the current terminal.
+Follow the steps below to configure Sauce Connect Proxy using environment variables in the current terminal.
 
-1. In your terminal window, set the following enviroment variables
+1. In your terminal window, set the following environment variables
   ```bash
   export SAUCE_USERNAME="your Sauce username"
   export SAUCE_ACCESS_KEY="your Sauce access key"
   ```
-2. Starting a new Sauce Connect Proxy will not require adding `--api-key` or `--user` keys.
+2. Starting a new Sauce Connect Proxy will not require adding `--api-key` or `--user` flags.
   ```bash
   sc --region us-west
   ```
 
-Alternatively, Sauce Connect Proxy enviroment variables may be added to one of the user environment configuration files, such as `~/.bash_profile`.
+Alternatively, Sauce Connect Proxy environment variables may be added to one of the user environment configuration files, such as `~/.bash_profile`.
 
-1. To make enviroment variables always available, open `~/.bash_profile` in your prefered text editor.
+1. To make environment variables always available, open `~/.bash_profile` in your prefered text editor.
 2. Add the variables, for example:
  ```bash
  export SAUCE_USERNAME="your Sauce username"
@@ -99,7 +99,7 @@ Alternatively, Sauce Connect Proxy enviroment variables may be added to one of t
  ```
 3. Start a new shell or a new terminal.
 4. Confirm that your environment variables have been set by typing `echo $SAUCE_USERNAME` in your terminal. The response should be your username value.
-5. Just as above, starting a new Sauce Connect Proxy will not require adding `--api-key` or `--user` keys.
+5. Just as above, starting a new Sauce Connect Proxy will not require adding `--api-key` or `--user` flags.
  ```bash
  sc --region us-west
  ```
@@ -113,7 +113,7 @@ Alternatively, Sauce Connect Proxy enviroment variables may be added to one of t
 4. For **Variable name**, enter **SAUCE_USERNAME** and for **Variable value**, enter your Sauce username and then click **OK**.
 5. Repeat 3-4 to set up the **SAUCE_ACCESS_KEY** or any other environment variable.
 6. Confirm that your environment variables have been set by typing `echo %SAUCE_USERNAME%` in your terminal. The response should be your username value. Then do the same for your access key.
-7. Starting a new Sauce Connect Proxy will not require adding `--api-key` or `--user` keys.
+7. Starting a new Sauce Connect Proxy will not require adding `--api-key` or `--user` flags.
  ```bash
  sc --region us-west
  ```
