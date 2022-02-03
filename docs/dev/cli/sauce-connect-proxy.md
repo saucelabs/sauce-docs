@@ -94,7 +94,7 @@ This value populates the **Tunnel Name** field on the Sauce Labs Tunnels page, _
 <p><small>| OPTIONAL | STRING |</small></p>
 
 __Description__: Launches a high availability tunnel pool along with the [`--tunnel-identifier`](#--tunnel-identifier) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
-__Enviroment_variable__: `SAUCE_NO_REMOVE_COLLIDING_TUNNELS`<br/>
+__Enviroment_variable__: n/a<br/>
 __Shorthand__: n/a
 
 :::caution
@@ -163,7 +163,7 @@ __Shorthand__: `-x`
 <p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
 __Description__: Effective with Sauce Connect Proxy version 4.7.0, this flag was deprecated and replaced by [`--tunnel-pool`](#--tunnel-pool). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
-__Enviroment_variable__: `SAUCE_NO_REMOVE_COLLIDING_TUNNELS`<br/>
+__Enviroment_variable__: n/a<br/>
 
 
 
