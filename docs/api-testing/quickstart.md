@@ -1,13 +1,17 @@
 ---
 id: quickstart
-title: Create Your First Test
+title: Sauce Labs API Testing Quickstart
 sidebar_label: Quickstart
 description: Learn how to quickly generate an API test using the payload from an API call or from a specification file.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This is a quickstart guide for getting up and running with a Sauce Labs API Test using the **HTTP Client** feature. Let's get started!
+As the number of APIs communicating with microservices in apps continues to increase, many bugs cannot be captured by UI testing alone. Our API Testing and Monitoring solution combines automated testing, reporting, debugging, diagnostics, and immediate data-driven insight in a centralized platform.
+
+Running functional tests on your APIs allows you to zero in on the cause(s) for any failures, such as a broken endpoint, API flow, or a bug in the app itself. You can then reuse functional tests as end-to-end monitoring tests that run continuously, thereby maintaining accurate and reliable feedback loops. And by developing APIs in parallel with your testing, you can accelerate working and improve quality throughout development, staging, and production.
+
+This Quickstart guide will get you up and running with a functional API Test in minutes. Let's get started!
 
 
 
@@ -84,12 +88,17 @@ If your APIs are behind a firewall, you'll need to set up a [Sauce Connect Proxy
 12. Take a moment to verify each object in your [Test Outcome Report](/api-testing/test-reports/), which displays information regarding your test.<br/><img src={useBaseUrl('img/api-fortress/2021/01/testResultsPage.png')} alt="Test Results Page" width="600" />
 
 
-## More Information
+
+<details><summary><strong>Optional next steps</strong></summary>
 
 At this stage, your test is still an unpublished draft. Sauce Labs API Testing has a lot of tools that allow for comprehensive continuous integration testing.
 
-<details><summary>Optional next steps</summary>
 * [Publish your test](/api-testing/schedule-test/#publish-the-working-copy), then set up a [recurring test schedule](/api-testing/schedule-test)
 * Go back to your test's **Compose** tab and [add logic/components](/api-testing/composer/)
-* Create a new test from a [spec file](/api-testing/build-from-spec), [Postman collection](/api-testing/import-postman-collection), or build one from scratch with the [**Compose**](/api-testing/composer/) tab
+* Create a new test from a [spec file](/api-testing/build-from-spec), [Postman collection](/api-testing/import-postman-collection), or [build one from scratch](/api-testing/composer/)
+
 </details>
+
+## Additional Resources
+
+* [Sauce Labs API Testing and Monitoring Demo](https://saucelabs.com/resources/videos/api-testing-and-monitoring-demo)
