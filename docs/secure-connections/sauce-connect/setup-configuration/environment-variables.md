@@ -61,9 +61,6 @@ Sauce Labs supports the following [proxy auto-configuration](/secure-connections
 | `no_proxy`<br/>`NO_PROXY`                                                                         | Sets hostnames that will not be proxied, even when Sauce Connect Proxy is configured to use a proxy. Format as a comma-separated list. Subdomain wildcarding is supported when the hostname starts with a `.` Examples:<br/><br/>`saucelabs.com,spam.net`: Only requests hitting `saucelabs.com` and `spam.net` will not be proxied. All other requests will be proxied.<br/>`.example.com`: All requests going to any subdomain of `example.com` will not be proxied (e.g., `one.example.com`, `asdf.example.com`) | Linux               |
 
 
-We don't recommend configuring Sauce Connect Proxy via these enviroment variables since these variables behave differently on different platforms.
-We recommend using Sauce Connect Proxy specific variables, such as `SAUCE_PROXY` or `SAUCE_PROXY_TUNNEL` instead.
-
 :::note
 [`--no-autodetect`](/dev/cli/sauce-connect-proxy/#--no-autodetect) command-line option disables system proxy detection.
 :::
