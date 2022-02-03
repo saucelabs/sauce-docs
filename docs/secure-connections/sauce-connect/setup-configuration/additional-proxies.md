@@ -256,7 +256,7 @@ The Charles Proxy is useful for monitoring traffic passing between your Sauce VM
 
 5. Start **Charles Proxy**.
 
-6. To change to an open port, in Charles Proxy, click **Proxy** and then click **Proxy Settings**. Under **HHTP Proxy**, enter an open port (e.g., `port 8890`) and then click **OK**.
+6. To change to an open port, in Charles Proxy, click **Proxy** and then click **Proxy Settings**. Under **HTTP Proxy**, enter an open port (e.g., `port 8890`) and then click **OK**.
 
 <img src={useBaseUrl('img/sauce-connect/charles-proxy-settings.png')} alt="Charles Proxy settings navigation" width="800"/>
 
