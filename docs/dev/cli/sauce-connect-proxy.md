@@ -44,10 +44,10 @@ __Shorthand__: `-k`
 <p><small>| REQUIRED | STRING |</small></p>
 
 :::caution For YAML Configuration Files ONLY
-This is required only if you're using a YAML file to configure your tunnels.
+This is required only if you're using a [YAML file to configure your tunnel](/secure-connections/sauce-connect/setup-configuration/yaml-config/).
 :::
 
-__Description__: Defines the local path to a YAML file containing a Sauce Connect Proxy configuration. For instructions, [Configuring Tunnels with a YAML File](/secure-connections/sauce-connect/setup-configuration/yaml-config/).<br/>
+__Description__: Defines the local path to a YAML file containing a Sauce Connect Proxy configuration..<br/>
 __Shorthand__: `-c`
 
 
@@ -55,12 +55,12 @@ __Shorthand__: `-c`
 ### `--region`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets your Sauce Labs region data center such as `us-west`, `eu-central`, etc... For more information, see [Data Center Endpoints](#data-center-endpoints). <br/>
-__Default__: If you don't specify a Data Center at all, Sauce Connect will default to `us-west`. <br/>
+__Description__: Sets your Sauce Labs regional data center such as `us-west` and `eu-central`. For more information, see [Data Center Endpoints](#data-center-endpoints). <br/>
+__Default__: If you don't specify a data center, it will default to `us-west`.<br/>
 __Shorthand__: `-r`
 
 :::caution
-We recommend using this flag over `--rest-url` for keeping CLI options more readable. Not compatible with versions below 4.7.0.
+Not compatible with versions below 4.7.0. We recommend using this flag over `--rest-url` for keeping CLI options more readable.
 :::
 
 ---
@@ -80,14 +80,14 @@ You can run tests using this tunnel by specifying the [`tunnelIdentifier`](/dev/
 __Shorthand__: `-i`
 
 :::note Tunnel Identifier = Tunnel Name
-This value populates the **Tunnel Name** field on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** (which is an auto-generated tunnel UUID). In Sauce Connect v4.7.0 and later, you can use the flags `tunnel-identifier` or `--tunnel-name` interchangeably.
+This value populates the **Tunnel Name** field on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** (which is an auto-generated tunnel UUID). In Sauce Connect v4.7.0 and later, you can use the flags `--tunnel-identifier` and `--tunnel-name` interchangeably.
 :::
 
 ---
 ### `--tunnel-pool`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Launches a high availability tunnel pool along with the [`--tunnel-identifier`](#--tunnel-identifier) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
+__Description__: Launches a high availability tunnel pool when used in conjunction with the [`--tunnel-identifier`](#--tunnel-identifier) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
 __Shorthand__: n/a
 
 :::caution
@@ -130,7 +130,7 @@ __Shorthand__: `-F`
 ### `--tunnel-domains`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets domain(s) that need to be sent through the Sauce Connect Proxy tunnel. This is the inverse of `--direct-domains`.  When adding multiple domains, [format as a comma-separated list](#formatting-domains-in-the-command-line). Be sure to format your domains as a comma-separated list (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)).<br/>
+__Description__: Sets domain(s) that need to be sent through the Sauce Connect Proxy tunnel. This is the inverse of `--direct-domains`.  When adding multiple domains, [format as a comma-separated list](#formatting-domains-in-the-command-line).<br/>
 __Shorthand__: `-t`
 
 
@@ -138,12 +138,12 @@ __Shorthand__: `-t`
 ### `--rest-url`
 <p><small>| OPTIONAL | STRING |</small></p>
 
+__Description__: Sets your [Sauce Labs regional data center REST API URL](#data-center-endpoints) (e.g., EU-Central, US-West).<br/>
+__Shorthand__: `-x`
+
 :::caution
 Effective with Sauce Connect Proxy version 4.7.0, we recommend using [`--region`](/dev/cli/sauce-connect-proxy/#--region) instead. `--rest-url` will eventually be deprecated. Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
 :::
-
-__Description__: Sets your [Sauce Labs regional data center REST API URL](#data-center-endpoints) (e.g., EU-Central, US-West).<br/>
-__Shorthand__: `-x`
 
 
 ---
@@ -152,7 +152,7 @@ __Shorthand__: `-x`
 
 __Description__: Effective with Sauce Connect Proxy version 4.7.0, this flag was deprecated and replaced by [`--tunnel-pool`](#--tunnel-pool). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
 
-
+<br/>
 
 ## External Proxy Configuration
 
@@ -199,7 +199,7 @@ __Shorthand__: n/a
 
 ---
 ### `--proxy-tunnel`
-__Description__: Routes all tunnel traffic through the external proxy specified by [`--proxy`](#--proxy). Uses the proxy configured with `--proxy` or `--pac` for the tunnel connection. For more information about the `-T` option and configuring Sauce Connect Proxy with other proxies, see [Set Up with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies). You'll need to use this option if you have a PAC file that contains Sauce Labs DNS names.<br/>
+__Description__: Routes all tunnel traffic through the external proxy specified by [`--proxy`](#--proxy). Uses the proxy configured with `--proxy` or `--pac` for the tunnel connection. You'll need to use this option if you have a PAC file that contains Sauce Labs DNS names. For more information, see [Configuring Sauce Connect with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies). <br/>
 __Shorthand__: `-T`
 
 
@@ -207,7 +207,7 @@ __Shorthand__: `-T`
 ### `--proxy-userpwd`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets username and password (sent via basic authentication) to access the proxy configured with [--proxy](#--proxy). For more information, see [Set Up with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).<br/>
+__Description__: Sets username and password (sent via basic authentication) to access the proxy configured with [--proxy](#--proxy). For more information, see [Configuring Sauce Connect with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).<br/>
 __Shorthand__: `-w`
 
 
@@ -265,6 +265,7 @@ __Shorthand__: `-X`
 __Description__: Sets the port on which Sauce Connect Proxy's Selenium relay will listen for requests. Selenium commands reaching Sauce Connect Proxy on this port will be relayed to Sauce Labs securely and reliably through Sauce Connect Proxy's tunnel. This feature is disabled unless specified. For more information, see [Using the Selenium Relay](/secure-connections/sauce-connect/proxy-tunnels).<br/>
 __Shorthand__: `-P`
 
+<br/>
 
 ## Networking and Security
 
@@ -274,7 +275,7 @@ __Shorthand__: `-P`
 
 __Description__: Performs basic authentication when a URL on `host:port` asks for a username and password (`host:port:username:password` format). This option can be used multiple times. For examples, see [Authentication Using `--auth`](/secure-connections/sauce-connect/security-authentication).
 
-Sauce Connect Proxy's `--auth` flag will only send the header Authorization with a type of 'Basic'. If a resource responds with the header WWW-Authenticate of a type any other than 'Basic,' your authentication will fail and return a non-200 HTTP response. HTTP Header Injection is disabled for SSL domains that are not re-encrypted by Sauce Connect Proxy, which means performing basic authentication in this way is disabled for all HTTPS domains passed to `--no-ssl-bump-domains` argument.<br/>
+This flag will only send the header authorization with a type of 'Basic'. If a resource responds with the WWW-Authenticate header of a type any other than 'Basic,' your authentication will fail and return a non-200 HTTP response. HTTP Header Injection is disabled for SSL domains that are not re-encrypted by Sauce Connect Proxy, which means performing basic authentication in this way is disabled for all HTTPS domains passed to `--no-ssl-bump-domains` argument.<br/>
 __Shorthand__: `-a`
 
 ```java
@@ -311,14 +312,13 @@ __Shorthand__: n/a
 ### `--ocsp`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: OCSP verification mode. Options are: strict, log-only, and disable. The default is log-only.
-
-:::note
-`--ocsp strict` may fail if a certificate in the chain does not support OCSP. It's recommended to leave it to the default "log-only" mode.
-:::
-
+__Description__: Sets OCSP verification mode. Options are: `strict`, `log-only`, and `disable`.<br/>
+__Default__: log-only<br/>
 __Shorthand__: n/a  
 
+:::note
+`--ocsp strict` may fail if a certificate in the chain does not support OCSP. We recommend leaving the default mode, `log-only`.
+:::
 
 ---
 ### `--tunnel-capath`

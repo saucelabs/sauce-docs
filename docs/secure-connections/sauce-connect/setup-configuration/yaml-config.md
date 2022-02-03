@@ -11,9 +11,26 @@ import TabItem from '@theme/TabItem';
 
 The standard way to launch a Sauce Connect Proxy tunnel is to execute a single command line comprised of all [required flags](/dev/cli/sauce-connect-proxy/#main) and any [optional flags](/dev/cli/sauce-connect-proxy/) you want to use to customize tunnel behavior.
 
-Another way to launch a tunnel is to fill out our YAML config file template and then use the [`-c (--config-file)`](/dev/cli/sauce-connect-proxy/#--config-file) flag in your command line to specify the YAML file path. Instead of writing out all tunnel configuration options on your command line, you'd just modify the properties in your YAML file.
+Another way to launch a tunnel is to fill out our YAML config file template in conjunction with using the [`-c (--config-file)`](/dev/cli/sauce-connect-proxy/#--config-file) flag in your command line to specify the YAML file path. Instead of writing out all tunnel configuration options on your command line, you'd just modify the properties in your YAML file.
 
-Config file may contain any Sauce Connect Proxy CLI flag. It may also contain comments that could help make its content more readable, for example:
+
+
+
+## What You'll Need
+* See [Sauce Connect Proxy Basic Setup requirements](/secure-connections/sauce-connect/setup-configuration/basic-setup/#what-youll-need).
+
+
+## Use Cases
+
+We recommend using a YAML config file in production environments.
+* Facilitates tracking tunnel configuration changes because they're all included in a single YAML file.
+* Facilitates management of potentially long CLI options such as tunnel-domains and direct-domains.
+* Secures Sauce Connect Proxy credentials with tighter access control.
+
+
+## Using the YAML Config File
+
+You can include Sauce Connect Proxy CLI flag in the config file as well as clarifying comments that could help make its content more readable. For example:
 
 ```yaml
 ---
@@ -26,8 +43,7 @@ logfile: "/tmp/sc-mac.log"
 tunnel-identifier: "my-macos"
 ```
 
-For the reference, below is the complete config file that contains the latest Sauce Connect Proxy version defaults.
-To view the description for a YAML file property, look up the corresponding [CLI flag](/dev/cli/sauce-connect-proxy/).
+For reference, below is the complete config file that contains the latest Sauce Connect Proxy version defaults. To view the description for a YAML file property, look up the corresponding [CLI flag](/dev/cli/sauce-connect-proxy/).
 
 ```bash
 $ cat /sc-4.7.1-osx/config_examples/config.yml
@@ -67,21 +83,9 @@ You can find a complete configuration file example in the extracted .zip file co
 :::
 
 
-## What You'll Need
-* See [Sauce Connect Proxy Basic Setup requirements](/secure-connections/sauce-connect/setup-configuration/basic-setup/#what-youll-need).
+## Configuration and Setup
 
-
-## Use Cases
-
-We recommend using a YAML config file in production environments.
-* **Facilitates tracking tunnel configuration changes** because they're all included in a single YAML file.
-* **Facilitates management of potentially long CLI options such as tunnel-domains and direct-domains.**
-* **Secures Sauce Connect Proxy credentials with tighter access control.**
-
-
-## Using the YAML Config File
-
-To launch a tunnel using a **config.yml** file option.
+To launch a tunnel using a **config.yml** file option:
 
 1. Create Sauce Connect Proxy config file in any location, for example: `~/sc/config.yml`.
 2. Enter values for the properties you'd like to use.
