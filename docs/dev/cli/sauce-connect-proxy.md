@@ -358,14 +358,14 @@ __Shorthand__: n/a
 ### `--tunnel-capath`
 <p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-__Enviroment variable__: `SAUCE_TUNNEL_CAPATH`<br/>
+__Enviroment variable__: n/a<br/>
 __Description__: Directory of CA certificates to use for verifying tunnel connections. Effective with Sauce Connect Proxy version 4.7.0, `--tunnel-capath` was deprecated. Download the latest SC version [here](/secure-connections/sauce-connect/installation/).<br/>
 
 ---
 ### `--capath`
 <p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-__Enviroment variable__: `SAUCE_CAPATH`<br/>
+__Enviroment variable__: n/a<br/>
 __Description__: Defines a directory of CA certs to use for verifying connections to Sauce Labs REST API. Effective with Sauce Connect Proxy version 4.7.0, `--capath` was deprecated. Download the latest SC version [here](/secure-connections/sauce-connect/installation/).<br/>
 
 
