@@ -56,7 +56,7 @@ We recommend using enviroment variables in the following scenarios.
   export SAUCE_USERNAME="your Sauce username"
   export SAUCE_ACCESS_KEY="your Sauce access key"
   ```
-2. Starting a new Sauce Connect Proxy will not require adding `--api-key` or `--user` keys.
+2. Starting a new Sauce Connect Proxy will not require adding `--api-key` or `--user` flags.
   ```bash
   sc --region us-west
   ```
