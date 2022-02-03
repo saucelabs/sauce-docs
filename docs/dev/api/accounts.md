@@ -1589,24 +1589,34 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
      <td><code>concurrency.organization.allowed</code></td>
      <td>The total allowed concurrency for each device type allocated to the organization.</td>
     </tr>
+  </tbody>
+  <tbody>
     <tr>
      <td><code>concurrency.organization.current</code></td>
      <td>The total concurrency for each device type currently in use by the organization.</td>
     </tr>
+  </tbody>
+  <tbody>
     <tr>
      <td><code>concurrency.team.allowed</code></td>
      <td>The total concurrency for each device type allocated to the logged-in user's team.</td>
     </tr>
+  </tbody>
+  <tbody>
     <tr>
      <td><code>concurrency.team.current</code></td>
      <td>The total concurrency for each device type currently in use by the user's team.</td>
     </tr>
+  </tbody>
+  <tbody>
     <tr>
      <td><code>*.&#123;device_type&#125;</code></td>
      <td><p>Each set of concurrency reported in the response is broken down by the following device types:
      <ul>
       <li><code>mac_vms</code> - Mac virtual machines represent any live, automated, desktop, or mobile test running in a Mac OS, which includes iOS Simulator tests.</li>
-      <li><code>rds</code> - real devices represent any live or automated mobile test running on a Sauce Labs real device. </li>
+      <li><code>rds</code> - real devices represent any live or automated mobile test running on a Sauce Labs real device.
+      <blockquote>At this time, the current usage for real devices is not accurately returned in this response.
+      Please use the following request as a workaround: <pre>curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location --request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/concurrency' --header 'Content-Type: application/json' | json_pp </pre></blockquote></li>
       <li><code>vms</code> - Windows virtual machines represent any live, automated, desktop, or mobile test running in a Windows or Android OS, which includes Android Emulator tests.</li>
     </ul>
     </p><p>Note that <code>mac_vms</code> and <code>vms</code> are separated here, although they are typically presented as a combined total of virtual machine usage in other areas of the Sauce Labs platform.</p></td>
