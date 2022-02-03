@@ -98,7 +98,3 @@ At this stage, your test is still an unpublished draft. Sauce Labs API Testing h
 * Create a new test from a [spec file](/api-testing/build-from-spec), [Postman collection](/api-testing/import-postman-collection), or [build one from scratch](/api-testing/composer/)
 
 </details>
-
-## Additional Resources
-
-* [Sauce Labs API Testing and Monitoring Demo](https://saucelabs.com/resources/videos/api-testing-and-monitoring-demo)
