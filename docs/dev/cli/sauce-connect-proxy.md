@@ -55,8 +55,8 @@ __Shorthand__: `-c`
 ### `--region`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets your Sauce Labs regional data center such as `us-west` and `eu-central`. For more information, see [Data Center Endpoints](#data-center-endpoints). <br/>
-__Default__: If you don't specify a data center, it will default to `us-west`.<br/>
+__Description__: Sets your Sauce Labs regional data center, such as `us-west` or `eu-central`. For more information, see [Data Center Endpoints](#data-center-endpoints). <br/>
+__Default__: Defaults to `us-west` when not specified.<br/>
 __Shorthand__: `-r`
 
 :::caution
