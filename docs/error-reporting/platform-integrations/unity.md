@@ -8,7 +8,7 @@ Backtrace's integration with Unity allows you to capture and report handled and 
 
 ## Features
 
-The Backtrace Unity SDK reports on 6 classes of errors:
+The Backtrace Unity SDK reports on the following types of errors:
 
 * Log errors - Error messages in the console log. Logged by Debug.LogError (a variant of Debug.Log).
 * Unhandled Exceptions - Exceptions that occur outside of an explicit try / catch statement.
