@@ -23,7 +23,7 @@ Sauce Connect Proxy environment variables can be divided into 3 groups:
 * System proxy environment variables
 
 
-## User credentials environment variables
+## User Credentials Environment Variables
 
 
 | Environment Variable                   | Description                      | Corresponding CLI Option                               |
@@ -38,7 +38,7 @@ We recommend configuring credentials via enviroment variables in the following s
 * Sauce Connect Proxy command containing credentials may be exposed via process monitoring tools such as `ps`.
 
 
-## Command line options environment variables
+## Command Line Options Environment Variables
 
 Almost all Sauce Connect Proxy [command-line options](/dev/cli/sauce-connect-proxy) can be set via environment variables.
 Each option description includes the corresponding environment variable.
@@ -51,7 +51,7 @@ We recommend configuring options via enviroment variables in the following scena
 * Sauce Connect Proxy runs in docker container and CI system (such as Gitlab) allows a simple way to set enviroment variables.
 
 
-## System proxy environment variables
+## System Proxy Environment Variables
 
 Sauce Labs supports the following [proxy auto-configuration](/secure-connections/sauce-connect/setup-configuration/additional-proxies/#proxy-auto-configuration-automatic) environment variables, but we strongly advise using Sauce Connect Proxy specific variables, such as `SAUCE_PROXY` or `SAUCE_PROXY_TUNNEL` instead, since the auto-configuration variables listed here behave differently on different platforms.
 
@@ -69,7 +69,7 @@ We recommend using Sauce Connect Proxy specific variables, such as `SAUCE_PROXY`
 :::
 
 
-## Running Sauce Connect Proxy with enviroment variables
+## Running Sauce Connect Proxy With Enviroment Variables
 
   <Tabs
       defaultValue="Mac/Linux"
