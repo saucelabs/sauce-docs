@@ -31,9 +31,9 @@ It's possible to pass the same command-line arguments on the command line, throu
 ## Use Cases
 
 We recommend using enviroment variables in the following scenarios.
-* **Sauce Connect Proxy command containing credentials may be exposed via process monitoring tools such as `ps`.**
-* **Sauce Connect Proxy command is too long and not easily readable.**
-* **Sauce Connect Proxy runs in docker container and CI system (such as Gitlab) allows a simple way to set enviroment variables.**
+* Sauce Connect Proxy command containing credentials may be exposed via process monitoring tools such as `ps`.
+* Sauce Connect Proxy command is too long and not easily readable.
+* Sauce Connect Proxy runs in docker container and CI system (such as Gitlab) allows setting enviroment variables.
 
 
 ## What You'll Need
