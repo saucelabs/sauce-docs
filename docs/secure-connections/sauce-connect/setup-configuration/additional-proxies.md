@@ -17,7 +17,7 @@ To configure Sauce Connect Proxy to use your proxy or proxies, you will need to 
 ## Warning About Man-in-the-Middle Proxies
 If you use a Man-in-the-Middle proxy to monitor network traffic, it must be configured to allow the TLS connection and proprietary protocol used by Sauce Connect Proxy to communicate with the Sauce Labs virtual machines that are running your tests. If it will allow only HTTP or HTTPS sessions, it will drop the inbound Sauce Connect Proxy connection.
 
-See the [Sauce Connect Proxy Tunnel Startup Diagram](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information about how Sauce Connect Proxy initiates and maintains the connection with the Sauce Labs browser cloud.  
+See the [Sauce Connect Proxy Tunnel Startup Diagram](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information about how Sauce Connect Proxy initiates and maintains the connection with the Sauce Labs browser cloud.
 
 ## What You'll Need
 Review the [Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) to confirm that your system and network architecture are compatible with Sauce Connect Proxy.
@@ -34,19 +34,23 @@ The configuration options described below will cause the REST API and SUT traffi
 In this configuration, the Site Under Test (SUT) is behind a proxy in order to allow even more control over traffic before it reaches the SUT. This setup is used to control access to the SUT by IP allowlisting or by restricting proxy access to users with valid username/password credentials.
 
 ### Proxy Auto-Configuration (Automatic)
-Proxies and proxy auto-configuration (PAC) (see [Proxy auto-config](https://en.wikipedia.org/wiki/Proxy_auto-config))settings are auto-configured, based on the operating system settings on the machine where it is installed.
+Proxies and proxy auto-configuration (PAC) (see [Proxy auto-config](https://en.wikipedia.org/wiki/Proxy_auto-config)) settings may be configured based on the operating system settings on the machine where it is installed.
 
 * On Windows, Sauce Connect Proxy will use the proxy settings for Internet Explorer, as well as the system-wide proxy settings that are set in the Control Panel.
 * On Mac OS X, Sauce Connect Proxy will use the proxy settings in Preferences/Network. Both proxy and PAC settings are supported.
 * On Linux, Sauce Connect Proxy looks for these variables, in this order:
-  * `http_proxy`
-  * `HTTP_PROXY`
+  * `http_proxy` or `https_proxy`
+  * `HTTP_PROXY` or `HTTPS_PROXY`
   * `all_proxy`
   * `ALL_PROXY` (they can be in the form `http://host.name:port` or `host.name:port`)
 
-When a proxy is auto-detected, Sauce Connect Proxy will route all network traffic between the Sauce Connect Proxy client running on your network and the Sauce Labs REST API through the detected proxy.
-The traffic between the Sauce Connect Proxy client and the SUT will also be routed through the proxy. You can disable automatic proxy detection
-with the command-line option [--no-autodetect](/dev/cli/sauce-connect-proxy#--no-autodetect).
+When a proxy is auto-detected, Sauce Connect Proxy will route the following traffic through the detected proxy:
+
+* all network traffic between the Sauce Connect Proxy client running on your network and the Sauce Labs REST API
+* all network traffic between the Sauce Connect Proxy client running on your network and the Sauce Labs Sauce Connect server
+* all network traffic between the Sauce Connect Proxy client and the SUT
+
+You can disable automatic proxy detection with the command-line option [--no-autodetect](/dev/cli/sauce-connect-proxy#--no-autodetect).
 
 To set up and run Sauce Connect Proxy for this situation, see [Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
 
