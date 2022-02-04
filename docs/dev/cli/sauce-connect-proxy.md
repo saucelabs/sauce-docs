@@ -313,7 +313,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | STRING |</small></p>
 
 __Description__: Sets OCSP verification mode. Options are: `strict`, `log-only`, and `disable`.<br/>
-__Default__: log-only<br/>
+__Default__: Defaults to `log-only` when not specified.<br/>
 __Shorthand__: n/a  
 
 :::note
