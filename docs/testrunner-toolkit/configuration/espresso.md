@@ -668,7 +668,7 @@ Instructs `saucectl` to run all classes for the suite *except* those specified h
 #### `size`
 <p><small>| OPTIONAL | ENUM |</small></p>
 
-Instructs `saucectl` to run only tests that are annotated with the matching size value. Valid values are `small`, `medium`, or `large`. You may only specify one value for this property.
+Instructs `saucectl` to run only tests that are annotated with the matching size value i.e `@SmallTest`, `@MediumTest` or `@LargeTest`. Valid values are `small`, `medium`, or `large`. You may only specify one value for this property.
 
 ```yaml
   size: small
