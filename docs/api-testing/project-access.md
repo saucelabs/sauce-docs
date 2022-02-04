@@ -1,7 +1,7 @@
 ---
 id: project-access
 title: Setting API Project-Level Permissions
-sidebar_label: Project-Level Permissions
+sidebar_label: Setting Project Permissions
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

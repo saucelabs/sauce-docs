@@ -78,6 +78,10 @@ defaults:
 
 Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
 
+:::caution Real Device Max Duration
+When setting the timeout values for your suites, consider that native framework tests on real devices enforce a maximum test duration limit of 60 minutes.
+:::
+
 ```yaml
   timeout: 15m
 ```
@@ -228,11 +232,22 @@ Specifies how to manage test output, such as logs, videos, and screenshots.
 
 ```yaml
 artifacts:
+  cleanup: true
   download:
     when: always
     match:
       - junit.xml
     directory: ./artifacts/
+```
+---
+
+### `cleanup`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
+
+```yaml
+  cleanup: true
 ```
 ---
 
@@ -365,6 +380,10 @@ espresso:
 
 The path to the app. The default directory is `{project-root}/apps/filename.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded app reference. Supports \*.apk and \*.aab files.
 
+:::caution AAB App Signing
+To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must sign the \*.apk using its own signature. In such cases, Sauce Labs signs both the `app` and `testApp` to ensure matching signatures, even if instrumentation is disabled. Otherwise, the app installation will fail.
+:::
+
 ```yaml
   app: ./apps/calc.apk
 ```
@@ -387,6 +406,10 @@ The path to the app. The default directory is `{project-root}/apps/filename.apk`
 <p><small>| REQUIRED | STRING |</small></p>
 
 The path to the testing app. The relative file location is `{project-root}/apps/testfile.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded test app reference. Supports \*.apk and \*.aab files.
+
+:::caution AAB App Signing
+To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must sign the \*.apk using its own signature. In such cases, Sauce Labs signs both the `app` and `testApp` to ensure matching signatures, even if instrumentation is disabled. Otherwise, the app installation will fail.
+:::
 
 ```yaml
   testApp: ./apps/calc-success.apk

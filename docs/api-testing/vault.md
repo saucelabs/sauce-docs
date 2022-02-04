@@ -7,7 +7,7 @@ description: "The vault allows you to store variables and code snippets that can
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The vault feature allows you to store variables and code snippets to use in your tests in one project, or across all projects.
+Our Vault feature allows you to store variables and code snippets to use in your tests in one project, or across all projects.
 
 <!--[Explanation Video](https://www.youtube.com/watch?v=cBNMi30Fj9Q)-->
 
@@ -138,3 +138,6 @@ Below is an example of how to create an Authentication Snippet.
 Consider a scenario where this login will be required for all the endpoints we have to test. It makes sense for this call to be stored in the Vault.
 
 Now you can choose to insert or invoke this snippet in future tests that require a Basic Authentication header.
+
+## More Information 
+* [API Fortress Legacy Migration Guide](/api-testing/legacy)

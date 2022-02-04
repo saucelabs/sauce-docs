@@ -289,10 +289,6 @@ You cannot set screen resolution on Windows 7 with IE 9.
 
 Sauce Labs encourages adoption of the W3C WebDriver protocol for your Appium mobile app tests, but continues to support JSON Wire Protocol (JWP) in all currently supported Appium 1.X versions (Appium 2.0 will deprecate support for JWP). The capabilities defined here assume the W3C protocol, but it is important to make sure your test configurations accurately reflect your intended protocol so your settings are applied correctly. See [Appium Real Device W3C Specification](/mobile-apps/automated-testing/appium/real-devices/#using-the-w3c-webdriver-specification) for details.
 
-:::note W3C Support for Virtual Devices Only
-At this time, the W3C protocol is not supported for real device testing, so you must still use the JWP format for specifying desired capabilities.
-:::
-
 ---
 ### `app`
 <p><small>| STRING |</small></p>
@@ -314,7 +310,7 @@ If you have an app you have uploaded to [Sauce storage](https://app.saucelabs.co
 
 Allows you to set the name of the simulator, emulator, or real device you want to use in the test.
 
-You can use this to set up a test with either [static or dynamic allocation for RDC](/mobile-apps/app-storage), and run individual or parallel tests. Static allocation allows you to run your tests on a very specific device, while dynamic allocation allows you to specify a family of devices or any device with a certain OS so you can quickly run your test on the first available RDC device.
+You can use this to set up a test with either [static or dynamic allocation for RDC](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation), and run individual or parallel tests. Static allocation allows you to run your tests on a very specific device, while dynamic allocation allows you to specify a family of devices or any device with a certain OS so you can quickly run your test on the first available RDC device.
 * Dynamic allocation example: for an Android emulator test, you can request a generic Android emulator by using the option `"deviceName":"Android Emulator"`.
 * Static allocation example: if you want to use an Android emulator that looks and feels like a specific Android phone or tablet (e.g., Google Nexus 7 HD Emulator or a Samsung Galaxy S4), you need to specify the exact Android emulator skin to use (e.g., `"appium:deviceName":"Samsung Galaxy S4 Emulator"`).
 
@@ -559,6 +555,10 @@ Use this capability to enable animations for real devices by setting it to `true
 
 Controls Sauce Labs default resigning (iOS) or instrumentation (Android) of mobile apps installed on our devices. By default, this property is always `true`, but it can be set to `false` for private devices to allow testing of specific behaviors that are not permitted under the Sauce Labs provisioning. See [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-resigning-enablements) for more information.
 
+:::caution AAB App Signing
+To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must sign the \*.apk using its own signature. In such cases, Sauce Labs signs both the `app` and `testApp` to ensure matching signatures, even if this capability is set to `false`. Otherwise, the app installation will fail.
+:::
+
 ---
 ### `sauceLabsImageInjectionEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
@@ -710,46 +710,42 @@ Available visibility modes are:
 "public": "team"
 ```
 
----
-### `tunnelName`
-<p><small>| STRING | </small></p>
-
-Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an app that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
-
-See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information.
-
-```java
-"tunnelName": "MyTunnel01"
-```
-
----
-### `tunnelOwner`  
-<p><small>| STRING |</small></p>
-
-If the [tunnelName](#tunnelname) you've specified to establish connectivity with Sauce Labs for your test is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test.
-
-See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
-
-
-```java
-"tunnelName": "MyTeamSharedTunnel"
-"tunnelOwner": "<username of tunnel originator>"
-```
 
 ---
 ### `tunnelIdentifier`
-<p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
+<p><small>| STRING |</small></p>
 
-Please use [`tunnelName`](#tunnelname) to specify the Sauce Connect tunnel you wish to use for your test.
+Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with a Sauce Labs test platform. Tunnels allow you to test an application that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
 
+:::note Choose the Correct Tunnel Identifier
+The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
+:::
 
+See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
+
+```java
+"tunnelIdentifier": "MyTunnel01"
+```
+
+:::caution Breaking Change
+Appium tests for the Real Device Cloud using the W3C protocol MUST use `tunnelName` instead of `tunnelIdentifier`.
+:::
 
 ---
 ### `parentTunnel`  
-<p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
+<p><small>| STRING |</small></p>
 
-Please use [`tunnelOwner`](#tunnelowner) to identify the owner of a shared tunnel you're using for your test.
+If the [tunnelIdentifier](#tunnelidentifier) you've specified to establish connectivity with a Sauce Labs test platform is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test.
 
+```java
+"tunnelIdentifier": "MyTeamSharedTunnel"
+"parentTunnel": "<username of tunnel originator>"
+```
+
+:::warning
+BREAKING CHANGE
+Appium tests for the Real Device Cloud using the W3C protocol MUST use tunnelOwner instead of parentTunnel.
+:::
 
 ---
 ### `recordVideo`

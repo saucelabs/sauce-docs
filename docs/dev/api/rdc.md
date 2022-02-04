@@ -258,7 +258,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/devicesavailable' | json_pp
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/devices/available' | json_pp
 ```
 
 </TabItem>

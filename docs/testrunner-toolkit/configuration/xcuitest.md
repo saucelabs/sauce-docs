@@ -81,6 +81,10 @@ defaults:
 
 Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
 
+:::caution Real Device Max Duration
+When setting the timeout values for your suites, consider that native framework tests on real devices enforce a maximum test duration limit of 60 minutes.
+:::
+
 ```yaml
   timeout: 15m
 ```
@@ -235,11 +239,22 @@ Specifies how to manage test output, such as logs, videos, and screenshots.
 
 ```yaml
 artifacts:
+  cleanup: true
   download:
     when: always
     match:
       - junit.xml
     directory: ./artifacts/
+```
+---
+
+### `cleanup`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
+
+```yaml
+  cleanup: true
 ```
 ---
 

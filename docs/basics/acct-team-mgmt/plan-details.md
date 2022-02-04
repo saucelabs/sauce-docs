@@ -10,7 +10,7 @@ You can view the number of concurrent VMs, concurrent devices, and minutes allow
 
 1. On Sauce Labs, click **ACCOUNT** and then click **Billing**.
 
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-billing-nav.png')} alt="Team management billing navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-billing-nav.png')} alt="Team management billing navigation" width="300"/>
 
 2. Your plan type (for example, Enterprise or Subscription) is displayed at the bottom of the **Select Plan** tab.
 
