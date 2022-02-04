@@ -23,13 +23,40 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
      {label: 'Docker', value: 'docker'},
    ]}>
 
- <TabItem value="sauce">
+<TabItem value="sauce">
 
- |Playwright Version|Supported Platforms|Supported Browsers|
- |-----|-----|-----|
- |1.17.1|Windows 10|Chromium, Firefox, Webkit|
- |1.16.3|Windows 10|Chromium, Firefox, Webkit|
- |1.15.2|Windows 10|Chromium, Firefox, Webkit|
+  <table id="table-fw">
+    <tr>
+      <th>Playwright Version</th>
+      <th>Supported Platforms</th>
+      <th>Supported Browsers</th>
+    </tr>
+    <tbody>
+    <tr>
+      <td rowspan='2'>1.18.1</td>
+      <td><b>macOS:</b> 11.0</td>
+      <td>Chromium, Firefox, Webkit</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10</td>
+      <td>Chromium, Firefox, Webkit</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='1'>1.17.1</td>
+      <td><b>Windows:</b> 10</td>
+      <td>Chromium, Firefox, Webkit</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='1'>1.16.3</td>
+      <td><b>Windows:</b> 10</td>
+      <td>Chromium, Firefox, Webkit</td>
+    </tr>
+    </tbody>
+  </table>
 
  </TabItem>
  <TabItem value="docker">
@@ -38,9 +65,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Playwright Version|Supported Browsers|
  |-----|----|
+ |1.18.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.6.0)|
  |1.17.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.5.0)|
  |1.16.3|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.4.0)|
- |1.15.2|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.3.0)|
 
 </TabItem>
 </Tabs>

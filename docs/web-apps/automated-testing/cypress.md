@@ -23,14 +23,45 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
    ]}>
 
  <TabItem value="sauce">
-
- |Cypress Version|Supported Platforms|Supported Browsers|
- |-----|-----|-----|
- |9.1.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
- |8.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
- |8.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
- |7.7.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
-
+  <table id="table-fw">
+    <tr>
+      <th>Cypress Version</th>
+      <th>Supported Platforms</th>
+      <th>Supported Browsers</th>
+    </tr>
+    <tbody>
+    <tr>
+      <td rowspan='2'>9.3.1</td>
+      <td><b>macOS:</b> 11.0</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='1'>9.1.0</td>
+      <td><b>Windows:</b> 10</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='1'>8.6.0</td>
+      <td><b>Windows:</b> 10</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='1'>8.3.0</td>
+      <td><b>Windows:</b> 10</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    </tbody>
+  </table>
  </TabItem>
  <TabItem value="docker">
 
@@ -38,10 +69,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Cypress Version|Supported Browsers|
  |----|----|
+ |9.3.1|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.1.0)|
  |9.1.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.0.0)|
  |8.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.4.0)|
  |8.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.3.1)|
- |7.7.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.2.3)|
 
 </TabItem>
 </Tabs>
