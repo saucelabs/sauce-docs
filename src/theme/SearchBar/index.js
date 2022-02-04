@@ -116,7 +116,7 @@ function DocSearch({contextualSearch, ...props}) {
 
       return {
         ...item,
-        url: withBaseUrl(`${a.pathname}${a.hash}`),
+        url: item.url,
       };
     });
   }).current;
