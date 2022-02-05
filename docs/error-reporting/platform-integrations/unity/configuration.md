@@ -35,7 +35,7 @@ The configuration settings for the Backtrace client and database are defined by 
 
   <img src={useBaseUrl('img/error-reporting/unity-backtrace-client-config.png')} alt="Customizing Backtrace client configuration options in the Unity Inspector" />
 
-Alternatively, you can also specify the configuration settings in the C# code for your app.
+Alternatively, you can also specify the configuration settings in your C# project.
 
 
 ### Backtrace Client
@@ -65,7 +65,7 @@ Alternatively, you can also specify the configuration settings in the C# code fo
 |Backtrace database path|Specifies the absolute path that the local database will use to store reports for your game or app. Note that the Backtrace database will remove all existing files in the database directory when the client is first initialized. <br /><br />You can use interpolated strings such as `${Application.persistentDataPath}/backtrace/database`.|String|
 |Client-Side deduplication|Aggregates duplicated reports. The available options are: <ul><li>Disable: Duplicated reports are not aggregated.</li> <li>Everything: Aggregates by faulting call stack, exception type, and exception message.</li> <li>Faulting callstack: Aggregates based on the current stack trace.</li> <li>Exception type: Aggregates by stack trace and exception type.</li> <li>Exception message: Aggregates by stack trace and exception message.</li></ul>|Enum|Disable|
 |Attach Unity Player.log|Attaches the Unity player log file to the Backtrace report. Available only for Windows and MacOS.|Boolean|False|
-|Auto send mode|Sends reports to the server based on the retry settings described below. <br /><br />When the value is set to 'False', you can use the [`Flush`](/error-reporting/platform-integrations/unity/configuration/#backtracedatabaseflush) method as an alternative.|Boolean|True|
+|Auto send mode|Sends reports to the server based on the retry settings described below. <br /><br />If the value is set to 'False', you can use the [`Flush`](/error-reporting/platform-integrations/unity/configuration/#backtracedatabaseflush) or [`Send`](/error-reporting/platform-integrations/unity/configuration/#backtracedatabasesend) methods as an alternative.|Boolean|True|
 |Create database directory|Creates the offline database directory if the provided path doesn't exist.|Boolean|True|
 |Attach screenshot|Generates a screenshot and creates an attachment of the frame when an exception occurs in a game scene.|Boolean|False|
 |Maximum number of records|The maximum number of reports stored in the offline database. When the limit is reached, the oldest reports are removed. If the value is equal to '0', then no limit is set.|Number|8|
@@ -80,11 +80,11 @@ Alternatively, you can also specify the configuration settings in the C# code fo
 |---------|---------|---------|---------|
 |Use normalized exception message|Generates a fingerprint with a normalized exception message if an exception doesn't have a stack trace.|Boolean|False|
 |Send unhandled native game crashes on startup|Sends native crashes when the game or app starts. Available only for Windows.|Boolean|True|
-|Filter reports|Filters reports based on report type: <ul><li>Everything</li> <li>Message</li> <li>Handled Exception</li> <li>Unhandled Exception</li> <li>Hang</li> <li>Game Error</li></ul> For more advanced configuration, you can use [`backtraceClient.SkipReport`](/error-reporting/platform-integrations/unity/configuration/#backtraceclientskipreport).|Enum|Disable|
+|Filter reports|Ignores error reports based on report type: <ul><li>Disable: Sends all error reports to Backtrace.</li><li>Everything: Ignores all report types.</li> <li>Message: Ignores message reports.</li> <li>Handled Exception: Ignores error reports for handled exceptions.</li> <li>Unhandled Exception: Ignores error reports for unhandled exceptions.</li> <li>Hang: Ignores error reports for ANRs (Application not responding) or hangs. Mobile only.</li> <li>Game Error: Ignores error reports for crashes.</li></ul>|Enum|Disable|
 |Collect last n game logs|Collects last n number of logs generated in the game.|Number|10|
 |Enable performance statistics|Allows the Backtrace client to measure execution time and include performance information as report attributes.|Boolean|False|
 |Destroy client on new scene load|Removes the Backtrace client component when loading a new game scene. <br /><br /> By default, the Backtrace client will be available in every game scene.|Boolean|False|
-|Log random sampling rate|The rate at which random sample reports for DebugLog.error messages are sent to Backtrace. <br /><br />By default, 1% of the DebugLog.error messages will be sent to Backtrace. To send all DebugLog.error messages to Backtrace, set the value to '1'.|Decimal|0.01|
+|Log random sampling rate|The rate at which random sample reports for DebugLog.error messages are sent to Backtrace.<br /><br />By default, 1% of the DebugLog.error messages will be sent to Backtrace. To send all DebugLog.error messages to Backtrace, set the value to '1'.|Decimal|0.01|
 |Game object depth limit|Filters the number of GameObject children in Backtrace reports.|Number|-1|
 |Disable error reporting integration in editor|Ignores errors encountered while the project is running in the Unity Editor and only reports errors encountered in a build.|Boolean|False|
 
@@ -154,8 +154,8 @@ For more information about debug symbols, see [add link to product guide].
   |Setting|Description|Type|Default|
   |---------|---------|---------|---------|
   |Capture native crashes|Captures and symbolicates stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start.|Boolean|True|
-  |Capture ANR (Application not responding)|Generates a hang report whenever an app hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.|Boolean|True|
-  |Send Out of Memory exceptions to Backtrace|Detects and flags low memory conditions. If the app crashes due to a memory condition, a crash report will be submitted to Backtrace with the `memory.warning` and `memory.warning.date` attributes.|Boolean|False|
+  |Capture ANR (Application not responding)|Generates an error report whenever an app hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.|Boolean|True|
+  |Send Out of Memory exceptions to Backtrace|Detects low memory conditions. If the app crashes due to a memory condition, a crash report will be submitted to Backtrace with the `memory.warning` and `memory.warning.date` attributes.|Boolean|False|
   |Enable client-side unwinding|Enables call stack unwinding. If you're unable to upload all debug symbols for your app, you can use this setting to get debug information. Available only for supported versions of Android (NDK 19; Unity 2019+). <br /><br /> You can also enable this setting via the [`BacktraceConfiguration`](/error-reporting/platform-integrations/unity/configuration/#backtraceclient) object and the `.ClientSideUnwinding = true;` option.|Boolean|False|
   |Symbols upload token|Required to automatically upload debug symbols to Backtrace.|String|
 
@@ -202,7 +202,7 @@ For more information about debug symbols, see [add link to product guide].
   |Setting|Description|Type|Default|
   |---------|---------|---------|---------|
   |Capture native crashes|Captures and symbolicates stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start.|Boolean|True|
-  |Capture ANR (Application not responding)|Generates a hang report whenever an app hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.|Boolean|True|
+  |Capture ANR (Application not responding)|Generates an error report whenever an app does not respond or hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.|Boolean|True|
   |Send Out of Memory exceptions to Backtrace|Captures snapshots of the app's state when there is a low memory condition. If the app crashes due to a low memory condition, the information is sent to Backtrace. Snapshots are captured every 2 minutes as long as the low memory condition persists.|Boolean|False|
 
   </TabItem>
@@ -422,7 +422,9 @@ You can also use the [`backtraceReport`](/error-reporting/platform-integrations/
 ### `backtraceClient.SkipReport`
 <p><small>| SETTING | OPTIONAL |</small></p>
 
-Report filtering is enabled in the Unity UI with the Filter reports setting. However, you more advanced use-cases, you can use the BacktraceClient.SkipReport to set the `ReportFilterType`. For example:
+If you want to ignore specific types of error reports, we recommend that you use the Filter reports settings in the Backtrace Configuration in the Unity Editor.
+
+However, for more advanced use cases, you can use `BacktraceClient.SkipReport` to set the `ReportFilterType`. For example:
 
 ```c#
 // Return 'true' to ignore a report,
@@ -456,7 +458,7 @@ Class that stores error report data in your local hard drive when reports fail t
 ### `backtraceDatabase.Clear`
 <p><small>| METHOD | OPTIONAL |</small></p>
 
-Clears all data from the database without sending it to Backtrace server.
+Clears all reports from the database without sending them to Backtrace server.
 
 ```c#
 backtraceDatabase.Clear();
@@ -490,7 +492,14 @@ backtraceDatabase.Delete();
 ### `backtraceDatabase.Flush`
 <p><small>| METHOD | OPTIONAL |</small></p>
 
-Sends alls reports to the Backtrace server, then removes it from the local drive. If the `Send` method fails, the database will no longer store data. The `Flush` method ignores client side deduplication and retry settings.
+Sends all reports to the Backtrace server then removes them from the database.
+
+:::note
+The `Flush` method ignores client side deduplication and retry settings.
+:::
+:::caution
+If the `Send` method fails, the database will no longer store data.
+:::
 
 ```c#
 backtraceDatabase.Flush();
@@ -500,7 +509,7 @@ backtraceDatabase.Flush();
 ### `backtraceDatabase.Send`
 <p><small>| METHOD | OPTIONAL |</small></p>
 
-Sends all reports to the Backtrace server, as defined by the client side deduplication and database retry settings. This can be used as an alternative to the `Flush` method.
+Sends all reports to the Backtrace server, as defined by the client side deduplication and database retry settings.
 
 ```c#
 backtraceDatabase.Send();

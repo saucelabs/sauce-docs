@@ -55,7 +55,7 @@ You can also define custom attributes to be captured, sent, and indexed. For mor
 |`system.memory.swap.cached`|The amount of memory still backed by swap.|Kilobytes|64-bit|
 |`system.memory.swap.free`|The amount of unused swap space.|Kilobytes|64-bit|
 |`system.memory.swap.total`|The total amount of swap space.|Kilobytes|64-bit|
-|`system.memory.total`|The total amount of unused memory.|Kilobytes|64-bit|
+|`system.memory.total`|The total amount of memory.|Kilobytes|64-bit|
 |`system.memory.vmalloc.total`|The total amount of virtual memory allocation.|Kilobytes|64-bit|
 |`timestamp`|The timestamp of fault.|UNIX timestamp|64-bit|
 |`timestamp.received`|The received timestamp of fault.|UNIX timestamp|64-bit|
@@ -94,6 +94,8 @@ You can also define custom attributes to be captured, sent, and indexed. For mor
 |`application.temporary_cache`|The directory path of temporarily cached data.|User Defined|User Defined|
 |`audio.supported`|Indicate whether audio is supported.|User Defined|User Defined|
 |`backtrace.version`|The version of the Backtrace SDK.|User Defined|User Defined|
+|`battery.level`|
+|`battery.status`|
 |`cpu.frequency`|The frequency of the device's central processing unit (CPU) in megahertz (MHz).|User Defined|User Defined|
 |`device.manufacturer`|The manufacturer of the device running the app.|User Defined|User Defined|
 |`device.model`|The model of the device running the app.|User Defined|User Defined|

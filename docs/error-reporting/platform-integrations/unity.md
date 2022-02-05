@@ -11,7 +11,7 @@ Backtrace's integration with Unity allows you to capture and report handled and 
 The Backtrace Unity SDK reports on the following types of errors:
 
 * Log errors - Error messages in the console log. Logged by Debug.LogError (a variant of Debug.Log).
-* Unhandled Exceptions - Exceptions that occur outside of an explicit try / catch statement.
+* Unhandled Exceptions - Exceptions that occur outside of an explicit try/catch statement.
 * Handled exceptions - Exceptions that are explicitly caught and handled.
 * Crashes - An end to the game play experience, where the game crashes or restarts.
 * Hangs (mobile only) -  Errors that occur when a game or an app is non-responsive.
