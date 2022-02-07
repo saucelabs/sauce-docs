@@ -209,7 +209,7 @@ __Shorthand__: `-p`
 ### `--proxy-localhost`
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-__Description__: Setting this to `true` supports proxying upstream requests to localhost. This includes the case where an upstream proxy is hosted on localhost, see [Set Up with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies). By default, it is `false`. <br/>
+__Description__: Setting this to `true` supports proxying upstream requests to localhost. This includes scenarios where an [upstream proxy is hosted on localhost](/secure-connections/sauce-connect/setup-configuration/additional-proxies). By default, it is `false`. <br/>
 __Enviroment variable__: `SAUCE_PROXY_LOCALHOST`<br/>
 __Shorthand__: n/a
 
