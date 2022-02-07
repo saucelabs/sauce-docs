@@ -1,6 +1,7 @@
 const docusaurusConfig = {
   title: 'Resources & Community',
-  tagline: "Accelerating your ability to ship code while maintaining high quality experiences is hard. We are here to help.",
+  tagline:
+    'Accelerating your ability to ship code while maintaining high quality experiences is hard. We are here to help.',
   url: 'https://docs.saucelabs.com',
   noIndex: false,
   trailingSlash: true,
@@ -13,10 +14,10 @@ const docusaurusConfig = {
   scripts: [
       "/scripts/hide.js",
     {
-      src:  'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
+      src: 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
       type: 'text/javascript',
       charset: 'UTF-8',
-      "data-domain-script": '9e4c4ce3-8349-4030-9de7-0b1d368edfce',
+      'data-domain-script': '9e4c4ce3-8349-4030-9de7-0b1d368edfce',
     },
     {
       src: "https://solve-widget.forethought.ai/embed.js",
@@ -71,7 +72,7 @@ const docusaurusConfig = {
       logo: {
         alt: 'Sauce Labs logo',
         src: 'img/logo-saucelabs.svg',
-        srcDark:'img/logo-saucelabs-white.svg',
+        srcDark: 'img/logo-saucelabs-white.svg',
       },
       items: [
         {
@@ -127,29 +128,26 @@ const docusaurusConfig = {
           // Please change this to your repo.
           path: 'docs',
           routeBasePath: '/',
-          editUrl:
-              'https://github.com/saucelabs/sauce-docs/edit/main/',
+          editUrl: 'https://github.com/saucelabs/sauce-docs/edit/main/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css')
+          customCss: require.resolve('./src/css/custom.css'),
         },
       },
     ],
   ],
-  themes: [
-    '@saucelabs/theme-github-codeblock',
-  ],
+  themes: ['@saucelabs/theme-github-codeblock'],
   plugins: [],
-}
+};
 
 if (!process.env.SAUCE_DOCS_DEV) {
   docusaurusConfig.themeConfig.algolia = {
     appId: process.env.ALGOLIA_APP_ID || 'RO95H65NEO',
     apiKey: process.env.ALGOLIA_KEY || 'demo-key' || 'bad6042c91ae4419a94229edf20bc8ea',
     indexName: 'saucelabs',
-  }
+  };
 }
 
 module.exports = docusaurusConfig;
