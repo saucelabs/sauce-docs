@@ -51,6 +51,9 @@ You can also define custom attributes to be captured, sent, and indexed. For mor
 |`system.memory.dirty`|The amount of memory waiting to get written back to the disk.|Kilobytes|64-bit|
 |`system.memory.free`|The amount of free memory.|Kilobytes|64-bit|
 |`system.memory.inactive`|The amount of memory that has not been recently used.|Kilobytes|64-bit|
+|`system.memory.reserved`|The amount of reserved system memory.|Kilobytes|64-bit|
+|`system.memory.temp`|The amount of temporarily allocated memory.|Kilobytes|64-bit|
+|`system.memory.unused`|The amount of unused memory.|Kilobytes|64-bit|
 |`system.memory.slab`|The amount of kernel memory allocated to the data structure cache.|Kilobytes|64-bit|
 |`system.memory.swap.cached`|The amount of memory still backed by swap.|Kilobytes|64-bit|
 |`system.memory.swap.free`|The amount of unused swap space.|Kilobytes|64-bit|
@@ -75,8 +78,6 @@ You can also define custom attributes to be captured, sent, and indexed. For mor
 
 |Name|Description|Format|Type|
 |---------|---------|---------|---------|
-|`application.unity.version`|The runtime version of Unity.|User Defined|User Defined|
-|`application.version`|The app's build version. Defined in the Player Settings for the Unity project.|User Defined|User Defined|User Defined|User Defined|
 |`api.compatibility`|The .NET framework and version compatible with the app. Defined in the Player Settings for the Unity project.|User Defined|User Defined|
 |`application.background`|Indicates whether the app can run in the background.|User Defined|User Defined|
 |`application.company.name`|Your company name. Defined in the Player Settings for the Unity project.|User Defined|User Defined|
@@ -90,8 +91,12 @@ You can also define custom attributes to be captured, sent, and indexed. For mor
 |`application.mobile`|Indicates whether the app runs on a mobile device.|User Defined|User Defined|
 |`application.playing`|Indicates whether the app is currently playing.|User Defined|User Defined|
 |`application.sandboxType`|The sandbox type.|User Defined|User Defined|
+|`application.session`|The current game or app session.|User Defined|User Defined|
 |`application.system.language`|The system language.|User Defined|User Defined|
 |`application.temporary_cache`|The directory path of temporarily cached data.|User Defined|User Defined|
+|`application.unity.version`|The runtime version of Unity.|User Defined|User Defined|
+|`application.url`|The URL used to open the application.|User Defined|User Defined|
+|`application.version`|The app's build version. Defined in the Player Settings for the Unity project.|User Defined|User Defined|
 |`audio.supported`|Indicate whether audio is supported.|User Defined|User Defined|
 |`backtrace.version`|The version of the Backtrace SDK.|User Defined|User Defined|
 |`battery.level`|
@@ -112,6 +117,8 @@ You can also define custom attributes to be captured, sent, and indexed. For mor
 |`graphic.type`|The graphics API type used by the graphics device.|User Defined|User Defined|
 |`graphic.vendor`|The vendor of the graphics device.|User Defined|User Defined|
 |`graphic.vendor.id`|The identifier code for the vendor of the graphics device.|User Defined|User Defined|
+|`mono.heap`|The amount of memory allocated to the managed heap.|User Defined|User Defined|
+|`mono.used`|The amount of memory used by the managed heap.|User Defined|User Defined|
 |`scene.active`|The name of the active scene.|User Defined|User Defined|
 |`scene.buildIndex`|The build index of the active scene.|User Defined|User Defined|
 |`scene.count`|The number of scenes currently loaded in your project at the time a report is sent.|User Defined|User Defined|

@@ -80,7 +80,7 @@ Alternatively, you can also specify the configuration settings in your C# projec
 |---------|---------|---------|---------|
 |Use normalized exception message|Generates a fingerprint with a normalized exception message if an exception doesn't have a stack trace.|Boolean|False|
 |Send unhandled native game crashes on startup|Sends native crashes when the game or app starts. Available only for Windows.|Boolean|True|
-|Filter reports|Ignores error reports based on report type: <ul><li>Disable: Sends all error reports to Backtrace.</li><li>Everything: Ignores all report types.</li> <li>Message: Ignores message reports.</li> <li>Handled Exception: Ignores error reports for handled exceptions.</li> <li>Unhandled Exception: Ignores error reports for unhandled exceptions.</li> <li>Hang: Ignores error reports for ANRs (Application not responding) or hangs. Mobile only.</li> <li>Game Error: Ignores error reports for crashes.</li></ul>|Enum|Disable|
+|Filter reports|Ignores error reports based on error type: <ul><li>Disable: Sends error reports for all error types.</li><li>Everything: Ignores error reports for all error types.</li> <li>Message: Ignores error reports for error messages.</li> <li>Handled Exception: Ignores error reports for handled exceptions.</li> <li>Unhandled Exception: Ignores error reports for unhandled exceptions.</li> <li>Hang: Ignores error reports for ANR (Application not responding) or hang errors. Mobile only.</li> <li>Game Error: Ignores error reports for native crashes.</li></ul>|Enum|Disable|
 |Collect last n game logs|Collects last n number of logs generated in the game.|Number|10|
 |Enable performance statistics|Allows the Backtrace client to measure execution time and include performance information as report attributes.|Boolean|False|
 |Destroy client on new scene load|Removes the Backtrace client component when loading a new game scene. <br /><br /> By default, the Backtrace client will be available in every game scene.|Boolean|False|
@@ -309,7 +309,7 @@ _backtraceClient = BacktraceClient.Initialize(
 
 ---
 
-### `backtraceClient.Instance.Metrics.AddSummedEvent()`
+### `backtraceClient.Instance.Metrics.AddSummedEvent`
 <p><small>| METHOD | OPTIONAL |</small></p>
 
 Used to add custom metrics groups and attributes to capture your game or apps' stability.
@@ -492,7 +492,7 @@ backtraceDatabase.Delete();
 ### `backtraceDatabase.Flush`
 <p><small>| METHOD | OPTIONAL |</small></p>
 
-Sends all reports to the Backtrace server then removes them from the database.
+Sends all reports to the Backtrace server then removes them from the database. This method is only needed to support the offline database when the Auto send mode is disabled.
 
 :::note
 The `Flush` method ignores client side deduplication and retry settings.
@@ -509,7 +509,7 @@ backtraceDatabase.Flush();
 ### `backtraceDatabase.Send`
 <p><small>| METHOD | OPTIONAL |</small></p>
 
-Sends all reports to the Backtrace server, as defined by the client side deduplication and database retry settings.
+Sends all reports to the Backtrace server, as defined by the client side deduplication and database retry settings. This method is only needed to support the offline database when the Auto send mode is disabled.
 
 ```c#
 backtraceDatabase.Send();
