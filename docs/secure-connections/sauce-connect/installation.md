@@ -125,7 +125,7 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    <td>
     See <a href="#download-latest-version">Linux, Mac, Windows</a>
    </td>
-   <td rowspan="2" >June 31, 2022
+   <td rowspan="2" >Sep. 30, 2022
    </td>
   </tr>
   <tr>
@@ -147,7 +147,7 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    <td>
     <a href="https://saucelabs.com/downloads/sc-4.6.5-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.5-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.5-win32.zip">Windows</a>
    </td>
-   <td rowspan="6" >Jan. 31, 2022
+   <td rowspan="6" >Mar. 31, 2022
    </td>
   </tr>
   <tr>
