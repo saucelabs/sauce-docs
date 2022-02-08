@@ -63,6 +63,7 @@ If automatic proxy configuration fails, you will need to override the settings o
 | `-p (--proxy <host:port>) -w (--proxy-userpwd <user:pwd>)` | Requires username and password sent via basic authentication to access the proxy specified with `-p`. Can be combined with `-pac`. :::note Do not use this `-p -w` combination with more than one proxy. Multiple proxies requiring auth are not supported.::: |
 | `-p (-–proxy <host:port>) -T (--proxy-tunnel)` | Reroutes all tunnel traffic through the proxy specified with `-p`. This should only be used as a last resort if the machine running Sauce Connect Proxy cannot send outgoing connections from `port 443`. Cannot be combined with `--pac`. |
 | `--pac url` | Proxy auto-configuration (can be a http(s) or local file: //URL). Absolute paths are required when specifying a local PAC file (e.g., `file:///Users/Andrew/Desktop/MyPac.pac`). Can be used on its own or combined with `-p -w`. |
+|`--proxy-localhost`| If the upstream proxy is hosted on `localhost`, add this flag to correctly proxy traffic. By default, any traffic to `localhost` is not proxied.|
 
 #### Command Line Configuration Using `-p (-–proxy <host:port>)` and `-w (--proxy-userpwd <user:pwd>`)
 Using the `-p` and `-w` commands together when starting a Sauce Connect Proxy tunnel will route traffic between the Sauce Connect Proxy client on your network and the Sauce REST API through the proxy server specified by the `<host:port>` argument.
