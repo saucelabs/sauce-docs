@@ -124,7 +124,7 @@ You can also define custom attributes to be captured, sent, and indexed. For mor
 |`scene.count`|The number of scenes currently loaded in your project at the time a report is sent.|User Defined|User Defined|
 |`scene.count.build`|The number of scenes added in Build Settings for the Unity project.|User Defined|User Defined|
 |`scene.handle`|The number of handles in the scene.|User Defined|User Defined|
-|`scene.isDirty`|Indicates whether the active scene has an modifications.|User Defined|User Defined|
+|`scene.isDirty`|Indicates whether the active scene has any modifications.|User Defined|User Defined|
 |`scene.isLoaded`|Indicates whether the active scene is loaded.|User Defined|User Defined|
 |`scene.name`|The name of the active scene at the time the report is sent.|User Defined|User Defined|
 |`scene.path`|The path to the scene.|User Defined|User Defined|

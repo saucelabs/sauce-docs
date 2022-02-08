@@ -134,7 +134,7 @@ At this point, you've installed and setup the Backtrace client to automatically 
 
 To test the integration, use a try / catch block to throw an exception and start sending reports.
 
- ```c#
+ ```csharp
   //Read from manager BacktraceClient instance
  var backtraceClient = GameObject.Find("manager name").GetComponent<BacktraceClient>();
 

@@ -12,7 +12,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Usage
 
-```c#
+```csharp
 //Read from manager BacktraceClient instance
 
 var backtraceClient = GameObject.Find("_Manager").GetComponent<BacktraceClient>();
@@ -80,7 +80,7 @@ Alternatively, you can also specify the configuration settings in your C# projec
 |---------|---------|---------|---------|
 |Use normalized exception message|Generates a fingerprint with a normalized exception message if an exception doesn't have a stack trace.|Boolean|False|
 |Send unhandled native game crashes on startup|Sends native crashes when the game or app starts. Available only for Windows.|Boolean|True|
-|Filter reports|Ignores error reports based on error type: <ul><li>Disable: Sends error reports for all error types.</li><li>Everything: Ignores error reports for all error types.</li> <li>Message: Ignores error reports for error messages.</li> <li>Handled Exception: Ignores error reports for handled exceptions.</li> <li>Unhandled Exception: Ignores error reports for unhandled exceptions.</li> <li>Hang: Ignores error reports for ANR (Application not responding) or hang errors. Mobile only.</li> <li>Game Error: Ignores error reports for native crashes.</li></ul>|Enum|Disable|
+|Filter reports|Ignores error reports based on error type: <ul><li>Disable: Sends error reports for all error types.</li><li>Everything: Ignores error reports for all error types.</li> <li>Message: Ignores error reports for error messages.</li> <li>Handled Exception: Ignores error reports for handled exceptions.</li> <li>Unhandled Exception: Ignores error reports for unhandled exceptions.</li> <li>Hang: Ignores error reports for ANR (Application not responding) or hang errors. Mobile only.</li> <li>Game Error: Ignores error reports for native game crashes.</li></ul>|Enum|Disable|
 |Collect last n game logs|Collects last n number of logs generated in the game.|Number|10|
 |Enable performance statistics|Allows the Backtrace client to measure execution time and include performance information as report attributes.|Boolean|False|
 |Destroy client on new scene load|Removes the Backtrace client component when loading a new game scene. <br /><br /> By default, the Backtrace client will be available in every game scene.|Boolean|False|
@@ -102,9 +102,9 @@ This functionality is supported on all platforms except WebGL.
 |Enable crash free metrics reporting|Enables metrics such as crash free users and crash free sessions.|Boolean|True|
 |Auto send interval in min|Indicates how often crash free metrics are sent to Backtrace. <br /><br />By default, session events are sent on application startup, when the game ends, and every 30 minutes while the game is running.|Number|30|
 
-You can enable crash free metrics at runtime with `BacktraceClient.EnableMetrics()`.
+You can enable crash free metrics at runtime with `backtraceClient.EnableMetrics()`.
 
-You can also add custom metrics groups and attributes with [`BacktraceClient.EnableMetrics()`](/error-reporting/platform-integrations/unity/configuration/#backtraceclientinstancemetricsaddsummedevent).
+You can also add custom metrics groups and attributes with [`backtraceClient.Instance.Metrics.AddSummedEvent`](/error-reporting/platform-integrations/unity/configuration/#backtraceclientinstancemetricsaddsummedevent).
 
 
 ### Capturing Native Crashes
@@ -230,7 +230,7 @@ For more information about debug symbols, see [add link to product guide].
 
 You can also add custom breadcrumb events, with information like "player completed a level" and sub attributes:
 
-```c#
+```csharp
 GetComponent<BacktraceClient>().Breadcrumbs.Info("Player Base Upgraded", new Dictionary<string, string>() {
   {"base.name", "MtGox"},
   {"base.level", "15"}
@@ -255,7 +255,7 @@ Class used to send `backtraceReport` to the Backtrace server by using `backtrace
 This class inherits `MonoBehavior` functions.
 :::
 
-```c#
+```csharp
 
  //Read from manager BacktraceClient instance
 var backtraceClient = GameObject.Find("manager name").GetComponent<BacktraceClient>();
@@ -283,7 +283,7 @@ catch(Exception exception){
 
 Method used to initialize the Backtrace Unity SDK directly in the C# code of your Unity project.
 
-```c#
+```csharp
 var backtraceClient = BacktraceClient.Initialize(
     url: serverUrl,
     databasePath: "${Application.persistentDataPath}/sample/backtrace/path",
@@ -293,7 +293,7 @@ var backtraceClient = BacktraceClient.Initialize(
 
 If you need to use more advanced configuration settings, the `Initialize` method accepts a `BacktraceConfiguration` scriptable object. For example:
 
-```c#
+```csharp
 var configuration = ScriptableObject.CreateInstance<BacktraceConfiguration>();
 configuration.ServerUrl = serverUrl;
 configuration.Enabled = true;
@@ -316,7 +316,7 @@ Used to add custom metrics groups and attributes to capture your game or apps' s
 
 For example, if you want to know details about the levels that a user has played in your game, you can add a "LevelsPlayed" event with the `application.version` and `score` attributes.
 
-```c#
+```csharp
 BacktraceClient.Instance.Metrics.AddSummedEvent("levels_played", new Dictionary<string, string>() {
   {"application.version", BacktraceClient.Instance["application.version"]},
   {"score", "" + score}
@@ -326,7 +326,7 @@ BacktraceClient.Instance.Metrics.AddSummedEvent("levels_played", new Dictionary<
 
 As another example, if you want to know how many minutes a user has played your game, you can add a "MinutesPlayed" event with the `application.version` and `uname.sysname` attributes.
 
-```c#
+```csharp
 private void Update()
 {
     timeElapsedSeconds += Time.deltaTime;
@@ -365,7 +365,7 @@ Adding multiple events with many linked attributes or sending the metrics events
 
 Method used to refresh and apply the configuration settings for the Backtrace client when you change the configuration dynamically. For example:
 
-```c#
+```csharp
 //Read from manager BacktraceClient instance
 var backtraceClient = GameObject.Find("manager name").GetComponent<BacktraceClient>();
 
@@ -390,7 +390,7 @@ Method used to send error reports to the Backtrace endpoint.
 
 You can also add custom event handlers to the client. For example, you can use `BeforeSend` to trigger actions before the `Send` method:
 
-```c#
+```csharp
  //Add a custom event handler
 backtraceClient.BeforeSend =
     (Model.BacktraceData model) =>
@@ -426,7 +426,7 @@ If you want to ignore specific types of error reports, we recommend that you use
 
 However, for more advanced use cases, you can use `BacktraceClient.SkipReport` to set the `ReportFilterType`. For example:
 
-```c#
+```csharp
 // Return 'true' to ignore a report,
 // Return 'false' to handle the report and generate it for the error.
 BacktraceClient.SkipReport = (ReportFilterType type, Exception e, string msg) =>
@@ -460,7 +460,7 @@ Class that stores error report data in your local hard drive when reports fail t
 
 Clears all reports from the database without sending them to Backtrace server.
 
-```c#
+```csharp
 backtraceDatabase.Clear();
 ```
 
@@ -471,7 +471,7 @@ backtraceDatabase.Clear();
 
 Returns the number of reports stored in the database, including deduplicated reports.
 
-```c#
+```csharp
 backtraceDatabase.Count();
 ```
 
@@ -482,7 +482,7 @@ backtraceDatabase.Count();
 
 Removes a report stored in the database, including deduplicated reports.
 
-```c#
+```csharp
 backtraceDatabase.Delete();
 ```
 
@@ -501,7 +501,7 @@ The `Flush` method ignores client side deduplication and retry settings.
 If the `Send` method fails, the database will no longer store data.
 :::
 
-```c#
+```csharp
 backtraceDatabase.Flush();
 ```
 ---
@@ -511,7 +511,7 @@ backtraceDatabase.Flush();
 
 Sends all reports to the Backtrace server, as defined by the client side deduplication and database retry settings. This method is only needed to support the offline database when the Auto send mode is disabled.
 
-```c#
+```csharp
 backtraceDatabase.Send();
 ```
 
@@ -524,7 +524,7 @@ Class that defines a single error report.
 
 You can submit custom attributes using the `attributes` parameter, or attach files by specifying an array of file paths with the `attachmentPaths` parameter. For example:
 
-```c#
+```csharp
 try
 {
   //throw exception here
@@ -550,7 +550,7 @@ Fingerprint values must be a valid SHA-256 string.
 
 For example:
 
-```c#
+```csharp
 try
 {
   //throw exception here
@@ -591,7 +591,7 @@ Triggers an event every time an exception in the managed environment occurs, whi
 
 You can use the `BeforeSend` event to extend attributes or JSON object data based on data the application has at the time of exception.
 
-```c#
+```csharp
 //Read from manager BacktraceClient instance
 
 var backtraceClient = GameObject.Find("manager name").GetComponent<BacktraceClient>();
@@ -615,14 +615,14 @@ The Annotation class exposes the `EnvironmentVariablesCache` dictionary, which s
 
 For example, you can use an annotation to replace the `USERNAME` environment variable with a random string, which will be used to create reports.
 
-```c#
+```csharp
 Annotations.EnvironmentVariablesCache["USERNAME"] = "%USERNAME%";
 }
 ```
 
 You can can also use the `BeforeSend` event along with annotations for environment variables to edit collected diagnostic data.
 
-```c#
+```csharp
 client.BeforeSend = (BacktraceData data) =>
 {
     data.Annotation.EnvironmentVariables["USERNAME"] = "%USERNAME%";
