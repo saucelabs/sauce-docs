@@ -531,9 +531,9 @@ module.exports = {
              collapsed: true,
              items: [
                  'secure-connections/sauce-connect',
+                 'secure-connections/sauce-connect/installation',
                  'secure-connections/sauce-connect/quickstart',
                  'secure-connections/sauce-connect/system-requirements',
-                 'secure-connections/sauce-connect/installation',
 
                  {
                      type: 'category',
@@ -737,7 +737,6 @@ module.exports = {
           'api-testing/project-dashboard',
           'api-testing/project-access',
           'api-testing/import-export-tests',
-          'api-testing/clone-test',
           'api-testing/mocking',
           'api-testing/logger',
           'api-testing/legacy',

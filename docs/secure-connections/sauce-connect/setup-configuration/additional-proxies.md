@@ -17,7 +17,7 @@ To configure Sauce Connect Proxy to use your proxy or proxies, you will need to 
 ## Warning About Man-in-the-Middle Proxies
 If you use a Man-in-the-Middle proxy to monitor network traffic, it must be configured to allow the TLS connection and proprietary protocol used by Sauce Connect Proxy to communicate with the Sauce Labs virtual machines that are running your tests. If it will allow only HTTP or HTTPS sessions, it will drop the inbound Sauce Connect Proxy connection.
 
-See the [Sauce Connect Proxy Tunnel Startup Diagram](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information about how Sauce Connect Proxy initiates and maintains the connection with the Sauce Labs browser cloud.  
+See the [Sauce Connect Proxy Tunnel Startup Diagram](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information about how Sauce Connect Proxy initiates and maintains the connection with the Sauce Labs browser cloud.
 
 ## What You'll Need
 Review the [Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) to confirm that your system and network architecture are compatible with Sauce Connect Proxy.
@@ -34,19 +34,23 @@ The configuration options described below will cause the REST API and SUT traffi
 In this configuration, the Site Under Test (SUT) is behind a proxy in order to allow even more control over traffic before it reaches the SUT. This setup is used to control access to the SUT by IP allowlisting or by restricting proxy access to users with valid username/password credentials.
 
 ### Proxy Auto-Configuration (Automatic)
-Proxies and proxy auto-configuration (PAC) (see [Proxy auto-config](https://en.wikipedia.org/wiki/Proxy_auto-config))settings are auto-configured, based on the operating system settings on the machine where it is installed.
+Proxies and proxy auto-configuration (PAC) (see [Proxy auto-config](https://en.wikipedia.org/wiki/Proxy_auto-config)) settings may be configured based on the operating system settings on the machine where it is installed.
 
 * On Windows, Sauce Connect Proxy will use the proxy settings for Internet Explorer, as well as the system-wide proxy settings that are set in the Control Panel.
 * On Mac OS X, Sauce Connect Proxy will use the proxy settings in Preferences/Network. Both proxy and PAC settings are supported.
 * On Linux, Sauce Connect Proxy looks for these variables, in this order:
-  * `http_proxy`
-  * `HTTP_PROXY`
+  * `http_proxy` or `https_proxy`
+  * `HTTP_PROXY` or `HTTPS_PROXY`
   * `all_proxy`
   * `ALL_PROXY` (they can be in the form `http://host.name:port` or `host.name:port`)
 
-When a proxy is auto-detected, Sauce Connect Proxy will route all network traffic between the Sauce Connect Proxy client running on your network and the Sauce Labs REST API through the detected proxy.
-The traffic between the Sauce Connect Proxy client and the SUT will also be routed through the proxy. You can disable automatic proxy detection
-with the command-line option [--no-autodetect](/dev/cli/sauce-connect-proxy#--no-autodetect).
+When a proxy is auto-detected, Sauce Connect Proxy will route the following traffic through the detected proxy:
+
+* all network traffic between the Sauce Connect Proxy client running on your network and the Sauce Labs REST API
+* all network traffic between the Sauce Connect Proxy client running on your network and the Sauce Labs Sauce Connect server
+* all network traffic between the Sauce Connect Proxy client and the SUT
+
+You can disable automatic proxy detection with the command-line option [--no-autodetect](/dev/cli/sauce-connect-proxy#--no-autodetect).
 
 To set up and run Sauce Connect Proxy for this situation, see [Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
 
@@ -59,6 +63,7 @@ If automatic proxy configuration fails, you will need to override the settings o
 | `-p (--proxy <host:port>) -w (--proxy-userpwd <user:pwd>)` | Requires username and password sent via basic authentication to access the proxy specified with `-p`. Can be combined with `-pac`. :::note Do not use this `-p -w` combination with more than one proxy. Multiple proxies requiring auth are not supported.::: |
 | `-p (-–proxy <host:port>) -T (--proxy-tunnel)` | Reroutes all tunnel traffic through the proxy specified with `-p`. This should only be used as a last resort if the machine running Sauce Connect Proxy cannot send outgoing connections from `port 443`. Cannot be combined with `--pac`. |
 | `--pac url` | Proxy auto-configuration (can be a http(s) or local file: //URL). Absolute paths are required when specifying a local PAC file (e.g., `file:///Users/Andrew/Desktop/MyPac.pac`). Can be used on its own or combined with `-p -w`. |
+|`--proxy-localhost`| If the upstream proxy is hosted on `localhost`, add this flag to correctly proxy traffic. By default, any traffic to `localhost` is not proxied.|
 
 #### Command Line Configuration Using `-p (-–proxy <host:port>)` and `-w (--proxy-userpwd <user:pwd>`)
 Using the `-p` and `-w` commands together when starting a Sauce Connect Proxy tunnel will route traffic between the Sauce Connect Proxy client on your network and the Sauce REST API through the proxy server specified by the `<host:port>` argument.
@@ -84,7 +89,7 @@ Here are some examples for starting a tunnel using  `-p` and `-w`:
 <TabItem value="windows">
 
 ```bash
-sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
+.\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
   -p %PROXY_HOST%:%PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD%
 ```
 
@@ -115,7 +120,7 @@ Here are some examples for starting a Sauce Connect Proxy tunnel using `-p` and 
 <TabItem value="windows">
 
 ```bash
-sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
+.\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
   -p %PROXY_HOST:PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD% -T
 ```
 
@@ -150,7 +155,7 @@ Here are some examples for starting a Sauce Connect Proxy tunnel using `--pac ur
 <TabItem value="windows">
 
 ```bash
-sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --pac PAC_FILE_URL
+.\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --pac PAC_FILE_URL
 ```
 
 </TabItem>
@@ -256,7 +261,7 @@ The Charles Proxy is useful for monitoring traffic passing between your Sauce VM
 
 5. Start **Charles Proxy**.
 
-6. To change to an open port, in Charles Proxy, click **Proxy** and then click **Proxy Settings**. Under **HHTP Proxy**, enter an open port (e.g., `port 8890`) and then click **OK**.
+6. To change to an open port, in Charles Proxy, click **Proxy** and then click **Proxy Settings**. Under **HTTP Proxy**, enter an open port (e.g., `port 8890`) and then click **OK**.
 
 <img src={useBaseUrl('img/sauce-connect/charles-proxy-settings.png')} alt="Charles Proxy settings navigation" width="800"/>
 

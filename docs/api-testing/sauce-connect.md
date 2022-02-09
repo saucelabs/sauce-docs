@@ -1,7 +1,7 @@
 ---
 id: sauce-connect
 title: Using Sauce Connect Proxy Tunnels for API Tests
-sidebar_label: Sauce Connect Tunnels
+sidebar_label: Using Sauce Connect
 description: Get a Sauce Connect Proxy tunnel up and running quickly for your API tests.
 ---
 
@@ -9,7 +9,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-If your APIs exist behind a firewall on your private network, you'll need to use our Sauce Connect Proxy solution to open up a secure trusted connection between your network and Sauce Labs.
+
+Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabling you to test and monitor both internal and public APIs. If your APIs are behind a firewall on your private network, follow the steps below to launch a secure trusted connection between your network and Sauce Labs.
 
 ## What You'll Need
 
