@@ -386,6 +386,22 @@ backtraceClient.Refresh();
 
 Method used to send error reports to the Backtrace endpoint.
 
+```csharp
+try
+{
+  //throw exception here
+}
+catch (Exception exception)
+{
+    var report = new BacktraceReport(
+        exception: exception,
+        attributes: new Dictionary<string, string>() { { "key", "value" } },
+        attachmentPaths: new List<string>() { @"file_path_1", @"file_path_2" }
+    );
+    backtraceClient.Send(report);
+}
+```
+
 #### Custom Event Handlers
 
 You can also add custom event handlers to the client. For example, you can use `BeforeSend` to trigger actions before the `Send` method:

@@ -21,7 +21,6 @@ The Backtrace Unreal SDK reports on the following types of errors:
 |---------|---------|
 |
 
-
 ## How to Get Started
 
 * [Setup](/error-reporting/platform-integrations/unity/setup): Install and setup the Backtrace client and database object in your Unity project.
