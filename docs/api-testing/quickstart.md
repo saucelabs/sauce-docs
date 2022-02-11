@@ -37,7 +37,7 @@ If you're seeing an existing list of Projects instead of the landing page shown 
 3. In the **Create a New Project** window:
    * Set the **Create from** dropdown to **blank project**.
    * Enter your **Project Name**.
-   * Optionally, you can add **Tags**, a **Description**, **Notes**, and/or change your [**Access**](/api-testing/project-access/) from **Organization** to a different team, if available.
+   * Optionally, you can add **Tags**, a **Description**, **Notes**. For the purpose of this Quickstart, leave **Access** as-is.
    * Click **Save** when you're finished. <br/><img src={useBaseUrl('img/api-fortress/2021/01/newProject.png')} alt="Create a Project UI" width="300" />
 
 
@@ -53,7 +53,7 @@ In the **HTTP Client** tab > **Enter request URL** field, enter `https://dog.ceo
 
 Click **Send** to submit this HTTP request.<br/><img src={useBaseUrl('img/api-fortress/2021/01/enterRequestSave.png')} alt="Enter API Request save" width="500" />
 
-The JSON response will populate in the **Body** section along with a **200** OK success status.<br/><img src={useBaseUrl('img/api-fortress/2021/01/testSuccess.png')} alt="API Request success" width="400" />
+The JSON response &#8212; in this case, a list of dog breeds &#8212; will populate in the **Body** section along with a **200** OK success status.<br/><img src={useBaseUrl('img/api-fortress/2021/01/testSuccess.png')} alt="API Request success" width="400" />
 
 
 ## Generate Test
