@@ -109,7 +109,6 @@ When you're done, save the **screener.config.js** file to your Storybook project
 ### Add Screener Script
 
 Open your Storybook project's **package.json** file and add the following npm script to your `"scripts": {` section:
-
 ```json
 "test-storybook": "screener-storybook --conf screener.config.js"  
 ```
@@ -119,7 +118,6 @@ When you're done, be sure to save the **package.json** file.
 ### Run Test
 
 Run your test:
-
 ```bash
 npm run test-storybook
 ```
@@ -218,7 +216,6 @@ When you're done, save the **screener.config.js** file to your Storybook project
 ### Add Screener Script
 
 Open your Storybook project's **package.json** file and add the following npm script to your `"scripts": {` section:
-
 ```json
 "test-storybook": "screener-storybook --conf screener.config.js"  
 ```
