@@ -53,23 +53,7 @@ const items = [
         XCUITest
       </a>
     </h3>
-  </div>,
-  <div className='quickstart' onDragStart={handleDragStart}>
-    <img src='img/quickstart/xcuitest.png' alt='XCUITest Logo' />
-    <h3>
-      <a href='https://docs.saucelabs.com/mobile-apps/automated-testing/espresso-xcuitest/' target='_self'>
-        XCUITest
-      </a>
-    </h3>
-  </div>,
-  <div className='quickstart' onDragStart={handleDragStart}>
-    <img src='img/quickstart/xcuitest.png' alt='XCUITest Logo' />
-    <h3>
-      <a href='https://docs.saucelabs.com/mobile-apps/automated-testing/espresso-xcuitest/' target='_self'>
-        XCUITest
-      </a>
-    </h3>
-  </div>,
+  </div>
 ];
 
 const responsive = {
