@@ -8,15 +8,16 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::caution Always use latest version
-Using older Sauce Connect versions may impact your ability to launch a tunnel or cause other technical issues. Download the latest version [here](/secure-connections/sauce-connect/installation/).
-:::
-
 Sauce Connect is required to run a local test on an app or website located behind a firewall. Get up and running with a basic Sauce Connect Proxy tunnel in minutes using the steps below.
 
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* The localhost URL for your site or app under test.
+
+:::caution Always use the latest version
+Using older Sauce Connect versions may impact your ability to launch a tunnel or cause other technical issues. Download the latest version [here](/secure-connections/sauce-connect/installation/).
+:::
 
 
 ## Start Tunnel
@@ -46,10 +47,10 @@ Sauce Connect is required to run a local test on an app or website located behin
   </TabItem>
   </Tabs>
 4. Log in to Sauce Labs.
-5. Go to the **Tunnels** page.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsPage.png')} alt="Sauce Connect Proxy Tunnels page" width="500"/>
+5. Go to the **Tunnels** page.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsPage.png')} alt="Sauce Connect Proxy Tunnels page" width="450"/>
 6. Go to **STEP 3: Configure & Authenticate** and copy the code snippet.<br/><img src={useBaseUrl('img/sauce-connect/configureAuth.png')} alt="Sauce Connect Proxy Tunnels page snippet" width="500"/>
 <details><summary>What is this?</summary>
-This snippet contains your authentication credentials (username and access key), selects a Sauce Labs Data Center, and applies a name to your tunnel. Optionally, you can rename your tunnel by replacing the value after the `--tunnel-name` flag.
+This snippet contains your authentication credentials (username and access key), selects a Sauce Labs Data Center, and applies a name to your tunnel. Optionally, you can rename your tunnel by replacing the value after the <code>--tunnel-name</code> flag.
 </details>
 7. From your terminal, paste the snippet and run it. This will launch the tunnel.
 
