@@ -13,10 +13,6 @@ Screener is now Sauce Labs Visual Testing. As part of our effort to bring you a 
 
 Sauce Labs Visual E2E Testing is an automated testing method that integrates with your Selenium WebDriver tests and code, enabling you to combine functional and visual regression UI testing across different browsers and resolutions in the same run. Follow the steps below to get set up in minutes. You can use any programming language that Selenium WebDriver supports without having to install additional libraries or SDKs.
 
-:::caution New to WebDriver?
-Head to the [Quickstart Using Sample WebDriver Tests](#quickstart-with-sample-webdriver-tests) section.
-:::
-
 
 ## What You'll Need
 
@@ -30,6 +26,10 @@ Head to the [Quickstart Using Sample WebDriver Tests](#quickstart-with-sample-we
 ## Quickstart with Existing WebDriver Tests
 
 Follow the steps below to add Visual E2E Testing functionality to your Selenium WebDriver tests.
+
+:::tip New to WebDriver?
+Head to [Quickstart Using Sample WebDriver Tests](#quickstart-with-sample-webdriver-tests).
+:::
 
 
 ### Set Environment Variables
