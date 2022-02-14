@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import Caroulsel from '../components/carousel';
 
 class QuickStart extends Component {
   render() {
     return (
       <div>
         <h2 className="title-quickstart">Quickstart with Sauce Labs</h2>
-        <div className="quickstart__container">
+        <Caroulsel />
+        {/* <div className="quickstart__container">
           <div className="quickstart">
             <img src='img/quickstart/appium.svg'  alt="Appium Logo"/>
             <h3>
@@ -60,7 +62,8 @@ class QuickStart extends Component {
             </a>
           </h3>
           </div>
-        </div>
+        </div> */}
+
       </div>
     );
   }
