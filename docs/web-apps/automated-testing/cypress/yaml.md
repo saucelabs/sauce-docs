@@ -1,7 +1,7 @@
 ---
-id: cypress
+id: yaml
 title: Configuring your Cypress Tests
-sidebar_label: Configuration
+sidebar_label: YAML Configuration
 ---
 
 import Tabs from '@theme/Tabs';
@@ -21,7 +21,7 @@ saucectl run -c ./path/to/{config-file}.yml
 ```
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](/testrunner-toolkit/ide-integrations/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](/dev/cli/saucectl/usage/ide/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
 :::
 
 
@@ -181,7 +181,7 @@ saucectl run --retries 1
 ### `tunnel`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-`saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
+`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
 
 ```yaml
 sauce:
@@ -317,7 +317,7 @@ npm:
 ### `registry`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/testrunner-toolkit/running-tests#running-tests-on-sauce-labs-with-sauce-connect).
+Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
 
 ```yaml
   registry: https://registry.npmjs.org

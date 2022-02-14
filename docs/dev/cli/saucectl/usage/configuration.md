@@ -8,16 +8,16 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-The initial [installation and setup](/testrunner-toolkit/installation) of `saucectl` generates a `config.yml` file based on the framework and region you select during setup. By default, `saucectl` will look for this file each time you engage the CLI in order to determine where to find your tests and how and where to run them.
+The initial [installation and setup](/dev/cli/saucectl/#installing-saucectl) of `saucectl` generates a `config.yml` file based on the framework and region you select during setup. By default, `saucectl` will look for this file each time you engage the CLI in order to determine where to find your tests and how and where to run them.
 
 The configuration file is flexible enough to allow for any customizations and definitions that are required for any of the supported frameworks. The following sections describe some of the most common configurations. For information about configuring individual framework projects, see:
 
-* [Configure Cypress](/testrunner-toolkit/configuration/cypress)
-* [Configure Playwright](/testrunner-toolkit/configuration/playwright)
-* [Configure TestCafe](/testrunner-toolkit/configuration/testcafe)
-* [Configure Puppeteer](/testrunner-toolkit/configuration/puppeteer)
-* [Configure Espresso](/testrunner-toolkit/configuration/espresso)
-* [Configure XCUITest](/testrunner-toolkit/configuration/xcuitest)
+* [Configure Cypress](/web-apps/automated-testing/cypress/yaml)
+* [Configure Playwright](/web-apps/automated-testing/playwright/yaml)
+* [Configure TestCafe](/web-apps/automated-testing/testcafe/yaml)
+* [Configure Puppeteer](/web-apps/automated-testing/puppeteer/yaml)
+* [Configure Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso)
+* [Configure XCUITest](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest)
 
 
 ## Setting an Alternative Configuration File
@@ -30,7 +30,7 @@ saucectl run -c ./path/to/{config-file}.yml
 If you are using multiple frameworks or need to configure different sets of tests to run separately, it might be useful to have individual configuration files that you can simply direct `saucectl` to reference as necessary.
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the [`saucectl` syntax](/testrunner-toolkit/configuration/common-syntax). If you are less comfortable with YAML, any of a wide variety of free online YAML/JSON validator tools may be helpful.
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax outlined in the configuration reference doc for your framework 9see links above). If you are less comfortable with YAML, any of a wide variety of free online YAML/JSON validator tools may be helpful.
 :::
 
 

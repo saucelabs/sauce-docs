@@ -1,14 +1,14 @@
 ---
-id: playwright
-title: Configuring Your Playwright Tests
-sidebar_label: Configuration
+id: yaml
+title: Configuring Your TestCafe Tests
+sidebar_label: YAML Configuration
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-`saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your Playwright tests, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running Playwright tests.
+`saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your TestCafe tests, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running TestCafe tests.
 
 ## Setting an Alternative Configuration File
 
@@ -21,17 +21,17 @@ saucectl run -c ./path/to/{config-file}.yml
 ```
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](/testrunner-toolkit/ide-integrations/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](/dev/cli/saucectl/usage/ide/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
 :::
 
 
 ## Example Configuration
 
 ```yaml reference
-https://github.com/saucelabs/saucectl-playwright-example/blob/master/.sauce/config.yml
+https://github.com/saucelabs/saucectl-testcafe-example/blob/master/.sauce/config.yml
 ```
 
-Each of the properties supported for running Playwright tests through `saucectl` is defined below.
+Each of the properties supported for running TestCafe tests through `saucectl` is defined below.
 
 ## `apiVersion`
 <p><small>| REQUIRED | STRING |</small></p>
@@ -41,6 +41,7 @@ Identifies the version of the underlying configuration schema. At this time, `v1
 ```yaml
 apiVersion: v1alpha
 ```
+
 ---
 
 ## `kind`
@@ -49,7 +50,7 @@ apiVersion: v1alpha
 Specifies which framework is associated with the automation tests configured in this specification.
 
 ```yaml
-kind: playwright
+kind: testcafe
 ```
 ---
 
@@ -81,7 +82,7 @@ defaults:
 Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally on `docker`. You can override this setting for individual suites using the `mode` setting within the [`suites`](#suites) object. If not set, the default value is `sauce`.
 
 ```yaml
-  mode: sauce
+  mode: "sauce"
 ```
 ---
 
@@ -104,7 +105,7 @@ The parent property containing all settings related to how tests are run and ide
 sauce:
   region: eu-central-1
   metadata:
-    name: Testing Playwright Support
+    name: Testing TestCafe Support
     tags:
       - e2e
       - release team
@@ -131,7 +132,7 @@ The set of properties that allows you to provide additional information about yo
 
 ```yaml
 metadata:
-  name: Testing Playwright Support
+  name: Testing TestCafe Support
   build: RC 10.4.a
   tags:
     - e2e
@@ -180,7 +181,7 @@ saucectl run --retries 1
 ### `tunnel`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-`saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
+`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
 
 ```yaml
 sauce:
@@ -236,14 +237,14 @@ A property containing one or more environment variables that are global for all 
 ---
 
 ## `docker`
-<p><small>| OPTIONAL | OBJECT |<span class="highlight docker">Docker only</span> |</small></p>
+<p><small>| OPTIONAL | OBJECT | <span class="highlight docker">Docker only</span> |</small></p>
 
 The set of properties defining the specific Docker image and type your are using, if you are running any tests locally.
 
 ```yaml
 docker:
   fileTransfer: copy
-  image: saucelabs/stt-playwright-node:vX.X.X
+  image: saucelabs/stt-testcafe-node:vX.X.X
 ```
 ---
 
@@ -255,7 +256,7 @@ Method in which to transfer test files into the docker container. Valid values a
 * `copy`: Copies files and folders into the docker container. If you run into permission issues, either due to docker or host settings, `copy` is the advised use case. See the [Docker documentation](https://docs.docker.com/engine/reference/builder/#copy) for more about the copy convention.
 
 ```yaml
-  fileTransfer: copy
+  fileTransfer: < mount | copy >
 ```
 ---
 
@@ -263,10 +264,10 @@ Method in which to transfer test files into the docker container. Valid values a
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies which docker image and version to use when running tests. Valid values are in the format:
-`saucelabs/<framework-node>:<vX.X.X>`. See [Supported Testing Platforms](/web-apps/automated-testing/playwright#supported-testing-platforms) for Docker release notes related to Playwright.
+`saucelabs/<framework-node>:<vX.X.X>`. See [Supported Testing Platforms](/web-apps/automated-testing/testcafe#supported-testing-platforms) for Docker release notes related to TestCafe.
 
 ```yaml
-  image: saucelabs/< stt-playwright-mocha-node | stt-playwright-node | stt-testcafe-node >:< vX.X.X >
+  image: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node >:< vX.X.X >
 ```
 
 :::caution
@@ -304,14 +305,14 @@ npm:
   packages:
     lodash: "4.17.20"
     "@babel/preset-typescript": "7.12"
-    "@playwright/react": "^5.0.1"
+    "@testcafe/react": "^5.0.1"
 ```
 ---
 
 ### `registry`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/testrunner-toolkit/running-tests#running-tests-on-sauce-labs-with-sauce-connect).
+Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
 
 ```yaml
   registry: https://registry.npmjs.org
@@ -327,7 +328,7 @@ Specifies any NPM packages that are required to run tests and should, therefore,
   packages:
     lodash: "4.17.20"
     "@babel/preset-typescript": "7.12"
-    "@playwright/react": "^5.0.1"
+    "@testcafe/react": "^5.0.1"
 ```
 ---
 ## `reporters`
@@ -366,7 +367,6 @@ When set to `true`, all contents of the specified download directory are cleared
 ```yaml
   cleanup: true
 ```
-
 ---
 
 ### `download`
@@ -430,7 +430,7 @@ notifications:
   slack:
     channels:
       - "saucectl-results"
-      - "playwright-tests"
+      - "testcafe-tests"
     send: always
 ```
 ---
@@ -442,7 +442,7 @@ Specifies the settings related to sending tests result notifications through Sla
 
 ```yaml
   slack:
-    channels: "saucectl-pw-tests"
+    channels: "saucectl-testcafe"
     send: always
 ```
 ---
@@ -456,7 +456,7 @@ The set of Slack channels to which the test result notifications are to be sent.
   slack:
     channels:
       - "saucectl-results"
-      - "playwright-team"
+      - "testcafe-team"
     send: always
 ```
 ---
@@ -473,42 +473,30 @@ Specifies when and under what circumstances to send notifications to specified S
 
 ```yaml
   slack:
-    channels: "saucectl-pw-tests"
+    channels: "saucectl-testcafe-tests"
     send: always
 ```
 ---
 
 
-## `playwright`
+## `testcafe`
 <p><small>| REQUIRED | OBJECT |</small></p>
 
-The parent property containing the details specific to the Playwright project.
+The parent property containing the details specific to the TestCafe project.
 
 ```yaml
-playwright:
-  version: 1.11.1
-  configFile: config.ts
+testcafe:
+  version: 1.14.2
 ```
 ---
 
 ### `version`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The version of Playwright that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/playwright#supported-testing-platforms) for the list of Playwright versions supported by `saucectl` and their compatible test platforms.
+The version of TestCafe that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/testcafe#supported-testing-platforms) for the list of TestCafe versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
-  version: 1.11.1
-```
----
-
-### `configFile`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-The path (relative to `rootDir`) to your Playwright configuration file. `saucectl` determines related files based on the location of this config file. Supports both TypeScript and JavaScript files.
-If it's not set, `saucectl` defaults to `playwright.config.ts` or `playwright.config.js`.
-
-```yaml
-  configFile: config.ts
+  version: 1.14.2
 ```
 ---
 
@@ -541,8 +529,39 @@ A property containing one or more environment variables that may be referenced i
 ```
 ---
 
+### `browserName`
+<p><small>| REQUIRED | STRING |</small></p>
+
+The name of the browser in which to run this test suite.
+Available browser names: `chrome`, `firefox`, `microsoftedge`(only for sauce mode) and `safari`(only for sauce mode on macOS or iOS simulators)
+
+```yaml
+    browser: "firefox"
+```
+---
+
+### `browserVersion`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+The version of the browser to use for this test suite.
+
+```yaml
+    browserVersion: "85.0"
+```
+---
+
+### `browserArgs`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Pass flags to configure how Puppeteer launches the selected browser. Review supported flags for [Chrome/Chromium](https://peter.sh/experiments/chromium-command-line-switches/)
+
+```yaml
+    browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
+```
+---
+
 ### `platformName`
-<p><small>| OPTIONAL | STRING | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
+<p><small>| OPTIONAL | STRING |</small></p>
 
 A specific operating system and version on which to run the specified browser and test suite. Defaults to a platform that is supported by `saucectl` for the chosen browser.
 
@@ -552,7 +571,7 @@ A specific operating system and version on which to run the specified browser an
 ---
 
 ### `screenResolution`
-<p><small>| OPTIONAL | STRING | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span class="highlight sauce-cloud">Sauce Cloud only</span>|</small></p>
 
 Specifies a browser window screen resolution, which may be useful if you are attempting to simulate a browser on a particular device type. See [Test Configurations](/basics/test-config-annotation/test-config) for a list of available resolution values.
 
@@ -571,41 +590,11 @@ Specifies whether the individual suite will run on `docker` or `sauce`, potentia
 ```
 ---
 
-### `testMatch`
-<p><small>| REQUIRED | STRING/ARRAY |</small></p>
-
-One or more paths to the playwright test files to run for this suite. Regex values are supported to indicate all files of a certain type or in a certain directory, etc. If your tests are in TypeScript, you must [transpile them to JavaScript](#transpiling-typescript-tests).
-
-```yaml
-    testMatch: ["**/*.js"]
-```
----
-
-### `numShards`
-<p><small>| OPTIONAL | INTEGER | <span class="highlight playwright">Playwright version >= 1.12</span> |</small></p>
-
-Sets the number of separate shards to create for the test suite. Read more about shard tests on the [Playwright developer site](https://playwright.dev/docs/test-parallel#shards).
-
-When sharding is configured, `saucectl` automatically creates the sharded jobs based on the number of shards you specify. For example, for a suite that specifies 2 shards, `saucectl` clones the suite and runs shard `1/2` on the first suite, and the other shard `2/2` on the identical clone suite.
-
-:::caution Shard Property Exclusivity
-The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
-:::
-
-```yaml
-  numShards: 2
-```
----
-
 ### `shard`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 When sharding is configured, saucectl automatically splits the tests (e.g. by spec) so that they can easily run in parallel.
 Selectable values: `spec` to shard by spec file. Remove this field or leave it empty `""` for no sharding.
-
-:::caution Shard Property Exclusivity
-The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
-:::
 
 ```yaml
     shard: spec
@@ -613,61 +602,275 @@ The `numShards` and `shard` properties are mutually exclusive within each suite.
 
 ---
 
-### `params`
+### `src`
+<p><small>| REQUIRED | OBJECT |</small></p>
+
+The explicit name, file glob, or location of the test files to be included in this suite.
+
+```yaml
+  src:
+    - "tests/test_file1.test.js"
+    - "tests/integrations"
+    - "*/*.test.js"
+```
+---
+
+### `filter`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A parent property that details any additional parameters you wish to set for the test suite.
+Specify a set of criteria to limit which tests in the `src` directory to execute for the suite.
 
 ```yaml
-    params:
-      browserName: "firefox"
-      headful: false
-      slowMo: 1000
-      project: "project name"
-```
-
-#### `browserName`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-The name of the browser in which to run this test suite.
-Available browser names: `chromium`, `firefox` and `webkit`.
-
-```yaml
-    browserName: "firefox"
+suites:
+  - name: Example Suite
+    filter:
+      test: browser-should-display-time
+      testGrep: browser.*
+      fixture: browswer-expectations
+      fixtureGrep: browser.*
+      testMeta:
+        region: us-west-1
+      fixtureMeta:
+        env: staging
 ```
 ---
 
-#### `headful`
+#### `test`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Runs a test with the specified name.
+
+```yaml
+filter:
+  test: browser-should-display-time
+```
+---
+
+#### `testGrep`
+<p><small>| OPTIONAL | STRING/REGEX |</small></p>
+
+Runs tests whose names match the specified `grep` pattern.
+
+```yaml
+filter:
+  testGrep: should-.*
+```
+---
+
+#### `fixture`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Runs a test with the specified fixture name.
+
+```yaml
+filter:
+  fixture: browswer-expectations
+```
+---
+
+#### `fixtureGrep`
+<p><small>| OPTIONAL | STRING/REGEX |</small></p>
+
+Runs any tests included in fixtures whose names match the specified `grep` patterns.
+
+```yaml
+filter:
+  fixtureGrep: browser-.*
+```
+---
+
+#### `testMeta`
+<p><small>| OPTIONAL | KEY-VALUE |</small></p>
+
+Runs any tests whose metadata matches the specified key-value pairs. Accepts one or more key-value definitions. If multiple pairs are specified, matching tests must contain all of the specified metadata values.
+
+```yaml
+filter:
+  testMeta:
+    region: us-west-1
+```
+---
+
+#### `fixtureMeta`
+<p><small>| OPTIONAL | KEY-VALUE |</small></p>
+
+Runs any tests included in fixtures whose metadata matches the specified key-value pairs. Accepts one or more key-value definitions. If multiple pairs are specified, matching fixtures must contain all of the specified metadata values.
+
+```yaml
+filter:
+  fixtureMeta:
+    env: staging
+```
+---
+
+
+### `simulators`
+<p><small>| OPTIONAL | OBJECT | <span class="highlight sauce-cloud">Sauce Cloud only</span>|</small></p>
+
+The property containing details about on which simulators the tests in this suite will run. This property can include multiple device definitions.
+
+```yaml
+  simulators:
+    - name: iPhone 12 Simulator
+      platformName: iOS
+      platformVersions:
+        - "14.3"
+```
+---
+
+### `screenshots`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+A parent property containing the details about whether and how to handle screenshots for this test suite. [See Testcafe Documentation](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#screenshots).
+
+```yaml
+  screenshots:
+    takeOnFails: true
+    fullPage: true
+```
+---
+
+### `disableScreenshots`
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Determines whether to run the test suite in [headless](/headless) mode.
+Prevents TestCafe from taking screenshots. See [TestCafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#disablescreenshots).
 
 ```yaml
-    headful: false
+  disableScreenshots: true
 ```
 ---
 
-#### `sloMo`
-<p><small>| OPTIONAL | INTEGER |</small></p>
+### `speed`
+<p><small>| OPTIONAL | FLOAT64 |</small></p>
 
-Allows you to alter the test execution speed for the test suite in milliseconds, to simulate different network connectivity or other conditions that may impact load times.
+Allows you to alter the test execution speed for the test suite. Tests are run at the maximum speed by default, but you can slow the test down by setting a value between `1` (the fastest) and `0.01` (the slowest).
 
 ```yaml
-    sloMo: 1000
+  speed: 0.1
 ```
 ---
 
-#### `project`
+### `tsConfigPath`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Allows you to apply the configurations from your [Playwright project](https://playwright.dev/docs/test-advanced/#projects) to the suite.
-
-:::note
-`saucectl` browserName overrides the Playwright project browserName in the event of a conflict.
-:::
+The absolute or relative path to the TypeScript configuration file. Relative paths are resolved against the current directory (the directory from which you run TestCafe).
 
 ```yaml
-    project: "project name"
+  tsConfigPath: /path/to/file
+```
+---
+
+### `clientScripts`
+<p><small>| OPTIONAL | STRING/ARRAY |</small></p>
+
+A list of one or more filepath values for scripts to inject into all pages visited during the test. See [TestCafe definition](https://devexpress.github.io/testcafe/documentation/reference/test-api/fixture/clientscripts.html).
+
+```yaml
+  clientScripts: ["/path/to/file1", "/path/to/file2"]
+```
+---
+
+### `skipJsErrors`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Determines whether to ignore JavaScript errors on a webpage. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#skipjserrors).
+
+```yaml
+  skipJsErrors: true
+```
+---
+
+### `quarantineMode`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Determines whether to enable quarantine mode for tests that fail. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#quarantinemode).
+
+```yaml
+  quarantineMode:
+    attemptLimit: 5
+    successThreshold: 3
+```
+---
+
+#### `attemptLimit`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+The maximum number of test execution attempts. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemodeattemptlimit).
+
+```yaml
+  quarantineMode:
+    attemptLimit: 5
+```
+---
+
+#### `successThreshold`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+The number of successful attempts necessary to confirm a test’s success. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemodesuccessthreshold).
+
+```yaml
+  quarantineMode:
+    successThreshold: 3
+```
+---
+
+### `skipUncaughtErrors`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Determines whether to ignores uncaught errors and unhandled promise rejections in test code. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#skipUncaughtErrors).
+
+```yaml
+  skipUncaughtErrors: true
+```
+---
+
+### `selectorTimeout`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Specifies the time (in milliseconds) within which selectors may attempt to return a node. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#selectorTimeout`).
+
+```yaml
+  selectorTimeout: 1000
+```
+---
+
+### `assertionTimeout`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Specifies the time (in milliseconds) TestCafe may attempt to successfully execute an assertion if a selector property or a client function was passed as an actual value. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#assertionTimeout).
+
+```yaml
+  assertionTimeout: 1000
+```
+---
+
+### `pageLoadTimeout`
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Specifies the time (in milliseconds) passed after the `DOMContentLoaded` event, within which TestCafe waits for the `window.load` event to fire. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#pageLoadTimeout).
+
+```yaml
+  pageLoadTimeout: 1000
+```
+---
+
+### `stopOnFirstFail`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Determines whether to stop a test run if a test fails. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#stopOnFirstFail).
+
+```yaml
+  stopOnFirstFail: true
+```
+---
+
+### `disablePageCaching`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Determines whether to prevent the browser from caching page content. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#disablePageCaching).
+
+```yaml
+  disablePageCaching: true
 ```
 ---
 
@@ -688,6 +891,39 @@ Setting `0` reverts to the value set in `defaults`.
 ## Advanced Configuration Considerations
 
 The configuration file is flexible enough to allow for any customizations and definitions that are required for any of the supported frameworks. The following sections describe some of the most common configurations.
+
+### Time Limit Considerations
+
+Execution time for TestCafe tests is limited to a maximum of 30 minutes. If the limit is exceeded, the test terminates and Sauce Control uploads assets (videos, screenshots, logs, etc..) to the Sauce Labs platform.
+
+Consider breaking up longer TestCafe tests to optimize performance and ensure you do not exceed this time limit.
+
+
+### Setting up a Proxy
+
+If you need to go through a proxy server, you can set it through the following variables:
+
+* `HTTP_PROXY`: Proxy to use to access HTTP websites
+* `HTTPS_PROXY`: Proxy to use to access HTTPS websites
+
+
+#### Docker Proxy Considerations
+
+When running in docker-mode, `saucectl` still must reach the Sauce Labs platform get the latest docker image available or upload the test package to Sauce Cloud, and the docker container needs to access the tested website and Sauce Labs to upload results.
+
+Therefore, you may be required to set the proxy twice, as shown in the following examples:
+
+``` title= "Example: Windows Powershell"
+PS> $Env:HTTP_PROXY=http://my.proxy.org:3128/
+PS> $Env:HTTPS_PROXY=http://my.proxy.org:3128/
+PS> saucectl run -e HTTP_PROXY=${Env:HTTP_PROXY} -e HTTPS_PROXY=${Env:HTTPS_PROXY}
+```
+
+``` title= "Example: Linux/MacOS"
+$> export HTTP_PROXY=http://my.proxy.org:3128/
+$> export HTTPS_PROXY=http://my.proxy.org:3128/
+$> saucectl run -e HTTP_PROXY=${HTTP_PROXY} -e HTTPS_PROXY=${HTTPS_PROXY}
+```
 
 ### Tailoring Your Test File Bundle
 
@@ -779,8 +1015,8 @@ If you know that your tests require only specific dependencies, install them ind
 
 ```bash
 # Install individual dependencies
-npm install playwright-xpath
-npm install @playwright/react
+npm install testcafe-xpath
+npm install @testcafe/react
 
 saucectl run
 ```
@@ -795,5 +1031,5 @@ npm:
   packages:
     lodash: "4.17.20"
     "@babel/preset-typescript": "7.12"
-    "@playwright/react": "^5.0.1"
+    "@testcafe/react": "^5.0.1"
 ```

@@ -28,7 +28,7 @@ function Home() {
           {/* style needs to contain hero to override as hero has priority */}
           <span className='hero__popular-searches'>
             Popular Searches:&nbsp;
-            <a className='hero__popular-searches' href='https://docs.saucelabs.com/testrunner-toolkit/installation/'>
+            <a className='hero__popular-searches' href='https://docs.saucelabs.com/dev/cli/saucectl/#installing-saucectl/'>
               &nbsp;saucectl |
             </a>
             <a className='hero__popular-searches' href='https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/'>

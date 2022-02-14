@@ -12,11 +12,11 @@ Ensure your `saucectl` tests execute as part of your CI pipeline workflow flawle
 * Understand the current automation framework in the stack
 * Understand your organization's preferred CI tool
 * Ensure you have appropriate administrator permissions
-* Successfully run tests with `saucectl` on their own, either in [`docker`](/testrunner-toolkit/configuration#docker), or on [`sauce`](/testrunner-toolkit/configuration#sauce)
+* Successfully [run tests with `saucectl`](/dev/cli/saucectl/#running-tests) on their own before launching from your CI pipeline.
 
 Once you have met the prerequisites, follow the instructions for the CI Tool with which you want to integrate your `saucectl` tests.
 
-* [CircleCI](/testrunner-toolkit/integrations/circleci)
-* [Jenkins](/testrunner-toolkit/integrations/jenkins)
-* [GitHub Actions](/testrunner-toolkit/integrations/github-actions)
-* [GitLab](/testrunner-toolkit/integrations/gitlab)
+* [CircleCI](/dev/cli/saucectl/usage/ci/circleci)
+* [Jenkins](/dev/cli/saucectl/usage/ci/jenkins)
+* [GitHub Actions](/dev/cli/saucectl/usage/ci/github-actions)
+* [GitLab](/dev/cli/saucectl/usage/ci/gitlab)

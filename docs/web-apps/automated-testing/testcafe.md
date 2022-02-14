@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-[TestCafe](https://github.com/DevExpress/testcafe) is an easy-to-use testing framework that you can use to test your apps either locally in Docker or through Sauce Labs using the [saucectl CLI](/testrunner-toolkit/saucectl), giving you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
+[TestCafe](https://github.com/DevExpress/testcafe) is an easy-to-use testing framework that you can use to test your apps either locally in Docker or through Sauce Labs using the [saucectl CLI](/dev/cli/saucectl), giving you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
 
 ### Supported Testing Platforms
 
@@ -158,8 +158,8 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 ## How to Get Started
 
 * [Quickstart](/web-apps/automated-testing/testcafe/quickstart): Use our demo repo to quickly set up and run a sample TestCafe project and test to see the results.
-* [Run Your own Tests](/testrunner-toolkit/configuration/testcafe): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
-* [Incorporate saucectl in your pipeline](/testrunner-toolkit/integrations): TestCafe on Sauce supports CI integrations with Cirlce CI, GitLab, Jenkins, and GitHub Actions.
+* [Run Your own Tests](/web-apps/automated-testing/testcafe/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
+* [Incorporate saucectl in your pipeline](/dev/cli/saucectl/usage/integrations/): TestCafe on Sauce supports CI integrations with Cirlce CI, GitLab, Jenkins, and GitHub Actions.
 
 ### TestCafe Plugins for Sauce Labs
 
