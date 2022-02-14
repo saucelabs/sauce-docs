@@ -38,6 +38,8 @@ Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabli
   api-key: "$SAUCE_ACCESS_KEY"
   vm-version: "v2alpha"
   tunnel-identifier: "$SAUCE_USERNAME_TUNNEL"
+  no-remove-colliding-tunnels: true
+  tunnel-cert: private 
   ```
 
   </TabItem>
@@ -50,6 +52,8 @@ Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabli
   api-key: "$SAUCE_ACCESS_KEY"
   vm-version: "v2alpha"
   tunnel-identifier: "$SAUCE_USERNAME_TUNNEL"
+  no-remove-colliding-tunnels: true
+  tunnel-cert: private
   ```
 
   </TabItem>
