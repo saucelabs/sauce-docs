@@ -404,6 +404,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'error-reporting/platform-integrations/unreal',
+                        'error-reporting/platform-integrations/unreal/setup',
                     ],
                 },
             ],

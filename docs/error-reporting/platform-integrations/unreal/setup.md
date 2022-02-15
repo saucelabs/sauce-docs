@@ -1,10 +1,10 @@
 ---
 id: setup
-title: Setting Up Backtrace for Unity
+title: Setting Up Backtrace for Unreal
 sidebar_label: Setup
-description: Add Backtrace to your Unity project.
+description: Add Backtrace to your Unreal project.
 ---
-Add Backtrace to your Unity project. After you've completed the steps on this page, the Backtrace client will be installed and setup with the default configuration settings.
+Add Backtrace to your Unreal project. After you've completed the steps on this page, the Backtrace client will be installed and setup with the default configuration settings.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -22,14 +22,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ### System Requirements
 
-* Unity Editor Version: 2018.4 or higher
-
-### Player Configuration Settings
-
-Backtrace supports the following player configuration settings for Unity:
-
- * Scripting Backend: Mono or IL2CPP
- * API Compatibility Level: .NET 4.0 or .NET Standard 2.0
+* Unreal Engine Version: 4.16 or higher
 
 
 ## Step 1: Install the Backtrace Unity SDK
@@ -128,11 +121,11 @@ The server address is required to submit exceptions from your Unity project to y
   1. In the Server Address field under Backtrace client configuration, paste the server address in the following format: `https://submit.backtrace.io/<subdomain-name>/<submission-token>/json`.
 
 
-## Step 4: Throw an Exception
+## Step 4: Verify the Setup
 
 At this point, you've installed and setup the Backtrace client to automatically capture crashes and exceptions in your Unity game or app.
 
-To test the integration, use a try/catch block to throw an exception and start sending reports.
+To test the integration, use a try / catch block to throw an exception and start sending reports.
 
  ```csharp
   //Read from manager BacktraceClient instance
