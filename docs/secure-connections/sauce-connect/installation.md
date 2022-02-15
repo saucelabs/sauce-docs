@@ -1,7 +1,7 @@
 ---
 id: installation
-title: Sauce Connect Proxy Installation
-sidebar_label: Installation
+title: Setting Up Sauce Connect Proxy
+sidebar_label: Download
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -13,19 +13,21 @@ This topic describes where and how to download Sauce Connect Proxy to your local
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 
+:::caution Always use the latest version
+If applicable, delete any previous Sauce Connect versions you have. Using older versions may impact your ability to launch a tunnel or cause other technical issues.
+:::
+
 
 ## Downloading Sauce Connect Proxy
 
 1. Download the latest Sauce Connect Proxy client to your local machine by clicking the link below corresponding to your OS.
   <ScTable></ScTable>
 
-  If applicable, delete any previous versions you have. Using older versions may impact your ability to launch a tunnel or cause other technical issues.
-
 2. Extract the contents of the .zip download to your local machine. We recommend saving the Sauce Connect Proxy folder to your home directory.
 
   <details><summary>What's in the folder?</summary>
 
-  The folder contains the following:<br/><img src={useBaseUrl('img/sauce-connect/scp-download.png')} alt="Sauce Connect download file contents" width="400" />
+  Sauce Connect folder contents:<br/><img src={useBaseUrl('img/sauce-connect/scp-download.png')} alt="Sauce Connect download file contents" width="500" />
   <table>
   <tr>
    <td>File</td>
@@ -37,7 +39,7 @@ This topic describes where and how to download Sauce Connect Proxy to your local
    </tr>
    <tr>
     <td><strong>config.yml</strong></td>
-   <td>Sample<a href="/secure-connections/sauce-connect/setup-configuration/yaml-config">YAML configuration file</a>.</td>
+   <td>Sample <a href="/secure-connections/sauce-connect/setup-configuration/yaml-config">YAML configuration file</a>.</td>
    </tr>  
    <tr>
    <td><strong>sc.service</strong>, <strong>sc@.service</strong></td>
@@ -123,7 +125,7 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    <td>
     See <a href="#download-latest-version">Linux, Mac, Windows</a>
    </td>
-   <td rowspan="2" >June 31, 2022
+   <td rowspan="2" >Sep. 30, 2022
    </td>
   </tr>
   <tr>
@@ -145,7 +147,7 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    <td>
     <a href="https://saucelabs.com/downloads/sc-4.6.5-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.5-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.5-win32.zip">Windows</a>
    </td>
-   <td rowspan="6" >Jan. 31, 2022
+   <td rowspan="6" >Mar. 31, 2022
    </td>
   </tr>
   <tr>
