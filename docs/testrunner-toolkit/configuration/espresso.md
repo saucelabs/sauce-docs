@@ -78,6 +78,10 @@ defaults:
 
 Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
 
+:::caution Real Device Max Duration
+When setting the timeout values for your suites, consider that native framework tests on real devices enforce a maximum test duration limit of 60 minutes.
+:::
+
 ```yaml
   timeout: 15m
 ```
@@ -664,7 +668,7 @@ Instructs `saucectl` to run all classes for the suite *except* those specified h
 #### `size`
 <p><small>| OPTIONAL | ENUM |</small></p>
 
-Instructs `saucectl` to run only tests that are annotated with the matching size value. Valid values are `small`, `medium`, or `large`. You may only specify one value for this property.
+Instructs `saucectl` to run only tests that are annotated with the matching size value i.e `@SmallTest`, `@MediumTest` or `@LargeTest`. Valid values are `small`, `medium`, or `large`. You may only specify one value for this property.
 
 ```yaml
   size: small

@@ -113,7 +113,7 @@ Sauce Connect Proxy can have multiple tunnels running simultaneously, as describ
 
 1. Start Sauce Command Proxy from the command line, using the [`-u (--user)`](/dev/cli/sauce-connect-proxy/#--user), [`-k (--api-key)`](/dev/cli/sauce-connect-proxy/#--api-key), [`-r (--region`)](/dev/cli/sauce-connect-proxy/#--region), and [`--tunnel-identifier`](/dev/cli/sauce-connect-proxy/#--tunnel-identifier) flags.
   ```bash
-  ./sc -u {SAUCE_USERNAME} -k {SAUCE_ACCESS_KEY} -r {SAUCE_DATA_CENTER} --tunnel-identifier {TUNNEL_NAME}
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DATA_CENTER --tunnel-identifier $TUNNEL_IDENTIFIER
   ```
 
   In this example, we'll [set our credentials (username/access key) as environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/), start a tunnel in US West Data Center and name the tunnel `rdc-on-sauce-tunnel-us`.
@@ -192,7 +192,7 @@ Example of starting Sauce Connect Proxy in conjunction with your Sauce Headless 
 ./sc -u $SAUCE_USERNAME
      -k $SAUCE_ACCESS_KEY \
      -r us-east \
-     --tunnel-identifier {TUNNEL_NAME}
+     --tunnel-identifier $TUNNEL_IDENTIFIER
 ```
 
 
