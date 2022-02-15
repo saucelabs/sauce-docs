@@ -22,6 +22,7 @@ Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabli
 ## Start API-Specific Tunnel
 
 1. First, you'll need to create a .yaml configuration file. From a text editor or IDE, create a file called **api-config.yaml**, then copy and paste in the template below.
+
   <Tabs
       defaultValue="US Data Center"
       values={[
