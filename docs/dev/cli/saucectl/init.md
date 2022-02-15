@@ -6,7 +6,7 @@ sidebar_label: saucectl init
 
 ## Description
 
-Generate a configuration file for use in running tests through saucectl.
+Generate a configuration file for use in running tests through `saucectl`.
 
 ## Usage
 
@@ -20,6 +20,16 @@ You can run the command with no options to initiate **interactive mode**, where 
 
 In either case, the command generates a `.sauce/config.yml` folder and file in the location from which the command is run. If you have an existing project directory for your framework, it is advised that you run this command from the project root.
 
+## Alternative Configuration Editing
+
+* If you are implementing a more complex set of properties, you can manually edit your `config.yml` file. Comprehensive descriptions for all supported properties are provided by framework:
+    * [Cypress YAML](/web-apps/automated-testing/cypress/yaml)
+    * [Playwright YAML](/web-apps/automated-testing/playwright/yaml)
+    * [TestCafe YAML](/web-apps/automated-testing/testcafe/yaml)
+    * [Puppeteer YAML](/web-apps/automated-testing/puppeteer/yaml)
+    * [Espresso YAML](/mobile-apps/automated-testing/espresso-xcuitest/espresso)
+    * [XCUITest YAML](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest)
+
 ## Options Summary
 
 <table id="table-cli">
@@ -32,72 +42,72 @@ In either case, the command generates a `.sauce/config.yml` folder and file in t
   </thead>
   <tbody>
     <tr>
-     <td><a href="#--accesskey-string"><span className="t-cli">--accessKey</span></a></td>
+     <td><span className="t-cli"><a href="#--accesskey-string">--accessKey</a></span></td>
      <td><span className="t-cli">-a</span></td>
      <td>A valid Sauce Labs account access key.</td>
     </tr>
     <tr>
-     <td><a href="#--app-string"><span className="t-cli">--app</span></a></td>
+     <td><span className="t-cli"><a href="#--app-string">--app</a></span></td>
      <td></td>
      <td>The path to a valid mobile application to test.</td>
     </tr>
     <tr>
-     <td><a href="#--artifacts.download.when-string"><span className="t-cli">--artifacts.download.when</span></a></td>
+     <td><span className="t-cli"><a href="#--artifacts.download.when-string">--artifacts.download.when</a></span></td>
      <td><span className="t-cli">-f</span></td>
      <td>The framework for which this configuration is intended.</td>
     </tr>
     <tr>
-     <td><span className="t-cli">--browserName</span></td>
+     <td><span className="t-cli"><a href="#--browsername-string">--browserName</a></span></td>
      <td><span className="t-cli">-b</span></td>
      <td>The browser in which web-app tests will run.</td>
     </tr>
     <tr>
-     <td><span className="t-cli">--cypress.config</span></td>
+     <td><span className="t-cli"><a href="#--cypress-config-string">--cypress.config</a></span></td>
      <td></td>
      <td>The path to the Cypress configuration file.</td>
     </tr>
     <tr>
-     <td><span className="t-cli">--device</span></td>
+     <td><span className="t-cli"><a href="#--device-string">--device</a></span></td>
      <td></td>
      <td>The set of desired characteristics to match when finding a device.</td>
     </tr>
     <tr>
-     <td><span className="t-cli">--emulator</span></td>
+     <td><span className="t-cli"><a href="#--emulator-string">--emulator</a></span></td>
      <td></td>
      <td>The set of desired characteristics to match when finding an emulator.</td>
     </tr>
     <tr>
-     <td><span className="t-cli">--framework</span></td>
+     <td><span className="t-cli"><a href="#--framework-string">--framework</a></span></td>
      <td><span className="t-cli">-f</span></td>
      <td>The framework for which this configuration is intended.</td>
     </tr>
     <tr>
-     <td><span className="t-cli">--frameworkVersion</span></td>
+     <td><span className="t-cli"><a href="#--frameworkversion-string">--frameworkVersion</a></span></td>
      <td><span className="t-cli">-v</span></td>
      <td>The version of the framework that is compatible with the tests to be run.</td>
     </tr>
     <tr>
-     <td><span className="t-cli">--help</span></td>
+     <td><span className="t-cli"><a href="#--help">--help</a></span></td>
      <td><span className="t-cli">-h</span></td>
      <td>Usage information for the <code>init</code> command.</td>
     </tr>
     <tr>
-     <td><span className="t-cli">--platformName</span></td>
+     <td><span className="t-cli"><a href="#--platformname-string">--platformName</a></span></td>
      <td><span className="t-cli">-p</span></td>
      <td>The operation system and verseion on which tests will be run.</td>
     </tr>
     <tr>
-     <td><span className="t-cli">--region</span></td>
+     <td><span className="t-cli"><a href="#--region-string">--region</a></span></td>
      <td><span className="t-cli">-r</span></td>
      <td>The Sauce Labs data center associated with the testing account.</td>
     </tr>
     <tr>
-     <td><span className="t-cli">--testApp</span></td>
+     <td><span className="t-cli"><a href="#--testapp-string">--testApp</a></span></td>
      <td><span className="t-cli">-t</span></td>
      <td>The path to the mobile testing application.</td>
     </tr>
     <tr>
-     <td><span className="t-cli">--username</span></td>
+     <td><span className="t-cli"><a href="#--username-string">--username</a></span></td>
      <td><span className="t-cli">-u</span></td>
      <td>A valid Sauce Labs user account.</td>
     </tr>
@@ -220,11 +230,13 @@ The version of the framework that is compatible with the tests defined in this c
 
 </div>
 
-### <span className="cli">-h, --help</span>
+### <span className="cli">--help</span>
 
 <div className="cli-desc">
 
 Usage information for the `init` command.
+
+**Shorthand:** `-h`
 
 </div>
 

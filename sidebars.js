@@ -403,19 +403,36 @@ module.exports = {
                  label: 'saucectl CLI',
                  collapsed: true,
                  items: [
-                   {
-                     type: 'category',
-                     label: 'General Usage',
-                     collapsed: true,
-                     items: [
-                       'dev/cli/saucectl',
-                       'dev/cli/saucectl/usage/configuration',
-                       'dev/cli/saucectl/usage/integrations',
-                     ],
-                   },
-                   'dev/cli/saucectl/init',
-                   'dev/cli/saucectl/configure',
-                   'dev/cli/saucectl/run',
+                    'dev/cli/saucectl',
+                    {
+                      type: 'category',
+                      label: 'Command Ref',
+                      collapsed: true,
+                      items: [
+                        'dev/cli/saucectl/init',
+                        'dev/cli/saucectl/configure',
+                        'dev/cli/saucectl/run',
+                        'dev/cli/saucectl/completion',
+                      ]},
+                    'dev/cli/saucectl/usage/use-cases',
+                    {
+                      type: 'category',
+                      label: 'CI Integrations',
+                      collapsed: true,
+                      items: [
+                        'dev/cli/saucectl/usage/ci/circleci',
+                        'dev/cli/saucectl/usage/ci/github-actions',
+                        'dev/cli/saucectl/usage/ci/gitlab',
+                        'dev/cli/saucectl/usage/ci/jenkins',
+                      ]},
+                      {
+                        type: 'category',
+                        label: 'IDE Integrations',
+                        collapsed: true,
+                        items: [
+                          'dev/cli/saucectl/usage/ide/intellij',
+                          'dev/cli/saucectl/usage/ide/vscode',
+                        ]},
                  ],
              },
              {

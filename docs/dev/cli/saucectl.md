@@ -16,9 +16,9 @@ The `saucectl` command line interface orchestrates the relationship between your
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * [Docker](https://docs.docker.com/get-docker/), if you plan to run tests locally
-    :::note
-    Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g., `docker info` works in your terminal / command prompt).
-    :::
+  :::note
+  Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g., `docker info` works in your terminal / command prompt).
+  :::
 * Know which test framework and browser versions you plan to run tests against
 
 ## Supported Frameworks and Browsers
@@ -421,8 +421,8 @@ Your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` (available on your [User Settings](
 :::note Credentials Order of Preference
 If you set your credentials using more than one of the methods above, `saucectl` will apply the values in the following order or preference:
 1. Environment Variables
-2. `credentials.yml` file
-3. `saucectl run` command
+2. `saucectl run` command
+3. `credentials.yml` file
 :::
 
 ### Check out your Framework Demo Repo
@@ -452,8 +452,8 @@ If you already have tests in the framework of your choice, you can use the [`sau
 
 When you are ready to run your tests, you can do so using the [`saucectl run`](/dev/cli/saucectl/run) command. Typically, if you have set all of your configuration properties in your `config.yml` file, you need only execute the command itself, with no options. However, most of the properties available through the file are also available as runtime options you can set at the command line.
 
-:::note YAML File Values Prioritized
-If you set conflicting configuration values in the `config.yml` file and as `saucectl run` command options, the values in the `config.yml` are applied.
+:::note Command Line Values Prioritized
+If you set conflicting configuration values in the `config.yml` file and as `saucectl run` command options, the values in set in the `run` command are applied.
 :::
 
 ### View your Test Results in Sauce Labs
@@ -469,129 +469,3 @@ Open job details page: https://app.saucelabs.com/tests/<job-number>
 :::note Media Assets Not Viewable in UI
 Any screenshots and video recorded during the test execution and uploaded to Sauce Labs are not currently viewable in the Sauce Labs UI, but can be accessed and downloaded through the [Job Assets API endpoints](/dev/api/jobs/#list-job-assets). Alternatively, you can automatically download your test assets locally using the [`artifacts`](/dev/cli/saucectl/init) parameter in your config file.
 :::
-
-## Common Use Cases
-
-### Docker or Sauce Cloud?
-
-You can run your tests in either Docker or on the Sauce Labs platform, or both, depending on the length and complexity of your tests, running in your local environment with the containerized solution may allow you to accelerate test execution in CI and result in a smaller bundle transmission to the Sauce Labs cloud.
-
-You can set the `defaults.mode` property to `docker` or `sauce` (default) to have all unspecified test suites run in that mode.
-
-    ```yaml
-    defaults:
-      mode: docker
-    ```
-Alternatively, you can set each individual `suites.mode` property to specify the mode for just that suite of tests.
-
-    ```yaml
-    suites:
-      - name: saucy test
-      mode: docker
-    ```
-
-If you are running on Docker, be sure to specify the Docker `image` and `fileTransfer` properties so your test results can be uploaded to Sauce Labs.
-
-    ```yaml
-    docker:
-      image: saucelabs/stt-cypress-mocha-node:v5.6.0
-      fileTransfer: mount # Defaults to `mount`. Choose between mount|copy.
-    ```
-
-Refer to the [framework version support matrix](#supported-frameworks-and-browsers) for a list of framework-specific images.
-
-
-### Run Tests Against a Local App
-
-If you plan to run tests against a local app server / app running on `localhost` (either on your host machine or in a CI pipeline) there are specific workflows you must follow.
-
-:::tip Need to Access Custom Node Modules?
-If you have third party, or custom modules that are required test dependencies, you can utilize the **`npm`** field in your [`config.yml`](/dev/cli/saucectl/init/) in order to include those packages during test execution.
-:::
-
-Ensure the `docker` container can access the local app server (e.g. `localhost:<port>/`) from your host machine. After the tests complete the results upload to the Sauce Labs results dashboard.
-
-### Run Tests on Sauce Labs with Sauce Connect
-
-If you wish to test the app running on a local app  server with Sauce Labs VMs:
-
-* Download and launch [Sauce Connect](/secure-connections/sauce-connect)
-* Specify the tunnel to use when running your tests (either in the config.yml `tunnel` property or using the `--tunnel-name` flag with the `saucectl run` command).
-
-:::tip Working Example
-Here is a working example of this use case using [Sauce Connect and GitHub Actions](/dev/cli/saucectl/usage/ci/github-actions).
-:::
-
-### Automation Framework Examples
-
-Integrate saucectl into your [CI pipeline](/dev/cli/saucectl/usage/integrations).
-
-The examples here show how Pipeline testing can be used. Try them and find your own use cases.
-
-Every __Testrunner__ image comes with a preconfigured setup that allows you to focus on writing tests instead of tweaking with the configurations. Our initial `testrunner` flavors come either with Cypress, Playwright, or TestCafe as an automation framework.
-
-
-Below are example snippets in the following frameworks: [Cypress](https://github.com/cypress-io/cypress), [Playwright](https://playwright.dev/#version=v1.0.1&path=docs%2Fcore-concepts.md&q=browser), and [TestCafe](https://devexpress.github.io/testcafe/documentation/reference/test-api/testcontroller/browser.html).
-
-<Tabs
-  defaultValue="cypress"
-  values={[
-    {label: 'Cypress', value: 'cypress'},
-    {label: 'Playwright', value: 'playwright'},
-    {label: 'TestCafe', value: 'testcafe'},
-  ]}>
-
-<TabItem value="cypress">
-
-<!--https://github.com/saucelabs/saucectl/blob/master/tests/e2e/cypress/integration/example.test.js-->
-
-```js
-context('Actions', () => {
-		beforeEach(() => {
-			cy.visit('https://example.cypress.io/commands/actions')
-		})
-		it('.type() - type into a DOM element', () => {
-			// https://on.cypress.io/type
-			cy.get('.action-email')
-				.type('fake@email.com').should('have.value', 'fake@email.com')
-		})
-	})
-```
-
-</TabItem>
-<TabItem value="playwright">
-
-The Playwright testrunner image also exposes a global `browser` variable that represents Playwright's [`Browser class`](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=browser). In addition to that you also have access to a pre-generated [browser context](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=browser-contexts) via `context` as well as to a [page frame](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=pages-and-frames) via `page`.
-
-<!--https://github.com/saucelabs/saucectl/blob/master/tests/e2e/playwright/example.test.js
--->
-```js
-describe('saucectl demo test', () => {
-	test('should verify title of the page', async () => {
-		await page.goto('https://www.saucedemo.com/');
-		expect(await page.title()).toBe('Swag Labs');
-	});
-});
-```
-
-</TabItem>
-<TabItem value="testcafe">
-
-<!--https://github.com/saucelabs/saucectl/blob/master/tests/e2e/testcafe/example.test.js
--->
-```js
-import { Selector } from 'testcafe';
-fixture `Getting Started`
-	.page `http://devexpress.github.io/testcafe/example`
-
-const testName = 'testcafe test'
-test(testName, async t => {
-	await t
-		.typeText('#developer-name', 'devx')
-		.click('#submit-button')
-		.expect(Selector('#article-header').innerText).eql('Thank you, devx!');
-});
-```
-
-</TabItem>
-</Tabs>
