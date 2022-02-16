@@ -34,13 +34,14 @@
  * © 2009-2020 Adobe Systems Incorporated. All Rights Reserved.
  */
 /*{"last_published":"2021-01-18 18:46:45 UTC"}*/
-@import "homesearchbar.css";
-@import "api-override.css";
-@import "announcement-bar.css";
-@import "fw-badge-override.css";
 @import "admonitions.css";
-@import "footer-styles.css";
+@import "announcement-bar.css";
+@import "api-override.css";
+@import "caroulsel.css";
 @import "cli-override.css";
+@import "footer-styles.css";
+@import "fw-badge-override.css";
+@import "homesearchbar.css";
 @import url('https://use.typekit.net/bte6qhg.css');
 
 .tk-museo-sans { font-family: "museo-sans",sans-serif; }
@@ -732,11 +733,6 @@ html[data-theme='dark'] .title-quickstart{
   margin-right: 0px;
 }
 
-.quickstart img {
-  width: 100px;
-  max-height: 100px;
-}
-
 .community {
   text-align: left;
 }
@@ -944,6 +940,7 @@ ul.dropdown__menu li a:hover {
     font-size: 16px;
     white-space: nowrap;
   }
+
   .callouts__container {
     display: flex;
     flex-wrap: wrap;
