@@ -86,7 +86,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 * [Run Your own Tests](/web-apps/automated-testing/cypress/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
 * [Try Cypress with Cucumber](https://github.com/saucelabs/saucectl-cypress-example/tree/master/examples/cucumber):
 `saucectl` supports Cypress using Cucumber, and the Cypress demo repo includes an example!
-* [Incorporate saucectl in your pipeline](/dev/cli/saucectl/usage/integrations/): Cypress on Sauce supports CI integrations with Cirlce CI, GitLab, Jenkins, and GitHub Actions.
+* [Incorporate saucectl in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Cypress on Sauce supports CI integrations with Cirlce CI, GitLab, Jenkins, and GitHub Actions.
 
 
 ## Cypress Plugin for Sauce Labs
