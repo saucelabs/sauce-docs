@@ -192,7 +192,7 @@ You can specify a combination of device characteristics within this flag:
 
 ### <span className="cli">--emulator &lt;string&gt;</span>
 <div className="cli-desc">
-<p><small>| OPTIONAL | STRING | E<span className="sauceDBlue">Espresso Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Espresso Only</span> |</small></p>
 
 Specify a virtual device for the test by matching a set of one or more emulator characteristics.
 
