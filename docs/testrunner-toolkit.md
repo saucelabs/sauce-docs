@@ -91,7 +91,11 @@ import TabItem from '@theme/TabItem';
   </tr>
   <tbody>
   <tr>
-    <td>1.18.1</td>
+    <td rowspan='2'>1.18.1</td>
+    <td><b>macOS:</b> 11.0</td>
+    <td>Chromium, Firefox</td>
+  </tr>
+  <tr>
     <td><b>Windows:</b> 10</td>
     <td>Chromium, Firefox, Webkit</td>
   </tr>
