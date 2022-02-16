@@ -41,38 +41,111 @@ import TabItem from '@theme/TabItem';
       {"label":"XCUITest","value":"xcuitest"}
     ]}>
 <TabItem value="cypress">
-
-|Cypress Version|Supported Platforms|Supported Browsers|
-|-----|-----|-----|
-|9.1.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
-|8.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
-|8.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
-|7.7.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
-
+<table id="table-fw">
+  <tr>
+    <th>Cypress Version</th>
+    <th>Supported Platforms</th>
+    <th>Supported Browsers</th>
+  </tr>
+  <tbody>
+  <tr>
+    <td rowspan='2'>9.3.1</td>
+    <td><b>macOS:</b> 11.0</td>
+    <td>Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  <tr>
+    <td><b>Windows:</b> 10</td>
+    <td>Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  </tbody>
+  <tbody>
+  <tr>
+    <td rowspan='1'>9.1.0</td>
+    <td><b>Windows:</b> 10</td>
+    <td>Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  </tbody>
+  <tbody>
+  <tr>
+    <td rowspan='1'>8.6.0</td>
+    <td><b>Windows:</b> 10</td>
+    <td>Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  </tbody>
+  <tbody>
+  <tr>
+    <td rowspan='1'>8.3.0</td>
+    <td><b>Windows:</b> 10</td>
+    <td>Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  </tbody>
+</table>
 </TabItem>
+
 <TabItem value="playwright">
-
-|Playwright Version|Supported Platforms|Supported Browsers|
-|-----|-----|-----|
-|1.17.1|Windows 10|Chromium, Firefox, Webkit|
-|1.16.3|Windows 10|Chromium, Firefox, Webkit|
-|1.15.2|Windows 10|Chromium, Firefox, Webkit|
-
+<table id="table-fw">
+  <tr>
+    <th>Playwright Version</th>
+    <th>Supported Platforms</th>
+    <th>Supported Browsers</th>
+  </tr>
+  <tbody>
+  <tr>
+    <td rowspan='2'>1.18.1</td>
+    <td><b>macOS:</b> 11.0</td>
+    <td>Chromium, Firefox, Webkit</td>
+  </tr>
+  <tr>
+    <td><b>Windows:</b> 10</td>
+    <td>Chromium, Firefox, Webkit</td>
+  </tr>
+  </tbody>
+  <tbody>
+  <tr>
+    <td rowspan='1'>1.17.1</td>
+    <td><b>Windows:</b> 10</td>
+    <td>Chromium, Firefox, Webkit</td>
+  </tr>
+  </tbody>
+  <tbody>
+  <tr>
+    <td rowspan='1'>1.16.3</td>
+    <td><b>Windows:</b> 10</td>
+    <td>Chromium, Firefox, Webkit</td>
+  </tr>
+  </tbody>
+</table>
 </TabItem>
+
 <TabItem value="puppeteer">
 
 |Puppeteer Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
 
 </TabItem>
-<TabItem value="testcafe">
 
+<TabItem value="testcafe">
 <table id="table-fw">
   <tr>
     <th>TestCafe Version</th>
     <th>Supported Platforms</th>
     <th>Supported Browsers</th>
   </tr>
+  <tbody>
+  <tr>
+    <td rowspan='3'>1.18.3</td>
+    <td><b>macOS:</b> 11.0</td>
+    <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  <tr>
+    <td><b>Windows:</b> 10</td>
+    <td>Chrome, Firefox, MicrosoftEdge</td>
+  </tr>
+  <tr>
+    <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+    <td>Safari</td>
+  </tr>
+  </tbody>
   <tbody>
   <tr>
     <td rowspan='3'>1.17.1</td>
@@ -133,24 +206,9 @@ import TabItem from '@theme/TabItem';
     <td>Safari</td>
   </tr>
   </tbody>
-  <tbody>
-  <tr>
-    <td rowspan='3'>1.14.2</td>
-    <td><b>macOS:</b> 11.0</td>
-    <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  <tr>
-    <td><b>Windows:</b> 10</td>
-    <td>Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  <tr>
-    <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-    <td>Safari</td>
-  </tr>
-  </tbody>
 </table>
-
 </TabItem>
+
 <TabItem value="espresso">
 
 |Supported Platforms|
@@ -158,6 +216,7 @@ import TabItem from '@theme/TabItem';
 |Android 5.1+|
 
 </TabItem>
+
 <TabItem value="xcuitest">
 
 |Supported Platforms|
@@ -186,19 +245,19 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |Cypress Version|Supported Browsers|
 |----|----|
+|9.3.1|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.1.0)|
 |9.1.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.0.0)|
 |8.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.4.0)|
 |8.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.3.1)|
-|7.7.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.2.3)|
 
 </TabItem>
 <TabItem value="playwright">
 
 |Playwright Version|Supported Browsers|
 |-----|----|
+|1.18.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.6.0)|
 |1.17.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.5.0)|
 |1.16.3|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.4.0)|
-|1.15.2|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.3.0)|
 
 </TabItem>
 
@@ -206,13 +265,13 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |Puppeteer Version|Supported Browsers|
 |-----|----|
+|13.1.3|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v3.0.0)|
 |12.0.1|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v2.0.0)|
 |10.4.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.6.0)|
 |10.2.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.5.1)|
 |10.1.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.4.1)|
 |9.1.1|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.2.0)|
 |8.0.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.0.0)|
-|3.0.4|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v0.3.0)|
 
 </TabItem>
 
@@ -220,11 +279,12 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |TestCafe Version|Supported Browsers|
 |----|----|
+|1.18.3|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v1.1.0)|
 |1.17.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v1.0.0)|
 |1.16.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.12.1)|
 |1.15.3|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.10.0)|
 |1.15.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.9.0)|
-|1.14.2|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.7.0)|
+
 
 </TabItem>
 </Tabs>
