@@ -2,7 +2,7 @@
 //TODO Harden Cypress Locators
 context('Testrunner Toolkit Page Tree Actions', () => {
     beforeEach(() => {
-        cy.visit(`/dev/cli`)
+        cy.visit(`/dev/cli/saucectl`)
         cy.viewport(1536, 960)
     });
 
