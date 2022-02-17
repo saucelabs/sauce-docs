@@ -1,10 +1,10 @@
 ---
 id: setup
-title: Setting Up Backtrace for Unreal
+title: Setting Up Backtrace for Unreal Engine
 sidebar_label: Setup
-description: Add Backtrace to your Unreal project.
+description: Add Backtrace to your Unreal Engine project.
 ---
-Add Backtrace to your Unreal project. After you've completed the steps on this page, the Backtrace client will be installed and setup with the default configuration settings.
+Add Backtrace to your Unreal Engine project. After you've completed the steps on this page, the Backtrace client will be setup with the default configuration settings.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -12,8 +12,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## What You'll Need
 
- * A Backtrace account (if you don't already have one, start a [free trial](https://register.backtrace.io/signup/))
- * A Backtrace project and [submission token]
+ * A Backtrace account (if you don't already have one, start a [free trial](https://register.backtrace.io/signup/)).
+ * A Backtrace project and [submission token].
 
 :::tip Generate a Submission Token
    1. In the Backtrace Console, go to Project settings > Error submission > Submission tokens.
@@ -22,131 +22,84 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ### System Requirements
 
-* Unreal Engine Version: 4.16 or higher
-
-
-## Step 1: Install the Backtrace Unity SDK
-
-The following methods are available to install the Backtrace Unity SDK.
-
-<Tabs
-  groupId="platforms"
-  defaultValue="openupm"
-  values={[
-    {label: 'OpenUPM', value: 'openupm'},
-    {label: 'Manual', value: 'manual'},
-    {label: 'Git', value: 'git'},
-  ]}>
-
-  <TabItem value="openupm">
-
-```
-# Install openupm-cli
-npm install -g openupm-cli
-
-# Go to your Unity project directory
-cd YOUR_UNITY_PROJECT_DIR
-
-# Install the latest io.backtrace.unity package
-openupm add io.backtrace.unity
-```
-
-For more information, see the installation steps on [OpenUPM](https://openupm.com/packages/io.backtrace.unity/).
-
-  </TabItem>
-  <TabItem value="manual">  
-
-1. Download the latest version of the Backtrace Unity SDK from [GitHub](https://github.com/backtrace-labs/backtrace-unity/releases).
-
-1. Unzip the package and save it locally.
-
-1. In your Unity project, go to Window > Package Manager.
-
-1. Complete the steps in [Installing a package from a local folder](https://docs.unity3d.com/Manual/upm-ui-local.html) in the Unity Documentation.
-
-</TabItem>
-<TabItem value="git">  
+* Unreal Engine version 4.16 or higher
 
 :::note
-This installation method is supported for Unity 2018.3 or higher.
+To capture crashes and errors in your Unreal Engine apps and games for Linux, see the [README](https://github.com/backtrace-labs/crashpad/tree/backtrace) for Backtrace Crashpad.
 :::
 
-1. Clone the source project’s [Git URL](https://github.com/backtrace-labs/backtrace-unity.git).
-1. In your Unity project, go to Window > Package Manager.
-1. Complete the steps in [Installing from a Git URL](https://docs.unity3d.com/Manual/upm-ui-giturl.html) in the Unity Documentation.
+##  Windows
+
+To capture crashes and errors in your Unreal Engine apps and games for Windows, Backtrace supports Unreal Engine's CrashReportClient.
+
+### Enable the CrashReportClient
+
+1. In the Unreal Editor, go to Edit > Project Settings.
+1. In the Project Settings, search for "crash".
+1. Under Packaging, select Include Crash Reporter.
+
+  <img src={useBaseUrl('img/error-reporting/unreal-enable-crashreporter.png')} alt="Enable the Crash Reporter in the Unreal Editor." />
+
+:::note
+If you're building from the command line, you should also add the `-crashreporter` flag.
+:::
+
+### Edit the Configuration File
+The basic integration consists of manually modifying a configuration file setting, or using a plugin to automate the configuration when building/compiling the app or game from the editor.
+
+:::note
+The manual method is supported for all versions of UE4 and is recommended.
+:::
+
+<Tabs
+  groupId="config"
+  defaultValue="configfile"
+  values={[
+    {label: 'Manual', value: 'configfile'},
+    {label: 'Plugin', value: 'plugin'},
+  ]}>
+
+<TabItem value="configfile">
+
+#### For Crashes in the Editor
+Once this is set, when your app or game crashes in the Unreal Editor, the crash reporting dialog will appear and send a crash report to your Backtrace instance.
+
+1. In the root directory for your Unreal Engine project, open the Config folder.
+1. Copy the `DefaultEngine.ini` file and paste it into the Engine > Config folder.
+1. Rename the file to `UserEngine.ini`.
+1. Open the `UserEngine.ini` file and add the following:
+  - `[CrashReportClient]
+  CrashReportClientVersion=1.0
+  DataRouterUrl="https://unreal.backtrace.io/post/<instance>/<submission-token>"`
+
+
+#### For Crashes in Packaged Builds
+
+
+1.
+
+
+
+</TabItem>
+<TabItem value="plugin">
+
+System Requirements:
+* Unreal Engine version 4.16 to 4.24
+* Windows version 7 to 10 on x86
+* Visual Studio version 2017 or higher
 
 </TabItem>
 </Tabs>
 
-## Step 2: Initialize the Backtrace Client with GameObject
+## Android
 
-In this step, you create the Backtrace Configuration asset, create a new GameObject, add the Backtrace Client component to the GameObject, then add the Backtrace Configuration to the Backtrace Client component.
+Backtrace offers integration with Unreal Engine apps and games for Android using the backtrace-android library. Your apps written in Kotlin or Java can easily start submitting error reports to your Backtrace instance.
 
-You can add the Backtrace Client component to any GameObject in your game scene.
-
-:::tip
-Typically, the Backtrace Client component is added to a global GameManager or GameController object, given a descriptive name, and assigned a tag to identify it for scripting purposes.
-:::
-
-  1. In your Unity project, go to Assets > Backtrace > Configuration.
-
-  The Backtrace Configuration file is added to the root of your Assets folder.
-
-  1. Go to GameObject > Create Empty.
-
-  1. Enter a descriptive name for the new GameObject.
-
-  1. In the Inspector, select Add Component.
-
-  1. Search for “Backtrace”, then select Backtrace Client.
-
-  1. From the Assets folder, drag the Backtrace Configuration file to the Backtrace configuration field.
-
-Additional fields now display for the Backtrace client configuration and database configuration options.
-
-To change Backtrace client and database options, we recommend to change these values in the Unity UI via Backtrace Configuration file. Alternatively, you can also make changes to the configuration in the C# code for your Unity project.
-
-For more information about the available configuration options, see [Configuration](/error-reporting/platform-integrations/unity/configuration).
-
-## Step 3: Enter the Server Address
-
-The server address is required to submit exceptions from your Unity project to your Backtrace instance.
-
-  1. In the Backtrace Console, go to Project Settings > Integration Guides > Unity.
-
-  1. Copy the Server Address.
-
-  1. Go back to the Backtrace Configuration in your Unity project.
-
-  1. In the Server Address field under Backtrace client configuration, paste the server address in the following format: `https://submit.backtrace.io/<subdomain-name>/<submission-token>/json`.
+1.
 
 
-## Step 4: Verify the Setup
+## iOS and macOS
 
-At this point, you've installed and setup the Backtrace client to automatically capture crashes and exceptions in your Unity game or app.
+Backtrace offers integration with Unreal Engine apps and games for iOS, macOS, and tvOS using the backtrace-cocoa library. Your apps written in Swift or Objective-C can easily start submitting error reports to your Backtrace instance.
 
-To test the integration, use a try / catch block to throw an exception and start sending reports.
-
- ```csharp
-  //Read from manager BacktraceClient instance
- var backtraceClient = GameObject.Find("manager name").GetComponent<BacktraceClient>();
-
- //Set custom client attribute
- backtraceClient["attribute"] = "attribute value";
-
-  //Read from manager BacktraceClient instance
- var database = GameObject.Find("manager name").GetComponent<BacktraceDatabase>();
-
-
- try{
-     //throw exception here
- }
- catch(Exception exception){
-     var report = new BacktraceReport(exception);
-     backtraceClient.Send(report);
- }
- ```
-
-Errors that occur in your game or app will be captured and reported to Backtrace, where you can then use the Console views to explore, triage, and debug.
-
-  <img src={useBaseUrl('img/error-reporting/console-triage-view.png')} alt="Viewing crash and error reports" />
+1.

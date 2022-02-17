@@ -12,8 +12,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## What You'll Need
 
- * A Backtrace account (if you don't already have one, start a [free trial](https://register.backtrace.io/signup/))
- * A Backtrace project and [submission token]
+ * A Backtrace account (if you don't already have one, start a [free trial](https://register.backtrace.io/signup/)).
+ * A Backtrace project and [submission token].
 
 :::tip Generate a Submission Token
    1. In the Backtrace Console, go to Project settings > Error submission > Submission tokens.
@@ -22,7 +22,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ### System Requirements
 
-* Unity Editor Version: 2018.4 or higher
+* Unity Editor version 2018.4 or higher
 
 ### Player Configuration Settings
 
@@ -32,7 +32,7 @@ Backtrace supports the following player configuration settings for Unity:
  * API Compatibility Level: .NET 4.0 or .NET Standard 2.0
 
 
-## Step 1: Install the Backtrace Unity SDK
+## Install the Backtrace Unity SDK
 
 The following methods are available to install the Backtrace Unity SDK.
 
@@ -85,7 +85,7 @@ This installation method is supported for Unity 2018.3 or higher.
 </TabItem>
 </Tabs>
 
-## Step 2: Initialize the Backtrace Client with GameObject
+## Initialize the Backtrace Client with GameObject
 
 In this step, you create the Backtrace Configuration asset, create a new GameObject, add the Backtrace Client component to the GameObject, then add the Backtrace Configuration to the Backtrace Client component.
 
@@ -115,7 +115,7 @@ To change Backtrace client and database options, we recommend to change these va
 
 For more information about the available configuration options, see [Configuration](/error-reporting/platform-integrations/unity/configuration).
 
-## Step 3: Enter the Server Address
+## Enter the Server Address
 
 The server address is required to submit exceptions from your Unity project to your Backtrace instance.
 
@@ -128,7 +128,7 @@ The server address is required to submit exceptions from your Unity project to y
   1. In the Server Address field under Backtrace client configuration, paste the server address in the following format: `https://submit.backtrace.io/<subdomain-name>/<submission-token>/json`.
 
 
-## Step 4: Throw an Exception
+## Throw an Exception
 
 At this point, you've installed and setup the Backtrace client to automatically capture crashes and exceptions in your Unity game or app.
 

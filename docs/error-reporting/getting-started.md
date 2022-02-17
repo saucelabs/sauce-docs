@@ -12,8 +12,10 @@ Capture crash and error reports from your games and mobile apps with Backtrace.
   <p>Integrate Backtrace in your games and apps across languages and platforms with our error reporting libraries:
 </p>
   <ul>
+  <li>Android</li>
+  <li>iOS</li>
   <li><a href="/error-reporting/platform-integrations/unity">Unity</a></li>
-  <li><a href="/error-reporting/platform-integrations/unreal">Unreal</a></li>
+  <li><a href="/error-reporting/platform-integrations/unreal">Unreal Engine</a></li>
   </ul>
   </div>
 </div>

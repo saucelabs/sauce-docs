@@ -400,7 +400,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Unreal',
+                    label: 'Unreal Engine',
                     collapsed: true,
                     items: [
                         'error-reporting/platform-integrations/unreal',
