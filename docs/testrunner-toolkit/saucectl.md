@@ -461,7 +461,7 @@ saucectl run --verbose
 ### `--no-color`
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Disable colorized console output for saucectl.
+Disable colorized console output for saucectl. This is particularly useful if your CI environment cannot display ANSI color codes, rendering the log output rather unreadable.
 
 ```bash
 saucectl run --no-color
