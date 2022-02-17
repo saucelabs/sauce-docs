@@ -68,7 +68,7 @@ saucectl run -c ./path/to/<configFile>.yml
 
 ### 5. Run your tests
 
-Use the `saucectl` CLI `run` command to execute your tests using the paramters you have specified in your configuration file.
+Use the `saucectl` CLI `run` command to execute your tests using the parameters you have specified in your configuration file.
 
 ```
 saucectl run
