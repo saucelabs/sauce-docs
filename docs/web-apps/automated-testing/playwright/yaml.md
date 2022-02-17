@@ -621,7 +621,7 @@ A parent property that details any additional parameters you wish to set for the
 ```yaml
     params:
       browserName: "firefox"
-      headful: false
+      headless: true
       slowMo: 1000
       project: "project name"
 ```
@@ -637,13 +637,13 @@ Available browser names: `chromium`, `firefox` and `webkit`.
 ```
 ---
 
-#### `headful`
+#### `headless`
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Determines whether to run the test suite in [headless](/headless) mode.
 
 ```yaml
-    headful: false
+    headless: true
 ```
 ---
 

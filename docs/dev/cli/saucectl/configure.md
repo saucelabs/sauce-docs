@@ -32,24 +32,24 @@ Whether you are using environment variables or a credentials file, make sure you
 
 ## Options Details
 
-### <span className="cli">--accessKey &lt;string&gt;</span>
+### <span className="cli">--accessKey</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
 The authentication access key associated with the Sauce Labs user account making this request. If you have not set your authentication credentials as environment parameters or generated a `credentials.yml` file, this value is required.
 
-**Shorthand:** `-a <string>`
+**Shorthand:** `-a`
 
 </div>
 
 
-### <span className="cli">--username &lt;string&gt;</span>
+### <span className="cli">--username</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
 A valid Sauce Labs user account. If you have not set your authentication credentials as environment parameters or generated a `credentials.yml` file, this value is required.
 
-**Shorthand:** `-u <string>`
+**Shorthand:** `-u`
 
 </div>
 

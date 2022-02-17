@@ -117,17 +117,17 @@ In either case, the command generates a `.sauce/config.yml` folder and file in t
 ## Options Details
 
 
-### <span className="cli">--accessKey &lt;string&gt;</span>
+### <span className="cli">--accessKey </span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
 The authentication access key associated with the Sauce Labs user account making this request. If you have not set your authentication credentials as environment parameters or generated a `credentials.yml` file, this value is required.
 
-**Shorthand:** `-a <string>`
+**Shorthand:** `-a `
 
 </div>
 
-### <span className="cli">--app &lt;string&gt;</span>
+### <span className="cli">--app </span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Espresso/XCUITest Only</span> |</small></p>
 
@@ -135,7 +135,7 @@ The path to a valid mobile application to test.
 
 </div>
 
-### <span className="cli">--artifacts.download.when &lt;string&gt;</span>
+### <span className="cli">--artifacts.download.when </span>
 
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
@@ -149,17 +149,17 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 
 </div>
 
-### <span className="cli">--browserName &lt;string&gt;</span>
+### <span className="cli">--browserName </span>
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING | <span className="sauceDBlue">Web-app Only</span> |</small></p>
 
 The name of the browser in which to run tests.
 
-**Shorthand:** `-b <string>`
+**Shorthand:** `-b `
 
 </div>
 
-### <span className="cli">--cypress.config &lt;string&gt;</span>
+### <span className="cli">--cypress.config </span>
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING | <span className="sauceDBlue">Cypress Only</span> |</small></p>
 
@@ -167,7 +167,7 @@ The file path to the Cypress configuration file (typically `cypress.json`).
 
 </div>
 
-### <span className="cli">--device &lt;string&gt;</span>
+### <span className="cli">--device </span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Espresso/XCUITest Only</span> |</small></p>
 
@@ -190,7 +190,7 @@ You can specify a combination of device characteristics within this flag:
 
 </div>
 
-### <span className="cli">--emulator &lt;string&gt;</span>
+### <span className="cli">--emulator </span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Espresso Only</span> |</small></p>
 
@@ -210,23 +210,23 @@ You can specify a combination of emulator characteristics within this flag:
 
 </div>
 
-### <span className="cli">--framework &lt;string&gt;</span>
+### <span className="cli">--framework </span>
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING |</small></p>
 
 The framework for which this configuration is intended.
 
-**Shorthand:** `-f <string>`
+**Shorthand:** `-f `
 
 </div>
 
-### <span className="cli">--frameworkVersion &lt;string&gt;</span>
+### <span className="cli">--frameworkVersion </span>
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING | <span className="sauceDBlue">Web-app Only</span> |</small></p>
 
 The version of the framework that is compatible with the tests defined in this configuration.
 
-**Shorthand:** `-v <string>`
+**Shorthand:** `-v `
 
 </div>
 
@@ -240,7 +240,7 @@ Usage information for the `init` command.
 
 </div>
 
-### <span className="cli">--platformName &lt;string&gt;</span>
+### <span className="cli">--platformName </span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Web-app Only</span> |</small></p>
 
@@ -250,37 +250,37 @@ A specific operating system and version on which to run the specified browser an
 You can optionally specify `docker` here as the platform.
 :::
 
-**Shorthand:** `-p <string>`
+**Shorthand:** `-p `
 
 </div>
 
-### <span className="cli">--region &lt;string&gt;</span>
+### <span className="cli">--region </span>
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING |</small></p>
 
 Specifies the Sauce Labs data center through which tests will run. Valid values are: `us-west-1` (default) or `eu-central-1`.
 
-**Shorthand:** `-r <string>`
+**Shorthand:** `-r `
 
 </div>
 
-### <span className="cli">--testApp &lt;string&gt;</span>
+### <span className="cli">--testApp </span>
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING | <span className="sauceDBlue">Espresso/XCUITest Only</span> |</small></p>
 
 The path to the mobile testing application.
 
-**Shorthand:** `-t <string>`
+**Shorthand:** `-t `
 
 </div>
 
-### <span className="cli">--username &lt;string&gt;</span>
+### <span className="cli">--username </span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
 A valid Sauce Labs user account. If you have not set your authentication credentials as environment parameters or generated a `credentials.yml` file, this value is required.
 
-**Shorthand:** `-u <string>`
+**Shorthand:** `-u `
 
 </div>
 

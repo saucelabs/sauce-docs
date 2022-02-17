@@ -88,6 +88,11 @@ Execute tests according to the environment, framework, and test suite specificat
      <td>Usage information for the <code>run</code> command.</td>
     </tr>
     <tr>
+     <td><span className="t-cli"><a href="#--no-color">--no-color</a></span></td>
+     <td></td>
+     <td>Disable colored console output.</td>
+    </tr>
+    <tr>
      <td><span className="t-cli"><a href="#--region-string">--region</a></span></td>
      <td><span className="t-cli">-r</span></td>
      <td>Sauce Labs target data center.</td>
@@ -138,7 +143,7 @@ Execute tests according to the environment, framework, and test suite specificat
 
 ## Options Details
 
-### <span className="cli">--artifacts.cleanup &lt;boolean&gt;</span>
+### <span className="cli">--artifacts.cleanup </span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
@@ -149,7 +154,7 @@ saucectl run --artifacts.cleanup true
 ```
 </div>
 
-### <span className="cli">--artifacts.download.directory &lt;path&gt;</span>
+### <span className="cli">--artifacts.download.directory </span>
 
 <div className="cli-desc">
 <p><small>| OPTIONAL | PATH | <span className="sauceDBlue">RDC Only</span> |</small></p>
@@ -162,10 +167,10 @@ saucectl run --artifacts.download.directory ./artifacts
 </div>
 
 
-### <span className="cli">--artifacts.download.match &lt;list&gt;</span>
+### <span className="cli">--artifacts.download.match </span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | STRING/LIST |</small></p>
+<p><small>| OPTIONAL | FILE/LIST |</small></p>
 
 Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*`. Must be set in conjunction with `--artifacts.download.directory` and `--artifacts.download.when`.
 
@@ -174,9 +179,9 @@ saucectl run --artifacts.download.match console.log,another.log
 ```
 </div>
 
-### <span className="cli">--artifacts.download.when &lt;string&gt;</span>
+### <span className="cli">--artifacts.download.when </span>
 <div className="cli-desc">
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| OPTIONAL | ENUM |</small></p>
 
 Specifies when and under what circumstances to download artifacts. Valid values are:
 
@@ -197,11 +202,11 @@ saucectl run --artifacts.download.when always
 <div className="cli-desc">
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Sauce Cloud Only</span></small></p>
 
-Allows you to launch tests without waiting for results of the preceding tests. This option can be helpful when relying on a CI tool to automatically launch tests.
+Allows you to launch tests without waiting for results of the preceding tests. This option can be helpful when relying on a CI tool to automatically launch tests. This option does not require a value; including it inline sets it to `true`.
 
 </div>
 
-### <span className="cli">--build &lt;string&gt;</span>
+### <span className="cli">--build </span>
 
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">VDC Only</span> |</small></p>
@@ -213,7 +218,7 @@ saucectl run --build myBuildID
 ```
 </div>
 
-### <span className="cli">--concurrency &lt;int&gt;</span>
+### <span className="cli">--concurrency </span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
@@ -230,7 +235,7 @@ saucectl run --ccy 2
 ```
 </div>
 
-### <span className="cli">--config &lt;path&gt;</span>
+### <span className="cli">--config </span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | FILEPATH |</small></p>
 
@@ -251,7 +256,7 @@ While you can use multiple files of different names or locations to specify your
 <div className="cli-desc">
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
 
-Simulate a test run without actually running any tests. This flag does not require a value; including it inline sets it to `true`.
+Simulate a test run without actually running any tests. This option does not require a value; including it inline sets it to `true`.
 
 ```bash
 saucectl run --dry-run
@@ -259,14 +264,14 @@ saucectl run --dry-run
 </div>
 
 
-### <span className="cli">--env &lt;key=value&gt;</span>
+### <span className="cli">--env </span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | KEY=VALUE |</small></p>
 
 An environment variable key value pair that may be referenced in the tests executed by this command. Expanded environment variables are supported.
 
 ```bash
-saucectl run --env <key1>=value1> --env <key2>=<value2> ...
+saucectl run --env <key1>=v<alue1> --env <key2>=<value2> ...
 ```
 </div>
 
@@ -291,21 +296,33 @@ Usage information for the `run` command.
 
 </div>
 
-### <span className="cli">--region &lt;string&gt;</span>
+### <span className="cli">--no-color</span>
+<div className="cli-desc">
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Disables colorized console output for saucectl. This is particularly useful for CI environments that cannot display ANSI color codes, which may render the log output illegible. This option does not require a value; including it inline sets it to `true`.
+
+```bash
+saucectl run --no-color
+```
+
+</div>
+
+### <span className="cli">--region </span>
 
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING |</small></p>
 
 Specifies the Sauce Labs data center through which tests will run. Valid values are: `us-west-1` (default) or `eu-central-1`.
 
-**Shorthand:** `-r <string>`
+**Shorthand:** `-r`
 
 ```bash
 saucectl run --region use-west-1
 ```
 </div>
 
-### <span className="cli">--retries &lt;int&gt;</span>
+### <span className="cli">--retries </span>
 
 <div className="cli-desc">
 <p><small>| REQUIRED | INTEGER | <span className="sauceDBlue">Sauce Cloud Only</span></small></p>
@@ -318,7 +335,7 @@ saucectl run --retries 2
 </div>
 
 
-### <span className="cli">--select-suite &lt;string&gt;</span>
+### <span className="cli">--select-suite </span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -328,8 +345,8 @@ Specifies a test suite to execute by name rather than all suites defined in the 
 saucectl run --select-suite <suite_name>
 ```
 
-:::note Formerly `--suite <string>`
-Versions of saucectl before v0.52.4 use the flag  `--suite` instead.
+:::note Formerly `--suite`
+Versions of saucectl before v0.52.4 use the option  `--suite` instead.
 :::
 
 </div>
@@ -346,7 +363,7 @@ saucectl run --show-console-log
 
 </div>
 
-### <span className="cli">--tags &lt;tag1,tag2,...&gt;</span>
+### <span className="cli">--tags </span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | LIST | <span className="sauceDBlue">VDC Only</span> |</small></p>
 
@@ -357,11 +374,15 @@ saucectl run --tags e2e,team2
 ```
 </div>
 
-### <span className="cli">--timeout &lt;duration&gt;</span>
+### <span className="cli">--timeout </span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | DURATION |</small></p>
 
 Sets a limit (in seconds or minutes) for how long `saucectl` can run this test (no limit by default).
+
+:::caution Real Device Max Duration
+When setting the timeout values for your suites, consider that native framework tests on real devices enforce a maximum test duration limit of 60 minutes.
+:::
 
 ```bash
 saucectl run --timeout 10s
@@ -369,7 +390,7 @@ saucectl run --timeout 30m
 ```
 </div>
 
-### <span className="cli">--tunnel-name &lt;string&gt;</span>
+### <span className="cli">--tunnel-name </span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
 
@@ -384,7 +405,7 @@ saucectl run --tunnel-name my-tunnel
 ```
 </div>
 
-### <span className="cli">--tunnel-owner &lt;string&gt;</span>
+### <span className="cli">--tunnel-owner </span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
 
@@ -403,7 +424,7 @@ saucectl run --tunnel-name not-my-tunnel --tunnel-owner another.sauce.username
 <div className="cli-desc">
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Enables detailed output during the test run in order to facilitate troubleshooting potential authentication, connection, and/or container issues. This flag does not require a value; including it inline sets it to `true`.
+Enables detailed output during the test run in order to facilitate troubleshooting potential authentication, connection, and/or container issues. This option does not require a value; including it inline sets it to `true`.
 
 ```bash
 saucectl run --verbose

@@ -553,10 +553,20 @@ The version of the browser to use for this test suite.
 ### `browserArgs`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Pass flags to configure how Puppeteer launches the selected browser. Review supported flags for [Chrome/Chromium](https://peter.sh/experiments/chromium-command-line-switches/)
+Pass flags to configure how TestCafe launches the selected browser. Review supported flags for [Chrome/Chromium](https://peter.sh/experiments/chromium-command-line-switches/)
 
 ```yaml
     browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
+```
+---
+
+### `headless`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Determines whether to run the test suite in [headless](/headless) mode.
+
+```yaml
+  headless: true
 ```
 ---
 
