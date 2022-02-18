@@ -1,9 +1,10 @@
 ---
 id: using-the-api
 title: "Using the API (for CI/CD and More)"
-sidebar_label: Using the API 
+sidebar_label: Using the API
 description: "A guide showing you various ways to call the API. This is useful for those that want to use the platform to run tests during continuous deployments."
-keywords: 
+noIndex: true
+keywords:
     - cicd
     - jenkins
     - bamboo
@@ -21,16 +22,16 @@ First, you need to create the API Hook by going to the Company Settings page and
 
 <img src={useBaseUrl('img/api-fortress/2017/07/companySetting.jpeg')} alt="API Hooks Section"/>
 
-Here, click _+API Hook_ you will be prompted to choose a project. Once done, you will have the Hook URL that will give you the ability to query resources from that project. 
+Here, click _+API Hook_ you will be prompted to choose a project. Once done, you will have the Hook URL that will give you the ability to query resources from that project.
 
-An example is: 
+An example is:
 
 ```http request
 https://mastiff.apifortress.com/app/api/rest/v3/34d8mm70-c03e-267a-9fa1-90b9flsbcea2607
-``` 
+```
 
-> __NOTE__: The above unique project hook is **`34d8mm70-c03e-267a-9fa1-90b9flsbcea2607`.** 
-> 
+> __NOTE__: The above unique project hook is **`34d8mm70-c03e-267a-9fa1-90b9flsbcea2607`.**
+>
 > This is useful for later.
 
 __Jump to a Section__
@@ -110,7 +111,7 @@ https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df0
 
 ### __Automatch__: Run Multiple Tests Based On a URL Pattern
 
-Automatch is a way to simultaneously launch tests inside a project. The tests to run are selected by comparing the URL provided in the payload to the "automatch" configuration pattern in the tests. 
+Automatch is a way to simultaneously launch tests inside a project. The tests to run are selected by comparing the URL provided in the payload to the "automatch" configuration pattern in the tests.
 
 Just like the **advanced run** endpoint, you can override both variables and the payload:
 
@@ -334,7 +335,7 @@ The following endpoints might contain sensitive information, therefore authentic
 GET https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/login
 ```
 
-The user credentials, provided by basic `HTTP` authentication, need to match the user profile selected during the project hook creation. This endpoint will generate a `JWT` token which is valid only for the provided project hook. The token is necessary for all the endpoints containing potentially sensitive information, and updating data. 
+The user credentials, provided by basic `HTTP` authentication, need to match the user profile selected during the project hook creation. This endpoint will generate a `JWT` token which is valid only for the provided project hook. The token is necessary for all the endpoints containing potentially sensitive information, and updating data.
 
 To achieve authentication, send a valid access token in the request header (i.e. in the form: `Authorization: Bearer access\_token`).
 
@@ -352,7 +353,7 @@ https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df0
 ### Provide Details About a Specific Event
 
 ```http request
-GET https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/insights/events/**event\_id** 
+GET https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/insights/events/**event\_id**
 ```
 
 > The **`event\_id`** can be retrieved by performing the `events` endpoint first.
@@ -443,7 +444,7 @@ https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df0
 ### Update the Unit of a Given Test
 
 ```http request
-POST https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/**test\_id**/unit/update 
+POST https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/**test\_id**/unit/update
 ```
 
 > The `unit` will be passed as body.
@@ -453,7 +454,7 @@ __Example body__:
 ```json
 {
  "text": "<unit xmlns:xsi=\\"http://www.w3.org/2001/XMLSchema-instance\\" name=\\"main\\" xsi:noNamespaceSchemaLocation=\\"http://apifortress.com/app/unit.xsd\\"><requirements></requirements><configs></configs><sequence name=\\"main\\"><assert-exists expression=\\"payload\\"/></sequence></unit>"
-} 
+}
 ```
 
 __Mock Example__:
@@ -471,7 +472,7 @@ https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df0
 ### Update the Unit of a Given Test by Accepting It As a Raw `POST` Body
 
 ```http request
-POST https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/**test\_id**/unit/update/file 
+POST https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/**test\_id**/unit/update/file
 ```
 
 > The `unit` will be passed as body.
