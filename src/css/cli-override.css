@@ -42,6 +42,15 @@
   border-radius: 5px;
 }
 
+.t-cli a {
+  color: #003A70;
+}
+
+.t-cli a:hover {
+  text-decoration: underline;
+  text-decoration-color: #003A70;
+  cursor: pointer;
+}
 
 html[data-theme='dark'] .cli {
   background: linear-gradient(to right, #44494F 0%,#44494F 550px, transparent 50px, transparent 100%);

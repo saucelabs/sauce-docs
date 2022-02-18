@@ -13,7 +13,7 @@ on:
 env:
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
-  SAUCECTL_VERSION: "0.68.3"
+  SAUCECTL_VERSION: "0.82.1"
   SC_VERSION: "4.7.1"
   ALGOLIA_APP_ID: ${{secrets.ALGOLIA_APP_ID}}
   ALGOLIA_KEY: ${{secrets.ALGOLIA_KEY}}
@@ -94,7 +94,7 @@ jobs:
           cd build/ && python3 -m http.server 8000 &
 
           saucectl run -c ./.sauce/config.yml --tunnel-name proxy-tunnel-$GITHUB_RUN_ID
-  
+
   deploy-staging:
     needs: test
     runs-on: ubuntu-latest
@@ -118,14 +118,14 @@ jobs:
           version: '290.0.1'
           project_id: ${{ secrets.RUN_PROJECT }}
           service_account_key: ${{ secrets.RUN_SA_KEY }}
-          
+
       - uses: actions/cache@v2
         id: cache-build
         with:
           path: |
             build
           key: ${{ runner.os }}-${{ github.sha }}
-          
+
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         run: |
@@ -164,7 +164,7 @@ jobs:
           version: '290.0.1'
           project_id: ${{ secrets.RUN_PROJECT_PROD }}
           service_account_key: ${{ secrets.RUN_SA_KEY_PROD }}
-          
+
       - uses: actions/cache@v2
         id: cache-build
         with:

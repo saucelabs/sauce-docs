@@ -89,4 +89,4 @@ At this time, `saucectl` only runs Puppeteer tests locally via Docker ([Installa
 ## How to Get Started
 
 * [Quickstart](/web-apps/automated-testing/puppeteer/quickstart): Use our demo repo to quickly set up and run a sample Puppeteer project and test to see the results.
-* [Run Your own Tests](/testrunner-toolkit/configuration/puppeteer): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
+* [Run Your own Tests](/web-apps/automated-testing/puppeteer/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.

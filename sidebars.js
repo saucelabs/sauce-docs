@@ -399,9 +399,41 @@ module.exports = {
              'dev/cli',
              'dev/cli/sauce-connect-proxy',
              {
-                 type: 'link',
-                 label: 'saucectl CLI', // The label that should be displayed (string).
-                 href: '/testrunner-toolkit/saucectl' // The target URL (string).
+                 type: 'category',
+                 label: 'saucectl CLI',
+                 collapsed: true,
+                 items: [
+                    'dev/cli/saucectl',
+                    {
+                      type: 'category',
+                      label: 'Command Ref',
+                      collapsed: true,
+                      items: [
+                        'dev/cli/saucectl/init',
+                        'dev/cli/saucectl/configure',
+                        'dev/cli/saucectl/run',
+                        'dev/cli/saucectl/completion',
+                      ]},
+                    'dev/cli/saucectl/usage/use-cases',
+                    {
+                      type: 'category',
+                      label: 'CI Integrations',
+                      collapsed: true,
+                      items: [
+                        'dev/cli/saucectl/usage/ci/circleci',
+                        'dev/cli/saucectl/usage/ci/github-actions',
+                        'dev/cli/saucectl/usage/ci/gitlab',
+                        'dev/cli/saucectl/usage/ci/jenkins',
+                      ]},
+                      {
+                        type: 'category',
+                        label: 'IDE Integrations',
+                        collapsed: true,
+                        items: [
+                          'dev/cli/saucectl/usage/ide/intellij',
+                          'dev/cli/saucectl/usage/ide/vscode',
+                        ]},
+                 ],
              },
              {
                  type: 'category',
@@ -617,8 +649,8 @@ module.exports = {
                      collapsed: true,
                      items: [
                          'mobile-apps/automated-testing/espresso-xcuitest',
-                         'testrunner-toolkit/configuration/espresso',
-                         'testrunner-toolkit/configuration/xcuitest',
+                         'mobile-apps/automated-testing/espresso-xcuitest/espresso',
+                         'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
                      ],
                  },
                  'mobile-apps/automated-testing/ipa-files',
@@ -659,7 +691,7 @@ module.exports = {
                      items: [
                          'web-apps/automated-testing/cypress',
                          'web-apps/automated-testing/cypress/quickstart',
-                         'testrunner-toolkit/configuration/cypress',
+                         'web-apps/automated-testing/cypress/yaml',
                      ]
                  },
                  {
@@ -669,7 +701,7 @@ module.exports = {
                      items: [
                          'web-apps/automated-testing/playwright',
                          'web-apps/automated-testing/playwright/quickstart',
-                         'testrunner-toolkit/configuration/playwright',
+                         'web-apps/automated-testing/playwright/yaml',
                      ],
                  },
                  {
@@ -679,7 +711,7 @@ module.exports = {
                      items: [
                          'web-apps/automated-testing/testcafe',
                          'web-apps/automated-testing/testcafe/quickstart',
-                         'testrunner-toolkit/configuration/testcafe',
+                         'web-apps/automated-testing/testcafe/yaml',
                      ]
                  },
                  {
@@ -689,7 +721,7 @@ module.exports = {
                      items: [
                          'web-apps/automated-testing/puppeteer',
                          'web-apps/automated-testing/puppeteer/quickstart',
-                         'testrunner-toolkit/configuration/puppeteer',
+                         'web-apps/automated-testing/puppeteer/yaml',
                      ],
                  },
              ],
@@ -775,35 +807,6 @@ module.exports = {
      ],
      "Headless": [
          'headless',
-     ],
-     "saucectl": [
-         'testrunner-toolkit',
-         'testrunner-toolkit/installation',
-         'testrunner-toolkit/configuration',
-         'testrunner-toolkit/running-tests',
-         {
-             type: 'category',
-             label: 'CI Integrations',
-             collapsed: true,
-             items: [
-                 'testrunner-toolkit/integrations',
-                 'testrunner-toolkit/integrations/circleci',
-                 'testrunner-toolkit/integrations/jenkins',
-                 'testrunner-toolkit/integrations/github-actions',
-                 'testrunner-toolkit/integrations/gitlab',
-             ],
-         },
-         {
-             type: 'category',
-             label: 'IDE Integrations',
-             collapsed: true,
-             items: [
-                 'testrunner-toolkit/ide-integrations/intellij',
-                 'testrunner-toolkit/ide-integrations/vscode'
-             ],
-         },
-         'testrunner-toolkit/typescript',
-         'testrunner-toolkit/saucectl',
      ],
      "Visual": [
          'visual',

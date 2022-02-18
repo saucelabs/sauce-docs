@@ -1,14 +1,14 @@
 ---
-id: playwright
-title: Configuring Your Playwright Tests
-sidebar_label: Configuration
+id: yaml
+title: Configuring Your Puppeteer Tests
+sidebar_label: YAML Configuration
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-`saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your Playwright tests, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running Playwright tests.
+`saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your Puppeteer tests, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running Puppeteer tests.
 
 ## Setting an Alternative Configuration File
 
@@ -21,17 +21,18 @@ saucectl run -c ./path/to/{config-file}.yml
 ```
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](/testrunner-toolkit/ide-integrations/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](/dev/cli/saucectl/usage/ide/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
 :::
 
 
 ## Example Configuration
 
 ```yaml reference
-https://github.com/saucelabs/saucectl-playwright-example/blob/master/.sauce/config.yml
+https://github.com/saucelabs/saucectl-puppeteer-example/blob/master/.sauce/config.yml
 ```
 
-Each of the properties supported for running Playwright tests through `saucectl` is defined below.
+
+Each of the properties supported for running Puppeteer tests through `saucectl` is defined below.
 
 ## `apiVersion`
 <p><small>| REQUIRED | STRING |</small></p>
@@ -49,7 +50,7 @@ apiVersion: v1alpha
 Specifies which framework is associated with the automation tests configured in this specification.
 
 ```yaml
-kind: playwright
+kind: puppeteer
 ```
 ---
 
@@ -70,18 +71,18 @@ Specifies any default settings for the project.
 
 ```yaml
 defaults:
-  mode: sauce
+  mode: docker
   timeout: 15m
 ```
 ---
 
 ### `mode`
-<p><small>| OPTIONAL | STRING/ENUM |</small></p>
+<p><small>| REQUIRED | STRING/ENUM |</small></p>
 
-Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally on `docker`. You can override this setting for individual suites using the `mode` setting within the [`suites`](#suites) object. If not set, the default value is `sauce`.
+Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally on `docker`. At this time, the only supported value for this property for Puppeteer is `docker`.
 
 ```yaml
-  mode: sauce
+  mode: docker
 ```
 ---
 
@@ -98,19 +99,19 @@ Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each s
 ## `sauce`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The parent property containing all settings related to how tests are run and identified in the Sauce Labs platform.
+The parent property containing all settings related to how tests are identified in the Sauce Labs platform.
 
 ```yaml
 sauce:
   region: eu-central-1
   metadata:
-    name: Testing Playwright Support
+    name: Testing Puppeteer Support
     tags:
       - e2e
       - release team
       - other tag
-    build: Release $CI_COMMIT_SHORT_SHA
-  concurrency: 10
+    build: GitHub Run $GITHUB_RUN_ID
+  concurrency: 5
 ```
 ---
 
@@ -131,7 +132,7 @@ The set of properties that allows you to provide additional information about yo
 
 ```yaml
 metadata:
-  name: Testing Playwright Support
+  name: Testing Puppeteer Support
   build: RC 10.4.a
   tags:
     - e2e
@@ -146,10 +147,6 @@ metadata:
 
 Sets the maximum number of suites to execute at the same time. If the test defines more suites than the max, excess suites are queued and run in order as each suite completes.
 
-:::caution
-For tests running on Sauce, set this value to equal or less than your Sauce concurrency allowance, as setting a higher value may result in jobs dropped by the server.
-:::
-
 ```yaml
   concurrency: 5
 ```
@@ -158,68 +155,6 @@ Alternatively, you can override the file setting at runtime by setting the concu
 
 ```bash
 saucectl run --ccy 5
-```
----
-
-### `retries`
-<p><small>| OPTIONAL | INTEGER |</small></p>
-
-Sets the number of times to retry a failed suite.
-
-```yaml
-  retries: 1
-```
-
-Alternatively, you can override the file setting at runtime by setting the retries flag as an inline parameter of the `saucectl run` command:
-
-```bash
-saucectl run --retries 1
-```
----
-
-### `tunnel`
-<p><small>| OPTIONAL | OBJECT |</small></p>
-
-`saucectl` supports using [Sauce Connect](/testrunner-toolkit/configuration#sauce-connect) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
-
-```yaml
-sauce:
-  tunnel:
-    name: your_tunnel_name
-    owner: tunnel_owner_username
-```
----
-
-#### `name`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Identifies an active Sauce Connect tunnel to use for secure connectivity to the Sauce Labs cloud.
-
-:::note
-This property replaces the former `id` property, which is deprecated.
-:::
-
-```yaml
-sauce:
-  tunnel:
-    name: your_tunnel_name
-```
----
-
-#### `owner`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Identifies the Sauce Labs user who created the specified tunnel, which is required if the user running the tests did not create the tunnel.
-
-:::note
-This property replaces the former `parent` property, which is deprecated.
-:::
-
-```yaml
-sauce:
-  tunnel:
-    name: your_tunnel_name
-    owner: tunnel_owner_username
 ```
 ---
 
@@ -243,7 +178,7 @@ The set of properties defining the specific Docker image and type your are using
 ```yaml
 docker:
   fileTransfer: copy
-  image: saucelabs/stt-playwright-node:vX.X.X
+  image: saucelabs/stt-puppeteer-jest-node:<vX.X.X>
 ```
 ---
 
@@ -263,10 +198,10 @@ Method in which to transfer test files into the docker container. Valid values a
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies which docker image and version to use when running tests. Valid values are in the format:
-`saucelabs/<framework-node>:<vX.X.X>`. See [Supported Testing Platforms](/web-apps/automated-testing/playwright#supported-testing-platforms) for Docker release notes related to Playwright.
+`saucelabs/<framework-node>:<vX.X.X>`. See [Supported Testing Platforms](/web-apps/automated-testing/puppeteer#supported-testing-platforms) for Docker release notes related to Puppeteer.
 
 ```yaml
-  image: saucelabs/< stt-playwright-mocha-node | stt-playwright-node | stt-testcafe-node >:< vX.X.X >
+  image: saucelabs/stt-puppeteer-jest-node:< vX.X.X >
 ```
 
 :::caution
@@ -304,14 +239,13 @@ npm:
   packages:
     lodash: "4.17.20"
     "@babel/preset-typescript": "7.12"
-    "@playwright/react": "^5.0.1"
 ```
 ---
 
 ### `registry`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/testrunner-toolkit/running-tests#running-tests-on-sauce-labs-with-sauce-connect).
+Specifies the location of the npm registry source.
 
 ```yaml
   registry: https://registry.npmjs.org
@@ -327,7 +261,6 @@ Specifies any NPM packages that are required to run tests and should, therefore,
   packages:
     lodash: "4.17.20"
     "@babel/preset-typescript": "7.12"
-    "@playwright/react": "^5.0.1"
 ```
 ---
 ## `reporters`
@@ -366,7 +299,6 @@ When set to `true`, all contents of the specified download directory are cleared
 ```yaml
   cleanup: true
 ```
-
 ---
 
 ### `download`
@@ -430,7 +362,7 @@ notifications:
   slack:
     channels:
       - "saucectl-results"
-      - "playwright-tests"
+      - "ppt-tests"
     send: always
 ```
 ---
@@ -442,7 +374,7 @@ Specifies the settings related to sending tests result notifications through Sla
 
 ```yaml
   slack:
-    channels: "saucectl-pw-tests"
+    channels: "saucectl-ppt-tests"
     send: always
 ```
 ---
@@ -456,7 +388,7 @@ The set of Slack channels to which the test result notifications are to be sent.
   slack:
     channels:
       - "saucectl-results"
-      - "playwright-team"
+      - "ppt-team"
     send: always
 ```
 ---
@@ -473,42 +405,31 @@ Specifies when and under what circumstances to send notifications to specified S
 
 ```yaml
   slack:
-    channels: "saucectl-pw-tests"
+    channels: "saucectl-ppt-tests"
     send: always
 ```
 ---
 
 
-## `playwright`
+
+## `puppeteer`
 <p><small>| REQUIRED | OBJECT |</small></p>
 
-The parent property containing the details specific to the Playwright project.
+The parent property containing the details specific to the Puppeteer project.
 
 ```yaml
-playwright:
-  version: 1.11.1
-  configFile: config.ts
+puppeteer:
+  version: 9.1.1
 ```
 ---
 
 ### `version`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The version of Playwright that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/playwright#supported-testing-platforms) for the list of Playwright versions supported by `saucectl` and their compatible test platforms.
+The version of Puppeteer that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/puppeteer#supported-testing-platforms) for the list of Puppeteer versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
-  version: 1.11.1
-```
----
-
-### `configFile`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-The path (relative to `rootDir`) to your Playwright configuration file. `saucectl` determines related files based on the location of this config file. Supports both TypeScript and JavaScript files.
-If it's not set, `saucectl` defaults to `playwright.config.ts` or `playwright.config.js`.
-
-```yaml
-  configFile: config.ts
+  version: 9.1.1
 ```
 ---
 
@@ -541,133 +462,35 @@ A property containing one or more environment variables that may be referenced i
 ```
 ---
 
-### `platformName`
-<p><small>| OPTIONAL | STRING | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
+### `browser`
+<p><small>| REQUIRED | STRING |</small></p>
 
-A specific operating system and version on which to run the specified browser and test suite. Defaults to a platform that is supported by `saucectl` for the chosen browser.
+The name of the browser in which to run this test suite.
+Available browser names: `chrome` and `firefox`.
 
 ```yaml
-    platformName: "Windows 10"
+    browser: "chrome"
 ```
 ---
 
-### `screenResolution`
-<p><small>| OPTIONAL | STRING | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
+#### `env`
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specifies a browser window screen resolution, which may be useful if you are attempting to simulate a browser on a particular device type. See [Test Configurations](/basics/test-config-annotation/test-config) for a list of available resolution values.
-
-```yaml
-    screenResolution: "1920x1080"
-```
----
-
-### `mode`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Specifies whether the individual suite will run on `docker` or `sauce`, potentially overriding the default project mode setting.
+A set of any ephemeral/environment variables needed to run the tests in this suite, which might take any of the following formats: *string* | *int* | *float* | *boolean*.
 
 ```yaml
-  mode: "sauce"
+      env:
+        hello: world
 ```
 ---
 
 ### `testMatch`
 <p><small>| REQUIRED | STRING/ARRAY |</small></p>
 
-One or more paths to the playwright test files to run for this suite. Regex values are supported to indicate all files of a certain type or in a certain directory, etc. If your tests are in TypeScript, you must [transpile them to JavaScript](#transpiling-typescript-tests).
+One or more paths to the puppeteer test files to run for this suite. Regex values are supported to indicate all files of a certain type or in a certain directory, etc. If your tests are in TypeScript, you must [transpile them to JavaScript](#transpiling-typescript-tests).
 
 ```yaml
     testMatch: ["**/*.js"]
-```
----
-
-### `numShards`
-<p><small>| OPTIONAL | INTEGER | <span class="highlight playwright">Playwright version >= 1.12</span> |</small></p>
-
-Sets the number of separate shards to create for the test suite. Read more about shard tests on the [Playwright developer site](https://playwright.dev/docs/test-parallel#shards).
-
-When sharding is configured, `saucectl` automatically creates the sharded jobs based on the number of shards you specify. For example, for a suite that specifies 2 shards, `saucectl` clones the suite and runs shard `1/2` on the first suite, and the other shard `2/2` on the identical clone suite.
-
-:::caution Shard Property Exclusivity
-The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
-:::
-
-```yaml
-  numShards: 2
-```
----
-
-### `shard`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-When sharding is configured, saucectl automatically splits the tests (e.g. by spec) so that they can easily run in parallel.
-Selectable values: `spec` to shard by spec file. Remove this field or leave it empty `""` for no sharding.
-
-:::caution Shard Property Exclusivity
-The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
-:::
-
-```yaml
-    shard: spec
-```
-
----
-
-### `params`
-<p><small>| OPTIONAL | OBJECT |</small></p>
-
-A parent property that details any additional parameters you wish to set for the test suite.
-
-```yaml
-    params:
-      browserName: "firefox"
-      headless: true
-      slowMo: 1000
-      project: "project name"
-```
-
-#### `browserName`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-The name of the browser in which to run this test suite.
-Available browser names: `chromium`, `firefox` and `webkit`.
-
-```yaml
-    browserName: "firefox"
-```
----
-
-#### `headless`
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
-
-Determines whether to run the test suite in [headless](/headless) mode.
-
-```yaml
-    headless: true
-```
----
-
-#### `sloMo`
-<p><small>| OPTIONAL | INTEGER |</small></p>
-
-Allows you to alter the test execution speed for the test suite in milliseconds, to simulate different network connectivity or other conditions that may impact load times.
-
-```yaml
-    sloMo: 1000
-```
----
-
-#### `project`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Allows you to apply the configurations from your [Playwright project](https://playwright.dev/docs/test-advanced/#projects) to the suite.
-
-:::note
-`saucectl` browserName overrides the Playwright project browserName in the event of a conflict.
-:::
-
-```yaml
-    project: "project name"
 ```
 ---
 
@@ -683,11 +506,56 @@ Setting `0` reverts to the value set in `defaults`.
 ```yaml
   timeout: 15m
 ```
+
+### `browserArgs`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Pass flags to configure how TestCafe launches the selected browser. Review supported flags for [Chrome/Chromium](https://peter.sh/experiments/chromium-command-line-switches/)
+
+```yaml
+    browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
+```
+---
+
+### `groups`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Execute specific groups of tests with puppeteer runner.
+
+```yaml
+    groups: ["group1", "group2"]
+```
 ---
 
 ## Advanced Configuration Considerations
 
 The configuration file is flexible enough to allow for any customizations and definitions that are required for any of the supported frameworks. The following sections describe some of the most common configurations.
+
+### Setting up a Proxy
+
+If you need to go through a proxy server, you can set it through the following variables:
+
+* `HTTP_PROXY`: Proxy to use to access HTTP websites
+* `HTTPS_PROXY`: Proxy to use to access HTTPS websites
+
+
+#### Docker Proxy Considerations
+
+When running in docker-mode, `saucectl` still must reach the Sauce Labs platform get the latest docker image available or upload the test package to Sauce Cloud, and the docker container needs to access the tested website and Sauce Labs to upload results.
+
+Therefore, you may be required to set the proxy twice, as shown in the following examples:
+
+``` title= "Example: Windows Powershell"
+PS> $Env:HTTP_PROXY=http://my.proxy.org:3128/
+PS> $Env:HTTPS_PROXY=http://my.proxy.org:3128/
+PS> saucectl run -e HTTP_PROXY=${Env:HTTP_PROXY} -e HTTPS_PROXY=${Env:HTTPS_PROXY}
+```
+
+``` title= "Example: Linux/MacOS"
+$> export HTTP_PROXY=http://my.proxy.org:3128/
+$> export HTTPS_PROXY=http://my.proxy.org:3128/
+$> saucectl run -e HTTP_PROXY=${HTTP_PROXY} -e HTTPS_PROXY=${HTTPS_PROXY}
+```
 
 ### Tailoring Your Test File Bundle
 
@@ -779,8 +647,8 @@ If you know that your tests require only specific dependencies, install them ind
 
 ```bash
 # Install individual dependencies
-npm install playwright-xpath
-npm install @playwright/react
+npm install puppeteer-xpath
+npm install @puppeteer/react
 
 saucectl run
 ```
@@ -795,5 +663,30 @@ npm:
   packages:
     lodash: "4.17.20"
     "@babel/preset-typescript": "7.12"
-    "@playwright/react": "^5.0.1"
+    "@puppeteer/react": "^5.0.1"
 ```
+
+### Transpiling TypeScript Tests
+
+If your Puppeteer tests are in TypeScript, you need to transpile your Typescript files to JavaScript before running them with `saucectl`.
+
+1. Install typescript:
+
+   ```bash
+   npm install -g typescript
+   ```
+
+2. Review your `tsconfig.json` to ensure you've set the `compilerOptions` appropriately. Review the [documentation](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html#writing-a-configuration-file) for guidelines.
+
+3. Run the TypeScript compiler:
+
+   ```bash
+   tsc --project ./tests/tsconfig.json
+   ```
+4. Edit the `testMatch` properties for each of your test suites in `.sauce/config.yml` to call the JavaScript test files instead of the TypeScript files.
+
+   ```yaml
+   suites:
+     - name: "basic test"
+       testMatch: ['tests/*.js']
+   ```
