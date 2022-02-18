@@ -62,7 +62,7 @@ const responsive = {
   1024: { items: 5 },
 };
 
-const Caroulsel = () => {
+const Carousel = () => {
   return (
     <AliceCarousel
       className="alice-carousel__prev-btn"
@@ -73,4 +73,4 @@ const Caroulsel = () => {
   );
 };
 
-export default Caroulsel;
+export default Carousel;
