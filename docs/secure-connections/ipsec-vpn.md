@@ -116,7 +116,7 @@ caps.setCapability("parentTunnel","$SAUCE_USERNAME");
 
 #### Espresso Tests
 
-Specify the applicable [`tunnel`](/testrunner-toolkit/configuration/espresso/#tunnel) settings in your saucectl config.yml file, or use the `--tunnel-name` and `--tunnel-owner` flags with the [saucectl run command](/testrunner-toolkit/saucectl/#-saucectl-run-flags) at test runtime.
+Specify the applicable [`tunnel`](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#tunnel) settings in your saucectl config.yml file, or use the `--tunnel-name` and `--tunnel-owner` flags with the [saucectl run command](/dev/cli/saucectl/run/#--tunnel-name) at test runtime.
 
 ### Live Testing
 
