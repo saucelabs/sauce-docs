@@ -17,7 +17,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  * A Sauce Labs account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
  * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
- * [Node.js](https://nodejs.org/en/) to use the NPM package manager.
+ * [Node.js](https://nodejs.org/en/) to use the NPM package manager
+ * A [GitHub](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home) account
 
 
 ## Step 1: Install `saucectl`
@@ -33,7 +34,12 @@ In a terminal shell, run the install command from your chosen `saucectl` home di
 `saucectl` requires access to a valid Sauce Labs account.
 
 :::tip Use Environment Variables
-`saucectl` detects your Sauce Labs credentials [environment variables](/basics/environment-variables) and prioritizes them over values in the `credentials.yml` file when both are present. **If you have set them, you may skip this step.**
+`saucectl` detects your Sauce Labs credentials [environment variables](/basics/environment-variables) and prioritizes them over values in the `credentials.yml` file when both are present. **If you have set them, you may skip this step.** Not sure if you have them set? Run the following command to check:
+```
+echo $SAUCE_USERNAME
+echo $SAUCE_ACCESS_KEY
+```
+If a value is returned for both variables, they are set.
 :::
 
  1. Run the `configure` command:
@@ -46,35 +52,36 @@ In a terminal shell, run the install command from your chosen `saucectl` home di
 
 ## Step 3: Set up Your Cypress Project
 
-  Check out the [Cypress Demo Repo](https://github.com/saucelabs/saucectl-cypress-example) to get a Cypress project structure, Cypress-ready configuration file, and sample Cypress test.
+Clone the [Cypress Demo Repo](https://github.com/saucelabs/saucectl-cypress-example) to get a Cypress project structure, Cypress-ready configuration file, and sample Cypress test. Use the command below that is applicable to your GitHub setup.
 
-  <Tabs
-    defaultValue="https"
-    values={[
-      {label: 'HTTPS', value: 'https'},
-      {label: 'SSH', value: 'ssh'},
-    ]}>
+<Tabs
+  defaultValue="https"
+  values={[
+    {label: 'HTTPS', value: 'https'},
+    {label: 'SSH', value: 'ssh'},
+  ]}>
 
-  <TabItem value="https">
+<TabItem value="https">
 
-  ```
-  git clone https://github.com/saucelabs/saucectl-cypress-example.git
-  ```
+```
+git clone https://github.com/saucelabs/saucectl-cypress-example.git
+```
 
-  </TabItem>
-  <TabItem value="ssh">
+</TabItem>
+<TabItem value="ssh">
 
-  ```
-  git clone git@github.com:saucelabs/saucectl-cypress-example.git
-  ```
-  </TabItem>
-  </Tabs>
+```
+git clone git@github.com:saucelabs/saucectl-cypress-example.git
+```
+</TabItem>
+</Tabs>
 
 ## Step 4: Run Tests
 
- Use the `run` command to execute the sample test included with the `saucectl` example.
+ Navigate to the root of the Cypress project you just cloned, then use the `run` command to execute the sample test included with the `saucectl` example.
 
  ```
+ cd saucectl-cypress-example
  saucectl run
  ```
 
