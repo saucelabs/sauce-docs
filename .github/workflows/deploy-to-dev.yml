@@ -2,10 +2,7 @@ name: Deploy to Dev
 
 on:
   workflow_dispatch:
-    paths-ignore:
-      - '.github/**'
-      - '.docsearch/**'
-      - 'README.md'
+    
 env:
   ALGOLIA_APP_ID: ${{secrets.ALGOLIA_APP_ID}}
   ALGOLIA_KEY: ${{secrets.ALGOLIA_KEY}}
