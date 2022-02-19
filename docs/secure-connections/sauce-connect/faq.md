@@ -124,8 +124,8 @@ To create a secure connection, we strongly recommend using Sauce Connect or IPSe
 
 ## Where can I get more in-depth information about Sauce Connect Proxy?
 
-[Sauce Connect Proxy white paper](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview) contains an in-depth overview of the proxy and its security.
+See our [Sauce Connect Proxy white paper](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview) and [Sauce Connect Proxy Architecture](/secure-connections/sauce-connect/advanced/architecture/).
 
 ## What is KGP in Sauce Connect Proxy logs?
 
-See [Sauce Connect Tunneling Protocol](/secure-connections/sauce-connect/advanced/kgp) documentation.
+See [Sauce Connect Tunneling Protocol](/secure-connections/sauce-connect/advanced/kgp).
