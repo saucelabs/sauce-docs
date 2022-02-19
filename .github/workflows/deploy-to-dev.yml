@@ -10,7 +10,6 @@ env:
 jobs:
   deploy-dev:
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/staging' }}
     steps:
       - uses: actions/checkout@v2
         with:
