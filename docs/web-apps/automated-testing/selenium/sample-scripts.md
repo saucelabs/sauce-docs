@@ -18,8 +18,6 @@ Visit the [Sauce Labs Ruby Demonstration Repo](https://github.com/saucelabs-trai
 https://github.com/saucelabs-training/demo-ruby/blob/docs-1.0/selenium-examples/rspec/spec/login_success_spec.rb
 ```
 
----
-
 ## Python
 
 Visit the [Sauce Labs Python Demonstration Repo](https://github.com/saucelabs-training/demo-python) for prerequisites, setup instructions, a variety of sample scripts, and many other resources related to writing and running Selenium scripts in Python.
@@ -27,8 +25,6 @@ Visit the [Sauce Labs Python Demonstration Repo](https://github.com/saucelabs-tr
 ```py reference title="Python Login Test"
 https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/test_login_success.py
 ```
-
----
 
 ## Java
 
@@ -66,8 +62,6 @@ https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-testng-ex
 </TabItem>
 </Tabs>
 
----
-
 ## NodeJS
 
 Visit the [Sauce Labs JavaScript Demonstration Repo](https://github.com/saucelabs-training/demo-js) for prerequisites, setup instructions, a variety of sample scripts using different frameworks, and many other resources related to writing and running scripts in JavaScript.
@@ -75,8 +69,6 @@ Visit the [Sauce Labs JavaScript Demonstration Repo](https://github.com/saucelab
 ```js reference title="WebdriverIO Login Test"
 https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/webdriver/examples/typescript/test/specs/example.e2e.ts
 ```
-
----
 
 ## C Sharp
 
