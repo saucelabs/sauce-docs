@@ -1,0 +1,29 @@
+.quickstart img {
+  width: 100px;
+  max-height: 100px;
+}
+
+.alice-carousel__prev-btn div {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.alice-carousel__next-btn-item {
+  font-size: 2.5rem;
+}
+
+html[data-theme='dark'] .alice-carousel__dots {
+    margin: 16px 4px 4px;
+}
+
+html[data-theme='light'] .alice-carousel__dots {
+    margin: 16px 4px 4px;
+}
+
+html[data-theme='dark'] .alice-carousel__next-btn [data-area]::after {
+  color: white;
+}
+
+html[data-theme='dark'] .alice-carousel__prev-btn [data-area]::after{
+  color: white;
+}
