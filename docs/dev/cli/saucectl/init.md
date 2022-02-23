@@ -42,7 +42,7 @@ In either case, the command generates a `.sauce/config.yml` folder and file in t
   </thead>
   <tbody>
     <tr>
-     <td><span className="t-cli"><a href="#--accesskey-string">--accessKey</a></span></td>
+     <td><span className="t-cli"><a href="#--accesskey">--accessKey</a></span></td>
      <td><span className="t-cli">-a</span></td>
      <td>A valid Sauce Labs account access key.</td>
     </tr>
@@ -52,37 +52,37 @@ In either case, the command generates a `.sauce/config.yml` folder and file in t
      <td>The path to a valid mobile application to test.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--artifacts.download.when-string">--artifacts.download.when</a></span></td>
+     <td><span className="t-cli"><a href="#--artifactsdownloadwhen">--artifacts.download.when</a></span></td>
      <td><span className="t-cli">-f</span></td>
      <td>The framework for which this configuration is intended.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--browsername-string">--browserName</a></span></td>
+     <td><span className="t-cli"><a href="#--browsername">--browserName</a></span></td>
      <td><span className="t-cli">-b</span></td>
      <td>The browser in which web-app tests will run.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--cypress-config-string">--cypress.config</a></span></td>
+     <td><span className="t-cli"><a href="#--cypress-config">--cypress.config</a></span></td>
      <td></td>
      <td>The path to the Cypress configuration file.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--device-string">--device</a></span></td>
+     <td><span className="t-cli"><a href="#--device">--device</a></span></td>
      <td></td>
      <td>The set of desired characteristics to match when finding a device.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--emulator-string">--emulator</a></span></td>
+     <td><span className="t-cli"><a href="#--emulator">--emulator</a></span></td>
      <td></td>
      <td>The set of desired characteristics to match when finding an emulator.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--framework-string">--framework</a></span></td>
+     <td><span className="t-cli"><a href="#--framework">--framework</a></span></td>
      <td><span className="t-cli">-f</span></td>
      <td>The framework for which this configuration is intended.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--frameworkversion-string">--frameworkVersion</a></span></td>
+     <td><span className="t-cli"><a href="#--frameworkversion">--frameworkVersion</a></span></td>
      <td><span className="t-cli">-v</span></td>
      <td>The version of the framework that is compatible with the tests to be run.</td>
     </tr>
@@ -92,22 +92,22 @@ In either case, the command generates a `.sauce/config.yml` folder and file in t
      <td>Usage information for the <code>init</code> command.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--platformname-string">--platformName</a></span></td>
+     <td><span className="t-cli"><a href="#--platformname">--platformName</a></span></td>
      <td><span className="t-cli">-p</span></td>
      <td>The operation system and verseion on which tests will be run.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--region-string">--region</a></span></td>
+     <td><span className="t-cli"><a href="#--region">--region</a></span></td>
      <td><span className="t-cli">-r</span></td>
      <td>The Sauce Labs data center associated with the testing account.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--testapp-string">--testApp</a></span></td>
+     <td><span className="t-cli"><a href="#--testapp">--testApp</a></span></td>
      <td><span className="t-cli">-t</span></td>
      <td>The path to the mobile testing application.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--username-string">--username</a></span></td>
+     <td><span className="t-cli"><a href="#--username">--username</a></span></td>
      <td><span className="t-cli">-u</span></td>
      <td>A valid Sauce Labs user account.</td>
     </tr>
@@ -117,7 +117,7 @@ In either case, the command generates a `.sauce/config.yml` folder and file in t
 ## Options Details
 
 
-### <span className="cli">--accessKey </span>
+### <span className="cli">--accessKey</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -127,7 +127,7 @@ The authentication access key associated with the Sauce Labs user account making
 
 </div>
 
-### <span className="cli">--app </span>
+### <span className="cli">--app</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Espresso/XCUITest Only</span> |</small></p>
 
@@ -135,7 +135,7 @@ The path to a valid mobile application to test.
 
 </div>
 
-### <span className="cli">--artifacts.download.when </span>
+### <span className="cli">--artifacts.download.when</span>
 
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
@@ -149,7 +149,7 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 
 </div>
 
-### <span className="cli">--browserName </span>
+### <span className="cli">--browserName</span>
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING | <span className="sauceDBlue">Web-app Only</span> |</small></p>
 
@@ -159,7 +159,7 @@ The name of the browser in which to run tests.
 
 </div>
 
-### <span className="cli">--cypress.config </span>
+### <span className="cli">--cypress.config</span>
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING | <span className="sauceDBlue">Cypress Only</span> |</small></p>
 
@@ -167,7 +167,7 @@ The file path to the Cypress configuration file (typically `cypress.json`).
 
 </div>
 
-### <span className="cli">--device </span>
+### <span className="cli">--device</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Espresso/XCUITest Only</span> |</small></p>
 
@@ -190,7 +190,7 @@ You can specify a combination of device characteristics within this flag:
 
 </div>
 
-### <span className="cli">--emulator </span>
+### <span className="cli">--emulator</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Espresso Only</span> |</small></p>
 
@@ -210,7 +210,7 @@ You can specify a combination of emulator characteristics within this flag:
 
 </div>
 
-### <span className="cli">--framework </span>
+### <span className="cli">--framework</span>
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING |</small></p>
 
@@ -220,7 +220,7 @@ The framework for which this configuration is intended.
 
 </div>
 
-### <span className="cli">--frameworkVersion </span>
+### <span className="cli">--frameworkVersion</span>
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING | <span className="sauceDBlue">Web-app Only</span> |</small></p>
 
@@ -240,7 +240,7 @@ Usage information for the `init` command.
 
 </div>
 
-### <span className="cli">--platformName </span>
+### <span className="cli">--platformName</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Web-app Only</span> |</small></p>
 
@@ -254,7 +254,7 @@ You can optionally specify `docker` here as the platform.
 
 </div>
 
-### <span className="cli">--region </span>
+### <span className="cli">--region</span>
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING |</small></p>
 
@@ -264,7 +264,7 @@ Specifies the Sauce Labs data center through which tests will run. Valid values 
 
 </div>
 
-### <span className="cli">--testApp </span>
+### <span className="cli">--testApp</span>
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING | <span className="sauceDBlue">Espresso/XCUITest Only</span> |</small></p>
 
@@ -274,7 +274,7 @@ The path to the mobile testing application.
 
 </div>
 
-### <span className="cli">--username </span>
+### <span className="cli">--username</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 

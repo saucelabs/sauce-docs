@@ -4,19 +4,119 @@ title: "Virtual USB CLI: Start the Server"
 sidebar_label: Start Server
 ---
 
-The [`server`](/mobile-apps/features/virtual-usb#start-server) command connects your local machine to the Sauce Labs Data Center where your Real Device Cloud private devices are hosted. You must start this command in its own separate command line terminal, since it acts as a log running continuously.
+## Description
 
-## Required
+[Connect your local machine to the Sauce Labs Data Center](/mobile-apps/features/virtual-usb#start-server) where your Real Device Cloud private devices are hosted. You must initiate this command in its own separate command line terminal, since it acts as a continuously running log.
 
----
-### `--datacenter`
-__Description__: defines the Data Center where your Real Device Cloud private devices are hosted. Possible values: `EU` or `US`.
+## Usage
 
-```java title="Basic Example (required flags only)"
+<span className="cli">$ &lt;main class&gt; [OPTIONS] server [OPTIONS]</span>
+
+
+## Options Details
+
+### <span className="cli">--datacenter</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED | ENUM |</small></p>
+
+Specifies the Sauce Labs data center where your Real Device Cloud private devices are hosted. Valid values are `EU` or `US`.
+
+</div>
+
+### <span className="cli">--serverHost</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | URL ADDRESS |</small></p>
+
+A specific Virtual USB server host address. The default value, if not specified, is `http://127.0.0.1`.
+
+</div>
+
+
+### <span className="cli">--serverPort</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+A specific Virtual USB server port. The default value, if not specified, is `33657`.
+
+</div>
+
+### <span className="cli">--adbPortMin</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+ Specifies a Virtual USB server Android Debug Bridge (ADB) port. Default value: `7000`.
+
+ </div>
+
+
+### <span className="cli">--adbPortRange</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies a Virtual USB server ADB port range. Default value: `100`.
+
+</div>
+
+
+### <span className="cli">--proxyHost</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Secifies the HTTP proxy host.
+
+</div>
+
+#### <span className="cli">--proxyPort</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the HTTP proxy port. Default value: `0`.
+
+</div>
+
+### <span className="cli">--proxyUser</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the HTTP proxy user.
+
+</div>
+
+### <span className="cli">--proxyPassword</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the HTTP proxy password.
+
+</div>
+
+### <span className="cli">--startUsbmuxd</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Starts the `usbmuxd` server. Default value: `false`.
+
+</div>
+
+## Examples
+
+### Basic Example with Required Flags
+
+```java title="Start Server Request"
 java -jar virtual-usb-client.jar server --datacenter US
 ```
 
-```java title="Sample Response"
+```bash title="Sample Response"
 19:06:10.060 [main] INFO com.saucelabs.vusb.client.Runner - Runner Version 2.0.0
 19:06:11.032 [main] INFO com.saucelabs.vusb.client.server.VirtualUsbServer - Initializing vUSB-Server...
 19:06:11.038 [main] INFO com.saucelabs.vusb.client.server.VirtualUsbServer - vUSB-Server initialized
@@ -24,47 +124,9 @@ java -jar virtual-usb-client.jar server --datacenter US
 19:06:11.103 [main] INFO com.saucelabs.vusb.client.server.rest.WebServer - Virtual USB server is up.
 ```
 
-## Optional
+### Full Example with Optional Flags
 
-These flags provide additional configuration options.
-
----
-### `--serverHost`
-__Description__: specifies a Virtual USB server host. Default value: `http://127.0.0.1`.
-
----
-### `--serverPort`
-__Description__: specifies a Virtual USB server port. Default value: `33657`.
-
----
-### `--adbPortMin`
-__Description__: specifies a Virtual USB server Android Debug Bridge (ADB) port. Default value: `7000`.
-
----
-### `--adbPortRange`
-__Description__: specifies a Virtual USB server ADB port range. Default value: `100`.
-
----
-### `--proxyHost`
-__Description__: specifies a HTTP proxy host.
-
----
-### `--proxyPort`
-__Description__: specifies a HTTP proxy port. Default value: `0`.
-
----
-### `--proxyUser`
-__Description__: specifies a HTTP proxy user.
-
----
-### `--proxyPassword`
-__Description__: specifies a HTTP proxy password.
-
----
-### `--startUsbmuxd`
-__Description__: starts the `usbmuxd` server. Default value: `false`.
-
-```bash title="Full Example (includes optional flags)"
+```bash
 java -jar virtual-usb-client.jar server \
     --datacenter US \
     --adbPortRange 700 \

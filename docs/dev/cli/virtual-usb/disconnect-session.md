@@ -4,41 +4,65 @@ title: "Virtual USB CLI: Disconnect Session"
 sidebar_label: Disconnect Session
 ---
 
-The [`disconnect`](/mobile-apps/features/virtual-usb#close-test) command closes out live Virtual USB test sessions that were started originally in Sauce Labs and linked to your Virtual USB client using the [`connect`](/dev/cli/virtual-usb/connect-session) command.
+## Description
 
-## Required
+Close a Virtual USB session that you originally joined using the [`connect` command](/dev/cli/virtual-usb/connect-session).
 
----
-### `--sessionId`
-__Description__: your test session ID number, which you can find using the `sessions` command.
+:::note Android Only
+After disconnecting a session with an Anroid device, [disconnect your device from ADB](/mobile-apps/features/virtual-usb#close-test) by running `adb disconnect` followed by your `<IPAddress>:<portNumber>`.  
+:::
 
-```java title="Basic Example (required flags only)"
+## Usage
+
+<span className="cli">$ &lt;main class&gt; [OPTIONS] disconnect [OPTIONS]</span>
+
+## Options Details
+
+### <span className="cli">--sessionId</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED | STRING |</small></p>
+
+The unique identifier of the test session to disconnect. You can retrieve the session ID of an active session using the [`sessions` command](/dev/cli/virtual-usb/find-sessionid).
+
+</div>
+
+### <span className="cli">--serverHost</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | URL ADDRESS |</small></p>
+
+A specific Virtual USB server host address. The default value, if not specified, is `http://127.0.0.1`.
+
+</div>
+
+
+### <span className="cli">--serverPort</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+A specific Virtual USB server port. The default value, if not specified, is `33657`.
+
+</div>
+
+
+## Examples
+
+### Basic Example with Required Flags
+
+```java title="Disconnect Request"
 java -jar virtual-usb-client.jar disconnect --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465
 ```
 
-```java title="Response Example"        
+```bash title="Sample Response"
 07:57:34.700 [main] INFO com.saucelabs.vusb.client.Runner - Runner Version 2.0.0
 Disconnected
 ```
 
-:::note Android Only
-After completing the above step, you'll also need to [disconnect your device from ADB](/mobile-apps/features/virtual-usb#close-test) by running `adb disconnect` followed by your `<IPAddress>:<portNumber>`.  
+### Full Example with Optional Flags
 
-:::
-
-## Optional
-
-Use these flags to provide additional configuration options.
-
----
-### `--serverHost`
-__Description__: specifies a Virtual USB server host. Default: `http://127.0.0.1`.
-
----
-### `--serverPort`
-__Description__: specifies a Virtual USB server port. Default: `33657`.
-
-```bash title="Full Example (includes optional flags)"
+```bash
 java -jar virtual-usb-client.jar disconnect \
     --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 \
     --serverHost http://127.0.0.1 \
