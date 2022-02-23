@@ -9,7 +9,7 @@ sidebar_label: Disconnect Session
 Close a Virtual USB session that you originally joined using the [`connect` command](/dev/cli/virtual-usb/connect-session).
 
 :::note Android Only
-After disconnecting a session with an Anroid device, [disconnect your device from ADB](/mobile-apps/features/virtual-usb#close-test) by running `adb disconnect` followed by your `<IPAddress>:<portNumber>`.  
+After disconnecting a session with an Android device, [disconnect your device from ADB](/mobile-apps/features/virtual-usb#close-test) by running `adb disconnect` followed by your `<IPAddress>:<portNumber>`.  
 :::
 
 ## Usage
@@ -32,7 +32,7 @@ The unique identifier of the test session to disconnect. You can retrieve the se
 <div className="cli-desc">
 <p><small>| OPTIONAL | URL ADDRESS |</small></p>
 
-A specific Virtual USB server host address. The default value, if not specified, is `http://127.0.0.1`.
+A specific vUSB server host address. The default value, if not specified, is `http://127.0.0.1`.
 
 </div>
 
@@ -42,7 +42,7 @@ A specific Virtual USB server host address. The default value, if not specified,
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-A specific Virtual USB server port. The default value, if not specified, is `33657`.
+A specific vUSB server port. The default value, if not specified, is `33657`.
 
 </div>
 

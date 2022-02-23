@@ -77,6 +77,7 @@ Deleted session d03a1b81-158d-4bb4-bcc9-074e43dd8465
 
 ### Full Example with Optional Flags
 
+```bash
 java -jar virtual-usb-client.jar deleteSession \
     --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 \
     --username $SAUCE_USERNAME \

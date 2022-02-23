@@ -39,7 +39,7 @@ A specific Virtual USB server host address. The default value, if not specified,
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-A specific Virtual USB server port. The default value, if not specified, is `33657`.
+A specific vUSB server port. The default value, if not specified, is `33657`.
 
 </div>
 
@@ -48,7 +48,7 @@ A specific Virtual USB server port. The default value, if not specified, is `336
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
- Specifies a Virtual USB server Android Debug Bridge (ADB) port. Default value: `7000`.
+ Specifies a vUSB server Android Debug Bridge (ADB) port. Default value: `7000`.
 
  </div>
 
@@ -58,7 +58,7 @@ A specific Virtual USB server port. The default value, if not specified, is `336
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies a Virtual USB server ADB port range. Default value: `100`.
+Specifies a vUSB server ADB port range. Default value: `100`.
 
 </div>
 
@@ -68,7 +68,7 @@ Specifies a Virtual USB server ADB port range. Default value: `100`.
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Secifies the HTTP proxy host.
+Specifies the HTTP proxy host.
 
 </div>
 

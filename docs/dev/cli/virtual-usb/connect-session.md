@@ -6,7 +6,7 @@ sidebar_label: Connect to Session
 
 ## Description
 
-Connect to an existing Virtual USB session in lieu of launching a new vUSB session.
+Connect to an existing Virtual USB (vUSB) session in lieu of launching a new vUSB session.
 
 ## Usage
 
@@ -15,7 +15,7 @@ Connect to an existing Virtual USB session in lieu of launching a new vUSB sessi
 
 ## Options Details
 
-### <span className="cli">--sessionId </span>
+### <span className="cli">--sessionId</span>
 
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING |</small></p>
@@ -24,7 +24,7 @@ The unique identifier of your test session. You can retrieve the session ID of a
 
 </div>
 
-### <span className="cli">--username </span>
+### <span className="cli">--username</span>
 
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING |</small></p>
@@ -47,7 +47,7 @@ The authentication access key associated with your Sauce Labs user account. You 
 <div className="cli-desc">
 <p><small>| OPTIONAL | URL ADDRESS |</small></p>
 
-A specific Virtual USB server host address. The default value, if not specified, is `http://127.0.0.1`.
+A specific vUSB server host address. The default value, if not specified, is `http://127.0.0.1`.
 
 </div>
 
@@ -57,7 +57,7 @@ A specific Virtual USB server host address. The default value, if not specified,
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-A specific Virtual USB server port. The default value, if not specified, is `33657`.
+A specific vUSB server port. The default value, if not specified, is `33657`.
 
 </div>
 
