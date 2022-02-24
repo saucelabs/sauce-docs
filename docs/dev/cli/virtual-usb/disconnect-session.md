@@ -6,7 +6,7 @@ sidebar_label: Disconnect Session
 
 ## Description
 
-Close a Virtual USB session that you originally joined using the [`connect` command](/dev/cli/virtual-usb/connect-session).
+Close a Virtual USB (vUSB) session that you joined originally using the [`connect` command](/dev/cli/virtual-usb/connect-session).
 
 :::note Android Only
 After disconnecting a session with an Android device, [disconnect your device from ADB](/mobile-apps/features/virtual-usb#close-test) by running `adb disconnect` followed by your `<IPAddress>:<portNumber>`.  

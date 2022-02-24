@@ -267,7 +267,7 @@ saucectl run --dry-run
 ### <span className="cli">--env</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | KEY=VALUE |</small></p>
-
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
 An environment variable key value pair that may be referenced in the tests executed by this command. Expanded environment variables are supported.
 
 ```bash
@@ -325,7 +325,7 @@ saucectl run --region use-west-1
 ### <span className="cli">--retries</span>
 
 <div className="cli-desc">
-<p><small>| REQUIRED | INTEGER | <span className="sauceDBlue">Sauce Cloud Only</span></small></p>
+<p><small>| REQUIRED | INTEGER | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
 
 Instructs `saucectl` to rerun failed tests this many times.
 
