@@ -111,5 +111,5 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 * [Incorporate `saucectl` in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Playwright on Sauce supports CI integrations with Circle CI, GitLab, Jenkins, and GitHub Actions.
 
 :::note
-Based on current playwright test runner implementation, there is no way to run playwright test runner with cucumber.
+Based on current playwright test runner implementation, there is no way to run Playwright test runner with Cucumber.
 :::
