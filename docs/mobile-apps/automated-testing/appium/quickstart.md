@@ -24,7 +24,7 @@ The following list of prerequisites are specific to running tests written in Jav
 * A [GitHub](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home) account
 * [Git](https://git-scm.com/downloads)
 * The [Swag Labs iOS Real Device Sample App](https://github.com/saucelabs/sample-app-mobile/releases)
-* Local installation of JDK, Maven, and and IDE such as IntelliJ. For instructions on installing eachof these, see the [Java Testing Dependencies](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) training module.
+* Local installation of JDK, Maven, and an IDE such as IntelliJ. For instructions on installing each of these, see the [Java Testing Dependencies](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) training module.
 
 
 ## Step 1: Clone the Sample Project
