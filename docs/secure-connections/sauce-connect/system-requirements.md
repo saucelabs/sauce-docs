@@ -15,10 +15,7 @@ Keep in mind that these are guidelines. Most environments have their own workloa
 ## What You'll Need
 
 * Minimum 2 core x 8 GB Machine.
-* For Sauce Connect Proxy compatibility with macOS Catalina 10.15+, enable your Mac to allow apps from the App Store and identified developers.  
-    1. Go to **System Preferences** > **Security & Privacy** > **General**.
-    2. Under the header **Allow apps downloaded from**, select the option **App Store and identified developers**.
-* We strongly recommend using the [cURL command line](https://curl.haxx.se/download.html) or an equivalent tool to ensure that any error messages you receive are precise and actionable. If you're not familiar with the tool, [review their docs here](https://curl.se/docs) and then install cURL on your local machine.
+* We recommend using the [cURL command line](https://curl.haxx.se/download.html) or an equivalent tool to ensure that any error messages you receive are precise and actionable. If you're not familiar with the tool, [review their docs here](https://curl.se/docs) and then install cURL on your local machine.
 * For Unix-based systems, you may need to increase your open file limit if you plan to run a high number of parallel tests (i.e., `ulimit -n 8192`).
 
 ## Supported Operating Systems
@@ -39,12 +36,13 @@ Keep in mind that these are guidelines. Most environments have their own workloa
   <tr>
    <td>Linux
    </td>
-   <td><ul><li>Ubuntu 18.04 or newer</li>
-        <li>Debian 9 or newer</li>
-        <li>CentOS/RHEL-7 or newer</li>
-        <li>SUSE Linux Enterprise 15.0 and newer</li></ul>
+   <td>Ubuntu 18.04 or newer
+        <p>Debian 9 or newer</p>
+        <p>CentOS/RHEL-7 or newer</p>
+        <p>SUSE Linux Enterprise 15.0 and newer</p>
    </td>
-   <td><ul><li>x86_64</li><li>arm64</li></ul>
+   <td>x86_6
+       <p>arm64</p>
    </td>
    <td>Unsupported OSes may still be able to run Sauce Connect, but they are not tested for versions v4.8.x and higher.
    </td>
@@ -52,11 +50,11 @@ Keep in mind that these are guidelines. Most environments have their own workloa
   <tr>
    <td>macOS
    </td>
-   <td>OS X 10.15 ( Catalina ) and newer
+   <td>OS X 10.15 (Catalina) and newer
    </td>
-   <td><ul><li>x86_64</li></ul>
+   <td>x86_64
    </td>
-   <td> 
+   <td>
    </td>
   </tr>
   <tr>
@@ -64,13 +62,18 @@ Keep in mind that these are guidelines. Most environments have their own workloa
    </td>
    <td>Windows 10 and newer
    </td>
-   <td><ul><li>x86</li></ul>
+   <td>x86
    </td>
-   <td> 
+   <td>
    </td>
   </tr>
 </table>
 
+:::note macOS Catalina 10.15+ compatibility
+Enable your Mac to allow apps from the App Store and identified developers.  
+  1. Go to **System Preferences** > **Security & Privacy** > **General**.
+  2. Under **Allow apps downloaded from**, select the option **App Store and identified developers**.
+:::
 
 ### Sauce Connect v4.7.x
 
@@ -88,12 +91,12 @@ Keep in mind that these are guidelines. Most environments have their own workloa
   <tr>
    <td>Linux
    </td>
-   <td><ul><li>Ubuntu 14.04 or newer</li>
-        <li>Debian 8 or newer</li>
-        <li>CentOS/RHEL-6 or newer</li>
-        <li>SUSE Linux Enterprise 12.0 and newer</li></ul>
+   <td>Ubuntu 14.04 or newer
+        <p>Debian 8 or newer</p>
+        <p>CentOS/RHEL-6 or newer</p>
+        <p>SUSE Linux Enterprise 12.0 and newer</p>
    </td>
-   <td><ul><li>x86_64</li></ul>
+   <td>x86_64
    </td>
    <td>Unsupported OSes may still be able to run SauceConnect but they are not tested for Sauce Connect Proxy v4.7.x and newer. Ended support for 32b.
    </td>
@@ -103,9 +106,9 @@ Keep in mind that these are guidelines. Most environments have their own workloa
    </td>
    <td>OS X 10.11 (El Capitan) and newer
    </td>
-   <td><ul><li>x86_64</li></ul>
+   <td>x86_64
    </td>
-   <td> 
+   <td>
    </td>
   </tr>
   <tr>
@@ -113,9 +116,9 @@ Keep in mind that these are guidelines. Most environments have their own workloa
    </td>
    <td>Windows 7 and newer
    </td>
-   <td><ul><li>x86</li></ul>
+   <td>x86
    </td>
-   <td> 
+   <td>
    </td>
   </tr>
 </table>
@@ -138,11 +141,12 @@ Keep in mind that these are guidelines. Most environments have their own workloa
   <tr>
    <td>Linux
    </td>
-   <td><ul><li>Ubuntu 14.04 or newer</li>
-        <li>Debian 7 or newer</li>
-        <li>RedHat EL-6 and newer</li></ul>
+   <td>Ubuntu 14.04 or newer
+        <p>Debian 7 or newer</p>
+        <p>RedHat EL-6 and newer</p>
    </td>
-   <td><ul><li>x86_64</li><li>x86</li></ul>
+   <td>x86_64
+       <p>x86</p>
    </td>
    <td>Unsupported OSes may still be able to run SauceConnect but they are not tested for Sauce Connect Proxy v4.6.x and newer.
    </td>
@@ -152,9 +156,9 @@ Keep in mind that these are guidelines. Most environments have their own workloa
    </td>
    <td>OS X 10.6 (Snow Leopard) or newer
    </td>
-   <td><ul><li>x86_64</li></ul>
+   <td>x86_64
    </td>
-   <td> 
+   <td>
    </td>
   </tr>
   <tr>
@@ -162,9 +166,9 @@ Keep in mind that these are guidelines. Most environments have their own workloa
    </td>
    <td>Windows 7 and newer
    </td>
-   <td><ul><li>x86</li></ul>
+   <td>x86
    </td>
-   <td> 
+   <td>
    </td>
   </tr>
 </table>
@@ -186,7 +190,7 @@ Keep in mind that these are guidelines. Most environments have their own workloa
    </td>
    <td>1.2, 1.3
    </td>
-   <td> 
+   <td>
    </td>
   </tr>
   <tr>
@@ -202,23 +206,23 @@ Keep in mind that these are guidelines. Most environments have their own workloa
    </td>
    <td>1.1.1l
    </td>
-   <td> 
+   <td>
    </td>
   </tr>
   <tr>
    <td>Sauce Connect client supported ciphers
    </td>
-   <td><ul>
-   <li>ECDHE-ECDSA-AES256-GCM-SHA384</li>
-   <li>ECDHE-RSA-AES256-GCM-SHA384</li>
-   <li>ECDHE-ECDSA-CHACHA20-POLY1305</li>
-   <li>ECDHE-RSA-CHACHA20-POLY1305</li>
-   <li>ECDHE-ECDSA-AES128-GCM-SHA256</li>
-   <li>ECDHE-RSA-AES128-GCM-SHA256</li>
-   <li>ECDHE-ECDSA-AES256-SHA384</li>
-   <li>ECDHE-RSA-AES256-SHA384</li>
-   <li>ECDHE-ECDSA-AES128-SHA256</li>
-   <li>ECDHE-RSA-AES128-SHA256</li></ul>
+   <td><small>
+   <p>ECDHE-ECDSA-AES256-GCM-SHA384</p>
+   <p>ECDHE-RSA-AES256-GCM-SHA384</p>
+   <p>ECDHE-ECDSA-CHACHA20-POLY1305</p>
+   <p>ECDHE-RSA-CHACHA20-POLY1305</p>
+   <p>ECDHE-ECDSA-AES128-GCM-SHA256</p>
+   <p>ECDHE-RSA-AES128-GCM-SHA256</p>
+   <p>ECDHE-ECDSA-AES256-SHA384</p>
+   <p>ECDHE-RSA-AES256-SHA384</p>
+   <p>ECDHE-ECDSA-AES128-SHA256</p>
+   <p>ECDHE-RSA-AES128-SHA256</p></small>
    </td>
    <td>SC-4.7.1
    </td>
@@ -226,15 +230,15 @@ Keep in mind that these are guidelines. Most environments have their own workloa
   <tr>
    <td>Sauce Connect server supported ciphers
    </td>
-   <td><ul>
-   <li>ECDHE-ECDSA-AES256-GCM-SHA384</li>
-   <li>ECDHE-RSA-AES256-GCM-SHA384</li>
-   <li>ECDHE-ECDSA-CHACHA20-POLY1305</li>
-   <li>ECDHE-RSA-CHACHA20-POLY1305</li>
-   <li>ECDHE-ECDSA-AES128-GCM-SHA256</li>
-   <li>ECDHE-RSA-AES128-GCM-SHA256</li></ul>
+   <td><small>
+   <p>ECDHE-ECDSA-AES256-GCM-SHA384</p>
+   <p>ECDHE-RSA-AES256-GCM-SHA384</p>
+   <p>ECDHE-ECDSA-CHACHA20-POLY1305</p>
+   <p>ECDHE-RSA-CHACHA20-POLY1305</p>
+   <p>ECDHE-ECDSA-AES128-GCM-SHA256</p>
+   <p>ECDHE-RSA-AES128-GCM-SHA256</p></small>
    </td>
-   <td> 
+   <td>
    </td>
   </tr>
 </table>
