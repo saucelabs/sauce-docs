@@ -8,9 +8,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Use `saucectl` -- the Sauce Labs test orchestrator CLI -- to run [TestCafe](https://github.com/DevExpress/testcafe) tests directly from your existing TestCafe project.
+Use `saucectl` &#8212; the Sauce Labs test orchestrator CLI &#8212; to run [TestCafe](https://github.com/DevExpress/testcafe) tests directly from your existing TestCafe project.
 
-* Don't have TestCafe tests but want to try? The  [TestCafe Demo Repo](https://github.com/saucelabs/saucectl-testcafe-example) includes a sample project structure, working configuration file, and sample TestCafe test so you can get up and running in less than 10 minutes!
+* Don't have TestCafe tests, but want to try? The [TestCafe Demo Repo](https://github.com/saucelabs/saucectl-testcafe-example) includes a sample project structure, working configuration file, and sample TestCafe test so you can get up and running in less than 10 minutes!
 * Already running TestCafe? Let `saucectl` run your tests in the Sauce Labs Cloud, where you have access to thousands of OS/browser combinations and Sauce Labs analytics.  
 
 ## What You'll Need
@@ -21,7 +21,7 @@ Use `saucectl` -- the Sauce Labs test orchestrator CLI -- to run [TestCafe](http
 
 ## Step 1: Install `saucectl`
 
-```
+```bash
 npm install -g saucectl
 ```
 
@@ -30,7 +30,7 @@ npm install -g saucectl
 `saucectl` requires access to a valid Sauce Labs account.
 
 1. Run the `configure` command:     
-    ```
+    ```bash
     saucectl configure
     ```
 1. Enter your Sauce Labs Username and Access Key at the prompts.
@@ -47,10 +47,10 @@ You can set your Sauce Labs credentials as [environment variables](/basics/envir
 
 Use the `run` command to execute the sample test included with the `saucectl` installation.
 
-```
+```bash
 saucectl run
 ```
 
 The console displays the executing tests, distinguishing which mode is running.
 
-The results and test assets are available immediately in your [Sauce Labs account](https://app.saucelabs.com/dashboard/tests/vdc):
+The results and test assets will be available immediately in your [Sauce Labs account](https://app.saucelabs.com/dashboard/tests/vdc).

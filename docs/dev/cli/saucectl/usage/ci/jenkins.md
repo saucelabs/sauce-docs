@@ -24,19 +24,19 @@ The first step of the integration is to ensure you've added your `SAUCE_USERNAME
 
 The easiest way to add credentials to Jenkins is with the UI:
 
-* Log in to Jenkins
-* Go to __Manage Jenkins > Manage Credentials__
-* Next to (Global), select __Add credentials__
+1. Log in to Jenkins.
+2. Go to __Manage Jenkins > Manage Credentials__.
+3. Next to (Global), select __Add credentials__.
 
     <img src={useBaseUrl('img/stt/add_credentials.png')} alt="Add Jenkins Credentials" width="500" />
 
-* For __Kind__, select __Secret Text__
-* Enter the following information:
+4. For __Kind__, select __Secret Text__.
+5. Enter the following information:
     * Scope: Global
     * Secret: 'your-sauce-username'
     * ID: 'sauce-username'
     * Description: Sauce Labs Username
-* Repeat the above steps for your Sauce Labs Access Key
+6. Repeat the above steps for your Sauce Labs Access Key.
 
     <img src={useBaseUrl('img/stt/secrets.png')} alt="Jenkins Secrets" width="500" />
 
@@ -46,8 +46,7 @@ The easiest way to add credentials to Jenkins is with the UI:
 
 ### Configure the Jenkins Pipeline
 
-Add the `Jenkinsfile` at the root of your project directory so that Jenkins can detect changes and run `saucectl` accordingly.
-In the examples below, the `environment` variables are the GitHub secrets configured in Jenkins:
+Add the `Jenkinsfile` at the root of your project directory so that Jenkins can detect changes and run `saucectl` accordingly. In the examples below, the `environment` variables are the GitHub secrets configured in Jenkins:
 
 <Tabs
   defaultValue="cypress"
@@ -105,8 +104,8 @@ https://github.com/saucelabs/saucectl-xcuitest-example/blob/master/Jenkinsfile
 
 ### Run the Pipeline Tests
 
-Now you can commit these files and Jenkins will detect the new pipeline and launch `saucetl` to run your tests.
+Now you can commit these files and Jenkins will detect the new pipeline and launch `saucectl` to run your tests.
 
-For example if you're using the [Blue Ocean plugin](https://plugins.jenkins.io/blueocean/), your output may look something like this:
+For example, if you're using the [Blue Ocean plugin](https://plugins.jenkins.io/blueocean/), your output may look something like this:
 
 <img src={useBaseUrl('img/stt/blue-ocean.png')} alt="GitHub Settings" />
