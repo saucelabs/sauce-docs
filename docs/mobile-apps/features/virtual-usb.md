@@ -28,8 +28,8 @@ Virtual USB (vUSB) is a mobile (app) debugging tool that simulates connecting a 
 * Have Java Development Kit (JDK) installed.
 * A mobile native app or web app.
 * If you're testing an iOS app:
-  * macOS required (not supported for Windows or Linux).
-  * Have Xcode installed.
+  * MacOS or Linux required (not supported for Windows).
+  * Have Xcode installed (MacOS only).
 * If you're testing an Android app:
   * Android Debug Bridge (ADB) version higher than 1.0.39.
   * Android Studio 4 or higher.
