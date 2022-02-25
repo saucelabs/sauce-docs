@@ -28,22 +28,22 @@ Execute tests according to the environment, framework, and test suite specificat
   </thead>
   <tbody>
     <tr>
-     <td><span className="t-cli"><a href="#--artifactscleanup-boolean">--artifacts.cleanup</a></span></td>
+     <td><span className="t-cli"><a href="#--artifactscleanup">--artifacts.cleanup</a></span></td>
      <td></td>
      <td>Clear the artifacts directory before downloading new test data.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--artifactsdownloaddirectory-path">--artifacts.download.directory</a></span></td>
+     <td><span className="t-cli"><a href="#--artifactsdownloaddirectory">--artifacts.download.directory</a></span></td>
      <td></td>
      <td>A local directory to which test assets are downloaded.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--artifactsdownloadmatch-list">--artifacts.download.match</a></span></td>
+     <td><span className="t-cli"><a href="#--artifactsdownloadmatch">--artifacts.download.match</a></span></td>
      <td></td>
      <td>Which asset files to download.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--artifactsdownloadwhen-string">--artifacts.download.when</a></span></td>
+     <td><span className="t-cli"><a href="#--artifactsdownloadwhen">--artifacts.download.when</a></span></td>
      <td></td>
      <td>Criteria for downloading assets.</td>
     </tr>
@@ -58,12 +58,12 @@ Execute tests according to the environment, framework, and test suite specificat
      <td>Add a build reference to your tests.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--concurrency-int">--concurrency</a></span></td>
+     <td><span className="t-cli"><a href="#--concurrency">--concurrency</a></span></td>
      <td><span className="t-cli">-ccy</span></td>
      <td>Maximum tests to run concurrently.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--config-path">--config</a></span></td>
+     <td><span className="t-cli"><a href="#--config">--config</a></span></td>
      <td><span className="t-cli">-c</span></td>
      <td>Alternate location of the configuration YAML file.</td>
     </tr>
@@ -73,7 +73,7 @@ Execute tests according to the environment, framework, and test suite specificat
      <td>Simulate a test run without running tests.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--env-keyvalue">--env</a></span></td>
+     <td><span className="t-cli"><a href="#--env">--env</a></span></td>
      <td><span className="t-cli">-e</span></td>
      <td>Define environment variables.</td>
     </tr>
@@ -93,17 +93,17 @@ Execute tests according to the environment, framework, and test suite specificat
      <td>Disable colored console output.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--region-string">--region</a></span></td>
+     <td><span className="t-cli"><a href="#--region">--region</a></span></td>
      <td><span className="t-cli">-r</span></td>
      <td>Sauce Labs target data center.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--retries-int">--retries</a></span></td>
+     <td><span className="t-cli"><a href="#--retries">--retries</a></span></td>
      <td></td>
      <td>Number of times to rerun a failed test suite.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--select-suite-string">--select-suite</a></span></td>
+     <td><span className="t-cli"><a href="#--select-suite">--select-suite</a></span></td>
      <td></td>
      <td>Execute a particular test suite.</td>
     </tr>
@@ -113,22 +113,22 @@ Execute tests according to the environment, framework, and test suite specificat
      <td>Include the console.log contents in the output for all tests.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--tags-tag1tag2">--tags</a></span></td>
+     <td><span className="t-cli"><a href="#--tags">--tags</a></span></td>
      <td></td>
      <td>Add reference tags to your tests.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--timeout-duration">--timeout</a></span></td>
+     <td><span className="t-cli"><a href="#--timeout">--timeout</a></span></td>
      <td></td>
      <td>Set a max test duration.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--tunnel-name-string">--tunnel-name</a></span></td>
+     <td><span className="t-cli"><a href="#--tunnel-name">--tunnel-name</a></span></td>
      <td></td>
      <td>Use a running Sauce Connect tunnel to test.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--tunnel-owner-string">--tunnel-owner</a></span></td>
+     <td><span className="t-cli"><a href="#--tunnel-owner">--tunnel-owner</a></span></td>
      <td></td>
      <td>The tunnel owner, if it is not the testing account.</td>
     </tr>
@@ -143,7 +143,7 @@ Execute tests according to the environment, framework, and test suite specificat
 
 ## Options Details
 
-### <span className="cli">--artifacts.cleanup </span>
+### <span className="cli">--artifacts.cleanup</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
@@ -154,7 +154,7 @@ saucectl run --artifacts.cleanup true
 ```
 </div>
 
-### <span className="cli">--artifacts.download.directory </span>
+### <span className="cli">--artifacts.download.directory</span>
 
 <div className="cli-desc">
 <p><small>| OPTIONAL | PATH | <span className="sauceDBlue">RDC Only</span> |</small></p>
@@ -167,7 +167,7 @@ saucectl run --artifacts.download.directory ./artifacts
 </div>
 
 
-### <span className="cli">--artifacts.download.match </span>
+### <span className="cli">--artifacts.download.match</span>
 
 <div className="cli-desc">
 <p><small>| OPTIONAL | FILE/LIST |</small></p>
@@ -179,7 +179,7 @@ saucectl run --artifacts.download.match console.log,another.log
 ```
 </div>
 
-### <span className="cli">--artifacts.download.when </span>
+### <span className="cli">--artifacts.download.when</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | ENUM |</small></p>
 
@@ -206,7 +206,7 @@ Allows you to launch tests without waiting for results of the preceding tests. T
 
 </div>
 
-### <span className="cli">--build </span>
+### <span className="cli">--build</span>
 
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">VDC Only</span> |</small></p>
@@ -218,7 +218,7 @@ saucectl run --build myBuildID
 ```
 </div>
 
-### <span className="cli">--concurrency </span>
+### <span className="cli">--concurrency</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
@@ -235,7 +235,7 @@ saucectl run --ccy 2
 ```
 </div>
 
-### <span className="cli">--config </span>
+### <span className="cli">--config</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | FILEPATH |</small></p>
 
@@ -264,10 +264,10 @@ saucectl run --dry-run
 </div>
 
 
-### <span className="cli">--env </span>
+### <span className="cli">--env</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | KEY=VALUE |</small></p>
-
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
 An environment variable key value pair that may be referenced in the tests executed by this command. Expanded environment variables are supported.
 
 ```bash
@@ -308,7 +308,7 @@ saucectl run --no-color
 
 </div>
 
-### <span className="cli">--region </span>
+### <span className="cli">--region</span>
 
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING |</small></p>
@@ -322,10 +322,10 @@ saucectl run --region use-west-1
 ```
 </div>
 
-### <span className="cli">--retries </span>
+### <span className="cli">--retries</span>
 
 <div className="cli-desc">
-<p><small>| REQUIRED | INTEGER | <span className="sauceDBlue">Sauce Cloud Only</span></small></p>
+<p><small>| REQUIRED | INTEGER | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
 
 Instructs `saucectl` to rerun failed tests this many times.
 
@@ -335,7 +335,7 @@ saucectl run --retries 2
 </div>
 
 
-### <span className="cli">--select-suite </span>
+### <span className="cli">--select-suite</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -363,7 +363,7 @@ saucectl run --show-console-log
 
 </div>
 
-### <span className="cli">--tags </span>
+### <span className="cli">--tags</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | LIST | <span className="sauceDBlue">VDC Only</span> |</small></p>
 
@@ -374,7 +374,7 @@ saucectl run --tags e2e,team2
 ```
 </div>
 
-### <span className="cli">--timeout </span>
+### <span className="cli">--timeout</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | DURATION |</small></p>
 
@@ -390,7 +390,7 @@ saucectl run --timeout 30m
 ```
 </div>
 
-### <span className="cli">--tunnel-name </span>
+### <span className="cli">--tunnel-name</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
 
@@ -405,7 +405,7 @@ saucectl run --tunnel-name my-tunnel
 ```
 </div>
 
-### <span className="cli">--tunnel-owner </span>
+### <span className="cli">--tunnel-owner</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
 
