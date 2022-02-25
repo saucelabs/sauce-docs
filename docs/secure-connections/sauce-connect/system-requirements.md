@@ -21,6 +21,272 @@ Keep in mind that these are guidelines. Most environments have their own workloa
 * We strongly recommend using the [cURL command line](https://curl.haxx.se/download.html) or an equivalent tool to ensure that any error messages you receive are precise and actionable. If you're not familiar with the tool, [review their docs here](https://curl.se/docs) and then install cURL on your local machine.
 * For Unix-based systems, you may need to increase your open file limit if you plan to run a high number of parallel tests (i.e., `ulimit -n 8192`).
 
+## Supported Operating Systems
+
+### Sauce Connect v4.8.x
+
+<table>
+  <tr>
+   <td><strong>Name</strong>
+   </td>
+   <td><strong>Value</strong>
+   </td>
+   <td><strong>CPU Arch</strong>
+   </td>
+   <td><strong>Notes</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Linux
+   </td>
+   <td><ul><li>Ubuntu 18.04 or newer</li>
+        <li>Debian 9 or newer</li>
+        <li>CentOS/RHEL-7 or newer</li>
+        <li>SUSE Linux Enterprise 15.0 and newer</li></ul>
+   </td>
+   <td><ul><li>x86_64</li><li>arm64</li></ul>
+   </td>
+   <td>Unsupported OSes may still be able to run Sauce Connect, but they are not tested for versions v4.8.x and higher.
+   </td>
+  </tr>
+  <tr>
+   <td>macOS
+   </td>
+   <td>OS X 10.15 ( Catalina ) and newer
+   </td>
+   <td><ul><li>x86_64</li></ul>
+   </td>
+   <td> 
+   </td>
+  </tr>
+  <tr>
+   <td>Windows
+   </td>
+   <td>Windows 10 and newer
+   </td>
+   <td><ul><li>x86</li></ul>
+   </td>
+   <td> 
+   </td>
+  </tr>
+</table>
+
+
+### Sauce Connect v4.7.x
+
+<table>
+  <tr>
+   <td><strong>Name</strong>
+   </td>
+   <td><strong>Value</strong>
+   </td>
+   <td><strong>CPU Arch</strong>
+   </td>
+   <td><strong>Notes</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Linux
+   </td>
+   <td><ul><li>Ubuntu 14.04 or newer</li>
+        <li>Debian 8 or newer</li>
+        <li>CentOS/RHEL-6 or newer</li>
+        <li>SUSE Linux Enterprise 12.0 and newer</li></ul>
+   </td>
+   <td><ul><li>x86_64</li></ul>
+   </td>
+   <td>Unsupported OSes may still be able to run SauceConnect but they are not tested for Sauce Connect Proxy v4.7.x and newer. Ended support for 32b.
+   </td>
+  </tr>
+  <tr>
+   <td>macOS
+   </td>
+   <td>OS X 10.11 (El Capitan) and newer
+   </td>
+   <td><ul><li>x86_64</li></ul>
+   </td>
+   <td> 
+   </td>
+  </tr>
+  <tr>
+   <td>Windows
+   </td>
+   <td>Windows 7 and newer
+   </td>
+   <td><ul><li>x86</li></ul>
+   </td>
+   <td> 
+   </td>
+  </tr>
+</table>
+
+
+
+### Sauce Connect v4.6.x
+
+<table>
+  <tr>
+   <td><strong>Name</strong>
+   </td>
+   <td><strong>Value</strong>
+   </td>
+   <td><strong>CPU Arch</strong>
+   </td>
+   <td><strong>Notes</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Linux
+   </td>
+   <td><ul><li>Ubuntu 14.04 or newer</li>
+        <li>Debian 7 or newer</li>
+        <li>RedHat EL-6 and newer</li></ul>
+   </td>
+   <td><ul><li>x86_64</li><li>x86</li></ul>
+   </td>
+   <td>Unsupported OSes may still be able to run SauceConnect but they are not tested for Sauce Connect Proxy v4.6.x and newer.
+   </td>
+  </tr>
+  <tr>
+   <td>macOS
+   </td>
+   <td>OS X 10.6 (Snow Leopard) or newer
+   </td>
+   <td><ul><li>x86_64</li></ul>
+   </td>
+   <td> 
+   </td>
+  </tr>
+  <tr>
+   <td>Windows
+   </td>
+   <td>Windows 7 and newer
+   </td>
+   <td><ul><li>x86</li></ul>
+   </td>
+   <td> 
+   </td>
+  </tr>
+</table>
+
+
+### Tunnel Connection TLS Specs
+
+<table>
+  <tr>
+   <td><strong>Name</strong>
+   </td>
+   <td><strong>Value</strong>
+   </td>
+   <td><strong>Notes</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Supported TLS Versions
+   </td>
+   <td>1.2, 1.3
+   </td>
+   <td> 
+   </td>
+  </tr>
+  <tr>
+   <td>SC Client OpenSSL Versions
+   </td>
+   <td>1.1.1k
+   </td>
+   <td>SC-4.7.1
+   </td>
+  </tr>
+  <tr>
+   <td>SC Server OpenSSL Versions
+   </td>
+   <td>1.1.1l
+   </td>
+   <td> 
+   </td>
+  </tr>
+  <tr>
+   <td>Sauce Connect client supported ciphers
+   </td>
+   <td><ul>
+   <li>ECDHE-ECDSA-AES256-GCM-SHA384</li>
+   <li>ECDHE-RSA-AES256-GCM-SHA384</li>
+   <li>ECDHE-ECDSA-CHACHA20-POLY1305</li>
+   <li>ECDHE-RSA-CHACHA20-POLY1305</li>
+   <li>ECDHE-ECDSA-AES128-GCM-SHA256</li>
+   <li>ECDHE-RSA-AES128-GCM-SHA256</li>
+   <li>ECDHE-ECDSA-AES256-SHA384</li>
+   <li>ECDHE-RSA-AES256-SHA384</li>
+   <li>ECDHE-ECDSA-AES128-SHA256</li>
+   <li>ECDHE-RSA-AES128-SHA256</li></ul>
+   </td>
+   <td>SC-4.7.1
+   </td>
+  </tr>
+  <tr>
+   <td>Sauce Connect server supported ciphers
+   </td>
+   <td><ul>
+   <li>ECDHE-ECDSA-AES256-GCM-SHA384</li>
+   <li>ECDHE-RSA-AES256-GCM-SHA384</li>
+   <li>ECDHE-ECDSA-CHACHA20-POLY1305</li>
+   <li>ECDHE-RSA-CHACHA20-POLY1305</li>
+   <li>ECDHE-ECDSA-AES128-GCM-SHA256</li>
+   <li>ECDHE-RSA-AES128-GCM-SHA256</li></ul>
+   </td>
+   <td> 
+   </td>
+  </tr>
+</table>
+
+### Timeout Values
+
+<img src={useBaseUrl('img/sauce-connect/timeout-values.png')} alt="Sauce Connect download file contents" width="550" />
+
+<table>
+  <tr>
+   <td><strong>Name</strong>
+   </td>
+   <td><strong>Value</strong>
+   </td>
+   <td><strong>Notes</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Sauce Connect Proxy client tunnel provisioning timeout
+   </td>
+   <td>45 seconds
+   </td>
+   <td>SC client requests Sauce Labs REST API to provision an SC server as part of SC start sequence.
+   </td>
+  </tr>
+  <tr>
+   <td>Sauce Connect Proxy client initial connect timeout
+   </td>
+   <td>15 seconds
+   </td>
+   <td>SC client first connection to SC server must happen within 15 seconds after SC server is provisioned and URL is returned to SC client.
+   </td>
+  </tr>
+  <tr>
+   <td>Sauce Connect Proxy client disconnected timeout
+   </td>
+   <td>60 seconds
+   </td>
+   <td>SC client may disconnect from SC sever (after establishing an initial connection) for up to 60 seconds.
+   </td>
+  </tr>
+    <tr>
+   <td>Sauce Connect Proxy finish running jobs on shutdown timeout
+   </td>
+   <td>300 seconds
+   </td>
+   <td>When Sauce Labs REST API receives a "tunnel shutdown" request, it will keep SC server running for some time to allow the jobs that use the tunnel to finish. "DELETE" request may specify <code>wait_for_jobs=false</code> to shut down the tunnel server immediately.
+   </td>
+  </tr>
+</table>
+
+
 ## Verifying Sauce Connect Network Routes on Your Host Machine
 
 As an important step prior to downloading Sauce Connect Proxy, you or your systems administrator will need to verify that Sauce Connect Proxy can make the required network requests.
