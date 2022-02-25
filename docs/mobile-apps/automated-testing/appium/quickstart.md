@@ -77,7 +77,7 @@ export PATH=$PATH:$M2:$JAVA_HOME/bin:$PATH
 ```
 :::
 
-If you are using an IDE, such as IntelliJ or Visual Studio Code, open the `quickstart-appium-java` project you cloned in step 2, then right-click the `src/test/java/tests/RDC/AppiumIosRdcAppTest` and choose `Run`.
+If you are using an IDE, such as IntelliJ, open the `quickstart-appium-java` project you cloned in step 2, then right-click the `src/test/java/tests/RDC/AppiumIosRdcAppTest` and choose `Run`.
 
 Alternatively, you can run the following command in your terminal:
 
