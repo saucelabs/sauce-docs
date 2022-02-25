@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-[Playwright](https://github.com/microsoft/playwright) is a testing framework that you can use to test your web apps either locally in Docker or through Sauce Labs using the [saucectl CLI](/dev/cli/saucectl), giving you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
+[Playwright](https://github.com/microsoft/playwright) is a testing framework that you can use to test your web apps &#8212; either locally in Docker or remotely on Sauce Labs Cloud &#8212; using the [`saucectl` CLI](/dev/cli/saucectl). This gives you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
 
 
 ### Supported Testing Platforms
@@ -107,5 +107,9 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 ## How to Get Started
 
 * [Quickstart](/web-apps/automated-testing/playwright/quickstart): Use our demo repo to quickly set up and run a sample Playwright project and test to see the results.
-* [Run Your own Tests](/web-apps/automated-testing/playwright/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
-* [Incorporate saucectl in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Playwright on Sauce supports CI integrations with Cirlce CI, GitLab, Jenkins, and GitHub Actions.
+* [Run your own tests](/web-apps/automated-testing/playwright/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
+* [Incorporate `saucectl` in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Playwright on Sauce supports CI integrations with Circle CI, GitLab, Jenkins, and GitHub Actions.
+
+:::note
+Based on current playwright test runner implementation, there is no way to run Playwright test runner with Cucumber.
+:::

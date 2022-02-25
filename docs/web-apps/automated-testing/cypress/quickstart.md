@@ -19,6 +19,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
  * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
  * [Node.js](https://nodejs.org/en/) to use the NPM package manager
  * A [GitHub](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home) account
+ * [Git](https://git-scm.com/downloads)
 
 
 ## Step 1: Install `saucectl`

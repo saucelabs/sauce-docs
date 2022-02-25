@@ -38,7 +38,7 @@ saucectl completion bash > /usr/local/etc/bash_completion.d/saucectl
 
 1. If shell completion is not already enabled in your environment, enable it by executing the following once:
   ```
-  $ echo "autoload -U compinit; compinit" >> ~/.zshrc
+  echo "autoload -U compinit; compinit" >> ~/.zshrc
   ```
 2. To load completions for each session, execute once:
   ```
@@ -67,7 +67,7 @@ saucectl completion fish > ~/.config/fish/completions/saucectl.fish
 <div className="cli-desc">
 
 ```
-ssaucectl completion powershell | Out-String | Invoke-Expression
+saucectl completion powershell | Out-String | Invoke-Expression
 ```
 
 To load completions for every new session, run the following and then source this file from your Powershell profile:
