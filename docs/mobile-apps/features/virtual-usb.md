@@ -28,8 +28,8 @@ Virtual USB (vUSB) is a mobile (app) debugging tool that simulates connecting a 
 * Have Java Development Kit (JDK) installed.
 * A mobile native app or web app.
 * If you're testing an iOS app:
-  * macOS required (not supported for Windows or Linux).
-  * Have Xcode installed.
+  * MacOS or Linux required (not supported for Windows).
+  * Have Xcode installed (MacOS only).
 * If you're testing an Android app:
   * Android Debug Bridge (ADB) version higher than 1.0.39.
   * Android Studio 4 or higher.
@@ -44,9 +44,11 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
 
 ### Download Client
 
-1. Click below to download the latest vUSB client to your local machine where you have your IDE installed/set up.
+1. Click below to download the latest Virtual USB client to your local machine where you have your IDE installed/set up.
 
-  <p> <a href="https://saucelabs-vusb.s3-eu-west-1.amazonaws.com/v2.0.0/virtual-usb-client.jar"><button class="download">Download vUSB</button></a> </p>
+  <p> <a href="https://saucelabs-vusb.s3-eu-west-1.amazonaws.com/v2.0.1/virtual-usb-client.jar"><button class="download">Download Virtual USB 2.0.1</button></a> </p>
+  
+For Virtual USB release history, see our [changelog](https://changelog.saucelabs.com/en?category=virtual%20usb).
 
 ### Gather Credentials
 
