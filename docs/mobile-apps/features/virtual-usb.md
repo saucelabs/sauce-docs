@@ -47,6 +47,8 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
 1. Click below to download the latest Virtual USB client to your local machine where you have your IDE installed/set up.
 
   <p> <a href="https://saucelabs-vusb.s3-eu-west-1.amazonaws.com/v2.0.1/virtual-usb-client.jar"><button class="download">Download Virtual USB 2.0.1</button></a> </p>
+  
+For Virtual USB release history, see our [changelog](https://changelog.saucelabs.com/en?category=virtual%20usb).
 
 ### Gather Credentials
 
