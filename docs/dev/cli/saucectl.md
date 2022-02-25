@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-The `saucectl` command line interface orchestrates the relationship between your tests in your framework, and the rich parallelization, test history filtering, and analytics of Sauce Labs. `saucectl` performs the underlying business logic to access the tests in your existing framework, run them (either in the Sauce Labs Cloud or locally in a Docker image), then securely transmit the test assets to the Sauce Labs platform, where you can review, share, and evaluate your test outcomes at scale.
+The `saucectl` command line interface orchestrates the relationship between your tests in your framework, and the rich parallelization, test history filtering, and analytics of Sauce Labs. `saucectl` performs the underlying business logic to access the tests in your existing framework, runs them (either in the Sauce Labs Cloud or locally in a Docker image), then securely transmits the test assets to the Sauce Labs platform, where you can review, share, and evaluate your test outcomes at scale.
 
 
 ## What You'll Need
@@ -36,6 +36,7 @@ The `saucectl` command line interface orchestrates the relationship between your
       {"label":"XCUITest","value":"xcuitest"}
     ]}>
 <TabItem value="cypress">
+
 [Cypress on Sauce Docs](/web-apps/automated-testing/cypress/)
 <table id="table-fw">
   <tr>
@@ -79,6 +80,7 @@ The `saucectl` command line interface orchestrates the relationship between your
 </TabItem>
 
 <TabItem value="playwright">
+
 [Playwright on Sauce Docs](/web-apps/automated-testing/playwright/)
 <table id="table-fw">
   <tr>
@@ -115,6 +117,7 @@ The `saucectl` command line interface orchestrates the relationship between your
 </TabItem>
 
 <TabItem value="puppeteer">
+
 [Puppeteer on Sauce Docs](/web-apps/automated-testing/puppeteer/)
 |Puppeteer Version|Supported Platforms|Supported Browsers|
 |-----|-----|-----|
@@ -122,6 +125,7 @@ The `saucectl` command line interface orchestrates the relationship between your
 </TabItem>
 
 <TabItem value="testcafe">
+
 [TestCafe on Sauce Docs](/web-apps/automated-testing/testcafe/)
 <table id="table-fw">
   <tr>
@@ -208,6 +212,7 @@ The `saucectl` command line interface orchestrates the relationship between your
 </TabItem>
 
 <TabItem value="espresso">
+
 [Espresso on Sauce Docs](mobile-apps/automated-testing/espresso-xcuitest/)
 
 |Supported Platforms|
@@ -217,6 +222,7 @@ The `saucectl` command line interface orchestrates the relationship between your
 </TabItem>
 
 <TabItem value="xcuitest">
+
 [XCUITest on Sauce Docs](mobile-apps/automated-testing/espresso-xcuitest/)
 
 |Supported Platforms|
@@ -242,6 +248,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
   ]}>
 
 <TabItem value="cypress">
+
 [Cypress on Sauce Docs](/web-apps/automated-testing/cypress/)
 
 |Cypress Version|Supported Browsers|
@@ -253,6 +260,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 </TabItem>
 <TabItem value="playwright">
+
 [Playwright on Sauce Docs](/web-apps/automated-testing/playwright/)
 
 |Playwright Version|Supported Browsers|
@@ -264,6 +272,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 </TabItem>
 
 <TabItem value="puppeteer">
+
 [Puppeteer on Sauce Docs](/web-apps/automated-testing/puppeteer/)
 
 |Puppeteer Version|Supported Browsers|
@@ -279,6 +288,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 </TabItem>
 
 <TabItem value="testcafe">
+
 [TestCafe on Sauce Docs](/web-apps/automated-testing/testcafe/)
 
 |TestCafe Version|Supported Browsers|
@@ -439,7 +449,7 @@ If you set your credentials using more than one of the methods above, `saucectl`
 
 ### Configure `saucectl` for your Tests
 
-If you already have tests in the framework of your choice, you can use the [`saucectl init`](/dev/cli/saucectl/init) command to generate a `config.yml` file specifying all the relevant options for your test. See the framework specific YAML Configuration documentation for a complete reference of all available properties for your framework:
+If you already have tests in the framework of your choice, you can use the [`saucectl init`](/dev/cli/saucectl/init) command to generate a `config.yml` file specifying all the relevant options for your test. See the framework-specific YAML Configuration documentation for a complete reference of all available properties for your framework:
 
 * [Cypress YAML](/web-apps/automated-testing/cypress/yaml)
 * [Playwright YAML](/web-apps/automated-testing/playwright/yaml)
@@ -458,7 +468,7 @@ If you set conflicting configuration values in the `config.yml` file and as `sau
 
 ### View your Test Results in Sauce Labs
 
-After tests complete, `saucectl` uploads test assets such as logs, test results, screenshots and videos to your [Sauce Labs account](https://app.saucelabs.com), as long as they are in the `__Assets__` directory of your project root. Some frameworks automatically place assets in the correct directory, but other frameworks may require you to manually set the location.
+After tests complete, `saucectl` uploads test assets such as logs, test results, screenshots, and videos to your [Sauce Labs account](https://app.saucelabs.com), as long as they are in the `__Assets__` directory of your project root. Some frameworks automatically place assets in the correct directory, but other frameworks may require you to manually set the location.
 
 The CLI output includes a link to the job test results page in Sauce Labs:
 

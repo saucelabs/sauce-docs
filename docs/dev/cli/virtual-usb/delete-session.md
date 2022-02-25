@@ -4,45 +4,80 @@ title: "Virtual USB CLI: Delete Session"
 sidebar_label: Delete Session
 ---
 
-The [`deleteSession`](/mobile-apps/features/virtual-usb#close-test) command closes out Virtual USB tests session started in the command line interface using the [`startSession`](/dev/cli/virtual-usb/start-session) command.
+## Description
 
-## Required
+Close a Virtual USB session that you launched using the [`startSession` command](/dev/cli/virtual-usb/start-session).
 
----
-### `--sessionId`
-__Description__: your test session ID number, which you can find using the [`sessions`](/dev/cli/virtual-usb/find-sessionid) command.
+## Usage
 
----
-### `--username`
-__Description__: your Sauce Labs username.
+<span className="cli">$ &lt;main class&gt; [OPTIONS] deleteSession [OPTIONS]</span>
 
----
-### `--accessKey`
-__Description__: your Sauce Labs access key for authentication.
+## Options Details
 
-```java title="Basic Example (required flags only)"
+### <span className="cli">--sessionId</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED | STRING |</small></p>
+
+The unique identifier of the session to delete. You can retrieve the session ID of an active session using the [`sessions` command](/dev/cli/virtual-usb/find-sessionid).
+
+</div>
+
+### <span className="cli">--username</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED | STRING |</small></p>
+
+A valid Sauce Labs user account. You can find your username on the Sauce Labs [User Settings page](https://app.saucelabs.com/user-settings). This option supports environment variable values.
+
+</div>
+
+### <span className="cli">--accessKey</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED | STRING |</small></p>
+
+The authentication access key associated with your Sauce Labs user account. You can find your access key on the Sauce Labs [User Settings page](https://app.saucelabs.com/user-settings). This option supports environment variable values.
+
+</div>
+
+### <span className="cli">--serverHost</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | URL ADDRESS |</small></p>
+
+A specific Virtual USB server host address. The default value, if not specified, is `http://127.0.0.1`.
+
+</div>
+
+
+### <span className="cli">--serverPort</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+A specific Virtual USB server port. The default value, if not specified, is `33657`.
+
+</div>
+
+
+## Examples
+
+### Basic Example with Required Flags
+
+```java title="Delete Request"
 java -jar virtual-usb-client.jar deleteSession --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY
 ```
 
-```java title="Sample Response"
+```bash title="Sample Response"
 07:45:46.375 [main] INFO com.saucelabs.vusb.client.Runner - Runner Version 2.0.0
 Disconnected
 Deleted session d03a1b81-158d-4bb4-bcc9-074e43dd8465
 ```
 
-## Optional
+### Full Example with Optional Flags
 
-Here are some additional options you can use on the configure your command line.
-
----
-### `--serverHost`
-__Description__: Virtual USB server host. Default value: `http://127.0.0.1`.
-
----
-### `--serverPort`
-__Description__: Virtual USB server port. Default value: `33657`.
-
-```bash title="Full Example (includes optional flags)"
+```bash
 java -jar virtual-usb-client.jar deleteSession \
     --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 \
     --username $SAUCE_USERNAME \

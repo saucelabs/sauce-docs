@@ -22,12 +22,12 @@ These examples can apply to virtually any GitHub deployment, provided that you a
 
 The first order of business is to export your [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) and store them as GitHub Secrets.
 
-1. Navigate to your project repository and select the __settings__ icon
+1. Navigate to your project repository and select the __settings__ icon.
 
     <img src={useBaseUrl('img/stt/github-settings.png')} alt="GitHub Settings" width="500" />
 
-2. Select __Secrets__
-3. Click the __New secret__ button
+2. Select __Secrets__.
+3. Click the __New secret__ button.
 4. Add the following:
     * Name: `SAUCE_USERNAME`
     * Value: 'your-sauce-username'
@@ -50,9 +50,10 @@ https://github.com/saucelabs/saucectl-cypress-example/blob/master/.github/workfl
 
 ## Create the Test Job
 
-In the examples below, we illustrate the different run modes that `saucectl` has: __Docker__ and the __Sauce Cloud__— both determine where tests execute. Docker refers to executing tests locally in a container, while Sauce refers to executing tests on Sauce Cloud (i.e. Sauce Labs infrastructure).
-If you run your tests on the Sauce Cloud, you will likely require a tunnel back to where your app is running. A tunnel enables the remote browser to access your local network.
-For this, we are going to use [Sauce Connect](/secure-connections/sauce-connect).
+In the examples below, we illustrate the two different `saucectl` run modes, which will determine where your tests will execute:
+* __Docker mode__ refers to executing tests locally in a container
+* __Sauce Cloud mode__ refers to executing tests on Sauce Cloud (i.e., Sauce Labs infrastructure)
+  * If you're testing on the Sauce Cloud, you will likely require a tunnel back to where your app is running. A tunnel enables the remote browser to access your local network. For this, you'll need to use [Sauce Connect](/secure-connections/sauce-connect).
 
 :::note
 For more detailed information on setting event-driven actions and jobs, please visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
@@ -89,9 +90,9 @@ Now when you commit these files, GitHub will detect the new workflow actions and
 
 To see the output:
 
-1. Log in to GitHub
-2. Navigate to your repository page
-3. Click on Actions
+1. Log in to GitHub.
+2. Navigate to your repository page.
+3. Click on **Actions**.
 
     <img src={useBaseUrl('img/stt/github-actions.png')} alt="GitHub Actions" width="500" />
 
