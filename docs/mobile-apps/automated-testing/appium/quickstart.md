@@ -24,7 +24,7 @@ The following list of prerequisites are specific to running tests written in Jav
 * A [GitHub](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home) account
 * [Git](https://git-scm.com/downloads)
 * The [Swag Labs iOS Real Device Sample App](https://github.com/saucelabs/sample-app-mobile/releases)
-* [Java Testing Dependencies](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4): Java, Maven, IDE (such as IntelliJ)
+* Local installation of JDK, Maven, and an IDE such as IntelliJ. For instructions on installing each of these, see the [Java Testing Dependencies](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) training module.
 
 
 ## Step 1: Clone the Sample Project
@@ -66,7 +66,18 @@ Set your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as environment variables to avo
 
 ## Step 4: Run the Tests
 
-You must have Java and Maven installed to run this sample test. If you are using an IDE, such as IntelliJ or Visual Studio Code, open the `quickstart-appium-java` project you cloned in step 2, then right-click the `src/test/java/tests/RDC/AppiumIosRdcAppTest` and choose `Run`.
+:::caution
+You must have JDK and Maven installed to run this sample test, and you must have set their paths in your `.bash_profile`, for example:
+```
+## Maven Variables
+export M2_HOME=/Applications/apache-maven-3.8.2
+export M2=$M2_HOME/bin
+
+export PATH=$PATH:$M2:$JAVA_HOME/bin:$PATH
+```
+:::
+
+If you are using an IDE, such as IntelliJ, open the `quickstart-appium-java` project you cloned in step 2, then right-click the `src/test/java/tests/RDC/AppiumIosRdcAppTest` and choose `Run`.
 
 Alternatively, you can run the following command in your terminal:
 
