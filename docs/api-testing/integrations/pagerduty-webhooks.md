@@ -48,7 +48,10 @@ We also offer Webhook integrations to import and export data between Sauce Labs 
 
 ### Outgoing Webhooks
 
-Like the PagerDuty Connector, setting up an outgoing webbook connector allows Sauce Labs API Testing to send test data to external sources. To enable:
+Like the PagerDuty Connector, setting up an outgoing webbook connector allows Sauce Labs API Testing to send test result data to external sources.
+
+
+To enable:
 
 1. Find the webhook URL for the third-party app you'd like to integrate.
 2. Log in to Sauce Labs > click **API Testing**.
