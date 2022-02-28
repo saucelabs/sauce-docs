@@ -22,6 +22,8 @@ Keep in mind that these are guidelines. Most environments have their own workloa
 
 ### Sauce Connect v4.8.x
 
+<p><small><span className="sauceGold">Coming Soon</span></small></p>
+
 <table>
   <tr>
    <td><strong>Name</strong>
