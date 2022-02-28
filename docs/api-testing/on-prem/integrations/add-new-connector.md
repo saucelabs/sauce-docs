@@ -9,6 +9,8 @@ keywords:
     - connector
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 
@@ -26,4 +28,3 @@ You can find all the connectors here: [https://github.com/apifortress/connectors
    <img src={useBaseUrl('img/api-fortress/2019/08/Screen-Shot-2019-08-12-at-4.04.46-PM.png')} alt="screenshot"/>
 5. Copy and Paste the code from the connector groovy file into the code section
    <img src={useBaseUrl('img/api-fortress/2019/08/Screen-Shot-2019-08-12-at-4.05.04-PM.png')} alt="screenshot"/>
-

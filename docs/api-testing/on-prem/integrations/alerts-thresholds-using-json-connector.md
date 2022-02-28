@@ -10,11 +10,13 @@ keywords:
     - connector
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The JSON Alert Connector sends information about a failure in JSON format and posts it to a given WebHook URL.
 
-The JSON connector with the threshold variation does the same thing with a twist - rather than posting every event, it does so when the error rate exceeds a certain threshold. The connector has been designed to be used with services like [Zapier](https://zapier.com/) or [IFTTT](https://ifttt.com/). 
+The JSON connector with the threshold variation does the same thing with a twist - rather than posting every event, it does so when the error rate exceeds a certain threshold. The connector has been designed to be used with services like [Zapier](https://zapier.com/) or [IFTTT](https://ifttt.com/).
 
 It can also work with other similar services, but those are two of the most popular ones.
 

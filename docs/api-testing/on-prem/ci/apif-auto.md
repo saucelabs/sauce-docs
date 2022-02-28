@@ -12,6 +12,8 @@ keywords:
     - travisci
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 Welcome to the API Fortress Command-Line Tools!
 
 * The tool itself: [https://github.com/apifortress/afcmd/releases](https://github.com/apifortress/afcmd/releases)
@@ -127,6 +129,6 @@ python apif-run.py run-by-id config_key -c path/to/config/file -i testidhash8924
 
 ## POST-RECEIVE SCRIPT FOR GIT
 
-This Post-Receive script is meant to assist in the incorporation of API Fortress in your Git workflow. Dropping the file into the **`hooks`** directory of your `.git` file will cause newly committed API Fortress test code to be pushed to the API Fortress platform. 
+This Post-Receive script is meant to assist in the incorporation of API Fortress in your Git workflow. Dropping the file into the **`hooks`** directory of your `.git` file will cause newly committed API Fortress test code to be pushed to the API Fortress platform.
 
 The **`test_directory`** key in the `config.yml` will let the scripts know which folder the tests themselves are located in. It will then watch for commits from this folder and push the appropriate code to the platform.

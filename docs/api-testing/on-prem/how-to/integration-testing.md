@@ -9,6 +9,8 @@ keywords:
     - how-to
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 One of the core features of the platform is the ability to create proper **integration tests**.
@@ -26,19 +28,19 @@ First, get the token by making your POST call. Name the payload variable `loginP
 <img src={useBaseUrl('img/api-fortress/2017/03/login.jpg')} alt="Login Pic"/>
 
 ## Step 2 - Add an Assertion  
-Under the login procedure add an assertion named "Set (variable)." Set _Var_ as `access_token`, keep _Variable Mode_ as `String`, and set `Value` to `${loginPayload.access_token}`. 
-   
+Under the login procedure add an assertion named "Set (variable)." Set _Var_ as `access_token`, keep _Variable Mode_ as `String`, and set `Value` to `${loginPayload.access_token}`.
+
 You'll notice that what we are doing here is specifically taking the `access_token` variable in the `loginPayload` response, and setting it as `access_token`  
-   
-The dollar sign and brackets are necessary when referencing variables. 
-    
+
+The dollar sign and brackets are necessary when referencing variables.
+
 <img src={useBaseUrl('img/api-fortress/2017/03/token-1.jpg')} alt="Token 1"/>
-    
+
 <img src={useBaseUrl('img/api-fortress/2017/03/access_token.jpg')} alt="Access Token"/>
 
 ## Step 3 - Query the Search Endpoint
 
-Next, make a GET call to your search endpoint. Name this payload `resultsPayload` This call requires the access token from the login procedure, so we passed it in the header as required for this specific API. We added _Header Name_ as "Authorization" and _Value_ as `${access_token}`. 
+Next, make a GET call to your search endpoint. Name this payload `resultsPayload` This call requires the access token from the login procedure, so we passed it in the header as required for this specific API. We added _Header Name_ as "Authorization" and _Value_ as `${access_token}`.
 
 Again, notice the dollar sign and bracket. That is how you reference variables.
 
@@ -48,11 +50,11 @@ Again, notice the dollar sign and bracket. That is how you reference variables.
 ## Step 4 - Examine the Results
 
 Finally, let's dive into each result from the search payload one-by-one, using the "product id" and the "access token" variables we have set so far.
-    
+
 1. Add a "for each" assertion and reference the "resultsPayload.products" object.
-    
+
 2. Add a new "Set (variable)" assertion to set the `id` variable as every single `resultsPayload.product` that is returned. Notice we set the string to `${_1.id}` The system uses `_1` automatically when recognizing a subroutine. Makes it easier when things get into many sub levels.
-    
+
 3. Make a GET to the product details endpoint, using our new `id` variable as the _id_ parameter. Again, you can still reference the original `${access_token}` to make this call. Variables last through the entire test unless overwritten.
 
 <img src={useBaseUrl('img/api-fortress/2017/03/each.jpg')} alt="Each"/>
