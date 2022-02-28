@@ -10,9 +10,11 @@ keywords:
     - selfhosted
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 Updating an On Premises instance of API Fortress is done as follows:
 
-- **Back up the databases. (Optional, but recommended)** 
+- **Back up the databases. (Optional, but recommended)**
     - If you're storing the API Fortress data on a persistent volume in a cloud system, you can take a snapshot of the disk.
     - You can archive the data directories defined in the docker-compose.yml file.
     - You can dump the databases as described here: [Backing up Your Data](/api-testing/on-prem/self-hosted/on-premises-backing-up-your-data)

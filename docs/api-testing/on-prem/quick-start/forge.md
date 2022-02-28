@@ -5,6 +5,8 @@ sidebar_label: "APIF Forge (Local IDE)"
 description: "Forge is a downloadable IDE made for writing and running tests locally. The APIF Composer on Forge works exactly like the Composer on the hosted cloud or self-hosted/on-premises version of API Fortress."
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Forge is a downloadable IDE made for writing and running tests locally. The APIF Composer on Forge works exactly like the Composer on the hosted cloud or self-hosted/on-premises version of API Fortress. Click [here](/api-testing/on-prem/quick-start/composer) to learn how the composer works.

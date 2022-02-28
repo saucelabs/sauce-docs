@@ -5,9 +5,11 @@ sidebar_label: Using Variables
 description: "In API Fortress, you do not have to be concerned with organizing variables in a hierarchy from global to local."
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-In API Fortress, you do not have to be concerned with organizing variables in a hierarchy from global to local… why? 
+In API Fortress, you do not have to be concerned with organizing variables in a hierarchy from global to local… why?
 
 Almost any string can be hardcoded or referenced as a variable in API Fortress. Hardcoding is fine as long as you’re building simple tests, however, it is advisable to parametrize some items when:
 
@@ -54,7 +56,7 @@ And Basically Anywhere
 Reference variables almost anywhere that you need. Consider the following example assertion:
 
 <img src={useBaseUrl('img/api-fortress/2017/09/exp.png')} alt="EXP"/>
-    
+
 Yes, we're using variables as expected values.
 
 ## Conclusion

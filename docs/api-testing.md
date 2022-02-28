@@ -24,7 +24,7 @@ Check out the docs below to get started with API Testing and Monitoring on the S
         <li><a href="/api-testing/quickstart">HTTP Client</a></li>
         <li><a href="/api-testing/build-from-spec">Import from Spec</a> or <a href="/api-testing/import-postman-collection/">Postman Collection</a></li>
         <li><a href="/api-testing/composer">Test Composer (write test from scratch)</a></li>
-        <li><a href="/api-testing/import-export-tests">APIF Test</a></li>
+        <li><a href="/api-testing/import-export-tests">Import Legacy APIF Test</a></li>
     </ul>
     </div>
   </div>
@@ -44,6 +44,6 @@ Check out the docs below to get started with API Testing and Monitoring on the S
 <br/>
 <br/>
 
-:::note
+:::info
 Looking for our on-premise (legacy) docs? See the [API Fortress documentation](https://docs.saucelabs.com/api-testing/on-prem/quick-start/).
 :::

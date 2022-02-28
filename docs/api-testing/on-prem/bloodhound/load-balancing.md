@@ -5,6 +5,8 @@ sidebar_label: Load Balancing
 description: "This page details Bloodhound's simple load balancing capability."
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 Bloodhound has a simple load balancing capability we are going to discuss now. Before moving forward, make sure you have read the [basic configuration guide](/api-testing/on-prem/bloodhound/basic-configuration).
 
 ## Load Balancing Configuration
@@ -40,7 +42,7 @@ In this configuration, `upstream` is replaced by the `upstreams` object.
     * `status`: the expected status code
     * `interval`: how frequently should the probe run
 
-> __NOTE__: The system will look for a `probe` thread pool in the `implementers.yml` file. If no `probe` thread pool is defined, default will be used. 
+> __NOTE__: The system will look for a `probe` thread pool in the `implementers.yml` file. If no `probe` thread pool is defined, default will be used.
 
 ## Additional Topics
 

@@ -5,6 +5,8 @@ sidebar_label: "Integrate with CI/CD"
 description: "Using the API Fortress API or CLI you can easily and seamlessly integrate continuous API testing powered by API Fortress into your CI/CD pipeline."
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 API Fortress is an API-first platform that was built from the ground up for deployment flexibility and non-disruption to existing workflows. Whether you are transitioning to a CI/CD pipeline or have already invested in a CI/CD pipeline, it is easy and seamless to integrate continuous API testing powered by API Fortress into your CI/CD pipeline. We offer a [scheduler](https://apifortress.com/doc/quick-start-guide-schedule-a-test/), APIs, and command-line tools to simplify integrations with your CI/CD pipeline.
@@ -54,11 +56,11 @@ As it stands, our API hook is as follows:
 https://mastiff.apifortress.com/app/api/rest/v3/86f81b19-2d29-4879-91d9-6dbb2271fec0861
 ```
 
-The normal command to run all of the tests in the project, per the API Fortress docs is _/tests/run-all_, so we append this onto the end of the API call. You may need to request a JUnit output. To do that, simply collect a few query parameters. First, set _sync_ to _true_ so that we can set _format_ to _JUnit_. 
+The normal command to run all of the tests in the project, per the API Fortress docs is _/tests/run-all_, so we append this onto the end of the API call. You may need to request a JUnit output. To do that, simply collect a few query parameters. First, set _sync_ to _true_ so that we can set _format_ to _JUnit_.
 
 In short, we need to append `?sync=true&format=junit` to the webhook call. That gives us the final API call:
 
-```http request 
+```http request
 https://mastiff.apifortress.com/app/api/rest/v3/86f81b19-2d29-4879-91d9-6dbb2271fec0861/tests/run-all?sync=true&format=junit
 ```
 

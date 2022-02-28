@@ -9,6 +9,8 @@ keywords:
     - jdbc
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 This API Fortress Helper utility allows you to access databases via an API.
 
 ## Configuration Deployment
@@ -21,7 +23,7 @@ Of course, this requires a bit more configuration located in apps/db-api-helper/
 
 Look for the following element:
 ```
-<db:generic-config name="Generic_Database_Configuration" url="jdbc:postgresql://[172.28.0.1:5432/apipulse?password=jk5112&amp;user=apipulse](http://172.28.0.1:5432/apipulse?password=jk5112&user=apipulse)" driverClassName="org.postgresql.Driver" doc:name="Generic Database Configuration"> 
+<db:generic-config name="Generic_Database_Configuration" url="jdbc:postgresql://[172.28.0.1:5432/apipulse?password=jk5112&amp;user=apipulse](http://172.28.0.1:5432/apipulse?password=jk5112&user=apipulse)" driverClassName="org.postgresql.Driver" doc:name="Generic Database Configuration">
 ```
 If you plan to use another database, you will need to download the matching JDBC driver, place it in the apps/db-api-helper/lib directory, and configure the flow accordingly.
 
@@ -31,14 +33,14 @@ In our example, hitting the route like this:
 curl -H 'content-type:text/plain' -d '\* from auser' http://<machine\_hostname>:8092/db/select
 ```
 
-will trigger a select query that will return the result as a JSON array payload. 
+will trigger a select query that will return the result as a JSON array payload.
 
 :::note
 `INSERT`, `UPDATE`, `DELETE` routes are also available and they work similarly.
 :::
 
 ## Running  
-  
+
 It’s as easy as:
 
 ```bash
