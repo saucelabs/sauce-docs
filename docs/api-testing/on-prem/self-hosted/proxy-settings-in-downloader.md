@@ -9,6 +9,8 @@ keywords:
     - settings
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -26,8 +28,8 @@ You will need to modify the downloader config file, by adding an environment fie
 
 * Navigate to the “downloader” folder within your installation files, and find the file named `docker-compose.yml`
 
-* Locate the `environment` field at the end of the file 
-* Add a field in this section called `proxy_configuration`. 
+* Locate the `environment` field at the end of the file
+* Add a field in this section called `proxy_configuration`.
   See example below:
   ```yaml
   proxy_configuration: '{"*":
@@ -44,7 +46,7 @@ You will need to modify the downloader config file, by adding an environment fie
 ### Kubernetes  
 
 * Navigate to the file named `downloader.yml`.
-* You will find a section named `env`, add a field to this section called `proxy_configuration`. 
+* You will find a section named `env`, add a field to this section called `proxy_configuration`.
 
 See example below:
 
@@ -155,7 +157,7 @@ Only `sub.domain.com` will go through `proxy1.com`. Other requests will go throu
     "address": "http://proxy1.com/",
     "port": 2255
   }
-} 
+}
 ```
 
 </TabItem>

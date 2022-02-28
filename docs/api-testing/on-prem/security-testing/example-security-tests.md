@@ -9,6 +9,8 @@ keywords:
     - tests
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 According to Gartner over 95% of security vulnerabilities in APIs are related to “functional” or “human” errors. That is why functional testing of your APIs is so important to general API security. A good API security policy includes testing of API functionality before release, as well as constant monitoring of those APIs using the same detailed functional tests.
 
 We can designate these types of tests into three types - fuzz tests, authentication/access control, and sensitive data. We have created _example_ test snippets that you can load from within the platform to see them in action.

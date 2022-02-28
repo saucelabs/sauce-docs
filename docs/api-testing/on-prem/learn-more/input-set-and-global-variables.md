@@ -9,13 +9,15 @@ keywords:
     - vars
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 In the test creation process, the definition of global and local variables allows you to parametrize the test to allow more flexibility.
 
 ## Add a Global Parameter
 
-The **global** parameters are common variables designed to run with the whole test (i.e. api key, domain etc). 
+The **global** parameters are common variables designed to run with the whole test (i.e. api key, domain etc).
 
 1. For adding a global parameter/varaible click on the _+Add Global Param_ in the **Data Sets** panel:
 
@@ -29,7 +31,7 @@ The parameter/variable will be present in the test scope, and remains constant d
 
 ## Add an Input Set
 
-The **input set**, instead, is a group of input variables representing a scenario (i.e product id). 
+The **input set**, instead, is a group of input variables representing a scenario (i.e product id).
 
 1. To add in input set, click the _**+** button_ in the **Input Set** section
 3. Then add a name for the set. Then click _+ Add Param_ and add the variable name and value.

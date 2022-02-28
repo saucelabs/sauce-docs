@@ -34,7 +34,7 @@ While you can use multiple files of different names or locations to specify your
 :::
 
 
-## Docker or Sauce Cloud?
+## Docker Mode or Sauce Cloud Mode?
 
 You can run your tests in either Docker or on the Sauce Labs platform, or both. Depending on the length and complexity of your tests, running in your local environment with the containerized solution may allow you to accelerate test execution in CI and result in a smaller bundle transmission to the Sauce Labs cloud.
 
@@ -65,7 +65,7 @@ Refer to the [framework version support matrix](/dev/cli/saucectl/#supported-fra
 
 ## Run Tests Against a Local App
 
-If you plan to run tests against a local app server / app running on `localhost` (either on your host machine or in a CI pipeline) there are specific workflows you must follow.
+If you plan to run tests against a local app server / app running on `localhost` (either on your host machine or in a CI pipeline), there are specific workflows you must follow.
 
 :::tip Need to Access Custom Node Modules?
 If you have third party, or custom modules that are required test dependencies, you can utilize the **`npm`** configuration property to include those packages during test execution.
@@ -77,7 +77,7 @@ Ensure the `docker` container can access the local app server (e.g. `localhost:<
 
 The `metadata` parameter in the configuration file allows you to provide additional information about your project that helps you distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you, as shown in the following example:
 
-```
+```yaml
 sauce:
   metadata:
     name: Testing Cypress Support
@@ -114,7 +114,7 @@ When running on Sauce Cloud, the maximum concurrency that you can use is defined
 saucectl supports using Sauce Connect to establish a secure connection when running your tests on Sauce Labs. To do so:
 
 1. Download and launch [Sauce Connect](/secure-connections/sauce-connect).
-2. Provide the Tunnel Identifier your config file:
+2. Provide the tunnel identifier in your config file:
 
   ```yaml title="config.yml tunnel setting"
   sauce:
@@ -123,10 +123,10 @@ saucectl supports using Sauce Connect to establish a secure connection when runn
   ```
 
 :::note Choose the Correct Tunnel Identifier
-When you launch a tunnel, you can accept the tunnel identifier name that Sauce Labs generates for your account (e.g., `{SL-username}_tunnel_id`) or specify a name in the launch command:
+When you launch a tunnel, you can accept the tunnel identifier name that Sauce Labs generates for your account (e.g., `<$SAUCE_USERNAME>_tunnel_id`) or specify a name in the launch command:
 
 ```
-./sc -u {SL-username} -k {SL-access_key} -i {tunnel_name}
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -i <tunnel_name>
 ```
 
 `saucectl` expects this `tunnel_name` value in the `tunnel.name` property of your config file.

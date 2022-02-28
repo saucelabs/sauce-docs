@@ -8,6 +8,8 @@ keywords:
     - testrail
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <img src={useBaseUrl('img/api-fortress/2018/06/testrail-apif.png')} alt="testrail-apif.png"/>
@@ -34,9 +36,9 @@ Next, we need to define the parameters that we're going to pass to the TestRail 
 
 <img src={useBaseUrl('img/api-fortress/2018/06/1-1-1024x640.png')} alt="1-1-1024x640.png"/>
 
-* **Username:** Your TestRail Username. 
-* **Password:** The password for the TestRail account you're using. 
-* **Project_Id:** The ID (an integer) of the TestRail project you'd like the API Fortress results to populate. 
+* **Username:** Your TestRail Username.
+* **Password:** The password for the TestRail account you're using.
+* **Project_Id:** The ID (an integer) of the TestRail project you'd like the API Fortress results to populate.
 * **Domain:** The subdomain of your TestRail instance. It's the part of the URL that comes between `https://` and `.testrail.io`
 
 Next, we need to add the alert group to the project. Go to the projects view and click the "settings" icon on the project that you'd like to use the connector for.

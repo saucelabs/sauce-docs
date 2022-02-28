@@ -4,6 +4,8 @@ title: "Bloodhound: Base Actors"
 sidebar_label: Base Actors
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 ## Type: Proxy
 
 ### `RequestActor`
@@ -77,9 +79,9 @@ A logger to be used in a flow to log certain facts, determined by the user. The 
 **config:**
 
 - `value`: the content to be logged
-    
+
 - `evaluated`: if set to true, the `value` field will be interpreted as a SpEL script. The message is accessible via the `msg` variable.
-    
+
 
 ### `FileAppenderSerializerActor`
 
@@ -111,30 +113,30 @@ Alters the headers of a message. If the transformer is placed before an Upstream
 **config:**
 
 - `add`: adds a header. If `evaluated` is set to `ŧrue`, the value is treated as a SpEL script. For Example:
-   
-   ```yaml 
+
+   ```yaml
       add:
         - name: header\_name
           value: header\_value
           evaluated: false
    ```
-   
+
 - `remove`: removes a header. For Example:
-    
+
    ```yaml
       remove:
         - name: header\_name
    ```
-  
+
 - `set`: sets the value of an existing header, or adds it if the header is not present. If `evaluated` is set to `ŧrue`, the value is treated as a SpEL script. For Example:
-    
+
     ```yaml
     set:
       - name: header\_name
         value: header\_value
         evaluated: false
     ```  
-   
+
 
 * * *
 
@@ -151,7 +153,7 @@ Filters out any request not matching a certain set of criteria.
 **config:**
 
 - `accept`: a list of conditions. If verified, the message will be accepted. For Example:
-    
+
   ```yaml
      accept:
        - value: "#msg.request().getHeader('accept')=='application/json'"
@@ -159,10 +161,10 @@ Filters out any request not matching a certain set of criteria.
        - value: "#msg.request().getHeader('key')=='ABC123'"
          evaluated: true  
   ```
-    
+
     Just like previous filters, if evaluated is true,`value` will be evaluated as SpEL script.
 - `reject`: a list of conditions. If verified, the message will be rejected. Example:
-    
+
   ```yaml
     reject:
       - value: "#msg.request().method()!='GET'"

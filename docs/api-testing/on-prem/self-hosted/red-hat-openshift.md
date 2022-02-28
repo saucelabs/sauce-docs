@@ -10,6 +10,8 @@ keywords:
     - openshift
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## What You'll Need
@@ -93,9 +95,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ### Step 3 - Configure dependencies.yml
 
-Each of the database services in dependencies.yml has a preconfigured definition for the amount of disk space allocated to the service. These values can be edited to match the available disk space that you wish to provide for said services. 
+Each of the database services in dependencies.yml has a preconfigured definition for the amount of disk space allocated to the service. These values can be edited to match the available disk space that you wish to provide for said services.
 
-For **MongoDB** the proposed memory setting is 8Gi. The minimum is 1Gi, the optimal is 16Gi. However, for the inner workings of MongoDB, any increase in memory will result in better performance. 
+For **MongoDB** the proposed memory setting is 8Gi. The minimum is 1Gi, the optimal is 16Gi. However, for the inner workings of MongoDB, any increase in memory will result in better performance.
 
 :::note
 MongoDB will store most of the data produced by the platform, so make sure the disk size is reasonable for your use case
@@ -159,15 +161,15 @@ Choose “Downloaders” from the list of actions and click on the “Add Downlo
 
 ### Step 2 - Configure the Downloader
 
-Fill in the following fields: 
-* **Name:** Write a recognizable name. 
-* **Location:** A representation of where the downloader is. ie. Chicago 
-* **Latitude / Longitude:** The geographical position of the downloader. 
-* **Last Resort:** Check this to make it the default downloader used. 
-* **URL:** The address of the downloader, followed by port (default 8819) and path /api. In our OpenShift deployment, our downloader address would be 
+Fill in the following fields:
+* **Name:** Write a recognizable name.
+* **Location:** A representation of where the downloader is. ie. Chicago
+* **Latitude / Longitude:** The geographical position of the downloader.
+* **Last Resort:** Check this to make it the default downloader used.
+* **URL:** The address of the downloader, followed by port (default 8819) and path /api. In our OpenShift deployment, our downloader address would be
   ```bash
   https://downloader.apifortress.svc:8819/api
-  ``` 
+  ```
 * **API Key, API Secret:** Write these two values down for use later.
 
 ### Step 3 - Move the Key and Secret Values to `downloader.yml`
@@ -191,7 +193,7 @@ Open the HTTP client from the tools drop-down menu in API Fortress. Attempt to c
 Users per agent are the maximum number of virtual users that each Load Agent can provide.
 
 :::note Important!
-Large numbers of simulated users will require large amounts of hardware resources. Contact your DevOps team to develop a strategy for resource allocation. 
+Large numbers of simulated users will require large amounts of hardware resources. Contact your DevOps team to develop a strategy for resource allocation.
 :::
 
 - Locate and open the file named _application.conf_. It is located in the _core-server-etc_ directory.
@@ -208,7 +210,7 @@ Large numbers of simulated users will require large amounts of hardware resource
 - Next, we need to provide the API Key and Secret.
     - Open the main API Fortress dashboard and click the gear icon in the upper right corner to access the settings menu
     - Click the “_API Keys_” option in the left sidebar.
-    - Click “_+API Key”_ 
+    - Click “_+API Key”_
 
  <img src={useBaseUrl('img/api-fortress/2018/06/CreateAPIKey.gif')} alt="CreateAPIKey.gif"/>
 
@@ -267,22 +269,22 @@ The file to be added is located in the deployment files you have been provided: 
 1. Tweak the file according to your needs
 2. Create a config map for the single file named tomcat-context
 3. Change the apifortress service in the _apifortress.xml_ file as follows: Add this fragment within the _containers_ element:
-   
+
    ```yaml
    volumeMounts:
      - name: tomcat-context
    mountPath: /usr/local/tomcat/conf/context.xml
    subPath: context.xml
    ```
-   
+
 4. Add this fragment in the spec element:
-    
+
    ```yaml
    volumes:
      - name: tomcat-context
    configMap:
      - name: tomcat-context
    ```
-    
+
 
 By doing so, we will have API Fortress to accept the original protocol as the actual protocol being used.

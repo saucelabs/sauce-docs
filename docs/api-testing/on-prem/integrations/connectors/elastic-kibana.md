@@ -10,10 +10,12 @@ keywords:
     - connectors
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Using the Elastic connector you can send failure information to Elasticsearch then use that data to create visualizations in Kibana.  
-  
+
 Below is a quick guide to setting up and using the Elastic connector.
 
 :::note
@@ -75,7 +77,7 @@ Below is a sample of the data that will be pushed into Elasticsearch:
 ### Sample Visualization:
 
 Once the data is in Elasticsearch, you can pull that data into Kibana and create visualizations for it. You can create many things using the data in the JSON above.
-  
+
 For example you could create a table to show all the test executions and their success or failure like so:  
 <img src={useBaseUrl('img/api-fortress/2020/03/Screen-Shot-2020-03-24-at-10.46.10-AM.png')} alt="screenshot"/>
 
@@ -84,4 +86,3 @@ You can also chart the events and failures on a graph like this:
 
 Then put it all together in a dashboard to make it really easy to monitor and track your test executions:  
 <img src={useBaseUrl('img/api-fortress/2020/04/KibanaIntegrations_SS-docs.png')} alt="screenshot"/>
-
