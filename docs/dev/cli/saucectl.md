@@ -213,7 +213,7 @@ The `saucectl` command line interface orchestrates the relationship between your
 
 <TabItem value="espresso">
 
-[Espresso on Sauce Docs](mobile-apps/automated-testing/espresso-xcuitest/)
+[Espresso on Sauce Docs](/mobile-apps/automated-testing/espresso-xcuitest/)
 
 |Supported Platforms|
 |-----|
@@ -223,7 +223,7 @@ The `saucectl` command line interface orchestrates the relationship between your
 
 <TabItem value="xcuitest">
 
-[XCUITest on Sauce Docs](mobile-apps/automated-testing/espresso-xcuitest/)
+[XCUITest on Sauce Docs](/mobile-apps/automated-testing/espresso-xcuitest/)
 
 |Supported Platforms|
 |-----|
