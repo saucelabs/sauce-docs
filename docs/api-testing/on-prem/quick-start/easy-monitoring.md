@@ -5,6 +5,8 @@ sidebar_label: Easy Monitoring
 description: "Quick-start instructions on how to set up easy monitoring with API fortress."
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 We suggest creating comprehensive functional tests, and then scheduling those tests as monitors for two reasons:
 
 * First, this method ensures that your monitors validate functional uptime rather than a simple `200 OK` ping.

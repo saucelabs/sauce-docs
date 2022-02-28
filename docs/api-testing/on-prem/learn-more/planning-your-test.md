@@ -8,6 +8,8 @@ keywords:
     - planning
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Before you start writing your test, you should plan what you want to do.
@@ -16,7 +18,7 @@ Contrary to most testing frameworks, API Fortress is not _endpoint centric_, so 
 
 ## Single Action Test (active)
 
-You're willing to write a test that is going to verify how an endpoint action works. We're also considering this scenario to be active, which means you expect API Fortress to perform a call and test the outcome. 
+You're willing to write a test that is going to verify how an endpoint action works. We're also considering this scenario to be active, which means you expect API Fortress to perform a call and test the outcome.
 
 If your action takes multiple parameters, we suggest you to create a number of input sets containing combinations of valid input. The unit will be run against each input set. Having multiple inputs is important because it's the only way you can tell your API is responding uniformly, no matter what you feed it.
 

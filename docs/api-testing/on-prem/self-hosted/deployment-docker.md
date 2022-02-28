@@ -9,6 +9,8 @@ keywords:
     - docker
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Introduction
@@ -16,18 +18,18 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 This manual will describe a normal deployment procedure for API Fortress self-hosted/on-premises, using a Docker container. It is important to remember that the goal of this guide is to be as thorough as possible. It may seem long but the process is fairly straightforward.
 
 Also, don't fret as we can provide as much help and guidance as you need. We are just a video conference away!  
-  
+
 If you do not have the following files:
 
 ```
-/create_network.sh 
-/core/docker-compose.yml 
-/core/tomcat_conf/conf/ 
-/core/start_all.sh 
-/downloader/docker-compose.yml 
-/data/connectors.tgz 
-/data/help.tgz 
-/data/import_help.sh 
+/create_network.sh
+/core/docker-compose.yml
+/core/tomcat_conf/conf/
+/core/start_all.sh
+/downloader/docker-compose.yml
+/data/connectors.tgz
+/data/help.tgz
+/data/import_help.sh
 /data/import_connectors.sh
 ```
 
@@ -105,7 +107,7 @@ To launch all core services, just run the `start_all.sh` script. It will take so
 ## 9. Verify the Deployment
 
 At the end of the process, the API Fortress dashboard should be up and running in the host server on `port 80`. You can also check for errors in the logs by issuing the following command:
- 
+
 ```
 sudo docker-compose logs
 ```
@@ -119,7 +121,7 @@ The admin user login details are as follows:
 
 The API Fortress downloader is the agent that retrieves the resources to be tested. Downloaders can be installed in various locations, so factors such as latency and download time can be measured by remote consumers.
 
-In this configuration path, we are deploying a downloader in the same server as API Fortress, and it will serve as the default downloader. 
+In this configuration path, we are deploying a downloader in the same server as API Fortress, and it will serve as the default downloader.
 
 :::tip Downloader 101
 Click here to learn more about the [Downloaders](/api-testing/on-prem/learn-more/downloader-101).  
@@ -133,15 +135,15 @@ Click here to learn more about the [Downloaders](/api-testing/on-prem/learn-more
 
 3. Choose “Downloaders” from the list of actions and click on the “Add Downloader” button.
 
-4. Fill the fields: 
+4. Fill the fields:
    - Name: Write a recognizable name
-   - Location: A representation of where the downloader is e.g. Chicago 
-   - Latitude / Longitude: The geographical position of the downloader 
+   - Location: A representation of where the downloader is e.g. Chicago
+   - Latitude / Longitude: The geographical position of the downloader
    - Last Resort: Check this to make it the default downloader used
-   - URL: The address of the downloader, followed by port (default `8819`) and path /api. In our example, the `ipv4_address` and our downloader address would result in `https://172.18.1.1:8819/api` 
-   - API Key, API Secret: Write these two values down for use later. 
+   - URL: The address of the downloader, followed by port (default `8819`) and path /api. In our example, the `ipv4_address` and our downloader address would result in `https://172.18.1.1:8819/api`
+   - API Key, API Secret: Write these two values down for use later.
    - Assign to company: This is where you can choose which company in your instance has access to the downloader you are creating.
-   
+
 :::note
 If you would like to use the same downloader across all companies in your instance, you can choose the option "Public downloader".
 
@@ -182,7 +184,7 @@ It's important to remember that large numbers of simulated users will require la
 - Next, we need to provide the API Key and Secret.
     - Open the main API Fortress dashboard and click the gear icon in the upper right corner to access the settings menu
     - Click the "_API Keys_" option in the left sidebar.
-    - Click "_+API Key"_ 
+    - Click "_+API Key"_
 
 <img src={useBaseUrl('img/api-fortress/2018/06/CreateAPIKey-1024x640.gif')} alt="CreateAPIKey.gif"/>
 
@@ -222,15 +224,15 @@ API Fortress Dashboard
 
 ### Bootstrap
 
-- **adminEmail**: The admin user email address, also used as login. 
-- **adminFullName**: The admin's full name. 
+- **adminEmail**: The admin user email address, also used as login.
+- **adminFullName**: The admin's full name.
 - **defaultCompanyName**: The company name.
 
 ### System
 
-- **grailsServerURL**: the url the server will respond to 
-- **dbHost**: MongoDB host 
-- **psqlhost**: PostgreSQL host 
+- **grailsServerURL**: the url the server will respond to
+- **dbHost**: MongoDB host
+- **psqlhost**: PostgreSQL host
 - **rabbitHost**: RabbitMQ host
 
 :::note
@@ -239,45 +241,45 @@ In case you're considering using an external PostgreSQL provider, the **psqlUser
 
 ### Email
 
-- **apifortressMailUseSES: set to ‘true’ if you will use Amazon SES to send emails. When set to ‘false’, SMTP is used instead.** 
-- **apifortressMailFrom**: the email address that will be used to dispatch administrative emails. 
-- **apifortressMailSmtpHost**: SMTP host to dispatch administrative emails. 
-- **apifortressMailSmtpUsername**: SMTP username. 
-- **apifortressMailSmtpPassword**: SMTP password. 
-- **apifortressMailSmtpPort:** SMTP port. 
-- **amazonkey**: Amazon key, if you’re using Amazon SES to send emails. 
-- **amazonsecret**: Amazon secret, if you’re using Amazon SES to send emails. 
-- **apiaryClientId:** client ID if you’re using Apiary services. 
-- **apiarySecret:** secret, if you’re using Apiary services. 
+- **apifortressMailUseSES: set to ‘true’ if you will use Amazon SES to send emails. When set to ‘false’, SMTP is used instead.**
+- **apifortressMailFrom**: the email address that will be used to dispatch administrative emails.
+- **apifortressMailSmtpHost**: SMTP host to dispatch administrative emails.
+- **apifortressMailSmtpUsername**: SMTP username.
+- **apifortressMailSmtpPassword**: SMTP password.
+- **apifortressMailSmtpPort:** SMTP port.
+- **amazonkey**: Amazon key, if you’re using Amazon SES to send emails.
+- **amazonsecret**: Amazon secret, if you’re using Amazon SES to send emails.
+- **apiaryClientId:** client ID if you’re using Apiary services.
+- **apiarySecret:** secret, if you’re using Apiary services.
 - **license:** the license string.
 
 ### API Fortress Mailer
 
-- **twilioSid**: SID, if you’re sending SMSes via Twilio. 
-- **twilioToken**: token, if you’re sending SMSes via Twilio. 
-- **smsFrom**: the phone number of the SMS sender, if you’re sending SMSes via Twilio. 
-- **mailFrom**: the email address that will be sending notification emails. 
+- **twilioSid**: SID, if you’re sending SMSes via Twilio.
+- **twilioToken**: token, if you’re sending SMSes via Twilio.
+- **smsFrom**: the phone number of the SMS sender, if you’re sending SMSes via Twilio.
+- **mailFrom**: the email address that will be sending notification emails.
 - **mailUseSES**: ‘true’ if you’re sending emails via Amazon SES. False if you’re using SMTP.
-- **amazonKey:** the Amazon key, if you’re sending emails via Amazon SES. 
-- **amazonSecret**: the Amazon secret, if you’re sending emails via Amazon SES. 
-- **mailSmtpHost**: the SMTP host. 
-- **mailSmtpPort**: the SMTP port. 
-- **mailSmtpUsername**: the SMTP username. 
-- **mailSmtpPassword**: the SMTP password. 
+- **amazonKey:** the Amazon key, if you’re sending emails via Amazon SES.
+- **amazonSecret**: the Amazon secret, if you’re sending emails via Amazon SES.
+- **mailSmtpHost**: the SMTP host.
+- **mailSmtpPort**: the SMTP port.
+- **mailSmtpUsername**: the SMTP username.
+- **mailSmtpPassword**: the SMTP password.
 - **apifortressServerURL**: the url the server will respond to.
 
 ### API Fortress Downloader
 
 - **apikey**: the API key, as shown in the admin panel.
-- **secret**: the API secret, as shown in the admin panel. 
-- **port**: the HTTP port the server will be listening to, in HTTP mode. 
-- **rabbitHost**: the RabbitMQ host, when running in active mode. 
-- **rabbitPort**: the RabbitMQ port, when running in active mode. 
-- **rabbitSsl**: ‘true’ if RabbitMQ will need to communicate over SSL when running in active mode. 
-- **rabbitUsername**: the RabbitMQ username when running in active mode. 
-- **rabbitPassword**: the RabbitMQ password when running in active mode. 
-- **use_rabbit**: ‘true’ to run in active mode. 
-- **use_http**: ‘true’ to use the internal HTTP server (passive mode). 
+- **secret**: the API secret, as shown in the admin panel.
+- **port**: the HTTP port the server will be listening to, in HTTP mode.
+- **rabbitHost**: the RabbitMQ host, when running in active mode.
+- **rabbitPort**: the RabbitMQ port, when running in active mode.
+- **rabbitSsl**: ‘true’ if RabbitMQ will need to communicate over SSL when running in active mode.
+- **rabbitUsername**: the RabbitMQ username when running in active mode.
+- **rabbitPassword**: the RabbitMQ password when running in active mode.
+- **use_rabbit**: ‘true’ to run in active mode.
+- **use_http**: ‘true’ to use the internal HTTP server (passive mode).
 - **use_ssl**: 'true' if the internal HTTP server has to run over SSL.
   The network configuration is also important as the IP address may be used for internal communication.
 - **networks.apifortress.ipv4_address**: the reserved IP address in the API Fortress subnet.
@@ -286,46 +288,46 @@ In case you're considering using an external PostgreSQL provider, the **psqlUser
 
 The API Fortress database comes free from data, but the provided package gives you the option to import the help tools and the connectors. These operations are meant to be run once the API Fortress stack is fully functional.
 
-- **Import Help** From the /data directory, run the `import_help.sh` script. 
+- **Import Help** From the /data directory, run the `import_help.sh` script.
 - **Import Connectors** From the /data directory, run the `import_connectors.sh` script.
 
 ## Appendix: Tweaking Tomcat Configuration
 
-If you need to tweak the Tomcat configuration, you will need to mount the Tomcat conf/ directory in your system. 
-1. Change the configuration files you need to edit in the `core/tomcat_conf/conf` directory 
+If you need to tweak the Tomcat configuration, you will need to mount the Tomcat conf/ directory in your system.
+1. Change the configuration files you need to edit in the `core/tomcat_conf/conf` directory
 2. Mount the directory by uncommenting the following lines in the `core/docker-compose.yml` file:
-   
+
    ```yaml
-   volumes: 
+   volumes:
      - ./tomcat_conf/conf:/usr/local/tomcat/conf
    ```
 
 ### Dashboard over SSL
 
-To have Tomcat running over SSL: 
-1. Copy your JKS keystore containing your certificate in the `core/tomcat_conf/conf` directory 
+To have Tomcat running over SSL:
+1. Copy your JKS keystore containing your certificate in the `core/tomcat_conf/conf` directory
 2. Edit the `core/tomcat_conf/conf/server.xml` file and uncomment the block:
-   
+
    ```xml
    <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol" maxThreads="150" SSLEnabled="true" scheme="https" secure="true" clientAuth="false" sslProtocol="TLS" />
    ```
-   
+
 3. Edit the block by adding the following attributes:
-   
+
    ```js
    keystoreFile="/usr/local/tomcat/conf/keystore.jks" keystorePass="thePasswordHere"
    ```
 
 4. Mount the directory by uncommenting the following lines in the `core/docker-compose.yml` file:
-   
+
    ```yaml
-   volumes: 
+   volumes:
      - ./tomcat_conf/conf:/usr/local/tomcat/conf
    ```
 
 
 5. In the `core/docker-compose.yml` file, change the port declaration to:
-   
+
    ```yaml
    ports:
      - 443:8443/tcp
@@ -335,12 +337,12 @@ To have Tomcat running over SSL:
 
 You may want to run API Fortress through a gateway that provides HTTPS support. To do so, you will need to allow Tomcat to determine which protocol was **originally** used to access the service.
 
-1. Run API Fortress on an unprivileged HTTP port, like the default `8080` 
-2. Mount the `tomcat_conf` directory as described in the previous appendix 
+1. Run API Fortress on an unprivileged HTTP port, like the default `8080`
+2. Mount the `tomcat_conf` directory as described in the previous appendix
 3. Edit the file `tomcat_conf/conf/context.xml`
-  
+
 4. Uncomment the following section:
-   
+
    ```xml
    <!-- <Valve
           className="org.apache.catalina.valves.RemoteIpValve"
@@ -350,6 +352,6 @@ You may want to run API Fortress through a gateway that provides HTTPS support. 
           protocolHeader="x-forwarded-proto"
       /> -->
    ```
-   
-5. Tweak the configuration if needed 
+
+5. Tweak the configuration if needed
 6. Restart the API Fortress dashboard service

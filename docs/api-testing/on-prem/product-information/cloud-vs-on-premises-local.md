@@ -9,6 +9,8 @@ keywords:
     - on-premises
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 :::note
 Did you receive an Invalid Request message? It's possible that you are trying to reach an environment that is behind a firewall that our public cloud accounts can't reach. You may need to allowlist our IPs, or install a self-hosted/on-premises trial. Please contact support@apifortress.com to learn more, or use our chat bot._
 :::

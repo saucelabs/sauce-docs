@@ -9,9 +9,11 @@ keywords:
     - how-to
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Does your API require 3-leg authentication? With the help of a small helper container you can achieve automation of 3-leg using the API Fortress platform. 
+Does your API require 3-leg authentication? With the help of a small helper container you can achieve automation of 3-leg using the API Fortress platform.
 
 Thanks to the helper, your local machine can help in the automation of your tests logging in using 3-leg auths such as Facebook, Twitter, and Google.
 
@@ -36,12 +38,12 @@ In the example used in the video above, we show how to call the 3loa API with de
 ## `POST` Body Output
 The post body of the API call will need the following details:
 
-* `"username"`: `username` for logging in 
-* `"password"`: `password` for logging in 
-* `"usernameField"`: `x-path` selector for username field 
-* `"passwordField"`: `x-path` selector for password field 
-* `"loginButton"`: `x-path` selector for the login button 
-* `"authorizeButton"`: `x-path` selector for the authorize button 
+* `"username"`: `username` for logging in
+* `"password"`: `password` for logging in
+* `"usernameField"`: `x-path` selector for username field
+* `"passwordField"`: `x-path` selector for password field
+* `"loginButton"`: `x-path` selector for the login button
+* `"authorizeButton"`: `x-path` selector for the authorize button
 * `"authorizationURL"`: `URL` to authorize site
 * `"tokenURL"`: `URL` used to get access token
 
