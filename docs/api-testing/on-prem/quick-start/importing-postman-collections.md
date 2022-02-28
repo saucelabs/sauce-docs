@@ -5,11 +5,13 @@ sidebar_label: Importing Postman Collections
 description: "Note: The import Postman collection only supports exports in V2 and beyond. V1 has been deprecated by Postman and is not supported by API Fortress."
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 If you possess [Postman API Collections](https://www.postman.com/collection/), you can import them directly into API Fortress.
 
-:::warning V1 Import Feature Deprecated 
+:::warning V1 Import Feature Deprecated
 The import Postman collection only supports exports in V2 and beyond. V1 has been deprecated by Postman and is not supported by API Fortress.
 :::
 

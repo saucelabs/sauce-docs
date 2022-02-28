@@ -9,6 +9,8 @@ keywords:
     - selfhosted
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 ## What Is It?
 
 API Fortress can be deployed in nearly any manner that works for you - whether hosted cloud, self-hosted/on-premises, or hybrid.
@@ -41,7 +43,7 @@ All this is done with a few lines of Java/Groovy that we can help you with.
 
 ## Deployment
 
-A simple [Docker](/api-testing/on-prem/self-hosted/deployment-docker) / [Kubernetes](/api-testing/on-prem/self-hosted/deployment-kubernetes) / [Open Shift](/api-testing/on-prem/self-hosted/red-hat-openshift) deployment. 
+A simple [Docker](/api-testing/on-prem/self-hosted/deployment-docker) / [Kubernetes](/api-testing/on-prem/self-hosted/deployment-kubernetes) / [Open Shift](/api-testing/on-prem/self-hosted/red-hat-openshift) deployment.
 
 We ask a handful of questions, setup a configuration file for you, and then you deploy with your preferred container. The system requirements [here](/api-testing/on-prem/self-hosted/on-premises-requirements).
 

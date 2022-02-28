@@ -5,6 +5,8 @@ sidebar_label: Basic Configuration
 description: "The default Bloodhound configuration module is file driven. All configuration files are located in the etc directory."
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 The default Bloodhound configuration module is file driven. All configuration files are located in the `etc` directory.
 
 ## System configuration
@@ -102,13 +104,13 @@ A typical backend looks like this:
 * `flow_id` which flow needs to be used.
 
 :::note
-**Everything exceeding prefix on the right side** will be passed over to the upstream. 
+**Everything exceeding prefix on the right side** will be passed over to the upstream.
 
 In this example, a request sent to:
 ```http request
 http://127.0.0.1:8080/any/whatever
 ```
-is then forwarded to: 
+is then forwarded to:
 ```http request
 https://httpbin.org/anything/whatever
 ```

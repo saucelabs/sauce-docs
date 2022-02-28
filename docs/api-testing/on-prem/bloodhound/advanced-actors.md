@@ -4,6 +4,8 @@ title: "Bloodhound: Advanced Actors"
 sidebar_label: Advanced Actors
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 ## Type: Transformers
 
 ### `ReplaceUpstreamActor`
@@ -33,11 +35,11 @@ The configuration looks like the following.
 regex:
     [label1]:
         url: [pattern]
-        method: [method] 
+        method: [method]
     [label2]:
         url: [pattern]
         method: [method]
-    
+
 ```
 
 - `label`: the label to assign
@@ -57,7 +59,7 @@ Alters a textual payload in a message. If the transformer is placed before an Up
 - `set`: sets the payload with the given value
 - `replace`: replaces all the substrings matching a certain regular expression with the provided string. Example:
 
-    ```yaml 
+    ```yaml
       replace:
         regex: foo
         value: bar

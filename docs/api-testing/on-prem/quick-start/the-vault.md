@@ -5,6 +5,8 @@ sidebar_label: Using the Vault
 description: "The vault allows you to store variables and code snippets that can be used across an entire project."
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The vault allows you to store variables and code snippets that can be used across an entire project.
@@ -19,7 +21,7 @@ The link to access the Vault is at the top of the window, as shown below:
 
 ### Project Column
 
-The first column shows all of the projects of a company and the Global Vault. Code snippets and variables saved in a specific project are only available in that project. _They are not available across projects._ If a variable and/or code snippet needs to be available in more projects within the company, they must be saved to the **Global Vault**. 
+The first column shows all of the projects of a company and the Global Vault. Code snippets and variables saved in a specific project are only available in that project. _They are not available across projects._ If a variable and/or code snippet needs to be available in more projects within the company, they must be saved to the **Global Vault**.
 
 The Global Vault has been built to make variables and code snippets available across all of the projects in a company.
 
@@ -30,9 +32,9 @@ The Global Vault has been built to make variables and code snippets available ac
 
 ### Snippet Section
 
-In the snippet section, you will find all of the snippets you have created using the Composer (see [here](/api-testing/on-prem/reference/composer-snippets) for more details). 
+In the snippet section, you will find all of the snippets you have created using the Composer (see [here](/api-testing/on-prem/reference/composer-snippets) for more details).
 
-Once you have saved the snippet, from the composer, you can choose whether you want to save it and make it available only for the current project or for all the projects within the company by saving it in the Global Vault. If you already have a snippet saved for the current project but you need to make it available across all projects, you can easily export them from the current project to the Global Vault by using the import/export feature. 
+Once you have saved the snippet, from the composer, you can choose whether you want to save it and make it available only for the current project or for all the projects within the company by saving it in the Global Vault. If you already have a snippet saved for the current project but you need to make it available across all projects, you can easily export them from the current project to the Global Vault by using the import/export feature.
 
 <img src={useBaseUrl('img/api-fortress/2020/01/snippet.jpg')} alt="Snippet"/>
 
@@ -47,7 +49,7 @@ In the variable section, you can define variables that will be part of the scope
 
 If a variable with the same name is defined within the test, it will override the one defined in the Vault. For identical variable names in the global vault and in the project vault, the latter will have higher priority.
 
-Defining a variable in the Vault is helpful when you need to use the same variable across multiple tests. This way, you don't need to rewrite it every time. 
+Defining a variable in the Vault is helpful when you need to use the same variable across multiple tests. This way, you don't need to rewrite it every time.
 
 For example, a password could be saved as a variable and reused in multiple places.
 

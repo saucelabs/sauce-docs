@@ -12,6 +12,8 @@ keywords:
     - 2-leg
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Overview
@@ -71,9 +73,9 @@ That's it! The call should work now. If not feel free to send us a message at su
 3. Click POST (or whatever REST method the authentication server is expecting)
 4. Enter details and add parameters or POST body
 5. In our example its a POST body with username and password  
-      
+
     <img src={useBaseUrl('img/api-fortress/2020/02/post.gif')} alt="post.gif"/>
-  
+
 
 Next, we parameterize the token that we receive in the response.
 

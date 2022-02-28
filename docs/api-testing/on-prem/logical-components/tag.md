@@ -8,6 +8,8 @@ keywords:
     - tag
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 This component is used to dynamically tag the resulting document of a test execution. You can easily find a document by searching for the specific tag, in the same way you can find a test by searching for the tag you assigned to it.

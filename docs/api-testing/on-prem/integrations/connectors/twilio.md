@@ -9,6 +9,8 @@ keywords:
     - connectors
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 With the connection to Twilio you can send text and call alerts to your team. Send critical information on the test failure as well as a link to the test report from the failed test.  
@@ -16,7 +18,7 @@ With the connection to Twilio you can send text and call alerts to your team. Se
 ## Connector Setup
 
 Below is a quick guide to setting up and using the Twilio connector.  
-  
+
 :::note
 This connector does not come pre-loaded out of the box for self-hosted/on-premises, and will need to be loaded separately. To learn how to load the connector into your API Fortress instance [click here.](/api-testing/on-prem/integrations/add-new-connector)  
 :::  
@@ -36,10 +38,10 @@ This connector does not come pre-loaded out of the box for self-hosted/on-premis
 
 1. Choose the **Twilio** connector from the dropdown menu  
    <img src={useBaseUrl('img/api-fortress/2020/02/twilio_connector.png')} alt="twilio_connector.png"/>
-1. The connector configuration page now appears 
+1. The connector configuration page now appears
    <img src={useBaseUrl('img/api-fortress/2020/02/twilio_configconnector.png')} alt="twilio_configconnector.png"/>
    Configure the connector with the following params:
-   
+
    1. `credential`s: the api credentials for Twilio. Please use the format:  `AccountSID:AuthToken`.  
    2. `from`: this is the number you own in Twilio where the messages and calls will originate from. Please use the format: `"+(country_code)#######" i.e. +15555555555`
       <img src={useBaseUrl('img/api-fortress/2020/02/twilio_creds.png')} alt="twilio_creds.png"/>
@@ -51,4 +53,3 @@ This connector does not come pre-loaded out of the box for self-hosted/on-premis
    <img src={useBaseUrl('img/api-fortress/2020/01/Settings.png')} alt="Settings"/>
 8. Add the alert group that contains your Twilio connector to this project  
    <img src={useBaseUrl('img/api-fortress/2020/02/Screen-Shot-2020-02-28-at-12.14.54-PM.png')} alt="screenshot"/>
-
