@@ -1,43 +1,65 @@
 ---
 id: project-dashboard
 title: Using the Project Dashboard
-sidebar_label: Metrics, Logs, Builds
+sidebar_label: Test Results and Insights
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The API Testing Dashboard &#8212; accessible from with a Project &#8212; displays metrics,  logs, and build giving you insight into your tests. It centralizes testing management reporting and facilitates team collaboration.
+The API Testing Dashboard &#8212; accessible from with a Project &#8212; displays metrics, logs, and builds, giving you insight into your tests. It centralizes testing management reporting and facilitates team collaboration.
 
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
+* An existing API Test. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
+
+
+## Test Outcome Reports
+The API Testing **Test Outcome Report** includes input data details and other useful test information, such as reasons for failure, HTTP request and response status codes.
+
+To learn how to access Test results, see [API Testing Quickstart](/api-testing/quickstart). Here's an example of a full report:
+<img src={useBaseUrl('img/api-fortress/2021/02/fullReport.png')} alt="Test Report Primer Image" width="700" />
+
+#### Session Details
+Timestamp, execution type, and metadata about the execution of the test (e.g., _Date_, _Mode_, and _Execution Time_).
+<img src={useBaseUrl('img/api-fortress/2021/02/sessionDetails.png')} alt="Test Report Primer Image" width="300" />
+
+#### General Details
+Test name, test status (pass or fail), project.
+<img src={useBaseUrl('img/api-fortress/2021/02/generalDetails.png')} alt="Test Report Primer Image" width="200" />
+
+#### Request Component
+Shows the specific component that you tested. To view granular details about requests and headers, click **See Stack Details**.
+<img src={useBaseUrl('img/api-fortress/2021/02/requestComponent.png')} alt="Test Report Primer Image" width="650" />
+
+#### Assertions
+Gray dot indicates a pass, red dot indicates a fail, and yellow dot indicates a warning.
+<img src={useBaseUrl('img/api-fortress/2021/02/assertions.png')} alt="Test Report Primer Image" width="500" />
+
 
 
 ## Test Logs
 
 To view Test logs:
 
-1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+1. Log in to Sauce Labs, then click **API Testing**.
 2. Click on any Project, then click the **Dashboard** tab.<br/><img src={useBaseUrl('img/api-fortress/2021/02/dash-1.2.png')} alt="Dashboard Pic 1.2" width="300" />
-3. From inside the **Dashboard**, select **Logs**.<br/><img src={useBaseUrl('img/api-fortress/2021/02/dashboardLogs.png')} alt="Dashboard Logs"/>
+3. From **Dashboard**, select **Logs**.<br/><img src={useBaseUrl('img/api-fortress/2021/02/dashboardLogs.png')} alt="Dashboard Logs"/>
 4. Set desired filters to find the test(s) you're looking for, then click **Apply**. Available filters are: date range, tags, event type, and mode (Monitoring (Scheduled) Tests or On-Demand Tests).<br/><img src={useBaseUrl('img/api-fortress/2021/02/dashboardFilters.png')} alt="Dashboard Logs Filters"/>
 
-### Test Reports
-
-If you hover your mouse over a line item, then click the kebab icon (three dots), you'll see the option to go to the [Test Outcome Report](/api-testing/test-reports/).<br/><img src={useBaseUrl('img/api-fortress/2021/02/dashboardReport.png')} alt="Dashboard Report" width="500"/>
+To view the [Test Outcome Report](#test-outcome-reports/), hover your mouse over a line item, then click the kebab icon (three dots):<br/><img src={useBaseUrl('img/api-fortress/2021/02/dashboardReport.png')} alt="Dashboard Report" width="500"/>
 
 
 ## Test Metrics
 
-To view Test performance metrics (latency and fetch) within a Project:
+To view Test performance metrics (latency and fetch):
 
 1. Follow steps 1 and 2 from [Test Logs](#test-logs).
 2. From inside the **Dashboard**, select **Metrics**.<br/><img src={useBaseUrl('img/api-fortress/2021/02/metrics.png')} alt="Dashboard Metrics"/>
 3. Set the start and end date filters, if desired.<br/><img src={useBaseUrl('img/api-fortress/2021/02/metricsFilters.png')} alt="Dashboard Metrics Filters"/>
 
 
-## Test Builds
+## Test Build Reports
 
 If you have Sauce Labs API Testing integrated into your CI/CD pipeline, you can launch several API tests simultaneously and group them as a build by [passing the `-b <build ID>` flag to the required `apifctl` commands](/api-testing/integrations/apifctl-cicd-integration/#-b-build-id).
 
@@ -47,8 +69,6 @@ These test results are collected in the Project Dashboard **Builds** section, lo
 
 <img src={useBaseUrl('img/api-testing/dashboard/builds1.png')} alt="Dashboard Builds"/>
 
-
-### Build Reports
 
 From each Build line item, you can click to see a summary report containing the following details:
 * **Build ID**
@@ -61,25 +81,6 @@ From each Build line item, you can click to see a summary report containing the 
 <img src={useBaseUrl('img/api-testing/dashboard/builds2.png')} alt="Dashboard Builds"/>
 
 
-## Email Notifications
-
-Email notifications will alert you when a test starts failing, and notify you again when the test is back in full working order. The incident identifier number, used to track the events, will be the same as the test ID.
-
-To enable this feature:
-1. Select the **Settings** tab.
-1. Click **Email Notifications**.
-1. Enter your email address.
-1. Select **Save Changes**.<br/><img src={useBaseUrl('img/api-fortress/2021/02/dash-1.5.png')} alt="Dashboard Pic 1.5"/>
-
-
-:::tip
-Use the [Fact component](/api-testing/composer/other-components/#fact) to control the behavior of email notifications. This can be if you're testing in multiple environments.
-
-:::
-
 
 ## More Information
-
-- [Fact Component](/api-testing/composer/other-components/#fact)
-- [Writing Tests with the Composer](/api-testing/composer/)
-- [Test Outcome Reports](/api-testing/test-reports)
+- [Composing API Tests](/api-testing/composer/)
