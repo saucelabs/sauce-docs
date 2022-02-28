@@ -8,6 +8,8 @@ keywords:
     - github
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Github is a valuable platform to use when you want to pull files and use them as a datasource. Some examples are CSVs and JSON files. Below is a walk through on how to make them work.
@@ -19,7 +21,7 @@ Github is a valuable platform to use when you want to pull files and use them as
 - <img src={useBaseUrl('img/api-fortress/2018/04/1.png')} alt="1.png" />
 
   When creating the token make sure you're selecting the **`public_repo`** subcategory or the **`repo`** category based on which type of repository that will host your input data.
-  
+
   <img src={useBaseUrl('img/api-fortress/2018/04/2.png')} alt="2.png" />
 
   Keep in mind that GitHub will show you the token only once, so make sure you’re copying and pasting it somewhere safe and accessible.
@@ -28,9 +30,9 @@ Github is a valuable platform to use when you want to pull files and use them as
 
 - Commit and push a data source file. It can be a CSV, JSON or XML file. We will use a CSV file for the purposes of this example.
   <img src={useBaseUrl('img/api-fortress/2018/04/3.png')} alt="3.png" />
-  
+
 ## Create a simple test
-    
+
 - Create a test
 
 - Introduce the GitHub component and configure it accordingly
@@ -50,7 +52,7 @@ Github is a valuable platform to use when you want to pull files and use them as
 - (Optional) Run the test:
   <img src={useBaseUrl('img/api-fortress/2018/04/6.png')} alt="6.png" />
 
-- Now, let’s iterate over a subset of this input set. Introduce a selection strategy if necessary: 
+- Now, let’s iterate over a subset of this input set. Introduce a selection strategy if necessary:
   <img src={useBaseUrl('img/api-fortress/2018/04/7.png')} alt="7.png" />
 
   This will iterate over a subset of 5 randomly selected items. Other strategies are described in Appendix A
@@ -88,35 +90,35 @@ Moreover, the readability of the resulting document may degrade when trying to d
 
 Here’s a slicing technique we suggest to ease these points.
 
-- Introduce the following 2 variables in the global parameters: 
+- Introduce the following 2 variables in the global parameters:
   <img src={useBaseUrl('img/api-fortress/2018/04/13.png')} alt="13.png" />
 
-- Use the following expression in your each statement: 
-  
+- Use the following expression in your each statement:
+
   ```js
   inputData[offset.toInteger().offset.toInteger()+limit.toInteger()]
   ```
-  
-  Which reads: _slice inputData from the offset index to the offset+limit index_ 
-  
+
+  Which reads: _slice inputData from the offset index to the offset+limit index_
+
   :::note
-  The `toInteger()` command is required as variables are always strings and we need to work with numbers. 
+  The `toInteger()` command is required as variables are always strings and we need to work with numbers.
   :::
-  
+
   By doing so we are setting a baseline: as a default test input data from index 0 to index 99.
 
 - Introduce as many environments as the slices count, overriding the offset variable
-  
+
   <img src={useBaseUrl('img/api-fortress/2018/04/15.png')} alt="15.png" />
 
   Now you can run the test on specific 100 elements slices, by selecting the environment.
-  
+
   <img src={useBaseUrl('img/api-fortress/2018/04/16.png')} alt="16.png" />
-  
+
   <img src={useBaseUrl('img/api-fortress/2018/04/17.png')} alt="17.png" />
 
   <img src={useBaseUrl('img/api-fortress/2018/04/18.png')} alt="18.png" />
 
 - Finally, you can schedule your slices accordingly:
-  
+
   <img src={useBaseUrl('img/api-fortress/2018/04/19.png')} alt="19.png" />

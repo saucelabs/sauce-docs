@@ -10,6 +10,8 @@ keywords:
     - onpremises
 ---
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 When running a self-hosted/on-premises installation, you will certainly want to run periodic backups of all your data.
 
 In this article, we will provide you the scripts to perform a data dump of API Fortress. You will then need to wire them up in your scheduled operations system, such as `cron`.
@@ -42,7 +44,7 @@ sudo docker run --rm --net apifortress --link core_apifortress-postgres_1:postgr
 sudo docker-compose stop
 ```
 
-2. Remove all data files from your persistent volume on the host machine. 
+2. Remove all data files from your persistent volume on the host machine.
 
 :::caution Extreme Caution
 This will erase all your current data. Make sure that the backup you are going to restore is available. If unsure, just MOVE the current data to another location.
