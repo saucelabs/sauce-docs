@@ -15,7 +15,7 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-* An existing, published API test. For details on how to create one, see the [Quickstart](/api-testing/quickstart/).
+* An existing API test. To learn how to create one, see the [Quickstart](/api-testing/quickstart/).
 
 ## Project Methods
 
@@ -30,11 +30,11 @@ Returns the details of a project.
 
 <table id="table-api">
   <tbody>
-    <tr>
-     <td><code>hookId</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The hook ID, which you can retrieve from your dashboard.</p></td>
-    </tr>
-  </tbody>
+   <tr>
+    <td><code>hookId</code></td>
+    <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Your project's hook ID, which you can create and/or retrieve from your project's <strong>Webhooks</strong> tab.</p></td>
+  </tr>
+</tbody>
 </table>
 
 
@@ -129,11 +129,11 @@ Returns a list of all tests within a project.
 
 <table id="table-api">
   <tbody>
-    <tr>
-     <td><code>hookId</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The hook ID, which you can retrieve from your dashboard.</p></td>
-    </tr>
-  </tbody>
+   <tr>
+    <td><code>hookId</code></td>
+    <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Your project's hook ID, which you can create and/or retrieve from your project's <strong>Webhooks</strong> tab.</p></td>
+  </tr>
+</tbody>
 </table>
 
 
@@ -184,9 +184,9 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Response"
 [{
     "id": "621ad2cefd17a5416b299e97",
-    "name": "Get dog breeds",
-    "description": "Lists all dog breeds",
-    "lastModified": "2022-02-27T05:19:31Z",
+    "name": "List all dog breeds",
+    "description": "Returns a list of all dog breeds",
+    "lastModified": "2022-02-27T07:02:35Z",
     "tags": ["dogs", "doggos"],
     "user": {
         "id": "21b27f2d2aaa4a5c88c8c19df25857d3",
@@ -195,7 +195,26 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "complete": true,
     "status": {
         "success": true,
-        "lastUpdate": "2022-02-27T01:24:59Z"
+        "lastUpdate": "2022-02-27T08:58:01Z"
+    },
+    "schedules": {
+        "total": 1,
+        "active": 1
+    }
+}, {
+    "id": "621b20e8fd17a5416b299e9d",
+    "name": "List all sub-breeds: retrievers",
+    "description": "Returns an array of all the sub-breeds from a breed",
+    "lastModified": "2022-02-27T07:05:25Z",
+    "tags": ["dogs", "retrievers"],
+    "user": {
+        "id": "21b27f2d2aaa4a5c88c8c19df25857d3",
+        "name": "first.last"
+    },
+    "complete": true,
+    "status": {
+        "success": true,
+        "lastUpdate": "2022-02-27T09:47:33Z"
     },
     "schedules": {
         "total": 1,
@@ -219,11 +238,11 @@ Uploads a new test or modifies the test if it already exists.
 
 <table id="table-api">
   <tbody>
-    <tr>
-     <td><code>hookId</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The hook ID, which you can retrieve from your dashboard.</p></td>
-    </tr>
-  </tbody>
+  <tr>
+   <td><code>hookId</code></td>
+   <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Your project's hook ID, which you can create and/or retrieve from your project's <strong>Webhooks</strong> tab.</p></td>
+  </tr>
+</tbody>
 </table>
 
 
@@ -293,17 +312,17 @@ Returns the details of a test.
 
 <table id="table-api">
   <tbody>
-    <tr>
-     <td><code>hookId</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The hook ID, which you can retrieve from your dashboard.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>testId</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The test.</p></td>
-    </tr>
-  </tbody>
+  <tr>
+    <td><code>hookId</code></td>
+    <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Your project's hook ID, which you can create and/or retrieve from your project's <strong>Webhooks</strong> tab.</p></td>
+  </tr>
+ </tbody>
+ <tbody>
+  <tr>
+   <td><code>testId</code></td>
+   <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The test ID. To find it, go to your project > <strong>Tests</strong> tab > Hover over your test and click <strong>Edit</strong> > Grab the test ID from your browser's URL (<code>https://app.saucelabs.com/api-testing/project/&#123;projectId&#125;/test/<strong>&#123;testId&#125;</strong>/compose</code>).</p></td>
+  </tr>
+</tbody>
 </table>
 
 
@@ -405,7 +424,7 @@ Runs a single test.
   <tbody>
     <tr>
      <td><code>testId</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The test ID. To find it, go to your project > <strong>Tests</strong> tab > Hover over your test and click <strong>Edit</strong> > Grab the test ID from your browser's URL (https://app.saucelabs.com/api-testing/project/&#123;projectId&#125;/test/<strong>&#123;testId&#125;</strong>/compose).</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The test ID. To find it, go to your project > <strong>Tests</strong> tab > Hover over your test and click <strong>Edit</strong> > Grab the test ID from your browser's URL (<code>https://app.saucelabs.com/api-testing/project/&#123;projectId&#125;/test/<strong>&#123;testId&#125;</strong>/compose</code>).</p></td>
     </tr>
   </tbody>
 </table>
@@ -473,7 +492,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_run-all</code></summary>
 <p/>
 
-Runs all the tests in a project.
+Runs all tests in a project.
 
 #### Parameters
 
@@ -482,12 +501,6 @@ Runs all the tests in a project.
     <tr>
      <td><code>hookId</code></td>
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Your project's hook ID, which you can create and/or retrieve from your project's <strong>Webhooks</strong> tab.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>testId</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The test ID. To find it, go to your project > <strong>Tests</strong> tab > Hover over your test and click <strong>Edit</strong> > Grab the test ID from your browser's URL (https://app.saucelabs.com/api-testing/project/&#123;projectId&#125;/test/<strong>&#123;testId&#125;</strong>/compose).</p></td>
     </tr>
   </tbody>
 </table>
@@ -556,7 +569,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_tag/&#123;tag&#125;/_run</code></summary>
 <p/>
 
-Runs all the tests in a project matching a tag.
+Runs all tests in a project matching a tag.
 
 #### Parameters
 
@@ -570,7 +583,7 @@ Runs all the tests in a project matching a tag.
   <tbody>
     <tr>
      <td><code>tag</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>A test tag.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>A test tag, which you can find in your project's <strong>Tests</strong> tab.</p></td>
     </tr>
   </tbody>
 </table>
@@ -664,7 +677,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/_exec-sync' | json_pp
 ```
 
 </TabItem>
@@ -672,7 +686,8 @@ values={[
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/_exec-sync' | json_pp
 ```
 
 </TabItem>
@@ -696,6 +711,8 @@ values={[
 </table>
 
 ```jsx title="Sample Response"
+
+?
 
 ```
 
@@ -725,7 +742,7 @@ Runs a single test synchronously.
   <tbody>
     <tr>
      <td><code>testId</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The test ID. To find it, go to your project > <strong>Tests</strong> tab > Hover over your test and click <strong>Edit</strong> > Grab the test ID from your browser's URL (https://app.saucelabs.com/api-testing/project/&#123;projectId&#125;/test/<strong>&#123;testId&#125;</strong>/compose).</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The test ID. To find it, go to your project > <strong>Tests</strong> tab > Hover over your test and click <strong>Edit</strong> > Grab the test ID from your browser's URL (<code>https://app.saucelabs.com/api-testing/project/&#123;projectId&#125;/test/<strong>&#123;testId&#125;</strong>/compose</code>).</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -885,13 +902,14 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 </details>
 
+---
 
 ### Run All Tests Synchronously
 
 <details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_run-all-sync</code></summary>
 <p/>
 
-Run all tests in a project synchronously.
+Runs all tests in a project synchronously.
 
 #### Parameters
 
@@ -922,8 +940,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-
-
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/_run-all-sync' | json_pp
 ```
 
 </TabItem>
@@ -931,8 +949,8 @@ values={[
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-
-
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/_run-all-sync' | json_pp
 ```
 
 </TabItem>
@@ -1150,8 +1168,8 @@ Run all tests in a project synchronously.
   </tbody>
   <tbody>
     <tr>
-     <td><code>tag</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>A test tag.</p></td>
+    <td><code>tag</code></td>
+    <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>A test tag, which you can find in your project's <strong>Tests</strong> tab.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1497,6 +1515,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 </details>
 
+---
 
 ### Get Event Details
 
