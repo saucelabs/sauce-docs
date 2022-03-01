@@ -11,22 +11,29 @@ After you run an API Test, you can view your results, reporting, and analytics t
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* An existing API Test. For details on how to create one, see the [Quickstart](/api-testing/quickstart/).
+* An existing API Test that's been run. For details on how to create one, see the [Quickstart](/api-testing/quickstart/).
 
 
 ## Test Outcome Report
 The **Test Outcome Report** includes input data details and other useful test information, such as reasons for failure, HTTP requests, and response status codes.
 
-There are two ways to access it:
-* From your Test's **Compose** section, after you've run the Test (see [API Testing Quickstart](/api-testing/quickstart).
-* From your Project's **Dashboard**, by clicking on any Test line item
+There are three ways to access it:
+* From your Project's **Tests** section, click on any Test line item
+* From your Project's **Dashboard** section, click on any Test line item
+* From your Test's **Compose** section, in the [right-hand nav](/api-testing/quickstart/#view-test-results).
 
-Here's a breakdown of what each **Test Outcome Report** contains:
-* Test Report Details: metadata about the execution of the test, such as Test Name, Project Name, and Mode (Scheduled or On Request)<br/><img src={useBaseUrl('img/api-fortress/2021/02/sessionDetails.png')} alt="Test Report" width="500" />
-* Outcome (pass/fail status):<br/><img src={useBaseUrl('img/api-fortress/2021/02/outcome.png')} alt="Test Report" width="200" />
-* Assertions: your Test assertions, where a gray dot indicates a pass, red dot indicates a fail, and yellow dot indicates a warning<br/><img src={useBaseUrl('img/api-fortress/2021/02/assertions.png')} alt="Test Report Primer Image" width="500" />
-* Request Components: shows the specific component(s) that you tested.<br/><img src={useBaseUrl('img/api-fortress/2021/02/requestComponent.png')} alt="Test Report Primer Image" width="200" />
-* Stack Details: click this to view granular details about requests and headers.<br/><img src={useBaseUrl('img/api-fortress/2021/02/stackDetails.png')} alt="Test Report Primer Image" width="150" /><br/><img src={useBaseUrl('img/api-fortress/2021/02/stackDetails-expanded.png')} alt="Stack details" width="250" />
+### Reviewing Results
+Here's a breakdown of what each report contains:
+
+**Test Report Details**: metadata about the execution of the test, such as Test Name, Project Name, and Mode (Scheduled or On Request)<br/><img src={useBaseUrl('img/api-fortress/2021/02/sessionDetails.png')} alt="Test Report" width="400" />
+
+**Outcome** (pass/fail status):<br/><img src={useBaseUrl('img/api-fortress/2021/02/outcome.png')} alt="Test Report" width="150" />
+
+**Assertions**: your Test assertions, where a gray dot indicates a pass, red dot indicates a fail, and yellow dot indicates a warning<br/><img src={useBaseUrl('img/api-fortress/2021/02/assertions.png')} alt="Test Report Primer Image" width="450" />
+
+**Request Components**: shows the specific component(s) that you tested.<br/><img src={useBaseUrl('img/api-fortress/2021/02/requestComponent.png')} alt="Test Report Primer Image" width="200" />
+
+**Stack Details**: click this to view granular details about requests and headers.<br/><img src={useBaseUrl('img/api-fortress/2021/02/stackDetails.png')} alt="Test Report Primer Image" width="150" /><br/><img src={useBaseUrl('img/api-fortress/2021/02/stackDetails-expanded.png')} alt="Stack details" width="250" />
 
 
 ## Dashboard
@@ -51,7 +58,7 @@ To view Test performance metrics (latency and fetch):
 2. Click on any Project.
 3. Click the **Dashboard** tab.
 4. Select the **Metrics** radio button.
-5. Select desired filters to find the Test(s) you're looking for, then click **Apply**. Filters include, but are not limited to: date range, footprint (the request URL), and tag(s).<br/><img src={useBaseUrl('img/api-fortress/2021/02/metricsFilters.png')} alt="Dashboard Metrics Filters"/>
+5. Select desired filters to find the Test(s) you're looking for, then click **Apply**. Filters include date range and footprint (the request URL).<br/><img src={useBaseUrl('img/api-fortress/2021/02/metricsFilters.png')} alt="Dashboard Metrics Filters"/>
 
 
 ### Test Build Reports

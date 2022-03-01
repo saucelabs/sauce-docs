@@ -82,7 +82,7 @@ The JSON response &#8212; in this case, a list of dog breeds &#8212; will popula
 1. In the right-hand nav, under **Test Runs**, you'll see that a new line item has populated with the name of your test. If successful, you'll see a green checkmark indicator and **Completed with success** message.<br/><img src={useBaseUrl('img/api-fortress/2021/01/testRuns.png')} alt="Test Runs Section" width="300" />
 
 
-## Review Test Results
+## View Test Results
 
 1. To view your test results, hover your mouse over your test line item and click **Open report document**.<br/><img src={useBaseUrl('img/api-fortress/2021/01/testResultsOpen.png')} alt="Open Test Results" width="200" />
 
