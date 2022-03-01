@@ -392,7 +392,6 @@ module.exports = {
                     label: 'Unity',
                     collapsed: true,
                     items: [
-                        'error-reporting/platform-integrations/unity',
                         'error-reporting/platform-integrations/unity/setup',
                         'error-reporting/platform-integrations/unity/configuration',
                         'error-reporting/platform-integrations/unity/attributes',
@@ -403,7 +402,6 @@ module.exports = {
                     label: 'Unreal Engine',
                     collapsed: true,
                     items: [
-                        'error-reporting/platform-integrations/unreal',
                         'error-reporting/platform-integrations/unreal/setup',
                     ],
                 },

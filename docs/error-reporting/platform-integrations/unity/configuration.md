@@ -50,15 +50,6 @@ Alternatively, you can also specify the configuration settings in your C# projec
 
 ### Backtrace Database
 
-<details>
-  <summary>Enable Stack Traces for WebGL</summary>
-  <div>
-  In your Unity project's Player Settings:
-  <ul><li>Under Publishing Settings, set Enable Exceptions to 'Full With Stacktrace'.</li>
-  <img src={useBaseUrl('img/error-reporting/unity-webgl-player-settings-enable-exceptions.png')} alt="Player setting in Unity required to enable stack traces for WebGL." /></ul>
-  </div>
-</details>
-
 |Setting|Description|Type|Default|
 |---------|---------|---------|---------|
 |Enable Database|Enables an offline database to store reports locally.|Boolean|False|
@@ -73,6 +64,12 @@ Alternatively, you can also specify the configuration settings in your C# projec
 |Retry interval|The amount of time (in seconds) to wait between retries if the database is unable to send a report.|Number|60|
 |Maximum retries|The maximum number of retries to attempt if the database is unable to send a report.|Number|3|
 |Retry order (FIFO/LIFO)|The order in which reports are sent to the Backtrace server: <ul><li>If you set the value to 'Queue' (FIFO), then the first report into the queue is the first report to leave the queue.</li> <li>If you set the value to 'Stack' (LIFO), then the last report into the stack is the last report to leave the stack.</li></ul>|Enum|Stack|
+
+#### Enable Stacktraces for WebGL
+To enable stacktraces for WebGL, in your Unity project's Player Settings, under Publishing Settings, set Enable Exceptions to 'Full With Stacktrace'.
+
+<img src={useBaseUrl('img/error-reporting/unity-webgl-player-settings-enable-exceptions.png')} alt="Player setting in Unity required to enable stack traces for WebGL." />
+
 
 ### Advanced Client Settings
 
@@ -130,35 +127,25 @@ You can also add custom metrics groups and attributes with [`backtraceClient.Ins
 
 For more information about other data that is captured, see [Attributes](/error-reporting/platform-integrations/unity/attributes).
 
-
-#### Uploading Debug Symbols
-
-You can configure the Backtrace client to automatically upload debug symbols in IL2CPP builds for Android apps.
-
-To generate a symbol upload token, in Backtrace go to Project Settings > Symbols > Access tokens > and select + to generate a new token.
-
-For more information about debug symbols, see [add link to product guide].
-
-  <details>
-    <summary>Unity Project Settings</summary>
-    <div>
-    To automatically upload debug symbols to Backtrace:
-    <ul><li> In the Build Settings, set Create symbols.zip to 'Debugging'.</li>
-    <img src={useBaseUrl('img/error-reporting/unity-android-build-settings-debug-symbols.png')} alt="Build setting required to upload debug symbols to Backtrace for Android builds." />
-    <li>In the Player Settings, set Scripting Backend to 'IL2CPP'.</li>
-    <img src={useBaseUrl('img/error-reporting/unity-android-player-settings-debug-symbols.png')} alt="Player setting required to upload debug symbols to Backtrace for Android builds." /></ul>
-    </div>
-  </details>
-
-
   |Setting|Description|Type|Default|
   |---------|---------|---------|---------|
   |Capture native crashes|Captures and symbolicates stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start.|Boolean|True|
   |Capture ANR (Application not responding)|Generates an error report whenever an app hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.|Boolean|True|
   |Send Out of Memory exceptions to Backtrace|Detects low memory conditions. If the app crashes due to a memory condition, a crash report will be submitted to Backtrace with the `memory.warning` and `memory.warning.date` attributes.|Boolean|False|
   |Enable client-side unwinding|Enables call stack unwinding. If you're unable to upload all debug symbols for your app, you can use this setting to get debug information. Available only for supported versions of Android (NDK 19; Unity 2019+). <br /><br /> You can also enable this setting via the [`BacktraceConfiguration`](/error-reporting/platform-integrations/unity/configuration/#backtraceclient) object and the `.ClientSideUnwinding = true;` option.|Boolean|False|
-  |Symbols upload token|Required to automatically upload debug symbols to Backtrace.|String|
+  |Symbols upload token|Required to automatically upload debug symbols to Backtrace. <br /> <br /> To generate a symbol upload token, in Backtrace go to Project Settings > Symbols > Access tokens > and select + to generate a new token.|String|
 
+#### Uploading Debug Symbols
+
+You can configure the Backtrace client to automatically upload debug symbols in IL2CPP builds for Android apps.
+
+To enable automatic upload of debug symbols, in your Unity project's Android settings:
+- In the Build Settings, set Create symbols.zip to 'Debugging'.
+<img src={useBaseUrl('img/error-reporting/unity-android-build-settings-debug-symbols.png')} alt="Build setting required to upload debug symbols to Backtrace for Android builds." />
+- In the Player Settings, under Configuration (Other Settings), set Scripting Backend to 'IL2CPP'.
+<img src={useBaseUrl('img/error-reporting/unity-android-player-settings-debug-symbols.png')} alt="Player setting required to upload debug symbols to Backtrace for Android builds." />
+
+For more information about debug symbols, see [add link to product guide].
 
   </TabItem>
   <TabItem value="ios">  
@@ -172,38 +159,29 @@ The Backtrace Unity SDK includes support for capturing native crashes, as well a
 
 For more information about other data that is captured, see [Attributes](/error-reporting/platform-integrations/unity/attributes).
 
-<details>
-  <summary>Unity Project Settings</summary>
-  <div>
-  To allow Backtrace to capture native crashes:
-  <ul><li> In the Player Settings, set Enable CrashReport API to 'False'.
-  <img src={useBaseUrl('img/error-reporting/unity-ios-player-settings-native-crashes.png')} alt="Player setting required to allow Backtrace to capture native crashes and exceptions." /></li></ul>
-  </div>
-</details>
+|Setting|Description|Type|Default|
+|---------|---------|---------|---------|
+|Capture native crashes|Captures and symbolicates stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start.|Boolean|True|
+|Capture ANR (Application not responding)|Generates an error report whenever an app does not respond or hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.|Boolean|True|
+|Send Out of Memory exceptions to Backtrace|Captures snapshots of the app's state when there is a low memory condition. If the app crashes due to a low memory condition, the information is sent to Backtrace. Snapshots are captured every 2 minutes as long as the low memory condition persists.|Boolean|False|
+
+:::caution
+Unity's CrashReport API might prevent the Backtrace client from sending crashes. To allow Backtrace to capture native crashes, in your Unity project's Player Settings for iOS, under Debugging and crash reporting, make sure that Enable CrashReport API is set to 'False'.
+<img src={useBaseUrl('img/error-reporting/unity-ios-player-settings-native-crashes.png')} alt="Player setting required to allow Backtrace to capture native crashes and exceptions." />
+:::
 
 #### Uploading Debug Symbols
 
 When building your iOS game in Xcode, make sure to configure the build settings to generate dSYM files for any build that you want to debug with Backtrace. By default, Xcode may only generate DWARF files.
 
+To generate debug symbols in dSYM format, in the Build Settings for your Xcode project, set Debug Information Format to 'DWARF with dSYM File'.
+
+<img src={useBaseUrl('img/error-reporting/xcode-enable-debug-symbols.png')} alt="Build setting in Xcode required to generate debug symbols for iOS builds." />
+
 You can find the dSYM files in the Build folder for your project (`.../Build/Products/<build target folder>`), which you can then compress into a .zip file and upload to Backtrace.
 
 For more information about debug symbols, see [add link to product guide].
 
-<details>
-  <summary>Xcode Project Settings</summary>
-  <div>
-  To generate debug symbols in Xcode:
-  <ul><li>In your project's Build Settings, set Debug Information Format to 'DWARF with dSYM File'.</li>
-  <img src={useBaseUrl('img/error-reporting/xcode-enable-debug-symbols.png')} alt="Build setting in Xcode required to generate debug symbols for iOS builds." /></ul>
-  </div>
-</details>
-
-
-  |Setting|Description|Type|Default|
-  |---------|---------|---------|---------|
-  |Capture native crashes|Captures and symbolicates stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start.|Boolean|True|
-  |Capture ANR (Application not responding)|Generates an error report whenever an app does not respond or hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.|Boolean|True|
-  |Send Out of Memory exceptions to Backtrace|Captures snapshots of the app's state when there is a low memory condition. If the app crashes due to a low memory condition, the information is sent to Backtrace. Snapshots are captured every 2 minutes as long as the low memory condition persists.|Boolean|False|
 
   </TabItem>
   <TabItem value="windows">

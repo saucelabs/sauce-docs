@@ -4,14 +4,40 @@ title: Setting Up Backtrace for Unity
 sidebar_label: Setup
 description: Add Backtrace to your Unity project.
 ---
-Add Backtrace to your Unity project. After you've completed the steps on this page, the Backtrace client will be installed and setup with the default configuration settings.
+Add Backtrace to your Unity project to automatically detect and report crashes and errors that occur in your apps and games.
+
+After you've completed the steps on this page, the Backtrace client will be installed and setup with the default configuration settings.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## What You'll Need
+## Features
+The Backtrace Unity SDK reports on the following types of errors:
 
+* Log errors - Error messages in the console log. Logged by Debug.LogError (a variant of Debug.Log).
+* Unhandled Exceptions - Exceptions that occur outside of an explicit try/catch statement.
+* Handled exceptions - Exceptions that are explicitly caught and handled.
+* Crashes - An end to the game play experience, where the game crashes or restarts.
+* Hangs (mobile only) -  Errors that occur when a game or an app is non-responsive.
+* Out of memory crashes (mobile only) - Terminations of your game or app due to low memory conditions.
+* Message reports - Error messages explicitly sent by the Backtrace client.
+
+
+## Supported Platforms
+|Supported Platforms|Supported Systems|
+|---------|---------|
+|Mobile|Android, iOS|
+|PC|Windows, MacOS|
+|Web|WebGL|
+|Game Consoles|PlayStation 4, PlayStation 5, Xbox One, Xbox Series X, Nintendo Switch, Google Stadia|
+
+:::note
+Offline database capabilities are currently not supported for Nintendo Switch.
+:::
+
+
+## What You'll Need
  * A Backtrace account (if you don't already have one, start a [free trial](https://register.backtrace.io/signup/)).
  * A Backtrace project and [submission token].
 
@@ -21,11 +47,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 :::
 
 ### System Requirements
-
 * Unity Editor version 2018.4 or higher
 
 ### Player Configuration Settings
-
 Backtrace supports the following player configuration settings for Unity:
 
  * Scripting Backend: Mono or IL2CPP
@@ -33,7 +57,6 @@ Backtrace supports the following player configuration settings for Unity:
 
 
 ## Install the Backtrace Unity SDK
-
 The following methods are available to install the Backtrace Unity SDK.
 
 <Tabs
@@ -86,7 +109,6 @@ This installation method is supported for Unity 2018.3 or higher.
 </Tabs>
 
 ## Initialize the Backtrace Client with GameObject
-
 In this step, you create the Backtrace Configuration asset, create a new GameObject, add the Backtrace Client component to the GameObject, then add the Backtrace Configuration to the Backtrace Client component.
 
 You can add the Backtrace Client component to any GameObject in your game scene.
@@ -116,7 +138,6 @@ To change Backtrace client and database options, we recommend to change these va
 For more information about the available configuration options, see [Configuration](/error-reporting/platform-integrations/unity/configuration).
 
 ## Enter the Server Address
-
 The server address is required to submit exceptions from your Unity project to your Backtrace instance.
 
   1. In the Backtrace Console, go to Project Settings > Integration Guides > Unity.
@@ -129,7 +150,6 @@ The server address is required to submit exceptions from your Unity project to y
 
 
 ## Throw an Exception
-
 At this point, you've installed and setup the Backtrace client to automatically capture crashes and exceptions in your Unity game or app.
 
 To test the integration, use a try/catch block to throw an exception and start sending reports.
