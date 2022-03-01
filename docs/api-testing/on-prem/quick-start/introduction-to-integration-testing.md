@@ -5,6 +5,10 @@ sidebar_label: Intro to Integration Testing
 description: "Integration testing is a core feature of the API Fortress platform. Watch our video about how to write an Integration Test. Follow along with the demo video in the API Fortress platform here: Quick Integration Demo. Integration testing is critical to creating a strong API testing strategy. Microservices are built to work together."
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
 >**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

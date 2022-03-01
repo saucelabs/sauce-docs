@@ -8,6 +8,10 @@ keywords:
     - composer-snippets
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
 >**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 A snippet is a fragment of test, stored in [the Vault](/api-testing/on-prem/quick-start/the-vault), that can be reused in multiple tests.
