@@ -53,8 +53,8 @@ In either case, the command generates a `.sauce/config.yml` folder and file in t
     </tr>
     <tr>
      <td><span className="t-cli"><a href="#--artifactsdownloadwhen">--artifacts.download.when</a></span></td>
-     <td><span className="t-cli">-f</span></td>
-     <td>The framework for which this configuration is intended.</td>
+     <td><span className="t-cli">-???</span></td>
+     <td>When to download the artifacts for this service???</td>
     </tr>
     <tr>
      <td><span className="t-cli"><a href="#--browsername">--browserName</a></span></td>
