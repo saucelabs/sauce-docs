@@ -9,6 +9,10 @@ keywords:
     - SSL/TLS
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
 >**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 **Definition:** Mutual SSL authentication or certificate\-based mutual authentication, or client-side SSL authentication refers to two parties authenticating each other through verifying the provided digital certificate so that both parties are assured of the others' identity

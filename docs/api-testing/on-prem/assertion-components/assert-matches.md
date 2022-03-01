@@ -5,6 +5,10 @@ sidebar_label: Assert Matches
 description: "This assertion is used to check if the element value described by the expression matches a knowledge base of some kind."
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
 >**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 This assertion is used to check if the element value described by the expression matches a knowledge base of some kind. For example a _US Zipcode_ or a _State_. This also gives you the ability to write your own regex (regular expression).

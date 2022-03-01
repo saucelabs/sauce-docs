@@ -5,6 +5,10 @@ sidebar_label: Assert Contains
 description: "This assertion is used to check if the element described by the expression contains a specific substring."
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
 >**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 This assertion is used to check if the element described by the expression contains a specific substring. For example, to test the word _Uber_ is in Uber's product names (_UberX, UberBlack, UberPool_).
