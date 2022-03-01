@@ -5,6 +5,10 @@ sidebar_label: Load Testing
 description: "Introduction API Fortress Load Testing is more than stress testing: it’s functional load testing. Rather than simply overburdening a server with requests, API Fortress Load Testing directs properly formatted requests to the appropriate endpoints and records failures at an API endpoint level."
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
 >**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
