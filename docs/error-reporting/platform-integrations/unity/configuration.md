@@ -42,7 +42,7 @@ Alternatively, you can also specify the configuration settings in your C# projec
 
 |Setting|Description|Type|Default|
 |---------|---------|---------|---------|
-|Server Address|The [server address](/error-reporting/platform-integrations/unity/setup/#step-3-enter-the-server-address) (submission URL) is required to submit exceptions from your Unity project to your Backtrace instance. <br /><br />The Server Address must be in the following format: `https://submit.backtrace.io/<subdomain-name>/<submission-token>/json`.|String|
+|Server Address|The [server address](/error-reporting/platform-integrations/unity/setup/#step-3-enter-the-server-address) (submission URL) is required to submit exceptions from your Unity project to your Backtrace instance. <br /><br />The Server Address must be in the following format: `https://submit.backtrace.io/{subdomain-name}/{submission-token}/json`.|String|
 |Handle unhandled exceptions|Handles unhandled exceptions that are not captured by try/catch statements.|Boolean|True|
 |Reports per minute|Limits the number of reports the client will send per minute. <ul><li>If set to '0', there is no limit.</li> <li>If set to a value greater than '0' value and the value is reached, the client will not send any reports until the next minute.</li></ul> The `BacktraceClient.Send` and `BacktraceClient.SendAsync` methods will return 'false'.|Number|50|
 |Ignore SSL validation|By default, Unity validates SSL certificates. If you don't want to validate SSL certificates, set the value to 'true'.|Boolean|False|
@@ -145,7 +145,7 @@ To enable automatic upload of debug symbols, in your Unity project's Android set
 - In the Player Settings, under Configuration (Other Settings), set Scripting Backend to 'IL2CPP'.
 <img src={useBaseUrl('img/error-reporting/unity-android-player-settings-debug-symbols.png')} alt="Player setting required to upload debug symbols to Backtrace for Android builds." />
 
-For more information about debug symbols, see [add link to product guide].
+For more information about debug symbols, see [Symbolication](https://support.backtrace.io/hc/en-us/articles/360040517071-Symbolication-Overview).
 
   </TabItem>
   <TabItem value="ios">  
@@ -180,8 +180,7 @@ To generate debug symbols in dSYM format, in the Build Settings for your Xcode p
 
 You can find the dSYM files in the Build folder for your project (`.../Build/Products/<build target folder>`), which you can then compress into a .zip file and upload to Backtrace.
 
-For more information about debug symbols, see [add link to product guide].
-
+For more information about debug symbols, see [Symbolication](https://support.backtrace.io/hc/en-us/articles/360040517071-Symbolication-Overview).
 
   </TabItem>
   <TabItem value="windows">

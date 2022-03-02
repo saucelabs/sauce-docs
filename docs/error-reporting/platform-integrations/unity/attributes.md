@@ -10,7 +10,7 @@ Customize crash and error reports for Unity apps. This page defines the attribut
 
 Attributes are additional metadata that can be attached to crash and error reports. You can use attributes to filter, aggregate, analyze, and debug errors in the Backtrace console.
 
-All attributes listed below are captured by the Backtrace Unity SDK, although not all attributes are indexed by default. Non-indexed attributes cannot be used in queries. For more information about indexing, see [add link].
+All attributes listed below are captured by the Backtrace Unity SDK, although not all attributes are indexed by default. Non-indexed attributes cannot be used in queries. For more information about indexing, see [Indexing Attributes](https://support.backtrace.io/hc/en-us/articles/360040517191-Project-Settings-Indexing-Attributes).
 
 :::note
 You can also define custom attributes to be captured, sent, and indexed. For more information, see [Configuration](/error-reporting/platform-integrations/unity/configuration/#attributes-and-attachment-paths).
