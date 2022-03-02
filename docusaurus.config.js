@@ -27,20 +27,6 @@ const docusaurusConfig = {
     },
   ],
   themeConfig: {
-    googleAnalytics: {
-      trackingID: 'UA-6735579-1',
-    },
-    // announcementBar: {
-    //   id: 'site_announcement', // Any value that will identify this message.
-    //   content:
-    //   '<button class="announcementBarBadge">NEW</button> Our improved documentation is here! <a target="_blank" rel="noopener noreferrer" href="mailto:docsfeedback@saucelabs.com"><button class="announcementBar">Tell us what you think</button></a>',
-    //   backgroundColor: '#0D65BE', // Defaults to `#fff`.
-    //   textColor: '#F0F0F0', // Defaults to `#000`.
-    //   isCloseable: true, // Defaults to `true`.
-    // },
-    googleAnalytics: {
-      trackingID: 'UA-6735579-1',
-    },
     hideableSidebar: true,
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
@@ -127,10 +113,25 @@ const docusaurusConfig = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           path: 'docs',
+          breadcrumbs: true,
           routeBasePath: '/',
           editUrl: 'https://github.com/saucelabs/sauce-docs/edit/main/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
+        },
+        googleAnalytics: {
+          trackingID: 'UA-6735579-1',
+        },
+        // announcementBar: {
+        //   id: 'site_announcement', // Any value that will identify this message.
+        //   content:
+        //   '<button class="announcementBarBadge">NEW</button> Our improved documentation is here! <a target="_blank" rel="noopener noreferrer" href="mailto:docsfeedback@saucelabs.com"><button class="announcementBar">Tell us what you think</button></a>',
+        //   backgroundColor: '#0D65BE', // Defaults to `#fff`.
+        //   textColor: '#F0F0F0', // Defaults to `#000`.
+        //   isCloseable: true, // Defaults to `true`.
+        // },
+        googleAnalytics: {
+          trackingID: 'UA-6735579-1',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
