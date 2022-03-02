@@ -733,6 +733,7 @@ module.exports = {
          'api-testing/sauce-connect',
          'api-testing/build-from-spec',
          'api-testing/import-postman-collection',
+         'api-testing/import-export-tests',
          'api-testing/schedule-test',
            {
                type: 'category',
@@ -765,12 +766,10 @@ module.exports = {
                    'api-testing/integrations/pagerduty-webhooks',
                     ],
                 },
-          'api-testing/test-reports',
           'api-testing/project-dashboard',
-          'api-testing/project-access',
-          'api-testing/import-export-tests',
           'api-testing/mocking',
           'api-testing/logger',
+          'api-testing/project-access',
           'api-testing/legacy',
      ],
      "CI": [
