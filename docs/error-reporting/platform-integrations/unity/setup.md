@@ -138,7 +138,7 @@ To change Backtrace client and database options, we recommend to change these va
 
 For more information about the available configuration options, see [Configuration](/error-reporting/platform-integrations/unity/configuration).
 
-## Enter the Server Address
+## Configure the Server Address
 The server address is required to submit exceptions from your Unity project to your Backtrace instance.
 
   1. In the Backtrace Console, go to Project Settings > Integration Guides > Unity.
@@ -174,7 +174,3 @@ To test the integration, use a try/catch block to throw an exception and start s
      backtraceClient.Send(report);
  }
  ```
-
-Errors that occur in your game or app will be captured and reported to Backtrace, where you can then use the Console views to explore, triage, and debug.
-
-  <img src={useBaseUrl('img/error-reporting/console-triage-view.png')} alt="Viewing crash and error reports" />

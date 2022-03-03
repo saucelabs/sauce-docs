@@ -42,7 +42,7 @@ Alternatively, you can also specify the configuration settings in your C# projec
 
 |Setting|Description|Type|Default|
 |---------|---------|---------|---------|
-|Server Address|The [server address](/error-reporting/platform-integrations/unity/setup/#step-3-enter-the-server-address) (submission URL) is required to submit exceptions from your Unity project to your Backtrace instance. <br /><br />The Server Address must be in the following format: `https://submit.backtrace.io/{subdomain-name}/{submission-token}/json`.|String|
+|Server Address|The [server address](/error-reporting/platform-integrations/unity/setup/#configure-the-server-address) (submission URL) is required to submit exceptions from your Unity project to your Backtrace instance. <br /><br />The Server Address must be in the following format: `https://submit.backtrace.io/{subdomain-name}/{submission-token}/json`.|String|
 |Handle unhandled exceptions|Handles unhandled exceptions that are not captured by try/catch statements.|Boolean|True|
 |Reports per minute|Limits the number of reports the client will send per minute. <ul><li>If set to '0', there is no limit.</li> <li>If set to a value greater than '0' value and the value is reached, the client will not send any reports until the next minute.</li></ul> The `BacktraceClient.Send` and `BacktraceClient.SendAsync` methods will return 'false'.|Number|50|
 |Ignore SSL validation|By default, Unity validates SSL certificates. If you don't want to validate SSL certificates, set the value to 'true'.|Boolean|False|
