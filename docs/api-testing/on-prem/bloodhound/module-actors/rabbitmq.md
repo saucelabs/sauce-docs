@@ -4,6 +4,10 @@ title: "Bloodhound: RabbitMQ Module"
 sidebar_label: RabbitMQ
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
 >**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 The module implements an actor that connects to RabbitMQ and publishes the JSON-marshaled API conversation to a

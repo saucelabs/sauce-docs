@@ -10,6 +10,10 @@ keywords:
     - selfhosted
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
 >**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 The one server setup for API Fortress on-premise is a quick way to get things started in a protected environment. While not ideal for availability or performance, works exactly as expected and provides all the features of the cloud version.  
