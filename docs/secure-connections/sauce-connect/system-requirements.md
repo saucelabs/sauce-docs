@@ -18,6 +18,7 @@ Keep in mind that these are guidelines. Most environments have their own workloa
 * We recommend using the [cURL command line](https://curl.haxx.se/download.html) or an equivalent tool to ensure that any error messages you receive are precise and actionable. If you're not familiar with the tool, [review their docs here](https://curl.se/docs) and then install cURL on your local machine.
 * For Unix-based systems, you may need to increase your open file limit if you plan to run a high number of parallel tests (i.e., `ulimit -n 8192`).
 
+
 ## Supported Operating Systems
 
 ### Sauce Connect v4.8.x
@@ -171,123 +172,6 @@ Enable your Mac to allow apps from the App Store and identified developers.
    <td>x86
    </td>
    <td>
-   </td>
-  </tr>
-</table>
-
-
-### Tunnel Connection TLS Specs
-
-<table>
-  <tr>
-   <td><strong>Name</strong>
-   </td>
-   <td><strong>Value</strong>
-   </td>
-   <td><strong>Notes</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>Supported TLS Versions
-   </td>
-   <td>1.2, 1.3
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>SC Client OpenSSL Versions
-   </td>
-   <td>1.1.1k
-   </td>
-   <td>SC-4.7.1
-   </td>
-  </tr>
-  <tr>
-   <td>SC Server OpenSSL Versions
-   </td>
-   <td>1.1.1l
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>Sauce Connect client supported ciphers
-   </td>
-   <td><small>
-   <p>ECDHE-ECDSA-AES256-GCM-SHA384</p>
-   <p>ECDHE-RSA-AES256-GCM-SHA384</p>
-   <p>ECDHE-ECDSA-CHACHA20-POLY1305</p>
-   <p>ECDHE-RSA-CHACHA20-POLY1305</p>
-   <p>ECDHE-ECDSA-AES128-GCM-SHA256</p>
-   <p>ECDHE-RSA-AES128-GCM-SHA256</p>
-   <p>ECDHE-ECDSA-AES256-SHA384</p>
-   <p>ECDHE-RSA-AES256-SHA384</p>
-   <p>ECDHE-ECDSA-AES128-SHA256</p>
-   <p>ECDHE-RSA-AES128-SHA256</p></small>
-   </td>
-   <td>SC-4.7.1
-   </td>
-  </tr>
-  <tr>
-   <td>Sauce Connect server supported ciphers
-   </td>
-   <td><small>
-   <p>ECDHE-ECDSA-AES256-GCM-SHA384</p>
-   <p>ECDHE-RSA-AES256-GCM-SHA384</p>
-   <p>ECDHE-ECDSA-CHACHA20-POLY1305</p>
-   <p>ECDHE-RSA-CHACHA20-POLY1305</p>
-   <p>ECDHE-ECDSA-AES128-GCM-SHA256</p>
-   <p>ECDHE-RSA-AES128-GCM-SHA256</p></small>
-   </td>
-   <td>
-   </td>
-  </tr>
-</table>
-
-### Timeout Values
-
-<img src={useBaseUrl('img/sauce-connect/timeout-values.png')} alt="Sauce Connect download file contents" width="550" />
-
-<table>
-  <tr>
-   <td><strong>Name</strong>
-   </td>
-   <td><strong>Value</strong>
-   </td>
-   <td><strong>Notes</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>Sauce Connect Proxy client tunnel provisioning timeout
-   </td>
-   <td>45 seconds
-   </td>
-   <td>SC client requests Sauce Labs REST API to provision an SC server as part of SC start sequence.
-   </td>
-  </tr>
-  <tr>
-   <td>Sauce Connect Proxy client initial connect timeout
-   </td>
-   <td>15 seconds
-   </td>
-   <td>SC client first connection to SC server must happen within 15 seconds after SC server is provisioned and URL is returned to SC client.
-   </td>
-  </tr>
-  <tr>
-   <td>Sauce Connect Proxy client disconnected timeout
-   </td>
-   <td>60 seconds
-   </td>
-   <td>SC client may disconnect from SC sever (after establishing an initial connection) for up to 60 seconds.
-   </td>
-  </tr>
-    <tr>
-   <td>Sauce Connect Proxy finish running jobs on shutdown timeout
-   </td>
-   <td>300 seconds
-   </td>
-   <td>When Sauce Labs REST API receives a "tunnel shutdown" request, it will keep SC server running for some time to allow the jobs that use the tunnel to finish. "DELETE" request may specify <code>wait_for_jobs=false</code> to shut down the tunnel server immediately.
    </td>
   </tr>
 </table>
