@@ -610,6 +610,7 @@ module.exports = {
              label: 'Features',
              collapsed: true,
              items: [
+                 'mobile-apps/features/bypass-screenshot',
                  'mobile-apps/features/virtual-usb',
                  'mobile-apps/features/biometric-authentication',
                  'mobile-apps/features/camera-image-injection',
