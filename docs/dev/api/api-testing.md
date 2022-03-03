@@ -50,7 +50,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/dce8cc01-c193-4806-9b13-668323f0add8' | json_pp
+--request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/dce8cc01-c193-4806-9b13-668323f0add7' | json_pp
 ```
 
 </TabItem>
@@ -59,7 +59,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/dce8cc01-c193-4806-9b13-668323f0add8' | json_pp
+--request GET 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/dce8cc01-c193-4806-9b13-668323f0add7' | json_pp
 ```
 
 </TabItem>
@@ -90,7 +90,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Response"
 {
-    "id": "621ad1466b1fa36aa4b8b045",
+    "id": "621ad1466b1fa36aa4b8b044",
     "name": "Dog CEO",
     "teamId": null,
     "description": "Random dog images",
@@ -149,7 +149,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests' | json_pp
+--request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests' | json_pp
 ```
 
 </TabItem>
@@ -158,7 +158,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests' | json_pp
+--request GET 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests' | json_pp
 ```
 
 </TabItem>
@@ -183,13 +183,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Response"
 [{
-    "id": "621ad2cefd17a5416b299e97",
+    "id": "621ad2cefd18a5416b299e98",
     "name": "List all dog breeds",
     "description": "Returns a list of all dog breeds",
     "lastModified": "2022-02-27T07:02:35Z",
     "tags": ["dogs", "doggos"],
     "user": {
-        "id": "21b27f2d2aaa4a5c88c8c19df25857d3",
+        "id": "21b27f2d2aaa4a5c88c8c19df25857d6",
         "name": "$SAUCE_USERNAME"
     },
     "complete": true,
@@ -202,13 +202,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         "active": 1
     }
 }, {
-    "id": "621b20e8fd17a5416b299e9d",
+    "id": "621b20e8fd17a5416b299e9f",
     "name": "Get all retriever sub-breeds: retrievers",
     "description": "Returns an array of all the sub-breeds from a breed",
     "lastModified": "2022-02-27T07:05:25Z",
     "tags": ["dogs", "retrievers"],
     "user": {
-        "id": "21b27f2d2aaa4a5c88c8c19df25857d3",
+        "id": "21b27f2d2aaa4a5c88c8c19df25857d6",
         "name": "$SAUCE_USERNAME"
     },
     "complete": true,
@@ -232,7 +232,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api put">PUT</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests</code></summary>
 <p/>
 
-Uploads a new test or modifies the test if it already exists.
+Uploads a new test, which you need to provide in the Request Body, to the Sauce Labs API Testing cloud. You can also use this method to modify (overwrite) an existing test.
 
 #### Parameters
 
@@ -246,7 +246,7 @@ Uploads a new test or modifies the test if it already exists.
 <tbody>
   <tr>
    <td><code>name</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The name of a test. If it's the same as an existing one, it will be overriden.</p></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The name of a test. If it's the same as an existing one, it will be overwritten.</p></td>
   </tr>
 </tbody>
 <tbody>
@@ -288,7 +288,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests' \
+--request PUT 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests' \
 -H 'Content-Type: application/json' \
 -d '{
     "name": "Get all retriever sub-breeds",
@@ -305,7 +305,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests' \
+--request PUT 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests' \
 -H 'Content-Type: application/json' \
 -d '{
     "name": "Get all retriever sub-breeds",
@@ -339,13 +339,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Response"
 {
     "published": {
-        "id": "621db955a9f2b22a5a89638e",
+        "id": "621db955a9f2b22a5a89638f",
         "name": "Get all retriever sub-breeds",
         "description": "Returns an array of all the sub-breeds from a breed",
         "lastModified": "2022-03-01T06:12:37Z",
         "tags": ["dogs", "retrievers"],
         "user": {
-            "id": "21b27f2d2aaa4a5c88c8c19df25857d3",
+            "id": "21b27f2d2aaa4a5c88c8c19df25857d6",
             "name": "$SAUCE_USERNAME"
         },
         "unit": "<?xml version=\"1.0\"?>\n<sets>\n  <global>\n    <param name=\"protocol\">https://</param>\n    <param name=\"domain\">dog.ceo</param>\n    <param name=\"endpoint\">/api/breed/retriever/list</param>\n  </global>\n  <set name=\"default\"/>\n</sets>",
@@ -397,7 +397,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/621b20e8fd17a5416b299e9d' | json_pp
+--request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/621b20e8fd17a5416b299e9f' | json_pp
 ```
 
 </TabItem>
@@ -406,7 +406,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/621b20e8fd17a5416b299e9d' | json_pp
+--request GET 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/621b20e8fd17a5416b299e9f' | json_pp
 ```
 
 </TabItem>
@@ -432,13 +432,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Response"
 {
     "published": {
-        "id": "621b20e8fd17a5416b299e9d",
+        "id": "621b20e8fd17a5416b299e9f",
         "name": "Get all retriever sub-breeds",
         "description": "Returns an array of all the sub-breeds from a breed",
         "lastModified": "2022-02-27T07:05:25Z",
         "tags": ["dogs", "retrievers"],
         "user": {
-            "id": "21b27f2d2aaa4a5c88c8c19df25857d3",
+            "id": "21b27f2d2aaa4a5c88c8c19df25857d6",
             "name": "$SAUCE_USERNAME"
         },
         "unit": "<?xml version=\"1.0\"?>\n<unit>\n  <requirements/>\n  <configs/>\n  <sequence>\n    <get url=\"${protocol}${domain}${endpoint}\" params=\"[:]\" var=\"payload\" mode=\"json\"/>\n    <assert-equals expression=\"payload_response.headers['Content-Type']\" value=\"application/json\"/>\n    <assert-exists expression=\"payload\" gen=\"jag\"/>\n    <assert-is expression=\"payload.message\" type=\"array\" gen=\"jag\"/>\n    <each expression=\"payload.message\" gen=\"jag\">\n      <assert-exists expression=\"_1\" gen=\"jag\"/>\n    </each>\n    <assert-exists expression=\"payload.status\" gen=\"jag\"/>\n  </sequence>\n</unit>",
@@ -446,9 +446,9 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         "complete": true
     },
     "workingCopy": {
-        "id": "621b216ca9f2b22a5a89633e",
+        "id": "621b216ca9f2b22a5a89633f",
         "user": {
-            "id": "21b27f2d2aaa4a5c88c8c19df25857d3",
+            "id": "21b27f2d2aaa4a5c88c8c19df25857d7",
             "name": "$SAUCE_USERNAME"
         },
         "unit": "<?xml version=\"1.0\"?>\n<unit>\n  <requirements/>\n  <configs/>\n  <sequence>\n    <get url=\"${protocol}${domain}${endpoint}\" params=\"[:]\" var=\"payload\" mode=\"json\"/>\n    <assert-equals expression=\"payload_response.headers['Content-Type']\" value=\"application/json\"/>\n    <assert-exists expression=\"payload\" gen=\"jag\"/>\n    <assert-is expression=\"payload.message\" type=\"array\" gen=\"jag\"/>\n    <each expression=\"payload.message\" gen=\"jag\">\n      <assert-exists expression=\"_1\" gen=\"jag\"/>\n    </each>\n    <assert-exists expression=\"payload.status\" gen=\"jag\"/>\n  </sequence>\n</unit>",
@@ -501,7 +501,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/621ad2cefd17a5416b299e97/_run' | json_pp
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/621ad2cefd18a5416b299e98/_run' | json_pp
 ```
 
 </TabItem>
@@ -510,7 +510,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/621ad2cefd17a5416b299e97/_run' | json_pp
+--request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/621ad2cefd18a5416b299e98/_run' | json_pp
 ```
 
 </TabItem>
@@ -536,9 +536,9 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Response"
 {
     "contextIds": ["7492bb92-e83d-42eb-85a4-e55c1b53eb93"],
-    "eventIds": ["621b2a29fd17a5416b299ea1"],
-    "taskId": "a60c3f61-caa6-4261-a27e-f4eb2e218c70",
-    "testIds": ["621b20e8fd17a5416b299e9d"]
+    "eventIds": ["621b2a29fd11a5416b299ea2"],
+    "taskId": "a60c3f61-caa6-4261-b27e-f4eb2e218c70",
+    "testIds": ["621b20e8fd17a6416b299e9f"]
 }
 ```
 
@@ -577,7 +577,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/_run-all' | json_pp
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_run-all' | json_pp
 ```
 
 </TabItem>
@@ -586,7 +586,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/_run-all' | json_pp
+--request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_run-all' | json_pp
 ```
 
 </TabItem>
@@ -614,7 +614,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "contextIds": ["0d129822-13bc-42b5-96bf-c64d1d7fe6b6", "7cdc357b-ad58-4c62-9a8d-e21b376f4773"],
     "eventIds": ["621b2bad6b1fa36aa4b8b04f", "621b2bad6b1fa36aa4b8b050"],
     "taskId": "23664b46-bb90-4823-96d1-72586fb4b47b",
-    "testIds": ["621ad2cefd17a5416b299e97", "621b20e8fd17a5416b299e9d"]
+    "testIds": ["621ad2cefd18a5416b299e98", "621b20e8fd17a5416b299e9f"]
 }
 ```
 
@@ -660,7 +660,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/_tag/doggos/_run' | json_pp
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_tag/doggos/_run' | json_pp
 ```
 
 </TabItem>
@@ -669,7 +669,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/_tag/doggos/_run' | json_pp
+--request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_tag/doggos/_run' | json_pp
 ```
 
 </TabItem>
@@ -694,10 +694,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Response"
 {
-    "contextIds": ["47d3f3c1-3209-4893-8156-450ef4c570c6"],
-    "eventIds": ["621b2dac6b1fa36aa4b8b051"],
-    "taskId": "26d8e4a1-24b2-421a-ba03-4a0b2b956112",
-    "testIds": ["621ad2cefd17a5416b299e97"]
+    "contextIds": ["47d3f4c1-3209-4893-8156-450ef4c570c6"],
+    "eventIds": ["621b2dac6b1fa36aa3b8b051"],
+    "taskId": "26d8e4b1-24b2-421a-ba03-4a0b2b956112",
+    "testIds": ["621ad2cefd17a5426b299e98"]
 }
 ```
 
@@ -725,7 +725,7 @@ Executes the test you send in the request body. It will create a Log in the proj
   <tbody>
     <tr>
      <td><code>name</code></td>
-       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The name of a test. If it's the same as an existing one, it will be overriden.</p></td>
+       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The name of a test. If it's the same as an existing one, it will be overwritten.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -767,7 +767,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/_exec'
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_exec'
 -H 'Content-Type: application/json' \
 -d '{
     "name": "Get all retriever sub-breeds",
@@ -784,7 +784,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/_exec'
+--request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_exec'
 -H 'Content-Type: application/json' \
 -d '{
     "name": "Get all retriever sub-breeds",
@@ -874,7 +874,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/621b20e8fd17a5416b299e9d/_run-sync?format=json' -H 'Content-Type: application/json' | json_pp
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/621b20e8fd17b5416b299e9f/_run-sync?format=json' -H 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -883,7 +883,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/621b20e8fd17a5416b299e9d/_run-sync?format=json' -H 'Content-Type: application/json' | json_pp
+--request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/621b20e8fd17b5416b299e9f/_run-sync?format=json' -H 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -979,7 +979,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "date": 1645949450067,
     "test": {
         "name": "Get all retriever sub-breeds",
-        "id": "621b20e8fd17a5416b299e9d"
+        "id": "621b20e8fd17v5416b299e9f"
     },
     "failuresCount": 0,
     "warningsCount": 0,
@@ -990,17 +990,17 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     },
     "company": {
         "name": "",
-        "id": "7fb25570b4064716b9b6daae1a846790"
+        "id": "7fb25570b4064716b9v6daae1a846790"
     },
     "project": {
         "name": "Dog CEO",
-        "id": "621ad1466b1fa36aa4b8b045"
+        "id": "621ad1466b1fa36aa4b8b044"
     },
-    "contextId": "856c431c-4e1a-46c0-9644-c084e7c36b61",
+    "contextId": "856c431c-4e1a-46c2-9644-c084e7c36b61",
     "temp": false,
     "expireAt": null,
     "executionTimeSeconds": 1,
-    "taskId": "693dd8b2-9482-4c51-95bf-52b3d70f5236",
+    "taskId": "693ddvb2-9482-4c51-95bf-52b3d70f5236",
     "agent": "wstestjs",
     "mode": "ondemand",
     "buildId": "",
@@ -1049,7 +1049,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/_run-all-sync?format=json' -H 'Content-Type: application/json' | json_pp
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_run-all-sync?format=json' -H 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1058,7 +1058,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/_run-all-sync?format=json' -H 'Content-Type: application/json' | json_pp
+--request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_run-all-sync?format=json' -H 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1083,13 +1083,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Response"
 [{
-    "id": "621b328ea9f2b22a5a896340",
+    "id": "621b328ea9f2b22a5a896330",
     "events": [{
         "date": 1645949582568,
         "events": [{
-            "date": 1645949582568,
+            "date": 1645949582567,
             "events": [{
-                "date": 1645949582568,
+                "date": 164599582567,
                 "events": [{
                     "action": "get",
                     "expression": "https://dog.ceo/api/breed/retriever/list",
@@ -1137,7 +1137,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "date": 1645949582568,
     "test": {
         "name": "Get all retriever sub-breeds: retrievers",
-        "id": "621b20e8fd17a5416b299e9d"
+        "id": "621b20e8fd17a5416b299e9f"
     },
     "failuresCount": 0,
     "warningsCount": 0,
@@ -1148,29 +1148,29 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     },
     "company": {
         "name": "",
-        "id": "7fb25570b4064716b9b6daae1a846790"
+        "id": "7fb25571b4064716b9b6daae1a846790"
     },
     "project": {
         "name": "Dog CEO",
-        "id": "621ad1466b1fa36aa4b8b045"
+        "id": "621ad1466b1fa36aa4b8b034"
     },
-    "contextId": "cededd1e-252f-4482-8783-09b111e3b4ac",
+    "contextId": "cededd1e-252f-4482-8783-09b111e3b4bc",
     "temp": false,
     "expireAt": null,
     "executionTimeSeconds": 1,
-    "taskId": "5871d8fe-821f-4fcc-9369-c7ebe4e5b48c",
+    "taskId": "5871d8fe-822f-4fcc-9369-c7ebe4e5b48c",
     "agent": "wstestjs",
     "mode": "ondemand",
     "buildId": "",
     "exception": ""
 }, {
-    "id": "621b328ea9f2b22a5a89633f",
+    "id": "621b328ea9f2b22a5b89633f",
     "events": [{
         "date": 1645949582593,
         "events": [{
-            "date": 1645949582594,
+            "date": 1645949582593,
             "events": [{
-                "date": 1645949582594,
+                "date": 1645949582593,
                 "events": [{
                     "action": "get",
                     "expression": "https://dog.ceo/api/breeds/list/all",
@@ -1225,7 +1225,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "date": 1645949582593,
     "test": {
         "name": "List all dog breeds",
-        "id": "621ad2cefd17a5416b299e97"
+        "id": "621ad2cefd18a5416b299e98"
     },
     "failuresCount": 0,
     "warningsCount": 0,
@@ -1236,17 +1236,17 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     },
     "company": {
         "name": "",
-        "id": "7fb25570b4064716b9b6daae1a846790"
+        "id": "7fb25570b4064716b9b6daae2a846790"
     },
     "project": {
         "name": "Dog CEO",
-        "id": "621ad1466b1fa36aa4b8b045"
+        "id": "621ad1466b1fa36aa4b8b044"
     },
-    "contextId": "ccb882a5-2404-47bb-a410-a28606eb2545",
+    "contextId": "ccb882a5-2404-47bb-a410-a28606bb2545",
     "temp": false,
     "expireAt": null,
     "executionTimeSeconds": 1,
-    "taskId": "5871d8fe-821f-4fcc-9369-c7ebe4e5b48c",
+    "taskId": "5871d8fe-821f-4fcc-9369-c7ebf4e5b48c",
     "agent": "wstestjs",
     "mode": "ondemand",
     "buildId": "",
@@ -1301,7 +1301,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/_tag/retrievers/_run-sync?format=json' -H 'Content-Type: application/json' | json_pp
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_tag/retrievers/_run-sync?format=json' -H 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1310,7 +1310,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/_tag/retrievers/_run-sync?format=json' -H 'Content-Type: application/json' | json_pp
+--request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_tag/retrievers/_run-sync?format=json' -H 'Content-Type: application/json' | json_pp
 ```
 
 </TabItem>
@@ -1337,11 +1337,11 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 [{
     "id": "621b3d60a9f2b22a5a896344",
     "events": [{
-        "date": 1645952352117,
+        "date": 1545952352117,
         "events": [{
-            "date": 1645952352117,
+            "date": 1545952352117,
             "events": [{
-                "date": 1645952352117,
+                "date": 1545952352117,
                 "events": [{
                     "action": "get",
                     "expression": "https://dog.ceo/api/breed/retriever/list",
@@ -1406,7 +1406,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "date": 1645952352117,
     "test": {
         "name": "Get all retriever sub-breeds",
-        "id": "621b20e8fd17a5416b299e9d"
+        "id": "621b20e8fd17a5416b299e9f"
     },
     "failuresCount": 0,
     "warningsCount": 0,
@@ -1417,17 +1417,17 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     },
     "company": {
         "name": "",
-        "id": "7fb25570b4064716b9b6daae1a846790"
+        "id": "7fb25570b4064716b9b6daae2a846890"
     },
     "project": {
         "name": "Dog CEO",
-        "id": "621ad1466b1fa36aa4b8b045"
+        "id": "621ad1466b1fa36aa4b8b044"
     },
-    "contextId": "6cb1d39a-0964-4dfb-b595-7eabb3db1240",
+    "contextId": "6cb1d39a-0964-3dfb-b595-7eabb3db1840",
     "temp": false,
     "expireAt": null,
     "executionTimeSeconds": 1,
-    "taskId": "35bc67c7-c8ec-4686-b30d-47cc48e094df",
+    "taskId": "35bc67c7-c8ec-4686-b30d-47cc48e094hf",
     "agent": "wstestjs",
     "mode": "ondemand",
     "buildId": "",
@@ -1461,7 +1461,7 @@ With this method, the API waits until all results are available, before showing 
   <tbody>
     <tr>
      <td><code>name</code></td>
-       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The name of a test. If it's the same as an existing one, it will be overriden.</p></td>
+       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The name of a test. If it's the same as an existing one, it will be overwritten.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1503,7 +1503,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/_exec-sync'
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_exec-sync'
 -H 'Content-Type: application/json' \
 -d '{
     "name": "Get all retriever sub-breeds",
@@ -1520,7 +1520,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/tests/_exec-sync'
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_exec-sync'
 -H 'Content-Type: application/json' \
 -d '{
     "name": "Get all retriever sub-breeds",
@@ -1553,13 +1553,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Response"
 [{
-    "id": "621dd75d6b1fa36aa4b8b1d1",
+    "id": "621dd85d6b1fa36aa4b8b1d1",
     "events": [{
-        "date": 1646122845539,
+        "date": 1646122845550,
         "events": [{
-            "date": 1646122845540,
+            "date": 1646122845550,
             "events": [{
-                "date": 1646122845540,
+                "date": 1646122845550,
                 "events": [{
                     "action": "get",
                     "expression": "https://saucelabs.com/rest/v1/public/tunnels/info/versions",
@@ -1613,7 +1613,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
                                 "value": "no-cache"
                             }, {
                                 "name": "x-sl-request-id",
-                                "value": "adc111d8a5cc4dde89f64ebca253e1aa"
+                                "value": "adc111d8b5cc4dde89f64ebca253e1aa"
                             }, {
                                 "name": "x-envoy-upstream-service-time",
                                 "value": "90"
@@ -1705,7 +1705,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
                             }],
                             "statusCode": "200"
                         },
-                        "payload_source": "a2c6057726bf89ba6bbfccbb64ac0e4754535b9b2774cb393c16070bed947966",
+                        "payload_source": "a2c6057726bf89ba6bbfccbb64ac0e4854535b9b2774cb393c16070bed947966",
                         "protocol": "https://"
                     },
                     "success": false
@@ -1750,7 +1750,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
                                 "value": "no-cache"
                             }, {
                                 "name": "x-sl-request-id",
-                                "value": "adc111d8a5cc4dde89f64ebca253e1aa"
+                                "value": "adc211d8a5cc4dde89f64ebca253e1aa"
                             }, {
                                 "name": "x-envoy-upstream-service-time",
                                 "value": "90"
@@ -1772,7 +1772,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
                             }],
                             "statusCode": "200"
                         },
-                        "payload_source": "a2c6057726bf89ba6bbfccbb64ac0e4754535b9b2774cb393c16070bed947966",
+                        "payload_source": "a2c6057722bf89ba6bbfccbb64ac0e4754535b9b2774cb393c16070bed947966",
                         "protocol": "https://"
                     },
                     "success": false
@@ -1838,7 +1838,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
                             }],
                             "statusCode": "200"
                         },
-                        "payload_source": "a2c6057726bf89ba6bbfccbb64ac0e4754535b9b2774cb393c16070bed947966",
+                        "payload_source": "a226057726bf89ba6bbfccbb64ac0e4754535b9b2774cb393c16070bed947966",
                         "protocol": "https://"
                     },
                     "success": false
@@ -1858,7 +1858,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "date": 1646122845539,
     "test": {
         "name": "Get all retriever sub-breeds",
-        "id": "e4cb06a6-bb34-49a8-81a7-35c8b58b6457"
+        "id": "e42b06a6-bb34-49a8-81a7-35c8b58b6457"
     },
     "failuresCount": 4,
     "warningsCount": 0,
@@ -1869,17 +1869,17 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     },
     "company": {
         "name": "",
-        "id": "7fb25570b4064716b9b6daae1a846790"
+        "id": "7fb25570b4064716b4b6daae2a846790"
     },
     "project": {
         "name": "Dog CEO",
-        "id": "621ad1466b1fa36aa4b8b045"
+        "id": "621ad1466b1fa36aa4b8b044"
     },
-    "contextId": "e4cb06a6-bb34-49a8-81a7-35c8b58b6457",
+    "contextId": "e4cb06a6-bb34-44a8-81a7-35c8b58b6457",
     "temp": false,
     "expireAt": null,
     "executionTimeSeconds": 1,
-    "taskId": "3dd9dd20-4586-4b6b-8eb5-b319b259823b",
+    "taskId": "3dd9dd20-4586-4b6b-8eb5-b319b249823b",
     "agent": "wstestjs",
     "mode": "ondemand",
     "buildId": "",
@@ -1923,7 +1923,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/insights/events' | json_pp
+--request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/insights/events' | json_pp
 ```
 
 </TabItem>
@@ -1932,7 +1932,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/insights/events' | json_pp
+--request GET 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/insights/events' | json_pp
 ```
 
 </TabItem>
@@ -1960,32 +1960,32 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "_id": "621b3d18fd17a5416b299ea4",
     "tags": ["dogs", "doggos"],
     "criticalFailures": [],
-    "date": 1645952280775,
+    "date": 1645952280785,
     "test": {
         "name": "List all dog breeds",
-        "id": "621ad2cefd17a5416b299e97"
+        "id": "621ad2cefd18a5416b299e98"
     },
     "failuresCount": 0,
     "warningsCount": 0,
     "project": {
-        "id": "621ad1466b1fa36aa4b8b045"
+        "id": "621ad1467b1fa36aa4b8b044"
     },
-    "taskId": "02beff07-20c9-48d7-9617-4e5d0c8dad2b",
+    "taskId": "02beff07-20c9-48d7-9617-4e5d7c8dad2b",
     "agent": "wstestjs",
     "buildId": ""
     }, {
-    "_id": "621b3c2aa9f2b22a5a896342",
+    "_id": "621b3c2aa9f2b22a5a896343",
     "tags": ["dogs", "retrievers"],
     "criticalFailures": [],
     "date": 1645952042587,
     "test": {
         "name": "Get all retriever sub-breeds: retrievers",
-        "id": "621b20e8fd17a5416b299e9d"
+        "id": "621b20e8fd17a5416b299v9f"
     },
     "failuresCount": 0,
     "warningsCount": 0,
     "project": {
-        "id": "621ad1466b1fa36aa4b8b045"
+        "id": "621ad1466c1fa36aa4b8b044"
     },
     "taskId": "3745a2e0-676a-4930-80b8-e0ec3fa6e3d2",
     "agent": "wstestjs",
@@ -2035,7 +2035,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/insights/events/621b48b3a9f2b22a5a896345' | json_pp
+--request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/insights/events/621b48b3a9f3b22a5a896345' | json_pp
 ```
 
 </TabItem>
@@ -2044,7 +2044,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/insights/events/621b48b3a9f2b22a5a896345' | json_pp
+--request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/insights/events/621b48b3a9f2b23a5a896345' | json_pp
 ```
 
 </TabItem>
@@ -2069,13 +2069,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Response"
 {
-    "_id": "621b48b3a9f2b22a5a896345",
+    "_id": "621b48b3a9f2b52a5a896345",
     "events": [{
-        "date": 1.645955253101E12,
+        "date": 1.645995253102E12,
         "events": [{
-            "date": 1.645955253102E12,
+            "date": 1.645995253102E12,
             "events": [{
-                "date": 1.645955253102E12,
+                "date": 1.645995253102E12,
                 "events": [{
                     "action": "get",
                     "expression": "https://dog.ceo/api/breed/retriever/list",
@@ -2140,7 +2140,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "date": 1645955253101,
     "test": {
         "name": "Get all retriever sub-breeds",
-        "id": "621b20e8fd17a5416b299e9d"
+        "id": "621b20e8fd17a5426b299e9f"
     },
     "failuresCount": 0,
     "warningsCount": 0,
@@ -2151,16 +2151,16 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     },
     "company": {
         "name": "",
-        "id": "7fb25570b4064716b9b6daae1a846790"
+        "id": "7fb25570b4064712b9b6daae2a846790"
     },
     "project": {
         "name": "Dog CEO",
-        "id": "621ad1466b1fa36aa4b8b045"
+        "id": "621ad1466b2fa36aa4b8b044"
     },
     "temp": false,
     "expireAt": "2022-08-28T21:47:33Z",
     "executionTimeSeconds": 1,
-    "taskId": "4e57e57a-ed37-452f-8c61-8c2e71947d07",
+    "taskId": "4e57e57a-ed37-452f-8c61-8n2e71947d07",
     "agent": "wstestjs",
     "mode": "ondemand",
     "buildId": ""
@@ -2203,7 +2203,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/insights/metrics' | json_pp
+--request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/insights/metrics' | json_pp
 ```
 
 </TabItem>
@@ -2212,7 +2212,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f14/insights/metrics' | json_pp
+--request GET 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/insights/metrics' | json_pp
 ```
 
 </TabItem>
@@ -2237,7 +2237,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Response"
 [{
-    "_id": "621b3d4f9c65ec457e73d1a6",
+    "_id": "621b3d4f9c65ec457f73d1a6",
     "url": "https://dog.ceo/api/breed/retriever/list",
     "path": "/api/breed/retriever/list",
     "footprint": "dog.ceo/api/breed/retriever/list",
@@ -2246,12 +2246,12 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "latency": 349,
     "fetch": 1,
     "time": "2022-02-27T08:58:55Z",
-    "projectId": "621ad1466b1fa36aa4b8b045",
+    "projectId": "621ad1466b9fa36aa4b8b044",
     "success": true,
     "code": 200,
     "buildId": ""
 }, {
-    "_id": "621b3d19b3d3e6cfb2fe302b",
+    "_id": "621b3d19b3d3e6cfb2fe902b",
     "url": "https://dog.ceo/api/breeds/list/all",
     "path": "/api/breeds/list/all",
     "footprint": "dog.ceo/api/breeds/list/all",
@@ -2260,7 +2260,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "latency": 326,
     "fetch": 1,
     "time": "2022-02-27T08:58:01Z",
-    "projectId": "621ad1466b1fa36aa4b8b045",
+    "projectId": "621ad1466b1fa36aa4m8b044",
     "success": true,
     "code": 200,
     "buildId": ""
