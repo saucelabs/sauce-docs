@@ -49,7 +49,7 @@ If you are testing your company’s proprietary app on a real device, you might 
 
 ### What You’ll Need
 
-* An app added to Sauce Labs App Storage
+* An app added to Sauce Labs app storage (see [Mobile App Storage](/mobile-apps/app-storage) for more information)
 * An understanding of the limitations of this option
 
 ### Editing the App
