@@ -6,43 +6,18 @@
  */
 
 /* You can override the default Infima variables here. */
-/*
- * The Typekit service used to deliver this font or fonts for use on websites
- * is provided by Adobe and is subject to these Terms of Use
- * http://www.adobe.com/products/eulas/tou_typekit. For font license
- * information, see the list below.
- *
- * museo-sans:
- *   - http://typekit.com/eulas/00000000000000007735da11
- *   - http://typekit.com/eulas/00000000000000007735da14
- *   - http://typekit.com/eulas/00000000000000007735da1d
- *   - http://typekit.com/eulas/00000000000000007735da1e
- * museo-sans-condensed:
- *   - http://typekit.com/eulas/00000000000000007735d9f8
- *   - http://typekit.com/eulas/00000000000000007735da0c
- *   - http://typekit.com/eulas/00000000000000007735da10
- *   - http://typekit.com/eulas/00000000000000007735da13
- * museo-sans-display:
- *   - http://typekit.com/eulas/000000000000000077359978
- *   - http://typekit.com/eulas/000000000000000077359966
- * museo-sans-rounded:
- *   - http://typekit.com/eulas/000000000000000077359942
- *   - http://typekit.com/eulas/00000000000000007735994a
- *   - http://typekit.com/eulas/000000000000000077359977
- *   - http://typekit.com/eulas/000000000000000077359984
- *
- * © 2009-2020 Adobe Systems Incorporated. All Rights Reserved.
- */
-/*{"last_published":"2021-01-18 18:46:45 UTC"}*/
+
 @import "admonitions.css";
 @import "announcement-bar.css";
 @import "api-override.css";
 @import "carousel.css";
 @import "cli-override.css";
+@import "/variables/_fonts.css";
 @import "footer-styles.css";
 @import "fw-badge-override.css";
 @import "homesearchbar.css";
 @import url('https://use.typekit.net/bte6qhg.css');
+
 
 .tk-museo-sans { font-family: "museo-sans",sans-serif; }
 .tk-museo-sans-rounded { font-family: "museo-sans-rounded",sans-serif; }
