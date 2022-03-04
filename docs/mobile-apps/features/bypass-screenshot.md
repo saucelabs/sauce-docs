@@ -45,7 +45,7 @@ In cases where you’re using a third party app, you might be able to test your 
 
 ## Enable Bypass Screenshot Restriction
 
-If you are testing your company’s proprietary app on a real device, you might be able to workaround the **FLAG_SECURE** setting by enabling **Bypass Screenshot Restriction** on that app under certain circumstances (see [Workarounds for FLAG_SECURE Apps](#workarounds-for-flag_secure-apps)).
+If you are testing your company’s proprietary app on a real device, you might be able to work around the **FLAG_SECURE** setting by enabling **Bypass Screenshot Restriction** on that app under certain circumstances (see [Workarounds for FLAG_SECURE Apps](#workarounds-for-flag_secure-apps)).
 
 ### What You’ll Need
 
