@@ -123,7 +123,7 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    <td>4.7.1
    </td>
    <td>
-    See <a href="#download-latest-version">Linux, Mac, Windows</a>
+    <a href="#download-latest-version">See latest version</a>
    </td>
    <td rowspan="2" >Sep. 30, 2022
    </td>
@@ -241,11 +241,8 @@ As an alternative to downloading the client, you can use the Sauce Connect Proxy
 
 ## More Information
 
-### Next Steps
-* See the [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/) to learn how to start a basic tunnel.
-* If you are having trouble installing, review the [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/).
-
-### Resources
+* [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart)
+* [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/)
 * [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy/)
 * [Sauce Connect Proxy Architecture](/secure-connections/sauce-connect/advanced/architecture/)
 * [Sauce Connect Proxy Changelog](https://changelog.saucelabs.com/en?category=sauce%20connect)
