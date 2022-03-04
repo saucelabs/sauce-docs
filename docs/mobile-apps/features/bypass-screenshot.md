@@ -5,7 +5,7 @@ sidebar_label: Bypass Screenshot Restriction
 hide_table_of_contents: true
 ---
 
-If you test Android mobile apps on Sauce Labs real devices and you see a black screen in your live testing session, you might need to enable the **Bypass Screenshot Restriction**.
+If you test Android mobile apps on Sauce Labs real devices and you see a black screen in your live testing session, you might need to enable **Bypass Screenshot Restriction**.
 
 This black screen is caused by a setting called **FLAG_SECURE** that is sometimes added to Android apps. This prevents video or screenshots from being taken of the app.
 
@@ -45,12 +45,12 @@ In cases where you’re using a third party app, you might be able to test your 
 
 ## Enable Bypass Screenshot Restriction
 
-If you are testing your company’s proprietary app on a real device, you might be able to workaround the **FLAG_SECURE** setting by enabling **Bypass Screenshot Restriction** on that app under certain circumstances.
+If you are testing your company’s proprietary app on a real device, you might be able to workaround the **FLAG_SECURE** setting by enabling **Bypass Screenshot Restriction** on that app under certain circumstances (see [Workarounds for FLAG_SECURE Apps](#workarounds-for-flag_secure-apps)).
 
 ### What You’ll Need
 
 * An app added to Sauce Labs app storage (see [Mobile App Storage](/mobile-apps/app-storage) for more information)
-* An understanding of the limitations of this option
+* An understanding of the limitations of this option (see [Workarounds for FLAG_SECURE Apps](#workarounds-for-flag_secure-apps))
 
 ### Editing the App
 
