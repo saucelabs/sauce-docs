@@ -304,3 +304,21 @@ function FindProxyForURL(url, host) {
     return "PROXY internal.proxy.com:8080";
 }
 ```
+
+Examples of other PAC setups:
+```javascript
+// single_proxy.pac
+// A proxy is required to reach external resources
+function FindProxyForURL(url, host) {
+    // Internal calls for resources in your network
+    if (shExpMatch(host, "*.auth.my-company.com") ||
+        shExpMatch(host, "*staging.my-company.com") ||
+        shExpMatch(host, "internal-resource1.com")) {
+        return "DIRECT";
+    }
+
+    // All other traffic should 
+    // go to the public internet via proxy
+    return "PROXY my-company.org:8880";
+}
+```
