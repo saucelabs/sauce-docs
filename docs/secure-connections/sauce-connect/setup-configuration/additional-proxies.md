@@ -285,7 +285,7 @@ If you have multiple proxies (two or more), you may need to edit the PAC file to
 
 To confirm if you have additional proxies, you can use basic curl commands. If `curl -v google.com` doesn't return anything, but `curl -v --proxy external.proxy.com:8080 google.com` does return something, you have at least one proxy required to access the public internet.
 
-If `curl -v --proxy external.proxy.com private.mysite.com` does not get a response from your SUT, you may need to use a different proxy, such as `internal.proxy.com:8080`, access your SUT. In this case, your PAC file will need to reflect your network setup:
+If `curl -v --proxy external.proxy.com private.mysite.com` does not get a response from your SUT, you may need to use a different proxy, such as `internal.proxy.com:8080`, access your SUT. In this case, you'd need your PAC file to reflect your network setup:
 
 ```javascript title="multiproxy proxy.pac"
 function FindProxyForURL(url, host) {
