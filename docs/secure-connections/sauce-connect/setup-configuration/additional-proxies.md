@@ -283,12 +283,11 @@ If you have multiple proxies (two or more), you may need to edit the PAC file to
 * A proxy specifically for the staging area or SUT
 * A transparent proxy that connects you to the internet (see [Transparent proxy](https://en.wikipedia.org/wiki/Proxy_server#Transparent_proxy) for more information)
 
-To confirm if you have additional proxies, you can use basic curl commands. If 'curl -v google.com' doesn't return anything, but `curl -v --proxy external.proxy.com:8080 google.com` does return something, you have at least one proxy required to access the public internet.
+To confirm if you have additional proxies, you can use basic curl commands. If `curl -v google.com` doesn't return anything, but `curl -v --proxy external.proxy.com:8080 google.com` does return something, you have at least one proxy required to access the public internet.
 
-If `curl -v --proxy external.proxy.com private.mysite.com` does not get a response from your SUT, you may need to use a different proxy, such as `internal.proxy.com:8080`, access your SUT. In this case, you'd need your PAC file to reflect your network setup:
+If `curl -v --proxy external.proxy.com private.mysite.com` does not get a response from your SUT, you may need to use a different proxy, such as `internal.proxy.com:8080`, access your SUT. In this case, your PAC file will need to reflect your network setup:
 
-```java
-// multiproxy proxy.pac
+```javascript title="multiproxy proxy.pac"
 function FindProxyForURL(url, host) {
     // Sauce domain calls required to start a tunnel
     if (shExpMatch(host, "*.miso.saucelabs.com") ||
@@ -305,10 +304,9 @@ function FindProxyForURL(url, host) {
 }
 ```
 
-Examples of other PAC setups:
-```javascript
-// single_proxy.pac
-// A proxy is required to reach external resources
+Here's an example of another PAC setup with a single proxy:
+```javascript title="single_proxy.pac"
+    // A proxy is required to reach external resources
 function FindProxyForURL(url, host) {
     // Internal calls for resources in your network
     if (shExpMatch(host, "*.auth.my-company.com") ||
@@ -317,7 +315,7 @@ function FindProxyForURL(url, host) {
         return "DIRECT";
     }
 
-    // All other traffic should 
+    // All other traffic should
     // go to the public internet via proxy
     return "PROXY my-company.org:8880";
 }
