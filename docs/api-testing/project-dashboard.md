@@ -47,7 +47,7 @@ The API Testing Dashboard &#8212; accessible from with a Project &#8212; display
 2. Click on any Project.
 3. Click the **Dashboard** tab.
 4. Select the **Logs** radio button.
-5. Select desired filters to find the Test(s) you're looking for, then click **Apply**. Filters include, but are not limited to: date range, mode (Monitoring (Scheduled) Tests or On-Demand Tests), tag(s), and [user] agent.<br/><img src={useBaseUrl('img/api-fortress/2021/02/logsFilters.png')} alt="Dashboard Logs Filters"/>
+5. Select desired filters to find the Test(s) you're looking for, then click **Apply**. Filters include, but are not limited to: date range, mode (Monitoring (Scheduled) Tests or On-Demand Tests), tag(s), and agent.<br/><img src={useBaseUrl('img/api-fortress/2021/02/logsFilters.png')} alt="Dashboard Logs Filters"/>
 
 
 ### Test Metrics
