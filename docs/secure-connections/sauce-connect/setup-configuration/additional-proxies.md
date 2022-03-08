@@ -304,7 +304,7 @@ function FindProxyForURL(url, host) {
 }
 ```
 
-Here's an example of another PAC setup with a single proxy:
+Here's an example of a single-proxy PAC setup for public internet access:
 ```javascript title="single_proxy.pac"
     // A proxy is required to reach external resources
 function FindProxyForURL(url, host) {
