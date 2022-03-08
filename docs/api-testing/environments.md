@@ -36,7 +36,7 @@ There are multiple ways to create and access Test environments:
  The resulting environment (along with its defined variables) will now appear each of your Tests as an option in the environment dropdown.
 
 ### From a Test
-1. Locate your desired Test from any of the following sections: **Tests**, **Compose**, **Schedule**, or **HTTP Client**. These are all of the places in the UI where you can run a Test.
+1. Locate your desired Test from any of the following sections: **Tests**, **Compose**, or **HTTP Client**.
 2. Under **Run Configuration**, click the **No environment** dropdown.
 3. Select **Add item**.
 4. Enter a name for your environment, then click **Confirm**.
@@ -46,9 +46,9 @@ There are multiple ways to create and access Test environments:
 This new environment will be selected by default in the dropdown.
 
 ## Using Environments
-Once you've added created an environment and added the variables you'll need, you can then run your Test against that environment.
+Once you've created an environment and added your variables, you can run your Test against that environment.
 
-1. Locate your desired Test from any of the following sections: **Tests**, **Compose**, **Schedule**, or **HTTP Client**. These are all of the places in the UI where you can run a Test.
+1. Locate your desired Test from any of the following sections: **Tests**, **Compose**, or **HTTP Client**. 
 2. Under **Run Configuration**, click the **No environment** dropdown, and select the name of the environment you created.<br/><img src={useBaseUrl('img/api-fortress/2021/04/selectEnv.png')} alt="result in tests" width="300"/>
 
 By activating an environment here, you will be able to hit a different variable (key/value pair) in your current session without actually changing your Test.
