@@ -141,7 +141,7 @@ Click here to learn more about the [Downloaders](/api-testing/on-prem/learn-more
 
 4. Fill the fields:
    - Name: Write a recognizable name
-   - Location: A representation of where the downloader is e.g. Chicago
+   - Location: A representation of where the downloader is e.g.,Chicago
    - Latitude / Longitude: The geographical position of the downloader
    - Last Resort: Check this to make it the default downloader used
    - URL: The address of the downloader, followed by port (default `8819`) and path /api. In our example, the `ipv4_address` and our downloader address would result in `https://172.18.1.1:8819/api`

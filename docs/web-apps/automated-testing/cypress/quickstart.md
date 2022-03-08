@@ -10,12 +10,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  Use `saucectl` — the Sauce Labs test orchestrator CLI — to run [Cypress](https://docs.cypress.io/guides/overview/why-cypress.html) tests directly from your existing Cypress project.
 
- * Don't have Cypress tests but want to try? Follow the steps below to use the Cypress Demo Repo to build a sample project structure, working configuration file, and sample Cypress test -- get up and running in less than 10 minutes!
+ * Don't have Cypress tests but want to try? Follow the steps below to use the Cypress Demo Repo to build a sample project structure, working configuration file, and sample Cypress test &#8212; get up and running in less than 10 minutes!
  * Already running Cypress? Let `saucectl` run your tests in the Sauce Labs Cloud, where you have access to thousands of OS/browser combinations and Sauce Labs analytics.  
 
 ## What You'll Need
 
- * A Sauce Labs account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
+ * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
  * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
  * [Node.js](https://nodejs.org/en/) to use the NPM package manager
  * A [GitHub](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home) account

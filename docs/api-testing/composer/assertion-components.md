@@ -65,7 +65,7 @@ This assertion is used to check if the element described by the expression conta
 | Stop test if fails | 'true' or 'false' | No |
 | Comment | String | No |
 
-* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
+* __Expression__: It's the path to the element we want to operate on (e.g.,`payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Value__: The value we want to compare the expression to.
 * __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.
 * __Level__: Specifies, when the assertion fails, whether it should be considered an **error** or just a **warning**.
@@ -110,7 +110,7 @@ This assertion is used to check if the element value described by the expression
 | Stop test if fails | 'true' or 'false' | No |
 | Comment | String | No |
 
-* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
+* __Expression__: It's the path to the element we want to operate on (e.g.,`payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Value__: The value we want to compare the expression to.
 * __Type__: The data type of the value. This attribute is optional. If no type is defined the values will be compared as strings. If the type is set the values will evaluated with the chosen comparator (ex: ‘integer’ as a whole number, ‘float’ as a decimal number).
 * __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.
@@ -153,7 +153,7 @@ This assertion is used to check if the element described by the expression exist
 | Stop test if fails | 'true' or 'false' | No |
 | Comment | String | No |
 
-* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
+* __Expression__: It's the path to the element we want to operate on (e.g.,`payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.
 * __Level__: Specify if the assertion fails whether it should be considered an ‘error’ or just a ‘warning’.
 * __Modifier__: The assertion is considered verified if it does not pass.
@@ -193,7 +193,7 @@ This assertion is used to check if the element value described by the expression
 | Stop test if fails | 'true' or 'false' | No |
 | Comment | String | No |
 
-* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
+* __Expression__: It's the path to the element we want to operate on (e.g.,`payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Value__: The value we want to compare the expression to.
 * __Type__: The data type of the value. This attribute is optional. If no type is defined the values will be compared as strings. If the type is set the values will evaluated with the chosen comparator (ex: ‘integer’ as a whole number, ‘float’ as a decimal number).
 * __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.
@@ -238,7 +238,7 @@ This assertion is used to check if the element described by the expression match
 | Stop test if fails | 'true' or 'false' | No |
 | Comment | String | No |
 
-* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
+* __Expression__: It's the path to the element we want to operate on (e.g.,`payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Value__: The value we want to compare the expression to.
 * __Type__: The data type of the value. This attribute is optional. If no type is defined the values will be compared as strings. If the type is set the values will evaluated with the chosen comparator (ex: ‘integer’ as a whole number, ‘float’ as a decimal number).
 * __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.
@@ -283,7 +283,7 @@ This assertion is used to check if the value of the element defined by the expre
 | Stop test if fails | 'true' or 'false' | No |
 | Comment | String | No |
 
-* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
+* __Expression__: It's the path to the element we want to operate on (e.g.,`payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Type__: The data type of the value. The possible values are:
     * _integer_: checks if field is an integer value;
     * _float_: checks if field is a decimal value;
@@ -332,7 +332,7 @@ This assertion is used to check if the element value described by the expression
 | Comment | String | No |
 
 
-* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
+* __Expression__: It's the path to the element we want to operate on (e.g.,`payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Value__: The value we want to compare the expression to.
 * __Type__: The data type of the value. This attribute is optional. If no type is defined the values will be compared as strings. If the type is set the values will evaluated with the chosen comparator (ex: ‘integer’ as a whole number, ‘float’ as a decimal number).
 * __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.
@@ -377,7 +377,7 @@ This assertion is used to check if the element value described by the expression
 | Stop test if fails | 'true' or 'false' | No |
 | Comment | String | No |
 
-* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
+* __Expression__: It's the path to the element we want to operate on (e.g.,`payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Type__: The data type of the value. The possible values are:
     * _regex_: if you want to evaluate the field as a regular expression (specified in regex value);
     * _US Zipcode_: checks if the field is a valid US zip code;
