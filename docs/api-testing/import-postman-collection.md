@@ -1,7 +1,7 @@
 ---
 id: import-postman-collection
 title: Importing Postman Collections, Variables, and Environments
-sidebar_label: Import from Postman
+sidebar_label: Import Test from Postman
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -18,8 +18,7 @@ If you have a [Postman API Collection](https://www.postman.com/collection/), you
 
 ## Importing Postman Collections
 
-1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/>
-  <img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+1. Log in to Sauce Labs, then click **API Testing**.
 2. Click to open one of your Projects.
 3. Click the __HTTP Client__ tab.<br/><img src={useBaseUrl('img/api-fortress/2021/01/HTTPClient.png')} alt="HTTP Client" width="400" />
 4. Click the **Import OpenAPI / Postman** button, then select and upload your Postman Collection file from your local machine.<br/><img src={useBaseUrl('img/api-fortress/2021/01/importSpec.png')} alt="Import OpenAPI / Postman button" width="250"/>
@@ -100,7 +99,7 @@ If you don't have a file available, try out the sample below.
 
 ## Importing Postman Environments
 
-1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+1. Log in to Sauce Labs, then click **API Testing**.
 1. Click to open one of your Projects.
 1. Click the __Vault__ tab.<br/><img src={useBaseUrl('img/api-fortress/2021/04/vault.png')} alt="Project Vault" width="600"/>
 1. Click **Variables**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/projectVault.png')} alt="Project Vault Variables" width="600"/>
@@ -112,7 +111,7 @@ Your environmental variables will now be available in the __Variables__ section 
 
 ## Importing Postman Variables
 
-1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+1. Log in to Sauce Labs, then click **API Testing**.
 1. Click the __Company Vault__ tab.<br/><img src={useBaseUrl('img/api-fortress/2021/04/companyVault.png')} alt="Company Vault" width="400"/>
 1. Click the **Variables** radio button.<br/><img src={useBaseUrl('img/api-fortress/2021/04/companyVault2.png')} alt="Company Vault" width="400"/>
 1. Click **Import**.
@@ -123,4 +122,5 @@ Your environmental variables will now available across all your Projects.
 
 ## More Information
 
-* [Postman Documentation | Importing and Exporting Data](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#exporting-postman-data): learn to export Postman Collections.
+* [Build a Sauce Labs API Test from a Spec File](/api-testing/build-from-spec)
+* [Importing and Exporting Data from Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#exporting-postman-data)

@@ -23,7 +23,7 @@ For information on moving tests from API Fortress (our legacy platform) to Sauce
 
 To import a Sauce Labs API test,
 
-1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+1. Log in to Sauce Labs, then click **API Testing**.
 2. Click on one of your Projects to open it.
 3. From the **Tests** tab, click **Create Test** > **API Test**.<br/><img src={useBaseUrl('img/api-testing/import-tests/create-test.png')} alt="Create test" width="500" /><br/>
    Or, if your Project has no Tests, select <b>Upload Archive</b>.<br/><img src={useBaseUrl('img/api-testing/import-tests/upload-archive.png')} alt="Upload archive" width="650" />
@@ -40,7 +40,7 @@ Only **Published** tests can be exported.
 
 To export a Sauce Labs API test,
 
-1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+1. Log in to Sauce Labs, then click **API Testing**.
 2. Click on any Project.
 3. On the **Tests** tab, select one or more tests you'd like to export by clicking the checkboxes next to each test name.
 4. From the nav, click the **Export** button. This will generate a zip file containing the tests and automatically download it to your local machine.
@@ -54,7 +54,7 @@ The **Clone Test** feature allows you to clone one or more tests from a Project 
 Only **Published** tests can be cloned.
 :::
 
-1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+1. Log in to Sauce Labs, then click **API Testing**.
 2. Click on any Project, then click the **Tests** tab.
 3. Select the checkbox(es) next to the published Tests that you want to clone.<br/><img src={useBaseUrl('img/api-testing/import-tests/clone.png')} alt="API Test cloning" width="500" width="400"/>
 4. Click the **Clone** button and wait for the system to clone it.
