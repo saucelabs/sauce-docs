@@ -464,6 +464,9 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ## Test Execution
 
+When you run an API test using one of these methods, you'll receive a response immediately that contains general test details.
+
+
 ### Run a Test
 
 <details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/&#123;testId&#125;/_run</code></summary>
@@ -829,6 +832,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 
 ## Test Execution (synchronous)
+
+When you run an API test synchronously, you'll receive a response containing granular test details. These API methods will wait until all results are available before showing them. 
 
 
 ### Run a Test Synchronously
@@ -1446,8 +1451,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <p/>
 
 Executes a test synchronously that you send in the request body. It will create a Log in the project **Dashboard**, however, the test itself will not populate in your project's **Tests** section.
-
-With this method, the API waits until all results are available, before showing them. With the [Execute a Test](#execute-a-test) method, it will just show that the execution has been done.
 
 #### Parameters
 
