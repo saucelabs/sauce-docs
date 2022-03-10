@@ -2,36 +2,34 @@
 id: attributes
 title: Unity Attributes
 sidebar_label: Attributes
-description: Customize crash and error reports for Unity apps.
+description: Attributes reference for Unity apps and games.
 ---
-Customize crash and error reports for Unity apps. This page defines the attributes available with the Backtrace Unity SDK.
+This page defines the attributes that are available to customize crash and error reports for Unity apps and games.
 
 ## Attributes list
-
 Attributes are additional metadata that can be attached to crash and error reports. You can use attributes to filter, aggregate, analyze, and debug errors in the Backtrace console.
 
 All attributes listed below are captured by the Backtrace Unity SDK, although not all attributes are indexed by default. Non-indexed attributes cannot be used in queries. For more information about indexing, see [Indexing Attributes](https://support.backtrace.io/hc/en-us/articles/360040517191-Project-Settings-Indexing-Attributes).
 
 :::note
-You can also define custom attributes to be captured, sent, and indexed. For more information, see [Configuration](/error-reporting/platform-integrations/unity/configuration/#attributes-and-attachment-paths).
+You can define custom attributes to be captured, sent, and indexed. For more information, see [Configuration](/error-reporting/platform-integrations/unity/configuration/#attributes-and-attachment-paths).
 :::
 
 ### Indexed Attributes
-
 |Name|Description|Format|Type|
 |---------|---------|---------|---------|
 |`_compressed`|Indicates whether the object is compressed.|None|Boolean|
 |`_rxid`|The received identifier for the object.|UUID|UUID|
 |`_tx`|The transaction identifier for the object.|None|64-bit|
-|`application`|The source app in fault.|None|String|True|
-|`callstack`|The signature of the call stack in fault.|Callstack|String|
+|`application`|The source app in fault.|None|String|
+|`callstack`|The signature of the callstack in fault.|Callstack|String|
 |`callstack.files`|A per-frame list of source files in fault.|Callstack|String|
 |`callstack.functions`|A per-frame list of functions in fault.|Callstack|String|
 |`callstack.modules`|A per-frame list of modules in fault.|Callstack|String|
 |`classifiers`|The anomalous properties of the object.|Label|String|
 |`cpu.boottime`|The time when the system was booted.|None|64-bit|
 |`cpu.brand`|The processor brand.|None|String|
-|`cpu.count`|The number of processing cores that are available.|None|64-bit|
+|`cpu.count`|The number of processors on the system.|None|64-bit|
 |`descriptor.count`|The number of file descriptors in the process table.|None|64-bit|
 |`error.message`|The error message associated with the event.|None|String|
 |`fingerprint`|The signature of the primary fault.|SHA-256|String|
@@ -42,7 +40,7 @@ You can also define custom attributes to be captured, sent, and indexed. For mor
 |`lang.name`|The programming language.|None|String|
 |`lang.version`|The version of the programming language.|None|String|
 |`object.size`|The size of the object.|Bytes|64-bit|
-|`process.age`|The age of the faulting process in seconds.|Seconds|64-bit|
+|`process.age`|The number of seconds that the application has been running for.|Seconds|64-bit|
 |`sched.cs.involuntary`|The number of involuntary context switches.|None|64-bit|
 |`sched.cs.voluntary`|The number of voluntary context switches.|None|64-bit|
 |`system.memory.active`|The amount of memory recently used.|Kilobytes|64-bit|
@@ -62,11 +60,12 @@ You can also define custom attributes to be captured, sent, and indexed. For mor
 |`system.memory.vmalloc.total`|The total amount of virtual memory allocation.|Kilobytes|64-bit|
 |`timestamp`|The timestamp of fault.|UNIX timestamp|64-bit|
 |`timestamp.received`|The received timestamp of fault.|UNIX timestamp|64-bit|
-|`uname.machine`|The machine hardware name.|None|String|
-|`uname.sysname`|The kernel name.|None|String|
-|`uname.version`|The kernel version.|None|String|
+|`uname.machine`|The processor architecture.|None|String|
+|`uname.sysname`|The operating system name.|None|String|
+|`uname.version`|The version of the operating system.|None|String|
 |`vm.pte.size`|The size of the page table entries.|Kilobytes|64-bit|
 |`vm.rss.peak`|The size of peak resident memory.|Kilobytes|64-bit|
+|`vm.rss.size`|The size of resident memory.|Kilobytes|64-bit|
 |`vm.shared.size`|The size of the shared library.|Kilobytes|64-bit|
 |`vm.stack.size`|The size of the stack segment.|Kilobytes|64-bit|
 |`vm.swap.size`|The size of swap memory.|Kilobytes|64-bit|
@@ -75,7 +74,6 @@ You can also define custom attributes to be captured, sent, and indexed. For mor
 
 
 ### Non-indexed Attributes
-
 |Name|Description|Format|Type|
 |---------|---------|---------|---------|
 |`api.compatibility`|The .NET framework and version compatible with the app. Defined in the Player Settings for the Unity project.|User Defined|User Defined|
@@ -97,10 +95,10 @@ You can also define custom attributes to be captured, sent, and indexed. For mor
 |`application.unity.version`|The runtime version of Unity.|User Defined|User Defined|
 |`application.url`|The URL used to open the application.|User Defined|User Defined|
 |`application.version`|The app's build version. Defined in the Player Settings for the Unity project.|User Defined|User Defined|
-|`audio.supported`|Indicate whether audio is supported.|User Defined|User Defined|
+|`audio.supported`|Indicates whether audio is supported.|User Defined|User Defined|
 |`backtrace.version`|The version of the Backtrace SDK.|User Defined|User Defined|
-|`battery.level`|
-|`battery.status`|
+|`battery.level`|The current battery level.|User Defined|User Defined|
+|`battery.status`|The current status of the device's battery.|User Defined|User Defined|
 |`cpu.frequency`|The frequency of the device's central processing unit (CPU) in megahertz (MHz).|User Defined|User Defined|
 |`device.manufacturer`|The manufacturer of the device running the app.|User Defined|User Defined|
 |`device.model`|The model of the device running the app.|User Defined|User Defined|
@@ -129,5 +127,5 @@ You can also define custom attributes to be captured, sent, and indexed. For mor
 |`scene.name`|The name of the active scene at the time the report is sent.|User Defined|User Defined|
 |`scene.path`|The path to the scene.|User Defined|User Defined|
 |`scripting.backend`|The scripting backend. Defined in the Player Settings for the Unity project.|User Defined|User Defined|
-|`uname.family`|The operating system (OS) family running the app.|User Defined|User Defined|
-|`uname.fullname`|The name and version of the operating system (OS).|User Defined|User Defined|
+|`uname.family`|The operating system family running the app.|User Defined|User Defined|
+|`uname.fullname`|The name and version of the operating system.|User Defined|User Defined|

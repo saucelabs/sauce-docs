@@ -44,9 +44,6 @@ For on-premise (self-hosted) users, the integration for Unreal Engine requires s
 ### System Requirements
 * Unreal Engine version 4.16 to 5.0 (early access)
 
-:::note
-To integrate crash reporting in your Unreal Engine apps and games for Linux, see the [README](https://github.com/backtrace-labs/crashpad/tree/backtrace) for Crashpad.
-:::
 
 ## Enable the Crash Reporter
 1. In the Unreal Editor, go to Edit > Project Settings.
@@ -61,7 +58,6 @@ If you're building from the command line, add the `-crashreporter` flag.
 
 
 ## Initialize the Backtrace Client
-
 <Tabs
   groupId="platforms"
   defaultValue="windows"
@@ -88,7 +84,7 @@ If the Engine folder doesn't exist at the root directory for your Unreal Engine 
   ```
   [CrashReportClient]
   CrashReportClientVersion=1.0
-  DataRouterUrl="https://unreal.backtrace.io/post/{subdomain-name}/{submission-token}>"
+  DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}>"
   ```
   Provide the name of your subdomain and submission token for the `DataRouterUrl`.
 
@@ -110,7 +106,7 @@ You can configure the crash reporter to be the default for all packaged builds o
     ```
     [CrashReportClient]
     CrashReportClientVersion=1.0
-    DataRouterUrl="https://unreal.backtrace.io/post/{subdomain-name}/{submission-token}"
+    DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
     ```
     Provide the name of your subdomain and submission token for the `DataRouterUrl`.
 
@@ -129,7 +125,7 @@ You can configure the crash reporter to be the default for all packaged builds o
     ```
     [CrashReportClient]
     CrashReportClientVersion=1.0
-    DataRouterUrl="https://unreal.backtrace.io/post/{subdomain-name}/{submission-token}"
+    DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
     ```
     Provide the name of your subdomain and submission token for the `DataRouterUrl`.
 
@@ -142,11 +138,11 @@ Integrate the [backtrace-android](https://github.com/backtrace-labs/backtrace-an
 1. In the `BacktraceAndroid_UPL.xml` file, configure the name of your subdomain and submission token for `BacktraceCredentials`.
     - Java:
       ```Java
-      BacktraceCredentials credentials = new BacktraceCredentials("https://submit.backtrace.io/{subdomain-name}/{submission-token}/json");  
+      BacktraceCredentials credentials = new BacktraceCredentials("https://submit.backtrace.io/{subdomain}/{submission-token}/json");  
       ```
     - Kotlin:
       ```
-      val backtraceCredentials = BacktraceCredentials("https://submit.backtrace.io/{subdomain-name}/{submission-token}/json")
+      val backtraceCredentials = BacktraceCredentials("https://submit.backtrace.io/{subdomain}/{submission-token}/json")
       ```
 1. In the directory for your Unreal Engine project, locate your app or game's `Build.cs` file.
 1. Place the `BacktraceAndroid_UPL.xml` file in the same directory with the `Build.cs` file.
@@ -213,7 +209,7 @@ Make sure to reflect the path to where you've placed both frameworks within your
   #if PLATFORM_IOS
 
     BacktraceCredentials *credentials = [[BacktraceCredentials alloc]
-                       initWithSubmissionUrl: [NSURL URLWithString: @"https://submit.backtrace.io/{subdomain-name}/{submission-token}/plcrash"]];
+                       initWithSubmissionUrl: [NSURL URLWithString: @"https://submit.backtrace.io/{subdomain}/{submission-token}/plcrash"]];
     BacktraceClientConfiguration *configuration = [[BacktraceClientConfiguration alloc]
                                                    initWithCredentials: credentials
                                                    dbSettings: [[BacktraceDatabaseSettings alloc] init]
@@ -231,7 +227,7 @@ For information on how to change the default configuration settings for the Back
 </TabItem>
 <TabItem value="macos">
 
-To integrate error reporting in your Unreal Engine apps and games for macOS, see the [PLCrashReporter](https://support.backtrace.io/hc/en-us/articles/360040105092).
+To integrate error reporting in your Unreal Engine apps and games for macOS, see [PLCrashReporter](https://support.backtrace.io/hc/en-us/articles/360040105092).
 
 </TabItem>
 <TabItem value="linux">
@@ -251,7 +247,207 @@ You must now ensure your build environment has been configured to generate debug
 
 For information on how to generate symbols, see [Symbolication](https://support.backtrace.io/hc/en-us/articles/360040517071#Windows).
 
-## Throw an Exception
-At this point, you've installed and setup the Backtrace client to automatically capture crashes and exceptions in your Unity game or app.
+## Verify the Setup
+At this point, you've installed and setup the Backtrace client to automatically capture crashes in your Unreal Engine game or app.
 
-To test the integration, use a try/catch block to throw an exception and start sending reports to your Backtrace instance.
+To test the integration, send a crash report to your Backtrace instance.
+
+<Tabs
+  groupId="platforms"
+  defaultValue="windows"
+  values={[
+    {label: 'Windows', value: 'windows'},
+    {label: 'Android', value: 'android'},
+    {label: 'iOS', value: 'ios'},
+    {label: 'macOS', value: 'macos'},
+    {label: 'Linux', value: 'linux'},
+    {label: 'Game Consoles', value: 'GameConsoles'},
+  ]}>
+
+<TabItem value="windows">
+
+To crash your game when it starts, create a class called MyActor and reference a blueprint. The blueprint can be attached to the BeginPlay event.
+
+The header file (which has the .h extension) contains the class definitions and functions, while the implementation of the class is defined by the .cpp file. For example:
+- MyActor.h:
+    ```c++
+    // Fill out your copyright notice in the Description page of Project Settings.
+    ​
+    #pragma once
+    ​
+    #include "CoreMinimal.h"
+    #include "GameFramework/Actor.h"
+    #include "GenericPlatform/GenericPlatformCrashContext.h"
+    #include "MyActor.generated.h"
+    ​
+    UCLASS()
+    class BACKTRACE_API AMyActor : public AActor
+    {
+    	GENERATED_BODY()
+
+    public:
+    	// Sets default values for this actor's properties
+    	AMyActor();
+    ​
+    protected:
+    	// Called when the game starts or when spawned
+    	virtual void BeginPlay() override;
+    ​
+    public:
+    	// Called every frame
+    	virtual void Tick(float DeltaTime) override;
+    ​
+    	UFUNCTION(BlueprintCallable, Category = "Backtrace Tools")
+    		void DoCrashMe();
+    ​
+    };
+    ```
+
+- MyActor.cpp:
+    ```c++
+    // Fill out your copyright notice in the Description page of Project Settings.
+    ​
+    ​
+    #include "MyActor.h"
+    ​
+    // Sets default values
+    AMyActor::AMyActor()
+    {
+     	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+    	PrimaryActorTick.bCanEverTick = true;
+    ​
+    }
+    ​
+    // Called when the game starts or when spawned
+    void AMyActor::BeginPlay()
+    {
+    	Super::BeginPlay();
+    	{
+    ​
+    			FGenericCrashContext::SetGameData(TEXT("BluePrintCallStack"), TEXT("BluePrintCallStackValue"));
+    	}
+
+    }
+    ​
+    // Called every frame
+    void AMyActor::Tick(float DeltaTime)
+    {
+    	Super::Tick(DeltaTime);
+    ​
+    }
+    ​
+    void AMyActor::DoCrashMe()
+    {
+    ​
+    	UE_LOG(LogTemp, Fatal, TEXT("I crash and burn. Bye bye now"));
+    ​
+    }
+  ```  
+
+</TabItem>
+<TabItem value="android">
+
+- Java:
+  ```Java
+  try {
+    // throw exception here
+  }
+  catch (Exception exception) {
+    backtraceClient.send(new BacktraceReport(e));
+  }  
+  ```
+- Kotlin:
+  ```
+  try {
+    // throw exception here
+  }
+  catch (e: Exception) {
+    backtraceClient.send(BacktraceReport(e))
+  }
+  ```
+
+</TabItem>
+<TabItem value="ios">
+
+- Swift:
+  ```swift
+  import UIKit
+  import Backtrace
+
+  @UIApplicationMain
+  class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        let backtraceCredentials = BacktraceCredentials(endpoint: URL(string: "https://backtrace.io")!,
+                                                        token: "token")
+        BacktraceClient.shared = try? BacktraceClient(credentials: backtraceCredentials)
+
+        do {
+            try throwingFunc()
+        } catch {
+            BacktraceClient.shared?.send { (result) in
+                print(result)
+            }
+        }
+
+        return true
+    }
+  }
+  ```
+- Objective-C:
+  ```objc
+  #import "AppDelegate.h"
+  @import Backtrace;
+
+  @interface AppDelegate ()
+
+  @end
+
+  @implementation AppDelegate
+
+  - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    BacktraceCredentials *credentials = [[BacktraceCredentials alloc]
+                                         initWithEndpoint: [NSURL URLWithString: @"https://backtrace.io"]
+                                         token: @"token"];
+    BacktraceClient.shared = [[BacktraceClient alloc] initWithCredentials: credentials error: nil];
+
+    // sending NSException
+    @try {
+        NSArray *array = @[];
+        NSObject *object = array[1]; // will throw exception
+    } @catch (NSException *exception) {
+        [[BacktraceClient shared] sendWithException: exception completion:^(BacktraceResult * _Nonnull result) {
+            NSLog(@"%@", result);
+        }];
+    } @finally {
+
+    }
+
+    return YES;
+  }
+
+  @end
+  ```
+
+</TabItem>
+<TabItem value="macos">
+
+To send a crash report to your Backtrace instance for macOS, see [PLCrashReporter](https://support.backtrace.io/hc/en-us/articles/360040105092).
+
+</TabItem>
+<TabItem value="linux">
+
+To send a crash report to your Backtrace instance for Linux, see the [Crashpad Integration Guide](https://support.backtrace.io/hc/en-us/articles/360040516131-Crashpad-Integration-Guide#Sendcrashreports).
+
+</TabItem>
+<TabItem value="GameConsoles">
+
+To send a crash report to your Backtrace instance for game consoles, see the [Console Integration Guides](https://support.backtrace.io/hc/en-us/sections/360007642051-Video-Game-Technologies).
+
+</TabItem>
+</Tabs>

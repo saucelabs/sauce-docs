@@ -147,10 +147,10 @@ The server address is required to submit exceptions from your Unity project to y
 
   1. Go back to the Backtrace Configuration in your Unity project.
 
-  1. In the Server Address field under Backtrace client configuration, paste the server address in the following format: `https://submit.backtrace.io/{subdomain-name}/{submission-token}/json`.
+  1. In the Server Address field under Backtrace client configuration, paste the server address in the following format: `https://submit.backtrace.io/{subdomain}/{submission-token}/json`.
 
 
-## Throw an Exception
+## Verify the Setup
 At this point, you've installed and setup the Backtrace client to automatically capture crashes and exceptions in your Unity game or app.
 
 To test the integration, use a try/catch block to throw an exception and start sending reports.

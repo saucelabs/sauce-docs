@@ -403,6 +403,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'error-reporting/platform-integrations/unreal/setup',
+                        'error-reporting/platform-integrations/unreal/attributes',
                     ],
                 },
             ],
