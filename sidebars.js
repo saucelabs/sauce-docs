@@ -730,6 +730,7 @@ module.exports = {
      ],
      "API Testing": [
          'api-testing',
+         'api-testing/introduction',
          'api-testing/quickstart',
          'api-testing/sauce-connect',
          'api-testing/build-from-spec',
