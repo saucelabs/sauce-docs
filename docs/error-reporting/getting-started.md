@@ -6,7 +6,7 @@ description: Capture crash and error reports from your games and mobile apps wit
 ---
 Capture crash and error reports from your games and mobile apps with Backtrace.
 
-## Add Error Reporting to Your Apps and Games
+## Set Up Your Project
 
 <div className="box box1 card">
   <div className="container">
@@ -19,21 +19,4 @@ Capture crash and error reports from your games and mobile apps with Backtrace.
     <li><a href="/error-reporting/platform-integrations/unreal/setup">Unreal Engine</a></li>
   </ul>
   </div>
-</div>
-
-<br />
-
-## Project Settings
-
-<div className="box box2 card">
-  <div className="container">
-  <h2>Workflow Integrations</h2>
-  <p>Integrate Backtrace into existing workflows by connecting to the tools you use.</p>
-  <ul>
-    <li>Issue Tracking</li>
-    <li>Messaging</li>
-    <li>Monitoring</li>
-    <li>Alerting and Operations</li>
-  </ul>  
-</div>
 </div>
