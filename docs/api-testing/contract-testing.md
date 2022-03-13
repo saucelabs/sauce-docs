@@ -6,17 +6,20 @@ sidebar_label: API Contract Testing
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## What is API Testing?
-
 An API conversation consists of:
 * API consumer (client side) performing a request
 * API producer (server side) responding to that request<br/><img src={useBaseUrl('img/api-fortress/2022/03/api-conversation.png')} alt="API Conversation and Contract" width="300"/>
 
 The conversation needs to follow specific rules that the API producer and API consumer must agree upon. The formal description of these rules is the contract, which is generally presented as a specification file such as [OpenAPI](https://swagger.io/docs/specification/about/).
 
-If this contract is broken by either party, it can lead to bugs and malfunctions. _Contract testing_ is the act of validating that the API producer and the API consumer are respecting the contract. That’s where Sauce Labs API Testing comes in.
+If this contract is broken by either party, it can lead to bugs and malfunctions. _API Contract Testing_ is the act of validating that the API producer and the API consumer are respecting the contract. That’s where Sauce Labs API Testing comes in.
 
-## Contract Testing  
+## What You'll Need
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
+
+
+## About Contract Testing  
 
 Contract testing is a fast, lightweight form of API testing that strictly checks the content and format of requests and responses. This method is ideal for:
 * Testing APIs during the early stages of design and development
@@ -24,7 +27,7 @@ Contract testing is a fast, lightweight form of API testing that strictly checks
 
 This is typically done in a protected, static environment, where tests are run against mocked (not live) APIs, allowing contract tests to compare isolated API responses to the contract for immediate attention if something is wrong.<br/><img src={useBaseUrl('img/api-fortress/2022/03/api-consumer-contract.png')} alt="API Conversation and Contract" width="500"/>
 
-### API Server Side
+### Producer (Server) Side
 To test the producer (server) side:
 1. From an API Testing Project, go to the HTTP Client.
 2. Import an OpenAPI specification file (v3.0 or higher).
@@ -42,8 +45,8 @@ After you generate your test, you'll be taken to the **Compose** tool. Optionall
 
 You can view your contract test's results and events on your [Project Dashboard](/api-testing/project-dashboard/).
 
-### API Client Side
-To test the consumer (client) side:
+### Consumer (Client) Side
+To test the API consumer (client) side:
 1. Run [Piestry](/api-testing/mocking/), our API mocking server, with the same OpenAPI spec used in the previous test. You'll need to activate the contract testing functionality, binding with a Sauce Labs API Testing project.
 2. Run your unit tests against your client software, making sure the API URLs are pointing to the mocks provided by [Piestry](/api-testing/mocking/).
 
