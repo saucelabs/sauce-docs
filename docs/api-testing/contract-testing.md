@@ -1,7 +1,7 @@
 ---
-id: introduction
-title: Using Sauce Labs API Testing
-sidebar_label: About
+id: contract-testing
+title: API Contract Testing
+sidebar_label: API Contract Testing
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -36,6 +36,10 @@ Sauce Labs API Testing will validate the API producer side by creating a contrac
 
 After you generate your test, you'll be taken to the **Compose** tool. Optionally, you can add further [assertions](/api-testing/composer/) to your test, which will perform functional end-to-end testing on top of your contract tests and fully validate the APIs are working as intended.
 
+<details><summary>What is functional testing?</summary>
+<i>Functional (end-to-end) testing</i> is a more robust, data-driven method that checks the API logic and consumer flows. If your organization is creating a large-scale API program that will have public APIs with third-party consumers, for example, functional testing is ideal. That's where adding functional testing to complement your contract testing strategy can give your development team insight into how accurately your APIs render, and ultimately bring products to market faster.
+</details>
+
 You can view your contract test's results and events on your [Project Dashboard](/api-testing/project-dashboard/).
 
 ### API Client Side
@@ -46,10 +50,3 @@ To test the consumer (client) side:
 Sauce Labs API Testing will validate that the API consumer side has complied with the contract specifications.
 
 <img src={useBaseUrl('img/api-fortress/2022/03/api-testing-overview.png')} alt="API Conversation and Contract" width="600"/>
-
-
-## Functional Testing
-
-_Functional (end-to-end) testing_ is a more robust, data-driven method that checks the API logic and consumer flows. If your organization is creating a large-scale API program that will have public APIs where third-party consumers will be consuming them, functional testing is ideal.
-
-That is where adding functional testing to complement your contract testing strategy can give your development team insight into how accurately your APIs render, and ultimately bring products to market faster.
