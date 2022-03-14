@@ -19,7 +19,7 @@ description: "This assertion is used to validate a JSON schema, based on the pro
 | JsonSchema | JSON schema definition | Yes |
 | Comment | String | No |
 
-* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](https://apifortress.com/doc/expression/) for more details.
+* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](https://apifortress.com/doc/expression/) for more details.
 * __JsonSchema__: The JSON schema definition. This will be used to validate the JSON passed in the expression field. See below for an example.
 * __Comment__: Add comment messages in the form of a string data type.
 

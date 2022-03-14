@@ -17,17 +17,17 @@ along with some guidelines and conventions.
 
 ## Markdown
 
-This site uses Docusaurus version 2 beta. Docusaurus uses the 
-[remarkable Markdown processor](https://github.com/jonschlinkert/remarkable) to convert 
-[Github Flavored Markdown](https://guides.github.com/features/mastering-markdown/) into html. 
-[Docusaurus Markdown](https://docusaurus.io/docs/markdown-features) supports 
-[Basic Markdown Syntax](https://www.markdownguide.org/basic-syntax) and most 
-[Extended Syntax](https://www.markdownguide.org/extended-syntax/). You can see which features are supported 
+This site uses Docusaurus version 2 Beta. Docusaurus uses the
+[remarkable Markdown processor](https://github.com/jonschlinkert/remarkable) to convert
+[GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/) into HTML.
+[Docusaurus Markdown](https://docusaurus.io/docs/markdown-features) supports
+[Basic Markdown Syntax](https://www.markdownguide.org/basic-syntax) and most
+[Extended Syntax](https://www.markdownguide.org/extended-syntax/). You can see which features are supported
 [here](https://www.markdownguide.org/tools/docusaurus/).
 
 ## Frontmatter
 
-At the top of each docs page, you need to include these things: 
+At the top of each docs page, you need to include these things:
 
 | Variable | Description |
 | ----------- | ----------- |
@@ -53,19 +53,19 @@ keywords:
 
 ## Introduction
 
-The first paragraph of the documentation should set the user's expectations for what they will find on the page. 
+The first paragraph of the documentation should set the user's expectations for what they will find on the page.
 Describe the key benefits to the user, but do not include links.
 
 ## Headers
 
-For accessibility and SEO reasons, never have an H4 header that isn't under an H3 header, 
+For accessibility and SEO reasons, never have an H4 header that isn't under an H3 header,
 or an H3 header that isn't under an H2 header.
 
 * H1 headers should never be used in a document since the title is automatically generated as an H1.
 * H2 headers are used for SEO, so make sure they succinctly represent what a user will find on the page in that section.
 * H3 headers are included in the page's table of contents on the right, so make sure the title describes something
 a user might want to directly navigate to.
-* H4 headers are to emphasize things within a subsection of the page; these can be longer than the other headers 
+* H4 headers are to emphasize things within a subsection of the page; these can be longer than the other headers
 if needed because they aren't included in the Table of Contents.
 
 Markdown Code:
@@ -135,8 +135,8 @@ rather than creating a new paragraph
 
 ## Images
 
-All image files should be included in the `sauce-docs/static/img` directory, in a sub-directory that 
-corresponds to the referencing directory. (e.g., images for a document in the `sauce-docs/docs/contributing` directory 
+All image files should be included in the `sauce-docs/static/img` directory, in a sub-directory that
+corresponds to the referencing directory. (e.g., images for a document in the `sauce-docs/docs/contributing` directory
 would be located in the `sauce-docs/static/img/contributing` directory.
 
 To add an image from that directory, you need to import a special method by placing this line
@@ -156,18 +156,18 @@ and then reference the image as follows:
 Any referenced videos need to be from a Sauce Labs YouTube account.
 The suggested iframe code structure is as follows:
 ```html
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-RDh1ukLN8w" frameborder="0" allow="accelerometer; 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-RDh1ukLN8w" frameborder="0" allow="accelerometer;
 autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
 ## Tabs
 
-Tabs are a great option when an example is different in different contexts. 
-The primary usage of tabs on this site is to illustrate the same example in multiple languages. 
+Tabs are a great option when an example is different in different contexts.
+The primary usage of tabs on this site is to illustrate the same example in multiple languages.
 Ideally, these examples will exist in Java, Node.js, Python, Ruby, and C#, and the tabs should be placed in that order.
 
 :::tip
-When a page includes multiple sets of tabs, use a `groupId` so when the user selects a particular tab, 
+When a page includes multiple sets of tabs, use a `groupId` so when the user selects a particular tab,
 all tabs with that ID will switch to the selected tab.
 :::
 
@@ -198,7 +198,7 @@ and then use the tabs as follows:
     {label: 'Java', value: 'java'},
     {label: 'Node.js', value: 'js'},
   ]}>
- 
+
 <TabItem value="java">
 
 This would include information or examples for Java
@@ -322,16 +322,16 @@ RemoteWebDriver driver = new RemoteWebDriver(url, capabilities);
 
 ## Code References
 
-The Sauce Labs Open Source Team created a plugin for use with Docusaurus to allow us to reference code on Github
+The Sauce Labs Open Source Team created a plugin for use with Docusaurus to allow us to reference code on GitHub
 rather than duplicating code in this repo. Ideally all code displayed in the Sauce Labs documentation points to code in
-one of the `demo-<language>` repos on 
-[Sauce Labs Training Github Org](https://github.com/saucelabs-training/?q=demo#org-repositories).
+one of the `demo-<language>` repos on
+[Sauce Labs Training GitHub Org](https://github.com/saucelabs-training/?q=demo#org-repositories).
 When referencing code, include the language, "reference" and a title indicating what the sample shows.
 The URL for the link can be for the entire file, or include specific line numbers at the end.
 
 :::caution
-To ensure that code examples do not go stale and can be easily updated, 
-all code references should reference a tag instead of 
+To ensure that code examples do not go stale and can be easily updated,
+all code references should reference a tag instead of
 a branch name or a commit hash. For our `demo-<language>` repos, we are doing semantic versioning with `docs-<version>`.
 So, we will create and use `docs-1.0` or `docs-1.1`, etc., as needed.
 
@@ -378,7 +378,7 @@ https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/
 
 ## Expanding Code Blocks
 
-If you have an especially large code block that you'd like to reference on the page, but do not want 
+If you have an especially large code block that you'd like to reference on the page, but do not want
 it to take up too much space on the page by default, we encourage the use of `details` elements.
 
 <table class="code">
@@ -424,7 +424,7 @@ it to take up too much space on the page by default, we encourage the use of `de
 
 ## Admonitions
 
-There are 4 types of [Docusaurus Admonitions](https://docusaurus.io/docs/markdown-features/admonitions):
+There are four types of [Docusaurus admonitions](https://docusaurus.io/docs/markdown-features/admonitions):
 * Note - Relevant information.
 * Tip - A user should do this.
 * Caution - A user should pay attention to this.
@@ -491,14 +491,14 @@ You are about to do something dangerous!
 
 ## Context Limited
 
-There are two ways to provide context for users for when special conditions or limitations apply to 
+There are two ways to provide context for users for when special conditions or limitations apply to
 designated information.
 
 ### Badges
 
 Badges are color-coded images that apply to entire pages or large sections of documentation:
 
-Blue badges are used for everything except for deprecated information which is indicated with a Gold badge
+Blue badges are used for everything except for deprecated information, which is indicated with a Gold badge.
 
 <table class="code">
   <tbody>
@@ -511,13 +511,13 @@ Blue badges are used for everything except for deprecated information which is i
       <td>
 
 ```html
-<p><span className="sauceDBlue">BETA</span></p>
-<p><span className="sauceDBlue">ENTERPRISE ONLY</span></p>
-<p><span className="sauceDBlue">IOS ONLY</span></p>
-<p><span className="sauceDBlue">LIVE TESTING ONLY</span></p>
-<p><span className="sauceDBlue">EARLY ACCESS</span></p>
+<p><span className="sauceDBlue">Beta</span></p>
+<p><span className="sauceDBlue">Enterprise Only</span></p>
+<p><span className="sauceDBlue">iOS Only</span></p>
+<p><span className="sauceDBlue">Live Testing Only</span></p>
+<p><span className="sauceDBlue">Early Access</span></p>
 
-<p><span className="sauceGold">DEPRECATED</span></p>
+<p><span className="sauceGold">Deprecated</span></p>
 ```
 
 </td>
@@ -529,13 +529,13 @@ Blue badges are used for everything except for deprecated information which is i
 
 </td>
       <td>
-<p><span className="sauceDBlue">BETA</span></p>
-<p><span className="sauceDBlue">ENTERPRISE ONLY</span></p>
-<p><span className="sauceDBlue">IOS ONLY</span></p>
-<p><span className="sauceDBlue">LIVE TESTING ONLY</span></p>
-<p><span className="sauceDBlue">EARLY ACCESS</span></p>
+<p><span className="sauceDBlue">Beta</span></p>
+<p><span className="sauceDBlue">Enterprise Only</span></p>
+<p><span className="sauceDBlue">iOS Only</span></p>
+<p><span className="sauceDBlue">Live Testing Only</span></p>
+<p><span className="sauceDBlue">Early Access</span></p>
 
-<p><span className="sauceGold">DEPRECATED</span></p>
+<p><span className="sauceGold">Deprecated</span></p>
 </td>
     </tr>
   </tbody>
@@ -544,7 +544,7 @@ Blue badges are used for everything except for deprecated information which is i
 ### Highlighted Text
 
 For information in a subsection or in a table that needs additional context, use a `span` element with
-one of the highlight classes. These can also be used to indicate that the content only applies to specific versions of a 
+one of the highlight classes. These can also be used to indicate that the content only applies to specific versions of a
 technology.
 
 <table class="code">
@@ -588,7 +588,7 @@ technology.
 
 ## Cards
 
-For overview pages that have 4 categories, we often use these Boxes. Note that you can't use Markdown inside this html.
+For overview pages that have four categories, we often use these Boxes. Note that you can't use Markdown inside this HTML.
 
 <table class="code">
   <tbody>

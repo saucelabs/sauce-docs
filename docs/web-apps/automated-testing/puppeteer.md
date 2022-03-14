@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
- [Puppeteer](https://github.com/puppeteer) is a testing framework that you can use to test your web apps locally in Docker and automatically transmit your results to Sauce Labs to take advantage of our streamlined dashboard and view up to 30 days of results and data analytics.
+[Puppeteer](https://github.com/puppeteer) is a testing framework that you can use to test your web apps locally in Docker and automatically transmit your results to Sauce Labs to take advantage of our streamlined dashboard and view up to 30 days of results and data analytics.
 
 ## What You'll Need
 
@@ -19,42 +19,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g., `docker info` works in your terminal / command prompt)
 :::
 
-### Supported Testing Platforms
-
- Sauce Labs supports the following test configurations for Puppeteer:
-
- <Tabs
-   groupId="platforms"
-   defaultValue="docker"
-   values={[
-     {label: 'Sauce Labs', value: 'sauce'},
-     {label: 'Docker', value: 'docker'},
-   ]}>
-
- <TabItem value="sauce">
-
- Coming Soon
-
- </TabItem>
- <TabItem value="docker">
-
- Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available release notes.
-
- |Puppeteer Version|Supported Browsers|
- |-----|----|
- |13.1.3|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v3.0.0)|
- |12.0.1|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v2.0.0)|
- |10.4.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.6.0)|
- |10.2.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.5.1)|
- |10.1.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.4.1)|
- |9.1.1|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.1.0)|
- |8.0.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.0.0)|
-
-</TabItem>
-</Tabs>
-
-
-### System Requirements
+## System Requirements
 
 At this time, `saucectl` only runs Puppeteer tests locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms), which has the following general system requirements:
 
@@ -85,6 +50,41 @@ At this time, `saucectl` only runs Puppeteer tests locally via Docker ([Installa
 
 </TabItem>
 </Tabs>
+
+## Supported Testing Platforms
+
+ Sauce Labs supports the following test configurations for Puppeteer:
+
+ <Tabs
+   groupId="platforms"
+   defaultValue="docker"
+   values={[
+     {label: 'Sauce Labs', value: 'sauce'},
+     {label: 'Docker', value: 'docker'},
+   ]}>
+
+ <TabItem value="sauce">
+
+ Coming Soon
+
+ </TabItem>
+ <TabItem value="docker">
+
+ Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available release notes.
+
+ |Puppeteer Version|Supported Browsers|
+ |-----|----|
+ |13.1.3|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v3.0.0)|
+ |12.0.1|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v2.0.0)|
+ |10.4.0|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.6.0)|
+ |10.2.0|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.5.1)|
+ |10.1.0|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.4.1)|
+ |9.1.1|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.1.0)|
+ |8.0.0|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.0.0)|
+
+</TabItem>
+</Tabs>
+
 
 ## How to Get Started
 
