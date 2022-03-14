@@ -13,11 +13,11 @@ These examples can apply to virtually any GitLab deployment, provided that you a
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * [GitLab Account and Instance](https://about.gitlab.com/)
 * The following permissions in GitLab:
-    * Ability to manage GitLab repository containing the project.
+    * Ability to manage GitLab repository containing the project
 
 ## Configure GitLab Credentials
 
