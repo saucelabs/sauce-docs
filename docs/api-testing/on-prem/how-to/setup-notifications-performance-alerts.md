@@ -9,6 +9,12 @@ keywords:
     - performance-alerts
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Performance is the first thing that people think of when they are concerned about their APIs. By scheduling accuracy tests to run automatically, the data from those executions can then be used for proper insight into how the API is performing globally.

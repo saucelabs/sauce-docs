@@ -29,12 +29,10 @@ Learn how to move your data from API Fortress (our legacy platform) to Sauce Lab
 6. Follow the instructions under [Importing API Tests to Sauce Labs](/api-testing/import-export-tests/#importing-api-tests-to-sauce-labs).
 
 
-:::info
-Below are the differences between API Fortress (legacy) Tests and Sauce Labs API Tests:
-- API Fortress Tests are Groovy-based, while Sauce Labs API Tests are JavaScript-based.
-- Not all API Fortress Test components are supported in Sauce Labs API Testing.
+:::warning Review Your Tests After Migrating
+You may need to update your tests after importing them to Sauce Labs.
 
-You may need to update your API Tests after importing to Sauce Labs. For assistance, contact your CSM/SE or our [Support Team](https://saucelabs.com/training-support).
+API Fortress tests are Groovy-based, while Sauce Labs API tests are JavaScript-based. Additionally, some API Fortress Test components (e.g., Update Input, JDBC, Signature, Fake) are not supported in Sauce Labs. For assistance, contact your CSM/SE or our [Support Team](https://saucelabs.com/training-support).
 :::
 
 

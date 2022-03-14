@@ -509,6 +509,18 @@ Suitable for test setups that require the app's state to be reset between tests.
 We recommend reviewing [Device Management for Real Devices](/mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
 ---
+### `sessionCreationRetry`
+<p><small>| INTEGER |</small></p>
+
+Specify the number of times the test should attempt to launch a session.
+
+---
+### `sessionCreationTimeout`
+<p><small>| INTEGER |</small></p>
+
+Specify the amount of time (in seconds) that the test should allow to launch a test before failing.
+
+---
 
 ### `newCommandTimeout`
 <p><small>| DURATION | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
@@ -727,6 +739,10 @@ See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/b
 "tunnelIdentifier": "MyTunnel01"
 ```
 
+:::caution Breaking Change
+Appium tests for the Real Device Cloud using the W3C protocol MUST use `tunnelName` instead of `tunnelIdentifier`.
+:::
+
 ---
 ### `parentTunnel`  
 <p><small>| STRING |</small></p>
@@ -737,6 +753,11 @@ If the [tunnelIdentifier](#tunnelidentifier) you've specified to establish conne
 "tunnelIdentifier": "MyTeamSharedTunnel"
 "parentTunnel": "<username of tunnel originator>"
 ```
+
+:::warning
+BREAKING CHANGE
+Appium tests for the Real Device Cloud using the W3C protocol MUST use tunnelOwner instead of parentTunnel.
+:::
 
 ---
 ### `recordVideo`

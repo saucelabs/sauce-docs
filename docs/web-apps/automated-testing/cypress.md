@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
- [Cypress](https://docs.cypress.io/guides/overview/why-cypress.html) is an end-to-end javascript testing framework that you can use to test your web apps either locally in Docker or through Sauce Labs using the [saucectl CLI](/testrunner-toolkit/saucectl), giving you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
+[Cypress](https://docs.cypress.io/guides/overview/why-cypress.html) is an end-to-end JavaScript testing framework that you can use to test your web apps &#8212; either locally in Docker or remotely on Sauce Labs cloud &#8212; using the [`saucectl` CLI](/dev/cli/saucectl). This gives you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
 
 ## Supported Testing Platforms
 
@@ -23,14 +23,45 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
    ]}>
 
  <TabItem value="sauce">
-
- |Cypress Version|Supported Platforms|Supported Browsers|
- |-----|-----|-----|
- |9.1.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
- |8.6.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
- |8.3.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
- |7.7.0|Windows 10|Chrome, Firefox, MicrosoftEdge|
-
+  <table id="table-fw">
+    <tr>
+      <th>Cypress Version</th>
+      <th>Supported Platforms</th>
+      <th>Supported Browsers</th>
+    </tr>
+    <tbody>
+    <tr>
+      <td rowspan='2'>9.3.1</td>
+      <td><b>macOS:</b> 11.0</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='1'>9.1.0</td>
+      <td><b>Windows:</b> 10</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='1'>8.6.0</td>
+      <td><b>Windows:</b> 10</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='1'>8.3.0</td>
+      <td><b>Windows:</b> 10</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    </tbody>
+  </table>
  </TabItem>
  <TabItem value="docker">
 
@@ -38,10 +69,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Cypress Version|Supported Browsers|
  |----|----|
+ |9.3.1|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.1.0)|
  |9.1.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.0.0)|
  |8.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.4.0)|
  |8.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.3.1)|
- |7.7.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.2.3)|
 
 </TabItem>
 </Tabs>
@@ -49,7 +80,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ### System Requirements
 
-You can run `saucectl` locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms) or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention. The following reference serves as a general guide:
+You can run `saucectl` locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms)) or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention. The following reference serves as a general guide:
 
 <Tabs
   defaultValue="macos"
@@ -83,10 +114,10 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 ## How to Get Started
 
 * [Quickstart](/web-apps/automated-testing/cypress/quickstart): Use our demo repo to quickly set up and run a sample Cypress project and test to see the results.
-* [Run Your own Tests](/testrunner-toolkit/configuration/cypress): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
+* [Run your own tests](/web-apps/automated-testing/cypress/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
 * [Try Cypress with Cucumber](https://github.com/saucelabs/saucectl-cypress-example/tree/master/examples/cucumber):
 `saucectl` supports Cypress using Cucumber, and the Cypress demo repo includes an example!
-* [Incorporate saucectl in your pipeline](/testrunner-toolkit/integrations): Cypress on Sauce supports CI integrations with Cirlce CI, GitLab, Jenkins, and GitHub Actions.
+* [Incorporate saucectl in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Cypress on Sauce supports CI integrations with Cirlce CI, GitLab, Jenkins, and GitHub Actions.
 
 
 ## Cypress Plugin for Sauce Labs

@@ -67,6 +67,11 @@ Microsoft Edge, Chrome 71+ and the Safari browser on OS X 10.10+ and mobile iOS 
     49221, 55001
 
 
+:::note Using `.local` domains
+Using [Bonjour / ZeroConf](https://developer.apple.com/bonjour) for hostnames on a local network does not work on Safari 15 and above.
+:::
+
+
 ## If we have five users, should we use five instances of Sauce Connect Proxy or set up one shared instance?
 
 Feel free to do either, even if you only have one Sauce account.

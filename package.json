@@ -25,6 +25,7 @@
     "prism-react-renderer": "^1.2.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
+    "react-alice-carousel": "2.5.1",
     "react-dom": "^17.0.1",
     "react-instantsearch-dom": "^6.15.0",
     "url-loader": "^4.1.1"
@@ -44,6 +45,6 @@
   "devDependencies": {
     "axios": "^0.21.1",
     "cross-env": "^7.0.3",
-    "cypress": "4.12.1"
+    "cypress": "9.3.1"
   }
 }

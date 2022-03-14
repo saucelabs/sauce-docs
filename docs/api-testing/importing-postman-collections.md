@@ -1,7 +1,7 @@
 ---
 id: importing-postman-collections
 title: Importing Postman Collections
-sidebar_label: Import from Postman
+sidebar_label: Importing from Postman
 ---
 
 :::warning Page has been moved

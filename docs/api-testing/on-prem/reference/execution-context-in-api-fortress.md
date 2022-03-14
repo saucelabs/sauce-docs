@@ -8,6 +8,12 @@ keywords:
     - execution
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 ## Preamble: The Nature of Fields
 
 Among the pieces of information you introduce in an API Fortress test some are:
@@ -25,7 +31,7 @@ Most of the times, they are selectors, as in payload.person.age
     - The content of the COMMENT component
     - The body of the postBody component
 
-They are generally used to print a string with variable content as in: 
+They are generally used to print a string with variable content as in:
 
 ```json
 {

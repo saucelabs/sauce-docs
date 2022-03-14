@@ -470,7 +470,7 @@ The process of gracefully shutting down and decommissioning a Sauce Connect Prox
 
 ### saucectl
 
-The Sauce Labs framework agnostic test orchestrator CLI (command line interface). [saucectl](/testrunner-toolkit).
+The Sauce Labs framework agnostic test orchestrator CLI (command line interface). [saucectl](/dev/cli/saucectl).
 
 
 ### Sauce Headless Testing

@@ -8,23 +8,29 @@ keywords:
     - jwt
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 In some occasions, you may be required to generate a JSON Web Token. While API Fortress does not currently have a specific component for it, this result can be achieved by using an helper class.
 
 ## Creating a JWT
 
 1. Create a SET component, with "Language" a variable mode.
 2. Introduce the following code Groovy in the component
-   
+
    ```js
    def claims = ['foo':'bar','dot':'com']
-    
+
    def subject = 'my subject'
-    
+
    def secret = '52535d535c515d55555'
-    
+
    return io.jsonwebtoken.Jwts.builder().setClaims(claims).setSubject(subject).signWith(io.jsonwebtoken.SignatureAlgorithm.HS512,secret).compact()
    ```
-   
+
 3. The SET variable will now contain a valid JWT, built with the provided data
 
 ## Additional Notes

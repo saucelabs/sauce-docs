@@ -5,6 +5,12 @@ sidebar_label: Assert Matches
 description: "This assertion is used to check if the element value described by the expression matches a knowledge base of some kind."
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 This assertion is used to check if the element value described by the expression matches a knowledge base of some kind. For example a _US Zipcode_ or a _State_. This also gives you the ability to write your own regex (regular expression).
 
 ## Parameters
@@ -23,12 +29,12 @@ This assertion is used to check if the element value described by the expression
 
 
 * __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
-* __Type__: The data type of the value. The possible values are: 
-    * _regex_: if you want to evaluate the field as a regular expression (specified in regex value); 
-    * _US Zipcode_: checks if the field is a valid US Zipcode; 
-    * _US State_: checks if the field is a valid US State (i.e. 'NY'); 
-    * _credit card_: checks if the field contains a valid credit card number from the most popular credit cards (i.e. VISA, Mastercard, AMEX); 
-    * _country codes_: checks if the field contains a valid country code (i.e. 'US', 'FR', 'DK'); 
+* __Type__: The data type of the value. The possible values are:
+    * _regex_: if you want to evaluate the field as a regular expression (specified in regex value);
+    * _US Zipcode_: checks if the field is a valid US Zipcode;
+    * _US State_: checks if the field is a valid US State (i.e. 'NY');
+    * _credit card_: checks if the field contains a valid credit card number from the most popular credit cards (i.e. VISA, Mastercard, AMEX);
+    * _country codes_: checks if the field contains a valid country code (i.e. 'US', 'FR', 'DK');
     * _currency codes_: checks if the fields is a valid currency (i.e. 'USD', 'EUR');
 * __Regex value__: Specify the regular expression you want to use for checking the expression.
 * __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.

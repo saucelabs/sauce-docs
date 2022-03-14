@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-[Playwright](https://github.com/microsoft/playwright) is a testing framework that you can use to test your web apps either locally in Docker or through Sauce Labs using the [saucectl CLI](/testrunner-toolkit/saucectl), giving you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
+[Playwright](https://github.com/microsoft/playwright) is a testing framework that you can use to test your web apps &#8212; either locally in Docker or remotely on Sauce Labs Cloud &#8212; using the [`saucectl` CLI](/dev/cli/saucectl). This gives you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
 
 
 ### Supported Testing Platforms
@@ -23,13 +23,40 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
      {label: 'Docker', value: 'docker'},
    ]}>
 
- <TabItem value="sauce">
+<TabItem value="sauce">
 
- |Playwright Version|Supported Platforms|Supported Browsers|
- |-----|-----|-----|
- |1.17.1|Windows 10|Chromium, Firefox, Webkit|
- |1.16.3|Windows 10|Chromium, Firefox, Webkit|
- |1.15.2|Windows 10|Chromium, Firefox, Webkit|
+  <table id="table-fw">
+    <tr>
+      <th>Playwright Version</th>
+      <th>Supported Platforms</th>
+      <th>Supported Browsers</th>
+    </tr>
+    <tbody>
+    <tr>
+      <td rowspan='2'>1.18.1</td>
+      <td><b>macOS:</b> 11.0</td>
+      <td>Chromium, Firefox</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10</td>
+      <td>Chromium, Firefox, Webkit</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='1'>1.17.1</td>
+      <td><b>Windows:</b> 10</td>
+      <td>Chromium, Firefox, Webkit</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='1'>1.16.3</td>
+      <td><b>Windows:</b> 10</td>
+      <td>Chromium, Firefox, Webkit</td>
+    </tr>
+    </tbody>
+  </table>
 
  </TabItem>
  <TabItem value="docker">
@@ -38,9 +65,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Playwright Version|Supported Browsers|
  |-----|----|
+ |1.18.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.6.0)|
  |1.17.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.5.0)|
  |1.16.3|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.4.0)|
- |1.15.2|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.3.0)|
 
 </TabItem>
 </Tabs>
@@ -80,5 +107,9 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 ## How to Get Started
 
 * [Quickstart](/web-apps/automated-testing/playwright/quickstart): Use our demo repo to quickly set up and run a sample Playwright project and test to see the results.
-* [Run Your own Tests](/testrunner-toolkit/configuration/playwright): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
-* [Incorporate saucectl in your pipeline](/testrunner-toolkit/integrations): Playwright on Sauce supports CI integrations with Cirlce CI, GitLab, Jenkins, and GitHub Actions.
+* [Run your own tests](/web-apps/automated-testing/playwright/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
+* [Incorporate `saucectl` in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Playwright on Sauce supports CI integrations with Circle CI, GitLab, Jenkins, and GitHub Actions.
+
+:::note
+Based on current playwright test runner implementation, there is no way to run Playwright test runner with Cucumber.
+:::

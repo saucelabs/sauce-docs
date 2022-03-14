@@ -63,7 +63,7 @@ Setting up automatic notifications from `saucectl` requires you to first add the
 
 ### Configure Notifications from `saucectl`
 
-1. In the `config.yaml` file that defines your [`saucectl`](/testrunner-toolkit/configuration) test configuration settings, add the `notifications.slack` property.
+1. In the `config.yaml` file that defines your [`saucectl` test configuration settings](/dev/cli/saucectl/init), add the `notifications.slack` property.
     ```yml
     notifications:
       slack:

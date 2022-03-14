@@ -26,10 +26,6 @@ When testing mobile apps, you have the option to upload your app to our app stor
 
 For information about using the Sauce Labs UI to upload your mobile file to app storage, see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app).
 
-:::note
-This method currently supports live testing on **real devices only**. For virtual devices, upload your apps via the REST API.
-:::
-
 ## Uploading Apps via REST API
 
 You can upload your mobile app programmatically using the [File Storage API Methods](/dev/api/storage). The API endpoints are [Data center-specific](/basics/data-center-endpoints), so make sure you are using the endpoint that is applicable for your account data center, as shown in the following example requests.
@@ -333,7 +329,7 @@ caps.setCapability("otherApps", "storage:<fileId>")
 
 ### Espresso/XCUITest Configuration
 
-For [Espresso](/testrunner-toolkit/configuration/espresso) or [XCUITest](/testrunner-toolkit/configuration/xcuitest) testing, you can specify up to seven dependent apps to either upload from your local machine or that are already in App Storage. In your `saucectl` configuration file, specify a local filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, and `saucectl` will upload the app to App Storage for use with the test. Otherwise, specify an app in App Storage using the reference `storage:<fileId>` or `storage:filename=<filename>`.
+For [Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso) or [XCUITest](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest) testing, you can specify up to seven dependent apps to either upload from your local machine or that are already in App Storage. In your `saucectl` configuration file, specify a local filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, and `saucectl` will upload the app to App Storage for use with the test. Otherwise, specify an app in App Storage using the reference `storage:<fileId>` or `storage:filename=<filename>`.
 
 
 ```yaml

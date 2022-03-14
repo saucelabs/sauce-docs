@@ -7,17 +7,17 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
- [Puppeteer](https://github.com/puppeteer) is an easy-to-use testing framework that you can use to test your web apps locally in Docker and automatically transmit your results to Sauce Labs to take advantage of our streamlined dashboard and view up to 30 days of results and data analytics.
+ [Puppeteer](https://github.com/puppeteer) is a testing framework that you can use to test your web apps locally in Docker and automatically transmit your results to Sauce Labs to take advantage of our streamlined dashboard and view up to 30 days of results and data analytics.
 
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-* [Docker](https://docs.docker.com/get-docker/) For now, Puppeteer is only supported for local testing.
+* [Docker](https://docs.docker.com/get-docker/) (for now, Puppeteer is only supported for local testing)
 
- :::note
- Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g., `docker info` works in your terminal / command prompt)
- :::
+:::note
+Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g., `docker info` works in your terminal / command prompt)
+:::
 
 ### Supported Testing Platforms
 
@@ -42,13 +42,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Puppeteer Version|Supported Browsers|
  |-----|----|
+ |13.1.3|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v3.0.0)|
  |12.0.1|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v2.0.0)|
  |10.4.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.6.0)|
  |10.2.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.5.1)|
  |10.1.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.4.1)|
  |9.1.1|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.1.0)|
  |8.0.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.0.0)|
- |3.0.4|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v0.3.0)|
 
 </TabItem>
 </Tabs>
@@ -56,7 +56,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ### System Requirements
 
-At this time, `saucectl` only runs Puppeteer tests locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms)which has the following general system requirements:
+At this time, `saucectl` only runs Puppeteer tests locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms), which has the following general system requirements:
 
 <Tabs
   defaultValue="macos"
@@ -89,4 +89,4 @@ At this time, `saucectl` only runs Puppeteer tests locally via Docker ([Installa
 ## How to Get Started
 
 * [Quickstart](/web-apps/automated-testing/puppeteer/quickstart): Use our demo repo to quickly set up and run a sample Puppeteer project and test to see the results.
-* [Run Your own Tests](/testrunner-toolkit/configuration/puppeteer): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
+* [Run your own tests](/web-apps/automated-testing/puppeteer/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.

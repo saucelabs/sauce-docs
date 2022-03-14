@@ -9,6 +9,12 @@ keywords:
     - certs
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 This mechanism will allow, in on-prem deployments only, to use multiple client-side certificates for authentication, instead of the current implementation that assigns one certificate to a downloader.
@@ -119,12 +125,12 @@ For Kubernetes, the most practical way since Kubernetes 1.10.0 is to create a co
 - If a certificate is activated (see: Test writing) then the certificates involved need to be fully valid. It'll be, in other words, impossible to skip SSL validation
 - The `disable_ssl_validation` must be set to false.
 - This feature is currently unavailable in load testing (but will be implemented once we receive sufficient feedback on this implementation)  
-      
+
 ### Test writing
-    
+
 The test writer is required to provide configuration (if necessary) on which certificate to use in each call. Here's an example:
 
-```js 
+```js
 <get url="[https://nginx.apifortress](https://nginx.apifortress/)" params="[:]" var="payload" mode="text">  
 <config name="client_cert_configuration" value="{&quot;keystorePath&quot;:&quot;/certs/client.jks&quot;,&quot;keystorePassword&quot;:&quot;foobar&quot;}"/>  
 </get>
@@ -140,7 +146,7 @@ The unescaped value is as follows:
 ```
 
 Each call can be configured to use a different certificate, or no certificate at all.
-    
+
 The value can also be parametrized as a template using the `${...}` syntax  
 
 <img src={useBaseUrl('img/api-fortress/2020/10/2020-10-15.png')} alt="2020-10-15.png"/>

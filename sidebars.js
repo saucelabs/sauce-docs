@@ -196,6 +196,7 @@ module.exports = {
                         'api-testing/on-prem/learn-more/working-with-the-response-object',
                         'api-testing/on-prem/learn-more/the-working-copy-published-tests',
 
+<<<<<<< HEAD
                     ],
                 },
                 {
@@ -386,6 +387,277 @@ module.exports = {
             label: 'Platform Integrations',
             collapsed: true,
             items: [
+=======
+                 ],
+             },
+             {
+                 type: 'category',
+                 label: 'Logical Components (Legacy)',
+                 collapsed: true,
+                 items: [
+                     'api-testing/on-prem/logical-components/each',
+                     'api-testing/on-prem/logical-components/flow',
+                     'api-testing/on-prem/logical-components/if',
+                     'api-testing/on-prem/logical-components/tag',
+                     'api-testing/on-prem/logical-components/while',
+                 ],
+             },
+             {
+                 type: 'category',
+                 label: 'Mocking / Service Virtualization (Legacy)',
+                 collapsed: true,
+                 items: [
+                     'api-testing/on-prem/mocking/expressions-in-mocked-apis',
+                     'api-testing/on-prem/mocking/mock-recording-with-kong',
+                 ],
+             },
+             {
+                 type: 'category',
+                 label: 'Monitoring (Legacy)',
+                 collapsed: true,
+                 items: [
+                     'api-testing/on-prem/how-to/generate-a-status-page',
+                     'api-testing/on-prem/how-to/setup-notifications-performance-alerts',
+                 ],
+             },
+             {
+                 type: 'category',
+                 label: 'Postman (Legacy)',
+                 collapsed: true,
+                 items: [
+                     'api-testing/on-prem/postman/build-from-collections',
+                 ],
+             },
+             {
+                 type: 'category',
+                 label: 'Product Information (Legacy)',
+                 collapsed: true,
+                 items: [
+                     'api-testing/on-prem/product-information/api-tests-vs-schema-validation',
+                     'api-testing/on-prem/product-information/cloud-vs-on-premises-local',
+                 ],
+             },
+             {
+                 type: 'category',
+                 label: 'Reference (Legacy)',
+                 collapsed: true,
+                 items: [
+                     'api-testing/on-prem/assertion-components/assert-compares',
+                     'api-testing/on-prem/assertion-components/assert-contains',
+                     'api-testing/on-prem/assertion-components/assert-equals',
+                     'api-testing/on-prem/assertion-components/assert-exists',
+                     'api-testing/on-prem/assertion-components/assert-greater',
+                     'api-testing/on-prem/assertion-components/assert-in',
+                     'api-testing/on-prem/assertion-components/assert-is',
+                     'api-testing/on-prem/assertion-components/assert-less',
+                     'api-testing/on-prem/assertion-components/assert-matches',
+                     'api-testing/on-prem/reference/comment',
+                     'api-testing/on-prem/reference/company-settings',
+                     'api-testing/on-prem/reference/composer-snippets',
+                     'api-testing/on-prem/reference/connecting-to-testrail',
+                     'api-testing/on-prem/reference/execution-context-in-api-fortress',
+                     'api-testing/on-prem/reference/expression',
+                     'api-testing/on-prem/reference/expression-language-extensions',
+                     'api-testing/on-prem/logical-components/flow',
+                     'api-testing/on-prem/reference/generating-a-jwt',
+                     'api-testing/on-prem/reference/github',
+                     'api-testing/on-prem/logical-components/if',
+                     'api-testing/on-prem/bloodhound/module-actors/jdbc',
+                     'api-testing/on-prem/how-to/kv',
+                     'api-testing/on-prem/reference/read-file',
+                     'api-testing/on-prem/logical-components/tag',
+                     'api-testing/on-prem/logical-components/while',
+                 ],
+             },
+             {
+                 type: 'category',
+                 label: 'Security Testing (Legacy)',
+                 collapsed: true,
+                 items: [
+                     'api-testing/on-prem/security-testing/example-security-tests',
+                 ],
+             },
+             {
+                 type: 'category',
+                 label: 'Self Hosted (Legacy)',
+                 collapsed: true,
+                 items: [{
+                     type: 'category',
+                     label: 'The Self Hosted Platform',
+                     collapsed: true,
+                     items: [
+                         'api-testing/on-prem/self-hosted/on-prem-platform',
+                         'api-testing/on-prem/self-hosted/on-premises-requirements',
+                         'api-testing/on-prem/self-hosted/updating-an-on-premises-instance',
+                         'api-testing/on-prem/self-hosted/on-premises-backing-up-your-data',
+                     ],
+                 },
+                     {
+                         type: 'category',
+                         label: 'Other Platforms',
+                         collapsed: true,
+                         items: [
+                             'api-testing/on-prem/self-hosted/deployment-docker',
+                             'api-testing/on-prem/self-hosted/deployment-kubernetes',
+                             'api-testing/on-prem/self-hosted/red-hat-openshift',
+                         ],
+                     },
+                     'api-testing/on-prem/self-hosted/best-practices-for-disaster-recovery',
+                     'api-testing/on-prem/self-hosted/certificate-based-mutual-ssl-tls-authentication',
+                     'api-testing/on-prem/self-hosted/deployment-configure-the-dns-for-the-mocking-service',
+                     'api-testing/on-prem/learn-more/downloader-101',
+                     'api-testing/on-prem/self-hosted/enabling-api-fortress-to-read-local-files',
+                     'api-testing/on-prem/how-to/load-agent-deployment',
+                     'api-testing/on-prem/self-hosted/local-downloader-setup',
+                     'api-testing/on-prem/self-hosted/multiple-client-cert-downloader',
+                     'api-testing/on-prem/self-hosted/proxy-settings-in-downloader',
+                     'api-testing/on-prem/self-hosted/updating-the-api-fortress-license-key',
+                     'api-testing/on-prem/self-hosted/using-rds-and-documentdb',
+                 ],
+             },
+         ],
+     },
+ ],
+ aiq: [
+ {
+   type: 'category',
+   label: 'Low Code',
+   collapsed: true,
+   items: [
+       'dev/low-code',
+       'dev/low-code/dashboard',
+       {
+           type: 'category',
+           label: 'Plan',
+           collapsed: true,
+           items: [
+               'dev/low-code/plan/plan-step',
+               {
+                   type: 'category',
+                   label: 'Projects',
+                   collapsed: true,
+                   items: [
+                       'dev/low-code/plan/projects/projects',
+                       'dev/low-code/plan/projects/project-details-page',
+                     ]
+               },
+               'dev/low-code/plan/test-suites',
+               'dev/low-code/plan/test-cases',
+             ]
+       },
+       {
+           type: 'category',
+           label: 'Execute',
+           collapsed: true,
+           items: [
+               'dev/low-code/execute/execute-step',
+               'dev/low-code/execute/execution-history-page',
+               'dev/low-code/execute/reports-page',
+               'dev/low-code/execute/schedules-page',
+             ]
+       },
+       'dev/low-code/analyze-step',
+       'dev/low-code/profile',
+       'dev/low-code/nlp-reference',
+       'dev/low-code/variables',
+       'dev/low-code/troubleshooting',
+        ],
+     },
+ ],
+ dev: [
+     'dev',
+     {
+         type: 'category',
+         label: 'API Reference',
+         collapsed: true,
+         items: [
+             'dev/api',
+             'dev/api/accounts',
+             'dev/api/api-testing',
+             'dev/api/jobs',
+             'dev/api/builds',
+             'dev/api/connect',
+             'dev/api/insights',
+             'dev/api/performance',
+             'dev/api/platform',
+             'dev/api/rdc',
+             'dev/api/storage',
+         ],
+     },
+     {
+         type: 'category',
+         label: 'CLI Reference',
+         collapsed: true,
+         items: [
+             'dev/cli',
+             'dev/cli/sauce-connect-proxy',
+             {
+                 type: 'category',
+                 label: 'saucectl CLI',
+                 collapsed: true,
+                 items: [
+                    'dev/cli/saucectl',
+                    {
+                      type: 'category',
+                      label: 'Command Ref',
+                      collapsed: true,
+                      items: [
+                        'dev/cli/saucectl/init',
+                        'dev/cli/saucectl/configure',
+                        'dev/cli/saucectl/run',
+                        'dev/cli/saucectl/completion',
+                      ]},
+                    'dev/cli/saucectl/usage/use-cases',
+                    {
+                      type: 'category',
+                      label: 'CI Integrations',
+                      collapsed: true,
+                      items: [
+                        'dev/cli/saucectl/usage/ci/circleci',
+                        'dev/cli/saucectl/usage/ci/github-actions',
+                        'dev/cli/saucectl/usage/ci/gitlab',
+                        'dev/cli/saucectl/usage/ci/jenkins',
+                      ]},
+                      {
+                        type: 'category',
+                        label: 'IDE Integrations',
+                        collapsed: true,
+                        items: [
+                          'dev/cli/saucectl/usage/ide/intellij',
+                          'dev/cli/saucectl/usage/ide/vscode',
+                        ]},
+                 ],
+             },
+             {
+                 type: 'category',
+                 label: 'Virtual USB CLI',
+                 collapsed: true,
+                 items: [
+                     'dev/cli/virtual-usb',
+                     'dev/cli/virtual-usb/start-server',
+                     'dev/cli/virtual-usb/start-session',
+                     'dev/cli/virtual-usb/connect-session',
+                     'dev/cli/virtual-usb/disconnect-session',
+                     'dev/cli/virtual-usb/delete-session',
+                     'dev/cli/virtual-usb/find-sessionid',
+                 ],
+             },
+         ],
+     },
+ ],
+ docs: {
+     "Home": [
+         'overview',
+         {
+             type: 'category',
+             label: 'Sauce Labs Basics',
+             collapsed: true,
+             items: [
+                 'sauce-basics',
+                 'basics/quickstarts',
+                 'basics/platform-configurator',
+                 'basics/environment-variables',
+>>>>>>> 6e9e1ea9d7d3440483ff517e518a4291df1a604c
 
                 {
                     type: 'category',
@@ -543,6 +815,7 @@ module.exports = {
                             'basics/data-center-endpoints',
                             'basics/data-center-endpoints/aust-early-access',
 
+<<<<<<< HEAD
                         ],
                     },
                     {
@@ -571,6 +844,36 @@ module.exports = {
                     'secure-connections/sauce-connect/quickstart',
                     'secure-connections/sauce-connect/system-requirements',
                     'secure-connections/sauce-connect/installation',
+=======
+                     ],
+                 },
+                 {
+                     type: 'category',
+                     label: 'Integrations',
+                     collapsed: true,
+                     items: [
+                         'basics/integrations/deque',
+                         'basics/integrations/jira',
+                         'basics/integrations/slack',
+                         'basics/integrations/webhooks',
+                         'basics/integrations/sumo',
+                     ],
+                 },
+             ],
+         },
+     ],
+     "Sauce Trusted Connection": [
+         'secure-connections',
+         {
+             type: 'category',
+             label: 'Sauce Connect Proxy',
+             collapsed: true,
+             items: [
+                 'secure-connections/sauce-connect',
+                 'secure-connections/sauce-connect/installation',
+                 'secure-connections/sauce-connect/quickstart',
+                 'secure-connections/sauce-connect/system-requirements',
+>>>>>>> 6e9e1ea9d7d3440483ff517e518a4291df1a604c
 
                     {
                         type: 'category',
@@ -631,6 +934,7 @@ module.exports = {
                 ],
             },
 
+<<<<<<< HEAD
             {
                 type: 'category',
                 label: 'Automated Testing',
@@ -752,6 +1056,130 @@ module.exports = {
                 ],
             },
             {
+=======
+         {
+             type: 'category',
+             label: 'Automated Testing',
+             collapsed: true,
+             items: [
+                 'mobile-apps/automated-testing',
+                 {
+                     type: 'category',
+                     label: 'Appium',
+                     collapsed: true,
+                     items: [
+                         'mobile-apps/automated-testing/appium',
+                         'mobile-apps/automated-testing/appium/quickstart',
+                         'mobile-apps/automated-testing/appium/real-devices',
+                         'mobile-apps/automated-testing/appium/virtual-devices',
+                     ],
+                 },
+                 {
+                     type: 'category',
+                     label: 'Espresso and XCUITest',
+                     collapsed: true,
+                     items: [
+                         'mobile-apps/automated-testing/espresso-xcuitest',
+                         'mobile-apps/automated-testing/espresso-xcuitest/espresso',
+                         'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
+                     ],
+                 },
+                 'mobile-apps/automated-testing/ipa-files',
+             ],
+         },
+         'mobile-apps/ms-app-center',
+         'mobile-apps/faq',
+     ],
+     "Web Apps": [
+         'web-apps',
+         {
+             type: 'category',
+             label: 'Live Testing',
+             collapsed: true,
+             items: [
+                 'web-apps/live-testing/live-cross-browser-testing',
+             ],
+         },
+         {
+             type: 'category',
+             label: 'Automated Testing',
+             collapsed: true,
+             items: [{
+                 type: 'category',
+                 label: 'Selenium',
+                 collapsed: true,
+                 items: [
+                     'web-apps/automated-testing/selenium',
+                     'web-apps/automated-testing/selenium/selenium4',
+                     'web-apps/automated-testing/selenium/pre-run-executables',
+                     'web-apps/automated-testing/selenium/sample-scripts',
+                 ]
+             },
+                 {
+                     type: 'category',
+                     label: 'Cypress',
+                     collapsed: true,
+                     items: [
+                         'web-apps/automated-testing/cypress',
+                         'web-apps/automated-testing/cypress/quickstart',
+                         'web-apps/automated-testing/cypress/yaml',
+                     ]
+                 },
+                 {
+                     type: 'category',
+                     label: 'Playwright',
+                     collapsed: true,
+                     items: [
+                         'web-apps/automated-testing/playwright',
+                         'web-apps/automated-testing/playwright/quickstart',
+                         'web-apps/automated-testing/playwright/yaml',
+                     ],
+                 },
+                 {
+                     type: 'category',
+                     label: 'TestCafe',
+                     collapsed: true,
+                     items: [
+                         'web-apps/automated-testing/testcafe',
+                         'web-apps/automated-testing/testcafe/quickstart',
+                         'web-apps/automated-testing/testcafe/yaml',
+                     ]
+                 },
+                 {
+                     type: 'category',
+                     label: 'Puppeteer',
+                     collapsed: true,
+                     items: [
+                         'web-apps/automated-testing/puppeteer',
+                         'web-apps/automated-testing/puppeteer/quickstart',
+                         'web-apps/automated-testing/puppeteer/yaml',
+                     ],
+                 },
+             ],
+         },
+     ],
+     "API Testing": [
+         'api-testing',
+         'api-testing/quickstart',
+         'api-testing/sauce-connect',
+         'api-testing/build-from-spec',
+         'api-testing/import-postman-collection',
+         'api-testing/import-export-tests',
+         'api-testing/schedule-test',
+           {
+               type: 'category',
+               label: 'Test Composer',
+               collapsed: true,
+               items: [
+                   'api-testing/composer',
+                   'api-testing/composer/io-components',
+                   'api-testing/composer/assertion-components',
+                   'api-testing/composer/logical-components',
+                   'api-testing/composer/other-components',
+                   ],
+          },
+          {
+>>>>>>> 6e9e1ea9d7d3440483ff517e518a4291df1a604c
                 type: 'category',
                 label: 'Vaults, Variables, Environments',
                 collapsed: true,
@@ -766,6 +1194,7 @@ module.exports = {
                 label: 'Integrations',
                 collapsed: true,
                 items: [
+<<<<<<< HEAD
                     'api-testing/integrations/apifctl-cicd-integration',
                     'api-testing/integrations/pagerduty-webhooks',
                 ],
@@ -939,4 +1368,147 @@ module.exports = {
             'contributing/style-guide'
         ],
     },
+=======
+                   'api-testing/integrations/apifctl-cicd-integration',
+                   'api-testing/integrations/pagerduty-webhooks',
+                    ],
+                },
+          'api-testing/project-dashboard',
+          'api-testing/mocking',
+          'api-testing/logger',
+          'api-testing/project-access',
+          'api-testing/legacy',
+     ],
+     "CI": [
+         'ci',
+         'ci/bamboo',
+         'ci/bitbucket',
+         'ci/jenkins',
+         'ci/teamcity',
+     ],
+     "Test Results": [
+         'test-results',
+         'test-results/viewing-test-results',
+         'test-results/sharing-test-results',
+         'test-results/archived-test-results',
+         'test-results/test-status',
+         'test-results/badges-browser-matrix',
+     ],
+     "Insights": [
+         'insights',
+         'insights/scope',
+         'insights/history',
+         'insights/trends',
+         'insights/coverage',
+         'insights/failure-analysis',
+         'insights/debug',
+     ],
+     "Performance": [
+         'performance',
+         'performance/about',
+         'performance/one-page',
+         'performance/transitions',
+         'performance/motion',
+         'performance/analyze',
+     ],
+     "Headless": [
+         'headless',
+     ],
+     "Visual": [
+         'visual',
+         {
+             type: 'category',
+             label: 'E2E Testing',
+             collapsed: true,
+             items: [
+                 'visual/e2e-testing/setup',
+                 {
+                     type: 'category',
+                     label: 'Integrations',
+                     collapsed: true,
+                     items: [
+                         'visual/e2e-testing/integrations/continuous-integration',
+                         'visual/e2e-testing/integrations/slack',
+                         'visual/e2e-testing/integrations/webhooks',
+                     ],
+                 },
+                 {
+                     type: 'category',
+                     label: 'Workflow',
+                     collapsed: true,
+                     items: [
+                         'visual/e2e-testing/workflow/review-workflow',
+                         'visual/e2e-testing/workflow/baseline-branch',
+                         'visual/e2e-testing/workflow/change-details',
+                         'visual/e2e-testing/workflow/visual-history',
+                         'visual/e2e-testing/workflow/ignoring-changes',
+                     ],
+                 },
+                 'visual/e2e-testing/commands-options',
+                 'visual/e2e-testing/code-examples',
+                 'visual/e2e-testing/supported-browsers',
+                 'visual/e2e-testing/troubleshooting',
+             ],
+         },
+         {
+             type: 'category',
+             label: 'Component Testing',
+             collapsed: true,
+             items: [
+                 'visual/component-testing/setup',
+                 {
+                     type: 'category',
+                     label: 'Integrations',
+                     collapsed: true,
+                     items: [
+                         'visual/component-testing/integrations/continuous-integration',
+                         'visual/component-testing/integrations/slack',
+                         'visual/component-testing/integrations/webhooks',
+                         'visual/component-testing/integrations/github',
+                         'visual/component-testing/integrations/visual-studio-team-services',
+                         'visual/component-testing/integrations/sauce-labs',
+                     ],
+                 },
+                 {
+                     type: 'category',
+                     label: 'Workflow',
+                     collapsed: true,
+                     items: [
+                         'visual/component-testing/workflow/review-workflow',
+                         'visual/component-testing/workflow/baseline-branch',
+                         'visual/component-testing/workflow/change-details',
+                         'visual/component-testing/workflow/visual-history',
+                         'visual/component-testing/workflow/ignoring-changes',
+                         'visual/component-testing/workflow/include-exclude-settings',
+                     ],
+                 },
+                 'visual/component-testing/supported-browsers',
+                 'visual/component-testing/storybook-interactions-testing',
+                 'visual/component-testing/storybook-static',
+             ],
+         },
+     'visual/css-animations',
+     'visual/acct-team-mgmt',
+     'visual/notifications',
+     'visual/faq',
+     ],
+     "Reference": [
+         'dev/glossary',
+         'dev/error-messages',
+         'dev/test-configuration-options',
+         'dev/w3c-webdriver-capabilities',
+         {
+             type: 'link',
+             label: 'Visual E2E Testing', // The label that should be displayed (string).
+             href: '/visual/e2e-testing/commands-options' // The target URL (string).
+         },
+         'dev/data-center-maint',
+     ],
+     Contributing: [
+         'contributing',
+         'contributing/code-of-conduct',
+         'contributing/style-guide'
+     ],
+ },
+>>>>>>> 6e9e1ea9d7d3440483ff517e518a4291df1a604c
 };

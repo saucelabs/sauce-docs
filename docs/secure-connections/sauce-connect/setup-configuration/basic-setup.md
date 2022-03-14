@@ -73,7 +73,7 @@ See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstar
    <TabItem value="Windows">
 
    ```bash
-   sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region %SAUCE_DC% --tunnel-identifier $TUNNEL_IDENTIFIER
+   .\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region %SAUCE_DC% --tunnel-identifier $TUNNEL_IDENTIFIER
    ```
 
    </TabItem>
@@ -185,7 +185,7 @@ Launch a new tunnel on the `SC_HOST` using the [Sauce Connect Proxy CLI](/dev/cl
 <TabItem value="Windows">
 
 ```bash
-sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -r %SAUCE_DC% --tunnelIdentifier sc-proxy-tunnel
+.\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -r %SAUCE_DC% --tunnelIdentifier sc-proxy-tunnel
 ```
 
 </TabItem>
