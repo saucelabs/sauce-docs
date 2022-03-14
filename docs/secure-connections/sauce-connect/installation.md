@@ -1,6 +1,6 @@
 ---
 id: installation
-title: Setting Up Sauce Connect Proxy
+title: Downloading Sauce Connect Proxy
 sidebar_label: Download
 ---
 
@@ -21,7 +21,43 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
 ## Downloading Sauce Connect Proxy
 
 1. Download the latest Sauce Connect Proxy client to your local machine by clicking the link below corresponding to your OS.
-  <ScTable></ScTable>
+  <table>
+    <tr>
+      <td><strong>Platform</strong>
+      </td>
+      <td><strong>Download URL</strong>
+      </td>
+ <td><strong>SHA1 Checksum</strong>
+ </td>
+   </tr>
+   <tr>
+ <td>Linux
+   </td>
+    <td>
+  <a href="https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz">https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz</a>
+   </td>
+   <td><small>e5d7f82ad98251a653d1b0537f1103e49eda5e11</small>
+   </td>
+  </tr>
+  <tr>
+   <td>macOS
+   </td>
+   <td>
+  <a href="https://saucelabs.com/downloads/sc-4.7.1-osx.zip">https://saucelabs.com/downloads/sc-4.7.1-osx.zip</a>
+   </td>
+   <td><small>1f18defa14a5cc4b663bf07213411f6bdd535b6d</small>
+   </td>
+   </tr>
+  <tr>
+ <td>Windows
+     </td>
+   <td>
+    <a href="https://saucelabs.com/downloads/sc-4.7.1-win32.zip">https://saucelabs.com/downloads/sc-4.7.1-win32.zip</a>
+   </td>
+   <td><small>9c91e5adbd023973efe0eb14d2d427d2c0ef3c25</small>
+   </td>
+  </tr>
+  </table>
 
 2. Extract the contents of the .zip download to your local machine. We recommend saving the Sauce Connect Proxy folder to your home directory.
 
@@ -123,7 +159,7 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    <td>4.7.1
    </td>
    <td>
-    See <a href="#download-latest-version">Linux, Mac, Windows</a>
+    <a href="#download-latest-version">See latest version</a>
    </td>
    <td rowspan="2" >Sep. 30, 2022
    </td>
@@ -241,11 +277,8 @@ As an alternative to downloading the client, you can use the Sauce Connect Proxy
 
 ## More Information
 
-### Next Steps
-* See the [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/) to learn how to start a basic tunnel.
-* If you are having trouble installing, review the [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/).
-
-### Resources
+* [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart)
+* [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/)
 * [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy/)
 * [Sauce Connect Proxy Architecture](/secure-connections/sauce-connect/advanced/architecture/)
 * [Sauce Connect Proxy Changelog](https://changelog.saucelabs.com/en?category=sauce%20connect)

@@ -1,7 +1,7 @@
 ---
 id: project-dashboard
 title: Using the Project Dashboard
-sidebar_label: Dashboard Insights and Test Results
+sidebar_label: Test Results and Insights
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -22,7 +22,7 @@ There are three ways to access it:
 * From your Project's **Dashboard** section, click on any Test line item
 * From your Test's **Compose** section, in the [right-hand nav](/api-testing/quickstart/#view-test-results).
 
-### Reviewing Results
+### Viewing Results
 Here's a breakdown of what each report contains:
 
 **Test Report Details**: metadata about the execution of the test, such as Test Name, Project Name, and Mode (Scheduled or On Request)<br/><img src={useBaseUrl('img/api-fortress/2021/02/sessionDetails.png')} alt="Test Report" width="400" />
@@ -33,7 +33,7 @@ Here's a breakdown of what each report contains:
 
 **Request Components**: shows the specific component(s) that you tested.<br/><img src={useBaseUrl('img/api-fortress/2021/02/requestComponent.png')} alt="Test Report Primer Image" width="200" />
 
-**Stack Details**: click this to view granular details about requests and headers.<br/><img src={useBaseUrl('img/api-fortress/2021/02/stackDetails.png')} alt="Test Report Primer Image" width="150" /><br/><img src={useBaseUrl('img/api-fortress/2021/02/stackDetails-expanded.png')} alt="Stack details" width="250" />
+**Stack Details**: click this to view granular details about requests and headers.<br/><img src={useBaseUrl('img/api-fortress/2021/02/stackDetails.png')} alt="Test Report Primer Image" width="150" /><br/><img src={useBaseUrl('img/api-fortress/2021/02/stackDetails-expanded.png')} alt="Stack details" width="350" />
 
 
 ## Dashboard
@@ -47,7 +47,7 @@ The API Testing Dashboard &#8212; accessible from with a Project &#8212; display
 2. Click on any Project.
 3. Click the **Dashboard** tab.
 4. Select the **Logs** radio button.
-5. Select desired filters to find the Test(s) you're looking for, then click **Apply**. Filters include, but are not limited to: date range, mode (Monitoring (Scheduled) Tests or On-Demand Tests), and tag(s).<br/><img src={useBaseUrl('img/api-fortress/2021/02/dashboardFilters.png')} alt="Dashboard Logs Filters"/>
+5. Select desired filters to find the Test(s) you're looking for, then click **Apply**. Filters include, but are not limited to: date range, mode (Monitoring (Scheduled) Tests or On-Demand Tests), tag(s), and agent.<br/><img src={useBaseUrl('img/api-fortress/2021/02/logsFilters.png')} alt="Dashboard Logs Filters"/>
 
 
 ### Test Metrics
