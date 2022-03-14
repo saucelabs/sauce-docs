@@ -103,7 +103,7 @@ To install a remote app on a real device for a test:
 
 If you are using a remote app download for testing on a private device and wish to also prevent the device from broad internet access while under test, you need to use a secure connection to reach the app URL.
 
-* Ensure the app is available from a private hosting solution with the necessary permissions (e.g.,GitHub repository or Amazon S3 with a strict bucket policy).
+* Ensure the app is available from a private hosting solution with the necessary permissions (e.g., GitHub repository or Amazon S3 with a strict bucket policy).
 * Ensure the hosted app URL is available to the machine running the automated test.
 * Enable the **Require Sauce Connect/VPN** setting in your [organization's security settings](/basics/acct-team-mgmt/org-settings).
 
