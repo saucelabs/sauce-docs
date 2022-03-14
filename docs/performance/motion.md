@@ -129,7 +129,7 @@ The `idleDurationScore` represents the extent to which the browser is using reso
 * `renderingTime`
 * `paintingTime`
 * `scriptingTime`
-* `otherTime` (e.g.,network requests, etc.)
+* `otherTime` (e.g., network requests, etc.)
 * `idleTime`
 
 ### Forced Style Reflows
