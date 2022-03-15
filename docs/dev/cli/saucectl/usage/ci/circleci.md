@@ -19,12 +19,11 @@ These examples can apply to virtually any CircleCI deployment, provided that you
 ## Project Setup
 
 The first step is to ensure you have a CircleCI account, and to login with your git hosting provider username; the examples below use GitHub authentication.
-
 1. Log in to CircleCI.
 2. Choose the desired repo and click **Set Up Project**.
 3. Select **Add Config** (or Use Existing Config). This creates a new branch in your project called `circle-ci-project-setup`.
 
-> Do not worry if your project fails to build. You need to modify the `config.yml` manually anyway.
+  > Do not worry if your project fails to build. You'll need to modify the `config.yml` manually anyway.
 
 ## Add Project Environment Variables
 

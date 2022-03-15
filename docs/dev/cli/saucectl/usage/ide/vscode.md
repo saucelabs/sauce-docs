@@ -38,4 +38,4 @@ Alternatively, it's also possible to associate schema files with files they are 
 }
 ```
 
-For more information, please take a look at the Visual Studio Code YAML extension page [mentioned above](#what-youll-need).
+For more information, see the Visual Studio Code YAML extension page [mentioned above](#what-youll-need).
