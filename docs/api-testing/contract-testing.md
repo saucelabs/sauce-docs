@@ -19,20 +19,23 @@ If this contract is broken by either party, it can lead to bugs and malfunctions
 * An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
 
-## About Contract Testing  
+## Use Cases
 
 Contract testing is a fast, lightweight form of API testing that strictly checks the content and format of requests and responses. This method is ideal for:
 * Testing APIs during the early stages of design and development
 * Organizations creating APIs that are internal and/or have limited number of consumers
 
-This is typically done in a protected, static environment, where tests are run against mocked (not live) APIs, allowing contract tests to compare isolated API responses to the contract for immediate attention if something is wrong.<br/><img src={useBaseUrl('img/api-fortress/2022/03/api-consumer-contract.png')} alt="API Conversation and Contract" width="500"/>
+This is typically done in a protected, static environment, where tests are run against mocked (not live) APIs, allowing contract tests to compare isolated API responses to the contract for immediate attention if something is wrong.
 
-### Producer (Server) Side
+<img src={useBaseUrl('img/api-fortress/2022/03/api-consumer-contract.png')} alt="API Conversation and Contract" width="600"/>
+
+## Testing the API Producer Side
 To test the producer (server) side:
 1. From an API Testing Project, go to the HTTP Client.
 2. Import an OpenAPI specification file (v3.0 or higher).
 3. From your list of **Snapshots**, choose the API call you'd like to test by clicking on it. The HTTP method, request URL, and anything else specified in the spec file will populate in the HTTP Client fields.
-4. Click **Generate Test**.
+4. Click **Send** to send your request.
+5. Click **Generate Test**.
 
 Sauce Labs API Testing will validate the API producer side by creating a contract tests from your OpenAPI spec file.
 <img src={useBaseUrl('img/api-fortress/2022/03/api-producer-contract.png')} alt="API Conversation and Contract" width="500"/>
@@ -45,10 +48,34 @@ After you generate your test, you'll be taken to the **Compose** tool. Optionall
 
 You can view your contract test's results and events on your [Project Dashboard](/api-testing/project-dashboard/).
 
-### Consumer (Client) Side
+## Testing the API Consumer Side
 To test the API consumer (client) side:
-1. Run [Piestry](/api-testing/mocking/), our API mocking server, with the same OpenAPI spec used in the previous test. You'll need to activate the contract testing functionality, binding with a Sauce Labs API Testing project.
-2. Run your unit tests against your client software, making sure the API URLs are pointing to the mocks provided by [Piestry](/api-testing/mocking/).
+1. From a command-line terminal, start [Piestry](/api-testing/mocking/), our API mocking server, with the same OpenAPI spec used to test the API producer side. This will activate the contract testing functionality and bind a series of endpoints with a Sauce Labs API Testing project. Use the launch command listed under [Usage](/api-testing/mocking/#usage).
+2. Start our [API Testing Logger](/api-testing/logger/) by issuing:
+  ```bash
+  docker run -v "$(pwd)/myspec:/specs" \
+  -p 5000:5000 quay.io/saucelabs/piestry \
+  -u /specs/myspec.yaml \
+  --logger https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/insights/events/_contract
+  ```
+
+  The execution will create a [log](/api-testing/project-dashboard/#test-logs) in your [Project Dashboard](/api-testing/project-dashboard/) that's specific to contract testing.
+
+  Alternatively, you can run the command as a [build](/api-testing/project-dashboard/#test-build-reports) by issuing the following:
+  ```bash
+  docker run -v "$(pwd)/myspec:/specs" \
+  -p 5000:5000 quay.io/saucelabs/piestry \
+  -u /specs/myspec.yaml \
+  --logger https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/insights/events/_contract?buildId=build123
+  ```
+
+  Replace `build123` with your preferred build name. This execution will generate a build in your [Project Dashboard](/api-testing/project-dashboard/), in addition to starting the Logger.
+
+:::tip
+Use the [`--validate-request`](/api-testing/mocking/#validate-request) switch to ensure your requests are compliant with the schema.
+:::
+
+3. Run your unit tests against your client software, making sure the API URLs are pointing to the mocks provided by [Piestry](/api-testing/mocking/).
 
 Sauce Labs API Testing will validate that the API consumer side has complied with the contract specifications.
 
