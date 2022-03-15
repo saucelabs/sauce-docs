@@ -381,6 +381,7 @@ module.exports = {
          items: [
              'dev/api',
              'dev/api/accounts',
+             'dev/api/api-testing',
              'dev/api/jobs',
              'dev/api/builds',
              'dev/api/connect',
@@ -899,8 +900,8 @@ module.exports = {
      ],
      Contributing: [
          'contributing',
+         'contributing/style-guide',
          'contributing/code-of-conduct',
-         'contributing/style-guide'
      ],
  },
 };
