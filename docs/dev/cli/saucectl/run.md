@@ -14,7 +14,7 @@ Execute framework-agnostic tests using the [`saucectl`](/dev/cli/saucectl) test 
 
 ## Extended Description
 
-Execute tests according to the environment, framework, and test suite specifications defined in your [configuration file](/dev/cli/saucectl/init/) or via command line options described in this document.
+Execute tests according to the environment, framework, and test suite specifications defined in your [configuration file](/dev/cli/saucectl/configure) or via command line options described in this document.
 
 ## Options Summary
 

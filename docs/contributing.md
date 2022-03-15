@@ -6,10 +6,10 @@ sidebar_label: Overview
 
 Thank you for your interest in making this project even better and more awesome. Your contributions are highly welcomed.
 
-The Sauce Labs `sauce-docs` repo is an Open Source project. We are excited to engage with you
+The Sauce Labs `sauce-docs` repo is an open source project. We are excited to engage with you
 and the community.
 
-Contribution can come in many forms; writing examples, making suggestions, pointing out bugs,
+Contribution can come in many forms: writing examples, making suggestions, pointing out bugs,
 or updating docs. Most important is your patience and engagement. We are starting a
 significant journey in the open instead of behind closed doors. Join us to make something great.
 
@@ -23,7 +23,7 @@ seeing. The problem will be resolved a lot faster if you do.
 
 # Features
 
-We have a lot of ideas and I'm sure you do too. Please use our
+We have a lot of ideas and I'm sure you do, too. Please use our
 [issues list](https://github.com/saucelabs/sauce-docs/issues) to suggest new features
 that you would like to see added.
 
@@ -44,7 +44,7 @@ If you need help, you can refer to the [GitHub help page](https://help.github.co
 
 ### Step 2: Make changes and commit them
 
-First make sure git knows your name and email address:
+First, make sure git knows your name and email address:
 
 ```shell
 % git config --global user.name 'Santa Claus'
@@ -56,7 +56,8 @@ should describe what changed, why, and reference issues fixed (if
 any). Follow these guidelines when writing one:
 
 1. The first line should be around 50 characters or less and contain a
-    short description of the change.
+    short description of the change. It must be meaningful, as it's what people see when they
+    run `git shortlog` or `git log --oneline`.
 2. Keep the second line blank.
 3. Wrap all other lines at 72 columns.
 4. Include `Fixes #N`, where _N_ is the issue number the commit
@@ -79,8 +80,6 @@ nicely even when it is indented.
 Fixes #141
 ```
 
-The first line must be meaningful as it's what people see when they
-run `git shortlog` or `git log --oneline`.
 
 ### Step 3: Test
 

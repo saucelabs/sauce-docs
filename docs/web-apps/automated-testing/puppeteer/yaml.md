@@ -21,7 +21,7 @@ saucectl run -c ./path/to/{config-file}.yml
 ```
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](/dev/cli/saucectl/usage/ide/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g., [Visual Studio Code](/dev/cli/saucectl/usage/ide/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
 :::
 
 
@@ -551,7 +551,7 @@ PS> $Env:HTTPS_PROXY=http://my.proxy.org:3128/
 PS> saucectl run -e HTTP_PROXY=${Env:HTTP_PROXY} -e HTTPS_PROXY=${Env:HTTPS_PROXY}
 ```
 
-``` title= "Example: Linux/MacOS"
+``` title= "Example: Linux/macOS"
 $> export HTTP_PROXY=http://my.proxy.org:3128/
 $> export HTTPS_PROXY=http://my.proxy.org:3128/
 $> saucectl run -e HTTP_PROXY=${HTTP_PROXY} -e HTTPS_PROXY=${HTTPS_PROXY}
