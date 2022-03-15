@@ -354,6 +354,14 @@ p {
     padding: 8px;
 }
 
+.box1 h2, .box2 h2, .box3 h2, .box4 h2{
+  margin-top: 24px;
+}
+
+.box1 img, .box2 img, .box3 img, .box4 img{
+  margin-top: 16px;
+}
+
 .box2 {
     grid-column: 2;
     grid-row: 1;
@@ -384,6 +392,7 @@ p {
 
 .card {
   transition: 0.3s;
+  border-radius: 4px;
 }
 
 .card:hover {
