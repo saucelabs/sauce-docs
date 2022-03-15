@@ -936,8 +936,8 @@ module.exports = {
      ],
      Contributing: [
          'contributing',
+         'contributing/style-guide',
          'contributing/code-of-conduct',
-         'contributing/style-guide'
      ],
  },
 };
