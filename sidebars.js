@@ -379,8 +379,11 @@ module.exports = {
         collapsed: true,
         items: [
             'error-reporting/getting-started',
-        ],
-    },
+            'error-reporting/overview',
+            'error-reporting/releases',
+            'error-reporting/triage',
+            'error-reporting/explore',
+            'error-reporting/debug',
     {
         type: 'category',
         label: 'Platform Integrations',
@@ -407,6 +410,8 @@ module.exports = {
             },
         ],
     },
+  ],
+  },
 ],
  dev: [
      'dev',
