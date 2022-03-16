@@ -90,7 +90,7 @@ See [Parameters](#param) and [Body](#body).
 See [Parameters](#param) and [Body](#body).
 
 ### GitHub
-This Github component is meant to simplify the process of retrieving a file from Github and use it as a data source. Some examples of files to use would be CSV or JSON files. [Here is a tutorial](/api-testing/on-prem/how-to/github-for-datasets) on how to use it as part of a test.
+This GitHub component is meant to simplify the process of retrieving a file from GitHub and use it as a data source. Some examples of files to use would be CSV or JSON files. [Here is a tutorial](/api-testing/on-prem/how-to/github-for-datasets) on how to use it as part of a test.
 
 <img src={useBaseUrl('img/api-fortress/2020/11/githubComponent.png')} alt="GitHub Component" width="400"/>
 

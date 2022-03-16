@@ -12,8 +12,9 @@ These examples can apply to virtually any GitHub deployment, provided that you a
 
 ## What You'll Need
 
-* [GitHub Account](https://github.com/join)
-* [Sauce Labs Account](https://saucelabs.com/sign-up)
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+* A [GitHub Account](https://github.com/join)
 * The following permissions in GitHub:
     * ability to create and manage workflows
     * ability to create and store [GitHub secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)
@@ -32,7 +33,7 @@ The first order of business is to export your [Sauce Labs account credentials](h
     * Name: `SAUCE_USERNAME`
     * Value: 'your-sauce-username'
 5. Click __Add secret__ to finish.
-6. Repeat the same steps above for your `SAUCE_ACCESS_KEY` (Not sure where to find `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` in Sauce Labs? They're [here](https://app.saucelabs.com/user-settings)).
+6. Repeat the same steps above for your `SAUCE_ACCESS_KEY`.
 
 ## Configure the GitHub Action
 

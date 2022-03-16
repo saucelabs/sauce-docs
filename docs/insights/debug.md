@@ -313,7 +313,7 @@ Mobile devices have less CPU power than most desktops and laptops (or a VM's def
   <tbody>
     <tr>
     <td><code>rate</code></td>
-    <td><p><small>| REQUIRED | STRING |</small></p><p>A number defining the amount of slowdown (e.g. <code>2</code> ~ 2x slowdown, your CPU will be 2 times slower than usual).</p></td>
+    <td><p><small>| REQUIRED | STRING |</small></p><p>A number defining the amount of slowdown (e.g., <code>2</code> ~ 2x slowdown, your CPU will be 2 times slower than usual).</p></td>
     </tr>
   </tbody>
 </table>

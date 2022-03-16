@@ -1231,7 +1231,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 <p><span className="sauceGold">DEPRECATED</span></p>
 
-Builds are now available to both RDC and VDC jobs. Please see the new [Builds API](/dev/api/builds) for endpoints that incorporate this enhancement.
+Builds are now available to both RDC and VDC jobs. See the new [Builds API](/dev/api/builds) for endpoints that incorporate this enhancement.
 
 
 ### Get Builds
