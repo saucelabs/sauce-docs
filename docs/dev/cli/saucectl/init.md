@@ -193,7 +193,7 @@ You can specify a combination of device characteristics within this flag:
 ### <span className="cli">--emulator</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Espresso Only</span> |</small></p>
-|`name`| Specify all or part of the emulator name ([supported VMD list](https://app.saucelabs.com/live/web-testing/virtual)) |```--emulator "name=Android.*"```|
+
 Specify a virtual device for the test by matching a set of one or more emulator characteristics.
 
 |Characteristic|Description|Example|
