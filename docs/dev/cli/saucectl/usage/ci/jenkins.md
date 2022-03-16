@@ -12,15 +12,16 @@ These examples can apply to virtually any Jenkins deployment, provided that you 
 
 ## What You'll Need
 
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * [Jenkins Server](https://www.jenkins.io/doc/book/installing/)
-* [Sauce Labs Account](https://saucelabs.com/sign-up)
 * The following permissions in Jenkins:
     * ability to create and manage credentials
     * ability to create and manage new pipelines
 
 ### Configure Jenkins Credentials
 
-The first step of the integration is to ensure you've added your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as a secret file/text in your Jenkins server (Not sure where to find these? They're [here](https://app.saucelabs.com/user-settings)).
+The first step of the integration is to ensure you've added your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as a secret file/text in your Jenkins server.
 
 The easiest way to add credentials to Jenkins is with the UI:
 

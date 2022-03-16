@@ -15,7 +15,7 @@ Use `saucectl` — the Sauce Labs test orchestrator CLI — to run [Puppeteer](h
 
 ## What You'll Need
 
-* A Sauce Labs account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * [Node.js](https://nodejs.org/en/) to use the NPM package manager
 * A [GitHub](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home) account

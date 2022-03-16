@@ -21,9 +21,44 @@ The `saucectl` command line interface orchestrates the relationship between your
   :::
 * Know which test framework and browser versions you plan to run tests against
 
+
+## System Requirements
+
+Since you can run `saucectl` locally via Docker or remotely via the Sauce Labs cloud, system requirements vary depending on your intention. The following reference serves as a general guide:
+
+<Tabs
+  defaultValue="macos"
+  values={[
+    {label: 'macOS', value: 'macos'},
+    {label: 'Linux', value: 'linux'},
+    {label: 'Windows', value: 'windows'},
+  ]}>
+
+<TabItem value="macos">
+
+* OS: 10.14+ (Mojave, Catalina, or Big Sur)
+* Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
+
+</TabItem>
+<TabItem value="linux">
+
+* OS/Distros: [CentOS](https://docs.docker.com/engine/install/centos/), [Debian](https://docs.docker.com/engine/install/debian/), [Fedora](https://docs.docker.com/engine/install/fedora/), [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+* Docker: [Server](https://docs.docker.com/engine/install/#server)
+
+</TabItem>
+<TabItem value="windows">
+
+* OS: Windows 10 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
+* Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
+
+</TabItem>
+</Tabs>
+
 ## Supported Frameworks and Browsers
 
-### Supported Frameworks in Sauce Cloud
+### Sauce Labs Cloud
+
+Below are the frameworks supported on the Sauce Labs Cloud.
 
 <Tabs
     groupId="platforms"
@@ -233,9 +268,9 @@ The `saucectl` command line interface orchestrates the relationship between your
 </Tabs>
 
 
-### Supported Frameworks in Docker Runner
+### Docker Runner
 
-Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available release notes.
+Below are the frameworks supported on the Docker Runner. Browser support for each framework is based on the Sauce Labs Docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available release notes.
 
 <Tabs
   groupId="platforms"
@@ -253,10 +288,10 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |Cypress Version|Supported Browsers|
 |----|----|
-|9.3.1|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.1.0)|
-|9.1.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.0.0)|
-|8.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.4.0)|
-|8.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.3.1)|
+|9.3.1|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.1.0)|
+|9.1.0|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.0.0)|
+|8.6.0|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.4.0)|
+|8.3.0|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.3.1)|
 
 </TabItem>
 <TabItem value="playwright">
@@ -265,9 +300,9 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |Playwright Version|Supported Browsers|
 |-----|----|
-|1.18.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.6.0)|
-|1.17.1|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.5.0)|
-|1.16.3|Please see [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.4.0)|
+|1.18.1|See [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.6.0)|
+|1.17.1|See [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.5.0)|
+|1.16.3|See [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.4.0)|
 
 </TabItem>
 
@@ -277,13 +312,13 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |Puppeteer Version|Supported Browsers|
 |-----|----|
-|13.1.3|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v3.0.0)|
-|12.0.1|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v2.0.0)|
-|10.4.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.6.0)|
-|10.2.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.5.1)|
-|10.1.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.4.1)|
-|9.1.1|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.2.0)|
-|8.0.0|Please see [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.0.0)|
+|13.1.3|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v3.0.0)|
+|12.0.1|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v2.0.0)|
+|10.4.0|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.6.0)|
+|10.2.0|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.5.1)|
+|10.1.0|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.4.1)|
+|9.1.1|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.2.0)|
+|8.0.0|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.0.0)|
 
 </TabItem>
 
@@ -293,50 +328,19 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 |TestCafe Version|Supported Browsers|
 |----|----|
-|1.18.3|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v1.1.0)|
-|1.17.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v1.0.0)|
-|1.16.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.12.1)|
-|1.15.3|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.10.0)|
-|1.15.0|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.9.0)|
+|1.18.3|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v1.1.0)|
+|1.17.1|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v1.0.0)|
+|1.16.1|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.12.1)|
+|1.15.3|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.10.0)|
+|1.15.0|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.9.0)|
 
 </TabItem>
 </Tabs>
 
-### System Requirements
-
-Since you can run `saucectl` locally via Docker or remotely via the Sauce Labs cloud, system requirements vary depending on your intention. The following reference serves as a general guide:
-
-<Tabs
-  defaultValue="macos"
-  values={[
-    {label: 'macOS', value: 'macos'},
-    {label: 'Linux', value: 'linux'},
-    {label: 'Windows', value: 'windows'},
-  ]}>
-
-<TabItem value="macos">
-
-* OS: 10.14+ (Mojave, Catalina, or Big Sur)
-* Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
-
-</TabItem>
-<TabItem value="linux">
-
-* OS/Distros: [CentOS](https://docs.docker.com/engine/install/centos/), [Debian](https://docs.docker.com/engine/install/debian/), [Fedora](https://docs.docker.com/engine/install/fedora/), [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-* Docker: [Server](https://docs.docker.com/engine/install/#server)
-
-</TabItem>
-<TabItem value="windows">
-
-* OS: Windows 10 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
-* Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
-
-</TabItem>
-</Tabs>
 
 ## Installing `saucectl`
 
-`saucectl` binaries are attached to [Github releases](https://github.com/saucelabs/saucectl/releases/latest).
+`saucectl` binaries are attached to [GitHub releases](https://github.com/saucelabs/saucectl/releases/latest).
 
 Following is a list of `saucectl` installation options that are common across different development environments.
 
@@ -410,7 +414,7 @@ Mingw on Windows is known to interfere with the interactive `saucectl` commands,
 
 ### Updating `saucectl`
 
-To ensure you have access to the most current feature set of saucectl, keep your installation up to date by periodically upgrading to the latest release.
+To ensure you have access to the most current feature set of `saucectl`, keep your installation up to date by periodically upgrading to the latest release.
 
 ```bash
 npm update -g saucectl

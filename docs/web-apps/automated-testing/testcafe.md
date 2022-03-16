@@ -10,9 +10,41 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 [TestCafe](https://github.com/DevExpress/testcafe) is a testing framework that you can use to test your web apps &#8212; either locally in Docker or remotely on Sauce Labs cloud &#8212; using the [`saucectl` CLI](/dev/cli/saucectl). This gives you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
 
-### Supported Testing Platforms
+## System Requirements
 
- Sauce Labs supports the following test configurations for TestCafe:
+You can run `saucectl` locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms) or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention. The following reference serves as a general guide:
+
+<Tabs
+  defaultValue="macos"
+  values={[
+    {label: 'macOS', value: 'macos'},
+    {label: 'Linux', value: 'linux'},
+    {label: 'Windows', value: 'windows'},
+  ]}>
+
+<TabItem value="macos">
+
+* OS: 10.14+ (Mojave, Catalina, or Big Sur)
+* Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
+
+</TabItem>
+<TabItem value="linux">
+
+* OS/Distros: [CentOS](https://docs.docker.com/engine/install/centos/), [Debian](https://docs.docker.com/engine/install/debian/), [Fedora](https://docs.docker.com/engine/install/fedora/), [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+* Docker: [Server](https://docs.docker.com/engine/install/#server)
+
+</TabItem>
+<TabItem value="windows">
+
+* OS: Windows 10 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
+* Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
+
+</TabItem>
+</Tabs>
+
+## Supported Testing Platforms
+
+Sauce Labs supports the following test configurations for TestCafe:
 
 <Tabs
    groupId="platforms"
@@ -99,46 +131,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |TestCafe Version|Supported Browsers|
  |----|----|
- |1.18.3|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v1.1.0)|
- |1.17.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v1.0.0)|
- |1.16.1|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.12.1)|
- |1.15.3|Please see [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.10.0)|
+ |1.18.3|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v1.1.0)|
+ |1.17.1|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v1.0.0)|
+ |1.16.1|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.12.1)|
+ |1.15.3|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.10.0)|
 
 </TabItem>
 </Tabs>
 
 
-### System Requirements
-
-You can run `saucectl` locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms) or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention. The following reference serves as a general guide:
-
-<Tabs
-  defaultValue="macos"
-  values={[
-    {label: 'macOS', value: 'macos'},
-    {label: 'Linux', value: 'linux'},
-    {label: 'Windows', value: 'windows'},
-  ]}>
-
-<TabItem value="macos">
-
-* OS: 10.14+ (Mojave, Catalina, or Big Sur)
-* Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
-
-</TabItem>
-<TabItem value="linux">
-
-* OS/Distros: [CentOS](https://docs.docker.com/engine/install/centos/), [Debian](https://docs.docker.com/engine/install/debian/), [Fedora](https://docs.docker.com/engine/install/fedora/), [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-* Docker: [Server](https://docs.docker.com/engine/install/#server)
-
-</TabItem>
-<TabItem value="windows">
-
-* OS: Windows 10 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
-* Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
-
-</TabItem>
-</Tabs>
 
 ## How to Get Started
 
