@@ -40,18 +40,24 @@ To test the producer (server) side:
 Sauce Labs API Testing will validate the API producer side by creating a contract tests from your OpenAPI spec file.
 <img src={useBaseUrl('img/api-fortress/2022/03/api-producer-contract.png')} alt="API Conversation and Contract" width="500"/>
 
-After you generate your test, you'll be taken to the **Compose** tool. Optionally, you can add further [assertions](/api-testing/composer/) to your test, which will perform functional end-to-end testing on top of your contract tests and fully validate the APIs are working as intended.
+After you generate your test, you'll be taken to the **Compose** tool. Optionally, you can add further [assertions](/api-testing/composer/) here to your test, which will perform functional end-to-end testing on top of your contract tests and fully validate the APIs are working as intended.
 
 <details><summary>What is functional testing?</summary>
 <i>Functional (end-to-end) testing</i> is a more robust, data-driven method that checks the API logic and consumer flows. If your organization is creating a large-scale API program that will have public APIs with third-party consumers, for example, functional testing is ideal. That's where adding functional testing to complement your contract testing strategy can give your development team insight into how accurately your APIs render, and ultimately bring products to market faster.
 </details>
 
-You can view your contract test's results and events on your [Project Dashboard](/api-testing/project-dashboard/).
+You can view your contract test results and events on your [Project Dashboard](/api-testing/project-dashboard/).
+
+
+:::note
+
+To generate a [log](/api-testing/project-dashboard/#test-logs) for your API producer contract test, you'll need to execute it outside the **Compose** tool (i.e., command-line terminal).
+:::
 
 ## Testing the API Consumer Side
 To test the API consumer (client) side:
-1. From a command-line terminal, start [Piestry](/api-testing/mocking/), our API mocking server, with the same OpenAPI spec used to test the API producer side. This will activate the contract testing functionality and bind a series of endpoints with a Sauce Labs API Testing project. Use the launch command listed under [Usage](/api-testing/mocking/#usage).
-2. Start our [API Testing Logger](/api-testing/logger/) by issuing:
+1. From a command-line terminal, start [Piestry](/api-testing/mocking/), our API mocking server, by issuing the launch command listed under [Usage](/api-testing/mocking/#usage). Be sure to use the same OpenAPI spec used to test the API producer side. This will activate the contract testing functionality and bind a series of endpoints with a Sauce Labs API Testing project.
+2. Start your Piestry test by issuing:
   ```bash
   docker run -v "$(pwd)/myspec:/specs" \
   -p 5000:5000 quay.io/saucelabs/piestry \
@@ -66,10 +72,10 @@ To test the API consumer (client) side:
   docker run -v "$(pwd)/myspec:/specs" \
   -p 5000:5000 quay.io/saucelabs/piestry \
   -u /specs/myspec.yaml \
-  --logger https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/insights/events/_contract?buildId=build123
+  --logger "https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/insights/events/_contract?buildId=build123"
   ```
 
-  Replace `build123` with your preferred build name. This execution will generate a build in your [Project Dashboard](/api-testing/project-dashboard/), in addition to starting the Logger.
+  Replace `build123` with your preferred build name. This execution will generate a build in your [Project Dashboard](/api-testing/project-dashboard/).
 
 :::tip
 Use the [`--validate-request`](/api-testing/mocking/#validate-request) switch to ensure your requests are compliant with the schema.
