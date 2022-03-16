@@ -493,9 +493,9 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Response"
 PK
-     (BwQ              Payload/UX �a�_�a�_� PK
-     *BwQ              Payload/SwagLabsMobileApp.app/UX �a�_ b�_� PK
-     (BwQ            -  Payload/SwagLabsMobileApp.app/_CodeSignature/UX �a�_�a�_� PK   *BwQ            :  Payload/SwagLabsMobileApp.app/_CodeSignature/CodeResourcesUX �a�_�a�_� �}i��H����_QS�3#ؼ$�Zt��x��(R�$�m�oR"���+�]6%R.WX,��+���$3##"#����,����MT���~���;���߾�5�����/�7J"��LW�Q�~'�ā#��� ��2� �Ҩ���j�=d  }����ö-�' ����֧O}t���@��ҫ����������1̏����n�����k�
+�����(BwQ��������������Payload/UX��a�_�a�_��PK
+�����*BwQ��������������Payload/SwagLabsMobileApp.app/UX��a�_�b�_��PK
+�����(BwQ������������-��Payload/SwagLabsMobileApp.app/_CodeSignature/UX��a�_�a�_��PK���*BwQ������������:��Payload/SwagLabsMobileApp.app/_CodeSignature/CodeResourcesUX��a�_�a�_���}i��H����_QS�3#ؼ$�Zt��x��(R�$�m�oR"���+�]6%R.WX,��+���$3##"#����,����MT���~���;���߾�5�����/�7J"��LW�Q�~'�ā#������2���Ҩ���j�=d��}����ö-�'�����֧O}t���@��ҫ����������1̏����n�����k�
 ...
 ```
 </details>
@@ -723,7 +723,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Delete a Group of App Storage Files
 
-<details><summary><span className="api delete">DELETE</span> <code>/v1/storage/files/&#123;group_id&#125;</code></summary>
+<details><summary><span className="api delete">DELETE</span> <code>/v1/storage/groups/&#123;group_id&#125;</code></summary>
 <p/>
 
 Deletes the specified group of files from Sauce Storage.
