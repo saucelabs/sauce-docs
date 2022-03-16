@@ -34,7 +34,7 @@ We recommend setting it to the email address, as this makes it easier to manage 
 If the **saml:NameID** field contains only a user name and no @ symbol, then the SSO username will be based on your Domain Name. If your domain was sauce and the field value was **saucebot**, the SSO user name would be **sso-sauce-saucebot**.
 
 ## AudienceRestriction
-This is a required attribute within the SAML assertion that indicates the specific users the assertion is intended for. It must be equal to the value of entityID from SauceLabs metadata based on your data center. For details, see the **Single Sign-On Configuration** section in [Data Center Endpoints](/dev/cli/sauce-connect-proxy).
+This is a required attribute within the SAML assertion that indicates the specific users the assertion is intended for. It must be equal to the value of entityID from SauceLabs metadata based on your data center. For details, see the **Single Sign-On Configuration** section in [Data Center Endpoints](/basics/data-center-endpoints/#single-sign-on-sso-configuration).
 
 ## Configuration Information for SSO
 The Signing/Encryption Certificate and Entity AssertionConsumeURLs required for configuring Sauce Labs SSO vary based on your data center. For details, see [Data Center Endpoints](/basics/data-center-endpoints/#single-sign-on-sso-configuration). Here are some things to be aware of:
