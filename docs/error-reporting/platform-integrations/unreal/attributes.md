@@ -4,6 +4,11 @@ title: Unreal Engine Attributes
 sidebar_label: Attributes
 description: Attributes reference for Unreal Engine apps and games.
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 This page defines the attributes that are available to customize crash and error reports for Unreal Engine apps and games.
 
 ## Attributes list
@@ -42,3 +47,59 @@ Name|Unreal Property|Description|Format|Type|
 ||`IsPerforceBuild`|Indicates whether the error occurred in a Perforce engine build.|Bitmap|Boolean|
 ||`ProcessId`|The process identifier.|Integer|uint64|
 ||`UserActivityHint`|The user's activity when the error occurred, if available.|String|Dictionary|
+
+## Add Custom Attributes
+To add custom crash properties to be included in your crash and error reports, you must add them as custom attributes for each individual platform.
+
+Custom attributes are not indexed by default and therefore cannot be used in queries until they've been indexed. For more information about indexing, see [Indexing Attributes](https://support.backtrace.io/hc/en-us/articles/360040517191-Project-Settings-Indexing-Attributes).
+
+  <Tabs
+    groupId="platforms"
+    defaultValue="windowslinux"
+    values={[
+      {label: 'Windows and Linux', value: 'windowslinux'},
+      {label: 'Android', value: 'android'},
+      {label: 'iOS', value: 'ios'},
+    ]}>
+
+  <TabItem value="windowslinux">
+
+You can add custom attributes with the Unreal Engine C++ API, by using `FGenericCrashContext::SetGameData` to add metadata to the crash context.
+
+```c++
+static void SetGameData
+(
+    const FString & Key,
+    const FString & Value
+)
+```
+For more information, see [SetGameData](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Core/GenericPlatform/FGenericCrashContext/SetGameData/).
+
+</TabItem>
+<TabItem value="android">
+
+Add the following to your initialization code:
+
+```
+TMap<FString, FString> BacktraceAttributes;
+BacktraceAttributes.Add("key", "value");
+
+BacktraceIO::FInitializeBacktraceClient(BacktraceAttributes, Attachments);
+```
+
+</TabItem>
+<TabItem value="ios">
+
+- Swift:
+  ```swift
+  BacktraceClient.shared?.attributes = ["foo": "bar", "testing": true]
+  ```
+- Objective-C:
+  ```objc
+  BacktraceClient.shared.attributes = @{@"foo": @"bar", @"testing": YES};
+  ```
+
+You can also specify unique sets of attributes for a specific report with the `willSend` method of `BacktraceDelegate`. For more information, see [Events Handling](https://github.com/backtrace-labs/backtrace-cocoa#documentation-events-handling). 
+
+</TabItem>
+</Tabs>

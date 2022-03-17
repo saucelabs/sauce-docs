@@ -147,7 +147,10 @@ The server address is required to submit exceptions from your Unity project to y
 
   1. Go back to the Backtrace Configuration in your Unity project.
 
-  1. In the Server Address field under Backtrace client configuration, paste the server address in the following format: `https://submit.backtrace.io/{subdomain}/{submission-token}/json`.
+  1. In the Server Address field, enter the server address in the following format: `https://submit.backtrace.io/{subdomain}/{submission-token}/json`.
+
+  Provide the name of your subdomain and submission token.
+
 
 
 ## Verify the Setup
