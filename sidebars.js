@@ -406,6 +406,7 @@ module.exports = {
                 items: [
                     'error-reporting/platform-integrations/unreal/setup',
                     'error-reporting/platform-integrations/unreal/attributes',
+                    'error-reporting/platform-integrations/unreal/troubleshooting',
                 ],
             },
         ],
