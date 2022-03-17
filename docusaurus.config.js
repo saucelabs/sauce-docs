@@ -12,7 +12,7 @@ const docusaurusConfig = {
   organizationName: 'saucelabs',
   projectName: 'sauce-docs',
   scripts: [
-      "/scripts/hide.js",
+    '/scripts/hide.js',
     {
       src: 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
       type: 'text/javascript',
@@ -20,10 +20,10 @@ const docusaurusConfig = {
       'data-domain-script': '9e4c4ce3-8349-4030-9de7-0b1d368edfce',
     },
     {
-      src: "https://solve-widget.forethought.ai/embed.js",
-      type: "application/javascript",
-      'data-api-key': "1f0243be-fd74-4205-bbff-cf72bc3c96b3",
-      'data-ft-location': "docs",
+      src: 'https://solve-widget.forethought.ai/embed.js',
+      type: 'application/javascript',
+      'data-api-key': '1f0243be-fd74-4205-bbff-cf72bc3c96b3',
+      'data-ft-location': 'docs',
     },
   ],
   themeConfig: {
@@ -93,6 +93,7 @@ const docusaurusConfig = {
         // },
       ],
     },
+    /* this is a swizzled component, see inside theme folder */
     footer: {
       logo: {
         alt: 'Sauce Logo',

@@ -9,38 +9,8 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import {useThemeConfig} from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import isInternalUrl from '@docusaurus/isInternalUrl';
 import styles from './styles.module.css';
 import ThemedImage from '@theme/ThemedImage';
-import IconExternalLink from '@theme/IconExternalLink';
-
-function FooterLink({to, href, label, prependBaseUrlToHref, ...props}) {
-  const toUrl = useBaseUrl(to);
-  const normalizedHref = useBaseUrl(href, {
-    forcePrependBaseUrl: true,
-  });
-  return (
-    <Link
-      className="footer__link-item"
-      {...(href
-        ? {
-            href: prependBaseUrlToHref ? normalizedHref : href,
-          }
-        : {
-            to: toUrl,
-          })}
-      {...props}>
-      {href && !isInternalUrl(href) ? (
-        <span>
-          {label}
-          <IconExternalLink />
-        </span>
-      ) : (
-        label
-      )}
-    </Link>
-  );
-}
 
 function FooterLogo({sources, alt, width, height}) {
   return (
@@ -52,65 +22,6 @@ function FooterLogo({sources, alt, width, height}) {
       height={height}
     />
   );
-}
-
-function MultiColumnLinks({links}) {
-  return (
-    <>
-      {links.map((linkItem, i) => (
-        <div key={i} className="col footer__col">
-          <div className="footer__title">{linkItem.title}</div>
-          <ul className="footer__items">
-            {linkItem.items.map((item, key) =>
-              item.html ? (
-                <li
-                  key={key}
-                  className="footer__item" // Developer provided the HTML, so assume it's safe.
-                  // eslint-disable-next-line react/no-danger
-                  dangerouslySetInnerHTML={{
-                    __html: item.html,
-                  }}
-                />
-              ) : (
-                <li key={item.href || item.to} className="footer__item">
-                  <FooterLink {...item} />
-                </li>
-              ),
-            )}
-          </ul>
-        </div>
-      ))}
-    </>
-  );
-}
-
-function SimpleLinks({links}) {
-  return (
-    <div className="footer__links">
-      {links.map((item, key) => (
-        <React.Fragment key={key}>
-          {item.html ? (
-            <span
-              className="footer__link-item" // Developer provided the HTML, so assume it's safe.
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{
-                __html: item.html,
-              }}
-            />
-          ) : (
-            <FooterLink {...item} />
-          )}
-          {links.length !== key + 1 && (
-            <span className="footer__link-separator">·</span>
-          )}
-        </React.Fragment>
-      ))}
-    </div>
-  );
-}
-
-function isMultiColumnFooterLinks(links) {
-  return 'title' in links[0];
 }
 
 function Footer() {
@@ -129,45 +40,39 @@ function Footer() {
     <footer
       className={clsx('footer', {
         'footer--dark': footer.style === 'dark',
-      })}>
-      <div className="container container-fluid">
-        {links &&
-          links.length > 0 &&
-          (isMultiColumnFooterLinks(links) ? (
-            <div className="row footer__links">
-              <MultiColumnLinks links={links} />
-            </div>
-          ) : (
-            <div className="footer__links text--center">
-              <SimpleLinks links={links} />
-            </div>
-          ))}
+      })}
+    >
+      <div className='container container-fluid'>
+        <div className='footer-items'>
+          <h5>
+            <a href='https://saucelabs.com/'>Sauce Labs</a>
+          </h5>
+          <h5>
+            <a href='https://stackoverflow.com/tags/saucelabs'>Community</a>
+          </h5>
+          <h5>
+            <a href='https://opensource.saucelabs.com/'>Open Source</a>
+          </h5>
+          <h5>
+            <a href='https://support.saucelabs.com/hc/en-us'>Customer Support</a>
+          </h5>
+        </div>
         {(logo || copyright) && (
-          <div className="footer__bottom text--center">
+          <div className='footer__bottom text--center'>
             {logo && (logo.src || logo.srcDark) && (
-              <div className="margin-bottom--sm">
+              <div className='margin-bottom--sm'>
                 {logo.href ? (
                   <Link href={logo.href} className={styles.footerLogoLink}>
-                    <FooterLogo
-                      alt={logo.alt}
-                      sources={sources}
-                      width={logo.width}
-                      height={logo.height}
-                    />
+                    <FooterLogo alt={logo.alt} sources={sources} width={logo.width} height={logo.height} />
                   </Link>
                 ) : (
-                  <FooterLogo
-                    alt={logo.alt}
-                    sources={sources}
-                    width={logo.width}
-                    height={logo.height}
-                  />
+                  <FooterLogo alt={logo.alt} sources={sources} width={logo.width} height={logo.height} />
                 )}
               </div>
             )}
             {copyright ? (
               <div
-                className="footer__copyright" // Developer provided the HTML, so assume it's safe.
+                className='footer__copyright' // Developer provided the HTML, so assume it's safe.
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{
                   __html: copyright,
