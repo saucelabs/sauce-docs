@@ -33,7 +33,7 @@ After you've [setup](/error-reporting/platform-integrations/unity/setup) the Bac
 
 The configuration settings for the Backtrace client and database are defined by the Backtrace Configuration file in the Assets folder of your Unity project. It's recommended to change the configuration settings for the Backtrace client and database in the Unity Inspector:
 
-  <img src={useBaseUrl('img/error-reporting/unity-backtrace-client-config.png')} alt="Customizing Backtrace client configuration options in the Unity Inspector" />
+  <img src={useBaseUrl('img/error-reporting/unity/unity-backtrace-client-config.png')} alt="Customizing Backtrace client configuration options in the Unity Inspector" />
 
 Alternatively, you can also specify the configuration settings in your C# project.
 
@@ -68,7 +68,7 @@ Alternatively, you can also specify the configuration settings in your C# projec
 #### Enable Stacktraces for WebGL
 To enable stacktraces for WebGL, in your Unity project's Player Settings, under Publishing Settings, set Enable Exceptions to 'Full With Stacktrace'.
 
-<img src={useBaseUrl('img/error-reporting/unity-webgl-player-settings-enable-exceptions.png')} alt="Player setting in Unity required to enable stack traces for WebGL." />
+<img src={useBaseUrl('img/error-reporting/unity/unity-webgl-player-settings-enable-exceptions.png')} alt="Player setting in Unity required to enable stack traces for WebGL." />
 
 
 ### Advanced Client Settings
@@ -141,9 +141,9 @@ You can configure the Backtrace client to automatically upload debug symbols in 
 
 To enable automatic upload of debug symbols, in your Unity project's Android settings:
 - In the Build Settings, set Create symbols.zip to 'Debugging'.
-<img src={useBaseUrl('img/error-reporting/unity-android-build-settings-debug-symbols.png')} alt="Build setting required to upload debug symbols to Backtrace for Android builds." />
+<img src={useBaseUrl('img/error-reporting/unity/unity-android-build-settings-debug-symbols.png')} alt="Build setting required to upload debug symbols to Backtrace for Android builds." />
 - In the Player Settings, under Configuration (Other Settings), set Scripting Backend to 'IL2CPP'.
-<img src={useBaseUrl('img/error-reporting/unity-android-player-settings-debug-symbols.png')} alt="Player setting required to upload debug symbols to Backtrace for Android builds." />
+<img src={useBaseUrl('img/error-reporting/unity/unity-android-player-settings-debug-symbols.png')} alt="Player setting required to upload debug symbols to Backtrace for Android builds." />
 
 For more information about debug symbols, see [Symbolication](https://support.backtrace.io/hc/en-us/articles/360040517071-Symbolication-Overview).
 
@@ -167,7 +167,7 @@ For more information about other data that is captured, see [Attributes](/error-
 
 :::caution
 Unity's CrashReport API might prevent the Backtrace client from sending crashes. To allow Backtrace to capture native crashes, in your Unity project's Player Settings for iOS, under Debugging and crash reporting, make sure that Enable CrashReport API is set to 'False'.
-<img src={useBaseUrl('img/error-reporting/unity-ios-player-settings-native-crashes.png')} alt="Player setting required to allow Backtrace to capture native crashes and exceptions." />
+<img src={useBaseUrl('img/error-reporting/unity/unity-ios-player-settings-native-crashes.png')} alt="Player setting required to allow Backtrace to capture native crashes and exceptions." />
 :::
 
 #### Uploading Debug Symbols
@@ -176,7 +176,7 @@ When building your iOS game in Xcode, make sure to configure the build settings 
 
 To generate debug symbols in dSYM format, in the Build Settings for your Xcode project, set Debug Information Format to 'DWARF with dSYM File'.
 
-<img src={useBaseUrl('img/error-reporting/xcode-enable-debug-symbols.png')} alt="Build setting in Xcode required to generate debug symbols for iOS builds." />
+<img src={useBaseUrl('img/error-reporting/unity/xcode-enable-debug-symbols.png')} alt="Build setting in Xcode required to generate debug symbols for iOS builds." />
 
 You can find the dSYM files in the Build folder for your project (`.../Build/Products/<build target folder>`), which you can then compress into a .zip file and upload to Backtrace.
 
