@@ -2136,7 +2136,7 @@
 .footer .copyright{
     text-align:left;
     margin-top:1rem;
-    color:#f1f1f1;
+    color: var(--ds-gray-400);
     font-size:11px;
 }
 @media print,screen and (min-width:768px){
@@ -2148,11 +2148,14 @@
     margin-bottom:5px;
 }
 .footer a{
-    color:#fff;
+    color: var(--ds-gray-400);
+}
+.footer a:hover{
+    color: var(--ds-white);
 }
 .footer a svg{
     background:#000;
-    fill:#fff;
+    color: var(--ds-gray-50);
     margin-right:10px;
     height:20px;
     width:20px;
@@ -2196,7 +2199,7 @@
 }
 @media screen and (max-width:767px){
     .footer-nav .link-list{
-        margin-bottom:1.5rem;
+        margin-bottom:1rem;
         width:100%
     }
 }
@@ -2286,12 +2289,13 @@
 
 .footer {
     font-family: museo-sans, sans-serif;
-    padding-bottom: 40px;
+    padding-bottom: 24px;
     --ifm-footer-background-color: #ac1413;
 }
 
 .footer__logo {
-    padding-bottom: 40px;
+    padding-bottom: 24px;
+    margin: 0;
 }
 
 .footer__title {
