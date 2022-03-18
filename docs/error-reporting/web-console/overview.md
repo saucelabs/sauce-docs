@@ -2,12 +2,13 @@
 id: overview
 title: Overview
 sidebar_label: Overview
-description: Provides an ‘at a glance’ view of your project’s health by displaying different top down views of your error / crash data.
+description: Monitor app stability with the Overview page.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+## Project Overview
 The Web Console’s Overview page provides an ‘at a glance’ view of your project’s health by displaying different top down views of your error / crash data. The widgets in place were designed to serve that goal by enabling a number of important use cases:
 - Top Down Synthesis: Aggregate widgets allow developers or project leads to quickly see their application's stability and how many total, unique, and open errors have been reported in their project for a fast, simple status update
 - Application Stability Over Time: Users can visualize their error count through time, broken out by application version to monitor their app’s stability across releases.
