@@ -34,7 +34,7 @@ For on-premise (self-hosted) users, the integration for Unreal Engine requires s
 ## What You'll Need
  * A Backtrace account (if you don't already have one, start a [free trial](https://register.backtrace.io/signup/)).
  * Your subdomain name (used to connect to your Backtrace instance).
- * A Backtrace project and [submission token].
+ * A Backtrace project and a submission token.
 
 :::tip Generate a Submission Token
    1. In the Backtrace Console, go to Project settings > Error submission > Submission tokens.
@@ -86,7 +86,7 @@ If the Engine folder doesn't exist at the root directory for your Unreal Engine 
   CrashReportClientVersion=1.0
   DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}>"
   ```
-  Provide the name of your subdomain and submission token for the `DataRouterUrl`.
+  Provide the name of your subdomain and a submission token for the `DataRouterUrl`.
 
 When your app or game crashes in the Unreal Editor, the Unreal Engine Crash Reporter dialog will appear and allow you to send the crash report to your Backtrace instance.
 
@@ -108,7 +108,7 @@ You can configure the crash reporter to be the default for all packaged builds o
     CrashReportClientVersion=1.0
     DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
     ```
-    Provide the name of your subdomain and submission token for the `DataRouterUrl`.
+    Provide the name of your subdomain and a submission token for the `DataRouterUrl`.
 
 - To configure the crash reporter for a packaged build:
   1. In the root directory for your Unreal Engine project, open the Config folder.
@@ -127,7 +127,7 @@ You can configure the crash reporter to be the default for all packaged builds o
     CrashReportClientVersion=1.0
     DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
     ```
-    Provide the name of your subdomain and submission token for the `DataRouterUrl`.
+    Provide the name of your subdomain and a submission token for the `DataRouterUrl`.
 
 </TabItem>
 <TabItem value="android">
@@ -135,7 +135,7 @@ You can configure the crash reporter to be the default for all packaged builds o
 Integrate the [backtrace-android](https://github.com/backtrace-labs/backtrace-android) error reporting library with your Unreal Engine apps and games written in Java or Kotlin.
 
 1. Download [BacktraceAndroid_UPL.xml](https://support.backtrace.io/hc/article_attachments/360092643371/BacktraceAndroid_UPL.xml).
-1. In the `BacktraceAndroid_UPL.xml` file, configure the name of your subdomain and submission token for `BacktraceCredentials`.
+1. In the `BacktraceAndroid_UPL.xml` file, configure the name of your subdomain and a submission token for `BacktraceCredentials`.
     - Java:
       ```Java
       BacktraceCredentials credentials = new BacktraceCredentials("https://submit.backtrace.io/{subdomain}/{submission-token}/json");  
@@ -220,7 +220,7 @@ Make sure to reflect the path to where you've placed both frameworks within your
   #endif
   }
   ```
-  Provide the name of your subdomain and submission token for the `initWithSubmissionUrl`.
+  Provide the name of your subdomain and a submission token for the `initWithSubmissionUrl`.
 
 For information on how to change the default configuration settings for the Backtrace client, see the [README](https://github.com/backtrace-labs/backtrace-cocoa#readme) for the backtrace-cocoa library.
 

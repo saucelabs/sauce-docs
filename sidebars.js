@@ -379,11 +379,19 @@ module.exports = {
         collapsed: true,
         items: [
             'error-reporting/getting-started',
-            'error-reporting/overview',
-            'error-reporting/releases',
-            'error-reporting/triage',
-            'error-reporting/explore',
-            'error-reporting/debug',
+            {
+                type: 'category',
+                label: 'Web Console',
+                collapsed: true,
+                items: [
+                  'error-reporting/web-console/getting-started',
+                  'error-reporting/web-console/overview',
+                  'error-reporting/web-console/releases',
+                  'error-reporting/web-console/triage',
+                  'error-reporting/web-console/explore',
+                  'error-reporting/web-console/debug',
+                    ],
+                      },
     {
         type: 'category',
         label: 'Platform Integrations',
