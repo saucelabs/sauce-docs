@@ -2,7 +2,7 @@
 id: releases
 title: Releases
 sidebar_label: Releases
-description:
+description: Description here.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
