@@ -33,7 +33,7 @@ After you've [setup](/error-reporting/platform-integrations/unity/setup) the Bac
 
 The configuration settings for the Backtrace client and database are defined by the Backtrace Configuration file in the Assets folder of your Unity project. It's recommended to change the configuration settings for the Backtrace client and database in the Unity Inspector:
 
-  <img src={useBaseUrl('img/error-reporting/unity/unity-backtrace-client-config.png')} alt="Customizing Backtrace client configuration options in the Unity Inspector" />
+<img src={useBaseUrl('img/error-reporting/unity/unity-backtrace-client-config.png')} alt="Customizing Backtrace client configuration options in the Unity Inspector" />
 
 Alternatively, you can also specify the configuration settings in your C# project.
 
