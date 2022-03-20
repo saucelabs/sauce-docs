@@ -463,6 +463,15 @@ module.exports = {
                           'error-reporting/workflow-integrations/alerting-ops/opsgenie',
                         ],
                 },
+                {
+                        type: 'category',
+                        label: 'Monitoring',
+                        collapsed: true,
+                        items: [
+                          'error-reporting/workflow-integrations/monitoring/datadog',
+                          'error-reporting/workflow-integrations/monitoring/circonus',
+                        ],
+                },
               ],
     },
   ],
