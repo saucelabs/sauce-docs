@@ -381,6 +381,33 @@ module.exports = {
             'error-reporting/getting-started',
             {
                 type: 'category',
+                label: 'Platform Integrations',
+                collapsed: true,
+                items: [
+                {
+                        type: 'category',
+                        label: 'Unity',
+                        collapsed: true,
+                        items: [
+                            'error-reporting/platform-integrations/unity/setup',
+                            'error-reporting/platform-integrations/unity/configuration',
+                            'error-reporting/platform-integrations/unity/attributes',
+                        ],
+                },
+                    {
+                        type: 'category',
+                        label: 'Unreal Engine',
+                        collapsed: true,
+                        items: [
+                            'error-reporting/platform-integrations/unreal/setup',
+                            'error-reporting/platform-integrations/unreal/attributes',
+                            'error-reporting/platform-integrations/unreal/troubleshooting',
+                        ],
+                      },
+                      ],
+            },
+            {
+                type: 'category',
                 label: 'Web Console',
                 collapsed: true,
                 items: [
@@ -395,30 +422,32 @@ module.exports = {
                       },
     {
         type: 'category',
-        label: 'Platform Integrations',
+        label: 'Workflow Integrations',
         collapsed: true,
         items: [
         {
                 type: 'category',
-                label: 'Unity',
+                label: 'Alerting and Operations',
                 collapsed: true,
                 items: [
-                    'error-reporting/platform-integrations/unity/setup',
-                    'error-reporting/platform-integrations/unity/configuration',
-                    'error-reporting/platform-integrations/unity/attributes',
                 ],
-            },
+        },
             {
                 type: 'category',
-                label: 'Unreal Engine',
+                label: 'Messaging',
                 collapsed: true,
                 items: [
-                    'error-reporting/platform-integrations/unreal/setup',
-                    'error-reporting/platform-integrations/unreal/attributes',
-                    'error-reporting/platform-integrations/unreal/troubleshooting',
+                    'error-reporting/workflow-integrations/messaging/slack',
+                    'error-reporting/workflow-integrations/messaging/hipchat',
+                    'error-reporting/workflow-integrations/messaging/irc',
+                    'error-reporting/workflow-integrations/messaging/email',
+                    'error-reporting/workflow-integrations/messaging/gitter',
+                    'error-reporting/workflow-integrations/messaging/amazon-sns',
+                    'error-reporting/workflow-integrations/messaging/stride',
+                    'error-reporting/workflow-integrations/messaging/spark',
                 ],
-            },
-        ],
+              },
+              ],
     },
   ],
   },

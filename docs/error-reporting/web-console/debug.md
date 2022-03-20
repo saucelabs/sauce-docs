@@ -14,11 +14,11 @@ The Backtrace Web Debugger allows you to view the error or state of archived dum
 ## Overview
 Below is a screenshot of the type of data you will see in the Debugger tool.  
 
-<img src={useBaseUrl('img/error-reporting/console-views/debug-view.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/console-views/debug-view.png')} alt="Show the Debug view." />
 
 The Debugger contains a few different sections of data to analyze. We outline them below:
 
-<img src={useBaseUrl('img/error-reporting/console-views/debug-view-overview.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/console-views/debug-view-overview.png')} alt="Provides an overview of the available areas to navigate in the Debug view." />
 
 Depending on the type of information in the crash report, the Debugger will show different data. For example, with minidump files, we can list a set of Threads in the crash report, the call stack of the selected thread, attributes, environment information, modules loaded, and missing symbol details.
 
@@ -48,7 +48,6 @@ This pane is present for dump formats such as minidump. It contains the register
 
 ### Thread Section
 This pane contains a list of all threads in the dump. Threads that have crashed have a red icon next to them. Threads that have an arrow symbol next to them can be expanded to more threads with an identical callstack. In other words, threads are grouped into a tree if they have identical callstacks in order to ease navigating lots of threads.
-
 
 ### Variable Context Section
 This pane is present for the Backtrace snapshot format used on UNIX and UNIX-like systems. It contains auxiliary information about a variable including type information, memory allocator state (size of allocation a variable points to, whether it is active or freed and much more).
