@@ -1,22 +1,24 @@
 ---
-id: spark
-title: Spark
-sidebar_label: Spark
-description: Integrate Backtrace with Spark.
+id: asana
+title: Asana
+sidebar_label: Asana
+description: Integrate Backtrace with Asana.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Spark Integration
-This guide will go through the steps necessary to integrate Backtrace with Spark.
+## Asana Integration
+This guide goes through the steps necessary to integrate Backtrace with Asana.
 
 The steps in this process are:
-- Add the bot to the desired rooms
+- Generate a personal access token
 - Set up the integration
 
-## Add the Bot to Desired Rooms
-Add backtrace@sparkbot.io (as a user) to the rooms you want in-room notifications. If you only want direct message notifications, you don't need to do anything here.
+## Generate Personal Access Token
+To set up integration for Asana, you must generate a personal access token. Follow the instructions at the Asana API Page under "Personal Access Tokens"
+
+Once the token is created, you will use it in the next step.
 
 ## Set Up the Integration
 To set up the integration, first go to the Configuration page within the Web Console:
@@ -31,12 +33,8 @@ Then click Integrations in the left-hand menu, then Create a New Integration on 
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/legacy-add-integration.png')} alt="" />
 
-For each integration recipient (room or user), add it by pressing the plus button:
+For Asana, the required settings are the Asana API Endpoint, the Personal Access Token, workspace, and assignee.
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/spark-add-recipients.png')} alt="" />
-
-For Spark, the required settings are:
-- emails of direct message recipients.
-- room ids of rooms the bot has been added to. Getting the ids is the responsibility of the user.
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/asana-settings.png')} alt="" />
 
 Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.
