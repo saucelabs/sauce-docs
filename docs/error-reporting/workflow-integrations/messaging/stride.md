@@ -62,4 +62,4 @@ For Stride, the following settings are required to send the message:
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/stride-settings.png')} alt="" />s
 
-Next: After filling in the integration-specific settings, proceed to [Common Settings](https://support.backtrace.io/hc/en-us/articles/360040516791-Common-Workflow-Integration-Settings) to finish configuring the integration.
+Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.

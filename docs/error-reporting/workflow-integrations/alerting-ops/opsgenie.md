@@ -1,15 +1,22 @@
 ---
-id: irc
-title: IRC
-sidebar_label: IRC
-description: Integrate Backtrace with IRC.
+id: opsgenie
+title: OpsGenie
+sidebar_label: OpsGenie
+description: Integrate Backtrace with OpsGenie.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## IRC Integration
-This guide goes through the steps necessary to integrate Backtrace with IRC. With IRC integration, Backtrace can send an alert message for new crashes or crash groups to a specified channel on an IRC server. This message will contain a URL to view more detailed information about the crash in the Web Console.
+## OpsGenie Integration
+This guide goes through the steps necessary to integrate Backtrace with OpsGenie. Setting up integration with the OpsGenie ticketing system requires a valid OpsGenie REST API URL, as well as a valid username and password.
+
+The steps in this process are:
+- Generate an API key
+- Set up the integration
+
+## Generate an API Key
+In OpsGenie, click Integrations in the left navbar and click "Add" on "API". Note the API Key - you will need this in the next step - then modify the API integration as necessary, and click Save Integration.
 
 ## Set Up the Integration
 To set up the integration, first go to the Configuration page within the Web Console:
@@ -24,8 +31,8 @@ Then click Integrations in the left-hand menu, then Create a New Integration on 
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/legacy-add-integration.png')} alt="" />
 
-These are the settings that you can configure for your IRC integration:
+These are the settings that you can configure for your OpsGenie integration:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/irc-settings.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/opsgenie-settings.png')} alt="" />
 
 Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.

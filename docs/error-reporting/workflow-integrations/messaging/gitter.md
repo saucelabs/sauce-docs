@@ -37,4 +37,4 @@ For Gitter, the required settings are the personal access token and the name of 
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/gitter-settings.png')} alt="" />
 
-Next: After filling in the integration-specific settings, proceed to [Common Settings](https://support.backtrace.io/hc/en-us/articles/360040516791-Common-Workflow-Integration-Settings) to finish configuring the integration.
+Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.

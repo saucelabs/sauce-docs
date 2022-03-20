@@ -425,11 +425,15 @@ module.exports = {
         label: 'Workflow Integrations',
         collapsed: true,
         items: [
+          'error-reporting/workflow-integrations/common-settings',
         {
                 type: 'category',
                 label: 'Alerting and Operations',
                 collapsed: true,
                 items: [
+                  'error-reporting/workflow-integrations/alerting-ops/pagerduty',
+                  'error-reporting/workflow-integrations/alerting-ops/victorops',
+                  'error-reporting/workflow-integrations/alerting-ops/opsgenie',
                 ],
         },
             {

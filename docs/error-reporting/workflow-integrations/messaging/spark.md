@@ -40,4 +40,4 @@ For Spark, the required settings are:
 - emails of direct message recipients.
 - room ids of rooms the bot has been added to. Getting the ids is the responsibility of the user.
 
-Next: After filling in the integration-specific settings, proceed to [Common Settings](https://support.backtrace.io/hc/en-us/articles/360040516791-Common-Workflow-Integration-Settings) to finish configuring the integration.
+Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.

@@ -41,4 +41,4 @@ For HipChat, the required settings are the HipChat API Endpoint, and a list of R
 
 To get your Room API ID, click on Profile in the menu in the upper-right of HipChat, then Rooms in the upper-left, then click the desired Room name. The API ID will be displayed near the bottom of the Room Details list. It should simply be a series of numbers.
 
-Next: After filling in the integration-specific settings, proceed to [Common Settings](https://support.backtrace.io/hc/en-us/articles/360040516791-Common-Workflow-Integration-Settings) to finish configuring the integration.
+Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.

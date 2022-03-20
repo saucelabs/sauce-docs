@@ -28,4 +28,4 @@ The destination e-mail address is the only required setting. You may also specif
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/email-settings.png')} alt="" />
 
-Next: After filling in the integration-specific settings, proceed to [Common Settings](https://support.backtrace.io/hc/en-us/articles/360040516791-Common-Workflow-Integration-Settings) to finish configuring the integration.
+Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.
