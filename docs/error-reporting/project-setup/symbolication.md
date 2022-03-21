@@ -84,7 +84,7 @@ To minimize the amount of symbols that users need to upload, Backtrace is config
 - NVIDIA
 
 ### Additional and/or private symbol servers
-Backtrace can be configured to pull from additional public or private symbol servers. See our documentation on [connecting to symbol servers](https://support.backtrace.io/hc/en-us/articles/360040104652).
+Backtrace can be configured to pull from additional public or private symbol servers. See our documentation on [connecting to symbol servers](/error-reporting/project-setup/symbol-servers/).
 
 ## Symbol Formats and Upload Methods
 Navigate to your project configuration page and click on Symbols to see a record of all things symbol (including upload history, search functionality, symbol access tokens and more). Backtrace recommends uploading archives (a .tar.gz or .zip file containing one or more .sym ,.pdb , ELF  or dSYM files) of symbols for every build you except to see crashes for.  These symbol files can be uploaded manually or hooked up into your build system so they are automatically uploaded.

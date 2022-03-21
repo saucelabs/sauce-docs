@@ -427,9 +427,12 @@ module.exports = {
                   items: [
                     'error-reporting/project-setup/attributes',
                     'error-reporting/project-setup/symbolication',
+                    'error-reporting/project-setup/symbol-servers',
                     'error-reporting/project-setup/deduplication',
-                    'error-reporting/project-setup/alerts',
+                    'error-reporting/project-setup/deduplication-rules',
                     'error-reporting/project-setup/submission-actions',
+                    'error-reporting/project-setup/source-code',
+                    'error-reporting/project-setup/alerts',
                           ],
                         },
     {
