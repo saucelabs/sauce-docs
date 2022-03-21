@@ -95,6 +95,11 @@ const docusaurusConfig = {
           position: 'left',
           to: '/dev/low-code',
         },
+        {
+          label: 'Error Reporting',
+          position: 'left',
+          to: '/error-reporting/getting-started',
+        },
         // {
         //   label: 'Try it Free',
         //   position: 'right',
