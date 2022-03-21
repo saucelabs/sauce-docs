@@ -53,7 +53,7 @@ Capture crash and error reports from your games and mobile apps with Backtrace.
     <li><a href="/error-reporting/web-console/overview/">Project Overview</a></li>
     <li><a href="/error-reporting/web-console/releases/">Releases</a></li>
     <li><a href="/error-reporting/web-console/triage/">Triage</a></li>
-    <li><a href="/web-console/explore/">Explore</a></li>
+    <li><a href="/error-reporting/web-console/explore/">Explore</a></li>
     <li><a href="/error-reporting/web-console/debug/">Debug</a></li>
   </ul>
   </div>
