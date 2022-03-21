@@ -13,7 +13,7 @@ Backtrace automatically groups crashes and errors together according to similari
 
 Depending on your application, crash reports may come in from a few to many thousands a day. Triage and prioritization relies on determining which users are affected by a crash as well as the potential ramifications. Backtrace solves both of these problems through deduplication and classification.
 
-Backtrace automatically groups crashes using a heuristic algorithm (built on a state machine) so that identical crashes are matched together. By default, this grouping allows you to determine the number of impacted hosts or users. With the help of [attributes](error-reporting/project-setup/attributes), it is possible to attach other metadata in order to triage by such things as application load, number of impacted versions and more.
+Backtrace automatically groups crashes using a heuristic algorithm (built on a state machine) so that identical crashes are matched together. By default, this grouping allows you to determine the number of impacted hosts or users. With the help of attributes, it is possible to attach other metadata in order to triage by such things as application load, number of impacted versions and more.
 
 The deduplication mechanism itself greatly reduces the surface area of bugs that engineers have to comb through for purposes of triage. Below are some examples from production workloads ranging from operating system kernels to real-time servers. The crashes column represents the raw number of crashes and the "Deduplicated Crashes" column represents the number of deduplicated crashes with Backtrace.
 
