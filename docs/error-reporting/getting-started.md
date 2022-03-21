@@ -7,7 +7,6 @@ description: Capture crash and error reports from your games and mobile apps wit
 Capture crash and error reports from your games and mobile apps with Backtrace.
 
 ## Set Up Your Project
-
 <div className="box box1 card">
   <div className="container">
   <h2>Platform Integrations</h2>
@@ -40,6 +39,22 @@ Capture crash and error reports from your games and mobile apps with Backtrace.
     <li><a href="/error-reporting/platform-integrations/unreal/setup">Unreal Engine</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040515951-Visual-Studio-Extension-Guide-C-and-Crashpad-">Visual Studio</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040104832-Xbox-Support">Xbox</a></li>
+  </ul>
+  </div>
+</div>
+
+## View and Analyze Crash and Error Data
+<div className="box box1 card">
+  <div className="container">
+  <h2>Web Console Views</h2>
+  <p>View and analyze crash and error data in the web console so you can triage, prioritize, and resolve each error.</p>
+  <ul>
+    <li><a href="/error-reporting/web-console/getting-started/">Getting Started</a></li>
+    <li><a href="/error-reporting/web-console/overview/">Project Overview</a></li>
+    <li><a href="/error-reporting/web-console/releases/">Releases</a></li>
+    <li><a href="/error-reporting/web-console/triage/">Triage</a></li>
+    <li><a href="/web-console/explore/">Explore</a></li>
+    <li><a href="/error-reporting/web-console/debug/">Debug</a></li>
   </ul>
   </div>
 </div>
