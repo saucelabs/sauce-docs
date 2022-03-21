@@ -288,7 +288,7 @@ If you're already using storage, check to make sure that:
 
 **Description**
 
-This timeout is most frequently caused when you include a specific device in your test case. When you mandate a specific device to run the test on and that device isn’t available within 90 seconds, the test case will time out. 
+This timeout occurs most frequently when you include a specific device in your test case and that device isn’t available within 90 seconds.
 
 **Cause(s)**
 
