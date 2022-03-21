@@ -23,18 +23,18 @@ Sauce Labs [_Piestry_](/dev/glossary/#piestry) is our API mocking server tool th
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * An OpenAPI spec file.
 
-## Getting Started
+## Usage
 
-Piestry must be started from a Docker container in your CI/CD pipeline using the Docker image, `quay.io/saucelabs/piestry`.
-
-Use the code snippet below, where `/specs/myspec.yaml` is the URI to your YAML spec file (can be local or remote):
+Piestry must be started from a Docker container in your CI/CD pipeline using the following code snippet:
 ```bash
 docker run -v "$(pwd)/specs:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
 ```
 
-## OpenAPI Spec Files
+`quay.io/saucelabs/piestry` is our Docker image and `/specs/myspec.yaml` needs to be the URI to your YAML spec file (can be local or remote).
 
-If you provide a standard OpenAPI spec file, our system should bind a series of endpoints to simulate whatever is in the spec.
+### OpenAPI Spec Files
+
+If you provide a standard OpenAPI spec file, our system should bind a series of endpoints to simulate what's in the spec:
 * When only a response schema is present, the system will generate random data for each field.
 * When one response example is present, the system will present the example.
 * When multiple response examples are present, the system will present the first example.
