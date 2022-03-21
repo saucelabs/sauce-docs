@@ -51,7 +51,7 @@ Name|Unreal Property|Description|Format|Type|
 ## Add Custom Attributes
 To add custom crash properties to be included in your crash and error reports, you must add them as custom attributes for each individual platform.
 
-Custom attributes are not indexed by default and therefore cannot be used in queries until they've been indexed. For more information about indexing, see [Indexing Attributes](https://support.backtrace.io/hc/en-us/articles/360040517191-Project-Settings-Indexing-Attributes).
+Custom attributes are not indexed by default and therefore cannot be used in queries until they've been indexed. For more information about indexing, see [Indexing Attributes](/error-reporting/project-setup/attributes/).
 
   <Tabs
     groupId="platforms"
@@ -99,7 +99,7 @@ BacktraceIO::FInitializeBacktraceClient(BacktraceAttributes, Attachments);
   BacktraceClient.shared.attributes = @{@"foo": @"bar", @"testing": YES};
   ```
 
-You can also specify unique sets of attributes for a specific report with the `willSend` method of `BacktraceDelegate`. For more information, see [Events Handling](https://github.com/backtrace-labs/backtrace-cocoa#documentation-events-handling). 
+You can also specify unique sets of attributes for a specific report with the `willSend` method of `BacktraceDelegate`. For more information, see [Events Handling](https://github.com/backtrace-labs/backtrace-cocoa#documentation-events-handling).
 
 </TabItem>
 </Tabs>

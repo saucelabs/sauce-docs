@@ -145,7 +145,7 @@ To enable automatic upload of debug symbols, in your Unity project's Android set
 - In the Player Settings, under Configuration (Other Settings), set Scripting Backend to 'IL2CPP'.
 <img src={useBaseUrl('img/error-reporting/unity/unity-android-player-settings-debug-symbols.png')} alt="Player setting required to upload debug symbols to Backtrace for Android builds." />
 
-For more information about debug symbols, see [Symbolication](https://support.backtrace.io/hc/en-us/articles/360040517071-Symbolication-Overview).
+For more information about debug symbols, see [Symbolication](/error-reporting/project-setup/symbolication/).
 
   </TabItem>
   <TabItem value="ios">  
@@ -180,7 +180,7 @@ To generate debug symbols in dSYM format, in the Build Settings for your Xcode p
 
 You can find the dSYM files in the Build folder for your project (`.../Build/Products/<build target folder>`), which you can then compress into a .zip file and upload to Backtrace.
 
-For more information about debug symbols, see [Symbolication](https://support.backtrace.io/hc/en-us/articles/360040517071-Symbolication-Overview).
+For more information about debug symbols, see [Symbolication](/error-reporting/project-setup/symbolication/).
 
   </TabItem>
   <TabItem value="windows">

@@ -72,7 +72,7 @@ You can use combinations of literal strings and attribute values.  For example, 
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-custom-fields.png')} alt="" />
 
-Note: If you refer to an attribute within a custom field with the $attribute  syntax, but are not seeing the attribute populated within the field in Jira, make sure you've added this attribute to your Project Settings configuration under Attributes. See [here](https://support.backtrace.io/hc/en-us/articles/360040517191).
+Note: If you refer to an attribute within a custom field with the $attribute  syntax, but are not seeing the attribute populated within the field in Jira, make sure you've added this attribute to your Project Settings configuration under Attributes. See [here](/error-reporting/project-setup/attributes/).
 
 ## Required Fields
 Backtrace requires the following fields, and automatically populates them based on your settings.  You can override the content of any of these settings by specifying their value in the appropriate Backtrace Jira config setting, or by specifying it as a Custom Field

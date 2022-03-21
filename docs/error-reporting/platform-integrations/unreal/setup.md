@@ -245,7 +245,7 @@ To integrate error reporting in your Unreal Engine apps and games for game conso
 ## Upload Debug Symbols
 You must now ensure your build environment has been configured to generate debug symbols, which can then be uploaded to your Backtrace instance, a connected Symbol Server, an Amazon S3 bucket, or a Google Cloud storage bucket.
 
-For information on how to generate symbols, see [Symbolication](https://support.backtrace.io/hc/en-us/articles/360040517071#Windows).
+For information on how to generate symbols, see [Symbolication](/error-reporting/project-setup/symbolication/).
 
 ## Verify the Setup
 At this point, you've installed and setup the Backtrace client to automatically capture crashes in your Unreal Engine game or app.

@@ -408,7 +408,7 @@ module.exports = {
             },
             {
                 type: 'category',
-                label: 'Web Console',
+                label: 'View and Analyze Error Data',
                 collapsed: true,
                 items: [
                   'error-reporting/web-console/getting-started',
@@ -420,6 +420,15 @@ module.exports = {
                   'error-reporting/web-console/debug',
                     ],
                       },
+              {
+                  type: 'category',
+                  label: 'Project Setup',
+                  collapsed: true,
+                  items: [
+                    'error-reporting/project-setup/attributes',
+                    'error-reporting/project-setup/symbolication',
+                          ],
+                        },
     {
         type: 'category',
         label: 'Workflow Integrations',

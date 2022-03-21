@@ -53,14 +53,14 @@ For example, let's say that for a workflow integration, you only want to be noti
 
 If datacenter equals nyc, then "submit" is the last match, therefore the notification is sent. Otherwise, "filter" takes effect.
 
-Attributes you wish to match against must be defined in the Attributes section of Project Settings. See [Attributes](https://support.backtrace.io/hc/en-us/articles/360040517191-Project-Settings-Indexing-Attributes) for more information.
+Attributes you wish to match against must be defined in the Attributes section of Project Settings. See [Attributes](/error-reporting/project-setup/attributes/) for more information.
 
 ### Event/Frequency/Threshold
 After you click Submit, the UI presents you with the following options:
 - Name: Unique Name for the Integration
 - Event: "Group" to receive events only when a new Group is created. "Trace" to receive events on each error
 - Frequency: This is the minimum amount of time the system will wait before firing the next event.
-- Threshold: An event will be fired when this number of events has aggregated, regardless of frequency. 
+- Threshold: An event will be fired when this number of events has aggregated, regardless of frequency.
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/common-event-freq-thresh.png')} alt="" />
 
