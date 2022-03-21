@@ -889,6 +889,7 @@ module.exports = {
                 },
           'api-testing/project-dashboard',
           'api-testing/mocking',
+          'api-testing/contract-testing',
           'api-testing/logger',
           'api-testing/project-access',
           'api-testing/legacy',
