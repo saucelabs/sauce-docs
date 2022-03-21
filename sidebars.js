@@ -431,8 +431,10 @@ module.exports = {
                     'error-reporting/project-setup/deduplication',
                     'error-reporting/project-setup/deduplication-rules',
                     'error-reporting/project-setup/submission-actions',
+                    'error-reporting/project-setup/object-reprocessing',
                     'error-reporting/project-setup/source-code',
                     'error-reporting/project-setup/alerts',
+                    'error-reporting/project-setup/access-control',
                           ],
                         },
     {
