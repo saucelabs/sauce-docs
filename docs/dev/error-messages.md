@@ -284,7 +284,7 @@ If you're already using storage, check to make sure that:
 * You're starting the `app` capability with `storage:filename`. There shouldn't be a leading `http`.
 * You're using the exact name you provided via the rest API, not the original filename. For example, if you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `storage:filename=new_app_name.apk`.
 
-### “Unable to find device within 900000ms”
+### Unable to Find Device Within 90 Seconds
 
 **Description**
 
