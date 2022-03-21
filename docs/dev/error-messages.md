@@ -297,7 +297,7 @@ Our public device pool is available to all subscribed Sauce users and (as you mi
 **How to Resolve**
 
 To increase test pass rate (and decrease errors and failures), instead of passing a specific `deviceName`, try using the following methods;
-* When selecting devices from the public pool please use the `deviceName` to [select the device dynamically](https://docs.saucelabs.com/mobile-apps/supported-devices/#dynamic-device-allocation). This way you can specify the “type” of device (make, model, OS) instead of a specific device, increasing the likelihood of finding an appropriate available device for your test to execute on
+* When you select a device from the public pool, use `deviceName` to [select the device dynamically](https://docs.saucelabs.com/mobile-apps/supported-devices/#dynamic-device-allocation). This way you can specify the type of device (make, model, OS) instead of a specific device, which increases the likelihood of finding an appropriate device that is available for your test to execute on.
 * Another way (if you are not looking for a specific Make and Model but for a specific OS version) would be to use the `platformVersion` [option in your appium capabilities](https://docs.saucelabs.com/dev/test-configuration-options/#platformversion) which will fetch you a device with this OS regardless of make and model.
 
 
