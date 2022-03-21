@@ -429,6 +429,7 @@ module.exports = {
                     'error-reporting/project-setup/symbolication',
                     'error-reporting/project-setup/deduplication',
                     'error-reporting/project-setup/alerts',
+                    'error-reporting/project-setup/submission-actions',
                           ],
                         },
     {
