@@ -41,7 +41,8 @@ To test the producer (server) side:
 4. Click **Send** to send your request.
 5. Click **Generate Test**.
 
-After you generate your test, you'll be taken to the **Compose** tool. This component (**ASSERT VALID JSON SCHEMA**) is called the contract testing component.<br/><img src={useBaseUrl('img/api-fortress/2022/03/assertJSON.png')} alt="API Conversation and Contract" width="600"/>
+<p>After you generate your test, you'll be taken to the <strong>Compose</strong> tool. This component (<small><strong>ASSERT VALID JSON SCHEMA</strong></small>) is called the contract testing component.</p>
+<img src={useBaseUrl('img/api-fortress/2022/03/assertJSON.png')} alt="API Conversation and Contract" width="600"/>
 
 Double-click on the component to expand and see the contract validation details.<br/><img src={useBaseUrl('img/api-fortress/2022/03/assertJSON_expanded.png')} alt="API Conversation and Contract" width="600"/>
 
