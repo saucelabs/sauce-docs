@@ -50,7 +50,7 @@ Capture crash and error reports from your games and mobile apps with Backtrace.
   <p>View and analyze crash and error data in the web console so you can triage, prioritize, and resolve each error.</p>
   <ul>
     <li><a href="/error-reporting/web-console/getting-started/">Getting Started</a></li>
-    <li><a href="/error-reporting/web-console/overview/">Project Overview</a></li>
+    <li><a href="/error-reporting/web-console/overview/">Overview</a></li>
     <li><a href="/error-reporting/web-console/releases/">Releases</a></li>
     <li><a href="/error-reporting/web-console/triage/">Triage</a></li>
     <li><a href="/error-reporting/web-console/explore/">Explore</a></li>
