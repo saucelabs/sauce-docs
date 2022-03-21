@@ -427,6 +427,8 @@ module.exports = {
                   items: [
                     'error-reporting/project-setup/attributes',
                     'error-reporting/project-setup/symbolication',
+                    'error-reporting/project-setup/deduplication',
+                    'error-reporting/project-setup/alerts',
                           ],
                         },
     {

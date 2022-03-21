@@ -84,4 +84,4 @@ By hovering over a fingerprint's callstack (in the "Description" field) it will 
 
 Note that the callstack shown in the UI on hover and the callstack you copy can be slightly different.  This is because the callstack you are seeing in the UI has been normalized / deduplicated and grouped into a fingerprint by our processes, whereas the copy button grabs the raw callstack data.  While the normalized callstack is great for quickly trying to understand where in your application an error has occurred, copying the callstack will give you more details (including frame + line numbers).
 
-For more context on the deduplication process, see [Deduplication Overview](https://support.backtrace.io/hc/en-us/articles/360040517171-Deduplication-Overview).
+For more context on the deduplication process, see [Deduplication Overview](/error-reporting/project-setup/deduplication/).
