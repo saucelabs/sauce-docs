@@ -284,6 +284,22 @@ If you're already using storage, check to make sure that:
 * You're starting the `app` capability with `storage:filename`. There shouldn't be a leading `http`.
 * You're using the exact name you provided via the rest API, not the original filename. For example, if you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `storage:filename=new_app_name.apk`.
 
+### “Unable to find device within 900000ms”
+
+**Description**
+
+This timeout is most frequently caused when you include a specific device in your test case. When you mandate a specific device to run the test on and that device isn’t available within 90 seconds, the test case will time out. 
+
+**Cause(s)**
+
+Our public device pool is available to all subscribed Sauce users and (as you might imagine), some devices are more popular than others. We have over 280 device configurations and thousands of devices hosted in our data centre but sometimes a test queue will build up on the most popular devices. 
+
+**How to Resolve**
+
+To increase test pass rate (and decrease errors and failures), instead of passing a specific `deviceName`, try using the following methods;
+* When selecting devices from the public pool please use the `deviceName` to [select the device dynamically](https://docs.saucelabs.com/mobile-apps/supported-devices/#dynamic-device-allocation). This way you can specify the “type” of device (make, model, OS) instead of a specific device, increasing the likelihood of finding an appropriate available device for your test to execute on
+* Another way (if you are not looking for a specific Make and Model but for a specific OS version) would be to use the `platformVersion` [option in your appium capabilities](https://docs.saucelabs.com/dev/test-configuration-options/#platformversion) which will fetch you a device with this OS regardless of make and model.
+
 
 ## Web App Testing Only
 
