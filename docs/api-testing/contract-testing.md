@@ -41,7 +41,7 @@ To test the producer (server) side:
 4. Click **Send** to send your request.
 5. Click **Generate Test**.
 
-<p>After you generate your test, you'll be taken to the <strong>Compose</strong> tool. This component (<small><strong>ASSERT VALID JSON SCHEMA</strong></small>) is called the contract testing component.</p>
+<p>After you generate your test, you'll be taken to the <strong>Compose</strong> tool. This component, <small><strong>ASSERT VALID JSON SCHEMA</strong></small>, is what we use to store the contract test.</p>
 <img src={useBaseUrl('img/api-fortress/2022/03/assertJSON.png')} alt="API Conversation and Contract" width="600"/>
 
 Double-click on the component to expand and see the contract validation details.<br/><img src={useBaseUrl('img/api-fortress/2022/03/assertJSON_expanded.png')} alt="API Conversation and Contract" width="600"/>
@@ -57,13 +57,17 @@ After you've run your tests as part of a build (i.e., as part of your CI pipelin
 
 ## Testing the API Consumer Side
 To test the API consumer (client) side:
-1. From a command-line terminal, start [Piestry](/api-testing/mocking/), our API mocking server, by issuing the launch command:
+1. You'll first need to generate a webhook URL for your Project, if you don't have one already. See [Incoming Webhooks](/api-testing/integrations/pagerduty-webhooks/#incoming-webhooks). This URL includes the `{hookId}` variable referenced in the next step's code snippet.
+
+2. From a command-line terminal, start [Piestry](/api-testing/mocking/), our API mocking server, by issuing the launch command:
   ```bash
   docker run -v "$(pwd)/myspec:/specs" \
   -p 5000:5000 quay.io/saucelabs/piestry \
   -u /specs/myspec.yaml \
   --logger https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/insights/events/_contract
   ```
+
+  To learn how to generate a hook_id, which is part of the webhook URL
 
   <details><summary>Want to run Piestry as part of a build?</summary>
 
@@ -80,15 +84,13 @@ To test the API consumer (client) side:
 
   Be sure to use the same OpenAPI spec used to test the API producer side. This will activate the contract testing functionality and bind a series of endpoints with a Sauce Labs API Testing project.
 
-  The execution will create a [log](/api-testing/project-dashboard/#test-logs) in your Project's [**Dashboard**](/api-testing/project-dashboard/), specific to contract testing. Here, you'll be able to see the results of both the API Producer and API Consumer tests. The report document for the contract test will detail how the request and response appear during the transaction and the nature of any test failures, if applicable.
-
   :::tip
   Use the [`--validate-request`](/api-testing/mocking/#validate-request) switch to ensure your requests are compliant with the schema.
   :::
 
-2. Next, make an API call to one of the endpoints in your spec file that Piestry has generated a mock for. To do so, you can use any HTTP Client &#8212; or &#8212; execute the same endpoint you used to test the API Producer. This will validate both sides of the contract. Once executed, you'll see the mock response if it matches the response contract. At this point, you also generated a log that is recorded in the dashboard.
+3. Next, make an API call to one of the endpoints in your spec file that Piestry has generated a mock for. To do so, you can use any HTTP Client &#8212; or &#8212; execute the same endpoint (snapshots) you used to test the API Producer step above. This will validate both sides of the contract. Once executed, you'll see the mock response if it matches the response contract. At this point, you also generated a log that is recorded in the dashboard.
 
-3. Run your unit tests against your client software, making sure the API URLs are pointing to the mocks provided by [Piestry](/api-testing/mocking/).
+4. View the results for both the API Producer and API Consumer tests by checking your Project's [**Dashboard**](/api-testing/project-dashboard/), where you'll see a [log](/api-testing/project-dashboard/#test-logs) specific to contract testing. The report document for the contract test will detail how the request and response appear during the transaction and the nature of any test failures, if applicable.
 
 Sauce Labs API Testing will validate that the API consumer side has complied with the contract specifications.
 
