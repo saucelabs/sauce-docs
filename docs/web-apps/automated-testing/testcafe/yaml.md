@@ -603,8 +603,10 @@ Specifies whether the individual suite will run on `docker` or `sauce`, potentia
 ### `shard`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-When sharding is configured, saucectl automatically splits the tests (e.g., by spec) so that they can easily run in parallel.
-Selectable values: `spec` to shard by spec file. Remove this field or leave it empty `""` for no sharding.
+When sharding is configured, saucectl automatically splits the tests (e.g., by spec or concurrency) so that they can easily run in parallel.
+For sharding by concurrency, saucectl splits test files into several groups (the number of groups is determined by the concurrency setting). Each group will then run as an individual job.
+
+Selectable values: `spec` to shard by spec file, `concurrency` to shard by concurrency. Remove this field or leave it empty `""` for no sharding.
 
 ```yaml
     shard: spec

@@ -372,6 +372,133 @@ module.exports = {
         ],
      },
  ],
+ backtrace: [
+    {
+        type: 'category',
+        label: 'Error Reporting',
+        collapsed: true,
+        items: [
+            'error-reporting/getting-started',
+            {
+                type: 'category',
+                label: 'Platform Integrations',
+                collapsed: true,
+                items: [
+                {
+                        type: 'category',
+                        label: 'Unity',
+                        collapsed: true,
+                        items: [
+                            'error-reporting/platform-integrations/unity/setup',
+                            'error-reporting/platform-integrations/unity/configuration',
+                            'error-reporting/platform-integrations/unity/attributes',
+                        ],
+                },
+                    {
+                        type: 'category',
+                        label: 'Unreal Engine',
+                        collapsed: true,
+                        items: [
+                            'error-reporting/platform-integrations/unreal/setup',
+                            'error-reporting/platform-integrations/unreal/attributes',
+                            'error-reporting/platform-integrations/unreal/troubleshooting',
+                        ],
+                      },
+                      ],
+            },
+            {
+                type: 'category',
+                label: 'View and Analyze Error Data',
+                collapsed: true,
+                items: [
+                  'error-reporting/web-console/getting-started',
+                  'error-reporting/web-console/overview',
+                  'error-reporting/web-console/releases',
+                  'error-reporting/web-console/triage',
+                  'error-reporting/web-console/explore',
+                  'error-reporting/web-console/flame-graphs',
+                  'error-reporting/web-console/debug',
+                    ],
+                      },
+              {
+                  type: 'category',
+                  label: 'Project Setup',
+                  collapsed: true,
+                  items: [
+                    'error-reporting/project-setup/attributes',
+                    'error-reporting/project-setup/symbolication',
+                    'error-reporting/project-setup/symbol-servers',
+                    'error-reporting/project-setup/deduplication',
+                    'error-reporting/project-setup/deduplication-rules',
+                    'error-reporting/project-setup/submission-actions',
+                    'error-reporting/project-setup/object-reprocessing',
+                    'error-reporting/project-setup/metrics-stability-scores',
+                    'error-reporting/project-setup/metric-export',
+                    'error-reporting/project-setup/source-code',
+                    'error-reporting/project-setup/alerts',
+                    'error-reporting/project-setup/scheduled-reports',
+                    'error-reporting/project-setup/access-control',
+                    'error-reporting/project-setup/user-mgmnt',
+                    'error-reporting/project-setup/team-mgmnt',
+                          ],
+                        },
+    {
+        type: 'category',
+        label: 'Workflow Integrations',
+        collapsed: true,
+        items: [
+          'error-reporting/workflow-integrations/common-settings',
+          {
+              type: 'category',
+              label: 'Messaging',
+              collapsed: true,
+              items: [
+                  'error-reporting/workflow-integrations/messaging/slack',
+                  'error-reporting/workflow-integrations/messaging/hipchat',
+                  'error-reporting/workflow-integrations/messaging/irc',
+                  'error-reporting/workflow-integrations/messaging/email',
+                  'error-reporting/workflow-integrations/messaging/gitter',
+                  'error-reporting/workflow-integrations/messaging/amazon-sns',
+                  'error-reporting/workflow-integrations/messaging/stride',
+                  'error-reporting/workflow-integrations/messaging/spark',
+              ],
+            },
+              {
+                  type: 'category',
+                  label: 'Issue Tracking',
+                  collapsed: true,
+                  items: [
+                      'error-reporting/workflow-integrations/issue-tracking/github',
+                      'error-reporting/workflow-integrations/issue-tracking/jira',
+                      'error-reporting/workflow-integrations/issue-tracking/phabricator',
+                      'error-reporting/workflow-integrations/issue-tracking/asana',
+                      'error-reporting/workflow-integrations/issue-tracking/fogbugz',
+                  ],
+                },
+                {
+                        type: 'category',
+                        label: 'Alerting and Operations',
+                        collapsed: true,
+                        items: [
+                          'error-reporting/workflow-integrations/alerting-ops/pagerduty',
+                          'error-reporting/workflow-integrations/alerting-ops/victorops',
+                          'error-reporting/workflow-integrations/alerting-ops/opsgenie',
+                        ],
+                },
+                {
+                        type: 'category',
+                        label: 'Monitoring',
+                        collapsed: true,
+                        items: [
+                          'error-reporting/workflow-integrations/monitoring/datadog',
+                          'error-reporting/workflow-integrations/monitoring/circonus',
+                        ],
+                },
+              ],
+    },
+  ],
+  },
+],
  dev: [
      'dev',
      {

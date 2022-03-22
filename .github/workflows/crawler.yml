@@ -3,6 +3,11 @@ name: Update Search Index
 on:
   schedule:
     - cron: '0 0 * * *'
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'docs/**'
   workflow_dispatch:
 
 jobs:
