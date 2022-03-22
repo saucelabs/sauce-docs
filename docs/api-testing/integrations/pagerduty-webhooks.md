@@ -65,16 +65,16 @@ To generate a webhook URL:
 1. Log in to Sauce Labs, then click **API Testing**.
 1. Navigate to your Project and select the **WebHooks** tab.<br/><img src={useBaseUrl('img/api-fortress/2021/04/webHooksSection.png')} alt="webhook screenshot"/>
 1. Select **Create Hook**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/createHook.png')} alt="Create New WebHook" width="300"/>
-1. Enter a **Hook Name** for your webhook (**Description** is optional), then click **Save**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/sampleHook.png')} alt="sample webhook details" width="300" />
-1. The generated **Hook URL** will then appear. Your Sauce Labs username, Sauce API Testing endpoint, and `{hook_id}` will populate automatically. For security reasons, you'll need to add your own access key.
+1. Enter a **Hook Name** for your webhook (**Hook Description** is optional), then click **Save**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/sampleHook.png')} alt="sample webhook details" width="300" />
+1. After clicking **Save**, your generated **Hook URL** will appear.
   ```bash
   https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}
   ```
-1. Copy the URL to your clipboard and then you can use it either locally or as part of CI build.<br/>
-   <img src={useBaseUrl('img/api-fortress/2021/04/hookURL.png')} alt="sample Hook URL"/>
+  Your Sauce Labs username, Sauce Labs API Testing endpoint, and `{hook_id}` will populate automatically. For security reasons, you'll need to input the Sauce Labs access key portion of the URL.
+1. Copy the URL to your clipboard, paste it somewhere secure, and input your Sauce Labs access key where noted in the URL.<br/><img src={useBaseUrl('img/api-fortress/2021/04/hookURL.png')} alt="sample Hook URL"/>
+1. Copy and paste your webhook where you need, either locally or as part of a [CI build](/api-testing/integrations/apifctl-cicd-integration). 
 
-You can then reuse this Webhook for future tests within that Project by returning to the **WebHooks** tab and copying it there. Webhooks are Project-specific.
-
+You can reuse this webhook for future tests within that Project by returning to the **WebHooks** tab and copying it there. Webhooks are Project-specific.
 
 ## More Information
 * [CI/CD Platform Integration with apifctl](/api-testing/integrations/apifctl-cicd-integration)

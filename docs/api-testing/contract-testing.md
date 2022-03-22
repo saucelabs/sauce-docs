@@ -41,10 +41,12 @@ To test the producer (server) side:
 4. Click **Send** to send your request.
 5. Click **Generate Test**.
 
-<p>After you generate your test, you'll be taken to the <strong>Compose</strong> tool. This component, <small><strong>ASSERT VALID JSON SCHEMA</strong></small>, is what we use to store the contract test.</p>
-<img src={useBaseUrl('img/api-fortress/2022/03/assertJSON.png')} alt="API Conversation and Contract" width="600"/>
+  <p>After you generate your test, you'll be taken to the <strong>Compose</strong> tool. This component, <small><strong>ASSERT VALID JSON SCHEMA</strong></small>, is what we use to store the contract test.</p>
+  <img src={useBaseUrl('img/api-fortress/2022/03/assertJSON.png')} alt="API Conversation and Contract" width="600"/>
 
-Double-click on the component to expand and see the contract validation details.<br/><img src={useBaseUrl('img/api-fortress/2022/03/assertJSON_expanded.png')} alt="API Conversation and Contract" width="600"/>
+6. <p>Double-click on the <small><strong>ASSERT VALID JSON SCHEMA</strong></small> component to expand and see the contract validation details.</p>
+
+  <img src={useBaseUrl('img/api-fortress/2022/03/assertJSON_expanded.png')} alt="API Conversation and Contract" width="600"/>
 
 Optionally, you can add further [assertions](/api-testing/composer/) here to your test, which will perform functional testing on top of your contract tests and fully validate the APIs are working as intended.
 
@@ -57,17 +59,15 @@ After you've run your tests as part of a build (i.e., as part of your CI pipelin
 
 ## Testing the API Consumer Side
 To test the API consumer (client) side:
-1. You'll first need to generate a webhook URL for your Project, if you don't have one already. See [Incoming Webhooks](/api-testing/integrations/pagerduty-webhooks/#incoming-webhooks). This URL includes the `{hookId}` variable referenced in the next step's code snippet.
+1. You'll first need to generate a webhook URL for your API Testing Project, if you don't have one already. See [Incoming Webhooks](/api-testing/integrations/pagerduty-webhooks/#incoming-webhooks) for instructions. 
 
-2. From a command-line terminal, start [Piestry](/api-testing/mocking/), our API mocking server, by issuing the launch command:
+2. From a command-line terminal, start [Piestry](/api-testing/mocking/), our API mocking server, by issuing the launch command below. The `--logger` value will be the webhook URL you generated in the previous step, appended with `/insights/events/_contract`.  
   ```bash
   docker run -v "$(pwd)/myspec:/specs" \
   -p 5000:5000 quay.io/saucelabs/piestry \
   -u /specs/myspec.yaml \
   --logger https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/insights/events/_contract
   ```
-
-  To learn how to generate a hook_id, which is part of the webhook URL
 
   <details><summary>Want to run Piestry as part of a build?</summary>
 
@@ -88,7 +88,7 @@ To test the API consumer (client) side:
   Use the [`--validate-request`](/api-testing/mocking/#validate-request) switch to ensure your requests are compliant with the schema.
   :::
 
-3. Next, make an API call to one of the endpoints in your spec file that Piestry has generated a mock for. To do so, you can use any HTTP Client &#8212; or &#8212; execute the same endpoint (snapshots) you used to test the API Producer step above. This will validate both sides of the contract. Once executed, you'll see the mock response if it matches the response contract. At this point, you also generated a log that is recorded in the dashboard.
+3. Next, make an API call to one of the endpoints in your spec file that Piestry has generated a mock for. To do so, you can use any HTTP Client &#8212; or &#8212; execute the same endpoint (from your **Snapshots**) you used to [test the API Producer side](#testing-the-api-producer-side). This will validate both sides of the contract. Once executed, you'll see the mock response if it matches the response contract. At this point, you also generated a log that is recorded in the dashboard.
 
 4. View the results for both the API Producer and API Consumer tests by checking your Project's [**Dashboard**](/api-testing/project-dashboard/), where you'll see a [log](/api-testing/project-dashboard/#test-logs) specific to contract testing. The report document for the contract test will detail how the request and response appear during the transaction and the nature of any test failures, if applicable.
 
