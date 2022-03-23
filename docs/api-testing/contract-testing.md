@@ -1,7 +1,7 @@
 ---
 id: contract-testing
 title: API Contract Testing
-sidebar_label: Contract Testing
+sidebar_label: API Contract Testing
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -57,7 +57,7 @@ After you've run your tests as part of a build (i.e., as part of your CI pipelin
 
 ## Testing the API Consumer Side
 
-Testing the API consumer (client) side is typically done in a protected, static environment, where tests are run against mocked (not live) APIs. This allows contract tests to compare isolated API responses to the contract for immediate attention if something is wrong. 
+With Sauce Labs API Testing, you'll test the API consumer (client) side in a protected, static environment, where tests are run against mocked (not live) APIs. This allows contract tests to compare isolated API responses to the contract for immediate attention if something is wrong.
 
 1. You'll first need to [generate a webhook URL](/api-testing/integrations/apifctl-cicd-integration/#creating-webhooks) for your API Testing Project, if you don't have one already.
 
