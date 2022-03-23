@@ -2137,7 +2137,7 @@
     text-align:left;
     margin-top:1rem;
     color: var(--ds-gray-400);
-    font-size:11px;
+    font-size:9px;
 }
 @media print,screen and (min-width:768px){
     .footer .copyright{
