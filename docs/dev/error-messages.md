@@ -42,7 +42,7 @@ The expected rate of occurrence for this error is very low over a sustained peri
 
 **Cause(s)**
 
-The first explanation is that the VM crashed. When that happens, the VM stops communicating with our OnDemand services and the VM is effectively "lost". This can happen when:
+The first explanation is that the VM crashed. When that happens, the VM stops communicating with our OnDemand services and the VM is effectively "lost." This can happen when:
 
 * The VM runs out of disk space or RAM.
 * There is a bug in the browser, OS, virtualization software, or combination of all three, which then causes the VM to crash.
