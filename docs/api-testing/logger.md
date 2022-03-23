@@ -21,27 +21,26 @@ The Logger tool helps with API call recording by facilitating complete captures 
 ### Create Webhook
 3. Create a webhook for your Project by clicking the **WebHooks** tab > **Create Hook**.
 4. Enter a **Hook Name** (**Hook Description** is optional), then click **Save**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/sampleHook.png')} alt="sample webhook details" width="450" />
-5. Copy the **Hook URL**. Your Sauce Labs username, Sauce API Testing endpoint, and `{hook_id}` will populate automatically. For security reasons, you'll need to input your own Sauce Labs access key.
-6. Add `/logger` to the end of the URL, so that it looks like this:
+5. Copy the **Hook URL**. Your Sauce Labs username, Sauce API Testing endpoint, and `{hook_id}` will populate automatically. For security reasons, you'll need to input your own Sauce Labs access key. Then, add `/logger` to the end of the URL, so that it looks like this:
    ```bash
    https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/logger
    ```
 
 ### Launch Piestry via CLI
-7. From your CLI, launch [Piestry, our API Mocking server tool](/api-testing/mocking), by running the following code. The last line will be the `--logger` switch, followed by the URL from the previous step:
+6. From your CLI, launch [Piestry, our API Mocking server tool](/api-testing/mocking), by running the following code. The last line will be the `--logger` switch, followed by the URL from the previous step:
    ```bash
   docker run -v "$(pwd)/myspec:/specs" \
   -p 5000:5000 quay.io/saucelabs/piestry \
   -u /specs/myspec.yaml \
   --logger https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/logger
   ```
-8. In your CLI, make a call to any mocking endpoint (i.e., `curl localhost:5000/api/v1/release-notes`).
+7. In your CLI, make a call to any mocking endpoint (i.e., `curl localhost:5000/api/v1/release-notes`).
 
 ### Review Results
-9. From Sauce Labs API Testing, open the **Logger** section.
+8. From Sauce Labs API Testing, open the **Logger** section.
   <img src={useBaseUrl('img/api-fortress/2021/09/logger.png')} alt="Logger UI"/>
-10. Inspect the data related to the captured request (e.g., Request and Response).
-11. From here, you can see the call in the HTTP Client by clicking the **Open** button. Optionally, you can generate a test here by clicking the **Generate Test** button.
+9. Inspect the data related to the captured request (e.g., Request and Response).
+10. From here, you can see the call in the HTTP Client by clicking the **Open** button. Optionally, you can generate a test here by clicking the **Generate Test** button.
 
 <img src={useBaseUrl('img/api-fortress/2021/09/logger1.png')} alt="Logger UI"/>
 
