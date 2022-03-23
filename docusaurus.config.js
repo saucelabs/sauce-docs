@@ -102,7 +102,7 @@ const docusaurusConfig = {
       },
       style: 'light',
       links: [],
-      copyright: `Copyright © ${new Date().getFullYear()} Sauce Labs, Inc. Built with Docusaurus.`,
+      copyright: `© ${new Date().getFullYear()} Sauce Labs, Inc. SAUCE and SAUCE LABS are registered trademarks owned by Sauce Labs Inc. in the United States, EU, and may be registered in other jurisdictions.`,
     },
   },
   presets: [
