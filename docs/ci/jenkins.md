@@ -187,7 +187,7 @@ When options can be set at both levels, project settings override global setting
       </tr>
     </table>
   </li>
-  <li> Scroll to the <b>Sauce Connect Advanced Options</b> section and click <b>Advanced</b>to display additional options described in the following table as needed.
+  <li> Scroll to the <b>Sauce Connect Advanced Options</b> section and click <b>Advanced</b> to display additional options described in the following table as needed.
     <table>
       <tr>
         <th>Setting</th>
