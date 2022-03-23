@@ -1,7 +1,7 @@
 ---
 id: contract-testing
 title: API Contract Testing
-sidebar_label: API Contract Testing
+sidebar_label: Contract Testing
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -59,7 +59,7 @@ After you've run your tests as part of a build (i.e., as part of your CI pipelin
 
 ## Testing the API Consumer Side
 To test the API consumer (client) side:
-1. You'll first need to generate a webhook URL for your API Testing Project, if you don't have one already. See [Incoming Webhooks](/api-testing/integrations/pagerduty-webhooks/#incoming-webhooks) for instructions. 
+1. You'll first need to [generate a webhook URL](/api-testing/integrations/apifctl-cicd-integration/#creating-webhooks) for your API Testing Project, if you don't have one already.
 
 2. From a command-line terminal, start [Piestry](/api-testing/mocking/), our API mocking server, by issuing the launch command below. The `--logger` value will be the webhook URL you generated in the previous step, appended with `/insights/events/_contract`.  
   ```bash

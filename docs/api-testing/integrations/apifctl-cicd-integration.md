@@ -21,8 +21,27 @@ You'll need to run our Docker image as a container:<br/>`$ docker run quay.io/sa
 * An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
 
-## Adding Incoming Webhooks
-To utilize most of the `apifctl` CI/CD integration functionalities below, you'll need to generate a [webhook URL](#-h-webhook) for your API Testing Project. To learn how, see our [Webhook Connector Setup](/api-testing/integrations/pagerduty-webhooks/) documentation. Once generated, you'll need to add this webhook URL to your `apifctl` code to allow your third-party CI/CD app(s) to send data to Sauce Labs API Testing. 
+## Creating Webhooks
+To utilize most `apifctl` CI/CD integration functionalities, you'll need to generate a webhook for your API Testing Project. Once generated, you add this webhook URL to your `apifctl` code to allow your third-party CI/CD app(s) to send data to Sauce Labs API Testing.
+
+To generate a webhook:
+
+1. Log in to Sauce Labs, then click **API Testing**.
+1. Navigate to your Project and select the **WebHooks** tab.<br/><img src={useBaseUrl('img/api-fortress/2021/04/webHooksSection.png')} alt="webhook screenshot"/>
+1. Select **Create Hook**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/createHook.png')} alt="Create New WebHook" width="300"/>
+1. Enter a **Hook Name** for your webhook (**Description** is optional), then click **Save**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/sampleHook.png')} alt="sample webhook details" width="300" />
+1. The generated **Hook URL** will then appear. Your Sauce Labs username, Sauce API Testing endpoint, and `{hook_id}` will populate automatically. For security reasons, you'll need to add your own access key.
+  ```bash
+  https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}
+  ```
+1. Copy the URL to your clipboard and then you can use it either locally or as part of CI build.<br/>
+   <img src={useBaseUrl('img/api-fortress/2021/04/hookURL.png')} alt="sample Hook URL"/>
+
+You can then reuse this Webhook for future tests within that Project by returning to the **Webhooks** tab and copying it there. Webhooks are Project-specific.
+
+:::info
+Looking for information on _outgoing webhooks_? See [] for instructions on how to sending your API Testing data and results to third-party apps, allowing you to monitor your tests from external sources.
+:::
 
 ## `apifctl` Commands
 
