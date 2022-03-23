@@ -42,7 +42,7 @@ The expected rate of occurrence for this error is very low over a sustained peri
 
 **Cause(s)**
 
-The first explanation is that the VM crashed. When that happens, the VM stops communicating with our OnDemand services and the VM is effectively "lost." This can happen when:
+The first explanation is that the VM crashed. When that happens, the VM stops communicating with our OnDemand services and the VM is effectively "lost". This can happen when:
 
 * The VM runs out of disk space or RAM.
 * There is a bug in the browser, OS, virtualization software, or combination of all three, which then causes the VM to crash.
@@ -293,7 +293,7 @@ This timeout occurs most frequently when you include a specific device in your t
 
 **Cause(s)**
 
-Our public device pool is available to all subscribed Sauce users and (as you might imagine), some devices are more popular than others. We have over 280 device configurations and thousands of devices hosted in our data center, but sometimes a test queue will build up on the most popular devices.
+Our public device pool is available to all subscribed Sauce users and (as you might imagine), some devices are more popular than others. We have over 280 device configurations and thousands of devices hosted in our data center, but sometimes a test queue will build up for the most popular devices.
 
 **How to Resolve**
 
