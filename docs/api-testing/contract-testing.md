@@ -6,35 +6,33 @@ sidebar_label: Contract Testing
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Contract testing is a fast, lightweight form of API testing that strictly checks the content and format of requests and responses. This method is ideal for:
-* Testing APIs during the early stages of design and development
-* Organizations creating APIs that are internal and/or have limited number of consumers
-
-This is typically done in a protected, static environment, where tests are run against mocked (not live) APIs, allowing contract tests to compare isolated API responses to the contract for immediate attention if something is wrong.
-
-<img src={useBaseUrl('img/api-fortress/2022/03/api-consumer-contract.png')} alt="API Conversation and Contract" width="600"/>
-
-<!-- An API conversation consists of:
+An API conversation consists of:
 * API consumer (client side) performing a request
-* API producer (server side) responding to that request<br/><img src={useBaseUrl('img/api-fortress/2022/03/api-conversation.png')} alt="API Conversation and Contract" width="300"/>
+* API producer (server side) responding to that request
 
 The conversation needs to follow specific rules that the API producer and API consumer must agree upon. The formal description of these rules is the contract, which is generally presented as a specification file such as [OpenAPI](https://swagger.io/docs/specification/about/).
 
+<img src={useBaseUrl('img/api-fortress/2022/03/api-conversation.png')} alt="API Conversation and Contract" width="300"/>
 
 If this contract is broken by either party, it can lead to bugs and malfunctions. _API Contract Testing_ is the act of validating that the API producer and the API consumer are respecting the contract.
--->
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
+## Use Cases
+
+Contract testing is a fast, lightweight form of API testing that strictly checks the content and format of requests and responses. This method is ideal for organizations that are:
+* Testing APIs during the early stages of design and development
+* Creating APIs that are internal and/or have limited number of consumers
+
+<img src={useBaseUrl('img/api-fortress/2022/03/api-consumer-contract.png')} alt="API Conversation and Contract" width="600"/>
 
 ## Testing the API Producer Side
 
-Sauce Labs API Testing will validate the API producer side by creating a contract tests from your OpenAPI spec file.
+Sauce Labs API Testing will validate the API producer (server) side by creating a contract test from your OpenAPI spec file.
 <img src={useBaseUrl('img/api-fortress/2022/03/api-producer-contract.png')} alt="API Conversation and Contract" width="500"/>
 
-To test the producer (server) side:
 1. From an API Testing Project, go to the HTTP Client.
 2. Import an OpenAPI specification file (v3.0 or higher).
 3. From your list of **Snapshots**, choose the API call you'd like to test by clicking on it. The HTTP method, request URL, and anything else specified in the spec file will populate in the HTTP Client fields.
@@ -58,7 +56,9 @@ After you've run your tests as part of a build (i.e., as part of your CI pipelin
 
 
 ## Testing the API Consumer Side
-To test the API consumer (client) side:
+
+Testing the API consumer (client) side is typically done in a protected, static environment, where tests are run against mocked (not live) APIs. This allows contract tests to compare isolated API responses to the contract for immediate attention if something is wrong. 
+
 1. You'll first need to [generate a webhook URL](/api-testing/integrations/apifctl-cicd-integration/#creating-webhooks) for your API Testing Project, if you don't have one already.
 
 2. From a command-line terminal, start [Piestry](/api-testing/mocking/), our API mocking server, by issuing the launch command below. The `--logger` value will be the webhook URL you generated in the previous step, appended with `/insights/events/_contract`.  
@@ -88,7 +88,7 @@ To test the API consumer (client) side:
   Use the [`--validate-request`](/api-testing/mocking/#validate-request) switch to ensure your requests are compliant with the schema.
   :::
 
-3. Next, make an API call to one of the endpoints in your spec file that Piestry has generated a mock for. To do so, you can use any HTTP Client &#8212; or &#8212; execute the same endpoint (from your **Snapshots**) you used to [test the API Producer side](#testing-the-api-producer-side). This will validate both sides of the contract. Once executed, you'll see the mock response if it matches the response contract. At this point, you also generated a log that is recorded in the dashboard.
+3. At this point, Piestry will have mocked all of the APIs described in the contract. You can now perform API calls to this mock server instead of the actual service. In a production scenario, you would likely run unit tests in your code that will trigger API calls, making sure that instead of the actual service, the mock is being used. As you do that, Piestry will validate the contract for the inbound API calls. Every validated call will produce an entry in the dashboard so you can review the outcome of the test.
 
 4. View the results for both the API Producer and API Consumer tests by checking your Project's [**Dashboard**](/api-testing/project-dashboard/), where you'll see a [log](/api-testing/project-dashboard/#test-logs) specific to contract testing. The report document for the contract test will detail how the request and response appear during the transaction and the nature of any test failures, if applicable.
 
