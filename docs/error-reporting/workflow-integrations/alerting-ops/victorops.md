@@ -1,0 +1,44 @@
+---
+id: victorops
+title: VictorOps
+sidebar_label: VictorOps
+description: Integrate Backtrace with VictorOps.
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+## VictorOps Integration
+This guide goes through the steps necessary to integrate Backtrace with VictorOps. Setting up integration with the VictorOps incident management system requires a valid VictorOps REST Endpoint for sending alerts.
+
+These are the main steps for setting up VictorOps:
+- Generate a REST endpoint
+- Set up the integration
+
+## Generate a REST Endpoint
+Within VictorOps, click settings on the upper-left, then Integrations on the navbar at the top. In the incoming alerts section on the right, click on REST Endpoint, then on the green "Enable Integration" button.
+
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/victorops-add-endpoint.png')} alt="" />
+
+Once this is done, you'll use the Post URL that appears as the url in the Coronerd Configuration below.
+
+## Set Up the Integration
+To set up the integration, first go to the Configuration page within the Web Console:
+
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/configure-org.png')} alt="" />
+
+Next, select the project you want to add a integration for:
+
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/projects.png')} alt="" />
+
+Then click Integrations in the left-hand menu, then Create a New Integration on the right, and pick the integration:
+
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/legacy-add-integration.png')} alt="" />
+
+These are the settings that you can configure for your VictorOps integration:
+
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/victorops-settings.png')} alt="" />
+
+For more details, see the [VictorOps Alert API Documentation](https://victorops.secure.force.com/knowledgebase/articles/Integration/Alert-Ingestion-API-Documentation/).
+
+Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.
