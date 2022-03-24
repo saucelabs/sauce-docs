@@ -293,7 +293,7 @@ This timeout occurs most frequently when you include a specific device in your t
 
 **Cause(s)**
 
-Our public device pool is available to all subscribed Sauce users and (as you might imagine), some devices are more popular than others. We have over 280 device configurations and thousands of devices hosted in our data center, but sometimes a test queue will build up on the most popular devices.
+Our public device pool is available to all subscribed Sauce users and (as you might imagine), some devices are more popular than others. We have over 280 device configurations and thousands of devices hosted in our data center, but sometimes a test queue will build up for the most popular devices.
 
 **How to Resolve**
 
