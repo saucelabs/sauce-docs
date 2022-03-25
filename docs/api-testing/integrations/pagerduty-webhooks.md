@@ -67,6 +67,25 @@ Like the PagerDuty Connector, setting up an outgoing webbook connector allows Sa
 ### Incoming Webhooks
 See [Adding Incoming Webhooks](/api-testing/integrations/apifctl-cicd-integration/#adding-incoming-webhooks).
 
+## Testing Connectors
+The Test Connectors feature tests the functionality of each connector as defined in its settings, but will not display any notifications on the dashboard. Testing a connector before executing it can minimize the time you spend creating connectors.
+
+To test a connector:
+1. Log in to Sauce Labs > click **API Testing**.
+2. Click on any project.
+3. Within that project, click **Settings** and then click **Connector**.
+4. On the **Connectors** page, click **Test Connectors**.
+<img src={useBaseUrl('img/api-testing/test-connectors-nav.png')} alt="Test Connectors button"/>
+5. In the **Connectors Test Drive** window, select either the **Failure** or **Success** radio button, and then click **Trigger**.
+  * Failure - You will receive a notification in all connector platforms in your list
+  * Success - If the **On_success** toggle is set to **Ture**, you will receive a notification for the connector
+<img src={useBaseUrl('img/api-testing/trigger-confirmation.png')} alt="Test Connectors dialog box"/>
+
+:::note
+To check the functionality of connectors like PagerDuty that trigger an incident upon failure, and then resolve that incident, you need to first test for **Failure** and then for **Success**.
+:::
+
+
 
 ## More Information
 * [PagerDuty / API Testing Integration](https://www.pagerduty.com/integrations/api-fortress/)
