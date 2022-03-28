@@ -19,9 +19,9 @@ The Logger tool helps with API call recording by facilitating complete captures 
 2. Go into a Project.
 
 ### Create Webhook
-3. Create a webhook for your Project by clicking **Webhooks** > **Create Hook**.
+3. Create a webhook for your Project by clicking **WebHooks** > **Create Hook**.
 4. Enter a **Hook Name** (**Hook Description** is optional), then click **Save**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/sampleHook.png')} alt="sample webhook details" width="450" />
-5. Copy the **Hook URL**. Your Sauce Labs username, Sauce API Testing endpoint, and `{hook_id}` will populate automatically. For security reasons, you'll need to add your own access key. Then append the URL with `/logger`.
+5. Copy the **Hook URL**. Your Sauce Labs username, Sauce API Testing endpoint, and `{hook_id}` will populate automatically. For security reasons, you'll need to input your own Sauce Labs access key. Then, add `/logger` to the end of the URL, so that it looks like this:
    ```bash
    https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/logger
    ```
