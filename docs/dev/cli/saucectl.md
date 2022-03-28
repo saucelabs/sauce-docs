@@ -450,14 +450,6 @@ If you set your credentials using more than one of the methods above, `saucectl`
 * [Espresso Demo](https://github.com/saucelabs/saucectl-espresso-example)
 * [XCUITest Demo](https://github.com/saucelabs/saucectl-xcuitest-example)
 
-:::tip
-If you're running a test script where you need to communicate a Sauce Labs Job ID to a third-party tool, use the <code>SAUCE_JOB_ID</code> predefined CI/CD variable to reference it. No need to retrieve it manually from your Test Results!
-
-Frameworks supported: Cypress (use <code>Cypress.env('SAUCE_JOB_ID')</code>), TestCafe (<code>process.env.SAUCE_JOB_ID</code>), and Playwright (<code>process.env.SAUCE_JOB_ID</code>). Languages supported: JavaScript only.
-:::
-
-
-
 ### Configure `saucectl` for your Tests
 
 If you already have tests in the framework of your choice, you can use the [`saucectl init`](/dev/cli/saucectl/init) command to generate a `config.yml` file specifying all the relevant options for your test. See the framework-specific YAML Configuration documentation for a complete reference of all available properties for your framework:
