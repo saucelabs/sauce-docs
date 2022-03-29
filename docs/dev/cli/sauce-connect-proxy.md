@@ -44,27 +44,28 @@ __Shorthand__: `-k`
 ### `--config-file`
 <p><small>| REQUIRED | STRING |</small></p>
 
-:::caution For YAML Configuration Files ONLY
-This is required only if you're using a YAML file to configure your tunnels.
-:::
-
 __Description__: Defines the local path to a YAML file containing a Sauce Connect Proxy configuration. For instructions, [Configuring Tunnels with a YAML File](/secure-connections/sauce-connect/setup-configuration/yaml-config/).<br/>
 __Enviroment variable__: n/a<br/>
 __Shorthand__: `-c`
 
+:::caution
+This is required only if you're using a YAML file to configure your tunnels.
+:::
 
 ---
 ### `--region`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets your Sauce Labs region data center such as `us-west`, `eu-central`, etc... For more information, see [Data Center Endpoints](#data-center-endpoints). <br/>
-__Default__: If you don't specify a Data Center at all, Sauce Connect will default to `us-west`. <br/>
+__Description__: Sets your Sauce Labs [data center region](#data-center-endpoints) (e.g., `us-west`, `eu-central`, `apac-southeast`).<br/>
+__Default__: If you don't specify a Data Center, Sauce Connect will default to `us-west`. <br/>
 __Enviroment variable__: `SAUCE_REGION`<br/>
 __Shorthand__: `-r`
 
+
 :::caution
-We recommend using this flag over `--rest-url` for keeping CLI options more readable. Not compatible with versions below 4.7.0.
+Not compatible with versions below 4.7.0, which use [`rest-url`](#rest-url) to define the region. We recommend using `--region` over `--rest-url` to keep your CLI options more readable.
 :::
+
 
 ---
 ### `--shared-tunnel`
@@ -97,7 +98,7 @@ __Enviroment variable__: n/a<br/>
 __Shorthand__: n/a
 
 :::caution
-Not compatible with versions below 4.7.0.
+Not compatible with Sauce Connect versions below 4.7.0. Download the latest version [here](/secure-connections/sauce-connect/installation/).
 :::
 
 
@@ -139,7 +140,7 @@ __Shorthand__: `-F`
 ### `--tunnel-domains`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets domain(s) that need to be sent through the Sauce Connect Proxy tunnel. This is the inverse of `--direct-domains`.  When adding multiple domains, [format as a comma-separated list](#formatting-domains-in-the-command-line). Be sure to format your domains as a comma-separated list (see [Formatting Domains guidelines](#formatting-domains-in-the-command-line)).<br/>
+__Description__: Sets domain(s) that need to be sent through the Sauce Connect Proxy tunnel. This is the inverse of `--direct-domains`.  When adding multiple domains, [format them as a comma-separated list](#formatting-domains-in-the-command-line).<br/>
 __Enviroment variable__: `SAUCE_TUNNEL_DOMAINS`<br/>
 __Shorthand__: `-t`
 
@@ -149,20 +150,35 @@ __Shorthand__: `-t`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 :::caution
-Effective with Sauce Connect Proxy version 4.7.0, we recommend using [`--region`](/dev/cli/sauce-connect-proxy/#--region) instead. `--rest-url` will eventually be deprecated. Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
+As this option will soon be deprecated, we recommend using the [`--region`](/dev/cli/sauce-connect-proxy/#--region) flag, compatible with Sauce Connect versions 4.7.0 and above.
 :::
 
-__Description__: Sets your [Sauce Labs regional data center REST API URL](#data-center-endpoints) (e.g., EU-Central, US-West).<br/>
+__Description__: Sets the [Sauce Labs data center endpoint URL](/basics/data-center-endpoints) of the location where the device you're testing on is hosted.<br/>
 __Enviroment variable__: `SAUCE_REST_URL`<br/>
 __Shorthand__: `-x`
 
+```bash
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://eu-central-1.saucelabs.com/rest/v1
+```
+
+```bash
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://eu-central-1.saucelabs.com/rest/v1
+```
+
+```bash
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.apac-southeast-1.saucelabs.com/rest/v1
+```
 
 ---
 ### `--no-remove-colliding-tunnels`
 <p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-__Description__: Effective with Sauce Connect Proxy version 4.7.0, this flag was deprecated and replaced by [`--tunnel-pool`](#--tunnel-pool). Download the latest SC version [here](/secure-connections/sauce-connect/installation/).
+__Description__: Prevents the removal of colliding tunnels (i.e., tunnels with the same name). <br/>
 __Enviroment variable__: n/a<br/>
+
+:::caution
+Effective with Sauce Connect Proxy version 4.7.0, this flag has been deprecated and replaced by [`--tunnel-pool`](#--tunnel-pool). Download the latest version [here](/secure-connections/sauce-connect/installation/).
+:::
 
 
 
@@ -214,7 +230,7 @@ __Enviroment variable__: `SAUCE_PROXY_LOCALHOST`<br/>
 __Shorthand__: n/a
 
 :::caution
-Not compatible with versions below 4.7.0.
+Not compatible with Sauce Connect versions below 4.7.0. Download the latest version [here](/secure-connections/sauce-connect/installation/).
 :::
 
 
@@ -229,7 +245,7 @@ __Shorthand__: `-T`
 ### `--proxy-userpwd`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets username and password (sent via basic authentication) to access the proxy configured with [--proxy](#--proxy). For more information, see [Set Up with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).<br/>
+__Description__: Sets username and password (sent via basic authentication) to access the proxy configured with [`--proxy`](#--proxy). For more information, see [Set Up with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).<br/>
 __Enviroment variable__: `SAUCE_PROXY_USERPWD`<br/>
 __Shorthand__: `-w`
 
@@ -303,7 +319,7 @@ __Shorthand__: `-P`
 
 __Description__: Performs basic authentication when a URL on `host:port` asks for a username and password (`host:port:username:password` format). This option can be used multiple times. For examples, see [Authentication Using `--auth`](/secure-connections/sauce-connect/security-authentication).
 
-Sauce Connect Proxy's `--auth` flag will only send the header Authorization with a type of 'Basic'. If a resource responds with the header WWW-Authenticate of a type any other than 'Basic,' your authentication will fail and return a non-200 HTTP response. HTTP Header Injection is disabled for SSL domains that are not re-encrypted by Sauce Connect Proxy, which means performing basic authentication in this way is disabled for all HTTPS domains passed to `--no-ssl-bump-domains` argument.<br/>
+This flag will only send the header Authorization with a type of "Basic". If a resource responds with the header WWW-Authenticate of a type any other than "Basic," your authentication will fail and return a non-200 HTTP response. HTTP Header Injection is disabled for SSL domains that are not re-encrypted by Sauce Connect Proxy, which means performing basic authentication in this way is disabled for all HTTPS domains passed to `--no-ssl-bump-domains` argument.<br/>
 __Enviroment variable__: `SAUCE_AUTH`<br/>
 __Shorthand__: `-a`
 
@@ -344,29 +360,37 @@ __Shorthand__: n/a
 ### `--ocsp`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: OCSP verification mode. Options are: strict, log-only, and disable. The default is log-only.
-
-:::note
-`--ocsp strict` may fail if a certificate in the chain does not support OCSP. It's recommended to leave it to the default "log-only" mode.
-:::
-
+__Description__: OCSP verification mode. Options are: strict, log-only, and disable. The default is log-only.<br/>
 __Enviroment variable__: `SAUCE_OCSP`<br/>
 __Shorthand__: n/a  
 
+:::note
+`--ocsp strict` may fail if a certificate in the chain does not support OCSP. We recommend leaving it as the default "log-only" mode.
+:::
 
 ---
 ### `--tunnel-capath`
 <p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-__Enviroment variable__: n/a<br/>
-__Description__: Directory of CA certificates to use for verifying tunnel connections. Effective with Sauce Connect Proxy version 4.7.0, `--tunnel-capath` was deprecated. Download the latest SC version [here](/secure-connections/sauce-connect/installation/).<br/>
+__Description__: Directory of CA certificates to use for verifying tunnel connections.<br/>
+__Enviroment variable__: n/a <br/>
+__Shorthand__: n/a  
+
+:::caution
+Effective with Sauce Connect Proxy version 4.7.0, `--tunnel-capath` was deprecated. Download the latest version [here](/secure-connections/sauce-connect/installation/).
+:::
 
 ---
 ### `--capath`
 <p><small><span className="sauceGold">DEPRECATED</span></small></p>
 
-__Enviroment variable__: n/a<br/>
-__Description__: Defines a directory of CA certs to use for verifying connections to Sauce Labs REST API. Effective with Sauce Connect Proxy version 4.7.0, `--capath` was deprecated. Download the latest SC version [here](/secure-connections/sauce-connect/installation/).<br/>
+__Description__: Defines a directory of CA certs to use for verifying connections to Sauce Labs REST API.<br/>
+__Enviroment variable__: n/a <br/>
+__Shorthand__: n/a  
+
+:::caution
+Effective with Sauce Connect Proxy version 4.7.0, `--capath` was deprecated. Download the latest version [here](/secure-connections/sauce-connect/installation/).
+:::
 
 
 
@@ -394,13 +418,11 @@ __Shorthand__: n/a
 
 ---
 ### `--verbose`
-__Description__: Enables verbose debugging. Use this to log HTTP headers or debug Sauce Connect connection.<br/>
+<p><small>| OPTIONAL |</small></p>
+
+__Description__: Enables verbose debugging. Use this to log HTTP headers or debug Sauce Connect connection. You can also use `-vv` (very verbose), which outputs HTTP headers and KGP logs, although it's recommended for troubleshooting purposes only because it's system-resource demanding and can adversely affect Sauce Connect Proxy performance.<br/>
 __Enviroment variable__: `SAUCE_VERBOSE`<br/>
 __Shorthand__: `-v`
-
-:::note
-You can also use `-vv` (very verbose), which outputs HTTP headers and KGP logs, although it's recommended for troubleshooting purposes only because it's system-resource demanding and can adversely affect Sauce Connect Proxy performance.
-:::
 
 
 ## Other Options
@@ -443,109 +465,11 @@ __Enviroment variable__: `SAUCE_EXTRA_INFO`<br/>
 __Shorthand__: n/a
 
 
-## Data Center Endpoints
-
-__Description__: depending on the Data Center location of the device you're testing on (US or EU), you may need to add a [Data Center endpoint](/basics/data-center-endpoints).
-
-<Tabs
-  defaultValue="US-West"
-  values={[
-    {label: 'US-West', value: 'US-West'},
-    {label: 'US-East', value: 'US-East'},
-    {label: 'EU-Central', value: 'EU-Central'},
-    {label: 'APAC-Southeast', value: 'APAC-Southeast'},
-  ]}>
-
-<TabItem value="US-West">
-
-**For Sauce Connect Proxy version 4.7.0+**:
-
-To connect to the US-West Data Center, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the US-West Data Center:
-
-```bash
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west
-```
-<br/>
-
-**For Sauce Connect Proxy versions below 4.7.0**:
-
-Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-West Data Center endpoint:
-
-```bash
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.us-west-1.saucelabs.com/rest/v1
-```
-
-</TabItem>
-<TabItem value="US-East">
-
-**For Sauce Connect Proxy version 4.7.0+**:
-
-To connect to the US-East Data Center, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the US-East Data Center:
-
-```bash
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-east
-```
-<br/>
-
-**For Sauce Connect Proxy versions below 4.7.0**:
-
-Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the US-East Data Center endpoint:
-
-```bash
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://us-east-1.saucelabs.com/rest/v1
-```
-
-</TabItem>
-<TabItem value="EU-Central">
-
-**For Sauce Connect Proxy version 4.7.0+**:
-
-To connect to the EU-Central Data Center, add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the EU-Central Data Center:
-
-```bash
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r eu-central
-```
-<br/>
-
-**For Sauce Connect Proxy versions below 4.7.0**:
-
-Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the EU-Central Data Center endpoint:
-
-```bash
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://eu-central-1.saucelabs.com/rest/v1
-```
-
-</TabItem>
-<TabItem value="APAC-Southeast">
-
-**For Sauce Connect Proxy version 4.7.0+**:
-
-To connect to the [APAC-Southeast-1 Data Center](/basics/data-center-endpoints/aust-early-access), add the region name and place an `-r` immediately before it. Here's a full example that includes all required options, plus the APAC-Southeast Data Center:
-
-```bash
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r apac-southeast
-```
-<br/>
-
-**For Sauce Connect Proxy versions below 4.7.0**:
-
-Add the endpoint URL and place an `-x` immediately before it. Here's a full example that includes all required options, plus the APAC-Southeast Data Center endpoint:
-
-```bash
-./sc -x https://api.apac-southeast-1.saucelabs.com/rest/v1 -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
-```
-
-</TabItem>
-
-</Tabs>
-<br/>
-
-
 ## Formatting Domains in the Command Line
 
 Here are some guidelines to follow when formatting domains:
 
-* Use only the domain name. Do not precede it with `http:` or `https:`
+* Use only the domain name. Do not precede it with `http:` or `https:`.
   * Example: `mydomain.com`
 * Make sure your comma-separated list of domains doesn't include any spaces.
   * Example, `mydomain.com,saucelabs.com,mysite.com`
