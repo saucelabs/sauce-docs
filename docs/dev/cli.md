@@ -19,7 +19,7 @@ hide_table_of_contents: true
   <div className="box boxwidetop card">
     <div className="container">
     <a href="/dev/cli/saucectl"><h3>saucectl CLI</h3></a>
-    <p>Our framework agnostic test orchestrator CLI.</p>
+    <p>Our framework-agnostic test orchestrator CLI.</p>
     </div>
   </div>
 </div>

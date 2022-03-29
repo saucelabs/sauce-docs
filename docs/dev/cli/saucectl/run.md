@@ -14,7 +14,7 @@ Execute framework-agnostic tests using the [`saucectl`](/dev/cli/saucectl) test 
 
 ## Extended Description
 
-Execute tests according to the environment, framework, and test suite specifications defined in your [configuration file](/dev/cli/saucectl/init/) or via command line options described in this document.
+Execute tests according to the environment, framework, and test suite specifications defined in your [configuration file](/dev/cli/saucectl/configure) or via command line options described in this document.
 
 ## Options Summary
 
@@ -121,6 +121,11 @@ Execute tests according to the environment, framework, and test suite specificat
      <td><span className="t-cli"><a href="#--timeout">--timeout</a></span></td>
      <td></td>
      <td>Set a max test duration.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--uploadTimeout">--uploadTimeout</a></span></td>
+     <td></td>
+     <td>Set a max upload duration.</td>
     </tr>
     <tr>
      <td><span className="t-cli"><a href="#--tunnel-name">--tunnel-name</a></span></td>
@@ -387,6 +392,18 @@ When setting the timeout values for your suites, consider that native framework 
 ```bash
 saucectl run --timeout 10s
 saucectl run --timeout 30m
+```
+</div>
+
+### <span className="cli">--uploadTimeout</span>
+<div className="cli-desc">
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+Upload timeout that limits how long saucectl will wait for an upload to finish. Supports duration values like '10s' '30m' etc. (default: 5m)
+
+```bash
+saucectl run --uploadTimeout 10s
+saucectl run --uploadTimeout 30m
 ```
 </div>
 

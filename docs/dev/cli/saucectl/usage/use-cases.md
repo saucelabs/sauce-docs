@@ -30,7 +30,7 @@ saucectl run -c ./path/to/{config-file}.yml
 If you are using multiple frameworks or need to configure different sets of tests to run separately, it might be useful to have individual configuration files that you can simply direct `saucectl` to reference as necessary.
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax outlined in the configuration reference doc for your framework 9see links above). If you are less comfortable with YAML, any of a wide variety of free online YAML/JSON validator tools may be helpful.
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax outlined in the configuration reference doc for your framework (see links above). If you are less comfortable with YAML, any of a wide variety of free online YAML/JSON validator tools may be helpful.
 :::
 
 
@@ -71,7 +71,7 @@ If you plan to run tests against a local app server / app running on `localhost`
 If you have third party, or custom modules that are required test dependencies, you can utilize the **`npm`** configuration property to include those packages during test execution.
 :::
 
-Ensure the `docker` container can access the local app server (e.g. `localhost:<port>/`) from your host machine. After the tests complete, the results upload to the Sauce Labs results dashboard.
+Ensure the `docker` container can access the local app server (e.g., `localhost:<port>/`) from your host machine. After the tests complete, the results upload to the Sauce Labs results dashboard.
 
 ## Including Project Descriptors
 
@@ -107,11 +107,11 @@ saucectl run --ccy 10
 
 A setting of `10` runs up to 10 test suites at the same time. If the test has more suites than that, excess suites are queued and run in order as currently running suites complete and new slots are available.
 
-When running on Sauce Cloud, the maximum concurrency that you can use is defined by your account settings.
+When running on Sauce Cloud, the maximum concurrency that you can use is defined by your [account settings](/basics/acct-team-mgmt/concurrency-limits/).
 
 ## Sauce Connect
 
-saucectl supports using Sauce Connect to establish a secure connection when running your tests on Sauce Labs. To do so:
+`saucectl` supports using Sauce Connect to establish a secure connection when running your tests on Sauce Labs. To do so:
 
 1. Download and launch [Sauce Connect](/secure-connections/sauce-connect).
 2. Provide the tunnel identifier in your config file:
@@ -157,7 +157,7 @@ PS> $Env:HTTPS_PROXY=http://my.proxy.org:3128/
 PS> saucectl run -e HTTP_PROXY=${Env:HTTP_PROXY} -e HTTPS_PROXY=${Env:HTTPS_PROXY}
 ```
 
-``` title= "Example: Linux/MacOS"
+``` title= "Example: Linux/macOS"
 $> export HTTP_PROXY=http://my.proxy.org:3128/
 $> export HTTPS_PROXY=http://my.proxy.org:3128/
 $> saucectl run -e HTTP_PROXY=${HTTP_PROXY} -e HTTPS_PROXY=${HTTPS_PROXY}
@@ -172,7 +172,7 @@ You can incorporate your `saucectl` tests as part of your CI pipeline workflow. 
 * Ensure you have appropriate administrator permissions
 * Successfully [run tests with `saucectl`](/dev/cli/saucectl/#running-tests) on their own before launching from your CI pipeline.
 
-saucectl provides instructions for integrating with the following CI tools:
+`saucectl` provides instructions for integrating with the following CI tools:
 
 * [CircleCI](/dev/cli/saucectl/usage/ci/circleci)
 * [Jenkins](/dev/cli/saucectl/usage/ci/jenkins)

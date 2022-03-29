@@ -23,17 +23,18 @@ Sauce Labs [_Piestry_](/dev/glossary/#piestry) is our API mocking server tool th
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * An OpenAPI spec file.
 
-## Getting Started
+## Usage
 
-Piestry must be started from a Docker container in your CI/CD pipeline using Docker image, `quay.io/saucelabs/piestry`. Use the code snippet below, where `/specs/myspec.yaml` is the URI to your YAML spec file (can be local or remote):
+Piestry must be started from a Docker container in your CI/CD pipeline using the following code snippet:
+```bash
+docker run -v "$(pwd)/specs:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
+```
 
-  ```bash
-  docker run -v "$(pwd)/specs:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
-  ```
+`quay.io/saucelabs/piestry` is our Docker image and `/specs/myspec.yaml` needs to be the URI to your YAML spec file (can be local or remote).
 
-## OpenAPI Spec Files
+### OpenAPI Spec Files
 
-If you provide a standard OpenAPI spec file, our system should bind a series of endpoints to simulate whatever is in the spec.
+If you provide a standard OpenAPI spec file, our system should bind a series of endpoints to simulate what's in the spec:
 * When only a response schema is present, the system will generate random data for each field.
 * When one response example is present, the system will present the example.
 * When multiple response examples are present, the system will present the first example.
@@ -68,7 +69,7 @@ There currently are three types of `x-sauce-cond` operations: `exists`, `equals`
 
 There also are four collections you can evaluate: `uriParams`, `queryParams`, `headers`, `body`.
 
-In the below example, `x-sauce-cond` extension tells the mock to take the `200` status code as response only when an `authorization` header is present and its value matches the `Basic .*` regex. The `priority` field determines the order of evaluation of multiple objects at the same level. For example, if both `200` and `404` have an `x-sauce-cond` instruction, they will be evaluated by descending priority.
+In the below example, the `x-sauce-cond` extension tells the mock to take the `200` status code as response only when an `authorization` header is present and its value matches the `Basic .*` regex. The `priority` field determines the order of evaluation of multiple objects at the same level. For example, if both `200` and `404` have an `x-sauce-cond` instruction, they will be evaluated by descending priority.
 ```yaml
 responses:
   '200':
@@ -135,7 +136,7 @@ releaseNotes:
     x-sauce-faker: internet.email
 ```
 
-Learn more about the faker library [here](https://www.npmjs.com/package/faker).
+Learn more about the Faker library [here](https://www.npmjs.com/package/faker).
 
 
 ## Mocking Mode
@@ -205,14 +206,12 @@ Run it with the `--validate-request` switch to activate the validation of inboun
 The response will also contain the `x-sauce-error: true` header, signifying that the response is not mocked, but it's an internal error.
 
 
-### Dynamic examples
+### Dynamic Examples
 The system allows for examples containing dynamic data using the Handlebars markup. Remember that if you use dynamic examples in your OpenAPI specs, your spec will reduce its usability for documentation purposes as documentation renderers don't support it.
 
-To have dynamic parameters, you simply place an expression between double curly brackets as in `{{requestUrl}}`.
+To have dynamic parameters, place an expression between double curly brackets, i.e., `{{requestUrl}}`.
 
-The available objects in the scope are the same as the ones used by `x-sauce-cond`, so: `uriParams`, `queryParams`, `headers`, `body`.
-
-As an example, the following template will echo the shape of the request back in the response:
+The available objects in the scope are the same as the ones used by `x-sauce-cond`, so: `uriParams`, `queryParams`, `headers`, `body`. As an example, the following template will echo the shape of the request back in the response:
 
 ```json
 {
@@ -229,16 +228,16 @@ Using the `json` keyword will convert a full data structure into its JSON equiva
 ## E2E Mode
 When Piestry is run with `--e2e`, it will turn into a reverse proxy gateway and forward the requests based to the origin, according to the OpenAPI specification. The requirement is the "server" definition of the OpenAPI spec should lead to an actual location.
 
-In this mode, you can enable contract validators as well as capture mode.
+In E2E mode, you can enable contract validators as well as capture mode.
 
 ### Contract Validators
 There are two types of validations you can activate, focusing on different areas.
 
 ### Validate Request
-If you want to make sure your requests are compliant with the origin, run it with the `--validate-request` switch to activate the validation of inbound requests."
+If you want to make sure your requests are compliant with the origin, run it with the `--validate-request` switch to activate the validation of inbound requests.
 
 ### Validate Response
-This is similar to [**Validate examples** (mocking mode)](#validate-examples); the difference is that will validate the actual responses in an end-to-end session. Use the switch `--validate-response` to enable it.
+This is similar to [**Validate Examples** (mocking mode)](#validate-examples); the difference is that it will validate the actual responses in an end-to-end session. Use the switch `--validate-response` to enable it.
 
 ### Capture Mode
 Capture mode is activated by passing the `--capture` parameter, followed by the path to a directory. As the requests go through, Piestry will capture the responses coming from the origin and save them to file.
