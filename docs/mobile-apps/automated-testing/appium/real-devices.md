@@ -42,9 +42,11 @@ The following app file types are supported for real device tests:
 
 ## Using the W3C WebDriver Specification
 
-Sauce Labs encourages adoption of the W3C WebDriver protocol, but supports both JSON Wire Protocol (JWP) or W3C in all currently supported Appium 1.X versions (Appium 2.0 will deprecate support for JWP).
+:::warning Migrating Appium Real Device Tests to W3C Protocol
+Effective April(??) 2022, for Appium real device tests, we are deprecating support for the JSON Wire Protocol (JWP) in favor of the W3C WebDriver Protocol. To avoid disruption to your testing and development cycle, we encourage you to migrate any Appium real device tests written in JWP to W3C Protocol as soon as possible. [Learn more](https://support.saucelabs.com/hc/en-us/articles/4412359870231)
+:::
 
-Since W3C and JWP use different formats for specifying your test capabilities, it is important to make sure you configure your tests accurately so your intended protocol is followed and your settings are applied correctly.
+The W3C WebDriver Protocol is required for Appium 2.0 (in beta) and supported in Appium versions 1.6.5 and higher. Since W3C and JWP use different formats for specifying test capabilities, it is important to make sure you configure your tests accurately so your intended protocol is followed and your settings are applied correctly.
 
 ### How Sauce Labs Determines Your Protocol
 

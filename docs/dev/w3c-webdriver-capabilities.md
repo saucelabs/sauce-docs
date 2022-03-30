@@ -8,11 +8,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Sauce Labs supports and encourages our users to update their code to take advantage of the [W3C WebDriver Protocol](/dev/glossary/#w3c-webdriver-protocol), which is currently the default protocol used by all major browsers, is fully supported in WebdriverIO 6 and higher, Selenium versions 3.11 and higher, Appium 1.6.5 and higher, and is required for Selenium 4.0 and Appium 2.0. Using the WebDriver protocol on Sauce Labs requires setting specific capabilities in your code.
-
-:::note
-Some extended capabilities are not backwards-compatible with Selenium versions below 4.0.
+:::warning Migrating Appium Real Device Tests to W3C Protocol
+Effective April(??) 2022, for Appium real device tests, we are deprecating support for JWP in favor of the W3C WebDriver Protocol. To avoid disruptions to your testing and development cycle, we encourage you to migrate any JWP tests to W3C Protocol as soon as possible. [Learn more](https://support.saucelabs.com/hc/en-us/articles/4412359870231)
 :::
+
+Sauce Labs supports and encourages updating your code to take advantage of the [W3C WebDriver Protocol](/dev/glossary/#w3c-webdriver-protocol), which is currently the default protocol used by all major browsers. It is fully supported in WebdriverIO 6 and higher, Selenium versions 3.11 and higher, Appium 1.6.5 and higher, and is required for Selenium 4.0 and Appium 2.0 (in beta). Using the WebDriver protocol on Sauce Labs requires setting specific capabilities in your code.
 
 
 ## What You'll Need
@@ -26,6 +26,7 @@ Some extended capabilities are not backwards-compatible with Selenium versions b
 To ensure W3C WebDriver compatibility:
 
 * Use Selenium version 3.11 or higher, WebdriverIO 6 or higher, or an Appium client that supports W3C.
+   * Some extended capabilities are not backwards-compatible with Selenium versions below 4.0.
 * Switch from using the legacy JSON Wire Protocol (JWP) to the newer W3C WebDriver Protocol.
 Mixing JWP with W3C will result in an [error](/dev/w3c-webdriver-capabilities/#common-errors).
 * Learn the differences between legacy JWP and W3C WebDriver-compliant capability names.
