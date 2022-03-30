@@ -447,6 +447,7 @@ module.exports = {
         label: 'Workflow Integrations',
         collapsed: true,
         items: [
+          'error-reporting/workflow-integrations/overview',
           'error-reporting/workflow-integrations/common-settings',
           {
               type: 'category',
@@ -494,6 +495,7 @@ module.exports = {
                           'error-reporting/workflow-integrations/monitoring/circonus',
                         ],
                 },
+                  'error-reporting/workflow-integrations/webhook',
               ],
     },
   ],
