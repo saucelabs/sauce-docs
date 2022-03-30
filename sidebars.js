@@ -434,6 +434,7 @@ module.exports = {
                     'error-reporting/project-setup/object-reprocessing',
                     'error-reporting/project-setup/metrics-stability-scores',
                     'error-reporting/project-setup/metric-export',
+                    'error-reporting/project-setup/file-attachments',
                     'error-reporting/project-setup/source-code',
                     'error-reporting/project-setup/alerts',
                     'error-reporting/project-setup/scheduled-reports',
