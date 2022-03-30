@@ -138,7 +138,7 @@ When working with structured data, expression is the path for reaching out a sp
 }
 ```
 
-If you want to reach the value of the `created\_time` attribute:
+If you want to reach the value of the `created_time` attribute:
 
 ```js
 payload.data.created_time
@@ -175,6 +175,30 @@ If we want to check the `size` attribute, you have to write:
 
 ```js
 payload['@size']
+```
+
+When you are working with SOAP API the response might look something like this:
+
+```xml
+<?xml version="1.0"?>
+
+<soap:Envelope
+xmlns:soap="http://www.w3.org/2003/05/soap-envelope/"
+soap:encodingStyle="http://www.w3.org/2003/05/soap-encoding">
+
+<soap:Body>
+  <m:GetUserResponse>
+    <m:Username>Tony Stark</m:Username>
+  </m:GetUserResponse>
+</soap:Body>
+
+</soap:Envelope>
+```
+
+You need to include also the namespace in the expression. In the above scenario, if you want to check the `Username` item, you have to write:
+
+```js
+payload['soap:Body']['m:GetUserResponse']['m:Username']
 ```
 
 :::note
