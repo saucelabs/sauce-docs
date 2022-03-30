@@ -287,9 +287,9 @@ You cannot set screen resolution on Windows 7 with IE 9.
 
 ## Mobile App Appium Capabilities: Required
 
-While we strongly encourage the adoption of the W3C WebDriver protocol for your Appium real device mobile app tests, we will also continue to support JSON Wire Protocol (JWP) in all currently supported Appium 1.X versions. With Appium 2.0 (in beta), which we also support, JWP support is deprecated and strictly adheres to the W3C WebDriver protocol.
+Sauce Labs encourages adoption of the W3C WebDriver protocol for your Appium mobile app tests, however, we'll continue to support JSON Wire Protocol (JWP) in all currently supported Appium 1.X versions. With the official release of Appium 2.0 (currently in beta), JWP support will be fully deprecated in favor of W3C.
 
-The capabilities defined below assume the W3C WebDriver protocol, however, it is important to make sure your test configurations accurately reflect your intended protocol so your settings are applied correctly. See [Appium Real Device W3C Specification](/mobile-apps/automated-testing/appium/real-devices/#using-the-w3c-webdriver-specification) for details.
+The capabilities defined here assume the W3C WebDriver protocol. It's important to make sure your test configurations accurately reflect your intended protocol (JWP or W3C) so your settings are applied correctly. See [Appium Real Device W3C Specification](/mobile-apps/automated-testing/appium/real-devices/#using-the-w3c-webdriver-specification) for details.
 
 ---
 ### `app`

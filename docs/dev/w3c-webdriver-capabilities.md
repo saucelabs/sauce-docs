@@ -8,11 +8,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::warning Migrating Appium Real Device Tests to W3C Protocol
-Effective April(??) 2022, for Appium real device tests, we are deprecating support for JWP in favor of the W3C WebDriver Protocol. To avoid disruptions to your testing and development cycle, we encourage you to migrate any JWP tests to W3C Protocol as soon as possible. [Learn more](https://support.saucelabs.com/hc/en-us/articles/4412359870231)
-:::
+Sauce Labs supports and encourages updating your code to take advantage of the [W3C WebDriver Protocol](/dev/glossary/#w3c-webdriver-protocol), which is currently the default protocol used by all major browsers. W3C is fully supported in WebdriverIO 6 and higher, Selenium versions 3.11 and higher, Appium 1.6.5 and higher, and is required for Selenium 4.0 and Appium 2.0 (in beta).
 
-Sauce Labs supports and encourages updating your code to take advantage of the [W3C WebDriver Protocol](/dev/glossary/#w3c-webdriver-protocol), which is currently the default protocol used by all major browsers. It is fully supported in WebdriverIO 6 and higher, Selenium versions 3.11 and higher, Appium 1.6.5 and higher, and is required for Selenium 4.0 and Appium 2.0 (in beta). Using the WebDriver protocol on Sauce Labs requires setting specific capabilities in your code.
+Using the W3C WebDriver protocol on Sauce Labs requires setting specific capabilities in your code. The syntax is different from its predecessor, JSON Wire Protocol (JWP).
 
 
 ## What You'll Need
@@ -25,13 +23,10 @@ Sauce Labs supports and encourages updating your code to take advantage of the [
 
 To ensure W3C WebDriver compatibility:
 
-* Use Selenium version 3.11 or higher, WebdriverIO 6 or higher, or an Appium client that supports W3C.
+* Use Selenium version 3.11 or higher, WebdriverIO 6 or higher, or an [Appium client that supports W3C](/mobile-apps/automated-testing/appium/real-devices/#using-the-w3c-webdriver-specification).
    * Some extended capabilities are not backwards-compatible with Selenium versions below 4.0.
-* Switch from using the legacy JSON Wire Protocol (JWP) to the newer W3C WebDriver Protocol.
-Mixing JWP with W3C will result in an [error](/dev/w3c-webdriver-capabilities/#common-errors).
-* Learn the differences between legacy JWP and W3C WebDriver-compliant capability names.
-For example, W3C uses `platformName` and `browserVersion`, while JWP uses `platform` and `version`, respectively.
-We recommend reviewing our [Test Configuration Options](/dev/test-configuration-options)
+* Switch from using the legacy JSON Wire Protocol (JWP) to the newer W3C WebDriver Protocol. Mixing JWP with W3C will result in an [error](/dev/w3c-webdriver-capabilities/#common-errors).
+* Learn the differences between legacy JWP and W3C WebDriver-compliant capability syntax. For example, W3C uses `platformName` and `browserVersion`, while JWP uses `platform` and `version`, respectively. We recommend reviewing our [Test Configuration Options](/dev/test-configuration-options)
 and the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities).
 * Include our custom `sauce:options` W3C WebDriver-compliant capabilities in your Sauce Labs test scripts.
   <details>
