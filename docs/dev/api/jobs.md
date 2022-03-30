@@ -563,10 +563,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Delete a Job
 
-<details><summary><span className="api delete">DELETE</span> <code>/rest/v1.1/jobs/&#123;job_id&#125;</code></summary>
+<details><summary><span className="api delete">DELETE</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;</code></summary>
 <p/>
 
-Delete a job and all of its assets from the Sauce Labs test history.
+Delete a job and its assets from the Sauce Labs test history.
 
 #### Parameters
 
@@ -591,7 +591,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/jobs/a521fd8a78c4426fb10ab765ab1f6831' | json_pp
+--request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1/grogu/jobs/58b476af94714da7a141a7e6321c5441' | json_pp
 ```
 
 </TabItem>
@@ -600,7 +600,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1.1/jobs/a521fd8a78c4426fb10ab765ab1f6831' | json_pp
+--request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1/grogu/jobs/58b476af94714da7a141a7e6321c5441' | json_pp
 ```
 
 </TabItem>
@@ -611,8 +611,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <table id="table-api">
 <tbody>
   <tr>
-    <td><code>204</code></td>
-    <td colSpan='2'>No Content.</td>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
   </tr>
 </tbody>
 <tbody>
@@ -623,8 +623,12 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </tbody>
 </table>
 
-No payload is returned with the successful deletion.
 
+```jsx title="Sample Response"
+{
+  "status": "success"
+}
+```
 </details>
 
 ---
