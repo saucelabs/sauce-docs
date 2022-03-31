@@ -57,7 +57,7 @@ This is required only if you're using a YAML file to configure your tunnels.
 <p><small>| OPTIONAL | STRING |</small></p>
 
 __Description__: Sets your Sauce Labs [data center region](#data-center-endpoints) (e.g., `us-west`, `eu-central`, `apac-southeast`).<br/>
-__Default__: If you don't specify a Data Center, Sauce Connect will default to `us-west`. <br/>
+__Default__: If you don't specify a data center, Sauce Connect will default to `us-west`. <br/>
 __Enviroment variable__: `SAUCE_REGION`<br/>
 __Shorthand__: `-r`
 
