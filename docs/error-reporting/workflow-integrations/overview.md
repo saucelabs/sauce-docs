@@ -17,13 +17,11 @@ To configure a workflow integration, select Project Settings from the drop-down 
 
 ## Messaging
 - [Slack](/error-reporting/workflow-integrations/messaging/slack/)
-- [HipChat](/error-reporting/workflow-integrations/messaging/hipchat/)
 - [IRC](/error-reporting/workflow-integrations/messaging/irc/)
 - [Email](/error-reporting/workflow-integrations/messaging/email/)
 - [Gitter](/error-reporting/workflow-integrations/messaging/gitter/)
 - [Amazon SNS](/error-reporting/workflow-integrations/messaging/amazon-sns/)
 - [Stride](/error-reporting/workflow-integrations/messaging/stride/)
-- [Spark](/error-reporting/workflow-integrations/messaging/spark/)
 
 ## Issue Tracking
 - [GitHub](/error-reporting/workflow-integrations/issue-tracking/github/)

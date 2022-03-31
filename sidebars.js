@@ -456,13 +456,11 @@ module.exports = {
               collapsed: true,
               items: [
                   'error-reporting/workflow-integrations/messaging/slack',
-                  'error-reporting/workflow-integrations/messaging/hipchat',
                   'error-reporting/workflow-integrations/messaging/irc',
                   'error-reporting/workflow-integrations/messaging/email',
                   'error-reporting/workflow-integrations/messaging/gitter',
                   'error-reporting/workflow-integrations/messaging/amazon-sns',
                   'error-reporting/workflow-integrations/messaging/stride',
-                  'error-reporting/workflow-integrations/messaging/spark',
               ],
             },
               {
