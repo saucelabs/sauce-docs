@@ -61,6 +61,16 @@ __Default__: If you don't specify a Data Center, Sauce Connect will default to `
 __Enviroment variable__: `SAUCE_REGION`<br/>
 __Shorthand__: `-r`
 
+```bash
+#US-West-1
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region us-west
+
+#EU-Central-1
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region eu-central
+
+#APAC-Southeast-1
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region apac-southeast
+```
 
 :::caution
 Not compatible with versions below 4.7.0, which use [`rest-url`](#rest-url) to define the region. We recommend using `--region` over `--rest-url` to keep your CLI options more readable.
@@ -158,14 +168,13 @@ __Enviroment variable__: `SAUCE_REST_URL`<br/>
 __Shorthand__: `-x`
 
 ```bash
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://eu-central-1.saucelabs.com/rest/v1
-```
+#US-West-1
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.us-west-1.saucelabs.com/rest/v1
 
-```bash
+#EU-Central-1
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://eu-central-1.saucelabs.com/rest/v1
-```
 
-```bash
+#APAC-Southeast-1
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.apac-southeast-1.saucelabs.com/rest/v1
 ```
 
@@ -319,7 +328,7 @@ __Shorthand__: `-P`
 
 __Description__: Performs basic authentication when a URL on `host:port` asks for a username and password (`host:port:username:password` format). This option can be used multiple times. For examples, see [Authentication Using `--auth`](/secure-connections/sauce-connect/security-authentication).
 
-This flag will only send the header Authorization with a type of "Basic". If a resource responds with the header WWW-Authenticate of a type any other than "Basic," your authentication will fail and return a non-200 HTTP response. HTTP Header Injection is disabled for SSL domains that are not re-encrypted by Sauce Connect Proxy, which means performing basic authentication in this way is disabled for all HTTPS domains passed to `--no-ssl-bump-domains` argument.<br/>
+This flag will only send the header Authorization with a type of "Basic." If a resource responds with the header WWW-Authenticate of a type any other than "Basic," your authentication will fail and return a non-200 HTTP response. HTTP Header Injection is disabled for SSL domains that are not re-encrypted by Sauce Connect Proxy, which means performing basic authentication in this way is disabled for all HTTPS domains passed to `--no-ssl-bump-domains` argument.<br/>
 __Enviroment variable__: `SAUCE_AUTH`<br/>
 __Shorthand__: `-a`
 
