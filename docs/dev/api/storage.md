@@ -723,7 +723,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Delete a Group of App Storage Files
 
-<details><summary><span className="api delete">DELETE</span> <code>/v1/storage/files/&#123;group_id&#125;</code></summary>
+<details><summary><span className="api delete">DELETE</span> <code>/v1/storage/groups/&#123;group_id&#125;</code></summary>
 <p/>
 
 Deletes the specified group of files from Sauce Storage.
