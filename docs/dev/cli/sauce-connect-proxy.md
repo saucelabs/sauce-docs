@@ -56,8 +56,8 @@ This is required only if you're using a YAML file to configure your tunnels.
 ### `--region`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets your Sauce Labs [data center region](#data-center-endpoints) (e.g., `us-west`, `eu-central`, `apac-southeast`).<br/>
-__Default__: If you don't specify a Data Center, Sauce Connect will default to `us-west`. <br/>
+__Description__: Sets your Sauce Labs [data center endpoint](/basics/data-center-endpoints/#data-center-endpoints) (e.g., `us-west`, `eu-central`, `apac-southeast`).<br/>
+__Default__: If you don't specify a data center, Sauce Connect will default to `us-west`. <br/>
 __Enviroment variable__: `SAUCE_REGION`<br/>
 __Shorthand__: `-r`
 
@@ -73,7 +73,7 @@ __Shorthand__: `-r`
 ```
 
 :::caution
-Not compatible with versions below 4.7.0, which use [`rest-url`](#rest-url) to define the region. We recommend using `--region` over `--rest-url` to keep your CLI options more readable.
+Not compatible with versions below 4.7.0, which use the [`--rest-url`](#--rest-url) flag to define the region. We recommend using `--region` instead of `--rest-url` to keep your CLI options more readable.
 :::
 
 
@@ -163,7 +163,7 @@ __Shorthand__: `-t`
 As this option will soon be deprecated, we recommend using the [`--region`](/dev/cli/sauce-connect-proxy/#--region) flag, compatible with Sauce Connect versions 4.7.0 and above.
 :::
 
-__Description__: Sets the [Sauce Labs data center endpoint URL](/basics/data-center-endpoints) of the location where the device you're testing on is hosted.<br/>
+__Description__: Sets the URL for the [data center endpoint](/basics/data-center-endpoints) of the location where the device you're testing on is hosted.<br/>
 __Enviroment variable__: `SAUCE_REST_URL`<br/>
 __Shorthand__: `-x`
 
