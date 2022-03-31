@@ -153,7 +153,7 @@ __Shorthand__: `-t`
 As this option will soon be deprecated, we recommend using the [`--region`](/dev/cli/sauce-connect-proxy/#--region) flag, compatible with Sauce Connect versions 4.7.0 and above.
 :::
 
-__Description__: Sets the [Sauce Labs data center endpoint URL](/basics/data-center-endpoints) of the location where the device you're testing on is hosted.<br/>
+__Description__: Sets the URL for the [data center endpoint](/basics/data-center-endpoints) of the location where the device you're testing on is hosted.<br/>
 __Enviroment variable__: `SAUCE_REST_URL`<br/>
 __Shorthand__: `-x`
 
