@@ -498,6 +498,11 @@ The version of TestCafe that is compatible with the tests defined in this file. 
 ```yaml
   version: 1.14.2
 ```
+:::tip
+You can also define a path to your `package.json`. This will make saucectl use the same `testcafe` package version that's defined in your projects `devDependencies` or `dependencies` map.
+
+The path to your `package.json` file will be relative to the `rootDir` of your configuration.
+:::
 ---
 
 ## `suites`
