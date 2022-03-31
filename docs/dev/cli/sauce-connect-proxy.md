@@ -63,7 +63,7 @@ __Shorthand__: `-r`
 
 
 :::caution
-Not compatible with versions below 4.7.0, which use [`rest-url`](#rest-url) to define the region. We recommend using `--region` over `--rest-url` to keep your CLI options more readable.
+Not compatible with versions below 4.7.0, which use the [`--rest-url`](#--rest-url) flag to define the region. We recommend using `--region` instead of `--rest-url` to keep your CLI options more readable.
 :::
 
 
