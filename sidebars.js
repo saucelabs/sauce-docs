@@ -820,6 +820,7 @@ module.exports = {
                          'web-apps/automated-testing/cypress',
                          'web-apps/automated-testing/cypress/quickstart',
                          'web-apps/automated-testing/cypress/yaml',
+                         'web-apps/automated-testing/cypress/advanced',
                      ]
                  },
                  {
@@ -830,6 +831,7 @@ module.exports = {
                          'web-apps/automated-testing/playwright',
                          'web-apps/automated-testing/playwright/quickstart',
                          'web-apps/automated-testing/playwright/yaml',
+                         'web-apps/automated-testing/playwright/advanced',
                      ],
                  },
                  {
@@ -840,6 +842,7 @@ module.exports = {
                          'web-apps/automated-testing/testcafe',
                          'web-apps/automated-testing/testcafe/quickstart',
                          'web-apps/automated-testing/testcafe/yaml',
+                         'web-apps/automated-testing/testcafe/advanced',
                      ]
                  },
                  {
