@@ -7,23 +7,17 @@ description: "Automatically generate tests from a spec file in one of the follow
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-export const Highlight = ({children, color}) => ( <span style={{
-      backgroundColor: color,
-      borderRadius: '2px',
-      color: '#fff',
-      padding: '0.2rem',
-    }}>{children}</span> );
-
-Using the API Testing **HTTP Client**, you can generate tests from external endpoints or files such as an OpenAPI Specification (spec) file.
+Using the API Testing **HTTP Client**, you can generate tests from external endpoints or files such as an OpenAPI Specification (spec).
 
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 * An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/)
 * A REST API Specification file in one of our supported formats:
-   * <Highlight color="#4e5b2e">OpenAPI 3.0 or higher</Highlight>
-   * <Highlight color="#ff6c37">Postman Collection</Highlight>
-   * <Highlight color="#37b732">Swagger</Highlight>
+   * OpenAPI 3.0 or higher
+   * Postman Collection
+   * Swagger
+   * HAR (HTTP Archive)
 
 
 ## Importing Your Spec File
@@ -49,5 +43,5 @@ Follow the instructions under our Quickstart doc, starting with the [Generate Te
 
 * [Importing Sauce Labs API Tests from Postman](/api-testing/import-postman-collection/)
 * Features coming soon:
-   * Support for additional spec file formats: <Highlight color="#29d3fe">RAML</Highlight> <Highlight color="#9073d2">API Blueprint</Highlight> <Highlight color="#c3090c">I/O Docs</Highlight> <Highlight color="#025b9c">SOAP</Highlight> <Highlight color="#025b9c">WSDL</Highlight>
-   * Ability to create a test by referencing the URL that points to your spec file. This feature is still available on the Legacy (On-Prem) API Fortress.
+   * Support for additional spec file formats: RAML, API Blueprint, I/O Docs, SOAP, WSDL
+   * Ability to create a test by referencing the URL that points to your spec file
