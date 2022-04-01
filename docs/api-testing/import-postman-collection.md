@@ -2,6 +2,7 @@
 id: import-postman-collection
 title: Importing Postman Collections, Variables, and Environments
 sidebar_label: Import Test from Postman
+description: "Automatically generate tests from an existing Postman Collection."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -12,7 +13,7 @@ If you have a [Postman API Collection](https://www.postman.com/collection/), you
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* A Postman Collection that's v2 or higher. We no longer support the Postman v1 Collection format, which was deprecated by Postman.
+* A Postman Collection (v2.0 or higher).
 * An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
 

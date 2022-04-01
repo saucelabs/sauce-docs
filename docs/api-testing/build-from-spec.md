@@ -2,7 +2,7 @@
 id: build-from-spec
 title: Building an API Test from a Spec File
 sidebar_label: Build Test from Spec File
-description: "Automatically generate tests from a spec file in one of the following formats: Swagger, OpenAPI 3, and Postman Collection."
+description: "Automatically generate tests from an OpenAPI spec or HAR file."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -13,11 +13,7 @@ Using the API Testing **HTTP Client**, you can generate tests from external endp
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 * An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/)
-* A REST API Specification file in one of our supported formats:
-   * OpenAPI 3.0 or higher
-   * Postman Collection
-   * Swagger
-   * HAR (HTTP Archive)
+* An OpenAPI Specification file (v3.0 or higher) or HAR (HTTP Archive) file
 
 
 ## Importing Your Spec File
