@@ -2,7 +2,7 @@
 id: build-from-spec
 title: Building an API Test from a Spec File
 sidebar_label: Build Test from Spec File
-description: "The available spec files you can automatically generate from are: Swagger, RAML, OpenAPI 3, API Blueprint, I/O Docs, SOAP WSDL, and Postman Collection."
+description: "Automatically generate tests from a spec file in one of the following formats: Swagger, OpenAPI 3, and Postman Collection."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -20,7 +20,10 @@ Using the API Testing **HTTP Client**, you can generate tests from external endp
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 * An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/)
-* A REST API Specification file in one of our supported formats: <Highlight color="#37b732">Swagger</Highlight> <Highlight color="#4e5b2e">OpenAPI 3</Highlight> <Highlight color="#ff6c37">Postman Collection</Highlight>
+* A REST API Specification file in one of our supported formats:
+   * <Highlight color="#4e5b2e">OpenAPI 3.0 or higher</Highlight>
+   * <Highlight color="#ff6c37">Postman Collection</Highlight>
+   * <Highlight color="#37b732">Swagger</Highlight>
 
 
 ## Importing Your Spec File
