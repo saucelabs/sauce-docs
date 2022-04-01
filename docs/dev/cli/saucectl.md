@@ -416,9 +416,7 @@ Mingw on Windows is known to interfere with the interactive `saucectl` commands,
 
 To ensure you have access to the most current feature set of `saucectl`, keep your installation up to date by periodically upgrading to the latest release.
 
-```bash
-npm update -g saucectl
-```
+To do this, run the same command you used to download `saucectl`. If you originally installed `saucectl` using npm, for example, you'd run `npm update -g saucectl`.
 
 ## Next Steps
 
