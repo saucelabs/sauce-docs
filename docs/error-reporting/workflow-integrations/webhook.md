@@ -83,11 +83,15 @@ In order to set up integration for webhook, you need an existing HTTP service wh
 ```
 
 ## Set Up the Integration
-To set up the integration, first go to the Project Settings within the Web Console and select the Integrations options and click on the + icon to create a new integration and select webhook:
+To set up the integration, first go to the Project Settings page for the project you want to add a integration for:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/webhook-integration.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />
 
-For webhook, the required setting is the Webhook URL you generated above:
+Then click Integrations in the left-hand menu, and the plus sign to create a new integration:
+
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
+
+Select webhook and fill in the required settings (name and the webhook URL you generated in the step above).
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/webhook-setup.png')} alt="" />
 

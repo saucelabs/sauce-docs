@@ -23,9 +23,7 @@ You will use this token in the next step.
 ## Set Up the Integration
 To set up the integration, navigate to the integration settings through Project Settings > Integrations > Issue Trackers > Phabricator.
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/add-phab-integration.gif')} alt="" />
-
-For Phabricator, the required settings are the endpoint URL and the API token. For the endpoint URL, you should use your Phabricator URL with /api appended (e.g. https://your.phabricator.url/api).
+For Phabricator, the required settings are the name, the endpoint URL, and the API token. For the endpoint URL, you should use your Phabricator URL with /api appended (e.g. https://your.phabricator.url/api).
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/phab-settings.png')} alt="" />
 

@@ -25,19 +25,15 @@ You'll also need to set up a HTTPTrap in Circonus. For details on setting up an 
 Once created, you will receive a URL. You'll use this URL, the Secret you specified, and the API key in the next step.
 
 ## Set Up the Integration
-To set up the integration, first go to the Configuration page within the Web Console:
+To set up the integration, first go to the Project Settings page for the project you want to add a integration for:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/configure-org.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />
 
-Next, select the project you want to add a integration for:
+Then click Integrations in the left-hand menu, and the plus sign to create a new integration:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/projects.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
 
-Then click Integrations in the left-hand menu, then Create a New Integration on the right, and pick the integration:
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/legacy-add-integration.png')} alt="" />
-
-For Circonus, the required settings are the Circonus endpoint, the API Key, and the secret.
+Select Circonus and fill in the required settings (name, webhook URL, HTTPTrap secret, and API key).
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/circonus-settings.png')} alt="" />
 

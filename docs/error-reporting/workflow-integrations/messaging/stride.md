@@ -40,19 +40,15 @@ To set up integration with Stride an app token must be generated for each conver
 
 
 ## Set Up the Integration
-To set up the integration, first go to the Configuration page within the Web Console:
+To set up the integration, first go to the Project Settings page for the project you want to add a integration for:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/configure-org.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />
 
-Next, select the project you want to add a integration for:
+Then click Integrations in the left-hand menu, and the plus sign to create a new integration:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/projects.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
 
-Then click Integrations in the left-hand menu, then Create a New Integration on the right, and pick the integration:
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/legacy-add-integration.png')} alt="" />
-
-For Stride, the following settings are required to send the message:
+Select Stride and fill in the required settings:
 - The API endpoint: This is the part before /sites in the URL from the Generate Conversation Token section
 - One or more sites
 - One or more conversation per site

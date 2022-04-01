@@ -12,19 +12,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 This guide goes through the steps necessary to integrate Backtrace with IRC. With IRC integration, Backtrace can send an alert message for new crashes or crash groups to a specified channel on an IRC server. This message will contain a URL to view more detailed information about the crash in the Web Console.
 
 ## Set Up the Integration
-To set up the integration, first go to the Configuration page within the Web Console:
+To set up the integration, first go to the Project Settings page for the project you want to add a integration for:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/configure-org.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />
 
-Next, select the project you want to add a integration for:
+Then click Integrations in the left-hand menu, and the plus sign to create a new integration:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/projects.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
 
-Then click Integrations in the left-hand menu, then Create a New Integration on the right, and pick the integration:
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/legacy-add-integration.png')} alt="" />
-
-These are the settings that you can configure for your IRC integration:
+Select IRC and fill in the required settings.
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/irc-settings.png')} alt="" />
 

@@ -19,11 +19,7 @@ This will involve creating an application link in Atlassian with a Backtrace pro
 ## Set Up the Integration
 To set up the integration, navigate to the integration settings through Project Settings > Integrations > Issue Trackers > JIRA .
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/add-jira-integration.gif')} alt="" />
-
 If you wish to enable one-way synchronization or two-way synchronization, this is available from the behavior tab during configuration. One-way synchronization synchronizes updates from Backtrace issues to JIRA, and two-way synchronization updates Backtrace issues when JIRA issues are updated.
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-integration-settings.gif')} alt="" />
 
 These are the settings that you can configure for your Jira integration:
 - Jira API (required): Jira Endpoint URL (see below for examples)
