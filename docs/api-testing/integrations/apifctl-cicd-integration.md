@@ -137,7 +137,7 @@ Available Options:
 
 
 ```bash title="Full Example"
-docker run quay.io/saucelabs/apifctl exec \
+docker run -v "$(pwd)/tests:/tests" quay.io/saucelabs/apifctl exec \
 -H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId} \
 -p /tests/test_abc \
 -n local_test \
@@ -161,7 +161,7 @@ Available Options:
 * [<code>-d &#60;test description&#62;</code>](#-d-test-description) <small>| OPTIONAL | STRING |</small>
 
 ```bash title="Full Example"
-docker run quay.io/saucelabs/apifctl upload \
+docker run -v "$(pwd)/tests:/tests" quay.io/saucelabs/apifctl upload \
 -H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId} \
 -p /tests/test_abc \
 -n local_test \
