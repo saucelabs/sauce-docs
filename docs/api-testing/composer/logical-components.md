@@ -177,7 +177,7 @@ If we want to check the `size` attribute, you have to write:
 payload['@size']
 ```
 
-When you are working with SOAP API the response might look something like this:
+When you are working with SOAP API, the response might look something like this:
 
 ```xml
 <?xml version="1.0"?>
@@ -195,7 +195,7 @@ soap:encodingStyle="http://www.w3.org/2003/05/soap-encoding">
 </soap:Envelope>
 ```
 
-You need to include also the namespace in the expression. In the above scenario, if you want to check the `Username` item, you have to write:
+You'll also need to include the namespace in the expression. In the above scenario, if you want to check the `Username` item, you have to write:
 
 ```js
 payload['soap:Body']['m:GetUserResponse']['m:Username']
