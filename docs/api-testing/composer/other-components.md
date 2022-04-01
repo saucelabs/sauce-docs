@@ -346,7 +346,7 @@ Let's take a look at how this workflow works in a practical setting. The first e
 1. First, we'll make a `GET` request to an endpoint.<br/><img src={useBaseUrl('img/api-fortress/2018/05/Screen-Shot-2018-05-24-at-1.21.40-PM.png')} alt="screenshot" />
 2. Next, we'll add a K/V Store component.<br/><img src={useBaseUrl('img/api-fortress/2018/05/component.png')} alt="component.png" width="400"/>
 3. This first K/V Store component (we're going to incorporate several) is going to set the Key/Value pair in the Store, so we're going to use **Set.**<br/><img src={useBaseUrl('img/api-fortress/2018/05/Screen-Shot-2018-05-24-at-1.46.41-PM.png')} alt="screenshot.png" width="500"/>
-4. In this case, we're setting the Key "prods" equal to `products\[0\].name`, which in this case evaluates to "Baseball Cap."
+4. In this case, we're setting the Key "prods" equal to `products[0].name`, which in this case evaluates to "Baseball Cap."
 5. Next, we're going to retrieve this Key/Value pair from the store with the **Load** method. In the K/V Store **Load** component, we're going to assign the retrieved value to the variable `kvprods.`<br/><img src={useBaseUrl('img/api-fortress/2018/05/Screen-Shot-2018-05-24-at-1.47.22-PM.png')} alt="screenshot.png" width="400"/>
 6. Finally, we'll add in a **Comment** component to ensure that the data was recovered successfully.<br/><img src={useBaseUrl('img/api-fortress/2018/05/Screen-Shot-2018-05-24-at-1.48.01-PM.png')} alt="screenshot.png" width="400"/>
 7. When we run the test, we're presented with the following result:<br/><img src={useBaseUrl('img/api-fortress/2018/05/Screen-Shot-2018-05-24-at-1.48.28-PM.png')} alt="screenshot.png" />
