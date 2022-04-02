@@ -598,6 +598,13 @@ Enables the interception of biometric input, allowing the test to simulate Touch
 Enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.
 
 ---
+### `networkCapture`
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">Android and iOS</span> | </small></p>
+
+Enables to capture the native app's HTTP/HTTPS API calls. For testing on the Real Device Cloud, the app gets instrumented. The output format of the results will be a .har file in the test results. 
+
+
+---
 ### `systemAlertsDelayEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
 
