@@ -82,7 +82,7 @@ To test a connector:
 <img src={useBaseUrl('img/api-testing/trigger-confirmation.png')} alt="Test Connectors dialog box"/>
 
 :::note
-To check the functionality of connectors like PagerDuty that trigger an incident upon failure, and then resolve that incident, you need to first test for **Failure** and then for **Success**.
+To check the functionality of connectors like PagerDuty that trigger an incident upon failure, and then resolve that incident with the following success, you need to first test for **Failure** and then for **Success**.
 :::
 
 
