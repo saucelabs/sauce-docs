@@ -46,7 +46,7 @@ html[data-theme='dark'] {
     --ifm-color-primary-dark: var(--ds-red-900);
     --ifm-font-color-base: var(--ds-white);
     --ifm-blockquote-color:  var(--ds-gray-100);
-    --ifm-code-background: var(--ds-gray-900);
+    --ifm-code-background: var(--ds-gray-700);
     --ifm-link-color: var(--ds-blue-200);
     --ifm-menu-color-active: var(--ds-blue-200);
     --ifm-alert-color:  var(--ds-gray-100) !important;
@@ -396,11 +396,12 @@ p {
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 html[data-theme='dark'] .card:hover {
-  box-shadow: 0 0px 4px 0 rgb(204 205 207);
+  border-top: 4px solid var(--ds-blue-700);
+  transition: none;
 }
 
 .container {
@@ -421,18 +422,19 @@ html[data-theme='dark'] .card:hover {
   color: var(--ds-gray-100);
   font-weight:750;
   padding:.2rem;
+  border-radius: 4px;
 }
 
 .sauceMint {
   background:#01c3a5;
-  color:var(--ds-gray-900)000;
+  color:var(--ds-gray-900);
   padding:.2rem;
   font-weight:750;
 }
 
 .sauceGold {
   background:#fbd741;
-  color:var(--ds-gray-900)000;
+  color:var(--ds-gray-900);
   padding:.2rem;
   font-weight:750;
 }
