@@ -13,6 +13,7 @@ const docusaurusConfig = {
   projectName: 'sauce-docs',
   scripts: [
     '/scripts/hide.js',
+    // Need Help? button
     {
       src: 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
       type: 'text/javascript',
