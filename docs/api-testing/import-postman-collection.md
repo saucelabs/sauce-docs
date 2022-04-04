@@ -13,16 +13,19 @@ If you have a [Postman API Collection](https://www.postman.com/collection/), you
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* A Postman Collection (v2.0 or higher).
 * An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
+* A Postman Collection (v2.0 or higher).
 
+:::note
+Looking to import from a spec file? See [Building a Test from a Spec File](/api-testing/build-from-spec/).
+:::
 
 ## Importing Postman Collections
 
 1. Log in to Sauce Labs, then click **API Testing**.
 2. Click to open one of your Projects.
 3. Click the __HTTP Client__ tab.<br/><img src={useBaseUrl('img/api-fortress/2021/01/HTTPClient.png')} alt="HTTP Client" width="400" />
-4. Click the **Import OpenAPI / Postman** button, then select and upload your Postman Collection file from your local machine.<br/><img src={useBaseUrl('img/api-fortress/2021/01/importSpec.png')} alt="Import OpenAPI / Postman button" width="250"/>
+4. Click the **Import OpenAPI/HAR/Postman** button, then select and upload your Postman Collection file from your local machine.<br/><img src={useBaseUrl('img/api-fortress/2021/01/importSpec.png')} alt="Import OpenAPI / Postman button" width="250"/>
 
 :::tip
 
