@@ -448,7 +448,7 @@ html[data-theme='dark'] .card:hover {
 
 .sauceLime {
   background:#98cb3c;
-  color:var(--ds-gray-900)000;
+  color:var(--ds-gray-900);
   padding:.2rem;
   font-weight:750;
 }
