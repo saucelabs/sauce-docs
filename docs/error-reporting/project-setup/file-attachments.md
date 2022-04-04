@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Backtrace allows the submission of file attachments along side crash and error reports to provide more context into a fault. There are various methods that can be used depending on how you are integrating your applications into Backtrace. This article will provide an overview of the supported ways to upload file attachments.
+Backtrace allows the submission of file attachments alongside crash and error reports to provide more context into a fault. There are various methods that can be used depending on how you are integrating your applications into Backtrace. This article will provide an overview of the supported ways to upload file attachments.
 
 ## HTTP Submission of Minidumps and File Attachments
 Backtrace provides a generic mechanism to accept crash reports and error submissions over HTTP(S). Most minidump generators have a built-in mechanism to upload minidumps and optional attachments to a specified HTTP(S) endpoint, but not all.
