@@ -83,7 +83,7 @@ In order to set up integration for webhook, you need an existing HTTP service wh
 ```
 
 ## Set Up the Integration
-To set up the integration, first go to the Project Settings page for the project you want to add a integration for:
+To set up the integration, first go to the **Project Settings** page for the project you want to add a integration for:
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />
 
