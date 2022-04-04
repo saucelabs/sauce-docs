@@ -23,7 +23,7 @@ To set up the integration, first go to the Project Settings page for the project
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />
 
-Then click Integrations in the left-hand menu, and the plus sign to create a new integration:
+Then click **Integrations** in the left-hand menu, and the plus sign to create a new integration:
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
 
