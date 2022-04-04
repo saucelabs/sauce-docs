@@ -58,11 +58,11 @@ The response should tell you that the file was attached to the specified object 
 ## Breakpad
 Breakpad is an open source library initially developed by Google for cross platform C/C++ crash reporting. It is a popular choice for Windows, Mac and Linux environments, including servers, desktop apps, and embedded devices. For customers who use Breakpad with Backtrace, you can leverage the library's `files` parameter to specify the set of file paths to be uploaded.
 
-```
-files["upload_file_minidump"] = descriptor.path();
-files["attachment_log"] = "/var/log/myApp.log";
-files["attachment_cpuinfo"] = "/proc/cpuinfo";
-```
+  ```cpp
+  files["upload_file_minidump"] = descriptor.path();
+  files["attachment_log"] = "/var/log/myApp.log";
+  files["attachment_cpuinfo"] = "/proc/cpuinfo";
+  ```
 
 See the [Breakpad Integration Guide](https://support.backtrace.io/hc/en-us/articles/360040106132-Breakpad-Integration-Guide) for more details on how to use the files parameter to upload attachments with your crash reports.
 
@@ -72,13 +72,14 @@ Crashpad is another open source library initially developed by Google as a succe
 To provide you with the ability to upload files, we have implemented a new handler to make file attachments just as simple as setting up any other piece of metadata to come alongside the crash.
 
 Here’s what it looks like:
-```
+
+```cpp
 bool StartHandlerForBacktrace(
-  const base::FilePath& handler,
-  const base::FilePath& database,
-  const base::FilePath& metrics_dir,
-  const std::string& url,
-  const std::map
+    const base::FilePath& handler,
+    const base::FilePath& database,
+    const base::FilePath& metrics_dir,
+    const std::string& url,
+    const std::map
 ```
 
 This new handler is very similar to StartHandler, with the addition of the file_attachments parameter. file_attachments is a map of attachment name ⟶ path, allowing convenient inclusion of file attachments (i.e. the log file) with the crash dump.
@@ -89,6 +90,7 @@ As we move forward, Backtrace plans to work with the upstream Crashpad team to i
 
 ## C# and Unity
 Backtrace supports crash and exception reporting from applications written in C# using our C# reporting library or Unity-Plugin. Using our [BacktraceReport](/error-reporting/platform-integrations/unity/configuration/#backtracereport) object, developers can specify a list of `attachmentPaths` to submit alongside the crash or exception report.
+
 ```csharp
 var report = new BacktraceReport(
   exception: exception,

@@ -91,10 +91,10 @@ Then click **Integrations** in the left-hand menu, and the plus sign to create a
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
 
-Select webhook and fill in the required settings (name and the webhook URL you generated in the step above).
+Select **webhook** and fill in the required settings (name and the webhook URL you generated in the step above).
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/webhook-setup.png')} alt="" />
 
-Important: although the authentication may be marked as optional depending on your environment, the authentication details MUST be provided. If your endpoint doesn't require any, just fill in any username/password. Your endpoint should ignore it.
+Important: Although the authentication may be marked as optional depending on your environment, the authentication details MUST be provided. If your endpoint doesn't require any, just fill in any username/password. Your endpoint should ignore it.
 
 Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.

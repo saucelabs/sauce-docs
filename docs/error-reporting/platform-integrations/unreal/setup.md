@@ -37,8 +37,8 @@ For on-premise (self-hosted) users, the integration for Unreal Engine requires s
 * A Backtrace project and a submission token.
 
 :::tip Generate a Submission Token
-   1. In the Backtrace Console, go to Project settings > Error submission > Submission tokens.
-   1. Select +.
+   1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
+   1. Select **+**.
 :::
 
 ### System Requirements
@@ -46,9 +46,9 @@ For on-premise (self-hosted) users, the integration for Unreal Engine requires s
 
 
 ## Enable the Crash Reporter
-1. In the Unreal Editor, go to Edit > Project Settings.
+1. In the Unreal Editor, go to **Edit > Project Settings**.
 1. In the Project Settings, search for "crash reporter".
-1. Under Packaging, enable Include Crash Reporter.
+1. Under **Packaging**, enable **Include Crash Reporter**.
 
   <img src={useBaseUrl('img/error-reporting/unreal-enable-crashreporter.png')} alt="Enable the Crash Reporter in the Unreal Editor." />
 
@@ -270,7 +270,7 @@ To crash your game when it starts, create a class called MyActor and reference a
 
 The header file (which has the .h extension) contains the class definitions and functions, while the implementation of the class is defined by the .cpp file. For example:
 - MyActor.h:
-    ```c++
+    ```cpp
     // Fill out your copyright notice in the Description page of Project Settings.
     ​
     #pragma once
@@ -304,7 +304,7 @@ The header file (which has the .h extension) contains the class definitions and 
     ```
 
 - MyActor.cpp:
-    ```c++
+    ```cpp
     // Fill out your copyright notice in the Description page of Project Settings.
     ​
     ​

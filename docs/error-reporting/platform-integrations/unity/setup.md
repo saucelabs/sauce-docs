@@ -43,8 +43,8 @@ Offline database capabilities are currently not supported for Nintendo Switch.
 * A Backtrace project and a submission token.
 
 :::tip Generate a Submission Token
-   1. In the Backtrace Console, go to Project settings > Error submission > Submission tokens.
-   1. Select +.
+   1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
+   1. Select **+**.
 :::
 
 ### System Requirements
@@ -91,7 +91,7 @@ For more information, see the installation steps on [OpenUPM](https://openupm.co
 
 1. Unzip the package and save it locally.
 
-1. In your Unity project, go to Window > Package Manager.
+1. In your Unity project, go to **Window > Package Manager**.
 
 1. Complete the steps in [Installing a package from a local folder](https://docs.unity3d.com/Manual/upm-ui-local.html) in the Unity Documentation.
 
@@ -103,7 +103,7 @@ This installation method is supported for Unity 2018.3 or higher.
 :::
 
 1. Clone the source project’s [Git URL](https://github.com/backtrace-labs/backtrace-unity.git).
-1. In your Unity project, go to Window > Package Manager.
+1. In your Unity project, go to **Window > Package Manager**.
 1. Complete the steps in [Installing from a Git URL](https://docs.unity3d.com/Manual/upm-ui-giturl.html) in the Unity Documentation.
 
 </TabItem>
@@ -118,19 +118,19 @@ You can add the Backtrace Client component to any GameObject in your game scene.
 Typically, the Backtrace Client component is added to a global GameManager or GameController object, given a descriptive name, and assigned a tag to identify it for scripting purposes.
 :::
 
-  1. In your Unity project, go to Assets > Backtrace > Configuration.
+  1. In your Unity project, go to **Assets > Backtrace > Configuration**.
 
   The Backtrace Configuration file is added to the root of your Assets folder.
 
-  1. Go to GameObject > Create Empty.
+  1. Go to **GameObject > Create Empty**.
 
   1. Enter a descriptive name for the new GameObject.
 
-  1. In the Inspector, select Add Component.
+  1. In the Inspector, select **Add Component**.
 
-  1. Search for “Backtrace”, then select Backtrace Client.
+  1. Search for “Backtrace”, then select **Backtrace Client**.
 
-  1. From the Assets folder, drag the Backtrace Configuration file to the Backtrace configuration field.
+  1. From the **Assets** folder, drag the Backtrace Configuration file to the Backtrace configuration field.
 
 Additional fields now display for the Backtrace client configuration and database configuration options.
 
@@ -141,16 +141,15 @@ For more information about the available configuration options, see [Configurati
 ## Configure the Server Address
 The server address is required to submit exceptions from your Unity project to your Backtrace instance.
 
-  1. In the Backtrace Console, go to Project Settings > Integration Guides > Unity.
+  1. In the Backtrace Console, go to **Project Settings > Integration Guides > Unity**.
 
-  1. Copy the Server Address.
+  1. Copy the server address.
 
   1. Go back to the Backtrace Configuration in your Unity project.
 
-  1. In the Server Address field, enter the server address in the following format: `https://submit.backtrace.io/{subdomain}/{submission-token}/json`.
+  1. In the **Server Address** field, enter the server address in the following format: `https://submit.backtrace.io/{subdomain}/{submission-token}/json`.
 
   Provide the name of your subdomain and a submission token.
-
 
 
 ## Verify the Setup
