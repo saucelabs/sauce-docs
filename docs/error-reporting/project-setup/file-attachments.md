@@ -27,7 +27,7 @@ curl -v -F "upload_file=@<Path_to_your_file>/test.json" -H "Accept: application/
 ```
 
 ### Attach a File to an Existing Crash Report
-For this method you will need the _rxid value assigned to a submitted crash report.  This value will be returned after a submitting a properly formatted request. The first curl command is the submission of the crash report. The second is the attachment of a file to the first.
+For this method, you will need the _rxid value assigned to a submitted crash report. This value will be returned after a submitting a properly formatted request. The first curl command is the submission of the crash report. The second is the attachment of a file to the first.
 1. {Path_to_your_file}: Location of file containing crash data to send.
 1. {universe}: First part of the URL used to access your Backtrace account.
 1. {error-token}: An error token for the project you want to submit crash data to.
