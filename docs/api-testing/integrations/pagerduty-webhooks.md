@@ -78,7 +78,7 @@ To test a connector:
 <img src={useBaseUrl('img/api-testing/test-connectors-nav.png')} alt="Test Connectors button"/>
 5. In the **Connectors Test Drive** window, select either the **Failure** or **Success** radio button, and then click **Trigger**.
   * Failure - You will receive a notification in all connector platforms in your list
-  * Success - If the **On_success** toggle is set to **Ture**, you will receive a notification for the connector
+  * Success - If the **On_success** toggle is set to **True**, you will receive a notification for the connector
 <img src={useBaseUrl('img/api-testing/trigger-confirmation.png')} alt="Test Connectors dialog box"/>
 
 :::note
