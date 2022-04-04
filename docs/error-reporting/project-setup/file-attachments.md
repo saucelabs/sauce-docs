@@ -53,7 +53,7 @@ A properly formatted upload submission should return a response like:
 {"response":"ok","_rxid":"ce000000-0000-0000-0000-000000000000","attachment_name": "test.json","attachment_id": "28","object":"ce"}
 ```
 
-The response should tell you that the file was attached to the specified object within your Backtrace project. You will still get the 200/ok response but the _rxid is going to look a bit different.  As there was not a crash submitted it will not send a new unique id. This time it is actually sending the id attribute/Error identifier within the debug view used to identify the specific crash report.
+The response should tell you that the file was attached to the specified object within your Backtrace project. You will still get the 200/ok response, but the _rxid is going to look a bit different. As there was not a crash submitted, it will not send a new unique id. This time it is actually sending the id attribute/Error identifier within the debug view used to identify the specific crash report.
 
 ## Breakpad
 Breakpad is an open source library initially developed by Google for cross platform C/C++ crash reporting. It is a popular choice for Windows, Mac and Linux environments, including servers, desktop apps, and embedded devices. For customers who use Breakpad with Backtrace, you can leverage the library's `files` parameter to specify the set of file paths to be uploaded.
