@@ -68,7 +68,7 @@ Like the PagerDuty Connector, setting up an outgoing webbook connector allows Sa
 See [Adding Incoming Webhooks](/api-testing/integrations/apifctl-cicd-integration/#adding-incoming-webhooks).
 
 ## Testing Connectors
-The Test Connectors feature tests the functionality of each connector as defined in its settings, but will not display any notifications on the dashboard. Testing a connector before executing it can minimize the time you spend creating connectors.
+The Test Connectors feature tests the functionality of all connectors you have set up (as defined in their settings), but will not display any notifications on the dashboard. Testing a connector before executing it can minimize the time you spend creating connectors.
 
 To test a connector:
 1. Log in to Sauce Labs > click **API Testing**.
