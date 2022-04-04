@@ -19,7 +19,7 @@ The steps in this process are:
 In OpsGenie, click Integrations in the left navbar and click "Add" on "API". Note the API Key - you will need this in the next step - then modify the API integration as necessary, and click Save Integration.
 
 ## Set Up the Integration
-To set up the integration, first go to the Project Settings page for the project you want to add a integration for:
+To set up the integration, first go to the **Project Settings** page for the project you want to add a integration for:
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />
 
@@ -27,7 +27,7 @@ Then click **Integrations** in the left-hand menu, and the plus sign to create a
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
 
-Select OpsGenie and fill in the required settings (name, recipients, teams, message, and API key).
+Select **OpsGenie** and fill in the required settings (name, recipients, teams, message, and API key).
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/opsgenie-settings.png')} alt="" />
 

@@ -29,7 +29,7 @@ Backtrace provides several facilities for scrubbing data of personally identifia
 
 Data scrubbers provide administrators the ability to remove sensitive data from minidump files submitted to Backtrace before they are committed to disk. Data contained in the dump such as register values, memory and crash attributes is scanned for patterns that may be indicative of personally identifiable information. Note that the data scrubbers will not remove binary data.
 
-`pmodules` allow `ptrace` users to develop plug-ins that perform analysis and scrubbing of core dumps client side, before they are submitted to the Backtrace servers.
+`pmodules` allow you to use `ptrace` to develop plug-ins that perform analysis and scrubbing of core dumps client-side before they are submitted to the Backtrace servers.
 
 Administrators can also configure dump and metadata retention policies that will allow data to be removed after a defined period of time.
 

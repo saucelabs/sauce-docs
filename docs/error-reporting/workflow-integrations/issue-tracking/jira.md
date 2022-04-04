@@ -17,7 +17,7 @@ Note that Backtrace can also support OAuth for users self hosting Jira. Please r
 This will involve creating an application link in Atlassian with a Backtrace provided public key, setting up an integration similar to the description below, and finally opening a link from a Backtrace initiated process to accept Backtrace's requested access.
 
 ## Set Up the Integration
-To set up the integration, navigate to the integration settings through Project Settings > Integrations > Issue Trackers > JIRA .
+To set up the integration, navigate to the integration settings through **Project Settings > Integrations > Issue Trackers > JIRA**.
 
 If you wish to enable one-way synchronization or two-way synchronization, this is available from the behavior tab during configuration. One-way synchronization synchronizes updates from Backtrace issues to JIRA, and two-way synchronization updates Backtrace issues when JIRA issues are updated.
 

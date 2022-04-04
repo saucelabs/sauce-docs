@@ -38,9 +38,9 @@ Offline database capabilities are currently not supported for Nintendo Switch.
 
 
 ## What You'll Need
- * A Backtrace account (if you don't already have one, start a [free trial](https://register.backtrace.io/signup/)).
- * Your subdomain name (used to connect to your Backtrace instance).
- * A Backtrace project and a submission token.
+* A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
+* Your subdomain name (used to connect to your Backtrace instance).
+* A Backtrace project and a submission token.
 
 :::tip Generate a Submission Token
    1. In the Backtrace Console, go to Project settings > Error submission > Submission tokens.

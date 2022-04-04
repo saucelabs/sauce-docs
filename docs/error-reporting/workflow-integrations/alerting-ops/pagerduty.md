@@ -27,15 +27,15 @@ Then in the Add an Integration screen, pick an Integration Name, select "Use our
 Once this is done, the API Service Integrations tab will list the new integration along with the Integration Key. You'll use this key as the service_key setting in the Coronerd Configuration below.
 
 ## Set Up the Integration
-To set up the integration, first go to the Project Settings page for the project you want to add a integration for:
+To set up the integration, first go to the **Project Settings** page for the project you want to add a integration for:
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />
 
-Then click Integrations in the left-hand menu, and the plus sign to create a new integration:
+Then click **Integrations** in the left-hand menu, and the plus sign to create a new integration:
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
 
-Select PagerDuty and fill in the required settings (name, service key, and alert subject).
+Select **PagerDuty** and fill in the required settings (name, service key, and alert subject).
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/pagerduty-settings.png')} alt="" />
 

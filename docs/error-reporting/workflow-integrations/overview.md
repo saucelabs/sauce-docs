@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Workflow integrations allows you to have Backtrace automatically notify and alert users through issue tracking systems, JIRA and more.
 
-To configure a workflow integration, select Project Settings from the drop-down menu in the menu in the top-right, select the Integrations tab on the left, then start using the wizard:
+To configure a workflow integration, select **Project Settings** from the menu at the top-right, select the **Integrations** tab on the left, then start using the wizard:
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/workflow-integrations.png')} alt="" />
 

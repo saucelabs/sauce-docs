@@ -21,7 +21,7 @@ To set up integration for Phabricator, you must generate an API token. To do thi
 You will use this token in the next step.
 
 ## Set Up the Integration
-To set up the integration, navigate to the integration settings through Project Settings > Integrations > Issue Trackers > Phabricator.
+To set up the integration, navigate to the integration settings through **Project Settings > Integrations > Issue Trackers > Phabricator**.
 
 For Phabricator, the required settings are the name, the endpoint URL, and the API token. For the endpoint URL, you should use your Phabricator URL with /api appended (e.g. https://your.phabricator.url/api).
 
