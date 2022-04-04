@@ -89,7 +89,7 @@ As we move forward, Backtrace plans to work with the upstream Crashpad team to i
 
 ## C# and Unity
 Backtrace supports crash and exception reporting from applications written in C# using our C# reporting library or Unity-Plugin. Using our [BacktraceReport](/error-reporting/platform-integrations/unity/configuration/#backtracereport) object, developers can specify a list of `attachmentPaths` to submit alongside the crash or exception report.
-```
+```csharp
 var report = new BacktraceReport(
   exception: exception,
   attributes: new Dictionary
