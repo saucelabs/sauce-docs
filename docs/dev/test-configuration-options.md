@@ -599,10 +599,9 @@ Enables the use of the app's private app container directory instead of the shar
 
 ---
 ### `networkCapture`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">Android and iOS</span> | </small></p>
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | </p>
 
-Enables to capture the native app's HTTP/HTTPS API calls. For testing on the Real Device Cloud, the app gets instrumented. The output format of the results will be a .har file in the test results. 
-
+Enables mobile app instrumentation (Android or iOS) and recording of HTTP/HTTPS network traffic for debugging purposes. API calls are collected into a HAR file, which you can view and download from your **Test Results** > **Network** tab console. The default value is `false`.
 
 ---
 ### `systemAlertsDelayEnabled`
