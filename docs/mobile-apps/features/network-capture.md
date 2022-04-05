@@ -6,7 +6,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Network Traffic Capture is a functionality that gives you the ability to record network traffic and HTTP/HTTPS request headers during your native Android and iOS/iPadOS mobile app app tests. This provides granular insight into your app’s behavior, facilitates debugging, and helps you determine which development team is responsible for application failure.
+Network Traffic Capture is a functionality that gives you the ability to record network traffic for HTTP/HTTPS requests during Android and iOS/iPadOS mobile app tests on real devices. This provides granular insight into your app’s behavior, facilitates debugging, and helps you determine which development team is responsible for application failure.
 
 With this feature, traffic is recorded on our side and exposes the HAR file through your test’s endpoint, producing HTTP traffic information to help you troubleshoot.
 
@@ -25,7 +25,7 @@ With this feature, traffic is recorded on our side and exposes the HAR file thro
 To enable network traffic capturing in your tests:
 
 1. On Sauce Labs, click **Live** > **Mobile App**.
-2. [Upload your mobile app to Sauce Labs](/mobile-apps/app-storage) through the UI or CLI.
+2. Upload your mobile app to Sauce Labs [through our UI](/mobile-apps/app-storage/#uploading-apps-via-ui) or [from your CLI](/mobile-apps/app-storage/#uploading-apps-via-rest-api).
 3. After you’ve uploaded your app, return to the **Live** > **Mobile App** page, hover your mouse over your app, then select **Settings**.<br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr.png')} alt="Mobile app settings navigation" width="600"/>
 4. Under **Default Settings**, toggle Instrumentation and Network Capture to enable the feature.<br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr2.png')} alt="Mobile app settings navigation" width="800"/>
 5. For Automated Testing only: add the networkCapture capability to your test script. Click the link below corresponding to your framework:
