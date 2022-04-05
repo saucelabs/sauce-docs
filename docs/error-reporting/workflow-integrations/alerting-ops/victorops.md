@@ -20,22 +20,18 @@ Within VictorOps, click settings on the upper-left, then Integrations on the nav
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/victorops-add-endpoint.png')} alt="" />
 
-Once this is done, you'll use the Post URL that appears as the url in the Coronerd Configuration below.
+Once this is done, you'll use the Post URL that appears as the URL in the configuration below.
 
 ## Set Up the Integration
-To set up the integration, first go to the Configuration page within the Web Console:
+To set up the integration, first go to the **Project Settings** page for the project you want to add a integration for:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/configure-org.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />
 
-Next, select the project you want to add a integration for:
+Then click **Integrations** in the left-hand menu, and the plus sign to create a new integration:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/projects.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
 
-Then click Integrations in the left-hand menu, then Create a New Integration on the right, and pick the integration:
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/legacy-add-integration.png')} alt="" />
-
-These are the settings that you can configure for your VictorOps integration:
+Select **VictorOps** and fill in the required settings (name, endpoint URL, and message type).
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/victorops-settings.png')} alt="" />
 
