@@ -34,9 +34,10 @@ To enable network traffic capturing in your tests:
 
 5. For Automated Testing only: add the networkCapture capability to your test script. Click the link below corresponding to your framework:
    
-   * [Espresso via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#network-capture) (coming soon)
-   * [XCUITest via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#network-capture) (coming soon)
-   * [Appium](/dev/test-configuration-options/#network-capture) 
+   * [Appium](/dev/test-configuration-options/#network-capture)
+   * Espresso via saucectl (coming soon)
+   * XCUITest via saucectl (coming soon)
+   
 
 Now you can start your live or automated testing session.Your network logs will be captured and displayed in the test results page. 
 
@@ -59,13 +60,13 @@ curl --compressed -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.s
    
 ### Viewing HAR Files
 
-You need a HAR viewer to read HAR files. Sauce Labs provides a [React Network Viewer](/opensource.saucelabs.com/network-viewer/) HAR viewer for your convenience. For step-by-step usage instructions, see our [Visualize HAR Files with the New React Network Viewer blog article](/opensource.saucelabs.com/blog/react_network_viewer/).
+You need a HAR viewer to read HAR files. Sauce Labs provides a [React Network Viewer](https://opensource.saucelabs.com/network-viewer/) HAR viewer for your convenience. For step-by-step usage instructions, see our [Visualize HAR Files with the New React Network Viewer blog article](https://opensource.saucelabs.com/blog/react_network_viewer/).
 
 Alternatively, some other commonly used HAR viewers include:
-* Chrome devtools builtin [HAR imports](/developer.chrome.com/blog/new-in-devtools-62/#har-imports)
-* Google Admin Toolbox [HAR Analyzer](/toolbox.googleapps.com/apps/har_analyzer/)
-* Software is Hard blog [HTTP Archive Viewer](/www.softwareishard.com/har/viewer/)
-* Firefox network monitoring builtin [HAR imports](/firefox-source-docs.mozilla.org/devtools-user/network_monitor/toolbar/index.html)
+* Chrome devtools builtin [HAR imports](https://developer.chrome.com/blog/new-in-devtools-62/#har-imports)
+* Google Admin Toolbox [HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/)
+* Software is Hard blog [HTTP Archive Viewer](http://www.softwareishard.com/har/viewer/)
+* Firefox network monitoring builtin [HAR imports](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/toolbar/index.html)
 
 ## HAR Files
 
