@@ -21,22 +21,19 @@ If you haven't already done so, create an Amazon SNS topic that will receive Bac
 Also remember to [Create Subscriptions](https://docs.aws.amazon.com/sns/latest/dg/sns-create-subscribe-endpoint-to-topic.html) to this topic.
 
 ## Set Up the Integration
-To set up the integration, first go to the Configuration page within the Web Console:
+To set up the integration, first go to the **Project Settings** page for the project you want to add a integration for:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/configure-org.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />
 
-Next, select the project you want to add a integration for:
+Then click **Integrations** in the left-hand menu, and the plus sign to create a new integration:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/projects.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
 
-Then click Integrations in the left-hand menu, then Create a New Integration on the right, and pick the integration:
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/legacy-add-integration.png')} alt="" />
-
-For Amazon SNS, the required settings are:
-- Topic Name
-- Access Key - Make sure this user has permission to publish to the provided SNS topic.
-- Secret Access Key
+Select **Amazon SNS** and fill in the required settings:
+- Integration name
+- Topic name
+- Access key (make sure this user has permission to publish to the provided SNS topic)
+- Secret access key
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/sns-settings.png')} alt="" />
 
