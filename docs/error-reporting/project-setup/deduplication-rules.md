@@ -9,21 +9,21 @@ import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Background
-Backtrace provides a programmable call stack based fingerprinting system, more commonly called our deduplication system. You can find more detailed information about our deduplication system here.
+Backtrace provides a programmable callstack based fingerprinting system, more commonly called our deduplication system. You can find more detailed information about our deduplication system here.
 
-In summary, this system allows Backtrace to group errors where root cause can be extrapolated from the contents of one or more faulting call stacks. A call stack may have differences for the same bug due to reasons like non-determinism, optimizations and recursion. To account for this, Backtrace built a programmable rules based system that can efficiently evaluate each frame in a call stack to decide if it needs removal or transformation to be normalized for more accurate grouping. We have developed a set of rules that are provided out of the box from common frameworks and platforms. (We call this the Backtrace Ruleset).
+In summary, this system allows Backtrace to group errors where root cause can be extrapolated from the contents of one or more faulting callstacks. A callstack may have differences for the same bug due to reasons like non-determinism, optimizations and recursion. To account for this, Backtrace built a programmable rules based system that can efficiently evaluate each frame in a callstack to decide if it needs removal or transformation to be normalized for more accurate grouping. We have developed a set of rules that are provided out of the box from common frameworks and platforms. (We call this the Backtrace Ruleset).
 
 ## Feature Overview
 Backtrace customers on the Enterprise plan can now easily add their own rulesets and rules to best fit their individual use cases and environments. Features include:
-- Manage rulesets for a project. A ruleset is evaluated for an incoming call stack to a specified project, and consists of a set of rules for evaluation and an optional language or OS that the rules apply to.
-- Manage rules in a ruleset: A rule consists of a reg-ex that can be evaluated on a given frame in a call stack, and a set of actions that should occur if the expression evaluates to true. The actions are extensive, including ability to rename functions, skip frames in current object file, ignore current frame, terminate after frame, add attribute to signature values, and more. The point is that you can create rules to normalize for various optimizations and code paths for a given call stack, optionally limiting to specific language or operating systems.
-- Test rulesets to preview actions they would take on an incoming call stack.
+- Manage rulesets for a project. A ruleset is evaluated for an incoming callstack to a specified project, and consists of a set of rules for evaluation and an optional language or OS that the rules apply to.
+- Manage rules in a ruleset: A rule consists of a reg-ex that can be evaluated on a given frame in a callstack, and a set of actions that should occur if the expression evaluates to true. The actions are extensive, including ability to rename functions, skip frames in current object file, ignore current frame, terminate after frame, add attribute to signature values, and more. The point is that you can create rules to normalize for various optimizations and code paths for a given callstack, optionally limiting to specific language or operating systems.
+- Test rulesets to preview actions they would take on an incoming callstack.
 
 ## Feature Details
 Deduplication rules can be access under Project Settings.
 
 ### Deduplication Settings for a Project
-Under Project Settings, you'll see a Deduplication section. This section will list for you the named rulesets that are associated with the project, in order of their execution. You will see a default and un-editable ruleset, called the Backtrace Ruleset. These are rules we automatically process for all incoming call stacks (Note you can't view or manage this - it's part of our secret sauce!). You can add and manage additional custom rulesets for the project. See a screenshot below for an out of the box view of project with no custom deduplication rules.
+Under Project Settings, you'll see a Deduplication section. This section will list for you the named rulesets that are associated with the project, in order of their execution. You will see a default and un-editable ruleset, called the Backtrace Ruleset. These are rules we automatically process for all incoming callstacks (Note you can't view or manage this - it's part of our secret sauce!). You can add and manage additional custom rulesets for the project. See a screenshot below for an out of the box view of project with no custom deduplication rules.
 
 <img src={useBaseUrl('img/error-reporting/project-settings/deduplication-config.png')} alt="" />
 

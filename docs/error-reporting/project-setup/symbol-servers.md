@@ -9,12 +9,12 @@ import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Background
-Debug symbols are needed when crashes are reported from binaries that have information such as function names and line numbers stripped away. Without debug symbols, Backtrace can't provide human-readable call stacks or deduplicate effectively. Backtrace offers customers the ability to upload their symbols directly to our systems, or to retrieve symbols from your managed private symbol server on demand.
+Debug symbols are needed when crashes are reported from binaries that have information such as function names and line numbers stripped away. Without debug symbols, Backtrace can't provide human-readable callstacks or deduplicate effectively. Backtrace offers customers the ability to upload their symbols directly to our systems, or to retrieve symbols from your managed private symbol server on demand.
 
 symbold is the name of the service in Backtrace that is responsible to gather symbols from connected symbol servers or stores (see this [guide from Microsoft](https://docs.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores) about setting up symbol servers and symbol stores). symbold scans the missing symbols logs, downloads those symbols from connected symbol servers, converts them into a variety of formats, and then reprocesses the set of objects referencing those missing symbols. symbold comes preconfigured by Backtrace to automatically download symbols from public 3rd party symbol servers of commonly used libraries such as those from Electron, Microsoft, and others. We refer to these as default public symbol servers. Backtrace also allows administrators to configure connections to their own private symbol servers to further speed debugging time and minimize setup effort.
 
 ## Feature Overview
-Customers on our Enterprise plan can manage whitelists and blacklists for the default public symbol servers, and can add their own private symbol servers to simplify configuration and speed up debugging time by making sure every call stack is human readable. Specific features we will review in this guide include:
+Customers on our Enterprise plan can manage whitelists and blacklists for the default public symbol servers, and can add their own private symbol servers to simplify configuration and speed up debugging time by making sure every callstack is human readable. Specific features we will review in this guide include:
 - View statistics and information about default public symbol servers configured by Backtrace, and manage whitelist / blacklists for them.
 - Add one or more private symbol servers for use by your project.
  -View statistics and usage of your private symbol servers.

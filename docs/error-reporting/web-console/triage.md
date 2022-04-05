@@ -30,7 +30,7 @@ We normally see engineering managers start with Open fingerprints so that they c
 For each fingerprint in the result list you can view and modify data:
 - View and modify the state from Open/In Progress to Resolved and Muted.
 - View the Fingerprint and hover to get actions to View the Details page or Open the Fingerprint in the Debugger.
-- View the head of the call stack and hover to get a few more lines.
+- View the head of the callstack and hover to get a few more lines.
 - View the number of occurrences and number of impacted hosts or users, and activity history.
 - View system applied tags (classifiers), and manage custom tags.
 - View and manage assignees and linked tickets.
