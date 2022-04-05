@@ -21,19 +21,15 @@ To set up integration for Gitter, you must generate a token. While logged into G
 You will use this token in the next step.
 
 ## Set Up the Integration
-To set up the integration, first go to the Configuration page within the Web Console:
+To set up the integration, first go to the **Project Settings** page for the project you want to add a integration for:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/configure-org.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />
 
-Next, select the project you want to add a integration for:
+Then click **Integrations** in the left-hand menu, and the plus sign to create a new integration:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/projects.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
 
-Then click Integrations in the left-hand menu, then Create a New Integration on the right, and pick the integration:
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/legacy-add-integration.png')} alt="" />
-
-For Gitter, the required settings are the personal access token and the name of the room.
+Select **Gitter** and fill in the required settings (name, token, and room name).
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/gitter-settings.png')} alt="" />
 
