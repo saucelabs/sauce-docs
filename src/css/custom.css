@@ -584,12 +584,21 @@ html[data-theme='dark'] .card:hover {
 }
 
 .DocSearch-Button {
-  /*display: inline-block!important;*/
-  /*margin-right: 0px!important;*/
-  width: 150px;
-  /*text-align: left;*/
-  /*position: absolute;*/
+  width: 16rem;
 }
+
+/* Overrides navbar searchbar styles */
+.navbar__items .DocSearch-Button {
+    /* background: var(--ds-blue-700); */
+    border-radius: 30px;
+    color: var(--ds-gray-600);
+    border: 1px solid var(--ds-blue-700)
+}
+
+.navbar__items .DocSearch-Button .DocSearch-Search-Icon {
+    color: var(--ds-blue-700);
+}
+
 .DocSearch-Button-Key {
   display: none!important;
 }
@@ -836,7 +845,6 @@ table.code td:last-child {
 
 .DocSearch-Button-Placeholder {
   position: relative;
-  top: -3px;
 }
 ul.dropdown__menu {
   max-height: 400px;
