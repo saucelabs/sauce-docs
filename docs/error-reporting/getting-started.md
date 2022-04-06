@@ -9,7 +9,7 @@ Capture crash and error reports from your games and mobile apps with Backtrace.
 ## Set Up Your Project
 <div className="box box1 card">
   <div className="container">
-  <h2>Platform Integrations</h2>
+  <h3>Platform Integrations</h3>
   <p>Integrate Backtrace in your games and apps across languages and platforms with our crash and error reporting libraries.</p>
   <ul>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040515611-Android-Integration-Guide">Android</a></li>
@@ -46,7 +46,7 @@ Capture crash and error reports from your games and mobile apps with Backtrace.
 ## View and Analyze Crash and Error Data
 <div className="box box1 card">
   <div className="container">
-  <h2>Web Console Views</h2>
+  <h3>Web Console Views</h3>
   <p>View and analyze crash and error data in the web console so you can triage, prioritize, and resolve each error.</p>
   <ul>
     <li><a href="/error-reporting/web-console/getting-started/">Getting Started</a></li>
