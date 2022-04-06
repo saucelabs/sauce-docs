@@ -31,9 +31,9 @@ But what's more interesting on this page is the list of Actions. These are lists
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/common-actions.png')} alt="" />
 
 - Include hostname in attributes (1): Check if you would like the see the hostname includes in your errors' attribute list.
-- Remove action button (2): Removes this action from the list
-- Add action button (3): Adds an action to the list
-- Submit (4): Proceed to the next page
+- Remove action button (2): Removes this action from the list.
+- Add action button (3): Adds an action to the list.
+- Submit (4): Proceed to the next page.
 - Action: Specifies to submit or filter out the event if certain criteria are met, or to trigger a mention to a particular user. (e.g. @username on a chat service). If more than one submit/filter action is specified, then the last successful match on the list (from top down) takes effect.
 - Attribute: Test against this custom attribute to determine if the action is taken.
 - Regular Expression: Test the attribute against this regular expression.
@@ -58,7 +58,7 @@ Attributes you wish to match against must be defined in the Attributes section o
 ### Event/Frequency/Threshold
 After you click Submit, the UI presents you with the following options:
 - Name: Unique Name for the Integration
-- Event: "Group" to receive events only when a new Group is created. "Trace" to receive events on each error
+- Event: "Group" to receive events only when a new Group is created. "Trace" to receive events on each error.
 - Frequency: This is the minimum amount of time the system will wait before firing the next event.
 - Threshold: An event will be fired when this number of events has aggregated, regardless of frequency.
 

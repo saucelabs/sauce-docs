@@ -147,7 +147,7 @@ If you’d like more information or assistance reprocessing objects, reach out t
 #### Locating Missing Symbols
 The first step in locating missing symbol files is to determine the name of the symbol file and its debug identifier. There are two ways to do this via the Debugger UI:
 
-1. When viewing an error that's missing symbols, Backtrace will add a Missing Symbols branch to the Annotations section at the lower part of the screen. When you expand an entry number, you can see the path to the corresponding executable, the name of the symbol file, the debug identifier, the exe or module (shown as "path"), and version information:
+1. When viewing an error that's missing symbols, Backtrace will add a Missing Symbols branch to the Global annotations section at the lower part of the screen. When you expand an entry number, you can see the path to the corresponding executable, the name of the symbol file, the debug identifier, the exe or module (shown as "path"), and version information:
 
   <img src={useBaseUrl('img/error-reporting/project-settings/symbols-annotations.png')} alt="" />
 
