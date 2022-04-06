@@ -1008,12 +1008,31 @@ ul.dropdown__menu li a:hover {
     width: 100%;
     margin: 16px 8px 8px 0;
   }
+  /* Overrides navbar searchbar styles */
+  .DocSearch-Button {
+    width: 3rem;
+  }
+
+
   html[data-theme='dark'] .navbar-sidebar {
     background-color: var(--ifm-code-background);
   }
 }
+
+/* For small mobile*/
+@media only screen and (max-width: 340px) {
+  /* Overrides navbar searchbar styles */
+  .DocSearch-Button {
+    width: 2.5rem;
+  }
+}
+
 /* For mobile (landscape) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /* Overrides navbar searchbar styles */
+  .DocSearch-Button {
+    width: 12rem;
+  }
   html[data-theme='dark'] .navbar-sidebar {
     background-color: var(--ifm-code-background);
   }
