@@ -23,7 +23,7 @@ Keep in mind that these are guidelines. Most environments have their own workloa
 
 ### Sauce Connect v4.8.x
 
-<p><small><span className="sauceGold">Coming Soon</span></small></p>
+<p><small><span className="sauceGold">Beta</span></small></p>
 
 <table>
   <tr>
@@ -39,21 +39,21 @@ Keep in mind that these are guidelines. Most environments have their own workloa
   <tr>
    <td>Linux
    </td>
-   <td>Ubuntu 18.04 or newer
-        <p>Debian 9 or newer</p>
-        <p>CentOS/RHEL-7 or newer</p>
-        <p>SUSE Linux Enterprise 15.0 and newer</p>
+   <td>Ubuntu 18.04 or higher
+        <p>Debian 9 or higher</p>
+        <p>CentOS/RHEL-7 or higher</p>
+        <p>SUSE Linux Enterprise 15.0 and higher</p>
    </td>
    <td>x86_6
        <p>arm64</p>
    </td>
-   <td>Unsupported OSes may still be able to run Sauce Connect, but they are not tested for versions v4.8.x and higher.
+   <td>Unsupported OSes may still be able to run Sauce Connect, but they've not been tested for versions 4.8.x and higher.
    </td>
   </tr>
   <tr>
    <td>macOS
    </td>
-   <td>OS X 10.15 (Catalina) and newer
+   <td>macOS 10.15 (Catalina) and higher
    </td>
    <td>x86_64
    </td>
@@ -63,7 +63,7 @@ Keep in mind that these are guidelines. Most environments have their own workloa
   <tr>
    <td>Windows
    </td>
-   <td>Windows 10 and newer
+   <td>Windows 10 and higher
    </td>
    <td>x86
    </td>
@@ -94,20 +94,20 @@ Enable your Mac to allow apps from the App Store and identified developers.
   <tr>
    <td>Linux
    </td>
-   <td>Ubuntu 14.04 or newer
-        <p>Debian 8 or newer</p>
-        <p>CentOS/RHEL-6 or newer</p>
-        <p>SUSE Linux Enterprise 12.0 and newer</p>
+   <td>Ubuntu 14.04 or higher
+        <p>Debian 8 or higher</p>
+        <p>CentOS/RHEL-6 or higher</p>
+        <p>SUSE Linux Enterprise 12.0 and higher</p>
    </td>
    <td>x86_64
    </td>
-   <td>Unsupported OSes may still be able to run SauceConnect but they are not tested for Sauce Connect Proxy v4.7.x and newer. Ended support for 32b.
+   <td>Unsupported OSes may still be able to run Sauce Connect, but they've not been tested for versions 4.7.x and higher. Support has been ended for 32b.
    </td>
   </tr>
   <tr>
    <td>macOS
    </td>
-   <td>OS X 10.11 (El Capitan) and newer
+   <td>OS X 10.11 (El Capitan) and higher
    </td>
    <td>x86_64
    </td>
@@ -117,7 +117,7 @@ Enable your Mac to allow apps from the App Store and identified developers.
   <tr>
    <td>Windows
    </td>
-   <td>Windows 7 and newer
+   <td>Windows 7 and higher
    </td>
    <td>x86
    </td>
@@ -144,20 +144,20 @@ Enable your Mac to allow apps from the App Store and identified developers.
   <tr>
    <td>Linux
    </td>
-   <td>Ubuntu 14.04 or newer
-        <p>Debian 7 or newer</p>
-        <p>RedHat EL-6 and newer</p>
+   <td>Ubuntu 14.04 or higher
+        <p>Debian 7 or higher</p>
+        <p>RedHat EL-6 and higher</p>
    </td>
    <td>x86_64
        <p>x86</p>
    </td>
-   <td>Unsupported OSes may still be able to run SauceConnect but they are not tested for Sauce Connect Proxy v4.6.x and newer.
+   <td>Unsupported OSes may still be able to run Sauce Connect, but they've not been tested for versions 4.6.x and higher.
    </td>
   </tr>
   <tr>
    <td>macOS
    </td>
-   <td>OS X 10.6 (Snow Leopard) or newer
+   <td>OS X 10.6 (Snow Leopard) or higher
    </td>
    <td>x86_64
    </td>
@@ -167,7 +167,7 @@ Enable your Mac to allow apps from the App Store and identified developers.
   <tr>
    <td>Windows
    </td>
-   <td>Windows 7 and newer
+   <td>Windows 7 and higher
    </td>
    <td>x86
    </td>
