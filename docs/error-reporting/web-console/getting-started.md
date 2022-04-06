@@ -10,10 +10,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Getting Around
 There are 4 key navigational components to help you analyze your crash and error data:
-- Project Selector - Use this to switch between various projects that are reporting crashes or errors.
+- Project selector - Use this to switch between various projects that are reporting crashes or errors.
 - Filters - Define your working set. Specify time frames and additional criteria to indicate which errors and fingerprints to analyze.
-- Saved Views - Commonly used filters for quick access and sharing for the selected project. Admin users can save team default view for a given project, and users can further personalize their views with a user default.
-- Tools and Results List - Triage, Explore, and Debug allow you to prioritize, analyze, and debug your crashes.
+- Saved views - Commonly used filters for quick access and sharing for the selected project. Admin users can save team default view for a given project, and users can further personalize their views with a user default.
+- Tools and results list - Triage, Explore, and Debug allow you to prioritize, analyze, and debug your crashes.
 
 <img src={useBaseUrl('img/error-reporting/console-views/getting-around.png')} alt="Getting around in the web console views." />
 
@@ -41,17 +41,17 @@ Aggregation Filters allows you to apply an additional filter on the results base
 - "Show me crashes that have impacted at most 1 unique scene in the game, so we can hone in on specific scene impacting issues"
 
 ## Tools and Result Lists
-After defining your working set, choose a tool to view and manage the Result List. We'll view the Result List in the context of the triage tool here.
+After defining your working set, choose a tool to view and manage the result list. We'll view the result list in the context of the triage tool here.
 
 <img src={useBaseUrl('img/error-reporting/console-views/triage-results-list.png')} alt="Shows the Triage view." />
 
-The Result List will vary depending on which tool you are in. We'll use the Triage tool Result list in the examples below, but make sure to discover the different capabilities offered in Explore and Debug as well.
+The result list will vary depending on which tool you are in. We'll use the Triage tool result list in the examples below, but make sure to discover the different capabilities offered in Explore and Debug as well.
 
 <img src={useBaseUrl('img/error-reporting/console-views/triage-actions.png')} alt="Shows actions that you can take in the Triage view." />
 
-First, at the top of the Result List, you'll see some informational text that tells you how many issues are being displayed and how many in total there are. This gives you a view of how many additional crashes or errors that are identified outside the filter window.
+First, at the top of the result list, you'll see some informational text that tells you how many issues are being displayed and how many in total there are. This gives you a view of how many additional crashes or errors that are identified outside the filter window.
 
-Depending on which tool you are in, you have additional ways to manipulate the Result List and continue your exploration of Error data:
+Depending on which tool you are in, you have additional ways to manipulate the result list and continue your exploration of error data:
 - In the [Triage](/error-reporting/web-console/triage) tool, you will see errors grouped by Fingerprint. You have various actions available to support resolving the Fingerprint, and you have the ability to open a Details view for the Fingerprint to offer more introspection into the aggregate information about the Fingerprint.
 - In the [Explore](/error-reporting/web-console/explore) tool, you will be able to choose which attributes to Group By, allowing for more more robust exploration of your error data. Users will commonly group by UserID (See impact by user), Host or Device ID (See impact to each host), OS Version (Identify issues encountered after an OS patch), or any custom attributes useful for their application.
 - In the [Debug](/error-reporting/web-console/debug) tool, you will be able to navigate through all individual errors that are returned based on the filter conditions. This allows you to iterate through a group of similar errors to identify additional trends or commonalities.

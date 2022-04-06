@@ -46,7 +46,7 @@ html[data-theme='dark'] {
     --ifm-color-primary-dark: var(--ds-red-900);
     --ifm-font-color-base: var(--ds-white);
     --ifm-blockquote-color:  var(--ds-gray-100);
-    --ifm-code-background: var(--ds-gray-900);
+    --ifm-code-background: var(--ds-gray-700);
     --ifm-link-color: var(--ds-blue-200);
     --ifm-menu-color-active: var(--ds-blue-200);
     --ifm-alert-color:  var(--ds-gray-100) !important;
@@ -396,11 +396,12 @@ p {
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 html[data-theme='dark'] .card:hover {
-  box-shadow: 0 0px 4px 0 rgb(204 205 207);
+  border-top: 4px solid var(--ds-blue-700);
+  transition: none;
 }
 
 .container {
@@ -421,18 +422,19 @@ html[data-theme='dark'] .card:hover {
   color: var(--ds-gray-100);
   font-weight:750;
   padding:.2rem;
+  border-radius: 4px;
 }
 
 .sauceMint {
   background:#01c3a5;
-  color:var(--ds-gray-900)000;
+  color:var(--ds-gray-900);
   padding:.2rem;
   font-weight:750;
 }
 
 .sauceGold {
   background:#fbd741;
-  color:var(--ds-gray-900)000;
+  color:var(--ds-gray-900);
   padding:.2rem;
   font-weight:750;
 }
@@ -446,7 +448,7 @@ html[data-theme='dark'] .card:hover {
 
 .sauceLime {
   background:#98cb3c;
-  color:var(--ds-gray-900)000;
+  color:var(--ds-gray-900);
   padding:.2rem;
   font-weight:750;
 }
@@ -582,12 +584,21 @@ html[data-theme='dark'] .card:hover {
 }
 
 .DocSearch-Button {
-  /*display: inline-block!important;*/
-  /*margin-right: 0px!important;*/
-  width: 150px;
-  /*text-align: left;*/
-  /*position: absolute;*/
+  width: 16rem;
 }
+
+/* Overrides navbar searchbar styles */
+.navbar__items .DocSearch-Button {
+    /* background: var(--ds-blue-700); */
+    border-radius: 30px;
+    color: var(--ds-gray-600);
+    border: 1px solid var(--ds-blue-700)
+}
+
+.navbar__items .DocSearch-Button .DocSearch-Search-Icon {
+    color: var(--ds-blue-700);
+}
+
 .DocSearch-Button-Key {
   display: none!important;
 }
@@ -834,7 +845,6 @@ table.code td:last-child {
 
 .DocSearch-Button-Placeholder {
   position: relative;
-  top: -3px;
 }
 ul.dropdown__menu {
   max-height: 400px;
@@ -998,26 +1008,57 @@ ul.dropdown__menu li a:hover {
     width: 100%;
     margin: 16px 8px 8px 0;
   }
+  /* Overrides navbar searchbar styles */
+  .DocSearch-Button {
+    width: 3rem;
+  }
 
 
+  html[data-theme='dark'] .navbar-sidebar {
+    background-color: var(--ifm-code-background);
+  }
 }
+
+/* For small mobile*/
+@media only screen and (max-width: 340px) {
+  /* Overrides navbar searchbar styles */
+  .DocSearch-Button {
+    width: 2.5rem;
+  }
+}
+
 /* For mobile (landscape) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /* Overrides navbar searchbar styles */
+  .DocSearch-Button {
+    width: 12rem;
+  }
+  html[data-theme='dark'] .navbar-sidebar {
+    background-color: var(--ifm-code-background);
+  }
 
 }
 /* For tablet */
 @media only screen and (min-width: 768px) and (max-width: 979px) {
-
+  html[data-theme='dark'] .navbar-sidebar {
+    background-color: var(--ifm-code-background);
+  }
 }
 /* For small desktop */
 @media only screen and (min-width: 980px) and (max-width: 1023px) {
-
+  html[data-theme='dark'] .navbar-sidebar {
+    background-color: var(--ifm-code-background);
+  }
 }
 /* For typical desktop */
 @media only screen and (min-width: 1024px) and (max-width: 1199px) {
-
+  html[data-theme='dark'] .navbar-sidebar {
+    background-color: var(--ifm-code-background);
+  }
 }
 /* For large desktop */
 @media only screen and (min-width: 1200px) {
-
+  html[data-theme='dark'] .navbar-sidebar {
+    background-color: var(--ifm-code-background);
+  }
 }
