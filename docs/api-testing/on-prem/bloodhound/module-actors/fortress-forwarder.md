@@ -4,6 +4,12 @@ title: "Bloodhound: Fortress Forwarder Module"
 sidebar_label: Fortress Forwarder
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 Actors to serialize API conversations and send them using HTTP calls. Two formats are supported.
 
 ## Sidecars
@@ -37,7 +43,7 @@ receives it
 Forwarder settings:
 
 * `url`: the URL to POST the serialized conversation to
-* `headers`: a key/value map of request headers to be added to the outbound request 
+* `headers`: a key/value map of request headers to be added to the outbound request
 
 ### `FortressLiveTestingActor`
 
@@ -50,5 +56,4 @@ Serializes the API **response** using the legacy API Fortress live testing forma
 **config:**
 
 * `url`: the URL to submit the request to. The string will be evaluated if the `#msg` keyword is present.
-* `params`: e key/value map of extra parameters to be sent to the receiving end 
-
+* `params`: e key/value map of extra parameters to be sent to the receiving end

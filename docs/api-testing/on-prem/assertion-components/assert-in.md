@@ -1,9 +1,15 @@
 ---
 id: assert-in
 title: Assert In
-sidebar_label: Assert In 
+sidebar_label: Assert In
 description: "This assertion is used to check if the element described by the expression matches at least one item from a given list. For example, the category of a product is one of the approved categories such as men, women, or children."
 ---
+
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 This assertion is used to check if the element described by the expression matches at least one item from a given list. For example, the category of a product is one of the approved categories such as men, women, or children.
 
@@ -21,7 +27,7 @@ This assertion is used to check if the element described by the expression match
 | Stop test if fails | 'true' or 'false' | No |
 | Comment | String | No |
 
-* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
+* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Value__: The value we want to compare the expression to.
 * __Type__: The data type of the value. This attribute is optional. If no type is defined the values will be compared as strings. If the type is set the values will evaluated with the chosen comparator (ex: ‘integer’ as a whole number, ‘float’ as a decimal number).
 * __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.
@@ -32,7 +38,7 @@ This assertion is used to check if the element described by the expression match
 * __Comment__: Add comment messages in the form of a string data type.
 
 :::note
-A **warning** will not trigger alerts (such as email or text messages). 
+A **warning** will not trigger alerts (such as email or text messages).
 :::
 
 ## Code View Examples

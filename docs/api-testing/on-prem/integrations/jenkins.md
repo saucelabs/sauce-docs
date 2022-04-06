@@ -11,6 +11,12 @@ keywords:
     - enterprise
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The following procedure will allow you to integrate API Fortress test results into your qTest instance. By passing JUnit test data through Jenkins and into qTest, your API Fortress test results can be visible in the same space as the rest of your tests.
@@ -78,4 +84,3 @@ Enter the URL of your qTest instance and your [qTest – Jenkins API Key](https:
 From now on, every time you click “Build Now” with this test, the results will be exported to the qTest Project of your choice automatically.
 
 <img src={useBaseUrl('img/api-fortress/2018/04/manager_APIFortress.png')} alt="manager_APIFortress.png"/>
-

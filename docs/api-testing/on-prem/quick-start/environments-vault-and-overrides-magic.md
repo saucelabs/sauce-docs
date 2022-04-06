@@ -5,6 +5,12 @@ sidebar_label: "Environments, Vault, and Variable Overrides"
 description: "Gain a wide range of options to mix and match your test settings with our latest “Environments” features."
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 ## Overview
 
 Gain a wide range of options to mix and match your test settings with our latest “Environments” features. Explore our variable containers from the lowest to the highest priority:
@@ -47,7 +53,7 @@ domain: ${staging_domain}
 
 If run without environment selection or overrides, the test will hit the production domain. If run with the staging environment, the test will hit the staging domain. The Environments will not know the actual domain, therefore the actual data management will happen within the Vault.
 
-**Known Issue**: The double evaluation will not work on query params. As a workaround, in the test before performing the call, introduce a `SET` component to resolve the variable as in: 
+**Known Issue**: The double evaluation will not work on query params. As a workaround, in the test before performing the call, introduce a `SET` component to resolve the variable as in:
 
 ```
 <set var=”apikey” value=”${apikey}”/>

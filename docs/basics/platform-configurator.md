@@ -13,7 +13,7 @@ Note that Selenium includes options for iOS, Android, and desktop devices, while
 3. Select the **Operating System** you want to test against.
 4. For Selenium tests, select the **Browser** you want to test against. For Appium tests, select the type of test you want to run:
    * Web Testing: Use this option if you want to use a mobile or desktop browser to test a website
-   * Hybrid Testing: Use this option if you want to test a mobile client that is used to access an HTML-based site or application. If you choose this option, you will be prompted to provide the path to the client application that you want to test in [Application Storage](/mobile-apps/app-storage) or another location.
-   * App Testing: Use this option if you want to test a native mobile application. If you choose this option, you will be prompted to provide the path to the client application that you want to test in [Application Storage](/mobile-apps/app-storage) or another location.
+   * Hybrid Testing: Use this option if you want to test a mobile client that is used to access an HTML-based site or app. If you choose this option, you will be prompted to provide the path to the client app that you want to test in [App Storage](/mobile-apps/app-storage) or another location.
+   * App Testing: Use this option if you want to test a native mobile app. If you choose this option, you will be prompted to provide the path to the client app that you want to test in [App Storage](/mobile-apps/app-storage) or another location.
 5. Under **Advanced Configurations**, the options to capture screenshots and record video are set by default. Clear these options of you don't want screenshots or video of your test. You can also specify the **Resolution** for your test.
 6. Under **Copy Code**, select the scripting language you prefer, and you'll see the capabilities you've selected in the correct format and syntax for your language. Copy the code into your test script and you're ready to run!

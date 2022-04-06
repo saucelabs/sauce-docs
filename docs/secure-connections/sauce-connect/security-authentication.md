@@ -8,12 +8,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Network Security
-Sauce Connect Proxy establishes a secure connection between your applications hosted on an internal server and the Sauce Labs VMs or real devices used during your tests.
+Sauce Connect Proxy establishes a secure connection between your apps hosted on an internal server and the Sauce Labs VMs or real devices used during your tests.
 
-Data transmitted by Sauce Connect Proxy is encrypted through the TLS protocol, which uses perfect forward secrecy for maximum security. Sauce Connect Proxy also uses a caching web proxy to minimize data transfer. You can disable this with the command line option `-N (--no-proxy-caching)`.
+Data transmitted by Sauce Connect Proxy is encrypted through the TLS protocol, which uses perfect forward secrecy for maximum security.
 
 ### Running in a Demilitarized Zone (DMZ)
-Within your infrastructure, Sauce Connect Proxy must be able to reach the application or server you want to test via your network, but can and should be firewalled from the rest of your internal network.
+Within your infrastructure, Sauce Connect Proxy must be able to reach the app or server you want to test via your network, but can and should be firewalled from the rest of your internal network.
 
 We recommend running Sauce Connect Proxy in a firewalled DMZ on a dedicated machine and setting up firewall rules to restrict access from that DMZ to your internal network. Use caution when locating and configuring Sauce Connect in a DMZ.
 
@@ -23,7 +23,7 @@ For more information, see [DMZ (computing)](https://en.wikipedia.org/wiki/DMZ_(c
 There are several ways to secure Sauce Connect Proxy in your network. With our recommended configuration, firewall rules are set so that Sauce Connect Proxy has only one point of access to the customer's internal network &#8212; through a single HTTP proxy &#8212; and all inbound traffic will be relayed. You'll have a secure setup with fine-grained access control and complete logging.
 
 ### Recommended Configuration
-The [sc client program](/secure-connections/sauce-connect/installation/#download-latest-version) establishes a TLS connection (tunnel connection) to a dedicated tunnel endpoint server hosted in the Sauce Labs cloud. During test sessions, browsers and mobile apps use this tunnel endpoint as an HTTP proxy. HTTP requests are multiplexed and relayed back through the tunnel connection to the sc client program, which proxies these HTTP requests, providing access to the Application Under Test within your network.
+The [sc client program](/secure-connections/sauce-connect/installation/#download-latest-version) establishes a TLS connection (tunnel connection) to a dedicated tunnel endpoint server hosted in the Sauce Labs cloud. During test sessions, browsers and mobile apps use this tunnel endpoint as an HTTP proxy. HTTP requests are multiplexed and relayed back through the tunnel connection to the sc client program, which proxies these HTTP requests, providing access to the App Under Test within your network.
 
 There are two options to control and monitor the access sc has to your network: firewall rules and proxy settings. In our recommended configuration, both are used.
 
@@ -58,7 +58,7 @@ Benefits to this configuration:
 * Single point of entry for requests relayed through Sauce Connect Proxy to access the customer network
 * Layer 3 access restricted to a single proxy
 * Fine-grained access control at the HTTP level
-* Only the Application Under Test is exposed to requests originating from Sauce Labs
+* Only the App Under Test is exposed to requests originating from Sauce Labs
 * Complete logging of access
 * Easy monitoring with Intrusion Detection Systems
 
@@ -139,20 +139,20 @@ Sauce Connect Proxy versions 4.6.0+ will default to the public certificate.
 ## SSL Certificate Bumping
 Self-signed and invalid SSL certificates, commonly used in test environments, are not trusted by stock browsers, such as those installed on the Sauce Labs infrastructure. This causes tests to be interrupted with security warnings that can't be dismissed by Selenium. As a workaround, we've created a fix called SSL Bumping, whereby Sauce Connect automatically re-signs these certificates. This is enabled by default when you download Sauce Connect.
 
-During the course of testing, SSL Bumping executes a type of "man-in-the-middle" interception of encrypted test traffic, decrypting it. Traffic is encrypted using the Selenium Project’s CyberVillains certificate, which is inherently trusted by the Selenium server on the Sauce Labs virtual machine where your test is running. This lets you avoid SSL error pop-ups that could disrupt your test execution.
+During the course of testing, SSL Bumping executes a type of "man-in-the-middle" interception of encrypted test traffic, decrypting it. Traffic is encrypted using certificates signed by Sauce Labs (issued by “Sauce Labs Tunnel Proxy”), which are inherently trusted by the Selenium server on the Sauce Labs VM where your test is running. This lets you avoid SSL error pop-ups that could disrupt your test execution.
 
 There are simply too many different certificates for Sauce Labs to add each one. We'd have to add a certificate to every requested browser for every user with a self-signed certificate. This can't always be done automatically, so every new client would have to wait for Sauce Labs staff to re-create all of our images before they could run their tests.
 
 ### Using SSL Bumping and How It Works
 The solution, known as SSL Bumping, works like this:
 
-1. When Sauce Labs creates VMs, an SSL certificate called CyberVillains is installed and controlled from the Sauce Labs side.
+1. When Sauce Labs creates VMs, an SSL certificate issued by “Sauce Labs Tunnel Proxy” is installed and controlled from the Sauce Labs side.
 2. When needed, the Sauce Labs browser requests resources from the Sauce Connect Proxy server.
 3. Sauce Connect Proxy server passes that request to the Sauce Connect Proxy client, running on your side. All SSL internet traffic between the Sauce Connect Proxy client (on your network) and the Sauce Connect Proxy server (inside our network) is encrypted twice: once by the original server and again by Sauce ConnectProxy.
 4. Sauce Connect Proxy client fetches the resource and returns it through the encrypted connection, back to the Sauce Connect Proxy server.
 5. Sauce Connect Proxy server decrypts the traffic. If it's SSL traffic, the Sauce Connect Proxy server decrypts it again.
-6. Sauce Connect Proxy re-encrypts SSL traffic using the CyberVillains certificate and returns it to the browser. Re-encryption only occurs once the traffic is safely received by the Sauce Labs network. SSL Bumping impacts only the traffic being returned to the browser through Sauce Connect Proxy.
-7. Browser trusts the CyberVillains certificate and accepts the traffic.
+6. Sauce Connect Proxy re-encrypts SSL traffic using the “Sauce Labs Tunnel Proxy” certificate and returns it to the browser. Re-encryption only occurs once the traffic is safely received by the Sauce Labs network. SSL Bumping impacts only the traffic being returned to the browser through Sauce Connect Proxy.
+7. Browser trusts the “Sauce Labs Tunnel Proxy” certificate and accepts the traffic.
 
 Throughout the process, traffic going through Sauce Connect Proxy is fully secure. Sauce Connect Proxy isn't an attacker; it is only in use by your tests and isn't sending secret traffic to any unauthorized party. No security holes are opened into your network.
 

@@ -33,7 +33,7 @@ Appium 1.6.0 will default to using `automationName: XCUITest` for iOS 10.x tests
 
 Our devices are real, physical devices. They are standard, commercially available devices and not modified or rooted. We use virtual networking computer (VNC) to transmit mouse and keyboard events on the devices. The VNC server on the devices relays back the content of the screen of the devices in real time.
 
-#### **What aware the top device lists by country, and how reliable are they?**
+#### **What are the top device lists by country, and how reliable are they?**
 
 The top lists indicate the ten most common devices by country. We gather information from an external provider who analyses mobile web traffic data from thousands of websites worldwide. The lists are generally reliable, but by using the "web traffic" metric for device distribution numbers, high-end devices and tablets might be overrepresented. Older and low-cost devices often have a smaller screen and a poorer performance, and are less used for surfing the web than top devices. This is why the  "web-traffic" metric might underrepresent the overall distribution of these devices.
 
@@ -86,7 +86,11 @@ It is of great importance for us to make sure that no other user can have access
 
 #### **Do you support SSO (Single Sign-On)?**
 
-Yes. We support OAuth login via LinkedIn, Google and GitHub.
+Yes. We support OAuth login via Google and GitHub.
+
+#### **Are your devices jailbroken?**
+
+No. We do not offer jailbroken or rooted devices.
 
 
 ### Automated Testing
@@ -115,9 +119,9 @@ You'll need to export your app as an .ipa file for Ad Hoc Deployment as describe
 You can upload your .ipa manually to create a project, then upload subsequent versions either manually or through our REST API, as described in [Uploading Your App to Real Device Storage with the REST API](/mobile-apps/app-storage).
 
 
-#### **Can I upload multiple .apk files for testing?**
+#### **Can I upload multiple .apk or .aab files for testing?**
 
-Yes. You can upload more than one .apk using the “dependency app” functionality.
+Yes. You can upload more than one .apk or .aab using the “dependency app” functionality.
 
 
 #### **Can I choose different browsers on a device?**

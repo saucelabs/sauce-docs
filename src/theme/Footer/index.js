@@ -31,7 +31,7 @@ function Footer() {
                                         >
                                             <source
                                                 sizes="(max-width: 380px) 380px, (max-width: 460px) 460px"
-                                                srcset="
+                                                srcSet="
                         /img/logo-saucelabs-inverted.png?fm=webp&amp;w=380 380w,
                         /img/logo-saucelabs-inverted.png?fm=webp&amp;w=460 460w
                         "
@@ -39,7 +39,7 @@ function Footer() {
                                             <img
                                                 sizes="(max-width: 380px) 380px, (max-width: 460px) 460px"
                                                 src="/images/logo-saucelabs-inverted.png?w=460"
-                                                srcset="
+                                                srcSet="
                         /img/logo-saucelabs-inverted.png?w=380 380w,
                         /img/logo-saucelabs-inverted.png?w=460 460w
                         "
@@ -573,7 +573,7 @@ function Footer() {
                     <div className="footer-columns">
                         <div className="footer-column">
                             <div className="copyright">
-                                © 2021 Sauce Labs Inc., all rights reserved. SAUCE and SAUCE LABS are
+                                © 2022 Sauce Labs Inc., all rights reserved. SAUCE and SAUCE LABS are
                                 registered trademarks owned by Sauce Labs Inc. in the United States,
                                 EU, and may be registered in other jurisdictions.
                             </div>

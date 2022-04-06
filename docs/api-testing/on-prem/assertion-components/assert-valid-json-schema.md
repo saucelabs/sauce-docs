@@ -5,6 +5,12 @@ sidebar_label: Assert Valid JSON Schema
 description: "This assertion is used to validate a JSON schema, based on the provided schema definition."
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 ## Parameters
 
 | **Name** | **Type/Value** | **Required** |
@@ -13,7 +19,7 @@ description: "This assertion is used to validate a JSON schema, based on the pro
 | JsonSchema | JSON schema definition | Yes |
 | Comment | String | No |
 
-* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](https://apifortress.com/doc/expression/) for more details.
+* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](https://apifortress.com/doc/expression/) for more details.
 * __JsonSchema__: The JSON schema definition. This will be used to validate the JSON passed in the expression field. See below for an example.
 * __Comment__: Add comment messages in the form of a string data type.
 

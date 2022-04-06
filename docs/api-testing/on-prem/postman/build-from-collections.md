@@ -8,8 +8,13 @@ keywords:
     - collections
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 API Fortress can now generate a test from a Postman collection!
 
@@ -51,9 +56,9 @@ When the call is in the console, click the _Send_ button and you will see the re
 
 <img src={useBaseUrl('img/api-fortress/2017/04/Screen-Shot-2018-03-30-at-11.46.57-AM.png')} alt="screenshot.png" />
 
-At this point, the _Magic_ tool can generate the test for you. Click the "Generate Test" button, highlighted in the image below. 
+At this point, the _Magic_ tool can generate the test for you. Click the "Generate Test" button, highlighted in the image below.
 
-Click _Continue_ a few times and voila, a complete API test generated without having to write any code. 
+Click _Continue_ a few times and voila, a complete API test generated without having to write any code.
 
 <img src={useBaseUrl('img/api-fortress/2017/04/Screen-Shot-2018-03-30-at-11.43.58-AM.png')} alt="screenshot.png" />
 

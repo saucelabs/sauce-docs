@@ -8,50 +8,51 @@ keywords:
     - dynamic-dates
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Have you ever needed to pass a future date as part of the request inside of a test? Perhaps as a check-in or check-out date? You could enter it as static value, but that means you would have to periodically update the date as time went on. 
+Have you ever needed to pass a future date as part of the request inside of a test? Perhaps as a check-in or check-out date? You could enter it as static value, but that means you would have to periodically update the date as time went on.
 
 Creating a dynamic date in API Fortress is a simple solution for this sort of situation.
 
 Here's the procedure:
 
-1. First, open the Composer and add a **Set (variable)** 
-   
+1. First, open the Composer and add a **Set (variable)**:<br/>
    <img src={useBaseUrl('img/api-fortress/2018/04/setVar.jpg')} alt="setVar.jpg"/>
+2. In the Variable component editor, enter the following:
+    * **Var** field: enter your variable name.
+    * **Variable mode** field: leave it as `_String`.
+    * **Value** field: enter the following string: `${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD')}`.
+    <img src={useBaseUrl('img/api-fortress/2018/04/valueField.jpg')} alt="valueField.jpg"/>
 
-2. Then, enter the variable name and leave the mode as _String 
-   
-   <img src={useBaseUrl('img/api-fortress/2018/04/varComp.jpg')} alt="varComp.jpg"/>
 
-3. Lastly, enter the following string in the **Value** field:
-   
-   ```js 
-   ${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-dd')}
-   ```
-      
-   <img src={useBaseUrl('img/api-fortress/2018/04/valueField.jpg')} alt="valueField.jpg"/>
+Let's analyze the string mentioned above:
+```js
+${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD')}
+```
+* `D.nowMillis()`: returns the current Unix epoch in milliseconds
+* `D.plusDays()`: returns the provided milliseconds, plus the provided number of days (in our example, we have added 35 days to today's date)
+* `D.format()`: creates a timestamp with the given format, using the current timezone (in our example `yyyy-MM-DD`)
 
-   Let's analyse what this string means:
+As result, you will have something like `2018-05-15`.
 
-   * `D.nowMillis()`: returns the current Unix epoch in milliseconds 
-   * `D.plusDays()`: returns the provided milliseconds, plus the provided number of days (in our example, we have added 35 days to today's date)
-   * `D.format()`: creates a timestamp with the given format, using the current timezone (in our example `yyyy-MM-dd`)
-   
-   As result, you will have something like `2018-05-15`
-
-You can obtain a past date, starting from today's date with the following string: 
+You can obtain a past date, starting from today's date with the following string:
 
 ```js
-${D.format(D.minusDays(D.nowMillis(),35), 'yyyy-MM-dd')}
+${D.format(D.minusDays(D.nowMillis(),35), 'yyyy-MM-DD')}
 ```
 
-You can also create a date based on a specified timezone: 
+You can also create a date based on a specified time zone:
 
 ```js
-${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-dd','America/New_York')} 
+${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD','America/New_York')}
 ```
 
 The above string create the same date as our first example using New York (EST) as the timezone.
 
-For more details about you can check our [reference page](https://apifortress.com/doc/expression-language-extensions/)
+For more details, see our [reference page](https://apifortress.com/doc/expression-language-extensions).

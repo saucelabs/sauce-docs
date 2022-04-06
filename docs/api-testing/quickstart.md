@@ -1,146 +1,112 @@
 ---
 id: quickstart
-title: Create Your First Test
+title: Sauce Labs API Testing Quickstart
 sidebar_label: Quickstart
-description: Learn how to quickly generate a test in API Fortress. By using the payload from an API call or from a specification file.
+description: Learn how to quickly generate an API test using the payload from an API call or from a specification file.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This page is a quickstart guide for getting up and running with our API Fortress tool.
+As the number of APIs communicating with microservices in apps continues to increase, many bugs cannot be captured by UI testing alone. Our API Testing and Monitoring solution combines automated testing, reporting, debugging, diagnostics, and immediate data-driven insight in a centralized platform.
 
-Below, we walk through how to quickly create a test using an e-commerce API. Let's get started!
+Running a functional test on an API takes seconds and will display a pass/fail status as well as the cause(s) for any failures, such as a broken endpoint, API flow, or a bug in the app itself. You can then reuse functional tests as end-to-end monitoring tests that run continuously, thereby maintaining accurate and reliable feedback loops. And by developing APIs in parallel with your testing, you can accelerate working and improve quality throughout development, staging, and production.
+
+This Quickstart guide will get you up and running with a functional API Test. Let's get started!
+
 
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* If your APIs are behind a firewall, see [Sauce Connect Proxy](/secure-connections/sauce-connect/).
 
-
-## Step 1: Create a Project
-
-1. Log in to Sauce Labs, then click **API TESTING** > **Get Started**. This will bring you to the API Testing dashboard.
-2. Click the **Create Project** tab or button.
-
-  <img src={useBaseUrl('img/api-fortress/2021/01/createProject.png')} alt="Create a Project UI"/>
-
-3. Enter your project details in the **New Project** window.
-  <img src={useBaseUrl('img/api-fortress/2021/01/newProject.png')} alt="New Project Window"/>
-
-4. Click **Save** when you're finished.
-
-
-## Step 2: Create a Test
-
-1. After you create and name your project, click the **Create Test** button.
-
-  <img src={useBaseUrl('img/api-fortress/2021/01/createTest.png')} alt="Create a Test button"/>
-
-2. Enter the details about your test and click **Save**.
-
-  <img src={useBaseUrl('img/api-fortress/2021/01/createTest2.png')} alt="Enter Test Details"/>
-
-3. Once you've finished creating your test, you should see the __Test Composer__ page.
-
-  <img src={useBaseUrl('img/api-fortress/2021/01/testComposerPage.png')} alt="Test Composer Page"/>
-
-From here, there are two avenues that you can take to build a test:
-
-* Use the _Visual Test Composer_
-* Use the _Live Code View_
-
-For the purposes of this quickstart guide, the next page walks through how to use the _Visual Test Composer_ view.
-
-:::tip
-To build tests using spec file(s), [Build from Spec](/api-testing/on-prem/quick-start/build-from-spec).
+:::note
+If your APIs are behind a firewall, you'll need to set up a [Sauce Connect Proxy](/secure-connections/sauce-connect/) tunnel before proceeding.
 :::
 
-## Step 3: Add Test Components
 
-The next step is to add the necessary test components when combined act as our test logic. Generally, there are two types of test components in API Fortress:
+## Create Project
 
-* Request (I/O) Component
-* Assertion Component
+1. Log in to Sauce Labs, then click **API Testing**.
 
-:::note Full Component List
-Visit the [I/O Components](/api-testing/on-prem/io-components) and [Assertion Components](/api-testing/on-prem/assertion-components/assert-compares) sections for more details and descriptions of each test component.
+2. From the list of test creation methods, click **Use HTTP Client**.<br/><img src={useBaseUrl('img/api-fortress/2021/01/newtestHTTP.png')} alt="Enter API URL" width="550" />
+
+:::note Returning Users
+If you're seeing an existing list of Projects instead of the landing page shown above, click **Create Project** instead.<br/><img src={useBaseUrl('img/api-fortress/2021/01/createProject.png')} alt="Create Project" width="450" />
+
 :::
 
-For now, create a simple `GET` request and validate that response is correct.
+3. In the **Create a New Project** window:
+   * Set the **Create from** dropdown to **blank project**.
+   * Enter your **Project Name**.
+   * Optionally, you can add **Tags**, a **Description**, **Notes**. For the purpose of this Quickstart, leave **Access** as-is.
+   * Click **Save** when you're finished. <br/><img src={useBaseUrl('img/api-fortress/2021/01/newProject.png')} alt="Create a Project UI" width="300" />
 
 
-### Request Component
+## Create Test
 
-1. Select the **+ Add Request / Assertions** button.
+For the purpose of this Quickstart, we'll test a `GET` call from [Dog CEO](https://dog.ceo/dog-api/documentation/), a public API that generates a list of dog breeds.
 
-  <img src={useBaseUrl('img/api-fortress/2021/01/addRequest.png')} alt="Add Request Component"/>
-
-2. Select the `GET` request component.
-
-  <img src={useBaseUrl('img/api-fortress/2021/01/getRequest.png')} alt="GET request Component"/>
-
-3. Edit the following details:
-   * In the **Url** field, input `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions`. This URL will return a `json` response body.
-   * In the **Variable** field, input `payload`. This variable stores the response.
-
-    <img src={useBaseUrl('img/api-fortress/2021/01/getFields.png')} alt="GET request fields"/>
-
-4. Leave the rest of the fields blank and click _Save_.
-
-This is what the end result will look like:
-  <img src={useBaseUrl('img/api-fortress/2021/01/getRequestEndResult.png')} alt="GET request end result"/>
+In the **HTTP Client** tab > **Enter request URL** field, enter `https://dog.ceo/api/breeds/list/all`:
+<img src={useBaseUrl('img/api-fortress/2021/01/enterRequestURL.png')} alt="Enter API URL" width="500" />
 
 
-### Assertion Component
+## Send Request
 
-1. Select the **+ Add Request / Assertions** button.
-  <img src={useBaseUrl('img/api-fortress/2021/01/addRequest.png')} alt="Add Request Component" width="600" />
+Click **Send** to submit this HTTP request.<br/><img src={useBaseUrl('img/api-fortress/2021/01/enterRequestSave.png')} alt="Enter API Request save" width="500" />
 
-2. Select the `Assert Exists` assertion component.
-  <img src={useBaseUrl('img/api-fortress/2021/01/assertExists.png')} alt="Assert Exists Component"/>
-
-3. Edit the following details:
-   * Expression: `payload.downloads` - This expression checks for the field `"downloads"` in the `json` response body.
-  <img src={useBaseUrl('img/api-fortress/2021/01/assertDetails.png')} alt="Assert Exists Details"/>
-
-4. Leave the rest of the fields blank and select _Save_.
+The JSON response &#8212; in this case, a list of dog breeds &#8212; will populate in the **Body** section along with a **200** OK success status.<br/><img src={useBaseUrl('img/api-fortress/2021/01/testSuccess.png')} alt="API Request success" width="400" />
 
 
-## Step 4: Run the Test
+## Generate Test
 
-1. Before you run the test, select the **Save** icon <img src={useBaseUrl('img/api-fortress/2021/01/save.png')} alt="save icon"/> at the top of the Composer.
+1. Click **Generate Test**.<br/><img src={useBaseUrl('img/api-fortress/2021/01/generateTest.png')} alt="Generate Test"  width="400" />
 
-2. Then select the **Run** icon <img src={useBaseUrl('img/api-fortress/2021/01/run.png')} alt="run test icon"/> directly next to the Save icon.
+2. In the **New Test** window:
+   * Enter your **Test Name**.
+   * Optionally, you can add a **Description** and/or **Tags**.
+   * Click **Create Test** when you're finished.<br/><img src={useBaseUrl('img/api-fortress/2021/01/testDetails.png')} alt="Create Test" width="400"/>
 
-<img src={useBaseUrl('img/api-fortress/2021/01/composerToolbar.png')} alt="Test Composer Tool Bar"/>
+  This will generate a series of functional tests for this specific API request.
+  :::tip
+  <details><summary>Viewing your test data</summary>
 
-All test runs appear to the right of the Composer, underneath the test details and environment sections.
-<img src={useBaseUrl('img/api-fortress/2021/01/testRuns.png')} alt="Test Runs Section" />
+  **Visual** view shows your test as components:<br/><img src={useBaseUrl('img/api-fortress/2021/02/testVisual.png')} alt="Sample Test Visual View"/>
 
+  **Code** view displays it as code:<br/><img src={useBaseUrl('img/api-fortress/2021/02/testCode.png')} alt="Sample Test Code View"/>
+  </details>
+  :::
 
-### Viewing Test Results
+## Run Test
 
-After the test completes, click on the test run and the test results page should appear. This page displays information regarding the test.
+1. Click the **Run** button to run your test.<br/><img src={useBaseUrl('img/api-fortress/2021/01/runTest.png')} alt="Run Test" width="550"/>
 
-**Test Outcome Report**: Session details such as _Date_, _Mode_, and _Execution Time_.
-
-**Event Details**: Details about the input data, and other useful test information such as:
-
-* Did the test pass or fail?
-* Reasons for failure
-* HTTP request and response status codes
-* Assertion details
-  <img src={useBaseUrl('img/api-fortress/2021/01/testResultsPage.png')} alt="Test Results Page" />
+1. In the right-hand nav, under **Test Runs**, you'll see that a new line item has populated with the name of your test. If successful, you'll see a green checkmark indicator and **Completed with success** message.<br/><img src={useBaseUrl('img/api-fortress/2021/01/testRuns.png')} alt="Test Runs Section" width="300" />
 
 
-## More Information
+## View Test Results
 
-At this stage, this test is only a draft. You should take a moment to verify each object, and/or add more logic to it. API Fortress has a lot of tools that allow for comprehensive continuous integration testing.
+1. To view your test results, hover your mouse over your test line item and click **Open report document**.<br/><img src={useBaseUrl('img/api-fortress/2021/01/testResultsOpen.png')} alt="Open Test Results" width="200" />
 
-Below are some topics worth exploration:
+1. Your test report will open in a new browser tab. The report displays granular test information that's helpful for debugging any failures ([more info](/api-testing/project-dashboard/#test-outcome-reports)).<br/><img src={useBaseUrl('img/api-fortress/2021/01/testResultsPage.png')} alt="Test Results Page" width="600" />
 
-* Check out the [Example Snippets](/api-testing/on-prem/quick-start/using-the-example-snippets) provided by the API Fortress Dashboard.
-* Learn how to [import Postman Collections](/api-testing/on-prem/quick-start/importing-postman-collections
-  ) so that you may generate more tests.
-* Learn how to schedule a test [here](/api-testing/on-prem/quick-start/schedule-a-test).  
-* Learn about data and notifications connectors [here](/api-testing/on-prem/quick-start/setup-connectors). Simple solutions to plug into the systems you use today (e.g DataDog or New Relic).
+
+## Publish Your Test
+
+Our API Testing interface has a unique working copy/published copy workflow that allows you to edit a test without affecting the active (already published) version. Here's how to publish the working copy of your test.
+
+1. Once you've finish reviewing and/or editing your test, navigate to the **Unpublished changes** section, where it states that your test is currently unpublished.<br/><img src={useBaseUrl('img/api-fortress/2021/02/unpublished.png')} alt="Unpublished Test" width="200" />
+
+2. Hover your mouse over the section to reveal the **Clear** and **Publish** buttons.<br/><img src={useBaseUrl('img/api-fortress/2021/02/publishButton.png')} alt="Publish Test Button" width="200"/>
+
+3. Click the **Publish** button to publish your working copy.<br/><img src={useBaseUrl('img/api-fortress/2021/02/published.png')} alt="Published Test" width="200"/>
+
+
+## Optional Next Steps
+
+Sauce Labs API Testing has a full suite of tools that enables comprehensive continuous integration testing.
+
+* Set up a [recurring test schedule](/api-testing/schedule-test) so that you can monitor the health of your APIs.
+* Go back to your test's **Compose** tab and [add logic/components](/api-testing/composer/).
+* Create a new test from a [spec file](/api-testing/build-from-spec) or [Postman collection](/api-testing/import-postman-collection).
+   * When you [generate a test](#generate-test) this way, the test components will be based on your imported request-and-response data.
+* Create a new test [from scratch](/api-testing/composer/).
+* Watch our [API Testing and Monitoring](https://saucelabs.com/resources/videos/api-testing-and-monitoring-demo)

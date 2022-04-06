@@ -503,7 +503,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/ec92ec2e200d40b8a75a4f6c06e2226f/stop' | json_pp
+--request PUT 'https://api.eu-central-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/ec92ec2e200d40b8a75a4f6c06e2226f/stop' | json_pp
 ```
 
 </TabItem>
@@ -1024,7 +1024,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;/assets/screenshots.zip</code></summary>
 <p/>
 
-Retrieves all of the screenshot files for the specified job and downloads them as a single ZIP file. Use the `--output <filepath>` cURL flag, as shown in the request samples, to download to a local directory. 
+Retrieves all of the screenshot files for the specified job and downloads them as a single ZIP file. Use the `--output <filepath>` cURL flag, as shown in the request samples, to download to a local directory.
 
 #### Parameters
 
@@ -1231,7 +1231,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 <p><span className="sauceGold">DEPRECATED</span></p>
 
-Builds are now available to both RDC and VDC jobs. Please see the new [Builds API](/dev/api/builds) for endpoints that incorporate this enhancement.
+Builds are now available to both RDC and VDC jobs. See the new [Builds API](/dev/api/builds) for endpoints that incorporate this enhancement.
 
 
 ### Get Builds

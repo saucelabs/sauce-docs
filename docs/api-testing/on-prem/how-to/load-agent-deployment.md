@@ -8,6 +8,12 @@ keywords:
     - load-agent
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 A Load Agent is a server instance that provides the simulated users in a load test. Load Testing cannot function without at least one Load Agent.
@@ -39,11 +45,11 @@ Open the `docker-compose.yml` in the main API Fortress directory. It can be loca
 
    ```
 2. In the _links_ section of the #APIFORTRESS DASHBOARD configuration, add the following line:
-   
+
    ```yaml
    - apifortress-node:node.apifortress
    ```
-   
+
 3. Save and close the `docker-compose.yml`.
 4. Open the `start_all.sh` file in a code editor. It is also located in `/core/bin`.
 5. Copy and paste the following and overwrite the entire contents of the file:
@@ -94,7 +100,7 @@ Large numbers of simulated users will require large amounts of hardware resource
 3. Next, we need to provide the API Key and Secret.
     - Open the main API Fortress dashboard and click the gear icon in the upper right corner to access the settings menu
     - Click the "_API Keys_" option in the left sidebar.
-    - Click "_+API Key"_ 
+    - Click "_+API Key"_
 
 <img src={useBaseUrl('img/api-fortress/2018/06/CreateAPIKey-1024x640.gif')} alt="CreateAPI.gif" />
 

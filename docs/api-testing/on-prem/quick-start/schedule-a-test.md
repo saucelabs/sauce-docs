@@ -5,6 +5,12 @@ sidebar_label: Schedule a Test
 description: "Introduction In API Fortress, it is simple to schedule a test to run as often as you’d like, from any location you choose (based on account type), and with granular control as to when it runs. Let’s take a look at how it works. Step 1: Publish the Working Copy API Fortress has a unique."
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Introduction
@@ -13,9 +19,9 @@ In API Fortress, it is simple to schedule a test to run as often as you’d like
 
 ### Step 1: Publish the Working Copy
 
-API Fortress has a unique working copy/published copy system. This system allows you to edit a test without affecting the live, currently active version. You can learn more about it [here](/api-testing/on-prem/learn-more/the-working-copy-published-tests). 
+API Fortress has a unique working copy/published copy system. This system allows you to edit a test without affecting the live, currently active version. You can learn more about it [here](/api-testing/on-prem/learn-more/the-working-copy-published-tests).
 
-Step 1 is to publish your working copy. After you finish editing your Working Copy, click the "Publish" button (highlighted below). An individual test should also execute its own I/O operations (`GET`, `POST`, `PUT`, `DELETE`). 
+Step 1 is to publish your working copy. After you finish editing your Working Copy, click the "Publish" button (highlighted below). An individual test should also execute its own I/O operations (`GET`, `POST`, `PUT`, `DELETE`).
 
 <img src={useBaseUrl('img/api-fortress/2020/02/Publish.jpg')} alt="Publish a Test"/>
 
@@ -31,7 +37,7 @@ Or from the Test List page:
 
 ### Step 3: Create a New Schedule
 
-Click **+ Create New Run** on the left side of the screen to create a new scheduled run of your test. 
+Click **+ Create New Run** on the left side of the screen to create a new scheduled run of your test.
 
 <img src={useBaseUrl('img/api-fortress/2018/03/schedulerTopPage.jpg')} alt="Scheduler Top Page"/>
 
@@ -39,7 +45,7 @@ Click **+ Create New Run** on the left side of the screen to create a new schedu
 
 **Name** – This is how you will identify your scheduled test in the future. We recommend sticking to the “Test Name – Schedule” convention. For example, a good name would be: “Test 1 – Every 10 Minutes.”
 
-**Pause Toggle** - This will prevent the run from triggering if clicked. 
+**Pause Toggle** - This will prevent the run from triggering if clicked.
 
 **Try Second Execution Toggle  ** - When this checkbox is selected, another execution will run after 2m 30s if the initial execution fails.
 
@@ -61,11 +67,11 @@ At the top of the page:
 
 <img src={useBaseUrl('img/api-fortress/2018/03/schedulerGlobal.jpg')} alt="Global Scheduler"/>
 
-**Test** (drop down): This is a list of all available tests for scheduling (all of the tests that are published). You can switch from one test schedule to another without exiting the scheduler page. The first item is the Global Scheduler option. See below for more details. 
+**Test** (drop down): This is a list of all available tests for scheduling (all of the tests that are published). You can switch from one test schedule to another without exiting the scheduler page. The first item is the Global Scheduler option. See below for more details.
 
-**Pause All/Run All:** These buttons allow you to pause all or run all the scheduled runs with a single click. 
+**Pause All/Run All:** These buttons allow you to pause all or run all the scheduled runs with a single click.
 
-**Delete Run:** Removes a run from the scheduler. 
+**Delete Run:** Removes a run from the scheduler.
 
 **Save Run:** While API Fortress will automatically save working copies, we recommend that you click Save to manually save the run.
 
@@ -79,10 +85,9 @@ Unlike the scheduler for a single test, the Global Scheduler includes an additio
 <img src={useBaseUrl('img/api-fortress/2018/03/globalSection.jpg')} alt="Global Selection"/>
 
 :::note
-The key/value pairs inserted in the overrides section at the bottom of the page will be used for **all** of the selected tests. If you need to add values for an individual test out of the collectively scheduled tests, you must add them for the single test. To do so, you have to first save the scheduled run. 
+The key/value pairs inserted in the overrides section at the bottom of the page will be used for **all** of the selected tests. If you need to add values for an individual test out of the collectively scheduled tests, you must add them for the single test. To do so, you have to first save the scheduled run.
 :::
 
 Once you save the schedule, the icon highlighted below appears next to each individual test—you can add override values by clicking on this icon.
 
 <img src={useBaseUrl('img/api-fortress/2018/03/overrideGlobal.jpg')} alt="Override Global Selection"/>
-

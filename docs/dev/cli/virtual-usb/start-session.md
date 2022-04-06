@@ -4,24 +4,137 @@ title: "Virtual USB CLI: Start Test Session"
 sidebar_label: Start Session
 ---
 
-The [`startSession`](/mobile-apps/features/virtual-usb#start-test-session) command provides the server with your credentials and the name of the device you want to connect to, then launches a brand new live test session via the command line. This is one of two ways to start a Virtual USB test; the other is to [connect to an existing session](/dev/cli/virtual-usb/connect-session).
+### Description
 
-## Required
+[Launch a Virtual USB (vUSB) session](/mobile-apps/features/virtual-usb#start-test-session) between your local machine and a Sauce Labs device. Alternatively, you can [connect to an existing vUSB session](/dev/cli/virtual-usb/connect-session).
 
----
-### `--username`
-__Description__: your Sauce Labs username.
+## Usage
 
----
-### `--accessKey`
-__Description__: your Sauce Labs access key for authentication.
+<span className="cli">$ &lt;main class&gt; [OPTIONS] startSession [OPTIONS]</span>
 
----
-### `--deviceName`
-__Description__: the name of the private device that you want to use for testing.
 
-```java title="Basic Example (required flags only)"
-java -jar virtual-usb-client.jar startSession --username john.smith --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxxxxxxx --deviceName iPhone_XS
+## Options Details
+
+### <span className="cli">--username </span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED | STRING |</small></p>
+
+A valid Sauce Labs user account. You can find your username on the Sauce Labs [User Settings page](https://app.saucelabs.com/user-settings). This option supports environment variable values.
+
+</div>
+
+### <span className="cli">--accessKey</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED | STRING |</small></p>
+
+The authentication access key associated with your Sauce Labs user account. You can find your access key on the Sauce Labs [User Settings page](https://app.saucelabs.com/user-settings). This option supports environment variable values.
+
+</div>
+
+### <span className="cli">--deviceName</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED | STRING |</small></p>
+
+The name of the private device that you want to use for testing.
+
+</div>
+
+### <span className="cli">--serverHost</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | URL ADDRESS |</small></p>
+
+A specific vUSB server host address. The default value, if not specified, is `http://127.0.0.1`.
+
+</div>
+
+
+### <span className="cli">--serverPort</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+A specific vUSB server port. The default value, if not specified, is `33657`.
+
+</div>
+
+### <span className="cli">--adbPortMin</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+ Specifies a vUSB server Android Debug Bridge (ADB) port. Default value: `7000`.
+
+ </div>
+
+
+### <span className="cli">--adbPortRange</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies a vUSB server ADB port range. Default value: `100`.
+
+</div>
+
+### <span className="cli">--proxyHost</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the HTTP proxy host.
+
+</div>
+
+#### <span className="cli">--proxyPort</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the HTTP proxy port. Default value: `0`.
+
+</div>
+
+### <span className="cli">--proxyUser</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the HTTP proxy user.
+
+</div>
+
+### <span className="cli">--proxyPassword</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the HTTP proxy password.
+
+</div>
+
+### <span className="cli">--tunnelIdentifier</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+The name of an active [Sauce Connect](/secure-connections/sauce-connect/) tunnel to use for secure connectivity to the Sauce Labs platform.
+
+:::note Identifying a Tunnel
+The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, not the Tunnel ID numerical value.
+:::
+
+</div>
+
+## Examples
+
+### Basic Example with Required Flags
+
+```java title="Start Session Request"
+java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY --deviceName iPhone_XS
 ```
 
 ```java title="Sample Response"
@@ -31,41 +144,11 @@ e21abb6f-a08e-4685-ba6e-8c6586dd4264		iPhone SE 2020		IOS		14.3		https://app.eu-
 localhost:-1	online
 ```
 
-## Optional
+### Full Example with Optional Flags
 
-These flags provide additional configuration options.
-
----
-### `--serverHost`
-__Description__: specifies a Virtual USB server host. Default value: `http://127.0.0.1`.
-
----
-### `--serverPort`
-__Description__: specifies a Virtual USB server port. Default value: `33657`.
-
----
-### `--proxyHost`
-__Description__: specifies a proxy host to be set on the device.
-
----
-### `--proxyPassword`
-__Description__: specifies a proxy password to be set on the device.
-
----
-### `--proxyPort`
-__Description__: specifies a proxy port to be set on the device. Default value: `0`.
-
----
-### `--proxyUser`
-__Description__: specifies a proxy user to be set on the device.
-
----
-### `--tunnelIdentifier`
-__Description__: specifies a tunnel identifier for Sauce Connect Proxy.
-
-```bash title="Full Example (includes optional flags)"
+```bash
 java -jar virtual-usb-client.jar startSession \
-    --username john.smith \
+    --username $SAUCE_USERNAME \
     --accessKey ab015c1e-xxxx-xxxx-xxxx-xxxxxxx \
     --deviceName iPhone_XS \
     --serverHost http://127.0.0.1 \

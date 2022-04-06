@@ -8,9 +8,15 @@ keywords:
     - disable
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 ## SaaS / Cloud Customers
 
-If you are using the API Fortress SaaS (cloud) platform you can use the downloader named "US East No SSL Check". 
+If you are using the API Fortress SaaS (cloud) platform you can use the downloader named "US East No SSL Check".
 
 This downloader ignores invalid and not matching certificates.  
 
@@ -23,7 +29,7 @@ To disable the SSL validation in the downloader do the following steps:
 1. First access the machine that runs the downloader service (likely the one that runs the rest of API Fortress as well)
 2. Then navigate to the `downloader/` directory
 3. Stop the downloader by issuing:
-  ```bash 
+  ```bash
   sudo docker-compose stop
   ```
 4. Next edit the `docker-compose.yml` file
@@ -33,7 +39,7 @@ To disable the SSL validation in the downloader do the following steps:
   ```
 6. Save and exit the file
 7. Now restart the downloader by issuing:  
-  
+
   ```bash
   sudo docker-compose up -d
   ```
