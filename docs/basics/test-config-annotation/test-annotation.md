@@ -49,7 +49,7 @@ Appium JS-Executor methods for Real Device Testing in Sauce Labs are limited and
 |`"sauce: break"`| Sets a Sauce breakpoint in the test. Test execution will pause at this point, waiting for manual control by clicking in the test’s live video.|
 |`"sauce:context=This line appears in the command list as 'info'"`| Logs the given line in the job’s Selenium commands list.|
 |`"sauce:job-info={'build':'mybuild','name':'my test name', 'public':'team}"`| Sets one or more job information fields to the values sent in the JSON-formatted dictionary.|
-|`"sauce:inject-image=[base64_encoded_image]"` <small><span className="sauceDBlue">RDC ✓</span></small> |Points to file for testing image injection (e.g. barcode scanning).|
+|`"sauce:inject-image=[base64_encoded_image]"` <small><span className="sauceDBlue">RDC ✓</span></small> |Points to file for testing image injection (e.g., barcode scanning).|
 |`"sauce:performanceEnable"`|Allows performance metrics to be collected.|
 |`"sauce:performanceDisable"`|Pauses performance metrics collection.|
 
@@ -205,7 +205,7 @@ By assigning unique attributes (such as test name, tags, and build ID) in your t
 You can set these capabilities to be any combination of letters and numbers. To differentiate between builds, it's also a good practice to add a timestamp or CI job/build number at the end of your build tag.
 
 :::note
-The build name and tags capabilities are not supported in automated real device testing at this time, please check back for future updates with regards to this functionality.
+The tag capability is not supported in automated real device testing at this time. Please check back for future updates with regards to this functionality.
 :::
 
 :::note

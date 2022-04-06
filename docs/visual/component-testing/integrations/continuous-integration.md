@@ -40,7 +40,7 @@ Screener will automatically pull the build number and branch name from the follo
 * Jenkins
 * CircleCI
 * Travis CI
-* Github Actions
+* GitHub Actions
 * Bitbucket Pipelines
 * Buildkite
 * Visual Studio Team Services

@@ -138,7 +138,8 @@ During an automated test, you'll pass an image to the image injection endpoint. 
 
 In your test script, you'll need to input the desired capabilities specific to camera image injection (see below code snippets). The code will execute your image upload and opening of the device camera.
 
-1. First, you'll need add the camera instrumentation desired capability command,  `sauceLabsImageInjectionEnabled`, to your test script. This capability enables image injection functionality.
+
+1. First, add the camera instrumentation desired capability command,  `sauceLabsImageInjectionEnabled`, to your test script. This capability enables image injection functionality.
 
 <Tabs
   defaultValue="Webdriver.io example"
@@ -238,11 +239,10 @@ This error is displayed when you attempt to inject your image before the app ful
 This error is displayed due to one or more of these reasons:
 
 *  **Enable Image Injection** checkbox is not checked; this needs to be checked.
-*  For Android tests, the debuggable flag (`android:debuggable="true"`) is missing from your application's manifest file.
+*  For Android tests, the debuggable flag (`android:debuggable="true"`) is missing from your app's manifest file.
 
 
 ## Additional Resources
 
 * [Sauce Labs Image Injection code examples (GitHub)](https://github.com/saucelabs-training/demo-js/tree/master/webdriverio/appium-app/examples/image-injection).
-* [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile/releases/tag/2.3.0); try out image injection for yourself using our demo app.
 * [Android Camera API | Google Developer Documentation](https://developer.android.com/guide/topics/media/camera).

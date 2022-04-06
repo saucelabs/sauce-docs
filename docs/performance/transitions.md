@@ -9,10 +9,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Capturing page load performance for a specific URL is a great start to detect opportunities to improve performance, but some performance testing requires user interaction to facilitate, such as page load following a successful login or submission of a form. The Sauce Labs custom WebDriver command allows you to trigger performance capturing within an automation script at a precise point of interaction, ensuring you can isolate any issues related to the current application state.
+Capturing page load performance for a specific URL is a great start to detect opportunities to improve performance, but some performance testing requires user interaction to facilitate, such as page load following a successful login or submission of a form. The Sauce Labs custom WebDriver command allows you to trigger performance capturing within an automation script at a precise point of interaction, ensuring you can isolate any issues related to the current app state.
 
 :::note
-Using automation to test performance after targeted interaction with your application in no way implies that you should integrate performance testing in your existing functional test suite. Testing function and performance in the same test is likely to result in compromised results for both objectives and can obscure failure troubleshooting.
+Using automation to test performance after targeted interaction with your app in no way implies that you should integrate performance testing in your existing functional test suite. Testing function and performance in the same test is likely to result in compromised results for both objectives and can obscure failure troubleshooting.
 :::
 
 ## What You'll Learn
@@ -99,6 +99,10 @@ options = {browser_name: browser_name,
 ## Implementing the Performance Command Assertion
 
 The custom `sauce:performance` command measures the performance output against a baseline of previously accepted performance values. If no baseline has been set, the Performance test will create one by measuring performance output 10 times to get an aggregate baseline. The command returns `pass` when the current results are within the baseline allowances or `fail` when the results fall outside the baseline. A fail result gives you the option to handle [regressions](#handle-regressions).
+
+:::caution
+Enabling performance capturing can add up to 60 seconds per URL change in a test. We, therefore, advise separating your performance tests from your functional tests. See our [Performance Requirements and Recommendations](https://docs.saucelabs.com/performance/about/#sauce-performance-requirements-and-recommendations) for more advice on optimizing your performance test results.
+:::
 
 ### Command
 
@@ -303,7 +307,13 @@ The following response is returned when the Page Load metric is above the expect
 
 ## Logging Performance Results
 
-If you would rather send your performance results to a log instead of asserting on them in your test, configure the `sauce:performance` command to export to a log file, as shown in the following code samples:
+You can also send your performance results to the log that is viewable from the Sauce Labs test result page.
+
+<img src={useBaseUrl('img/performance/full-rpt-log.png')}  alt="View Logs"  width="900"/>
+
+<p/>
+
+To enable this, configure `sauce:performance` within the `sauce:log` command. Set the `fullReport` option to `true` in the configuration to capture extended details about the performance configuration, aside from just the metrics output.
 
 <Tabs
   defaultValue="python"
@@ -321,7 +331,7 @@ def test_speed_index(self, driver):
     self.setUpClass(driver)
     metrics = ["load", "speedIndex", "pageWeight", "pageWeightEncoded", "timeToFirstByte",
                "timeToFirstInteractive", "firstContentfulPaint", "perceptualSpeedIndex", "domContentLoaded"]
-    performance = driver.execute_script("sauce:log", {"type": "sauce:performance"})
+    performance = driver.execute_script("sauce:log", {"type": "sauce:performance", options: {fullReport: true}})
     for metric in metrics:
         assert performance["speedIndex"] < 1000
 ```
@@ -330,35 +340,14 @@ def test_speed_index(self, driver):
 
 See the complete [JavaScript performance demo](https://github.com/saucelabs/performance-js-examples/blob/main/WebDriver.io/tests/performance.js).
 
-```js {1}
-it('logs (sauce:performance) should check if all metrics were captured', () => {
-    //
-    // The expected metrics
-    const metrics = [
-      'load',
-      'speedIndex',
-      'firstInteractive',
-      'firstVisualChange',
-      'lastVisualChange',
-      'firstMeaningfulPaint',
-      'firstCPUIdle',
-      'timeToFirstByte',
-      'firstPaint',
-      'estimatedInputLatency',
-      'firstContentfulPaint',
-      'totalBlockingTime',
-      'score',
-      'domContentLoaded',
-      'cumulativeLayoutShift',
-      'serverResponseTime',
-      'largestContentfulPaint',
-    ];
-    //
+```js {2}
+// Get the performance logs
+const performance = browser.execute('sauce:log', {type: 'sauce:performance', options: {fullReport: true}});
 ```
 </TabItem>
 </Tabs>
 
-Retrieve the log by calling:
+In addition to reviewing the log in Sauce Labs, you can retrieve the log locally by calling:
 
 `driver.execute('sauce:log', {type: 'sauce:performance'});`
 

@@ -105,7 +105,7 @@ When options can be set at both levels, project settings override global setting
       </tr>
       <tr>
         <td><b>Override Sauce Connect Path</b></td>
-        <td>Specify a local path into which the Sauce Connect binary compatible with your operating system will be extracted. This value will override the default <code>$home</code> directory.<br/> <b>NOTE:</b> Always run Sauce Connect on the same network as the site or application under test, but the same machine is not required.</td>
+        <td>Specify a local path into which the Sauce Connect binary compatible with your operating system will be extracted. This value will override the default <code>$home</code> directory.<br/> <b>NOTE:</b> Always run Sauce Connect on the same network as the site or app under test, but the same machine is not required.</td>
       </tr>
       <tr>
         <td><b>Sauce Connect Options</b></td>
@@ -187,7 +187,7 @@ When options can be set at both levels, project settings override global setting
       </tr>
     </table>
   </li>
-  <li> Scroll to the <b>Sauce Connect Advanced Options</b> section and click <b>Advanced</b>to display additional options described in the following table as needed.
+  <li> Scroll to the <b>Sauce Connect Advanced Options</b> section and click <b>Advanced</b> to display additional options described in the following table as needed.
     <table>
       <tr>
         <th>Setting</th>
@@ -195,7 +195,7 @@ When options can be set at both levels, project settings override global setting
       </tr>
       <tr>
         <td><b>Sauce Connect Launch Condition</b></td>
-        <td>Choose an option from the sub-menu to specify a more granular application for when a tunnel should be launched for builds in this project. The default value is <code>Always</code>.</td>
+        <td>Choose an option from the sub-menu to specify a more granular app for when a tunnel should be launched for builds in this project. The default value is <code>Always</code>.</td>
       </tr>
       <tr>
         <td><b>Enable Verbose Logging</b></td>
@@ -225,7 +225,7 @@ When options can be set at both levels, project settings override global setting
       </tr>
       <tr>
         <td><b>Sauce Connect Binary Location</b></td>
-        <td>A local path that will be the Sauce Connect binary extraction directory for this project. This value will override the default directory and the global setting.<br/> <b>NOTE:</b> Always run Sauce Connect on the same network as the site or application under test, but the same machine is not required.</td>
+        <td>A local path that will be the Sauce Connect binary extraction directory for this project. This value will override the default directory and the global setting.<br/> <b>NOTE:</b> Always run Sauce Connect on the same network as the site or app under test, but the same machine is not required.</td>
       </tr>
       <tr>
         <td><b>Set GitHub commit status with custom context and message</b></td>
