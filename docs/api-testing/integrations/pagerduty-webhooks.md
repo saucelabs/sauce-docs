@@ -75,7 +75,7 @@ To test a connector:
 2. Click on any project.
 3. Within that project, click **Settings** and then click **Connector**.
 4. On the **Connectors** page, click **Test Connectors**.
-<img src={useBaseUrl('img/api-testing/test-connectors-nav.png')} alt="Test Connectors button" width="400"/>
+<img src={useBaseUrl('img/api-testing/test-connectors-nav.png')} alt="Test Connectors button" width="600"/>
 5. In the **Connectors Test Drive** window, select either the **Failure** or **Success** radio button, and then click **Trigger**.
   * Failure - You will receive a notification in all connector platforms in your list
   * Success - If the **On_success** toggle is set to **True**, you will receive a notification for the connector
