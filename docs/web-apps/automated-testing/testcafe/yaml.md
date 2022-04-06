@@ -21,7 +21,7 @@ saucectl run -c ./path/to/{config-file}.yml
 ```
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g. [Visual Studio Code](/dev/cli/saucectl/usage/ide/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g., [Visual Studio Code](/dev/cli/saucectl/usage/ide/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
 :::
 
 
@@ -498,6 +498,11 @@ The version of TestCafe that is compatible with the tests defined in this file. 
 ```yaml
   version: 1.14.2
 ```
+:::tip
+You can also define a path to your `package.json`. This will make saucectl use the same `testcafe` package version that's defined in your projects `devDependencies` or `dependencies` map.
+
+The path to your `package.json` file will be relative to the `rootDir` of your configuration.
+:::
 ---
 
 ## `suites`
@@ -603,8 +608,10 @@ Specifies whether the individual suite will run on `docker` or `sauce`, potentia
 ### `shard`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-When sharding is configured, saucectl automatically splits the tests (e.g. by spec) so that they can easily run in parallel.
-Selectable values: `spec` to shard by spec file. Remove this field or leave it empty `""` for no sharding.
+When sharding is configured, saucectl automatically splits the tests (e.g., by spec or concurrency) so that they can easily run in parallel.
+For sharding by concurrency, saucectl splits test files into several groups (the number of groups is determined by the concurrency setting). Each group will then run as an individual job.
+
+Selectable values: `spec` to shard by spec file, `concurrency` to shard by concurrency. Remove this field or leave it empty `""` for no sharding.
 
 ```yaml
     shard: spec
@@ -895,151 +902,4 @@ Setting `0` reverts to the value set in `defaults`.
 
 ```yaml
   timeout: 15m
-```
----
-
-## Advanced Configuration Considerations
-
-The configuration file is flexible enough to allow for any customizations and definitions that are required for any of the supported frameworks. The following sections describe some of the most common configurations.
-
-### Time Limit Considerations
-
-Execution time for TestCafe tests is limited to a maximum of 30 minutes. If the limit is exceeded, the test terminates and Sauce Control uploads assets (videos, screenshots, logs, etc..) to the Sauce Labs platform.
-
-Consider breaking up longer TestCafe tests to optimize performance and ensure you do not exceed this time limit.
-
-
-### Setting up a Proxy
-
-If you need to go through a proxy server, you can set it through the following variables:
-
-* `HTTP_PROXY`: Proxy to use to access HTTP websites
-* `HTTPS_PROXY`: Proxy to use to access HTTPS websites
-
-
-#### Docker Proxy Considerations
-
-When running in docker-mode, `saucectl` still must reach the Sauce Labs platform get the latest docker image available or upload the test package to Sauce Cloud, and the docker container needs to access the tested website and Sauce Labs to upload results.
-
-Therefore, you may be required to set the proxy twice, as shown in the following examples:
-
-``` title= "Example: Windows Powershell"
-PS> $Env:HTTP_PROXY=http://my.proxy.org:3128/
-PS> $Env:HTTPS_PROXY=http://my.proxy.org:3128/
-PS> saucectl run -e HTTP_PROXY=${Env:HTTP_PROXY} -e HTTPS_PROXY=${Env:HTTPS_PROXY}
-```
-
-``` title= "Example: Linux/MacOS"
-$> export HTTP_PROXY=http://my.proxy.org:3128/
-$> export HTTPS_PROXY=http://my.proxy.org:3128/
-$> saucectl run -e HTTP_PROXY=${HTTP_PROXY} -e HTTPS_PROXY=${HTTPS_PROXY}
-```
-
-### Tailoring Your Test File Bundle
-
-The `saucectl` command line bundles your root directory (`rootDir` parameter of `config.yml`) and transmits it to the Sauce Labs cloud or your own infrastructure via Docker, then unpacks the bundle and runs the tests. This functionality is partly what allows Sauce Control to operate in a framework-agnostic capacity. However, you can and should manage the inclusion and exclusion of files that get bundled to optimize performance and ensure security.
-
-#### Excluding Files from the Bundle
-
-The `.sauceignore` file allows you to designate certain files to be excluded from bundling.
-
-Add any files that are not direct test dependencies to `.sauceignore` to reduce the size of your bundle, improve test speed, and protect sensitive information.
-
-Examples of what can be included in `.sauceignore`:
-
-```bash
-# .sauceignore
-
-# Ignore node_modules
-node_modules/
-
-# Ignore all log files
-*.log
-
-# Ignore executables/binaries
-*.exe
-*.bin
-**/*/bin
-
-# Ignore media files
-*.png
-*.jpeg
-*.jpg
-*.mp4
-
-# Ignore documentation
-*.rst
-*.md
-
-# Ignore sensitive data
-credentials.yml
-```
-
-#### Including Node Dependencies
-
-The default `.sauceignore` file lists `node_modules/` so locally installed node dependencies are excluded from the bundle. If your tests require node dependencies to run, you can either:
-
-* [Include `node_modules` with your bundle](#remove-node_modules-from-sauceignore) or
-* [Set NPM packages in config.yml](#set-npm-packages-in-configyml)
-
-#### Remove "node_modules" from `.sauceignore`
-
-Delete or comment out `node_modules/` in your `.sauceignore` file to bundle your node dependencies. For example,
-
-```bash
-# Do NOT exclude node_modules from bundle
-# node_modules/
-```
-
-Node dependencies can increase your bundle by potentially hundreds of megabytes, so consider including only the required dependencies rather than the entire `node_modules` directory. The following sections provide some methods for limiting the scope of dependencies you must include.
-
-##### Install "devDependencies" Only
-
-Consider only installing NPM `devDependencies` if your tests do not require all prod `dependencies`.
-
-```bash
-# Only install dev dependencies
-npm install --only=dev
-
-saucectl run
-```
-
-##### Uninstall Nonessential Dependencies
-
-If your standard install includes dependencies that aren't needed to run your tests, uninstall them prior to bundling.
-
-```bash
-# Install node dependencies
-npm ci # or "npm install"
-
-# Remove unneeded dependencies
-npm uninstall appium
-npm uninstall express
-
-saucectl run
-```
-
-##### Install Essential Dependencies Individually
-
-If you know that your tests require only specific dependencies, install them individually instead of running `npm install` or `npm ci`.
-
-```bash
-# Install individual dependencies
-npm install testcafe-xpath
-npm install @testcafe/react
-
-saucectl run
-```
-
-#### Set NPM Packages in `config.yml`
-
-You can avoid installing or uninstalling dependencies prior to each bundling operation by defining a default set of NPM packages to install in your sauce configuration file using the `npm` parameter, as shown in the following example:
-
-```jsx title= "config.yml npm example"
-npm:
-  registry: https://registry.npmjs.org
-  packages:
-    lodash: "4.17.20"
-    "@babel/preset-typescript": "7.12"
-    "@testcafe/react": "^5.0.1"
 ```

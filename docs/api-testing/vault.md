@@ -84,7 +84,7 @@ You can also reference this parameter in Code view with the following syntax: `p
 
 ## Snippets
 
-In the **Snippets** section of the Vault, you can create or import test component/code examples exist. A _snippet_ is a test code fragment that you can create, import and store in your [Vault](/api-testing/vault) and reuse in multiple tests. Snippet length can range from one line of code to an entire test.
+In the **Snippets** section of the Vault, you can create or import test component/code examples. A _snippet_ is a test code fragment that you can create, import and store in your [Vault](/api-testing/vault) and reuse in multiple tests. Snippet length can range from one line of code to an entire test.
 
 Much like with variable scope, snippets saved in the [Project] **Vault** are only available in that Project and snippets saved in the **Company Vault** are available across all projects.
 

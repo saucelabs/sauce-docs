@@ -113,7 +113,7 @@ jobs:
           python-version: 3.7
       - run: pip install crcmod
       - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@master
+        uses: 'google-github-actions/setup-gcloud@v0'
         with:
           version: '290.0.1'
           project_id: ${{ secrets.RUN_PROJECT }}
@@ -159,7 +159,7 @@ jobs:
           python-version: 3.7
       - run: pip install crcmod
       - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@master
+        uses: 'google-github-actions/setup-gcloud@v0'
         with:
           version: '290.0.1'
           project_id: ${{ secrets.RUN_PROJECT_PROD }}
