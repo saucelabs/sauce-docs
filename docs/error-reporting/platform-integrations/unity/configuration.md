@@ -54,7 +54,7 @@ Alternatively, you can also specify the configuration settings in your C# projec
 |---------|---------|---------|---------|
 |Enable Database|Enables an offline database to store reports locally.|Boolean|False|
 |Backtrace database path|Specifies the absolute path that the local database will use to store reports for your game or app. Note that the Backtrace database will remove all existing files in the database directory when the client is first initialized. <br /><br />You can use interpolated strings such as `${Application.persistentDataPath}/backtrace/database`.|String|
-|Client-Side deduplication|Aggregates duplicated reports. The available options are: <ul><li>Disable: Duplicated reports are not aggregated.</li> <li>Everything: Aggregates by faulting call stack, exception type, and exception message.</li> <li>Faulting callstack: Aggregates based on the current stack trace.</li> <li>Exception type: Aggregates by stack trace and exception type.</li> <li>Exception message: Aggregates by stack trace and exception message.</li></ul>|Enum|Disable|
+|Client-Side deduplication|Aggregates duplicated reports. The available options are: <ul><li>Disable: Duplicated reports are not aggregated.</li> <li>Everything: Aggregates by faulting callstack, exception type, and exception message.</li> <li>Faulting callstack: Aggregates based on the current stack trace.</li> <li>Exception type: Aggregates by stack trace and exception type.</li> <li>Exception message: Aggregates by stack trace and exception message.</li></ul>|Enum|Disable|
 |Attach Unity Player.log|Attaches the Unity player log file to the Backtrace report. Available only for Windows and MacOS.|Boolean|False|
 |Auto send mode|Sends reports to the server based on the retry settings described below. <br /><br />If the value is set to 'False', you can use the [`Flush`](/error-reporting/platform-integrations/unity/configuration/#backtracedatabaseflush) or [`Send`](/error-reporting/platform-integrations/unity/configuration/#backtracedatabasesend) methods as an alternative.|Boolean|True|
 |Create database directory|Creates the offline database directory if the provided path doesn't exist.|Boolean|True|
@@ -65,8 +65,8 @@ Alternatively, you can also specify the configuration settings in your C# projec
 |Maximum retries|The maximum number of retries to attempt if the database is unable to send a report.|Number|3|
 |Retry order (FIFO/LIFO)|The order in which reports are sent to the Backtrace server: <ul><li>If you set the value to 'Queue' (FIFO), then the first report into the queue is the first report to leave the queue.</li> <li>If you set the value to 'Stack' (LIFO), then the last report into the stack is the last report to leave the stack.</li></ul>|Enum|Stack|
 
-#### Enable Stacktraces for WebGL
-To enable stacktraces for WebGL, in your Unity project's Player Settings, under Publishing Settings, set Enable Exceptions to 'Full With Stacktrace'.
+#### Enable Stack Traces for WebGL
+To enable stack traces for WebGL, in your Unity project's Player Settings, under Publishing Settings, set Enable Exceptions to 'Full With Stacktrace'.
 
 <img src={useBaseUrl('img/error-reporting/unity/unity-webgl-player-settings-enable-exceptions.png')} alt="Player setting in Unity required to enable stack traces for WebGL." />
 
@@ -132,7 +132,7 @@ For more information about other data that is captured, see [Attributes](/error-
   |Capture native crashes|Captures and symbolicates stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start.|Boolean|True|
   |Capture ANR (Application not responding)|Generates an error report whenever an app hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.|Boolean|True|
   |Send Out of Memory exceptions to Backtrace|Detects low memory conditions. If the app crashes due to a memory condition, a crash report will be submitted to Backtrace with the `memory.warning` and `memory.warning.date` attributes.|Boolean|False|
-  |Enable client-side unwinding|Enables call stack unwinding. If you're unable to upload all debug symbols for your app, you can use this setting to get debug information. Available only for supported versions of Android (NDK 19; Unity 2019+). <br /><br /> You can also enable this setting via the [`BacktraceConfiguration`](/error-reporting/platform-integrations/unity/configuration/#backtraceclient) object and the `.ClientSideUnwinding = true;` option.|Boolean|False|
+  |Enable client-side unwinding|Enables callstack unwinding. If you're unable to upload all debug symbols for your app, you can use this setting to get debug information. Available only for supported versions of Android (NDK 19; Unity 2019+). <br /><br /> You can also enable this setting via the [`BacktraceConfiguration`](/error-reporting/platform-integrations/unity/configuration/#backtraceclient) object and the `.ClientSideUnwinding = true;` option.|Boolean|False|
   |Symbols upload token|Required to automatically upload debug symbols to Backtrace. <br /> <br /> To generate a symbol upload token, in Backtrace go to Project Settings > Symbols > Access tokens > and select + to generate a new token.|String|
 
 #### Uploading Debug Symbols
