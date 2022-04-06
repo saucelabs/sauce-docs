@@ -56,7 +56,7 @@ You can change a user’s role on the **Organization Management** page and also 
 
 ### Changing a User’s Role - Organization Management
 1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
-2. On the **USERS** tab, select the checkbox of the user you want to deactivate.
+2. On the **USERS** tab, select the checkbox of the user whose role you want to change.
 3. Above the list of users, in the **Action** dropdown, click **Assign Role** and then click the new role.
 
    <img src={useBaseUrl('img/team-mgmt/change-role-org-mgmt.jpg')} alt="Change a user's role"/>

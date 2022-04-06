@@ -10,6 +10,39 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 [Cypress](https://docs.cypress.io/guides/overview/why-cypress.html) is an end-to-end JavaScript testing framework that you can use to test your web apps &#8212; either locally in Docker or remotely on Sauce Labs cloud &#8212; using the [`saucectl` CLI](/dev/cli/saucectl). This gives you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
 
+## System Requirements
+
+You can run `saucectl` locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms)) or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention. The following reference serves as a general guide:
+
+<Tabs
+  defaultValue="macos"
+  values={[
+    {label: 'macOS', value: 'macos'},
+    {label: 'Linux', value: 'linux'},
+    {label: 'Windows', value: 'windows'},
+  ]}>
+
+<TabItem value="macos">
+
+* OS: 10.14+ (Mojave, Catalina, or Big Sur)
+* Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
+
+</TabItem>
+<TabItem value="linux">
+
+* OS/Distros: [CentOS](https://docs.docker.com/engine/install/centos/), [Debian](https://docs.docker.com/engine/install/debian/), [Fedora](https://docs.docker.com/engine/install/fedora/), [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+* Docker: [Server](https://docs.docker.com/engine/install/#server)
+
+</TabItem>
+<TabItem value="windows">
+
+* OS: Windows 10 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
+* Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
+
+</TabItem>
+</Tabs>
+
+
 ## Supported Testing Platforms
 
  Sauce Labs supports the following test configurations for Cypress:
@@ -69,46 +102,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
  |Cypress Version|Supported Browsers|
  |----|----|
- |9.3.1|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.1.0)|
- |9.1.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.0.0)|
- |8.6.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.4.0)|
- |8.3.0|Please see [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.3.1)|
+ |9.3.1|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.1.0)|
+ |9.1.0|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.0.0)|
+ |8.6.0|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.4.0)|
+ |8.3.0|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.3.1)|
 
 </TabItem>
 </Tabs>
 
-
-### System Requirements
-
-You can run `saucectl` locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms)) or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention. The following reference serves as a general guide:
-
-<Tabs
-  defaultValue="macos"
-  values={[
-    {label: 'macOS', value: 'macos'},
-    {label: 'Linux', value: 'linux'},
-    {label: 'Windows', value: 'windows'},
-  ]}>
-
-<TabItem value="macos">
-
-* OS: 10.14+ (Mojave, Catalina, or Big Sur)
-* Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
-
-</TabItem>
-<TabItem value="linux">
-
-* OS/Distros: [CentOS](https://docs.docker.com/engine/install/centos/), [Debian](https://docs.docker.com/engine/install/debian/), [Fedora](https://docs.docker.com/engine/install/fedora/), [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-* Docker: [Server](https://docs.docker.com/engine/install/#server)
-
-</TabItem>
-<TabItem value="windows">
-
-* OS: Windows 10 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
-* Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
-
-</TabItem>
-</Tabs>
 
 
 ## How to Get Started
@@ -117,7 +118,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 * [Run your own tests](/web-apps/automated-testing/cypress/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
 * [Try Cypress with Cucumber](https://github.com/saucelabs/saucectl-cypress-example/tree/master/examples/cucumber):
 `saucectl` supports Cypress using Cucumber, and the Cypress demo repo includes an example!
-* [Incorporate saucectl in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Cypress on Sauce supports CI integrations with Cirlce CI, GitLab, Jenkins, and GitHub Actions.
+* [Incorporate saucectl in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Cypress on Sauce supports CI integrations with Circle CI, GitLab, Jenkins, and GitHub Actions.
 
 
 ## Cypress Plugin for Sauce Labs

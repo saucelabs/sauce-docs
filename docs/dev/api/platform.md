@@ -21,7 +21,7 @@ Returns the current (30 second cache) availability of the Sauce Labs platform.
 
 #### Parameters
 
-This method takes no parameters
+This method takes no parameters.
 
 
 <Tabs
@@ -219,7 +219,7 @@ Returns the expected date (in Unix time) on which Sauce Labs support for each Ap
 
 #### Parameters
 
-This method takes no parameters
+This method takes no parameters.
 
 
 <Tabs

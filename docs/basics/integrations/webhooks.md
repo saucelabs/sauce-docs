@@ -23,7 +23,7 @@ The Sauce Labs Webhooks integration allows you specify a URL to which Sauce Labs
 
 ## Configure a Webhook
 
-1. From your Sauce Labs account, navigate to the [Account Integrations](https://app.staging.saucelabs.net/integrations) page.
+1. From your Sauce Labs account, navigate to the [Account Integrations](https://app.saucelabs.com/integrations) page.
 1. Click the Webhooks **Enable** button.
 1. Enter the URL of the endpoint to which you would like Sauce Labs events pushed.
 1. Select the events you wish to receive:
@@ -38,7 +38,7 @@ Webhooks are specific to the data center that is active for your Sauce Labs acco
 
 ## Delete a Webhook
 
-1. From your Sauce Labs account, navigate to the [Account Integrations](https://app.staging.saucelabs.net/integrations) page.
+1. From your Sauce Labs account, navigate to the [Account Integrations](https://app.saucelabs.com/integrations) page.
 1. Click the Webhooks **Enable** button.
 1. In the **Saved Configurations** section, click the trashcan icon of the webhook configuration you wish to delete.
 

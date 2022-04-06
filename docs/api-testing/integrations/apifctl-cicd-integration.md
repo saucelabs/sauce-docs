@@ -21,7 +21,7 @@ You'll need to run our Docker image as a container:<br/>`$ docker run quay.io/sa
 * An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
 
-## Adding Incoming Webhooks
+## Creating Webhooks
 To utilize most `apifctl` CI/CD integration functionalities, you'll need to generate a webhook for your API Testing Project. Once generated, you add this webhook URL to your `apifctl` code to allow your third-party CI/CD app(s) to send data to Sauce Labs API Testing.
 
 To generate a webhook:
@@ -137,7 +137,7 @@ Available Options:
 
 
 ```bash title="Full Example"
-docker run quay.io/saucelabs/apifctl exec \
+docker run -v "$(pwd)/tests:/tests" quay.io/saucelabs/apifctl exec \
 -H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId} \
 -p /tests/test_abc \
 -n local_test \
@@ -161,7 +161,7 @@ Available Options:
 * [<code>-d &#60;test description&#62;</code>](#-d-test-description) <small>| OPTIONAL | STRING |</small>
 
 ```bash title="Full Example"
-docker run quay.io/saucelabs/apifctl upload \
+docker run -v "$(pwd)/tests:/tests" quay.io/saucelabs/apifctl upload \
 -H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId} \
 -p /tests/test_abc \
 -n local_test \
