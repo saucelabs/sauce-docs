@@ -47,7 +47,7 @@ The stacked bar chart widgets at the bottom of the Overview page give users the 
 ### Customize the Distribution Widgets
 These widgets are configured by default to show errors distributed by commonly relevant attributes. However, we allow users to edit each of these widgets to show their error breakdown by the attributes most relevant to them.
 
-To customize these widgets, select "Edit" towards the right of the widget.
+To customize these widgets, select **Edit** to the right of the widget.
 
 <img src={useBaseUrl('img/error-reporting/console-views/overview-errors-by-classifiers.png')} alt="Shows how to edit the distribution widgets." />
 

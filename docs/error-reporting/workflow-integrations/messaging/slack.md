@@ -19,15 +19,15 @@ There are two main steps for setting up Slack:
 In order to set up integration for Slack, an Incoming WebHook must be configured in Slack - [Link to Webhook config](https://my.slack.com/services/new/incoming-webhook/). From there, follow the prompts to add the integration, then copy the Webhook URL that's generated - you will use this URL below.
 
 ## Create the Integration
-To set up the integration, first go to the Project Settings page for the project you want to add a integration for:
+To set up the integration, first go to the **Project Settings** page for the project you want to add a integration for:
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />
 
-Then click Integrations in the left-hand menu, and the plus sign to create a new integration:
+Then click **Integrations** in the left-hand menu, and the plus sign to create a new integration:
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
 
-Select Slack and fill in the required settings (name, webhook URL you generated above, and one or more channels/users to send the message to).
+Select **Slack** and fill in the required settings (name, webhook URL you generated above, and one or more channels/users to send the message to).
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/configure-slack-integration.png')} alt="" />
 
