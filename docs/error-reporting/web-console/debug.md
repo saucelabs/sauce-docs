@@ -14,11 +14,9 @@ The Backtrace Web Debugger allows you to view the error or state of archived dum
 ## Overview
 Below is a screenshot of the type of data you will see in the Debugger tool.  
 
-<img src={useBaseUrl('img/error-reporting/console-views/debug-view.png')} alt="Show the Debug view." />
+<img src={useBaseUrl('img/error-reporting/console-views/debug-view.png')} alt="Shows the Debug view." />
 
-The Debugger contains a few different sections of data to analyze. We outline them below:
-
-<img src={useBaseUrl('img/error-reporting/console-views/debug-view-overview.png')} alt="Provides an overview of the available areas to navigate in the Debug view." />
+The Debugger contains a few different sections of data to analyze. We outline them below.
 
 Depending on the type of information in the crash report, the Debugger will show different data. For example, with minidump files, we can list a set of Threads in the crash report, the callstack of the selected thread, attributes, environment information, modules loaded, and missing symbol details.
 

@@ -14,11 +14,11 @@ When opening the Web Console, you will default to the Triage tool for the select
 - Set Reopen Criteria - Use Resolved Until or Muted Until functionality to tell the system to reopen a fingerprint if it's seen in a future version or after a certain period of time.
 - View Details - Each Fingerprint has a Details view which provides more context for the fingerprint, including some analysis of attributes associated to the crashes, a list of all the instances of this fingerprint, ability to tag and comment, and some quick actions to Debug the latest trace or view a larger Instance table list.
 - Assign - The fingerprint can be assigned to a user in Backtrace to indicate there is a user that is responsible to resolve it.
-- Link to Issue - A user can create a new issue in a 3rd party system like Jira or GitHub Issues that is populated with some information about the fingerprint, and a link back to more details about the fingerprint in Backtrace.
+- Link to Issue - A user can create a new issue in a 3rd party system like Jira or GitHub issues that is populated with some information about the fingerprint, and a link back to more details about the fingerprint in Backtrace.
 - Comment and Tag- A comment thread is available in the Details view of a fingerprint. Tags can be applied to fingerprints for more ad-hoc grouping and classification.  
 - Merge / Unmerge - If you find 2 or more fingerprints that should really be grouped together, take the Merge action to create a new fingerprint to group future incoming errors into.
 
-<img src={useBaseUrl('img/error-reporting/console-views/triage-view.png')} alt="The Triage view allows you to see errors with the most number of occurences and take action." />
+<img src={useBaseUrl('img/error-reporting/console-views/triage-view.png')} alt="The Triage view allows you to see errors with the most number of occurrences and take action." />
 
 ## View and Manage State
 In the Triage tool, you'll notice each fingerprint has a status of Open, Resolved, In Progress or Muted. These states help engineering managers and engineers know which crashes need analysis, which are being actively worked on, which are resolved, and which can be ignored or muted.
@@ -57,7 +57,7 @@ This section will discuss the actions you can take on a fingerprint.
 The fingerprint can be assigned to a user in Backtrace to indicate there is a user that is responsible to resolve it. This action also sets the state of the fingerprint to In Progress.
 
 ### Link to Issue
-A user can create a new issue in a 3rd party system like Jira or GitHub Issues that is populated with some information about the fingerprint, and a link back to more details about the fingerprint in Backtrace. This action also sets the state of the fingerprint to In Progress. Find more details in [Integrating with Jira and Other Issue Tracking Software](https://support.backtrace.io/hc/en-us/articles/360040515891-Integrating-with-Jira-and-Other-Issue-Tracking-Software).
+A user can create a new issue in a 3rd party system like Jira or GitHub issues that is populated with some information about the fingerprint, and a link back to more details about the fingerprint in Backtrace. This action also sets the state of the fingerprint to In Progress. Find more details in [Integrating with Jira and Other Issue Tracking Software](https://support.backtrace.io/hc/en-us/articles/360040515891-Integrating-with-Jira-and-Other-Issue-Tracking-Software).
 
 ### Comments and tags
 A comment thread is available in the Details view of a fingerprint soon. Users can post and edit their comments to assist in the resolution flow. Tags can be applied to fingerprints for more ad-hoc grouping and classification.  
@@ -66,13 +66,13 @@ A comment thread is available in the Details view of a fingerprint soon. Users c
 You can take explicit Mute or Resolve actions on a fingerprint. Mute a fingerprint when you don't want it to appear as Open or In Progress any more. Mark as Resolved when you think the issue is fixed. Fingerprints that have been marked as Resolved or Muted will stay in that state, to allow you to better organize the expected state of instability in your environment.
 
 ### Reopen Criteria - Mute or Resolve Until
-You can take explicit Mute Until or Resolve Until actions on a fingerprint to specify if/when you would like the fingerprint and any linked Issues (i.e. Jira) to be reopened. Customers use this capability to specify which criteria should be used to determine if a fingerprint should be re-opened and to automate Issue tracking workflows to respond to regressions.
+You can take explicit Mute Until or Resolve Until actions on a fingerprint to specify if/when you would like the fingerprint and any linked issues (i.e. Jira) to be reopened. Customers use this capability to specify which criteria should be used to determine if a fingerprint should be re-opened and to automate issue tracking workflows to respond to regressions.
 
-<img src={useBaseUrl('img/error-reporting/console-views/triage-view-reopen-capabilities.png')} alt="Describes reopen capabilities available in the Triage view." />
+You can specify conditions such as "until the fingerprint is seen in version {choose version attribute} greater than {value}" or "until the fingerprint is seen again after < 30 minutes | 2 hours | 1 day | 1 week | 1 month>".
 
-We expose conditions ‘until fingerprint is seen in version {choose version attribute} greater than {value}” or until fingerprint is seen again after < 30 minutes | 2 hours | 1 day | 1 week | 1 month>.
+<img src={useBaseUrl('img/error-reporting/console-views/mute-until.png')} alt="" />
 
-If the conditions are met, the system sets the state to Open, reopens any linked Issues, increments the attribute invariant_reopen_count by 1, and populates the invariant_reopen_last_time with the date and time the fingerprint was reopened. With this information populated, engineers and managers can build useful views in Triage and Explore to show regressions that were introduced.
+If the conditions are met, the system sets the state to Open, reopens any linked issues, increments the attribute invariant_reopen_count by 1, and populates the invariant_reopen_last_time with the date and time the fingerprint was reopened. With this information populated, engineers and managers can build useful views in Triage and Explore to show regressions that were introduced.
 
 ### Merge / Unmerge
 If you find 2 or more fingerprints that should really be grouped together, take the Merge action after selecting multiple fingerprints in the Triage view to create a new fingerprint to group future incoming errors into. Unmerge from a fingerprint's Details view.

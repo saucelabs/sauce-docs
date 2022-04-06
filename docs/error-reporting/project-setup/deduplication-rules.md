@@ -28,14 +28,14 @@ Under Project Settings, you'll see a Deduplication section. This section will li
 <img src={useBaseUrl('img/error-reporting/project-settings/deduplication-config.png')} alt="" />
 
 ### Create a Custom Ruleset
-Press the Add New Ruleset button to create a new ruleset.
+Click **Add new ruleset** to create a new ruleset.
 
 <img src={useBaseUrl('img/error-reporting/project-settings/add-new-dedup-ruleset.png')} alt="" />
 
 As you can see, each ruleset consists of a name, an optional set or languages or OS that the rules within should apply to, an enable/disable toggle, and the ability to add a set of rules that should be evaluated.
 
 ### Manage Rules in Rulesets
-A rule consists of a set of predicates (IF statements to evaluate matches against functions, objects or sources using regex), and a set of actions to take IF the statements evaluate TRUE. Press the Add a rule button to add a new rule.
+A rule consists of a set of predicates (IF statements to evaluate matches against functions, objects or sources using regex), and a set of actions to take IF the statements evaluate TRUE. Click **Add a rule** to add a new rule.
 
 <img src={useBaseUrl('img/error-reporting/project-settings/dedup-ruleset.png')} alt="" />
 
@@ -44,7 +44,7 @@ Below is an example of a more complex rule, with three predicates and a list of 
 
 <img src={useBaseUrl('img/error-reporting/project-settings/dedup-ruleset-examples.png')} alt="" />
 
-2 Rules for a rules set. The first has 3 actions, including ignoring and skipping frames, and setting a new attribute. The second shows how to perform a replacement  of a function name.
+The second example shows two rules for a rule set. The first rule has 3 actions, including ignoring and skipping frames, and setting a new attribute. The second rule shows how to perform a replacement of a function name.
 
 <img src={useBaseUrl('img/error-reporting/project-settings/ruleset-replace-example.png')} alt="" />
 

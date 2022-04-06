@@ -29,7 +29,7 @@ For each project, you can view information about the default public symbol serve
 
 If you are on an Enterprise plan and dedicated or on-prem host, you can self manage connections, retries, blacklist, and whitelists for these default public symbol servers configured by Backtrace. If you are on a shared deployment (non-enterprise), you will share public symbol server configurations with all other organizations on your shared host. As such, you can view shared information such as the stats and usage, whitelist, blacklist, skiplist and logs, but you can not edit these.
 
-Below is a screenshot of the Symbol Servers Management UI - It is accessed under Project Settings > Symbols > Symbol Servers.
+Below is a screenshot of the Symbol Servers Management UI. It is accessed under **Project Settings > Symbols > Symbol Servers**.
 
 <img src={useBaseUrl('img/error-reporting/project-settings/symbol-servers.png')} alt="" />
 
