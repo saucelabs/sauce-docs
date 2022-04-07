@@ -53,7 +53,7 @@ Keep in mind that these are guidelines. Most environments have their own workloa
   <tr>
    <td>macOS
    </td>
-   <td>macOS 10.15 (Catalina) and higher
+   <td>macOS 10.13 (High Sierra) and higher
    </td>
    <td>x86_64
    </td>
