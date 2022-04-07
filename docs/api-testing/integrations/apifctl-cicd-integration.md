@@ -39,10 +39,6 @@ To generate a webhook:
 
 You can then reuse this Webhook for future tests within that Project by returning to the **Webhooks** tab and copying it there. Webhooks are Project-specific.
 
-:::info
-Looking for information on _outgoing webhooks_? See [] for instructions on how to sending your API Testing data and results to third-party apps, allowing you to monitor your tests from external sources.
-:::
-
 ## `apifctl` Commands
 
 ### `run`
