@@ -1,19 +1,20 @@
 div.new-search button.DocSearch.DocSearch-Button{
-    border-radius: 8px;
-    background-color: #fff;
+    border-radius: 4px;
+    background-color: var(--ds-white);
     width: 30%;
     font-size: 12px;
     margin: auto;
 }
 div.new-search svg.DocSearch-Search-Icon {
     visibility: visible;
+    color: var(--ds-gray-500);
 }
 div.new-search .DocSearch-Button-Placeholder {
     display: inherit;
 }
 
 div.new-search span.DocSearch-Button-Placeholder {
-    color: #464b54; /* --ifm-navbar-link-color */
+    color: var(--ds-gray-500);
 }
 
 html[data-theme='dark'] div.new-search svg.DocSearch-Search-Icon {
