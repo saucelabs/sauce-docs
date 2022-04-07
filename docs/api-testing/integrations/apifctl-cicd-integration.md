@@ -39,10 +39,6 @@ To generate a webhook:
 
 You can then reuse this Webhook for future tests within that Project by returning to the **Webhooks** tab and copying it there. Webhooks are Project-specific.
 
-:::info
-Looking for information on _outgoing webhooks_? See [] for instructions on how to sending your API Testing data and results to third-party apps, allowing you to monitor your tests from external sources.
-:::
-
 ## `apifctl` Commands
 
 ### `run`
@@ -137,7 +133,7 @@ Available Options:
 
 
 ```bash title="Full Example"
-docker run quay.io/saucelabs/apifctl exec \
+docker run -v "$(pwd)/tests:/tests" quay.io/saucelabs/apifctl exec \
 -H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId} \
 -p /tests/test_abc \
 -n local_test \
@@ -161,7 +157,7 @@ Available Options:
 * [<code>-d &#60;test description&#62;</code>](#-d-test-description) <small>| OPTIONAL | STRING |</small>
 
 ```bash title="Full Example"
-docker run quay.io/saucelabs/apifctl upload \
+docker run -v "$(pwd)/tests:/tests" quay.io/saucelabs/apifctl upload \
 -H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId} \
 -p /tests/test_abc \
 -n local_test \

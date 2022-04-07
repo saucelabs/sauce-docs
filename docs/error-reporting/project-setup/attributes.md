@@ -13,7 +13,7 @@ Attributes define key metadata points to generate indices in the Backtrace datab
 
 We recommend you create an attribute for each metadata point added to your snapshots that you would like to query, group or filter on. For example, if you are adding build_tag to each error submission belonging to this project, you should add "build_tag" as an attribute.
 
-To create an attribute for a given project, access Project Settings from the top right menu and then Attributes from the left menu. Click the "+" at the top of the Attributes section, and enter name, type, format, and description of the attribute (see Attributes Details below.) Alternatively, if your project is already attaching attributes, click the Recommended tab to see a list of all attributes that have recently been attached to error submission but do not yet have an index created.
+To create an attribute for a given project, select **Project Settings** from the top right menu and then **Attributes** from the left menu. Click the **+** at the top of the Attributes section, and enter name, type, format, and description of the attribute (see section below). Alternatively, if your project is already attaching attributes, click the Recommended tab to see a list of all attributes that have recently been attached to error submission but do not yet have an index created.
 
 <img src={useBaseUrl('img/error-reporting/project-settings/add-attributes.png')} alt="" />
 

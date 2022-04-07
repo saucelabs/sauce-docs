@@ -12,19 +12,17 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 This guide will go through the steps necessary to integrate Backtrace with email.
 
 ## Set Up the Integration
-To set up the integration, first go to the Configuration page within the Web Console:
+To set up the integration, first go to the **Project Settings** page for the project you want to add a integration for:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/configure-org.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />
 
-Next, select the project you want to add a integration for:
+Then click **Integrations** in the left-hand menu, and the plus sign to create a new integration:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/projects.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
 
-Then click Integrations in the left-hand menu, then Create a New Integration on the right, and pick the integration:
+Select **Mail** and fill in the required settings (name and destination email address).
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/legacy-add-integration.png')} alt="" />
-
-The destination e-mail address is the only required setting. You may also specify Return Address, Subject Prefix, SMTP Server, SMTP Port Number, whether to use SSL-TLS, and Username & Password.
+You may also specify Return Address, Subject Prefix, SMTP Server, SMTP Port Number, whether to use SSL-TLS, and Username & Password.
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/email-settings.png')} alt="" />
 

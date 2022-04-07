@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Overview
-Submission Actions allow customers to configure Backtrace to perform actions in response to incoming traffic. Actions can be performed based on a flexible rule system that can match strings or regex to modules, call stacks, or attributes and decide how to proceed. Highlights of the actions provided include: dropping traffic, automated assignment, setting classifiers and more.
+Submission Actions allow customers to configure Backtrace to perform actions in response to incoming traffic. Actions can be performed based on a flexible rule system that can match strings or regex to modules, callstacks, or attributes and decide how to proceed. Highlights of the actions provided include: dropping traffic, automated assignment, setting classifiers and more.
 
 ## Supported Actions
 Submission actions can be configured under Project Settings:
