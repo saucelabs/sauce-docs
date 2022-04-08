@@ -173,7 +173,7 @@ __Requirements__
   gem 'sa11y', '~> 0.2.1'
   ```
 
-1. Require the `analyze` class in your file:
+1. Require the `Analyze` class in your file:
   ```ruby
   require 'sa11y/analyze'
   ```
