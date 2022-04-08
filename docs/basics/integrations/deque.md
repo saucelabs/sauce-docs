@@ -83,7 +83,7 @@ https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/
 ```
 
 </TabItem>
-<TabItem value="webdriver">
+<TabItem value="js">
 
 __Requirements__
 
