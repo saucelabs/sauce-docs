@@ -195,7 +195,7 @@ https://github.com/saucelabs-training/demo-ruby/blob/docs-1.0/sauce-features/acc
 </TabItem>
 <TabItem value="c#">
 
-To get accessibility results with C# and .NET, we recommend [Selenium.Axe for .NET](https://github.com/TroyWalshProf/SeleniumAxeDotnet/). Make sure you are using version 3.x.
+To get accessibility results with C# and .NET, we recommend using [Selenium.Axe for .NET](https://github.com/TroyWalshProf/SeleniumAxeDotnet/), version 3.0 or higher.
 
 __Requirements__
 
