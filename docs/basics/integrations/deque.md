@@ -136,7 +136,7 @@ The following is information on how to use the Python `sa11y` library directly:
 
 __Requirements__
 
-1. Install `sa11y`.
+1. Install Sa11y.
   ```shell
   pip install sa11y
   ```
@@ -154,7 +154,7 @@ Analyze(driver).results()
 
 __Example Code__
 
-```python reference title="Accessibility Test with sa11y"
+```python reference title="Accessibility Test with Sa11y"
 https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/accessibility/test_sa11y.py
 ```
 
@@ -173,7 +173,7 @@ __Requirements__
   gem 'sa11y', '~> 0.2.1'
   ```
 
-1. Require the `analyze` class in your file:
+1. Require the `Analyze` class in your file:
   ```ruby
   require 'sa11y/analyze'
   ```
