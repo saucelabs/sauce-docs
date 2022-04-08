@@ -1,6 +1,6 @@
 ---
 id: create-dynamic-dates
-title: How to create dynamic dates
+title: How to Create Dynamic Dates
 sidebar_label: Create Dynamic Dates
 description: "How you can create dynamic dates for your tests"
 ---
@@ -62,7 +62,7 @@ You can also create a date based on a specified time zone:
 ${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD','America/New_York')}
 ```
 
-* `D.format()`: creates a timestamp with the given format, based on the provided timezone id (in the example, we have created the same date as before but using New York as timezone)
+* `D.format()`: creates a timestamp with the given format, based on the provided timezone id (in the example, we have created the same date as before but using New York as timezone). 
 
 ## Converting a Timestamp in Millis
 

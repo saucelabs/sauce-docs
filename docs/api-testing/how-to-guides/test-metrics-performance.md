@@ -62,16 +62,16 @@ Latency is defined as time to first byte. Fetch is the total download time of th
 
 The performance of the API can be mission critical in some cases, and cataloging metrics can be as important as collecting them.
 
-The classic approach of creating big tables of HTTP hits with the actual URL being called and its performance is certainly accurate but far from being easy to review because URLs contain variables and hardly represent what the action was about.
+The classic approach of creating big tables of HTTP hits with the actual URL being called (and its performance) is certainly accurate, but it's far from being easy to review because URLs contain variables and hardly represent what the action was about.
 
-Sauce Labs API Testing, as a default, works in this "classic" way, but gives you to possibility to change the "footprint" of requests, based on your organization needs.
+Sauce Labs API Testing, as a default, works in this "classic" way, but gives you to possibility to change the "footprint" of requests based on your organization needs.
 
 Consider a scenario where a route has a parameter in it. Let's take a look at an example:
 
 ```http request
 http://www.whereever.com/[id]/details
 ```
-Each individual rest run for this route will produce a new line in the metrics view:
+Each individual REST run for this route will produce a new line in the metrics view:
 
 ```http request
 http://www.whereever.com/1/details  
@@ -87,7 +87,7 @@ How is this accomplished? To reconfigure the _footprint_ you need to add, in the
 <img src={useBaseUrl('img/api-fortress/2022/03/config_component.png')} alt="config_component.png" />
 
 The Config component has two fields:  
-* **Name**: The name you want to assign. In this case, you **MUST** to enter _footprint_
+* **Name**: The name you want to assign. In this case, you **MUST** enter _footprint_
 * **Value**: The value for the configuration component
 
 Example:

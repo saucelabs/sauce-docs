@@ -1,6 +1,6 @@
 ---
 id: compose-request-body
-title: How to compose a request body 
+title: How to Compose a Request Body 
 sidebar_label: Compose Requests Body
 description: "How you can compose a request body using Sauce Labs API Testing"
 ---
@@ -74,7 +74,7 @@ Another way to compose a Request Body is using variables into it.
 
 The next way to compose a Request Body is by using a variable from another call. Let's see how this can be done.
 
-1. The first thing we need to do is add the call we will retrieve the variable from. Let's consider, as example, the common scenario where we need to perform a login for authentication and retrieve the authentication token required for the following call.
+1. The first thing we need to do is add the call we will retrieve the variable from. Let's consider, as an example, the common scenario where we need to perform a login for authentication and retrieve the authentication token required for the following call.
 
     ```text     
     Url: https://mydomain/login // the url of the resource you want to test
@@ -118,7 +118,7 @@ In the next example we will show you a more complex case. We will consider the s
 
     <img src={useBaseUrl('img/api-fortress/2022/04/how-to-response-object.png')} alt="GET component"/>
 
-2. Let's take the below example as the response paylaod we get from that call:
+2. Let's take the below example as the response payload we get from that call:
 
    ```json
    {

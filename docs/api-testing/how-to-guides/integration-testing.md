@@ -85,7 +85,7 @@ Feel free to keep using the same access token over and over as seen below.
 
 ## One More Example
 
-Let's consider another scenario: there's an API endpoint that produce an array of all the available products and another endpoint that shows the details of a specific product based on its 'id'.
+Let's consider another scenario: there's an API endpoint that produces an array of all the available products and another endpoint that shows the details of a specific product based on its 'id'.
 
 ```http request
 http://demoapi.apifortress.com/api/retail/product 
