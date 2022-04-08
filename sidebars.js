@@ -918,6 +918,7 @@ module.exports = {
      ],
      "CI": [
          'ci',
+         'ci/azure',
          'ci/bamboo',
          'ci/bitbucket',
          'ci/jenkins',
