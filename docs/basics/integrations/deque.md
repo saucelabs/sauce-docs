@@ -140,7 +140,7 @@ __Requirements__
   ```shell
   pip install sa11y
   ```
-1. Import the `analyze` class in your file.
+1. Import the `Analyze` class in your file.
   ```python
   from sa11y.analyze import Analyze
   ```
