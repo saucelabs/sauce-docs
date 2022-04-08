@@ -903,3 +903,17 @@ Setting `0` reverts to the value set in `defaults`.
 ```yaml
   timeout: 15m
 ```
+
+### `preExec`
+<p><small>| OPTIONAL | STRING/ARRAY |</small></p>
+
+Specifies which commands needs to be executes before the tests are actually started. The commands are executed from the root director of your project.
+
+:::note
+There is a 300sec limit for all preExec commands to complete.
+:::
+
+```yaml
+  preExec:
+    - node ./scripts/pre-execution-script.js
+```
