@@ -173,7 +173,7 @@ __Requirements__
   gem 'sa11y', '~> 0.2.1'
   ```
 
-1. Require the `analyze` class in your file:
+1. Require the `Analyze` class in your file:
   ```ruby
   require 'sa11y/analyze'
   ```
@@ -193,7 +193,7 @@ https://github.com/saucelabs-training/demo-ruby/blob/docs-1.0/sauce-features/acc
 ```
 
 </TabItem>
-<TabItem value="c#">
+<TabItem value="csharp">
 
 To get accessibility results with C# and .NET, we recommend using [Selenium.Axe for .NET](https://github.com/TroyWalshProf/SeleniumAxeDotnet/), version 3.0 or higher.
 
