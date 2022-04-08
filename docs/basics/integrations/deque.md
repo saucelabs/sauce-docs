@@ -43,7 +43,7 @@ Sauce Labs will display the accessibility results in our UI as a tab in the job 
   defaultValue="java"
   values={[
     {label: 'Java', value: 'java'},
-    {label: 'WebdriverIO', value: 'webdriver'},
+    {label: 'JavaScript', value: 'js'},
     {label: 'Python', value: 'python'},
     {label: 'Ruby', value: 'ruby'},
     {label: 'C#', value: 'csharp'},
