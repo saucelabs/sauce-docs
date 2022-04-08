@@ -46,7 +46,7 @@ Sauce Labs will display the accessibility results in our UI as a tab in the job 
     {label: 'WebdriverIO', value: 'webdriver'},
     {label: 'Python', value: 'python'},
     {label: 'Ruby', value: 'ruby'},
-    {label: 'C#', value: 'c#'},
+    {label: 'C#', value: 'csharp'},
 ]}>
 
 <TabItem value="java">
@@ -173,7 +173,7 @@ __Requirements__
   gem 'sa11y', '~> 0.2.1'
   ```
 
-1. Require the `Analyze` class in your file:
+1. Require the `analyze` class in your file:
   ```ruby
   require 'sa11y/analyze'
   ```
