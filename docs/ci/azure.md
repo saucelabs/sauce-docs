@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs support Azure DevOps (formerly Visual Studio Team Services or VSTS) as a 3rd party integration. Follow the instructions here to get started: they just need to do some work on their end. That work is documented here with C#, here with NodeJs, and with Java
+Azure DevOps (formerly Visual Studio Team Services or VSTS) is a Microsoft product that provides version control, reporting, requirements management, project management, automated builds, testing and release management capabilities. Follow the instructions below to integrate Sauce Labs into your Azure pipeline and accelerate your app development lifecycle.
 
 :::note
 The Sauce Labs OnDemand plugin for Azure DevOps has been deprecated.
