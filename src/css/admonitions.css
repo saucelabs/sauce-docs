@@ -154,7 +154,7 @@ html[data-theme='dark'] .alert--warning p, .alert--warning h5 {
 }
 
 .admonition-caution pre code {
-    background-color: var(--ds-gray-300);
+    background-color: var(--ds-gray-700);
 }
 
 .admonition-note code {
@@ -172,7 +172,7 @@ html[data-theme='dark'] .alert--warning p, .alert--warning h5 {
 }
 
 .admonition-tip pre code {
-    background-color: var(--ds-gray-300);
+    background-color: var(--ds-gray-700);
 }
 
 .admonition-warning code {
