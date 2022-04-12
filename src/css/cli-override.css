@@ -12,15 +12,15 @@
     margin-bottom: 2px;
     padding: 1px;
     margin-block-start: 2px;
-    font-family: "museo-sans-rounded", sans-serif;
+    font-family: var(--font-family-sans-serif);
     font-size: 15px;
     font-weight: bold;
-    background-color: #F1F2F2;
+    background-color: var(--ds-gray-200);
     border-bottom: 1px solid #474c55;
 }
 
 .cli {
-    color: #003A70;
+    color: var(--ds-blue-900);
     font-family: "Source Code Pro";
     padding: 5px;
     padding-right: 50%;
@@ -34,36 +34,49 @@
 }
 
 .t-cli {
-  color: #003A70;
+  color: var(--ds-blue-900);
   font-size: 13px;
   padding: 1px;
   border: solid .5px #d6d6db;
-  background-color: #EDEDEF;
+  background-color: var(--ds-gray-100);
   border-radius: 5px;
 }
 
 .t-cli a {
-  color: #003A70;
+  color: var(--ds-blue-900);
 }
 
 .t-cli a:hover {
   text-decoration: underline;
-  text-decoration-color: #003A70;
+  text-decoration-color: var(--ds-blue-900);
   cursor: pointer;
 }
 
 html[data-theme='dark'] .cli {
-  background: linear-gradient(to right, #44494F 0%,#44494F 550px, transparent 50px, transparent 100%);
-  color: #EDEDEF;
+  background: var(--ds-gray-700);
+  color: var(--ds-gray-50);
+  border-radius: 4px;
+  padding: 4px;
 }
 
 html[data-theme='dark'] .t-cli {
-  background: linear-gradient(to right, #44494F 0%,#44494F 550px, transparent 50px, transparent 100%);
-  color: #EDEDEF;
-  border: solid .5px #93939f;
+  background: var(--ds-gray-700);
+  padding: 4px;
+  color: var(--ds-gray-50);
+  border: none;
+  border-radius: 4px;
+}
+
+html[data-theme='dark'] .t-cli a {
+  color: var(--ds-blue-200);
+}
+
+html[data-theme='dark'] .t-cli a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--ds-blue-200);
 }
 
 html[data-theme='dark'] #table-cli th {
-  background-color: #44494F;
-  color: #EDEDEF;
+  background-color: var(--ds-gray-700);
+  color: var(--ds-white);
 }

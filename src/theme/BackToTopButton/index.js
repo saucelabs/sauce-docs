@@ -6,13 +6,20 @@
  */
 import React, {useRef, useState} from 'react';
 import clsx from 'clsx';
-import useScrollPosition from '@theme/hooks/useScrollPosition';
+import {translate} from '@docusaurus/Translate';
 import styles from './styles.module.css';
+import {
+  ThemeClassNames,
+  useScrollPosition,
+  useLocationChange,
+} from '@docusaurus/theme-common';
 const threshold = 300; // Not all have support for smooth scrolling (particularly Safari mobile iOS)
 // TODO proper detection is currently unreliable!
 // see https://github.com/wessberg/scroll-behavior-polyfill/issues/16
 
-const SupportsNativeSmoothScrolling = false; // const SupportsNativeSmoothScrolling = ExecutionEnvironment.canUseDOM && 'scrollBehavior' in document.documentElement.style;
+const SupportsNativeSmoothScrolling = false; // const SupportsNativeSmoothScrolling =
+//   ExecutionEnvironment.canUseDOM &&
+//   'scrollBehavior' in document.documentElement.style;
 
 function smoothScrollTopNative() {
   window.scrollTo({
@@ -36,12 +43,10 @@ function smoothScrollTopPolyfill() {
     }
   }
 
-  rafRecursion();
-  return () => {
-    // Break the recursion
-    // Prevents the user from "fighting" against that recursion producing a weird UX
-    raf && cancelAnimationFrame(raf);
-  };
+  rafRecursion(); // Break the recursion. Prevents the user from "fighting" against that
+  // recursion producing a weird UX
+
+  return () => raf && cancelAnimationFrame(raf);
 }
 
 function useSmoothScrollToTop() {
@@ -59,17 +64,23 @@ function useSmoothScrollToTop() {
   };
 }
 
-function BackToTopButton() {
-  const {smoothScrollTop, cancelScrollToTop} = useSmoothScrollToTop();
+export default function BackToTopButton() {
   const [show, setShow] = useState(false);
+  const isFocusedAnchor = useRef(false);
+  const {smoothScrollTop, cancelScrollToTop} = useSmoothScrollToTop();
   useScrollPosition(({scrollY: scrollTop}, lastPosition) => {
-    // No lastPosition means component is just being mounted.
+    const lastScrollTop = lastPosition?.scrollY; // No lastScrollTop means component is just being mounted.
     // Not really a scroll event from the user, so we ignore it
-    if (!lastPosition) {
+
+    if (!lastScrollTop) {
       return;
     }
 
-    const lastScrollTop = lastPosition.scrollY;
+    if (isFocusedAnchor.current) {
+      isFocusedAnchor.current = false;
+      return;
+    }
+
     const isScrollingUp = scrollTop < lastScrollTop;
 
     if (!isScrollingUp) {
@@ -91,23 +102,30 @@ function BackToTopButton() {
     } else {
       setShow(false);
     }
-  }, []);
+  });
+  useLocationChange((locationChangeEvent) => {
+    if (locationChangeEvent.location.hash) {
+      isFocusedAnchor.current = true;
+      setShow(false);
+    }
+  });
   return (
     <button
-      className={clsx('clean-btn', styles.backToTopButton, {
-        [styles.backToTopButtonShow]: show,
+      aria-label={translate({
+        id: 'theme.BackToTopButton.buttonAriaLabel',
+        message: 'Scroll back to top',
+        description: 'The ARIA label for the back to top button',
       })}
+      className={clsx(
+        'clean-btn',
+        ThemeClassNames.common.backToTopButton,
+        styles.backToTopButton,
+        {
+          [styles.backToTopButtonShow]: show,
+        },
+      )}
       type="button"
-      title="Scroll to top"
-      onClick={() => smoothScrollTop()}>
-      <svg viewBox="0 0 24 24" width="28">
-        <path
-          d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
-          fill="currentColor"
-        />
-      </svg>
-    </button>
+      onClick={() => smoothScrollTop()}
+    />
   );
 }
-
-export default BackToTopButton;

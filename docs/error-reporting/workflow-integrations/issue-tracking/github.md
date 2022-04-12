@@ -23,19 +23,15 @@ In GitHub, click the menu in the upper-right and select "Settings". In the Perso
 Customize the security settings as desired, making sure that the token is granted access to create new Issues. Make a note of the token, you will need it for configuration below.
 
 ## Set Up the Integration
-To set up the integration, first go to the Configuration page within the Web Console:
+To set up the integration, first go to the **Project Settings** page for the project you want to add a integration for:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/configure-org.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />
 
-Next, select the project you want to add a integration for:
+Then click **Integrations** in the left-hand menu, and the plus sign to create a new integration:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/projects.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
 
-Then click Integrations in the left-hand menu, then Create a New Integration on the right, and pick the integration:
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/legacy-add-integration.png')} alt="" />
-
-These are the settings that you can configure for your GitHub integration:
+Select **GitHub** and fill in the required settings.
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/github-settings.png')} alt="" />
 
