@@ -42,7 +42,7 @@ For on-premise (self-hosted) users, the integration for Unreal Engine requires s
 :::
 
 ### System Requirements
-* Unreal Engine version 4.16 to 5.0 (early access)
+* Unreal Engine version 4.16 to 5.0
 
 
 ## Enable the Crash Reporter
@@ -84,7 +84,7 @@ If the Engine folder doesn't exist at the root directory for your Unreal Engine 
   ```
   [CrashReportClient]
   CrashReportClientVersion=1.0
-  DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}>"
+  DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
   ```
   Provide the name of your subdomain and a submission token for the `DataRouterUrl`.
 
@@ -99,7 +99,7 @@ You can configure the crash reporter to be the default for all packaged builds o
   1. Copy the `DefaultEngine.ini` file and paste it into the following directory:
     `[UNREAL_ENGINE]/UnrealEngine/Engine/Programs/CrashReportClient/Config`
   :::note
-  The directory could also be under `%USERPROFILE%/Documents/UnrealEngine` or `C:/Program Files/Epic Games/UE_[version]`. You can also search your system for 'CrashReportClient' to find it.
+  The directory could also be under `C:/Program Files/Epic Games/UE_[version]`. You can also search your system for 'CrashReportClient' to find it.
   :::
   1. Open the `DefaultEngine.ini` file and add the following lines:
 
