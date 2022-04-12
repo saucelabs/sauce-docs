@@ -14,7 +14,9 @@ With this feature, traffic is recorded on our side and exposes the HAR file thro
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* A native mobile app that makes HTTP/HTTPS requests.
+* A native Android, iOS, or iPadOS mobile app that makes HTTP/HTTPS requests. We currently support the following:
+  * Android 10 and higher
+  * iOS 10+ up to iOS 15.3
 
 
 ## Using Network Traffic Capture
