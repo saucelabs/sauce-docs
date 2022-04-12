@@ -1,6 +1,6 @@
 ---
 id: Audio-capture
-title: Audio Capture 
+title: Audio Capture
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -28,7 +28,8 @@ To enable audio capture in your tests:
   (screenshot)
 
 4. Under Default Settings, toggle Instrumentation and App/OS Audio to enable the feature. 
-   (screenshot)
+   
+   <br/><img src={useBaseUrl('img/mobile-apps/audio_capture_screen2.png')} alt="Mobile app settings navigation" width="600"/>
    
 **For Automated Testing only:** add the audioCapture capability to your test script. Click the link below corresponding to your framework:
  
