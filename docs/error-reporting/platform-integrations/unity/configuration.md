@@ -105,20 +105,10 @@ You can also add custom metrics groups and attributes with [`backtraceClient.Ins
 
 
 ### Capturing Native Crashes
+<Tabs>
+<TabItem value="android" label="Android" default>
 
-<Tabs
-  groupId="native support"
-  defaultValue="android"
-  values={[
-    {label: 'Android', value: 'android'},
-    {label: 'iOS', value: 'ios'},
-    {label: 'Windows', value: 'windows'},
-  ]}>
-
-  <TabItem value="android">
-
-  The Backtrace Unity SDK includes support for capturing native crashes, as well as memory and process information from the underlying Android OS, JNI, and NDK layers, including:
-
+The Backtrace Unity SDK includes support for capturing native crashes, as well as memory and process information from the underlying Android OS, JNI, and NDK layers, including:
   - `system.memory.free`
   - `system.memory.swap.free`
   - `system.memory.vmalloc.total`
@@ -136,7 +126,6 @@ For more information about other data that is captured, see [Attributes](/error-
   |Symbols upload token|Required to automatically upload debug symbols to Backtrace. <br /> <br /> To generate a symbol upload token, in Backtrace go to Project Settings > Symbols > Access tokens > and select + to generate a new token.|String|
 
 #### Uploading Debug Symbols
-
 You can configure the Backtrace client to automatically upload debug symbols in IL2CPP builds for Android apps.
 
 To enable automatic upload of debug symbols, in your Unity project's Android settings:
@@ -147,8 +136,8 @@ To enable automatic upload of debug symbols, in your Unity project's Android set
 
 For more information about debug symbols, see [Symbolication](/error-reporting/project-setup/symbolication/).
 
-  </TabItem>
-  <TabItem value="ios">  
+</TabItem>
+<TabItem value="ios" label="iOS">
 
 The Backtrace Unity SDK includes support for capturing native crashes, as well as memory and process information from the underlying iOS layer, including:
   - `system.memory.free`
@@ -171,7 +160,6 @@ Unity's CrashReport API might prevent the Backtrace client from sending crashes.
 :::
 
 #### Uploading Debug Symbols
-
 When building your iOS game in Xcode, make sure to configure the build settings to generate dSYM files for any build that you want to debug with Backtrace. By default, Xcode may only generate DWARF files.
 
 To generate debug symbols in dSYM format, in the Build Settings for your Xcode project, set Debug Information Format to 'DWARF with dSYM File'.
@@ -182,10 +170,10 @@ You can find the dSYM files in the Build folder for your project (`.../Build/Pro
 
 For more information about debug symbols, see [Symbolication](/error-reporting/project-setup/symbolication/).
 
-  </TabItem>
-  <TabItem value="windows">
+</TabItem>
+<TabItem value="windows" label="Windows">
 
-  The Backtrace Unity SDK includes support for capturing native Windows crashes.
+The Backtrace Unity SDK includes support for capturing native Windows crashes.
 
   |Setting|Description|Type|Default|
   |---------|---------|---------|---------|
@@ -193,8 +181,8 @@ For more information about debug symbols, see [Symbolication](/error-reporting/p
   |Capture native crashes|Captures stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start.|Boolean|True|
   |Capture ANR (Application not responding)|Generates a hang report whenever an app hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.|Boolean|True|
 
-  </TabItem>
-  </Tabs>
+</TabItem>
+</Tabs>
 
 
 ### Logging Breadcrumbs
