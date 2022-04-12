@@ -34,7 +34,7 @@ Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabli
 
   ```yaml
   ---
-  rest-url: "https://api.us-west-4-i3er.saucelabs.com/rest/v1"
+  region: us-west
   user: "$SAUCE_USERNAME"
   api-key: "$SAUCE_ACCESS_KEY"
   vm-version: "v2alpha"
@@ -46,7 +46,7 @@ Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabli
 
   ```yaml
   ---
-  rest-url: "https://api.eu-west-3-lnbf.saucelabs.com/rest/v1"
+  region: eu-central
   user: "$SAUCE_USERNAME"
   api-key: "$SAUCE_ACCESS_KEY"
   vm-version: "v2alpha"
@@ -88,7 +88,7 @@ Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabli
 
 5. Start your tunnel by issuing:
   ```bash
-  bin/sc -c api-config.yaml
+  bin\sc.exe -c api-config.yaml
   ```
 
   If the tunnel was launched successfully, you'll see a [CLI response](/secure-connections/sauce-connect/proxy-tunnels/#command-line-interface) indicating that you can start your tests.
