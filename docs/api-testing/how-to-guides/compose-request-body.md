@@ -10,7 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 In this guide we will show you the different ways you can compose a Request Body: from the simplest to the most complex.
 
 :::note
-In our examples we'll use the `POST` method, but all examples shown can be applied to the other REST methods. In this same way, we demonstrated scenarios with Request Bodies, but all examples apply for Header or Param cases as well.
+In our examples we'll use the `POST` method, but all examples shown can be applied to the other methods. In the same way, we are going to demonstrate scenarios with Request Bodies, but all examples apply for Header or Param cases as well.
 :::
 
 ## Copy and Paste the Body from Somewhere
@@ -87,7 +87,7 @@ The next way to compose a Request Body is by using a variable from another call.
 
     <img src={useBaseUrl('img/api-fortress/2022/04/how-to-request-login.png')} alt="login"/>
 
-2. Executing the login we will have as response the desired token. Let's see it using our HTTP Client.
+2. Executing the login we will have as response the desired token. Let's use the following as an example response.
 
     <img src={useBaseUrl('img/api-fortress/2022/04/how-to-token.png')} alt="response token"/>
 
