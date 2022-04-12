@@ -604,6 +604,12 @@ Enables the use of the app's private app container directory instead of the shar
 Enables mobile app instrumentation (Android or iOS) and recording of HTTP/HTTPS network traffic for debugging purposes. API calls are collected into a HAR file, which you can view and download from your **Test Results** > **Network** tab console. The default value is `false`.
 
 ---
+### `audioCapture`
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | </p>
+
+Enables the audio recording of your native mobile application. The audio will be part of the test results page video file, which you can playback in our built-in media playor and download from your **Test Results** page. The default value is `false`.
+
+---
 ### `systemAlertsDelayEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
 
