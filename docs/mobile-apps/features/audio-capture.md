@@ -79,4 +79,4 @@ The  recording and during a live testing session, you will see the status bar cl
 
 ## More information
 
-* [Test Results](/docs.saucelabs.com/test-results/)
+* [Test Results](/test-results/)
