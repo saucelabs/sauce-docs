@@ -8,11 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Azure DevOps (formerly Visual Studio Team Services or VSTS) is a Microsoft product that provides version control, reporting, requirements management, project management, automated builds, testing and release management capabilities. Follow the instructions below to integrate Sauce Labs into your Azure pipeline and accelerate your app development lifecycle.
-
-:::note
-The Sauce Labs OnDemand plugin for Azure DevOps has been deprecated.
-:::
+Azure DevOps (formerly Visual Studio Team Services or VSTS) is a Microsoft product that provides version control, reporting, requirements management, project management, automated builds, testing and release management capabilities.
 
 ## What You'll Need
 
@@ -20,14 +16,20 @@ The Sauce Labs OnDemand plugin for Azure DevOps has been deprecated.
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * An existing Azure DevOps pipeline
 
+:::note
+The Sauce Labs OnDemand plugin for Azure DevOps has been deprecated.
+:::
 
-## Installing the Plugin
+
+## Using Azure DevOps
+
+Follow the instructions below to integrate Sauce Labs testing into your Azure pipeline.
 
 1. Sign in to your Azure DevOps organization and go to your project.
-2. Go to **Pipelines**, and then select **New pipeline**.
-3. Link the new pipeline to your repository. You'll likely need to provide permissions to Azure Pipelines in your repository management system.
-4. Add your Sauce Labs username and access key to your pipeline by clicking **Pipeline** > **Variables**, then paste the values of your username and access key. See [Setting $SAUCE_USERNAME and $SAUCE_ACCESS_KEY as environment variables](https://ultimateqa.com/tfs-vsts-and-azure-devops/#1_Setup_your_username_and_access_key_in_ADO).
-5. In your source code, you can reference environment variables like this:
+2. Go to **Pipelines** > **New pipeline**.
+3. Link the new pipeline to your repository. See [Azure Pipelines Documentation](https://docs.microsoft.com/en-us/azure/devops/pipelines/) for guidance. You'll likely need to provide permissions for Azure Pipelines to access your repository management system.
+4. Set your [Sauce Labs username and access key as environment variables](https://ultimateqa.com/tfs-vsts-and-azure-devops/#1_Setup_your_username_and_access_key_in_ADO) in your pipeline. Click **Pipeline** > **Variables**, then paste the values of your username and access key.
+5. In your source code, you'll need to reference the Sauce Labs environment variables you set in Azure DevOps. For example:
   <Tabs
     defaultValue="Node.js"
     values={[
@@ -38,12 +40,16 @@ The Sauce Labs OnDemand plugin for Azure DevOps has been deprecated.
 
   <TabItem value="Node.js">
 
-  ??
+  ```js
+  x
+  ```
 
   </TabItem>
   <TabItem value="Java">
 
-  ??
+  ```java
+  x
+  ```
 
   </TabItem>
   <TabItem value="C#">
@@ -53,41 +59,30 @@ The Sauce Labs OnDemand plugin for Azure DevOps has been deprecated.
   var sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY");
   ```
 
-  Be sure not to set the `EnvironmentVariableTarget.User` as your second parameter; Azure DevOps will not be able to read that variable.
-
   </TabItem>
   </Tabs>
 
-6. Read values from Azure Variables in your YAML file:
+  Be sure not to set the `EnvironmentVariableTarget.User` variable as your second parameter, as Azure DevOps will not be able to read it.
+6. Create a YAML file using one of the templates below. You'll also need to reference your Sauce Labs environment variables here.
+   <Tabs
+     defaultValue="node.js"
+     values={[
+       {label: 'Node.js', value: 'node.js'},
+       {label: 'Java', value: 'java'},
+       {label: 'C#', value: 'C#'},
+     ]}>
 
-C#
-  ```yaml
-  - task: DotNetCoreCLI@2
-    displayName: 'Run tests'
-    env:
-      SAUCE_USERNAME: $(sauceUsername)
-      SAUCE_ACCESS_KEY: $(sauceKey)
-  ```
+   <TabItem value="node.js">
 
-7. Create a YAML file containing the following code:
-  <Tabs
-    defaultValue="node.js"
-    values={[
-      {label: 'Node.js', value: 'node.js'},
-      {label: 'Java', value: 'java'},
-      {label: 'C#', value: 'C#'},
-    ]}>
-
-  <TabItem value="node.js">
-
-   ```YAML
+   ```yml
    trigger:
    - main
 
    pool:
      vmImage: ubuntu-latest
 
-   # multiple pipelines can re-use variables that are stored in a variable group
+   # Multiple pipelines can re-use variables
+   # that are stored in a variable group
    variables:
    - group: sauce-labs-variables
 
@@ -97,29 +92,28 @@ C#
        versionSpec: '14.x'
      displayName: 'Install Node.js'
 
-   # Below we navigate to the working directory, install node packages, run tests on Sauce.
-   # Make sure to set SAUCE_USERNAME and SAUCE_ACCESS_KEY variables
    - script: |
+   # Navigate to the working directory
       cd ./webdriverio/webdriver/examples/w3c/
+   # Install node packages
       npm install
+   # Run tests on Sauce and enables a high level of logging for CI
       npm run test.saucelabs.us -- --logLevel "debug"
-      #it's wise to enable a high level of logging for CI |
+   |
 
     env:
-      SAUCE_USERNAME: $(sauceUsername) #this will read the value from 'sauceUsername' in ADO and will store it into SAUCE_USERNAME env variable
+      # Reads the value from 'sauceUsername' in Azure DevOps and
+      # stores it into SAUCE_USERNAME env variable
+      SAUCE_USERNAME: $(sauceUsername)
       SAUCE_ACCESS_KEY: $(sauceAccessKey)
     displayName: 'install and run WebdriverIO tests in Sauce Labs'
-
    ```
 
-  </TabItem>
-  <TabItem value="java">
+   </TabItem>
+   <TabItem value="java">
 
-   ```YAML
-   # Maven
+   ```yaml
    # Build your Java project and run tests with Apache Maven.
-   # Add steps that analyze code, save build artifacts, deploy, and more:
-   # https://docs.microsoft.com/azure/devops/pipelines/languages/java
    trigger:
    – main
    pr:
@@ -128,10 +122,8 @@ C#
    pool:
      vmImage: 'ubuntu-latest'
 
-   # Set the environment variables for the pipeline.
-   # We create a variable sauce_user and assign it a value of $(SAUCE_USERNAME), which comes from the ADO
-   variables:
-   – name: sauce_user
+   # Sets the environment variables for the pipeline.
+   # We create a variable sauce_user and assign it a value of $(SAUCE_USERNAME), which comes from the Azure DevOps.
    variables:
    – name: sauce_user
      value: $(SAUCE_USERNAME)
@@ -142,7 +134,7 @@ C#
    – bash: echo $SAUCE_USER
    – bash: echo $SAUCE_KEY
 
-   # This will build and run the tests in the Maven project
+   # Builds and runs the tests in the Maven project.
    – task: Maven@3
      inputs:
        mavenPomFile: 'pom.xml'
@@ -155,10 +147,10 @@ C#
        goals: 'package'
    ```
 
-  </TabItem>
-  <TabItem value="C#">
+   </TabItem>
+   <TabItem value="C#">
 
-   ```YAML
+   ```yaml
    pool:
      name: Hosted VS2017
      demands:
@@ -195,17 +187,18 @@ C#
 
    # Using powershell ##vso command to set an environment variable in the system
    – powershell: |
-       Write-Host "Sauce Username stored in ADO variables is=>$($env:SAUCE_USER)";
-       Write-Host "Sauce Access Key stored in ADO variables is=>$($env:SAUCE_KEY)";
+       Write-Host "Sauce Username stored in Azure DevOps variables is=>$($env:SAUCE_USER)";
+       Write-Host "Sauce Access Key stored in Azure DevOps variables is=>$($env:SAUCE_KEY)";
        Write-Host "Sauce Username stored in Env variables is=>$($env:SAUCE_USERNAME)";
        Write-Host "Sauce Access Key stored in Env variables is=>$($env:SAUCE_ACCESS_KEY)";
        Write-Host "Sauce Build Repository URI stored in Env variables is=>$($env:BUILD_REPOSITORY_URI)";
+  |
 
-    # checking to make sure that env variables were set between yml tasks
+    # Checking to make sure that environment variables were set between yml tasks
     – powershell: |
-       Write-Host "Sauce Username stored in Env Variables variables is=>$($env:SAUCE_USERNAME)";
-       Write-Host "Sauce Access Key stored in ADO variables is=>$($env:SAUCE_ACCESS_KEY)";
-      displayName: display env variables bw posh tasks
+        Write-Host "Sauce Username stored in Env Variables variables is=>$($env:SAUCE_USERNAME)";
+        Write-Host "Sauce Access Key stored in Azure DevOps variables is=>$($env:SAUCE_ACCESS_KEY)";
+    displayName: display env variables bw posh tasks
 
     – task: VSTest@2
       displayName: 'Run Best Practices Framework'
@@ -226,12 +219,14 @@ C#
         failOnMinTestsNotRun: true
    ```
 
-  </TabItem>
-  </Tabs>
+   </TabItem>
+   </Tabs>
 
 
 ## More Information
 
+You can use the information below to add steps to your project that analyze code, save build artifacts, deploy, and more:
+* [Sauce Labs with Azure DevOps](https://ultimateqa.com/tfs-vsts-and-azure-devops/)
 * [Microsoft Azure DevOps Pipelines documentation](https://docs.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops)
 * [Build JavaScript and Node.js apps](https://docs.microsoft.com/azure/devops/pipelines/languages/javascript)
 * [Build Java apps](https://docs.microsoft.com/azure/devops/pipelines/languages/java)
