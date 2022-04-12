@@ -39,7 +39,7 @@ Offline database capabilities are currently not supported for Nintendo Switch.
 
 ## What You'll Need
 * A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
-* Your subdomain name (used to connect to your Backtrace instance). For example, `https://{your-subdomain}.sp.backtrace.io`.
+* Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
 * A Backtrace project and a submission token.
 
 :::tip Generate a Submission Token
@@ -127,7 +127,7 @@ The server address is required to submit exceptions from your Unity project to y
 1. Copy the server address.
 1. Go back to the Backtrace Configuration in your Unity project.
 1. In the **Server Address** field, enter the server address in the following format: `https://submit.backtrace.io/{subdomain}/{submission-token}/json`.
-    - Provide the name of your subdomain and a submission token.
+    - Provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unity/setup/#what-youll-need).
 
 
 ## Verify the Setup
