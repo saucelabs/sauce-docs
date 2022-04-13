@@ -51,7 +51,7 @@ curl --compressed \ -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}
 You will be able to capture audio on Android 10 and above.
 
 :::note
-Once audioCapture is enabled the status bar will display the recording icon.
+Once `audioCapture` is enabled the status bar will display the recording icon.
 :::
 
 We use native Android audio capture for seamless audio capture for our real devices experience. Your test results and sessions are secured, and can only be viewed by you.
