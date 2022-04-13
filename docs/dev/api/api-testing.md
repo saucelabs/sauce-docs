@@ -489,6 +489,12 @@ Runs a single test on Sauce Labs API Testing, creates a Log in your Dashboard, a
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The test ID. To find it, go to your project > <strong>Tests</strong> tab > Hover over your test and click <strong>Edit</strong> > Grab the test ID from your browser's URL (<code>https://app.saucelabs.com/api-testing/project/&#123;projectId&#125;/test/<strong>&#123;testId&#125;</strong>/compose</code>).</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>buildId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The ID, which flags any resources associated to it.</p></td>
+    </tr>
+  </tbody>
 </table>
 
 
@@ -563,6 +569,12 @@ Runs all tests in a project.
     <tr>
      <td><code>hookId</code></td>
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Your project's hook ID, which you can create and/or retrieve from your project's <strong>Webhooks</strong> tab.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>buildId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The ID, which flags any resources associated to it.</p></td>
     </tr>
   </tbody>
 </table>
@@ -646,6 +658,12 @@ Runs all tests in a project matching a tag.
     <tr>
      <td><code>tag</code></td>
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>A test tag, which you can find in your project's <strong>Tests</strong> tab.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>buildId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The ID, which flags any resources associated to it.</p></td>
     </tr>
   </tbody>
 </table>
@@ -755,6 +773,12 @@ Executes the test you send in the request body. It will create a Log in the proj
        <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>Must contain the unit of the test you want to upload to the cloud. You can obtain this by going into a Test > **Compose** section > toggle **Code View**.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>buildId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The ID, which flags any resources associated to it.</p></td>
+    </tr>
+  </tbody>
 </table>
 
 
@@ -862,6 +886,12 @@ Runs a single test synchronously.
     <tr>
      <td><code>format</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Use this to set a response format. Possible values are <code>json</code> and <code>junit</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>buildId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The ID, which flags any resources associated to it.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1037,6 +1067,12 @@ Runs all tests in a project synchronously.
     <tr>
     <td><code>format</code></td>
     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Use this to set a response format. Possible values are <code>json</code> and <code>junit</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>buildId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The ID, which flags any resources associated to it.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1291,6 +1327,12 @@ Run all tests in a project synchronously.
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Use this to set a response format. Possible values are <code>json</code> and <code>junit</code>.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>buildId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The ID, which flags any resources associated to it.</p></td>
+    </tr>
+  </tbody>
 </table>
 
 
@@ -1489,6 +1531,12 @@ Executes a test synchronously that you send in the request body. It will create 
     <tr>
      <td><code>unit</code></td>
        <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>Must contain the unit of the test you want to upload to the cloud. You can obtain this by going into a Test > **Compose** section > toggle **Code View**.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>buildId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The ID, which flags any resources associated to it.</p></td>
     </tr>
   </tbody>
 </table>
