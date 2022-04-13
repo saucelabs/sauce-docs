@@ -607,7 +607,7 @@ Enables mobile app instrumentation (Android or iOS) and recording of HTTP/HTTPS 
 ### `audioCapture`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | </p>
 
-Enables the audio recording of your native mobile application. The audio will be part of the test results page video file, which you can playback in our built-in media playor and download from your **Test Results** page. The default value is `false`.
+Enables audio recording in your iOS and Android native mobile app tests. The audio will be part of the **Test Results** page video file, which you can play back and download in our built-in media player. The default value is `false`.
 
 ---
 ### `systemAlertsDelayEnabled`
