@@ -17,20 +17,25 @@ Internet Protocol Security VPN (IPSec VPN) is a technology that connects two pri
 
 Sauce IPSec Proxy is an enterprise-grade IPSec VPN solution that provides a secure, static connection between apps hosted on your private network (or local machine) and devices on the Sauce Labs cloud.
 
+## What You'll Learn
+
+* How to get up and running with Sauce IPSec Proxy
+* Overview of Sauce IPSec Proxy network architecture
+* How to run tests using Sauce IPSec Proxy
+
 ### What You'll Need
 
 <p> <Highlight color="#013a70">Enterprise Plans Only</Highlight> </p>
 
 * Sauce IPSec Proxy is an enterprise-only feature that must be configured by our Support Team prior to use. Contact your Sauce Labs Sales Engineer or Customer Success Manager to learn more about how this solution can meet your business needs.
-* If you're an organization admin, see [Security Settings](/basics/acct-team-mgmt/org-settings) for information on configuring tunnel access for users.
-* Authorization to use your organization's Sauce IPSec Proxy tunnel. You can To verify this by going to the **Tunnels** page, where you should see the tunnel name and details displayed. If you don't see it, contact the organization admin for your Sauce Labs account to request access.
+* Authorization to use your organization's Sauce IPSec Proxy tunnel. You can verify this by going to the **Tunnels** page, where you should see the tunnel name displayed. If you don't see it, contact the organization admin for your Sauce Labs account to request access.
 
 
 ## Sauce IPSec Proxy Setup
 
 As part of our initial Sauce IPSec Proxy tunnel setup and configuration on your network, we'll ask your organization to choose from two sharing settings:
 
-* **Restricted**: Only organization admins can access Sauce IPSec Proxy tunnels
+* **Restricted**: Only organization admins can utilize Sauce IPSec Proxy tunnels
 * **Organization-wide**: All users in your organization can utilize Sauce IPSec Proxy tunnels
 
 If you're an organization admin who would like to change your sharing settings, please reach out to our Support Team.
