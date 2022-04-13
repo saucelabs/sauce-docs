@@ -76,6 +76,6 @@ The  recording and during a live testing session, you will see the status bar cl
 * Cross browser testing is not yet available. 
 :::
 
-## More information
+## More Information
 
 * [Test Results](/test-results/)
