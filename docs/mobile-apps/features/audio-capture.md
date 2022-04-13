@@ -1,5 +1,5 @@
 ---
-id: Audio-capture
+id: audio-capture
 title: Audio Capture
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
