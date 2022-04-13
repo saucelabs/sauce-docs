@@ -812,7 +812,7 @@ PM> Install-Package Selenium.WebDriver -Version 4.0.0
 Below are code examples that can help resolve deprecation messages you might encounter after upgrading to Selenium 4.
 
 #### Find Element(s) Utility Methods
-<p><span className="sauceDBlue">J<small>ava only</small></span></p>
+<p><span className="sauceDBlue"><small>Java only</small></span></p>
 
 `FindsBy` interfaces, utility methods to find elements in the Java bindings, have been removed, as they were meant for internal use only. In Example 2, you'll see that all the `findElements*` have been removed as well.
 
