@@ -65,6 +65,19 @@ html[data-theme='dark'] .alert--secondary {
     --ra-admonition-color: var(--ds-white) !important;
 }
 
+html[data-theme='dark'] a code {
+    color: var(--ds-blue-100);
+    font-weight: bold;
+}
+
+html[data-theme='dark'] .breadcrumbs__item--active .breadcrumbs__link {
+    color: var(--ds-blue-100);
+}
+
+.breadcrumbs__item--active .breadcrumbs__link:hover {
+    font-weight: bold;
+}
+
 .table-of-contents__link--active {
   color: var(--ifm-menu-color-active);
   font-weight: 700;
@@ -98,11 +111,6 @@ html[data-theme='dark'] .tabs__item--active {
 
 .tabs__item--active {
   border-bottom-color: var(--ds-blue-700);
-}
-
-html[data-theme='dark'] .alert a {
-  color: var(--ds-white);
-  text-decoration: underline;
 }
 
 html[data-theme='light'] {
@@ -202,11 +210,11 @@ html[data-theme='dark'] .navbar__link:hover {
   background: var(--ds-blue-50);
 }
 .menu__link--active {
-  color: var(--ds-blue-700);
+  color: var(--ds-blue-800);
   font-weight: 700;
 }
 .menu__link--active:hover {
-  color: var(--ds-blue-700);
+  color: var(--ds-blue-800);
   font-weight: 700;
 }
 
@@ -800,7 +808,6 @@ html[data-theme='dark'] .title-quickstart{
 .main__container-bg.--dev-resources .main__container-inner {
   border-bottom: solid 1px #C1C3C7;
 }
-
 
 .dev-resources__title {
   width: 100%;
