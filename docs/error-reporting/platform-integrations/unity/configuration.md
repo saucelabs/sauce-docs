@@ -31,7 +31,7 @@ After you've [setup](/error-reporting/platform-integrations/unity/setup) the Bac
 
 ## Configuration Settings
 
-The configuration settings for the Backtrace client and database are defined by the Backtrace Configuration file in the Assets folder of your Unity project. It's recommended to change the configuration settings for the Backtrace client and database in the Unity Inspector:
+The configuration settings for the Backtrace client and database are defined by the **Backtrace Configuration** file in the **Assets** folder of your Unity project. It's recommended to change the configuration settings for the Backtrace client and database in the **Unity Inspector**:
 
 <img src={useBaseUrl('img/error-reporting/unity/unity-backtrace-client-config.png')} alt="Customizing Backtrace client configuration options in the Unity Inspector" />
 
@@ -66,7 +66,7 @@ Alternatively, you can also specify the configuration settings in your C# projec
 |Retry order (FIFO/LIFO)|The order in which reports are sent to the Backtrace server: <ul><li>If you set the value to 'Queue' (FIFO), then the first report into the queue is the first report to leave the queue.</li> <li>If you set the value to 'Stack' (LIFO), then the last report into the stack is the last report to leave the stack.</li></ul>|Enum|Stack|
 
 #### Enable Stack Traces for WebGL
-To enable stack traces for WebGL, in your Unity project's Player Settings, under Publishing Settings, set Enable Exceptions to 'Full With Stacktrace'.
+To enable stack traces for WebGL, in your Unity project's **Player Settings**, under **Publishing Settings**, set **Enable Exceptions** to 'Full With Stacktrace'.
 
 <img src={useBaseUrl('img/error-reporting/unity/unity-webgl-player-settings-enable-exceptions.png')} alt="Player setting in Unity required to enable stack traces for WebGL." />
 
@@ -105,20 +105,10 @@ You can also add custom metrics groups and attributes with [`backtraceClient.Ins
 
 
 ### Capturing Native Crashes
+<Tabs>
+<TabItem value="android" label="Android" default>
 
-<Tabs
-  groupId="native support"
-  defaultValue="android"
-  values={[
-    {label: 'Android', value: 'android'},
-    {label: 'iOS', value: 'ios'},
-    {label: 'Windows', value: 'windows'},
-  ]}>
-
-  <TabItem value="android">
-
-  The Backtrace Unity SDK includes support for capturing native crashes, as well as memory and process information from the underlying Android OS, JNI, and NDK layers, including:
-
+The Backtrace Unity SDK includes support for capturing native crashes, as well as memory and process information from the underlying Android OS, JNI, and NDK layers, including:
   - `system.memory.free`
   - `system.memory.swap.free`
   - `system.memory.vmalloc.total`
@@ -136,19 +126,18 @@ For more information about other data that is captured, see [Attributes](/error-
   |Symbols upload token|Required to automatically upload debug symbols to Backtrace. <br /> <br /> To generate a symbol upload token, in Backtrace go to Project Settings > Symbols > Access tokens > and select + to generate a new token.|String|
 
 #### Uploading Debug Symbols
-
 You can configure the Backtrace client to automatically upload debug symbols in IL2CPP builds for Android apps.
 
 To enable automatic upload of debug symbols, in your Unity project's Android settings:
-- In the Build Settings, set Create symbols.zip to 'Debugging'.
+1. In the **Build Settings**, set **Create symbols.zip** to 'Debugging'.
 <img src={useBaseUrl('img/error-reporting/unity/unity-android-build-settings-debug-symbols.png')} alt="Build setting required to upload debug symbols to Backtrace for Android builds." />
-- In the Player Settings, under Configuration (Other Settings), set Scripting Backend to 'IL2CPP'.
+1. In the **Player Settings**, under **Configuration (Other Settings)**, set **Scripting Backend** to 'IL2CPP'.
 <img src={useBaseUrl('img/error-reporting/unity/unity-android-player-settings-debug-symbols.png')} alt="Player setting required to upload debug symbols to Backtrace for Android builds." />
 
 For more information about debug symbols, see [Symbolication](/error-reporting/project-setup/symbolication/).
 
-  </TabItem>
-  <TabItem value="ios">  
+</TabItem>
+<TabItem value="ios" label="iOS">
 
 The Backtrace Unity SDK includes support for capturing native crashes, as well as memory and process information from the underlying iOS layer, including:
   - `system.memory.free`
@@ -171,10 +160,9 @@ Unity's CrashReport API might prevent the Backtrace client from sending crashes.
 :::
 
 #### Uploading Debug Symbols
-
 When building your iOS game in Xcode, make sure to configure the build settings to generate dSYM files for any build that you want to debug with Backtrace. By default, Xcode may only generate DWARF files.
 
-To generate debug symbols in dSYM format, in the Build Settings for your Xcode project, set Debug Information Format to 'DWARF with dSYM File'.
+To generate debug symbols in dSYM format, in the **Build Settings** for your Xcode project, set **Debug Information Format** to 'DWARF with dSYM File'.
 
 <img src={useBaseUrl('img/error-reporting/unity/xcode-enable-debug-symbols.png')} alt="Build setting in Xcode required to generate debug symbols for iOS builds." />
 
@@ -182,10 +170,10 @@ You can find the dSYM files in the Build folder for your project (`.../Build/Pro
 
 For more information about debug symbols, see [Symbolication](/error-reporting/project-setup/symbolication/).
 
-  </TabItem>
-  <TabItem value="windows">
+</TabItem>
+<TabItem value="windows" label="Windows">
 
-  The Backtrace Unity SDK includes support for capturing native Windows crashes.
+The Backtrace Unity SDK includes support for capturing native Windows crashes.
 
   |Setting|Description|Type|Default|
   |---------|---------|---------|---------|
@@ -193,8 +181,8 @@ For more information about debug symbols, see [Symbolication](/error-reporting/p
   |Capture native crashes|Captures stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start.|Boolean|True|
   |Capture ANR (Application not responding)|Generates a hang report whenever an app hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.|Boolean|True|
 
-  </TabItem>
-  </Tabs>
+</TabItem>
+</Tabs>
 
 
 ### Logging Breadcrumbs

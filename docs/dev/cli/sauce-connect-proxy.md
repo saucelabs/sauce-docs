@@ -340,7 +340,7 @@ __Shorthand__: `-a`
 ### `--cainfo`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: CA certificate bundle to use for verifying connections to Sauce Labs REST API. Default: `/private/etc/ssl/cert.pem`.<br/>
+__Description__: CA certificate bundle in PEM format to use for verifying connections to Sauce Labs REST API. Default: `/private/etc/ssl/cert.pem`. This is normally used when a proxy is needed to access the REST API, and the proxy's certificate isn't available in the system certificate store. This does <b>not</b> affect test traffic through Sauce Connect.<br/>
 __Enviroment variable__: `SAUCE_CAINFO`<br/>
 __Shorthand__: n/a
 
@@ -360,9 +360,9 @@ __Shorthand__: n/a
 ### `--tunnel-cainfo`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: CA certificate bundle to use for verifying tunnel connections.<br/>
+__Description__: CA certificate bundle in PEM format to use for verifying tunnel connections. This is normally used when a proxy is needed to access the tunnel endpoint, and the proxy's certificate isn't available in the system certificate store. This does <b>not</b> affect test traffic through Sauce Connect.<br/>
 __Enviroment variable__: `SAUCE_TUNNEL_CAINFO`<br/>
-__Shorthand__: n/a  
+__Shorthand__: n/a
 
 
 ---
@@ -371,7 +371,7 @@ __Shorthand__: n/a
 
 __Description__: OCSP verification mode. Options are: strict, log-only, and disable. The default is log-only.<br/>
 __Enviroment variable__: `SAUCE_OCSP`<br/>
-__Shorthand__: n/a  
+__Shorthand__: n/a
 
 :::note
 `--ocsp strict` may fail if a certificate in the chain does not support OCSP. We recommend leaving it as the default "log-only" mode.
@@ -383,7 +383,7 @@ __Shorthand__: n/a
 
 __Description__: Directory of CA certificates to use for verifying tunnel connections.<br/>
 __Enviroment variable__: n/a <br/>
-__Shorthand__: n/a  
+__Shorthand__: n/a
 
 :::caution
 Effective with Sauce Connect Proxy version 4.7.0, `--tunnel-capath` was deprecated. Download the latest version [here](/secure-connections/sauce-connect/installation/).
@@ -395,7 +395,7 @@ Effective with Sauce Connect Proxy version 4.7.0, `--tunnel-capath` was deprecat
 
 __Description__: Defines a directory of CA certs to use for verifying connections to Sauce Labs REST API.<br/>
 __Enviroment variable__: n/a <br/>
-__Shorthand__: n/a  
+__Shorthand__: n/a
 
 :::caution
 Effective with Sauce Connect Proxy version 4.7.0, `--capath` was deprecated. Download the latest version [here](/secure-connections/sauce-connect/installation/).
@@ -409,7 +409,7 @@ Effective with Sauce Connect Proxy version 4.7.0, `--capath` was deprecated. Dow
 ### `--log-stats`
 __Description__: Logs statistics about HTTP traffic every &#60;seconds&#62;. Information includes bytes transmitted, requests made, and responses received.<br/>
 __Enviroment variable__: `SAUCE_LOG_STATS`<br/>
-__Shorthand__: `-z`  
+__Shorthand__: `-z`
 
 
 ---
@@ -422,7 +422,7 @@ Effective with Sauce Connect Proxy version 4.7.0, the metrics server is disabled
 
 __Description__: Use this option to define the host:port for the internal web server used to expose client-side metrics. The default is `localhost:8888` for versions prior to 4.7.0.<br/>
 __Enviroment variable__: `SAUCE_METRICS_ADDRESS`<br/>
-__Shorthand__: n/a  
+__Shorthand__: n/a
 
 
 ---
