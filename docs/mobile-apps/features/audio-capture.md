@@ -25,7 +25,7 @@ To enable audio capture in your tests:
 1. On Sauce Labs, click **Live** > **Mobile App**.
 2. [Upload your mobile app to Sauce Labs](/mobile-apps/app-storage) through the UI or CLI.
 3. After you’ve uploaded your app, return to the **Live** > **Mobile App** page, hover your mouse over your app, then select **Settings**. <br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr.png')} alt="Mobile app settings navigation" width="800"/>
-4. Under Default Settings, toggle Instrumentation and App/OS Audio to enable the feature. <br/><img src={useBaseUrl('img/mobile-apps/audio_capture_screen2.png')} alt="Mobile app settings navigation" width="600"/>
+4. Under Default Settings, toggle Instrumentation and App/OS Audio to enable the feature. <br/><img src={useBaseUrl('img/mobile-apps/audio_capture_screen2.png')} alt="Mobile app settings navigation" width="800"/>
 5. **For Automated Testing only:** add the `audioCapture` capability to your test script. Click the link below corresponding to your framework:
    * Espresso (coming soon)
    * XCUITest (coming soon)
@@ -57,7 +57,7 @@ Once `audioCapture` is enabled the status bar will display the recording icon.
 We use native Android audio capture for seamless audio capture for our real devices experience. Your test results and sessions are secured, and can only be viewed by you.
 :::caution
 If your apps's manifest.xml file defines `android:allowAudioPlaybackCapture="false"`, you need to enable instrumentation to have Audio Capture work for your apps. 
-(screenshot of instrumentation flag)
+<br/><img src={useBaseUrl('img/mobile-apps/audio_capture_screen3.png')} alt="Mobile app settings navigation" width="800"/>
 :::
 
 
