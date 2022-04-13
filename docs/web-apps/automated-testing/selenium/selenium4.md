@@ -520,7 +520,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 ### Full-Page Screenshots
 <p><span className="sauceDBlue"><small>Firefox only</small></span></p>
 
-Features like "infinite scroll" makes it impossible to explicitly define what a "full page" entails for a W3C specification. As such, the default screenshot method in Selenium 3 only returns what is visible in the Viewport. For Selenium 4, Mozilla implemented a separate method to allow for a full-page screenshot in Firefox.
+Features like "infinite scroll" make it impossible to explicitly define what a "full page" entails for a W3C specification. As such, the default screenshot method in Selenium 3 only returns what is visible in the Viewport. For Selenium 4, Mozilla implemented a separate method to allow for a full-page screenshot in Firefox.
 
 <Tabs
 groupId="lang-ex"
