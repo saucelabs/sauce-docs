@@ -166,7 +166,7 @@ To generate debug symbols in dSYM format, in the **Build Settings** for your Xco
 
 <img src={useBaseUrl('img/error-reporting/unity/xcode-enable-debug-symbols.png')} alt="Build setting in Xcode required to generate debug symbols for iOS builds." />
 
-You can find the dSYM files in the **Build** folder for your project (`.../Build/Products/<build target folder>`), which you can then compress into a .zip file and upload to Backtrace.
+You can find the dSYM files in the Build folder for your project (`.../Build/Products/<build target folder>`), which you can then compress into a .zip file and upload to Backtrace.
 
 For more information about debug symbols, see [Symbolication](/error-reporting/project-setup/symbolication/).
 
