@@ -114,15 +114,18 @@ Depending on the type of test you want to run, you may need to include certain c
 To connect to Sauce Labs real and virtual devices, you'll need to assign your Sauce IPSec Proxy tunnel to the appropriate [Data Center Endpoint](/basics/data-center-endpoints) in your test script.
 
 For Appium and Selenium frameworks:
-* Set the `tunnelIdentifier` desired capability to the name of your organization's Sauce IPSec Proxy tunnel
-* Set the `parentTunnel` capability to the username of your organization admin
-  ```java title="Java example"
-  MutableCapabilities caps = new MutableCapabilities();
-  caps.setCapability("tunnelIdentifier", "$TUNNEL_IDENTIFIER");
-  caps.setCapability("parentTunnel","$SAUCE_USERNAME");
-  ```
+1. Set the `tunnelIdentifier` desired capability to the name of your organization's Sauce IPSec Proxy tunnel.
+2. Set the `parentTunnel` capability to the username of your organization admin.
+
+```java title="Java example"
+MutableCapabilities caps = new MutableCapabilities();
+caps.setCapability("tunnelIdentifier", "$TUNNEL_IDENTIFIER");
+caps.setCapability("parentTunnel","$SAUCE_USERNAME");
+```
+
 For Espresso and XCUITest frameworks:
-* Specify the applicable [`tunnel`](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#tunnel) settings in your `saucectl` config.yml file, or use the `--tunnel-name` and `--tunnel-owner` flags with the [saucectl run command](/dev/cli/saucectl/run/#--tunnel-name) at test runtime.
+* Specify the applicable [`tunnel`](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#tunnel) settings in your `saucectl` config.yml file; or
+* Use the `--tunnel-name` and `--tunnel-owner` flags with the [saucectl run command](/dev/cli/saucectl/run/#--tunnel-name) at test runtime.
 
 ### Live Testing
 
