@@ -36,7 +36,7 @@ Now you can start your live or automated testing session.Your audio recording wi
 
 ## Accessing the Audio in Your Test Tesults
 
-The audio recording will be included into the video recording, which you will can play back and download from the built-in media player on the **Test Results** page. 
+The audio recording will be included into the video recording, which you can play back and download from the built-in media player on the **Test Results** page. 
 
 You can also download the video file with the included audio stream programmatically using the following API request: 
 
@@ -54,9 +54,9 @@ You will be able to capture audio on Android 10 and above.
 Once audioCapture is enabled the status bar will display the recording icon.
 :::
 
-We use native Android audio capture for seamless audio capture for our real devices experience. Your test results and sessions are secured, and can only be viewed by you only.
+We use native Android audio capture for seamless audio capture for our real devices experience. Your test results and sessions are secured, and can only be viewed by you.
 :::caution
-If your applications manifest.xml file defines android:allowAudioPlaybackCapture="false", you need to enable instrumentation to have Audio Capture work for your applications. 
+If your apps's manifest.xml file defines `android:allowAudioPlaybackCapture="false"`, you need to enable instrumentation to have Audio Capture work for your apps. 
 (screenshot of instrumentation flag)
 :::
 
