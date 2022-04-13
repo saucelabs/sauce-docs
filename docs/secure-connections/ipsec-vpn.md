@@ -42,7 +42,7 @@ If you're an organization admin who would like to change your sharing settings, 
 
 ### Public Real Devices
 
-To run tests on public real devices in the Sauce Labs cloud using Sauce IPSec Proxy, organization admins must switch on **Enable Sauce Connect Proxy/IPSec VPN for Public Cloud Devices**, a security setting that is disabled by default. See [Security Settings](/basics/acct-team-mgmt/org-settings) for more information.
+To run tests on public real devices in the Sauce Labs cloud using Sauce IPSec Proxy, organization admins must set the **Enable Sauce Connect Proxy/IPSec VPN for Public Cloud Devices** option to **Enabled**. See [Security Settings](/basics/acct-team-mgmt/org-settings) for more information.
 
 The organization admin will see a pop-up modal asking them to read and agree to our Risk Advisory regarding the use of public real devices on a trusted Sauce IPSec Proxy connection.
 
