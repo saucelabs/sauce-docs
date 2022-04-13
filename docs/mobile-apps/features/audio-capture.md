@@ -34,7 +34,7 @@ To enable audio capture in your tests:
   
 Now you can start your live or automated testing session.Your audio recording will be captured and be part of the video recording in the test results page.
 
-## Accessing the Audio through test results page
+## Accessing the Audio in Your Test Tesults
 
 The audio recording will be included into the video recording in your test results page! You will be able to replay the audio with the built in media player in the test results page. 
 
