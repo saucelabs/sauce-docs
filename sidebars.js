@@ -909,6 +909,7 @@ module.exports = {
                    'api-testing/integrations/pagerduty-webhooks',
                     ],
                 },
+          'api-testing/api-test-automation',
           'api-testing/project-dashboard',
           'api-testing/mocking',
           'api-testing/contract-testing',
