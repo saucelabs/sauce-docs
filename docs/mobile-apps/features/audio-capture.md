@@ -36,7 +36,7 @@ Now you can start your live or automated testing session.Your audio recording wi
 
 ## Accessing the Audio in Your Test Tesults
 
-The audio recording will be included into the video recording in your test results page! You will be able to replay the audio with the built in media player in the test results page. 
+The audio recording will be included into the video recording, which you will can play back and download from the built-in media player on the **Test Results** page. 
 
 You can also download the video file with the included audio stream programmatically using the following API request: 
 
