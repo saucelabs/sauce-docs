@@ -26,12 +26,10 @@ To enable audio capture in your tests:
 2. [Upload your mobile app to Sauce Labs](/mobile-apps/app-storage) through the UI or CLI.
 3. After you’ve uploaded your app, return to the **Live** > **Mobile App** page, hover your mouse over your app, then select **Settings**. <br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr.png')} alt="Mobile app settings navigation" width="800"/>
 4. Under Default Settings, toggle Instrumentation and App/OS Audio to enable the feature. <br/><img src={useBaseUrl('img/mobile-apps/audio_capture_screen2.png')} alt="Mobile app settings navigation" width="600"/>
-   
-**For Automated Testing only:** add the audioCapture capability to your test script. Click the link below corresponding to your framework:
- 
-* Espresso (coming soon)
-* XCUITest (coming soon)
-* [Appium](/dev/test-configuration-options/#audiocapture)
+5. **For Automated Testing only:** add the `audioCapture` capability to your test script. Click the link below corresponding to your framework:
+   * Espresso (coming soon)
+   * XCUITest (coming soon)
+   * [Appium](/dev/test-configuration-options/#audiocapture)
   
   
 Now you can start your live or automated testing session.Your audio recording will be captured and be part of the video recording in the test results page.
