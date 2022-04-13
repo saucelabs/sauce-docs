@@ -13,7 +13,7 @@ export const Highlight = ({children, color}) => ( <span style={{
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Internet Protocol Security VPN (IPSec VPN) is a technology that connects two private networks securely over the public internet. If your organization has firewall rules that limit your ability to run tests on Sauce Labs, you can use Sauce IPSec Proxy to connect to Sauce Labs without exposing your company's IT infrastructure to security risks.
+Internet Protocol Security VPN (IPSec VPN) is a technology that connects two private networks securely over the public internet. If your organization has firewall rules that limit your ability to run tests on Sauce Labs, you can use Sauce IPSec Proxy to connect to Sauce Labs without exposing your organization's IT infrastructure to security risks.
 
 Sauce IPSec Proxy is an enterprise-grade IPSec VPN solution that provides a secure, static connection between apps hosted on your private network (or local machine) and devices on the Sauce Labs cloud.
 
