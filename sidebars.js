@@ -749,6 +749,7 @@ module.exports = {
              label: 'Features',
              collapsed: true,
              items: [
+                 'mobile-apps/features/bypass-screenshot',
                  'mobile-apps/features/virtual-usb',
                  'mobile-apps/features/biometric-authentication',
                  'mobile-apps/features/camera-image-injection',
@@ -913,6 +914,17 @@ module.exports = {
           'api-testing/contract-testing',
           'api-testing/logger',
           'api-testing/project-access',
+          {
+            type: 'category',
+            label: 'How To Guides',
+            collapsed: true,
+            items: [
+                'api-testing/how-to-guides/integration-testing',
+                'api-testing/how-to-guides/test-metrics-performance',
+                'api-testing/how-to-guides/compose-request-body',
+                'api-testing/how-to-guides/create-dynamic-dates'
+                ],
+            },
           'api-testing/legacy',
      ],
      "CI": [
