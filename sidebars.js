@@ -909,7 +909,6 @@ module.exports = {
                    'api-testing/integrations/pagerduty-webhooks',
                     ],
                 },
-          'api-testing/api-test-automation',
           'api-testing/project-dashboard',
           'api-testing/mocking',
           'api-testing/contract-testing',
@@ -923,7 +922,8 @@ module.exports = {
                 'api-testing/how-to-guides/integration-testing',
                 'api-testing/how-to-guides/test-metrics-performance',
                 'api-testing/how-to-guides/compose-request-body',
-                'api-testing/how-to-guides/create-dynamic-dates'
+                'api-testing/how-to-guides/create-dynamic-dates',
+                'api-testing/api-test-automation'
                 ],
             },
           'api-testing/legacy',
