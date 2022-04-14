@@ -8,6 +8,12 @@ keywords:
     - update-input
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The  _update input_ component allows you to persist a variable defined inside of the test so that the value will be accessible outside the current scope of the test.
@@ -20,7 +26,7 @@ Usually, the component is used in conjunction with the _set variable_ component.
 
 We pass the _update input_ component the name of the variable that we need to persist outside of the test. The component will first try to update a variable of the same name in the current input set. If that doesn't exist, it will search for a global variable of the same name. If there is no global variable of the same name, it will check the vault. If the variable doesn't exist there, it will create one with the same name.
 
-:::caution **IMPORTANT!**: 
+:::caution **IMPORTANT!**:
 The _update input_ component works only _outside_ of the composer. That is to say, it will only function when a test is executed from the Test List, the Scheduler, or via the API.
 :::
 

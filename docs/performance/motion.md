@@ -7,7 +7,7 @@ description: Measure aesthetic smoothness as a page is in motion due to scrollin
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-In addition to testing the efficiency of your application rendering, Sauce Labs also provides a means for testing how a single page performs in motion, such as while scrolling or tabbing.
+In addition to testing the efficiency of your app rendering, Sauce Labs also provides a means for testing how a single page performs in motion, such as while scrolling or tabbing.
 
 ## What You'll Learn
 
@@ -22,7 +22,7 @@ In addition to testing the efficiency of your application rendering, Sauce Labs 
 
 ## What is Jankiness?
 
-Web applications sometimes appear to lack smoothness when the the application isn't keeping up with the refresh, a condition sometimes referred to as jankiness.  
+Web apps sometimes appear to lack smoothness when the the app isn't keeping up with the refresh, a condition sometimes referred to as jankiness.  
 
 According to jankfree.org:
 
@@ -116,7 +116,7 @@ Here is an example showing the output of jankiness results:
 "type":"scroll"
 ```
 
-Each of the individual metrics in the score is part of a larger diagnostic category that is scored according to its impact on the smoothness of the page: 1 indicates no negative impact and any score between 0 and 1 indicates performance impact. The scores in each of the 4 diagnostic categories are used to generate an overall performance score that can be used to assert against the Jankiness of the application based on standard tolerance.
+Each of the individual metrics in the score is part of a larger diagnostic category that is scored according to its impact on the smoothness of the page: 1 indicates no negative impact and any score between 0 and 1 indicates performance impact. The scores in each of the 4 diagnostic categories are used to generate an overall performance score that can be used to assert against the Jankiness of the app based on standard tolerance.
 
 ### Frame Rate
 
@@ -129,7 +129,7 @@ The `idleDurationScore` represents the extent to which the browser is using reso
 * `renderingTime`
 * `paintingTime`
 * `scriptingTime`
-* `otherTime` (e.g. network requests, etc.)
+* `otherTime` (e.g., network requests, etc.)
 * `idleTime`
 
 ### Forced Style Reflows

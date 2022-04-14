@@ -1,9 +1,15 @@
 ---
 id: assert-exists
 title: Assert Exists
-sidebar_label: Assert Exists 
+sidebar_label: Assert Exists
 description: "This assertion is used to check if the element described by the expression exists. The presence of the element, even empty, is enough to consider it a valid assertion."
 ---
+
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 This assertion is used to check if the element described by the expression exists. The presence of the element, even empty, is enough to consider it a valid assertion.
 
@@ -18,7 +24,7 @@ This assertion is used to check if the element described by the expression exist
 | Stop test if fails | 'true' or 'false' | No |
 | Comment | String | No |
 
-* __Expression__: It's the path to the element we want to operate on (e.g. `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
+* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.
 * __Level__: Specify if the assertion fails whether it should be considered an ‘error’ or just a ‘warning’.
 * __Modifier__: The assertion is considered verified if it does not pass.
@@ -26,7 +32,7 @@ This assertion is used to check if the element described by the expression exist
 * __Comment__: Add comment messages in the form of a string data type.
 
 :::note
-A **warning** will not trigger alerts (such as email or text messages). 
+A **warning** will not trigger alerts (such as email or text messages).
 :::
 
 ## Code View Examples

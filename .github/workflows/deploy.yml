@@ -7,12 +7,13 @@ on:
       - '.github/**'
       - '.docsearch/**'
       - 'README.md'
+      - '.gitpod.yml'
   workflow_dispatch:
 
 env:
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
-  SAUCECTL_VERSION: "0.68.3"
+  SAUCECTL_VERSION: "0.82.1"
   SC_VERSION: "4.7.1"
   ALGOLIA_APP_ID: ${{secrets.ALGOLIA_APP_ID}}
   ALGOLIA_KEY: ${{secrets.ALGOLIA_KEY}}
@@ -33,7 +34,7 @@ jobs:
         with:
           path: |
             **/node_modules
-          key: ${{ runner.os }}-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/package.json') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
 
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
@@ -93,24 +94,30 @@ jobs:
           cd build/ && python3 -m http.server 8000 &
 
           saucectl run -c ./.sauce/config.yml --tunnel-name proxy-tunnel-$GITHUB_RUN_ID
+
   deploy-staging:
     needs: test
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/main' }}
 
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
       - name: Install Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.7
       - run: pip install crcmod
-
       - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@master
+        uses: 'google-github-actions/setup-gcloud@v0'
         with:
+          version: '290.0.1'
           project_id: ${{ secrets.RUN_PROJECT }}
           service_account_key: ${{ secrets.RUN_SA_KEY }}
-          export_default_credentials: true
 
       - uses: actions/cache@v2
         id: cache-build
@@ -140,18 +147,23 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
 
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
       - name: Install Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.7
       - run: pip install crcmod
-
       - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@master
+        uses: 'google-github-actions/setup-gcloud@v0'
         with:
+          version: '290.0.1'
           project_id: ${{ secrets.RUN_PROJECT_PROD }}
           service_account_key: ${{ secrets.RUN_SA_KEY_PROD }}
-          export_default_credentials: true
 
       - uses: actions/cache@v2
         id: cache-build
@@ -161,7 +173,7 @@ jobs:
           key: ${{ runner.os }}-${{ github.sha }}
 
       - name: Install Dependencies
-        if: steps.cache-npm-packages.outputs.cache-hit != 'true'
+        if: steps.cache-build.outputs.cache-hit != 'true'
         run: |
           npm install
 

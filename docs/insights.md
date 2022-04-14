@@ -5,7 +5,7 @@ sidebar_label: Getting Started
 description: Get the most out of your Sauce test results by utilizing our machine learning driven interpretation of your test data.
 ---
 
-Insights is the reporting and analytics hub of your Sauce test suite. In it, you will find an interactive data center that can help you interpret your test results over time, identify failure patterns across different platforms, understand how parallel tests can improve your build efficiency, and home in on areas of your application that might benefit from deeper testing.
+Insights is the reporting and analytics hub of your Sauce test suite. In it, you will find an interactive data center that can help you interpret your test results over time, identify failure patterns across different platforms, understand how parallel tests can improve your build efficiency, and home in on areas of your app that might benefit from deeper testing.
 
 Learn more about how to use Insights to help you get the most out of your test results.
 
@@ -32,6 +32,18 @@ Learn more about how to use Insights to help you get the most out of your test r
     <div className="container">
     <h2><a href="/insights/failure-analysis">Analyze Failure Patterns</a></h2>
     <p>Let Sauce machine learning evaluate your test suite to detect underlying weaknesses in your tests or app.</p>
+    </div>
+  </div>
+  <div className="box box5 card">
+    <div className="container">
+    <h2><a href="/insights/coverage">Measure Coverage</a></h2>
+    <p>See how many different browser and device variations your tests cover.</p>
+    </div>
+  </div>
+  <div className="box box6 card">
+    <div className="container">
+    <h2><a href="/insights/debug">Troubleshoot</a></h2>
+    <p>Use our debugging tools to dig into specific test failures and pinpoint root causes.</p>
     </div>
   </div>
 </div>

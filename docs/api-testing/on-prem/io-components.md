@@ -12,7 +12,13 @@ keywords:
     - patch
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 The I/O operations you can do are: `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`.
 
@@ -41,7 +47,7 @@ _**Parameters:**_
 **Variable**: the name of the variable that contains the response. It will be the name you will refer during the test.
 
 **Expect**: it is an optional field and needs to be filled only if the expected behavior differs from a positive response (i.e. 404,500 vs. 200,201 etc.). _This is useful when looking to test negative responses and validate error messages._  
-  
+
 Possible values are **`<statusCode>|VALID`** or **`<statusCode>|INVALID`**. `VALID` means the payload type is the one selected in the "mode" field (JSON,XML), while `INVALID` means the opposite. Some examples:
 
 - `404|VALID` : 404 is expected with valid payload
@@ -59,10 +65,10 @@ Multiple status codes can be expected by adding them all (i.e. `200|302|400|500|
 Using the above example: let's say that _varName_ is defined as a boolean value so it can be either 'true' or 'false', in that case, there will be two requests; the first one will be a `GET` request to:
 
 ```http request
-https://mydomain/endpoint?firstParam=paramValue&secondParam=true 
+https://mydomain/endpoint?firstParam=paramValue&secondParam=true
 ```
 
-parsing it as `json` and saving it in the `payload` variable; the second one, will be a `GET` request to: 
+parsing it as `json` and saving it in the `payload` variable; the second one, will be a `GET` request to:
 
 ```http request
 https://mydomain/endpoint?firstParam=paramValue&secondParam=false

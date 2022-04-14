@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Speedo Node JS package is a tool that allows you to enter a simple command from a command line to measure basic performance of your Sauce app and validate any regressions based on previously executed tests. Speedo also easily integrates with any CI/CD system, allowing you to plug Sauce Performance into your CI/CD pipeline and start capturing performance within seconds.
+The Speedo Node JS package is a tool that allows you to enter a simple command from a command line to measure basic performance of your Sauce app and validate any regressions based on previously executed tests. Speedo also easily integrates with any CI system, allowing you to plug Sauce Performance into your pipeline and start capturing performance within seconds.
 
 ## What You'll Learn
 * Why the Speedo Node JS package is an easy way to get basic performance data about your app
@@ -16,7 +16,7 @@ The Speedo Node JS package is a tool that allows you to enter a simple command f
 * How to install Speedo
 * How to format Speedo commands to return performance metrics
 * How to interpret the Speedo results
-* How to use Speedo commands with your CI/CD pipeline
+* How to use Speedo commands with your CI pipeline
 
 ### What You'll Need
 
@@ -82,7 +82,7 @@ The Speedo run command initiates a series of tests on Sauce Labs against a singl
     `Stored performance logs in /var/folders/11/p0wfqdkd4wgct7jdpfzxk4j40000gn/T/tmp-8379w4yCSzRBXqN2`
 * Automatically updates the job status to PASS or FAIL based on previously established baseline
 * Outputs reference URLs to the job in the Sauce Labs UI and the Google Lighthouse report
-* Exits with a proper exit code so that your pipeline can potentially block the release of your web application in the event a performance regression was introduced
+* Exits with a proper exit code so that your pipeline can potentially block the release of your web app in the event a performance regression was introduced
 
 #### Run Command Syntax
 
@@ -137,9 +137,9 @@ The following screenshot shows an example of the returned output for the analysi
 
 <img src={useBaseUrl('img/performance/speedo-analyze-output.png')} alt="Analyze Command Output" width="750"/>
 
-## Integrating with a CI/CD Pipeline
+## Integrating with a CI Pipeline
 
-The Speedo package is designed to organically fit into your existing continuous integration and delivery pipeline, as illustrated in the following examples.
+The Speedo package is designed to organically fit into your existing continuous integration pipeline, as illustrated in the following examples.
 
 <Tabs
   defaultValue="jenkins"

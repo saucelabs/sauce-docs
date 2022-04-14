@@ -1,18 +1,22 @@
 ---
 id: live-mobile-app-testing
-title: Live Mobile Application Testing
-sidebar_label: Live Mobile Application Testing
+title: Live Mobile App Testing
+sidebar_label: Live Mobile App Testing
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-With Sauce Labs, you can test your mobile applications on a variety of Android and iOS devices. If you do not have an app, consider using the Sauce Labs Swag Labs sample app for validating your account functionality as well as your tests.
+With Sauce Labs, you can test your mobile apps on a variety of Android and iOS devices. If you do not have an app, consider using the Sauce Labs Swag Labs sample app for validating your account functionality as well as your tests.
 
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* A mobile app to test.
+* Your mobile app file. If you don't have one on hand, consider using our Demo Apps:
+     * [React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
+     * [iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
+     * [Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)
+
 
 ### Uploading an App
 You can upload your app via the Sauce Labs UI or via the REST API. For information about uploading via the API, see [Upload Files with the REST API](/mobile-apps/app-storage).
@@ -20,30 +24,30 @@ You can upload your app via the Sauce Labs UI or via the REST API. For informati
 To upload an app via the Sauce Labs UI:
 
 1. On Sauce Labs, in the left panel, click **LIVE** and then click **Mobile App**.
-2. Click **App Upload**. You can either drag and drop an application, or browse for and select the file. We currently support \*.apk Android app files, \*.aab Android App Bundle files and \*.ipa or \*.zip iOS app files (\*.zip files are parsed to determine whether a valid \*.app bundle exists). Non-app file uploads are not supported in the UI at this time, but can be uploaded through the API.
+2. Click **Upload App**. You can either drag and drop an app, or browse for and select the file. We currently support \*.apk Android app files, \*.aab Android App Bundle files and \*.ipa or \*.zip iOS app files (\*.zip files are parsed to determine whether a valid \*.app bundle exists). Non-app file uploads are not supported in the UI at this time, but can be uploaded through the API.
 
   If you don't have an app to test, you can use the [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile).
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-nav.png')} alt="Upload an application" width="650"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-nav.png')} alt="Upload an app" width="650"/>
 
 ### Deleting an App
-Deleting an app in Sauce Labs will delete the whole application (i.e., the group of builds belonging to the same app package). Files associated with app identifiers (i.e., belonging to the same platform and accessible to the same team) are indicated by the + symbol next to version number. Also, the version number shown is the most recently updated file, not necessarily the latest version of the application.
+Deleting an app in Sauce Labs will delete the whole app (i.e., the group of builds belonging to the same app package). Files associated with app identifiers (i.e., belonging to the same platform and accessible to the same team) are indicated by the + symbol next to version number. Also, the version number shown is the most recently updated file, not necessarily the latest version of the app.
 
-To delete an application, on the Mobile App test page, hover over the test and then click **Delete**.
+To delete an app, on the Mobile App test page, hover over the test and then click **Delete**.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-delete.png')} alt="Delete an application" width="650"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-delete.png')} alt="Delete an app" width="650"/>
 
 ### App Settings
-To view or change the application settings, on the Mobile App test page, hover over the test and then click **Settings**.
+To view or change the app settings, on the Mobile App test page, hover over the test and then click **Settings**.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-settings.png')} alt="Application settings" width="650"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-settings.png')} alt="App settings" width="650"/>
 
 To easily copy a test's file name or ID, hover over the test and then click the clipboard icon.
 
 <img src={useBaseUrl('img/live-testing/copy-file-id.png')} alt="Copy a file name or ID" width="450"/>
 
 :::note
-The application settings screen is only available for real device testing.
+The app settings screen is only available for real device testing.
 :::
 
 **Default App Settings**
@@ -54,23 +58,23 @@ The application settings screen is only available for real device testing.
 | Device Orientation | Use the dropdown to set the device orientation (Landscape or Portrait). |
 | Proxy | Enable/disable the use of a proxy. Enter the **Hostname** and **Port** and then click **Update**. |
 | Instrumentation | Enable/disable device instrumentation. Enabling allows you to use advanced features when testing your app in the real device cloud, like image injection and taking screenshots of secure views.  |
-| Image Injection | Enable/disable image injection. Image injection allows you to mimic camera behavior when testing applications by letting you upload an image and present it to the application as if it were read by the device camera. |
-| Bypass Screenshot Restriction <br/><p><span className="sauceDBlue">ANDROID ONLY</span></p> | Enable/disable Bypass Screenshot Restriction (not supported on applications uploaded to the legacy sauce storage). Enabling **Bypass Screenshot Restriction** allows you to take screenshots of your app during tests, even if your app does not allow screenshots for security reasons. |
+| Image Injection | Enable/disable image injection. Image injection allows you to mimic camera behavior when testing apps by letting you upload an image and present it to the app as if it were read by the device camera. |
+| Bypass Screenshot Restriction <br/><p><span className="sauceDBlue">ANDROID ONLY</span></p> | Enable/disable Bypass Screenshot Restriction (not supported on apps uploaded to the legacy sauce storage). If you're testing Android mobile apps on Sauce Labs and see a black screen in your live testing session, you might need to enable the <b>Bypass Screenshot Restriction</b>. This allows Sauce Labs to work around a setting on those apps that prevents screenshots or videos from being taken. However, there are other details to keep in mind. To effectively test apps that have this setting, see [Bypass Screenshot Restriction](/mobile-apps/features/bypass-screenshot). |
 | System Alerts Display <br/><p><span className="sauceDBlue">iOS Only</span></p> | Enable/disable a system alerts delay. Enabling delays alerts, such as asking for permission to access the camera, to prevent app crashes at startup. |
 | Biometrics Interception | Enable/disable biometrics. Enabling allows you to choose authentication options if your mobile app requires a biometric authentication, such as fingerprint or face recognition on Android, and Face ID or Touch ID on iOS.<br/> This setting is disabled by default for iOS apps. |
 | Group Folder Redirect <br/><p><span className="sauceDBlue">iOS Only</span></p> | Enable/disable a group directory redirect. Enabling allows you to use your app's private app container directory instead of the shared app group container directory. When your app gets resigned, the shared directory is not accessible. |
 
 :::note
-Any changes you make to the application settings will affect all uploaded versions of the application.
+Any changes you make to the app settings will affect all uploaded versions of the app.
 :::
 
 **Example Settings - iOS**
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-settings-ios.png')} alt="Application settings - iOS" width="650"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-settings-ios.png')} alt="App settings - iOS" width="650"/>
 
 **Example Settings - Android**
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-settings-android.png')} alt="Application settings - Android" width="650"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-settings-android.png')} alt="App settings - Android" width="650"/>
 
 Most settings update automatically, however, when you make changes to the proxy setting, click **Update** to finish.
 
@@ -142,7 +146,7 @@ If you upload an app that is signed with an enterprise certificate, and **Instru
 | <img src={useBaseUrl('img/live-testing/share-session-icon.png')} alt="Share Session icon" width="35"/> | Share Session | Opens the **Share Device** window. For a sharable link to the device, click **Get Link**. <br/>Users must be logged in to be able to view the test. |
 | <img src={useBaseUrl('img/live-testing/rotate-device-icon.png')} alt="Rotate Device icon" width="35"/> | Rotate Device | Rotates the device between portrait and landscape. |
 | <img src={useBaseUrl('img/live-testing/home-icon.png')} alt="Home icon" width="35"/> | Home | Opens the device home screen. |
-| <img src={useBaseUrl('img/live-testing/more-device-options-icon.png')} alt="More Device Options icon" width="35"/> | More Device Options | **Set Location** - Set the GPS location using coordinates or by dropping a pin on the map. <br/> **Camera Injection** - Opens the **Camera Injection** window. See [Camera Image Injection](/mobile-apps/live-testing/live-mobile-app-testing#camera-image-injection) for more information.<br/> **Biometric Injection** - Opens the **Biometric Authentication** window. |
+| <img src={useBaseUrl('img/live-testing/more-device-options-icon.png')} alt="More Device Options icon" width="35"/> | More Device Options | **Set Location** - Set the GPS location using coordinates or by dropping a pin on the map. <br/> **Camera Injection** - Opens the **Camera Injection** window. See [Camera Image Injection](/mobile-apps/features/camera-image-injection) for more information.<br/> **Biometric Injection** - Opens the **Biometric Authentication** window. |
 | <img src={useBaseUrl('img/live-testing/restart-app-icon.png')} alt="Restart App icon" width="35"/> | Restart App | Restarts the app. |
 | <img src={useBaseUrl('img/live-testing/switch-app-version-icon.png')} alt="Switch App Version icon" width="35"/> | Switch App Version | Opens the **Switch App Version** window. To change the version of the app you are testing, hover over the version and then click **Choose version**. |
 | <img src={useBaseUrl('img/live-testing/clipboard-icon.png')} alt="Clipboard icon" width="35"/> | Clipboard | Opens the **Paste Content Into Device** window. |
@@ -163,7 +167,7 @@ If you upload an app that is signed with an enterprise certificate, and **Instru
 | <img src={useBaseUrl('img/live-testing/download-log-icon.png')} alt="Download Log icon" width="40"/> | Download Log | Downloads the log as a .txt file. |
 
 ### Device Vitals
-Device Vitals is a feature that collects useful performance data in real time from a device during a live session. Data such as network, CPU, and memory usage helps users understand the general performance of a device and the application under test. Users can view a graph of this performance data in real time as the app is processing.
+Device Vitals is a feature that collects useful performance data in real time from a device during a live session. Data such as network, CPU, and memory usage helps users understand the general performance of a device and the app under test. Users can view a graph of this performance data in real time as the app is processing.
 
 <img src={useBaseUrl('img/live-testing/device-vitals.png')} alt="Device Vitals" width="450"/>
 
@@ -185,8 +189,8 @@ The graph and csv file will contain these performance metrics for devices.
 | `cpu_kernal` | Android OS CPU usage in percentage across all CPU cores. 4 cores at max use would be shown as a value of 400% |
 | `n_threads` | Total threads in use by the app |
 | `memory_size_kb` | Total threads in use by the app |
-| `memory_resident_kb` | Memory currently in use by application in kilobytes |
-| `memory_shared_kb` | Anonymous shared memory currently in use by system shared between application(s) and system |
+| `memory_resident_kb` | Memory currently in use by app in kilobytes |
+| `memory_shared_kb` | Anonymous shared memory currently in use by system shared between app(s) and system |
 | `network_wifi_receive_b` | Data in bytes received over wifi connection |
 | `network_wifi_sent_b` | Data in bytes sent over wifi connection |
 | `network_mobile_receive_b` | Data in bytes received from the mobile carrier network |
@@ -194,7 +198,7 @@ The graph and csv file will contain these performance metrics for devices.
 
 
 ## Changing an App Version
-Sometimes you need to conduct A/B testing, or document and validate feature parity between different versions of the same application. You can change the app version, as well as the real device, and launch a new test session.
+Sometimes you need to conduct A/B testing, or document and validate feature parity between different versions of the same app. You can change the app version, as well as the real device, and launch a new test session.
 
 1. On the **App Upload** page, click the +***n*** in the **Version** column.
 
@@ -247,14 +251,14 @@ To make Apple Pay work on Sauce Labs real private devices:
 
       <img src={useBaseUrl('img/live-testing/apple-pay-3.png')} alt="Apple Pay setup - add device to certificate" width="650"/>
 
-      5. Once the UDID of the device is added to the developer certificate, you can build the application (manually or automatically):
+      5. Once the UDID of the device is added to the developer certificate, you can build the app (manually or automatically):
           1. Select your build scheme and then select **Generic iOS Device**.
-          2. To build the application, click **Product** and then click **Archive**.
+          2. To build the app, click **Product** and then click **Archive**.
           3. Click **Distribute App**.
-          4. Distribute the application with **Ad Hoc** and **Automatically manage signing**.
-          5. Store the application on your local machine.
+          4. Distribute the app with **Ad Hoc** and **Automatically manage signing**.
+          5. Store the app on your local machine.
 
-    If the application has been built, you should not yet upload it to Sauce Labs. The device to be tested needs to be prepared. If you have already prepared the device, then you can skip to step 4.
+    If the app has been built, you should not yet upload it to Sauce Labs. The device to be tested needs to be prepared. If you have already prepared the device, then you can skip to step 4.
 
 3. Prepare the device. Set up the first Sauce Labs private device to use Apple Pay with the Apple sandbox account that was created in step 1.
 
@@ -313,7 +317,7 @@ Disabling this allows the app to use Apple Pay and the developer certificate and
 Disabling re-signing will break the installation of the app on public devices. The app will only be allowed to be installed on private devices that have been added to the developer certificate and provisioning profile.
 :::
 
-Once the app has been uploaded and re-signing has been disabled, you can start the device and let Sauce Labs install the application on the device.
+Once the app has been uploaded and re-signing has been disabled, you can start the device and let Sauce Labs install the app on the device.
 
 5. **Test the app**. View the Sauce Labs Demo Payments app:
 

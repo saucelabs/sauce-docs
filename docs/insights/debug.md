@@ -313,7 +313,7 @@ Mobile devices have less CPU power than most desktops and laptops (or a VM's def
   <tbody>
     <tr>
     <td><code>rate</code></td>
-    <td><p><small>| REQUIRED | STRING |</small></p><p>A number defining the amount of slowdown (e.g. <code>2</code> ~ 2x slowdown, your CPU will be 2 times slower than usual).</p></td>
+    <td><p><small>| REQUIRED | STRING |</small></p><p>A number defining the amount of slowdown (e.g., <code>2</code> ~ 2x slowdown, your CPU will be 2 times slower than usual).</p></td>
     </tr>
   </tbody>
 </table>
@@ -479,7 +479,7 @@ browser.throttleNetwork({
 
 ## JavaScript (JS) Console Logs
 
-The JS console collects security errors, warnings, and messages that are explicitly logged by the browser. You can use these logs to find out which components of your web application failed to load or ran into an error, what warnings were logged by the browser, and get more information about application performance. The console log information is associated with the URL where it occurred, and is composed of four types of information: **Log**, **Info**, **Warning**, and **Error**. In this example, you can see how an error was generated for the URL  `https://pbs.twimg.com/profile_images/477099293250052097/fMFjb8gu_400x400.jpeg` when a resource failed to load:
+The JS console collects security errors, warnings, and messages that are explicitly logged by the browser. You can use these logs to find out which components of your web app failed to load or ran into an error, what warnings were logged by the browser, and get more information about app performance. The console log information is associated with the URL where it occurred, and is composed of four types of information: **Log**, **Info**, **Warning**, and **Error**. In this example, you can see how an error was generated for the URL  `https://pbs.twimg.com/profile_images/477099293250052097/fMFjb8gu_400x400.jpeg` when a resource failed to load:
 
 ```
 {

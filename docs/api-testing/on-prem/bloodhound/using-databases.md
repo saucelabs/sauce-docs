@@ -4,6 +4,12 @@ title: "Bloodhound: Using Databases"
 sidebar_label: Using Databases
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 In the following walkthrough we’ll show you how to use Bloodhound to turn a database into a data API. In this example, we will use the Bloodhound Template found on [Github](https://github.com/apifortress/Bloodhound-templates/tree/master/bloodhound_databases) and use Postgres as the database. The template will deploy a Postgres database to experiment with, but you will obviously want to connect it to your database once you understand the mechanics.

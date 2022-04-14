@@ -1,7 +1,7 @@
 ---
 id: additional-proxies
-title: Set Up with Additional Proxies
-sidebar_label: Set Up with Additional Proxies
+title: Sauce Connect Proxy Setup with Additional Proxies
+sidebar_label: Setup with Additional Proxies
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
@@ -9,15 +9,15 @@ import TabItem from '@theme/TabItem';
 
 This is a guide for users who have an existing internal network proxy through which outbound communication is routed from their network to the public internet. If this sounds like your setup, additional proxy configuration of the Sauce Connect Proxy tunnel is required:
 
-* Between the internet and the machine hosting Sauce Connect Proxy
-* Between the machine hosting Sauce Connect and the machine hosting the website or mobile app you want to test
+* Between the internet and the machine hosting Sauce Connect Proxy.
+* Between the machine hosting Sauce Connect and the machine hosting the website or mobile app you want to test.
 
 To configure Sauce Connect Proxy to use your proxy or proxies, you will need to include one or more Sauce Connect command-line options (see the [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy)) in your test script.
 
 ## Warning About Man-in-the-Middle Proxies
 If you use a Man-in-the-Middle proxy to monitor network traffic, it must be configured to allow the TLS connection and proprietary protocol used by Sauce Connect Proxy to communicate with the Sauce Labs virtual machines that are running your tests. If it will allow only HTTP or HTTPS sessions, it will drop the inbound Sauce Connect Proxy connection.
 
-See the [Sauce Connect Proxy Tunnel Startup Diagram](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information about how Sauce Connect Proxy initiates and maintains the connection with the Sauce Labs browser cloud.  
+See the [Sauce Connect Proxy Tunnel Startup Diagram](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information about how Sauce Connect Proxy initiates and maintains the connection with the Sauce Labs browser cloud.
 
 ## What You'll Need
 Review the [Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) to confirm that your system and network architecture are compatible with Sauce Connect Proxy.
@@ -34,19 +34,23 @@ The configuration options described below will cause the REST API and SUT traffi
 In this configuration, the Site Under Test (SUT) is behind a proxy in order to allow even more control over traffic before it reaches the SUT. This setup is used to control access to the SUT by IP allowlisting or by restricting proxy access to users with valid username/password credentials.
 
 ### Proxy Auto-Configuration (Automatic)
-Proxies and proxy auto-configuration (PAC) (see [Proxy auto-config](https://en.wikipedia.org/wiki/Proxy_auto-config))settings are auto-configured, based on the operating system settings on the machine where it is installed.
+Proxies and proxy auto-configuration (PAC) (see [Proxy auto-config](https://en.wikipedia.org/wiki/Proxy_auto-config)) settings may be configured based on the operating system settings on the machine where it is installed.
 
 * On Windows, Sauce Connect Proxy will use the proxy settings for Internet Explorer, as well as the system-wide proxy settings that are set in the Control Panel.
 * On Mac OS X, Sauce Connect Proxy will use the proxy settings in Preferences/Network. Both proxy and PAC settings are supported.
 * On Linux, Sauce Connect Proxy looks for these variables, in this order:
-  * `http_proxy`
-  * `HTTP_PROXY`
+  * `http_proxy` or `https_proxy`
+  * `HTTP_PROXY` or `HTTPS_PROXY`
   * `all_proxy`
   * `ALL_PROXY` (they can be in the form `http://host.name:port` or `host.name:port`)
 
-When a proxy is auto-detected, Sauce Connect Proxy will route all network traffic between the Sauce Connect Proxy client running on your network and the Sauce Labs REST API through the detected proxy.
-The traffic between the Sauce Connect Proxy client and the SUT will also be routed through the proxy. You can disable automatic proxy detection
-with the command-line option [--no-autodetect](/dev/cli/sauce-connect-proxy#--no-autodetect).
+When a proxy is auto-detected, Sauce Connect Proxy will route the following traffic through the detected proxy:
+
+* all network traffic between the Sauce Connect Proxy client running on your network and the Sauce Labs REST API
+* all network traffic between the Sauce Connect Proxy client running on your network and the Sauce Labs Sauce Connect server
+* all network traffic between the Sauce Connect Proxy client and the SUT
+
+You can disable automatic proxy detection with the command-line option [--no-autodetect](/dev/cli/sauce-connect-proxy#--no-autodetect).
 
 To set up and run Sauce Connect Proxy for this situation, see [Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
 
@@ -59,6 +63,7 @@ If automatic proxy configuration fails, you will need to override the settings o
 | `-p (--proxy <host:port>) -w (--proxy-userpwd <user:pwd>)` | Requires username and password sent via basic authentication to access the proxy specified with `-p`. Can be combined with `-pac`. :::note Do not use this `-p -w` combination with more than one proxy. Multiple proxies requiring auth are not supported.::: |
 | `-p (-–proxy <host:port>) -T (--proxy-tunnel)` | Reroutes all tunnel traffic through the proxy specified with `-p`. This should only be used as a last resort if the machine running Sauce Connect Proxy cannot send outgoing connections from `port 443`. Cannot be combined with `--pac`. |
 | `--pac url` | Proxy auto-configuration (can be a http(s) or local file: //URL). Absolute paths are required when specifying a local PAC file (e.g., `file:///Users/Andrew/Desktop/MyPac.pac`). Can be used on its own or combined with `-p -w`. |
+|`--proxy-localhost`| If the upstream proxy is hosted on `localhost`, add this flag to correctly proxy traffic. By default, any traffic to `localhost` is not proxied.|
 
 #### Command Line Configuration Using `-p (-–proxy <host:port>)` and `-w (--proxy-userpwd <user:pwd>`)
 Using the `-p` and `-w` commands together when starting a Sauce Connect Proxy tunnel will route traffic between the Sauce Connect Proxy client on your network and the Sauce REST API through the proxy server specified by the `<host:port>` argument.
@@ -75,8 +80,8 @@ Here are some examples for starting a tunnel using  `-p` and `-w`:
 <TabItem value="maclinux">
 
 ```bash
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
-    -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
+  -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD
 ```
 
 </TabItem>
@@ -84,8 +89,8 @@ $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
 <TabItem value="windows">
 
 ```bash
-> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
-    -p %PROXY_HOST%:%PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD%
+.\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
+  -p %PROXY_HOST%:%PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD%
 ```
 
 </TabItem>
@@ -106,8 +111,8 @@ Here are some examples for starting a Sauce Connect Proxy tunnel using `-p` and 
 <TabItem value="maclinux">
 
 ```bash
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
-    -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD -T
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
+  -p $PROXY_HOST:$PROXY_PORT  -w $PROXY_USERNAME:$PROXY_PASSWORD -T
 ```
 
 </TabItem>
@@ -115,8 +120,8 @@ $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
 <TabItem value="windows">
 
 ```bash
-> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
-    -p %PROXY_HOST:PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD% -T
+.\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
+  -p %PROXY_HOST:PROXY_PORT%  -w %PROXY_USERNAME%:%PROXY_PASSWORD% -T
 ```
 
 </TabItem>
@@ -142,7 +147,7 @@ Here are some examples for starting a Sauce Connect Proxy tunnel using `--pac ur
 <TabItem value="maclinux">
 
 ```bash
-$ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac PAC_FILE_URL
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac PAC_FILE_URL
 ```
 
 </TabItem>
@@ -150,7 +155,7 @@ $ ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --pac PAC_FILE_URL
 <TabItem value="windows">
 
 ```bash
-> sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --pac PAC_FILE_URL
+.\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --pac PAC_FILE_URL
 ```
 
 </TabItem>
@@ -169,7 +174,7 @@ The following diagrams illustrate different Sauce Connect Proxy network flow con
 
 | Term | Definition |
 | :--- | :--- |
-| SC Host (Sauce Connect Host) | Machine in your network on which the Sauce Connect Proxy application is running. |
+| SC Host (Sauce Connect Host) | Machine in your network on which the Sauce Connect Proxy app is running. |
 | SUT (Site Under Test) | The site that you're testing. |
 | Sauce SC Host (Tunnel VM) | Virtual machine that hosts Sauce Connect Proxy on the Sauce Labs side. |
 
@@ -233,7 +238,7 @@ At this point, the tunnel is established between the Sauce Connect Proxy client 
 #### Charles Proxy Configuration
 The Charles Proxy is useful for monitoring traffic passing between your Sauce VM or RDC device and your site under test. To begin, you'll need to create a PAC file that matches the REST and tunnel VM hostnames, then use the Charles Proxy for everything else.
 
-1. Download and install Charles Proxy (see the [Charles Web Debugging Proxy Application](https://www.charlesproxy.com/).
+1. Download and install Charles Proxy (see the [Charles Web Debugging Proxy App](https://www.charlesproxy.com/).
 2. Open **Charles Proxy**.
 3. To enable your machine to trust SSL/TLS certificates, in Charles Proxy, click **Help**, and then click **SSL Proxying** > **Install Charles Root Certificate**. For more information, see [SSL Certificates](https://www.charlesproxy.com/documentation/using-charles/ssl-certificates/).
 
@@ -256,13 +261,13 @@ The Charles Proxy is useful for monitoring traffic passing between your Sauce VM
 
 5. Start **Charles Proxy**.
 
-6. To change to an open port, in Charles Proxy, click **Proxy** and then click **Proxy Settings**. Under **HHTP Proxy**, enter an open port (e.g., `port 8890`) and then click **OK**.
+6. To change to an open port, in Charles Proxy, click **Proxy** and then click **Proxy Settings**. Under **HTTP Proxy**, enter an open port (e.g., `port 8890`) and then click **OK**.
 
 <img src={useBaseUrl('img/sauce-connect/charles-proxy-settings.png')} alt="Charles Proxy settings navigation" width="800"/>
 
 7. Start your Sauce Connect Proxy tunnel:
   ```bash
-  $ ./sc --pac file:///Users/JohnSmith/workspace/scstuff/pac.js
+  ./sc --pac file:///Users/JohnSmith/workspace/scstuff/pac.js
   ```
 
 8. Start your test using the proxy, then observe the traffic in Charles Proxy.
@@ -278,12 +283,11 @@ If you have multiple proxies (two or more), you may need to edit the PAC file to
 * A proxy specifically for the staging area or SUT
 * A transparent proxy that connects you to the internet (see [Transparent proxy](https://en.wikipedia.org/wiki/Proxy_server#Transparent_proxy) for more information)
 
-To confirm if you have additional proxies, you can use basic curl commands. If 'curl -v google.com' doesn't return anything, but `curl -v --proxy external.proxy.com:8080 google.com` does return something, you have at least one proxy required to access the public internet.
+To confirm if you have additional proxies, you can use basic curl commands. If `curl -v google.com` doesn't return anything, but `curl -v --proxy external.proxy.com:8080 google.com` does return something, you have at least one proxy required to access the public internet.
 
 If `curl -v --proxy external.proxy.com private.mysite.com` does not get a response from your SUT, you may need to use a different proxy, such as `internal.proxy.com:8080`, access your SUT. In this case, you'd need your PAC file to reflect your network setup:
 
-```java
-// multiproxy proxy.pac
+```javascript title="multiproxy proxy.pac"
 function FindProxyForURL(url, host) {
     // Sauce domain calls required to start a tunnel
     if (shExpMatch(host, "*.miso.saucelabs.com") ||
@@ -297,5 +301,22 @@ function FindProxyForURL(url, host) {
     // Test VM HTTP traffic gets routed to the
     // Internal proxy to reach the site Under Test
     return "PROXY internal.proxy.com:8080";
+}
+```
+
+Here's an example of a single-proxy PAC setup for public internet access:
+```javascript title="single_proxy.pac"
+    // A proxy is required to reach external resources
+function FindProxyForURL(url, host) {
+    // Internal calls for resources in your network
+    if (shExpMatch(host, "*.auth.my-company.com") ||
+        shExpMatch(host, "*staging.my-company.com") ||
+        shExpMatch(host, "internal-resource1.com")) {
+        return "DIRECT";
+    }
+
+    // All other traffic should
+    // go to the public internet via proxy
+    return "PROXY my-company.org:8880";
 }
 ```

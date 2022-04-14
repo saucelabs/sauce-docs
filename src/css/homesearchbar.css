@@ -1,0 +1,59 @@
+div.new-search button.DocSearch.DocSearch-Button{
+    border-radius: 4px;
+    background-color: var(--ds-white);
+    width: 30%;
+    font-size: 12px;
+    margin: auto;
+}
+div.new-search svg.DocSearch-Search-Icon {
+    visibility: visible;
+    color: var(--ds-gray-500);
+}
+div.new-search .DocSearch-Button-Placeholder {
+    display: inherit;
+}
+
+div.new-search span.DocSearch-Button-Placeholder {
+    color: var(--ds-gray-500);
+}
+
+html[data-theme='dark'] div.new-search svg.DocSearch-Search-Icon {
+    visibility: visible;
+    color: rgb(204, 205, 207); /* ---ifm-color-primary-light */;
+}
+
+html[data-theme='dark'] div.new-search button.DocSearch-Button {
+    background: black;
+}
+
+html[data-theme='dark'] span.DocSearch-Button-Placeholder {
+    color: rgb(204, 205, 207); /* ---ifm-color-primary-light */;
+}
+
+/* mobile overrides */
+@media only screen
+and (min-width: 300px) and (max-width: 998px),
+only screen and (max-device-width: 998px),
+only screen and (max-width: 998px) {
+
+    div.new-search [class^="searchBox_"] {
+        position: relative;
+        right: unset;
+        display: inline-block;
+        width: 100%;
+    }
+    div.new-search button.DocSearch.DocSearch-Button{
+        width: 80%;
+        margin: auto;
+    }
+
+}
+
+@media only screen
+and (max-width: 750px),
+only screen and (max-device-width: 750px),
+only screen and (max-width: 750px) {
+    div.new-search .DocSearch-Button-Placeholder {
+        display: none;
+    }
+}

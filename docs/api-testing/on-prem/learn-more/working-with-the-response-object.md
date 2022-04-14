@@ -9,13 +9,19 @@ keywords:
     - headers
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 An HTTP response is made of a payload (what you are mainly interested in), but also contains contextual information. Using API Fortress you can also deal with the whole response envelope.
 
 ## Overview
 
-When you're making an HTTP request in the composer, you're providing a variable name. That variable will host the entire response payload. So let's say "payload" is the name of that variable. When the operation completes, another variable called `<variable_name>_response` is also created. 
+When you're making an HTTP request in the composer, you're providing a variable name. That variable will host the entire response payload. So let's say "payload" is the name of that variable. When the operation completes, another variable called `<variable_name>_response` is also created.
 
 Therefore various pieces of information such as HTTP header and metrics are contained in the variable `payload_response`.
 
@@ -33,7 +39,7 @@ Let's say you want to check that a resource shouldn't be cached:
 
 <img src={useBaseUrl('img/api-fortress/2017/03/response_headers.jpg')} alt="response_headers.jpg"/>
 
-Furthermore, you can have the performance of the call verified as well. 
+Furthermore, you can have the performance of the call verified as well.
 
 ## Code View Example
 
@@ -58,6 +64,6 @@ Use the Assert-Less component
 
 <img src={useBaseUrl('img/api-fortress/2017/03/metric-test-2.png')} alt="metric-test-2.png"/>
 
-:::note 
+:::note
 Latency is defined as time to first byte. Fetch is the total download time of the payload.
 :::

@@ -8,6 +8,12 @@ keywords:
     - writing-tests
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 API Fortress has three unique advantages in the market - magic, the visual composer, and the built in assertions/operations. With that said, you are not bound to them exclusively.
@@ -32,11 +38,11 @@ More experienced testers may find this to be the most efficient manner to use th
 
 Whether you are using the code view, or the visual composer, one important aspect to note is that all "evaluated" fields are actually able to execute a subset of Groovy commands.
 
-For example, let's take this assertion that verifies whether the "items" element is an array. 
+For example, let's take this assertion that verifies whether the "items" element is an array.
 
 <img src={useBaseUrl('img/api-fortress/2017/10/assert-is.png')} alt="assert-is.png" />
 
-Or in code view: 
+Or in code view:
 
 ```js
 <assert-is expression="payload.whatever.items" type="array"/>
@@ -46,7 +52,7 @@ Now let's say you know something more about this array, such as it should always
 
 <img src={useBaseUrl('img/api-fortress/2017/10/assert_greater.png')} alt="assert_greater.png" />
 
-Or in code view 
+Or in code view
 
 ```js
 <assert-greater expression="payload.whatever.items.size()" value="3" type="integer"/>
@@ -81,7 +87,7 @@ Or in code view:
 
 ## Templating
 
-What about all the fields that are not explicitly evaluated? Like _URL_, _value_, or _POST Body?_ Or the content of a comment? It is often extremely useful to evaluate content on those as well. This is possible using the template syntax. 
+What about all the fields that are not explicitly evaluated? Like _URL_, _value_, or _POST Body?_ Or the content of a comment? It is often extremely useful to evaluate content on those as well. This is possible using the template syntax.
 
 <img src={useBaseUrl('img/api-fortress/2017/10/eq.png')} alt="eq.png" />
 
