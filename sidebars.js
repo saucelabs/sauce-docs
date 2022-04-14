@@ -922,7 +922,8 @@ module.exports = {
                 'api-testing/how-to-guides/integration-testing',
                 'api-testing/how-to-guides/test-metrics-performance',
                 'api-testing/how-to-guides/compose-request-body',
-                'api-testing/how-to-guides/create-dynamic-dates'
+                'api-testing/how-to-guides/create-dynamic-dates',
+                'api-testing/how-to-guides/api-test-automation'
                 ],
             },
           'api-testing/legacy',
