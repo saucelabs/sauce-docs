@@ -129,7 +129,7 @@ In your test script, you'll need to:
 #### Espresso and XCUITest Frameworks
 If you're working in Espresso or XCUITest, you'll need to use [`saucectl`](/dev/cli/saucectl/) to run all tests on Sauce Labs.
 
-1. First, you'll need to specify the [data center](/basics/data-center-endpoints) location of the device you're testing on. There are two ways to do this:
+1. Specify the [data center](/basics/data-center-endpoints) location of the device you're testing on. There are two ways to do this:
    * Specify the `region` in your YAML configuration file (see [Espresso config > `region`](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#region) or [XCUITest config > `region`](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#region)); or
    * Use the [`--region`](/dev/cli/saucectl/run/#--region) flag in conjunction with the `saucectl` run command at test runtime.
       ```bash
