@@ -13,7 +13,7 @@ export const Highlight = ({children, color}) => ( <span style={{
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Internet Protocol Security VPN (IPSec VPN) is a technology that connects two private networks securely over the public internet. If your organization has firewall rules that limit your ability to run tests on Sauce Labs, you can use Sauce IPSec Proxy to connect to Sauce Labs without exposing your company's IT infrastructure to security risks.
+Internet Protocol Security VPN (IPSec VPN) is a technology that connects two private networks securely over the public internet. If your organization has firewall rules that limit your ability to run tests on Sauce Labs, you can use Sauce IPSec Proxy to connect to Sauce Labs without exposing your organization's IT infrastructure to security risks.
 
 Sauce IPSec Proxy is an enterprise-grade IPSec VPN solution that provides a secure, static connection between apps hosted on your private network (or local machine) and devices on the Sauce Labs cloud.
 
@@ -42,7 +42,7 @@ If you're an organization admin who would like to change your sharing settings, 
 
 ### Public Real Devices
 
-To run tests on public real devices in the Sauce Labs cloud using Sauce IPSec Proxy, organization admins must switch on **Enable Sauce Connect Proxy/IPSec VPN for Public Cloud Devices**, a security setting that is disabled by default. See [Security Settings](/basics/acct-team-mgmt/org-settings) for more information.
+To run tests on public real devices in the Sauce Labs cloud using Sauce IPSec Proxy, organization admins must set the **Enable Sauce Connect Proxy/IPSec VPN for Public Cloud Devices** option to **Enabled**. See [Security Settings](/basics/acct-team-mgmt/org-settings) for more information.
 
 The organization admin will see a pop-up modal asking them to read and agree to our Risk Advisory regarding the use of public real devices on a trusted Sauce IPSec Proxy connection.
 
