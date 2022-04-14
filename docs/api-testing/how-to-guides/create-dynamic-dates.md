@@ -40,7 +40,7 @@ ${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD')}
 
 As result, you will have something like `2022-05-15`.
 
-3. Now, you can invoke the variable wherever you want in your test.
+3. Now, invoke the variable wherever you want in your test.
 
 ## Creating a Past Date
 
@@ -66,7 +66,7 @@ ${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD','America/New_York')}
 
 ## Converting a Timestamp in Unix Time in Milliseconds
 
-Do you get a timestamp from a payload response and want to convert in millis? Here's how you can do it:
+Do you get a timestamp from a payload response and want to convert in milliseconds? Here's how you can do it:
 
 ```js
 ${D.parse(1649094357)}

@@ -17,7 +17,7 @@ In our examples we'll use the `POST` method, but all examples shown can be appli
 
 The first and easiest way is when we have a body to copy and paste as is into the call. Let's see how this is done:
 
-1. In the composer we add a **POST Component** and type the url and all of the required fields.
+1. In the composer add a **POST Component** and type in as follow:
 
     ```text
     Url: https://domain/endpoint //the url of the resource you want to test
@@ -27,7 +27,7 @@ The first and easiest way is when we have a body to copy and paste as is into t
 
     <img src={useBaseUrl('img/api-fortress/2022/04/how-to-post-comp.png')} alt="POST component"/>
 
-2. Now we add the **Body Component** and after selecting the **Content-Type** we paste the body in **Content** field.
+2. Now add the **Body Component** and after selecting the **Content-Type** paste the body in **Content** field.
 
     ```text
     Content-Type: application/json
@@ -36,14 +36,14 @@ The first and easiest way is when we have a body to copy and paste as is into t
 
     <img src={useBaseUrl('img/api-fortress/2022/04/how-to-post-body.png')} alt="POST body"/>
 
-3. Now we can execute the call and proceed with the test.
+3. Now execute the call and proceed with the test.
 
 
 ## Using Variables in the Request Body
 
 Another way to compose a Request Body is using variables into it.  
 
-1. In the composer we add a **POST Component** and type the url and all of the required fields.
+1. In the composer add a **POST Component** and type in the fields as follow:
 
    ```text
    Url: https://domain/endpoint //the url of the resource you want to test
@@ -53,7 +53,7 @@ Another way to compose a Request Body is using variables into it.
 
   <img src={useBaseUrl('img/api-fortress/2022/04/how-to-post-comp.png')} alt="POST component"/>
 
-2. Now we add the **Body Component**. In the **Content-Type** we choose the proper one, application/json in our example. In this scenario we need to use a variable so in the **Content** field we enter the following:
+2. Now add the **Body Component**. In the **Content-Type** choose the proper one, application/json in our example. In this scenario we need to use a variable so in the **Content** field enter the following:
 
    ```json   
    {
@@ -74,7 +74,7 @@ Another way to compose a Request Body is using variables into it.
 
 The next way to compose a Request Body is by using a variable from another call. Let's see how this can be done.
 
-1. The first thing we need to do is add the call we will retrieve the variable from. Let's consider, as an example, the common scenario where we need to perform a login for authentication and retrieve the authentication token required for the following call.
+1. The first thing you need to do is add the call you will retrieve the variable from. Let's consider, as an example, the common scenario where you need to perform a login for authentication and retrieve the authentication token required for the following call.
 
     ```text     
     Url: https://mydomain/login // the url of the resource you want to test
@@ -91,7 +91,7 @@ The next way to compose a Request Body is by using a variable from another call.
 
     <img src={useBaseUrl('img/api-fortress/2022/04/how-to-token.png')} alt="response token"/>
 
-3. Now we need to save the token as a variable using a **SET Component**.
+3. Now save the token as a variable using a **SET Component**.
 
    ```text    
    Var: token //the name of the variable
@@ -101,7 +101,7 @@ The next way to compose a Request Body is by using a variable from another call.
 
    <img src={useBaseUrl('img/api-fortress/2022/04/how-to-set-var.png')} alt="set variable"/>
 
-4. Once the token has been saved as variable we can proceed adding the second call and use that token in the Request Body.
+4. Once the token has been saved as variable, you can proceed adding the second call and use that token in the Request Body.
 
    ```text    
    Content-Type: application/json
@@ -114,7 +114,7 @@ The next way to compose a Request Body is by using a variable from another call.
 
 In the next example we will show you a more complex case. We will consider the scenario where we need to use an object retrieved from a previous call into the body of a subsequent call. Let's take a look at an example:
 
-1. First, we perform the call we retrieve the object from. 
+1. First, perform the call we retrieve the object from. 
 
     <img src={useBaseUrl('img/api-fortress/2022/04/how-to-response-object.png')} alt="GET component"/>
 
@@ -140,7 +140,7 @@ In the next example we will show you a more complex case. We will consider the s
    }
    ```  
 
-2. Let's say we need the object 'items' as the body in the subsequent call. So, as a second call, we will add a **POST** and we will type the following as body:
+2. Let's say we need the object 'items' as the body in the subsequent call. So, as a second call, add a **POST** and type the following as body:
 
    ```json
    {"items":"${searchPayload.items.asJSON()}"}
@@ -148,7 +148,7 @@ In the next example we will show you a more complex case. We will consider the s
 
    <img src={useBaseUrl('img/api-fortress/2022/04/how-to-body-object.png')} alt="object in body.jpg"/>
 
-4. Now we can proceed with the test.
+4. Now proceed with the test.
 
 ## Creating a New Structure to Add as a Body
 
@@ -156,7 +156,7 @@ The last scenario is yet another more complex one. In this case, we consider the
 
 Let's see how we can do this:
 
-1. The first thing we have to do is to perform the call which retrieves the data we're using. Let's consider a **GET** that returns an array of items.
+1. The first thing you have to do is to perform the call which retrieves the data you're using. Let's consider a **GET** that returns an array of items.
 
    <img src={useBaseUrl('img/api-fortress/2022/04/how-to-products.png')} alt="GET component"/>
 
@@ -185,7 +185,7 @@ Let's see how we can do this:
    }
    ```  
 
-3. Now we need to create the new data structure. To do so, we add a **SET Component** as follow:
+3. Now create the new data structure. To do so, add a **SET Component** as follow:
 
    ```text    
    Variable: itemsAvailable //the name of the variable
@@ -197,10 +197,10 @@ Let's see how we can do this:
 
    <img src={useBaseUrl('img/api-fortress/2022/04/how-to-set-new-struct.png')} alt="new data structure"/>
 
-4. Now we can add the **POST** and add the new structure as the **POST request body**:
+4. Add the **POST** and add the new structure as the **POST request body**:
 
    <img src={useBaseUrl('img/api-fortress/2022/04/how-to-body-from-another-call.png')} alt="body from another call"/>
 
-5. That's it. Now we can proceed with the test.
+5. That's it. Now proceed with the test.
 
    <img src={useBaseUrl('img/api-fortress/2022/04/how-to-full-flow.png')} alt="full flow"/>

@@ -28,7 +28,7 @@ Let’s consider an example that only a proper integration test could solve: Com
 
 ### Step 1 - Getting the Token
 
-First, we need to make a `POST` call to the authorization server.
+First, you need to make a `POST` call to the authorization server.
    
 <img src={useBaseUrl('img/api-fortress/2022/04/integration-step1.png')} alt="Authentication call"/>
 
@@ -36,11 +36,11 @@ In this case, the request body is the user id and password. Given proper credent
 
 <img src={useBaseUrl('img/api-fortress/2022/04/integration-step1-response.png')} alt="Response payload"/>
 
-Next, we need to use this token to make further calls to the application.
+Next, use this token to make further calls to the application.
 
 ### Step 2 - Setting a Variable
 
-First, we need to assign the token to a variable.  
+First, assign the token to a variable.  
 
 :::note
 Variables are used to store data temporarily for a test.
@@ -69,7 +69,7 @@ The dollar sign and brackets are necessary when referencing variables so that Sa
 
 Now it is time for the third, and for this example, final step. We’ve made our authentication `POST` call, and then we’ve saved the token to a dynamic variable named “access_token.” 
 
-Let's say that the API has a cart function that requires a user token in order to add items to a cart or view items currently in the cart. Use a PUT request to the cart endpoint to update the cart. Use the access token granted by the authentication server to add items to a cart by setting the `token` header to `${access_token}`.
+Let's say that the API has a cart function that requires a user token in order to add items to a cart or view items currently in the cart. Use a `PUT` request to the cart endpoint to update the cart. Use the access token granted by the authentication server to add items to a cart by setting the `token` header to `${access_token}`.
 
 <img src={useBaseUrl('img/api-fortress/2022/04/integration-step3.png')} alt="Follow Up Calls"/>
 
@@ -102,7 +102,7 @@ Let's see all the required steps.
 
 1. Call the product listing endpoint and assign the response to `productsPayload` variable.
 
-2. Add a "for each" assertion and reference the "productsPayload.products" object.
+2. Add an `each` assertion and reference the `productsPayload.products` object.
 
 :::tip
 In a real scenario where the response contains a lot of products, it could be useful to pick just few of them randomly using `pick(n)`
@@ -110,11 +110,11 @@ In a real scenario where the response contains a lot of products, it could be us
 
 3. Test the response payload for this endpoint.
 
-4. Add a new "Set (variable)" assertion to set the `id` variable as every single `productsPayload.product` that is returned. Notice we set the string to `${_1.id}` The system uses `_1` automatically when recognizing a subroutine. Makes it easier when things get into many sub levels.
+4. Add a new `Set (variable)` component to set the `id` variable as every single `productsPayload.product` that is returned. Notice we set the string to `${_1.id}` The system uses `_1` automatically when recognizing a subroutine. Makes it easier when things get into many sub levels.
 
 <img src={useBaseUrl('img/api-fortress/2022/04/integration-product1.png')} alt="Product listing"/>
 
-5. Make a GET to the product details endpoint, using our new `id` variable as the _id_ parameter. Variables last through the entire test unless overwritten.
+5. Make a `GET` to the product details endpoint, using our new `id` variable as the _id_ parameter. Variables last through the entire test unless overwritten.
 
 6. Test the response payload for this endpoint.
 

@@ -15,7 +15,7 @@ An HTTP response is made of a payload (what you are mainly interested in), but a
 
 ## Overview
 
-When you're making an HTTP request in the composer, you're providing a variable name. That variable will host the entire response payload. So let's say "payload" is the name of that variable. When the operation completes, another variable called `<variable_name>_response` is also created. 
+When you're making an HTTP request in the composer, you're providing a variable name. That variable will host the entire response payload. So let's say `payload` is the name of that variable. When the operation completes, another variable called `<variable_name>_response` is also created. 
 
 Therefore various pieces of information such as HTTP header and metrics are contained in the variable `payload_response`.
 
@@ -23,7 +23,7 @@ So by referencing the `payload_response.statusCode` expression you can access th
 
 <img src={useBaseUrl('img/api-fortress/2022/03/newStatusCode.png')} alt="statusCode.png"/> 
 
-You can have multiple 'IF' conditions for checking all the possible status codes you need to check. Very useful for creating positive and negative tests.
+You can have multiple `IF` conditions for checking all the possible status codes you need to check. Very useful for creating positive and negative tests.
 
 <img src={useBaseUrl('img/api-fortress/2022/03/multiStatusCodes.png')} alt="multiStatusCodes.png"/>
 
@@ -82,7 +82,7 @@ http://www.whereever.com/4/details
 ```
 To produce a single endpoint for reporting from each one of these calls, you can use what we call a 'footprint.'
 
-How is this accomplished? To reconfigure the _footprint_ you need to add, in the test, a *Config* component to the I/O component as seen below:  
+How is this accomplished? To reconfigure the _footprint_ you need to add, in the test, a **Config** component to the **I/O component** as seen below:  
 
 <img src={useBaseUrl('img/api-fortress/2022/03/config_component.png')} alt="config_component.png" />
 
