@@ -919,8 +919,8 @@ module.exports = {
             label: 'How To Guides',
             collapsed: true,
             items: [
-                'api-testing/how-to-guides/test-metrics-performance',
                 'api-testing/how-to-guides/integration-testing',
+                'api-testing/how-to-guides/test-metrics-performance',
                 'api-testing/how-to-guides/compose-request-body',
                 'api-testing/how-to-guides/create-dynamic-dates'
                 ],

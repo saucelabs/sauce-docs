@@ -17,7 +17,7 @@ One of the core features of the Sauce Labs API Testing platform is the ability t
 
 An Integration test is a test in which you examine a complete flow of calls, simulating what an API consumer would experience. 
 
-Integration testing is critical to creating a strong API testing strategy. Microservices are built to work together, and an integration test allows you to create end-to-end tests that resemble common user flows. While only testing individual endpoints is a good start, this method will miss a large number of problems that occur when all services need to work together.
+Integration testing is critical for creating a strong API testing strategy. An integration test allows you to create end-to-end tests that resemble common user flows. While only testing individual endpoints is a good start, this method will miss a large number of problems that occur when all services need to work together.
 
 Here is a quick guide on how to create one using a token based authentication API.
 
@@ -46,15 +46,17 @@ First, we need to assign the token to a variable.
 Variables are used to store data temporarily for a test.
 :::
 
-We do this so we don’t have to manually invoke a variable every time it is needed.
+```text
+Var: access_token //the name of the variable
+Variable mode: String
+Value: ${authPayload.access_token}
+```
+
+<img src={useBaseUrl('img/api-fortress/2022/04/integration-step2.png')} alt="Set Variable"/>
 
 :::tip
 You can use the Sauce Labs API Testing Vault for more permanent variables ([learn more about vault here](/api-testing/vault))
 :::
-
-Add a `Set` component, and enter `access_token` in __Var__, keep __Variable Mode__ as `String`, and set __Value__ to `${authPayload.access_token}`.
-
-<img src={useBaseUrl('img/api-fortress/2022/04/integration-step2.png')} alt="Set Variable"/>
 
 You'll notice that what we are doing here is specifically taking the `access_token` variable in the `authPayload` response, and setting it as `access_token`: the response body from the original post call was saved to a variable called `authPayload`. The key to access the token is named `access_token`, so you may find it by calling `authPayload.access_token`.
 
@@ -74,7 +76,7 @@ Let's say that the API has a cart function that requires a user token in order t
 
 ### Further Explanation
 
-As we stated at the start, it is imperative to not just exercise endpoints, but validate that an entire series of microservices are working. It’s best to do that by writing tests that emulate common and uncommon user flows. A critical part of that work involves creating reusable variables to allow the test to work at any time, with any data.
+As we stated at the start, it is imperative to not just exercise endpoints, but validate that an entire series of services are working. It’s best to do that by writing tests that emulate common and uncommon user flows. A critical part of that work involves creating reusable variables to allow the test to work at any time, with any data.
 
 By making a request for a fresh token at the beginning of the sequence, and then assigning it to a variable, you will know that any time you run this test, you’re doing so with a valid access token, which is automatically being passed to all follow-up calls.
 

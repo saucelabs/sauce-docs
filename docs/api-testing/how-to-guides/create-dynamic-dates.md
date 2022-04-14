@@ -7,7 +7,7 @@ description: "How you can create dynamic dates for your tests"
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Have you ever needed to pass a future date as part of the request inside of a test? Perhaps as a check-in or check-out date? You could enter it as static value, but that means you would have to periodically update the date as time went on.
+Have you ever needed to pass a future date as part of the request inside of a test? Maybe as a check-in or check-out date? You could enter it as static value, but that means you would have to periodically update the date as time goes on.
 
 Creating a dynamic date is a simple solution for this sort of situation.
 
@@ -64,9 +64,9 @@ ${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD','America/New_York')}
 
 * `D.format()`: creates a timestamp with the given format, based on the provided timezone id (in the example, we have created the same date as before but using New York as timezone). 
 
-## Converting a Timestamp in Millis
+## Converting a Timestamp in Unix Time in Milliseconds
 
-Do you get a timestamp from a payload response and wants to convert in millis? Here's how you can do it:
+Do you get a timestamp from a payload response and want to convert in millis? Here's how you can do it:
 
 ```js
 ${D.parse(1649094357)}

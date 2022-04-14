@@ -10,18 +10,18 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 In this guide we will show you the different ways you can compose a Request Body: from the simplest to the most complex.
 
 :::note
-In our examples we'll use the `POST` method, but all examples shown can be applied to the other methods. In the same way, we are going to demonstrate scenarios with Request Bodies, but all examples apply for Header or Param cases as well.
+In our examples we'll use the `POST` method, but all examples shown can be applied to the other methods. 
 :::
 
 ## Copy and Paste the Body from Somewhere
 
-The first and easiest way is when we have a body from somewhere to copy and paste as is into the call. Let's see how this is done:
+The first and easiest way is when we have a body to copy and paste as is into the call. Let's see how this is done:
 
 1. In the composer we add a **POST Component** and type the url and all of the required fields.
 
     ```text
     Url: https://domain/endpoint //the url of the resource you want to test
-    Variable: payload //the name of the variable that contains the response
+    Variable: payload //the name of the variable will contain the response
     Mode: json //the type of the response
     ```
 
@@ -67,7 +67,7 @@ Another way to compose a Request Body is using variables into it.
 
    <img src={useBaseUrl('img/api-fortress/2022/04/how-to-post-var.png')} alt="variable in body"/>
 
-3. The POST has been done and can be executed.
+3. The POST is complete and can be executed.
 
 
 ## Using a Variable from Another Call
@@ -87,11 +87,11 @@ The next way to compose a Request Body is by using a variable from another call.
 
     <img src={useBaseUrl('img/api-fortress/2022/04/how-to-request-login.png')} alt="login"/>
 
-2. Executing the login we will have as response the desired token. Let's use the following as an example response.
+2. The response payload from the login call will contain the desired token. Let's use the following as an example response.
 
     <img src={useBaseUrl('img/api-fortress/2022/04/how-to-token.png')} alt="response token"/>
 
-3. Now we need to save the token as variable using a **SET Component**.
+3. Now we need to save the token as a variable using a **SET Component**.
 
    ```text    
    Var: token //the name of the variable
@@ -187,9 +187,12 @@ Let's see how we can do this:
 
 3. Now we need to create the new data structure. To do so, we add a **SET Component** as follow:
 
-   ```js
+   ```text    
+   Variable: itemsAvailable //the name of the variable
+   Variable Mode: Language
+   Lang: Javascript
+   Content: payload.items.forEach(function (item) {  item.currency = "$"; }); return payload;
    // for each item in the array, we add the currency attribute with "$" as value
-   payload.items.forEach(function (item) {  item.currency = "$"; }); return payload;
    ```
 
    <img src={useBaseUrl('img/api-fortress/2022/04/how-to-set-new-struct.png')} alt="new data structure"/>
