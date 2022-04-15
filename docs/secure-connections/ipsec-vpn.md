@@ -1,6 +1,6 @@
 ---
 id: ipsec-vpn
-title: Running Tests with Sauce IPSec Proxy Tunnels
+title: Using Sauce IPSec Proxy
 sidebar_label: Sauce IPSec Proxy
 ---
 
@@ -23,9 +23,9 @@ Sauce IPSec Proxy is an enterprise-grade IPSec VPN solution that provides a secu
 * Overview of Sauce IPSec Proxy network architecture
 * How to run tests using Sauce IPSec Proxy
 
-### What You'll Need
+## What You'll Need
 
-<p> <Highlight color="#013a70">Enterprise Plans Only</Highlight> </p>
+<p> <Highlight color="#013a70">Enterprise Plans only</Highlight> </p>
 
 * Sauce IPSec Proxy is an enterprise-only feature that must be configured by our Support Team prior to use. Contact your Sauce Labs Sales Engineer or Customer Success Manager to learn more about how this solution can meet your business needs.
 * Authorization to use your organization's Sauce IPSec Proxy tunnel. You can verify this by going to the **Tunnels** page, where you should see the tunnel name displayed. If you don't see it, contact the organization admin for your Sauce Labs account to request access.
@@ -113,24 +113,34 @@ WebSocket servers with self-signed certificates are not supported.
 
 ## Testing with Sauce IPSec Proxy Tunnels
 
-Depending on the type of test you want to run, you may need to include certain capabilities in your test script. See below for use case examples.
-
 ### Automated Testing
-To connect to Sauce Labs real and virtual devices, you'll need to assign your Sauce IPSec Proxy tunnel to the appropriate [Data Center Endpoint](/basics/data-center-endpoints) in your test script.
+Depending on the type of framework you're using and the device you're testing on, you'll need to include test script capabilities and/or CLI flags that point to your Sauce IPSec Proxy tunnel.
 
-For Appium and Selenium frameworks:
-1. Set the `tunnelIdentifier` desired capability to the name of your organization's Sauce IPSec Proxy tunnel.
-2. Set the `parentTunnel` capability to the username of your organization admin.
+#### Appium and Selenium Frameworks
+In your test script, you'll need to:
+1. Specify the [data center endpoint](/basics/data-center-endpoints) location of the device you're testing on. See the [Sauce Labs Training Repo](https://github.com/saucelabs-training) for examples in JavaScript, Java, Python, Ruby, and C#.
+2. Use the `tunnelIdentifier` capability to specify the name of your organization's Sauce IPSec Proxy tunnel, and then set the `parentTunnel` capability to the Sauce Labs username of your organization admin.
+  ```java title="Java example"
+  MutableCapabilities caps = new MutableCapabilities();
+  caps.setCapability("tunnelIdentifier", "$TUNNEL_IDENTIFIER");
+  caps.setCapability("parentTunnel","$SAUCE_USERNAME");
+  ```
 
-```java title="Java example"
-MutableCapabilities caps = new MutableCapabilities();
-caps.setCapability("tunnelIdentifier", "$TUNNEL_IDENTIFIER");
-caps.setCapability("parentTunnel","$SAUCE_USERNAME");
-```
+#### Espresso and XCUITest Frameworks
+If you're working in Espresso or XCUITest, you'll need to use [`saucectl`](/dev/cli/saucectl/) to run all tests on Sauce Labs.
 
-For Espresso and XCUITest frameworks:
-* Specify the applicable [`tunnel`](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#tunnel) settings in your `saucectl` config.yml file; or
-* Use the `--tunnel-name` and `--tunnel-owner` flags with the [saucectl run command](/dev/cli/saucectl/run/#--tunnel-name) at test runtime.
+1. Specify the [data center](/basics/data-center-endpoints) location of the device you're testing on. There are two ways to do this:
+   * Specify the `region` in your YAML configuration file (see [Espresso config > `region`](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#region) or [XCUITest config > `region`](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#region)); or
+   * Use the [`--region`](/dev/cli/saucectl/run/#--region) flag in conjunction with the `saucectl` run command at test runtime.
+      ```bash
+      saucectl run --region eu-central-1
+      ```
+2. Next, you'll need to assign your Sauce IPSec Proxy tunnel to your job.  There are two ways to do this:
+   * Specify the applicable [`tunnel`](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#tunnel) settings in your YAML configuration file; or
+   * Use the [`--tunnel-name`](/dev/cli/saucectl/run/#--tunnel-name) and [`--tunnel-owner`](/dev/cli/saucectl/run/#--tunnel-owner) flags in conjunction with the `saucectl` run command at test runtime.
+    ```bash
+    saucectl run --tunnel-name not-my-tunnel --tunnel-owner another.sauce.username
+    ```
 
 ### Live Testing
 
