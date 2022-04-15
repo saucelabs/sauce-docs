@@ -67,6 +67,490 @@ All test runs appear to the right of the Composer, underneath the test details a
 ### Review Test Results
 To view your results, click on the test run. This will open the [**Test Outcome Report**](/api-testing/project-dashboard/#test-outcome-reports), which displays information regarding the test.
 
+## Dynamic Dates
+Instead of entering dates as static values, which may need to be updated periodically, you can create dynamic dates.
+
+### Create a Future Date
+
+1. Open the Composer and add a **SET Component**.
+
+2. Enter the following:
+
+    ```text
+    Var: futureDate   //the variable name
+    Variable mode: String  //the type of the variable
+    Values: ${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD')}
+    ```
+
+    <img src={useBaseUrl('img/api-testing/how-to-set-dates.png')} alt="SET component"/>
+
+
+    ```js
+    ${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD')}
+    ```
+
+  * `D.nowMillis()` - Returns the current Unix epoch in milliseconds.
+  * `D.plusDays()` - Returns the provided milliseconds, plus the provided number of days (in the example, 35 days were added to today's date).
+  * `D.format()` - Creates a timestamp with the given format, using the current timezone (in the example, `yyyy-MM-DD`).
+
+3. Invoke the variable in your test.
+
+### Create a Past Date
+
+Follow the steps for [Create a Future Date](#create-a-future-date), but replace the string with the following:
+
+  ```js
+  ${D.format(D.minusDays(D.nowMillis(),35), 'yyyy-MM-DD')}
+  ```
+
+  * `D.minusDays()` - Returns the provided milliseconds, minus the provided number of days (in the example, 35 days were subtracted from today's date).
+
+
+### Create a Date with a Time Zone
+
+To create a date based on a specified time zone:
+
+  ```js
+  ${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD','America/New_York')}
+  ```
+
+  * `D.format()`- Creates a timestamp with the given format, based on the provided time zone ID (the example uses the same date as before, but uses `New York` as the time zone).
+
+### Convert a Timestamp to Milliseconds
+
+To convert a timestamp from a payload response to milliseconds:
+
+  ```js
+  ${D.parse(1649094357)}
+  ```
+
+  * `D.parse()` - Parses the provided timestamp and converts it to milliseconds.
+
+For more information, see [Expression Language Extensions](/api-testing/composer/logical-components/#expression-language-extensions).
+
+## Integration Tests
+An integration test is a test in which you examine a complete flow of calls, simulating what an API user would experience.
+
+Integration testing is critical to creating a strong API testing strategy. Microservices are built to work together, and an integration test allows you to create end-to-end tests that resemble common user flows. While only testing individual endpoints is a good start, this method will miss a large number of problems that occur when all services need to work together.
+
+It is imperative to not just exercise endpoints, but validate that an entire series of microservices are working. It’s best to do that by writing tests that emulate common and uncommon user flows. A critical part of that work involves creating reusable variables to allow the test to work at any time, with any data.
+
+By making a request for a fresh token at the beginning of the sequence, and then assigning it to a variable, you will know that any time you run this test, you’re doing so with a valid access token, which is automatically being passed to all follow-up calls.
+
+### Using a Token Based Authentication API
+
+Company A has an authentication server. This server, when given the proper user credentials, returns an authentication token. This token is required for all other calls throughout the platform’s API environment. Without this first API call, none of the other API calls can work.
+
+#### Step 1 - Get the Token
+
+Make a `POST` call to the authorization server.
+
+<img src={useBaseUrl('img/api-testing/integration-step1.png')} alt="Authentication call"/>
+
+The request body is the user ID and password. Given proper credentials, the authentication server will return a user token.
+
+<img src={useBaseUrl('img/api-testing/integration-step1-response.png')} alt="Response payload"/>
+
+Next, use this token to make further calls to the application.
+
+#### Step 2 - Set a Variable
+
+Assign the token to a variable so you don’t have to manually invoke a variable every time it is needed.  
+
+:::note
+Variables are used to store data temporarily for a test, but you can use the Sauce Labs API Testing Vault for permanent variables ([learn more about vault here](/api-testing/vault)).
+:::
+
+Add a `Set` component, and enter `access_token` in __Var__, keep __Variable Mode__ as `String`, and set __Value__ to `${authPayload.access_token}`.
+
+<img src={useBaseUrl('img/api-testing/integration-step2.png')} alt="Set variable"/>
+
+This step takes the `access_token` variable in the `authPayload` response, and sets it as `access_token`; the response body from the original post call was saved to a variable called `authPayload`. The access key for the token is `access_token`, which can be found by calling `authPayload.access_token`.
+
+:::note
+The dollar sign and brackets are necessary when referencing variables so that Sauce Labs API Testing knows to interpret what’s between the brackets instead of using it literally.
+:::
+
+#### Step 3 - Make Follow-up Calls
+
+In this example, the API has a cart function that requires a user token to add items to a cart or view items currently in the cart. Use a `PUT` request to the cart endpoint to update the cart. Use the access token granted by the authentication server to add items to a cart by setting the `token` header to `${access_token}`.
+
+<img src={useBaseUrl('img/api-testing/integration-step3.png')} alt="Follow-up calls"/>
+
+You can reuse an access token:
+
+<img src={useBaseUrl('img/api-testing/integration-examples.png')} alt="Reuse token"/>
+
+###  Testing Interactions between Endpoints
+
+In this example, there is an API endpoint that produces an array of all the available products and another endpoint that shows the details of a specific product based on its ID.
+
+  ```http request
+  http://demoapi.apifortress.com/api/retail/product
+  http://demoapi.apifortress.com/api/retail/product/${id}
+  ```
+
+To create an integration test to test the interaction between the endpoints:
+
+  1. Call the product listing endpoint and assign the response to the `productsPayload` variable.
+
+  2. Add a `for each` assertion and reference the `productsPayload.products` object.
+
+  :::tip
+  In a real scenario where the response contains many products, it may be useful to pick just few using `pick(n)`.
+  :::
+
+  3. Test the response payload for this endpoint.
+
+  4. Add a new `Set (variable)` assertion to set the `id` variable as every single `productsPayload.product` that is returned. Notice that we set the string to `${_1.id}`. The system uses `_1` automatically when recognizing a subroutine, which makes it easier when there are multiple sub-levels.
+
+  <img src={useBaseUrl('img/api-testing/integration-product1.png')} alt="Product listing"/>
+
+  5. Make a `GET` to the product details endpoint, using the new `id` variable as the _id_ parameter. Variables last through the entire test unless overwritten.
+
+  6. Test the response payload for this endpoint.
+
+  <img src={useBaseUrl('img/api-testing/integration-product2.png')} alt="Product details"/>
+
+  ```xml
+  <get url="http://demoapi.apifortress.com/api/retail/product" params="[:]" var="productsPayload" mode="json">
+    <header name="key" value="ABC123"/>
+  </get>
+  <assert-is expression="productsPayload" type="array" mode="all" comment="payload must be an array"/>
+  <comment>
+    <![CDATA[pick randomly 5 items from the payload response]]>
+  </comment>
+  <each expression="productsPayload.pick(5)">
+      <comment>
+          <![CDATA[product id is: ${_1.id} and product name is: ${_1.name}]]>
+      </comment>
+      <assert-is expression="_1.id" type="integer" mode="all" comment="id must be an integer value"/>
+      <set var="id" value="${_1.id}" lang="java"/>
+      <assert-exists expression="_1.name"  mode="all" comment="name must exists"/>
+      <assert-is expression="_1.price" type="float" mode="all" comment="price must be a float number"/>
+      <assert-exists expression="_1.category"  mode="all" comment="category must exists"/>
+      <assert-exists expression="_1.description"  mode="all" comment="description must exists"/>
+      <assert-is expression="_1.quantity" type="integer" mode="all" comment="quantity must be an integer value"/>
+      <assert-greater expression="_1.quantity" value="0" type="integer" mode="all" comment="quantity must be greater than 0"/>
+      <assert-is expression="_1.imageURL" type="url" mode="all" comment="imageURL must be a valid url value"/>
+      <assert-is expression="_1.color" type="array" mode="all" comment="color must be an array"/>
+      <assert-exists expression="_1.createdAt"  mode="all" comment="createdAt must exists"/>
+      <assert-exists expression="_1.updatedAt"  comment="updateAt must exists"/>
+      <comment>
+          <![CDATA[get product details]]>
+      </comment>
+      <get url="http://demoapi.apifortress.com/api/retail/product/${id}" params="[:]" var="productPayload" mode="json">
+          <header name="key" value="ABC123"/>
+      </get>
+      <assert-exists expression="productPayload"  mode="all" comment="payload must exist, if not, test does not need to be executed" stoponfail="true"/>
+      <comment>
+          <![CDATA[product id is: ${productPayload.id} and product name is: ${productPayload.name}]]>
+      </comment>
+      <assert-equals expression="productPayload.id" value="${id}" type="integer" mode="all" comment="id is the same as the one from the previous call"/>
+      <assert-is expression="productPayload.id" type="integer" mode="all" comment="id must be an integer value"/>
+      <assert-exists expression="productPayload.name"  mode="all" comment="name must exists"/>
+      <assert-is expression="productPayload.price" type="float" mode="all" comment="price must be a float number"/>
+      <assert-exists expression="productPayload.category"  mode="all" comment="category must exists"/>
+      <assert-exists expression="productPayload.description"  mode="all" comment="description must exists"/>
+      <assert-is expression="productPayload.quantity" type="integer" mode="all" comment="quantity must be an integer value"/>
+      <assert-greater expression="productPayload.quantity" value="0" type="integer" mode="all" comment="quantity must be greater than 0"/>
+      <assert-is expression="productPayload.imageURL" type="url" mode="all" comment="imageURL must be a valid url value"/>
+      <assert-is expression="productPayload.color" type="array" mode="all" comment="color must be an array"/>
+      <each expression="productPayload.color">
+          <assert-exists expression="_2"  mode="all" comment="color array should contain some values"/>
+          <assert-in expression="_2" value="['yellow','blue','red','green','brown','orange','gray','pink','black','white']" mode="all" comment="colors must be the expected one"/>
+      </each>
+      <assert-exists expression="productPayload.createdAt"  mode="all" comment="createdAt must exists"/>
+      <assert-exists expression="productPayload.updatedAt"  comment="updateAt must exists"/>
+  </each>
+  ```
+
+## Testing Metrics
+An HTTP response is made of a payload, but also contains contextual information. Use Sauce Labs API Testing to test the entire response envelope.
+
+When you're making an HTTP request in the composer, you're providing a variable name. That variable will host the entire response payload. For example, if `payload` is the name of that variable, when the operation completes, another variable called `<variable_name>_response` is also created.
+
+Therefore various pieces of information such as HTTP header and metrics are contained in the variable `payload_response`.
+
+By referencing the `payload_response.statusCode` expression you can access the status code.
+
+### Example
+In this example, you want to run a branch of code when the status code is `400`:
+
+<img src={useBaseUrl('img/api-testing/newStatusCode.png')} alt="statusCode"/>
+
+You can have multiple `if` conditions to check the status codes you need to check, which can be helpful when creating positive and negative tests.
+
+<img src={useBaseUrl('img/api-testing/multiStatusCodes.png')} alt="Multiple statusCodes"/>
+
+### Example
+To check that a resource shouldn't be cached:
+
+<img src={useBaseUrl('img/api-testing/response_headers.png')} alt="Response headers"/>
+
+### Performance Metrics
+
+You can create specific assertions to verify performance metrics.
+
+#### Example
+The following uses the Code view. Please note that _overall_ refers to fetch and latency combined.
+
+  ```html
+  <assert-less expression="payload_response.metrics.latency" value="350" type="integer"/>
+
+  <assert-less expression="payload_response.metrics.fetch" value="350" type="integer"/>
+
+  <assert-less expression="payload_response.metrics.overall" value="550" type="integer"/>
+    ```
+:::note
+Latency is defined as time to first byte. Fetch is the total download time of the payload.
+:::
+
+In the Visual view using the `Assert less` component:
+
+<img src={useBaseUrl('img/api-testing/payload_metrics.png')} alt="Payload metrics"/>
+
+### Improving Metrics
+
+The performance of the API can be mission critical in some cases, and cataloging metrics can be as important as collecting them.
+
+The classic approach of creating big tables of HTTP hits with the actual URL being called (and its performance) is certainly accurate, but it's far from being easy to review because URLs contain variables and hardly represent what the action was about.
+
+Sauce Labs API Testing, as a default, works in this classic way, but also gives you the ability to change the footprint of requests based on your organization needs.
+
+#### Example
+The following example includes a route with a parameter:
+
+  ```http request
+  http://www.whereever.com/[id]/details
+  ```
+
+Each individual `REST` run for this route will produce a new line in the metrics view:
+
+  ```http request
+  http://www.whereever.com/1/details  
+  http://www.whereever.com/2/details  
+  http://www.whereever.com/3/details  
+  http://www.whereever.com/4/details
+  ...  
+  ```
+To produce a single endpoint for reporting from each one of these calls, you can use a **footprint**.
+
+To reconfigure the footprint, in the test, add a `config` component to the I/O component:  
+
+<img src={useBaseUrl('img/api-testing/config_component.png')} alt="Config component" />
+
+The `config` component has two fields:  
+  * Name - The name you want to assign. In this case, you **MUST** enter `footprint`.
+  * Value - The value for the configuration component.
+
+To set up a footprint:
+
+Enter the same URL that's in the I/O component. Any parameterized portion of the URL must be wrapped in square brackets.
+
+The value in this case would be:
+
+  ```http request
+  http://www.wherever.com/whatever/[id]/details  
+  ```
+
+For each endpoint you can use more square brackets, one for each variable that could assume multiple values:
+
+  ```http request
+  http://www.whereever.com/[whatever]/[id]/details/[colors]/whatever
+  ```
+
+When you write the value of the config, for the static part of the endpoint, you can also call a variable as in any I/O operation:
+
+  ```js
+  ${protocol}/${domain}/[whatever]/[id]/details/[colors]/whatever
+  ```
+## Compose a Request Body
+
+There are several ways you can compose a request body in Sauce Labs API Testing, ranging from simple to complex.
+
+:::note
+The included examples use the POST method, but all examples can be applied to other methods. In addition, the example scenarios use request bodies, but can be used with headers or parameters as well.
+:::
+
+### Copy and Paste the Body
+In this method, you copy an existing body and paste it into the call.
+
+  1. In the composer, add a `POST` component and enter the URL and all of the required fields.
+
+    ```text
+    Url: https://domain/endpoint //the url of the resource you want to test
+    Variable: payload //the name of the variable that contains the response
+    Mode: json //the type of the response
+    ```
+
+    <img src={useBaseUrl('img/api-testing/how-to-post-comp.png')} alt="POST component"/>
+
+  2. Add the **body** component and, after selecting the **Content-Type**, paste the body in the **Content** field.
+
+    ```text
+    Content-Type: application/json
+    Content: {"method":"post","url":"http://www.testme.com/api/run/test"} //the body required in your call
+    ```
+
+    <img src={useBaseUrl('img/api-testing/how-to-post-body.png')} alt="POST body"/>
+
+  3. Execute the call and proceed with the test.
+
+
+### Use Variables in the Request Body
+
+  1. In the composer, add a `POST` component and enter the URL and all of the required fields.
+
+    ```text
+    Url: https://domain/endpoint //the url of the resource you want to test
+    Variable: payload //the name of the variable that contains the response
+    Mode: json //the type of the response
+    ```    
+
+    <img src={useBaseUrl('img/api-testing/how-to-post-comp.png')} alt="POST component"/>
+
+  2. Add the **body** component. Select the relevant **Content-Type**. The example scenario requires a variable, so enter the following code in the **Content** field:
+
+   ```json   
+   {
+    "user": "${user}",
+    "password": "${password}",
+    "url": "http://www.testme.com/api/run/test"
+   }
+   ```     
+
+  `user` and `password` are not directly passed in the body, but they are variables defined in a data set or stored in the vault (or environments).
+
+    <img src={useBaseUrl('img/api-testing/how-to-post-var.png')} alt="A variable in the body"/>
+
+  3. Execute the POST.
+
+### Use a Variable from Another Call
+
+  1. Add the call to retrieve the variable from. The following is an example of a common scenario in which you need to perform a login for authentication and retrieve the authentication token required for the following call.
+
+  ```text     
+  Url: https://mydomain/login // the url of the resource you want to test
+  Variable: payload // the name of the variable that contains the response
+  Mode: json // the type of the response
+  Header:
+  Name: Authorization
+  Value: Basic YWRtaW46cGFzc3dvcmQ= // this value comes from encoding username:password in Base64
+  ```    
+    <img src={useBaseUrl('img/api-testing/how-to-request-login.png')} alt="Request a login"/>
+
+  2. When you execute the login the response will be the desired token.
+
+    <img src={useBaseUrl('img/api-testing/how-to-token.png')} alt="Response token"/>
+
+  3. Save the token as a variable using a `SET` component.
+
+  ```text    
+  Var: token //the name of the variable
+  Variable mode: String // the type of the variable
+  Value: ${payload.access_token} // we retrive the value from the previous 'payload'
+  ```     
+  <img src={useBaseUrl('img/api-testing/how-to-set-var.png')} alt="Set the variable"/>
+
+  4. Once the token has been saved as a variable, add the second call and use that token in the request body.
+
+  ```text    
+  Content-Type: application/json
+  Content: {"token":"${token}"}
+  ```
+
+  <img src={useBaseUrl('img/api-testing/how-to-body-token.png')} alt="Body with token"/>
+
+## Using an Object from Another Call
+
+Using an object from another call is a more complex method. Scenarios in which you might use this method include when you need to use an object retrieved from a previous call in the body of a subsequent call.
+
+  1. Perform the call you retrieve the object from.
+
+  <img src={useBaseUrl('img/api-testing/how-to-response-object.png')} alt="GET component"/>
+
+  The response payload from the call:
+
+  ```json
+  {
+    "id":123,
+    "items":[
+        {
+          "id":11,
+          "name":"stuff1"
+        },
+        {
+          "id":12,
+          "name":"stuff2"
+        },
+        {
+          "id":13,
+          "name":"stuff3"
+        }
+    ]
+  }
+  ```  
+
+  2. In this example, you need the object `items` as the body in the subsequent call. So, as a second call, add a `POST` and enter the following as body:
+
+  ```json
+  {"items":"${searchPayload.items.asJSON()}"}
+  ```
+
+  <img src={useBaseUrl('img/api-testing/how-to-body-object.png')} alt="Object in body"/>
+
+  3. Continue with the test.
+
+## Creating a New Structure to Add as a Body
+
+This method can be used when you need to create a new structure to add as a body, using data from a previous call.
+
+  1. Perform the call that retrieves the data you are using. In the following example, using a `GET` returns an array of items.
+
+  <img src={useBaseUrl('img/api-testing/how-to-products.png')} alt="GET component"/>
+
+  2. The response payload:
+
+  ```json
+  {
+    "items":[
+        {
+          "id":11,
+          "price":5.99
+        },
+        {
+          "id":12,
+          "price":6.99
+        },
+        {
+          "id":13,
+          "price":10.99
+        },
+        {
+          "id":14,
+          "price":15.99
+        }
+    ]
+  }
+  ```  
+
+  3. Create the new data structure by adding a `SET` component.
+
+  ```js
+  // for each item in the array, we add the currency attribute with "$" as value
+  payload.items.forEach(function (item) {  item.currency = "$"; }); return payload;
+  ```
+
+  <img src={useBaseUrl('img/api-testing/how-to-set-new-struct.png')} alt="New data structure"/>
+
+  4. Add the `POST` and add the new structure as the `POST` request body.
+
+  <img src={useBaseUrl('img/api-testing/how-to-body-from-another-call.png')} alt="Body from another call"/>
+
+  5. Continue with the test.
+
+  <img src={useBaseUrl('img/api-testing/how-to-full-flow.png')} alt="Full flow"/>
 
 ## Terminology
 
@@ -134,10 +618,6 @@ There are two types of input data sets you can use:
 ### Unit View
 This button toggles back and forth between the Input Set and Unit Test Composer view.<br/>
 <img src={useBaseUrl('img/api-fortress/2021/01/unitView.png')} alt="Unit View"/>
-
-
-
-
 
 ## More Information
 * [Sauce School | API Testing Course and Best Practices](https://training.saucelabs.com/apiTesting/index.html)
