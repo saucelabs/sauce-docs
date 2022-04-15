@@ -101,7 +101,7 @@ Enable your Mac to allow apps from the App Store and identified developers.
    </td>
    <td>x86_64
    </td>
-   <td>Unsupported OSes may still be able to run Sauce Connect, but they've not been tested for versions 4.7.x and higher. Support has been ended for 32b.
+   <td>Unsupported OSes may still be able to run Sauce Connect, but they've not been tested for versions 4.7.x and higher. Support has been ended for 32-bit Linux.
    </td>
   </tr>
   <tr>
