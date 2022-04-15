@@ -1933,7 +1933,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "taskId": "3dd9dd20-4586-4b6b-8eb5-b319b249823b",
     "agent": "wstestjs",
     "mode": "ondemand",
-    "buildId": "",
+    "buildId": "build123",
     "exception": ""
 }]
 ```
