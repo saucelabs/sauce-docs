@@ -914,19 +914,6 @@ module.exports = {
           'api-testing/contract-testing',
           'api-testing/logger',
           'api-testing/project-access',
-          {
-            type: 'category',
-            label: 'How To Guides',
-            collapsed: true,
-            items: [
-                'api-testing/how-to-guides/integration-testing',
-                'api-testing/how-to-guides/test-metrics-performance',
-                'api-testing/how-to-guides/compose-request-body',
-                'api-testing/how-to-guides/create-dynamic-dates',
-                'api-testing/how-to-guides/api-test-automation',
-                'api-testing/how-to-guides/functional-testing'
-                ],
-            },
           'api-testing/legacy',
      ],
      "CI": [
