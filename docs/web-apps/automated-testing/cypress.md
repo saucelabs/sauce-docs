@@ -64,13 +64,22 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
     </tr>
     <tbody>
     <tr>
-      <td rowspan='2'>9.3.1</td>
+      <td rowspan='2'>9.5.3</td>
       <td><b>macOS:</b> 11.0</td>
-      <td>Chrome, Firefox, MicrosoftEdge</td>
+      <td rowspan='2'>Chrome, Firefox, MicrosoftEdge</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10</td>
-      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='2'>9.3.1</td>
+      <td><b>macOS:</b> 11.0</td>
+      <td rowspan='2'>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10</td>
     </tr>
     </tbody>
     <tbody>
@@ -83,13 +92,6 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
     <tbody>
     <tr>
       <td rowspan='1'>8.6.0</td>
-      <td><b>Windows:</b> 10</td>
-      <td>Chrome, Firefox, MicrosoftEdge</td>
-    </tr>
-    </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='1'>8.3.0</td>
       <td><b>Windows:</b> 10</td>
       <td>Chrome, Firefox, MicrosoftEdge</td>
     </tr>

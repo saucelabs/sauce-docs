@@ -7,8 +7,8 @@
 
 .backToTopButton {
   position: fixed;
-  right: 10rem;
-  bottom: 1rem;
+  right: 11rem;
+  bottom: 1.5rem;
   border-radius: 50%;
   background-color: var(--ifm-color-emphasis-200);
   width: 3rem;
