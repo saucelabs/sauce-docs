@@ -29,6 +29,9 @@ Schedule is available only for [published tests](/api-testing/quickstart/#publis
 4. Choose a **Time Zone** to specify when you'd like test will run. Double-check that you're using the right one (i.e., if you're in Berlin and want to run at your local time, make sure to select `Europe/Berlin` instead of `America/Los Angeles`)!
 5. Use the **Minute**, **Hour**, **Day**, and **Month** parameters to schedule the frequency at which you'd like your test to run. It will repeat at your configured time and interval.
 6. Optionally, you can add a Sauce Connect Proxy tunnel by selecting one from the **No tunnel** dropdown and/or enter a `key=value` variable override.
+:::info
+__Overrides__: When an override variable is declared its value will be injected into the test when it’s executed. If the variable has already been declared in the Vault or the Globals/Input set, it will be rewritten with the new value.
+:::
 7. When you're finished, click **Save**.
 8. You'll be taken back to the **Schedule** page. The test you've scheduled should populate in the nav.<br/><img src={useBaseUrl('img/api-fortress/2021/02/scheduleConfirmScreen.png')} alt="Schedule confirmation" width="450"/>
 9. If you hover your mouse over it, you can see the options to **Pause**, **Edit**, or **Delete** the schedule.<br/><img src={useBaseUrl('img/api-fortress/2021/02/scheduleOptions.png')} alt="Scheduler options" width="250"/>
