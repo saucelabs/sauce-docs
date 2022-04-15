@@ -42,7 +42,12 @@ You can also view the Access level from your Projects page.<br/><img src={useBas
 
 ## Email Notifications
 
-Email notifications will alert you when a test starts failing, and notify you again when the test is back in full working order. The incident identifier number, used to track the events, will be the same as the test ID.
+Email notifications will alert you when a test starts failing, then further consequent failures will be muted for 30 minutes. A new notification will be sent when the test is back in full working order or the first failing execution after the muted period.
+
+:::note IMPORTANT
+The email notification mechanism we have in place consist in an email notification when the test starts failing (the subject of the email will contain "Incident started"). A new email notification will be sent after 30 minutes if the test is still failing (the subject of the email will contain "Incident in progress"), this notification is sent only if your tests runs less then every 30 minutes. As soon as the test execution passes, you will be notified with an email notification (the subject of the email will contain "Incident resolved")
+:::
+
 
 To enable this feature:
 1. Go to **Settings**.
