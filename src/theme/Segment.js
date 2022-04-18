@@ -7,15 +7,13 @@ const Segment = () => {
   const { pathname } = useLocation();
   
   useEffect(() => {
-    if (window?.analytics) {
-      window.analytics.track('Page Viewed', {
-        page: window.location.pathname,
-        domain: window.location.origin,
-        subject_name: 'Sauce Docs',
-        product_area: 'Docs',
-        product_sub_area: 'Sauce Docs',
-      });
-    }
+    window?.analytics?.track('Docs Page Viewed', {
+      page: window.location.pathname,
+      domain: window.location.origin,
+      subject_name: window.location.pathname,
+      product_area: 'Docs',
+      product_sub_area: 'Sauce Docs',
+    });
   }, [pathname]);
 
   return null;
