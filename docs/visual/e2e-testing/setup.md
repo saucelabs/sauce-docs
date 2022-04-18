@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 >**Screener Docs are Now Sauce Docs**<br/>
 Screener is now Sauce Labs Visual Testing. As part of our effort to bring you a unified documentation site, we've migrated all Visual Docs from Screener.io to Sauce Docs.
 
-Sauce Labs Visual E2E Testing is an automated testing method that integrates with your Selenium WebDriver tests and code, enabling you to combine functional and visual regression UI testing across different browsers and resolutions in the same run. Follow the steps below to get set up in minutes. You can use any programming language that Selenium WebDriver supports without having to install additional libraries or SDKs.
+Sauce Labs Visual E2E Testing is an automated testing method that integrates with your Selenium WebDriver tests and code, enabling you to combine functional and visual regression UI testing across different browsers and resolutions in the same run. You can use any programming language that Selenium WebDriver supports without having to install additional libraries or SDKs.
 
 
 ## What You'll Need
@@ -309,10 +309,19 @@ static void test() {
 From your terminal or IDE, run your test.
 
 ### View Results
-Go to the Visual Testing (Screener) Dashboard to [view your test results](#view-test-results).
+Go your Visual Testing Dashboard (Sauce Labs **Visual Testing** > **Log in to Visual**) to confirm that your test is running. It should take a few minutes to complete.
+
+:::tip
+
+<details><summary>Click <strong>Show Logs</strong> > <strong>View Logs on Sauce Labs</strong> to see your <a href="/test-results">test results</a> on Sauce Labs.</summary>
+
+<img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /><br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
+</details>
+
+:::
 
 ### Accept Baseline
-This first test will be labeled as "failed" because there's no existing baseline to compare against. To resolve this, you'll need to [review and accept](/visual/e2e-testing/workflow/review-workflow/#3-accept-or-reject) the new snapshots as your baseline.
+This first test will be labeled as "failed" because there's no existing baseline to compare it against. To resolve this, you'll need to [review and accept](/visual/e2e-testing/workflow/review-workflow/#3-accept-or-reject) the new snapshots as your baseline.
 
 ### Apply UI Changes
 1. In your website development environment, apply a simple UI change, such as changing the font color or removing an image.
@@ -450,7 +459,7 @@ The test should take a few minutes to complete.
 
 
 ### Accept Baseline
-1. This first test will be labeled as "failed" because there's no existing baseline to compare against. To resolve this, [review and accept](/visual/e2e-testing/workflow/review-workflow/) the new snapshots as your baseline:
+1. This first test will be labeled as "failed" because there's no existing baseline to compare it against. To resolve this, [review and accept](/visual/e2e-testing/workflow/review-workflow/) the new snapshots as your baseline:
 1. From your Dashboard, click **Review 2 New**.<br/><img src={useBaseUrl('img/visual/e2e-review2New.png')} alt="Visual E2E review new state" width="400" />   
 1. Click on the first snapshot, **Swag Labs: Login**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-changed-states.png')} alt="Visual E2E Quickstart first state" width="500" />   
 1. Click **New** > **Accept**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-new-accept.png')} alt="Visual E2E Quickstart running test" width="500" />   
@@ -458,7 +467,12 @@ The test should take a few minutes to complete.
 1. Return to your Visual Testing Dashboard. The two states should now be labeled as **Accepted**.<br/><img src={useBaseUrl('img/visual/e2e-accepted.png')} alt="Visual E2E Quickstart accepted states" width="450" />   
 
 :::tip
-Click **Show Logs** > **View Logs on Sauce Labs** to see more granular [test results](/test-results/) on Sauce Labs.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /><br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
+
+<details><summary>Click <strong>Show Logs</strong> > <strong>View Logs on Sauce Labs</strong> to see your <a href="/test-results">test results</a> on Sauce Labs.</summary>
+
+<img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /><br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
+</details>
+
 :::
 
 
@@ -497,10 +511,10 @@ Click **Show Logs** > **View Logs on Sauce Labs** to see more granular [test res
   </Tabs>
 
 
-1. On your Visual Testing Dashboard, you should see a new test running under the same project and branch. Because an element changed in one of your baseline snapshots, the test will be labeled as "failed". To resolve this, you'll need to [review and accept](/visual/e2e-testing/workflow/review-workflow/) them:
+2. On your Visual Testing Dashboard, you should see a new test running under the same project and branch. Because an element changed in one of your baseline snapshots, the test will be labeled as "failed". To resolve this, you'll need to [review and accept](/visual/e2e-testing/workflow/review-workflow/) them:
     * Click **Review 1 Changed**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-changed-state.png')} alt="Visual E2E Quickstart changed state" width="500" />
     * You'll see that the login button color has changed from red to green. Click **Changed** > **Accept**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-accept.png')} alt="Visual E2E Quickstart accept state" width="450" />
-1. Return to your Visual Testing Dashboard. The two states should now be labeled as **Accepted**. If you run this test again using the [run commands under **Apply UI Changes**](#apply-ui-changes), the result will be labeled **Success**.
+3. Return to your Visual Testing Dashboard. The two states should now be labeled as **Accepted**. If you run this test again using the [run commands under **Apply UI Changes**](#apply-ui-changes), the result will be labeled **Success**.
 
 For each build, you should receive an [email summary](/visual/notifications/) indicating the pass/fail status, delivered to the address associated with your Sauce Labs account.
 
@@ -551,27 +565,16 @@ For each build, you should receive an [email summary](/visual/notifications/) in
 * Set up continuous visual testing by [integrating Visual E2E Testing into your CI](/visual/e2e-testing/integrations/continuous-integration).
 * Confirm that your WebDriver test scripts use [W3C WebDriver capabilities](/dev/w3c-webdriver-capabilities/).
 * Confirm that the browsers in your tests are [supported by Sauce Labs](/visual/e2e-testing/supported-browsers).
-
-### Useful WebDriver Settings
-
-#### Timeouts
-
-If you're using several [visual assertions](/visual/e2e-testing/commands-options/#visual-e2e-commands) in your test, you may need to increase the `timeout` value in your configuration to help with test stability.
-
-A single assertion can take up to 45 seconds. So if you had a WebdriverIO test with three [snapshots (`/*@visual.snapshot*/`)](/visual/e2e-testing/commands-options/#snapshot-command), for example, you'd need to [set your `timeout` value](https://webdriver.io/docs/timeouts/#framework-related-timeouts) above 180000 milliseconds (3 mins) to prevent your test from failing.
-
-
-#### Advanced Debugging
-
-To view more in-depth debugging details on Sauce Labs, add [`extendedDebugging`](/dev/test-configuration-options/#extendeddebugging) to your test capabilities:
-
-```java
-'sauce:options': {
-  username: process.env.SAUCE_USERNAME,
-  accessKey: process.env.SAUCE_ACCESS_KEY,
-  extendedDebugging: true,
-},
-```
+* Try out these useful WebDriver settings in your tests:
+   * **Timeouts**: If you're using several [visual assertions](/visual/e2e-testing/commands-options/#visual-e2e-commands) in your test, you may need to increase the `timeout` value in your configuration to help with test stability. A single assertion can take up to 45 seconds. If you have a WebdriverIO test with three [snapshots (`/*@visual.snapshot*/`)](/visual/e2e-testing/commands-options/#snapshot-command), for example, you'd need to [set your `timeout` value](https://webdriver.io/docs/timeouts/#framework-related-timeouts) above 180000 milliseconds (3 mins) to prevent your test from failing.
+   * **Advanced Debugging**: To enable more granular debugging details, add [`extendedDebugging`](/dev/test-configuration-options/#extendeddebugging) to your test capabilities:
+   ```java
+   'sauce:options': {
+     username: process.env.SAUCE_USERNAME,
+     accessKey: process.env.SAUCE_ACCESS_KEY,
+     extendedDebugging: true,
+   },
+   ```
 
 
 ## More Information

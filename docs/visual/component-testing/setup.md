@@ -119,7 +119,7 @@ Go your Visual Testing Dashboard (Sauce Labs > **Visual Testing** > **Log in to 
 
 ### Accept Baseline
 
-This first test will be labeled as "failed" because there's no existing baseline to compare against. To resolve this, [review and accept](https://docs.saucelabs.com/visual/component-testing/workflow/review-workflow/) the new states as your baseline.
+This first test will be labeled as "failed" because there's no existing baseline to compare it against. To resolve this, [review and accept](https://docs.saucelabs.com/visual/component-testing/workflow/review-workflow/) the new states as your baseline.
 
 
 
@@ -145,7 +145,7 @@ npx -p @storybook/cli sb init
 npm run storybook
 ```
 
-Once Storybook has been launched, you'll see a response like this in your terminal.<br/><img src={useBaseUrl('img/visual/component-expected-response.png')} alt="component testing expected-response" width="500" />
+Once Storybook has been launched, you'll see a response like this in your terminal.<br/><img src={useBaseUrl('img/visual/component-expected-response.png')} alt="component testing expected-response" width="400" />
 
 
 ### Install Screener Package
@@ -210,7 +210,7 @@ Open your Storybook project's **package.json** file and add the following npm sc
 "test-storybook": "screener-storybook --conf screener.config.js"  
 ```
 
-When you're done, be sure to save the **package.json** file.
+When you're done, be sure to save the file.
 
 
 ### Run Test
@@ -222,17 +222,26 @@ npm run test-storybook
 
 ### View Results
 
-Go your Visual Testing Dashboard (Sauce Labs > **Sauce Apps** > **Visual** > **Login**) to confirm that your test is running. It should take a few minutes to complete.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-all-projects.png')} alt="Visual E2E Quickstart running test" width="300" />
+Go your Visual Testing Dashboard (Sauce Labs **Visual Testing** > **Log in to Visual**) to confirm that your test is running. It should take a few minutes to complete.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-all-projects.png')} alt="Visual E2E Quickstart running test" width="300" />
+
+:::tip
+
+<details><summary>Click <strong>Show Logs</strong> > <strong>View Logs on Sauce Labs</strong> to see your <a href="/test-results">test results</a> on Sauce Labs.</summary>
+
+<img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /><br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
+</details>
+
+:::
+
 
 
 ### Accept Baseline
 
-This first test will be labeled as "failed" because there's no existing baseline to compare against. To resolve this, [review and accept](https://docs.saucelabs.com/visual/component-testing/workflow/review-workflow/) the new states as your baseline.
+This first test will be labeled as "failed" because there's no existing baseline to compare it against. To resolve this, [review and accept](https://docs.saucelabs.com/visual/component-testing/workflow/review-workflow/) the new states as your baseline.
 
 
 ## Optional Next Steps
 
-* From your Visual Testing **Dashboard**, click **Show Logs** > **View Logs on Sauce Labs** to see granular [test results](/test-results/) on Sauce Labs.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /> <br/> <img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
 * Learn about the [Visual Component Testing UI review workflow](/visual/component-testing/workflow/review-workflow) for UI test results.
 * Add [Visual Component test configuration options](https://github.com/screener-io/screener-storybook#config-options).
 
