@@ -1,24 +1,18 @@
-import { useEffect } from 'react';
-import { useLocation } from '@docusaurus/router';
-
-import '@site/static/analytics.js';
+import React from 'react';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
 function Root({ children }) {
-  const { pathname } = useLocation();
-  
-  useEffect(() => {
-    if (window.analytics) {
-      window.analytics.track('Page Viewed', {
-        page: window.location.pathname,
-        domain: window.location.origin,
-        subject_name: 'Sauce Docs',
-        product_area: 'Docs',
-        product_sub_area: 'Sauce Docs',
-      });
-    }
-  }, [pathname]);
-
-  return children;
+  return (
+    <>
+      <BrowserOnly>
+        {() => {
+          const Segment = require('./Segment').Segment;
+          return <Segment />;
+        }}
+      </BrowserOnly>
+      {children}
+    </>
+  );
 };
 
 export default Root;
