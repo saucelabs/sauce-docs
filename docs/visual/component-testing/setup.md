@@ -116,6 +116,7 @@ npm run test-storybook
 
 Go your Visual Testing Dashboard (Sauce Labs > **Visual Testing** > **Log in to Visual**) to confirm that your test is running. It should take a few minutes to complete.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-all-projects.png')} alt="Visual E2E Quickstart running test" width="300" />
 
+For each build, you should receive an [email summary](/visual/notifications/) indicating the pass/fail status, delivered to the address associated with your Sauce Labs account.
 
 ### Accept Baseline
 
@@ -233,6 +234,7 @@ Go your Visual Testing Dashboard (Sauce Labs **Visual Testing** > **Log in to Vi
 
 :::
 
+For each build, you should receive an [email summary](/visual/notifications/) indicating the pass/fail status, delivered to the address associated with your Sauce Labs account.
 
 ### Accept Baseline
 
@@ -241,14 +243,6 @@ This first test will be labeled as "failed" because there's no existing baseline
 
 ## Optional Next Steps
 
-* Learn more about the [Visual Component Testing UI review workflow](/visual/component-testing/workflow/review-workflow).
-* Add more [test configuration options](https://github.com/screener-io/screener-storybook#config-options) to your Visual Component tests.
-
-For each build, you should receive an [email summary](/visual/notifications/) indicating the pass/fail status, delivered to the address associated with your Sauce Labs account.
-
-## More Information
-* [Testing Static Storybook Web Apps](/visual/component-testing/storybook-static/)
-* [Automated Visual Regression Testing](https://saucelabs.com/blog/what-is-automated-visual-regression-testing)
-* [CI Integration](/visual/component-testing/integrations/continuous-integration)
-* [GitHub Integration](/visual/component-testing/integrations/github)
-* [New Project Wizard (create a new project directly in the UI)](https://screener.io/v2/new)
+* Learn more about the Visual Component Testing [UI review workflow](/visual/component-testing/workflow/review-workflow), [testing static Storybook web apps](/visual/component-testing/storybook-static/), and the concept of [automated visual regression testing](https://saucelabs.com/blog/what-is-automated-visual-regression-testing).
+* Add more [test configuration options](https://github.com/screener-io/screener-storybook#config-options).
+* Set up continuous visual testing by [integrating Visual E2E Testing into your CI](/visual/component-testing/integrations/continuous-integration)

@@ -560,7 +560,9 @@ For each build, you should receive an [email summary](/visual/notifications/) in
 
 
 ## Optional Next Steps
-* * Learn more about the [Visual E2E Testing review workflow](/visual/e2e-testing/workflow/review-workflow/)
+* Learn more about the Visual E2E Testing [review workflow](/visual/e2e-testing/workflow/review-workflow/) and [commands](/visual/e2e-testing/commands-options).
+* See [full test script examples](/visual/e2e-testing/code-examples).
+* Add more [test configuration options](https://github.com/screener-io/screener-storybook#config-options).
 * Set up continuous visual testing by [integrating Visual E2E Testing into your CI](/visual/e2e-testing/integrations/continuous-integration).
 * Confirm that your WebDriver test scripts use [W3C WebDriver capabilities](/dev/w3c-webdriver-capabilities/).
 * Confirm that the browsers in your tests are [supported by Sauce Labs](/visual/e2e-testing/supported-browsers).
@@ -574,9 +576,3 @@ For each build, you should receive an [email summary](/visual/notifications/) in
      extendedDebugging: true,
    },
    ```
-
-
-## More Information
-* [Visual E2E Commands](/visual/e2e-testing/commands-options)
-* [Visual E2E Troubleshooting](/visual/e2e-testing/troubleshooting)
-* [Visual E2E Full Test Script Examples](/visual/e2e-testing/code-examples)
