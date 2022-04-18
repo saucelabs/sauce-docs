@@ -342,6 +342,20 @@ reporters:
     enabled: true
     filename: saucectl-report.xml
 ```
+
+---
+### `junit`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The JUnit reporter gathers JUnit reports from all jobs and combines them into a single report.
+
+```yaml
+reporters:
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
+```
+
 ---
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
