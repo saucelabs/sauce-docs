@@ -1,7 +1,7 @@
 ---
 id: setup
-title: Setting Up Visual E2E Testing with WebDriver
-sidebar_label: WebDriver Setup Quickstart
+title: Visual E2E Testing Setup and Quickstart
+sidebar_label: Setup and Quickstart
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -18,31 +18,23 @@ Sauce Labs Visual E2E Testing is an automated testing method that integrates wit
 
 * A [Sauce Labs self-serve or enterprise account](https://saucelabs.com/pricing) with access to Visual Testing. To request access, contact your CSM or Sauce Labs Support. Not available for free-trial accounts.
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-* Your [Screener API Key](https://screener.io/v2/account/api-key).
+* Your Visual Testing [Screener API Key](https://screener.io/v2/account/api-key).
 * A [GitHub account](https://github.com/).
 * Have [Node.js installed](https://nodejs.org/en/download/).
 
 
-## Quickstart with Existing WebDriver Tests
+## Integration with Existing WebDriver Tests
 
 Follow the steps below to add Visual E2E Testing functionality to your Selenium WebDriver tests.
 
 :::tip New to WebDriver?
-Head to [Quickstart Using Sample WebDriver Tests](#quickstart-with-sample-webdriver-tests).
+Head to [Quickstart with Sample WebDriver Tests](#quickstart-with-sample-webdriver-tests).
 :::
 
 
-### Set Environment Variables
+### Link Your Sauce Labs Account
 
-:::warning 
-
-<details><summary>Protect your credentials</summary>
-To protect your authentication data from exposure, the examples in this Quickstart require you to set your Sauce Labs credentials as [environment variables](/basics/environment-variables/). We recommended doing this for all Sauce Labs automated tests.
-</details>
-
-:::
-
-Navigate to your WebDriver test in your terminal or IDE, then set your Sauce Labs username, Sauce Labs access key, and Screener API key as environment variables:
+From your terminal or IDE, navigate to your WebDriver test location, then set your Sauce Labs username, Sauce Labs access key, and Visual Testing Screener API key as [environment variables](/basics/environment-variables). This way, you won't have to enter them with each command and your credentials are protected from exposure in your tests.
 
   <Tabs
       defaultValue="Mac/Linux"
@@ -87,7 +79,7 @@ Navigate to your WebDriver test in your terminal or IDE, then set your Sauce Lab
 ### Add Sauce Labs Test Code
 
 #### Sauce Capabilities
-In your WebDriver test configuration section, add the [`sauce:options`](/dev/test-configuration-options/) capability containing your Sauce Labs credentials. 
+In your WebDriver test configuration section, add the [`sauce:options`](/dev/test-configuration-options/) capability containing your Sauce Labs credentials.
 
 Here's an example in JavaScript (see [Selenium on Sauce Labs](/web-apps/automated-testing/selenium/) for examples in Java, Python, Ruby, and C#).
   ```js title="JavaScript example"
@@ -241,8 +233,8 @@ driver = new RemoteWebDriver(new Uri("https://hub.screener.io:443/wd/hub"), capa
 
 In your test script, add the below commands, in this order:
 
-1. Add the [`@visual.init`](/visual/e2e-testing/commands-options/#init-command) command to along with a name for your test. 
-2. Add the [`@visual.snapshot`](/visual/e2e-testing/commands-options/#snapshot-command) command in the places where you want to capture a visual snapshot. 
+1. Add the [`@visual.init`](/visual/e2e-testing/commands-options/#init-command) command to along with a name for your test.
+2. Add the [`@visual.snapshot`](/visual/e2e-testing/commands-options/#snapshot-command) command in the places where you want to capture a visual snapshot.
 
 <Tabs
   defaultValue="JS/WebdriverIO"
@@ -330,15 +322,13 @@ This first test will be labeled as "failed" because there's no existing baseline
 
 ## Quickstart with Sample WebDriver Tests
 
-New to WebDriver? Follow the steps below to launch a sample WebDriver + Visual E2E test. In this example, you'll run a simple automated test on our demo website, [Swag Labs](http://saucedemo.com).
+Don't have WebDriver, but want to try? Follow the steps below to install our sample project and run your first WebDriver test with E2E Testing. In this example, you'll run a simple automated test on our demo website, [Swag Labs](http://saucedemo.com).
 
-First, you'll need to set up your sample project. From your terminal:
-
-1. Clone the [Visual E2E Quickstart repository](https://github.com/luishernandezv/visual-e2e) to your local machine's [home directory](https://en.wikipedia.org/wiki/Home_directory):
+1. From your terminal, navigate to your machine's [home directory](https://en.wikipedia.org/wiki/Home_directory), then clone the [Visual E2E Quickstart repository](https://github.com/luishernandezv/visual-e2e):
   ```bash
   git clone https://github.com/luishernandezv/visual-e2e
   ```
-2. Navigate to the file path where you downloaded the above repository:
+2. Navigate to your project directory:
   ```bash
   cd visual-e2e
   ```
@@ -347,9 +337,9 @@ First, you'll need to set up your sample project. From your terminal:
   npm install
   ```
 
-### Set Environment Variables
+### Link Your Sauce Labs Account
 
-Set your Sauce Labs username, Sauce Labs access key, and Screener API key as environment variables:
+Set your Sauce Labs username, Sauce Labs access key, and Visual Testing Screener API key as [environment variables](/basics/environment-variables) to avoid having to enter them with each command and to protect them from exposure in your tests.
 
   <Tabs
       defaultValue="Mac/Linux"
@@ -452,7 +442,11 @@ await browser.url('http://saucedemo.com');
 
 
 ### View Results
-Go your Visual Testing Dashboard (Sauce Labs > **SAUCE APPS** > **Visual** > **Login**) to confirm that your test is running. It should take a few minutes to complete. You'll see a new project under the name **sauce-demos/swag-labs**, plus a new [branch](/visual/e2e-testing/workflow/baseline-branch/) called **default**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-all-projects.png')} alt="Visual E2E Quickstart running test" width="300" />
+Go your Visual Testing Dashboard (Sauce Labs > **Visual Testing** > **Log in to Visual**) to confirm that your test is running.
+
+You'll see a new project under the name **sauce-demos/swag-labs**, plus a new [branch](/visual/e2e-testing/workflow/baseline-branch/) called **default**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-all-projects.png')} alt="Visual E2E Quickstart running test" width="300" />
+
+The test should take a few minutes to complete.
 
 
 ### Accept Baseline
@@ -554,7 +548,7 @@ For each build, you should receive an [email summary](/visual/notifications/) in
 
 
 ## Optional Next Steps
-* [Integrate Visual E2E Testing into your CI](/visual/e2e-testing/integrations/continuous-integration) to return results into your WebDriver tests for continuous visual testing
+* Set up continuous visual testing by [integrating Visual E2E Testing into your CI](/visual/e2e-testing/integrations/continuous-integration).
 * Confirm that your WebDriver test scripts use [W3C WebDriver capabilities](/dev/w3c-webdriver-capabilities/).
 * Confirm that the browsers in your tests are [supported by Sauce Labs](/visual/e2e-testing/supported-browsers).
 
