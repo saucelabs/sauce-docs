@@ -119,7 +119,7 @@ Go your Visual Testing Dashboard (Sauce Labs > **Visual Testing** > **Log in to 
 
 ### Accept Baseline
 
-This first test will be labeled as "failed" because there's no existing baseline to compare it against. To resolve this, [review and accept](https://docs.saucelabs.com/visual/component-testing/workflow/review-workflow/) the new states as your baseline.
+This first test will be labeled as "failed" because there's no existing baseline to compare it against. To resolve this, [review and accept](/visual/component-testing/workflow/review-workflow/) the new states as your baseline.
 
 
 
@@ -234,16 +234,15 @@ Go your Visual Testing Dashboard (Sauce Labs **Visual Testing** > **Log in to Vi
 :::
 
 
-
 ### Accept Baseline
 
-This first test will be labeled as "failed" because there's no existing baseline to compare it against. To resolve this, [review and accept](https://docs.saucelabs.com/visual/component-testing/workflow/review-workflow/) the new states as your baseline.
+This first test will be labeled as "failed" because there's no existing baseline to compare it against. To resolve this, [review and accept](/visual/component-testing/workflow/review-workflow/) the new states as your baseline.
 
 
 ## Optional Next Steps
 
-* Learn about the [Visual Component Testing UI review workflow](/visual/component-testing/workflow/review-workflow) for UI test results.
-* Add [Visual Component test configuration options](https://github.com/screener-io/screener-storybook#config-options).
+* Learn more about the [Visual Component Testing UI review workflow](/visual/component-testing/workflow/review-workflow).
+* Add more [test configuration options](https://github.com/screener-io/screener-storybook#config-options) to your Visual Component tests.
 
 For each build, you should receive an [email summary](/visual/notifications/) indicating the pass/fail status, delivered to the address associated with your Sauce Labs account.
 

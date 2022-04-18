@@ -396,27 +396,25 @@ Choose which test in the project you'd like to run:
   * [**simple-mocha-test.js** (WebdriverIO with Mocha)](https://github.com/luishernandezv/visual-e2e/blob/main/simple-jest.test.js) ([Mocha](https://mochajs.org/) required)
   * [**simple-mocha-test.js** (WebdriverIO with Jest)](https://github.com/luishernandezv/visual-e2e/blob/main/simple-jest.test.js) ([Jest](https://jestjs.io/) required)
 
-<br/>
-
 <details><summary>What's in the tests?</summary>
 
-At a high level, each script:
-1. Adds your Sauce Labs credentials, test capabilities (e.g., project name), Visual E2E Testing commands
-2. Launches the [Demo website](http://saucedemo.com) in a browser and logs in
-3. Carries out Visual E2E test session (i.e., taking UI snapshots)
-4. Ends session
-
-To view a detailed breakdown, click on any of the WebDriver test links above and refer to the comments in the script. For example:
+To view a breakdown of what's happening in each test script, click on any of the WebDriver test links above and refer to the comments in the script. For example:
 
 ```js
 //Navigate to the test site
 await browser.url('http://saucedemo.com');
 ```
 
+At a high level, each test script:
+1. Adds your Sauce Labs credentials, test capabilities (e.g., project name), Visual E2E Testing commands.
+2. Launches the [Sauce Labs demo website](http://saucedemo.com) in a browser and logs in.
+3. Carries out Visual E2E test session (i.e., taking UI snapshots).
+4. Ends session.
+
 </details>
 
 ### Run Test
-1. In your terminal, execute the run command corresponding to the test framework you chose in the previous step. To run simple-test.js (WebdriverIO), for example, you'd execute `npm run webdriverio`.
+In your terminal, execute the run command corresponding to the test framework you chose in the previous step.
   <Tabs
       defaultValue="WebdriverIO"
       values={[
@@ -459,7 +457,7 @@ The test should take a few minutes to complete.
 
 
 ### Accept Baseline
-1. This first test will be labeled as "failed" because there's no existing baseline to compare it against. To resolve this, [review and accept](/visual/e2e-testing/workflow/review-workflow/) the new snapshots as your baseline:
+1. This first test will be labeled as "failed" because there's no existing baseline to compare it against. To resolve this, review and accept the new snapshots as your baseline:
 1. From your Dashboard, click **Review 2 New**.<br/><img src={useBaseUrl('img/visual/e2e-review2New.png')} alt="Visual E2E review new state" width="400" />   
 1. Click on the first snapshot, **Swag Labs: Login**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-changed-states.png')} alt="Visual E2E Quickstart first state" width="500" />   
 1. Click **New** > **Accept**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-new-accept.png')} alt="Visual E2E Quickstart running test" width="500" />   
@@ -477,7 +475,7 @@ The test should take a few minutes to complete.
 
 
 ### Apply UI Changes
-1. Next, we'll run a test containing a UI change to the Swag Labs website (login button color changes from red to green). The change is pre-written into the test scripts and will activate once you execute the run command corresponding to the framework you used in the [Run Test](#run-test) step:
+1. Next, we'll run a test containing a UI change to the Swag Labs website in which a button color changes from red to green. The change is pre-written into the test scripts and will activate once you execute the run command corresponding to the framework you used in the [Run Test](#run-test-1) step:
 
   <Tabs
       defaultValue="WebdriverIO"
@@ -511,7 +509,7 @@ The test should take a few minutes to complete.
   </Tabs>
 
 
-2. On your Visual Testing Dashboard, you should see a new test running under the same project and branch. Because an element changed in one of your baseline snapshots, the test will be labeled as "failed". To resolve this, you'll need to [review and accept](/visual/e2e-testing/workflow/review-workflow/) them:
+2. On your Visual Testing Dashboard, you should see a new test running under the same project and branch. Because an element changed in one of your baseline snapshots, the test will be labeled as "failed". To resolve this, you'll need to review and accept them:
     * Click **Review 1 Changed**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-changed-state.png')} alt="Visual E2E Quickstart changed state" width="500" />
     * You'll see that the login button color has changed from red to green. Click **Changed** > **Accept**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-accept.png')} alt="Visual E2E Quickstart accept state" width="450" />
 3. Return to your Visual Testing Dashboard. The two states should now be labeled as **Accepted**. If you run this test again using the [run commands under **Apply UI Changes**](#apply-ui-changes), the result will be labeled **Success**.
@@ -562,6 +560,7 @@ For each build, you should receive an [email summary](/visual/notifications/) in
 
 
 ## Optional Next Steps
+* * Learn more about the [Visual E2E Testing review workflow](/visual/e2e-testing/workflow/review-workflow/)
 * Set up continuous visual testing by [integrating Visual E2E Testing into your CI](/visual/e2e-testing/integrations/continuous-integration).
 * Confirm that your WebDriver test scripts use [W3C WebDriver capabilities](/dev/w3c-webdriver-capabilities/).
 * Confirm that the browsers in your tests are [supported by Sauce Labs](/visual/e2e-testing/supported-browsers).
