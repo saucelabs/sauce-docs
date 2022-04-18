@@ -17,7 +17,7 @@ Follow the steps to integrate Sauce Labs Visual Component Testing with Storybook
 
 
 ## What You'll Need
-* A [Sauce Labs self-serve or enterprise account](https://saucelabs.com/pricing) with access to Visual Testing. To request access, contact your CSM or Sauce Labs Support. Not available for free-trial accounts.
+* A [Sauce Labs self-serve or enterprise account](https://saucelabs.com/pricing) with access to Visual Testing. To request access, contact your CSM or Sauce Labs Support. Visual Testing is not available for free-trial accounts.
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * Your Visual Testing [Screener API Key](https://screener.io/v2/account/api-key).
 * A [GitHub account](https://github.com/).
@@ -26,6 +26,12 @@ Follow the steps to integrate Sauce Labs Visual Component Testing with Storybook
 
 
 ## Integration with Existing Storybook Project
+
+Follow the steps below to add Visual Component Testing functionality to your Storybook project.
+
+:::tip
+New to Storybook? See [Quickstart with Sample Storybook Project](#quickstart-with-sample-storybook-project).
+:::
 
 ### Install Screener Package
 
@@ -61,10 +67,16 @@ $Env:SCREENER_API_KEY = "<your Screener API key>"
 </TabItem>
 </Tabs>
 
+### Add Screener Script
+
+Open your Storybook project's **package.json** file and add the following npm script to your `"scripts": {` section:
+```json
+"test-storybook": "screener-storybook --conf screener.config.js"  
+```
 
 ### Create Screener Config File
 
-From a text editor or IDE, create a new JavaScript file called **screener.config.js**, paste in the below snippet, then replace the placeholder values with your own. When you're done, save the **screener.config.js** file to your Storybook project's root folder.
+From a text editor or IDE, create a new JavaScript file called **screener.config.js** and paste in the below code snippet.
 
 ```js
 module.exports = {
@@ -75,6 +87,8 @@ module.exports = {
   resolution: '<resolution>'
 };
 ```
+
+Be sure to replace the placeholder values with your own.
 
 <table id="table-api">
 <tbody>
@@ -92,18 +106,13 @@ module.exports = {
 <tbody>
   <tr>
     <td><code>storybookConfigDir</code> or <code>storybookStaticDir</code></td>
-    <td>These are your Storybook server options. To determine whether you need <code>storybookConfigDir</code> or <code>storybookStaticDir</code>, go to your project directory and find the <code>start-storybook</code> command, usually a script in a package.json file. If the <code>-c</code> or <code>--config-dir</code> option is set, use <code>storybookConfigDir</code> and that value to your code snippet. If the <code>-s</code> or <code>--static-dir</code> option is set, use the <code>storybookStaticDir</code> with its value.</td>
+    <td><p>These are your Storybook server options. To determine whether you need <code>storybookConfigDir</code> or <code>storybookStaticDir</code>, go to your project directory and find the <code>start-storybook</code> command, usually a script located in a <strong>package.json</strong> file.</p><br/><p>If the <code>-c</code> or <code>--config-dir</code> option is set, use <code>storybookConfigDir</code> and that value to your code snippet. If the <code>-s</code> or <code>--static-dir</code> option is set, use the <code>storybookStaticDir</code> with its value.</p>
+    </td>
   </tr>
 </tbody>
 </table>
 
-
-### Add Screener Script
-
-Open your Storybook project's **package.json** file and add the following npm script to your `"scripts": {` section:
-```json
-"test-storybook": "screener-storybook --conf screener.config.js"  
-```
+When you're done, save the **screener.config.js** file to your Storybook project's root folder.
 
 ### Run Test
 
@@ -114,7 +123,9 @@ npm run test-storybook
 
 ### View Results
 
-Go your Visual Testing Dashboard (Sauce Labs > **Visual Testing** > **Log in to Visual**) to confirm that your test is running. It should take a few minutes to complete.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-all-projects.png')} alt="Visual E2E Quickstart running test" width="300" />
+Go your Visual Testing Dashboard (Sauce Labs > **Visual Testing** > **Log in to Visual**) to confirm that your test is running. Instead of **sb-6.1-test**, you'll see your own Storybook project name.<br/><img src={useBaseUrl('img/visual/component-integration-results.png')} alt="Visual E2E Quickstart running test" width="300" />
+
+It should take a few minutes to complete.
 
 For each build, you should receive an [email summary](/visual/notifications/) indicating the pass/fail status, delivered to the address associated with your Sauce Labs account.
 
@@ -130,23 +141,27 @@ Don't have Storybook, but want to try? Follow the steps below to install our sam
 
 From your terminal, navigate to your machine's [home directory](https://en.wikipedia.org/wiki/Home_directory), then run the following commands.
 
-```bash title="Installs Storybook and creates project folder called 'my-storybook'"
-npx create-react-app my-storybook
-```
+1. Install Storybook and create project folder called `my-storybook`:
+  ```bash
+  npx create-react-app my-storybook
+  ```
 
-```bash title="Navigates to Storybook project"
-cd my-storybook
-```
+2. Navigate to Storybook project:
+  ```bash
+  cd my-storybook
+  ```
 
-```bash title="Adds Storybook to project folder"
-npx -p @storybook/cli sb init
-```
+3. Add Storybook to project folder:
+  ```bash
+  npx -p @storybook/cli sb init
+  ```
 
-```bash title="Launches Storybook project and opens localhost"
-npm run storybook
-```
+4. Launch Storybook project and open localhost:
+  ```bash
+  npm run storybook
+  ```
 
-Once Storybook has been launched, you'll see a response like this in your terminal.<br/><img src={useBaseUrl('img/visual/component-expected-response.png')} alt="component testing expected-response" width="400" />
+  Once Storybook has been launched, you'll see a response like this in your terminal.<br/><img src={useBaseUrl('img/visual/component-expected-response.png')} alt="component testing expected-response" width="400" />
 
 
 ### Install Screener Package
@@ -187,6 +202,13 @@ $Env:SCREENER_API_KEY = "<your Screener API key>"
 </TabItem>
 </Tabs>
 
+### Add Screener Script
+
+Open your Storybook project's **package.json** file and add the following npm script to your `"scripts": {` section:
+```json
+"test-storybook": "screener-storybook --conf screener.config.js"  
+```
+
 
 ### Create Screener Config File
 
@@ -204,16 +226,6 @@ module.exports = {
 When you're done, save the **screener.config.js** file to your Storybook project's root folder (**my-storybook**).
 
 
-### Add Screener Script
-
-Open your Storybook project's **package.json** file and add the following npm script to your `"scripts": {` section:
-```json
-"test-storybook": "screener-storybook --conf screener.config.js"  
-```
-
-When you're done, be sure to save the file.
-
-
 ### Run Test
 
 Run your test:
@@ -223,7 +235,11 @@ npm run test-storybook
 
 ### View Results
 
-Go your Visual Testing Dashboard (Sauce Labs **Visual Testing** > **Log in to Visual**) to confirm that your test is running. It should take a few minutes to complete.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-all-projects.png')} alt="Visual E2E Quickstart running test" width="300" />
+Go your Visual Testing Dashboard (Sauce Labs **Visual Testing** > **Log in to Visual**) to confirm that your test is running.
+
+You'll see a new project under the name **sb-6.1-test**, plus a new [branch](/visual/e2e-testing/workflow/baseline-branch/) called **default**.<br/><img src={useBaseUrl('img/visual/component-quickstart-all-projects.png')} alt="Visual E2E Quickstart running test" width="500" />
+
+The test should take a few minutes to complete.
 
 :::tip
 

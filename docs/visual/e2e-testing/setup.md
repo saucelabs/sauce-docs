@@ -16,7 +16,7 @@ Sauce Labs Visual E2E Testing is an automated testing method that integrates wit
 
 ## What You'll Need
 
-* A [Sauce Labs self-serve or enterprise account](https://saucelabs.com/pricing) with access to Visual Testing. To request access, contact your CSM or Sauce Labs Support. Not available for free-trial accounts.
+* A [Sauce Labs self-serve or enterprise account](https://saucelabs.com/pricing) with access to Visual Testing. To request access, contact your CSM or Sauce Labs Support. Visual Testing is not available for free-trial accounts.
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * Your Visual Testing [Screener API Key](https://screener.io/v2/account/api-key).
 * A [GitHub account](https://github.com/).
@@ -25,10 +25,10 @@ Sauce Labs Visual E2E Testing is an automated testing method that integrates wit
 
 ## Integration with Existing WebDriver Tests
 
-Follow the steps below to add Visual E2E Testing functionality to your Selenium WebDriver tests.
+Follow the steps below to add Visual E2E Testing functionality to your WebDriver tests.
 
-:::tip New to WebDriver?
-Head to [Quickstart with Sample WebDriver Tests](#quickstart-with-sample-webdriver-tests).
+:::tip
+New to WebDriver? See [Quickstart with Sample WebDriver Tests](#quickstart-with-sample-webdriver-tests).
 :::
 
 
@@ -79,9 +79,7 @@ From your terminal or IDE, navigate to your WebDriver test location, then set yo
 ### Add Sauce Labs Test Code
 
 #### Sauce Capabilities
-In your WebDriver test configuration section, add the [`sauce:options`](/dev/test-configuration-options/) capability containing your Sauce Labs credentials.
-
-Here's an example in JavaScript (see [Selenium on Sauce Labs](/web-apps/automated-testing/selenium/) for examples in Java, Python, Ruby, and C#).
+In your WebDriver test configuration section, add the [`sauce:options`](/dev/test-configuration-options/) capability with your Sauce Labs credentials (as environment variables) nested underneath. Here's what you'd write in JavaScript, for example:
   ```js title="JavaScript example"
   'sauce:options': {
     username: process.env.SAUCE_USERNAME,
@@ -89,221 +87,220 @@ Here's an example in JavaScript (see [Selenium on Sauce Labs](/web-apps/automate
   },
   ```
 
+See [Selenium on Sauce Labs](/web-apps/automated-testing/selenium/) for examples in Java, Python, Ruby, and C#.
+
 #### Sauce Visual E2E Capabilities
 1. In your WebDriver capabilities, add the [`sauce:visual`](/visual/e2e-testing/commands-options/#saucevisual-capability-options) capability containing your desired project name and viewport size.
+  <Tabs
+    defaultValue="JS/WebdriverIO"
+    values={[
+      {label: 'JS/WebdriverIO', value: 'JS/WebdriverIO'},
+      {label: 'Java', value: 'Java'},
+      {label: 'Python', value: 'Python'},
+      {label: 'Ruby', value: 'Ruby'},
+      {label: 'C#', value: 'C#'},
+    ]}>
 
-<Tabs
-  defaultValue="JS/WebdriverIO"
-  values={[
-    {label: 'JS/WebdriverIO', value: 'JS/WebdriverIO'},
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+  <TabItem value="JS/WebdriverIO">
 
-<TabItem value="JS/WebdriverIO">
+  ```javascript
+  var capabilities = {
+    ...
+     'sauce:visual': {
+       apiKey: process.env.SCREENER_API_KEY,
+       projectName: 'my-project',
+       viewportSize: '1280x1024'
+     }
+   }
+   ```
 
-```javascript
-var capabilities = {
-  ...
-  'sauce:visual': {
-    apiKey: process.env.SCREENER_API_KEY,
-    projectName: 'my-project',
-    viewportSize: '1280x1024'
-  }
-}
-```
+  </TabItem>
+  <TabItem value="Java">
 
-</TabItem>
-<TabItem value="Java">
+   ```java
+   DesiredCapabilities capabilities = new DesiredCapabilities();
+   MutableCapabilities sauceVisual = new MutableCapabilities();
+   sauceVisual.setCapability("apiKey", System.getenv("SCREENER_API_KEY"));
+   sauceVisual.setCapability("projectName", "my-project");
+   sauceVisual.setCapability("viewportSize", "1280x1024");
+   capabilities.setCapability("sauce:visual", sauceVisual);
+   ```
 
-```java
-DesiredCapabilities capabilities = new DesiredCapabilities();
-MutableCapabilities sauceVisual = new MutableCapabilities();
-sauceVisual.setCapability("apiKey", System.getenv("SCREENER_API_KEY"));
-sauceVisual.setCapability("projectName", "my-project");
-sauceVisual.setCapability("viewportSize", "1280x1024");
-capabilities.setCapability("sauce:visual", sauceVisual);
-```
+  </TabItem>
+  <TabItem value="Python">
 
-</TabItem>
-<TabItem value="Python">
+   ```py
+   capabilities = {
+     ...
+     'sauce:visual': {
+       'apiKey': os.environ.get('SCREENER_API_KEY'),
+       'projectName': 'my-project',
+       'viewportSize': '1280x1024'
+     }
+   }
+   ```
 
-```py
-capabilities = {
-  ...
-  'sauce:visual': {
-    'apiKey': os.environ.get('SCREENER_API_KEY'),
-    'projectName': 'my-project',
-    'viewportSize': '1280x1024'
-  }
-}
-```
+  </TabItem>
+  <TabItem value="Ruby">
 
-</TabItem>
-<TabItem value="Ruby">
+   ```rb
+   capabilities = {
+     ...
+     "sauce:visual" => {
+       apiKey: ENV["SCREENER_API_KEY"],
+       projectName: 'my-project',
+       viewportSize: '1280x1024'
+     }
+   }
+   ```
 
-```rb
-capabilities = {
-  ...
-  "sauce:visual" => {
-    apiKey: ENV["SCREENER_API_KEY"],
-    projectName: 'my-project',
-    viewportSize: '1280x1024'
-  }
-}
-```
+  </TabItem>
+  <TabItem value="C#">
 
-</TabItem>
-<TabItem value="C#">
+   ```csharp
+   Dictionary sauceVisual = new Dictionary
+   {
+       { "apiKey", Environment.GetEnvironmentVariable("SCREENER_API_KEY") },
+       { "projectName", "my-project" },
+       { "viewportSize", "1280x1024" }
+   };
+   browserOptions.AddAdditionalCapability("sauce:visual", sauceVisual, true);
+   ```
 
-```csharp
-Dictionary sauceVisual = new Dictionary
-{
-    { "apiKey", Environment.GetEnvironmentVariable("SCREENER_API_KEY") },
-    { "projectName", "my-project" },
-    { "viewportSize", "1280x1024" }
-};
-browserOptions.AddAdditionalCapability("sauce:visual", sauceVisual, true);
-```
-
-</TabItem>
-</Tabs>
+  </TabItem>
+  </Tabs>
 
 2. In your WebDriver capabilities, configure your test to connect to our remote hub, `https://hub.screener.io`.
+  <Tabs
+     defaultValue="JS/WebdriverIO"
+     values={[
+       {label: 'JS/WebdriverIO', value: 'JS/WebdriverIO'},
+       {label: 'Java', value: 'Java'},
+       {label: 'Python', value: 'Python'},
+       {label: 'Ruby', value: 'Ruby'},
+       {label: 'C#', value: 'C#'},
+     ]}>
 
-<Tabs
-  defaultValue="JS/WebdriverIO"
-  values={[
-    {label: 'JS/WebdriverIO', value: 'JS/WebdriverIO'},
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+   <TabItem value="JS/WebdriverIO">
 
-<TabItem value="JS/WebdriverIO">
+   ```javascript
+   exports.config = {
+     hostname: 'hub.screener.io',
+     port: 443,
+     protocol: 'https',
+     path: '/wd/hub'
+   }
+   ```
 
-```javascript
-exports.config = {
-  hostname: 'hub.screener.io',
-  port: 443,
-  protocol: 'https',
-  path: '/wd/hub'
-}
-```
+   </TabItem>
+   <TabItem value="Java">
 
-</TabItem>
-<TabItem value="Java">
+   ```java
+   WebDriver driver = new RemoteWebDriver(
+      new URL("https://hub.screener.io:443/wd/hub"),
+   capabilities);
+   ```
 
-```java
-WebDriver driver = new RemoteWebDriver(
-   new URL("https://hub.screener.io:443/wd/hub"),
-capabilities);
-```
+   </TabItem>
+   <TabItem value="Python">
 
-</TabItem>
-<TabItem value="Python">
+   ```py
+   host = "https://hub.screener.io:443/wd/hub"
+   self.driver = webdriver.Remote(host, capabilities)
+   ```
 
-```py
-host = "https://hub.screener.io:443/wd/hub"
-self.driver = webdriver.Remote(host, capabilities)
-```
+   </TabItem>
+   <TabItem value="Ruby">
 
-</TabItem>
-<TabItem value="Ruby">
+   ```rb
+   Selenium::WebDriver.for(:remote, url: "https://hub.screener.io:443/wd/hub", desired_capabilities: caps)
+   ```
 
-```rb
-Selenium::WebDriver.for(:remote, url: "https://hub.screener.io:443/wd/hub", desired_capabilities: caps)
-```
+   </TabItem>
+   <TabItem value="C#">
 
-</TabItem>
-<TabItem value="C#">
+   ```csharp
+   driver = new RemoteWebDriver(new Uri("https://hub.screener.io:443/wd/hub"), capabilities);
+   ```
 
-```csharp
-driver = new RemoteWebDriver(new Uri("https://hub.screener.io:443/wd/hub"), capabilities);
-```
-
-</TabItem>
-</Tabs>
+   </TabItem>
+   </Tabs>
 
 
 #### Sauce Visual Commands
 
 In your test script, add the below commands, in this order:
 
-1. Add the [`@visual.init`](/visual/e2e-testing/commands-options/#init-command) command to along with a name for your test.
+1. Add the [`@visual.init`](/visual/e2e-testing/commands-options/#init-command) command to initialize your Visual test and add a name for it.
 2. Add the [`@visual.snapshot`](/visual/e2e-testing/commands-options/#snapshot-command) command in the places where you want to capture a visual snapshot.
+  <Tabs
+    defaultValue="JS/WebdriverIO"
+    values={[
+      {label: 'JS/WebdriverIO', value: 'JS/WebdriverIO'},
+      {label: 'Java', value: 'Java'},
+      {label: 'Python', value: 'Python'},
+      {label: 'Ruby', value: 'Ruby'},
+      {label: 'C#', value: 'C#'},
+    ]}>
 
-<Tabs
-  defaultValue="JS/WebdriverIO"
-  values={[
-    {label: 'JS/WebdriverIO', value: 'JS/WebdriverIO'},
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+  <TabItem value="JS/WebdriverIO">
 
-<TabItem value="JS/WebdriverIO">
+   ```javascript
+   it('should take snapshot', () => {
+     browser.url('https://screener.io');
+     browser.execute('/*@visual.init*/', 'My Visual Test');
+     browser.execute('/*@visual.snapshot*/', 'Home');
+   });
+   ```
 
-```javascript
-it('should take snapshot', () => {
-  browser.url('https://screener.io');
-  browser.execute('/*@visual.init*/', 'My Visual Test');
-  browser.execute('/*@visual.snapshot*/', 'Home');
-});
-```
+  </TabItem>
+  <TabItem value="Java">
 
-</TabItem>
-<TabItem value="Java">
+   ```java
+   public void simpleTest() {
+     WebDriver driver = this.getWebDriver();
+     driver.get("https://screener.io");
+     JavascriptExecutor js = (JavascriptExecutor) driver;
+     js.executeScript("/*@visual.init*/", "My Visual Test");
+     js.executeScript("/*@visual.snapshot*/", "Home");
+   }
+   ```
 
-```java
-public void simpleTest() {
-  WebDriver driver = this.getWebDriver();
-  driver.get("https://screener.io");
-  JavascriptExecutor js = (JavascriptExecutor) driver;
-  js.executeScript("/*@visual.init*/", "My Visual Test");
-  js.executeScript("/*@visual.snapshot*/", "Home");
-}
-```
+  </TabItem>
+  <TabItem value="Python">
 
-</TabItem>
-<TabItem value="Python">
+   ```py
+   def test_take_snapshot(self):
+      self.driver.get('https://screener.io')
+      self.driver.execute_script('/*@visual.init*/', 'My Visual Test')
+      self.driver.execute_script('/*@visual.snapshot*/', 'Home')
+   ```
 
-```py
-def test_take_snapshot(self):
-   self.driver.get('https://screener.io')
-   self.driver.execute_script('/*@visual.init*/', 'My Visual Test')
-   self.driver.execute_script('/*@visual.snapshot*/', 'Home')
-```
+  </TabItem>
+  <TabItem value="Ruby">
 
-</TabItem>
-<TabItem value="Ruby">
+   ```rb
+   it 'should take snapshot' do
+     driver.navigate.to('https://screener.io')
+     driver.execute_script('/*@visual.init*/', 'My Visual Test')
+     driver.execute_script('/*@visual.snapshot*/', 'Home')
+   end
+   ```
 
-```rb
-it 'should take snapshot' do
-  driver.navigate.to('https://screener.io')
-  driver.execute_script('/*@visual.init*/', 'My Visual Test')
-  driver.execute_script('/*@visual.snapshot*/', 'Home')
-end
-```
+  </TabItem>
+  <TabItem value="C#">
 
-</TabItem>
-<TabItem value="C#">
+   ```csharp
+   static void test() {
+     driver.Navigate().GoToUrl("https://screener.io");
+     IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+     js.ExecuteScript("/*@visual.init*/", "My Visual Test");
+     js.ExecuteScript("/*@visual.snapshot*/", "Home");
+   }
+   ```
 
-```csharp
-static void test() {
-  driver.Navigate().GoToUrl("https://screener.io");
-  IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-  js.ExecuteScript("/*@visual.init*/", "My Visual Test");
-  js.ExecuteScript("/*@visual.snapshot*/", "Home");
-}
-```
-
-</TabItem>
-</Tabs>
+  </TabItem>
+  </Tabs>
 
 ### Run Test
 From your terminal or IDE, run your test.
@@ -321,12 +318,12 @@ Go your Visual Testing Dashboard (Sauce Labs **Visual Testing** > **Log in to Vi
 :::
 
 ### Accept Baseline
-This first test will be labeled as "failed" because there's no existing baseline to compare it against. To resolve this, you'll need to [review and accept](/visual/e2e-testing/workflow/review-workflow/#3-accept-or-reject) the new snapshots as your baseline.
+This first test will be labeled as "failed" because there's no existing baseline to compare it against. To resolve this, you'll need to review and accept the new snapshots as your baseline. Go to the [Quickstart > Accept Baseline](#accept-baseline-1) to see an example of how to do this.
 
 ### Apply UI Changes
 1. In your website development environment, apply a simple UI change, such as changing the font color or removing an image.
-1. From your IDE or terminal, run your test again.
-1. Go to your Visual Testing Dashboard, then click the changed state and [review the change details](/visual/e2e-testing/workflow/change-details).
+2. From your IDE or terminal, run your test again.
+3. Go to your Visual Testing Dashboard, then click the changed state and [review the change details](/visual/e2e-testing/workflow/change-details).
 
 
 ## Quickstart with Sample WebDriver Tests
@@ -408,7 +405,7 @@ await browser.url('http://saucedemo.com');
 At a high level, each test script:
 1. Adds your Sauce Labs credentials, test capabilities (e.g., project name), Visual E2E Testing commands.
 2. Launches the [Sauce Labs demo website](http://saucedemo.com) in a browser and logs in.
-3. Carries out Visual E2E test session (i.e., taking UI snapshots).
+3. Carries out a Visual E2E test session (i.e., taking UI snapshots).
 4. Ends session.
 
 </details>
