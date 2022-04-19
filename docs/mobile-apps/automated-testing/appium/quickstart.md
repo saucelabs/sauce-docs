@@ -40,7 +40,7 @@ git clone https://github.com/saucelabs-training/quickstart-appium-java.git
 Set your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as environment variables to avoid having to enter them with each command and to protect them from exposure in your tests.
 
 1. Check to see whether your credentials are already set using the following command:
-  ```bash title="Check Environment variables
+  ```bash title="Check Environment variables"
   echo $SAUCE_USERNAME
   echo $SAUCE_ACCESS_KEY
   ```
