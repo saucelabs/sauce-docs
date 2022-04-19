@@ -198,9 +198,11 @@ Example of starting Sauce Connect Proxy in conjunction with your Sauce Headless 
 
 ## API Testing Setup
 
-See [API Testing with Sauce Connect Proxy](/api-testing/sauce-connect/) to learn how to start a tunnel for API Testing. It requires the use of a YAML config file.
+See [API Testing with Sauce Connect Proxy](/api-testing/sauce-connect/) to learn how to start a tunnel for API Testing, using one of the following endpoints:
+* US-West: `https://api.us-west-4-i3er.saucelabs.com/rest/v1`
+* EU-Central: `https://api.eu-west-3-lnbf.saucelabs.com/rest/v1`
 
-This setup has a unique endpoint, `https://api.us-west-4-i3er.saucelabs.com/rest/v1`. Currently, only the US-West region is supported.
+This setup requires the use of a YAML config file, where you'll need to reference the above endpoints as `region: us-west` and `region: eu-central`, respectively.
 
 
 ## More Information
