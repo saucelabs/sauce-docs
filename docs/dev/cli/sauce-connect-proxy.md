@@ -482,7 +482,7 @@ Here are some guidelines to follow when formatting domains:
   * Example: `mydomain.com`
 * Make sure your comma-separated list of domains doesn't include any spaces.
   * Example, `mydomain.com,saucelabs.com,mysite.com`
-* Prefix domain names with `*.` or simply `.` to match all its subdomains.
+* Prefix domain names with dot `.` to match all its subdomains.
   * Example: You could refer to `docs.saucelabs.com` and `my.saucelabs.com` as "`*.saucelabs.com"` or` ".saucelabs.com"`. Enclose the argument in quotes to prevent shell expansion of asterisk.
 * If you don't want any domains to be SSL re-encrypted, you can specify `all` with the argument (i.e., `-B all` or `--no-ssl-bump-domains all`)
 * WebSockets domains are not compatible with SSL bumping, so you'll need to [disable SSL Bumping](#--no-ssl-bump-domains) for those.

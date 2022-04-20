@@ -446,17 +446,34 @@ fe80::1%lo0 localhost
 Once the host file has been altered, start Sauce Connect Proxy with the added argument `--metrics-address tunnelmetrics.com:8080`. Then, on the machine hosting Sauce Connect Proxy, you will see the metrics served at `http://tunnelmetrics.com:8080/debug/vars`.
 
 ## Improving Performance
-During testing, your website or app may load resources (e.g., tracking services, images/videos, advertisements), which can impact page load times and even cause tests to fail. If these external assets are publicly available on the Internet, then they can be fetched directly without using a tunnel. If these are not needed at all for testing purposes, you can disable the traffic to improve performance.
-
-### Configuring Traffic to External Resources
-You can improve your overall test performance by disabling these third-party resource calls. If you're using Sauce Connect Proxy, the additional network hops required to access external resources have the potential to slow test execution dramatically. To retrieve resources directly, you can use the [`--direct-domains`](/dev/cli/sauce-connect-proxy/#--direct-domains) flag. To blocklist traffic so it is immediately dropped, use the [`--fast-fail-regexps`](/dev/cli/sauce-connect-proxy/#--fast-fail-regexps) command.
+During testing, your website or app may load resources (e.g., tracking services, images/videos, advertisements), which can impact page load times and even cause tests to fail.
+If these resources are not needed at all for testing purposes, you can disable the traffic to improve performance.
 
 See [How to Remove Third Party Resources](http://elementalselenium.com/tips/66-blacklist) for more information.
 
-### Be Aware of How Sauce Connect Proxy Caches Traffic
-By default, Sauce Connect Proxy will cache all traffic with SSL Bumping (see [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication)). Caching of resources takes place on the Sauce Labs side, resulting in faster test execution.
+### Tuning Sauce Connect Proxy Traffic
+If you're using Sauce Connect Proxy, the additional network hops required to access external resources have the potential to slow test execution dramatically.
+When Sauce Connect Proxy is used, all the traffic is forwarded over the Sauce Connect Proxy connection.
+The following flags provide fine control over the Sauce Connect Proxy tunneled traffic:
+  * [`--tunnel-domains`](/dev/cli/sauce-connect-proxy/#--direct-domains)
+  * [`--direct-domains`](/dev/cli/sauce-connect-proxy/#--tunnel-domains)
+  * [`--fast-fail-regexps`](/dev/cli/sauce-connect-proxy/#--fast-fail-regexps)
 
-If you're in a situation where you have to manually disable SSL bumping (`--no-ssl-bump-domains` command), be aware the Sauce Connect Proxy will no longer be able to cache SSL-encrypted traffic, possibly impacting your test performance. If you're running multiple tests that access the same external resources, you can improve performance by having those tests all use the same tunnel because Sauce Connect Proxy will cache all HTTP and HTTPS traffic.
+#### Tunnel domains
+
+[`--tunnel-domains`](/dev/cli/sauce-connect-proxy/#--direct-domains) flag allows to specify requests which should always be forwarded from the Sauce Labs hosted browser to customer-side over the Sauce Connect Proxy connection.
+Starting Sauce Connect Proxy with [`--tunnel-domains`](/dev/cli/sauce-connect-proxy/#--direct-domains) implies that requests that don't match "tunnel domains" will be forwarded over the public internet.
+This is the recommended option for the best performance since it allows to minimize the expensive tunnelled traffic and use it only for the internal domains that are not publicly available.
+
+#### Direct domains
+
+[`--direct-domains`](/dev/cli/sauce-connect-proxy/#--tunnel-domains) flag allows to specify requests which should always be forwarded from the Sauce Labs browser to their origin server over the public internet.
+Starting Sauce Connect Proxy with [`--direct-domains`](/dev/cli/sauce-connect-proxy/#--tunnel-domains) implies that requests that don't match "direct domains" will be forwarded to customer-side over the Sauce Connect Proxy connection.
+This option is not recommended for performance, it's useful for cases where website traffic is analyzed with customer-side hosted tools.
+
+#### Fast-fail domains
+
+[`--fast-fail-regexps`](/dev/cli/sauce-connect-proxy/#--fast-fail-regexps) flags allows to specify requests which should be immediately dropped.
 
 ## Service Management Tools
 
