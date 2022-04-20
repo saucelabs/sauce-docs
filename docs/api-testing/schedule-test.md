@@ -18,7 +18,7 @@ The **Schedule** tool, accessible from within each test, allows you to schedule 
 ## Creating a New Test Schedule
 
 :::caution Required Step
-Schedule is available only for [published tests](/api-testing/quickstart/#publish-your-test).
+The **Schedule** functionality is available only for [published tests](/api-testing/quickstart/#publish-your-test).
 :::
 
 1. From within the **Composer**, click the **Schedule** tab to access the Scheduler.<br/><img src={useBaseUrl('img/api-fortress/2021/02/scheduleTab.png')} alt="Schedule Tab"/>
