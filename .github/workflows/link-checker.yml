@@ -1,0 +1,36 @@
+name: Sauce Docs Link Checker
+
+on:
+  pull_request:
+  push:
+    paths:
+      - 'docs/**'
+  workflow_dispatch:
+
+env:
+  ALGOLIA_APP_ID: ${{secrets.ALGOLIA_APP_ID}}
+  ALGOLIA_KEY: ${{secrets.ALGOLIA_KEY}}
+
+defaults:
+  run:
+    working-directory: tests/sauce-docs-checker
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: Install Dependencies
+        run: |
+          npm install
+      - name: Set Job URL
+        run: |
+          echo $GITHUB_RUN_ID
+      - name: Start Script
+        run: |
+          npm start -- $GITHUB_RUN_ID
