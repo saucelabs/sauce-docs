@@ -21,16 +21,24 @@ The **Schedule** tool, accessible from within each test, allows you to schedule 
 The **Schedule** functionality is available only for [published tests](/api-testing/quickstart/#publish-your-test).
 :::
 
+<<<<<<< HEAD
 1. From within the **Compose** tab, click the **Schedule** tab to access the Scheduler.<br/><img src={useBaseUrl('img/api-fortress/2021/02/scheduleTab.png')} alt="Schedule Tab"/>
 2. Click **Create Schedule**.<br/><img src={useBaseUrl('img/api-fortress/2021/02/createSchedule.png')} alt="Create Schedule" width="450"/>
+=======
+1. From within the **Composer**, click the **Schedule** tab to access the Scheduler.<br/><img src={useBaseUrl('img/api-fortress/2021/02/scheduleTab.png')} alt="Schedule Tab"/>
+2. Click **Create Schedule**.<br/><img src={useBaseUrl('img/api-fortress/2021/02/createScheduleButton.png')} alt="Create Schedule" width="450"/>
+>>>>>>> a4849df6e3c2f98bd295e2c6ba901e80d7c2857f
 
-  The **New Schedule** window will appear.<br/><img src={useBaseUrl('img/api-fortress/2021/02/exampleSchedule.png')} alt="Example Schedule"/>
+  The **New Schedule** window will appear.<br/><img src={useBaseUrl('img/api-fortress/2021/02/exampleScheduleScreen.png')} alt="Example Schedule"/>
 3. Enter a **Schedule Name** (**Description** is optional).
 4. Choose a **Time Zone** to specify when you'd like test will run. Double-check that you're using the right one (i.e., if you're in Berlin and want to run at your local time, make sure to select `Europe/Berlin` instead of `America/Los Angeles`)!
 5. Use the **Minute**, **Hour**, **Day**, and **Month** parameters to schedule the frequency at which you'd like your test to run. It will repeat at your configured time and interval.
 6. Optionally, you can add a Sauce Connect Proxy tunnel by selecting one from the **No tunnel** dropdown and/or enter a `key=value` variable override.
+:::info
+__Overrides__: When an override variable is declared its value will be injected into the test when it’s executed. If the variable has already been declared in the Vault or the Globals/Input set, it will be rewritten with the new value.
+:::
 7. When you're finished, click **Save**.
-8. You'll be taken back to the **Schedule** page. The test you've scheduled should populate in the nav.<br/><img src={useBaseUrl('img/api-fortress/2021/02/scheduleConfirm.png')} alt="Schedule confirmation" width="450"/>
+8. You'll be taken back to the **Schedule** page. The test you've scheduled should populate in the nav.<br/><img src={useBaseUrl('img/api-fortress/2021/02/scheduleConfirmScreen.png')} alt="Schedule confirmation" width="450"/>
 9. If you hover your mouse over it, you can see the options to **Pause**, **Edit**, or **Delete** the schedule.<br/><img src={useBaseUrl('img/api-fortress/2021/02/scheduleOptions.png')} alt="Scheduler options" width="250"/>
 
 
@@ -44,3 +52,9 @@ If you need to edit the schedule or any other part of the test, here's a shortcu
     * Play icon: Runs the test manually.
     * Calendar icon: Opens the scheduler directly without opening the test first.
     * Trash icon: Deletes the test.
+
+## More Information
+
+* [Email Notifications](/api-testing/project-access/#email-notifications)
+* [Webhook Connectors](/api-testing/integrations/pagerduty-webhooks/)
+* [Project Dashboard](/api-testing/project-dashboard/)
