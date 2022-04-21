@@ -284,7 +284,7 @@ Long-running tunnels go hand in hand with our [High Availability (HA) Setup](/se
     --tunnel-name my-single-tunnel
   ```
 
-**Multiple Tunnels** &#8212; "High-availability tunnel pool" would look like this if they were run as part of a script or from the command line:
+**Multiple Tunnels** &#8212; A high-availability tunnel pool would look like this if it was run as part of a script or from the command line:
 
 ```sh
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --tunnel-pool --tunnel-name main-tunnel-pool
