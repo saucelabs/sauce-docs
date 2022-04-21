@@ -216,7 +216,7 @@ Ephemeral tunnels (short-lived tunnels) are ideal for the following test situati
 One option to start Ephemeral tunnels is to do so from your local workstation.
 
 1. [Set your Sauce Labs username and access key as environmental variables](/basics/environment-variables).
-2. Run the basic startup commands to ensure that your tunnel starts. Be sure to include the [`--region`](/dev/cli/sauce-connect-proxy/#--region) and [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) flags for best performance.
+2. Run the basic startup commands to ensure that your tunnel starts. Be sure to include the [`--region`](/dev/cli/sauce-connect-proxy/#--region) and [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-identifier) flags for best performance.
 
   <Tabs
       defaultValue="Mac/Linux"
