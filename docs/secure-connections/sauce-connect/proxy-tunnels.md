@@ -256,7 +256,7 @@ You can also launch Ephemeral tunnels from a continuous integration (CI) build s
 
 3. How you start your tunnel is up to you. You can run a simple Bash shell script (or PowerShell script, if you're in Windows) that simply executes the start commands as if you were starting it locally:  
   ```bash
-  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r eu-central --tunnel-identifier $TUNNEL_IDENTIFIER
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-identifier $TUNNEL_IDENTIFIER
   ```
 
 Once you've established your automated loop, you should be able to kick off builds as needed, automatically.
@@ -319,11 +319,11 @@ If you start creating bigger and bigger builds with a high number of simultaneou
 In this scenario, you’d need to “scale up” by using a tunnel pool in HA mode (multiple tunnels with same tunnel name). We generally recommend switching when running more than 50 parallel test sessions. The mass number of tests will have room to run through, as test traffic will be distributed among the multiple tunnels.
 
 
-## Performance Metrics
-Sauce Connect Proxy has a performance metrics feature that you can use to monitor and measure the data and activities of your Sauce Connect Proxy client. You can access these metrics over an HTTP connection to a local expvar server, which will display the metrics as a JSON file.
+## Sauce Connect Proxy Metrics
+Sauce Connect Proxy has a metrics feature that you can use to monitor and measure the data and activities of your Sauce Connect Proxy client. You can access these metrics over an HTTP connection to a local expvar server, which will display the metrics as a JSON file.
 
-### Configuring Performance Metrics Monitoring
-By default, the `expvar server` listens on 'localhost:8888', but you can change the interface and port with the [`--metrics-address`](/dev/cli/sauce-connect-proxy/#--metrics-address) command.
+### Configuring Metrics Monitoring
+By default, the metrics server is disabled, but you can enable it by specifying the interface and port with the [`--metrics-address`](/dev/cli/sauce-connect-proxy/#--metrics-address) command.
 
 ```bash
 --metrics-address :8000 # listens on all the interfaces' port 8080
@@ -331,10 +331,11 @@ By default, the `expvar server` listens on 'localhost:8888', but you can change 
 ```
 
 ### Viewing Performance Metrics
-You can view performance metrics by using an HTTP client or web browser to access `http://{SauceConnect IP or Localhost:8888}/debug/vars`. Once you've got access, the performance metrics will typically look like this:
+You can view performance metrics by using an HTTP client or web browser to access `http://{SauceConnect IP}:{metrics address}/debug/vars`.
+Once you've got access, the performance metrics will typically look like this:
 
 ```java
-"cmdline": ["/Users/<USER_ID>/Downloads/sc-<VERSION>-<PLATFORM>/bin/sc","-u","(SAUCE_USERNAME)","-k","{SAUCE_ACCESS_KEY}"],
+"cmdline": ["/usr/local/bin/sc","-u","(SAUCE_USERNAME)","-k","{SAUCE_ACCESS_KEY}","-r","us-west","-i","metrics-demo"],
 
 "http": {
             "BytesReceived":31290,
@@ -347,33 +348,6 @@ You can view performance metrics by using an HTTP client or web browser to acces
             "LastStatusChange":1532052072,
             "RoundTripTimeMs":35,
             "ReconnectCount":0
-        },
-"memstats": {
-            "Alloc":1630808,
-            "TotalAlloc":10647440,
-            "Sys":9509112,
-            "Lookups":55,
-            "Mallocs":220719,
-            "Frees":204517,
-            "HeapAlloc":1630808,
-            "HeapSys":5668864,
-            "HeapIdle":1753088,
-            "HeapInuse":3915776,
-            "HeapReleased":270336,
-            "HeapObjects":16202,
-            "StackInuse":622592,
-            "StackSys":622592,
-            "MSpanInuse":74024,
-            "MSpanSys":98304,
-            "MCacheInuse":4800,
-            "MCacheSys":16384,
-            "BuckHashSys":1446894,
-            "GCSys":436224,
-            "OtherSys":1219850,
-            "NextGC":4194304,
-            "LastGC":1532052496921727000,
-            "PauseTotalNs":753000,
-            "PauseNs":[...]
         }
 }
 ```
@@ -393,7 +367,8 @@ Below is a full list of performance metrics and definitions for the Sauce Connec
 | `http.NumResponses` | Number of responses currently in flight. |
 
 ### Client Health Metrics
-While Sauce Connect Proxy is running, a basic webpage with metrics is made available at `localhost:8888/debug/vars` on the host machine. It serves a JSON blob containing a plethora of information, including the important `healthMetrics` section, which gives three vital metrics to the state of the Sauce Connect Proxy client:
+While Sauce Connect Proxy is running, a basic webpage with metrics is made available at `localhost:8888/debug/vars` on the host machine.
+It serves a JSON blob containing a plethora of information, including the important `healthMetrics` section, which gives three vital metrics to the state of the Sauce Connect Proxy client:
 
 | Metric | Value | Definition |
 | :--- | :--- | :--- |
@@ -402,35 +377,23 @@ While Sauce Connect Proxy is running, a basic webpage with metrics is made avail
 | `kgpReconnectCount` | Integer | A running count of how many times Sauce Connect Proxy had to re-establish its KGP connection |
 
 
-```js title="Example Raw Output"
-{
-"cmdline": ["/Users/acampbell/Documents/sc-4.4.6-osx/bin/sc","-u","******","-k","******","--pidfile","currentA","--se-port","4445"],
-"healthMetrics": {"kgpIsConnected": true, "kgpLastStatusChange": 1492568535, "kgpReconnectCount": 0},
-"memstats": {"Alloc":1891072,"TotalAlloc":11894816,"Sys":10590456,"Lookups":23,"Mallocs":171948,"Frees":155551,"HeapAlloc":1891072,"HeapSys":6619136,"HeapIdle":2277376,"HeapInuse":4341760,"HeapReleased":0,"HeapObjects":16397,"StackInuse":720896,"StackSys":720896,"MSpanInuse":82536,"MSpanSys":98304,"MCacheInuse":4800,"MCacheSys":16384,"BuckHashSys":1446133,"GCSys":471040,"OtherSys":1218563,"NextGC":4194304,"LastGC":1492568665306899183,"PauseTotalNs":449320,"PauseNs":[124228,169728,73016,38885,43463,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"PauseEnd":[1492568520772418515,1492568575257556530,1492568624109846929,1492568644101261105,1492568665306899183,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"NumGC":5,"NumForcedGC":0,"GCCPUFraction":0.000017483197350069177,"EnableGC":true,"DebugGC":false,"BySize":[{"Size":0,"Mallocs":0,"Frees":0},{"Size":8,"Mallocs":638,"Frees":602},{"Size":16,"Mallocs":67329,"Frees":62319},{"Size":32,"Mallocs":31514,"Frees":23432},{"Size":48,"Mallocs":14514,"Frees":13882},{"Size":64,"Mallocs":11311,"Frees":10957},{"Size":80,"Mallocs":7748,"Frees":7476},{"Size":96,"Mallocs":3122,"Frees":2969},{"Size":112,"Mallocs":1350,"Frees":1267},{"Size":128,"Mallocs":1133,"Frees":1079},{"Size":144,"Mallocs":665,"Frees":622},{"Size":160,"Mallocs":1033,"Frees":686},{"Size":176,"Mallocs":713,"Frees":663},{"Size":192,"Mallocs":2538,"Frees":2524},{"Size":208,"Mallocs":162,"Frees":137},{"Size":224,"Mallocs":445,"Frees":295},{"Size":240,"Mallocs":30,"Frees":27},{"Size":256,"Mallocs":283,"Frees":254},{"Size":288,"Mallocs":436,"Frees":395},{"Size":320,"Mallocs":274,"Frees":50},{"Size":352,"Mallocs":622,"Frees":590},{"Size":384,"Mallocs":50,"Frees":36},{"Size":416,"Mallocs":167,"Frees":95},{"Size":448,"Mallocs":133,"Frees":84},{"Size":480,"Mallocs":20,"Frees":17},{"Size":512,"Mallocs":65,"Frees":62},{"Size":576,"Mallocs":335,"Frees":272},{"Size":640,"Mallocs":91,"Frees":83},{"Size":704,"Mallocs":280,"Frees":263},{"Size":768,"Mallocs":216,"Frees":215},{"Size":896,"Mallocs":125,"Frees":80},{"Size":1024,"Mallocs":106,"Frees":43},{"Size":1152,"Mallocs":424,"Frees":173},{"Size":1280,"Mallocs":56,"Frees":44},{"Size":1408,"Mallocs":59,"Frees":39},{"Size":1536,"Mallocs":105,"Frees":80},{"Size":1792,"Mallocs":30,"Frees":19},{"Size":2048,"Mallocs":79,"Frees":53},{"Size":2304,"Mallocs":164,"Frees":154},{"Size":2688,"Mallocs":25,"Frees":18},{"Size":3072,"Mallocs":10,"Frees":4},{"Size":3200,"Mallocs":0,"Frees":0},{"Size":3456,"Mallocs":4,"Frees":1},{"Size":4096,"Mallocs":186,"Frees":155},{"Size":4864,"Mallocs":153,"Frees":144},{"Size":5376,"Mallocs":5,"Frees":4},{"Size":6144,"Mallocs":151,"Frees":144},{"Size":6528,"Mallocs":0,"Frees":0},{"Size":6784,"Mallocs":1,"Frees":0},{"Size":6912,"Mallocs":0,"Frees":0},{"Size":8192,"Mallocs":5,"Frees":5},{"Size":9472,"Mallocs":0,"Frees":0},{"Size":9728,"Mallocs":0,"Frees":0},{"Size":10240,"Mallocs":0,"Frees":0},{"Size":10880,"Mallocs":4,"Frees":2},{"Size":12288,"Mallocs":0,"Frees":0},{"Size":13568,"Mallocs":0,"Frees":0},{"Size":14336,"Mallocs":0,"Frees":0},{"Size":16384,"Mallocs":0,"Frees":0},{"Size":18432,"Mallocs":0,"Frees":0},{"Size":19072,"Mallocs":0,"Frees":0}]}
-}
-```
-
-
 If you plan to run multiple instances of Sauce Connect Proxy on a single machine and wish to access the health metrics of each tunnel, then you'll need to assign a unique port to each instance of Sauce Connect Proxy that is running.
 
 For example, if we were to start two instances of Sauce Connect Proxy on the same machine, using the following commands in the code block below, then the metrics for SCP1 would be available at `http://localhost:8001/debug/vars`. Similarly, SCP2's metrics would be available at `http://localhost:8000/debug/vars`.
 
 ```bash
-./sc --u $SAUCE_USERNAME --k $SAUCE_ACCESS_KEY -r us-west --metrics-address localhost:8000 --se-port 4445 --tunnel-identifier SCP1 --pidfile SCP1
+./sc --u $SAUCE_USERNAME --k $SAUCE_ACCESS_KEY -r us-west --metrics-address localhost:8000 --tunnel-identifier SCP1
 ...
-./sc --u $SAUCE_USERNAME --api-key $SAUCE_ACCESS_KEY -r us-west --metrics-address localhost:8001 --se-port 4446 --tunnel-identifier SCP2 --pidfile SCP2
+./sc --u $SAUCE_USERNAME --api-key $SAUCE_ACCESS_KEY -r us-west --metrics-address localhost:8001 --tunnel-identifier SCP2
 ```
-
-:::note
-If you start multiple instances of Sauce Connect Proxy without assigning unique ports, this would not affect their normal operations, however, only the first instance of Sauce Connect Proxy started to the duplicated port would be available.
-:::
 
 ### Specifying a Custom URL for Client Metrics
 If you wish to customize the URL where metrics are served, you can do so by adding an entry to the host file on the machine where Sauce Connect Proxy is running and then updating the [`--metrics-address`](/dev/cli/sauce-connect-proxy/#--metrics-address) command line arguments when starting Sauce Connect Proxy.
 
-For example, let's say we want to have the metrics available at `http://tunnelmetrics.com:8080/debug/vars`. In order to accomplish this, add the entry `127.0.0.1 tunnelmetrics.com` to the host file where Sauce Connect Proxy is running.
+For example, let's say we want to have the metrics available at `http://tunnelmetrics.com:8080/debug/vars`.
+In order to accomplish this, add the entry `127.0.0.1 tunnelmetrics.com` to the `/etc/hosts` file where Sauce Connect Proxy is running.
 
-```jsx title="Example Host File"
+```jsx title="Example Hosts File"
 ##
 # Host Database
 #
@@ -445,7 +408,7 @@ fe80::1%lo0 localhost
 
 Once the host file has been altered, start Sauce Connect Proxy with the added argument `--metrics-address tunnelmetrics.com:8080`. Then, on the machine hosting Sauce Connect Proxy, you will see the metrics served at `http://tunnelmetrics.com:8080/debug/vars`.
 
-## Improving Performance
+## Improving Sauce Connect Proxy Performance
 During testing, your website or app may load resources (e.g., tracking services, images/videos, advertisements), which can impact page load times and even cause tests to fail.
 If these resources are not needed at all for testing purposes, you can disable the traffic to improve performance.
 
@@ -460,20 +423,50 @@ The following flags provide fine control over the Sauce Connect Proxy tunneled t
   * [`--fast-fail-regexps`](/dev/cli/sauce-connect-proxy/#--fast-fail-regexps)
 
 #### Tunnel domains
-
 [`--tunnel-domains`](/dev/cli/sauce-connect-proxy/#--direct-domains) flag allows to specify requests which should always be forwarded from the Sauce Labs hosted browser to customer-side over the Sauce Connect Proxy connection.
 Starting Sauce Connect Proxy with [`--tunnel-domains`](/dev/cli/sauce-connect-proxy/#--direct-domains) implies that requests that don't match "tunnel domains" will be forwarded over the public internet.
 This is the recommended option for the best performance since it allows to minimize the expensive tunnelled traffic and use it only for the internal domains that are not publicly available.
 
 #### Direct domains
-
 [`--direct-domains`](/dev/cli/sauce-connect-proxy/#--tunnel-domains) flag allows to specify requests which should always be forwarded from the Sauce Labs browser to their origin server over the public internet.
 Starting Sauce Connect Proxy with [`--direct-domains`](/dev/cli/sauce-connect-proxy/#--tunnel-domains) implies that requests that don't match "direct domains" will be forwarded to customer-side over the Sauce Connect Proxy connection.
-This option is not recommended for performance, it's useful for cases where website traffic is analyzed with customer-side hosted tools.
+This option, in general, is not recommended for performance, with the exception of the cases where known large requests can be forwarded to the public internet.
 
 #### Fast-fail domains
 
-[`--fast-fail-regexps`](/dev/cli/sauce-connect-proxy/#--fast-fail-regexps) flags allows to specify requests which should be immediately dropped.
+[`--fast-fail-regexps`](/dev/cli/sauce-connect-proxy/#--fast-fail-regexps) flag allows to specify requests which should be immediately dropped.
+Unlike tunnel/direct domains, this option takes regular expressions and provides a powerful way to disable unwanted traffic.
+It can also be used to simulate non-loading of scripts, styles, or other resources.
+
+#### Configuring Domain Patterns
+* Use only the domain name. Do not precede it with the scheme like `http://` or `https://`.
+  * Example: `mydomain.com`
+* Use wildcards to include subdomains by prefix domain name with `.`
+  * Example: `.mydomain.com` will include `sub.mydomain.com` and `sub1.mydomain.com` but not `sub.myotherdomain.com`
+* See [`Formatting domains for CLI`](/dev/cli/sauce-connect-proxy/#formatting-domains)
+* Configuring domains in [YAML config file](/secure-connections/sauce-connect/setup-configuration/yaml-config/)
+  ```yaml
+  ---
+  # this will include all subdomains of example.com as well as dev.httpbin.org
+  tunnel-domains:
+  - ".example.com"
+  - "dev.httbin.org"
+  ```
+
+#### Configuring Domain Regular Expressions (--fast-fail-regexps)
+* Make sure to use correct regular expressions
+  * Example: `*.mydomain.com` is incorrect and `.*.mydomain.com` is correct regular expression
+* Configuring a list of regexps via CLI follows formatting rules similar to [`Formatting domains for CLI`](/dev/cli/sauce-connect-proxy/#formatting-domains)
+  * Comma-separated
+  * No spaces between each regexp
+  * Example: `--fast-fail-regexp ".*.mydomain.*,.*.example.com"`
+* Configuring regexps in [YAML config file](/secure-connections/sauce-connect/setup-configuration/yaml-config/)
+  ```yaml
+  ---
+  fast-fail-regexps:
+  - ".*mydomain.*"
+  - ".*.example.com"
+  ```
 
 ## Service Management Tools
 
