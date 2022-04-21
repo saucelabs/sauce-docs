@@ -323,7 +323,7 @@ In this scenario, you’d need to “scale up” by using a tunnel pool in HA mo
 Sauce Connect Proxy has a metrics feature that you can use to monitor and measure the data and activities of your Sauce Connect Proxy client. You can access these metrics over an HTTP connection to a local server, which will return the metrics in a JSON format.
 
 ### Configuring Metrics Monitoring
-As of Sauce Connect Proxy version `4.7.x`, default, the metrics server is disabled by default, but you can enable it by specifying the interface and port with the [`--metrics-address`](/dev/cli/sauce-connect-proxy/#--metrics-address) command.
+As of Sauce Connect Proxy version 4.7.x, the metrics server is disabled by default. You can enable it by specifying the interface and port with the [`--metrics-address`](/dev/cli/sauce-connect-proxy/#--metrics-address) command.
 
 ```bash
 --metrics-address :8000 # listens on all the interfaces' port 8080
