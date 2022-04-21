@@ -48,7 +48,7 @@ Since you can run `saucectl` locally via Docker or remotely via the Sauce Labs c
 </TabItem>
 <TabItem value="windows">
 
-* OS: Windows 10 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
+* OS: Windows 10 or 11 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
 * Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
 
 </TabItem>
