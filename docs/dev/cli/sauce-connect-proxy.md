@@ -154,7 +154,7 @@ __Shorthand__: `-F`
 ### `--tunnel-domains`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets domain(s) that are requested through the Sauce Connect Proxy tunnel. This is the inverse of [--direct-domains](#--direct-domains). When adding multiple domains, [format them as a comma-separated list](#formatting-domains).<br/>
+__Description__: Sets domain(s) that are requested through the Sauce Connect Proxy tunnel. This is the inverse of [`--direct-domains`](#--direct-domains). When adding multiple domains, [format them as a comma-separated list](#formatting-domains).<br/>
 __Enviroment variable__: `SAUCE_TUNNEL_DOMAINS`<br/>
 __Shorthand__: `-t`
 
