@@ -119,9 +119,13 @@ Not compatible with Sauce Connect versions below 4.7.0. Download the latest vers
 ### `--direct-domains`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets domain(s) that you want to relay directly through the internet instead of through the Sauce Connect Proxy tunnel. When adding multiple domains, [format as a comma-separated list](#formatting-domains).<br/>
+__Description__: Sets domain(s) that are requested through the public internet instead of the Sauce Connect Proxy tunnel. This is the inverse of [--tunnel-domains](#--tunnel-domains). When adding multiple domains, [format as a comma-separated list](#formatting-domains).<br/>
 __Enviroment variable__: `SAUCE_DIRECT_DOMAINS`<br/>
 __Shorthand__: `-D`
+
+:::note
+See also [Tuning Sauce Connect Proxy Traffic](/secure-connections/sauce-connect/proxy-tunnels#direct-domains).
+:::
 
 
 ---
@@ -150,9 +154,13 @@ __Shorthand__: `-F`
 ### `--tunnel-domains`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets domain(s) that need to be sent through the Sauce Connect Proxy tunnel. This is the inverse of `--direct-domains`.  When adding multiple domains, [format them as a comma-separated list](#formatting-domains).<br/>
+__Description__: Sets domain(s) that are requested through the Sauce Connect Proxy tunnel. This is the inverse of [--direct-domains](#--direct-domains). When adding multiple domains, [format them as a comma-separated list](#formatting-domains).<br/>
 __Enviroment variable__: `SAUCE_TUNNEL_DOMAINS`<br/>
 __Shorthand__: `-t`
+
+:::note
+See also [Tuning Sauce Connect Proxy Traffic](/secure-connections/sauce-connect/proxy-tunnels#tunnel-domains).
+:::
 
 
 ---
