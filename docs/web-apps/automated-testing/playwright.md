@@ -70,7 +70,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
       <td rowspan='2'>Chromium, Firefox, Webkit</td>
     </tr>
     <tr>
-      <td><b>Windows:</b> 10</td>
+      <td><b>Windows:</b> 10, 11</td>
     </tr>
     </tbody>
     <tbody>

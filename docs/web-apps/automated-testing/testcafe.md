@@ -69,7 +69,7 @@ Sauce Labs supports the following test configurations for TestCafe:
       <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
     </tr>
     <tr>
-      <td><b>Windows:</b> 10</td>
+      <td><b>Windows:</b> 10, 11</td>
       <td>Chrome, Firefox, MicrosoftEdge</td>
     </tr>
     <tr>
