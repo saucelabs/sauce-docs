@@ -159,7 +159,7 @@ __Enviroment variable__: `SAUCE_TUNNEL_DOMAINS`<br/>
 __Shorthand__: `-t`
 
 :::note
-See also [Tuning Sauce Connect Proxy Traffic](/secure-connections/sauce-connect/proxy-tunnels#tunnel-domains).
+See also [Tuning Sauce Connect Proxy Traffic](/secure-connections/sauce-connect/proxy-tunnels/#tunnel-domains).
 :::
 
 
