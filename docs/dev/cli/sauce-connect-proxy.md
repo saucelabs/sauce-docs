@@ -124,7 +124,7 @@ __Enviroment variable__: `SAUCE_DIRECT_DOMAINS`<br/>
 __Shorthand__: `-D`
 
 :::note
-See also [Tuning Sauce Connect Proxy Traffic](/secure-connections/sauce-connect/proxy-tunnels#direct-domains).
+See also [Tuning Sauce Connect Proxy Traffic](/secure-connections/sauce-connect/proxy-tunnels/#direct-domains).
 :::
 
 
