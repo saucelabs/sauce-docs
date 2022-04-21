@@ -423,12 +423,12 @@ The following flags provide fine control over the Sauce Connect Proxy tunneled t
   * [`--fast-fail-regexps`](/dev/cli/sauce-connect-proxy/#--fast-fail-regexps)
 
 #### Tunnel domains
-[`--tunnel-domains`](/dev/cli/sauce-connect-proxy/#--direct-domains) flag allows to specify requests which should always be forwarded from the Sauce Labs hosted browser to customer-side over the Sauce Connect Proxy connection.
+[`--tunnel-domains`](/dev/cli/sauce-connect-proxy/#--tunnel-domains) flag allows to specify requests which should always be forwarded from the Sauce Labs hosted browser to customer-side over the Sauce Connect Proxy connection.
 Starting Sauce Connect Proxy with [`--tunnel-domains`](/dev/cli/sauce-connect-proxy/#--direct-domains) implies that requests that don't match "tunnel domains" will be forwarded over the public internet.
-This is the recommended option for the best performance since it allows to minimize the expensive tunnelled traffic and use it only for the internal domains that are not publicly available.
+This is the recommended option for the best performance since it minimizes the expensive tunnelled traffic and uses it only for the internal domains that are not publicly available.
 
 #### Direct domains
-[`--direct-domains`](/dev/cli/sauce-connect-proxy/#--tunnel-domains) flag allows to specify requests which should always be forwarded from the Sauce Labs browser to their origin server over the public internet.
+[`--direct-domains`](/dev/cli/sauce-connect-proxy/#--direct-domains) flag allows to specify requests which should always be forwarded from the Sauce Labs browser to their origin server over the public internet.
 Starting Sauce Connect Proxy with [`--direct-domains`](/dev/cli/sauce-connect-proxy/#--tunnel-domains) implies that requests that don't match "direct domains" will be forwarded to customer-side over the Sauce Connect Proxy connection.
 This option, in general, is not recommended for performance, with the exception of the cases where known large requests can be forwarded to the public internet.
 
@@ -454,8 +454,11 @@ It can also be used to simulate non-loading of scripts, styles, or other resourc
   ```
 
 #### Configuring Domain Regular Expressions (--fast-fail-regexps)
+* Quote to avoid shell expansion
 * Make sure to use correct regular expressions
   * Example: `*.mydomain.com` is incorrect and `.*.mydomain.com` is correct regular expression
+* Always use quotes to avoid shell expansion
+  * Example: `--fast-fail-regexps "*.mydomain.com"` instead of `--fast-fail-regexps *.mydomain.com`
 * Configuring multiple regexps for CLI follows formatting rules similar to [`Formatting domains for CLI`](/dev/cli/sauce-connect-proxy/#formatting-domains)
   * Comma-separated
   * No spaces between each regexp
