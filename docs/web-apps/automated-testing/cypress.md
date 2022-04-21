@@ -100,14 +100,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
  </TabItem>
  <TabItem value="docker">
 
- Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available release notes.
-
- |Cypress Version|Supported Browsers|
- |----|----|
- |9.3.1|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.1.0)|
- |9.1.0|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.0.0)|
- |8.6.0|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.4.0)|
- |8.3.0|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.3.1)|
+ Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases).
 
 </TabItem>
 </Tabs>

@@ -127,14 +127,7 @@ Sauce Labs supports the following test configurations for TestCafe:
 </TabItem>
 <TabItem value="docker">
 
- Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available release notes.
-
- |TestCafe Version|Supported Browsers|
- |----|----|
- |1.18.3|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v1.1.0)|
- |1.17.1|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v1.0.0)|
- |1.16.1|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.12.1)|
- |1.15.3|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.10.0)|
+ Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases).
 
 </TabItem>
 </Tabs>

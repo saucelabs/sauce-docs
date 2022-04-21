@@ -96,13 +96,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
  </TabItem>
  <TabItem value="docker">
 
- Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available release notes.
-
- |Playwright Version|Supported Browsers|
- |-----|----|
- |1.18.1|See [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.6.0)|
- |1.17.1|See [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.5.0)|
- |1.16.3|See [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.4.0)|
+ Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-playwright-runner).
 
 </TabItem>
 </Tabs>
