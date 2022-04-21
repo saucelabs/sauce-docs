@@ -28,5 +28,5 @@ Another easy way to generate a Functional Test is importing a Postman Collection
 
 ### Create a Test from Scratch
 
-You can also create a test from scratch using the [Composer](//api-testing/composer/). You can add your calls using the [I/O Components](/api-testing/composer/io-components/) and validate the responses using the [Assertions](/api-testing/composer/assertion-components/). To add some logic to your tests you can use the [Logical Components](/api-testing/composer/logical-components/) and all the [Other Components](/api-testing/composer/other-components/) available.
+You can also create a test from scratch using the [Composer](/api-testing/composer/). You can add your calls using the [I/O Components](/api-testing/composer/io-components/) and validate the responses using the [Assertions](/api-testing/composer/assertion-components/). To add some logic to your tests you can use the [Logical Components](/api-testing/composer/logical-components/) and all the [Other Components](/api-testing/composer/other-components/) available.
 
