@@ -119,7 +119,7 @@ Not compatible with Sauce Connect versions below 4.7.0. Download the latest vers
 ### `--direct-domains`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets domain(s) that you want to relay directly through the internet instead of through the Sauce Connect Proxy tunnel. When adding multiple domains, [format as a comma-separated list](#formatting-domains-in-the-command-line).<br/>
+__Description__: Sets domain(s) that you want to relay directly through the internet instead of through the Sauce Connect Proxy tunnel. When adding multiple domains, [format as a comma-separated list](#formatting-domains).<br/>
 __Enviroment variable__: `SAUCE_DIRECT_DOMAINS`<br/>
 __Shorthand__: `-D`
 
@@ -128,7 +128,7 @@ __Shorthand__: `-D`
 ### `--no-ssl-bump-domains`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets domain(s) that do not require SSL resigning. Requests that include hosts matching one of these domains will not be SSL re-encrypted. When adding multiple domains, [format as a comma-separated list](#formatting-domains-in-the-command-line). See [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) for more information about scenarios in which might want to use this command.<br/>
+__Description__: Sets domain(s) that do not require SSL resigning. Requests that include hosts matching one of these domains will not be SSL re-encrypted. When adding multiple domains, [format as a comma-separated list](#formatting-domains). See [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) for more information about scenarios in which might want to use this command.<br/>
 __Enviroment variable__: `SAUCE_NO_SSL_BUMP_DOMAINS`<br/>
 __Shorthand__: `-B`
 
@@ -150,7 +150,7 @@ __Shorthand__: `-F`
 ### `--tunnel-domains`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets domain(s) that need to be sent through the Sauce Connect Proxy tunnel. This is the inverse of `--direct-domains`.  When adding multiple domains, [format them as a comma-separated list](#formatting-domains-in-the-command-line).<br/>
+__Description__: Sets domain(s) that need to be sent through the Sauce Connect Proxy tunnel. This is the inverse of `--direct-domains`.  When adding multiple domains, [format them as a comma-separated list](#formatting-domains).<br/>
 __Enviroment variable__: `SAUCE_TUNNEL_DOMAINS`<br/>
 __Shorthand__: `-t`
 
@@ -474,7 +474,7 @@ __Enviroment variable__: `SAUCE_EXTRA_INFO`<br/>
 __Shorthand__: n/a
 
 
-## Formatting Domains in the Command Line
+## Formatting Domains
 
 Here are some guidelines to follow when formatting domains:
 
