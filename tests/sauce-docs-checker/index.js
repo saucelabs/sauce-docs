@@ -46,7 +46,7 @@ async function run() {
 }
 
 async function send_slack(summary_str,arr,broken_count) {
-  let url = 'https://hooks.slack.com/services/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'
+  let url = process.env.SLACK_LINK
   let date_str = moment().format('LL')
   console.log(date_str)
   let color = "#36a64f"
