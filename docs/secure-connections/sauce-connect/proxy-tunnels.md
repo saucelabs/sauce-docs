@@ -432,7 +432,7 @@ This is the recommended option for the best performance since it minimizes the e
 Starting Sauce Connect Proxy with [`--direct-domains`](/dev/cli/sauce-connect-proxy/#--tunnel-domains) implies that requests that don't match "direct domains" will be forwarded to customer-side over the Sauce Connect Proxy connection.
 This option, in general, is not recommended for performance, with the exception of the cases where known large requests can be forwarded to the public internet.
 
-#### Fast-fail domains
+#### Fast-fail Domains
 
 [`--fast-fail-regexps`](/dev/cli/sauce-connect-proxy/#--fast-fail-regexps) flag allows to specify requests which should be immediately dropped.
 Unlike tunnel/direct domains, this option takes regular expressions and provides a powerful way to disable unwanted traffic.
