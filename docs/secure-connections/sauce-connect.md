@@ -1,7 +1,7 @@
 ---
 id: sauce-connect
-title: Using Sauce Connect Proxy
-sidebar_label: Using Sauce Connect Proxy
+title: Sauce Connect Proxy™ Overview
+sidebar_label: Overview
 ---
 
 If your company has firewall rules that limit your ability to run tests on Sauce Labs, you can use our Sauce Connect Proxy feature to connect to Sauce Labs in the cloud without exposing your company's IT infrastructure to security risks.
