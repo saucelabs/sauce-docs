@@ -1,6 +1,6 @@
 ---
 id: proxy-tunnels
-title: Using Sauce Connect Proxy
+title: Using Sauce Connect Proxy™
 sidebar_label: Using Sauce Connect Proxy™
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
