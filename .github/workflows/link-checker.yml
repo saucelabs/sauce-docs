@@ -10,6 +10,7 @@ on:
 env:
   ALGOLIA_APP_ID: ${{secrets.ALGOLIA_APP_ID}}
   ALGOLIA_KEY: ${{secrets.ALGOLIA_KEY}}
+  SLACK_LINK: ${{secrets.SLACK_LINK}}
 
 defaults:
   run:
