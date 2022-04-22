@@ -33,7 +33,7 @@ For on-premise (self-hosted) users, the integration for Unreal Engine requires s
 
 ## What You'll Need
 * A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
-* Your subdomain name (used to connect to your Backtrace instance).
+* Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
 * A Backtrace project and a submission token.
 
 :::tip Generate a Submission Token
@@ -49,7 +49,6 @@ For on-premise (self-hosted) users, the integration for Unreal Engine requires s
 1. In the Unreal Editor, go to **Edit > Project Settings**.
 1. In the Project Settings, search for "crash reporter".
 1. Under **Packaging**, enable **Include Crash Reporter**.
-
   <img src={useBaseUrl('img/error-reporting/unreal-enable-crashreporter.png')} alt="Enable the Crash Reporter in the Unreal Editor." />
 
 :::note
@@ -80,13 +79,12 @@ If the Engine folder doesn't exist at the root directory for your Unreal Engine 
 :::
 1. Rename the file to `UserEngine.ini`.
 1. Open the `UserEngine.ini` file and add the following lines:
-
   ```
   [CrashReportClient]
   CrashReportClientVersion=1.0
-  DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}>"
+  DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
   ```
-  Provide the name of your subdomain and a submission token for the `DataRouterUrl`.
+1. For the `DataRouterUrl`, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need).
 
 When your app or game crashes in the Unreal Editor, the Unreal Engine Crash Reporter dialog will appear and allow you to send the crash report to your Backtrace instance.
 
@@ -94,23 +92,22 @@ When your app or game crashes in the Unreal Editor, the Unreal Engine Crash Repo
 #### For Crashes in Packaged Builds
 You can configure the crash reporter to be the default for all packaged builds or for a single packaged build.
 
-- To configure the crash reporter as the default for all packaged builds:
+To configure the crash reporter as the default for all packaged builds:
   1. In the root directory for your Unreal Engine project, open the Config folder.
   1. Copy the `DefaultEngine.ini` file and paste it into the following directory:
     `[UNREAL_ENGINE]/UnrealEngine/Engine/Programs/CrashReportClient/Config`
   :::note
-  The directory could also be under `%USERPROFILE%/Documents/UnrealEngine` or `C:/Program Files/Epic Games/UE_[version]`. You can also search your system for 'CrashReportClient' to find it.
+  The directory could also be under `C:/Program Files/Epic Games/UE_[version]`. You can also search your system for 'CrashReportClient' to find it.
   :::
   1. Open the `DefaultEngine.ini` file and add the following lines:
-
     ```
     [CrashReportClient]
     CrashReportClientVersion=1.0
     DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
     ```
-    Provide the name of your subdomain and a submission token for the `DataRouterUrl`.
+  1. For the `DataRouterUrl`, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need).
 
-- To configure the crash reporter for a packaged build:
+To configure the crash reporter for a packaged build:
   1. In the root directory for your Unreal Engine project, open the Config folder.
   1. Copy the `DefaultEngine.ini` file and paste it into the following directory:
       - For Unreal Engine 4.25 and earlier:
@@ -121,13 +118,12 @@ You can configure the crash reporter to be the default for all packaged builds o
     Create the subdirectories if they do not exist.
     :::
   1. Open the `DefaultEngine.ini` file and add the following lines:
-
     ```
     [CrashReportClient]
     CrashReportClientVersion=1.0
     DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
     ```
-    Provide the name of your subdomain and a submission token for the `DataRouterUrl`.
+  1. For the `DataRouterUrl`, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need).
 
 </TabItem>
 <TabItem value="android">
@@ -135,13 +131,13 @@ You can configure the crash reporter to be the default for all packaged builds o
 Integrate the [backtrace-android](https://github.com/backtrace-labs/backtrace-android) error reporting library with your Unreal Engine apps and games written in Java or Kotlin.
 
 1. Download [BacktraceAndroid_UPL.xml](https://support.backtrace.io/hc/article_attachments/360092643371/BacktraceAndroid_UPL.xml).
-1. In the `BacktraceAndroid_UPL.xml` file, configure the name of your subdomain and a submission token for `BacktraceCredentials`.
+1. In the `BacktraceAndroid_UPL.xml` file, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need) for `BacktraceCredentials`.
     - Java:
-      ```Java
+      ```java
       BacktraceCredentials credentials = new BacktraceCredentials("https://submit.backtrace.io/{subdomain}/{submission-token}/json");  
       ```
     - Kotlin:
-      ```
+      ```java
       val backtraceCredentials = BacktraceCredentials("https://submit.backtrace.io/{subdomain}/{submission-token}/json")
       ```
 1. In the directory for your Unreal Engine project, locate your app or game's `Build.cs` file.
@@ -183,22 +179,24 @@ Integrate the [backtrace-cocoa](https://github.com/backtrace-labs/backtrace-coco
 1. Copy and paste the `Backtrace.framework.zip` and the `Backtrace_PLCrashReporter.framework.zip` folders into the directory for your Unreal Engine project.
 1. Locate your app or game's `Build.cs` file.
 1. In the `Build.cs` file, add the following lines at the end of the `ModuleRules` class constructor:
+
   ```
   if (Target.Platform == UnrealTargetPlatform.IOS)
   {
     PublicAdditionalFrameworks.AddRange(
       new Framework[]
-      {
-        new Framework("Backtrace", "/Library/Frameworks/Backtrace.framework", "", true),
-        new Framework("Backtrace_PLCrashReporter", "/Library/Frameworks/Backtrace_PLCrashReporter.framework", "", true)
-      }
-    );
+    {
+      new Framework("Backtrace", "/Library/Frameworks/Backtrace.framework", "", true),
+      new Framework("Backtrace_PLCrashReporter", "/Library/Frameworks/Backtrace_PLCrashReporter.framework", "", true)
+    }
+      );
   }
   ```
-:::note
-Make sure to reflect the path to where you've placed both frameworks within your game project.  
-:::
+  :::note
+  Make sure to reflect the path to where you've placed both frameworks within your game project.
+  :::
 1. To initialize the Backtrace client, use the following to import `Backtrace-Swift.h` from `Backtrace.framework/Headers`:
+
   ```
   #if PLATFORM_IOS
   #import <Backtrace/Backtrace-Swift.h>
@@ -208,19 +206,19 @@ Make sure to reflect the path to where you've placed both frameworks within your
   {
   #if PLATFORM_IOS
 
-    BacktraceCredentials *credentials = [[BacktraceCredentials alloc]
-                       initWithSubmissionUrl: [NSURL URLWithString: @"https://submit.backtrace.io/{subdomain}/{submission-token}/plcrash"]];
-    BacktraceClientConfiguration *configuration = [[BacktraceClientConfiguration alloc]
-                                                   initWithCredentials: credentials
-                                                   dbSettings: [[BacktraceDatabaseSettings alloc] init]
-                                                   reportsPerMin: 3
-                                                   allowsAttachingDebugger: NO
-                                                   detectOOM: TRUE];
-    BacktraceClient.shared = [[BacktraceClient alloc] initWithConfiguration: configuration error: nil];
+  BacktraceCredentials *credentials = [[BacktraceCredentials alloc]
+          initWithSubmissionUrl: [NSURL URLWithString: @"https://submit.backtrace.io/{subdomain}/{submission-token}/plcrash"]];
+  BacktraceClientConfiguration *configuration = [[BacktraceClientConfiguration alloc]
+                                                    initWithCredentials: credentials
+                                                    dbSettings: [[BacktraceDatabaseSettings alloc] init]
+                                                    reportsPerMin: 3
+                                                    allowsAttachingDebugger: NO
+                                                    detectOOM: TRUE];
+  BacktraceClient.shared = [[BacktraceClient alloc] initWithConfiguration: configuration error: nil];
   #endif
   }
   ```
-  Provide the name of your subdomain and a submission token for the `initWithSubmissionUrl`.
+1. For the `initWithSubmissionUrl`, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need).
 
 For information on how to change the default configuration settings for the Backtrace client, see the [README](https://github.com/backtrace-labs/backtrace-cocoa#readme) for the backtrace-cocoa library.
 
@@ -269,7 +267,7 @@ To test the integration, send a crash report to your Backtrace instance.
 To crash your game when it starts, create a class called MyActor and reference a blueprint. The blueprint can be attached to the BeginPlay event.
 
 The header file (which has the .h extension) contains the class definitions and functions, while the implementation of the class is defined by the .cpp file. For example:
-- MyActor.h:
+- `MyActor.h`:
     ```cpp
     // Fill out your copyright notice in the Description page of Project Settings.
     ​
@@ -303,7 +301,7 @@ The header file (which has the .h extension) contains the class definitions and 
     };
     ```
 
-- MyActor.cpp:
+- `MyActor.cpp`:
     ```cpp
     // Fill out your copyright notice in the Description page of Project Settings.
     ​
@@ -348,7 +346,7 @@ The header file (which has the .h extension) contains the class definitions and 
 <TabItem value="android">
 
 - Java:
-  ```Java
+  ```java
   try {
     // throw exception here
   }
@@ -357,7 +355,7 @@ The header file (which has the .h extension) contains the class definitions and 
   }  
   ```
 - Kotlin:
-  ```
+  ```java
   try {
     // throw exception here
   }
@@ -370,7 +368,7 @@ The header file (which has the .h extension) contains the class definitions and 
 <TabItem value="ios">
 
 - Swift:
-  ```swift
+  ```objc
   import UIKit
   import Backtrace
 

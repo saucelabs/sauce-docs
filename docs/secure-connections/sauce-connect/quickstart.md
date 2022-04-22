@@ -15,15 +15,13 @@ Sauce Connect is required to run a local test on an app or website located behin
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * The localhost URL for your site or app under test.
 
-:::caution Always use the latest version
-Using older Sauce Connect versions may impact your ability to launch a tunnel or cause other technical issues. Download the latest version [here](/secure-connections/sauce-connect/installation/).
-:::
-
-
 ## Start Tunnel
 
-1. Download and extract the Sauce Connect Proxy client folder on your machine: [Mac](https://saucelabs.com/downloads/sc-4.7.1-osx.zip) | [Windows](https://saucelabs.com/downloads/sc-4.7.1-win32.zip) | [Linux](https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz).
-2. Move the folder to your machine's [home directory](https://en.wikipedia.org/wiki/Home_directory).
+1. Download the Sauce Connect Proxy client folder on your machine: [Mac](https://saucelabs.com/downloads/sc-4.7.1-osx.zip) | [Windows](https://saucelabs.com/downloads/sc-4.7.1-win32.zip) | [Linux](https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz).
+:::caution Always use the latest version
+Using older Sauce Connect versions may impact your ability to launch a tunnel or cause other technical issues.
+:::
+2. Extract the .zip file and move the folder to your machine's [home directory](https://en.wikipedia.org/wiki/Home_directory).
 3. Open your terminal and navigate to the Sauce Connect Proxy client bin directory.
   <Tabs
     defaultValue="Mac/Linux"
@@ -47,21 +45,21 @@ Using older Sauce Connect versions may impact your ability to launch a tunnel or
   </TabItem>
   </Tabs>
 4. Log in to Sauce Labs.
-5. Go to the **Tunnels** page.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsPage.png')} alt="Sauce Connect Proxy Tunnels page" width="450"/>
-6. Go to **STEP 3: Configure & Authenticate** and copy the code snippet.<br/><img src={useBaseUrl('img/sauce-connect/configureAuth.png')} alt="Sauce Connect Proxy Tunnels page snippet" width="500"/>
+5. Go to the **Tunnel Proxies** page.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsPage.png')} alt="Sauce Connect Proxy Tunnels page" width="400"/>
+6. Under step 2, **Authenticate & connect**, copy the code snippet.<br/><img src={useBaseUrl('img/sauce-connect/configureAuth.png')} alt="Sauce Connect Proxy Tunnels page snippet" width="300"/>
 <details><summary>What is this?</summary>
 This snippet contains your authentication credentials (username and access key), selects a Sauce Labs Data Center, and applies a name to your tunnel. Optionally, you can rename your tunnel by replacing the value after the <code>--tunnel-name</code> flag.
 </details>
-7. From your terminal, paste the snippet and run it. This will launch the tunnel.
+7. Paste the snippet into your terminal and run it. This will launch the tunnel.
 
 ## Verify Connection
 
 To confirm your tunnel is up, look for the confirmation message in your terminal:<br/><img src={useBaseUrl('img/sauce-connect/cli-tunnel-confirmation.png')} alt="Sauce Connect Tunnel Success" width="350"/>
 
-Alternatively, you can check your list of active tunnels on the **Tunnels** page:<br/><img src={useBaseUrl('img/sauce-connect/tunnelsuccess-ui.png')} alt="Sauce Connect Tunnel Success" width="500"/>
+Alternatively, you can check your list of active tunnels on the **Tunnel Proxies** page:<br/><img src={useBaseUrl('img/sauce-connect/tunnelsuccess-ui.png')} alt="Sauce Connect Tunnel Success" width="500"/>
 
 
-## Run a Live Local Test
+## Run Test
 
 With your tunnel up and running, try doing a Live <!--or Automated--> local test.
 
@@ -178,18 +176,13 @@ With your tunnel up and running, try doing a Live <!--or Automated--> local test
 
 When you've finished testing, you can stop your tunnel from the terminal where Sauce Connect is running by entering Ctrl+C.<br/><img src={useBaseUrl('img/sauce-connect/cli-tunnel-stop.png')} alt="Sauce Connect Proxy Tunnels page snippet" width="500"/>
 
-Alternatively, you can go to the **Tunnels** page and click one of the **Stop Tunnels** buttons.<br/><img src={useBaseUrl('img/sauce-connect/tunnelstop-ui.png')} alt="Sauce Connect Tunnel Stop" width="800"/>
+Alternatively, you can go to the **Tunnel Proxies** page and click one of the **Stop Tunnels** buttons.<br/><img src={useBaseUrl('img/sauce-connect/tunnelstop-ui.png')} alt="Sauce Connect Tunnel Stop" width="800"/>
 
 
 ## More Information
 
-### Related Links
+* [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy/)
+* [Setting Sauce Labs Environment Variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/)
 * [Uploading and Managing Mobile Apps in Sauce Labs](/mobile-apps/app-storage)
 * [Live Testing Web Apps](/web-apps/live-testing/live-cross-browser-testing/)
 * [Live Testing Mobile Apps](/mobile-apps/live-testing/live-mobile-app-testing/)
-* [Setting Sauce Labs Environment Variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/)
-
-### Learning Resources
-* [Sauce School | Sauce Connect Proxy Course](https://training.saucelabs.com/sauceconnect/)
-* [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy/)
-* [Sauce Connect Proxy Basic Configuration](/secure-connections/sauce-connect/setup-configuration/basic-setup/)
