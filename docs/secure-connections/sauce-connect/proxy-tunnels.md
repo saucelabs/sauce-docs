@@ -427,7 +427,7 @@ The following flags provide fine control over the Sauce Connect Proxy tunneled t
 Starting Sauce Connect Proxy with [`--tunnel-domains`](/dev/cli/sauce-connect-proxy/#--direct-domains) implies that requests that don't match "tunnel domains" will be forwarded over the public internet.
 This is the recommended option for the best performance since it minimizes the expensive tunnelled traffic and uses it only for the internal domains that are not publicly available.
 
-#### Direct domains
+#### Direct Domains
 [`--direct-domains`](/dev/cli/sauce-connect-proxy/#--direct-domains) flag allows to specify requests which should always be forwarded from the Sauce Labs browser to their origin server over the public internet.
 Starting Sauce Connect Proxy with [`--direct-domains`](/dev/cli/sauce-connect-proxy/#--tunnel-domains) implies that requests that don't match "direct domains" will be forwarded to customer-side over the Sauce Connect Proxy connection.
 This option, in general, is not recommended for performance, with the exception of the cases where known large requests can be forwarded to the public internet.
