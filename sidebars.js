@@ -386,6 +386,14 @@ module.exports = {
                 items: [
                 {
                     type: 'category',
+                    label: 'Android',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/platform-integrations/android/setup',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Unity',
                     collapsed: true,
                     items: [
