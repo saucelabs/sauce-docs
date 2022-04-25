@@ -5,7 +5,7 @@ let fastcsv = require('fast-csv');
 let moment = require('moment');
 
 let wiki_url = 'https://wiki.saucelabs.com';
-let docs_url = 'http://localhost:8000/';
+let docs_url = 'http://localhost:3000/';
 let result = {};
 let wiki_result = {};
 let wiki_map = {};

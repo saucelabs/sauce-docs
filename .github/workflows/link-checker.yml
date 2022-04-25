@@ -27,12 +27,16 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14.x
-      - name: Install Dependencies
+      - name: Build Docusaurus Site
+        working-directory: ./
+        run: |
+          npm install && npm run build
+      - name: Install Test Dependencies
         run: |
           npm install
-      - name: Set Job URL
+      - name: Set GitHub Action Job URL
         run: |
           echo $GITHUB_RUN_ID
-      - name: Start Script
+      - name: Start Link Checker Script
         run: |
           npm start -- $GITHUB_RUN_ID
