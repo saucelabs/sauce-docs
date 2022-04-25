@@ -35,7 +35,7 @@ jobs:
         run: |
           npm install && npm run build
           # Expose website
-          cd build/ && python3 -m http.server 8000
+          cd build/ && python3 -m http.server 8000 &
       - name: Install Test Dependencies
         run: |
           npm install
