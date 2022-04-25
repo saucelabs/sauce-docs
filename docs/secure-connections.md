@@ -24,8 +24,8 @@ See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/
   <div className="box-wrapper" markdown="1">
     <div className="box box1 card">
       <div className="container">
-      <h3><a href="/secure-connections/sauce-connect">Overview</a></h3>
-      <p>Sauce Connect Proxy™ overview.</p>
+      <h3><a href="/secure-connections/sauce-connect">Using Sauce Connect Proxy</a></h3>
+      <p>Review the Sauce Connect Proxy system and network requirements, and then install the Sauce Connect Proxy client.</p>
       </div>
     </div>
     <div className="box box2 card">
@@ -48,8 +48,8 @@ See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/
     </div>
     <div className="box box5 card">
       <div className="container">
-      <h3><a href="/secure-connections/sauce-connect/proxy-tunnels">Using Sauce Connect Proxy™</a></h3>
-      <p>Best practices for starting, stopping, and monitoring Sauce Connect Proxy™.</p>
+      <h3><a href="/secure-connections/sauce-connect/proxy-tunnels">Using Tunnels</a></h3>
+      <p>Best practices for starting, stopping, and monitoring tunnels.</p>
       </div>
     </div>
     <div className="box box6 card">

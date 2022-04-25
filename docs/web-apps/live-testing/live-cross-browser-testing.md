@@ -193,7 +193,7 @@ Device Vitals for live testing is currently in beta state, which means we are te
 <img src={useBaseUrl('img/live-testing/live-mobile-virtual-nav.png')} alt="Live mobile virtual device test navigation" width="650"/>
 
 3. In the **URL** field, enter the URL of the website you want to test.
-4. If you are using Sauce Connect Proxy to access the web app you want to test, select the tunnel from the dropdown. For more information about Sauce Connect Proxy, see [Sauce Connect Proxy documentation](/secure-connections/sauce-connect).
+4. If you are using Sauce Connect Proxy to access the web app you want to test, select the tunnel from the dropdown. For  more information about Sauce Connect Proxy, see [Using Sauce Connect Proxy](/secure-connections/sauce-connect).
 5. In the **Manufacturer**, **Device**, and **OS Version** dropdowns, select the specifications for the virtual device you want to use.
 6. Click **Start Session**.
 You'll see a loading screen, and then the URL you entered will launch in a live test window using the virtual device you selected.
