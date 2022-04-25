@@ -492,7 +492,7 @@ Runs a single test on Sauce Labs API Testing, creates a Log in your Dashboard, a
   <tbody>
     <tr>
      <td><code>buildId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated to a build, the ID of the build should be provided, so that all resources can be associated to it.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If your test execution is associated with a build, you'll need to provide your <a href="/api-testing/integrations/apifctl-cicd-integration/#-b-build-id">build ID</a> so that its <a href="/api-testing/project-dashboard/#test-build-reports">results and details</a> will populate in your <strong>Dashboard</strong></p></td>
     </tr>
   </tbody>
 </table>
