@@ -121,4 +121,4 @@ If you shut down a tunnel that's currently selected in a Sauce Connect dropdown 
 ## More Information
 
 * [Using Sauce Connect Proxy](/secure-connections/sauce-connect)
-* [Specialized Sauce Connect Setups](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#api-testing-setup)
+* [Specialized Sauce Connect Proxy Setups](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#api-testing-setup)
