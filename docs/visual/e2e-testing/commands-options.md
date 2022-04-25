@@ -49,7 +49,7 @@ The Init command (`/*@visual.init*/`) is used to initialize and name a Visual te
    <td>No
    </td>
    <td>Init command options. <p>Options available:</p>
-<ul><li><strong>ignore</strong>: comma-delimited list of css-selectors to ignore in all snapshots in test.</li></ul>
+<ul><li><code>ignore</code>: comma-delimited list of css-selectors to ignore in all snapshots in test.</li></ul>
 
   ```java title="Example"
   { ignore: '.selector' }
@@ -120,8 +120,6 @@ The above Init command must be called first before any snapshots are taken, or a
 
 #### Arguments
 
-
-
 <table>
   <tr>
    <td><strong>Argument</strong>
@@ -152,14 +150,10 @@ The above Init command must be called first before any snapshots are taken, or a
    </td>
    <td>Snapshot command options. <p>Options available:</p>
 <ul>
-<li><strong>ignore</strong>: comma-delimited list of css-selectors to ignore in snapshot.</li>
-<li><strong>cropTo</strong>: single css-selector to crop the snapshot to.</li>
-<li><strong>scrollAndStitchScreenshot</strong>: boolean option to capture a full-page screenshot using a scrolling and stitching strategy instead of using native browser full-page screenshot capabilities.</li>
+<li><code>ignore</code>: comma-delimited list of css-selectors to ignore in snapshot.</li>
+<li><code>cropTo</code>: single css-selector to crop the snapshot to.</li>
+<li><code>scrollAndStitchScreenshot</code>: boolean option to capture a full-page screenshot using a scrolling and stitching strategy instead of using native browser full-page screenshot capabilities.</li>
 </ul>
-
-   ```java title="Example"
-   { ignore: '.selector', cropTo: '#header' }
-   ```
    </td>
   </tr>
 </table>
@@ -181,9 +175,16 @@ The above Init command must be called first before any snapshots are taken, or a
 
 ```javascript
 browser.execute('/*@visual.snapshot*/', 'State Name');
+```
 
-// example with ignore option
+Example with <code>ignore</code> option:
+```javascript
 browser.execute('/*@visual.snapshot*/', 'State Name', {ignore: '.selector'});
+```
+
+Example with <code>cropTo</code> option:
+```javascript
+browser.execute('/*@visual.snapshot*/', 'State Name', {ignore: '.selector', cropTo: '#header' });
 ```
 
 </TabItem>
@@ -191,8 +192,10 @@ browser.execute('/*@visual.snapshot*/', 'State Name', {ignore: '.selector'});
 
 ```java
 ((JavascriptExecutor) driver).executeScript("/*@visual.snapshot*/", "State Name");
+```
 
-// example with ignore option
+Example with ignore option:
+```java
 HashMap options = new HashMap();
 options.put("ignore", ".selector");
 ((JavascriptExecutor) driver).executeScript("/*@visual.snapshot*/", "State Name", options);
@@ -217,6 +220,20 @@ driver.execute_script('/*@visual.snapshot*/', 'State Name')
 
 ```csharp
 ((IJavaScriptExecutor) driver).ExecuteScript("/*@visual.snapshot*/", "State Name");
+```
+
+Example with ignore option:
+```csharp
+var ignoredElement = new Dictionary<string, object>();
+ignoredElement.Add("ignore", "#login_button_container");
+JsExecutor.ExecuteScript("/*@visual.snapshot*/", "Ignore on Snapshot", ignoredElement);
+```
+
+Example with <code>cropTo</code> option:
+```csharp
+var croppedElement = new Dictionary<string, object>();
+croppedElement.Add("cropTo", ".bot_column");
+JsExecutor.ExecuteScript("/*@visual.snapshot*/", "cropTo", croppedElement);
 ```
 
 </TabItem>
@@ -520,7 +537,7 @@ Below are the available options that you can define with the [`sauce:visual`](/v
   </tr>
   <tr>
    <td>
-    ignore
+    <code>ignore</code>
    </td>
    <td>
     String
