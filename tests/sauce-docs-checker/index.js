@@ -5,7 +5,7 @@ let fastcsv = require('fast-csv');
 let moment = require('moment');
 
 let wiki_url = 'https://wiki.saucelabs.com';
-let docs_url = 'https://docs.saucelabs.com/';
+let docs_url = 'http://localhost:8000/';
 let result = {};
 let wiki_result = {};
 let wiki_map = {};
@@ -155,6 +155,31 @@ function get_links(map,title) {
 }
 
 async function parse_wiki_map() {
+  const access_token = process.env.GITLAB_TOKEN;
+  const headers = {
+    headers: {
+      'Authorization': `Bearer ${access_token}`
+    }
+  }
+  let API_BASE_URL = `https://gitlab.prod.sjc3.saucelabs.net/api/v4/`;
+  let url = API_BASE_URL+`projects/1522/repository/files/map.conf/raw`;
+  let res = await axios.get(url,headers);
+  let text = res.data;
+  // console.log(text);
+  let arr = text.split('\n');
+  for(let i=0;i<arr.length;i++) {
+    let line = arr[i];
+    if(line.startsWith('    /')) {
+      line = line.trim().replace(';','').replace('\t',' ').replace(/\s+/g,' ');
+      // console.log(line)
+      let map = line.split(' ');
+      let from = wiki_url + map[0];
+      let to = 'https://' + map[1];
+      wiki_map[from] = to;
+      // console.log(from,'=>',to);
+    }
+  }
+}async function parse_wiki_map() {
   const access_token = process.env.GITLAB_TOKEN;
   const headers = {
     headers: {
