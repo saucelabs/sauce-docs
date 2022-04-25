@@ -155,40 +155,9 @@ function get_links(map,title) {
 }
 
 async function parse_wiki_map() {
-  const access_token = process.env.GITLAB_TOKEN;
-  const headers = {
-    headers: {
-      'Authorization': `Bearer ${access_token}`
-    }
-  }
-  let API_BASE_URL = `https://gitlab.prod.sjc3.saucelabs.net/api/v4/`;
-  let url = API_BASE_URL+`projects/1522/repository/files/map.conf/raw`;
-  let res = await axios.get(url,headers);
-  let text = res.data;
-  // console.log(text);
-  let arr = text.split('\n');
-  for(let i=0;i<arr.length;i++) {
-    let line = arr[i];
-    if(line.startsWith('    /')) {
-      line = line.trim().replace(';','').replace('\t',' ').replace(/\s+/g,' ');
-      // console.log(line)
-      let map = line.split(' ');
-      let from = wiki_url + map[0];
-      let to = 'https://' + map[1];
-      wiki_map[from] = to;
-      // console.log(from,'=>',to);
-    }
-  }
-}async function parse_wiki_map() {
-  const access_token = process.env.GITLAB_TOKEN;
-  const headers = {
-    headers: {
-      'Authorization': `Bearer ${access_token}`
-    }
-  }
-  let API_BASE_URL = `https://gitlab.prod.sjc3.saucelabs.net/api/v4/`;
-  let url = API_BASE_URL+`projects/1522/repository/files/map.conf/raw`;
-  let res = await axios.get(url,headers);
+  let API_BASE_URL = `https://gist.githubusercontent.com/spider-sauce/`;
+  let url = API_BASE_URL+`833de80d2f240683adcc2c0f49e8e19f/raw/be45564ebdc7edf1c2448d4021845e754e9a3fd0/map.conf`;
+  let res = await axios.get(url);
   let text = res.data;
   // console.log(text);
   let arr = text.split('\n');
