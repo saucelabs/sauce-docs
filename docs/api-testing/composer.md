@@ -7,7 +7,7 @@ description: Our API Testing Composer enables you to auto-generate and build fun
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The API Test **Compose** tab (aka _Composer_) enables you to generate sophisticated API functional tests in minutes (no coding experience required) and/or code them from scratch. You can reuse these tests as end-to-end integration tests and load (stress) tests. In turn, load tests can be reused as monitors for performance testing.
+The API Testing Composer enables you to quickly generate API functional tests (no coding experience required) and/or code them from scratch. You can reuse these tests as end-to-end integration tests and load (stress) tests. In turn, load tests can be reused as monitors for performance testing.
 
 
 ## What You'll Need
@@ -15,18 +15,23 @@ The API Test **Compose** tab (aka _Composer_) enables you to generate sophistica
 * An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
 
-## How to Write a Composer Test
+## Creating a Test with the Composer
 
 ### Create a Test
 
-1. Log in to Sauce Labs, then click **API Testing**.
-2. Go into any Project.
-3. On the **Tests** tab, click **Create Test** > **From Scratch**.<br/><img src={useBaseUrl('img/api-fortress/2021/01/createTest.png')} alt="Create a Test button" width="500"/>
-4. In the **New Test** fields, enter a **Test Name** (required), **Test Description** (optional), and **Tag(s)** (optional), then click **Save**.<br/><img src={useBaseUrl('img/api-fortress/2021/01/createTest2.png')} alt="Enter Test Details" width="450"/>
-5. Make sure you're now in the **Compose** tab (aka Composer) with the [**Input**](/api-testing/composer/#input-sets) and [**Visual**](/api-testing/composer/#visual-view-and-code-view) views toggled.<br/><img src={useBaseUrl('img/api-fortress/2020/09/addComponentView.png')} alt="Add Components from Composer" width="500" />
-  :::note Composing tests
-  You can use either [**Visual** composer](#visual-view-and-code-view) (guides you through building components - no coding required) or [**Code** composer](#visual-view-and-code-view) (requires you to write code from scratch). For this guide, we're using **Visual**.
-  :::
+1. In Sauce Labs, click **API Testing**.
+2. On the **Projects** page, click a project.
+3. On the **Tests** page:
+  * If the project has no tests yet, click **Use the Composer with predictive text to build a test**.
+  * If your project has tests, click **Create Test** and then click **From Scratch**.
+  <br/><img src={useBaseUrl('img/api-fortress/2021/01/createTest.png')} alt="Create a Test button" width="500"/>
+4. In the **New Test** box, enter a test name, test description (optional), and tags (optional), and then click **Save**.<br/><img src={useBaseUrl('img/api-fortress/2021/01/createTest2.png')} alt="Enter test details" width="450"/>
+5. On the Compose tab, make sure the **Input** and **Visual** views are toggled on.<br/><img src={useBaseUrl('img/api-fortress/2020/09/addComponentView.png')} alt="Add Components from Composer" width="500" />
+For more information, see [**Input Sets**](/api-testing/composer/#input-sets) and [**Visual View and Code View**](/api-testing/composer/#visual-view-and-code-view).
+
+:::note
+You can use either the **Visual** composer (guides you through building components - no coding required) or the **Code** composer (requires you to write code from scratch). For this guide, we're using **Visual**.
+:::
 
 To go back and edit a Test at any time, go into your Project's **Tests** tab, hover over a test name, then click **Edit Test** (pencil icon).<br/><img src={useBaseUrl('img/api-fortress/2020/09/editTest.png')} alt="Components available" width="600" />
 
