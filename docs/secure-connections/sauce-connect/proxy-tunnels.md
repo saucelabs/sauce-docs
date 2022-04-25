@@ -441,7 +441,7 @@ It can also be used to simulate non-loading of scripts, styles, or other resourc
 #### Configuring Tunnel or Direct Domains
 * Use only the domain name. Do not precede it with the scheme like `http://` or `https://`.
   * Example: `mydomain.com`
-* Use wildcards to include subdomains by prefix domain name with `.`
+* Use wildcards to include subdomains by prefixing domain name with a dot `.`
   * Example: `.mydomain.com` will include `sub.mydomain.com` and `sub1.mydomain.com` but not `sub.myotherdomain.com`
 * See [`Formatting domains for CLI`](/dev/cli/sauce-connect-proxy/#formatting-domains)
 * Configuring domains in [YAML config file](/secure-connections/sauce-connect/setup-configuration/yaml-config/)
