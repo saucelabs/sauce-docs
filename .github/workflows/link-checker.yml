@@ -27,10 +27,15 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14.x
-      - name: Build Docusaurus Site
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Build and Run Docusaurus Site
         working-directory: ./
         run: |
           npm install && npm run build
+          # Expose website
+          cd build/ && python3 -m http.server 8000
       - name: Install Test Dependencies
         run: |
           npm install
