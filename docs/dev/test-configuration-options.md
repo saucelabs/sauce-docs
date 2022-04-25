@@ -589,7 +589,7 @@ Bypasses the restriction on taking screenshots for secure screens (i.e., secure 
 ### `allowTouchIdEnroll`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).Z
+Enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).
 
 ---
 ### `groupFolderRedirectEnabled`

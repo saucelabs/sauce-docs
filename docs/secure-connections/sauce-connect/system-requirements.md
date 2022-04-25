@@ -849,21 +849,21 @@ The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select y
 
 |Virtual Device Cloud/Real Device Cloud + Sauce Connect |
 | :-------- |
-|`https://saucelabs.com/rest/v1` |
+|`https://api.us-west-1.saucelabs.com/rest/v1` |
 
 </TabItem>
 <TabItem value="EU-Central-1">
 
 |Virtual Device Cloud/Real Device Cloud + Sauce Connect|
 | :-------- |
-|`https://eu-central-1.saucelabs.com/rest/v1`|
+|`https://api.eu-central-1.saucelabs.com/rest/v1`|
 
 </TabItem>
 <TabItem value="Headless US-East">
 
 |Headless + Sauce Connect|
 | :-------- |
-|`https://us-east-1.saucelabs.com/rest/v1`|
+|`https://api.us-east-1.saucelabs.com/rest/v1`|
 
 </TabItem>
 </Tabs>
