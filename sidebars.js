@@ -729,6 +729,7 @@ module.exports = {
                      items: [
                          'secure-connections/sauce-connect/advanced/architecture',
                          'secure-connections/sauce-connect/advanced/kgp',
+                         'secure-connections/sauce-connect/advanced/specifications',
                      ]
                  },
                  'secure-connections/sauce-connect/troubleshooting',
