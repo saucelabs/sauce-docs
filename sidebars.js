@@ -390,6 +390,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'error-reporting/platform-integrations/android/setup',
+                        'error-reporting/platform-integrations/android/configuration',
                     ],
                 },
                 {

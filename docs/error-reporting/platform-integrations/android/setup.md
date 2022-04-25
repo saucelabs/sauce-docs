@@ -17,7 +17,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 * Supports a wide range of Android SDKs.
 * Supports offline database for error report storage and re-submission in case of network outage.
 * Fully customizable and extendable event handlers and base classes for custom implementations.
-* Supports detection of blocking the application's main thread (Application Not Responding).
+* Supports detection of Application Not Responding errors (ANRs).
 * Supports monitoring the blocking of manually created threads by providing watchdog.
 * Supports native (JNI/NDK) exceptions and crashes.
 * Supports Proguard obfuscated crashes.
@@ -30,7 +30,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 * Maximum NDK version 22
 
 :::note
-Getting the status that the device is in power saving mode is available from API version 21.
+The ability to capture the battery status when a device is in power saving mode is available from API version 21.
 :::
 
 ## Supported Platforms
@@ -40,7 +40,7 @@ Getting the status that the device is in power saving mode is available from API
 
 ## What You'll Need
 * A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
-* Your subdomain name (used to connect to your Backtrace instance).
+* Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
 * A Backtrace project and a submission token.
 
 :::tip Generate a Submission Token
@@ -49,103 +49,114 @@ Getting the status that the device is in power saving mode is available from API
 :::
 
 
-## Install the Backtrace Android SDK
-Use Gradle or Maven to install the reporting library for your Android app.
+## Install the SDK
+Use Gradle or Maven to install the reporting library.
 
-<Tabs
-  groupId="platforms"
-  defaultValue="openupm"
-  values={[
-    {label: 'OpenUPM', value: 'openupm'},
-    {label: 'Manual', value: 'manual'},
-    {label: 'Git', value: 'git'},
-  ]}>
-
-  <TabItem value="openupm">
+<Tabs>
+<TabItem value="gradle" label="Gradle">
 
 ```
-# Install openupm-cli
-npm install -g openupm-cli
-
-# Go to your Unity project directory
-cd YOUR_UNITY_PROJECT_DIR
-
-# Install the latest io.backtrace.unity package
-openupm add io.backtrace.unity
+dependencies {
+    implementation 'com.github.backtrace-labs.backtrace-android:backtrace-library:3.6.0'
+  }
 ```
-
-For more information, see the installation steps on [OpenUPM](https://openupm.com/packages/io.backtrace.unity/).
-
-  </TabItem>
-  <TabItem value="manual">  
-
-1. Download the latest version of the Backtrace Unity SDK from [GitHub](https://github.com/backtrace-labs/backtrace-unity/releases).
-
-1. Unzip the package and save it locally.
-
-1. In your Unity project, go to **Window > Package Manager**.
-
-1. Complete the steps in [Installing a package from a local folder](https://docs.unity3d.com/Manual/upm-ui-local.html) in the Unity Documentation.
 
 </TabItem>
-<TabItem value="git">  
+<TabItem value="maven" label="Maven">
 
-:::note
-This installation method is supported for Unity 2018.3 or higher.
-:::
-
-1. Clone the source project’s [Git URL](https://github.com/backtrace-labs/backtrace-unity.git).
-1. In your Unity project, go to **Window > Package Manager**.
-1. Complete the steps in [Installing from a Git URL](https://docs.unity3d.com/Manual/upm-ui-giturl.html) in the Unity Documentation.
+```
+<dependency>
+  <groupId>com.github.backtrace-labs.backtrace-android</groupId>
+  <artifactId>backtrace-library</artifactId>
+  <version>3.6.0</version>
+  <type>aar</type>
+</dependency>
+```
 
 </TabItem>
 </Tabs>
 
-## Initialize the Backtrace Client with GameObject
-You can add the Backtrace Client component to any GameObject in your game scene.
 
-  1. In your Unity project, go to **Assets > Backtrace > Configuration**.
+## Configure Permissions
+In your app's `AndroidManifest.xml` file, add the following permissions:
+*  To send errors to the server instance:
+  ```xml
+  <uses-permission android:name="android.permission.INTERNET" />
+  ```
+* To send file attachments from external storage to the server instance:
+  ```xml
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  ```
 
-  The Backtrace Configuration file is added to the root of your Assets folder.
+## Initialize the Backtrace Client
+To initialize the Backtrace Client, create a `BacktraceCredentials` instance with your Backtrace endpoint URL (e.g. https://xxx.sp.backtrace.io:6098) and submission token, and supply it as a parameter in the `BacktraceClient` constructor:
+<Tabs>
+<TabItem value="java" label="Java">
 
-  1. Go to **GameObject > Create Empty**.
+```java
+// replace with your endpoint URL and submission token
+BacktraceCredentials credentials = new BacktraceCredentials("https://<yourInstance>.sp.backtrace.io:6098/", "<submissionToken>");
+BacktraceClient backtraceClient = new BacktraceClient(getApplicationContext(), credentials);
+```
 
-  1. Enter a descriptive name for the new GameObject.
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
 
-  1. In the Inspector, select **Add Component**.
+```kotlin
+// replace with your endpoint URL and submission token
+val backtraceCredentials = BacktraceCredentials("https://<yourInstance>.sp.backtrace.io:6098/", "<submissionToken>")
+val backtraceClient = BacktraceClient(applicationContext, backtraceCredentials)
+```
 
-  1. Search for “Backtrace”, then select **Backtrace Client**.
+</TabItem>
+</Tabs>
 
-  1. From the **Assets** folder, drag the Backtrace Configuration file to the Backtrace configuration field.
+Another option for creating a `BacktraceCredentials` object is to use the endpoint URL to which the report is to be sent, and pass the URL string as parameter to `BacktraceCredentials` constructor:
+<Tabs>
+<TabItem value="java" label="Java">
 
-Additional fields now display for the Backtrace client configuration and database configuration options.
+```java
+// provide your Backtrace instance and submission token
+BacktraceCredentials credentials = new BacktraceCredentials("https://submit.backtrace.io/{your-instance}/{submission-token}/json");
+```
 
-To change Backtrace client and database options, we recommend to change these values in the Unity UI via Backtrace Configuration file. Alternatively, you can also make changes to the configuration in the C# code for your Unity project.
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
 
-For more information about the available configuration options, see [Configuration](/error-reporting/platform-integrations/unity/configuration).
+```kotlin
+// provide the name of your instance and submission token for BacktraceCredentials
+val backtraceCredentials = BacktraceCredentials("https://submit.backtrace.io/{your-instance}/{submission-token}/json")
+```
+
+</TabItem>
+</Tabs>
 
 
 ## Verify the Setup
-At this point, you've installed and setup the Backtrace client to automatically capture crashes and exceptions in your Unity game or app.
+At this point, you've installed and setup the Backtrace client to automatically capture crashes and errors in your Android app.
 
-To test the integration, use a try/catch block to throw an exception and start sending reports.
+To test the integration, send a crash report to your Backtrace instance.
+<Tabs>
+<TabItem value="java" label="Java">
 
- ```csharp
-  //Read from manager BacktraceClient instance
- var backtraceClient = GameObject.Find("manager name").GetComponent<BacktraceClient>();
+```java
+try {
+// throw exception here
+} catch (Exception exception) {
+backtraceClient.send(new BacktraceReport(e));
+}
+```
 
- //Set custom client attribute
- backtraceClient["attribute"] = "attribute value";
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
 
-  //Read from manager BacktraceClient instance
- var database = GameObject.Find("manager name").GetComponent<BacktraceDatabase>();
-
-
- try{
-     //throw exception here
- }
- catch(Exception exception){
-     var report = new BacktraceReport(exception);
-     backtraceClient.Send(report);
- }
- ```
+```kotlin
+try {
+// throw exception here
+}
+catch (e: Exception) {
+backtraceClient.send(BacktraceReport(e))
+}
+```
+</TabItem>
+</Tabs>
