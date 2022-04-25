@@ -23,7 +23,7 @@ Note that this plug-in also has a set of environment variables that are specific
 
 [GitHub Actions](https://docs.github.com/en/actions) allow to automate, customize, and execute your software development workflows right in your GitHub repository.
 
-[Sauce Connect Proxy™ GitHub Action](https://github.com/marketplace/actions/sauce-connect-proxy-action) allows to launch Sauce Connect Proxy™ for GitHub CI workflow.
+[Sauce Connect Proxy GitHub Action](https://github.com/marketplace/actions/sauce-connect-proxy-action) allows to launch Sauce Connect Proxy for GitHub CI workflow.
 
 
 ## Jenkins Configuration
