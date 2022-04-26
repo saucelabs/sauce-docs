@@ -36,7 +36,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 </TabItem>
 <TabItem value="windows">
 
-* OS: Windows 10 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
+* OS: Windows 10 or 11 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
 * Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
 
 </TabItem>
@@ -69,7 +69,7 @@ Sauce Labs supports the following test configurations for TestCafe:
       <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
     </tr>
     <tr>
-      <td><b>Windows:</b> 10</td>
+      <td><b>Windows:</b> 10, 11</td>
       <td>Chrome, Firefox, MicrosoftEdge</td>
     </tr>
     <tr>
@@ -127,14 +127,7 @@ Sauce Labs supports the following test configurations for TestCafe:
 </TabItem>
 <TabItem value="docker">
 
- Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available release notes.
-
- |TestCafe Version|Supported Browsers|
- |----|----|
- |1.18.3|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v1.1.0)|
- |1.17.1|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v1.0.0)|
- |1.16.1|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.12.1)|
- |1.15.3|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.10.0)|
+ Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases).
 
 </TabItem>
 </Tabs>
