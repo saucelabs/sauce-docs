@@ -1,6 +1,6 @@
 ---
 id: system-requirements
-title: System and Network Requirements
+title: Sauce Connect Proxy System and Network Requirements
 sidebar_label: System and Network Requirements
 ---
 
@@ -14,9 +14,168 @@ Keep in mind that these are guidelines. Most environments have their own workloa
 
 ## What You'll Need
 
-* Minimum 2 core x 8 GB Machine
-* We strongly recommend using the [cURL command line](https://curl.haxx.se/download.html) or an equivalent tool to ensure that any error messages you receive are precise and actionable. If you're not familiar with the tool, [review their docs here](https://curl.se/docs) and then install cURL on your local machine.
+* Minimum 2 core x 8 GB Machine.
+* We recommend using the [cURL command line](https://curl.haxx.se/download.html) or an equivalent tool to ensure that any error messages you receive are precise and actionable. If you're not familiar with the tool, [review their docs here](https://curl.se/docs) and then install cURL on your local machine.
 * For Unix-based systems, you may need to increase your open file limit if you plan to run a high number of parallel tests (i.e., `ulimit -n 8192`).
+
+
+## Supported Operating Systems
+
+### Sauce Connect v4.8.x
+
+<p><small><span className="sauceGold">Beta</span></small></p>
+
+<table>
+  <tr>
+   <td><strong>Name</strong>
+   </td>
+   <td><strong>Value</strong>
+   </td>
+   <td><strong>CPU Arch</strong>
+   </td>
+   <td><strong>Notes</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Linux
+   </td>
+   <td>Ubuntu 18.04 or higher
+        <p>Debian 9 or higher</p>
+        <p>CentOS/RHEL-7 or higher</p>
+        <p>SUSE Linux Enterprise 15.0 and higher</p>
+   </td>
+   <td>x86_6
+       <p>arm64</p>
+   </td>
+   <td>Unsupported OSes may still be able to run Sauce Connect, but they've not been tested for versions 4.8.x and higher.
+   </td>
+  </tr>
+  <tr>
+   <td>macOS
+   </td>
+   <td>macOS 10.13 (High Sierra) and higher
+   </td>
+   <td>x86_64
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>Windows
+   </td>
+   <td>Windows 10 and higher
+   </td>
+   <td>x86
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+:::note macOS Catalina 10.15+ compatibility
+Enable your Mac to allow apps from the App Store and identified developers.  
+  1. Go to **System Preferences** > **Security & Privacy** > **General**.
+  2. Under **Allow apps downloaded from**, select the option **App Store and identified developers**.
+:::
+
+### Sauce Connect v4.7.x
+
+<table>
+  <tr>
+   <td><strong>Name</strong>
+   </td>
+   <td><strong>Value</strong>
+   </td>
+   <td><strong>CPU Arch</strong>
+   </td>
+   <td><strong>Notes</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Linux
+   </td>
+   <td>Ubuntu 14.04 or higher
+        <p>Debian 8 or higher</p>
+        <p>CentOS/RHEL-6 or higher</p>
+        <p>SUSE Linux Enterprise 12.0 and higher</p>
+   </td>
+   <td>x86_64
+   </td>
+   <td>Unsupported OSes may still be able to run Sauce Connect, but they've not been tested for versions 4.7.x and higher. Support has been ended for 32-bit Linux.
+   </td>
+  </tr>
+  <tr>
+   <td>macOS
+   </td>
+   <td>OS X 10.11 (El Capitan) and higher
+   </td>
+   <td>x86_64
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>Windows
+   </td>
+   <td>Windows 7 and higher
+   </td>
+   <td>x86
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+### Sauce Connect v4.6.x
+
+<table>
+  <tr>
+   <td><strong>Name</strong>
+   </td>
+   <td><strong>Value</strong>
+   </td>
+   <td><strong>CPU Arch</strong>
+   </td>
+   <td><strong>Notes</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Linux
+   </td>
+   <td>Ubuntu 14.04 or higher
+        <p>Debian 7 or higher</p>
+        <p>RedHat EL-6 and higher</p>
+   </td>
+   <td>x86_64
+       <p>x86</p>
+   </td>
+   <td>Unsupported OSes may still be able to run Sauce Connect, but they've not been tested for versions 4.6.x and higher.
+   </td>
+  </tr>
+  <tr>
+   <td>macOS
+   </td>
+   <td>OS X 10.6 (Snow Leopard) or higher
+   </td>
+   <td>x86_64
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>Windows
+   </td>
+   <td>Windows 7 and higher
+   </td>
+   <td>x86
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
 
 ## Verifying Sauce Connect Network Routes on Your Host Machine
 
@@ -29,8 +188,8 @@ As an important step prior to downloading Sauce Connect Proxy, you or your syste
 3. Use cURL (or equivalent tool) to reach the below URLs, as needed. For example:
    * [https://saucelabs.com](https://saucelabs.com/)
    * [https://api.us-west-1.saucelabs.com/rest/v1](https://api.us-west-1.saucelabs.com/rest/v1) for US-WEST region
-   * [https://us-east-1.saucelabs.com/rest/v1](https://us-east-1.saucelabs.com/rest/v1) for US-EAST region
-   * [https://eu-central-1.saucelabs.com](https://eu-central-1.saucelabs.com/) for EU-CENTRAL region
+   * [https://api.us-east-1.saucelabs.com/rest/v1](https://api.us-east-1.saucelabs.com/rest/v1) for US-East region
+   * [https://api.eu-central-1.saucelabs.com](https://api.eu-central-1.saucelabs.com/) for EU-Central region
 
    If you can get a `200 OK` response from all URLs above, you are ready to start Sauce Connect!
    As an alternative, you can just try to [start a tunnel](/secure-connections/sauce-connect/setup-configuration/basic-setup/#validating-your-basic-setup)
@@ -665,13 +824,13 @@ When your tests are running through a Sauce Connect tunnel, the client on your n
 
 ### Allowlisting for Restricted Networks
 
-If you're testing in a restricted network setting, you may need to allowlist the Sauce Labs domains below to allow outbound communication to Sauce Labs Selenium and Appium endpoints. Allowlisting for inbound traffic coming into your network is not necessary. To check if your setup is successful, see [Validating Your Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
+If you're testing in a restricted network setting, you may need to allowlist the Sauce Labs domains below to allow outbound communication to Sauce Labs Selenium and Appium endpoints. Allowlisting for inbound traffic coming into your network is not necessary. To confirm your setup is successful, try running a test using the [basic setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
 
-You'll need to use the set of domains for your corresponding Sauce Labs Data Center: US Data Center (US-West-1**), Headless Data Center (US-East-1), or European Data Center (EU-Central-1). The Data Center you're connected to is indicated in your navigation menu.
+You'll need to use the set of domains for your corresponding Sauce Labs data center: US data center (US West 1), European data center (EU Central 1), headless data center (Headless US-East), or Australian data center (APAC Southeast 1) . The data center you're connected to will be indicated in your navigation.<br/>
 
-<img src={useBaseUrl('img/sauce-connect/data-center-ui.jpg')} alt="Sauce Connect download file contents" width="600" margin-bottom="50px"/>
+<img src={useBaseUrl('img/sauce-connect/data-center-ui.png')} alt="Sauce Connect download file contents" width="450" margin-bottom="50px"/>
 
-For more information on our Data Centers and how to choose the right one for you, see [Data Center Endpoints](/basics/data-center-endpoints).
+For more information on our data centers and how to choose the right one for you, see [Data Center Endpoints](/basics/data-center-endpoints).
 
 ### REST API Endpoints
 
@@ -690,21 +849,21 @@ The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select y
 
 |Virtual Device Cloud/Real Device Cloud + Sauce Connect |
 | :-------- |
-|`https://saucelabs.com/rest/v1` |
+|`https://api.us-west-1.saucelabs.com/rest/v1` |
 
 </TabItem>
 <TabItem value="EU-Central-1">
 
 |Virtual Device Cloud/Real Device Cloud + Sauce Connect|
 | :-------- |
-|`https://eu-central-1.saucelabs.com/rest/v1`|
+|`https://api.eu-central-1.saucelabs.com/rest/v1`|
 
 </TabItem>
 <TabItem value="Headless US-East">
 
 |Headless + Sauce Connect|
 | :-------- |
-|`https://us-east-1.saucelabs.com/rest/v1`|
+|`https://api.us-east-1.saucelabs.com/rest/v1`|
 
 </TabItem>
 </Tabs>

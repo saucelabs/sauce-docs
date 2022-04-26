@@ -9,15 +9,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Selenium browser automation tool allows you to write test code that runs through all the possible actions in your
-web application faster and more effectively that manual testing. This section of the Sauce Labs documentation
-provides an overview of how to use Selenium with Sauce Labs to achieve efficient and consistent test results to
-ensure your web application works on every operating system and browser.
+The Selenium browser automation tool allows you to write test code that runs through all the possible actions in your web app faster and more effectively that manual testing. This section of the Sauce Labs documentation provides an overview of how to use Selenium with Sauce Labs to achieve efficient and consistent test results to ensure your web app works on every operating system and browser.
 
 ## What You’ll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* Your Sauce Labs [Username](https://app.saucelabs.com/user-settings)
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* Your Sauce Labs [Username](https://app.saucelabs.com/user-settings).
 * A working development environment for one of the supported Selenium languages: Java, C#, Python, or Ruby.
 
 :::tip
@@ -43,7 +40,7 @@ between the components using http commands.
 
 ## Seven Steps of Selenium Tests
 
-There are seven basic elements of a Selenium test script, which apply to any test case and any application under test (AUT):
+There are seven basic elements of a Selenium test script, which apply to any test case and any app under test (AUT):
 
 1. [Create a WebDriver session](#step-1-create-a-remote-session).
 2. [Navigate to a Web page](#step-2-navigate-to-a-web-page).
@@ -53,7 +50,7 @@ There are seven basic elements of a Selenium test script, which apply to any tes
 6. [Report the result of the assertion](#step-6-report-the-results).
 7. [End the session](#step-7-end-the-session).
 
-The following sections walk through each of these steps using a basic test case example -- logging into a website. This example ensures that a specific user can successfully log into https://www.swaglabs.com.
+The following sections walk through each of these steps using a basic test case example &#8212; logging into a website. This example ensures that a specific user can successfully log into our demo site, [www.swaglabs.com](https://www.swaglabs.com).
 
 ### Step 1: Create a Remote Session.
 
@@ -151,7 +148,7 @@ https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/
 <TabItem value="Python">
 
 ```py reference title="Selenium Navigation"
-https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/test_login_success.py#L7
+https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/test_login_success.py#L6
 ```
 
 </TabItem>
@@ -173,7 +170,6 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 For more information, see the [Selenium documentation on Browser Navigation](https://www.selenium.dev/documentation/webdriver/browser_manipulation/#browser-navigation).
 
-For more information, see the [Selenium documentation on Browser Navigation](https://www.selenium.dev/documentation/webdriver/browser_manipulation/#browser-navigation).
 
 ### Step 3: Locate an HTML Element on a Web Page
 
@@ -317,7 +313,7 @@ For more information, see the [Selenium documentation on the Find Element](https
 
 #### Synchronization Strategies
 
-Synchronization is an advanced topic, but it is essential when locating an element that the application is ready for the element to be located. There are two docs-1.1 approaches to synchronization: implicit and explicit.
+Synchronization is an advanced topic, but it is essential when locating an element that the app is ready for the element to be located. There are two docs-1.1 approaches to synchronization: implicit and explicit.
 
 #### Implicit Waits
 
@@ -466,7 +462,7 @@ https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/
 <TabItem value="Python">
 
 ```py reference title="Assertions"
-https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/test_login_success.py#L24
+https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/test_login_success.py#L23
 ```
 
 </TabItem>
@@ -569,7 +565,7 @@ https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/
 <TabItem value="Python">
 
 ```py reference title="Quit Selenium Session"
-https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/conftest.py#L31
+https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/conftest.py#L32
 ```
 
 </TabItem>

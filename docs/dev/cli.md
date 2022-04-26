@@ -18,8 +18,8 @@ hide_table_of_contents: true
 <div>
   <div className="box boxwidetop card">
     <div className="container">
-    <a href="/testrunner-toolkit/saucectl"><h3>saucectl CLI</h3></a>
-    <p>Our framework agnostic test orchestrator CLI.</p>
+    <a href="/dev/cli/saucectl"><h3>saucectl CLI</h3></a>
+    <p>Our framework-agnostic test orchestrator CLI.</p>
     </div>
   </div>
 </div>

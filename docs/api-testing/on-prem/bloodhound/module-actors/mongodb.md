@@ -4,6 +4,12 @@ title: "Bloodhound: MongoDB Module"
 sidebar_label: MongoDB
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 The module implements a number of functions requiring interaction with the MongoDB database.
 
 ## Configuration Loader
@@ -100,7 +106,7 @@ Here are some examples of configuration documents:
 ### `UpstreamMongoActor`
 
 Upstream connecting to a MongoDB database. The body of the request must be shaped into a JSON document that either
-represents a query, or a document to insert. 
+represents a query, or a document to insert.
 
 **class:** `com.apifortress.afthem.modules.mongodb.actors.proxy.UpstreamMongoActor`
 
@@ -115,7 +121,7 @@ represents a query, or a document to insert.
 **headers:**
 * `x-op`: either "find" or "insert"
 * `x-limit-results` (optional): limits the number of results
- 
+
 **Multi-flow**: no
 
 ## Filters
@@ -173,7 +179,7 @@ Extra serializer settings:
 
 * `buffer_size`: the serializer can buffer a number of conversations and save them once the buffer is full to improve
 DB communication performance. If absent or if the value is less than 1, the document is inserted as asson as the actor
-receives it 
+receives it
 * `extra_fields`: a map of k/v fields that should be added to the document.
 
 MongoDB settings:

@@ -10,6 +10,12 @@ keywords:
     - api-fortress
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 APIF-Auto, a command line tool that supports automated API Fortress test execution is an ideal tool for executing API Fortress tests in a Jenkins workflow.  
 
 The pipeline script below serves as a template for creating stages in your Jenkins Pipeline for testing your APIs with API Fortress' tests that are stored in Github. If you’d like to take a look at the documentation for APIF-Auto, click [here](https://apifortress.com/doc/command-line-tools/).
@@ -23,7 +29,7 @@ node {
       git 'https://github.com/theirish81/temp.git'  
    }  
    stage('Build') {  
-        
+
    }  
    stage('API Fortress'){  
        sh 'python /var/jenkins\_home/apif-auto/apif-push.py jenkins\_project -r -p testing/apifortress'  

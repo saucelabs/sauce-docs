@@ -8,6 +8,12 @@ keywords:
     - company-settings
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The Company settings page allows the manager(s) of a company to alter global settings such as the users that can access the company, who will receive the notifications etc.
@@ -33,9 +39,9 @@ In the **Account** page, you can see information about the company:
 <img src={useBaseUrl('img/api-fortress/2020/13/newAccount.jpg')} alt="newAccount.jpg"/>
 
 
-* **Contract**: the contract type of your account. 
-* **Monthly Events**: the number of executions so far for the current month. 
-* **Monthly API Downloads**: how many times tests downloaded a web service. 
+* **Contract**: the contract type of your account.
+* **Monthly Events**: the number of executions so far for the current month.
+* **Monthly API Downloads**: how many times tests downloaded a web service.
 * **Overall documents**: the number of documents generated and still available for consultation.
 
 ## Users
@@ -48,9 +54,9 @@ By clicking '**+ User**' you will be presented a popup:
 
 <img src={useBaseUrl('img/api-fortress/2020/13/newadduser.jpg')} alt="newadduser.jpg"/>
 
-* **e-mail**: the email address of the user you want to add. 
-* **Full Name**: the name of the user. 
-* **Time Zone**: the Time Zone of the user. 
+* **e-mail**: the email address of the user you want to add.
+* **Full Name**: the name of the user.
+* **Time Zone**: the Time Zone of the user.
 * **Level**: the permission level of the user: as 'Manager' the user will have access to company settings, tests and analytics. As 'Developer' the user will have access to tests and analytics. As 'analyst' only analytics will be made available.
 
 ## Notification
@@ -73,11 +79,11 @@ The **API Keys** page is useful if you want to use the API. You just need to cli
 
 ### API Hooks
 
-In the **API Hooks** section you can create the project hook for the v3 API. 
+In the **API Hooks** section you can create the project hook for the v3 API.
 
 To get started:
- 
-1. first you need to create a hook for the project you want to interact with by clicking **+ API Hook** button, 
+
+1. first you need to create a hook for the project you want to interact with by clicking **+ API Hook** button,
 2. then choose the **project** the hook will refer to,
 3. then choose a **privileged user** for this hook
 4. copy the hook in your **clipboard**. The generated URL will give you the ability to query some resources of the connected project without needing any further authentication, so **mind who you will share it with**. If you feel the url has been **improperly shared**, you can **revoke it** from the page you used to create it.

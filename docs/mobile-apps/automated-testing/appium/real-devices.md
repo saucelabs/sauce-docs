@@ -2,220 +2,298 @@
 id: real-devices
 title: Appium Testing with Real Devices
 sidebar_label: Real Devices
+description: Run your automated Appium tests on Sauce Labs real devices.
 ---
-
-export const Highlight = ({children, color}) => ( <span style={{
-      backgroundColor: color,
-      borderRadius: '2px',
-      color: '#fff',
-      padding: '0.2rem',
-    }}>{children}</span> );
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This topic describes automated Appium testing on the Sauce Labs Real Device Cloud (RDC). You can accelerate your test execution by running parallel automated tests across thousands of mobile device/OS combinations, in our public real device cloud and/or a private device pool of your own.
+Sauce Labs provides thousands of real mobile devices for nearly every phone and tablet model and applicable OS version. You can run your Appium tests on these devices through the Sauce Labs Real Device Cloud (RDC) to ensure your app behaves accurately and consistently across different devices in the real world. Sauce Labs offers a massive pool of public devices available for all customers, as well as a [private option](/mobile-apps/supported-devices/#private-device-cloud) in which customers can create a selection of devices for use by only their organization.
+
+Appium automated real device testing supports tests designed to run against a web app in a mobile browser or a native app on a mobile device.
+
+See [When to Test on Real Devices](https://docs.saucelabs.com/mobile-apps/supported-devices/#when-to-test-on-real-devices) for deails about real device testing use cases, benefits, and system requirements.
 
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-* Ensure that your mobile app and project setup meet our [real device cloud requirements](/mobile-apps/supported-devices).
-* Have your mobile app file (.ipa for iOS, .apk for Android) and mobile test file on hand. Don't have one on hand? Try the [My Demo App](https://github.com/saucelabs/my-demo-app-rn/releases), which is available in Sauce Labs.
+* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+* An Appium installation (See [Using Appium](/mobile-apps/automated-testing/appium))
+* A mobile app file (.ipa for iOS, .apk or .aab for Android) If you don't have one, consider using our Demo Apps:
+    * [React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
+    * [iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
+    * [Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)
+* An Appium mobile test script
 
 
-## Uploading Mobile Apps from a Remote Location
+## Installing Your Mobile App on Real Devices
 
-There may be situations where you want to install an app from a downloadable remote location (e.g., AWS S3 bucket, a GitHub repository). The app is completely removed from the real device after the test completes, providing an added layer of security for your app.
+If your Appium tests are intended to test a native mobile app on real devices, the app file must be available to Sauce Labs so it can be installed on the devices selected for testing. Sauce Labs provides a variety of methods for doing this, including:
 
-Please review the following guidelines below before uploading your app:
+* Upload your app to Sauce App Storage using the [Sauce Labs UI](/mobile-apps/app-storage/#uploading-apps-via-ui) or [REST API](/mobile-apps/app-storage/#uploading-apps-via-rest-api)
+* Install your app to a real device from a remote location [How?](/mobile-apps/app-storage/#installing-apps-from-a-remote-location)
 
-1. Make sure your app meets the [requirements](/mobile-apps/supported-devices) for Android and iOS Mobile App Testing.
-2. Upload your app to the hosting location.
-3. Ensure Sauce Labs has READ access to the app URL.
-4. In your Appium test script, enter the URL for the app as the "app" desired capability. Example Java Snippet:
+The following app file types are supported for real device tests:
 
-  ```java
-  caps.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.3.0/Android.SauceLabs.Mobile.Sample.app.2.3.0.apk?raw=true");
-  ```
+* \*.apk or \*.aab for Android app files
+* \*.ipa for iOS app files (See [Create .ipa Files for Appium](/mobile-apps/automated-testing/ipa-files/#real-devices))
 
-### Installing your App on Private Devices
+## Using the W3C WebDriver Specification
 
-In some cases, you may need to upload/install your app to a private device and also prevent the device from broad internet access while under test. The steps to achieve this are:
+As the W3C WebDriver Protocol is supported in Appium v1.6.5 and higher, and required for Appium v2.0 (currently in beta), we recommend and support using it exclusively in your test scripts instead of the JSON Wire Protocol (JWP). See [Migrating Appium Real Device Tests to W3C](https://support.saucelabs.com/hc/en-us/articles/4412359870231) for more information.
 
-* Upload your app to an internal git repository, or private hosting solution with the necessary permissions (e.g. Amazon S3 with a strict bucket policy).
-* Ensure the hosted app URL is available to the machine running the automated test.
-* Ensure that you've enabled the **Require Sauce Connect/VPN** setting in your [organization's security settings](/basics/acct-team-mgmt/org-settings).
+The W3C WebDriver Protocol test capability syntax differs from that of JWP, so it's important to make sure you configure your tests accurately so your intended protocol is followed and your settings are applied correctly.
 
-:::note
-Each session is a "fresh" installation of your app, meaning, you will not be able to access information about previous versions of your app.
-:::
+### How Sauce Labs Determines Your Protocol
 
-## Uploading Mobile Apps with the Sauce Labs REST API
+When Sauce Labs executes your test configuration, it looks for the presence of certain indicators in the session creation request to determine whether it should apply the JWP or W3C protocol. The following table outlines how Sauce Labs evaluates your creation request.
 
-Use the [App Storage REST API](/dev/api/storage/#upload-file-to-app-storage) to upload your app for Appium automated mobile testing. We currently support \*.apk or \*.aab Android app files and \*.ipa or \*.zip iOS app files (\*.zip files are parsed to determine whether a valid *.app bundle exists).
+|Indicator|Determination|
+|:---|:---|
+|`sauce:options` node is present within the capabilities node.|W3C|
+|`desiredCapabilities` node is absent.|W3C|
+|`desiredCapabilities` node is present AND `sauce:options` node is absent.|JWP|
 
-:::caution Limited Support for *.aab Files
-At this time, \*.aab files are only supported for Android real device testing.
-:::
+### Examples of JWP and W3C Configurations
 
-### Application Storage and Data Center Endpoints
+The main difference between JWP and W3C is the format required to specify your test capabilities. In JWP, all capabilities are defined within the `desiredCapabilities` node, while in W3C, all capabilities are defined under the `capabilities` node within the `firstMatch` property. Each capability uses a namespace to indicate one of the following three categorizations:
 
-When uploading your app for testing with real devices, you must identify the [Data Center](/basics/data-center-endpoints) where the devices you are testing are located by specifying the applicable API URL for that data center.
+* WebDriver standard capabilities have no namespace
+* Appium specific capabilities require the prefix `appium:`
+* Sauce Labs custom capabilities are set within the `sauce:options` node
 
-Examples using the EU and US endpoints:
+The following examples illustrate this difference in the respective specifications.
 
 <Tabs
-  defaultValue="US Data Center"
-  values={[
-    {label: 'US Data Center', value: 'US Data Center'},
-    {label: 'EU Data Center', value: 'EU Data Center'},
-  ]}>
+groupId="protocol"
+defaultValue="jwp"
+values={[
+{label: 'JWP', value: 'jwp'},
+{label: 'W3C', value: 'w3c'},
+]}>
 
-<TabItem value="US Data Center">
+<TabItem value="jwp">
 
-US Data Center (macOS/Linux)
-
-```bash
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
---form 'payload=@"g16K4P8IX/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
---form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
 ```
-
-US Data Center (Windows)
-
-```zh
-> curl -u "%SAUCE_USERNAME%:%SAUCE_ACCESS_KEY% -X POST -w "%{http_code}\n" \
--H "Content-Type: application/octet-stream" \
-"https://saucelabs.com/rest/v1/storage/%SAUCE_USERNAME%/Android.SauceLabs.Mobile.Sample.app.x.x.x.apk?overwrite=true" \
---data-binary @\path\to\Android.SauceLabs.Mobile.Sample.app.x.x.x.apk
+"desiredCapabilities": {
+    "platformName" : "android",
+    "app","storage:filename=mapp.pk",
+    “deviceName" : "Samsung.*Galaxy.*”,
+    “orientation” : “portrait”,
+    “platformVersion" : "8.1",
+    "appiumVersion" : "1.21.0"
+    "sessionCreationRetry" : "2",
+    "sessionCreationTimeout" : "300000",
+    "name" : "MobileWebsiteTest (jwp)"
+ }
 ```
 
 </TabItem>
-<TabItem value="EU Data Center">
+<TabItem value="w3c">
 
-EU Data Center (macOS/Linux)
-
-```curl
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/v1/storage/upload' \
---form 'payload=@"g16K4P8IX/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
---form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
 ```
-
-EU Data Center (Windows)
-
-```bash
-> curl -u "%SAUCE_USERNAME%:%SAUCE_ACCESS_KEY%" -X POST -w "%{http_code}\n" \
--H "Content-Type: application/octet-stream" \
-"https://eu-central-1.saucelabs.com/rest/v1/storage/%SAUCE_USERNAME%/Android.SauceLabs.Mobile.Sample.app.x.x.x.apk?overwrite=true" \
---data-binary @\path\to\Android.SauceLabs.Mobile.Sample.app.x.x.x.apk
+"capabilities": {
+    "firstMatch": [
+      {
+        "platformName" : "android",                    #standard capability
+        "appium:app","storage:filename=mapp.apk";       #Appium capabilities
+        “appium:deviceName" : "Samsung.*Galaxy.*”,
+        “appium:orientation” : “portrait”,
+        “appium:platformVersion" : "8.1",
+        "sauce:options" : {                           #Sauce custom capabilities
+           "appiumVersion" : "1.21.0",
+           "sessionCreationRetry" : "2",
+           "sessionCreationTimeout" : "300000",
+           "name" : "MobileWebsiteTest (w3c)"
+        }
+      }
+    ]
+}
 ```
 
 </TabItem>
 </Tabs>
 
+:::note
+You can avoid having to add the `appium:` prefix to Appium specific capabilities by upgrading your [Appium client library](http://appium.io/docs/en/about-appium/appium-clients/) to a version that automatically applies the prefix or installing the [relaxed-caps plugin](https://github.com/appium/appium-plugins/tree/master/packages/relaxed-caps), but Sauce Labs advises including the prefix to avoid any confusion in the future.
+:::
+
 
 ## Configuring Appium Tests for Real Devices
 
-This section describes parameters that we recommend using to configure your Appium tests on Sauce Labs real devices. See [Test Configuration Options](/dev/test-configuration-options) for the full list of required and optional parameters.
+Our [Test Configuration Options](/dev/test-configuration-options) reference documentation provides a complete index of required and optional parameters for Appium. Be aware that not all of the Appium capabilities list are supported for both virtual and real device tests and that some capabilities have driver-specific options for [Android](https://github.com/appium/appium-uiautomator2-driver) and [iOS](https://github.com/appium/appium-xcuitest-driver) client libraries.
 
-Certain Appium capabilities behave differently when running Appium tests on our Real Device Cloud versus a local Appium server. On our Real Device Cloud:
+The following sections provide context and instructions for test configurations that are essential when using Appium to run automated tests on Sauce Labs **real devices**.
 
-* Some Appium capabilities are not supported.
-* Emulator-only capabilities will not work.
-* The `app` capability will be always be overwritten; it will point to the app file you uploaded to our system.
-* The `noReset` capability will only work if device caching is enabled.
-* Different setups may have different ways of handling capabilities and/or different requirements. Check to make sure you're providing all of the required capabilities.
+### Specifying the `platformName`
 
-### Supported Use Cases for Sauce Labs Real Device Testing
+You can use real devices to test both native apps and web apps in a mobile browser. The `platformName` capability is the only test configuration that is mandatory regardless of which type of mobile test you are writing, as it specifies whether the test is for `iOS` or `Android`.
 
-* Execute Appium tests against a private real device hosted in the U.S., using your Sauce Labs username and access key.
-* Use our application storage for Appium testing as you usually do for emulators and simulators tests.
-* Analyze Appium test executions, on Sauce Labs similar to the way you do it for desktop, emulators and simulators.
-* Consume Real Device Cloud (RDC) API similar to the way you do for emulators and simulators (with applicable RDC settings).
 
-**Example Test Script**
+### Specifying Your `app`
 
-```java
-private URL createUrl() throws MalformedURLException {
-    return new URL("https://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.us-west-1.saucelabs.com/wd/hub");
-}
+For native app tests, the `app` capability is the only other required configuration. If it is omitted, Sauce Labs infers the test is written for a mobile browser and automatically sets a default `browserName` based on the specified `platformName`.
 
-@BeforeEach
-void setUp() throws MalformedURLException {
-    DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-    desiredCapabilities.setCapability("platformName", "iOS");
-    IOSDriver driver = new IOSDriver(createUrl(), desiredCapabilities);
+For native app tests on real devices, you must provide a location from which your mobile app can be accessed in the `app` capability so your app can be installed on the test devices. You can specify a Sauce Labs App Storage ID or filename, or a remote location to which Sauce Labs has access. See [Application Storage](/mobile-apps/app-storage) for details.
+
+```js title=App Storage Example
+"appium:app","storage:filename=mapp.ipa"
+```
+
+```js title=Remote App Example
+"appium:app","https://github.com/test-apps/ios-app.ipa"
+```
+
+### Excluding the `browserName`
+
+When testing a native mobile app, no browser is accessed, so if you are re-using the capabilities from your mobile or desktop browser tests, omit the `browserName` capability. This is an important exclusion because if values are set for _both_ `app` and `browserName`, Sauce Labs defaults to the `browserName`. Similarly, if neither capability is specified, Sauce Labs automatically populates the `browserName` value that matches the `platformName` (Safari for iOS and Chrome for Android).
+
+
+### Selecting Your Test Device
+
+Testing on real devices requires you to specify a device on which you plan to test your app. You can do this by specifying either:
+
+* A specific device from a Sauce Labs device pool (public or private) by its ID (static allocation)
+* A set of device attributes to use as criteria for selecting any available matching device (dynamic allocation)
+
+#### Static Device Allocation
+
+_Static Allocation_ allows you to specify a known device by its unique ID. This can be beneficial if, for example, you are testing features only available on a very specific device setup. However, what you gain in precision may be offset by the time it takes for a specific device to become available, especially if your tests do not require that level of precision. If you do require a specific device, you should always configure the device's availability before launching your tests.
+
+```js
+"appium:deviceName" : "HTC_One_M8_real";
+```
+
+You can obtain a list of available devices, including their IDs, using the [Get Devices](https://docs.saucelabs.com/dev/api/rdc/#get-devices) API request.
+
+Alternatively, you can find a device's ID in the Sauce Labs app:
+
+1. Log into Sauce Labs.
+1. Navigate to **Live** >> **Mobile App**.
+1. Choose your mobile app (or an applicable demo app) from the list and click **Choose Device** to bring up the pool of devices for your organization.
+1. Hover over the device you want a click **Details** to bring up the identification information for that device.
+
+
+#### Dynamic Device Allocation
+
+_Dynamic Allocation_ allows you to specify the device attributes that are important to you and then run your test against the first available device from the pool that matches your specifications, giving you greater flexibility and, likely, a faster test execution time, particularly if you are running tests in parallel.
+
+Dynamic allocation is advised, in particular, for all automated mobile app testing in CI environments.
+
+To enable dynamic device allocation, you should specify the `deviceName` and `platformName`, and `platformVersion` capabilities at a minimum. The following table provides information about accepted values.
+
+:::note
+The following sample values are presented using case for readability, but capabilities values are not case-sensitive, so there is no distinction between `iPhone` and `iphone`, for example.
+:::
+
+<table id="table-cli">
+  <thead>
+    <tr>
+      <th width="20%">Capability</th>
+      <th>Description and Sample Values</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="/dev/test-configuration-options#deviceName"><code>deviceName</code></a></td>
+    <td><p>Provide a device display name, or use regular expressions to provide a partial name, thus increasing the potential pool of matches. Some examples include:</p>
+    <p>Any iPhone: <code>"appium:deviceName", "iPhone.*", "iPhone .*"</code></p>
+    <p>Any device with the word "nexus" in its display name: <code>"appium:deviceName", ".*nexus.*"</code></p>
+    <p>Either <i>iPhone 7</i> or <i>iPhone 6</i>: <code>"appium:deviceName", "iPhone [67]"</code> or <code>"iPhone [6-7]"</code></p>
+    <p>Either <i>iPhone 7S</i> or <i>iPhone 6S</i>: <code>"appium:deviceName", "iPhone [67]S"</code> or <code>"iPhone [6-7]S"</code></p></td>
+  </tr>
+  <tr>
+   <td><a href="/dev/test-configuration-options#platformname"><code>platformName</code></a></td>
+   <td>Specify the mobile operating system to use in your tests (i.e., <code>android</code> or <code>ios</code>.</td>
+  </tr>
+  <tr>
+   <td><a href="/dev/test-configuration-options#platformVersion"><code>platformVersion</code></a></td>
+   <td>Specify the OS version to use in your tests (i.e., <code>4</code> or <code>4.1</code>.
+     <p>This property uses a substring match, so you can specify major and/or incremental versions. For example, if you set only a major version <code>4</code>, any devices running incremental versions (e.g., <code>4.1</code>, <code>4.2</code>, <code>4.2.1</code>, <code>4.4.4</code>) will also match. This behavior extends to minor and point versions as well, so <code>11.4</code> matches <code>11.4.0</code> and <code>11.4.1</code>.</p></td>
+  </tr>
+  </tbody>
+</table>
+
+In addition to the required capabilities for device matching, you can also specify any of the following optional Sauce custom capabilities to ensure your tests run on a device that matches your ideal environment. These capabilities need to be put in the `"sauce:options": {}`.
+
+*  [`tabletOnly`](/dev/test-configuration-options/#tabletonly)
+*  [`phoneOnly`](/dev/test-configuration-options/#phoneonly)
+*  [`privateDevicesOnly`](/dev/test-configuration-options/#privatedevicesonly)
+*  [`publicDevicesOnly`](/dev/test-configuration-options/#publicdevicesonly)
+*  [`carrierConnectivityOnly`](/dev/test-configuration-options/#carrierconnectivityonly)
+
+
+### Using `cacheId` and `noReset`
+
+By default, every time you complete a test session, the real device cloud uninstalls your app, performs device cleaning, and de-allocates the device. If you're running multiple tests on the same device, this is inconvenient and inefficient:
+
+* You must to wait for the cleaning process to complete between every test.
+* You lose time in your testing while your app gets reinstalled to the same device each time.
+* There is a small chance that the device could get allocated to another tester before your next test picks it up.
+
+To optimize device availability, consistency, and efficiency for multiple tests, assign a `cacheId` to your tests, which keeps the device allocated to you for 10 seconds after each test completes and skips the allocation and device cleaning process if you immediately start another test. The app and its data will still be uninstalled and reinstalled for the next test, however.
+
+```js
+"sauce:options" : {
+  "cacheId" : "jnc0x1256",
 }
 ```
 
-#### Setting Your `appiumVersion`
+To skip the uninstallation and reinstallation of your app from the device, you can set `noReset` to `true` in conjunction with using a `cacheId`. This setting adds efficiency, but may not be suitable for test setups that require the app's state to be reset between tests.
 
-If you omit the `appiumVersion` in your test configuration, your test will be running with our default Appium version. We recommend that you specify one of the newer Appium versions that provides a more extended API and fixes to known bugs.
-
-#### **Checking the Appium Version for Your Test**
-1. Log in to Sauce Labs.
-2. Go to **Test Details**.
-3. Find and select the test that you ran using Appium.
-4. Click the **Metadata** tab.
-5. Look for the **Logs** row and select **Appium Log**. The first line should indicate the Appium version. For example, `2019-05-05T17:45:07.541Z - info: Welcome to Appium v1.10.1`.
-
-#### Setting the `browserName`
-
-When testing a native mobile app, the value for `browserName` is an empty string, as in `caps.setCapability("browserName", "");`.
-
-#### Setting the Location of Your Mobile App
-
-If the app you want to test has been uploaded to a location other than our App Storage, you need to specify this location for `app`, and make sure that this location is accessible to Sauce Labs browsers. For example, `caps.setCapability("app","storage:filename=mapp.zip");`.
-
-#### Setting the `automationName` for Android Apps
-
-If you're testing a native mobile app against Android versions 4.0-4.1, or a hybrid mobile against Android versions 4.0 - 4.2, you need to set the capability `"automationName","selendroid"`.
-
-These Android versions are only supported via Appium’s bundled version of Selendroid, which utilizes [Instrumentation](http://developer.android.com/reference/android/app/Instrumentation.html). Later versions of Android are supported via Appium’s own UiAutomator library.
-
-#### Enabling Location Services for iOS Devices
-
-If you want to enable location services on an iOS simulator - to test GPS-dependent apps, for example - set these capabilities in your Appium script:
-
-```java
-locationServicesEnabled=true
-locationServicesAuthorized=true
+```js
+"appium: noReset" : "true",
+"sauce:options" : {
+  "cacheId" : "jnc0x1256",
+}
 ```
+
+When using `cacheId` the value must match for all tests slated to run on the cached device. In addition, the app and project ID must be the same for all tests, as must the values for the following capabilities:
+
+* `deviceName`
+* `platformName`
+* `platformVersion`
+* `tabletOnly`
+* `phoneOnly`
+* `privateDevicesOnly`
+* `publicDevicesOnly`
+* `automationName`
+* `autoGrantPermissions`
+* `appiumVersion`
+
 
 ## Example Configuration Code Snippets
 
 ### iOS and Android Project Configuration
 
-Appium capabilities for an iPhone project using iOS version 12.2:
+Appium capabilities for an iPhone project using iOS version 15:
 
 <Tabs
-  groupId="lang-ex"
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'node.js', value: 'node.js'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+groupId="lang-ex"
+defaultValue="Java"
+values={[
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'node.js', value: 'node.js'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="Java">
 
 ```java
-DesiredCapabilities caps = DesiredCapabilities();
-    caps.setCapability("username", "SAUCE_USERNAME");
-    caps.setCapability("accessKey", "SAUCE_ACCESS_KEY");
-    caps.setCapability("deviceName","iPhone .*");
-    caps.setCapability("orientation", "portrait");
-    caps.setCapability("platformVersion","12.2");
-    caps.setCapability("platformName", "iOS");
-    caps.setCapability("browserName", "");
-    caps.setCapability("app", "storage:filename=<file-name>");
+MutableCapabilities caps = new MutableCapabilities();
+caps.setCapability("platformName", "iOS");
+caps.setCapability("appium:platformVersion", "15.0");
+caps.setCapability("appium:deviceName", "iPhone .*");
+caps.setCapability("appium:orientation", "portrait");
+caps.setCapability("appium:app", "storage:filename=<file-name>");
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("username", "SAUCE_USERNAME");
+sauceOptions.setCapability("accessKey", "SAUCE_ACCESS_KEY");
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 </TabItem>
@@ -223,90 +301,94 @@ DesiredCapabilities caps = DesiredCapabilities();
 
 ```py
 caps = {}
-caps['username'] = "SAUCE_USERNAME"
-caps['accessKey'] = "SAUCE_ACCESS_KEY"
-caps['browserName'] = ""
-caps['deviceName'] = "iPhone .*"
-caps['orientation'] = "portrait"
-caps['platformVersion'] = "12.2"
-caps['platformName'] = "iOS"
-caps['app'] = "storage:filename=<file-name>"
+caps['platformName'] = 'Android'
+caps['appium:platformVersion'] = '15'
+caps['appium:deviceName'] = 'iPhone .*'
+caps['appium:orientation'] = "portrait"
+caps['appium:app'] = 'storage:filename=<file-name>'
+caps['sauce:options'] = {}
+caps['sauce:options']['username'] = 'SAUCE_USERNAME'
+caps['sauce:options']['accessKey'] = 'SAUCE_ACCESS_KEY'
 ```
 
 </TabItem>
 <TabItem value="node.js">
 
 ```js
-caps = {};
-caps['username'] = 'SAUCE_USERNAME';
-caps['accessKey'] = 'SAUCE_ACCESS_KEY';
-caps['browserName'] = '';
-caps['deviceName'] = 'iPhone .*';
-caps['orientation'] = 'portrait';
-caps['platformVersion'] = '12.2';
-caps['platformName'] = 'iOS';
-caps['app'] = 'storage:filename=<file-name>';
+caps = {
+    'platformName': 'iOS',
+    'appium:platformVersion': '15',
+    'appium:deviceName': 'iPhone .*',
+    'appium:orientation': 'portrait',
+    'appium:app': 'storage:filename=<file-name>',
+    'sauce:options': {
+        'username': 'SAUCE_USERNAME',
+        'accessKey': 'SAUCE_ACCESS_KEY'
+    }
+}
 ```
 
 </TabItem>
 <TabItem value="Ruby">
 
 ```rb
-caps = Selenium::WebDriver::Remote::Capabilities()
-caps['username'] = 'SAUCE_USERNAME'
-caps['accessKey'] = 'SAUCE_ACCESS_KEY'
-caps['deviceName'] = 'iPhone .*'
-caps['orientation'] = 'portrait'
-caps['platformVersion'] = '12.2'
-caps['platformName'] = 'iOS'
-caps['browserName'] = ''
-caps['app'] = 'storage:filename=<file-name>'
+caps = Selenium::WebDriver::Remote::Capabilities.new
+caps[:platform_name] = 'iOS'
+caps['appium:platformVersion'] = '15'
+caps['appium:deviceName'] = 'iPhone .*'
+caps['appium:orientation'] = 'portrait'
+caps['appium:app'] = 'storage:filename=<file-name>'
+caps['sauce:options'] = {}
+caps['sauce:options'][:username] = 'SAUCE_USERNAME'
+caps['sauce:options'][:accessKey] = 'SAUCE_ACCESS_KEY'
 ```
 
 </TabItem>
 <TabItem value="C#">
 
 ```csharp
-DesiredCapabilities caps = new DesiredCapabilities();
-    caps.SetCapability("username", "SAUCE_USERNAME");
-    caps.SetCapability("accessKey", "SAUCE_ACCESS_KEY");
-    caps.SetCapability("deviceName", "iPhone .*");
-    caps.SetCapability("orientation", "portrait");
-    caps.SetCapability("platformVersion", "12.2");
-    caps.SetCapability("platformName", "iOS");
-    caps.SetCapability("browserName", "");
-    caps.SetCapability("app", "storage:filename=<file-name>");
+AppiumOptions options = new AppiumOptions();
+options.AddAdditionalCapability("platformName", "iOS");
+options.AddAdditionalCapability("appium:platformVersion", "15");
+options.AddAdditionalCapability("appium:deviceName", "iPhone .*");
+options.AddAdditionalCapability("appium:app", "storage:filename=<file-name>");
+options.AddAdditionalCapability("appium:orientation", "portrait");
+var sauceOptions = new Dictionary<string, object>();
+sauceOptions.Add("username", "SAUCE_USERNAME");
+sauceOptions.Add("accessKey", "SAUCE_ACCESS_KEY");
+options.AddAdditionalCapability("sauce:options", sauceOptions);
 ```
 
 </TabItem>
 </Tabs>
 <br/>
 
-Appium capabilities for Samsung Galaxy device using Android version 8.1:
+Appium capabilities for Samsung Galaxy device using Android version 11:
 
 <Tabs
-  groupId="lang-ex"
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'node.js', value: 'node.js'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+groupId="lang-ex"
+defaultValue="Java"
+values={[
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'node.js', value: 'node.js'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="Java">
 
 ```java
-DesiredCapabilities caps = DesiredCapabilities();
-    caps.setCapability("username", "SAUCE_USERNAME");
-    caps.setCapability("accessKey", "SAUCE_ACCESS_KEY");
-    caps.setCapability("deviceName","Samsung.*Galaxy.*");
-    caps.setCapability("orientation", "portrait");
-    caps.setCapability("browserName", "");
-    caps.setCapability("platformVersion","8.1");
-    caps.setCapability("platformName","Android");
-    caps.setCapability("app", "storage:filename=<file-name>");
+MutableCapabilities caps = new MutableCapabilities();
+caps.setCapability("platformName", "Android");
+caps.setCapability("appium:platformVersion", "11");
+caps.setCapability("appium:deviceName", "Samsung.*Galaxy.*");
+caps.setCapability("appium:orientation", "portrait");
+caps.setCapability("appium:app", "storage:filename=<file-name>");
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("username", "SAUCE_USERNAME");
+sauceOptions.setCapability("accessKey", "SAUCE_ACCESS_KEY");
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 </TabItem>
@@ -314,258 +396,73 @@ DesiredCapabilities caps = DesiredCapabilities();
 
 ```py
 caps = {}
-caps['username'] = "SAUCE_USERNAME"
-caps['accessKey'] = "SAUCE_ACCESS_KEY"
-caps['deviceName'] = "Samsung.*Galaxy.*"
-caps['orientation'] = "portrait"
-caps['platformVersion'] = "8.1"
-caps['platformName'] = "Android"
-caps['app'] = "storage:filename=<file-name>"
+caps['platformName'] = 'Android'
+caps['appium:platformVersion'] = '11'
+caps['appium:deviceName'] = 'Samsung.*Galaxy.*'
+caps['appium:orientation'] = "portrait"
+caps['appium:app'] = 'storage:filename=<file-name>'
+caps['sauce:options'] = {}
+caps['sauce:options']['username'] = 'SAUCE_USERNAME'
+caps['sauce:options']['accessKey'] = 'SAUCE_ACCESS_KEY'
 ```
 
 </TabItem>
 <TabItem value="node.js">
 
 ```js
-caps = {};
-caps['username'] = 'SAUCE_USERNAME';
-caps['accessKey'] = 'SAUCE_ACCESS_KEY';
-caps['deviceName'] = 'Samsung.*Galaxy.*';
-caps['orientation'] = 'portrait';
-caps['browserName'] = '';
-caps['platformVersion'] = '8.1';
-caps['platformName'] = 'Android';
-caps['app'] = 'storage:filename=<file-name>';
+caps = {
+    'platformName': 'Android',
+    'appium:platformVersion': '11',
+    'appium:deviceName': 'Samsung.*Galaxy.*',
+    'appium:orientation': 'portrait',
+    'appium:app': 'storage:filename=<file-name>',
+    'sauce:options': {
+        'username': 'SAUCE_USERNAME',
+        'accessKey': 'SAUCE_ACCESS_KEY'
+    }
+}
 ```
 
 </TabItem>
 <TabItem value="Ruby">
 
 ```rb
-caps = Selenium::WebDriver::Remote::Capabilities()
-caps['username'] = 'SAUCE_USERNAME'
-caps['accessKey'] = 'SAUCE_ACCESS_KEY'
-caps['deviceName'] = 'Samsung.*Galaxy.*'
-caps['orientation'] = 'portrait'
-caps['browserName'] = ''
-caps['platformVersion'] = '8.1'
-caps['platformName'] = 'Android'
-caps['app'] = 'storage:filename=<file-name>'
+caps = Selenium::WebDriver::Remote::Capabilities.new
+caps[:platform_name] = 'Android'
+caps['appium:platformVersion'] = '11'
+caps['appium:deviceName'] = 'Samsung.*Galaxy.*'
+caps['appium:orientation'] = 'portrait'
+caps['appium:app'] = 'storage:filename=<file-name>'
+caps['sauce:options'] = {}
+caps['sauce:options'][:username] = 'SAUCE_USERNAME'
+caps['sauce:options'][:accessKey] = 'SAUCE_ACCESS_KEY'
 ```
 
 </TabItem>
 <TabItem value="C#">
 
 ```csharp
-DesiredCapabilities caps = new DesiredCapabilities();
-    caps.SetCapability("username", "SAUCE_USERNAME");
-    caps.SetCapability("accessKey", "SAUCE_ACCESS_KEY");
-    caps.SetCapability("deviceName", "Samsung.*Galaxy.*");
-    caps.SetCapability("orientation", "portrait");
-    caps.SetCapability("browserName", "");
-    caps.SetCapability("platformVersion", "8.1");
-    caps.SetCapability("platformName", "Android");
-    caps.SetCapability("app", "storage:filename=<file-name>");
+AppiumOptions options = new AppiumOptions();
+options.AddAdditionalCapability("platformName", "Android");
+options.AddAdditionalCapability("appium:platformVersion", "11");
+options.AddAdditionalCapability("appium:deviceName", "Samsung.*Galaxy.*");
+options.AddAdditionalCapability("appium:app", "storage:filename=<file-name>");
+options.AddAdditionalCapability("appium:orientation", "portrait");
+var sauceOptions = new Dictionary<string, object>();
+sauceOptions.Add("username", "SAUCE_USERNAME");
+sauceOptions.Add("accessKey", "SAUCE_ACCESS_KEY");
+options.AddAdditionalCapability("sauce:options", sauceOptions);
 ```
 
 </TabItem>
 </Tabs>
 
 
-### Native vs. Hybrid Apps
-
-**iPhone 6 Real Device**
-
-```java
-{
-deviceName:'iPhone 6 Device',
-platformName:'iOS',
-platformVersion:'8.4',
-app:'storage:filename=SampleIOSApp.ipa',
-"appium-version":"1.4.16"
-}
-```
-
-**Samsung Galaxy S5 Real Device**
-
-```java
-{
-deviceName:'Samsung Galaxy S5 Device',
-platformVersion:'4.4',
-platformName:'Android',
-"appActivity": ".ContactManager",
-"appPackage": "com.example.android.contactmanager",
-app:"http://saucelabs.com/example_files/ContactManager.apk",
-"appium-version":"1.4.16"
-}
-```
-
-**Samsung Galaxy S4**
-
-```java
-{
-deviceName:'Samsung Galaxy S4 Device',
-platformVersion:'4.4',
-platformName:'Android',
-"appActivity": ".ContactManager",
-"appPackage": "com.example.android.contactmanager",
-app:"http://saucelabs.com/example_files/ContactManager.apk",
-"appium-version":"1.4.16"
-}
-```
-
-### Dynamic Device Allocation
-
-_Dynamic Allocation_ involves providing basic parameters for the platform and operating system, or the type of device you want to use in your tests, and a device with those specifications is selected from the device pool.
-
-While static allocation allows you more fine-grained control over the device used in your tests, it can also cause delays in your test execution if that device isn't available when you run your tests. If you only need to test on a particular platform and OS version, such as an Android 4.1, or on a particular type of device, you should use dynamic allocation, and we recommend that you use dynamic allocation for all automated mobile application testing in CI/CD environments.
-
-#### Required Capabilities
-
-Below are capabilities required for dynamic allocation of [iOS and/or Android real devices for your tests](/mobile-apps/automated-testing/appium/real-devices).
-
-<table>
-  <tr>
-   <td><strong>Capability</strong>
-   </td>
-   <td><strong>Capability Explanation</strong>
-   </td>
-  </tr>
-  <tr>
-   <td><a href="/dev/test-configuration-options#platformname"><code>platformName</code></a>
-   </td>
-   <td><p>Defines the type of mobile platform to use in your tests (i.e., Android or iOS). The values for capabilities are not case-sensitive, so <code>android</code> is the same as <code>Android</code>, and <code>ios</code> is the same as <code>iOS</code>.</p>
-   </td>
-  </tr>
-  <tr>
-   <td><a href="/dev/test-configuration-options#platformVersion"><code>platformVersion</code></a>
-   </td>
-   <td><p>The platform version to use in your tests, for example "4" or "4.1". This is a substring match. You can specify both major versions and incremental versions of an operating system.</p><p>For example, if you set only a major version 4, you also have access to all devices running incremental versions (e.g., "4.1"," 4.2", "4.2.1", "4.4.4").</p><p>This also extends to minor and point versions. For example, if you specify "11.4", it will match "11.4.0", "11.4.1".</p>
-
-   </td>
-  </tr>
-  <tr>
-   <td><a href="/dev/test-configuration-options#deviceName"><code>deviceName</code></a>
-   </td>
-   <td><p>The display name of the device to use, such as "Samsung S7". You can also use regular expressions for setting the <code>deviceName</code>. Some examples:</p>
-
-<p>To allocate any iPhone:</p><sub>
-
-    "iPhone.*", "iPhone .*"
-</sub>
-<p>To allocate any device with the word "nexus" in its display name.</p><sub>
-
-    ".*nexus.*"
-</sub>
-<p>To allocate either "iPhone 7" or "iPhone 6" device.</p><sub>
-
-    "iPhone [67]" or "iPhone [6-7]"
-</sub>
-<p>To allocate either "iPhone 7S" or "iPhone 6S" device.</p><sub>
-
-    "iPhone [67]S" or "iPhone [6-7]S"
-</sub>
-<p>To allocate "iPhone 7" or "iPhone 7S", or any device that starts with the display name "iPhone 7".</p><sub>
-
-    "iPhone 7.*"
-</sub>
-<p><strong>NOTE</strong>: Regular expressions are not case sensitive.</p>
-   </td>
-  </tr>
-</table>
-
-#### Optional Capabilities
-
-Below are optional capabilities for dynamic allocation of iOS and/or Android real devices for your tests.
-
-*  [`tabletOnly`](/dev/test-configuration-options#tabletOnly)
-*  [`phoneOnly`](/dev/test-configuration-options#phoneOnly)
-*  [`privateDevicesOnly`](/dev/test-configuration-options#privateDevicesOnly)
-*  [`publicDevicesOnly`](/dev/test-configuration-options#publicDevicesOnly)
-*  [`carrierConnectivityOnly`](/dev/test-configuration-options#carrierConnectivityOnly)
-*  [`cacheId`](/dev/test-configuration-options#cacheId)
-*  [`noReset`](/dev/test-configuration-options#noreset)
-*  [`recordDeviceVitals`](/dev/test-configuration-options#recordDeviceVitals)
-*  [`crosswalkApplication`](/dev/test-configuration-options#crosswalkApplication)
-*  [`autoGrantPermissions`](/dev/test-configuration-options#autoGrantPermissions)
-*  [`enableAnimations`](/dev/test-configuration-options#enableAnimations)
-
-
-### Static Device Allocation
-
-With _Static Allocation_, you can specify the device to use in your tests, but if that device is not available when you run your tests, it will delay test execution. For this reason, you should always make sure that the device you want to use is available before launching your tests. The `platformName` and `platformVersion` capabilities will be set by default, and if these are included in your test script, they will be ignored.
-
-| Capability | Setting |
-|------------|----|
-| `deviceName` | The ID of the device you want to use in your test (e.g., `LG_Nexus_5X_real`). To find a device's ID number, go to its listing in the device selection menu, then click **Details** . |
-
-
-### Device Caching
-
-#### **`cacheId` Capability**
-
-By default, every time you complete a test session, the real device cloud uninstalls your app, performs device cleaning, and de-allocates the device. This means that if you're running multiple tests on the same device, you would need to wait for this cleaning process to complete between every test.
-
-To get around this, you can use the capability `cacheId`, which keeps the device allocated to you for 10 seconds after each test completes. If you immediately start another test on the device, you won't need to wait for the allocation and device cleaning process to be repeated. In this case, no device cleaning will take place in between sessions, with the only exception being the application under test and the data it owns.
-
-
-<table>
-  <tr>
-   <td><strong>Capability</strong>
-   </td>
-   <td><strong>Setting</strong>
-   </td>
-  </tr>
-  <tr>
-   <td><code>cacheId</code></td>
-   <td><p>A random string. This value for cacheId must be the same for all test methods that you want to run on the cached device. In addition, the application and project ID used for the tests must remain the same, along with the values for these capabilities:</p>
-<ul>
-
-<li><code>deviceName</code></li>
-<li><code>platformName</code></li>
-<li><code>platformVersion</code></li>
-<li><code>tabletOnly</code></li>
-<li><code>phoneOnly</code></li>
-<li><code>privateDevicesOnly</code></li>
-<li><code>publicDevicesOnly</code></li>
-<li><code>automationName</code></li>
-<li><code>autoGrantPermissions</code></li>
-<li><code>appiumVersion</code></li>
-
-</ul>
-   </td>
-  </tr>
-</table>
-
-
-#### Using Device Caching with `noReset`
-
-You can also use the `cacheId` capability in conjunction with the standard noReset Appium capability. In the default case, where noReset is set to false, your application will be uninstalled and reinstalled after every test. If `noReset` is set to `true`, the application you are testing won't be reinstalled after every test run. This might save you further time, but it won't be suitable for test setups that require the application's state to be reset between tests. Note that then cacheId is set, no device cleaning will take place in between sessions, regardless of noReset value.
-
-
 ## Additional Test Configuration Options
 
-Once you're up and running with your real device tests, check out our [Best Practices](https://community.saucelabs.com/search?q=best+practice&search_type=tag;) for making the most of your testing. Here are some examples:
+Once you're up and running with your real device tests, check out our [Best Practices](https://community.saucelabs.com/search?q=best+practice&search_type=tag;) for making the most of your testing. Some possible configurations include:
 
-* [Test Configuration Options](/dev/test-configuration-options)
 * [Implement timeouts to control text execution times](/dev/test-configuration-options#timeouts)
 * [Add test annotations](/basics/test-config-annotation/test-annotation)
 * [Setting test status to pass or fail](/test-results/test-status)
 * [Use Build IDs and tags to differentiate and identify test runs](/basics/test-config-annotation/test-annotation)
-
-### Full Example Scripts
-
-These Appium script examples can help streamline your real device testing process.
-They use the [pytest](https://docs.pytest.org/en/latest/) test framework.
-Feel free to [clone these scripts directly from GitHub](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples),
-and follow the instructions in the [README file](https://github.com/saucelabs-training/demo-python#readme).
-
-* [conftest.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/conftest.py): this script initializes the test fixtures, as well as the prerequisite and post-requisite test tasks.
-* [test_login_success.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/test_login_success.py): this script represents an individual test.
-* [test_invalid_login.py](https://github.com/saucelabs-training/demo-python/blob/docs-1.0/examples/sauce_bindings/pytest/test_login_fail.py): this script represents an individual test.
-
-Visit our [sample test frameworks GitHub repository](https://github.com/saucelabs-sample-test-frameworks?utf8=%E2%9C%93&q=appium&type=&language=) for more detailed language-specific examples.
-
-:::note For Example Purposes Only
-The code in these scripts is provided on an "AS-IS” basis without warranty of any kind, either express or implied, including without limitation any implied warranties of condition, uninterrupted use, merchantability, fitness for a particular purpose, or non-infringement. Your tests and testing environments may require you to modify these scripts. Issues regarding these scripts should be submitted through <a href="https://github.com/saucelabs-training">Sauce Labs GitHub</a>. These scripts are not maintained by Sauce Labs Support.
-:::

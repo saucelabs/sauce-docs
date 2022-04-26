@@ -9,10 +9,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Capturing page load performance for a specific URL is a great start to detect opportunities to improve performance, but some performance testing requires user interaction to facilitate, such as page load following a successful login or submission of a form. The Sauce Labs custom WebDriver command allows you to trigger performance capturing within an automation script at a precise point of interaction, ensuring you can isolate any issues related to the current application state.
+Capturing page load performance for a specific URL is a great start to detect opportunities to improve performance, but some performance testing requires user interaction to facilitate, such as page load following a successful login or submission of a form. The Sauce Labs custom WebDriver command allows you to trigger performance capturing within an automation script at a precise point of interaction, ensuring you can isolate any issues related to the current app state.
 
 :::note
-Using automation to test performance after targeted interaction with your application in no way implies that you should integrate performance testing in your existing functional test suite. Testing function and performance in the same test is likely to result in compromised results for both objectives and can obscure failure troubleshooting.
+Using automation to test performance after targeted interaction with your app in no way implies that you should integrate performance testing in your existing functional test suite. Testing function and performance in the same test is likely to result in compromised results for both objectives and can obscure failure troubleshooting.
 :::
 
 ## What You'll Learn
@@ -99,6 +99,10 @@ options = {browser_name: browser_name,
 ## Implementing the Performance Command Assertion
 
 The custom `sauce:performance` command measures the performance output against a baseline of previously accepted performance values. If no baseline has been set, the Performance test will create one by measuring performance output 10 times to get an aggregate baseline. The command returns `pass` when the current results are within the baseline allowances or `fail` when the results fall outside the baseline. A fail result gives you the option to handle [regressions](#handle-regressions).
+
+:::caution
+Enabling performance capturing can add up to 60 seconds per URL change in a test. We, therefore, advise separating your performance tests from your functional tests. See our [Performance Requirements and Recommendations](https://docs.saucelabs.com/performance/about/#sauce-performance-requirements-and-recommendations) for more advice on optimizing your performance test results.
+:::
 
 ### Command
 

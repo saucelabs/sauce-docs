@@ -5,6 +5,12 @@ sidebar_label: Build from Spec File
 description: "The available spec files you can automatically generate from are: Swagger, RAML, OpenAPI 3, API Blueprint, I/O Docs, SOAP WSDL, and Postman Collection."
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export const Highlight = ({children, color}) => ( <span style={{
@@ -45,7 +51,7 @@ If you choose to upload your spec file, start by clicking the __Attach File__ bu
 
 ### Reference the Spec File
 
-You may also reference the specification file with a URL. Selecting the URL field in the dropdown will open the SPEC URL field.
+You may also reference the specification file with a URL. Selecting the URL field in the dropdown will open the SPEC URL field.
 
 Once you have chosen the file type and the method, click the Save button and you will be redirected to the next step where the available endpoints are listed in a dropdown. Choose the one that you wish to test and click "Continue." The test will then be created. You can now make any further adjustments, save and publish them for later use and scheduling.
 

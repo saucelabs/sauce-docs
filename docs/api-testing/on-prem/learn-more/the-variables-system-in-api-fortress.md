@@ -8,6 +8,12 @@ keywords:
     - planning
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 When an API Fortress test is executed, a variable stack is built. Every variable in the scope is accessible through API Fortress expressions and components.
 
 __The contribution to the variable stack happens in this order__:
@@ -28,35 +34,35 @@ Given the nature of these variables stores, a strategy naturally arises.
 ## Global Vault
 
 This is a place to store variables that live across the whole organization. Variables in this area are critical and generally stable.  
-  
+
 
 **Example:** assume your whole organization has two domains performing two different things, and that's all the testing you will do with API Fortress. Then two ideal domain\_1 and domain\_2 variables would be probably be placed here.
 
 ## Project Vault
 
 In this vault, you will store variables that serve as a common ground for all tests within a project.  
-  
+
 
 **Following our previous example**, assuming the two services need to use two different authentication tokens, then this is the place where an auth\_token variable should be stored.
 
 ## Test Global
 
 This is where you store variables that are specific to the test but are not related to a specific scenario.  
-  
+
 
 **For example**, if you're testing the /api/products API, then you can store the endpoint as a variable in the Test Global.
 
 ## Test Input Set
 
 This is where you store variables that are specific to a scenario.  
-  
+
 **For example**, if you're testing the /api/product/:id API, the ID is specific to a scenario, so that should be a variable in the input set. The ability to have multiple input sets in a set allows you to run a test against multiple scenarios.
 
 ## Environment / Overrides
 
 An environment (or override) is a set of variables that represent a temporary change in the premises of a test.
 
-  
+
 **For example** if, as a default, the domain variable reflects a production environment, but you occasionally want to run the test against a staging environment, this is where you redefine the variable. Being "environment" the last step prior to test execution, it will win over the default.
 
 :::note

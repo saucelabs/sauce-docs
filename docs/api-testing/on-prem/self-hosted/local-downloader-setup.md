@@ -10,6 +10,12 @@ keywords:
     - selfhosted
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 ## What it Does
 
 The API Fortress Remote Download Agent sits inside of your infrastructure to allow the platform to test systems that are not exposed externally.
@@ -18,7 +24,7 @@ It will listen to an HTTPS port for jobs requested by an API Fortress engine. Th
 
 No data is retained in the agent memory after job completion. The agent will use the DNS settings provided by the machine it’s installed on. Click here to learn more about the [Downloaders](/api-testing/on-prem/learn-more/downloader-101).
 
-## General Requirements 
+## General Requirements
 
 - **Software:** Java JRE 1.8 or greater
 - **Network:** the agent should be reachable by the designated API Fortress engine(s)
@@ -53,10 +59,10 @@ We will preconfigure the config.properties based on your needs.
 
 Here the main items:
 
-- **serviceName:** a human readable identifier of the downloader. 
-- **apikey:** unique to every downloader. Used by the API Fortress engine to authenticate. 
-- **secret:** used by the API Fortress engine to authenticate. 
-- **use_http (true)**: enables the HTTP server. 
+- **serviceName:** a human readable identifier of the downloader.
+- **apikey:** unique to every downloader. Used by the API Fortress engine to authenticate.
+- **secret:** used by the API Fortress engine to authenticate.
+- **use_http (true)**: enables the HTTP server.
 - **use_ssl (true):** enables the SSL encryption for the HTTP server.
 
 ### Running the Agent - NIX
@@ -72,6 +78,6 @@ Here the main items:
 
 Even though the agent does not require relevant system resources, it is a good practice to allow the agent to use as much memory as available. By editing the java\_opts script (.bat or .sh, depending on the platform) you can tweak the heap memory settings.
 
-:::note 
+:::note
 Remember that heap memory is not the only type of memory Java uses. Raising the heap to the system limits is not advised, and it will not work. If you are not familiar with these settings, the default will likely meet your requirements.
 :::

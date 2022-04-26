@@ -9,6 +9,12 @@ keywords:
     - kubernetes
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## What You'll Need
@@ -28,15 +34,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 ### Step 2 - Configure `apifortress.yml`
 
 1. Ensure that the cluster is capable of supporting the default image memory limits. The **apifortress** container is set for 8GB of memory. The optimal memory setting is 16GB, the minimum memory setting is 4GB;
-2. memorySettings (optional parameter) describe the minimum and maxium **heap memory** the process can use. Xmx should be set to 1/2 of the available memory of the process. You don't need to tweak these values if you don't change the overall available memory. 
+2. memorySettings (optional parameter) describe the minimum and maxium **heap memory** the process can use. Xmx should be set to 1/2 of the available memory of the process. You don't need to tweak these values if you don't change the overall available memory.
    This is an example of the setting to be placed among the environment variables:
    ```yaml
      - name: memorySettings
        value: '-Xms1024m -Xmx4098m'
    ```
-3. **Ensure that any critical key/value pairs have been defined.** The configuration files should be populated with the values submitted with the pre-configuration survey, but for safeties sake a user should ensure that **grailsServerUrl** has been passed the URL that the instance will be reached through, that  **license** has been passed a license key and that **adminEmail**, **adminFullName** and **companyName** have been defined. These values are all found in the **env** section of the `apifortress.yml` file. While it is not critical to deployment, it is **strongly recommended** that the user configures the mailer service as well. 
+3. **Ensure that any critical key/value pairs have been defined.** The configuration files should be populated with the values submitted with the pre-configuration survey, but for safeties sake a user should ensure that **grailsServerUrl** has been passed the URL that the instance will be reached through, that  **license** has been passed a license key and that **adminEmail**, **adminFullName** and **companyName** have been defined. These values are all found in the **env** section of the `apifortress.yml` file. While it is not critical to deployment, it is **strongly recommended** that the user configures the mailer service as well.
    This section in **`env`:**
-   
+
    ```yaml
    env:
      - name: apifortressMailEnabled
@@ -81,7 +87,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ### Step 3 - Configure `dependencies.yml`
 
-Each of the database services in `dependencies.yml` has a preconfigured definition for the amount of disk space allocated to the service. These values can be edited to match the available disk space that you wish to provide for said services. 
+Each of the database services in `dependencies.yml` has a preconfigured definition for the amount of disk space allocated to the service. These values can be edited to match the available disk space that you wish to provide for said services.
 
 For **MongoDB** the proposed memory setting is 8Gi. The minimum is 1Gi, the optimal is 16Gi. However, for the inner workings of MongoDB, any increase in memory will result in better performance. For **PostgreSQL** the proposed memory setting is 1Gi which is considered also an optimal setting. The minimum is 512Mi.
 
@@ -131,7 +137,7 @@ kubectl create -f apifortress.yml
 
 ### Step 5 - Verify
 
-Access the platform with the URL provided in the `apifortress.xml` file. Login using the default admin username and the default password (`"foobar"` - change it ASAP). 
+Access the platform with the URL provided in the `apifortress.xml` file. Login using the default admin username and the default password (`"foobar"` - change it ASAP).
 
 You should now be able to access the API Fortress Dashboard.
 
@@ -151,11 +157,11 @@ Choose “Downloaders” from the list of actions and click on the “Add Downlo
 
 Fill in the following fields:
 
-* **Name:** Write a recognizable name. 
-* **Location:** A representation of where the downloader is. ie. Chicago 
-* **Latitude / Longitude:** The geographical position of the downloader. 
-* **Last Resort:** Check this to make it the default downloader used. 
-* **URL:** The address of the downloader, followed by port (default `8819`) and path `/api`. In our Kubernetes deployment, our downloader address would be 
+* **Name:** Write a recognizable name.
+* **Location:** A representation of where the downloader is. ie. Chicago
+* **Latitude / Longitude:** The geographical position of the downloader.
+* **Last Resort:** Check this to make it the default downloader used.
+* **URL:** The address of the downloader, followed by port (default `8819`) and path `/api`. In our Kubernetes deployment, our downloader address would be
   ```
   https://downloader.apifortress.svc:8819/api
   ```
@@ -183,7 +189,7 @@ Open the HTTP client from the tools drop-down menu in API Fortress. Attempt to c
 Users per agent are the maximum number of virtual users that each Load Agent can provide.
 
 :::note Important!
-Large numbers of simulated users will require large amounts of hardware resources. Contact your DevOps team to develop a strategy for resource allocation. 
+Large numbers of simulated users will require large amounts of hardware resources. Contact your DevOps team to develop a strategy for resource allocation.
 :::
 
 - Locate and open the file named _application.conf_. It is located in the _core-server-etc_ directory.
@@ -200,7 +206,7 @@ Large numbers of simulated users will require large amounts of hardware resource
 - Next, we need to provide the API Key and Secret.
     - Open the main API Fortress dashboard and click the gear icon in the upper right corner to access the settings menu
     - Click the “_API Keys_” option in the left sidebar.
-    - Click “_+API Key”_ 
+    - Click “_+API Key”_
 
  <img src={useBaseUrl('img/api-fortress/2018/06/CreateAPIKey.gif')} alt="CreateAPIKey.gif"/>
 
@@ -296,7 +302,7 @@ kubectl get pods
 Now we will start with backing up the postgres disk, please run the following two commands in order:
 
 ```
-kubectl exec -ti postgres-0 -- bash -c "pg_dump -U apipulse > apifortress_postgres.sql" 
+kubectl exec -ti postgres-0 -- bash -c "pg_dump -U apipulse > apifortress_postgres.sql"
 kubectl cp postgres-0:apifortress_postgres.sql apifortress_postgres.sql
 ```
 

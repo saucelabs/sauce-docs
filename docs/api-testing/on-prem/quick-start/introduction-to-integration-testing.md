@@ -5,9 +5,15 @@ sidebar_label: Intro to Integration Testing
 description: "Integration testing is a core feature of the API Fortress platform. Watch our video about how to write an Integration Test. Follow along with the demo video in the API Fortress platform here: Quick Integration Demo. Integration testing is critical to creating a strong API testing strategy. Microservices are built to work together."
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Integration testing is a core feature of the API Fortress platform. Watch our video about how to write an [Integration Test](https://www.youtube.com/watch?v=eQ8WFGFHq4I&feature=youtu.be). 
+Integration testing is a core feature of the API Fortress platform. Watch our video about how to write an [Integration Test](https://www.youtube.com/watch?v=eQ8WFGFHq4I&feature=youtu.be).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eQ8WFGFHq4I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -29,7 +35,7 @@ Next, we need to use this token to make further calls to the application.
 
 ## Setting a Variable
 
-First, we need to assign the token to a variable. Variables are used to store data temporarily for a test. You can use the API Fortress Vault for more permanent variables ([learn more about variables here](/api-testing/on-prem/quick-start/the-vault#variable-section)). 
+First, we need to assign the token to a variable. Variables are used to store data temporarily for a test. You can use the API Fortress Vault for more permanent variables ([learn more about variables here](/api-testing/on-prem/quick-start/the-vault#variable-section)).
 
 We do this so we don’t have to manually invoke or set a variable every time it is needed. Next, add a `“Set”` component, and enter the information as seen in the image below.
 
