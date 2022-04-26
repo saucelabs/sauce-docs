@@ -374,6 +374,16 @@ module.exports = {
           label: 'Platform Integrations',
           collapsed: true,
           items: [
+        {
+                type: 'category',
+                label: 'Android',
+                collapsed: true,
+                items: [
+                    'error-reporting/platform-integrations/android/setup',
+                    'error-reporting/platform-integrations/android/configuration',
+                    'error-reporting/platform-integrations/android/proguard-deobfuscation',
+                ],
+            },
             {
               type: 'category',
               label: 'Unity',
