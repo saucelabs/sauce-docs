@@ -182,7 +182,11 @@ final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.eu-cent
 
 ## API Testing Setup
 
-See [API Testing with Sauce Connect Proxy](/api-testing/sauce-connect/) to learn how to start a tunnel for API Testing.
+See [API Testing with Sauce Connect Proxy](/api-testing/sauce-connect/) to learn how to start a tunnel for API Testing, using one of the following endpoints:
+* US-West: `https://api.us-west-4-i3er.saucelabs.com/rest/v1`
+* EU-Central: `https://api.eu-west-3-lnbf.saucelabs.com/rest/v1`
+
+This setup requires the use of a YAML config file, where you'll need to reference the above endpoints as `region: us-west` and `region: eu-central`, respectively.
 
 
 ## More Information
