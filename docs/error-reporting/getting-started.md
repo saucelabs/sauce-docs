@@ -12,7 +12,7 @@ Capture crash and error reports from your games and mobile apps with Backtrace.
   <h3>Platform Integrations</h3>
   <p>Integrate Backtrace in your games and apps across languages and platforms with our crash and error reporting libraries.</p>
   <ul>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040515611-Android-Integration-Guide">Android</a></li>
+    <li><a href="/error-reporting/platform-integrations/android/setup/">Android</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040104932-Integrating-Apache-Traffic-Server">Apache Traffic Server</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040106132-Breakpad-Integration-Guide">Breakpad</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040105292-C-Integration-Guide">C#</a></li>
