@@ -180,27 +180,9 @@ final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.eu-cent
 </Tabs>
 
 
-## Headless Setup
-Sauce Headless is a lightweight infrastructure that allows developers to run early pipeline component tests and sanity checks at scale. It is a container-based architecture for the Virtual Machines that host our headless browsers.
-
-At present, Sauce Headless testing is supported in the following data centers:
- - US East Data Center (`us-east`)
-
-Example of starting Sauce Connect Proxy in conjunction with your Sauce Headless tests:
-
-```bash
-./sc -u $SAUCE_USERNAME
-     -k $SAUCE_ACCESS_KEY \
-     -r us-east \
-     --tunnel-identifier $TUNNEL_IDENTIFIER
-```
-
-
 ## API Testing Setup
 
-See [API Testing with Sauce Connect Proxy](/api-testing/sauce-connect/) to learn how to start a tunnel for API Testing. It requires the use of a YAML config file.
-
-This setup has a unique endpoint, `https://api.us-west-4-i3er.saucelabs.com/rest/v1`. Currently, only the US-West region is supported.
+See [API Testing with Sauce Connect Proxy](/api-testing/sauce-connect/) to learn how to start a tunnel for API Testing.
 
 
 ## More Information

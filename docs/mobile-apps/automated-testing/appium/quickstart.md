@@ -82,6 +82,7 @@ If you are using an IDE, such as IntelliJ, open the `quickstart-appium-java` pro
 Alternatively, you can run the following command in your terminal:
 
 ```bash title="Terminal Command"
+cd quickstart-appium-java
 mvn clean test
 ```
 
