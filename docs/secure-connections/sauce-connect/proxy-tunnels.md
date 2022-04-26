@@ -10,10 +10,10 @@ import TabItem from '@theme/TabItem';
 
 ## What You'll Need
 
-* If you haven't already, make sure you can cURL or ping the website or mobile app that you'll be testing from your computer. If you can't reach it, neither can Sauce Connect Proxy.
+* If you haven't already, make sure you can cURL the website or mobile app that you'll be testing from your computer. If you can't reach it, neither can Sauce Connect Proxy.
 * Check to see if you have any proxies that are required to access the public Internet.
 * Review the [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for instructions on how to set your Sauce Labs username and access key and launch a tunnel.
-* If you're using Jenkins or Bamboo, be sure to review [Sauce Connect Proxy CI/CD Integration](/secure-connections/sauce-connect/setup-configuration/ci-cd-integration).
+* If you're using Jenkins, GitHub Actions, or Bamboo, be sure to review [Sauce Connect Proxy CI/CD Integration](/secure-connections/sauce-connect/setup-configuration/ci-cd-integration).
 
 ## Best Practice for Using Tunnels
 We recommend using a single Sauce Connect Proxy tunnel or tunnel pool for each test suite or build, and tearing it down at the end of your test. Your test automation framework should launch Sauce Connect Proxy before the test suite is triggered and shut it down when the suite finishes.
@@ -330,7 +330,7 @@ As of Sauce Connect Proxy version 4.7.x, the metrics server is disabled by defau
 --metrics-address 1.2.3.4:80 # listens on 1.2.3.4 port 80
 ```
 
-### Viewing Performance Metrics
+### Viewing Sauce Connect Proxy Metrics
 You can view performance metrics by using an HTTP client or web browser to access `http://{SauceConnect IP}:{metrics address}/debug/vars`.
 Once you've got access, the performance metrics will typically look like this:
 
@@ -441,7 +441,7 @@ It can also be used to simulate non-loading of scripts, styles, or other resourc
 #### Configuring Tunnel or Direct Domains
 * Use only the domain name. Do not precede it with the scheme like `http://` or `https://`.
   * Example: `mydomain.com`
-* Use wildcards to include subdomains by prefix domain name with `.`
+* Use wildcards to include subdomains by prefixing domain name with a dot `.`
   * Example: `.mydomain.com` will include `sub.mydomain.com` and `sub1.mydomain.com` but not `sub.myotherdomain.com`
 * See [`Formatting domains for CLI`](/dev/cli/sauce-connect-proxy/#formatting-domains)
 * Configuring domains in [YAML config file](/secure-connections/sauce-connect/setup-configuration/yaml-config/)

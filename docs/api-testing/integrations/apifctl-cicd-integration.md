@@ -483,3 +483,6 @@ Specifies the number of events and metrics to be skipped from the beginning of t
 ```bash
 -o 10
 ```
+## More Information
+
+* [API Testing API Methods](/dev/api/api-testing/)
