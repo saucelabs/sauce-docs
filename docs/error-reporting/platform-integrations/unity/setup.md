@@ -96,12 +96,12 @@ This installation method is supported for Unity 2018.3 or higher.
 1. Complete the steps in [Installing from a Git URL](https://docs.unity3d.com/Manual/upm-ui-giturl.html) in the Unity Documentation.
 
 </TabItem>
-<TabItem value="hub" label="BacktraceHub">
+<TabItem value="hub" label="Backtrace Hub">
 
-1. Download the installer for the [BacktraceHub](https://drive.google.com/file/d/1hbSmqMSBEep00pHVLPUpTVsj5K_O8Jq6/view).
+1. Download the installer for the [Backtrace Hub](https://drive.google.com/file/d/1hbSmqMSBEep00pHVLPUpTVsj5K_O8Jq6/view).
 1. Double-click to open the file.
-1. In the dialog for the BacktraceHub Installer, click **Install Now**. <br/> After the installation is complete, you can download the Backtrace Plugin from the BacktraceHub.
-1. From the **BacktraceHub**, for the **Backtrace Plugin**, click **Install**.
+1. In the dialog for the Backtrace Hub Installer, click **Install Now**. <br/> After the installation is complete, you can download the Backtrace Plugin from the Backtrace Hub.
+1. From the **Backtrace Hub**, for the **Backtrace Plugin**, click **Install**.
 
 </TabItem>
 </Tabs>
