@@ -37,7 +37,6 @@ The ability to capture the battery status when a device is in power saving mode 
 * arm32/arm64
 * x86_64
 
-
 ## What You'll Need
 * A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
 * Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
