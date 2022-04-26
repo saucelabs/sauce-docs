@@ -5,10 +5,12 @@ sidebar_label: Welcome
 description: Landing Page for Sauce Labs Documentation
 hide_table_of_contents: true
 ---
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
+    <img src={useBaseUrl('img/overview/live-testing.svg')} alt="live testing icon" width="20px"/>
     <h2>Live Testing</h2>
     <p>Browse through the Live Testing documentation to manually test your app on Sauce Labs Cloud.</p>
     <ul>
@@ -19,6 +21,7 @@ hide_table_of_contents: true
   </div>
   <div className="box box2 card">
     <div className="container">
+    <img src={useBaseUrl('img/overview/automated.svg')} alt="automated testing icon" height="20px"/>
     <h2>Automated Testing</h2>
     <p>Browse through the Automated Testing documentation to see examples of how to execute tests in your preferred automation framework.</p>
     <ul>
@@ -30,6 +33,7 @@ hide_table_of_contents: true
   </div>
   <div className="box box3 card">
     <div className="container">
+    <img src={useBaseUrl('img/overview/tunnel.svg')} alt="sauce trust connection icon" width="20px"/>
     <h2>Sauce Trusted Connection</h2>
     <p>Browse the security documentation to learn how to communicate with Sauce Labs Cloud from your private network.</p>
     <ul>
@@ -40,6 +44,7 @@ hide_table_of_contents: true
   </div>
   <div className="box box4 card">
     <div className="container">
+    <img src={useBaseUrl('img/overview/cicd.svg')} alt="ci cd icon" width="20px"/>
     <h2>CI / CD</h2>
     <p>Browse the continuous integration and continuous delivery documentation to explore how to integrate Sauce Labs into your DevOps pipeline.</p>
     <ul>

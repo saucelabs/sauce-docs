@@ -158,14 +158,14 @@ For troubleshooting specific errors or common issues, see [Troubleshooting](/sec
 When launching a Sauce Connect Proxy tunnel for automated web and mobile app tests, you have two options:
 * Launch a Sauce Connect tunnel as-is, without naming it. That default, unnamed tunnel will automatically be used for all automated tests. This can be useful for small organizations with a limited number of tests.
 * **Recommended**: Assign a name to help distinguish tunnels in a way that is meaningful to your organization. To accomplish this:
-  * Use the [ `--tunnelIdentifier` flag](/dev/cli/sauce-connect-proxy/#--tunnel-identifier-or---tunnel-identifier) when you launch a tunnel.
+  * Use the [ `--tunnel-identifier` flag](/dev/cli/sauce-connect-proxy/#--tunnel-identifier-or---tunnel-identifier) when you launch a tunnel.
   * Specify the named tunnel in your automated tests by adding the [`tunnelIdentifier`](/dev/test-configuration-options#tunnelIdentifier) capability.
 
 #### Example Configurations
 
 The following code samples demonstrate specifying a tunnel name when launching a tunnel and then referencing that tunnel in your automated test.
 
-Launch a new tunnel on the `SC_HOST` using the [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy) and the `--tunnelIdentifier` flag:
+Launch a new tunnel on the `SC_HOST` using the [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy) and the `--tunnel-identifier` flag:
 
 <Tabs
   defaultValue="macOS/Linux"
@@ -177,7 +177,7 @@ Launch a new tunnel on the `SC_HOST` using the [Sauce Connect Proxy CLI](/dev/cl
 <TabItem value="macOS/Linux">
 
 ```bash
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DC --tunnelIdentifier sc-proxy-tunnel
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DC --tunnel-identifier sc-proxy-tunnel
 ```
 
 </TabItem>
@@ -185,7 +185,7 @@ Launch a new tunnel on the `SC_HOST` using the [Sauce Connect Proxy CLI](/dev/cl
 <TabItem value="Windows">
 
 ```bash
-.\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -r %SAUCE_DC% --tunnelIdentifier sc-proxy-tunnel
+.\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -r %SAUCE_DC% --tunnel-identifier sc-proxy-tunnel
 ```
 
 </TabItem>

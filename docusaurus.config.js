@@ -12,7 +12,8 @@ const docusaurusConfig = {
   organizationName: 'saucelabs',
   projectName: 'sauce-docs',
   scripts: [
-      "/scripts/hide.js",
+    '/scripts/hide.js',
+    // Need Help? button
     {
       src: 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
       type: 'text/javascript',
@@ -20,27 +21,13 @@ const docusaurusConfig = {
       'data-domain-script': '9e4c4ce3-8349-4030-9de7-0b1d368edfce',
     },
     {
-      src: "https://solve-widget.forethought.ai/embed.js",
-      type: "application/javascript",
-      'data-api-key': "1f0243be-fd74-4205-bbff-cf72bc3c96b3",
-      'data-ft-location': "docs",
+      src: 'https://solve-widget.forethought.ai/embed.js',
+      type: 'application/javascript',
+      'data-api-key': '1f0243be-fd74-4205-bbff-cf72bc3c96b3',
+      'data-ft-location': 'docs',
     },
   ],
   themeConfig: {
-    googleAnalytics: {
-      trackingID: 'UA-6735579-1',
-    },
-    // announcementBar: {
-    //   id: 'site_announcement', // Any value that will identify this message.
-    //   content:
-    //   '<button class="announcementBarBadge">NEW</button> Our improved documentation is here! <a target="_blank" rel="noopener noreferrer" href="mailto:docsfeedback@saucelabs.com"><button class="announcementBar">Tell us what you think</button></a>',
-    //   backgroundColor: '#0D65BE', // Defaults to `#fff`.
-    //   textColor: '#F0F0F0', // Defaults to `#000`.
-    //   isCloseable: true, // Defaults to `true`.
-    // },
-    googleAnalytics: {
-      trackingID: 'UA-6735579-1',
-    },
     hideableSidebar: true,
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
@@ -112,6 +99,7 @@ const docusaurusConfig = {
         // },
       ],
     },
+    /* this is a swizzled component, see inside theme folder */
     footer: {
       logo: {
         alt: 'Sauce Logo',
@@ -120,7 +108,7 @@ const docusaurusConfig = {
       },
       style: 'light',
       links: [],
-      copyright: `Copyright © ${new Date().getFullYear()} Sauce Labs, Inc. Built with Docusaurus.`,
+      copyright: `© ${new Date().getFullYear()} Sauce Labs, Inc. SAUCE and SAUCE LABS are registered trademarks owned by Sauce Labs Inc. in the United States, EU, and may be registered in other jurisdictions.`,
     },
   },
   presets: [
@@ -132,10 +120,25 @@ const docusaurusConfig = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           path: 'docs',
+          breadcrumbs: true,
           routeBasePath: '/',
           editUrl: 'https://github.com/saucelabs/sauce-docs/edit/main/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
+        },
+        googleAnalytics: {
+          trackingID: 'UA-6735579-1',
+        },
+        // announcementBar: {
+        //   id: 'site_announcement', // Any value that will identify this message.
+        //   content:
+        //   '<button class="announcementBarBadge">NEW</button> Our improved documentation is here! <a target="_blank" rel="noopener noreferrer" href="mailto:docsfeedback@saucelabs.com"><button class="announcementBar">Tell us what you think</button></a>',
+        //   backgroundColor: '#0D65BE', // Defaults to `#fff`.
+        //   textColor: '#F0F0F0', // Defaults to `#000`.
+        //   isCloseable: true, // Defaults to `true`.
+        // },
+        googleAnalytics: {
+          trackingID: 'UA-6735579-1',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -151,7 +154,7 @@ if (!process.env.SAUCE_DOCS_DEV) {
   docusaurusConfig.themeConfig.algolia = {
     appId: process.env.ALGOLIA_APP_ID || 'RO95H65NEO',
     apiKey: process.env.ALGOLIA_KEY || 'demo-key' || 'bad6042c91ae4419a94229edf20bc8ea',
-    indexName: 'saucelabs',
+    indexName: "Sauce Docs Crawler",
   };
 }
 

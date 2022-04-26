@@ -53,16 +53,8 @@ To add custom crash properties to be included in your crash and error reports, y
 
 Custom attributes are not indexed by default and therefore cannot be used in queries until they've been indexed. For more information about indexing, see [Indexing Attributes](/error-reporting/project-setup/attributes/).
 
-  <Tabs
-    groupId="platforms"
-    defaultValue="windowslinux"
-    values={[
-      {label: 'Windows and Linux', value: 'windowslinux'},
-      {label: 'Android', value: 'android'},
-      {label: 'iOS', value: 'ios'},
-    ]}>
-
-  <TabItem value="windowslinux">
+<Tabs>
+<TabItem value="windowslinux" label="Windows and Linux" default>
 
 You can add custom attributes with the Unreal Engine C++ API, by using `FGenericCrashContext::SetGameData` to add metadata to the crash context.
 
@@ -76,7 +68,7 @@ static void SetGameData
 For more information, see [SetGameData](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Core/GenericPlatform/FGenericCrashContext/SetGameData/).
 
 </TabItem>
-<TabItem value="android">
+<TabItem value="android" label="Android">
 
 Add the following to your initialization code:
 
@@ -88,7 +80,7 @@ BacktraceIO::FInitializeBacktraceClient(BacktraceAttributes, Attachments);
 ```
 
 </TabItem>
-<TabItem value="ios">
+<TabItem value="ios" label="iOS">
 
 - Swift:
   ```swift
