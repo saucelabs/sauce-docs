@@ -694,7 +694,6 @@ Provides details related to the Cypress test configuration that are relevant for
         env:
           hello: world
         testFiles: [ "**/*.spec.js" ]
-        headless: false
 ```
 ---
 
@@ -731,12 +730,14 @@ One or more paths to the Cypress test files to run for this suite, if not otherw
 
 ---
 
-#### `headless`
+### `headless`
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Controls whether or not tests are run in headless mode.
 
 ```yaml
+  suites:
+    - name: "Hello"
       headless: true
 ```
 
