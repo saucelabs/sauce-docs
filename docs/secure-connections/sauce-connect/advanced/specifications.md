@@ -1,6 +1,6 @@
 ---
 id: specifications
-title: Sauce Connect Proxy™ Specifications
+title: Sauce Connect Proxy Specifications
 sidebar_label: Specifications
 ---
 
@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-If you're a security or network administrator, you may find it useful to review the Sauce Connect Proxy™ specifications to better evaluate its security.
+If you're a security or network administrator, you may find it useful to review the Sauce Connect Proxy specifications to better evaluate its security.
 
 ## What You'll Need
 - Have a working understanding of [Sauce Connect Proxy architecture](/secure-connections/sauce-connect/advanced/architecture).
