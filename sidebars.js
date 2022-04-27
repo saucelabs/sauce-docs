@@ -376,6 +376,14 @@ module.exports = {
           items: [
         {
                 type: 'category',
+                label: 'Real-Devices',
+                collapsed: true,
+                items: [
+                    'error-reporting/platform-integrations/real-devices/setup',
+                ],
+            },
+        {
+                type: 'category',
                 label: 'Android',
                 collapsed: true,
                 items: [
@@ -408,7 +416,7 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'View and Analyze Error Data',
+          label: 'View and Analyze Crash and Error Data',
           collapsed: true,
           items: [
             'error-reporting/web-console/getting-started',
