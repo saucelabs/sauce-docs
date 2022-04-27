@@ -20,21 +20,24 @@ The API Testing Composer enables you to quickly generate API functional tests (n
 
 1. In Sauce Labs, click **API Testing**.
 
-  <img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
+  <img src={useBaseUrl('/img/api-testing/api-testing-nav.png')} alt="Navigating to API Testing" width="400"/>
 
-2. On the **Projects** page, click a project.
+2. On the **Projects** page:
+  * If the project has no tests yet, in the **Write your own test** box, click **Use Composer**.
 
-<img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
+  <img src={useBaseUrl('/img/api-testing/composer-nav.png')} alt="Navigating to the Composer" width="700"/>
 
-3. On the **Tests** page:
-  * If the project has no tests yet, click **Use the Composer with predictive text to build a test.**
-  <br/><img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
   * If your project has tests, click **Create Test** and then click **From Scratch**.
-  <br/><img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
+
+  <img src={useBaseUrl('/img/api-testing/test-create-from-scratch-nav.png')} alt="Navigating to the New Test window" width="800"/>
+
 4. In the **New Test** box, enter a test name, test description (optional), and tags (optional), and then click **Save**.
-<br/><img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
+
+<img src={useBaseUrl('/img/api-testing/test-create-new-test.png')} alt="New Test window" width="600"/>
+
 5. On the **Compose** tab, make sure the **Input** and **Visual** views are toggled on.
-<br/><img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
+
+<img src={useBaseUrl('/img/api-testing/input-visual-on.png')} alt="Input and Visual settings on" width="500"/>
 
 :::note
 You can use either the **Visual** composer (guides you through building components, with no coding required) or the **Code** composer (requires you to write code from scratch). For this guide, we're using **Visual**.
@@ -44,7 +47,8 @@ For more information, see [Input Sets](/api-testing/composer/#input-sets) and [V
 
 ### Edit a Test
 To edit a test at any time, on the **Projects** page, on the **Tests** tab, hover over a test name and then click **Edit Test**.
-<br/><img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
+
+<img src={useBaseUrl('/img/api-testing/edit-test-nav.png')} alt="Navigating to the test editor" width="800"/>
 
 ### Add Test Components
 When test components are combined, they act as our test logic. There are three component types available in API Testing:
@@ -54,42 +58,63 @@ When test components are combined, they act as our test logic. There are three c
 
 #### Add an I/O Request Test Component
 To create a simple `GET` request and validate that response is correct:
-  1. In API Testing, on the **Project** page, click the **Add component** button.
-  <br/><img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
+  1. In API Testing, on the **Compose** page, click the **Add component** button.
+
+  <img src={useBaseUrl('/img/api-testing/add-component-nav.png')} alt="Navigating to the Add component screen"/>
+
   2. In the list of component options, click the **GET** component.
-  <br/><img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
-  3. In the **GET request** window, in the **Url** field, enter **https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions**.
+
+  <img src={useBaseUrl('/img/api-testing/get-request-nav.png')} alt="Navigating to the GET request window" width="500"/>
+
+  3. In the **GET request** window, in the **Url** field, enter **ht<span>tps://</span>api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions**.
 
   This URL will return a json response body.
   4. In the **Variable** field, enter **payload**. This variable stores the response.
-  <br/><img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
-  5. Leave the rest of the fields blank and then click **Save**. The result should look like the following:
-  <br/><img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
+
+  <img src={useBaseUrl('/img/api-testing/get-request-window.png')} alt="Editing in the GET request window"/>
+
+  5. Leave the rest of the fields blank and then click the **Confirm changes** icon.
+
+  <img src={useBaseUrl('/img/api-testing/get-request-confirm-changes.png')} alt="Confirm changes icon" width="500"/>
+
+  The result should look like the following:
+
+  <img src={useBaseUrl('/img/api-testing/get-request-final.png')} alt="What the GET request should look like"/>
 
 For more information, see [I/O Request Test Components](/api-testing/composer/io-components/).
 
 #### Add an Assertion Component
-1. In API Testing, on the **Project** page, click the **Add component** button.
+1. In API Testing, on the **Compose** page, click the **Add component** button.
+
+  <img src={useBaseUrl('/img/api-testing/add-component-nav.png')} alt="Navigating to the Add component screen" width="600"/>
+
 2. In the list of component options, click the **Assert Exists** component.
+
+  <img src={useBaseUrl('/img/api-testing/assert-exists-nav.png')} alt="Navigating to the Assert exists window"/>
+
 3. In the **Assert exists** window, in the **Expression** field, enter `payload.downloads`. This expression checks for the **downloads** field in the json response body.
-<br/><img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
+
 4. Leave the rest of the fields blank and click the checkmark to confirm the changes.
+
+  <img src={useBaseUrl('/img/api-testing/assert-exists-window.png')} alt="Confirm changes"/>
+
+5. The result should look like the following:
+
+  <img src={useBaseUrl('/img/api-testing/assert-exists-final.png')} alt="What the Assert request should look like"/>
 
 For more information, see [Assertion Test Components](/api-testing/composer/assertion-components/).
 
 ### Run the Test
 In the Composer, click the **Save** icon and then click **Run**.
 
-<br/><img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
+<img src={useBaseUrl('/img/api-testing/run-test-save-run.png')} alt="Save and Run icons in the Composer"/>
 
 All test runs appear to the right of the Composer, under the test details and environment sections.
 
-<br/><img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
+<img src={useBaseUrl('/img/api-testing/test-runs.png')} alt="Test Runs in the Composer" width="350"/>
 
 ### Review Test Results
-To view your results, on the **Projects** page, on the **Tests** tab, click on the test run. This will open the **Test Outcome Report**. For more information, see [Test Outcome Report](/api-testing/project-dashboard/#test-outcome-report).
-
-<br/><img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
+To view your results, in the Composer, in the **Test Runs** list, click the name of the test. This will open the **Test Report Details**. For more information, see [Test Outcome Report](/api-testing/project-dashboard/#test-outcome-report).
 
 ## Compose a Request Body
 There are several ways you can compose a request body in Sauce Labs API Testing, ranging from simple to complex.
@@ -106,15 +131,19 @@ In this method, you copy an existing body and paste it into the call.
     * Variable (the name of the variable that contains the response) - `payload`
     * Mode (the response type) - `json`
 
-<img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="250"/>
+    <img src={useBaseUrl('/img/api-testing/post-request-window.png')} alt="The POST request window"/>
 
-2. Add the **body** component and, after selecting the **Content-Type**, paste the body in the **Content** field.
+2. At the bottom of the **POST request** window, click **Add Body**.
+
+    <img src={useBaseUrl('/img/api-testing/post-request-add-body-nav.png')} alt="Navigating to the Post body window"/>
+
+3. Use the following in the Post body fields:
     * Content-Type - `application/json`
     * Content (the body required in your call) - `{"method":"post","url":"http://www.testme.com/api/run/test"}`
 
-<img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="250"/>
+    <img src={useBaseUrl('/img/api-testing/post-body-window.png')} alt="The Post body window"/>
 
-3. Execute the call and proceed with the test.
+4. Click the click the **Confirm changes** icon and proceed with the test.
 
 ### Use Variables in the Request Body
 
@@ -123,23 +152,27 @@ In this method, you copy an existing body and paste it into the call.
     * Variable (the name of the variable that contains the response) - `payload`
     * Mode (the response type) - `json`
 
-<img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="250"/>
+    <img src={useBaseUrl('/img/api-testing/post-request-window.png')} alt="The POST request window"/>
 
-2. Add the **body** component. Select the relevant **Content-Type**. The example scenario requires a variable, so enter the following code in the **Content** field:
+2. At the bottom of the **POST request** window, click **Add Body**.
 
-   ```json   
-   {
-    "user": "${user}",
-    "password": "${password}",
-    "url": "http://www.testme.com/api/run/test"
-   }
-   ```     
+    <img src={useBaseUrl('/img/api-testing/post-request-add-body-nav.png')} alt="Navigating to the Post body window"/>
 
-   `user` and `password` are not directly passed in the body, but they are variables defined in a data set or stored in the vault (or environments).
+3. Select the relevant **Content-Type** and enter the following in the **Content** field:
 
-<img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="250"/>
+    ```json   
+    {
+     "user": "${user}",
+     "password": "${password}",
+     "url": "http://www.testme.com/api/run/test"
+    }
+    ```
 
-3. Execute the **POST**.
+    <img src={useBaseUrl('/img/api-testing/post-body-window-2.png')} alt="The Post body window"/>
+
+    `user` and `password` are not directly passed in the body, but they are variables defined in a data set or stored in the vault (or environments).
+
+4. Click the **Confirm changes** icon and proceed with the test.
 
 ### Use a Variable from Another Call
 
@@ -147,27 +180,37 @@ In this method, you copy an existing body and paste it into the call.
     * Url (the url of the resource you want to test) - `https://domain/login`
     * Variable (the name of the variable that contains the response) - `payload`
     * Mode (the response type) - `json`
+
+    <img src={useBaseUrl('/img/api-testing/get-request-window-2.png')} alt="GET request window"/>
+
+2. At the bottom of the request window, click **Add Header**.
+
+    <img src={useBaseUrl('/img/api-testing/get-request-add-header-nav.png')} alt="Navigating to the Header window"/>
+
+3. In the **Header** window, enter the following:
     * Name - `Authorization`
     * Value (from encoding `username:password` in Base64) - `Basic YWRtaW46cGFzc3dvcmQ=`
 
-<img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="250"/>
+    <img src={useBaseUrl('/img/api-testing/get-request-header-window.png')} alt="The Header window"/>
 
-2. When you execute the login the response will be the desired token.
+4. Click the **Confirm changes** icon.
 
-<img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="250"/>
+5. The response payload from the login call will contain the desired token. Let's use the following as an example response.
+
+    <img src={useBaseUrl('/img/api-testing/response-token.png')} alt="An example response"/>
 
 3. Save the token as a variable using a `SET` component.
     * Var (the variable name) - `token`
     * Variable mode (the variable type) - `String`
     * Value (retrieves the value from the previous payload- `${payload.access_token}`
 
-<img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="250"/>
+    <img src={useBaseUrl('/img/api-testing/set-variable-window.png')} alt="The SET Variable window"/>
 
 4. Once the token has been saved as a variable, add the second call and use that token in the request body.
     * Content-Type - `application/json`
     * Content - `{"token":"${token}"}`
 
-<img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="250"/>
+    <img src={useBaseUrl('/img/api-testing/post-request-body-token.png')} alt="POST request body"/>
 
 ## Using an Object from Another Call
 
@@ -175,7 +218,7 @@ Using an object from another call is a more complex method. Scenarios in which y
 
 1. Perform the call you retrieve the object from.
 
-<img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="250"/>
+    <img src={useBaseUrl('/img/api-testing/get-request-window-3.png')} alt="GET request window"/>
 
   The response payload from the call:
 
@@ -205,7 +248,7 @@ Using an object from another call is a more complex method. Scenarios in which y
   {"items":"${searchPayload.items.asJSON()}"}
   ```
 
-<img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="250"/>
+    <img src={useBaseUrl('/img/api-testing/post-body-window-3.png')} alt="POST request body"/>
 
 3. Continue with the test.
 
@@ -215,7 +258,7 @@ This method can be used when you need to create a new structure to add as a body
 
 1. Perform the call that retrieves the data you are using. In the following example, using a `GET` returns an array of items.
 
-<img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="250"/>
+    <img src={useBaseUrl('/img/api-testing/get-request-window-4.png')} alt="The GET request window"/>
 
 2. The response payload:
 
@@ -249,15 +292,15 @@ This method can be used when you need to create a new structure to add as a body
   payload.items.forEach(function (item) {  item.currency = "$"; }); return payload;
   ```
 
-<img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="250"/>
+    <img src={useBaseUrl('/img/api-testing/set-variable-window-2.png')} alt="The SET Variable window"/>
 
 4. Add the `POST` and add the new structure as the `POST` request body.
 
-<img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="250"/>
+    <img src={useBaseUrl('/img/api-testing/post-body-window-4.png')} alt="The POST body window"/>
 
 5. Continue with the test.
 
-<img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="250"/>
+    <img src={useBaseUrl('/img/api-testing/new-structure-body.png')} alt="A new structure added as a body"/>
 
 ## Dynamic Dates
 Instead of entering dates as static values, which may need to be updated periodically, you can create dynamic dates.
@@ -271,7 +314,7 @@ Instead of entering dates as static values, which may need to be updated periodi
     * Variable mode (the variable type) - `String`
     * Value - `${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD')}`
 
-  <img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="250"/>
+    <img src={useBaseUrl('/img/api-testing/create-future-date-variable.png')} alt="The SET Variable window"/>
 
     * `D.nowMillis()` - Returns the current Unix epoch in milliseconds.
     * `D.plusDays()` - Returns the provided milliseconds, plus the provided number of days (in the example, 35 days were added to today's date).
