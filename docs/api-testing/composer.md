@@ -2,7 +2,7 @@
 id: composer
 title: Writing API Tests with the Composer
 sidebar_label: Using the Composer
-description: Our API Testing Composer enables you to auto-generate and build functional API tests in minutes.
+description: Quickly generate and build functional API tests
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -19,8 +19,13 @@ The API Testing Composer enables you to quickly generate API functional tests (n
 ### Create a Test
 
 1. In Sauce Labs, click **API Testing**.
+
+  <img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
+
 2. On the **Projects** page, click a project.
-<br/><img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
+
+<img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
+
 3. On the **Tests** page:
   * If the project has no tests yet, click **Use the Composer with predictive text to build a test.**
   <br/><img src={useBaseUrl('/img/api-testing/placeholder-image.png')} alt="Placeholder" width="500"/>
