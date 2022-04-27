@@ -2,11 +2,11 @@
 id: setup
 title: Setting Up Backtrace for your Real Device Tests
 sidebar_label: Setup
-description: Link your Sauce Labs real-device tests with Backtrace to view crash and error reports for faster debugging.
+description: Link your Sauce Labs real device tests with Backtrace to view errors and crashes.
 ---
-Link your Sauce Labs real-device tests with Backtrace to view crash and error reports for faster debugging. Detecting errors and crashes and resolving them early on is key to the success of your app.
+Detecting errors and crashes and resolving them early on is key to the success of your app.
 
-After you’ve completed the steps on this page, crashes and errors associated with your real-device tests (automated or live) will be available for you in Sauce Labs.
+After you’ve completed the steps on this page, errors and crashes associated with your real-device tests (automated or live) will be available for you in Sauce Labs.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -15,11 +15,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 ## Supported Platforms
 |Supported Platforms|Supported Systems|Supported Features|
 |---------|---------|---------|
-|Real devices|Android|Crashes and Errors|
+|Real devices|Android|Errors and Crashes|
 |Real devices|iOS|Errors|
 
 :::note
-Crashes for iOS apps are currently not supported.
+Crashes for iOS apps are currently not supported when running real device tests in Sauce Labs with Backtrace.
 :::
 
 ## What You'll Need
@@ -36,7 +36,7 @@ Crashes for iOS apps are currently not supported.
 :::
 
 ## Create Custom Attributes
-Custom attributes are required to link the correct crashes and errors that occurred on the selected device and for the duration of the test.
+Custom attributes are required to link the correct errors and crashes that occurred on the selected device and for the duration of the test.
 
 The following custom attributes are required:
 <Tabs>
@@ -80,15 +80,13 @@ To integrate the Backtrace SDK with your iOS app, see the [iOS Integration Guide
 </Tabs>
 
 ## Link your Real Device Tests with Backtrace
-You’re now ready to link your real device tests in Sauce Labs with the crashes and errors reported to Backtrace. Once this is set up you will be able to directly view your crashes and errors in Sauce Labs.
-
 <Tabs>
 <TabItem value="admin" label="Sauce Labs Admin">
 
 This enables the Backtrace integration for your current data center.
 
 1. From your Sauce Labs account, go to the **Integrations** page (you need to have the role of organization admin to be able to navigate to this page).
-1. Click **Backtrace Enable**.
+1. For the Backtrace integration, click **Enable**.
 1. Enter the **Project Name**, **Dashboard URL**, and **API Token**.
 1. Click **Save**.
 
@@ -97,7 +95,7 @@ This enables the Backtrace integration for your current data center.
 
 This enables the Backtrace integration for your entire organization. Each account will be able to make use of this feature.
 
-1. From your Sauce Labs account, go to any real device test result page (live or automated).
+1. From your Sauce Labs account, go to the test result page (live or automated) for real devices.
 1. From the bottom of the screen, select the **Error & Crash Reporting** tab.
 1. Click **Link with Backtrace**.
 1. Enter the **Project Name**, **Dashboard URL**, and **API Token**.
@@ -114,15 +112,17 @@ Currently, one subdomain, project, and API token is supported per organization.
 :::
 
 ## Run your Real Device Test
+Throw an error or a crash to test your mobile app. 
+
 For information on how to run your real device test (live or automated), see [Mobile App Testing](/mobile-apps/).
 
 ## View Test Results in Sauce Labs
-After running a test with the Backtrace SDK integrated into your app, you can view crashes and errors for your real device tests in Sauce Labs.
+After running a real device test with the Backtrace SDK integrated into your Android or iOS app, you can view errors and crashes in Sauce Labs.
 
-1. Go to any real device test result page (live or automated).
+1. Go to the test result page (live or automated) for real devices.
 1. From the bottom of the screen, select the **Error & Crash Reporting** tab.
 
-## View Crashes and Errors in Backtrace
+## View Errors and Crashes in Backtrace
 From the **Error & Crash Reporting** tab, click any link to view more details (View Errors, View Crashes, Backtrace Dashboard) in the Backtrace Console.
 
-For more information about how to view and analyze crash and error data in Backtrace, see [Web Console Getting Started](/error-reporting/web-console/getting-started/).
+For more information about how to view and analyze error and crash data in Backtrace, see [Web Console Getting Started](/error-reporting/web-console/getting-started/).

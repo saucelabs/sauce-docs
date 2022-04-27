@@ -365,7 +365,7 @@ module.exports = {
   backtrace: [
     {
       type: 'category',
-      label: 'Crash and Error Reporting',
+      label: 'Error and Crash Reporting',
       collapsed: true,
       items: [
         'error-reporting/getting-started',
@@ -416,7 +416,7 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'View and Analyze Crash and Error Data',
+          label: 'View and Analyze Error and Crash Data',
           collapsed: true,
           items: [
             'error-reporting/web-console/getting-started',

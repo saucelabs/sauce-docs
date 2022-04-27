@@ -1,16 +1,16 @@
 ---
 id: getting-started
-title: Crash and Error Reporting
+title: Error and Crash Reporting
 sidebar_label: Getting Started
-description: Capture crash and error reports from your games and mobile apps with Backtrace.
+description: Capture error and crash reports from your games and mobile apps with Backtrace.
 ---
-Capture crash and error reports from your games and mobile apps with Backtrace.
+Capture error and crash reports from your games and mobile apps with Backtrace.
 
 ## Set Up Your Project
 <div className="box box1 card">
   <div className="container">
   <h3>Platform Integrations</h3>
-  <p>Integrate Backtrace in your games and apps across languages and platforms with our crash and error reporting libraries.</p>
+  <p>Integrate Backtrace in your games and apps across languages and platforms with our error and crash reporting libraries.</p>
   <ul>
     <li><a href="/error-reporting/platform-integrations/android/setup/">Android</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040104932-Integrating-Apache-Traffic-Server">Apache Traffic Server</a></li>
@@ -43,11 +43,11 @@ Capture crash and error reports from your games and mobile apps with Backtrace.
   </div>
 </div>
 
-## View and Analyze Crash and Error Data
+## View and Analyze Error and Crash Data
 <div className="box box1 card">
   <div className="container">
   <h3>Web Console Views</h3>
-  <p>View and analyze crash and error data in the web console so you can triage, prioritize, and resolve each error.</p>
+  <p>View and analyze error and crash data in the web console so you can triage, prioritize, and resolve each error.</p>
   <ul>
     <li><a href="/error-reporting/web-console/getting-started/">Getting Started</a></li>
     <li><a href="/error-reporting/web-console/overview/">Overview</a></li>
