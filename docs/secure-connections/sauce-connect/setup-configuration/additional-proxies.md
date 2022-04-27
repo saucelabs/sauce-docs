@@ -37,8 +37,8 @@ In this configuration, the Site Under Test (SUT) is behind a proxy in order to a
 Proxies and proxy auto-configuration (PAC) (see [Proxy auto-config](https://en.wikipedia.org/wiki/Proxy_auto-config)) settings may be configured based on the operating system settings on the machine where it is installed.
 
 * On Windows, Sauce Connect Proxy will use the proxy settings for Internet Explorer, as well as the system-wide proxy settings that are set in the Control Panel.
-* On Mac OS, Sauce Connect Proxy will use the proxy settings in Preferences/Network. Both proxy and PAC settings are supported.
-* On MacOS and Linux, Sauce Connect Proxy looks for these variables, in this order:
+* On macOS, Sauce Connect Proxy will use the proxy settings in Preferences/Network. Both proxy and PAC settings are supported.
+* On macOS and Linux, Sauce Connect Proxy looks for these variables, in this order:
   * `http_proxy`
   * `HTTP_PROXY`
   * `all_proxy`
