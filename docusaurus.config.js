@@ -1,7 +1,7 @@
 const docusaurusConfig = {
-  title: 'Resources & Community',
+  title: 'Sauce Labs Documentation',
   tagline:
-    'Accelerating your ability to ship code while maintaining high quality experiences is hard. We are here to help.',
+    'Test all the things.',
   url: 'https://docs.saucelabs.com',
   noIndex: false,
   trailingSlash: true,
