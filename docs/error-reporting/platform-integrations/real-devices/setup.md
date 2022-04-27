@@ -125,4 +125,4 @@ After running a test with the Backtrace SDK integrated into your app, you can vi
 ## View Crashes and Errors in Backtrace
 From the **Error & Crash Reporting** tab, click any link to view more details (View Errors, View Crashes, Backtrace Dashboard) in the Backtrace Console.
 
-For more information about how view and analyze crash and error data in Backtrace, see [Web Console Getting Started](/error-reporting/web-console/getting-started/).
+For more information about how to view and analyze crash and error data in Backtrace, see [Web Console Getting Started](/error-reporting/web-console/getting-started/).
