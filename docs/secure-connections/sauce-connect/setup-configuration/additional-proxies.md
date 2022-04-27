@@ -50,7 +50,8 @@ When a proxy is detected, Sauce Connect Proxy will route the following traffic t
 * all network traffic between the Sauce Connect Proxy client and the SUT
 
 
-:::note network traffic between the Sauce Connect Proxy client running on your network and the Sauce Labs Sauce Connect server will not use the detected proxy unless [--proxy-tunnel](/dev/cli/sauce-connect-proxy#--proxy-tunnel) flag is specified.
+:::note 
+Network traffic between the Sauce Connect Proxy client running on your network and the Sauce Connect server will not use the detected proxy unless the [--proxy-tunnel](/dev/cli/sauce-connect-proxy#--proxy-tunnel) flag is specified.
 :::
 
 
