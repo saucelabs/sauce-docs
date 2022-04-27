@@ -376,7 +376,7 @@ module.exports = {
           items: [
         {
                 type: 'category',
-                label: 'Real-Devices',
+                label: 'Real Devices',
                 collapsed: true,
                 items: [
                     'error-reporting/platform-integrations/real-devices/setup',
