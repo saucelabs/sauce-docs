@@ -621,7 +621,6 @@ module.exports = {
             items: [
               'basics/acct-team-mgmt-hub',
               'basics/acct-team-mgmt/org-settings',
-
               {
                 type: 'category',
                 label: 'Managing Users and Accounts',
@@ -658,7 +657,6 @@ module.exports = {
               },
             ],
           },
-
           {
             type: 'category',
             label: 'Single Sign-On',
@@ -739,6 +737,7 @@ module.exports = {
             items: [
               'secure-connections/sauce-connect/advanced/architecture',
               'secure-connections/sauce-connect/advanced/kgp',
+              'secure-connections/sauce-connect/advanced/specifications',
             ],
           },
           'secure-connections/sauce-connect/troubleshooting',
