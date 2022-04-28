@@ -15,11 +15,8 @@ Appium automated real device testing supports tests designed to run against a we
 
 See [When to Test on Real Devices](https://docs.saucelabs.com/mobile-apps/supported-devices/#when-to-test-on-real-devices) for deails about real device testing use cases, benefits, and system requirements.
 
-:::caution
+:::note
 Sauce Labs does not support automatic testing of ADB commands for Appium.
-:::
-
-:::caution
 To use ADB and shell commands, the usage of [vUSB](/mobile-apps/features/virtual-usb) with private devices is necessary as Sauce Labs does not support ADB without the use of vUSB. Futhermore, ADB can be also used during live testing.
 :::
 
