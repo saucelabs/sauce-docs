@@ -44,7 +44,7 @@ Sauce Connect Proxy Tunnel connection TLS specifications
    </td>
   </tr>
   <tr>
-   <td>Sauce Connect Proxy client supported ciphers
+   <td>Sauce Connect Proxy client-supported ciphers
    </td>
    <td><small>
    <p>ECDHE-ECDSA-AES256-GCM-SHA384</p>
@@ -62,7 +62,7 @@ Sauce Connect Proxy Tunnel connection TLS specifications
    </td>
   </tr>
   <tr>
-   <td>Sauce Connect Proxy server supported ciphers
+   <td>Sauce Connect Proxy server-supported ciphers
    </td>
    <td><small>
    <p>ECDHE-ECDSA-AES256-GCM-SHA384</p>
@@ -77,15 +77,17 @@ Sauce Connect Proxy Tunnel connection TLS specifications
   </tr>
 </table>
 
-## Sauce Connect Proxy Start Up Sequence
-1. Send a request to Sauce Labs REST API to get the configuration updates.
-1. Request  Sauce Labs REST API to provision a Sauce Connect Proxy server.
-1. Establish a secure connection between Sauce Connect Client and Sauce Connect server.
-1. Sauce Connect Proxy is ready, its console log would read: "Sauce Connect is up, you may start your tests."
-
 ## Timeout Values
 
+### Start Sequence
+1. Sauce Connect Proxy client sends a request to Sauce Labs REST API to get the latest configuration defaults.
+1. Sauce Connect Proxy client requests Sauce Labs REST API to provision a Sauce Connect Proxy server.
+1. Sauce Connect Proxy client establishes a secure connection to the server.
+1. Sauce Connect Proxy is ready, the console log would read "Sauce Connect is up, you may start your tests."
+
 <img src={useBaseUrl('img/sauce-connect/timeout-values.png')} alt="Sauce Connect download file contents" width="550" />
+
+### Timeouts Summary
 
 <table>
   <tr>
@@ -97,23 +99,31 @@ Sauce Connect Proxy Tunnel connection TLS specifications
    </td>
   </tr>
   <tr>
-   <td>Sauce Connect Proxy client tunnel provisioning timeout
+   <td>"REST API GET request" timeout
+   </td>
+   <td>10 seconds
+   </td>
+   <td>Sauce Connect Proxy periodically sends a GET request to get the tunnel status.
+   </td>
+  </tr>
+  <tr>
+   <td>"Tunnel provisioning" timeout
    </td>
    <td>45 seconds
    </td>
-   <td>Sauce Connect Proxy client requests Sauce Labs REST API to provision a server as part of the start sequence.
+   <td>Tunnel provisioning may take anywhere from 3 to 45 seconds, depending on the load and the tunnel features.
    </td>
   </tr>
   <tr>
-   <td>Sauce Connect Proxy client initial connect timeout
+   <td>"Initial tunnel connection" timeout
    </td>
    <td>15 seconds
    </td>
-   <td>Sauce Connect Proxy tunnel must be established within this timeout after the server is provisioned and the URL is returned to the client.
+   <td>Sauce Connect Proxy tunnel must be established within this timeout after the server is provisioned.
    </td>
   </tr>
   <tr>
-   <td>Sauce Connect Proxy client disconnected timeout
+   <td>"Tunnel disconnected" timeout
    </td>
    <td>60 seconds
    </td>
@@ -121,11 +131,11 @@ Sauce Connect Proxy Tunnel connection TLS specifications
    </td>
   </tr>
     <tr>
-   <td>Sauce Connect Proxy finish running jobs on shutdown timeout
+   <td>"Jobs wait" timeout
    </td>
    <td>300 seconds
    </td>
-   <td>When Sauce Labs REST API receives a "tunnel shutdown" request, jobs that use the tunnel must finish within 300 seconds. Jobs that require longer time to complete may fail after the tunnel is terminated.
+   <td>On receiving a "tunnel shutdown" request, Sauce Labs REST API would wait for, at most, 300 seconds for jobs, using the tunnel, to finish. Jobs that require longer time to complete may fail after the tunnel is terminated.
    </td>
   </tr>
 </table>
