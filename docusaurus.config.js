@@ -83,7 +83,7 @@ const docusaurusConfig = {
           to: '/dev/low-code',
         },
         {
-          label: 'Error Reporting',
+          label: 'Crash and Error Reporting',
           position: 'left',
           to: '/error-reporting/getting-started',
         },
