@@ -721,7 +721,6 @@ module.exports = {
           },
           'secure-connections/sauce-connect/proxy-tunnels',
           'secure-connections/sauce-connect/security-authentication',
-          'secure-connections/sauce-connect/advanced/specifications',
           {
             type: 'category',
             label: 'Advanced',
