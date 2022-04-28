@@ -19,6 +19,13 @@ Here are some of the features:
 Note that this plug-in also has a set of environment variables that are specific to Bamboo. You’ll also need to output the Sauce session ID to the standard output (stdout) to allow the plug-in to associate test results with Sauce jobs.
 
 
+## GitHub Actions
+
+[GitHub Actions](https://docs.github.com/en/actions) allow to automate, customize, and execute your software development workflows right in your GitHub repository.
+
+[Sauce Connect Proxy GitHub Action](https://github.com/marketplace/actions/sauce-connect-proxy-action) allows to launch Sauce Connect Proxy for GitHub CI workflow.
+
+
 ## Jenkins Configuration
 
 Jenkins is an open-source automation server and continuous integration software tool for testing and reporting on isolated changes in a larger code base in real time.

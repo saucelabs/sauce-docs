@@ -83,7 +83,7 @@ const docusaurusConfig = {
           to: '/dev/low-code',
         },
         {
-          label: 'Error Reporting',
+          label: 'Error and Crash Reporting',
           position: 'left',
           to: '/error-reporting/getting-started',
         },
@@ -154,7 +154,7 @@ if (!process.env.SAUCE_DOCS_DEV) {
   docusaurusConfig.themeConfig.algolia = {
     appId: process.env.ALGOLIA_APP_ID || 'RO95H65NEO',
     apiKey: process.env.ALGOLIA_KEY || 'demo-key' || 'bad6042c91ae4419a94229edf20bc8ea',
-    indexName: 'saucelabs',
+    indexName: "Sauce Docs Crawler",
   };
 }
 

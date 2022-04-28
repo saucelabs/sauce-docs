@@ -347,6 +347,20 @@ reporters:
     enabled: true
     filename: saucectl-report.xml
 ```
+
+---
+### `junit`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The JUnit reporter gathers JUnit reports from all jobs and combines them into a single report.
+
+```yaml
+reporters:
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
+```
+
 ---
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
@@ -680,7 +694,6 @@ Provides details related to the Cypress test configuration that are relevant for
         env:
           hello: world
         testFiles: [ "**/*.spec.js" ]
-        headless: false
 ```
 ---
 
@@ -717,12 +730,14 @@ One or more paths to the Cypress test files to run for this suite, if not otherw
 
 ---
 
-#### `headless`
+### `headless`
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Controls whether or not tests are run in headless mode.
 
 ```yaml
+  suites:
+    - name: "Hello"
       headless: true
 ```
 
@@ -754,4 +769,18 @@ Setting `0` reverts to the value set in `defaults`.
 
 ```yaml
   timeout: 15m
+```
+
+### `preExec`
+<p><small>| OPTIONAL | STRING/ARRAY |</small></p>
+
+Specifies which commands needs to be executed before the tests are actually started. The commands are executed from the root directory of your project.
+
+:::note
+There is a 300-second limit for all `preExec` commands to complete.
+:::
+
+```yaml
+  preExec:
+    - node ./scripts/pre-execution-script.js
 ```

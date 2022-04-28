@@ -119,16 +119,20 @@ Not compatible with Sauce Connect versions below 4.7.0. Download the latest vers
 ### `--direct-domains`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets domain(s) that you want to relay directly through the internet instead of through the Sauce Connect Proxy tunnel. When adding multiple domains, [format as a comma-separated list](#formatting-domains-in-the-command-line).<br/>
+__Description__: Sets domain(s) that are requested through the public internet instead of the Sauce Connect Proxy tunnel. This is the inverse of [`--tunnel-domains`](#--tunnel-domains). When adding multiple domains, [format as a comma-separated list](#formatting-domains).<br/>
 __Enviroment variable__: `SAUCE_DIRECT_DOMAINS`<br/>
 __Shorthand__: `-D`
+
+:::note
+See also [Tuning Sauce Connect Proxy Traffic](/secure-connections/sauce-connect/proxy-tunnels/#direct-domains).
+:::
 
 
 ---
 ### `--no-ssl-bump-domains`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets domain(s) that do not require SSL resigning. Requests that include hosts matching one of these domains will not be SSL re-encrypted. When adding multiple domains, [format as a comma-separated list](#formatting-domains-in-the-command-line). See [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) for more information about scenarios in which might want to use this command.<br/>
+__Description__: Sets domain(s) that do not require SSL resigning. Requests that include hosts matching one of these domains will not be SSL re-encrypted. When adding multiple domains, [format as a comma-separated list](#formatting-domains). See [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) for more information about scenarios in which might want to use this command.<br/>
 __Enviroment variable__: `SAUCE_NO_SSL_BUMP_DOMAINS`<br/>
 __Shorthand__: `-B`
 
@@ -150,9 +154,13 @@ __Shorthand__: `-F`
 ### `--tunnel-domains`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets domain(s) that need to be sent through the Sauce Connect Proxy tunnel. This is the inverse of `--direct-domains`.  When adding multiple domains, [format them as a comma-separated list](#formatting-domains-in-the-command-line).<br/>
+__Description__: Sets domain(s) that are requested through the Sauce Connect Proxy tunnel. This is the inverse of [`--direct-domains`](#--direct-domains). When adding multiple domains, [format them as a comma-separated list](#formatting-domains).<br/>
 __Enviroment variable__: `SAUCE_TUNNEL_DOMAINS`<br/>
 __Shorthand__: `-t`
+
+:::note
+See also [Tuning Sauce Connect Proxy Traffic](/secure-connections/sauce-connect/proxy-tunnels/#tunnel-domains).
+:::
 
 
 ---
@@ -340,7 +348,7 @@ __Shorthand__: `-a`
 ### `--cainfo`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: CA certificate bundle to use for verifying connections to Sauce Labs REST API. Default: `/private/etc/ssl/cert.pem`.<br/>
+__Description__: CA certificate bundle in PEM format to use for verifying connections to Sauce Labs REST API. Default: `/private/etc/ssl/cert.pem`. This is normally used when a proxy is needed to access the REST API, and the proxy's certificate isn't available in the system certificate store. This does <b>not</b> affect test traffic through Sauce Connect.<br/>
 __Enviroment variable__: `SAUCE_CAINFO`<br/>
 __Shorthand__: n/a
 
@@ -360,9 +368,9 @@ __Shorthand__: n/a
 ### `--tunnel-cainfo`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: CA certificate bundle to use for verifying tunnel connections.<br/>
+__Description__: CA certificate bundle in PEM format to use for verifying tunnel connections. This is normally used when a proxy is needed to access the tunnel endpoint, and the proxy's certificate isn't available in the system certificate store. This does <b>not</b> affect test traffic through Sauce Connect.<br/>
 __Enviroment variable__: `SAUCE_TUNNEL_CAINFO`<br/>
-__Shorthand__: n/a  
+__Shorthand__: n/a
 
 
 ---
@@ -371,7 +379,7 @@ __Shorthand__: n/a
 
 __Description__: OCSP verification mode. Options are: strict, log-only, and disable. The default is log-only.<br/>
 __Enviroment variable__: `SAUCE_OCSP`<br/>
-__Shorthand__: n/a  
+__Shorthand__: n/a
 
 :::note
 `--ocsp strict` may fail if a certificate in the chain does not support OCSP. We recommend leaving it as the default "log-only" mode.
@@ -383,7 +391,7 @@ __Shorthand__: n/a
 
 __Description__: Directory of CA certificates to use for verifying tunnel connections.<br/>
 __Enviroment variable__: n/a <br/>
-__Shorthand__: n/a  
+__Shorthand__: n/a
 
 :::caution
 Effective with Sauce Connect Proxy version 4.7.0, `--tunnel-capath` was deprecated. Download the latest version [here](/secure-connections/sauce-connect/installation/).
@@ -395,7 +403,7 @@ Effective with Sauce Connect Proxy version 4.7.0, `--tunnel-capath` was deprecat
 
 __Description__: Defines a directory of CA certs to use for verifying connections to Sauce Labs REST API.<br/>
 __Enviroment variable__: n/a <br/>
-__Shorthand__: n/a  
+__Shorthand__: n/a
 
 :::caution
 Effective with Sauce Connect Proxy version 4.7.0, `--capath` was deprecated. Download the latest version [here](/secure-connections/sauce-connect/installation/).
@@ -409,7 +417,7 @@ Effective with Sauce Connect Proxy version 4.7.0, `--capath` was deprecated. Dow
 ### `--log-stats`
 __Description__: Logs statistics about HTTP traffic every &#60;seconds&#62;. Information includes bytes transmitted, requests made, and responses received.<br/>
 __Enviroment variable__: `SAUCE_LOG_STATS`<br/>
-__Shorthand__: `-z`  
+__Shorthand__: `-z`
 
 
 ---
@@ -422,7 +430,7 @@ Effective with Sauce Connect Proxy version 4.7.0, the metrics server is disabled
 
 __Description__: Use this option to define the host:port for the internal web server used to expose client-side metrics. The default is `localhost:8888` for versions prior to 4.7.0.<br/>
 __Enviroment variable__: `SAUCE_METRICS_ADDRESS`<br/>
-__Shorthand__: n/a  
+__Shorthand__: n/a
 
 
 ---
@@ -474,7 +482,7 @@ __Enviroment variable__: `SAUCE_EXTRA_INFO`<br/>
 __Shorthand__: n/a
 
 
-## Formatting Domains in the Command Line
+## Formatting Domains
 
 Here are some guidelines to follow when formatting domains:
 
@@ -482,7 +490,7 @@ Here are some guidelines to follow when formatting domains:
   * Example: `mydomain.com`
 * Make sure your comma-separated list of domains doesn't include any spaces.
   * Example, `mydomain.com,saucelabs.com,mysite.com`
-* Prefix domain names with `*.` or simply `.` to match all its subdomains.
+* Prefix domain names with a dot `.` to match all its subdomains.
   * Example: You could refer to `docs.saucelabs.com` and `my.saucelabs.com` as "`*.saucelabs.com"` or` ".saucelabs.com"`. Enclose the argument in quotes to prevent shell expansion of asterisk.
 * If you don't want any domains to be SSL re-encrypted, you can specify `all` with the argument (i.e., `-B all` or `--no-ssl-bump-domains all`)
 * WebSockets domains are not compatible with SSL bumping, so you'll need to [disable SSL Bumping](#--no-ssl-bump-domains) for those.
