@@ -73,7 +73,7 @@ This project has five data scrubbers. Each scrubber is given an `id` number and 
 - `name`: A human-readable name for a scrubber.
 - `regexp`: a regular expression defined by the user.
 - `builtin`: Includes the built-in scrubbers. Current implementation includes: `ccn`, `ssn`, `key`, and `env`; which are credit card number, social security number, encryption key, and environment variable respectively.
-- `format`: Refers to the applicable crash and error format. It must be `minidump`.
+- `format`: Refers to the applicable error and crash format. It must be `minidump`.
 - `target`: Refers to data regions of crash error to scrub. Valid values are: `memory`, `map`, `registers`, `variable`, and, `all`. However, the current implementation doesn't enforce the target. All data is scrubbed instead.
 - `enable`: Specifies if the scrubber will be applied to crash error data. `0` disables the scrubber, while other integer values enable the scrubber.
 
