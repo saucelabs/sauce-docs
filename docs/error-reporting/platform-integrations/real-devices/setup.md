@@ -112,7 +112,7 @@ Currently, one subdomain, project, and API token is supported per organization.
 :::
 
 ## Run your Real Device Test
-Throw an error or a crash to test your mobile app. 
+Throw an error or a crash to test your mobile app.
 
 For information on how to run your real device test (live or automated), see [Mobile App Testing](/mobile-apps/).
 
@@ -122,7 +122,12 @@ After running a real device test with the Backtrace SDK integrated into your And
 1. Go to the test result page (live or automated) for real devices.
 1. From the bottom of the screen, select the **Error & Crash Reporting** tab.
 
+<img src={useBaseUrl('img/error-reporting/real-devices/real-device-tests.png')} alt="" />
+
+
 ## View Errors and Crashes in Backtrace
 From the **Error & Crash Reporting** tab, click any link to view more details (View Errors, View Crashes, Backtrace Dashboard) in the Backtrace Console.
+
+<img src={useBaseUrl('img/error-reporting/real-devices/real-device-tests-backtrace.png')} alt="" />
 
 For more information about how to view and analyze error and crash data in Backtrace, see [Web Console Getting Started](/error-reporting/web-console/getting-started/).
