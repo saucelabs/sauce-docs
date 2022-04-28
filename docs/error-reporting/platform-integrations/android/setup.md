@@ -132,7 +132,7 @@ val backtraceCredentials = BacktraceCredentials("https://submit.backtrace.io/{yo
 
 
 ## Verify the Setup
-At this point, you've installed and setup the Backtrace client to automatically capture crashes and errors in your Android app.
+At this point, you've installed and setup the Backtrace client to automatically capture errors and crashes in your Android app.
 
 To test the integration, send a crash report to your Backtrace instance.
 <Tabs>
