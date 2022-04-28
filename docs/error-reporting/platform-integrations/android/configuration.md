@@ -10,6 +10,41 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+## Usage
+<Tabs>
+<TabItem value="java" label="Java">
+
+```java
+// replace with your endpoint url and token
+BacktraceCredentials credentials = new BacktraceCredentials("<endpoint-url>", "<token>");
+BacktraceClient backtraceClient = new BacktraceClient(getApplicationContext(), credentials);
+
+try {
+    // throw exception here
+} catch (Exception exception) {
+    backtraceClient.send(new BacktraceReport(e));
+}
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+// replace with your endpoint url and token
+val backtraceCredentials = BacktraceCredentials("<endpoint-url>", "<token>")
+val backtraceClient = BacktraceClient(applicationContext, backtraceCredentials)
+
+try {
+    // throw exception here
+}
+catch (e: Exception) {
+    backtraceClient.send(BacktraceReport(e))
+}
+```
+
+</TabItem>
+</Tabs>
+
 ## Global Custom Attributes
 You can set global custom attributes to be included with each report. To set global custom attributes, pass a map with custom attributes to the `BacktraceClient` constructor method, as shown below.
 
@@ -102,7 +137,7 @@ database.setupNativeIntegration(backtraceClient, credentials);
 ```
 
 ## Sending Reports
-The `BacktraceClient.send` method sends an error report to the specified Backtrace endpoint. The `send` method is overloaded——see the examples below.
+The `BacktraceClient.send` method sends an error report to the specified Backtrace endpoint. The `send` method is overloaded—see the examples below.
 
 ### Using `BacktraceReport`
 The `BacktraceReport` class represents a single error report. You can also submit custom attributes using the attributes parameter, as shown below.

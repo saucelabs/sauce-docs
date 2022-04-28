@@ -384,6 +384,14 @@ module.exports = {
                     'error-reporting/platform-integrations/android/proguard-deobfuscation',
                 ],
             },
+        {
+                type: 'category',
+                label: 'iOS',
+                collapsed: true,
+                items: [
+                    'error-reporting/platform-integrations/ios/setup',
+                ],
+            },
             {
               type: 'category',
               label: 'Unity',

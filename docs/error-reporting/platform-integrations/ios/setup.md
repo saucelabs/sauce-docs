@@ -45,7 +45,7 @@ pod 'Backtrace'
 ```
 
 ## Initialize the Backtrace Client
-To initialize the Backtrace Client, create a `BacktraceCredentials` instance with your Backtrace endpoint URL (e.g. https://xxx.sp.backtrace.io:6098) and submission token, and supply it as a parameter in the `BacktraceClient` constructor:
+
 <Tabs>
 <TabItem value="swift" label="Swift">
 
@@ -66,9 +66,3 @@ BacktraceClient.shared = [[BacktraceClient alloc] initWithCredentials: backtrace
 
 </TabItem>
 </Tabs>
-
-
-## Verify the Setup
-At this point, you've installed and setup the Backtrace client to automatically capture crashes and errors in your Android app.
-
-To test the integration, send a crash report to your Backtrace instance.
