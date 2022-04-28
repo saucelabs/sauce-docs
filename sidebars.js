@@ -941,7 +941,7 @@ module.exports = {
       },
       'api-testing/legacy',
     ],
-    CI: ['ci', 'ci/bamboo', 'ci/bitbucket', 'ci/jenkins', 'ci/teamcity'],
+    CI: ['ci', 'ci/azure', 'ci/bamboo', 'ci/bitbucket', 'ci/jenkins', 'ci/teamcity'],
     'Test Results': [
       'test-results',
       'test-results/viewing-test-results',
