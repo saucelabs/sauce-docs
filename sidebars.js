@@ -365,7 +365,7 @@ module.exports = {
   backtrace: [
     {
       type: 'category',
-      label: 'Error Reporting',
+      label: 'Error and Crash Reporting',
       collapsed: true,
       items: [
         'error-reporting/getting-started',
@@ -374,6 +374,14 @@ module.exports = {
           label: 'Platform Integrations',
           collapsed: true,
           items: [
+        {
+                type: 'category',
+                label: 'Real Devices',
+                collapsed: true,
+                items: [
+                    'error-reporting/platform-integrations/real-devices/setup',
+                ],
+            },
         {
                 type: 'category',
                 label: 'Android',
@@ -408,7 +416,7 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'View and Analyze Error Data',
+          label: 'View and Analyze Error and Crash Data',
           collapsed: true,
           items: [
             'error-reporting/web-console/getting-started',

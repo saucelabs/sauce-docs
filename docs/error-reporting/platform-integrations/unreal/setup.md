@@ -17,7 +17,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 The Backtrace Unreal plugin reports on the following types of errors:
 
 * Crashes - An end to the game play experience, where the game crashes or restarts.
-* Hangs (mobile only) -  Errors that occur when a game or an app is non-responsive.
+* Hangs (mobile only) - Errors that occur when a game or an app is non-responsive.
 * Out of memory crashes (mobile only) - Terminations of your game or app due to low memory conditions.
 
 ## Supported Platforms
