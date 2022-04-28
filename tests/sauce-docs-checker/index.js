@@ -4,6 +4,10 @@ let cheerio = require('cheerio');
 let fastcsv = require('fast-csv');
 let moment = require('moment');
 
+// github actions package
+// javascript
+const core = require('@actions/core');
+
 let wiki_url = 'https://wiki.saucelabs.com';
 let docs_url = 'http://localhost:8000/';
 let result = {};
@@ -41,55 +45,60 @@ async function run() {
 
   if(joburl!==null) {
     let arr = [ref_str,matched_str,unmatched_str,broken_str]
-    await send_slack(summary_str,arr,Object.keys(ref_map).length)
+    await exit_code(summary_str,arr,Object.keys(ref_map).length)
   }
 }
 
-async function send_slack(summary_str,arr,broken_count) {
-  let url = process.env.SLACK_LINK
+async function exit_code(summary_str,arr,broken_count) {
   let date_str = moment().format('LL')
   console.log(date_str)
-  let color = "#36a64f"
-  if(broken_count>0) color = "#ff0f0f"
-  let obj = {
-    "attachments": [
-      {
-        "color": color,
-        "blocks": [
-          {
-      			"type": "header",
-      			"text": {
-      				"type": "plain_text",
-      				"text": date_str,
-      				"emoji": true
-      			}
-      		},
-          {
-            "type": "section",
-            "text": {
-              "type": "mrkdwn",
-              "text": summary_str
-            }
-          },
-          {
-            "type": "section",
-            "text": {
-              "type": "mrkdwn",
-              "text": `<${joburl}|See Details>`
-            }
-          }
-        ]
-      }
-    ]
-  }
-  try {
-    let res = await axios.post(url, obj);
-    console.log(res.statusText)
-  }
-  catch(err) {
-    console.log(err)
-  }
+  if(broken_count>0) core.setFailed(`Action failed with error ${broken_count} Broken Links`);
 }
+// async function send_slack(summary_str,arr,broken_count) {
+//   let url = process.env.SLACK_LINK
+//   let date_str = moment().format('LL')
+//   console.log(date_str)
+//   let color = "#36a64f"
+//   if(broken_count>0) color = "#ff0f0f"
+//   let obj = {
+//     "attachments": [
+//       {
+//         "color": color,
+//         "blocks": [
+//           {
+//       			"type": "header",
+//       			"text": {
+//       				"type": "plain_text",
+//       				"text": date_str,
+//       				"emoji": true
+//       			}
+//       		},
+//           {
+//             "type": "section",
+//             "text": {
+//               "type": "mrkdwn",
+//               "text": summary_str
+//             }
+//           },
+//           {
+//             "type": "section",
+//             "text": {
+//               "type": "mrkdwn",
+//               "text": `<${joburl}|See Details>`
+//             }
+//           }
+//         ]
+//       }
+//     ]
+//   }
+//   try {
+//     let res = await axios.post(url, obj);
+//     console.log(res.statusText)
+//   }
+//   catch(err) {
+//     console.log(err)
+//   }
+// }
 
 async function match_wiki_links() {
   let links = Object.keys(wiki_result);
