@@ -1,12 +1,12 @@
 ---
 id: setup
-title: Setting Up Backtrace for your Real Device Tests
+title: Setting Up Backtrace for your Real Device Tests (coming soon)
 sidebar_label: Setup
 description: Link your Sauce Labs real device tests with Backtrace to view errors and crashes.
 ---
 Detecting errors and crashes and resolving them early on is key to the success of your app.
 
-After you’ve completed the steps on this page, errors and crashes associated with your real-device tests (automated or live) will be available for you in Sauce Labs.
+After you’ve completed the steps on this page, errors and crashes associated with your real device tests (automated or live) will be available for you in Sauce Labs.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
