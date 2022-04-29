@@ -35,13 +35,18 @@ Here are some benefits/use cases:
 
 If desired, you can specify any additional [SC CLI arguments](/dev/cli/sauce-connect-proxy/) here.
 
-If your tests are using localhost addresses, you should also set `--network="host"` as an argument in the above script. Otherwise Sauce Connect within the Docker container will not be able to access your local services in the host machine.
+::::note
+In Linux, if your tests use localhost addresses, `--network="host"` is required as an argument in the above script to allow requests originating within the container to access the Docker host machine.
+::::
 
+::::warning
+`--network="host"` behaves differently on Windows, Mac OS, and Linux due to the respective platform Docker implementation.
+::::
 
 ### Running the Sauce Connect Proxy Docker Image with a CI/CD Pipeline
 If you want to run this Docker image as part of your CI/CD pipeline, you would need a way to determine that Sauce Connect Proxy is ready to proxy the requests. You can achieve that by:
-1. By using Docker's [volumes](https://docs.docker.com/storage/volumes/) feature and [--readyfile](/dev/cli/sauce-connect-proxy/#--readyfile).
 1. Starting with v4.8.0, the `/readiness` endpoint is available.
+1. By using Docker's [volumes](https://docs.docker.com/storage/volumes/) feature and [--readyfile](/dev/cli/sauce-connect-proxy/#--readyfile).
 
 #### Readiness Endpoint
 ::::note
@@ -104,10 +109,6 @@ You can leverage the Sauce Connect Proxy [--readyfile](/dev/cli/sauce-connect-pr
   ```
 ::::note
 `--network="host"` allows Sauce Connect Proxy to access your app in the host machine. It's only required if your app runs on the same machine as the docker host.
-::::
-
-::::warning
-`--network="host"` behaves differently on Windows, Mac OS, and Linux due to the respective platform Docker implementation.
 ::::
 
 Starting with Sauce Connect Proxy 4.8.0, the "ready" file will contain a JSON-formatted information about the running Sauce Connect Proxy. For example:
