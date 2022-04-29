@@ -4,6 +4,125 @@ title: Sauce Connect Proxy CI/CD Integration
 sidebar_label: CI/CD Integration
 ---
 
+## Sauce Connect Docker Container Setup
+
+As an alternative to downloading and installing the SC Client in your CI/CD environment, you can [leverage Docker containers to manage Sauce Connect Proxy tunnels](/secure-connections/sauce-connect/installation/#running-sauce-connect-in-docker). Our Docker image maintained by the Sauce Labs [Open Source Program Office](https://opensource.saucelabs.com/).
+
+Here are some benefits/use cases:
+* If you want to run Sauce Connect Proxy as part of a Dockerized CI/CD.
+* If you'd prefer to manage Docker image tags instead of Sauce Connect Proxy versions.
+* If your setup involves several instances running on the same system, Docker would simplify Sauce Connect Proxy port management.
+
+### Running the SC Docker Image
+
+1. Before running the container, you'll need to pull the Sauce Connect Proxy Docker Image from the Docker Hub. This will always pull the latest version of Sauce Connect Proxy.
+  ```bash
+  $ docker pull saucelabs/sauce-connect
+  ```
+   * Or - if you _do_ want to use specific SC version - you can specify that as a tag:
+   ```bash
+   $ docker pull saucelabs/sauce-connect:4.7.1
+   ```
+2. To run the Sauce Connect Proxy Docker image, execute the below script, which will also set your Sauce Labs username and access key as [environment variables](/basics/environment-variables/).
+  ```bash
+  $ export SAUCE_USERNAME="my-user"
+  $ export SAUCE_ACCESS_KEY="my-access-key"
+  docker run \
+      -e SAUCE_USERNAME=${SAUCE_USERNAME} \
+      -e SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} \
+      -it saucelabs/sauce-connect
+  ```
+
+If desired, you can specify any additional [SC CLI arguments](/dev/cli/sauce-connect-proxy/) here.
+
+If your tests are using localhost addresses, you should also set `--network="host"` as an argument in the above script. Otherwise Sauce Connect within the Docker container will not be able to access your local services in the host machine.
+
+
+### Running the Sauce Connect Proxy Docker Image with a CI/CD Pipeline
+If you want to run this Docker image as part of your CI/CD pipeline, you would need a way to determine that Sauce Connect Proxy is ready to proxy the requests. You can achieve that by:
+1. By using Docker's [volumes](https://docs.docker.com/storage/volumes/) feature and [--readyfile](/dev/cli/sauce-connect-proxy/#--readyfile).
+1. Starting with v4.8.0, the `/readiness` endpoint is available.
+
+#### Readiness Endpoint
+::::note
+Only available starting with Sauce Connect Proxy version 4.8.0.
+::::
+
+Starting with 4.8.0, Sauce Connect Proxy Docker image allows configuring liveness and readiness HTTP probes. See the [kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) for more info.
+
+Docker container exposes Sauce Connect Proxy HTTP status server on port 8032. The following endpoints are available:
+* /readiness returns 200 response code when Sauce Connect Proxy is ready, 503 otherwise
+* /liveness returns 200 response code when Sauce Connect Proxy is running
+
+You can leverage the "readiness" endpoint in our CI/CD pipeline by running the following:
+
+1. Create a simple bash script `wait-for-sc.sh` that will ensure the pipeline only continues after Sauce Connect Proxy is fully connected and ready.
+   ```bash title="wait-for-sc.sh"
+   until [ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:8032/readiness)" == "200" ]
+   do
+       sleep 2
+   done
+   echo "SC ready"
+   ```
+1. Run Sauce Connect Docker container using the script below. It is important that you map port 8032 so that the port is available to the host.
+  ```bash
+  $ docker run \
+      -e SAUCE_USERNAME=${SAUCE_USERNAME} \
+      -e SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} \
+      -p 8032:8032 \
+      -t saucelabs/sauce-connect:latest \
+      -i some-identifier --detach
+    $ ./wait-for-sc.sh
+    ```
+
+::::note
+In this example, using `--network="host"` renders the port mapping unnecessary.
+::::
+
+#### Ready File
+You can leverage the Sauce Connect Proxy [--readyfile](/dev/cli/sauce-connect-proxy/#--readyfile) flag that allows to specify a file that will be created (or updated) when the proxy is ready.
+
+1. Create a simple bash script `wait-for-sc.sh` that will ensure the pipeline only continues after Sauce Connect Proxy is fully connected and ready.
+   ```bash title="wait-for-sc.sh"
+   until [ -f /tmp/sc.ready ]
+   do
+       sleep 1
+   done
+   echo "SC ready"
+   ```
+1. Run Sauce Connect Docker container using the script below. It is important that you mount a temp folder here so that `wait-for-sc.sh` can detect when Sauce Connect has launched.
+  ```bash
+  $ docker run \
+      -e SAUCE_USERNAME=${SAUCE_USERNAME} \
+      -e SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} \
+      -v /tmp:/tmp \
+      --network="host" \
+      -t saucelabs/sauce-connect:latest \
+      -f /tmp/sc.ready \
+      -i some-identifier --detach
+    $ ./wait-for-sc.sh
+  ```
+::::note
+`--network="host"` allows Sauce Connect Proxy to access your app in the host machine. It's only required if your app runs on the same machine as the docker host.
+::::
+
+::::warning
+`--network="host"` behaves differently on Windows, Mac OS, and Linux due to the respective platform Docker implementation.
+::::
+
+Starting with Sauce Connect Proxy 4.8.0, the "ready" file will contain a JSON-formatted information about the running Sauce Connect Proxy. For example:
+
+```bash
+$ cat /tmp/sc.ready | jq .
+{
+  "firstConnectedTime": "2022-03-01 11:08:13",
+  "scProxyPort": "35181",
+  "tunnelID": "182de89899",
+  "tunnelName": "my-tunnel",
+  "tunnelServer": "maki76.eu-central-1.miso.saucelabs.com"
+}
+```
+
 ## Bamboo Configuration
 
 [Atlassian Bamboo](https://www.atlassian.com/software/bamboo) is a continuous integration server that can be used to automate the release management for your software apps, creating a continuous delivery pipeline.
