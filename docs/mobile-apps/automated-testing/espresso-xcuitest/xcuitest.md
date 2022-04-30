@@ -246,6 +246,49 @@ reporters:
 ```
 
 ---
+### `json`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The JSON reporter gathers test results from all jobs in the JSON format into a single report
+
+```yaml
+reporters:
+  junit:
+    enabled: true
+    filename: saucectl-report.json
+```
+
+---
+#### `enabled`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Toggles the reporter on/off.
+
+```yaml
+    enabled: true
+```
+
+---
+#### `webhookURL`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the webhook URL. When saucectl test is finished, it'll send a HTTP POST payload to the configured webhook URL.
+
+```yaml
+    webhookURL: https://my-webhook-url
+```
+
+---
+#### `filename`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the report filename. When saucectl test is finished, it'll log the test result in this file. If the field is not set, the default one is saucectl-report.json
+
+```yaml
+    filename: my-saucectl-report.json
+```
+
+---
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
