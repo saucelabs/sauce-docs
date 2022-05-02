@@ -80,10 +80,10 @@ To integrate the Backtrace SDK with your iOS app, see the [iOS Integration Guide
 </Tabs>
 
 ## Link your Real Device Tests with Backtrace
+This enables the Backtrace integration for the current data center in use and for your entire organisation. Each account will be able to make use of this feature. Please be advised, that only organisation admins can update the settings for the integration.
+
 <Tabs>
 <TabItem value="admin" label="Sauce Labs Admin">
-
-This enables the Backtrace integration for your current data center.
 
 1. From your Sauce Labs account, go to the **Integrations** page (you need to have the role of organization admin to be able to navigate to this page).
 1. For the Backtrace integration, click **Enable**.
@@ -92,8 +92,6 @@ This enables the Backtrace integration for your current data center.
 
 </TabItem>
 <TabItem value="user" label="Sauce Labs User">
-
-This enables the Backtrace integration for your entire organization. Each account will be able to make use of this feature.
 
 1. From your Sauce Labs account, go to the test result page (live or automated) for real devices.
 1. From the bottom of the screen, select the **Error & Crash Reporting** tab.
