@@ -265,7 +265,7 @@ Toggles the reporter on/off.
 #### `webhookURL`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the webhook URL. When saucectl test is finished, it'll send a HTTP POST payload to the configured webhook URL.
+Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
 
 ```yaml
     webhookURL: https://my-webhook-url
