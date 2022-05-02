@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Supported Platforms
-<table id="table-fw">
+<table id="supported-platforms">
   <tr>
     <th>Supported Platforms</th>
     <th>Supported Systems</th>
