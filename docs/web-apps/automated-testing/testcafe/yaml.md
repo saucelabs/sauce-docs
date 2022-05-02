@@ -366,7 +366,7 @@ reporters:
   json:
     enabled: true
     filename: saucectl-report.json
-    webhook:saucectl-report.json
+    webhookURL:saucectl-report.json
 ```
 ---
 #### `enabled`
