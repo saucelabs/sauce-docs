@@ -23,21 +23,19 @@ The API Testing Composer enables you to quickly generate API functional tests (n
   <img src={useBaseUrl('/img/api-testing/api-testing-nav.png')} alt="Navigating to API Testing" width="400"/>
 
 2. On the **Projects** page:
-  * If the project has no tests yet, in the **Write your own test** box, click **Use Composer**.
+  * If you have no tests or projects yet, in the **Write your own test** box, click **Use Composer**.
 
   <img src={useBaseUrl('/img/api-testing/composer-nav.png')} alt="Navigating to the Composer" width="700"/>
 
+  * If you have a project but no tests, on the **Projects** page, click **Write your own test**.
+
   * If your project has tests, click **Create Test** and then click **From Scratch**.
 
-  <img src={useBaseUrl('/img/api-testing/test-create-from-scratch-nav.png')} alt="Navigating to the New Test window" width="450"/>
+  <img src={useBaseUrl('/img/api-testing/test-create-from-scratch-nav.png')} alt="Navigating to the New Test window" width="350"/>
 
 4. In the **New Test** box, enter a test name, test description (optional), and tags (optional), and then click **Create Test**.
 
-<img src={useBaseUrl('/img/api-testing/test-create-new-test.png')} alt="New Test window" width="400"/>
-
-5. On the **Compose** tab, make sure the **Input** and **Visual** views are toggled on.
-
-<img src={useBaseUrl('/img/api-testing/input-visual-on.png')} alt="Input and Visual settings on" width="500"/>
+<img src={useBaseUrl('/img/api-testing/test-create-new-test.png')} alt="New Test window" width="350"/>
 
 :::note
 You can use either the **Visual** composer (guides you through building components, with no coding required) or the **Code** composer (requires you to write code from scratch). For this guide, we're using **Visual**.
@@ -68,8 +66,8 @@ To create a simple `GET` request and validate that response is correct:
 
   3. In the **GET request** window, in the **Url** field, enter **ht<span>tps://</span>api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions**.
 
-  This URL will return a json response body.
-  4. In the **Variable** field, enter **payload**. This variable stores the response.
+  This endpoint will return a JSON response body.
+  4. In the **Variable** field, enter **payload**. This variable stores the response, so it can now be referred to as **payload**.
 
   <img src={useBaseUrl('/img/api-testing/get-request-window.png')} alt="Editing in the GET request window"/>
 
@@ -96,7 +94,7 @@ For more information, see [I/O Request Test Components](/api-testing/composer/io
 
 4. Leave the rest of the fields blank and click the checkmark to confirm the changes.
 
-  <img src={useBaseUrl('/img/api-testing/assert-exists-window.png')} alt="Confirm changes"/>
+  <img src={useBaseUrl('/img/api-testing/assert-exists-window.png')} alt="Confirm changes"  width="600"/>
 
 5. The result should look like the following:
 
@@ -105,7 +103,7 @@ For more information, see [I/O Request Test Components](/api-testing/composer/io
 For more information, see [Assertion Test Components](/api-testing/composer/assertion-components/).
 
 ### Run the Test
-In the Composer, click the **Save** icon and then click **Run**.
+In the Composer, click **Run**.
 
 <img src={useBaseUrl('/img/api-testing/run-test-save-run.png')} alt="Save and Run icons in the Composer" width="500"/>
 
@@ -120,7 +118,7 @@ To view your results, in the Composer, in the **Test Runs** list, click the name
 There are several ways you can compose a request body in Sauce Labs API Testing, ranging from simple to complex.
 
 :::note
-The included examples use the **POST** method, but all examples can be applied to other methods. In addition, the example scenarios use request bodies, but can be used with headers or parameters.
+The included examples use the **POST** method, but all examples can be applied to other methods.
 :::
 
 ### Copy and Paste the Body
@@ -143,7 +141,7 @@ In this method, you copy an existing body and paste it into the call.
 
       <img src={useBaseUrl('/img/api-testing/post-body-window.png')} alt="The Post body window"/>
 
-4. Click the click the **Confirm changes** icon and proceed with the test.
+4. Click the **Confirm changes** icon and proceed with the test.
 
 ### Use Variables in the Request Body
 
@@ -286,13 +284,12 @@ This method can be used when you need to create a new structure to add as a body
   ```  
 
 3. Create the new data structure by adding a `SET` component.
+    * Var (the variable name) - `itemsAvailable`
+    * Variable mode (the variable type) - `Language`
+    * Lang - `Javascript`
+    * Content - `payload.items.forEach(function (item) {  item.currency = "$"; }); return payload;`
 
-  ```js
-  // for each item in the array, we add the currency attribute with "$" as value
-  payload.items.forEach(function (item) {  item.currency = "$"; }); return payload;
-  ```
-
-    <img src={useBaseUrl('/img/api-testing/set-variable-window-2.png')} alt="The SET Variable window"/>
+      <img src={useBaseUrl('/img/api-testing/set-variable-window-2.png')} alt="The SET Variable window"/>
 
 4. Add the `POST` and add the new structure as the `POST` request body.
 
@@ -344,7 +341,7 @@ To create a date based on a specified time zone:
   ${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD','America/New_York')}
   ```
 
-### Convert a Timestamp to Milliseconds
+### Convert a Timestamp in Unix Time in Milliseconds
 
 To convert a timestamp from a payload response to milliseconds:
   * `D.parse()` - Parses the provided timestamp and converts it to milliseconds.
@@ -356,13 +353,8 @@ To convert a timestamp from a payload response to milliseconds:
 For more information, see [Expression Language Extensions](/api-testing/composer/logical-components/#expression-language-extensions).
 
 ## Integration Tests
-An integration test is a test in which you examine a complete flow of calls, simulating what an API user would experience.
 
-Integration testing is critical to creating a strong API testing strategy. Microservices are built to work together, and an integration test allows you to create end-to-end tests that resemble common user flows. While only testing individual endpoints is a good start, this method will miss a large number of problems that occur when all services need to work together.
-
-It is imperative to not just exercise endpoints, but validate that an entire series of microservices are working. It’s best to do that by writing tests that emulate common and uncommon user flows. A critical part of that work involves creating reusable variables to allow the test to work at any time, with any data.
-
-By making a request for a fresh token at the beginning of the sequence, and then assigning it to a variable, you will know that any time you run this test, you’re doing so with a valid access token, which is automatically being passed to all follow-up calls.
+Integration testing is critical for creating a strong API testing strategy. An integration test allows you to create end-to-end tests that resemble common user flows. While only testing individual endpoints is a good start, this method will miss a large number of problems that occur when all services need to work together.
 
 ### Token-based Authentication API
 
@@ -416,7 +408,7 @@ To create an integration test to test the interaction between the endpoints:
 
   1. Call the product listing endpoint and assign the response to the `productsPayload` variable.
 
-  2. Add a `for each` assertion and reference the `productsPayload.products` object.
+  2. Add an `each` assertion and reference the `productsPayload.products` object.
 
   :::note
   In a scenario in which the response contains many products, it may be useful to pick a few at random by using `pick(n)`.
@@ -590,7 +582,7 @@ When you write the value of the config, for the static part of the endpoint, you
 ## Terminology
 
 ### Visual View and Code View
-This button toggles between the Visual and Code views in the Composer. You can make calls and add assertions for testing your APIs, and insert variables wherever needed. You can use either, depending on which you're more comfortable with.
+This toggle switches between the Visual and Code views in the Composer. You can make calls and add assertions for testing your APIs, and insert variables wherever needed. You can use either, depending on which you're more comfortable with.
 
 #### Visual View
 Guides you through creating API tests using automated real-time suggestions via predictive text. No coding experience is required.<br/><img src={useBaseUrl('img/api-fortress/2021/01/visualView.png')} alt="Test Composer Visual view"/>
