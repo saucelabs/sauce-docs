@@ -242,7 +242,7 @@ reporters:
 ### `json`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The JSON reporter gathers test results from all jobs and writes into a JSON format report.
+The JSON reporter gathers test results from all jobs and combines them into a single report.
 
 ```yaml
 reporters:
