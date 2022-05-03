@@ -80,35 +80,22 @@ To integrate the Backtrace SDK with your iOS app, see the [iOS Integration Guide
 </Tabs>
 
 ## Link your Real Device Tests with Backtrace
-<Tabs>
-<TabItem value="admin" label="Sauce Labs Admin">
+This enables the Backtrace integration for all users in your organization. Once enabled, only organization admins can update the settings or disable the integration.
 
-This enables the Backtrace integration for your current data center.
+:::note
+The Backtrace integration is specific to the data center that is active for your Sauce Labs account during setup. If you have access to multiple data centers, you must switch into each data center and complete the steps below to integrate Backtrace.
+:::
 
-1. From your Sauce Labs account, go to the **Integrations** page (you need to have the role of organization admin to be able to navigate to this page).
-1. For the Backtrace integration, click **Enable**.
-1. Enter the **Project Name**, **Dashboard URL**, and **API Token**.
-1. Click **Save**.
-
-</TabItem>
-<TabItem value="user" label="Sauce Labs User">
-
-This enables the Backtrace integration for your entire organization. Each account will be able to make use of this feature.
-
-1. From your Sauce Labs account, go to the test result page (live or automated) for real devices.
+1. From your Sauce Labs account, go to the **Test Results** details page (live or automated) for a real device.
 1. From the bottom of the screen, select the **Error & Crash Reporting** tab.
 1. Click **Link with Backtrace**.
 1. Enter the **Project Name**, **Dashboard URL**, and **API Token**.
 1. Click **Save**.
 
-:::note
-Once enabled, you cannot update the integration settings or disable the integration. To do so, you need to contact your organization admin.
-:::
-</TabItem>
-</Tabs>
+If you are an organization admin, you can also enable the Backtrace integration from the [**Integrations**](https://app.saucelabs.com/integrations) page.
 
 :::note
-Currently, one subdomain, project, and API token is supported per organization.
+Only one subdomain, project, and API token is supported per organization.
 :::
 
 ## Run your Real Device Test
@@ -119,7 +106,7 @@ For information on how to run your real device test (live or automated), see [Mo
 ## View Test Results in Sauce Labs
 After running a real device test with the Backtrace SDK integrated into your Android or iOS app, you can view errors and crashes in Sauce Labs.
 
-1. Go to the test result page (live or automated) for real devices.
+1. Go to the **Test Results** details page (live or automated) for a real device.
 1. From the bottom of the screen, select the **Error & Crash Reporting** tab.
 
 <img src={useBaseUrl('img/error-reporting/real-devices/real-device-tests.png')} alt="" />
