@@ -775,7 +775,7 @@ When set, the instrumentation starts with [Test Orchestrator version 1.1.1](http
 ### `appSettings`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Application settings for Real Device test.
+Application settings for Real Device tests.
 
 ```yaml
 appSettings:
