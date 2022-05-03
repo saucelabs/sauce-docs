@@ -643,7 +643,7 @@ There are two types of input data sets you can use:
 </table>
 
 ### Unit View
-This button toggles back and forth between the Input Set and Unit views.
+These buttons switch between the Input Set and Unit views.
 
 <br/>
 <img src={useBaseUrl('img/api-fortress/2021/01/unitView.png')} alt="Unit View"/>
