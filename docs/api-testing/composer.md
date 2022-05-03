@@ -102,6 +102,23 @@ For more information, see [I/O Request Test Components](/api-testing/composer/io
 
 For more information, see [Assertion Test Components](/api-testing/composer/assertion-components/).
 
+#### Additional Example
+In the following example, the expression checks if the `download_url` value inside the Linux object is a valid URL.
+
+1. In API Testing, on the **Compose** page, click the **Add component** button.
+
+2. In the list of component options, click the **Assert Is** component.
+
+3. In the **Assert is** window, in the **Expression** field, enter `payload.downloads`. This expression checks for the **downloads** field in the json response body.
+
+4. Leave the rest of the fields blank and click the checkmark to confirm the changes.
+
+  <img src={useBaseUrl('/img/api-testing/assert-exists-window-2.png')} alt="Confirm changes" width="600"/>
+
+5. The result should look like the following:
+
+  <img src={useBaseUrl('/img/api-testing/assert-exists-final-2.png')} alt="What the Assert request should look like" width="500"/>
+
 ### Run the Test
 In the Composer, click **Run**.
 
