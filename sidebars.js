@@ -365,7 +365,7 @@ module.exports = {
   backtrace: [
     {
       type: 'category',
-      label: 'Error Reporting',
+      label: 'Error and Crash Reporting',
       collapsed: true,
       items: [
         'error-reporting/getting-started',
@@ -374,6 +374,14 @@ module.exports = {
           label: 'Platform Integrations',
           collapsed: true,
           items: [
+        {
+                type: 'category',
+                label: 'Real Devices',
+                collapsed: true,
+                items: [
+                    'error-reporting/platform-integrations/real-devices/setup',
+                ],
+            },
         {
                 type: 'category',
                 label: 'Android',
@@ -408,7 +416,7 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'View and Analyze Error Data',
+          label: 'View and Analyze Error and Crash Data',
           collapsed: true,
           items: [
             'error-reporting/web-console/getting-started',
@@ -613,7 +621,6 @@ module.exports = {
             items: [
               'basics/acct-team-mgmt-hub',
               'basics/acct-team-mgmt/org-settings',
-
               {
                 type: 'category',
                 label: 'Managing Users and Accounts',
@@ -650,7 +657,6 @@ module.exports = {
               },
             ],
           },
-
           {
             type: 'category',
             label: 'Single Sign-On',
@@ -731,6 +737,7 @@ module.exports = {
             items: [
               'secure-connections/sauce-connect/advanced/architecture',
               'secure-connections/sauce-connect/advanced/kgp',
+              'secure-connections/sauce-connect/advanced/specifications',
             ],
           },
           'secure-connections/sauce-connect/troubleshooting',
@@ -920,7 +927,7 @@ module.exports = {
       'api-testing/project-access',
       'api-testing/legacy',
     ],
-    CI: ['ci', 'ci/bamboo', 'ci/bitbucket', 'ci/jenkins', 'ci/teamcity'],
+    CI: ['ci', 'ci/azure', 'ci/bamboo', 'ci/bitbucket', 'ci/jenkins', 'ci/teamcity'],
     'Test Results': [
       'test-results',
       'test-results/viewing-test-results',

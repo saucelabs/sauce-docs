@@ -9,10 +9,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This page defines the attributes that are available to customize crash and error reports for Unreal Engine apps and games.
+This page defines the attributes that are available to customize error and crash reports for Unreal Engine apps and games.
 
 ## Attributes list
-Attributes are additional metadata that can be attached to crash and error reports. You can use attributes to filter, aggregate, analyze, and debug errors in the Backtrace console.
+Attributes are additional metadata that can be attached to error and crash reports. You can use attributes to filter, aggregate, analyze, and debug errors in the Backtrace console.
 
 
 Name|Unreal Property|Description|Format|Type|
@@ -49,7 +49,7 @@ Name|Unreal Property|Description|Format|Type|
 ||`UserActivityHint`|The user's activity when the error occurred, if available.|String|Dictionary|
 
 ## Add Custom Attributes
-To add custom crash properties to be included in your crash and error reports, you must add them as custom attributes for each individual platform.
+To add custom crash properties to be included in your error and crash reports, you must add them as custom attributes for each individual platform.
 
 Custom attributes are not indexed by default and therefore cannot be used in queries until they've been indexed. For more information about indexing, see [Indexing Attributes](/error-reporting/project-setup/attributes/).
 
