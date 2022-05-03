@@ -276,7 +276,7 @@ Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP PO
 #### `filename`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the report filename. When saucectl test is finished, it'll log the test result in this file. If the field is not set, the default one is saucectl-report.json
+Specifies the report filename. Defaults to "saucectl-report.json".
 
 ```yaml
     filename: my-saucectl-report.json
