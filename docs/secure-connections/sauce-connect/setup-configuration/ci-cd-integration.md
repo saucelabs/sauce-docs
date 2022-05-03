@@ -35,31 +35,27 @@ Here are some benefits/use cases:
 
 If desired, you can specify any additional [SC CLI arguments](/dev/cli/sauce-connect-proxy/) here.
 
-::::note
-In Linux, if your tests use localhost addresses, `--network="host"` is required as an argument in the above script to allow requests originating within the container to access the Docker host machine.
-::::
+:::note
+If you're running tests in Linux that use localhost addresses, you'll need to specify `--network="host"` as an argument in the above script to allow requests originating within the container to access the Docker host machine.
+:::
 
-::::warning
-`--network="host"` behaves differently on Windows, Mac OS, and Linux due to the respective platform Docker implementation.
-::::
+:::info
+`--network="host"` behaves differently on Windows, macOS, and Linux due to the respective platform Docker implementation.
+:::
 
 ### Running the Sauce Connect Proxy Docker Image with a CI/CD Pipeline
 If you want to run this Docker image as part of your CI/CD pipeline, you would need a way to determine that Sauce Connect Proxy is ready to proxy the requests. You can achieve that by:
-1. Starting with v4.8.0, the `/readiness` endpoint is available.
-1. By using Docker's [volumes](https://docs.docker.com/storage/volumes/) feature and [--readyfile](/dev/cli/sauce-connect-proxy/#--readyfile).
+- Using the `/readiness` endpoint, which is available effective with Sauce Connect Proxy v4.8.0
+- Using Docker's [volumes](https://docs.docker.com/storage/volumes/) feature along with our Sauce Connect Proxy [`--readyfile`](/dev/cli/sauce-connect-proxy/#--readyfile) flag.
 
 #### Readiness Endpoint
-::::note
-Only available starting with Sauce Connect Proxy version 4.8.0.
-::::
-
-Starting with 4.8.0, Sauce Connect Proxy Docker image allows configuring liveness and readiness HTTP probes. See the [kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) for more info.
+The readiness endpoint, supported in Sauce Connect Proxy versions 4.8.0 and higher, allows you to configure liveness and readiness HTTP probes. See the [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) for more information.
 
 Docker container exposes Sauce Connect Proxy HTTP status server on port 8032. The following endpoints are available:
-* /readiness returns 200 response code when Sauce Connect Proxy is ready, 503 otherwise
-* /liveness returns 200 response code when Sauce Connect Proxy is running
+* `/readiness` returns 200 response code when Sauce Connect Proxy is ready, 503 otherwise
+* `/liveness` returns 200 response code when Sauce Connect Proxy is running
 
-You can leverage the "readiness" endpoint in our CI/CD pipeline by running the following:
+You can leverage the readiness endpoint in your CI/CD pipeline by running the following:
 
 1. Create a simple bash script `wait-for-sc.sh` that will ensure the pipeline only continues after Sauce Connect Proxy is fully connected and ready.
    ```bash title="wait-for-sc.sh"
@@ -85,7 +81,7 @@ In this example, using `--network="host"` renders the port mapping unnecessary.
 ::::
 
 #### Ready File
-You can leverage the Sauce Connect Proxy [--readyfile](/dev/cli/sauce-connect-proxy/#--readyfile) flag that allows to specify a file that will be created (or updated) when the proxy is ready.
+You can leverage the Sauce Connect Proxy [`--readyfile`](/dev/cli/sauce-connect-proxy/#--readyfile) flag to specify a file that will be created (or updated) when the proxy is ready.
 
 1. Create a simple bash script `wait-for-sc.sh` that will ensure the pipeline only continues after Sauce Connect Proxy is fully connected and ready.
    ```bash title="wait-for-sc.sh"
@@ -111,7 +107,7 @@ You can leverage the Sauce Connect Proxy [--readyfile](/dev/cli/sauce-connect-pr
 `--network="host"` allows Sauce Connect Proxy to access your app in the host machine. It's only required if your app runs on the same machine as the docker host.
 ::::
 
-Starting with Sauce Connect Proxy 4.8.0, the "ready" file will contain a JSON-formatted information about the running Sauce Connect Proxy. For example:
+Starting with Sauce Connect Proxy 4.8.0, the "ready" file will contain JSON-formatted information about the running Sauce Connect Proxy. For example:
 
 ```bash
 $ cat /tmp/sc.ready | jq .
