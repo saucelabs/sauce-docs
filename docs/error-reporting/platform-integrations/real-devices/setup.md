@@ -23,8 +23,8 @@ Crashes for iOS apps are currently not supported when running real device tests 
 :::
 
 ## What You'll Need
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
+* A Sauce Labs account ([log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://register.backtrace.io/create-developers/?utm_source=saucelabs&utm_medium=site&utm_campaign=devtierpromo)).
 * Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
 * A Backtrace project and an API token with object:get and query:post capabilities.
 
@@ -79,7 +79,7 @@ To integrate the Backtrace SDK with your iOS app, see the [iOS Integration Guide
 </TabItem>
 </Tabs>
 
-## Link your Real Device Tests with Backtrace
+## Enable the Backtrace Integration in Sauce Labs
 This enables the Backtrace integration for all users in your organization. Once enabled, only organization admins can update the settings or disable the integration.
 
 :::note
