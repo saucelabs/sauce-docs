@@ -398,6 +398,7 @@ module.exports = {
                 collapsed: true,
                 items: [
                     'error-reporting/platform-integrations/ios/setup',
+                    'error-reporting/platform-integrations/ios/configuration',
                 ],
             },
             {
