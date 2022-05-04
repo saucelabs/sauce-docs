@@ -696,11 +696,6 @@ Excludes test files to skip the tests. Files are matched by shell pattern, e.g. 
 ```yaml
       excludedTestFiles: [ "*/*.test.js" ]
 ```
-
-:::note
-`excludedTestFiles` must be a regex or a path relative to `cypress/integration` or the `integrationFolder` value set in `cypress.json`.
-:::
-
 ---
 
 ### `filter`
