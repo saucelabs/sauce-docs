@@ -73,7 +73,7 @@ You can leverage the readiness endpoint in your CI/CD pipeline by running the fo
     $ ./wait-for-sc.sh
     ```
 
-#### Ready File
+### Ready File
 You can leverage the Sauce Connect Proxy [`--readyfile`](/dev/cli/sauce-connect-proxy/#--readyfile) flag to specify a file that will be created (or updated) when the proxy is ready.
 
 1. Create a simple bash script `wait-for-sc.sh` that will ensure the pipeline only continues after Sauce Connect Proxy is fully connected and ready.
