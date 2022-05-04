@@ -765,11 +765,11 @@ There is a 300-second limit for all `preExec` commands to complete.
 ```
 ---
 
-### `timezone`
+### `timeZone`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
 
 ```yaml
-  timezone: New_York
+  timeZone: New_York
 ```
