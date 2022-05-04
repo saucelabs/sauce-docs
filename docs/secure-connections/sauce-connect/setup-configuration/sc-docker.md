@@ -39,7 +39,7 @@ If you're running tests in Linux that use localhost addresses, you'll need to sp
 Be aware that `--network="host"` behaves differently on Windows, macOS, and Linux due to the respective platform Docker implementation.
 :::
 
-### Running the Sauce Connect Docker Container with a CI/CD Pipeline
+## Running the Sauce Connect Docker Container with a CI/CD Pipeline
 If you want to run this Docker image as part of your CI/CD pipeline, you would need a way to determine that Sauce Connect Proxy is ready to proxy the requests. You can achieve that by:
 - Using the `/readiness` endpoint, which is available effective with Sauce Connect Proxy v4.8.0
 - Using Docker's [volumes](https://docs.docker.com/storage/volumes/) feature along with our Sauce Connect Proxy [`--readyfile`](/dev/cli/sauce-connect-proxy/#--readyfile) flag.
