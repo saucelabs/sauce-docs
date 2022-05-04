@@ -43,7 +43,7 @@ To import a HAR file:
 
   <img src={useBaseUrl('/img/api-testing/api-testing-nav.png')} alt="Navigating to API Testing" width="300"/>
 
-2. On the **Projects** page,under the project you want to import the file to, click **HTTP Client**.
+2. On the **Projects** page, under the project you want to import the file to, click **HTTP Client**.
 
   <img src={useBaseUrl('/img/api-testing/http-client-nav.png')} alt="Navigating to the HAR import modal" width="600"/>
 
