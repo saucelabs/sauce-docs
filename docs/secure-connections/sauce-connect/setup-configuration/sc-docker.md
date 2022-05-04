@@ -1,7 +1,7 @@
 ---
 id: sc-docker
 title: Sauce Connect Proxy Docker Container
-sidebar_label: Sauce Connect Docker
+sidebar_label: Docker
 ---
 
 ## Sauce Connect Docker Container Setup
