@@ -44,7 +44,7 @@ If you want to run this Docker image as part of your CI/CD pipeline, you would n
 - Using the `/readiness` endpoint, which is available effective with Sauce Connect Proxy v4.8.0
 - Using Docker's [volumes](https://docs.docker.com/storage/volumes/) feature along with our Sauce Connect Proxy [`--readyfile`](/dev/cli/sauce-connect-proxy/#--readyfile) flag.
 
-#### Readiness Endpoint
+### Readiness Endpoint
 The readiness endpoint, supported in Sauce Connect Proxy versions 4.8.0 and higher, allows you to configure liveness and readiness HTTP probes. See the [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) for more information.
 
 Docker container exposes Sauce Connect Proxy HTTP status server on port 8032. The following endpoints are available:
