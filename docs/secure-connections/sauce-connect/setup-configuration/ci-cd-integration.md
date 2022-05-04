@@ -68,17 +68,14 @@ You can leverage the readiness endpoint in your CI/CD pipeline by running the fo
 1. Run Sauce Connect Docker container using the script below. It is important that you map port 8032 so that the port is available to the host.
   ```bash
   $ docker run \
+      --detach \
       -e SAUCE_USERNAME=${SAUCE_USERNAME} \
       -e SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} \
       -p 8032:8032 \
       -t saucelabs/sauce-connect:latest \
-      -i some-identifier --detach
+      -i some-identifier
     $ ./wait-for-sc.sh
     ```
-
-::::note
-In this example, using `--network="host"` renders the port mapping unnecessary.
-::::
 
 #### Ready File
 You can leverage the Sauce Connect Proxy [`--readyfile`](/dev/cli/sauce-connect-proxy/#--readyfile) flag to specify a file that will be created (or updated) when the proxy is ready.
@@ -94,18 +91,19 @@ You can leverage the Sauce Connect Proxy [`--readyfile`](/dev/cli/sauce-connect-
 1. Run Sauce Connect Docker container using the script below. It is important that you mount a temp folder here so that `wait-for-sc.sh` can detect when Sauce Connect has launched.
   ```bash
   $ docker run \
+      --detach \
       -e SAUCE_USERNAME=${SAUCE_USERNAME} \
       -e SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} \
       -v /tmp:/tmp \
       --network="host" \
       -t saucelabs/sauce-connect:latest \
       -f /tmp/sc.ready \
-      -i some-identifier --detach
+      -i some-identifier
     $ ./wait-for-sc.sh
   ```
-::::note
+:::note
 `--network="host"` allows Sauce Connect Proxy to access your app in the host machine. It's only required if your app runs on the same machine as the docker host.
-::::
+:::
 
 Starting with Sauce Connect Proxy 4.8.0, the "ready" file will contain JSON-formatted information about the running Sauce Connect Proxy. For example:
 
