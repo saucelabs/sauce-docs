@@ -162,7 +162,9 @@ Unity's CrashReport API might prevent the Backtrace client from sending crashes.
 #### Uploading Debug Symbols
 When building your iOS game in Xcode, make sure to configure the build settings to generate dSYM files for any build that you want to debug with Backtrace. By default, Xcode may only generate DWARF files.
 
-To generate debug symbols in dSYM format, in the **Build Settings** for your Xcode project, set **Debug Information Format** to 'DWARF with dSYM File'.
+To generate debug symbols in dSYM format:
+1. In Xcode, go to your project target's **Build Settings**.
+1. Under **Build Options**, set **Debug Information Format** to **DWARF with dSYM File**.
 
 <img src={useBaseUrl('img/error-reporting/unity/xcode-enable-debug-symbols.png')} alt="Build setting in Xcode required to generate debug symbols for iOS builds." />
 
