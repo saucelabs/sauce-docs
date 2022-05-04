@@ -4,7 +4,6 @@ title: Sauce Connect Proxy Docker Container
 sidebar_label: Docker
 ---
 
-## Sauce Connect Docker Container Setup
 
 As an alternative to downloading and installing the Sauce Connect Proxy in your CI/CD environment, you can leverage [Docker](https://www.docker.com/) to manage [Sauce Connect Docker container](https://github.com/saucelabs/sauce-connect-docker) maintained by the Sauce Labs [Open Source Program Office](https://opensource.saucelabs.com/).
 
