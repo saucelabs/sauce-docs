@@ -32,7 +32,7 @@ Sauce Connect Proxy Tunnel connection TLS specifications
    </td>
    <td>1.2, 1.3
    </td>
-   <td>
+   <td>4.7.x, 4.8.x
    </td>
   </tr>
   <tr>
