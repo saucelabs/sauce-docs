@@ -959,6 +959,7 @@ Setting `0` reverts to the value set in `defaults`.
 ```yaml
   timeout: 15m
 ```
+---
 
 ### `preExec`
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
@@ -972,4 +973,14 @@ There is a 300-second limit for all `preExec` commands to complete.
 ```yaml
   preExec:
     - node ./scripts/pre-execution-script.js
+```
+---
+
+### `timezone`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
+
+```yaml
+  timezone: New_York
 ```
