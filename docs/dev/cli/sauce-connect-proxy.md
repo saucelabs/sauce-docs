@@ -305,7 +305,7 @@ __Shorthand__: `-d`
 ### `--readyfile`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Sets file that will be touched to indicate when the tunnel is ready.<br/>
+__Description__: Sets file that is updated when the tunnel is ready.<br/>
 __Enviroment variable__: `SAUCE_READYFILE`<br/>
 __Shorthand__: `-f`
 
