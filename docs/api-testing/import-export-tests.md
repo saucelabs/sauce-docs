@@ -31,8 +31,7 @@ To import a Sauce Labs API test,
 5. Your test(s) will then populate in the **Tests** tab. It will be labeled **No data** because it's not been run yet. To run it, click **Run** (play icon). To rename the test, hover over your test name, then click **Edit Test** (pencil icon) > **Edit Details**.
 
 ### Importing a HAR File
-<p><span className="sauceDBlue">RDC Only</span></p>
-<p><span className="sauceDBlue">Android Only</span></p>
+<p><small><span className="sauceDBlue">RDC Only</span> | <span className="sauceDBlue">Android Only</span></small></p>
 
 You can import a HAR (HTTP Archive) file into API Testing to automatically generate a functional test.
 
