@@ -724,6 +724,7 @@ module.exports = {
               'secure-connections/sauce-connect/setup-configuration/high-availability',
               'secure-connections/sauce-connect/setup-configuration/additional-proxies',
               'secure-connections/sauce-connect/setup-configuration/specialized-environments',
+              'secure-connections/sauce-connect/setup-configuration/sc-docker',
               'secure-connections/sauce-connect/setup-configuration/ci-cd-integration',
             ],
           },

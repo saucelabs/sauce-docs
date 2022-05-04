@@ -271,7 +271,7 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
 
 ## Using Sauce Connect in Docker
 
-As an alternative to downloading the client, you can use the Sauce Connect Proxy Docker image to run it in a Docker container. To learn more, see [Sauce Connect Docker Container Setup](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#sauce-connect-docker-container-setup).
+As an alternative to downloading the client, you can use the Sauce Connect Proxy Docker image to run it in a Docker container. To learn more, see [Sauce Connect Docker Container Setup](/secure-connections/sauce-connect/setup-configuration/sc-docker/).
 
 
 
