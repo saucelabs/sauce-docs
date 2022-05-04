@@ -12,7 +12,7 @@ Here are some benefits/use cases:
 * If you'd prefer to manage Docker image tags instead of Sauce Connect Proxy versions.
 * If your setup involves several instances running on the same system, Docker would simplify Sauce Connect Proxy port management.
 
-### Running the Sauce Connect Docker Container
+## Running the Sauce Connect Docker Container
 
 1. Pull the Sauce Connect Proxy Docker Image from the [Docker Hub](https://hub.docker.com/r/saucelabs/sauce-connect).
    * You can pull the latest version of Sauce Connect Proxy:
