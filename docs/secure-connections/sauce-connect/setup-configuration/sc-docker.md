@@ -1,5 +1,5 @@
 ---
-id: sc-docker
+id: docker
 title: Sauce Connect Proxy Docker Container
 sidebar_label: Docker
 ---
