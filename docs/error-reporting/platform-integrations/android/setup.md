@@ -88,7 +88,7 @@ In your app's `AndroidManifest.xml` file, add the following permissions:
   ```
 
 ## Initialize the Backtrace Client
-To initialize the Backtrace Client, create a `BacktraceCredentials` instance with your Backtrace endpoint URL (e.g. https://your-subdomain.sp.backtrace.io:6098) and submission token, and supply it as a parameter in the `BacktraceClient` constructor:
+To initialize the Backtrace Client, create a `BacktraceCredentials` instance with your Backtrace endpoint URL (e.g., https://your-subdomain.sp.backtrace.io:6098) and submission token, and supply it as a parameter in the `BacktraceClient` constructor:
 
 <Tabs groupId="languages">
 <TabItem value="java" label="Java">
