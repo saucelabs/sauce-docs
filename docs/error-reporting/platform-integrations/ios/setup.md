@@ -49,7 +49,29 @@ Make sure to specify `use_frameworks!` in your `Podfile`.
 :::
 
 ## Initialize the Backtrace Client
-To initialize the Backtrace Client, create a `BacktraceCredentials` instance with your Backtrace endpoint URL (e.g. https://your-subdomain.sp.backtrace.io:6098) and submission token, and supply it as a parameter in the `BacktraceClient` constructor:
+To initialize `BacktraceClient`, create a `BacktraceCredentials` object with the name of your subdomain and submission token, and supply it as a parameter in the `BacktraceCredentials` constructor:
+
+<Tabs groupId="languages">
+<TabItem value="swift" label="Swift">
+
+```swift
+// provide the name of the subdomain for your Backtrace instance and a submission token
+let backtraceCredentials = BacktraceCredentials(submissionUrl: URL(string: "https://submit.backtrace.io/{subdomain-name}/{submission-token}/plcrash")!)
+```
+
+</TabItem>
+<TabItem value="objc" label="Objective-C">
+
+```objc
+// provide the name of the subdomain for your Backtrace instance and a submission token
+BacktraceCredentials *backtraceCredentials = [[BacktraceCredentials alloc] initWithSubmissionUrl: [NSURL URLWithString: @"https://submit.backtrace.io/{subdomain-name}/{submission-token}/plcrash"]];
+```
+
+</TabItem>
+</Tabs>
+
+Alternatively, you can also create a `BacktraceCredentials` object with your Backtrace endpoint URL (e.g., https://your-subdomain.sp.backtrace.io:6098) and submission token, and supply it as a parameter in the `BacktraceClient` constructor:
+
 <Tabs groupId="languages">
 <TabItem value="swift" label="Swift">
 
@@ -66,27 +88,6 @@ BacktraceCredentials *backtraceCredentials = [[BacktraceCredentials alloc]
                                              initWithEndpoint: [NSURL URLWithString: @"https://backtrace.io"]
                                              token: @"submission-token"];
 BacktraceClient.shared = [[BacktraceClient alloc] initWithCredentials: backtraceCredentials error: error];
-```
-
-</TabItem>
-</Tabs>
-
-Another option for creating a `BacktraceCredentials` object is to use the endpoint URL to which the report is to be sent, and pass the URL string as a parameter to the `BacktraceCredentials` constructor:
-
-<Tabs groupId="languages">
-<TabItem value="swift" label="Swift">
-
-```swift
-// provide the name of the subdomain for your Backtrace instance and a submission token
-let backtraceCredentials = BacktraceCredentials(submissionUrl: URL(string: "https://submit.backtrace.io/{subdomain-name}/{submission-token}/plcrash")!)
-```
-
-</TabItem>
-<TabItem value="objc" label="Objective-C">
-
-```objc
-// provide the name of the subdomain for your Backtrace instance and a submission token
-BacktraceCredentials *backtraceCredentials = [[BacktraceCredentials alloc] initWithSubmissionUrl: [NSURL URLWithString: @"https://submit.backtrace.io/{subdomain-name}/{submission-token}/plcrash"]];
 ```
 
 </TabItem>
