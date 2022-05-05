@@ -165,7 +165,7 @@ To test the integration, throw an error an exception to send a report to your Ba
 </TabItem>
 </Tabs>
 
-### macOS Exceptions
+### Send macOS Exceptions
 If you want to catch additional exceptions on macOS which are not forwarded by macOS runtime, set `NSPrincipalClass` to `Backtrace.BacktraceCrashExceptionApplication` in your `Info.plist` file.
 
 Alternatively, you can set:
