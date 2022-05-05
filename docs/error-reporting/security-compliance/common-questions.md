@@ -54,7 +54,7 @@ By default, the Backtrace system does not collect personal information such as n
 As a crash and error reporting service, Backtrace provides support for the internal operations of your online service, which allows for the collection of such type of identifier, as per [16 CFR 312.5(c)(7)](https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312#p-312.5(c)(7)).
 :::
 
-Backtrace provides privacy controls to ensure that you have full control over what data is collected with the crash or error reports, and to ensure that your use of Backtrace is compliant with the COPPA rule. For more information, see [Privacy Control](https://docs.saucelabs.com/error-reporting/security-compliance/privacy-control/).
+Backtrace provides privacy controls to ensure that you have full control over what data is collected with the crash or error reports, and to ensure that your use of Backtrace is compliant with the COPPA rule. For more information, see [Privacy Control](/error-reporting/security-compliance/privacy-control/).
 
 If you have questions regarding COPPA, see the [Complying with COPPA: Frequently Asked Questions](https://www.ftc.gov/business-guidance/resources/complying-coppa-frequently-asked-questions), and consult your legal advisor.
 
