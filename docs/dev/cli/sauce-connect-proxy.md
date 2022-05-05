@@ -168,7 +168,7 @@ See also [Tuning Sauce Connect Proxy Traffic](/secure-connections/sauce-connect/
 <p><small>| OPTIONAL | STRING |</small></p>
 
 :::caution
-As this option will soon be deprecated, we recommend using the [`--region`](/dev/cli/sauce-connect-proxy/#--region) flag, compatible with Sauce Connect versions 4.7.0 and above.
+We recommend using the [`--region`](/dev/cli/sauce-connect-proxy/#--region) flag, compatible with Sauce Connect versions 4.7.0 and above.
 :::
 
 __Description__: Sets the URL for the [data center endpoint](/basics/data-center-endpoints) of the location where the device you're testing on is hosted.<br/>
