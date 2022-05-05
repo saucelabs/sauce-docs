@@ -77,6 +77,7 @@ Another option for creating a `BacktraceCredentials` object is to use the endpoi
 <TabItem value="swift" label="Swift">
 
 ```swift
+// provide the name of the subdomain for your Backtrace instance and a submission token
 let backtraceCredentials = BacktraceCredentials(submissionUrl: URL(string: "https://submit.backtrace.io/{subdomain-name}/{submission-token}/plcrash")!)
 ```
 
@@ -84,6 +85,7 @@ let backtraceCredentials = BacktraceCredentials(submissionUrl: URL(string: "http
 <TabItem value="objc" label="Objective-C">
 
 ```objc
+// provide the name of the subdomain for your Backtrace instance and a submission token
 BacktraceCredentials *backtraceCredentials = [[BacktraceCredentials alloc] initWithSubmissionUrl: [NSURL URLWithString: @"https://submit.backtrace.io/{subdomain-name}/{submission-token}/plcrash"]];
 ```
 
