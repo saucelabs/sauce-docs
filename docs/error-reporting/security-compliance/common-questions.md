@@ -2,7 +2,7 @@
 id: common-questions
 title: Common Questions
 sidebar_label: Common Questions
-description: Provides questions and answers about security and compliance.
+description: Answers commons questions about security and compliance.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -44,6 +44,19 @@ Per [Article 28 of the GDPR](https://gdpr-info.eu/art-28-gdpr/), Backtrace is a 
 As a processor, Backtrace ensures end user data collected during the crash reporting process is protected, managed properly and destroyed appropriately throughout the chain of development. Backtrace customers have a host of controls to help ensure compliance with GDPR and corporate data protection policies.
 
 Backtrace has provided a [Data Processing Addendum (DPA)](https://backtrace.io/data-processing-addendum) as part of the [Privacy Policy](https://backtrace.io/privacy-policy) and as an amendment of the [Terms of Service](https://backtrace.io/software-license-agreement). The DPA defines the agreement between Backtrace as the data processor and our customer as the Data Controller with regard to the processing of personal data.
+
+### Is Backtrace COPPA Compliant?
+The [Children’s Online Privacy Protection Act (COPPA)](https://www.ecfr.gov/current/title-16/part-312) is a Federal Trade Commission (FTC) regulation that imposes certain requirements on operators of online services directed to children under 13 years of age.
+
+By default, the Backtrace system does not collect personal information such as names, address, SSN, telephone number, or other contact details. The system may collect data used to identify a specific device that is erroring, however, the data can be scrubbed as needed.
+
+:::note
+As a crash and error reporting service, Backtrace provides support for the internal operations of your online service, which allows for the collection of such type of identifier, as per [16 CFR 312.5(c)(7)](https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312#p-312.5(c)(7)).
+:::
+
+Backtrace provides privacy controls to ensure that you have full control over what data is collected with the crash or error reports, and to ensure that your use of Backtrace is compliant with the COPPA rule. For more information, see [Privacy Control](https://docs.saucelabs.com/error-reporting/security-compliance/privacy-control/).
+
+If you have questions regarding COPPA, see the [Complying with COPPA: Frequently Asked Questions](https://www.ftc.gov/business-guidance/resources/complying-coppa-frequently-asked-questions), and consult your legal advisor.
 
 ## Questions about Backtrace's Hosted Service
 ### What Platform Does the Hosted Service Run On?
