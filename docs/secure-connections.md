@@ -127,7 +127,7 @@ Sauce Connect Proxy and Sauce IPSec Proxy accomplish the same thing: establish a
    </td>
   </tr>
   <tr>
-   <td>Available to all Sauce Labs accountholders at no additional cost.
+   <td>Available to all Sauce Labs account holders at no additional cost.
    </td>
    <td><a href="https://saucelabs.com/pricing">Enterprise Plans</a> only.
    </td>
