@@ -65,7 +65,7 @@ Sauce Labs supports the following test configurations for TestCafe:
     <tbody>
     <tr>
       <td rowspan='3'>1.18.5</td>
-      <td><b>macOS:</b> 11.0</td>
+      <td><b>macOS:</b> 11.00, 12</td>
       <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
     </tr>
     <tr>
@@ -80,7 +80,7 @@ Sauce Labs supports the following test configurations for TestCafe:
     <tbody>
     <tr>
       <td rowspan='3'>1.18.3</td>
-      <td><b>macOS:</b> 11.0</td>
+      <td><b>macOS:</b> 11.00</td>
       <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
     </tr>
     <tr>
@@ -95,7 +95,7 @@ Sauce Labs supports the following test configurations for TestCafe:
     <tbody>
     <tr>
       <td rowspan='3'>1.17.1</td>
-      <td><b>macOS:</b> 11.0</td>
+      <td><b>macOS:</b> 11.00</td>
       <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
     </tr>
     <tr>
@@ -110,7 +110,7 @@ Sauce Labs supports the following test configurations for TestCafe:
     <tbody>
     <tr>
       <td rowspan='3'>1.16.1</td>
-      <td><b>macOS:</b> 11.0</td>
+      <td><b>macOS:</b> 11.00</td>
       <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
     </tr>
     <tr>
