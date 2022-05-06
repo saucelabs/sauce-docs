@@ -647,7 +647,7 @@ One or more paths to the playwright test files to run for this suite. Regex valu
 ### `excludedTestFiles`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-One or more paths to the playwright test files to be skipped. Regex values are supported to indicate all files of a certain type or in a certain directory, etc.
+Excludes test files to skip the tests. Regex values are supported to indicate all files of a certain type or in a certain directory, etc.
 
 ```yaml
     excludedTestFiles: ["**/*.js"]
