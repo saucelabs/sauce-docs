@@ -402,7 +402,7 @@ Specifies which artifacts to download based on whether they match the name or fi
 #### `directory`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory is composed by the suite name. If there were subdirectories with the same name already existed, the new one would be appended a serial number.
+Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory will match the suite name. If a directory with the same name already exists, the new one will be suffixed by a serial number.
 
 ```yaml
     directory: ./artifacts/
