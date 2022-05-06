@@ -168,7 +168,7 @@ See also [Tuning Sauce Connect Proxy Traffic](/secure-connections/sauce-connect/
 <p><small>| OPTIONAL | STRING |</small></p>
 
 :::caution
-As this option will soon be deprecated, we recommend using the [`--region`](/dev/cli/sauce-connect-proxy/#--region) flag, compatible with Sauce Connect versions 4.7.0 and above.
+We recommend using the [`--region`](/dev/cli/sauce-connect-proxy/#--region) flag, compatible with Sauce Connect versions 4.7.0 and above.
 :::
 
 __Description__: Sets the URL for the [data center endpoint](/basics/data-center-endpoints) of the location where the device you're testing on is hosted.<br/>
@@ -424,13 +424,27 @@ __Shorthand__: `-z`
 ### `--metrics-address`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-:::caution
-Effective with Sauce Connect Proxy version 4.7.0, the metrics server is disabled by default.
-:::
-
-__Description__: Use this option to define the host:port for the internal web server used to expose client-side metrics. The default is `localhost:8888` for versions prior to 4.7.0.<br/>
+__Description__: Use this option to define the host:port for the internal web server used to expose client-side metrics. Disabled by default.<br/>
 __Enviroment variable__: `SAUCE_METRICS_ADDRESS`<br/>
 __Shorthand__: n/a
+
+:::caution
+Effective with Sauce Connect Proxy version 4.8.0, this flag has been deprecated and replaced by [`--status-address`](#--status-address). Download the latest version [here](/secure-connections/sauce-connect/installation/).
+:::
+
+
+---
+### `--status-address`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+__Description__: Use this option to define the host:port for the internal web server used to expose the Sauce Connect Proxy runtime info. See the [Sauce Connect Proxy Monitoring](/secure-connections/sauce-connect/proxy-tunnels/#sauce-connect-proxy-monitoring) for more info. Disabled by default.<br/>
+
+__Enviroment variable__: `SAUCE_STATUS_ADDRESS`<br/>
+__Shorthand__: n/a
+
+:::caution
+Not compatible with Sauce Connect versions below 4.8.0. Download the latest version [here](/secure-connections/sauce-connect/installation/).
+:::
 
 
 ---
