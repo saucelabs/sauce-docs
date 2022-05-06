@@ -8,12 +8,12 @@ If your company has firewall rules that limit your ability to run tests on Sauce
 
 We offer two options to provide an extra layer of security to protect test data in flight between the Sauce Labs cloud and your app or site under test on your network. Both of these solutions, Sauce Connect Proxy™ and Sauce IPSec Proxy, support secure connectivity using TLS 1.2 or above.
 
-To determine which solution is best for you, see [Overview of Sauce Labs Security Processes](https://saucelabs.com/resources/white-papers/overview-of-sauce-labs-security-processes).
+To determine which solution is right for you, see [Choosing the Right Solution](#choosing-the-right-solution) and [Overview of Sauce Labs Security Processes](https://saucelabs.com/resources/white-papers/overview-of-sauce-labs-security-processes).
 
 
 ## Sauce Connect Proxy
 
-See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview) white paper for information about optimizing your network and development environment for Sauce Connect Proxy performance.
+Sauce Connect Proxy is a built-in HTTP proxy server that allows you to access Sauce Labs infrastructure from your local environment or behind a corporate firewall.
 
 <div className="box boxwidebottom card">
   <div className="container">
@@ -24,14 +24,14 @@ See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/
   <div className="box-wrapper" markdown="1">
     <div className="box box1 card">
       <div className="container">
-      <h3><a href="/secure-connections/sauce-connect">Using Sauce Connect Proxy</a></h3>
-      <p>Review the Sauce Connect Proxy system and network requirements, and then install the Sauce Connect Proxy client.</p>
+      <h3><a href="/secure-connections/sauce-connect">Sauce Connect Proxy Overview</a></h3>
+      <p>Learn about Sauce Connect Proxy system requirements and how to install the client.</p>
       </div>
     </div>
     <div className="box box2 card">
       <div className="container">
       <h3><a href="/secure-connections/sauce-connect/#setup-and-configuration">Setup and Configuration</a></h3>
-      <p>Find the right Sauce Connect Proxy tunnel configuration for you and your organization. Once you’re connected, use our code samples to run your first test.</p>
+      <p>Find the right Sauce Connect Proxy tunnel configuration for you and your organization.</p>
       </div>
     </div>
     <div className="box box3 card">
@@ -61,13 +61,14 @@ See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/
   </div>
 
 
+See our [Sauce Connect Proxy Security white paper](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview) for information about optimizing your network and development environment for Sauce Connect Proxy performance.
 
 
 ## Sauce IPSec Proxy
 
 <p><small><span className="sauceDBlue">Enterprise Plans only</span></small></p>
 
-Sauce IPSec Proxy establishes a VPN connection between two IPSec gateways, and a tunnel gateway that allows only your authorized test VMs to connect. For more information, see our [Sauce IPSec Proxy Overview](https://saucelabs.com/resources/white-papers/sauce-ipsec-proxy-overview) white paper or contact your Customer Success Manager or Sauce Labs Sales Engineer.
+Sauce IPSec Proxy establishes a VPN connection between two IPSec gateways, and a tunnel gateway that allows only your authorized test VMs to connect.
 
 <div className="box-wrapper" markdown="1">
 
@@ -94,10 +95,11 @@ Sauce IPSec Proxy establishes a VPN connection between two IPSec gateways, and a
   </div>
 </div>
 
+For more information, see our [Sauce IPSec Proxy white paper](https://saucelabs.com/resources/white-papers/sauce-ipsec-proxy-overview), or contact your Customer Success Manager or Sauce Labs Sales Engineer.
 
 ## Choosing the Right Solution
 
-Sauce Connect Proxy and Sauce IPSec Proxy accomplish the same thing: establishing a secure connection between apps hosted on a customer's private network and Sauce Labs cloud virtual machines and real devices. The main differences are:
+Sauce Connect Proxy and Sauce IPSec Proxy accomplish the same thing: establish a secure connection between apps hosted on a customer's private network and Sauce Labs cloud virtual machines and real devices. The main differences are:
 
 <table>
   <tr>
