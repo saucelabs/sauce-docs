@@ -362,6 +362,50 @@ reporters:
 ```
 
 ---
+### `json`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The JSON reporter gathers test results from all jobs and combines them into a single report.
+
+```yaml
+reporters:
+  json:
+    enabled: true
+    filename: saucectl-report.json
+    webhookURL: https://my-webhook-url
+```
+
+---
+#### `enabled`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Toggles the reporter on/off.
+
+```yaml
+    enabled: true
+```
+
+---
+#### `webhookURL`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
+
+```yaml
+    webhookURL: https://my-webhook-url
+```
+
+---
+#### `filename`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the report filename. Defaults to "saucectl-report.json".
+
+```yaml
+    filename: my-saucectl-report.json
+```
+
+---
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -770,6 +814,7 @@ Setting `0` reverts to the value set in `defaults`.
 ```yaml
   timeout: 15m
 ```
+---
 
 ### `preExec`
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
@@ -783,4 +828,14 @@ There is a 300-second limit for all `preExec` commands to complete.
 ```yaml
   preExec:
     - node ./scripts/pre-execution-script.js
+```
+---
+
+### `timeZone`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
+
+```yaml
+  timeZone: New_York
 ```

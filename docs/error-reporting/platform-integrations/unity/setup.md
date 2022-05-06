@@ -4,7 +4,7 @@ title: Setting Up Backtrace for Unity
 sidebar_label: Setup
 description: Add Backtrace to your Unity project.
 ---
-Add Backtrace to your Unity project to automatically detect and report crashes and errors that occur in your apps and games.
+Add Backtrace to your Unity project to automatically detect and report errors and crashes that occur in your apps and games.
 
 After you've completed the steps on this page, the Backtrace client will be installed and setup with the default configuration settings.
 
