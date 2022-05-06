@@ -19,8 +19,8 @@ function Home() {
       description='Sauce Labs Documentation, Developer Community and Resources'
     >
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
-        <div className='container'>
-          <div>
+        <div className='container-landpage'>
+          <div className='column-left'>
             <h1 className='hero__title'>{siteConfig.title}</h1>
             <p className='hero__subtitle'>{siteConfig.tagline}</p>
             <div className='new-search'>
@@ -52,8 +52,8 @@ function Home() {
               </a>
             </span>
           </div>
-          <div>
-            <img className='landpage'  src='img/dev-resources-hero.png' />
+          <div className='column-right'>
+            <img className='landpage-hero'  src='img/dev-resources-hero.png' />
           </div>
         </div>
       </header>
@@ -62,11 +62,11 @@ function Home() {
           <div className='main__container-quickstart'>
             <QuickStart />
           </div>
-          <div className='main__container-inner'>
-            <Community />
-          </div>
-          <div className='main__container-inner'>
+          <div className='main__container-resources'>
             <Resources />
+          </div>
+          <div className='main__container-community'>
+            <Community />
           </div>
         </div>
       </main>
