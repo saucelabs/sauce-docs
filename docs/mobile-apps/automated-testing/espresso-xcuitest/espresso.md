@@ -438,7 +438,7 @@ espresso:
 
 Specifies a local path, URL, or storage identifier to the app under test. This property supports expanded environment variables.
 
-When defining a local path, the default directory is `{project-root}/apps/filename.apk`. The app will be uploaded to the Sauce Labs storage service. Supports \*.apk and \*.aab files.
+When defining a local path, the default directory is `{project-root}/apps/filename.apk`. The app will be uploaded to the Sauce Labs storage service. Supports *.apk and *.aab files.
 
 When defining a URL to your app, it will be downloaded to a local temporary directory before being uploaded to Sauce storage.
 
