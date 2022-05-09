@@ -190,7 +190,7 @@ Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunne
 
 ---
 ### `--autodetect`
-__Description__: Enables the auto-detection of system proxy settings. Inverse of [`--no-autodetect`](#--no-autodetect). Default: true. See also [Automatic Proxy Auto-Configuration](/secure-connections/sauce-connect/setup-configuration/additional-proxies#proxy-auto-configuration-automatic).<br/>
+__Description__: Enables the auto-detection of system proxy settings. Inverse of [`--no-autodetect`](#--no-autodetect). Default: `true`. See also [Automatic Proxy Auto-Configuration](/secure-connections/sauce-connect/setup-configuration/additional-proxies#proxy-auto-configuration-automatic).<br/>
 __Enviroment variable__: `SAUCE_AUTODETECT`<br/>
 __Shorthand__: n/a
 
@@ -290,7 +290,7 @@ __Shorthand__: n/a
 ### `--output-format`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Console output format configuring either "pretty" output incuding different fonts and graphics or text-only. One of: pretty, text. Default: pretty.<br/>
+__Description__: Specifies console output format. You can configure either `pretty` output, which will display various fonts and graphics, or `text` (text only). Default: `pretty`.<br/>
 __Enviroment variable__: `SAUCE_OUTPUT_FORMAT`<br/>
 __Shorthand__: n/a
 
@@ -471,7 +471,7 @@ __Shorthand__: n/a
 ### `--experimental`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-__Description__: Enable or disable experimental features. This flag allows controlled replacement of the components. It should only be used if the default feature configuration exhibit undesired behavior.<br/>
+__Description__: Enable or disable experimental features. This flag allows controlled replacement of the components. It should only be used if the default feature configuration exhibits undesired behavior.<br/>
 
 | Option     | Description                                   | Example                       |
 |------------|-----------------------------------------------|-------------------------------|
