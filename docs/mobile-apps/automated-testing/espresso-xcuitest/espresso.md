@@ -436,11 +436,11 @@ espresso:
 ### `app`
 <p><small>| REQUIRED | STRING |</small></p>
 
-Either a local path, url, or storage identifier to the app under test. This property supports expanded environment variables.
+Specifies a local path, URL, or storage identifier to the app under test. This property supports expanded environment variables.
 
 When defining a local path, the default directory is `{project-root}/apps/filename.apk`. The app will be uploaded to the Sauce Labs storage service. Supports \*.apk and \*.aab files.
 
-When defining a url to your app, it will be downloaded to a local temporary directory before being uploaded to the storage service.
+When defining a URL to your app, it will be downloaded to a local temporary directory before being uploaded to Sauce storage.
 
 :::caution AAB App Signing
 To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must sign the \*.apk using its own signature. In such cases, Sauce Labs signs both the `app` and `testApp` to ensure matching signatures, even if instrumentation is disabled. Otherwise, the app installation will fail.
