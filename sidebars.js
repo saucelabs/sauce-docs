@@ -392,6 +392,15 @@ module.exports = {
                     'error-reporting/platform-integrations/android/proguard-deobfuscation',
                 ],
             },
+        {
+                type: 'category',
+                label: 'iOS',
+                collapsed: true,
+                items: [
+                    'error-reporting/platform-integrations/ios/setup',
+                    'error-reporting/platform-integrations/ios/configuration',
+                ],
+            },
             {
               type: 'category',
               label: 'Unity',
@@ -926,20 +935,6 @@ module.exports = {
       'api-testing/contract-testing',
       'api-testing/logger',
       'api-testing/project-access',
-      {
-        type: 'category',
-        label: 'How To Guides',
-        link: { type: 'doc', id: 'api-testing/how-to-guides/integration-testing' },
-        collapsed: true,
-        items: [
-          'api-testing/how-to-guides/integration-testing',
-          'api-testing/how-to-guides/test-metrics-performance',
-          'api-testing/how-to-guides/compose-request-body',
-          'api-testing/how-to-guides/create-dynamic-dates',
-          'api-testing/how-to-guides/api-test-automation',
-          'api-testing/how-to-guides/functional-testing',
-        ],
-      },
       'api-testing/legacy',
     ],
     CI: ['ci', 'ci/azure', 'ci/bamboo', 'ci/bitbucket', 'ci/jenkins', 'ci/teamcity'],
