@@ -445,7 +445,7 @@ xcuitest:
 ### `app`
 <p><small>| REQUIRED | STRING |</small></p>
 
-Either a local path, url, or storage identifier to the app under test. This property supports expanded environment variables. Supports `.ipa` and `.app` file types.
+Specifies a local path, url, or storage identifier to the app under test. This property supports expanded environment variables. Supports `.ipa` and `.app` file types.
 
 
 ```yaml
