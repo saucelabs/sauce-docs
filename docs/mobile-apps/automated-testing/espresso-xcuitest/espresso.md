@@ -473,7 +473,7 @@ To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must 
 
 Either a local path, url, or storage identifier to the testing app. This property supports expanded environment variables.
 
-When defining a local path, the default directory is `{project-root}/apps/testfile.apk`. The app will be uploaded to the Sauce Labs storage service. Supports \*.apk and \*.aab files.
+When defining a local path, the default directory is `{project-root}/apps/testfile.apk`. The app will be uploaded to the Sauce Labs storage service. Supports *.apk and *.aab files.
 
 When defining a url to your test app, it will be downloaded to a local temporary directory before being uploaded to the storage service.
 
