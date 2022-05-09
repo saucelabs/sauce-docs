@@ -423,6 +423,7 @@ html[data-theme='dark'] .card:hover {
   color:white;
   padding:.2rem;
   font-weight:750;
+  border-radius: 4px;
 }
 
 .sauceDBlue {
