@@ -691,7 +691,7 @@ The explicit name, file glob, or location of the test files to be included in th
 ### `excludedTestFiles`
 <p><small>| OPTIONAL | ARRAY/REGEX |</small></p>
 
-Excludes test files to skip the tests. Files are matched by shell pattern, e.g. the explicit name, file glob, or the location of the test files.
+Excludes test files to skip the tests. Files are matched by shell pattern, such as the explicit name, file glob, or location of the test files.
 
 ```yaml
       excludedTestFiles: [ "*/*.test.js" ]
