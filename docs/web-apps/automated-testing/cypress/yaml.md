@@ -774,6 +774,21 @@ One or more paths to the Cypress test files to run for this suite, if not otherw
 
 ---
 
+#### `excludedTestFiles`
+<p><small>| OPTIONAL | ARRAY/REGEX |</small></p>
+
+Excludes test files to skip the tests. Regex values are supported to indicate all files of a certain type or in a certain directory, etc.
+
+```yaml
+      excludedTestFiles: [ "**/*.*" ]
+```
+
+:::note
+`excludedTestFiles` must be a regex or a path relative to `cypress/integration` or the `integrationFolder` value set in `cypress.json`.
+:::
+
+---
+
 ### `headless`
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
