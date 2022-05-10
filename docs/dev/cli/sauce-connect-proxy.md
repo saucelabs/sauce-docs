@@ -189,8 +189,16 @@ Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunne
 ## External Proxy Configuration
 
 ---
+### `--autodetect`
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceRed">4.8.x</span>| </small></p>
+__Description__: Enables the auto-detection of system proxy settings. Inverse of [`--no-autodetect`](#--no-autodetect). Default: `true`. See also [Automatic Proxy Auto-Configuration](/secure-connections/sauce-connect/setup-configuration/additional-proxies#proxy-auto-configuration-automatic).<br/>
+__Enviroment variable__: `SAUCE_AUTODETECT`<br/>
+__Shorthand__: n/a
+
+
+---
 ### `--no-autodetect`
-<p><small>| OPTIONAL | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Disables the auto-detection of system proxy settings. See [Automatic Proxy Auto-Configuration](/secure-connections/sauce-connect/setup-configuration/additional-proxies#proxy-auto-configuration-automatic) for more information.<br/>
 __Enviroment variable__: `SAUCE_NO_AUTODETECT`<br/>
@@ -280,6 +288,15 @@ __Shorthand__: n/a
 
 
 ---
+### `--output-format`
+<p><small>| OPTIONAL | STRING | <span className="sauceRed">4.8.x</span>| </small></p>
+
+__Description__: Specifies console output format. You can configure either `pretty` output, which will display various fonts and graphics, or `text` (text only). Default: `pretty`.<br/>
+__Enviroment variable__: `SAUCE_OUTPUT_FORMAT`<br/>
+__Shorthand__: n/a
+
+
+---
 ### `--pidfile`
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
@@ -292,7 +309,7 @@ __Shorthand__: `-d`
 ### `--readyfile`
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
-__Description__: Sets file that is updated when the tunnel is ready.<br/>
+__Description__: Sets file that is updated when the tunnel is ready. See also [Using ready file with Docker](/secure-connections/sauce-connect/setup-configuration/docker#ready-file).<br/>
 __Enviroment variable__: `SAUCE_READYFILE`<br/>
 __Shorthand__: `-f`
 
@@ -393,7 +410,7 @@ __Shorthand__: n/a
 
 ---
 ### `--log-stats`
-<p><small>| OPTIONAL |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span>| </small></p>
 
 __Description__: Logs statistics about HTTP traffic every &#60;seconds&#62;. Information includes bytes transmitted, requests made, and responses received.<br/>
 __Enviroment variable__: `SAUCE_LOG_STATS`<br/>
@@ -448,6 +465,21 @@ __Shorthand__: n/a
 
 __Description__: Rates limit writes in scproxy to the number of bytes per second that you specify. This option can be used to adjust local network transfer rate to prevent overloading the tunnel connection.<br/>
 __Enviroment variable__: `SAUCE_SCPROXY_WRITE_LIMIT`<br/>
+__Shorthand__: n/a
+
+
+---
+### `--experimental`
+<p><small>| OPTIONAL | STRING | <span className="sauceRed">4.8.x</span>| </small></p>
+
+__Description__: Enable or disable experimental features. This flag allows controlled replacement of the components. It should only be used if the default feature configuration exhibits undesired behavior.<br/>
+
+| Option     | Description                                   | Example                       |
+|------------|-----------------------------------------------|-------------------------------|
+| `proxy`    | Use the new scproxy implementation (default). | ```--experimental proxy```    |
+| `no-proxy` | Use the previous generation scproxy.          | ```--experimental no-proxy``` |
+
+__Enviroment variable__: `SAUCE_EXPERIMENTAL`<br/>
 __Shorthand__: n/a
 
 

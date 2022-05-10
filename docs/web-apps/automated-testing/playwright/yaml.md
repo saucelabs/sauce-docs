@@ -644,6 +644,16 @@ One or more paths to the playwright test files to run for this suite. Regex valu
 ```
 ---
 
+### `excludedTestFiles`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Excludes test files to skip the tests. You can use regex values to indicate all files that match a specific value, such as a file name, type, or directory.
+
+```yaml
+    excludedTestFiles: ["**/*.js"]
+```
+---
+
 ### `numShards`
 <p><small>| OPTIONAL | INTEGER | <span class="highlight playwright">Playwright version >= 1.12</span> |</small></p>
 
