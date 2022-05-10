@@ -445,10 +445,15 @@ xcuitest:
 ### `app`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the app. The property recognizes both .ipa and .app file types and supports expanded environment variables or an already uploaded test app reference.
+Specifies a local path, url, or storage identifier to the app under test. This property supports expanded environment variables. Supports *.ipa and *.app file types.
+
 
 ```yaml
   app: ./apps/xcuitest/SauceLabs.Mobile.Sample.XCUITest.App.ipa
+```
+
+```yaml
+  app: https://example.app.download.url/SauceLabs.Mobile.Sample.XCUITest.App.ipa
 ```
 
 ```yaml
@@ -468,10 +473,15 @@ The path to the app. The property recognizes both .ipa and .app file types and s
 ### `testApp`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the testing app. The property recognizes both `.ipa` and `.app` file types and supports expanded environment variables.
+Either a local path, url, or storage identifier to the testing app. This property supports expanded environment variables. Supports *.ipa and *.app file types.
+
 
 ```yaml
   testApp: ./apps/SwagLabsMobileAppUITests-Runner.app
+```
+
+```yaml
+  app: https://example.app.download.url/SwagLabsMobileAppUITests-Runner.app
 ```
 
 ```yaml
@@ -491,7 +501,7 @@ The path to the testing app. The property recognizes both `.ipa` and `.app` file
 ### `otherApps`
 <p><small>| OPTIONAL | ARRAY | REAL DEVICES ONLY |</small></p>
 
-Set of up to seven apps to pre-install for your tests. You can upload an app from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.ipa`) or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
+Set of up to seven apps to pre-install for your tests. You can upload an app from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.ipa`), a remote url, or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
 
 :::note
 Apps specified as `otherApps` inherit the configuration of the main app under test for [`Device Language`, `Device Orientation`, and `Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
@@ -500,6 +510,7 @@ Apps specified as `otherApps` inherit the configuration of the main app under te
 ```yaml
   otherApps:
     - ./apps/pre-installed-app1.ipa
+    - https://example.app.download.url/pre-installed-app1.ipa
     - $PRE_INSTALLED_APP2
     - storage:8d250fec-5ecb-535c-5d63-aed4da026293
     - storage:filename=pre-installed-app3.ipa
