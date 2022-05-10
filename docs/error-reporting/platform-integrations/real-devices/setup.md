@@ -15,10 +15,24 @@ import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Supported Platforms
-|Supported Platforms|Supported Systems|Supported Features|
-|---------|---------|---------|
-|Real devices|Android|Errors and Crashes|
-|Real devices|iOS|Errors|
+<table id="supported-platforms">
+  <tr>
+    <th>Supported Platforms</th>
+    <th>Supported Systems</th>
+    <th>Supported Features</th>
+  </tr>
+  <tbody>
+  <tr>
+    <td rowspan='2'>Real devices</td>
+    <td>Android</td>
+    <td>Errors and Crashes</td>
+  </tr>
+  <tr>
+    <td>iOS</td>
+    <td>Errors</td>
+  </tr>
+  </tbody>
+</table>
 
 :::note
 Crashes for iOS apps are currently not supported when running real device tests in Sauce Labs with Backtrace.
@@ -44,16 +58,20 @@ The following custom attributes are required:
 <Tabs>
 <TabItem value="android" label="Android">
 
-- **Name**: application.package; **Format**: None; **Type**: String
-- **Name**: device.model; **Format**: None; **Type**: String
-- **Name**: error.type; **Format**: None; **Type**: String
+|Name|Format|Type|
+|---------|---------|---------|
+|`application.package`|None|String|
+|`device.model`|None|String|
+|`error.type`|None|String|
 
 </TabItem>
 <TabItem value="ios" label="iOS">
 
-- **Name**: application.identifier; **Format**: None; **Type**: String
-- **Name**: device.machine; **Format**: None; **Type**: String
-- **Name**: error.type; **Format**: None; **Type**: String
+|Name|Format|Type|
+|---------|---------|---------|
+|`application.identifier`|None|String|
+|`device.machine`|None|String|
+|`error.type`|None|String|
 
 </TabItem>
 </Tabs>
@@ -76,7 +94,7 @@ To integrate the Backtrace SDK with your Android app, see [Setting Up Backtrace 
 </TabItem>
 <TabItem value="ios" label="iOS">
 
-To integrate the Backtrace SDK with your iOS app, see the [iOS Integration Guide](https://support.backtrace.io/hc/en-us/articles/360040104692-iOS-Integration-Guide).
+To integrate the Backtrace SDK with your iOS app, see the [Setting Up Backtrace for iOS](/error-reporting/platform-integrations/ios/setup/).
 
 </TabItem>
 </Tabs>

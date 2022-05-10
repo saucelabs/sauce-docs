@@ -4,7 +4,7 @@ title: Setting Up Backtrace for Android
 sidebar_label: Setup
 description: Add Backtrace to your Android project.
 ---
-Add Backtrace to your Android project to automatically detect and report handled and unhandled Java exceptions that occur in your apps written in Java or Kotlin.
+Add Backtrace to your Android project to automatically detect and report crashes and exceptions (handled and unhandled) that occur in your apps written in Java or Kotlin.
 
 After you've completed the steps on this page, the Backtrace client will be installed and setup with the default configuration settings.
 
@@ -20,7 +20,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 * Supports detection of Application Not Responding errors (ANRs).
 * Supports monitoring the blocking of manually created threads by providing watchdog.
 * Supports native (JNI/NDK) exceptions and crashes.
-* Supports Proguard obfuscated crashes.
+* Supports ProGuard obfuscated crashes.
 * Supports breadcrumbs.
 
 ## Supported SDKs
@@ -49,14 +49,14 @@ The ability to capture the battery status when a device is in power saving mode 
 
 
 ## Install the SDK
-Use Gradle or Maven to install the reporting library.
+Use Gradle or Maven to install the [latest version](https://github.com/backtrace-labs/backtrace-android/releases) of the reporting library.
 
-<Tabs>
+<Tabs groupId="languages">
 <TabItem value="gradle" label="Gradle">
 
 ```
 dependencies {
-    implementation 'com.github.backtrace-labs.backtrace-android:backtrace-library:3.6.0'
+    implementation 'com.github.backtrace-labs.backtrace-android:backtrace-library:3.7.0'
   }
 ```
 
@@ -67,7 +67,7 @@ dependencies {
 <dependency>
   <groupId>com.github.backtrace-labs.backtrace-android</groupId>
   <artifactId>backtrace-library</artifactId>
-  <version>3.6.0</version>
+  <version>3.7.0</version>
   <type>aar</type>
 </dependency>
 ```
@@ -88,13 +88,35 @@ In your app's `AndroidManifest.xml` file, add the following permissions:
   ```
 
 ## Initialize the Backtrace Client
-To initialize the Backtrace Client, create a `BacktraceCredentials` instance with your Backtrace endpoint URL (e.g. https://xxx.sp.backtrace.io:6098) and submission token, and supply it as a parameter in the `BacktraceClient` constructor:
-<Tabs>
+To initialize `BacktraceClient`, create a `BacktraceCredentials` object with the name of your subdomain and submission token, and supply it as a parameter in the `BacktraceCredentials` constructor:
+
+<Tabs groupId="languages">
+<TabItem value="java" label="Java">
+
+```java
+// provide the name of the subdomain for your Backtrace instance and a submission token
+BacktraceCredentials credentials = new BacktraceCredentials("https://submit.backtrace.io/{subdomain-name}/{submission-token}/json");
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+// provide the name of the subdomain for your Backtrace instance and a submission token
+val backtraceCredentials = BacktraceCredentials("https://submit.backtrace.io/{subdomain-name}/{submission-token}/json")
+```
+
+</TabItem>
+</Tabs>
+
+Alternatively, you can also create a `BacktraceCredentials` object with your Backtrace endpoint URL (e.g., https://your-subdomain.sp.backtrace.io:6098) and submission token, and supply it as a parameter in the `BacktraceClient` constructor:
+
+<Tabs groupId="languages">
 <TabItem value="java" label="Java">
 
 ```java
 // replace with your endpoint URL and submission token
-BacktraceCredentials credentials = new BacktraceCredentials("https://<yourInstance>.sp.backtrace.io:6098/", "<submissionToken>");
+BacktraceCredentials credentials = new BacktraceCredentials("https://{subdomain-name}.sp.backtrace.io:6098/", "{submission-token}");
 BacktraceClient backtraceClient = new BacktraceClient(getApplicationContext(), credentials);
 ```
 
@@ -103,39 +125,19 @@ BacktraceClient backtraceClient = new BacktraceClient(getApplicationContext(), c
 
 ```kotlin
 // replace with your endpoint URL and submission token
-val backtraceCredentials = BacktraceCredentials("https://<yourInstance>.sp.backtrace.io:6098/", "<submissionToken>")
+val backtraceCredentials = BacktraceCredentials("https://{subdomain-name}.sp.backtrace.io:6098/", "{submission-token}")
 val backtraceClient = BacktraceClient(applicationContext, backtraceCredentials)
 ```
 
 </TabItem>
 </Tabs>
 
-Another option for creating a `BacktraceCredentials` object is to use the endpoint URL to which the report is to be sent, and pass the URL string as parameter to `BacktraceCredentials` constructor:
-<Tabs>
-<TabItem value="java" label="Java">
-
-```java
-// provide your Backtrace instance and submission token
-BacktraceCredentials credentials = new BacktraceCredentials("https://submit.backtrace.io/{your-instance}/{submission-token}/json");
-```
-
-</TabItem>
-<TabItem value="kotlin" label="Kotlin">
-
-```kotlin
-// provide the name of your instance and submission token for BacktraceCredentials
-val backtraceCredentials = BacktraceCredentials("https://submit.backtrace.io/{your-instance}/{submission-token}/json")
-```
-
-</TabItem>
-</Tabs>
-
-
 ## Verify the Setup
-At this point, you've installed and setup the Backtrace client to automatically capture errors and crashes in your Android app.
+At this point, you've installed and setup the Backtrace client to automatically capture exceptions and crashes in your Android app.
 
-To test the integration, send a crash report to your Backtrace instance.
-<Tabs>
+To test the integration, throw an exception to send a report to your Backtrace instance.
+
+<Tabs groupId="languages">
 <TabItem value="java" label="Java">
 
 ```java
