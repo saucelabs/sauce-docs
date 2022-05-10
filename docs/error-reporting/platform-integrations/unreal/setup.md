@@ -17,7 +17,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 The Backtrace Unreal plugin reports on the following types of errors:
 
 * Crashes - An end to the game play experience, where the game crashes or restarts.
-* Hangs (mobile only) -  Errors that occur when a game or an app is non-responsive.
+* Hangs (mobile only) - Errors that occur when a game or an app is non-responsive.
 * Out of memory crashes (mobile only) - Terminations of your game or app due to low memory conditions.
 
 ## Supported Platforms
@@ -173,7 +173,7 @@ To change the default configuration settings for the Backtrace client, you can c
 </TabItem>
 <TabItem value="ios">
 
-Integrate the [backtrace-cocoa](https://github.com/backtrace-labs/backtrace-cocoa) error reporting library with your Unreal Engine apps and games for Android written in Swift or Objective-C.
+Integrate the [backtrace-cocoa](https://github.com/backtrace-labs/backtrace-cocoa) error reporting library with your Unreal Engine apps and games for iOS written in Swift or Objective-C.
 
 1. From [Assets](https://github.com/backtrace-labs/backtrace-cocoa/releases/tag/1.7.0), download and extract the `Backtrace.framework.zip` and the `Backtrace_PLCrashReporter.framework.zip` files.
 1. Copy and paste the `Backtrace.framework.zip` and the `Backtrace_PLCrashReporter.framework.zip` folders into the directory for your Unreal Engine project.

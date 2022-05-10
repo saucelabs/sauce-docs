@@ -10,10 +10,10 @@ import TabItem from '@theme/TabItem';
 
 ## What You'll Need
 
-* If you haven't already, make sure you can cURL or ping the website or mobile app that you'll be testing from your computer. If you can't reach it, neither can Sauce Connect Proxy.
+* If you haven't already, make sure you can cURL the website or mobile app that you'll be testing from your computer. If you can't reach it, neither can Sauce Connect Proxy.
 * Check to see if you have any proxies that are required to access the public Internet.
 * Review the [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for instructions on how to set your Sauce Labs username and access key and launch a tunnel.
-* If you're using Jenkins or Bamboo, be sure to review [Sauce Connect Proxy CI/CD Integration](/secure-connections/sauce-connect/setup-configuration/ci-cd-integration).
+* If you're using Jenkins, GitHub Actions, or Bamboo, be sure to review [Sauce Connect Proxy CI/CD Integration](/secure-connections/sauce-connect/setup-configuration/ci-cd-integration).
 
 ## Best Practice for Using Tunnels
 We recommend using a single Sauce Connect Proxy tunnel or tunnel pool for each test suite or build, and tearing it down at the end of your test. Your test automation framework should launch Sauce Connect Proxy before the test suite is triggered and shut it down when the suite finishes.
@@ -319,94 +319,78 @@ If you start creating bigger and bigger builds with a high number of simultaneou
 In this scenario, you’d need to “scale up” by using a tunnel pool in HA mode (multiple tunnels with same tunnel name). We generally recommend switching when running more than 50 parallel test sessions. The mass number of tests will have room to run through, as test traffic will be distributed among the multiple tunnels.
 
 
-## Sauce Connect Proxy Metrics
-Sauce Connect Proxy has a metrics feature that you can use to monitor and measure the data and activities of your Sauce Connect Proxy client. You can access these metrics over an HTTP connection to a local server, which will return the metrics in a JSON format.
+## Sauce Connect Proxy Monitoring
+Sauce Connect Proxy has a "status server" feature that you can use to monitor the connection status. You can access JSON-formatted status information over an HTTP connection to a local server.
+The main purpose of the "status server" is providing Kubernetes and CI/CD support.
 
-### Configuring Metrics Monitoring
-As of Sauce Connect Proxy version 4.7.x, the metrics server is disabled by default. You can enable it by specifying the interface and port with the [`--metrics-address`](/dev/cli/sauce-connect-proxy/#--metrics-address) command.
+:::note
+Available only for versions 4.8.x and higher.
+:::
+
+### Configuring Status Server
+The status server is disabled by default. You can enable it by specifying the interface and port with the [`--status-address`](/dev/cli/sauce-connect-proxy/#--status-address) command.
 
 ```bash
---metrics-address :8000 # listens on all the interfaces' port 8080
---metrics-address 1.2.3.4:80 # listens on 1.2.3.4 port 80
+--status-address :8080 # listens on all the interfaces' port 8080
+--status-address 1.2.3.4:80 # listens on 1.2.3.4 port 80
 ```
 
-### Viewing Performance Metrics
-You can view performance metrics by using an HTTP client or web browser to access `http://{SauceConnect IP}:{metrics address}/debug/vars`.
-Once you've got access, the performance metrics will typically look like this:
+### Status Server Endpoints
 
-```java
-"cmdline": ["/usr/local/bin/sc","-u","(SAUCE_USERNAME)","-k","{SAUCE_ACCESS_KEY}","-r","us-west","-i","metrics-demo"],
+* `/readiness` returns 200 response code when Sauce Connect Proxy is ready, 503 otherwise
+* `/liveness` returns 200 response code when Sauce Connect Proxy is running
+* `/api/v1/status` returns a JSON-formatted response containing the Sauce Connect Proxy runtime information
+* `/debug/vars` returns a JSON-formatted response containing the Sauce Connect Proxy metrics
 
-"http": {
-            "BytesReceived":31290,
-            "BytesTransmitted":1388944,
-            "NumRequests":34,
-            "NumResponses":34
-        },
-"kgp":  {
-            "Connected":true,
-            "LastStatusChange":1532052072,
-            "RoundTripTimeMs":35,
-            "ReconnectCount":0
-        }
+#### Runtime Info
+Status server exposes Sauce Connect Proxy runtime information at `/api/v1/status`.
+For example, after starting the client with `--status-address localhost:8080`, use the following command:
+```bash
+$ curl -s localhost:8080/api/v1/status | jq .
+{
+  "firstConnectedTime": 1651629711,
+  "tunnelID": "780b2e455a9f46248f3c3eb6aec349f5",
+  "tunnelName": "my-tunnel",
+  "tunnelServer": "maki111.miso.saucelabs.com",
+  "lastStatusChange": 1651629710,
+  "reconnectCount": 0,
+  "tunnelStatus": "connected"
 }
 ```
 
-### Client Metrics Definitions
-Below is a full list of performance metrics and definitions for the Sauce Connect Proxy client.
+#### Definitions
+Below is a list of runtime information values and definitions for the Sauce Connect Proxy.
 
-| Metric | Definition |
+| Name | Definition |
 | :--- | :--- |
-| `kgp.Connected` | Indicates whether the client is connected to the Sauce Connect Proxy back end. This field can be used for monitoring tunnel health. |
-| `kgp.LastStatusChange` | A UNIX timestamp indicating the time of the last connectivity change from the client. |
-| `kgp.ReconnectCount` | Number of times the connection to the Sauce Connect Proxy back end had to be re-established because of the timeout. |
-| `kgp.RoundTripTimeMs` | Application layer latency over the last minute. |
-| `http.BytesReceived` | Number of bytes received by the Sauce Connect Proxy client. |
-| `http.BytesTransmitted` | Number of bytes transmitted by the Sauce Connect Proxy client. |
-| `http.NumRequests` | Number of requests currently in flight. |
-| `http.NumResponses` | Number of responses currently in flight. |
+| `firstConnectedTime` | A UNIX timestamp indicating the time the connection was established for the first time. |
+| `tunnelID` | A tunnel unique ID. |
+| `tunnelName` | A tunnel name. See [`--tunnel-identifier`](/dev/cli/sauce-connect-proxy/#--tunnel-identifier). |
+| `tunnelServer` | A tunnel server name. |
+| `tunnelStatus` | A tunnel could be "connected" or "disconnected". "Disconnected" status indicated that Sauce Connect Proxy is not ready. |
+| `lastStatusChange` | A UNIX timestamp indicating the time of the last connectivity change from the client. |
+| `reconnectCount` | Number of times the connection to the Sauce Connect Proxy back end had to be re-established because of the timeout. |
 
-### Client Health Metrics
-While Sauce Connect Proxy is running, a basic webpage with metrics is made available at `localhost:8888/debug/vars` on the host machine.
-It serves a JSON blob containing a plethora of information, including the important `healthMetrics` section, which gives three vital metrics to the state of the Sauce Connect Proxy client:
+#### Metrics Endpoint
+Additionally, the status server exposes Sauce Connect Proxy metrics information at `/debug/vars`.
+This endpoint path is backward-compatible with the deprecated `--metrics-address` that existed in the Sauce Connect Proxy version prior to 4.8.0, it is being replaced by `/api/v1/status`.
 
-| Metric | Value | Definition |
-| :--- | :--- | :--- |
-| `kgpIsConnected` | True/False | True if the KGP connection is currently alive and healthy, false otherwise|
-| `kgpLastStatusChange` | Unix Epoch Timestamp | Timestamp of when the value for kgpIsConnected last changed |
-| `kgpReconnectCount` | Integer | A running count of how many times Sauce Connect Proxy had to re-establish its KGP connection |
+:::note
+The endpoint will be removed in the future Sauce Connect Proxy versions.
+:::
 
-
-If you plan to run multiple instances of Sauce Connect Proxy on a single machine and wish to access the health metrics of each tunnel, then you'll need to assign a unique port to each instance of Sauce Connect Proxy that is running.
-
-For example, if we were to start two instances of Sauce Connect Proxy on the same machine, using the following commands in the code block below, then the metrics for SCP1 would be available at `http://localhost:8001/debug/vars`. Similarly, SCP2's metrics would be available at `http://localhost:8000/debug/vars`.
-
+For example, after starting the client with `--status-address :8080`, use the following command:
 ```bash
-./sc --u $SAUCE_USERNAME --k $SAUCE_ACCESS_KEY -r us-west --metrics-address localhost:8000 --tunnel-name SCP1
-...
-./sc --u $SAUCE_USERNAME --api-key $SAUCE_ACCESS_KEY -r us-west --metrics-address localhost:8001 --tunnel-name SCP2
+$ curl -s localhost:8080/debug/vars | jq .
+{
+  "cmdline": ["sc", "-c", "/path/to/sc.yml", "--status-address", ":8080"],
+  "kgp": {
+    "Connected": true,
+    "LastStatusChange": 1651701567,
+    "ReconnectCount": 0
+  }
+}
 ```
-
-### Specifying a Custom URL for Client Metrics
-If you wish to customize the URL where metrics are served, you can do so by adding an entry to the host file on the machine where Sauce Connect Proxy is running and then updating the [`--metrics-address`](/dev/cli/sauce-connect-proxy/#--metrics-address) command line arguments when starting Sauce Connect Proxy.
-
-For example, let's say we want to have the metrics available at `http://tunnelmetrics.com:8080/debug/vars`.
-In order to accomplish this, add the entry `127.0.0.1 tunnelmetrics.com` to the `/etc/hosts` file where Sauce Connect Proxy is running.
-
-```jsx title="Example Hosts File"
-##
-# Host Database
-#
-# localhost is used to configure the loopback interface
-# when the system is booting. Do not change this entry.
-##
-127.0.0.1 localhost
-255.255.255.255 broadcasthost
-fe80::1%lo0 localhost
-127.0.0.1 tunnelmetrics.com
-```
-
-Once the host file has been altered, start Sauce Connect Proxy with the added argument `--metrics-address tunnelmetrics.com:8080`. Then, on the machine hosting Sauce Connect Proxy, you will see the metrics served at `http://tunnelmetrics.com:8080/debug/vars`.
 
 ## Improving Sauce Connect Proxy Performance
 During testing, your website or app may load resources (e.g. tracking services, images/videos, advertisements), which can impact page load times and even cause tests to fail.
@@ -441,7 +425,7 @@ It can also be used to simulate non-loading of scripts, styles, or other resourc
 #### Configuring Tunnel or Direct Domains
 * Use only the domain name. Do not precede it with the scheme like `http://` or `https://`.
   * Example: `mydomain.com`
-* Use wildcards to include subdomains by prefix domain name with `.`
+* Use wildcards to include subdomains by prefixing domain name with a dot `.`
   * Example: `.mydomain.com` will include `sub.mydomain.com` and `sub1.mydomain.com` but not `sub.myotherdomain.com`
 * See [`Formatting domains for CLI`](/dev/cli/sauce-connect-proxy/#formatting-domains)
 * Configuring domains in [YAML config file](/secure-connections/sauce-connect/setup-configuration/yaml-config/)
