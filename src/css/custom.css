@@ -670,10 +670,9 @@ div.new-search button.DocSearch.DocSearch-Button {
   font-size: 12px;
   font-weight: 600;
   display: flex;
-  margin-top: 16px;
-  flex-wrap: nowrap;
-  align-content: center;
-  align-items: flex-end;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 a.hero__popular-searches {
@@ -924,9 +923,7 @@ ul.dropdown__menu li a:hover {
 }
 
 /* mobile overrides */
-@media only screen and (max-device-width: 740px),
-  only screen and (max-device-width: 740px),
-  only screen and (max-width: 740px) {
+@media only screen and (max-width: 740px) {
   .callouts__container .callout {
     width: 100%;
     text-align: left;
@@ -938,8 +935,6 @@ ul.dropdown__menu li a:hover {
     border-bottom: none;
   }
 
-
-
   #footer {
     padding: 24px 0;
   }
@@ -947,14 +942,6 @@ ul.dropdown__menu li a:hover {
   .link-list {
     margin: 0 0 24px 0;
   }
-  html[data-theme='dark'] .navbar-sidebar {
-    background-color: var(--ifm-code-background);
-  }
-}
-
-/* media breakpoints */
-/* For typical mobile devices */
-@media only screen and (min-width: 320px) and (max-width: 479px) {
   .container-landpage {
     padding: 0;
   }
@@ -1003,18 +990,7 @@ ul.dropdown__menu li a:hover {
     width: 100%;
     margin: 16px 8px 8px 0;
   }
-  /* Overrides navbar searchbar styles */
-  .DocSearch-Button {
-    width: 3rem;
-  }
 
-  html[data-theme='dark'] .navbar-sidebar {
-    background-color: var(--ifm-code-background);
-  }
-}
-
-/* For small mobile*/
-@media only screen and (max-width: 340px) {
   /* Overrides navbar searchbar styles */
   .DocSearch-Button {
     width: 2.5rem;
@@ -1027,6 +1003,10 @@ ul.dropdown__menu li a:hover {
   .column-left,
   .column-right {
     width: 100%;
+    margin: 5%;
+  }
+  html[data-theme='dark'] .navbar-sidebar {
+    background-color: var(--ifm-code-background);
   }
 }
 
@@ -1047,29 +1027,5 @@ ul.dropdown__menu li a:hover {
   .column-left,
   .column-right {
     width: 100%;
-  }
-}
-/* For tablet */
-@media only screen and (min-width: 768px) and (max-width: 979px) {
-  html[data-theme='dark'] .navbar-sidebar {
-    background-color: var(--ifm-code-background);
-  }
-}
-/* For small desktop */
-@media only screen and (min-width: 980px) and (max-width: 1023px) {
-  html[data-theme='dark'] .navbar-sidebar {
-    background-color: var(--ifm-code-background);
-  }
-}
-/* For typical desktop */
-@media only screen and (min-width: 1024px) and (max-width: 1199px) {
-  html[data-theme='dark'] .navbar-sidebar {
-    background-color: var(--ifm-code-background);
-  }
-}
-/* For large desktop */
-@media only screen and (min-width: 1200px) {
-  html[data-theme='dark'] .navbar-sidebar {
-    background-color: var(--ifm-code-background);
   }
 }
