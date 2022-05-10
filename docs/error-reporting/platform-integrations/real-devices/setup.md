@@ -1,9 +1,11 @@
 ---
 id: setup
-title: Setting Up Backtrace for your Real Device Tests (coming soon)
+title: Setting Up Backtrace for your Real Device Tests
 sidebar_label: Setup
 description: Link your Sauce Labs real device tests with Backtrace to view errors and crashes.
 ---
+<p><span className="sauceDBlue">BETA</span></p>
+
 Detecting errors and crashes and resolving them early on is key to the success of your app.
 
 After you’ve completed the steps on this page, errors and crashes associated with your real device tests (automated or live) will be available for you in Sauce Labs.
@@ -24,7 +26,7 @@ Crashes for iOS apps are currently not supported when running real device tests 
 
 ## What You'll Need
 * A Sauce Labs account ([log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://register.backtrace.io/create-developers/?utm_source=saucelabs&utm_medium=site&utm_campaign=devtierpromo)).
+* A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
 * Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
 * A Backtrace project and an API token with object:get and query:post capabilities.
 
