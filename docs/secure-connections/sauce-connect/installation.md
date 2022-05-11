@@ -34,7 +34,7 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
  <td>Linux
    </td>
     <td>
-  <a href="https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz">https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz</a>
+  <a href="https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz">https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz</a>
    </td>
    <td><small>e5d7f82ad98251a653d1b0537f1103e49eda5e11</small>
    </td>
@@ -43,7 +43,7 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
    <td>macOS
    </td>
    <td>
-  <a href="https://saucelabs.com/downloads/sc-4.7.1-osx.zip">https://saucelabs.com/downloads/sc-4.7.1-osx.zip</a>
+  <a href="https://saucelabs.com/downloads/sc-4.7.1-osx.zip">https://saucelabs.com/downloads/sc-4.8.0-osx.zip</a>
    </td>
    <td><small>1f18defa14a5cc4b663bf07213411f6bdd535b6d</small>
    </td>
@@ -52,18 +52,19 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
  <td>Windows
      </td>
    <td>
-    <a href="https://saucelabs.com/downloads/sc-4.7.1-win32.zip">https://saucelabs.com/downloads/sc-4.7.1-win32.zip</a>
+    <a href="https://saucelabs.com/downloads/sc-4.8.0-win32.zip">https://saucelabs.com/downloads/sc-4.8.0-win32.zip</a>
    </td>
    <td><small>9c91e5adbd023973efe0eb14d2d427d2c0ef3c25</small>
    </td>
   </tr>
   </table>
 
-2. Extract the contents of the .zip download to your local machine. We recommend saving the Sauce Connect Proxy folder to your home directory.
+2. Extract the contents of the *.zip download to your local machine. We recommend saving the Sauce Connect Proxy folder to your home directory.
 
   <details><summary>What's in the folder?</summary>
 
-  Sauce Connect folder contents:<br/><img src={useBaseUrl('img/sauce-connect/scp-download.png')} alt="Sauce Connect download file contents" width="500" />
+  #### Sauce Connect folder contents
+  <img src={useBaseUrl('img/sauce-connect/scp-download.png')} alt="Sauce Connect download file contents" width="500" />
   <table>
   <tr>
    <td>File</td>
