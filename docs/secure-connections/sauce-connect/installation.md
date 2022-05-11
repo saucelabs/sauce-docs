@@ -36,16 +36,25 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
     <td>
   <a href="https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz">https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz</a>
    </td>
-   <td><small>e5d7f82ad98251a653d1b0537f1103e49eda5e11</small>
+   <td><small>a6bcfeab41b245e503c1f2aad382bfa8956893a1</small>
+   </td>
+  </tr>
+    <tr>
+ <td>Linux ARM64
+   </td>
+    <td>
+  <a href="https://saucelabs.com/downloads/sc-4.8.0-linux-arm64.tar.gz">https://saucelabs.com/downloads/sc-4.8.0-linux-arm64.tar.gz</a>
+   </td>
+   <td><small>8ce9b5a740710e6eef1be70b1b1d347df938d46a</small>
    </td>
   </tr>
   <tr>
    <td>macOS
    </td>
    <td>
-  <a href="https://saucelabs.com/downloads/sc-4.7.1-osx.zip">https://saucelabs.com/downloads/sc-4.8.0-osx.zip</a>
+  <a href="https://saucelabs.com/downloads/sc-4.8.0-osx.zip">https://saucelabs.com/downloads/sc-4.8.0-osx.zip</a>
    </td>
-   <td><small>1f18defa14a5cc4b663bf07213411f6bdd535b6d</small>
+   <td><small>8c4c7de20c68b704cffddcaddea44a6773b05746</small>
    </td>
    </tr>
   <tr>
@@ -54,7 +63,7 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
    <td>
     <a href="https://saucelabs.com/downloads/sc-4.8.0-win32.zip">https://saucelabs.com/downloads/sc-4.8.0-win32.zip</a>
    </td>
-   <td><small>9c91e5adbd023973efe0eb14d2d427d2c0ef3c25</small>
+   <td><small>48382adec66130d96148ccaff46894088366ed90</small>
    </td>
   </tr>
   </table>
@@ -89,9 +98,9 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
 3. If you're using Linux, you'll need to add Sauce Connect to your system PATH:
   ```bash
   cd $HOME
-  curl -LO https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz
-  tar xvf ./sc-4.7.1-linux.tar.gz
-  export PATH="$HOME/sc-4.7.1-linux/bin:$PATH"
+  curl -LO https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz
+  tar xvf ./sc-4.8.0-linux.tar.gz
+  export PATH="$HOME/sc-4.8.0-linux/bin:$PATH"
   ```
 
 
@@ -160,7 +169,7 @@ The launch of Sauce Connect 4.8.0 makes it the officially supported version of t
    <td>4.8.0
    </td>
    <td>
-    <a href="#download-latest-version">See latest version</a>
+    <a href="#downloading-sauce-connect-proxy">See latest version</a>
    </td>
    <td rowspan="2" >Nov. 30, 2023
    </td>
