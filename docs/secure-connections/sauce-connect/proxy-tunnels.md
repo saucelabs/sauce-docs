@@ -82,7 +82,7 @@ If successful, you'll see a confirmation response like the one below, indicating
 
      Find more information at: https://docs.saucelabs.com/dev/cli/sauce-connect-proxy
 
-   Sauce Connect 4.7.1, build 5439 fb74241
+   Sauce Connect 4.8.0
 
    Sauce Connect runtime information:
    - Name: YOUR-TUNNEL-NAME
