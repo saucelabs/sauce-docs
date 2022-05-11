@@ -65,7 +65,6 @@ Returns the set of files that have been uploaded to Sauce Storage by the request
     </tr>
   </tbody>
   <tbody>
-  <tbody>
     <tr>
      <td><code>org_id</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>One or more IDs of organisations with which the files are shared.</p></td>
