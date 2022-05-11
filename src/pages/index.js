@@ -6,6 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Community from './community';
 import QuickStart from './quickstart';
 import Resources from './resources';
+import Button from '../components/button';
 
 import styles from './styles.module.css';
 import SearchBar from "../theme/SearchBar";
@@ -51,9 +52,20 @@ function Home() {
                 &nbsp;REST API
               </a>
             </span>
+            <span className='landpage-buttons-container'>
+              <a href='/sauce-basics/'>
+                <Button className='button-dark' name='Get Started' />
+              </a>
+              <a href='/dev/api/'>
+                <Button className='button-dark' name='Sauce Rest API' />
+              </a>
+              <a href='/dev/cli/'>
+                <Button className='button-dark' name='Sauce CLI' />
+              </a>
+            </span>
           </div>
           <div className='column-right'>
-            <img className='landpage-hero'  src='img/dev-resources-hero.png' />
+            <img className='landpage-hero' src='img/dev-resources-hero.png' />
           </div>
         </div>
       </header>

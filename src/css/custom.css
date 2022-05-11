@@ -10,6 +10,7 @@
 @import 'admonitions.css';
 @import 'announcement-bar.css';
 @import 'api-override.css';
+@import 'button.css';
 @import 'carousel.css';
 @import 'cli-override.css';
 @import 'footer-styles.css';
@@ -631,8 +632,8 @@ html[data-theme='dark'] .card:hover {
 
 div.new-search button.DocSearch.DocSearch-Button {
   border: 1px solid;
-  margin: 64px 0 0 -10px;
-  width: 70%;
+  margin: 64px 0 16px 0;
+  width: 80%;
 }
 
 /* Overrides navbar searchbar styles */
@@ -920,6 +921,16 @@ ul.dropdown__menu li a:hover {
   align-items: center;
   padding: 8px;
   margin: 0;
+}
+
+.landpage-buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.landpage-buttons-container a {
+  margin: 16px 16px 16px 0;
 }
 
 /* mobile overrides */
