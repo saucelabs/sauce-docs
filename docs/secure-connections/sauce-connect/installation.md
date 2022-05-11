@@ -136,7 +136,7 @@ The location of the log file will vary, depending on your operating system. For 
 
 ### Version Lifecycle Information
 
-The launch of Sauce Connect 4.7.1 makes it the officially supported version of the Sauce Connect client. All previous versions are in maintenance mode, with the oldest versions nearing the end of their support life.
+The launch of Sauce Connect 4.8.0 makes it the officially supported version of the Sauce Connect client. All previous versions are in maintenance mode, with the oldest versions nearing the end of their support life.
 
 <table>
   <tr>
@@ -154,14 +154,31 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    </td>
   </tr>
   <tr>
+   <td rowspan="2" >4.8
+   </td>
+   <td>4.8.0
+   </td>
+   <td>
+    <a href="#download-latest-version">See latest version</a>
+   </td>
+   <td rowspan="2" >Nov. 30, 2023
+   </td>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+   <td colspan="4" ><strong>Security & Major Bug Fixes only</strong>
+   </td>
+  </tr>
+    <tr>
    <td rowspan="2" >4.7
    </td>
    <td>4.7.1
    </td>
    <td>
-    <a href="#download-latest-version">See latest version</a>
+    <a href="https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.7.1-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.7.1-win32.zip">Windows</a>
    </td>
-   <td rowspan="2" >Sep. 30, 2022
+   <td rowspan="2" >May 31, 2023
    </td>
   </tr>
   <tr>
@@ -172,10 +189,6 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    </td>
   </tr>
   <tr>
-   <td colspan="4" ><strong>Security & Major Bug Fixes only</strong>
-   </td>
-  </tr>
-  <tr>
    <td rowspan="6" >4.6
    </td>
    <td>4.6.5
@@ -183,7 +196,7 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    <td>
     <a href="https://saucelabs.com/downloads/sc-4.6.5-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.5-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.5-win32.zip">Windows</a>
    </td>
-   <td rowspan="6" >Mar. 31, 2022
+   <td rowspan="6" >Nov. 30, 2022
    </td>
   </tr>
   <tr>
@@ -219,49 +232,6 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    </td>
    <td>
    &#8212;
-   </td>
-  </tr>
-  <tr>
-   <td colspan="4" ><strong>Unsupported</strong>
-   </td>
-  </tr>
-  <tr>
-   <td rowspan="5" >4.5<sup><a href="#sauce-connect-proxy-versions-below-461-which-were-supporting-private-certificates-reached-end-of-life-and-are-no-longer-available-for-download">**</a></sup>
-   </td>
-   <td>4.5.4
-   </td>
-   <td>
-    &#8212;
-   </td>
-   <td rowspan="5" >March 31, 2021
-   </td>
-  </tr>
-  <tr>
-   <td>4.5.3
-   </td>
-   <td>
-    &#8212;
-   </td>
-  </tr>
-  <tr>
-   <td>4.5.2
-   </td>
-   <td>
-    &#8212;
-   </td>
-  </tr>
-  <tr>
-   <td>4.5.1
-   </td>
-   <td>
-    &#8212;
-   </td>
-  </tr>
-  <tr>
-   <td>4.5.0
-   </td>
-   <td>
-    &#8212;
    </td>
   </tr>
 </table>
