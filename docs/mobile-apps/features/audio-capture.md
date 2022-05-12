@@ -34,7 +34,7 @@ Now you can start your live or automated testing session. Your audio recording w
 
 
 
-### Streaming the Audio during a Live Session (coming soon)
+### Streaming Audio during a Live Session (coming soon)
 
 ## Using Audio Capture on Android
 
