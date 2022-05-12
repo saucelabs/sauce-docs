@@ -43,7 +43,7 @@ Returns the set of files that have been uploaded to Sauce Storage by the request
   <tbody>
     <tr>
      <td><code>kind</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The app type associated with the file, such as <code>android</code> or <code>ios</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>The app type associated with the file, such as <code>android</code> or <code>ios</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
