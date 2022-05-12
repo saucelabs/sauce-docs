@@ -10,7 +10,7 @@ class Community extends Component {
           <img className='landpage-community' src='img/important-links-hero.png' />
         </div>
         <div className='column-right'>
-          <h2>Get supported by our community</h2>
+          <h2>Get community support</h2>
           <p>Can't find what you need? Make use of our community spread around the world. We are here to help you.</p>
           <span className='landpage-buttons-container'>
             <a href='https://stackoverflow.com/tags/saucelabs' target='_blank' rel='noopener noreferrer'>

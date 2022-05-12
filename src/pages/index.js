@@ -57,7 +57,7 @@ function Home() {
                 <Button className='button-dark' name='Get Started' />
               </a>
               <a href='/dev/api/'>
-                <Button className='button-dark' name='Sauce Rest API' />
+                <Button className='button-dark' name='Sauce REST API' />
               </a>
               <a href='/dev/cli/'>
                 <Button className='button-dark' name='Sauce CLI' />
