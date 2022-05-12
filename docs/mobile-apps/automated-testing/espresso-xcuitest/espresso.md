@@ -353,7 +353,7 @@ Specifies which artifacts to download based on whether they match the name or fi
 #### `directory`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded.
+Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory will match the suite name. If a directory with the same name already exists, the new one will be suffixed by a serial number.
 
 ```yaml
     directory: ./artifacts/
@@ -436,7 +436,11 @@ espresso:
 ### `app`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the app. The default directory is `{project-root}/apps/filename.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded app reference. Supports \*.apk and \*.aab files.
+Specifies a local path, URL, or storage identifier to the app under test. This property supports expanded environment variables.
+
+When defining a local path, the default directory is `{project-root}/apps/filename.apk`. The app will be uploaded to the Sauce Labs storage service. Supports *.apk and *.aab files.
+
+When defining a URL to your app, it will be downloaded to a local temporary directory before being uploaded to Sauce storage.
 
 :::caution AAB App Signing
 To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must sign the \*.apk using its own signature. In such cases, Sauce Labs signs both the `app` and `testApp` to ensure matching signatures, even if instrumentation is disabled. Otherwise, the app installation will fail.
@@ -444,6 +448,10 @@ To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must 
 
 ```yaml
   app: ./apps/calc.apk
+```
+
+```yaml
+  app: https://example.app.download.url/calc.apk
 ```
 
 ```yaml
@@ -463,7 +471,11 @@ To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must 
 ### `testApp`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The path to the testing app. The relative file location is `{project-root}/apps/testfile.apk`, and the property supports expanded environment variables to designate the path, as shown in the following examples, or an already uploaded test app reference. Supports \*.apk and \*.aab files.
+Either a local path, url, or storage identifier to the testing app. This property supports expanded environment variables.
+
+When defining a local path, the default directory is `{project-root}/apps/testfile.apk`. The app will be uploaded to the Sauce Labs storage service. Supports *.apk and *.aab files.
+
+When defining a url to your test app, it will be downloaded to a local temporary directory before being uploaded to the storage service.
 
 :::caution AAB App Signing
 To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must sign the \*.apk using its own signature. In such cases, Sauce Labs signs both the `app` and `testApp` to ensure matching signatures, even if instrumentation is disabled. Otherwise, the app installation will fail.
@@ -471,6 +483,10 @@ To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must 
 
 ```yaml
   testApp: ./apps/calc-success.apk
+```
+
+```yaml
+  testApp: https://example.app.download.url/calc-success.apk
 ```
 
 ```yaml
@@ -490,7 +506,7 @@ To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must 
 ### `otherApps`
 <p><small>| OPTIONAL | ARRAY | REAL DEVICES ONLY |</small></p>
 
-Set of up to seven apps to pre-install for your tests. You can upload an \*.apk  or \*.aab app file from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
+Set of up to seven apps to pre-install for your tests. You can upload an *.apk  or *.aab app file from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.apk`), a remote url, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
 
 :::note
 Apps specified as `otherApps` inherit the configuration of the main app under test for [`Device Language`, `Device Orientation`, and `Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
@@ -499,6 +515,7 @@ Apps specified as `otherApps` inherit the configuration of the main app under te
 ```yaml
   otherApps:
     - ./apps/pre-installed-app1.apk
+    - https://example.app.download.url/pre-installed-app1.apk
     - $PRE_INSTALLED_APP2
     - storage:d6aac80c-2000-a2f1-4c4e-539266e93ee6
     - storage:filename=pre-installed-app3.apk

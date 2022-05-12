@@ -44,7 +44,7 @@ Alternatively, you can also specify the configuration settings in your C# projec
 |---------|---------|---------|---------|
 |Server Address|The [server address](/error-reporting/platform-integrations/unity/setup/#configure-the-server-address) (submission URL) is required to submit exceptions from your Unity project to your Backtrace instance. <br /><br />The Server Address must be in the following format: `https://submit.backtrace.io/{subdomain}/{submission-token}/json`.|String|
 |Handle unhandled exceptions|Handles unhandled exceptions that are not captured by try/catch statements.|Boolean|True|
-|Reports per minute|Limits the number of reports the client will send per minute. <ul><li>If set to '0', there is no limit.</li> <li>If set to a value greater than '0' value and the value is reached, the client will not send any reports until the next minute.</li></ul> The `BacktraceClient.Send` and `BacktraceClient.SendAsync` methods will return 'false'.|Number|50|
+|Reports per minute|Limits the number of reports the client will send per minute. <ul><li>If set to '0', there is no limit.</li> <li>If set to a value greater than '0' and the value is reached, the client will not send any reports until the next minute.</li></ul> The `BacktraceClient.Send` and `BacktraceClient.SendAsync` methods will return 'false'.|Number|50|
 |Ignore SSL validation|By default, Unity validates SSL certificates. If you don't want to validate SSL certificates, set the value to 'true'.|Boolean|False|
 
 
@@ -162,7 +162,9 @@ Unity's CrashReport API might prevent the Backtrace client from sending crashes.
 #### Uploading Debug Symbols
 When building your iOS game in Xcode, make sure to configure the build settings to generate dSYM files for any build that you want to debug with Backtrace. By default, Xcode may only generate DWARF files.
 
-To generate debug symbols in dSYM format, in the **Build Settings** for your Xcode project, set **Debug Information Format** to 'DWARF with dSYM File'.
+To generate debug symbols in dSYM format:
+1. In Xcode, go to your project target's **Build Settings**.
+1. Under **Build Options**, set **Debug Information Format** to **DWARF with dSYM File**.
 
 <img src={useBaseUrl('img/error-reporting/unity/xcode-enable-debug-symbols.png')} alt="Build setting in Xcode required to generate debug symbols for iOS builds." />
 
