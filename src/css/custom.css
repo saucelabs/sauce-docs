@@ -451,10 +451,11 @@ html[data-theme='dark'] .card:hover {
 /* Information badges below */
 
 .sauceRed {
-  background: var(--ifm-color-primary);
-  color: white;
-  padding: 0.2rem;
-  font-weight: 750;
+  background:var(--ifm-color-primary);
+  color:white;
+  padding:.2rem;
+  font-weight:750;
+  border-radius: 4px;
 }
 
 .sauceDBlue {
