@@ -173,6 +173,14 @@ html[data-theme='dark'] .navbar {
   font-weight: 500;
   color: var(--ds-gray-600);
   text-decoration-color: var(--ds-gray-600);
+  line-height: initial;
+}
+
+.navbar__inner {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 100%;
 }
 
 html[data-theme='dark'] .navbar__link {
