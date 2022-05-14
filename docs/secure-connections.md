@@ -137,7 +137,7 @@ Sauce Connect Proxy and Sauce IPSec Proxy accomplish the same thing: establish a
    </td>
   </tr>
   <tr>
-   <td>All customers, regardless of their pricing plan, can download and launch Sauce Connect Proxy tunnels on their own local machine. For help, please contact our Support Team.
+   <td>Regardless of your license type (free-trial, self-serve, enterprise), you can download and use Sauce Connect Proxy.
    </td>
    <td>Requires a custom setup between your network and the Sauce Labs cloud prior to use.
    </td>
