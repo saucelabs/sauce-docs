@@ -15,47 +15,53 @@ To determine which solution is best for you, see [Overview of Sauce Labs Securit
 
 See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview) white paper for information about optimizing your network and development environment for Sauce Connect Proxy performance.
 
-<div className="box boxwidebottom card">
+<div className="box-wrapper" markdown="1">
+<div className="box box1 card">
+  <div className="container">
+  <h3><a href="/secure-connections/sauce-connect">Sauce Connect Proxy Overview</a></h3>
+  <p>Learn about Sauce Connect Proxy and why we recommend it over allowlisting individual IP addresses.</p>
+  </div>
+</div>
+<div className="box box2 card">
   <div className="container">
   <h3><a href="/secure-connections/sauce-connect/quickstart/">Quickstart</a></h3>
-  <p>Get up and running quickly with Sauce Connect Proxy.</p>
+  <p>Get up and running with Sauce Connect Proxy in minutes.</p>
   </div>
-</div><br/>
-  <div className="box-wrapper" markdown="1">
-    <div className="box box1 card">
-      <div className="container">
-      <h3><a href="/secure-connections/sauce-connect">Using Sauce Connect Proxy</a></h3>
-      <p>Review the Sauce Connect Proxy system and network requirements, and then install the Sauce Connect Proxy client.</p>
-      </div>
-    </div>
-    <div className="box box2 card">
-      <div className="container">
-      <h3><a href="/secure-connections/sauce-connect/#setup-and-configuration">Setup and Configuration</a></h3>
-      <p>Find the right Sauce Connect Proxy tunnel configuration for you and your organization. Once you’re connected, use our code samples to run your first test.</p>
-      </div>
-    </div>
+</div>
     <div className="box box3 card">
       <div className="container">
-      <h3><a href="/dev/cli/sauce-connect-proxy">CLI Reference</a></h3>
-      <p>Browse the security documentation to learn how to use your CLI to communicate with the Sauce Labs cloud from your private network.</p>
+      <h3><a href="/secure-connections/sauce-connect/setup-configuration/basic-setup">Setup and Configuration</a></h3>
+      <p>Learn how to launch a basic Sauce Connect Proxy tunnel configuration. Once you’re connected, use our code samples to run your first test.</p>
       </div>
     </div>
     <div className="box box4 card">
+      <div className="container">
+      <h3><a href="/dev/cli/sauce-connect-proxy">CLI Reference</a></h3>
+      <p>Learn how to use our CLI flags to communicate with the Sauce Labs cloud from your private network.</p>
+      </div>
+    </div>
+    <div className="box box5 card">
       <div className="container">
       <h3><a href="/secure-connections/sauce-connect/setup-configuration/ci-cd-integration">CI/CD Integration</a></h3>
       <p>Streamline your Sauce Connect Proxy automated functional testing by integrating your preferred build provider with Sauce Labs.</p>
       </div>
     </div>
-    <div className="box box5 card">
+    <div className="box box6 card">
       <div className="container">
       <h3><a href="/secure-connections/sauce-connect/proxy-tunnels">Using Tunnels</a></h3>
       <p>Best practices for starting, stopping, and monitoring tunnels.</p>
       </div>
     </div>
-    <div className="box box6 card">
+    <div className="box box7 card">
       <div className="container">
       <h3><a href="/secure-connections/sauce-connect/security-authentication">Security and Authentication</a></h3>
       <p>Settings and tips for configuring Sauce Connect Proxy with your network.</p>
+      </div>
+    </div>
+    <div className="box box8 card">
+      <div className="container">
+      <h3><a href="/secure-connections/sauce-connect/setup-configuration/high-availability/">High Availability Setup</a></h3>
+      <p>Set up a high volume of tests to run parallel through multiple Sauce Connect Proxy tunnels to save time.</p>
       </div>
     </div>
   </div>
@@ -97,7 +103,7 @@ Sauce IPSec Proxy establishes a VPN connection between two IPSec gateways, and a
 
 ## Choosing the Right Solution
 
-Sauce Connect Proxy and Sauce IPSec Proxy accomplish the same thing: establishing a secure connection between apps hosted on a customer's private network and Sauce Labs cloud virtual machines and real devices. The main differences are:
+Sauce Connect Proxy and Sauce IPSec Proxy accomplish the same thing: establish a secure connection between apps hosted on your private network and Sauce Labs cloud virtual machines and real devices. The main differences are:
 
 <table>
   <tr>
@@ -113,13 +119,13 @@ Sauce Connect Proxy and Sauce IPSec Proxy accomplish the same thing: establishin
    </td>
   </tr>
   <tr>
-   <td>Customers can manage tunnel lifespan by launching different types of tunnels: ephemeral (per-build) tunnels or long-running tunnels.
+   <td>You can manage tunnel lifespan by launching different types of tunnels: ephemeral (per-build) tunnels or long-running tunnels.
    </td>
    <td>Sauce IPSec Proxy tunnels are long-running, by default.
    </td>
   </tr>
   <tr>
-   <td>Sauce Connect Proxy client (binary) runs within the customer's network to establish the tunnels, which use proprietary protocol over TLS 1.2.
+   <td>Sauce Connect Proxy client (binary) runs within your network to establish the tunnels, which use proprietary protocol over TLS 1.2.
    </td>
    <td>Sauce IPSec Proxy tunnels use industry standards to establish connection and offer two options for routing traffic to sites and apps under test.
    </td>
@@ -131,7 +137,7 @@ Sauce Connect Proxy and Sauce IPSec Proxy accomplish the same thing: establishin
    </td>
   </tr>
   <tr>
-   <td>All customers can download and launch Sauce Connect Proxy tunnels on their own local machine. For help, please contact our Support Team.
+   <td>All customers, regardless of their pricing plan, can download and launch Sauce Connect Proxy tunnels on their own local machine. For help, please contact our Support Team.
    </td>
    <td>Requires a custom setup between your network and the Sauce Labs cloud prior to use.
    </td>
