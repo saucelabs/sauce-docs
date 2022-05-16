@@ -26,8 +26,8 @@ To enable Audio Capture in your tests:
 3. After you’ve uploaded your app, return to the **Live** > **Mobile App** page, hover your mouse over your app, and then select **Settings**. <br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr.png')} alt="Mobile app settings navigation" width="600"/>
 4. Under **Default Settings**, toggle **Instrumentation and App/OS Audio** to enable the feature. <br/><img src={useBaseUrl('img/mobile-apps/audio_capture_screen2.png')} alt="Mobile app settings navigation" width="800"/>
 5. **For Automated Testing only:** add the `audioCapture` capability to your test script. Click the link below that corresponds to your framework:
-   * Espresso (coming soon)
-   * XCUITest (coming soon)
+   * [Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#audiocapture)
+   * [XCUITest](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#audiocapture)
    * [Appium](/dev/test-configuration-options/#audiocapture)
   
 Now you can start your live or automated testing session. Your audio recording will be captured and be part of the video recording on the Test Results page.
