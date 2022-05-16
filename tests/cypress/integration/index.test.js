@@ -3,9 +3,11 @@ context('Index Page Tree Actions', () => {
         cy.visit(`/`)
         cy.viewport(1536, 960)
     });
-    it('Test Search Bar', () => {
-        cy.get('#__docusaurus > div.main-wrapper > header > div > div > div > button')
-            .should('have.class', 'DocSearch DocSearch-Button')
+    it('Test Search Bar Navbar', () => {
+        cy.get('#__docusaurus > nav..navbar__items .DocSearch-Button').should(
+          'have.class',
+          'DocSearch DocSearch-Button'
+        );
         //     .click()
         // cy.get('div')
         //     .should('have.class', 'DocSearch-Modal')
