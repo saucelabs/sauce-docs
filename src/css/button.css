@@ -8,12 +8,19 @@
 
 .button-dark{
   background: var(--ds-blue-700);
-  color: white;
+  color: var(--ds-white);
   border-style: none;
 }
-
 .button-dark:hover {
   background: var(--ds-gray-700);
+}
+html[data-theme='dark'] .button-dark{
+  background: var(--ds-blue-200);
+  color: var(--ds-gray-900);
+}
+html[data-theme='dark'] .button-dark:hover{
+  background: var(--ds-blue-700);
+  color: var(--ds-white);
 }
 
 .button-light {
@@ -21,7 +28,13 @@
   border-color: var(--ds-blue-700);
   border-style: solid;
 }
-
 .button-light:hover {
   border-color: var(--ds-red-600);
 }
+html[data-theme='dark'] .button-light {
+  border-color: var(--ds-white);
+}
+html[data-theme='dark'] .button-light:hover {
+  border-color: var(--ds-blue-400);
+}
+
