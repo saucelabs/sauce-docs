@@ -4,7 +4,7 @@ title: Setting Up Backtrace for Unity
 sidebar_label: Setup
 description: Add Backtrace to your Unity project.
 ---
-Add Backtrace to your Unity project to automatically detect and report crashes and errors that occur in your apps and games.
+Add Backtrace to your Unity project to automatically detect and report errors and crashes that occur in your apps and games.
 
 After you've completed the steps on this page, the Backtrace client will be installed and setup with the default configuration settings.
 
@@ -94,6 +94,14 @@ This installation method is supported for Unity 2018.3 or higher.
 1. Clone the source project’s [Git URL](https://github.com/backtrace-labs/backtrace-unity.git).
 1. In your Unity project, go to **Window > Package Manager**.
 1. Complete the steps in [Installing from a Git URL](https://docs.unity3d.com/Manual/upm-ui-giturl.html) in the Unity Documentation.
+
+</TabItem>
+<TabItem value="hub" label="Backtrace Hub">
+
+1. Download the installer for the [Backtrace Hub](https://drive.google.com/file/d/1hbSmqMSBEep00pHVLPUpTVsj5K_O8Jq6/view).
+1. Double-click to open the file.
+1. In the dialog for the Backtrace Hub Installer, click **Install Now**. <br/> After the installation is complete, you can download the Backtrace Plugin from the Backtrace Hub.
+1. From the **Backtrace Hub**, for the **Backtrace Plugin**, click **Install**.
 
 </TabItem>
 </Tabs>

@@ -20,7 +20,7 @@ Sauce Connect Proxy environment variables can be divided into 3 groups:
 
 * User credentials
 * All command line options as envirment variables
-* System proxy environment variables
+* Proxy environment variables
 
 
 ## User Credentials Environment Variables
@@ -33,9 +33,10 @@ Sauce Connect Proxy environment variables can be divided into 3 groups:
 
 ### Use Cases
 
-We recommend configuring credentials via environment variables in the following scenarios.
+We recommend configuring credentials via environment variables in the following scenarios:
 
 * Sauce Connect Proxy command containing credentials may be exposed via process monitoring tools such as `ps`.
+* When running Sauce Connect Proxy in CI/CD environment to avoid clear-text logging your credentials.
 
 
 ## Command Line Options Environment Variables
@@ -51,18 +52,18 @@ We recommend configuring options via environment variables in the following scen
 * Sauce Connect Proxy runs in docker container and CI system (such as Gitlab) allows a simple way to set environment variables.
 
 
-## System Proxy Environment Variables
+## Proxy Environment Variables
 
-Sauce Labs supports the following [proxy auto-configuration](/secure-connections/sauce-connect/setup-configuration/additional-proxies/#proxy-auto-configuration-automatic) environment variables, but we strongly advise using Sauce Connect Proxy specific variables, such as `SAUCE_PROXY` or `SAUCE_PROXY_TUNNEL` instead, since the auto-configuration variables listed here behave differently on different platforms.
+Sauce Connect Proxy supports the following [proxy auto-configuration](/secure-connections/sauce-connect/setup-configuration/additional-proxies/#proxy-auto-configuration-automatic) environment variables, but we strongly advise using Sauce Connect Proxy specific variables, such as `SAUCE_PROXY` or `SAUCE_PROXY_TUNNEL` instead, since the auto-configuration variables listed here behave differently on different platforms.
 
 | Environment Variable                                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Platforms           |
 |---------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
-| `http_proxy`<br/>`https_proxy`<br/>`HTTP_PROXY`<br/>`HTTPS_PROXY`<br/>`all_proxy`<br/>`ALL_PROXY` | Sets an HTTP proxy to be used by Sauce Connect Proxy. It can be formatted as `http://hostname:port` or `hostname:port`.<br/>On Linux and Mac environments, `http_proxy` and `https_proxy` variables can contain proxy credentials in the following format: `scheme://user:password@host:port`                                                                                                                                                                                                                           | Windows, Linux, Mac |
-| `no_proxy`<br/>`NO_PROXY`                                                                         | Sets hostnames that will not be proxied, even when Sauce Connect Proxy is configured to use a proxy. Format as a comma-separated list. Subdomain wildcarding is supported when the hostname starts with a `.` Examples:<br/><br/>`saucelabs.com,spam.net`: Only requests hitting `saucelabs.com` and `spam.net` will not be proxied. All other requests will be proxied.<br/>`.example.com`: All requests going to any subdomain of `example.com` will not be proxied (e.g., `one.example.com`, `asdf.example.com`) | Linux               |
+| `http_proxy`<br/>`HTTP_PROXY`<br/>`all_proxy`<br/>`ALL_PROXY` | Sets an HTTP proxy to be used by Sauce Connect Proxy. It can be formatted as `http://hostname:port` or `hostname:port`.<br/>On Linux and Mac environments, `http_proxy` variable can contain proxy credentials in the following format: `scheme://user:password@host:port`                                                                                                                                                                                                                           | Linux, macOS|
+| `no_proxy`<br/>`NO_PROXY`                                                                         | Sets hostnames that will not be proxied, even when Sauce Connect Proxy is configured to use a proxy. Format as a comma-separated list. Subdomain wildcarding is supported when the hostname starts with a `.` Examples:<br/><br/>`saucelabs.com,spam.net`: Only requests hitting `saucelabs.com` and `spam.net` will not be proxied. All other requests will be proxied.<br/>`.example.com`: All requests going to any subdomain of `example.com` will not be proxied (e.g., `one.example.com`, `asdf.example.com`) | Linux, macOS               |
 
 
 :::note
-[`--no-autodetect`](/dev/cli/sauce-connect-proxy/#--no-autodetect) command-line option disables system proxy detection.
+[`--no-autodetect`](/dev/cli/sauce-connect-proxy/#--no-autodetect) command-line option disables proxy auto-detection.
 :::
 
 
@@ -115,7 +116,7 @@ Alternatively, Sauce Connect Proxy environment variables may be added to one of 
 6. Confirm that your environment variables have been set by typing `echo %SAUCE_USERNAME%` in your terminal. The response should be your username value. Then do the same for your access key.
 7. Starting a new Sauce Connect Proxy will not require adding `--api-key` or `--user` flags.
  ```bash
- sc --region us-west
+ sc.exe --region us-west
  ```
 
 </TabItem>
