@@ -5,7 +5,7 @@ import Button from '../components/button';
 class Resources extends Component {
   render() {
     return (
-      <div className='container-landpage'>
+      <div className='container-reverse'>
         <div className='column-left'>
           <h2>Learn the basics</h2>
           <p>
