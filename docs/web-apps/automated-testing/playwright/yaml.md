@@ -699,6 +699,8 @@ A parent property that details any additional parameters you wish to set for the
       headless: true
       slowMo: 1000
       project: "project name"
+      grep: "should include"
+      grepInvert: "should exclude"
 ```
 
 #### `browserName`
@@ -743,6 +745,26 @@ Allows you to apply the configurations from your [Playwright project](https://pl
 
 ```yaml
     project: "project name"
+```
+---
+
+#### `grep`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Patterns to run tests based on their title.
+
+```yaml
+    grep: "should include"
+```
+---
+
+#### `grepInvert`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Patterns to skip tests based on their title.
+
+```yaml
+    grepInvert: "should exclude"
 ```
 ---
 
