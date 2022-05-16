@@ -83,10 +83,10 @@ values={[
 "desiredCapabilities": {
     "platformName" : "android",
     "app","storage:filename=mapp.pk",
-    “deviceName" : "Samsung.*Galaxy.*”,
-    “orientation” : “portrait”,
-    “platformVersion" : "8.1",
-    "appiumVersion" : "1.21.0"
+    "deviceName" : "Samsung.*Galaxy.*",
+    "orientation" : "portrait",
+    "platformVersion" : "8.1",
+    "appiumVersion" : "1.21.0",
     "sessionCreationRetry" : "2",
     "sessionCreationTimeout" : "300000",
     "name" : "MobileWebsiteTest (jwp)"
