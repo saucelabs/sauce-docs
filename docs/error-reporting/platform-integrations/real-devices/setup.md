@@ -1,6 +1,6 @@
 ---
 id: setup
-title: Setting Up Backtrace for your Real Device Tests (coming soon)
+title: Setting Up Backtrace for your Real Device Tests
 sidebar_label: Setup
 description: Link your Sauce Labs real device tests with Backtrace to view errors and crashes.
 ---
@@ -97,7 +97,7 @@ To integrate the Backtrace SDK with your iOS app, see the [Setting Up Backtrace 
 </TabItem>
 </Tabs>
 
-## Link your Real Device Tests with Backtrace
+## Enable the Backtrace Integration in Sauce Labs
 This enables the Backtrace integration for all users in your organization. Once enabled, only organization admins can update the settings or disable the integration.
 
 :::note
