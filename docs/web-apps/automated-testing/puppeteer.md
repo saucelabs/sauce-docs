@@ -21,7 +21,7 @@ Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e
 
 ## System Requirements
 
-At this time, `saucectl` only runs Puppeteer tests locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms), which has the following general system requirements:
+At this time, `saucectl` only runs Puppeteer tests locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms)), which has the following general system requirements:
 
 <Tabs
   defaultValue="macos"
