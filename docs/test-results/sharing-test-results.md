@@ -76,9 +76,10 @@ The example below demonstrates how to generate the token in a Python interpreter
 ```python
 >>> import hmac
 >>> from hashlib import md5
->>> hmac.new("SAUCE_USERNAME:SAUCE_ACCESS_KEY", "5f9fef27854ca50a3c132ce331cb6034", md5).hexdigest()
-Once the auth token has been obtained, you can use it to build a link in this format: https://app.saucelabs.com/tests/YOUR_TEST_ID?auth=AUTH_TOKEN.
+>>> hmac.new(b"SAUCE_USERNAME:SAUCE_ACCESS_KEY", b"5f9fef27854ca50a3c132ce331cb6034", md5).hexdigest()
 ```
+Once the auth token has been obtained, you can use it to build a link in this format: https://app.saucelabs.com/tests/YOUR_TEST_ID?auth=AUTH_TOKEN.
+
 
 #### Example - Java
 ```java
