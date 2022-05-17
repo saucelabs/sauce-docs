@@ -754,7 +754,7 @@ module.exports = {
                  'mobile-apps/features/biometric-authentication',
                  'mobile-apps/features/camera-image-injection',
                  'mobile-apps/features/gestures',
-
+                 'mobile-apps/features/network-capture',
              ],
          },
          {
