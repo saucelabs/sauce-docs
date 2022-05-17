@@ -1,6 +1,6 @@
 ---
 id: setup
-title: Setting Up Backtrace for your Real Device Tests (coming soon)
+title: Setting Up Backtrace for your Real Device Tests
 sidebar_label: Setup
 description: Link your Sauce Labs real device tests with Backtrace to view errors and crashes.
 ---
@@ -37,7 +37,7 @@ Crashes for iOS apps are currently not supported when running real device tests 
 :::
 
 ## What You'll Need
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+* A Sauce Labs account ([log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
 * Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
 * A Backtrace project and an API token with object:get and query:post capabilities.
@@ -92,12 +92,12 @@ To integrate the Backtrace SDK with your Android app, see [Setting Up Backtrace 
 </TabItem>
 <TabItem value="ios" label="iOS">
 
-To integrate the Backtrace SDK with your iOS app, see the [iOS Integration Guide](https://support.backtrace.io/hc/en-us/articles/360040104692-iOS-Integration-Guide).
+To integrate the Backtrace SDK with your iOS app, see the [Setting Up Backtrace for iOS](/error-reporting/platform-integrations/ios/setup/).
 
 </TabItem>
 </Tabs>
 
-## Link your Real Device Tests with Backtrace
+## Enable the Backtrace Integration in Sauce Labs
 This enables the Backtrace integration for all users in your organization. Once enabled, only organization admins can update the settings or disable the integration.
 
 :::note

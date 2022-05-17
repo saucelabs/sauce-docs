@@ -23,7 +23,7 @@ Capture error and crash reports from your games and mobile apps with Backtrace.
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360058815691-CryEngine-Integration-Guide">CRYENGINE</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040517231-Electron-Integration-Guide">Electron</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040106032-Go-Integration-Guide">Go</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040104692-iOS-Integration-Guide">iOS</a></li>
+    <li><a href="/error-reporting/platform-integrations/ios/setup/">iOS</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040517211-Javascript-Integration-Guide">JavaScript</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040517331-Minidump">Minidump</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360057860351-Nintendo-Switch-Support">Nintendo Switch</a></li>
