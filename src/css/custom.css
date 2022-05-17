@@ -163,6 +163,10 @@ html[data-theme='dark'] .navbar {
   background-color: var(--ifm-navbar-background-color-dark);
 }
 
+html[data-theme='dark'] .navbar-sidebar {
+  background-color: var(--ifm-code-background);
+}
+
 .navbar__items {
   font-size: 110%;
   font-weight: 500;
