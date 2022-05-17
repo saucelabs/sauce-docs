@@ -32,43 +32,6 @@ Looking to import from Postman? See [Importing Postman Collections](/api-testing
    The URL will populate in the **Enter Request URL** field.<br/><img src={useBaseUrl('img/api-fortress/2021/02/sampleRequest.png')} alt="Sample request"/>
 8. Click **Send**. The response body will then appear.<br/><img src={useBaseUrl('img/api-fortress/2021/02/responseBody.png')} alt="Response Body"/>
 
-### Importing a HAR File
-<p><span className="sauceDBlue">RDC Only</span> | <span className="sauceDBlue">Android Only</span></p>
-
-You can import a HAR (HTTP Archive) file into API Testing to automatically generate a functional test.
-
-This feature is currently only supported for Android real devices.
-
-To import a HAR file:
-
-1. In Sauce Labs, click **API Testing**.
-
-  <img src={useBaseUrl('/img/api-testing/api-testing-nav.png')} alt="Navigating to API Testing" width="300"/>
-
-2. On the **Projects** page, under the project you want to import the file to, click **HTTP Client**.
-
-  <img src={useBaseUrl('/img/api-testing/http-client-nav.png')} alt="Navigating to the HAR import modal" width="600"/>
-
-3. On the project page, click **Import OpenAPI/Postman**, and then click **Import Har from RDC Job**.
-
-  <img src={useBaseUrl('/img/api-testing/import-har-nav.png')} alt="Navigating to the HAR import modal" width="300"/>
-
-4. In the **Import Snapshots from RDC Jobs** window, click a test in the list and then click **Import**. You can filter this list by job owner or job type.
-
-  <img src={useBaseUrl('/img/api-testing/import-har-import.png')} alt="Import the file" width="600"/>
-
-5. In the **Snapshots** panel, navigate to a folder and then click **Save**.
-
-  <img src={useBaseUrl('/img/api-testing/import-har-location.png')} alt="Selecting a folder" width="400"/>
-
-6. When the import is complete, in the **Snapshots** panel, open the folder you imported the files to.
-
-7. In the folder, click a call name to view its details in the **Body** panel.
-
-  <img src={useBaseUrl('/img/api-testing/import-har-calls.png')} alt="Viewing call details" width="600"/>
-
-8. To create a test based on the imported file, click **Generate Test**. For more information about creating a test, see [Create a Test](/api-testing/composer#create-a-test).
-
 ## Run a Test
 
 Follow the instructions under our Quickstart doc, starting with the [Generate Test](/api-testing/quickstart/#generate-test) step.
