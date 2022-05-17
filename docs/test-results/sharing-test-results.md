@@ -173,7 +173,7 @@ The date range can take two formats: `YYYY-MM-DD-HH` and `YYYY-MM-DD`. These sho
 
 ### Authentication Required
 
-Both of these configurations will only work for browsers logged in using your account, but you can use authentication tokens to make this work for anonymous viewers. For more information about creating authentication tokens, see [Building Sharable Links](/test-results/sharing-test-results).
+Both of these configurations will only work for browsers logged in using your account, but you can use authentication tokens to make this work for anonymous viewers. For more information about creating authentication tokens, see [Linking to Tests that Don't Require a Login to View](/test-results/sharing-test-results#linking-to-tests-that-dont-require-a-login-to-view).
 
 ```js
 https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
