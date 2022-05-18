@@ -8,6 +8,11 @@ keywords:
     - expression-language-extensions
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 ## Preamble
 
@@ -38,29 +43,29 @@ Similar to the pick(n), this method will pick one random item off an array, and 
 This is the main extension. It supports many useful functions.
 
 - **composeUrl(base : String, params : Map) : String :** creates a valid URL string based on these 2 params.
-    
+
   ```groovy
   WSUtil.composeUrl('http://www.testurlwhatever.com/index',['page':1] )
   ```  
-  
+
   Returns **http://www.testurlwhatever.com/index?page=1**
-    
+
   ```groovy
   WSUtil.composeUrl('http://www.testurlwhatever.com/index?offset=5', ['page':1] )
   ```
-  
+
   Returns:
   ```
   http://www.testurlwhatever.com/index?offset=5&page=1
   ```
-  
+
 - **exists(object : Object) : Boolean :** an XML and JSON existence state is different by definition. Use this in an "if statement" if a test should work both with JSON and XML
 - **contains(substring : String, object : Object) : Boolean :** returns true whether the string version of "object" contains the "substring" sub-string.
-    
+
   ```groovy
   WSUtil.contains('banana', payload.fruit.name)
   ```  
-  
+
 - **isInteger(string: String) , isFloat(string: String), isUrl(string: String), isEmail(string: String), isPhoneNumber(string: String), isBoolean(string: String), isArray(object: Object), isMap(object: Object), isCreditCard(string: String) : Boolean :** evaluate the nature of a data item
 
 ### `N`
@@ -68,13 +73,13 @@ This is the main extension. It supports many useful functions.
 Utility functions for numbers.
 
 - **random(min: Int, max: Int) : Int** : generates a random integer number between min and max.
-    
+
   ```groovy
   N.random(10,30)
   ```
-    
+
 - **random(min: Int, max: Int, quantity: Int) : List :** generates a list of random numbers
-    
+
   ```groovy
   N.random(10,30,5)
   ```  
@@ -134,11 +139,11 @@ Encryption utilities.
 - **hash(input : String) : String :** returns the SHA-1 hash of the input string, hex encoded
 - **genKey() : String :** generates a a random key
 - **base64(action: String, input: String)** : decodes from or encodes into a base64 string. Action can either be 'encode' or 'decode'
-    
+
   ```groovy
   WSCrypto.base64('encode','whatever')
   ```
-  
+
 - **base64Encode(input : Array\[Byte\]) : String :** encodes a byte array in a base64 string.
 - **sha256(input : String) : String** : creates an hash of input using the SHA-256 algorithm
 - **sha256(input : String, secret : String) : String :** encrypts input with secret using the HMAC-SHA256 algorithm

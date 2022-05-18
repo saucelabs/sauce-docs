@@ -33,7 +33,7 @@ Appium 1.6.0 will default to using `automationName: XCUITest` for iOS 10.x tests
 
 Our devices are real, physical devices. They are standard, commercially available devices and not modified or rooted. We use virtual networking computer (VNC) to transmit mouse and keyboard events on the devices. The VNC server on the devices relays back the content of the screen of the devices in real time.
 
-#### **What aware the top device lists by country, and how reliable are they?**
+#### **What are the top device lists by country, and how reliable are they?**
 
 The top lists indicate the ten most common devices by country. We gather information from an external provider who analyses mobile web traffic data from thousands of websites worldwide. The lists are generally reliable, but by using the "web traffic" metric for device distribution numbers, high-end devices and tablets might be overrepresented. Older and low-cost devices often have a smaller screen and a poorer performance, and are less used for surfing the web than top devices. This is why the  "web-traffic" metric might underrepresent the overall distribution of these devices.
 

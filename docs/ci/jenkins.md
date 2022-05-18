@@ -137,7 +137,7 @@ When options can be set at both levels, project settings override global setting
   <li>Choose <b>Configure</b> from the project menu.</li>
   <li>Choose the <b>Sauce Labs Options</b> tab to jump to the relevant settings.</li>
   <li>Configure the optional settings as needed, based on the descriptions in the following table.<br/>
-    <b>NOTE:</b> Project specific settings will always override the global value for the same setting.<br/>  
+    <b>NOTE:</b> Project specific settings will always override the global value for the same setting.<br/>
     <table>
       <tr>
         <th>Setting</th>
@@ -175,10 +175,10 @@ When options can be set at both levels, project settings override global setting
       </tr>
       <tr>
         <td><b>Use latest version of selected browsers</b></td>
-        <td>Automatically set the <code>SELENIUM_VERSION</code> environment variable to the latests version of the test browser.</td>
+        <td>Automatically set the <code>SELENIUM_VERSION</code> environment variable to the latest version of the test browser.</td>
       </tr>
       <tr>
-        <td><b>Use latests version of Sauce Connect</b></td>
+        <td><b>Use latest version of Sauce Connect</b></td>
         <td>Automatically check for and use the latest version of Sauce Connect when launching a new tunnel for this project.<br/><b>We recommend enabling this option</b> because Sauce Connect releases are independent from plugin releases, so the Sauce Connect version bundled in the plugin may become out of date sooner than the plugin itself.</td>
       </tr>
       <tr>
@@ -187,7 +187,7 @@ When options can be set at both levels, project settings override global setting
       </tr>
     </table>
   </li>
-  <li> Scroll to the <b>Sauce Connect Advanced Options</b> section and click <b>Advanced</b>to display additional options described in the following table as needed.
+  <li> Scroll to the <b>Sauce Connect Advanced Options</b> section and click <b>Advanced</b> to display additional options described in the following table as needed.
     <table>
       <tr>
         <th>Setting</th>
@@ -285,10 +285,10 @@ The OnDemand plugin supports automating your tests to run on many different comb
 1. From your Jenkins dashboard, select **New item** to define a new project.
 1. Enter a name for your project and choose **Multi-configuration project** as the type, and then click **OK**.
 1. In the project's configuration page, go to the **Configuration Matrix** section and click **Add Axis**.
-1. Choose the Sauce OnDemand test type (WebDriver or Appium) that matches the type of tests you will run in this project. This will dictate the operating system/browser combinations available in the next step.  
+1. Choose the Sauce OnDemand test type (WebDriver or Appium) that matches the type of tests you will run in this project. This will dictate the operating system/browser combinations available in the next step.
 1. Select all the operating systems and browser combinations that you want to test against.
 
-When you run a build for this project, it kicks off separate jobs for each OS/browser combination you specified, populating the `SELENIUM_PLATFORM`, `SELENIUM_VERSION`, `SELENIUM_BROWSER`, and `SELENIUM_DRIVER` environment variables and running them simultaneously.  
+When you run a build for this project, it kicks off separate jobs for each OS/browser combination you specified, populating the `SELENIUM_PLATFORM`, `SELENIUM_VERSION`, `SELENIUM_BROWSER`, and `SELENIUM_DRIVER` environment variables and running them simultaneously.
 
 Alternatively, you can configure your project so you can choose specific operating system/browser combinations at run-time rather than configuring the combinations in the build specification itself. This option allows you to only test those environments that may be affected by a recent change, for example.
 

@@ -84,7 +84,7 @@ You can also reference this parameter in Code view with the following syntax: `p
 
 ## Snippets
 
-In the **Snippets** section of the Vault, you can create or import test component/code examples exist. A _snippet_ is a test code fragment that you can create, import and store in your [Vault](/api-testing/vault) and reuse in multiple tests. Snippet length can range from one line of code to an entire test.
+In the **Snippets** section of the Vault, you can create or import test component/code examples. A _snippet_ is a test code fragment that you can create, import and store in your [Vault](/api-testing/vault) and reuse in multiple tests. Snippet length can range from one line of code to an entire test.
 
 Much like with variable scope, snippets saved in the [Project] **Vault** are only available in that Project and snippets saved in the **Company Vault** are available across all projects.
 
@@ -94,7 +94,7 @@ When you save a snippet from the [**Composer**](/api-testing/composer/), it will
 
 ### Create a Snippet
 
-1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+1. Log in to Sauce Labs, then click **API Testing**.
 2. Click on a **Project**.
 3. Click on a **Test**.
 4. Click on the first component you want to include in your snippet.
@@ -139,5 +139,5 @@ Consider a scenario where this login will be required for all the endpoints we h
 
 Now you can choose to insert or invoke this snippet in future tests that require a Basic Authentication header.
 
-## More Information 
+## More Information
 * [API Fortress Legacy Migration Guide](/api-testing/legacy)

@@ -26,7 +26,7 @@ Consider the following guidelines to optimize your performance testing implement
 
 ### Chrome Browser Required
 
-Sauce Performance works in conjunction with Google Lighthouse and must be run on one of the latest 3 versions of the Chrome desktop browser on Windows or MacOS.
+Sauce Performance works in conjunction with Google Lighthouse and must be run on one of the latest 3 versions of the Chrome desktop browser on Windows or macOS.
 
 ### Separating Performance Scripts from Functional Scripts
 

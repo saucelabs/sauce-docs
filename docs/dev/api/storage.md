@@ -31,7 +31,13 @@ Returns the set of files that have been uploaded to Sauce Storage by the request
   <tbody>
     <tr>
      <td><code>q</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Any search term (such as build  number or file name) by which you want to filter results.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Any search term (such as app name, file name, description, build number or version) by which you want to filter results.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>name</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The file name (case-insensitive) by which you want to search files.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -48,8 +54,20 @@ Returns the set of files that have been uploaded to Sauce Storage by the request
   </tbody>
   <tbody>
     <tr>
+     <td><code>sha256</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>SHA-256 hexadecimal (64 chars) hash of the file to look for.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
      <td><code>team_id</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>One or more IDs of teams with which the files are shared.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>org_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>One or more IDs of organizations with which the files are shared.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -114,41 +132,122 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 {
     "items": [
         {
-            "id": "43732d5b-5275-4a79-a936-197e4b9cd2d4",
+            "id": "eac15989-311a-4dde-9e77-b695323de369",
             "owner": {
-                "id": "e5be7513ba224f6f9463c209cb4c5d83",
-                "org_id": "bed0a8a559404117b3d10d3bfff4c8ab"
+                "id": "13ef3c9f777549aba58c29d9af4dfcbf",
+                "org_id": "d35a179b33394553ba0e35e0f22aabb3"
             },
-            "name": "iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa",
-            "upload_timestamp": 1618522437,
-            "etag": "184d1c399251e8849edcb0adfc079571",
+            "name": "iOS-Simulator-MyRNDemoApp.1.3.0-162.zip",
+            "upload_timestamp": 1652180523,
+            "etag": "CLTu7Ynk1PcCEAE=",
             "kind": "ios",
-            "group_id": 64612,
+            "group_id": 396353,
+            "size": 6743553,
             "description": null,
             "metadata": {
-                "identifier": "com.saucelabs.SwagLabsMobileApp",
-                "name": "SwagLabsMobileApp",
-                "version": "12",
+                "identifier": "com.saucelabs.mydemoapp.rn",
+                "name": "My Demo App",
+                "version": "162",
                 "is_test_runner": false,
                 "icon": "...",
-                "short_version": "2.7.1",
-                "is_simulator": false,
-                "min_os": "10.0",
-                "target_os": "14.2",
-                "test_runner_plugin_path": null
+                "short_version": "1.3.0",
+                "is_simulator": true,
+                "min_os": "12.0",
+                "target_os": "15.4",
+                "test_runner_plugin_path": null,
+                "device_family": [
+                    "phone"
+                ]
             },
             "access": {
                 "team_ids": [
-                    "80d69d16ebdb4c018cc9d81ea911761a"
+                    "a4cd325b896c4b2db5dc7c853fed31c4"
                 ],
                 "org_ids": []
-            }
+            },
+            "sha256": "a3925c6ece9e85695b3fba001560f8f59e4162cb511058c058bcbc2271429a6e"
+        },
+        {
+            "id": "591d8591-f9eb-42b7-903c-bf1ae189a358",
+            "owner": {
+                "id": "13ef3c9f777549aba58c29d9af4dfcbf",
+                "org_id": "d35a179b33394553ba0e35e0f22aabb3"
+            },
+            "name": "iOS-Simulator-MyRNDemoApp.1.3.0-162.zip",
+            "upload_timestamp": 1652180522,
+            "etag": "CLXq+ojk1PcCEAE=",
+            "kind": "ios",
+            "group_id": 396353,
+            "size": 6743553,
+            "description": null,
+            "metadata": {
+                "identifier": "com.saucelabs.mydemoapp.rn",
+                "name": "My Demo App",
+                "version": "162",
+                "is_test_runner": false,
+                "icon": "...",
+                "short_version": "1.3.0",
+                "is_simulator": true,
+                "min_os": "12.0",
+                "target_os": "15.4",
+                "test_runner_plugin_path": null,
+                "device_family": [
+                    "phone"
+                ]
+            },
+            "access": {
+                "team_ids": [
+                    "a4cd325b896c4b2db5dc7c853fed31c4"
+                ],
+                "org_ids": []
+            },
+            "sha256": "a3925c6ece9e85695b3fba001560f8f59e4162cb511058c058bcbc2271429a6e"
+        },
+        {
+            "id": "61c5d1f1-7baa-4e1f-84fd-371da916cd26",
+            "owner": {
+                "id": "13ef3c9f777549aba58c29d9af4dfcbf",
+                "org_id": "d35a179b33394553ba0e35e0f22aabb3"
+            },
+            "name": "iOS-Simulator-MyRNDemoApp.1.3.0-162.zip",
+            "upload_timestamp": 1652180517,
+            "etag": "CJ7jyYbk1PcCEAE=",
+            "kind": "ios",
+            "group_id": 396353,
+            "size": 6743553,
+            "description": null,
+            "metadata": {
+                "identifier": "com.saucelabs.mydemoapp.rn",
+                "name": "My Demo App",
+                "version": "162",
+                "is_test_runner": false,
+                "icon": "...",
+                "short_version": "1.3.0",
+                "is_simulator": true,
+                "min_os": "12.0",
+                "target_os": "15.4",
+                "test_runner_plugin_path": null,
+                "device_family": [
+                    "phone"
+                ]
+            },
+            "access": {
+                "team_ids": [
+                    "a4cd325b896c4b2db5dc7c853fed31c4"
+                ],
+                "org_ids": []
+            },
+            "sha256": "a3925c6ece9e85695b3fba001560f8f59e4162cb511058c058bcbc2271429a6e"
         }
     ],
-    "links": {...},
+    "links": {
+        "prev": null,
+        "next": null,
+        "self": "?q=162&page=1&per_page=25"
+    },
     "page": 1,
     "per_page": 25,
-    "total_items": 1
+    "total_items": 3
 }
 ```
 </details>
@@ -493,9 +592,9 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Response"
 PK
-     (BwQ              Payload/UX �a�_�a�_� PK
-     *BwQ              Payload/SwagLabsMobileApp.app/UX �a�_ b�_� PK
-     (BwQ            -  Payload/SwagLabsMobileApp.app/_CodeSignature/UX �a�_�a�_� PK   *BwQ            :  Payload/SwagLabsMobileApp.app/_CodeSignature/CodeResourcesUX �a�_�a�_� �}i��H����_QS�3#ؼ$�Zt��x��(R�$�m�oR"���+�]6%R.WX,��+���$3##"#����,����MT���~���;���߾�5�����/�7J"��LW�Q�~'�ā#��� ��2� �Ҩ���j�=d  }����ö-�' ����֧O}t���@��ҫ����������1̏����n�����k�
+�����(BwQ��������������Payload/UX��a�_�a�_��PK
+�����*BwQ��������������Payload/SwagLabsMobileApp.app/UX��a�_�b�_��PK
+�����(BwQ������������-��Payload/SwagLabsMobileApp.app/_CodeSignature/UX��a�_�a�_��PK���*BwQ������������:��Payload/SwagLabsMobileApp.app/_CodeSignature/CodeResourcesUX��a�_�a�_���}i��H����_QS�3#ؼ$�Zt��x��(R�$�m�oR"���+�]6%R.WX,��+���$3##"#����,����MT���~���;���߾�5�����/�7J"��LW�Q�~'�ā#������2���Ҩ���j�=d��}����ö-�'�����֧O}t���@��ҫ����������1̏����n�����k�
 ...
 ```
 </details>
@@ -723,7 +822,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Delete a Group of App Storage Files
 
-<details><summary><span className="api delete">DELETE</span> <code>/v1/storage/files/&#123;group_id&#125;</code></summary>
+<details><summary><span className="api delete">DELETE</span> <code>/v1/storage/groups/&#123;group_id&#125;</code></summary>
 <p/>
 
 Deletes the specified group of files from Sauce Storage.

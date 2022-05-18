@@ -103,7 +103,7 @@ To install a remote app on a real device for a test:
 
 If you are using a remote app download for testing on a private device and wish to also prevent the device from broad internet access while under test, you need to use a secure connection to reach the app URL.
 
-* Ensure the app is available from a private hosting solution with the necessary permissions (e.g. GitHub repository or Amazon S3 with a strict bucket policy).
+* Ensure the app is available from a private hosting solution with the necessary permissions (e.g., GitHub repository or Amazon S3 with a strict bucket policy).
 * Ensure the hosted app URL is available to the machine running the automated test.
 * Enable the **Require Sauce Connect/VPN** setting in your [organization's security settings](/basics/acct-team-mgmt/org-settings).
 
@@ -329,7 +329,7 @@ caps.setCapability("otherApps", "storage:<fileId>")
 
 ### Espresso/XCUITest Configuration
 
-For [Espresso](/testrunner-toolkit/configuration/espresso) or [XCUITest](/testrunner-toolkit/configuration/xcuitest) testing, you can specify up to seven dependent apps to either upload from your local machine or that are already in App Storage. In your `saucectl` configuration file, specify a local filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, and `saucectl` will upload the app to App Storage for use with the test. Otherwise, specify an app in App Storage using the reference `storage:<fileId>` or `storage:filename=<filename>`.
+For [Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso) or [XCUITest](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest) testing, you can specify up to seven dependent apps to either upload from your local machine or that are already in App Storage. In your `saucectl` configuration file, specify a local filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, and `saucectl` will upload the app to App Storage for use with the test. Otherwise, specify an app in App Storage using the reference `storage:<fileId>` or `storage:filename=<filename>`.
 
 
 ```yaml
@@ -362,7 +362,7 @@ Sauce Storage is a short term storage space for apps. Files uploaded here expire
 
 **US-WEST Data Center**
 
-MacOS/Linux Example:
+macOS/Linux Example:
 ```
 $ curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY -X POST -H "Content-Type: application/octet-stream" \
 "https://saucelabs.com/rest/v1/storage/$SAUCE_USERNAME/$APP_NAME?overwrite=true" --data-binary @path/to/your_file_name
@@ -370,7 +370,7 @@ $ curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY -X POST -H "Content-Type: applicatio
 
 **US-EAST Data Center**
 
-MacOS/Linux Example:
+macOS/Linux Example:
 ```
 $ curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY -X POST -H "Content-Type: application/octet-stream" \
 "https://us-east-1.saucelabs.com/rest/v1/storage/$SAUCE_USERNAME/$APP_NAME?overwrite=true" --data-binary @path/to/your_file_name
@@ -378,7 +378,7 @@ $ curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY -X POST -H "Content-Type: applicatio
 
 **EU-CENTRAL Data Center**
 
-MacOS/Linux Example:
+macOS/Linux Example:
 ```
 $ curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY -X POST -H "Content-Type: application/octet-stream" \
 "https://eu-central-1.saucelabs.com/rest/v1/storage/$SAUCE_USERNAME/$APP_NAME?overwrite=true" --data-binary @path/to/your_file_name

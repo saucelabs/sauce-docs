@@ -8,7 +8,7 @@ description: Run Espresso and XCUITest projects on Sauce Labs.
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs uses its framework agnostic test orchestrator [`saucectl`](/testrunner-toolkit) to execute Espresso and XCUITest tests based on one or more configuration files that instruct `saucectl` to run your tests exactly the way you specify. Results get published in your Sauce Labs account, where you can compare 30 days of results across different environments and frameworks all in one view.
+Sauce Labs uses its framework agnostic test orchestrator [`saucectl`](/dev/cli/saucectl) to execute Espresso and XCUITest tests based on one or more configuration files that instruct `saucectl` to run your tests exactly the way you specify. Results get published in your Sauce Labs account, where you can compare 30 days of results across different environments and frameworks all in one view.
 
 ## What You'll Need
 
@@ -55,7 +55,7 @@ You can set your Sauce Labs credentials as [environment variables](/basics/envir
 
 Each demo repo includes a sample `config.yml` file (in the `<root>/.sauce` directory) that is preconfigured to run the example test, which is also included in the repo.
 
-Modify the `config.yml` file according to the configuration documentation for [Espresso](/testrunner-toolkit/configuration/espresso) and [XCUITest](/testrunner-toolkit/configuration/xcuitest).
+Modify the `config.yml` file according to the configuration documentation for [Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso) and [XCUITest](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest).
 
 
 :::tip Alternative Config Files
@@ -68,10 +68,10 @@ saucectl run -c ./path/to/<configFile>.yml
 
 ### 5. Run your tests
 
-Use the `saucectl` CLI `run` command to execute your tests using the paramters you have specified in your configuration file.
+Use the `saucectl` CLI `run` command to execute your tests using the parameters you have specified in your configuration file.
 
 ```
 saucectl run
 ```
 
-You can optionally set [runtime parameters in the CLI](/testrunner-toolkit/saucectl/#-saucectl-run-flags), but keep in mind that `saucectl` looks for settings in your config file first, so if you use the CLI flags to specify settings that are also set in your config file, the CLI flag values are ignored.
+You can optionally set [runtime parameters in the CLI](/dev/cli/saucectl/run), but keep in mind that `saucectl` looks for settings in your config file first, so if you use the CLI flags to specify settings that are also set in your config file, the CLI flag values are ignored.

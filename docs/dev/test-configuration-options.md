@@ -287,7 +287,9 @@ You cannot set screen resolution on Windows 7 with IE 9.
 
 ## Mobile App Appium Capabilities: Required
 
-Sauce Labs encourages adoption of the W3C WebDriver protocol for your Appium mobile app tests, but continues to support JSON Wire Protocol (JWP) in all currently supported Appium 1.X versions (Appium 2.0 will deprecate support for JWP). The capabilities defined here assume the W3C protocol, but it is important to make sure your test configurations accurately reflect your intended protocol so your settings are applied correctly. See [Appium Real Device W3C Specification](/mobile-apps/automated-testing/appium/real-devices/#using-the-w3c-webdriver-specification) for details.
+As the W3C WebDriver Protocol is supported in Appium v1.6.5 and higher, and required for Appium v2.0 (currently in beta), we encourage and support using it for your Appium mobile app tests instead of the JSON Wire Protocol (JWP). We'll continue to support JWP in all currently supported Appium 1.X versions, but please be aware that with Appium 2.0 (currently in beta), JWP support will be fully deprecated in favor of W3C.
+
+The capabilities defined here assume the W3C WebDriver Protocol. See [Appium Real Device W3C Specification](/mobile-apps/automated-testing/appium/real-devices/#using-the-w3c-webdriver-specification) and [Migrating Appium Real Device Tests to W3C](https://support.saucelabs.com/hc/en-us/articles/4412359870231) for more information.
 
 ---
 ### `app`
@@ -509,6 +511,18 @@ Suitable for test setups that require the app's state to be reset between tests.
 We recommend reviewing [Device Management for Real Devices](/mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
 ---
+### `sessionCreationRetry`
+<p><small>| INTEGER |</small></p>
+
+Specify the number of times the test should attempt to launch a session.
+
+---
+### `sessionCreationTimeout`
+<p><small>| INTEGER |</small></p>
+
+Specify the amount of time (in seconds) that the test should allow to launch a test before failing.
+
+---
 
 ### `newCommandTimeout`
 <p><small>| DURATION | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
@@ -575,13 +589,25 @@ Bypasses the restriction on taking screenshots for secure screens (i.e., secure 
 ### `allowTouchIdEnroll`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).Z
+Enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).
 
 ---
 ### `groupFolderRedirectEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
 
 Enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.
+
+---
+### `networkCapture`
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | </p>
+
+Enables mobile app instrumentation (Android or iOS) and recording of HTTP/HTTPS network traffic for debugging purposes. API calls are collected into a HAR file, which you can view and download from your **Test Results** > **Network** tab console. The default value is `false`.
+
+---
+### `audioCapture`
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | </p>
+
+Enables audio recording in your iOS and Android native mobile app tests. The audio will be part of the **Test Results** page video file, which you can play back and download in our built-in media player. The default value is `false`.
 
 ---
 ### `systemAlertsDelayEnabled`

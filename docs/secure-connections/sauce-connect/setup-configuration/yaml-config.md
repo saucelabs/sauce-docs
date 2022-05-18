@@ -26,11 +26,16 @@ logfile: "/tmp/sc-mac.log"
 tunnel-identifier: "my-macos"
 ```
 
+:::note
+It's possible to pass the same command-line arguments on the command line, through a YAML config file, and as [environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/).
+When the same argument is passed through multiple methods, the order of precedence is as follows (from highest to lowest): command-line option, environment variable, YAML config file.
+:::
+
 For the reference, below is the complete config file that contains the latest Sauce Connect Proxy version defaults.
 To view the description for a YAML file property, look up the corresponding [CLI flag](/dev/cli/sauce-connect-proxy/).
 
 ```bash
-$ cat /sc-4.7.1-osx/config_examples/config.yml
+$ cat /sc-4.8.0-osx/config_examples/config.yml
 ---
 api-key: ""
 auth: []
@@ -67,16 +72,16 @@ You can find a complete configuration file example in the extracted .zip file co
 :::
 
 
-## What You'll Need
-* See [Sauce Connect Proxy Basic Setup requirements](/secure-connections/sauce-connect/setup-configuration/basic-setup/#what-youll-need).
-
-
 ## Use Cases
 
 We recommend using a YAML config file in production environments.
 * **Facilitates tracking tunnel configuration changes** because they're all included in a single YAML file.
 * **Facilitates management of potentially long CLI options such as tunnel-domains and direct-domains.**
 * **Secures Sauce Connect Proxy credentials with tighter access control.**
+
+
+## What You'll Need
+* See [Sauce Connect Proxy Basic Setup requirements](/secure-connections/sauce-connect/setup-configuration/basic-setup/#what-youll-need).
 
 
 ## Using the YAML Config File

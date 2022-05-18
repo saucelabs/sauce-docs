@@ -4,6 +4,12 @@ title: "The Working Copy / Published Tests"
 sidebar_label: "The Working Copy / Published Tests"
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 When you work on a test you are not editing the actual test, but a working copy (a clone) of the test. The working copy can be edited, reset, and saved to continue the work later, but none of these actions alter the state of the live test.

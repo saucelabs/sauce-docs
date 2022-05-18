@@ -1,7 +1,8 @@
 ---
 id: import-postman-collection
 title: Importing Postman Collections, Variables, and Environments
-sidebar_label: Import from Postman
+sidebar_label: Import Test from Postman
+description: "Automatically generate tests from an existing Postman Collection."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -12,17 +13,19 @@ If you have a [Postman API Collection](https://www.postman.com/collection/), you
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* A Postman Collection that's v2 or higher. We no longer support the Postman v1 Collection format, which was deprecated by Postman.
 * An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
+* A Postman Collection (v2.0 or higher).
 
+:::note
+Looking to import from a spec file? See [Building a Test from a Spec File](/api-testing/build-from-spec/).
+:::
 
 ## Importing Postman Collections
 
-1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/>
-  <img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+1. Log in to Sauce Labs, then click **API Testing**.
 2. Click to open one of your Projects.
 3. Click the __HTTP Client__ tab.<br/><img src={useBaseUrl('img/api-fortress/2021/01/HTTPClient.png')} alt="HTTP Client" width="400" />
-4. Click the **Import OpenAPI / Postman** button, then select and upload your Postman Collection file from your local machine.<br/><img src={useBaseUrl('img/api-fortress/2021/01/importSpec.png')} alt="Import OpenAPI / Postman button" width="250"/>
+4. Click the **Import OpenAPI/HAR/Postman** button, then select and upload your Postman Collection file from your local machine.<br/><img src={useBaseUrl('img/api-fortress/2021/01/importSpec.png')} alt="Import OpenAPI / Postman button" width="250"/>
 
 :::tip
 
@@ -100,7 +103,7 @@ If you don't have a file available, try out the sample below.
 
 ## Importing Postman Environments
 
-1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+1. Log in to Sauce Labs, then click **API Testing**.
 1. Click to open one of your Projects.
 1. Click the __Vault__ tab.<br/><img src={useBaseUrl('img/api-fortress/2021/04/vault.png')} alt="Project Vault" width="600"/>
 1. Click **Variables**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/projectVault.png')} alt="Project Vault Variables" width="600"/>
@@ -112,7 +115,7 @@ Your environmental variables will now be available in the __Variables__ section 
 
 ## Importing Postman Variables
 
-1. Log in to Sauce Labs, then click **API Testing** > **Get Started**.<br/><img src={useBaseUrl('img/api-fortress/2021/09/landingPage.png')} alt="API Testing landing page" width="500" />
+1. Log in to Sauce Labs, then click **API Testing**.
 1. Click the __Company Vault__ tab.<br/><img src={useBaseUrl('img/api-fortress/2021/04/companyVault.png')} alt="Company Vault" width="400"/>
 1. Click the **Variables** radio button.<br/><img src={useBaseUrl('img/api-fortress/2021/04/companyVault2.png')} alt="Company Vault" width="400"/>
 1. Click **Import**.
@@ -120,7 +123,42 @@ Your environmental variables will now be available in the __Variables__ section 
 
 Your environmental variables will now available across all your Projects.
 
+## Importing a HAR File from an RDC Job
+<p><span className="sauceDBlue">RDC Only</span></p>
+
+You can import a HAR (HTTP Archive) file into API Testing to automatically generate a functional test. Network Traffic Capture must be enabled to use this feature. See [Network Traffic Capture](/mobile-apps/features/network-capture) for more information.
+
+To import a HAR file:
+
+1. In Sauce Labs, click **API Testing**.
+
+  <img src={useBaseUrl('/img/api-testing/api-testing-nav.png')} alt="Navigating to API Testing" width="300"/>
+
+2. On the **Projects** page, under the project you want to import the file to, click **HTTP Client**.
+
+  <img src={useBaseUrl('/img/api-testing/http-client-nav.png')} alt="Navigating to the HAR import modal" width="600"/>
+
+3. On the **HTTP Client** page, click **Import OpenAPI/Postman**, and then click **Import Har from RDC Job**.
+
+  <img src={useBaseUrl('/img/api-testing/import-har-nav.png')} alt="Navigating to the HAR import modal" width="300"/>
+
+4. In the **Import Snapshots from RDC Jobs** window, click a test in the list and then click **Import**. You can filter this list by job owner or job type.
+
+  <img src={useBaseUrl('/img/api-testing/import-har-import.png')} alt="Import the file" width="600"/>
+
+5. In the **Snapshots** panel, navigate to a folder and then click **Save**.
+
+  <img src={useBaseUrl('/img/api-testing/import-har-location.png')} alt="Selecting a folder" width="400"/>
+
+6. When the import is complete, in the **Snapshots** panel, open the folder you imported the files to.
+
+7. In the folder, click on snapshot to view its details in the response panel.
+
+  <img src={useBaseUrl('/img/api-testing/import-har-calls.png')} alt="Viewing call details" width="600"/>
+
+8. To create a test based on the imported file, click **Generate Test**. For more information about creating a test, see [Create a Test](/api-testing/composer#create-a-test).
 
 ## More Information
 
-* [Postman Documentation | Importing and Exporting Data](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#exporting-postman-data): learn to export Postman Collections.
+* [Build a Sauce Labs API Test from a Spec File](/api-testing/build-from-spec)
+* [Importing and Exporting Data from Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#exporting-postman-data)
