@@ -93,6 +93,12 @@ You can narrow the results of your query using any of the optional filtering par
      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>The maximum number of builds to return in the response.</p></td>
     </tr>
   </tbody>
+   <tbody>
+    <tr>
+     <td><code>name</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns builds with a matching build name.</p></td>
+    </tr>
+  </tbody>
   <tbody>
     <tr>
      <td><code>offset</code></td>

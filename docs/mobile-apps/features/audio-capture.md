@@ -14,9 +14,7 @@ With this feature, the audio is recorded on our side and merged with the video r
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* A native Android, iOS, or iPadOS mobile app that makes HTTP/HTTPS requests. We currently support the following:
-  * Android 10 and higher
-  * iOS 10+ up to iOS 15.3
+* A native Android, iOS, or iPadOS mobile app.
 
 
 ## Using Audio Capture on Real Devices
@@ -36,7 +34,7 @@ Now you can start your live or automated testing session. Your audio recording w
 
 
 
-### Streaming the Audio (coming soon)
+### Streaming Audio during a Live Session (coming soon)
 
 ## Using Audio Capture on Android
 

@@ -1,7 +1,7 @@
 ---
 id: selenium
 title: Selenium on Sauce Labs
-sidebar_label: Getting Started
+sidebar_label: Using Selenium
 description: An introduction to web app automation testing using Selenium.
 ---
 
