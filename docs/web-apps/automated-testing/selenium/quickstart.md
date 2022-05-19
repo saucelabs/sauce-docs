@@ -71,7 +71,7 @@ This quickstart test utilizes the Java Development Kit (JDK) ([download here](ht
 1. From your IDE, open the **advanced-selenium** project. The test file is located under **src/test/java/com/saucelabs/advancedselenium/SeleniumTest.java**. <br/><img src={useBaseUrl('img/selenium/selenium-test.png')} alt="selenium-test" />
 2. If it's your first time ever opening a Java project, your IDE will prompt you to set up your JDK. You'll need to:
    * Click on the prompt.<br/><img src={useBaseUrl('img/selenium/jdk-setup.png')} alt="jdk-setup" width="400"/><br/>
-   * Provide the location where you downloaded JDK. Some IDEs will detect and find the path for you, so that all you have to do is select it.<br/><img src={useBaseUrl('img/selenium/jdk-config.png')} alt="jdk-config" width="500"/>
+   * Provide the location where you downloaded the JDK. Some IDEs will detect and find the path for you, so all you have to do is select it.<br/><img src={useBaseUrl('img/selenium/jdk-config.png')} alt="jdk-config" width="500"/>
 
 :::tip
 If you're new to IDEs, here are some tips:
