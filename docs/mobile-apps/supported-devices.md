@@ -165,11 +165,14 @@ This is specifying basic parameters for the platform, operating system, and/or t
 
 | Regex Input | Dynamic Allocation Action
 | :--- | :---
-| `"iPhone.*" ,  "iPhone .*"` | Allocates any iPhone.
-| `".*nexus.*"` | Allocates any device with the word "nexus" in its display name.  
-| `"iPhone [67]"` or `"iPhone [6-7]"` | Both will allocate either an iPhone 7 or iPhone 6 device.
-| `"iPhone [67]S"` or `"iPhone [6-7]S"` | Both will allocate either an iPhone 7S or iPhone 6S device.
-| `"iPhone 7.*"` | Allocates any device that starts with the display name "iPhone 7" (e.g., iPhone 7, iPhone 7S).
+| `"iPhone.*" ,  "iPhone .*"` | Allocates any iPhone, see [example](https://regex101.com/r/PC63Dw/1) or this [example](https://regex101.com/r/WzEPxP/1).
+| `".*nexus.*"` | Allocates any device with the word "nexus" in its display name, see [example](https://regex101.com/r/dzDlCh/1).  
+| `"iPhone [67]"` or `"iPhone [6-7]"` | Both will allocate either an iPhone 7 or iPhone 6 device, see [example](https://regex101.com/r/KE9vt1/1) or this [example](https://regex101.com/r/xe0FgY/1).
+| `"iPhone [67]S"` or `"iPhone [6-7]S"` | Both will allocate either an iPhone 7S or iPhone 6S device, see [example](https://regex101.com/r/fkzBJj/2) or this [example](https://regex101.com/r/fkzBJj/2).
+| `"iPhone 7.*"` | Allocates any device that starts with the display name "iPhone 7" (e.g., iPhone 7, iPhone 7S), see [example](https://regex101.com/r/oTpgdA/1).
+| `"^(?!Nokia.*|Oppo.*|Huawei.*|Xiaomi.*).*"` | Allocates any Android devices, except Nokia, Oppo, Huawei, Xiaomi, see [example](https://regex101.com/r/72j59t/1).
+| `"^(?=Nokia.*|Oppo.*|Huawei.*|Xiaomi.*).*"` | Allocates only Nokia, Oppo, Huawei and Xiaomi devices, see [example](https://regex101.com/r/yhQ3oy/1).
+
 
 <Tabs
   defaultValue="Appium (Android)"
