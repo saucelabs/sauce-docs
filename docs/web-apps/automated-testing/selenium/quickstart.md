@@ -10,10 +10,10 @@ import TabItem from '@theme/TabItem';
 
 Get up and running quickly with your first Selenium WebDriver automated test on the Sauce Labs cloud.
 
-* Don't have Selenium tests, but want to try? The Selenium Quickstart Java Project includes a sample project structure, working configuration specifications, and sample Java tests so you can get up and running in less than 10 minutes using the instructions on this page!
+* Don't have Selenium tests, but want to try? Our examples below include sample project structures, Java tests, and working configuration specifications, so you can get up and running in less than 10 minutes using the instructions on this page!
 * Already have Selenium tests to run? Take advantage of the Sauce Labs cloud to test on thousands of desktop and mobile browser/OS combinations and maximize your digital confidence.
 
-The examples below run Selenium web tests on a Chrome browser, using Java. To view examples that use other browsers and programming languages, see our [Selenium on Sauce Labs](/web-apps/automated-testing/selenium) and [Selenium 4 Documentation](/web-apps/automated-testing/selenium/selenium4/).
+The examples below are written in Java and run Selenium web tests on a Chrome browser. You can use a CLI terminal or an IDE, such as [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/) or [Visual Studio Code](https://code.visualstudio.com/download). IDEs incorporate all of the tools needed for developing and running code &#8212; text editor, terminal, debugging console, and more.
 
 
 ## What You'll Need
@@ -22,56 +22,154 @@ The examples below run Selenium web tests on a Chrome browser, using Java. To vi
 * Your Sauce Labs [Username](https://app.saucelabs.com/user-settings) and [Access Key](https://app.saucelabs.com/user-settings).
 * Download [Google Chrome](https://www.google.com/chrome/).
 * Have [Git](https://git-scm.com/downloads) and [GitHub](https://docs.github.com/) set up.
-* An integrated development environments (IDE). For the exercises below, we recommend [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/) or [Visual Studio Code](https://code.visualstudio.com/download). IDEs incorporate all of the tools needed for developing and running code &#8212; text editor, terminal, debugging console, and more.
 
 
 ## Basic Selenium Test
-This is a simple browser test that uses Selenium to navigate to our [Sauce Labs demo site](https://www.saucedemo.com). The Selenium Quickstart Java Project contains all files necessary to execute a web app test.
+This is a simple browser test that uses Selenium to navigate to our [Sauce Labs demo site](https://www.saucedemo.com). The Selenium Quickstart Java Project contains all files and dependencies needed to execute a web app test.
 
-### Step 1: Clone the Sample Project
-This will clone the project to your machine, and set up your test environment and dependencies.
+### Step 1: Clone Sample Project
 
-From your terminal, clone the [Selenium Quickstart Demo Project](https://github.com/saucelabs-training/quickstart-selenium-java) repository to your machine's [home directory](https://en.wikipedia.org/wiki/Home_directory).
-   ```bash
-   git clone https://github.com/saucelabs-training/quickstart-selenium-java.git
-   ```
+<Tabs
+  defaultValue="CLI"
+  values={[
+    {label: 'CLI', value: 'CLI'},
+    {label: 'VS Code', value: 'VS Code'},
+    {label: 'IntelliJ', value: 'IntelliJ'},
+    ]}>
 
-Or, if you're using an IDE, such as Visual Studio Code or IntelliJ, open the **quickstart-selenium-java** project. The test file is called **SauceTest.java**.
+<TabItem value="CLI">
+
+1. Go to your machine's home directory.
+  ```bash
+  cd ~
+  ```
+
+2. Clone the Selenium Quickstart Java Project.
+  ```bash
+  git clone https://github.com/saucelabs-training/quickstart-selenium-java.git
+  ```
+
+3. Go to the project.
+  ```bash
+  cd quickstart-selenium-java
+  ```
+
+</TabItem>
+<TabItem value="VS Code">
+
+1. Open VS Code and click **Clone Git Repository**.<br/><img src={useBaseUrl('img/selenium/vscode-setup1.png')} alt="Run test with IntelliJ" width="300" />
+2. Enter the Selenium Quickstart Java Project URL (https://github.com/saucelabs-training/quickstart-selenium-java.git) and click **Clone from URL**.<br/><img src={useBaseUrl('img/selenium/vscode-setup2.png')} alt="Run test with IntelliJ" />
+
+</TabItem>
+<TabItem value="IntelliJ">
+
+1. Open IntelliJ and click **Get from VCS**.<br/><img src={useBaseUrl('img/selenium/intellij-setup1.png')} alt="Run test with IntelliJ" />
+2. Enter the Selenium Quickstart Java Project URL (https://github.com/saucelabs-training/quickstart-selenium-java.git) and click **Clone**.<br/><img src={useBaseUrl('img/selenium/intellij-setup2.png')} alt="Run test with IntelliJ" />
+
+</TabItem>
+</Tabs>
 
 
 ### Step 2: Run Test
-From your terminal, execute the test by running:
+
+<Tabs
+  defaultValue="CLI"
+  values={[
+    {label: 'CLI', value: 'CLI'},
+    {label: 'VS Code', value: 'VS Code'},
+    {label: 'IntelliJ', value: 'IntelliJ'},
+    ]}>
+
+<TabItem value="CLI">
+
+Run the following code to execute your test.
 ```bash
 mvn test
 ```
 
-Or, if you're using an IDE, open the `quickstart-appium-java` project you cloned in step 1. Your IDE may ask if you want to enable Java annotation; you can accept this. Next, right-click on the test file (**SauceTest.java**) and choose **Run**.
+</TabItem>
+<TabItem value="VS Code">
+
+Right-click on the test file (**SauceTest.java**) and click **Run Java**.<br/><img src={useBaseUrl('img/selenium/vscode-run.png')} alt="Run test with VS Code" />
+
+</TabItem>
+<TabItem value="IntelliJ">
+
+Right-click on the test file (**SauceTest.java**) and click **Run 'SauceTest'**.<br/><img src={useBaseUrl('img/selenium/intellij-run.png')} alt="Run test with IntelliJ" />
+
+</TabItem>
+</Tabs>
 
 
-### Step 3: View Test Results on Sauce Labs
-The expected response is a session confirmation message and hyperlink that will take you to your test in progress and [results](/test-results/viewing-test-results/) on Sauce Labs.<br/><img src={useBaseUrl('img/selenium/basic-testresults.png')} alt="basic-testresults" />
+### Step 3: View Test Results
+
+<Tabs
+  defaultValue="CLI"
+  values={[
+    {label: 'CLI', value: 'CLI'},
+    {label: 'VS Code', value: 'VS Code'},
+    {label: 'IntelliJ', value: 'IntelliJ'},
+    ]}>
+
+<TabItem value="CLI">
+
+You should see a session confirmation message like this. Copy and paste the **Test Job Link** into your browser to see your test results on Sauce Labs.<br/><img src={useBaseUrl('img/selenium/basic-testresults.png')} alt="basic-testresults" />
+
+Once you get to the **Test Results** page, click on your test to view its details.<br/><img src={useBaseUrl('img/selenium/test-results-vdc.png')} alt="basic-testresults" />
+
+</TabItem>
+<TabItem value="VS Code">
+
+You should see a session confirmation message like this. Click on the **Test Job Link** to see your test results on Sauce Labs.<br/><img src={useBaseUrl('img/selenium/vscode-results.png')} alt="basic-testresults" />
+
+Once you get to the **Test Results** page, click on your test to view its details.<br/><img src={useBaseUrl('img/selenium/test-results-vdc.png')} alt="vscode-results" />
+
+</TabItem>
+<TabItem value="IntelliJ">
+
+You should see a session confirmation message like this. Click on the **Test Job Link** to go to your test results on Sauce Labs.<br/><img src={useBaseUrl('img/selenium/intellij-results.png')} alt="basic-testresults" />
+
+Once you get to the **Test Results** page, click on your test to view its details.<br/><img src={useBaseUrl('img/selenium/test-results-vdc.png')} alt="basic-testresults" />
+
+</TabItem>
+</Tabs>
 
 
-## Selenium WebDriver Test
 
-In this Selenium test, you'll automate WebDriver to open and close a Chrome browser window.
+## Selenium WebDriver Tests
+
+In this Selenium test, you'll automate WebDriver to open and close a Chrome browser window. For this section, you'll need an IDE, such as IntelliJ or Visual Studio Code.
 
 ### Step 1: Clone Project
-From your IDE's terminal, clone the [Sauce Labs Selenium Training](https://github.com/saucelabs-training/advanced-selenium) repository to your home directory.
-  ```bash
-  git clone https://github.com/saucelabs-training/advanced-selenium.git
-  ```
+
+<Tabs
+  defaultValue="VS Code"
+  values={[
+    {label: 'VS Code', value: 'VS Code'},
+    {label: 'IntelliJ', value: 'IntelliJ'},
+    ]}>
+
+<TabItem value="VS Code">
+
+1. Open VS Code and click **Clone Git Repository**.
+2. Enter the Sauce Labs Advanced Selenium Training Project URL (https://github.com/saucelabs-training/advanced-selenium.git) and click **Clone from URL**.
+
+</TabItem>
+<TabItem value="IntelliJ">
+
+1. Open IntelliJ and click **Get from VCS**.
+2. Enter the Sauce Labs Advanced Selenium Training Project URL (https://github.com/saucelabs-training/advanced-selenium.git) and click **Clone**.
+
+</TabItem>
+</Tabs>
 
 ### Step 2: Download Dependencies
 This quickstart test utilizes the Java Development Kit (JDK) ([download here](https://www.oracle.com/java/technologies/downloads/#java8)), which is required to compile and execute Java code, and Selenium Java bindings ([download here](https://www.selenium.dev/downloads/)), which are required for Selenium-Java compatibility.
 
-
 ### Step 3: Import Dependencies
-
-1. From your IDE, open the **advanced-selenium** project. The test file is located under **src/test/java/com/saucelabs/advancedselenium/SeleniumTest.java**. <br/><img src={useBaseUrl('img/selenium/selenium-test.png')} alt="selenium-test" />
-2. If it's your first time ever opening a Java project, your IDE will prompt you to set up your JDK. You'll need to:
-   * Click on the prompt.<br/><img src={useBaseUrl('img/selenium/jdk-setup.png')} alt="jdk-setup" width="400"/><br/>
-   * Provide the location where you downloaded JDK. Some IDEs will detect and find the path for you, so that all you have to do is select it.<br/><img src={useBaseUrl('img/selenium/jdk-config.png')} alt="jdk-config" width="500"/>
+If it's your first time ever opening a Java project, follow the steps below; if not, you can skip this.
+1. Your IDE will prompt you to set up your JDK. You'll need to click on the prompt.<br/><img src={useBaseUrl('img/selenium/jdk-setup.png')} alt="jdk-setup" width="400"/><br/>
+2. Provide the location where you downloaded the JDK. Some IDEs will detect and find the path for you, so all you have to do is select it.<br/><img src={useBaseUrl('img/selenium/jdk-config.png')} alt="jdk-config" width="500"/>
 
 :::tip
 If you're new to IDEs, here are some tips:
@@ -85,12 +183,12 @@ If your IDE recommends additional extensions and plugins for Java and Maven, suc
 :::
 
 ### Step 4: Run Test
-Right-click on the **SeleniumTest.java** test file and run it.<br/><img src={useBaseUrl('img/selenium/run-selenium.png')} alt="run-selenium" />
+Right-click and run the test file, **SeleniumTest.java**.<br/><img src={useBaseUrl('img/selenium/run-selenium.png')} alt="run-selenium" />
 
 ### Step 5: View Test Results
-You should see a Chrome browser window pop up and then disappear. Your results will show confirmation that ChromeDriver started successfully, along with a confirmation message (`Process finished with exit code 0`):<br/><img src={useBaseUrl('img/selenium/successful-test.png')} alt="Successful test results" />
+You should see a Chrome browser window pop up and then quickly close. Your results will show a confirmation that ChromeDriver started successfully.<br/><img src={useBaseUrl('img/selenium/successful-test.png')} alt="Successful test results" />
 
-This concludes the test! If you're feeling ambitious, proceed to the next section to practice using additional common commands.
+This concludes the test! If you're feeling ambitious, proceed to the next section to try out some additional common Selenium commands.
 
 
 ### Extra Credit (Optional)
@@ -99,7 +197,7 @@ In this exercise, you'll be running the same **SeleniumTest.java** test, but wit
 
 1. Copy and paste the below code into the **SeleniumTest.java** test file, overwriting the previous test.
   ```java
-  package com.saucelabs.advancedselenium;
+  package com.saucelabs.advancedselenium.saucedemo.tests;
 
   import org.openqa.selenium.By;
   import org.openqa.selenium.WebDriver;
@@ -211,6 +309,9 @@ public class <test-name> {
 ## More Information
 
 * [Running Selenium on Sauce Labs](/web-apps/automated-testing/selenium/): learn additional Selenium commands, strategies, and recommended best practices.
+* [Selenium on Sauce Labs](/web-apps/automated-testing/selenium): view Selenium snippets that use other browsers and programming languages
+* [Using Selenium 4 with Sauce Labs](/web-apps/automated-testing/selenium/selenium4/)
+* [Viewing Your Test Results](/test-results/viewing-test-results/)
 * [Sauce School | Selenium Java Course](https://training.saucelabs.com/SeleniumJava/index.html)
 * [Sauce Training | W3C Code Examples](https://github.com/saucelabs-training/w3c-examples)
 * [Sauce Labs Language Bindings](https://opensource.saucelabs.com/sauce_bindings/)
