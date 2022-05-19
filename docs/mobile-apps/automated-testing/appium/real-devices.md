@@ -84,7 +84,7 @@ values={[
     "platformName" : "android",
     "app","storage:filename=mapp.pk",
     "deviceName" : "Samsung.*Galaxy.*",
-    "orientation" : "Portrait",
+    "orientation" : "PORTRAIT",
     "platformVersion" : "8.1",
     "appiumVersion" : "1.21.0",
     "sessionCreationRetry" : "2",
@@ -103,7 +103,7 @@ values={[
         "platformName" : "android",                    #standard capability
         "appium:app","storage:filename=mapp.apk";       #Appium capabilities
         "appium:deviceName" : "Samsung.*Galaxy.*",
-        "appium:orientation" : "Portrait",
+        "appium:orientation" : "PORTRAIT",
         "appium:platformVersion" : "8.1",
         "sauce:options" : {                           #Sauce custom capabilities
            "appiumVersion" : "1.21.0",
