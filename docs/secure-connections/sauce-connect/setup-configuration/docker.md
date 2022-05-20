@@ -21,7 +21,7 @@ Here are some benefits/use cases:
    ```
    * Or - if you _do_ want to use a specific version - you can specify that as a tag:
    ```bash
-   $ docker pull saucelabs/sauce-connect:4.7.1
+   $ docker pull saucelabs/sauce-connect:4.8.0
    ```
 2. To run the Sauce Connect Proxy Docker container, execute the below script.
   ```bash
