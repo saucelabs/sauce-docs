@@ -2,14 +2,14 @@
 id: metric-export
 title: Metric Export and External Dashboards
 sidebar_label: Metric Export and External Dashboards
-description: Incorporate crash and error data that Backtrace collects into your central dashboard systems.
+description: Incorporate error and crash data that Backtrace collects into your central dashboard systems.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Overview
-Teams want to incorporate crash and error data that Backtrace collects into their central dashboard systems that are designed to allow for generic monitoring, time-series data analysis, custom visualizations, alarms and alerts. Backtrace Metric Export allows admins to support this, by defining hierarchal groupings of time-series metrics that can be pushed or pulled to systems like Circonus, Datadog, Graphite, Grafana, Prometheus, and InfluxDB.
+Teams want to incorporate error and crash data that Backtrace collects into their central dashboard systems that are designed to allow for generic monitoring, time-series data analysis, custom visualizations, alarms and alerts. Backtrace Metric Export allows admins to support this, by defining hierarchal groupings of time-series metrics that can be pushed or pulled to systems like Circonus, Datadog, Graphite, Grafana, Prometheus, and InfluxDB.
 
 Below, you can see an example of Backtrace data (number of incoming errors for a project) being exported as a timed metric to a Circonus dashboard system once a minute. In this chart, the average number of errors seen for project are displayed and available for different time windows.
 

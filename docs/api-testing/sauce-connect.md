@@ -21,7 +21,7 @@ Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabli
 
 ## Start API-Specific Tunnel
 
-1. First, you'll need to create a .yaml configuration file. From a text editor or IDE, create a file called **api-config.yaml**, then copy and paste in the template below.
+1. First, you'll need to create a YAML configuration file. From a text editor or IDE, create a file called **api-config.yaml**, then copy and paste in the template below.
 
   <Tabs
       defaultValue="US Data Center"
@@ -34,7 +34,7 @@ Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabli
 
   ```yaml
   ---
-  rest-url: "https://api.us-west-4-i3er.saucelabs.com/rest/v1"
+  region: us-west
   user: "$SAUCE_USERNAME"
   api-key: "$SAUCE_ACCESS_KEY"
   vm-version: "v2alpha"
@@ -46,7 +46,7 @@ Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabli
 
   ```yaml
   ---
-  rest-url: "https://api.eu-west-3-lnbf.saucelabs.com/rest/v1"
+  region: eu-central
   user: "$SAUCE_USERNAME"
   api-key: "$SAUCE_ACCESS_KEY"
   vm-version: "v2alpha"
@@ -56,9 +56,9 @@ Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabli
   </TabItem>
   </Tabs>
 
-2. In the **api-config.yaml** file: 
+2. In the **api-config.yaml** file:
    * Leave the `rest-url` and `vm-version` values as-is
-   * Set the `user` and `api-key` values as your own Sauce username and access key, respectively 
+   * Set the `user` and `api-key` values as your own Sauce username and access key, respectively
    * Set the `tunnel-identifier` value to whatever you'd like to name your tunnel
 3. Save the **api-config.yaml** file to the Sauce Connect Proxy root folder on your local machine. <br/>
   <img src={useBaseUrl('img/api-fortress/2021/09/sauceconnect-folders.png')} alt="API Testing Sauce Connect folder structure" width="350" />
@@ -74,21 +74,21 @@ Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabli
   <TabItem value="Mac/Linux">
 
   ```bash
-  cd sc-4.7.1-osx
+  cd sc-4.8.0-osx
   ```
 
   </TabItem>
   <TabItem value="Windows">
 
   ```bash
-  cd C:\sc-4.7.1-win32
+  cd C:\sc-4.8.0-win32
   ```
   </TabItem>
   </Tabs>
 
 5. Start your tunnel by issuing:
   ```bash
-  bin/sc -c api-config.yaml
+  bin\sc.exe -c api-config.yaml
   ```
 
   If the tunnel was launched successfully, you'll see a [CLI response](/secure-connections/sauce-connect/proxy-tunnels/#command-line-interface) indicating that you can start your tests.
@@ -121,3 +121,4 @@ If you shut down a tunnel that's currently selected in a Sauce Connect dropdown 
 ## More Information
 
 * [Using Sauce Connect Proxy](/secure-connections/sauce-connect)
+* [Specialized Sauce Connect Proxy Setups](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#api-testing-setup)

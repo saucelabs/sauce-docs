@@ -274,6 +274,63 @@ reporters:
     enabled: true
     filename: saucectl-report.xml
 ```
+
+---
+### `junit`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The JUnit reporter gathers JUnit reports from all jobs and combines them into a single report.
+
+```yaml
+reporters:
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
+```
+---
+### `json`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The JSON reporter gathers test results from all jobs and combines them into a single report.
+
+```yaml
+reporters:
+  json:
+    enabled: true
+    filename: saucectl-report.json
+    webhookURL: https://my-webhook-url
+```
+
+---
+#### `enabled`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Toggles the reporter on/off.
+
+```yaml
+    enabled: true
+```
+
+---
+#### `webhookURL`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
+
+```yaml
+    webhookURL: https://my-webhook-url
+```
+
+---
+#### `filename`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the report filename. Defaults to "saucectl-report.json".
+
+```yaml
+    filename: my-saucectl-report.json
+```
+
 ---
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
@@ -345,7 +402,7 @@ Specifies which artifacts to download based on whether they match the name or fi
 #### `directory`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded.
+Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory will match the suite name. If a directory with the same name already exists, the new one will be suffixed by a serial number.
 
 ```yaml
     directory: ./artifacts/
