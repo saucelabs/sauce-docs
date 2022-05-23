@@ -79,7 +79,7 @@ Returns the set of files that have been uploaded to Sauce Storage by the request
   <tbody>
     <tr>
      <td><code>per_page</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The maximum number of results to show per page.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The number of results (max. 100) to be shown per page.</p></td>
     </tr>
   </tbody>
 </table>
@@ -291,7 +291,7 @@ Returns an array of groups (apps containing multiple files) currently in storage
   <tbody>
     <tr>
      <td><code>per_page</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The maximum number of results to show per page.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The number of results (max. 100) to be shown per page.</p></td>
     </tr>
   </tbody>
 </table>
