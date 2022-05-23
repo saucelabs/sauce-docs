@@ -25,7 +25,7 @@ With this feature, traffic is recorded on our side and exposes the HAR file thro
 To enable network traffic capturing in your tests:
 
 1. On Sauce Labs, click **Live** > **Mobile App**.
-2. Upload your mobile app to Sauce Labs [through our UI](/mobile-apps/app-storage/#uploading-apps-via-ui) or [from your CLI](/mobile-apps/app-storage/#uploading-apps-via-rest-api).
+2. Upload your mobile app to Sauce Labs [through our UI](/mobile-apps/app-storage/#uploading-apps-via-ui) or [our REST API](/mobile-apps/app-storage/#uploading-apps-via-rest-api).
 3. After you’ve uploaded your app, return to the **Live** > **Mobile App** page, hover your mouse over your app, then select **Settings**.<br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr.png')} alt="Mobile app settings navigation" width="600"/>
 4. Under **Default Settings**, toggle Instrumentation and Network Capture to enable the feature.<br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr2.png')} alt="Mobile app settings navigation" width="800"/>
 5. For Automated Testing only: add the networkCapture capability to your test script. Click the link below corresponding to your framework:
@@ -95,7 +95,7 @@ Our network capture code depends on the fact that these classes are not obfuscat
 
 ### iOS
 * Network capture works if the app uses [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession) or a library (like [Alamofire](https://github.com/Alamofire/Alamofire) or [AFNetworking](https://github.com/AFNetworking/AFNetworking)) that uses NSURLSession inside.
-* Calls made by NSURLConnection (deprecated by Apple some time ago), will not be captured.
+* Calls made by [NSURLConnection](https://developer.apple.com/documentation/foundation/nsurlconnection) (deprecated by Apple), will not be captured.
 
 
 
