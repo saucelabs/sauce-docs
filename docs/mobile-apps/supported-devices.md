@@ -165,7 +165,7 @@ This is specifying basic parameters for the platform, operating system, and/or t
 
 | Regex Input | Dynamic Allocation Action
 | :--- | :---
-| `"iPhone.*" ,  "iPhone .*"` | Allocates any iPhone, see [example](https://regex101.com/r/PC63Dw/1) or this [example](https://regex101.com/r/WzEPxP/1).
+| `"iPhone.*" ,  "iPhone .*"` | Allocates any iPhone device. See [example](https://regex101.com/r/PC63Dw/1) or this [example](https://regex101.com/r/WzEPxP/1).
 | `".*nexus.*"` | Allocates any device with the word "nexus" in its display name, see [example](https://regex101.com/r/dzDlCh/1).  
 | `"iPhone [67]"` or `"iPhone [6-7]"` | Both will allocate either an iPhone 7 or iPhone 6 device, see [example](https://regex101.com/r/KE9vt1/1) or this [example](https://regex101.com/r/xe0FgY/1).
 | `"iPhone [67]S"` or `"iPhone [6-7]S"` | Both will allocate either an iPhone 7S or iPhone 6S device, see [example](https://regex101.com/r/fkzBJj/2) or this [example](https://regex101.com/r/fkzBJj/3).
