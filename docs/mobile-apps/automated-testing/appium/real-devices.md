@@ -306,7 +306,7 @@ caps.setCapability("sauce:options", sauceOptions);
 
 ```py
 caps = {}
-caps['platformName'] = 'Android'
+caps['platformName'] = 'iOS'
 caps['appium:platformVersion'] = '15'
 caps['appium:deviceName'] = 'iPhone .*'
 caps['appium:orientation'] = "portrait"

@@ -76,9 +76,10 @@ The example below demonstrates how to generate the token in a Python interpreter
 ```python
 >>> import hmac
 >>> from hashlib import md5
->>> hmac.new("SAUCE_USERNAME:SAUCE_ACCESS_KEY", "5f9fef27854ca50a3c132ce331cb6034", md5).hexdigest()
-Once the auth token has been obtained, you can use it to build a link in this format: https://app.saucelabs.com/tests/YOUR_TEST_ID?auth=AUTH_TOKEN.
+>>> hmac.new(b"SAUCE_USERNAME:SAUCE_ACCESS_KEY", b"5f9fef27854ca50a3c132ce331cb6034", md5).hexdigest()
 ```
+Once the auth token has been obtained, you can use it to build a link in this format: https://app.saucelabs.com/tests/YOUR_TEST_ID?auth=AUTH_TOKEN.
+
 
 #### Example - Java
 ```java
@@ -172,7 +173,7 @@ The date range can take two formats: `YYYY-MM-DD-HH` and `YYYY-MM-DD`. These sho
 
 ### Authentication Required
 
-Both of these configurations will only work for browsers logged in using your account, but you can use authentication tokens to make this work for anonymous viewers. For more information about creating authentication tokens, see [Building Sharable Links](/test-results/sharing-test-results).
+Both of these configurations will only work for browsers logged in using your account, but you can use authentication tokens to make this work for anonymous viewers. For more information about creating authentication tokens, see [Linking to Tests that Don't Require a Login to View](/test-results/sharing-test-results#linking-to-tests-that-dont-require-a-login-to-view).
 
 ```js
 https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
