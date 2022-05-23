@@ -27,7 +27,7 @@ Usually, the component is used in conjunction with the _set variable_ component.
 We pass the _update input_ component the name of the variable that we need to persist outside of the test. The component will first try to update a variable of the same name in the current input set. If that doesn't exist, it will search for a global variable of the same name. If there is no global variable of the same name, it will check the vault. If the variable doesn't exist there, it will create one with the same name.
 
 :::caution **IMPORTANT!**:
-The _update input_ component works only _outside_ of the composer. That is to say, it will only function when a test is executed from the Test List, the Scheduler, or via the API.
+The **update input** component works only **outside** of the composer. That is to say, it will only function when a test is executed from the Test List, the Scheduler, or via the API.
 :::
 
 <img src={useBaseUrl('img/api-fortress/2020/10/setUpdate.jpg')} alt="setUpdate.jpg" />
