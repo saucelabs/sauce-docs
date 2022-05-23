@@ -354,6 +354,49 @@ reporters:
     enabled: true
     filename: saucectl-report.xml
 ```
+---
+### `json`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The JSON reporter gathers test results from all jobs and combines them into a single report.
+
+```yaml
+reporters:
+  json:
+    enabled: true
+    filename: saucectl-report.json
+    webhookURL: https://my-webhook-url
+```
+
+---
+#### `enabled`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Toggles the reporter on/off.
+
+```yaml
+    enabled: true
+```
+
+---
+#### `webhookURL`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
+
+```yaml
+    webhookURL: https://my-webhook-url
+```
+
+---
+#### `filename`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the report filename. Defaults to "saucectl-report.json".
+
+```yaml
+    filename: my-saucectl-report.json
+```
 
 ---
 ## `artifacts`
@@ -427,7 +470,7 @@ Specifies which artifacts to download based on whether they match the name or fi
 #### `directory`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded.
+Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory will match the suite name. If a directory with the same name already exists, the new one will be suffixed by a serial number.
 
 ```yaml
     directory: ./artifacts/
@@ -601,6 +644,16 @@ One or more paths to the playwright test files to run for this suite. Regex valu
 ```
 ---
 
+### `excludedTestFiles`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Excludes test files to skip the tests. You can use regex values to indicate all files that match a specific value, such as a file name, type, or directory.
+
+```yaml
+    excludedTestFiles: ["**/*.js"]
+```
+---
+
 ### `numShards`
 <p><small>| OPTIONAL | INTEGER | <span class="highlight playwright">Playwright version >= 1.12</span> |</small></p>
 
@@ -646,6 +699,8 @@ A parent property that details any additional parameters you wish to set for the
       headless: true
       slowMo: 1000
       project: "project name"
+      grep: "should include"
+      grepInvert: "should exclude"
 ```
 
 #### `browserName`
@@ -693,6 +748,26 @@ Allows you to apply the configurations from your [Playwright project](https://pl
 ```
 ---
 
+#### `grep`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Patterns to run tests based on their title.
+
+```yaml
+    grep: "should include"
+```
+---
+
+#### `grepInvert`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Patterns to skip tests based on their title.
+
+```yaml
+    grepInvert: "should exclude"
+```
+---
+
 ### `timeout`
 <p><small>| OPTIONAL | DURATION |</small></p>
 
@@ -705,6 +780,7 @@ Setting `0` reverts to the value set in `defaults`.
 ```yaml
   timeout: 15m
 ```
+---
 
 ### `preExec`
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
@@ -718,4 +794,14 @@ There is a 300-second limit for all `preExec` commands to complete.
 ```yaml
   preExec:
     - node ./scripts/pre-execution-script.js
+```
+---
+
+### `timeZone`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
+
+```yaml
+  timeZone: New_York
 ```

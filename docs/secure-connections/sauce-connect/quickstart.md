@@ -17,7 +17,7 @@ Sauce Connect is required to run a local test on an app or website located behin
 
 ## Start Tunnel
 
-1. Download the Sauce Connect Proxy client folder on your machine: [Mac](https://saucelabs.com/downloads/sc-4.7.1-osx.zip) | [Windows](https://saucelabs.com/downloads/sc-4.7.1-win32.zip) | [Linux](https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz).
+1. [Download the Sauce Connect Proxy client](/secure-connections/sauce-connect/installation/#downloading-sauce-connect-proxy) on your machine.
 :::caution Always use the latest version
 Using older Sauce Connect versions may impact your ability to launch a tunnel or cause other technical issues.
 :::
@@ -32,14 +32,14 @@ Using older Sauce Connect versions may impact your ability to launch a tunnel or
   <TabItem value="Mac/Linux">
 
   ```bash
-  cd sc-4.7.1-osx/bin
+  cd sc-4.8.0-osx/bin
   ```
 
   </TabItem>
   <TabItem value="Windows">
 
   ```bash
-  cd C:\sc-4.7.1-win32\bin
+  cd C:\sc-4.8.0-win32\bin
   ```
 
   </TabItem>

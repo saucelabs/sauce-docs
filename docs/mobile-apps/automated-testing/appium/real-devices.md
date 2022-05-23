@@ -15,6 +15,11 @@ Appium automated real device testing supports tests designed to run against a we
 
 See [When to Test on Real Devices](https://docs.saucelabs.com/mobile-apps/supported-devices/#when-to-test-on-real-devices) for deails about real device testing use cases, benefits, and system requirements.
 
+:::note
+Sauce Labs does not support automatic testing of ADB commands for Appium. To use ADB and shell commands, the usage of [vUSB](/mobile-apps/features/virtual-usb) with private devices is necessary as Sauce Labs does not support ADB without the use of vUSB.
+<br/>
+ADB can also be used during live testing.
+:::
 
 ## What You'll Need
 
@@ -80,10 +85,10 @@ values={[
 "desiredCapabilities": {
     "platformName" : "android",
     "app","storage:filename=mapp.pk",
-    “deviceName" : "Samsung.*Galaxy.*”,
-    “orientation” : “portrait”,
-    “platformVersion" : "8.1",
-    "appiumVersion" : "1.21.0"
+    "deviceName" : "Samsung.*Galaxy.*",
+    "orientation" : "PORTRAIT",
+    "platformVersion" : "8.1",
+    "appiumVersion" : "1.21.0",
     "sessionCreationRetry" : "2",
     "sessionCreationTimeout" : "300000",
     "name" : "MobileWebsiteTest (jwp)"
@@ -99,9 +104,9 @@ values={[
       {
         "platformName" : "android",                    #standard capability
         "appium:app","storage:filename=mapp.apk";       #Appium capabilities
-        “appium:deviceName" : "Samsung.*Galaxy.*”,
-        “appium:orientation” : “portrait”,
-        “appium:platformVersion" : "8.1",
+        "appium:deviceName" : "Samsung.*Galaxy.*",
+        "appium:orientation" : "PORTRAIT",
+        "appium:platformVersion" : "8.1",
         "sauce:options" : {                           #Sauce custom capabilities
            "appiumVersion" : "1.21.0",
            "sessionCreationRetry" : "2",
@@ -301,7 +306,7 @@ caps.setCapability("sauce:options", sauceOptions);
 
 ```py
 caps = {}
-caps['platformName'] = 'Android'
+caps['platformName'] = 'iOS'
 caps['appium:platformVersion'] = '15'
 caps['appium:deviceName'] = 'iPhone .*'
 caps['appium:orientation'] = "portrait"

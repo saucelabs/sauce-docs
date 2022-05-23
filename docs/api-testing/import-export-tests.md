@@ -30,7 +30,6 @@ To import a Sauce Labs API test,
 4. On your local machine, click the zip file containing your exported test(s).
 5. Your test(s) will then populate in the **Tests** tab. It will be labeled **No data** because it's not been run yet. To run it, click **Run** (play icon). To rename the test, hover over your test name, then click **Edit Test** (pencil icon) > **Edit Details**.
 
-
 ## Exporting API Tests from Sauce Labs
 
 :::caution

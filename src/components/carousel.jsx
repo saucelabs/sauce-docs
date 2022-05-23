@@ -31,7 +31,7 @@ const items = [
     </a>
   </div>,
   <div className='quickstart' onDragStart={handleDragStart}>
-    <a href='/web-apps/automated-testing/selenium/' target='_self'>
+    <a href='/web-apps/automated-testing/selenium/quickstart/' target='_self'>
       <img src='img/quickstart/selenium.svg' alt='Selenium Logo' />
       <h3>Selenium</h3>
     </a>

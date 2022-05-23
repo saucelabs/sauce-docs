@@ -74,14 +74,14 @@ Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabli
   <TabItem value="Mac/Linux">
 
   ```bash
-  cd sc-4.7.1-osx
+  cd sc-4.8.0-osx
   ```
 
   </TabItem>
   <TabItem value="Windows">
 
   ```bash
-  cd C:\sc-4.7.1-win32
+  cd C:\sc-4.8.0-win32
   ```
   </TabItem>
   </Tabs>

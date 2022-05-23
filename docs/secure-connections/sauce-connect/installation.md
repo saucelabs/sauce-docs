@@ -34,36 +34,46 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
  <td>Linux
    </td>
     <td>
-  <a href="https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz">https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz</a>
+  <a href="https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz">https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz</a>
    </td>
-   <td><small>e5d7f82ad98251a653d1b0537f1103e49eda5e11</small>
+   <td><small>a6bcfeab41b245e503c1f2aad382bfa8956893a1</small>
+   </td>
+  </tr>
+    <tr>
+ <td>Linux ARM64
+   </td>
+    <td>
+  <a href="https://saucelabs.com/downloads/sc-4.8.0-linux-arm64.tar.gz">https://saucelabs.com/downloads/sc-4.8.0-linux-arm64.tar.gz</a>
+   </td>
+   <td><small>8ce9b5a740710e6eef1be70b1b1d347df938d46a</small>
    </td>
   </tr>
   <tr>
    <td>macOS
    </td>
    <td>
-  <a href="https://saucelabs.com/downloads/sc-4.7.1-osx.zip">https://saucelabs.com/downloads/sc-4.7.1-osx.zip</a>
+  <a href="https://saucelabs.com/downloads/sc-4.8.0-osx.zip">https://saucelabs.com/downloads/sc-4.8.0-osx.zip</a>
    </td>
-   <td><small>1f18defa14a5cc4b663bf07213411f6bdd535b6d</small>
+   <td><small>8c4c7de20c68b704cffddcaddea44a6773b05746</small>
    </td>
    </tr>
   <tr>
  <td>Windows
      </td>
    <td>
-    <a href="https://saucelabs.com/downloads/sc-4.7.1-win32.zip">https://saucelabs.com/downloads/sc-4.7.1-win32.zip</a>
+    <a href="https://saucelabs.com/downloads/sc-4.8.0-win32.zip">https://saucelabs.com/downloads/sc-4.8.0-win32.zip</a>
    </td>
-   <td><small>9c91e5adbd023973efe0eb14d2d427d2c0ef3c25</small>
+   <td><small>48382adec66130d96148ccaff46894088366ed90</small>
    </td>
   </tr>
   </table>
 
-2. Extract the contents of the .zip download to your local machine. We recommend saving the Sauce Connect Proxy folder to your home directory.
+2. Extract the contents of the *.zip download to your local machine. We recommend saving the Sauce Connect Proxy folder to your home directory.
 
   <details><summary>What's in the folder?</summary>
 
-  Sauce Connect folder contents:<br/><img src={useBaseUrl('img/sauce-connect/scp-download.png')} alt="Sauce Connect download file contents" width="500" />
+  #### Sauce Connect folder contents
+  <img src={useBaseUrl('img/sauce-connect/scp-download.png')} alt="Sauce Connect download file contents" width="500" />
   <table>
   <tr>
    <td>File</td>
@@ -88,9 +98,9 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
 3. If you're using Linux, you'll need to add Sauce Connect to your system PATH:
   ```bash
   cd $HOME
-  curl -LO https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz
-  tar xvf ./sc-4.7.1-linux.tar.gz
-  export PATH="$HOME/sc-4.7.1-linux/bin:$PATH"
+  curl -LO https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz
+  tar xvf ./sc-4.8.0-linux.tar.gz
+  export PATH="$HOME/sc-4.8.0-linux/bin:$PATH"
   ```
 
 
@@ -136,7 +146,7 @@ The location of the log file will vary, depending on your operating system. For 
 
 ### Version Lifecycle Information
 
-The launch of Sauce Connect 4.7.1 makes it the officially supported version of the Sauce Connect client. All previous versions are in maintenance mode, with the oldest versions nearing the end of their support life.
+The launch of Sauce Connect 4.8.0 makes it the officially supported version of the Sauce Connect client. All previous versions are in maintenance mode, with the oldest versions nearing the end of their support life.
 
 <table>
   <tr>
@@ -154,14 +164,31 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    </td>
   </tr>
   <tr>
+   <td rowspan="2" >4.8
+   </td>
+   <td>4.8.0
+   </td>
+   <td>
+    <a href="#downloading-sauce-connect-proxy">See latest version</a>
+   </td>
+   <td rowspan="2" >Nov. 30, 2023
+   </td>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+   <td colspan="4" ><strong>Security & Major Bug Fixes only</strong>
+   </td>
+  </tr>
+    <tr>
    <td rowspan="2" >4.7
    </td>
    <td>4.7.1
    </td>
    <td>
-    <a href="#download-latest-version">See latest version</a>
+    <a href="https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.7.1-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.7.1-win32.zip">Windows</a>
    </td>
-   <td rowspan="2" >Sep. 30, 2022
+   <td rowspan="2" >May 31, 2023
    </td>
   </tr>
   <tr>
@@ -172,10 +199,6 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    </td>
   </tr>
   <tr>
-   <td colspan="4" ><strong>Security & Major Bug Fixes only</strong>
-   </td>
-  </tr>
-  <tr>
    <td rowspan="6" >4.6
    </td>
    <td>4.6.5
@@ -183,7 +206,7 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    <td>
     <a href="https://saucelabs.com/downloads/sc-4.6.5-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.5-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.5-win32.zip">Windows</a>
    </td>
-   <td rowspan="6" >Mar. 31, 2022
+   <td rowspan="6" >Nov. 30, 2022
    </td>
   </tr>
   <tr>
@@ -221,49 +244,6 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
    &#8212;
    </td>
   </tr>
-  <tr>
-   <td colspan="4" ><strong>Unsupported</strong>
-   </td>
-  </tr>
-  <tr>
-   <td rowspan="5" >4.5<sup><a href="#sauce-connect-proxy-versions-below-461-which-were-supporting-private-certificates-reached-end-of-life-and-are-no-longer-available-for-download">**</a></sup>
-   </td>
-   <td>4.5.4
-   </td>
-   <td>
-    &#8212;
-   </td>
-   <td rowspan="5" >March 31, 2021
-   </td>
-  </tr>
-  <tr>
-   <td>4.5.3
-   </td>
-   <td>
-    &#8212;
-   </td>
-  </tr>
-  <tr>
-   <td>4.5.2
-   </td>
-   <td>
-    &#8212;
-   </td>
-  </tr>
-  <tr>
-   <td>4.5.1
-   </td>
-   <td>
-    &#8212;
-   </td>
-  </tr>
-  <tr>
-   <td>4.5.0
-   </td>
-   <td>
-    &#8212;
-   </td>
-  </tr>
 </table>
 
 ##### <sup>*</sup>Windows version no longer available for download.
@@ -271,7 +251,7 @@ The launch of Sauce Connect 4.7.1 makes it the officially supported version of t
 
 ## Using Sauce Connect in Docker
 
-As an alternative to downloading the client, you can use the Sauce Connect Proxy Docker image to run it in a Docker container. To learn more, see [Sauce Connect Docker Container Setup](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#sauce-connect-docker-container-setup).
+As an alternative to downloading the client, you can use the Sauce Connect Proxy Docker image to run it in a Docker container. To learn more, see [Sauce Connect Docker Container Setup](/secure-connections/sauce-connect/setup-configuration/docker/).
 
 
 
