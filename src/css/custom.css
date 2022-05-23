@@ -163,6 +163,10 @@ html[data-theme='dark'] .navbar {
   background-color: var(--ifm-navbar-background-color-dark);
 }
 
+html[data-theme='dark'] .navbar-sidebar {
+  background-color: var(--ifm-code-background);
+}
+
 .navbar__items {
   font-size: 110%;
   font-weight: 500;
@@ -432,7 +436,8 @@ html[data-theme='dark'] .card:hover {
 }
 
 .container-landpage, .container-reverse {
-  padding: 4rem;
+  padding: 1rem;
+  margin: 5%;
   display: flex;
   gap: 5%;
 }
@@ -440,7 +445,6 @@ html[data-theme='dark'] .card:hover {
 .column-left p,
 .column-right p {
   text-align: left;
-  margin: 0;
 }
 
 .column-left {
@@ -449,6 +453,7 @@ html[data-theme='dark'] .card:hover {
 
 .column-right {
   width: 48.5%;
+  margin-bottom: 1rem;
 }
 
 /* Information badges below */
@@ -728,10 +733,6 @@ a.hero__button {
 }
 html[data-theme='dark'] .main__container-quickstart{
   background: var(--ds-gray-700);
-}
-
-.main__container-resources {
-  padding: 4px 0 4px 0;
 }
 
 .main__container-community {
@@ -1043,7 +1044,6 @@ ul.dropdown__menu li a:hover {
   .column-left,
   .column-right {
     width: 100%;
-    margin: 5%;
   }
   html[data-theme='dark'] .navbar-sidebar {
     background-color: var(--ifm-code-background);
@@ -1056,20 +1056,11 @@ ul.dropdown__menu li a:hover {
   .DocSearch-Button {
     width: 12rem;
   }
-  html[data-theme='dark'] .navbar-sidebar {
-    background-color: var(--ifm-code-background);
-  }
+}
 
+@media only screen and (min-width: 741px) and (max-width: 1023px) {
   .container-landpage, .container-reverse {
-    flex-wrap: wrap;
-  }
-
-  .container-reverse {
-    flex-direction: column-reverse;
-  }
-
-  .column-left,
-  .column-right {
-    width: 100%;
+    padding: 0;
   }
 }
+

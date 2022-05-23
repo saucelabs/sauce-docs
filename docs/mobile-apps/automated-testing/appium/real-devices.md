@@ -85,10 +85,10 @@ values={[
 "desiredCapabilities": {
     "platformName" : "android",
     "app","storage:filename=mapp.pk",
-    “deviceName" : "Samsung.*Galaxy.*”,
-    “orientation” : “portrait”,
-    “platformVersion" : "8.1",
-    "appiumVersion" : "1.21.0"
+    "deviceName" : "Samsung.*Galaxy.*",
+    "orientation" : "PORTRAIT",
+    "platformVersion" : "8.1",
+    "appiumVersion" : "1.21.0",
     "sessionCreationRetry" : "2",
     "sessionCreationTimeout" : "300000",
     "name" : "MobileWebsiteTest (jwp)"
@@ -104,9 +104,9 @@ values={[
       {
         "platformName" : "android",                    #standard capability
         "appium:app","storage:filename=mapp.apk";       #Appium capabilities
-        “appium:deviceName" : "Samsung.*Galaxy.*”,
-        “appium:orientation” : “portrait”,
-        “appium:platformVersion" : "8.1",
+        "appium:deviceName" : "Samsung.*Galaxy.*",
+        "appium:orientation" : "PORTRAIT",
+        "appium:platformVersion" : "8.1",
         "sauce:options" : {                           #Sauce custom capabilities
            "appiumVersion" : "1.21.0",
            "sessionCreationRetry" : "2",
@@ -306,7 +306,7 @@ caps.setCapability("sauce:options", sauceOptions);
 
 ```py
 caps = {}
-caps['platformName'] = 'Android'
+caps['platformName'] = 'iOS'
 caps['appium:platformVersion'] = '15'
 caps['appium:deviceName'] = 'iPhone .*'
 caps['appium:orientation'] = "portrait"
