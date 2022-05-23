@@ -98,7 +98,7 @@ For Virtual USB release history, see our [changelog](https://changelog.saucelabs
 
   :::note
   **Timeouts:**
-  A vUSB session officially doesn't have a timeout. The only timeout that can be triggered is the timeout of a **manual/live** session that has been opened from method 1 or 2. The reason for this is that a manual/live testing timeout triggers a disconnection of the device and thus closing the already running vUSB session. 
+  A vUSB session officially doesn't have a timeout. The only timeout that can be triggered is the timeout of a **manual/live** session that has been opened from method 1 or 2. The reason for this is that a manual/live testing timeout triggers a disconnection of the device and closes the already running vUSB session. 
   
   :::
 
