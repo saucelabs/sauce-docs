@@ -2,26 +2,18 @@
 /* Callout boxes / admonition styles */
 
 .alert a {
-    color: var(--ds-red-600);
+    color: var(--ds-blue-900);
     text-decoration:none;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .alert a:hover {
     text-decoration: underline;
 }
 
-html[data-theme='dark'] .alert a {
-  color: var(--ds-blue-200);
-}
-html[data-theme='dark'] .alert a:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 html[data-theme='dark'] .admonition-tip p a {
     color: var(--ds-green-400);
-    text-decoration:none;
     cursor: pointer;
 }
 
@@ -39,10 +31,6 @@ html[data-theme='dark'] .admonition-tip p a {
     border-bottom: none;
     border-right: none;
     border-radius: 0px;
-}
-
-html[data-theme='dark'] .alert {
-    color: #EDEDEF;
 }
 
 html[data-theme='dark'] .alert--warning p, .alert--warning h5 {
@@ -124,7 +112,6 @@ html[data-theme='dark'] .alert--warning p, .alert--warning h5 {
 
 .admonition-warning {
     border-left: 5px solid var(--ds-orange-600);
-    color: var(--ds-gray-700);
     margin-left: 50px;
     margin-right: 25px;
     margin-top: 10px;

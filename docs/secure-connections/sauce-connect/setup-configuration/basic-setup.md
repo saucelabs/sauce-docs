@@ -45,13 +45,13 @@ See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstar
   <TabItem value="Mac/Linux">
 
   ```bash
-  cd sc-4.7.1-osx/bin
+  cd sc-4.8.0-osx/bin
   ```
   </TabItem>
   <TabItem value="Windows">
 
   ```bash
-  cd sc-4.7.1-win32/bin
+  cd sc-4.8.0-win32/bin
   ```
   </TabItem>
   </Tabs>
