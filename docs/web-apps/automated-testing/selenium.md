@@ -50,7 +50,7 @@ There are seven basic elements of a Selenium test script, which apply to any tes
 6. [Report the result of the assertion](#step-6-report-the-results).
 7. [End the session](#step-7-end-the-session).
 
-The following sections walk through each of these steps using a basic test case example &#8212; logging into a website. This example ensures that a specific user can successfully log into our demo site, [www.swaglabs.com](https://www.swaglabs.com).
+The following sections walk through each of these steps using a basic test case example &#8212; logging into a website. This example ensures that a specific user can successfully log into our demo site, [Swag Labs](https://www.saucedemo.com).
 
 ### Step 1: Create a Remote Session.
 
