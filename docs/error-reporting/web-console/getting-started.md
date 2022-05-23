@@ -2,14 +2,14 @@
 id: getting-started
 title: Web Console Getting Started
 sidebar_label: Getting Started
-description: Getting started with the web console to view and analyze crash and error data.
+description: Getting started with the web console to view and analyze error and crash data.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Getting Around
-There are 4 key navigational components to help you analyze your crash and error data:
+There are 4 key navigational components to help you analyze your error and crash data:
 - Project selector - Use this to switch between various projects that are reporting crashes or errors.
 - Filters - Define your working set. Specify time frames and additional criteria to indicate which errors and fingerprints to analyze.
 - Saved views - Commonly used filters for quick access and sharing for the selected project. Admin users can save team default view for a given project, and users can further personalize their views with a user default.

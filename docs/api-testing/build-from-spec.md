@@ -32,7 +32,6 @@ Looking to import from Postman? See [Importing Postman Collections](/api-testing
    The URL will populate in the **Enter Request URL** field.<br/><img src={useBaseUrl('img/api-fortress/2021/02/sampleRequest.png')} alt="Sample request"/>
 8. Click **Send**. The response body will then appear.<br/><img src={useBaseUrl('img/api-fortress/2021/02/responseBody.png')} alt="Response Body"/>
 
-
 ## Run a Test
 
 Follow the instructions under our Quickstart doc, starting with the [Generate Test](/api-testing/quickstart/#generate-test) step.

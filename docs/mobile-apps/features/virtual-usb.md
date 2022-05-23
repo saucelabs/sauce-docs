@@ -96,9 +96,13 @@ For Virtual USB release history, see our [changelog](https://changelog.saucelabs
 
 6. In this step, you'll establish the connection to your device and start a vUSB test session. This needs to be done in a separate terminal session. This terminal session will only log if a connection is successful or not. During the session with the device(s) the logs can be found in the terminal that you'll have started in the previous step.
 
+  :::note Timeouts
+  A vUSB session officially doesn't have a timeout. The only timeout that can be triggered is the timeout of a **manual/live** session that has been opened from method 1 or 2. The reason for this is that a manual/live testing timeout triggers a disconnection of the device and closes the already running vUSB session.
+  :::
+
   There are two ways to start a test session:
 
-  #### **Method 1 (Recommended): Connect to existing live testing session**
+  #### **Method 1: Connect to existing live testing session**
   Start a live test directly on Sauce Labs, then use the command terminal to [`connect`](/dev/cli/virtual-usb/connect-session) the test to your vUSB client.
 
   First, launch your test on Sauce Labs (**Live** > **Cross Browser** > **Mobile Real** > Find your **Private Device** > **Launch**). Next, locate your `--sessionId` by opening a new command line terminal and running the [`sessions`](/dev/cli/virtual-usb/find-sessionid) command, along with your credentials.
@@ -124,14 +128,6 @@ For Virtual USB release history, see our [changelog](https://changelog.saucelabs
   java -jar virtual-usb-client.jar connect --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY
   ```
 
-:::note
-Method 1 is recommended for the following reasons:
-
-* All menu options to control the device are available with Method 1 and **NOT** with Method 2.
-* Interactions and gestures on an iOS device session are much faster in comparison to Method 2.
-
-:::
-
   If your vUSB test session launch is successful, you'll see a success message:
   <Tabs
     defaultValue="Android"
@@ -140,62 +136,63 @@ Method 1 is recommended for the following reasons:
       {label: 'iOS', value: 'iOS'},
     ]}>
 
-  <TabItem value="Android">
+    <TabItem value="Android">
 
-  The expected output will be a **port number**, which you'll need when you want to connect the device to ADB (see Step 7).
+    The expected output will be a **port number**, which you'll need when you want to connect the device to ADB (see Step 7).
 
-  ```java
-  localhost:7000  online
-  ```
+    ```java
+    localhost:7000  online
+    ```
 
-  </TabItem>
-  <TabItem value="iOS">
+    </TabItem>
+    <TabItem value="iOS">
 
-  ```java
-  localhost:-1  online
-  ```
+    ```java
+    localhost:-1  online
+    ```
 
-  After this, you'll see:
-  <ol>
-    <li>an Apple system notification popup, where you'll need to provide Touch ID or password authentication</li>
-    <li>information returned in your server logs similar to the example below.</li>
-  </ol>  
+    After this, you'll see:
+    <ol>
+      <li>an Apple system notification popup, where you'll need to provide Touch ID or password authentication</li>
+      <li>information returned in your server logs similar to the example below.</li>
+    </ol>  
 
-  ```bash
-  11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - The socket at /var/run/usbmuxd needs to be moved
-  11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - This will require administrator privileges!
-  ```
+    ```bash
+    11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - The socket at /var/run/usbmuxd needs to be moved
+    11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - This will require administrator privileges!
+    ```
 
   This prepares the usbmuxd socket (`/var/usbmuxd`) so that developer tools like Xcode can interact with the remote device just like they interact with a local device. You will need to have administrator permissions to replace `/var/usbmuxd` on your computer. After doing so, you'll need to restart Xcode to be able to interact with the device.
 
-   </TabItem>
-   </Tabs>
+
+    </TabItem>
+  </Tabs>
 
   or
 
   #### **Method 2: Start new session with vUSB client from command line**
   Open a new command line terminal window and run the [`startSession`](/dev/cli/virtual-usb/start-session) command, followed by your `username`, `accessKey`, and `--deviceName`:
-<Tabs
-  defaultValue="Android"
-  values={[
-    {label: 'Android', value: 'Android'},
-    {label: 'iOS', value: 'iOS'},
-  ]}>
+  <Tabs
+    defaultValue="Android"
+    values={[
+      {label: 'Android', value: 'Android'},
+      {label: 'iOS', value: 'iOS'},
+    ]}>
 
-  <TabItem value="Android">
+    <TabItem value="Android">
 
-  ```java
-  java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY --deviceName Motorola_Moto_Z_real
-  ```
+    ```java
+    java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY --deviceName Motorola_Moto_Z_real
+    ```
 
-  </TabItem>
-  <TabItem value="iOS">
+    </TabItem>
+    <TabItem value="iOS">
 
-  ```java
-  java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY --deviceName iPhone_XS
-  ```
+    ```java
+    java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY --deviceName iPhone_XS
+    ```
 
-  </TabItem>
+    </TabItem>
   </Tabs>
 
   To use Sauce Connect Proxy: launch a tunnel in the Sauce Connect client, then add your [`--tunnel-identifier`](/dev/cli/virtual-usb/start-session/#--tunnelidentifier), which the vUSB client will use to retrieve and secure test data. You can also set up a device proxy using [proxy command options](/dev/cli/virtual-usb/start-session).
@@ -208,13 +205,13 @@ Method 1 is recommended for the following reasons:
       {label: 'iOS', value: 'iOS'},
     ]}>
 
-  <TabItem value="Android">
+   <TabItem value="Android">
 
-  The expected output will be your **`--sessionId`**, a **port number**, and a **link**. Click the link to see your device in action, running your tests in real time. You must be logged into Sauce Labs for the link to work.
-  The **port number** is needed when you want to connect the device to ADB (see step 7).
+   The expected output will be your **`--sessionId`**, a **port number**, and a **link**. Click the link to see your device in action, running your tests  in real time. You must be logged into Sauce Labs for the link to work.
+   The **port number** is needed when you want to connect the device to ADB (see step 7).
 
-  ```java
-  d03a1b81-158d-4bb4-bcc9-074e43dd8465  Motorola Moto Z    ANDROID   7.0   https://app.us-west-1.saucelabs.com/live/mobile/dataCenters/US/devices/shared/9299h0c88a7-e2b6-41bc-9509-5-8a5d765490371e2c9a
+   ```java
+   d03a1b81-158d-4bb4-bcc9-074e43dd8465  Motorola Moto Z    ANDROID   7.0   https://app.us-west-1.saucelabs.com/live/mobile/dataCenters/US/devices/shared/9299h0c88a7-e2b6-41bc-9509-5-8a5d765490371e2c9a
 
   localhost:7000  online
   ```
@@ -240,8 +237,33 @@ Method 1 is recommended for the following reasons:
   This prepares the usbmuxd socket (`/var/usbmuxd`) so that developer tools like Xcode can interact with the remote device just like they interact with a local device. You will need to have administrator permissions to replace `/var/usbmuxd` on your computer. After doing so, you'll need to restart Xcode to be able to interact with the device.
 
    </TabItem>
-   </Tabs>
-<br/>   
+   <TabItem value="iOS">
+
+   The expected output will be your **`--sessionId`** and a **link** (no port number for iOS).
+
+   ```java
+   d03a1b81-158d-4bb4-bcc9-074e43dd8465     iPhone XS         IOS      14.3    https://app.us-west-1.saucelabs.com/live/mobile/dataCenters/US/devices/shared/9299h0c88a7-e2b6-41bc-9509-5-8a5d765490371e2c9a
+
+   localhost:-1  online
+   ```
+
+   Make sure you're logged into your Sauce Labs account prior to clicking the link above. After doing so, you'll see: 1) an Apple system notification popup, where you'll need to provide Touch ID or password authentication; and 2) information returned in your server logs similar to the example below.
+
+   ```bash
+   11:13:12.347 [KQueueEventLoopGroup-2-2] INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - The socket at /var/run/usbmuxd needs to be moved
+   11:13:12.347 [KQueueEventLoopGroup-2-2] INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - This will require administrator privileges!
+   ```
+
+   This prepares the usbmuxd socket (`/var/usbmuxd`) so that developer tools like Xcode can interact with the remote device just like they interact with a local device. You will need to have administrator permissions to replace `/var/usbmuxd` on your computer and [disable Systems Integrity Protection (SIP) in macOS](https://developer.apple.com/documentation/security/disabling_and_enabling_system_integrity_protection).
+
+    </TabItem>
+  </Tabs>
+
+  :::note Timeout
+  No timeout is triggered if the returned link is **not** opened.
+  :::
+
+  <br/>   
 
 7. **Android only**: Link ADB to your test session device by running `adb connect`, followed by the port number:
 
