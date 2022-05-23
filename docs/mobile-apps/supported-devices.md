@@ -169,7 +169,7 @@ This is specifying basic parameters for the platform, operating system, and/or t
 | `".*nexus.*"` | Allocates any device with the word "nexus" in its display name. See [example](https://regex101.com/r/dzDlCh/1).  
 | `"iPhone [67]"` or `"iPhone [6-7]"` | Both will allocate either an iPhone 7 or iPhone 6 device. See [example](https://regex101.com/r/KE9vt1/1) or this [example](https://regex101.com/r/xe0FgY/1).
 | `"iPhone [67]S"` or `"iPhone [6-7]S"` | Both will allocate either an iPhone 7S or iPhone 6S device. See [example](https://regex101.com/r/fkzBJj/2) or this [example](https://regex101.com/r/fkzBJj/3).
-| `"iPhone 7.*"` | Allocates any device that starts with the display name "iPhone 7" (e.g., iPhone 7, iPhone 7S), see [example](https://regex101.com/r/oTpgdA/1).
+| `"iPhone 7.*"` | Allocates any device that starts with the display name "iPhone 7" (e.g., iPhone 7, iPhone 7S). See [example](https://regex101.com/r/oTpgdA/1).
 | <code>"^(?!Nokia.\*&vert;Oppo.\*&vert;Huawei.\*&vert;Xiaomi.\*).\*"</code> | Allocates any Android devices, **except** Nokia, Oppo, Huawei, Xiaomi, see [example](https://regex101.com/r/YKdiQQ/1).                                         |
 | <code>"^(?=Nokia.\*&vert;Oppo.\*&vert;Huawei.\*&vert;Xiaomi.\*).\*"</code> | Allocates **only** Nokia, Oppo, Huawei and Xiaomi devices, see [example](https://regex101.com/r/yhQ3oy/2).
 
