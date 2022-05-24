@@ -561,6 +561,8 @@ One or more paths to the puppeteer test files to run for this suite. Regex value
 
 Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.
 
+Once the test hits the timeout limit, the cli output indicates the status as `?`.
+
 :::note
 Setting `0` reverts to the value set in `defaults`.
 :::
