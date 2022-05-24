@@ -119,3 +119,9 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 ## Cypress Plugin for Sauce Labs
 
 If you would prefer to stay in Cypress, try the new [Cypress Sauce Labs Plugin](https://github.com/saucelabs/sauce-cypress-plugin). Connect to your Sauce Labs account from within your Cypress project to configure and run your tests directly from Cypress.
+
+## Limitations
+
+:::caution Special Characters in Test Names
+We recommend sticking to plain English when it comes to naming tests. Your tests are not guaranteed to run or their artifacts be visible in our platform should they contain any special characters, like umlauts, accents etc.
+:::

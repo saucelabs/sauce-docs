@@ -107,6 +107,12 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 * [Run your own tests](/web-apps/automated-testing/playwright/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
 * [Incorporate `saucectl` in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Playwright on Sauce supports CI integrations with Circle CI, GitLab, Jenkins, and GitHub Actions.
 
+## Limitations
+
+:::caution Special Characters in Test Names
+We recommend sticking to plain English when it comes to naming tests. Your tests are not guaranteed to run or their artifacts be visible in our platform should they contain any special characters, like umlauts, accents etc.
+:::
+
 :::note
 Based on current playwright test runner implementation, there is no way to run Playwright test runner with Cucumber.
 :::
