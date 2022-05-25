@@ -91,7 +91,7 @@ Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally 
 
 Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
 
-Once the suite hits the timeout limit, it's status is set to `?` within the CLI. This does not reflect the actual status of the job you may see in the Sauce Labs Web UI or API.
+Once the suite hits the timeout limit, its status is set to `?` within the CLI. This does not reflect the actual status of the job you may see in the Sauce Labs Web UI or API.
 
 ```yaml
   timeout: 15m

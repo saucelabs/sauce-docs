@@ -561,7 +561,7 @@ One or more paths to the puppeteer test files to run for this suite. Regex value
 
 Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.
 
-Once the suite hits the timeout limit, it's status is set to `?` within the CLI. This does not reflect the actual status of the job you may see in the Sauce Labs Web UI or API.
+Once the suite hits the timeout limit, its status is set to `?` within the CLI. This does not reflect the actual status of the job you may see in the Sauce Labs Web UI or API.
 
 :::note
 Setting `0` reverts to the value set in `defaults`.
