@@ -45,6 +45,21 @@ The following app file types are supported for real device tests:
 * \*.apk or \*.aab for Android app files
 * \*.ipa for iOS app files (See [Create .ipa Files for Appium](/mobile-apps/automated-testing/ipa-files/#real-devices))
 
+The following Appium versions are supported on our Real Device Cloud:
+
+* Appium 2.0 Beta
+* 1.22.2
+* 1.22.0
+* 1.21.0
+* 1.20.1
+* 1.19.0
+* 1.18.1
+* 1.17.1
+* 1.17.0
+* 1.15.1
+* 1.15.0
+* 1.14.0
+
 ## Using the W3C WebDriver Specification
 
 As the W3C WebDriver Protocol is supported in Appium v1.6.5 and higher, and required for Appium v2.0 (currently in beta), we recommend and support using it exclusively in your test scripts instead of the JSON Wire Protocol (JWP). See [Migrating Appium Real Device Tests to W3C](https://support.saucelabs.com/hc/en-us/articles/4412359870231) for more information.
