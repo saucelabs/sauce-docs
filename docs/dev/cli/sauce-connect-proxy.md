@@ -96,7 +96,7 @@ __Enviroment variable__: `SAUCE_TUNNEL_IDENTIFIER`<br/>
 __Shorthand__: `-i`
 
 :::info Tunnel Identifier = Tunnel Name
-This value populates the **Tunnel Name** field on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** (which is an auto-generated tunnel UUID). In Sauce Connect v4.7.0 and later, you can use the flags `tunnel-identifier` or [`--tunnel-name`](#--tunnel-name) interchangeably.
+This value populates the **Tunnel Name** field on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** (which is an auto-generated tunnel UUID). In Sauce Connect v4.7.0 and later, you can use the `--tunnel-identifier` or [`--tunnel-name`](#--tunnel-name) flags interchangeably.
 :::
 
 ---
