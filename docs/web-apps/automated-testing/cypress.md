@@ -123,5 +123,5 @@ If you would prefer to stay in Cypress, try the new [Cypress Sauce Labs Plugin](
 ## Limitations
 
 :::caution Special Characters in Test Names
-We recommend sticking to plain English when it comes to naming tests. Your tests are not guaranteed to run or their artifacts be visible in our platform should they contain any special characters, like umlauts, accents etc.
+We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
 :::
