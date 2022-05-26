@@ -101,6 +101,46 @@ If successful, you'll see a confirmation response like the one below, indicating
 
 </details>
 
+
+#### Log File
+
+Once you've started using Sauce Connect Proxy, a log file will appear in your computer's directory. The name of the file will match what you named your tunnel using [`--tunnel-identifier`](/dev/cli/sauce-connect-proxy/#--tunnel-identifier). For example, if you named it `saucebot`, the log file name would be **sc-saucebot.log**. If you did not name your tunnel, the file name will be **sc.log**.
+
+The location of the log file will vary, depending on your operating system. For Mac and Linux, the log will use a tmp folder. For Windows, it'll use the current working directory.
+
+<table>
+  <tr>
+   <td>OS
+   </td>
+   <td>Log Directory
+   </td>
+  </tr>
+  <tr>
+   <td>Mac
+   </td>
+   <td>(DD Month) (Time)
+   Log file:
+   <code>/var/folders/72/tjnr5_fs4fvcb3csfjx4sw200000gn/T/sc-TUNNEL_NAME.log</code>
+   </td>
+  </tr>
+  <tr>
+   <td>Linux
+   </td>
+   <td>(DD Month) (Time)
+   Log file:
+   <code>/tmp/sc-TUNNEL_NAME.log</code>
+   </td>
+  </tr>
+  <tr>
+   <td>Windows
+   </td>
+   <td>(DD Month) (Time)
+   Log file:
+   <code>C:\Users\sauce_username\Downloads\sc-4.7.1-win32\sc-TUNNEL_NAME.log</code>
+   </td>
+  </tr>
+</table>
+
 #### Tunnels Page
 Look for the **Active Tunnel** confirmation.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsuccess-ui.png')} alt="Sauce Connect Tunnel Success" width="500"/>
 
