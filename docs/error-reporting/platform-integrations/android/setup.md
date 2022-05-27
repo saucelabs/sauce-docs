@@ -55,8 +55,10 @@ Use Gradle or Maven to install the [latest version](https://github.com/backtrace
 <TabItem value="gradle" label="Gradle">
 
 ```
+// provide the latest version of the Backtrace reporting library.
+
 dependencies {
-    implementation 'com.github.backtrace-labs.backtrace-android:backtrace-library:3.7.0'
+    implementation 'com.github.backtrace-labs.backtrace-android:backtrace-library:<add-latest-version>'
   }
 ```
 
@@ -64,10 +66,12 @@ dependencies {
 <TabItem value="maven" label="Maven">
 
 ```
+// provide the latest version of the Backtrace reporting library.
+
 <dependency>
   <groupId>com.github.backtrace-labs.backtrace-android</groupId>
   <artifactId>backtrace-library</artifactId>
-  <version>3.7.0</version>
+  <version><add-latest-version></version>
   <type>aar</type>
 </dependency>
 ```
@@ -109,28 +113,6 @@ val backtraceCredentials = BacktraceCredentials("https://submit.backtrace.io/{su
 </TabItem>
 </Tabs>
 
-Alternatively, you can also create a `BacktraceCredentials` object with your Backtrace endpoint URL (e.g., https://your-subdomain.sp.backtrace.io:6098) and submission token, and supply it as a parameter in the `BacktraceClient` constructor:
-
-<Tabs groupId="languages">
-<TabItem value="java" label="Java">
-
-```java
-// replace with your endpoint URL and submission token
-BacktraceCredentials credentials = new BacktraceCredentials("https://{subdomain-name}.sp.backtrace.io:6098/", "{submission-token}");
-BacktraceClient backtraceClient = new BacktraceClient(getApplicationContext(), credentials);
-```
-
-</TabItem>
-<TabItem value="kotlin" label="Kotlin">
-
-```kotlin
-// replace with your endpoint URL and submission token
-val backtraceCredentials = BacktraceCredentials("https://{subdomain-name}.sp.backtrace.io:6098/", "{submission-token}")
-val backtraceClient = BacktraceClient(applicationContext, backtraceCredentials)
-```
-
-</TabItem>
-</Tabs>
 
 ## Verify the Setup
 At this point, you've installed and setup the Backtrace client to automatically capture exceptions and crashes in your Android app.

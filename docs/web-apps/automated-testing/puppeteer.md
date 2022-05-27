@@ -80,3 +80,9 @@ At this time, `saucectl` only runs Puppeteer tests locally via Docker ([Installa
 
 * [Quickstart](/web-apps/automated-testing/puppeteer/quickstart): Use our demo repo to quickly set up and run a sample Puppeteer project and test to see the results.
 * [Run your own tests](/web-apps/automated-testing/puppeteer/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
+
+## Limitations
+
+:::caution Special Characters in Test Names
+We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
+:::
