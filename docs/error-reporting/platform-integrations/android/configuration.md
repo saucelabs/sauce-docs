@@ -73,27 +73,27 @@ val backtraceClient = BacktraceClient(context, credentials, attributes)
 You can enable default file attachments which will be sent with all Backtrace reports both managed and native.
 
 ```java
-final String fileName = context.getFilesDir() + "/" + "myCustomFile.txt";
+String fileName = context.getFilesDir() + "/" + "myCustomFile.txt";
 List<String> attachments = new ArrayList<String>(){{
     add(fileName);
 }};
 
-backtraceClient = new BacktraceClient(context, credentials, database, attributes, attachments);
+BacktraceClient backtraceClient = new BacktraceClient(context, credentials, database, attributes, attachments);
 ```
 
 File attachment paths for crash reports can only be specified on initialization. If you have rotating file logs or another situation where the exact filename won't be known when you initialize your Backtrace client, you can use symlinks:
 
 ```java
 // The file simlink path to pass to Backtrace
-final String fileName = context.getFilesDir() + "/" + "myCustomFile.txt";
+String fileName = context.getFilesDir() + "/" + "myCustomFile.txt";
 List<String> attachments = new ArrayList<String>(){{
     add(fileName);
 }};
 
-backtraceClient = new BacktraceClient(context, credentials, database, attributes, attachments);
+BacktraceClient backtraceClient = new BacktraceClient(context, credentials, database, attributes, attachments);
 
 // The actual filename of the desired log, not known to the BacktraceClient on initialization
-final String fileNameDateString = context.getFilesDir() + "/" + "myCustomFile06_11_2021.txt";
+String fileNameDateString = context.getFilesDir() + "/" + "myCustomFile06_11_2021.txt";
 // Create symlink
 Os.symlink(fileNameDateString, fileName);
 ```
