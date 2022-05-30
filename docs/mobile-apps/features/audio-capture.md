@@ -72,7 +72,7 @@ curl --compressed \ -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}
 
 ## Limitations
 
-:::caution
+:::note Not Supported
 * Emulators and Simulators are not yet supported. 
 * Website testing is not yet available. 
 :::
