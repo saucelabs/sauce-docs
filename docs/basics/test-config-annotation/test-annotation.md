@@ -235,6 +235,7 @@ sauceOptions.setCapability("username", username);
 sauceOptions.setCapability("accessKey", accessKey);
 
 FirefoxOptions firefoxOptions = new FirefoxOptions();
+firefoxOptions.setCapability("sauce:options", sauceOptions);
 firefoxOptions.setCapability("platformName", "Windows 10");
 firefoxOptions.setCapability("browserVersion", "79.0");
 WebDriver driver = new RemoteWebDriver(

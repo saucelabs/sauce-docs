@@ -70,29 +70,6 @@ BacktraceCredentials *backtraceCredentials = [[BacktraceCredentials alloc] initW
 </TabItem>
 </Tabs>
 
-Alternatively, you can also create a `BacktraceCredentials` object with your Backtrace endpoint URL (e.g., https://your-subdomain.sp.backtrace.io:6098) and submission token, and supply it as a parameter in the `BacktraceClient` constructor:
-
-<Tabs groupId="languages">
-<TabItem value="swift" label="Swift">
-
-```swift
-let backtraceCredentials = BacktraceCredentials(endpoint: URL(string: "https://backtrace.io")!, token: "submission-token")
-BacktraceClient.shared = try? BacktraceClient(credentials: backtraceCredentials)
-```
-
-</TabItem>
-<TabItem value="objc" label="Objective-C">
-
-```objc
-BacktraceCredentials *backtraceCredentials = [[BacktraceCredentials alloc]
-                                             initWithEndpoint: [NSURL URLWithString: @"https://backtrace.io"]
-                                             token: @"submission-token"];
-BacktraceClient.shared = [[BacktraceClient alloc] initWithCredentials: backtraceCredentials error: error];
-```
-
-</TabItem>
-</Tabs>
-
 
 ## Upload Debug Symbols
 After compiling your application with the new backtrace-cocoa library, make sure symbol files are generated in  dSYM format and are uploaded to Backtrace to symbolicate incoming crashes.

@@ -20,10 +20,8 @@ Then click **Integrations** in the left-hand menu, and the plus sign to create a
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
 
-Select **Mail** and fill in the required settings (name and destination email address).
+Select **Mail** and fill in the required settings.
 
-You may also specify Return Address, Subject Prefix, SMTP Server, SMTP Port Number, whether to use SSL-TLS, and Username & Password.
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/email-settings.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/email-integration.png')} alt="" />
 
 Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.

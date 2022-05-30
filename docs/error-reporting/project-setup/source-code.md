@@ -17,7 +17,7 @@ Administrators can configure Source Code display in their Debugger views using t
 The Source Code integration service will integrate with your cloud based or on-premises GIT and Perforce Helix based systems. Reach out to our support team to learn more about on-premises deployments.
 
 ## Manage Source Control
-In the Project Settings section, goto Source Code tab.
+In the Project Settings section, go to the **Source Code** tab.
 
 You can manage Repositories and Rules. Repositories are the source code repositories that the Source Code Integration Service will connect to to search for source code to display to the end user alongside the selected frames in the Debugger view. Rules are used when you want to nudge the source code integration service to choose one repository over another as it searches for the proper source code. Rules are not required, but useful if you see source code being displayed from the wrong repository.
 
