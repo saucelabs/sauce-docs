@@ -25,11 +25,11 @@ If Instrumentation is disabled, follow the steps below to enable it:
 4. Under **Default Settings**, toggle **Instrumentation** on. 
    <br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-screenshot-1.png')} alt="Mobile app settings navigation" width="600"/>
 
-Now you can start your live or automated testing session. Your device vitals will be captured and be part of your test results page. 
+Now you can start your live or automated testing session. Your Device Vitals will be captured and be part of your test results page. 
 
 ## Accessing the App Performance metrics 
 
-The device vitals recording will be included in the test results page. You will be able to compare your results and analyze the app performance.
+The Device Vitals recording will be included in the test results page. You will be able to compare your results and analyze the app performance.
 
 ## Limitations
 
