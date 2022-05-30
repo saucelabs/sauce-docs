@@ -29,7 +29,11 @@ Now you can start your live or automated testing session. Your Device Vitals wil
 
 ## Accessing Device Vitals Metrics
 
-The Device Vitals recording will be included in the test results page. You will be able to compare your results and analyze the app performance.
+The Device Vitals recording will be included in the test results page:
+<br/><img src={useBaseUrl('img/mobile-apps/DEvice-Vitals-screenshot-2.png')} alt="Mobile app settings navigation" width="200"/>
+
+You will be able to compare your results and analyze the app performance:
+<br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-Screenshot-3.png')} alt="Mobile app settings navigation" width="800"/>
 
 ## Limitations
 
