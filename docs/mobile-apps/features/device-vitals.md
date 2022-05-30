@@ -17,7 +17,7 @@ Device Vitals is a functionality that gives you the ability to debug and observe
 ## Using Device Vitals for Real Devices
 
 By default, Device Vitals is enabled if the instrumentation feature is enabled.
-If Instrumentation is disabled, follow the steps below to enable it: 
+To enable device instrumentation:
 
 1. On Sauce Labs, click **Live** > **Mobile App**.
 2. [Upload your mobile app to Sauce Labs](/mobile-apps/app-storage/) through the UI or CLI.
