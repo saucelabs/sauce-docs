@@ -10,23 +10,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 If you are submitting minidump files then you will need to ensure that debug symbols have been uploaded to Backtrace in order to have accurate classification, deduplication, and callstack rendering.
 
-## Symbol Servers
-To minimize the amount of symbols that users need to upload, Backtrace is configured to pull symbols from the following symbol servers, which are publicly available:
-- **Microsoft:** Windows OS symbols
-- **Mozilla:** macOS symbols
-- **AMD:** ATI (gpu) symbols
-- **Electron:** Electron framework symbols
-- **Unity:** Unity game engine symbols
-- **Intel**
-- **NVIDIA**
-
-:::note Linux and macOS
-Since the symbolication process relies on the name of the application, these symbols will only match with Electron applications named Electron. Reach out to our support team via the in-app chat on the bottom right of your screen for assistance working around this (symbols will need to be adjusted or manually uploaded for renamed ones).
-:::
-
-### Additional and/or private symbol servers
-Backtrace can be configured to pull from additional public or private symbol servers. For more information, see [Connecting to symbol servers](/error-reporting/project-setup/symbol-servers/).
-
 ## Generating Debug Symbols
 
 <Tabs
@@ -90,12 +73,22 @@ Backtrace supports the dSYM format.
 </TabItem>
 </Tabs>
 
-## Generating Symbol Access Tokens
-You can generate a symbol access token to upload the debug symbols for your project. To generate a symbol access token:
+## Symbol Servers
+To minimize the amount of symbols that users need to upload, Backtrace is configured to pull symbols from the following symbol servers, which are publicly available:
+- **Microsoft:** Windows OS symbols
+- **Mozilla:** macOS symbols
+- **AMD:** ATI (gpu) symbols
+- **Electron:** Electron framework symbols
+- **Unity:** Unity game engine symbols
+- **Intel**
+- **NVIDIA**
 
-1. Go to **Project Settings > Symbols > Access tokens**.
-1. To generate the token, click **+**.
-1. Copy the token and save it for later.
+:::note Linux and macOS
+Since the symbolication process relies on the name of the application, these symbols will only match with Electron applications named Electron. Reach out to our support team via the in-app chat on the bottom right of your screen for assistance working around this (symbols will need to be adjusted or manually uploaded for renamed ones).
+:::
+
+### Additional and/or private symbol servers
+Backtrace can be configured to pull from additional public or private symbol servers. For more information, see [Connecting to symbol servers](/error-reporting/project-setup/symbol-servers/).
 
 ## Symbol Formats and Upload Methods
 Navigate to your project configuration page and click on Symbols to see a record of all things symbol (including upload history, search functionality, symbol access tokens and more). Backtrace recommends uploading archives (a .tar.gz or .zip file containing one or more .sym ,.pdb , ELF  or dSYM files) of symbols for every build you except to see crashes for. These symbol files can be uploaded manually or hooked up into your build system so they are automatically uploaded.
@@ -115,13 +108,19 @@ To ensure proper processing, make sure that your symbols files (.pdb .sym, etc) 
 :::
 
 ## Uploading Symbols
+### Generating Symbol Access Tokens
+You can generate a symbol access token to upload the debug symbols for your project. To generate a symbol access token:
+
+1. Go to **Project Settings > Symbols > Access tokens**.
+1. To generate the token, click **+**.
+1. Copy the token and save it for later.
 
 ### Breakpad and Socorro
 Backtrace is compatible with existing Breakpad and Socorro integrations. You can upload the .sym files through an HTTP POST or the `sym_upload` tool. You must provide a `token` (referring to your symbol access token) and a `format` query string parameter with the value `symbols`.
 
-Below is an example of a symbol upload using the `sym_upload` tool:
+Below is an example of a symbol upload using the `sym_upload` tool.
 
-`sym_upload null_read_av.sym 'http://yourcompany.sp.backtrace.io:6098/post?format=symbols&token=57f2126dcef18bb0d2af35ec1d813f3775ee8228d1d886de522b2aedceff8b87'`
+`sym_upload null_read_av.sym 'https://submit.backtrace.io/post?format=symbols&token=57f2126dcef18bb0d2af35ec1d813f3775ee8228d1d886de522b2aedceff8b87'`
 
 To generate a symbol access token, see [Generating a Symbol Access Token](#generating-a-symbol-access-token).
 
@@ -130,11 +129,13 @@ In order to build automation around symbol upload, such as integration into a bu
 
 Below is an example of a `curl` command to submit a symbol archive.
 
-`curl --data-binary @symbols.tar -H "Expect: gzip" "https://yourcompany.sp.backtrace.io:6098/post?format=symbols&token=5ae2136d4ef181b0d2afa5ef1d81ff377eea8228d1d883d4552621ed1eff8b87"`
+`curl --data-binary @symbols.tar  -X POST  -H "Expect: gzip" "https://submit.backtrace.io/{your-subdomain}/format=symbols&token={symbol-access-token}"`
 
 :::note
 For large uploads, add the `-H "Expect: gzip"` flag to the `curl` command.
 :::
+
+To generate a symbol access token, see [Generating a Symbol Access Token](#generating-a-symbol-access-token).
 
 ### Web Browser
 Navigate to your project configuration page and click on Symbols in order to manage symbols through your web browser. You are able to manually upload .pdb or .sym and compressed archives of .sym, .pdb , ELF or dSYM files directly in your web browser. We recommend uploading a .zip file of all symbols files, rather than individual files. Follow the on-screen instructions for more details.

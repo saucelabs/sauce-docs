@@ -63,7 +63,7 @@ To do this, you need to upload the ProGuard mapping file corresponding to the bu
   To do so, you can use a tool like Postman or cURL to construct an HTTP POST request with the following parameters, and submit the mapping file as the request body.
 
   ```curl
-  --data-binary @proguard-example/mapping.txt -X POST  -H "Expect:" 'https://submit.backtrace.io/{your-subdomain}/{symbol-access-token}/proguard?symbolication_id={symbolication_id}'
+  --data-binary @proguard-example/mapping.txt -X POST  -H "Expect:" "https://submit.backtrace.io/{your-subdomain}/{symbol-access-token}/proguard?symbolication_id={symbolication_id}"
   ```
   :::note for Windows
   Make sure your ProGuard mapping file has Unix line endings before submitting to Backtrace.
