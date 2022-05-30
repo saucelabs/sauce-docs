@@ -120,7 +120,7 @@ Backtrace is compatible with existing Breakpad and Socorro integrations. You can
 
 Below is an example of a symbol upload using the `sym_upload` tool.
 
-`sym_upload null_read_av.sym 'https://submit.backtrace.io/post?format=symbols&token=57f2126dcef18bb0d2af35ec1d813f3775ee8228d1d886de522b2aedceff8b87'`
+`sym_upload null_read_av.sym 'https://submit.backtrace.io/{your-subdomain}/post?format=symbols&token={symbol-access-token}'`
 
 To generate a symbol access token, see [Generating a Symbol Access Token](#generating-a-symbol-access-token).
 
