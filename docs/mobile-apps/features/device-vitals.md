@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Device Vitals is a functionality that gives you the ability to debug and observe an app’s performance during test execution for both, [Live](/mobile-apps/live-testing/live-mobile-app-testing/) and [Automated](/mobile-apps/automated-testing/) testing. With this feature, the app's performance is recorded on our side during the test session and displayed for your test results.
+Device Vitals is a functionality that gives you the ability to debug and observe a mobile app’s performance during test execution for both, [Live](/mobile-apps/live-testing/live-mobile-app-testing/) and [Automated](/mobile-apps/automated-testing/) testing. With this feature, the app's performance is recorded on our side during the test session and displayed for your test results.
 
 ## What You'll Need
 
