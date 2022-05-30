@@ -27,21 +27,27 @@ If the `symbolication_id` from the submitted crash matches a `symbolication_id` 
 To do this, you need to upload the ProGuard mapping file corresponding to the build. Because the ProGuard file format does not offer any way to identify its corresponding build, it needs to be done by the programmer. For Backtrace, a UUID needs to be generated for each build.
 
 1. Add the following to the `proguard_rules.pro` file for your app.
+
   ```
   -keep class com.google.gson.**.* { *; }
   -keep class backtraceio.library.**.* { *; }
   ```
+
 1. Enable ProGuard mode in the `BacktraceClient`.
+
   ```java
   backtraceClient.enableProguard();
   ```
+
 1. Generate a UUID and set it as the value for the `symbolication_id` attribute. You will upload your ProGuard mapping file with this same UUID later.
+
   ```java
   final UUID proguardMappingUUID = UUID.fromString("f6c3e8d4-8626-4051-94ec-53e6daccce25");
   final Map<String, Object> attributes = new HashMap<String, Object>() {{
     put("symbolication_id", proguardMappingUUID.toString());
   }};
   ```
+
   <details><summary>Generating a UUID</summary>
   You can use the uuidgen command to generate UUID's for each version of your software, for example:
 
@@ -51,11 +57,13 @@ To do this, you need to upload the ProGuard mapping file corresponding to the bu
   $ uuidgen -N '1.0.1' --namespace "f615d933-702b-5c5f-913d-18223dc80788" --sha1 39642ed9-5a75-5186-9649-71a893e00340
   ```
   </details>
+
 1. Upload your ProGuard `mapping.txt` file with the UUID from the previous step.
 
-  To do so, you can use a tool like Postman or cURL to construct an HTTP POST request with the following parameters, and submit the mapping file as the request body.  
+  To do so, you can use a tool like Postman or cURL to construct an HTTP POST request with the following parameters, and submit the mapping file as the request body.
+
   ```curl
-  https://{subdomain name}.sp.backtrace.io:6098/post?format=proguard&token={symbol access token}&universe={subdomain name}&project={project name}&symbolication_id={symbolication_id from the previous step}
+  --data-binary @proguard-example/mapping.txt -X POST  -H "Expect:" 'https://submit.backtrace.io/{your-subdomain}/{symbol-access-token}/proguard?symbolication_id={symbolication_id}'
   ```
   :::note for Windows
   Make sure your ProGuard mapping file has Unix line endings before submitting to Backtrace.
