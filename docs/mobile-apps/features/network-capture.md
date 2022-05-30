@@ -70,7 +70,7 @@ Alternatively, some other commonly used HAR viewers include:
 
 ## Limitations
 
-:::caution Not Supported
+:::note Not Supported
 * Android Emulators
 * iOS Simulators
 :::
