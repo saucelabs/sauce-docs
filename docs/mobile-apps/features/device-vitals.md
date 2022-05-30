@@ -27,7 +27,7 @@ To enable device instrumentation:
 
 Now you can start your live or automated testing session. Your Device Vitals will be captured and be part of your test results. 
 
-## Accessing the App Performance metrics 
+## Accessing Device Vitals Metrics
 
 The Device Vitals recording will be included in the test results page. You will be able to compare your results and analyze the app performance.
 
