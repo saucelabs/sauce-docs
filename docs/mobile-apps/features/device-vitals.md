@@ -1,6 +1,7 @@
 ---
 id: device-vitals
 title: Device Vitals
+sidebar_label: Device Vitals
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
