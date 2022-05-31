@@ -63,9 +63,9 @@ You will be able to compare your results and analyze the app performance:
 
 ## Limitations
 
-:::note Not Supported 
-* Emulators and Simulators are not yet supported. 
-* Cross-browser testing is not yet available. 
+:::note 
+* Emulators and Simulators are not supported. 
+* Cross-browser testing is not available. 
 :::
 
 ## More Information
