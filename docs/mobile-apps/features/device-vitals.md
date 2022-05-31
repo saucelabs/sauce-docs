@@ -45,7 +45,7 @@ This metric determines the amount of physical memory allocated to the app’s pr
 
 <br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-screenshot-5.png')} alt="Mobile app settings navigation" width="600"/>
 
-### Responsivenes <span className="sauceDBlue">Android Only</span>
+### Responsiveness <span className="sauceDBlue">Android Only</span>
 The Responsiveness metric allows you to quickly assess the app’s health by tracking how long it takes for an app to respond to action and monitoring the delay of the app’s UI responsiveness. Currently, this metric is only available for Android devices.
 
 <br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-screenshot-6.png')} alt="Mobile app settings navigation" width="600"/>
