@@ -27,6 +27,29 @@ To enable device instrumentation:
 
 Now you can start your live or automated testing session. Your Device Vitals will be captured and be part of your test results. 
 
+## Device Vitals Metrics Overview
+
+When enabled, Device Vitals functionality uses metrics to monitor resources and gives you valuable insight into app’s current performance. The Device Vitals functionality exposes a number of metrics, including :
+
+* CPU Performance
+* Memory Performance
+* Responsivenes <span className="sauceDBlue">Android Only</span>
+
+### CPU Performance
+CPU Performance determines how quickly the CPU can retrieve and interpret instructions. It shows the average CPU utilization by computations of the app. This functionality detects CPU leaks and over-usage which lead to overheating, battery drains, crashes, and performance issues.
+
+<br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-screenshot-4.png')} alt="Mobile app settings navigation" width="600"/>
+
+### Memory Performance
+This metric determines the amount of physical memory allocated to the app’s process. It allows you to track and analyze your memory footprint so you can reduce the memory leaks efficiently. You can also utilize the charts to identify the location of outliers. 
+
+<br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-screenshot-5.png')} alt="Mobile app settings navigation" width="600"/>
+
+### Responsivenes <span className="sauceDBlue">Android Only</span>
+The Responsiveness metric allows you to quickly assess the app’s health by tracking how long it takes for an app to respond to action and monitoring the delay of the app’s UI responsiveness. Currently, this metric is only available for Android devices.
+
+<br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-screenshot-6.png')} alt="Mobile app settings navigation" width="600"/>
+
 ## Accessing Device Vitals Metrics
 
 You can access Device Vitals metrics from the Test Results page:
