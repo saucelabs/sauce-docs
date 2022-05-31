@@ -116,11 +116,13 @@ You can generate a symbol access token to upload the debug symbols for your proj
 1. Copy the token and save it for later.
 
 ### Breakpad and Socorro
-Backtrace is compatible with existing Breakpad and Socorro integrations. You can upload the .sym files through an HTTP POST or the `sym_upload` tool. You must provide a `token` (referring to your symbol access token) and a `format` query string parameter with the value `symbols`.
+Backtrace is compatible with existing Breakpad and Socorro integrations. You can upload the .sym files through an [HTTP POST](#http-api) or with Breakpad's `sym_upload` tool. You must provide a `token` (referring to your symbol access token) and a `format` query string parameter with the value `symbols`.
 
 Below is an example of a symbol upload using the `sym_upload` tool.
 
-`sym_upload null_read_av.sym 'https://submit.backtrace.io/{your-subdomain}/post?format=symbols&token={symbol-access-token}'`
+```
+sym_upload null_read_av.sym 'https://submit.backtrace.io/{your-subdomain}/format=symbols&token={symbol-access-token}'
+```
 
 To generate a symbol access token, see [Generating a Symbol Access Token](#generating-a-symbol-access-token).
 
@@ -129,7 +131,9 @@ In order to build automation around symbol upload, such as integration into a bu
 
 Below is an example of a `curl` command to submit a symbol archive.
 
-`curl --data-binary @symbols.tar  -X POST  -H "Expect: gzip" "https://submit.backtrace.io/{your-subdomain}/format=symbols&token={symbol-access-token}"`
+```
+curl --data-binary @symbols.tar  -X POST  -H "Expect: gzip" "https://submit.backtrace.io/{your-subdomain}/format=symbols&token={symbol-access-token}"
+```
 
 :::note
 For large uploads, add the `-H "Expect: gzip"` flag to the `curl` command.
