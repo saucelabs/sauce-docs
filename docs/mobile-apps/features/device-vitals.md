@@ -45,15 +45,18 @@ This metric determines the amount of physical memory allocated to the app’s pr
 
 <br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-screenshot-5.png')} alt="Mobile app settings navigation" width="600"/>
 
-### Responsivenes <span className="sauceDBlue">Android Only</span>
+### Responsiveness
+<span className="sauceDBlue">Android Only</span>
+
 The Responsiveness metric allows you to quickly assess the app’s health by tracking how long it takes for an app to respond to action and monitoring the delay of the app’s UI responsiveness. Currently, this metric is only available for Android devices.
 
 <br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-screenshot-6.png')} alt="Mobile app settings navigation" width="600"/>
 
 ## Accessing Device Vitals Metrics
 
-You can access Device Vitals metrics from the Test Results page:
+You can access Device Vitals metrics from the [Live Test Results](/mobile-apps/live-testing/live-mobile-app-testing/) or [Automated Test Results](/mobile-apps/automated-testing/) page:
 <br/><img src={useBaseUrl('img/mobile-apps/DEvice-Vitals-screenshot-2.png')} alt="Mobile app settings navigation" width="200"/>
+<br/><img src={useBaseUrl('img/mobile-apps/DEvice-Vitals-screenshot-7.png')} alt="Mobile app settings navigation" width="200"/>
 
 You will be able to compare your results and analyze the app performance:
 <br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-Screenshot-3.png')} alt="Mobile app settings navigation" width="800"/>
