@@ -29,7 +29,7 @@ Now you can start your live or automated testing session. Your Device Vitals wil
 
 ## Device Vitals Metrics Overview
 
-When enabled, Device Vitals functionality uses metrics to monitor resources and gives you valuable insight into app’s current performance. The Device Vitals functionality exposes a number of metrics, including :
+When enabled, Device Vitals functionality uses metrics to monitor resources and gives you valuable insight into app’s current performance. The Device Vitals functionality exposes a number of metrics, including:
 
 * CPU Performance
 * Memory Performance
