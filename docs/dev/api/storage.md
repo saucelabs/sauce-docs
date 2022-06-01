@@ -408,7 +408,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ---
 ### Get App Storage Group Settings
 
-<details><summary><span className="api get">GET</span> <code>/v1/storage/groups/{group_id}/settings</code></summary>
+<details><summary><span className="api get">GET</span> <code>/v1/storage/groups/&#123;group_id&#125;/settings</code></summary>
 <p/>
 
 Returns the settings of the requested app group id.
@@ -499,7 +499,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
 
 ### Edit App Storage Group Settings
 
-<details><summary><span className="api put">PUT</span> <code>/v1/storage/groups/{group_id}/settings</code></summary>
+<details><summary><span className="api put">PUT</span> <code>/v1/storage/groups/&#123;group_id&#125;/settings</code></summary>
 <p/>
 
 Adds or updates the settings of the provided app group.
