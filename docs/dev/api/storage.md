@@ -406,6 +406,220 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </details>
 
 ---
+### Get App Storage Group Settings
+
+<details><summary><span className="api get">GET</span> <code>/v1/storage/groups/{group_id}/settings</code></summary>
+<p/>
+
+Returns the settings of the requested app group (apps containing multiple files).
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>group_id</code></td>
+     <td><p><small>| PATH | REQUIRED | INTEGER |</small></p><p>ID of the group of which settings need to be fetched.</p></td>
+    </tr>
+  </tbody>
+
+</table>
+
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/v1/storage/groups/2175303/settings' | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/groups/2175303/settings' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+    "settings": {
+        "proxy": {
+            "host": "",
+            "port": 0
+        },
+        "audio_capture": false,
+        "proxy_enabled": false,
+        "lang": "en_GB",
+        "orientation": null,
+        "resigning_enabled": true,
+        "resigning": {
+            "image_injection": true,
+            "group_directory": false,
+            "biometrics": false,
+            "sys_alerts_delay": false,
+            "network_capture": false
+        }
+    },
+    "kind": "ios",
+    "identifier": "com.saucelabs.mydemoapp.ios"
+}
+```
+</details>
+
+---
+
+### Edit App Storage Group Settings
+
+<details><summary><span className="api put">PUT</span> <code>/v1/storage/groups/{group_id}/settings</code></summary>
+<p/>
+
+Adds or updates the settings of the provided app group.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>group_id</code></td>
+     <td><p><small>| PATH | REQUIRED | INTEGER |</small></p><p>ID of the group of which settings need to be edited.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>json body</code></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>See sample response for possible settings.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
+--request PUT 'https://api.us-west-1.saucelabs.com/v1/storage/groups/2175303/settings' \
+--header 'Content-Type: text/html' \
+--data-raw '{"settings":{"resigning":{"image_injection":false}}}'\
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
+--request PUT 'https://api.eu-central-1.saucelabs.com/v1/storage/groups/2175303/settings' \
+--header 'Content-Type: text/html' \
+--data-raw '{"settings":{"resigning":{"image_injection":false}}}'\
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>201</code></td>
+    <td colSpan='2'>Created.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>The provided group identifier is not a valid one or the provided settings object is invalid.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>401</code></td>
+    <td colSpan='2'>Authorization failed.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>403</code></td>
+    <td colSpan='2'>The current user does not have enough permissions to change the group.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>The group does not exist or is not accessible.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>406</code></td>
+    <td colSpan='2'>The settings cannot be set for the given group type.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response" {13}
+{
+    "settings": {
+        "proxy": {
+            "host": "",
+            "port": 0
+        },
+        "audio_capture": false,
+        "proxy_enabled": false,
+        "lang": "en_GB",
+        "orientation": null,
+        "resigning_enabled": true,
+        "resigning": {
+            "image_injection": true,
+            "group_directory": false,
+            "biometrics": false,
+            "sys_alerts_delay": false,
+            "network_capture": false
+        }
+    },
+    "kind": "ios",
+    "identifier": "com.saucelabs.mydemoapp.ios"
+}
+```
+</details>
+
+---
 
 ### Upload File to App Storage
 
