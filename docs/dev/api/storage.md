@@ -411,7 +411,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v1/storage/groups/{group_id}/settings</code></summary>
 <p/>
 
-Returns the settings of the requested app group (apps containing multiple files).
+Returns the settings of the requested app group id.
 
 #### Parameters
 
@@ -437,7 +437,7 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
 --request GET 'https://api.us-west-1.saucelabs.com/v1/storage/groups/2175303/settings' | json_pp
 ```
 
@@ -535,7 +535,7 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
 --request PUT 'https://api.us-west-1.saucelabs.com/v1/storage/groups/2175303/settings' \
---header 'Content-Type: text/html' \
+--header 'Content-Type: application/json' \
 --data-raw '{"settings":{"resigning":{"image_injection":false}}}'\
 ```
 
@@ -545,7 +545,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
 --request PUT 'https://api.eu-central-1.saucelabs.com/v1/storage/groups/2175303/settings' \
---header 'Content-Type: text/html' \
+--header 'Content-Type: application/json' \
 --data-raw '{"settings":{"resigning":{"image_injection":false}}}'\
 ```
 
