@@ -61,6 +61,14 @@ You can access Device Vitals metrics from the [Live Test Results](/mobile-apps/l
 You will be able to compare your results and analyze the app performance:
 <br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-Screenshot-3.png')} alt="Mobile app settings navigation" width="800"/>
 
+You can also download the results using the API call below: 
+
+ ```java
+  curl --compressed \
+-O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.saucelabs.com/v1/rdc/jobs/{JOB_ID}/insights.json
+  ```
+
+
 ## Limitations
 
 :::note 
