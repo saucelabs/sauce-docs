@@ -153,6 +153,7 @@ For more information about other data that is captured, see [Attributes](/error-
 |Capture native crashes|Captures and symbolicates stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start.|Boolean|True|
 |Capture ANR (Application not responding)|Generates an error report whenever an app does not respond or hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.|Boolean|True|
 |Send Out of Memory exceptions to Backtrace|Captures snapshots of the app's state when there is a low memory condition. If the app crashes due to a low memory condition, the information is sent to Backtrace. Snapshots are captured every 2 minutes as long as the low memory condition persists.|Boolean|False|
+|Enable client-side unwinding|Enables callstack unwinding. If you're unable to upload all debug symbols for your app, you can use this setting to get debug information. <br /><br /> You can also enable this setting via the [`BacktraceConfiguration`](/error-reporting/platform-integrations/unity/configuration/#backtraceclient) object and the `.ClientSideUnwinding = true;` option.|Boolean|False|
 
 :::caution
 Unity's CrashReport API might prevent the Backtrace client from sending crashes. To allow Backtrace to capture native crashes, in your Unity project's Player Settings for iOS, under Debugging and crash reporting, make sure that Enable CrashReport API is set to 'False'.
