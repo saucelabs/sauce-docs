@@ -38,7 +38,7 @@ When enabled, Device Vitals functionality uses metrics to monitor resources and 
 ### CPU Performance
 CPU Performance determines how quickly the CPU can retrieve and interpret instructions. It shows the average CPU utilization by computations of the app. This functionality detects CPU leaks and over-usage which lead to overheating, battery drains, crashes, and performance issues.
 
-<br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-screenshot-4.png')} alt="Mobile app settings navigation" width="600"/>
+<br/><img src={useBaseUrl('img/mobile-apps/Device-vitals-screenshot-4.png')} alt="Mobile app settings navigation" width="600"/>
 
 ### Memory Performance
 This metric determines the amount of physical memory allocated to the app’s process. It allows you to track and analyze your memory footprint so you can reduce the memory leaks efficiently. You can also utilize the charts to identify the location of outliers. 
@@ -56,7 +56,7 @@ The Responsiveness metric allows you to quickly assess the app’s health by tra
 
 You can access Device Vitals metrics from the [Live Test Results](/mobile-apps/live-testing/live-mobile-app-testing/) or [Automated Test Results](/mobile-apps/automated-testing/) page:
 <br/><img src={useBaseUrl('img/mobile-apps/DEvice-Vitals-screenshot-2.png')} alt="Mobile app settings navigation" width="200"/>
-<br/><img src={useBaseUrl('img/mobile-apps/DEvice-Vitals-screenshot-7.png')} alt="Mobile app settings navigation" width="200"/>
+<br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-screenshot-7.png')} alt="Mobile app settings navigation" width="200"/>
 
 You will be able to compare your results and analyze the app performance:
 <br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-Screenshot-3.png')} alt="Mobile app settings navigation" width="800"/>
