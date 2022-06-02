@@ -95,3 +95,17 @@ capabilities = {
 ```
 
 Additional information on WebDriver timeouts can be found [here](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Errors/ScriptTimeout).
+
+### cropTo can not crop the target element
+
+#### element is not scrollable
+
+In this case, you could try to use the scrollAndStitchScreenshot approach. For example:
+
+```
+await browser.execute('/*@visual.snapshot*/', 'Home', { scrollAndStitchScreenshot: true });
+```
+
+#### element is scrollable
+
+Unfortunately, we are not supporting this feature for now.
