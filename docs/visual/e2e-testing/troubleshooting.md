@@ -107,4 +107,4 @@ await browser.execute('/*@visual.snapshot*/', 'Home', { scrollAndStitchScreensho
 
 ### Limitations
 
-If the target element is scrollable, the `cropTo` option will probably not capture all of its content.
+If the target element is scrollable, the `cropTo` option may not capture a complete screenshot.
