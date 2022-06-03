@@ -97,7 +97,7 @@ capabilities = {
 Additional information on WebDriver timeouts can be found [here](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Errors/ScriptTimeout).
 
 
-## cropTo can not crop the target element
+## Can't Capture Snapshot with `cropTo`
 
 When using the [Snapshot command](https://docs.saucelabs.com/visual/e2e-testing/commands-options/#snapshot-command), if you can't crop the target element with `cropTo` and the element isn't scrollable, you can use the `scrollAndStitchScreenshot` option. For example:
 
