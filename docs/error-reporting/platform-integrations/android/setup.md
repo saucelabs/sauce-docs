@@ -71,7 +71,7 @@ dependencies {
 <dependency>
   <groupId>com.github.backtrace-labs.backtrace-android</groupId>
   <artifactId>backtrace-library</artifactId>
-  <version><add-latest-version></version>
+  <version>add-latest-version</version>
   <type>aar</type>
 </dependency>
 ```
