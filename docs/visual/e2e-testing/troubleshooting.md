@@ -105,6 +105,6 @@ When using the [Snapshot command](https://docs.saucelabs.com/visual/e2e-testing/
 await browser.execute('/*@visual.snapshot*/', 'Home', { scrollAndStitchScreenshot: true });
 ```
 
-### limitations
+### Limitations
 
 If the target element is scrollable, the `cropTo` option will probably not capture all of its content.
