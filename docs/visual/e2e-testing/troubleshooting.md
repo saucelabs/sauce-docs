@@ -99,12 +99,12 @@ Additional information on WebDriver timeouts can be found [here](https://develop
 
 ## cropTo can not crop the target element
 
-If you can't crop the target element with `cropTo` and the element isn't scrollable, you can use the `scrollAndStitchScreenshot` parameter. For example:
+When using the [Snapshot command](https://docs.saucelabs.com/visual/e2e-testing/commands-options/#snapshot-command), if you can't crop the target element with `cropTo` and the element isn't scrollable, you can use the `scrollAndStitchScreenshot` option. For example:
 
 ```
 await browser.execute('/*@visual.snapshot*/', 'Home', { scrollAndStitchScreenshot: true });
 ```
 
-### limitation
+### limitations
 
-If the element is scrollable, we are unfortunately not supporting this feature for now.
+If the target element is scrollable, the `cropTo` option will probably not capture all of its content.
