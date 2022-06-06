@@ -365,7 +365,7 @@ module.exports = {
   backtrace: [
     {
       type: 'category',
-      label: 'Error Reporting',
+      label: 'Error and Crash Reporting',
       collapsed: true,
       items: [
         'error-reporting/getting-started',
@@ -374,6 +374,33 @@ module.exports = {
           label: 'Platform Integrations',
           collapsed: true,
           items: [
+        {
+                type: 'category',
+                label: 'Real Devices',
+                collapsed: true,
+                items: [
+                    'error-reporting/platform-integrations/real-devices/setup',
+                ],
+            },
+        {
+                type: 'category',
+                label: 'Android',
+                collapsed: true,
+                items: [
+                    'error-reporting/platform-integrations/android/setup',
+                    'error-reporting/platform-integrations/android/configuration',
+                    'error-reporting/platform-integrations/android/proguard-deobfuscation',
+                ],
+            },
+        {
+                type: 'category',
+                label: 'iOS',
+                collapsed: true,
+                items: [
+                    'error-reporting/platform-integrations/ios/setup',
+                    'error-reporting/platform-integrations/ios/configuration',
+                ],
+            },
             {
               type: 'category',
               label: 'Unity',
@@ -398,7 +425,7 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'View and Analyze Error Data',
+          label: 'View and Analyze Error and Crash Data',
           collapsed: true,
           items: [
             'error-reporting/web-console/getting-started',
@@ -603,7 +630,6 @@ module.exports = {
             items: [
               'basics/acct-team-mgmt-hub',
               'basics/acct-team-mgmt/org-settings',
-
               {
                 type: 'category',
                 label: 'Managing Users and Accounts',
@@ -640,7 +666,6 @@ module.exports = {
               },
             ],
           },
-
           {
             type: 'category',
             label: 'Single Sign-On',
@@ -708,6 +733,7 @@ module.exports = {
               'secure-connections/sauce-connect/setup-configuration/high-availability',
               'secure-connections/sauce-connect/setup-configuration/additional-proxies',
               'secure-connections/sauce-connect/setup-configuration/specialized-environments',
+              'secure-connections/sauce-connect/setup-configuration/docker',
               'secure-connections/sauce-connect/setup-configuration/ci-cd-integration',
             ],
           },
@@ -721,6 +747,7 @@ module.exports = {
             items: [
               'secure-connections/sauce-connect/advanced/architecture',
               'secure-connections/sauce-connect/advanced/kgp',
+              'secure-connections/sauce-connect/advanced/specifications',
             ],
           },
           'secure-connections/sauce-connect/troubleshooting',
@@ -746,6 +773,16 @@ module.exports = {
           'mobile-apps/features/biometric-authentication',
           'mobile-apps/features/camera-image-injection',
           'mobile-apps/features/gestures',
+          'mobile-apps/features/network-capture',
+          {
+            type: 'category',
+            label: 'Mobile App Diagnostics',
+            link: { type: 'doc', id: 'mobile-apps/features/device-vitals' },
+            collapsed: true,
+            items: [
+              'mobile-apps/features/device-vitals',
+            ],
+          },
         ],
       },
       {
@@ -813,6 +850,7 @@ module.exports = {
             collapsed: true,
             items: [
               'web-apps/automated-testing/selenium',
+              'web-apps/automated-testing/selenium/quickstart',
               'web-apps/automated-testing/selenium/selenium4',
               'web-apps/automated-testing/selenium/pre-run-executables',
               'web-apps/automated-testing/selenium/sample-scripts',
@@ -908,23 +946,9 @@ module.exports = {
       'api-testing/contract-testing',
       'api-testing/logger',
       'api-testing/project-access',
-      {
-        type: 'category',
-        label: 'How To Guides',
-        link: { type: 'doc', id: 'api-testing/how-to-guides/integration-testing' },
-        collapsed: true,
-        items: [
-          'api-testing/how-to-guides/integration-testing',
-          'api-testing/how-to-guides/test-metrics-performance',
-          'api-testing/how-to-guides/compose-request-body',
-          'api-testing/how-to-guides/create-dynamic-dates',
-          'api-testing/how-to-guides/api-test-automation',
-          'api-testing/how-to-guides/functional-testing',
-        ],
-      },
       'api-testing/legacy',
     ],
-    CI: ['ci', 'ci/bamboo', 'ci/bitbucket', 'ci/jenkins', 'ci/teamcity'],
+    CI: ['ci', 'ci/azure', 'ci/bamboo', 'ci/bitbucket', 'ci/jenkins', 'ci/teamcity'],
     'Test Results': [
       'test-results',
       'test-results/viewing-test-results',

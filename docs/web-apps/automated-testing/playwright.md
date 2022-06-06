@@ -13,7 +13,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## System Requirements
 
-You can run `saucectl` locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms) or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention. The following reference serves as a general guide:
+You can run `saucectl` locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms)) or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention. The following reference serves as a general guide:
 
 <Tabs
   defaultValue="macos"
@@ -66,7 +66,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
     <tbody>
     <tr>
       <td rowspan='2'>1.20.2</td>
-      <td><b>macOS:</b> 11.0</td>
+      <td><b>macOS:</b> 11.00, 12</td>
       <td rowspan='2'>Chromium, Firefox, Webkit</td>
     </tr>
     <tr>
@@ -76,7 +76,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
     <tbody>
     <tr>
       <td rowspan='2'>1.18.1</td>
-      <td><b>macOS:</b> 11.0</td>
+      <td><b>macOS:</b> 11.00</td>
       <td>Chromium, Firefox</td>
     </tr>
     <tr>
@@ -106,6 +106,12 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 * [Quickstart](/web-apps/automated-testing/playwright/quickstart): Use our demo repo to quickly set up and run a sample Playwright project and test to see the results.
 * [Run your own tests](/web-apps/automated-testing/playwright/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
 * [Incorporate `saucectl` in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Playwright on Sauce supports CI integrations with Circle CI, GitLab, Jenkins, and GitHub Actions.
+
+## Limitations
+
+:::caution Special Characters in Test Names
+We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
+:::
 
 :::note
 Based on current playwright test runner implementation, there is no way to run Playwright test runner with Cucumber.
