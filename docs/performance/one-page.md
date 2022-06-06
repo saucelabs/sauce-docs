@@ -309,6 +309,46 @@ The following values can be used with the `-m` parameter of either the `run` or 
 |`timeToFirstInteractive`|The amount of time it takes for a page to be able to reliably respond to user input.|seconds|
 |`totalBlockingTime`|The amount of time that elapses between `firstContentfulPaint` and `timeToFirstInteractive`, which is a key indicator of lag.|seconds|
 
+Detailed metric values can be found in performance.json.
+This file is generated when speedo is run with `-l` parameter.<br />
+The log file consists following metrics:
+
+|Metric|Description|
+|---|------|
+`rrt`|Specifies the time it took for any redirects to happen.
+`load`|The amount of time it takes for all page objects and dependent resources to be loaded.
+`score`|Overall Lighthouse performance score.
+`maxRtt`|Specifies max time it took for any redirects to happen.
+`numFonts` / `fontCount`|Number of fonts for webpage to render.
+`numTasks`|Total number of tasks run by a browser during a request.
+`numTasksOverXms`|Total number of tasks run by a browser during a request that took more that X milliseconds.
+`fontSize`|Size of the rendered fonts.
+`firstPaint`|The time it takes to render the first pixel on the page once the URL has been called.
+`imageSize`|Size of all loaded images.
+`numScripts`|Number of external scripts found while rendering page.
+`speedIndex`|The average time is takes the contents of a page to fully render.
+`throughput`|Network throughput measured during the test run.
+`imageCount`|Number of rendered images.
+`numRequests` / `requestsCount`|Number of requests to server.
+`requestsSize`|Overall request size.
+`documentSize` / `totalByteWeight`|Overall document size.
+`totalTaskTime`|Time to fulfill all the scheduled tasks.
+`numStylesheets`|Number of stylesheets rendered.
+`domContentLoaded`|The point at which visual content is fully rendered and backend scripts begin to execute.
+`firstInteractive`|The amount of time it takes for a page to be able to reliably respond to user input.
+`lastVisualChange`|The amount of time it takes for the final visual element to display.
+`maxServerLatency`|Maximum amount of time when server staled.
+`firstVisualChange`|The time it takes for anything to be visually painted in the viewport. Calculated by video analysis, this is an alternative metric to firstPaint that is browser agnostic.
+`totalBlockingTime`|The amount of time that elapses between firstContentfulPaint and timeToFirstInteractive, which is a key indicator of lag.
+`serverResponseTime`|Formerly timeToFirstByte, this is the amount of time it takes to receive the first data response from the server.
+`firstContentfulPaint`|The time from when the page starts loading to when any part of the page's content is rendered on the screen. In this context, `content` can be text, images, elements, or canvas (non-white) elements. This does not mean that the page is fully rendered.
+`firstMeaningfulPaint`|The amount of time it takes for a page's primary body of content to render. This metric is replaced by largestContentfulPaint.
+`cumulativeLayoutShift`|An aggregate of unexpected movement of content as a page loads. The score is calculated as the percentage of space impacted by the movement times the percentage of distance the content moved on the screen.
+`largestContentfulPaint`|The amount of time it takes for the page's largest visual element to display. This metric is considered a more accurate reflection of when the main content of a page has loaded.
+`mainDocumentTransferSize`|The transfer size of the main HTML document.
+
+
+
 ### Network Conditions Settings
 
 The following profiles can be used with the `--throttleNetwork` parameter of the `run` command to simulate various network conditions for your test.
