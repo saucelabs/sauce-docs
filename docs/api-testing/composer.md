@@ -369,6 +369,150 @@ To convert a timestamp from a payload response to milliseconds:
 
 For more information, see [Expression Language Extensions](/api-testing/composer/logical-components/#expression-language-extensions).
 
+## Generating Test Data
+If your API or test requires random names, emails, or different types of input data, you can generate those directly in Sauce Labs API Testing. You can directly reference the method in your variable, API call, or anywhere in the test where you can enter the `${F.<methodName()>}` syntax.
+
+* `F.fullName()` - Generates a full name
+* `F.firstName()` - Generates a first name
+* `F.lastName()` - Generates a last name
+* `F.emailAddress()` - Generates an email address
+* `F.password(<minimumLength,maximumLength,includeUppercase,includeSpecial,includeDigit>)` - Generates a password
+* `F.creditCardNumber()` - Generates a credit card number
+* `F.creditCardExpiry()` - Generates a credit card expiration date
+* `F.integer(<min,max>)` - Generates an integer
+
+For the full list of methods, see [Test Data Methods](#test-data-methods).
+
+These methods can be used anywhere you can write a variable, such as inside a SET (variable) or in any part of the request (body, header, param, etc.).
+
+### Set (variable)
+Set (variable) allows you to create variables or more structured data.
+
+To create a single variable:
+
+* **Var:** The name to assign the variable
+* **Variable Mode:** String
+* **Value:** The method to use to generate data. For example, `${F.fullName()}` will generate a random full name.
+
+<img src={useBaseUrl('/img/api-testing/test-data-full-name.png')} alt="Full name generation" width="600"/>
+
+To create an array of data:
+
+* **Var:** The name to assign the variable
+* **Variable Mode:** Data
+* **Data:** The JS function for creating an array. For example, `new Array(5).fill(0).map(_ => F.streetAddress())` generates an array with five random addresses.
+
+<img src={useBaseUrl('/img/api-testing/test-data-array.png')} alt="Data array generation" width="600"/>
+
+To create an object of data:
+
+* **Var:** The name to assign the variable
+* **Variable Mode:** Language
+* **Lang:** Template
+* **Content:** The object to generate with the required methods.
+
+```
+{
+"name": "${F.firstName()}",
+"last name": "${F.lastName()}",
+"address": "${F.streetName()}",
+"profession": "${F.profession()}",
+"mobile phone": "${F.mobile()}",
+"email": "${F.emailAddress()}"
+}
+```
+<img src={useBaseUrl('/img/api-testing/test-data-personal-data.png')} alt="Personal data generation" width="600"/>
+
+### Body
+
+Any of the following methods can be used in a request body.
+
+* **Content-Type:** The content-type of the body (application/json in this example)
+* **Content:** The body of the request.
+
+```
+{
+"name": "${F.firstName()}",
+"last name": "${F.lastName()}",
+"city": "${F.city()}",
+"profession": "${F.profession()}"
+}
+```
+
+<img src={useBaseUrl('/img/api-testing/test-data-request-body.png')} alt="Request body data" width="600"/>
+
+In this example we use a POST body, but this can be applied in all REST methods. Similarly, these methods can also be used as params.
+
+* **Name:** The name of the param
+* **Value:** The value of the param. For example, `${F.creditCardNumber()}`
+
+<img src={useBaseUrl('/img/api-testing/test-data-request-body-param.png')} alt="Request body param data" width="600"/>
+
+These examples are of the most common places where you may need to generate data, but these methods can be added anywhere you can use a variable.
+
+### Test Data Methods
+
+#### Addresses and Countries
+* `F.streetName()` - Generates a street name
+* `F.streetAddressNumber()` - Generates an address number
+* `F.streetAddress()` - Generates a street and address number. If secondary is specified, this method provides an apartment number.
+* `F.secondaryAddress()` - Generates an apartment number
+* `F.zipCode()` - Generates a ZIP code. If a state has been provided, a proper ZIP code for the state is provided. Valid only for US states.
+* `F.streetSuffix()` - Generates a street suffix
+* `F.citySuffix()` - Generates a city suffix
+* `F.cityPrefix()` - Generates a city prefix
+* `F.city()` - Generates a city name
+* `F.state()` - Generates a state/province
+* `F.buildingNumber()` - Generates a build number
+* `F.country()` - Generates a country
+* `F.countryCode()` - Generates a country code
+* `F.countryCodeSL()` - Generates a country code in small letters
+
+#### People and Identity
+
+* `F.fullName()` - Generates a full name
+* `F.firstName()` - Generates a first name
+* `F.lastName()` - Generates a last name
+* `F.profession()` - Generates a profession
+* `F.timeZone()` - Generates a time zone
+* `F.phone()` - Generates a phone number
+* `F.mobile()` - Generates a mobile number
+
+#### Internet
+
+* `F.emailAddress()` - Generates an email address. **Note:** These email addresses are randomly generated with real domains. Please be careful if you are using this in a test as there is a chance that some of them could be real email addresses.
+* `F.domainName()` - Generates a domain name
+* `F.domainWord()` - Generates a word
+* `F.domainSuffix()` - Generates a suffix
+* `F.url()` - Generates a url
+* `F.password(<minimumLength,maximumLength,includeUppercase,includeSpecial,includeDigit>)` - Generates a password. For example, `password(5,10,true,false, true)`.
+
+#### Credit Card
+
+* `F.creditCardNumber()` - Generates a credit card number
+* `F.creditCardExpiry()` - Generates a credit card expiration date
+* `F.creditCardType()` - Generates a credit card type
+
+#### Products
+
+* `F.productName()` - Generates a product name
+* `F.price()` - Generates a price
+
+#### Companies
+
+* `F.companyName()` - Generates a company name
+* `F.suffix()` - Generates a company suffix
+
+#### Random Numbers
+
+* `F.integer(<min,max>)` - Generates an integer. For example, `integer(2,20)`
+* `F.decimal(<min,max,maxdecimals>)` - Generates a decimal number. For example, `integer(0,2,2)`
+* `F.uuid()` - Generates a unique identifier
+
+#### Boolean
+
+* `F.bool()` - Generates a boolean value
+
 ## Integration Tests
 
 Integration testing is critical for creating a strong API testing strategy. An integration test allows you to create end-to-end tests that resemble common user flows. While only testing individual endpoints is a good start, this method will miss a large number of problems that occur when all services need to work together.
