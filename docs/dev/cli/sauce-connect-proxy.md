@@ -173,7 +173,7 @@ __Shorthand__: `-x`
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.us-west-1.saucelabs.com/rest/v1
 
 #EU-Central-1
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://eu-central-1.saucelabs.com/rest/v1
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.eu-central-1.saucelabs.com/rest/v1
 
 #APAC-Southeast-1
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.apac-southeast-1.saucelabs.com/rest/v1
