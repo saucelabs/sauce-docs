@@ -300,7 +300,7 @@ The following values can be used with the `-m` parameter of either the `run` or 
 |`firstContentfulPaint`|The time from when the page starts loading to when any part of the page's content is rendered on the screen. In this context, "content" can be text, images, elements, or canvas (non-white) elements. This does not mean that the page is fully rendered.|seconds|
 |`firstMeaningfulPaint`|<span className="sauceRed">DEPRECATED</span> The amount of time it takes for a page's primary body of content to rendeR. This metric is replaced by `largestContentfulPaint`.|seconds|
 |`firstPaint`|The time it takes to render the first pixel on the page once the URL has been called.|seconds|
-|`firstVisualChange`|The time it takes for anything to be visually painted in the viewport. Calculated by video analysis, this is an alternative metric to firstPaint that is browser agnostic.|seconds|
+|`firstVisualChange`|The time it takes for anything to be visually painted in the viewport. Calculated by video analysis, this is an alternative metric to `firstPaint` that is browser agnostic.|seconds|
 |`largestContentfulPaint`|The amount of time it takes for the page's largest visual element to display. This metric is considered a more accurate reflection of when the main content of a page has loaded.|seconds|
 |`lastVisualChange`|The amount of time it takes for the final visual element to display.|seconds|
 |`load`|The amount of time it takes for all page objects and dependent resources to be loaded.|seconds|
@@ -315,8 +315,8 @@ Detailed metric values can be found in the `performance.json` log file.
 This file is generated when speedo is run with `-l` parameter.<br />
 The log file consists of the following metrics:
 
-|Metric|Description|
-|---|------|
+|Metric|Description|Unit|
+|---|------|---|
 `rrt`|The time it takes for any redirects to happen.
 `load`|The amount of time it takes for all page objects and dependent resources to be loaded.
 `score`|The overall Lighthouse performance score.
@@ -339,10 +339,10 @@ The log file consists of the following metrics:
 `domContentLoaded`|The point at which visual content is fully rendered and backend scripts begin to execute.
 `firstInteractive`|The amount of time it takes for a page to be able to reliably respond to user input.
 `lastVisualChange`|The amount of time it takes for the final visual element to display.
-`maxServerLatency`|Maximum amount of time when server staled.
-`firstVisualChange`|The time it takes for anything to be visually painted in the viewport. Calculated by video analysis, this is an alternative metric to firstPaint that is browser agnostic.
-`totalBlockingTime`|The amount of time that elapses between firstContentfulPaint and timeToFirstInteractive, which is a key indicator of lag.
-`serverResponseTime`|Formerly timeToFirstByte, this is the amount of time it takes to receive the first data response from the server.
+`maxServerLatency`|The maximum amount of time it takes for the server to respond.
+`firstVisualChange`|The time it takes for anything to be visually painted in the viewport. Calculated by video analysis, this is an alternative metric to `firstPaint` that is browser agnostic.
+`totalBlockingTime`|The amount of time that elapses between `firstContentfulPaint` and timeToFirstInteractive, which is a key indicator of lag.
+`serverResponseTime`|Formerly `timeToFirstByte`, this is the amount of time it takes to receive the first data response from the server.
 `firstContentfulPaint`|The time from when the page starts loading to when any part of the page's content is rendered on the screen. In this context, `content` can be text, images, elements, or canvas (non-white) elements. This does not mean that the page is fully rendered.
 `firstMeaningfulPaint`|<span className="sauceRed">DEPRECATED</span> The amount of time it takes for a page's primary body of content to render. This metric is replaced by `largestContentfulPaint`.
 `cumulativeLayoutShift`|An aggregate of unexpected movement of content as a page loads. The score is calculated as the percentage of space impacted by the movement times the percentage of distance the content moved on the screen.
