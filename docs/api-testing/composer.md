@@ -444,7 +444,7 @@ Any of the following methods can be used in a request body.
 In this example we use a POST body, but this can be applied in all REST methods. Similarly, these methods can also be used as params.
 
 * **Name:** The name of the param
-* **Value:** The value of the param. For example, `${F.creditCardNumber()}`
+* **Value:** The value of the param. For example, `${F.creditCardNumber()}`.
 
 <img src={useBaseUrl('/img/api-testing/test-data-request-body-param.png')} alt="Request body param data" width="600"/>
 
