@@ -184,7 +184,12 @@ browser.execute('/*@visual.snapshot*/', 'State Name', {ignore: '.selector'});
 
 Example with <code>cropTo</code> option:
 ```javascript
-browser.execute('/*@visual.snapshot*/', 'State Name', {ignore: '.selector', cropTo: '#header' });
+browser.execute('/*@visual.snapshot*/', 'State Name', {ignore: '.selector', cropTo: '#header'});
+```
+
+Example with <code>scrollAndStitchScreenshot</code> option:
+```javascript
+browser.execute('/*@visual.snapshot*/', 'State Name', {ignore: '.selector', cropTo: '#header', scrollAndStitchScreenshot: true});
 ```
 
 </TabItem>
