@@ -4,9 +4,9 @@ title: Setting Up Backtrace for Unreal Engine
 sidebar_label: Setup
 description: Add Backtrace to your Unreal Engine project.
 ---
-Add Backtrace to your Unreal Engine project to automatically detect and report native crashes that occur in your apps and games.
+Add Backtrace to your Unreal Engine project to automatically detect and report native crashes that occur in your game.
 
-Backtrace supports Unreal Engine's Crash Reporter, therefore installation of a Backtrace SDK is not required to capture crashes in your Unreal Engine apps or games.
+Backtrace supports Unreal Engine's Crash Reporter, therefore installation of a Backtrace SDK is not required to capture crashes.
 
 
 import Tabs from '@theme/Tabs';
@@ -128,7 +128,7 @@ To configure the crash reporter for a packaged build:
 </TabItem>
 <TabItem value="android">
 
-Integrate the [backtrace-android](https://github.com/backtrace-labs/backtrace-android) error reporting library with your Unreal Engine apps and games written in Java or Kotlin.
+Integrate the [backtrace-android](https://github.com/backtrace-labs/backtrace-android) error reporting library with your Unreal Engine game for Android written in Java or Kotlin.
 
 1. Download [BacktraceAndroid_UPL.xml](https://support.backtrace.io/hc/article_attachments/360092643371/BacktraceAndroid_UPL.xml).
 1. In the `BacktraceAndroid_UPL.xml` file, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need) for `BacktraceCredentials`.
@@ -173,7 +173,7 @@ To change the default configuration settings for the Backtrace client, you can c
 </TabItem>
 <TabItem value="ios">
 
-Integrate the [backtrace-cocoa](https://github.com/backtrace-labs/backtrace-cocoa) error reporting library with your Unreal Engine apps and games for iOS written in Swift or Objective-C.
+Integrate the [backtrace-cocoa](https://github.com/backtrace-labs/backtrace-cocoa) error reporting library with your Unreal Engine game for iOS written in Swift or Objective-C.
 
 1. From [Assets](https://github.com/backtrace-labs/backtrace-cocoa/releases/tag/1.7.0), download and extract the `Backtrace.framework.zip` and the `Backtrace_PLCrashReporter.framework.zip` files.
 1. Copy and paste the `Backtrace.framework.zip` and the `Backtrace_PLCrashReporter.framework.zip` folders into the directory for your Unreal Engine project.
@@ -225,17 +225,17 @@ For information on how to change the default configuration settings for the Back
 </TabItem>
 <TabItem value="macos">
 
-To integrate error reporting in your Unreal Engine apps and games for macOS, see [PLCrashReporter](https://support.backtrace.io/hc/en-us/articles/360040105092).
+To integrate error reporting in your Unreal Engine game for macOS, see [PLCrashReporter](https://support.backtrace.io/hc/en-us/articles/360040105092).
 
 </TabItem>
 <TabItem value="linux">
 
-To integrate error reporting in your Unreal Engine apps and games for Linux, see the [Crashpad Integration Guide](https://support.backtrace.io/hc/en-us/articles/360040516131-Crashpad-Integration-Guide#InitialIntegration).
+To integrate error reporting in your Unreal Engine game for Linux, see the [Crashpad Integration Guide](https://support.backtrace.io/hc/en-us/articles/360040516131-Crashpad-Integration-Guide#InitialIntegration).
 
 </TabItem>
 <TabItem value="GameConsoles">
 
-To integrate error reporting in your Unreal Engine apps and games for game consoles, see the [Console Integration Guides](https://support.backtrace.io/hc/en-us/sections/360007642051-Video-Game-Technologies).
+To integrate error reporting in your Unreal Engine game for game consoles, see the [Console Integration Guides](https://support.backtrace.io/hc/en-us/sections/360007642051-Video-Game-Technologies).
 
 </TabItem>
 </Tabs>
