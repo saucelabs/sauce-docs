@@ -484,7 +484,7 @@ These examples are of the most common places where you may need to generate data
 * `F.domainName()` - Generates a domain name
 * `F.domainWord()` - Generates a word
 * `F.domainSuffix()` - Generates a suffix
-* `F.url()` - Generates a url
+* `F.url()` - Generates a URL
 * `F.password(<minimumLength,maximumLength,includeUppercase,includeSpecial,includeDigit>)` - Generates a password. For example, `password(5,10,true,false, true)`.
 
 #### Credit Card
