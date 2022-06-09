@@ -593,7 +593,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
 </tbody>
 </table>
 
-```jsx title="Sample Response" {13}
+```jsx title="Sample Response"
 {
     "settings": {
         "proxy": {
