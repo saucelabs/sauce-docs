@@ -1,5 +1,5 @@
 ---
-id: Interactions
+id: interactions
 title: Interactions
 sidebar_label: Interactions
 ---
