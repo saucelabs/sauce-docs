@@ -457,7 +457,7 @@ These examples are of the most common places where you may need to generate data
 * `F.streetAddressNumber()` - Generates an address number
 * `F.streetAddress()` - Generates a street and address number. If secondary is specified, this method provides an apartment number.
 * `F.secondaryAddress()` - Generates an apartment number
-* `F.zipCode()` - Generates a ZIP code. If a state has been provided, a proper ZIP code for the state is provided. Valid only for US states.
+* `F.zipCode()` - Generates a ZIP code. Valid only for US states.
 * `F.streetSuffix()` - Generates a street suffix
 * `F.citySuffix()` - Generates a city suffix
 * `F.cityPrefix()` - Generates a city prefix
