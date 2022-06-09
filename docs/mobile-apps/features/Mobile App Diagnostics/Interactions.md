@@ -45,7 +45,7 @@ The following table lists the available metrics:
 |:---|:---|
 |label|The user-readable label for a particular activity.|
 |viewTag|A tag that provides additional information associated with a view.|
-|viewID|Identifier that defines view attributes.|
+|viewId|Identifier that defines view attributes.|
 |className|A parameter that specifies the class name of an element.|
 |contentDescription|A parameter that is used to describe a visual element.|
 |xPosition|Defines the horizontal position of the tap.|
