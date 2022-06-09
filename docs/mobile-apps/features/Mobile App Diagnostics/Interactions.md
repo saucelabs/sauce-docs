@@ -48,7 +48,7 @@ The following table lists the available metrics:
 |viewId|Identifier that defines view attributes.|
 |className|A parameter that specifies the class name of an element.|
 |contentDescription|A parameter that is used to describe a visual element.|
-|xPosition|Defines the horizontal position of the tap.|
+|xPosition|The horizontal position of the tap.|
 |yPosition|Defines the vertical position of the tap.|
 |Xpath|A path that identifies various elements or attributes. XML Path Language uses a non-XML syntax to provide a flexible way of addressing different parts of an XML.|
 
