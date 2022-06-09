@@ -50,7 +50,7 @@ The following table lists the available metrics:
 |contentDescription|The description of an element.|
 |xPosition|The horizontal position of the tap.|
 |yPosition|Defines the vertical position of the tap.|
-|Xpath|A path that identifies various elements or attributes. XML Path Language uses a non-XML syntax to provide a flexible way of addressing different parts of an XML.|
+|xPath|Used to locate an element in the XML structure of the app.|
 
 :::note
 You can copy the xPath and paste it in an Appium test and have it working in no time! 
