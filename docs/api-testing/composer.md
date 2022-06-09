@@ -383,7 +383,7 @@ If your API or test requires random names, emails, or different types of input d
 
 For the full list of methods, see [Test Data Methods](#test-data-methods).
 
-These methods can be used anywhere you can write a variable, such as inside a SET (variable) or in any part of the request (body, header, param, etc.).
+These methods can be used anywhere you can write a variable, such as inside a Set (variable) or in any part of the request (body, header, param, etc.).
 
 ### Set (variable)
 Set (variable) allows you to create variables or more structured data.
