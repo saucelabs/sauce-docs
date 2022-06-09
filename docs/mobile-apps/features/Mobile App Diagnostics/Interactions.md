@@ -44,7 +44,7 @@ The following table describes the parameter list:
 |Name|Description|
 |:---|:---|
 |Label|The user-readable label for a particular activity.|
-|View Tag|A tag that provides an extra piece of information that can be associated with a view|
+|viewTag|A tag that provides additional information associated with a view.|
 |viewID|Identifier that defines view attributes.|
 |className|A parameter that specifies the class name of an element.|
 |contentDescription|A parameter that is used to describe a visual element.|
