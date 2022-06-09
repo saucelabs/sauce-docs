@@ -276,7 +276,7 @@ saucectl run --dry-run
 An environment variable key value pair that may be referenced in the tests executed by this command. Expanded environment variables are supported.
 
 ```bash
-saucectl run --env <key1>=v<alue1> --env <key2>=<value2> ...
+saucectl run --env <key1>=<value1> --env <key2>=<value2> ...
 ```
 </div>
 
