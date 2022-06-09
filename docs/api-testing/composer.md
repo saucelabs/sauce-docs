@@ -390,7 +390,7 @@ Set (variable) allows you to create variables or more structured data.
 
 To create a single variable:
 
-* **Var:** The name to assign the variable
+* **Var:** The name to assign the variable.
 * **Variable Mode:** String
 * **Value:** The method to use to generate data. For example, `${F.fullName()}` will generate a random full name.
 
