@@ -516,7 +516,7 @@ Adds or updates the settings of an app group with the given ID.
   <tbody>
     <tr>
      <td><code>json body</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>See sample response for possible settings.</p></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The app group's settings. See the sample response below for the available settings.</p></td>
     </tr>
   </tbody>
 </table>
