@@ -74,7 +74,7 @@ You can also download the results using the API call below:
 ## Limitations
 
 :::note 
-* Webviews and hybrid apps are not supported
+Webviews and hybrid apps are not supported
 :::
 
 ## More Information
