@@ -419,7 +419,7 @@ Returns the settings of an app group with the given ID.
   <tbody>
     <tr>
      <td><code>group_id</code></td>
-     <td><p><small>| PATH | REQUIRED | INTEGER |</small></p><p>ID of the group of which settings need to be fetched.</p></td>
+     <td><p><small>| PATH | REQUIRED | INTEGER |</small></p><p>The unique identifier of the app group. You can look up group IDs using the [Get App Storage Groups](#get-app-storage-groups) endpoint.</p></td>
     </tr>
   </tbody>
 
