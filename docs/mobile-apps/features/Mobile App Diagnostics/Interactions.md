@@ -53,7 +53,7 @@ The following table describes the parameter list:
 |Xpath|A path that identifies various elements or attributes. XML Path Language uses a non-XML syntax to provide a flexible way of addressing different parts of an XML.|
 
 :::note
-You can copy the xPath and pase it to an Appium test and have it working in no time! 
+You can copy the xPath and paste it in an Appium test and have it working in no time! 
 :::
 
 ## Accessing Interactions Metrics
