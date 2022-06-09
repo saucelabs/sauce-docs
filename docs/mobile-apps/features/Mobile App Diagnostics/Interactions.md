@@ -43,7 +43,7 @@ The following table describes the parameter list:
 
 |Name|Description|
 |:---|:---|
-|Label|The user-readable label for a particular activity.|
+|label|The user-readable label for a particular activity.|
 |viewTag|A tag that provides additional information associated with a view.|
 |viewID|Identifier that defines view attributes.|
 |className|A parameter that specifies the class name of an element.|
