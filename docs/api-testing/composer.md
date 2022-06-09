@@ -398,7 +398,7 @@ To create a single variable:
 
 To create an array of data:
 
-* **Var:** The name to assign the variable
+* **Var:** The name to assign the variable.
 * **Variable Mode:** Data
 * **Data:** The JS function for creating an array. For example, `new Array(5).fill(0).map(_ => F.streetAddress())` generates an array with five random addresses.
 
