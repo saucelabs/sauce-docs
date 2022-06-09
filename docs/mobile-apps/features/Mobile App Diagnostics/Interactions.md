@@ -31,7 +31,7 @@ Now you can start your live or automated testing session. Interactions will be c
 The Interactions feature works for all the automated test framework types. 
 :::
 
-## Integration Metrics
+## Interaction Metrics
 
 Just by looking at the Interactions you can immediately understand what happened in your test session and improve your app's performance, stability, and more. At the top of the [Test Results](/test-results) page, you can see the data on activities (taps) that occurred during the testing session. To get more detailed information, click on the dropdown icon next to an action tap you want to investigate.
 
