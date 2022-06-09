@@ -406,7 +406,7 @@ To create an array of data:
 
 To create an object of data:
 
-* **Var:** The name to assign the variable
+* **Var:** The name to assign the variable.
 * **Variable Mode:** Language
 * **Lang:** Template
 * **Content:** The object to generate with the required methods.
