@@ -39,7 +39,7 @@ Just by looking at the Interactions you can immediately understand what happened
 
 <br/><img src={useBaseUrl('img/mobile-apps/interactions-screenshot-1.png')} alt="Mobile app settings navigation" width="800"/>
 
-The following table describes the parameter list:
+The following table lists the available metrics:
 
 |Name|Description|
 |:---|:---|
