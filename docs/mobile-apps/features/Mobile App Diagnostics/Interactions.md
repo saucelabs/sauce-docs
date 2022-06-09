@@ -33,7 +33,7 @@ The Interactions feature works for all the automated test framework types.
 
 ## Interaction Metrics
 
-Just by looking at the Interactions you can immediately understand what happened in your test session and improve your app's performance, stability, and more. At the top of the [Test Results](/test-results) page, you can see the data on activities (taps) that occurred during the testing session. To get more detailed information, click on the dropdown icon next to an action tap you want to investigate.
+You can use Interactions to understand what happened in your test session and improve your app's performance, stability, and more. At the top of the [Test Results](/test-results) page, you can see the data on activities (taps) that occurred during the testing session. To get more detailed information, click on the dropdown icon next to an action tap you want to investigate.
 
 <br/><img src={useBaseUrl('img/mobile-apps/interactions-screenshot-3.png')} alt="Mobile app settings navigation" width="800"/>
 
