@@ -427,7 +427,7 @@ To create an object of data:
 
 Any of the following methods can be used in a request body.
 
-* **Content-Type:** The content-type of the body (application/json in this example)
+* **Content-Type:** The content-type of the body (application/json in this example).
 * **Content:** The body of the request.
 
 ```
