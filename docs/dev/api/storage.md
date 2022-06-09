@@ -411,7 +411,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v1/storage/groups/&#123;group_id&#125;/settings</code></summary>
 <p/>
 
-Returns the settings of the requested app group id.
+Returns the settings of an app group with the given ID.
 
 #### Parameters
 
