@@ -502,7 +502,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
 <details><summary><span className="api put">PUT</span> <code>/v1/storage/groups/&#123;group_id&#125;/settings</code></summary>
 <p/>
 
-Adds or updates the settings of the provided app group.
+Adds or updates the settings of an app group with the given ID.
 
 #### Parameters
 
