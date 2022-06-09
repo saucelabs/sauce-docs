@@ -4,8 +4,6 @@ title: Interactions
 sidebar_label: Interactions
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 Interactions is a functionality that allows you to record every test session’s action and check how it interacted with the app’s UI. By reviewing the taps you can check if certain interface features failed to load or crashed.
 
@@ -13,7 +11,7 @@ Interactions is a functionality that allows you to record every test session’s
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 * A native Android, iOS, or iPadOS mobile app
-  
+
 ## Using Interactions for Real Devices
 
 By default, the Interactions feature is enabled if the instrumentation feature is enabled.
@@ -22,13 +20,13 @@ To enable device instrumentation:
 1. On Sauce Labs, click **Live** > **Mobile App**.
 2. [Upload your mobile app to Sauce Labs](/mobile-apps/app-storage/) through the UI or CLI.
 3. After you’ve uploaded your app, return to the **Live** > **Mobile App** page, hover your mouse over your app, then select **Settings**. <br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr.png')} alt="Mobile app settings navigation" width="600"/>
-4. Under **Default Settings**, toggle **Instrumentation** on. 
+4. Under **Default Settings**, toggle **Instrumentation** on.
    <br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-screenshot-1.png')} alt="Mobile app settings navigation" width="600"/>
 
 Now you can start your live or automated testing session. Interactions will be captured and be part of your test results.
 
 :::note
-The Interactions feature works for all the automated test framework types. 
+The Interactions feature works for all the automated test framework types.
 :::
 
 ## Interaction Metrics
@@ -53,7 +51,7 @@ The following table lists the available metrics:
 |xPath|Used to locate an element in the XML structure of the app.|
 
 :::note
-You can copy the xPath and paste it in an Appium test and have it working in no time! 
+You can copy the xPath and paste it in an Appium test and have it working in no time!
 :::
 
 ## Accessing Interactions Metrics
@@ -63,7 +61,7 @@ You can access Interactions metrics from the [Live Test Results](/mobile-apps/li
 <br/><img src={useBaseUrl('img/mobile-apps/DEvice-Vitals-screenshot-7.png')} alt="Mobile app settings navigation" width="200"/>
 
 
-You can also download the results using the API call below: 
+You can also download the results using the API call below:
 
  ```java
   curl --compressed \
@@ -73,7 +71,7 @@ You can also download the results using the API call below:
 
 ## Limitations
 
-:::note 
+:::note
 Webviews and hybrid apps are not supported
 :::
 
