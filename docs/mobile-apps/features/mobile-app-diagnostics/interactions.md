@@ -47,7 +47,7 @@ The following table lists the available metrics:
 |className|A parameter that specifies the class name of an element.|
 |contentDescription|The description of an element.|
 |xPosition|The horizontal position of the tap.|
-|yPosition|Defines the vertical position of the tap.|
+|yPosition|The vertical position of the tap.|
 |xPath|Used to locate an element in the XML structure of the app.|
 
 :::note
