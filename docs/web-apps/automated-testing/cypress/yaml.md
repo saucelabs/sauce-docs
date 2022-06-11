@@ -329,7 +329,7 @@ Specifies the location of the npm registry source. If the registry source is a p
 ### `packages`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specifies any NPM packages that are required to run tests and should, therefore, be included in the bundle. See [Including Node Dependencies](#including-node-dependencies).
+Specifies any npm packages that are required to run tests and should, therefore, be installed on the Sauce Labs VM. See [Including Node Dependencies](#including-node-dependencies).
 
 ```yaml
   packages:
@@ -338,6 +338,31 @@ Specifies any NPM packages that are required to run tests and should, therefore,
     "@cypress/react": "^5.0.1"
 ```
 ---
+
+### `dependencies`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Specifies any npm packages that are required to run tests and should, therefore, be included in the bundle.
+Unlike `packages`, which installs dependencies on the VM, the dependencies specified here have to be already installed in the local `node_modules` folder. These dependencies, along with any related transitive dependencies, are then included in the bundle that is uploaded to Sauce Labs.
+
+If you have already been including `node_modules` in your bundle, then this feature will help you speed up your tests by reducing the amount of files in the bundle. A smaller bundle will upload and extract faster, which speeds up the setup on the VM, facilitating a faster test feedback cycle.
+
+Take note that the syntax is different from `packages`. It's a simple **list** of dependencies, without the need to specify the version.
+
+```yaml
+npm:
+  dependencies:
+    - lodash
+```
+
+To use this feature, please also ensure that `node_modules` is not ignored via `.sauceignore`.
+
+:::caution
+This feature is highly experimental.
+:::
+
+---
+
 ## `reporters`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
