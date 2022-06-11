@@ -51,7 +51,7 @@ The following table lists the available metrics:
 |xPath|Used to locate an element in the XML structure of the app.|
 
 :::note
-You can copy the xPath and paste it in an Appium test and have it working in no time!
+You can use the xPath value to build your Appium test quickly!
 :::
 
 ## Accessing Interactions Metrics
