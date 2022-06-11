@@ -5,7 +5,7 @@ sidebar_label: Interactions
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Interactions is a functionality that allows you to record every test session’s action and check how it interacted with the app’s UI. By reviewing the taps you can check if certain interface features failed to load or crashed.
+Interactions is a functionality that allows you to record every test session’s action and check how it interacted with the app’s UI. By reviewing the taps you can check if certain interface elements failed to load or crashed.
 
 ## What You'll Need
 
