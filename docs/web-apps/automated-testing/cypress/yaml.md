@@ -355,7 +355,7 @@ npm:
     - lodash
 ```
 
-To use this feature, please also ensure that `node_modules` is not ignored via `.sauceignore`.
+To use this feature, make sure that `node_modules` is not ignored via `.sauceignore`.
 
 :::caution
 This feature is highly experimental.
