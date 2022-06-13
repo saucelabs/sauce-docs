@@ -2,9 +2,9 @@
 id: attributes
 title: Unity Attributes
 sidebar_label: Attributes
-description: Attributes reference for Unity apps and games.
+description: Attributes reference for Unity.
 ---
-This page defines the attributes that are available to customize error and crash reports for Unity apps and games.
+This page defines the attributes that are available to customize error and crash reports for Unity.
 
 ## Attributes list
 Attributes are additional metadata that can be attached to error and crash reports. You can use attributes to filter, aggregate, analyze, and debug errors in the Backtrace console.
