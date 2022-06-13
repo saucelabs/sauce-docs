@@ -37,6 +37,9 @@ When generating a shareable link, you'll need to know your specific data center.
 ```
 https://app.eu-central-1.saucelabs.com/tests/YOUR_TEST_ID).
 ```
+:::note
+This solution is not supported for RDC.
+:::
 
 See [Data Center Endpoints](/basics/data-center-endpoints) for more info.
 
