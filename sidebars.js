@@ -781,6 +781,7 @@ module.exports = {
             collapsed: true,
             items: [
               'mobile-apps/features/device-vitals',
+              'mobile-apps/features/mobile-app-diagnostics/interactions',
             ],
           },
         ],
