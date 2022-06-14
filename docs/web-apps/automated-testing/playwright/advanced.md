@@ -7,6 +7,7 @@ sidebar_label: Advanced Configuration
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import Advanced from '../_partials/_advanced.md';
 
 The `saucectl` YAML configuration file is flexible enough to allow for any customizations and definitions that are required for any of the supported frameworks. The following sections describe some of the most common configurations.
 
@@ -141,3 +142,5 @@ npm:
 :::caution
 This feature is highly experimental.
 :::
+
+<Advanced />
