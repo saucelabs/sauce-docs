@@ -141,3 +141,7 @@ If you would prefer to stay in Cypress, try the new [Cypress Sauce Labs Plugin](
 :::caution Special Characters in Test Names
 We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
 :::
+
+:::caution Firefox 101 + Windows
+Cypress does currently not work with Firefox 101 on Windows.
+:::
