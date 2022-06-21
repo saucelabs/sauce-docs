@@ -32,6 +32,10 @@ docker run -v "$(pwd)/specs:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /s
 
 `quay.io/saucelabs/piestry` is our Docker image and `/specs/myspec.yaml` needs to be the URI to your YAML spec file (can be local or remote).
 
+:::note
+By default, on MacOS Monterey the Airplay Receiver service uses the port 5000, therefore the above command will not work. When you write ```bash -p 5000:5000``` you are mapping the port on your machine and the port for Piestry so if you are using MacOS Monterey you have to remap the port for your local machine. To do so, you have to enter a different port in the left part of the command, like ```bash -p 8000:5000``` (the port 8000 can be replaced with any other port). This scenario is valid every time your port is already used by any other service.
+:::
+
 ### OpenAPI Spec Files
 
 If you provide a standard OpenAPI spec file, our system should bind a series of endpoints to simulate what's in the spec:
