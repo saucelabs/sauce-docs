@@ -45,7 +45,7 @@ You can access the Inspect View Tree from the [Live Test Results](/mobile-apps/l
 
 1. In Sauce Labs, click **LIVE** or **AUTOMATED** and then click **Test Results**.  
 <br/><img src={useBaseUrl('img/mobile-apps/DEvice-Vitals-screenshot-2.png')} alt="Mobile app settings navigation" width="200"/>
-<br/><img src={useBaseUrl('img/mobile-apps/DEvice-Vitals-screenshot-7.png')} alt="Mobile app settings navigation" width="200"/>
+<br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-screenshot-7.png')} alt="Mobile app settings navigation" width="200"/>
 
 2. Select a test result from the list.
 <br/><img src={useBaseUrl('img/mobile-apps/view-tree-screenshot-1.png')} alt="Mobile app settings navigation" width="800"/>
