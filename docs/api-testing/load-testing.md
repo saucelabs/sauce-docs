@@ -2,7 +2,6 @@
 id: load-testing
 title: Load Testing with API Testing
 sidebar_label: Load Testing
-description:
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -35,22 +34,21 @@ Once you have run the agents, you can continue in the API Testing platform:
 
   <img src={useBaseUrl('/img/api-testing/api-testing-nav.png')} alt="Navigating to API Testing" width="400"/>
 
-2. Navigate to a published test or a published version of a test.
+2. On the **Tests** page, next to the test you want to run a load test on, click the **Load Test** icon.
 
-:::note
-Load testing only works with published tests. If you change a published test, and then run a load test without re-publishing it, the load test will be run on the published version, not the updated one.
+  <img src={useBaseUrl('/img/api-testing/load-testing-nav.png')} alt="The Load Test icon"/>
 
-3. On the **Tests** page, next to the test you want to run a load test on, click the **Load Test** icon.
+  :::note
+  Load testing only works with published tests. If you change a published test, and then run a load test without re-publishing it, the load test will be run on the published version, not the updated one.
+  :::
 
-  <img src={useBaseUrl('/img/placeholder-image.png')} alt="placeholder" width="400"/>
+3. On the tests page, click **Create Load test**.
 
-4. On the tests page, click **Create Load test**.
+  <img src={useBaseUrl('/img/api-testing/create-load-test-button.png')} alt="The Create Load test button"/>
 
-  <img src={useBaseUrl('/img/placeholder-image.png')} alt="placeholder" width="400"/>
+4. On the **Create Load test** page, enter the relevant information and then click **Save and Run**. See [Create Load Test Fields](#create-load-test-fields) for more details.
 
-5. On the **Create Load test** page, enter the relevant information and then click **Save and Run**. See [Create Load Test Fields](#create-load-test-fields) for more information.
-
-  <img src={useBaseUrl('/img/placeholder-image.png')} alt="placeholder" width="400"/>
+  <img src={useBaseUrl('/img/api-testing/create-load-test.png')} alt="The Create Load test page"/>
 
 ### Create Load Test Fields
 * Name - The name to assign to the load test profile.
@@ -62,6 +60,8 @@ Load testing only works with published tests. If you change a published test, an
 
 If you have saved a load test with an agent that is currently offline, you will see an alert and the system will prevent you from running the test with it. You will see the same alert if you are trying to use the same agent for more tests but there are no virtual users available.
 
+<img src={useBaseUrl('/img/api-testing/load-test-agents-offline.png')} alt="Alert that agents are offline" width="400"/>
+
 * Virtual users - The number of active users per agent you want to simulate. The value can be any value that is less than or equal to the max virtual users available for that agent. If more than one agent is selected, the lesser virtual users value is the max number of virtual users you can set up. If you try to set more agents than the available you will see an error message.
 
 You can set up multiple profiles for each test, from less aggressive to very aggressive, or with varying durations. The only limitations are those inherited from your infrastructure.
@@ -70,6 +70,8 @@ Once you have created and saved a load test, the configuration will be saved for
 
 The execution of a load test will generate a real-time report that is updated every minute.
 To stop a report before it is complete, click the **Stop** button.
+
+<img src={useBaseUrl('/img/api-testing/load-test-report-details.png')} alt="Load Test Report Details" width="400"/>
 
 ### Load Test Report Details
 * Outcome - The status of the test:
@@ -85,29 +87,30 @@ To stop a report before it is complete, click the **Stop** button.
 * Agents - The agents used to run the test.
 * Virtual Users - The number of virtual users for the execution of the test.
 
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="placeholder" width="400"/>
-
 The report contains a dropdown that shows all the endpoints the test is calling that you can use to filter to a specific one (the default value shows the data for All the endpoints). For best results, set up footprints to ensure the report is readable. For more information, see [Improving Metrics](/api-testing/composer#improving-metrics).
 
-<img src={useBaseUrl('/img/placeholder-image.png')} alt="placeholder" width="400"/>
+<img src={useBaseUrl('/img/api-testing/load-test-footprint.png')} alt="The Footprint dropdown" width="200"/>
 
-The first graph shows the response time for all or for a specific endpoint. In the graph, you can see the maximum, minimum, average, and the 90th percentile. Once the test is complete, you can click to if you want to remove one (or more) of them, just click it.
+The **Response time** graph shows the response time for all endpoints or for a specific endpoint. In the graph, you can see the maximum, minimum, average, and the 90th percentile. Once the test is complete, you can click any of the report measurements to remove them from the display.
 
+<img src={useBaseUrl('/img/api-testing/load-testing-report-response-time.png')} alt="Response time graph" width="400"/>
+<img src={useBaseUrl('/img/api-testing/load-testing-report-response-time-2.png')} alt="Response time graph" width="400"/>
 
+The **Requests** graph shows the number of requests and the number of failures. Click any of the measurement labels to remove them from the display.
 
+<img src={useBaseUrl('/img/api-testing/load-testing-report-requests.png')} alt="Requests graph" width="400"/>
 
+The **Status codes** graph shows the status codes the test has generated, as well as any connection codes, which are denoted with a negative number.
 
-The second graph shows the number of requests and the number of failures.
-
-You can exclude one of the options in the same way as for the first graph.
-
-The last graph shows all the status codes the test has generated, also in this case you can hide the ones you are not interested in by clicking on the related label. Besides the most common status codes, we also show the connection ones that are the “minus something”.
 Negative status codes represent connectivity issues:
--1: connection refused
--2: timeout
--3: unknown host
+* -1 - Connection refused
+* -2 - Timeout
+* -3 - Unknown host
 
+Click any of the measurement labels to remove them from the display.
 
+<img src={useBaseUrl('/img/api-testing/load-test-report-status-codes.png')} alt="Status codes graph" width="400"/>
 
+Load test reports can be accessed on the project dashboard under **Load Tests**.
 
-In the same way as all the reports, the report is also stored in the project dashboard in the new dedicated section we have introduced, the load test one.
+<img src={useBaseUrl('/img/api-testing/load-test-dashboard-nav.png')} alt="Load tests on the dashboard"/>
