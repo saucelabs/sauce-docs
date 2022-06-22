@@ -76,7 +76,7 @@ The following table lists the available attributes:
 |Focusable|A value that provides additional information associated with accessibility|
 |Alpha|A value that describes how translucent or opaque the component is|
 |Enabled|Checks the interactivity of the component|
-|ContentDesc|The accessibility description of an UI component|
+|ContentDesc|The accessibility description of a UI component|
 |Text|A text attribute of a UI component|
 
 ## Limitations
