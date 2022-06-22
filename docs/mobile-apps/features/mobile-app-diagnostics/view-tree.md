@@ -77,7 +77,7 @@ The following table lists the available attributes:
 |Alpha|A value that describes how translucent or opaque the component is|
 |Enabled|Checks the interactivity of the component|
 |ContentDesc|The accessibility description of an UI component|
-|Text|A text attribute of an UI component|
+|Text|A text attribute of a UI component|
 
 ## Limitations
 
