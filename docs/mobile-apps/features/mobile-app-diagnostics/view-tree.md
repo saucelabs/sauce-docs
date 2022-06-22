@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Inspect View Tree is a feature that is designed to help you discover all the visible elements of your mobile application while developing your test scripts. It captures a snapshot of the user interface and allows you to navigate and inspect view objects of your native apps.
 
-Inspect View Tree feature allows you to see, debug, analyze or determine the state of individual View components.  It also informs you about global changes in the view tree. 
+Inspect View Tree feature allows you to see, debug, analyze or determine the state of individual View components. It also informs you about global changes in the view tree. 
 
 :::note
 Such global changes include, for example, a layout of the whole tree.
