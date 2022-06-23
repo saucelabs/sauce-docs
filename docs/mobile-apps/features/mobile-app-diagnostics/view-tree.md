@@ -55,7 +55,7 @@ You can access the Inspect View Tree from the [Live Test Results](/mobile-apps/l
 
 The Inspect View Tree feature will display the captured snapshots of detectable view changes:
 
-<br/><img src={useBaseUrl('img/mobile-apps/view-tree-screenshot-3.png')} alt="Mobile app settings navigation" width="700"/>
+<br/><img src={useBaseUrl('img/mobile-apps/view-tree-screenshot-4.png')} alt="Mobile app settings navigation" width="700"/>
 
 
 You can also download the results using the API call below:
@@ -68,7 +68,6 @@ You can also download the results using the API call below:
 ### Inspect View Tree Attributes
 
 The following table lists the available attributes:
-
 |Name|Description|
 |:---|:---|
 |ID|The class identifier|
