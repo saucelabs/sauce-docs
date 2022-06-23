@@ -69,7 +69,7 @@ You can set up multiple profiles for each test, from less aggressive to very agg
 Once you have created and saved a load test, the configuration will be saved for future use. To access a previously saved configuration, on the test page, , as a list, on the page, which you access by clicking on the load test icon from the test list.
 
 The execution of a load test will generate a real-time report that is updated every minute.
-To stop a report before it is complete, click the **Stop** button.
+To stop a report before it is complete, click **Stop**.
 
 <img src={useBaseUrl('/img/api-testing/load-test-report-details.png')} alt="Load Test Report Details" width="400"/>
 
