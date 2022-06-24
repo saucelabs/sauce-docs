@@ -783,6 +783,7 @@ module.exports = {
             items: [
               'mobile-apps/features/device-vitals',
               'mobile-apps/features/mobile-app-diagnostics/interactions',
+              'mobile-apps/features/mobile-app-diagnostics/view-tree',
             ],
           },
         ],
