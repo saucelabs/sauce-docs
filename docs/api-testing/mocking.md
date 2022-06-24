@@ -37,7 +37,7 @@ In the above command, ```bash -p 5000:5000``` is used to map the port on your ma
 :::
 
 :::tip
-Some container runtimes will maintain port bindings even when containers exit, making impossible for a new instance of the same container to run again on the same port unless the dead container is removed. To avoid this issue you can use the flag ```--rm`` like in this example: ```docker run -v "$(pwd)/specs:/specs" -p 5000:5000 --rm quay.io/saucelabs/piestry -u /specs/myspec.yaml```
+Some container runtimes will maintain port bindings even when containers exit, making impossible for a new instance of the same container to run again on the same port unless the dead container is removed. To avoid this issue you can use the flag ```--rm``` like in this example: ```docker run -v "$(pwd)/specs:/specs" -p 5000:5000 --rm quay.io/saucelabs/piestry -u /specs/myspec.yaml```.
 :::
 
 ### OpenAPI Spec Files
