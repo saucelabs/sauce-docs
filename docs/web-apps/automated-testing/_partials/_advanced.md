@@ -1,6 +1,6 @@
 ### Environment Variable Expansion
 
-All values in your saucectl configuration support environment variable expansion. `$var` in your config.yml will be replaced according to your shell's environment variables. References to undefined variables will be replaced with an empty string.
+All values in your `saucectl` configuration support environment variable expansion. `$var` in `config.yml` will be replaced according to your shell's environment variables. References to undefined variables will be replaced with an empty string.
 
 ### Predefined Environment Variables
 
