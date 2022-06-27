@@ -1,3 +1,7 @@
+### Environment Variable Expansion
+
+All values in your saucectl configuration support environment variable expansion. `$var` in your config.yml will be replaced according to your shell's environment variables. References to undefined variables will be replaced with an empty string.
+
 ### Predefined Environment Variables
 
 If you're running a test script where you need to communicate a Sauce Labs Job ID to a third-party tool, use the `SAUCE_JOB_ID` environment variable to reference it.
