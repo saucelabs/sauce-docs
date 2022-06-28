@@ -66,7 +66,7 @@ If you have saved a load test with an agent that is currently offline, you will 
 
 You can set up multiple profiles for each test, from less aggressive to very aggressive, or with varying durations. The only limitations are those inherited from your infrastructure.
 
-Once you have created and saved a load test, the configuration will be saved for future use. To access a previously saved configuration, on the test page, , as a list, on the page, which you access by clicking on the load test icon from the test list.
+Once you have created and saved a load test, the configuration will be saved for future use. To access the list of previously saved configurations for a specific test, click the load test icon in the test list.
 
 The execution of a load test will generate a real-time report that is updated every minute.
 To stop a report before it is complete, click **Stop**.
