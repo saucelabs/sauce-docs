@@ -778,11 +778,12 @@ module.exports = {
           {
             type: 'category',
             label: 'Mobile App Diagnostics',
-            link: { type: 'doc', id: 'mobile-apps/features/device-vitals' },
+            link: { type: 'doc', id: 'mobile-apps/features/mobile-app-diagnostics/device-vitals' },
             collapsed: true,
             items: [
-              'mobile-apps/features/device-vitals',
+              'mobile-apps/features/mobile-app-diagnostics/device-vitals',
               'mobile-apps/features/mobile-app-diagnostics/interactions',
+              'mobile-apps/features/mobile-app-diagnostics/view-tree',
             ],
           },
         ],
