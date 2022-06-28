@@ -32,6 +32,14 @@ docker run -v "$(pwd)/specs:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /s
 
 `quay.io/saucelabs/piestry` is our Docker image and `/specs/myspec.yaml` needs to be the URI to your YAML spec file (can be local or remote).
 
+:::note
+In the above command, ```bash -p 5000:5000``` is used to map the port on your machine and the port for Piestry. If you are using macOS Monterey, the command will not work because port 5000 is already used by the Airplay Receiver service by default. In this case, you have to remap the port for your local machine. To do so, enter a different port in the left part of the command. For example: ```bash -p 8000:5000```, where port 8000 can be replaced with any other port. This scenario is valid every time your port is already used by any other service.
+:::
+
+:::tip
+Some container runtimes will maintain port bindings even when containers exit, making it impossible for a new instance of the same container to run again on the same port unless the dead container is removed. To avoid this issue you can use the flag ```--rm``` like in this example: ```docker run -v "$(pwd)/specs:/specs" -p 5000:5000 --rm quay.io/saucelabs/piestry -u /specs/myspec.yaml```.
+:::
+
 ### OpenAPI Spec Files
 
 If you provide a standard OpenAPI spec file, our system should bind a series of endpoints to simulate what's in the spec:

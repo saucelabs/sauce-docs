@@ -58,7 +58,7 @@ You can use the xPath value to build your Appium test quickly!
 
 You can access Interactions metrics from the [Live Test Results](/mobile-apps/live-testing/live-mobile-app-testing/) or [Automated Test Results](/mobile-apps/automated-testing/) page:
 <br/><img src={useBaseUrl('img/mobile-apps/DEvice-Vitals-screenshot-2.png')} alt="Mobile app settings navigation" width="200"/>
-<br/><img src={useBaseUrl('img/mobile-apps/DEvice-Vitals-screenshot-7.png')} alt="Mobile app settings navigation" width="200"/>
+<br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-screenshot-7.png')} alt="Mobile app settings navigation" width="200"/>
 
 
 You can also download the results using the API call below:

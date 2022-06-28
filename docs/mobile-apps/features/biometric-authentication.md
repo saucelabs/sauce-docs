@@ -48,11 +48,11 @@ To use biometric interception in a live mobile app test, you must ensure that th
     <img src={useBaseUrl('img/mobile-apps/bio-toolbar-icons.png')} alt="Biometric toolbar icons" width="300"/>
 
 
-1. In the live test window, in the right toolbar, click **More Device Options** and then click **Biometric Authentication**.
+6. In the live test window, in the right toolbar, click **More Device Options** and then click **Biometric Authentication**.
 
   <img src={useBaseUrl('img/live-testing/biometric-toolbar.png')} alt="Image Injection - Launch" width="450"/>
 
-2. In the **Biometric Authentication** window, click **Pass** to imitate successful authentication or click **Fail** to imitate an unsuccessful authentication.
+7. In the **Biometric Authentication** window, click **Pass** to imitate successful authentication or click **Fail** to imitate an unsuccessful authentication.
 
     <img src={useBaseUrl('img/live-testing/biometric-nav.png')} alt="Biometric Authentication" width="450"/>
 
