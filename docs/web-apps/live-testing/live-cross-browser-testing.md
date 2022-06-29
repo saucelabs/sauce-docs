@@ -92,7 +92,7 @@ Know if your app is designed to run on internal or otherwise restricted networks
 | <img src={useBaseUrl('img/live-testing/switch-app-version-icon.png')} alt="Switch App Version icon" width="35"/> | Switch App Version | Opens the **Switch App Version** window. To change the version of the app you are testing, hover over the version and then click **Choose version**. |
 | <img src={useBaseUrl('img/live-testing/clipboard-icon.png')} alt="Clipboard icon" width="35"/> | Clipboard | Opens the **Paste Content Into Device** window. |
 | <img src={useBaseUrl('img/live-testing/install-dependency-icon.png')} alt="Install Dependency icon" width="35"/> | Install Dependency | Opens the **Install Dependent App** window. |
-| <img src={useBaseUrl('img/live-testing/dev-options-icon.png')} alt="Developer Options icon" width="35"/> | Developer Options | Opens the **Developer Options** panel, which includes the **Device Log**, and **Dev Tools** tabs. |
+| <img src={useBaseUrl('img/live-testing/dev-options-icon.png')} alt="Developer Options icon" width="35"/> | Developer Options | Opens the **Developer Options** panel, which includes the **Device Log** and **Dev Tools** tabs. |
 
 ### Device Log
 
@@ -107,23 +107,6 @@ Know if your app is designed to run on internal or otherwise restricted networks
 | <img src={useBaseUrl('img/live-testing/clear-log-icon.png')} alt="Clear Log icon" width="40"/> | Clear Log | Clears the log feed. |
 | <img src={useBaseUrl('img/live-testing/download-log-icon.png')} alt="Download Log icon" width="40"/> | Download Log | Downloads the log as a .txt file. |
 
-**Web Tests (on Chrome)**
-
-| Device/Platform | Google Pixel XL | Google Pixel 3 | Google Pixel 3a | Motorola Moto G6 Plus | Huawei P30 | Google Pixel C | HTC U12 Plus | HTC U11 | HTC Desire 12 | Samsung Galaxy S7 | Lenovo Tab 4 | Asus Google Nexus 7 (2013) | LG G6 | LG G5 | LG G4 | Huawei P9 | Amazon Kindle Fire HD 8 |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Android 5.1.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Android 6.0 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Android 6.0.1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Android 7.0 |  |  |  |  |  |  |  | X |  |  |  |  |  |  |  |  |  |
-| Android 7.1.1 |  |  |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |
-| Android 8.0.0 |  |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |  |
-| Android 8.1.0 |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |  |  |
-| Android 9 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Android 10 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Android 11 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-
-</TabItem>
-</Tabs>
 
 ### Virtual Device
 1. On Sauce Labs, in the left panel, click **Live** and then click **Cross Browser**.
