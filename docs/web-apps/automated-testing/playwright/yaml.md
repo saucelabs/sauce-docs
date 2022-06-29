@@ -793,6 +793,42 @@ Patterns to skip tests based on their title.
 ```
 ---
 
+#### `updateSnapshots`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Whether to update expected snapshots with the actual results produced by the test run. Playwright test supports visual comparisons [details](https://playwright.dev/docs/test-snapshots).
+
+```yaml
+    updateSnapshots: true
+```
+
+To run test with saucectl, you can follow the instructions.
+1. Use the following config to download generated baseline screenshots in the first run. The baseline screenshot can be found in the artifacts folder and named `example-test-1-actual.png`.
+```yaml
+artifacts:
+  download:
+    when: always
+    match:
+      - console.log
+      - "*.png" // this will download the new baseline screenshots
+```
+
+2. Create a snapshot folder for the test file. e.g. for `tests/example.test.js` test file.
+```bash
+$ mkdir tests/example.test.js-snapshots
+```
+
+3. Move downloaded baseline screenshots to the snapshots folder. Then you can start visual comparison via saucectl.
+```bash
+$ mv artifacts/{Your-suite-name}/example-test-1-actual.png tests/example.test.js-snapshots/
+```
+
+4. If you want to update the baseline snapshots, you can set `updateSnapshots` in sauce config. The newly generated baseline screenshots can be downloaded as artifacts later.
+```yaml
+    updateSnapshots: true
+```
+----
+
 ### `timeout`
 <p><small>| OPTIONAL | DURATION |</small></p>
 
