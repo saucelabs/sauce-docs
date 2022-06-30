@@ -151,7 +151,7 @@ If you upload an app that is signed with an enterprise certificate, and **Instru
 | <img src={useBaseUrl('img/live-testing/switch-app-version-icon.png')} alt="Switch App Version icon" width="35"/> | Switch App Version | Opens the **Switch App Version** window. To change the version of the app you are testing, hover over the version and then click **Choose version**. |
 | <img src={useBaseUrl('img/live-testing/clipboard-icon.png')} alt="Clipboard icon" width="35"/> | Clipboard | Opens the **Paste Content Into Device** window. |
 | <img src={useBaseUrl('img/live-testing/install-dependency-icon.png')} alt="Install Dependency icon" width="35"/> | Install Dependency | Opens the **Install Dependent App** window. |
-| <img src={useBaseUrl('img/live-testing/dev-options-icon.png')} alt="Developer Options icon" width="35"/> | Developer Options | Opens the **Developer Options** panel, which includes the **Device Log**, **Device Vitals**, and **Dev Tools** tabs. |
+| <img src={useBaseUrl('img/live-testing/dev-options-icon.png')} alt="Developer Options icon" width="35"/> | Developer Options | Opens the **Developer Options** panel, which includes the **Device Log** and **Dev Tools** tabs. |
 
 ### Device Log
 
@@ -165,36 +165,6 @@ If you upload an app that is signed with an enterprise certificate, and **Instru
 | <img src={useBaseUrl('img/live-testing/wrap-text-icon.png')} alt="Wrap Text icon" width="40"/> | Wrap Text | Wraps text in the log for easier reading. |
 | <img src={useBaseUrl('img/live-testing/clear-log-icon.png')} alt="Clear Log icon" width="40"/> | Clear Log | Clears the log feed. |
 | <img src={useBaseUrl('img/live-testing/download-log-icon.png')} alt="Download Log icon" width="40"/> | Download Log | Downloads the log as a .txt file. |
-
-### Device Vitals
-Device Vitals is a feature that collects useful performance data in real time from a device during a live session. Data such as network, CPU, and memory usage helps users understand the general performance of a device and the app under test. Users can view a graph of this performance data in real time as the app is processing.
-
-<img src={useBaseUrl('img/live-testing/device-vitals.png')} alt="Device Vitals" width="450"/>
-
-| Icon | Name | Description |
-| :--- | :--- | :--- |
-| <img src={useBaseUrl('img/live-testing/graph-height.png')} alt="Graph Height" width="40"/> | Graph Height | Change the size of the graphs (S, M, L). |
-| <img src={useBaseUrl('img/live-testing/grid-layout-icon.png')} alt="Grid Layout icon" width="40"/> | Grid Layout | Displays graphs side by side. |
-| <img src={useBaseUrl('img/live-testing/row-layout-icon.png')} alt="Row Layout icon" width="40"/> | Row Layout | Displays graphs as as a list. |
-| <img src={useBaseUrl('img/live-testing/download-vitals-icon.png')} alt="Download Vitals icon" width="40"/> | Download Vitals | Downloads the device vitals as a .txt file. |
-
-**Performance Metrics for Android/iOS Devices**
-
-The graph and csv file will contain these performance metrics for devices.
-
-| Metric | Description |
-| :--- | :--- |
-| `cpu_total` | System-wide CPU usage in percentage across all CPU cores. 4 cores at max use would be shown as a value of 400% |
-| `cpu_user` | CPU usage for user processes in percentage across all CPU cores. 4 cores at max use would be shown as a value of 400% |
-| `cpu_kernal` | Android OS CPU usage in percentage across all CPU cores. 4 cores at max use would be shown as a value of 400% |
-| `n_threads` | Total threads in use by the app |
-| `memory_size_kb` | Total threads in use by the app |
-| `memory_resident_kb` | Memory currently in use by app in kilobytes |
-| `memory_shared_kb` | Anonymous shared memory currently in use by system shared between app(s) and system |
-| `network_wifi_receive_b` | Data in bytes received over wifi connection |
-| `network_wifi_sent_b` | Data in bytes sent over wifi connection |
-| `network_mobile_receive_b` | Data in bytes received from the mobile carrier network |
-| `network_mobile_sent_b` | Data in bytes sent over mobile carrier network |
 
 
 ## Changing an App Version
