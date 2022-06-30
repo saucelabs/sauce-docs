@@ -802,7 +802,7 @@ Determines whether to update snapshots with the actual results produced by the t
     updateSnapshots: true
 ```
 
-To run test with saucectl, you can follow the instructions.
+To run a test with `saucectl`:
 1. Use the following config to download generated baseline screenshots in the first run. The baseline screenshot can be found in the artifacts folder and named `example-test-1-actual.png`.
 ```yaml
 artifacts:
