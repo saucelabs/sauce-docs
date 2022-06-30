@@ -823,7 +823,7 @@ $ mkdir tests/example.test.js-snapshots
 $ mv artifacts/{your-suite-name}/example-test-1-actual.png tests/example.test.js-snapshots/
 ```
 
-4. If you want to update the baseline snapshots, you can set `updateSnapshots` in sauce config. The newly generated baseline screenshots can be downloaded as artifacts later.
+4. As long as `updateSnapshots` is set to `true`, playwright will continue to update the baseline screenshots.
 ```yaml
     updateSnapshots: true
 ```
