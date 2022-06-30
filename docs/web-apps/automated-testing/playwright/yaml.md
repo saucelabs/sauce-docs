@@ -820,7 +820,7 @@ $ mkdir tests/example.test.js-snapshots
 
 3. Move downloaded baseline screenshots to the snapshots folder. Then you can start visual comparison via saucectl.
 ```bash
-$ mv artifacts/{Your-suite-name}/example-test-1-actual.png tests/example.test.js-snapshots/
+$ mv artifacts/{your-suite-name}/example-test-1-actual.png tests/example.test.js-snapshots/
 ```
 
 4. If you want to update the baseline snapshots, you can set `updateSnapshots` in sauce config. The newly generated baseline screenshots can be downloaded as artifacts later.
