@@ -823,7 +823,7 @@ $ mkdir tests/example.test.js-snapshots
 $ mv artifacts/{your-suite-name}/example-test-1-actual.png tests/example.test.js-snapshots/
 ```
 
-4. As long as `updateSnapshots` is set to `true`, playwright will continue to update the baseline screenshots.
+4. Set `updateSnapshots` to `true`. Playwright will continue to update the baseline screenshots.
 ```yaml
     updateSnapshots: true
 ```
