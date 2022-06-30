@@ -803,7 +803,7 @@ Determines whether to update snapshots with the actual results produced by the t
 ```
 
 To run a test with `saucectl`:
-1. Use the following config to download generated baseline screenshots in the first run. The baseline screenshot can be found in the artifacts folder and named `example-test-1-actual.png`.
+1. Use the following config to download the baseline screenshots generated in the first run. The baseline screenshots can be found in the **artifacts** folder and are named `example-test-1-actual.png`.
 ```yaml
 artifacts:
   download:
