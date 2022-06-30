@@ -813,7 +813,7 @@ artifacts:
       - "*.png" // this will download the new baseline screenshots
 ```
 
-2. Create a snapshot folder for the test file. e.g. for `tests/example.test.js` test file.
+2. Create a snapshot folder for the test file (e.g., `tests/example.test.js`).
 ```bash
 $ mkdir tests/example.test.js-snapshots
 ```
