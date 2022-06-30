@@ -818,7 +818,7 @@ artifacts:
 $ mkdir tests/example.test.js-snapshots
 ```
 
-3. Move the downloaded baseline screenshots to the snapshots folder. These screenshots will be accessible to playwright in the next test run.
+3. Move the downloaded baseline screenshots to the snapshots folder. These screenshots will be accessible to Playwright in the next test run.
 ```bash
 $ mv artifacts/{your-suite-name}/example-test-1-actual.png tests/example.test.js-snapshots/
 ```
