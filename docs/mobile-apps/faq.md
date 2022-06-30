@@ -183,7 +183,7 @@ No.
 
 #### **Do you have any UI inspection tool built into your application like UI Automator viewer?**
 
-No, there are no inspection tools. We recommend using [Appium Desktop](https://github.com/appium/appium-desktop) for UI inspection, it has built in support for devices on the Real Device Cloud.
+No, there are no inspection tools. We recommend using [Appium Desktop](https://github.com/appium/appium-desktop) or [Appium Inspector](https://github.com/appium/appium-inspector) for UI inspection, it has built in support for devices on the Real Device Cloud.
 
 
 #### **Can I change the orientation of the device screen during a test?**
