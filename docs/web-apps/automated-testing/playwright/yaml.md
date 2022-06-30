@@ -796,7 +796,7 @@ Patterns to skip tests based on their title.
 #### `updateSnapshots`
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Whether to update expected snapshots with the actual results produced by the test run. Playwright test supports visual comparisons [details](https://playwright.dev/docs/test-snapshots).
+Determines whether to update snapshots with the actual results produced by the test run. Playwright tests support [visual comparisons](https://playwright.dev/docs/test-snapshots).
 
 ```yaml
     updateSnapshots: true
