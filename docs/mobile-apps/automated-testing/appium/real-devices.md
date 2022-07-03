@@ -166,6 +166,17 @@ For native app tests on real devices, you must provide a location from which you
 "appium:app","https://github.com/test-apps/ios-app.ipa"
 ```
 
+You can also install an app during a test by using `mobile: installApp` command. 
+
+:::note Limitations
+
+* This method will not work for iOS. You must use a private device and add UDID of the private device to the provisioning profile for iOS.
+* Instrumentation options will not work for apps installed using `mobile: installApp` command.
+* This method does not have access to apps in our Sauce Storage. Only apps that are publicly available can be installed with this command.
+
+:::
+
+
 ### Excluding the `browserName`
 
 When testing a native mobile app, no browser is accessed, so if you are re-using the capabilities from your mobile or desktop browser tests, omit the `browserName` capability. This is an important exclusion because if values are set for _both_ `app` and `browserName`, Sauce Labs defaults to the `browserName`. Similarly, if neither capability is specified, Sauce Labs automatically populates the `browserName` value that matches the `platformName` (Safari for iOS and Chrome for Android).
