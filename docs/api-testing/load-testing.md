@@ -6,7 +6,7 @@ sidebar_label: Load Testing
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The Sauce Labs API Testing load testing feature allows you to stress your endpoints using an existing functional test. The only scenario in which it doesn’t work is if you are using a test with the key/value store component in it.
+The Sauce Labs API Testing load testing feature allows you to stress your endpoints using an existing functional test.
 
 The load agents run within your infrastructure.
 
@@ -15,7 +15,7 @@ The first step is running your load test agent. It’s up to you to run all the 
 To run an agent, execute the following command:
 
 ```
-docker run --rm \
+docker run --pull always --rm \
 --env SAUCE_URI=wss://<api_domain>/api-testing/ws/v4/loadtesting \
 --env SAUCE_AUTH=<username>:<access_key>\
 --env WORKER_ID=<worker_name> \
@@ -26,7 +26,7 @@ quay.io/saucelabs/loadtestingjs:latest
 
 This command will run the agent in a Docker container, but you can manage them in any infrastructure (for example, Kubernetes).
 
-Only two variables in the command are required: `SAUCE_URI` and `SAUCE_AUTH`; all the others are optional and, if not provided, will be auto-generated. The system will generate random names for `WORKER_ID`, `POOL_ID` will remain empty, and the default value for `MAX_VIRTUAL_USERS` is `100`.
+Only two variables in the command are required: `SAUCE_URI` and `SAUCE_AUTH`; all the others are optional and, if not provided, will be auto-generated. The system will generate random names for `WORKER_ID`, `POOL_ID` will remain empty, and the default value for `MAX_VIRTUAL_USERS` is `100`. You have to replace `api_domain` with `api.eu-central-1.saucelabs.com` if your data center is `EU Central 1` and `api.us-west-1.saucelabs.com` if your data center is `US West 1`.
 
 Once you have run the agents, you can continue in the API Testing platform:
 
@@ -63,6 +63,12 @@ If you have saved a load test with an agent that is currently offline, you will 
 <img src={useBaseUrl('/img/api-testing/load-test-agents-offline.png')} alt="Alert that agents are offline" width="400"/>
 
 * Virtual users - The number of active users per agent you want to simulate. The value can be any value that is less than or equal to the max virtual users available for that agent. If more than one agent is selected, the lesser virtual users value is the max number of virtual users you can set up. If you try to set more agents than the available you will see an error message.
+* Environments - The environment dropdown allows you to select an environment to run the load test with or, if you haven't one already, you can create a new one. 
+For more information, see [Environments](/api-testing/environments/).
+
+:::note
+Variables and snippets in the Vault (Company/Project) are taken by default, without the need to select them.
+:::
 
 You can set up multiple profiles for each test, from less aggressive to very aggressive, or with varying durations. The only limitations are those inherited from your infrastructure.
 
@@ -71,7 +77,7 @@ Once you have created and saved a load test, the configuration will be saved for
 The execution of a load test will generate a real-time report that is updated every minute.
 To stop a report before it is complete, click **Stop**.
 
-<img src={useBaseUrl('/img/api-testing/load-test-report-details.png')} alt="Load Test Report Details" width="400"/>
+<img src={useBaseUrl('/img/api-testing/load-test-report-details-environments.png')} alt="Load Test Report Details" width="500"/>
 
 ### Load Test Report Details
 * Outcome - The status of the test:
@@ -84,12 +90,17 @@ To stop a report before it is complete, click **Stop**.
 * Start - The start date and time of the test.
 * End - The end date and time of the test.
 * User - The user that executed the test.
+* Environment - The environment selected for running the test (if any)
 * Agents - The agents used to run the test.
 * Virtual Users - The number of virtual users for the execution of the test.
 
 The report contains a dropdown that shows all the endpoints the test is calling that you can use to filter to a specific one (the default value shows the data for All the endpoints). For best results, set up footprints to ensure the report is readable. For more information, see [Improving Metrics](/api-testing/composer#improving-metrics).
 
 <img src={useBaseUrl('/img/api-testing/load-test-footprint.png')} alt="The Footprint dropdown" width="200"/>
+
+The Summary dynamically shows totals of Response Time (Average, 90th percentile, maximum and minimum), Requests (Total requests and total failures), and Status Codes based on the selection in the footprint dropdown.
+
+<img src={useBaseUrl('/img/api-testing/load-test-summary.png')} alt="The Summary section" width="600"/>
 
 The **Response time** graph shows the response time for all endpoints or for a specific endpoint. In the graph, you can see the maximum, minimum, average, and the 90th percentile. Once the test is complete, you can click any of the report measurements to remove them from the display.
 
@@ -110,6 +121,11 @@ Negative status codes represent connectivity issues:
 Click any of the measurement labels to remove them from the display.
 
 <img src={useBaseUrl('/img/api-testing/load-test-report-status-codes.png')} alt="Status codes graph" width="400"/>
+
+Once the test is completed, at the bottom of the report, "Failures" section will be shown. In this section, you will see all the most recent failures that happened during the test. The section shows one row for each test execution. Each row has the date and time, the number of failures, and a link to the specific report for that test. 
+The **Load more failures** allows you to load more failures. 
+
+<img src={useBaseUrl('/img/api-testing/load-test-failures-report.png')} alt="Load tests failures report" />
 
 Load test reports can be accessed on the project dashboard under **Load Tests**.
 
