@@ -166,7 +166,7 @@ For native app tests on real devices, you must provide a location from which you
 "appium:app","https://github.com/test-apps/ios-app.ipa"
 ```
 
-You can also install a dependent app or an app upgrade during a test by using `driver.install('path-to-app')`command. 
+You can also install a dependent app or an app upgrade during a test by using `driver.installApp('path-to-app')`command. 
 
 ```js title=Driver App Example
 driver.installApp("https://github.com/saucelabs/my-demo-app-rn/releases/download/v1.3.0/Android-MyDemoAppRN.apk");
