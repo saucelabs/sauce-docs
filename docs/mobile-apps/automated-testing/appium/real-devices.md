@@ -166,16 +166,20 @@ For native app tests on real devices, you must provide a location from which you
 "appium:app","https://github.com/test-apps/ios-app.ipa"
 ```
 
-You can also install an app during a test by using `mobile: installApp` command. 
+You can also install a dependent app or an app upgrade during a test by using `driver.install('path-to-app')`command. 
+
+```js title=Driver App Example
+driver.installApp("https://github.com/saucelabs/my-demo-app-rn/releases/download/v1.3.0/Android-MyDemoAppRN.apk");
+```
+
 
 :::note Limitations
-
-* This method will not work for iOS. You must use a private device and add UDID of the private device to the provisioning profile for iOS.
-* Instrumentation options will not work for apps installed using `mobile: installApp` command.
-* This method does not have access to apps in our Sauce Storage. Only apps that are publicly available can be installed with this command.
-
+* The provided app path needs to be publicly available as this method does not have access to your local path/storage.
+* This method does not have access to apps in our Sauce Storage. Only apps that are publicly available can be installed with this command. Therefore, we also can't re-sign and instrument the app. The Instrumentation will not work for apps installed using `driver.install('path-to-app')` command (check [App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-settings) options to learn more).
+* This method will not work for iOS due to signing. To make it work, you must use a private device and add UDID of the private device to the provisioning profile for iOS.
 :::
 
+For Appium commands please check the official [Appium website](http://appium.io/docs/en/commands/device/app/install-app/).
 
 ### Excluding the `browserName`
 
