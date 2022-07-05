@@ -69,7 +69,7 @@ If you have saved a load test with an agent that is currently offline, you will 
 For more information, see [Environments](/api-testing/environments/).
 
 :::note
-Variables and snippets in the Vault (Company/Project) are taken by default, without the need to select them.
+Variables and snippets in the Vault (Company/Project) are used by default, without the need to select them.
 :::
 
 You can set up multiple profiles for each test, from less aggressive to very aggressive, or with varying durations. The only limitations are those inherited from your infrastructure.
