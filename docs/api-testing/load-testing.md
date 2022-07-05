@@ -100,7 +100,7 @@ The report contains a dropdown that shows all the endpoints the test is calling 
 
 <img src={useBaseUrl('/img/api-testing/load-test-footprint.png')} alt="The Footprint dropdown" width="200"/>
 
-The Summary dynamically shows totals of Response Time (Average, 90th percentile, maximum and minimum), Requests (Total requests and total failures), and Status Codes based on the selection in the footprint dropdown.
+The Summary dynamically shows totals of Response time (Average, 90th percentile, Maximum, and Minimum), Requests (Total requests and Failures), and Status codes based on the selected Footprint.
 
 <img src={useBaseUrl('/img/api-testing/load-test-summary.png')} alt="The Summary section" width="600"/>
 
