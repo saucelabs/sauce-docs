@@ -26,7 +26,9 @@ quay.io/saucelabs/loadtestingjs:latest
 
 This command will run the agent in a Docker container, but you can manage them in any infrastructure (for example, Kubernetes).
 
-Only two variables in the command are required: `SAUCE_URI` and `SAUCE_AUTH`; all the others are optional and, if not provided, will be auto-generated. The system will generate random names for `WORKER_ID`, `POOL_ID` will remain empty, and the default value for `MAX_VIRTUAL_USERS` is `100`. You have to replace `api_domain` with `api.eu-central-1.saucelabs.com` if your data center is `EU Central 1` and `api.us-west-1.saucelabs.com` if your data center is `US West 1`.
+Only two variables in the command are required: `SAUCE_URI` and `SAUCE_AUTH`; all the others are optional and, if not provided, will be auto-generated. The system will generate random names for `WORKER_ID`, `POOL_ID` will remain empty, and the default value for `MAX_VIRTUAL_USERS` is `100`. 
+
+If your data center is `EU Central 1`, replace `api_domain` with `api.eu-central-1.saucelabs.com`. If your data center is `US West 1`, replace `api_domain` with `api.us-west-1.saucelabs.com`.
 
 Once you have run the agents, you can continue in the API Testing platform:
 
