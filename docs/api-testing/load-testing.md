@@ -124,7 +124,7 @@ Click any of the measurement labels to remove them from the display.
 
 <img src={useBaseUrl('/img/api-testing/load-test-report-status-codes.png')} alt="Status codes graph" width="400"/>
 
-Once the test is completed, at the bottom of the report, "Failures" section will be shown. In this section, you will see all the most recent failures that happened during the test. The section shows one row for each test execution. Each row has the date and time, the number of failures, and a link to the specific report for that test. 
+Once the test is completed, the Failures section will be shown at the bottom of the report. In this section, you will see all the failures that happened during the test. The section shows one row for each test execution. Each row has the date and time, the number of failures, and a link to the specific report for that test. 
 The **Load more failures** allows you to load more failures. 
 
 <img src={useBaseUrl('/img/api-testing/load-test-failures-report.png')} alt="Load tests failures report" />
