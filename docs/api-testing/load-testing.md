@@ -66,7 +66,7 @@ If you have saved a load test with an agent that is currently offline, you will 
 
 * Virtual users - The number of active users per agent you want to simulate. The value can be any value that is less than or equal to the max virtual users available for that agent. If more than one agent is selected, the lesser virtual users value is the max number of virtual users you can set up. If you try to set more agents than the available you will see an error message.
 * Environments - The environment dropdown allows you to select an environment to run the load test with or, if you haven't one already, you can create a new one. 
-For more information, see [Environments](/api-testing/environments/).
+For more information, see [Creating Environments for Tests](/api-testing/environments/).
 
 :::note
 Variables and snippets in the Vault (Company/Project) are used by default, without the need to select them.
