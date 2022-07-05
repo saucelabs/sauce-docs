@@ -92,7 +92,7 @@ To stop a report before it is complete, click **Stop**.
 * Start - The start date and time of the test.
 * End - The end date and time of the test.
 * User - The user that executed the test.
-* Environment - The environment selected for running the test (if any)
+* Environment - The environment selected for running the test (if any).
 * Agents - The agents used to run the test.
 * Virtual Users - The number of virtual users for the execution of the test.
 
