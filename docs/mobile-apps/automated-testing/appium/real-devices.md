@@ -179,7 +179,7 @@ driver.installApp("https://github.com/saucelabs/my-demo-app-rn/releases/download
 * This method will not work for iOS due to signing. Each iOS app needs to be resigned so it is allowed to be installed on our devices. To make this work you must use a private device and add the UDID of the private device to the provisioning profile for iOS (see our [resigning process](/mobile-apps/automated-testing/ipa-files/) to learn more).
 :::
 
-For more information about this command, please check the official [Appium website](http://appium.io/docs/en/commands/device/app/install-app/).
+For more information about this command, see the [Appium documentation](http://appium.io/docs/en/commands/device/app/install-app/).
 
 ### Excluding the `browserName`
 
