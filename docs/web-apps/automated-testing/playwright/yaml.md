@@ -793,6 +793,42 @@ Patterns to skip tests based on their title.
 ```
 ---
 
+#### `updateSnapshots`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Determines whether to update snapshots with the actual results produced by the test run. Playwright tests support [visual comparisons](https://playwright.dev/docs/test-snapshots).
+
+```yaml
+    updateSnapshots: true
+```
+
+To run a test with `saucectl`:
+1. Use the following config to download the baseline screenshots generated in the first run. The baseline screenshots can be found in the **artifacts** folder and are named `example-test-1-actual.png`.
+```yaml
+artifacts:
+  download:
+    when: always
+    match:
+      - console.log
+      - "*.png" // this will download the new baseline screenshots
+```
+
+2. Create a snapshot folder for the test file (e.g., `tests/example.test.js`).
+```bash
+$ mkdir tests/example.test.js-snapshots
+```
+
+3. Move the downloaded baseline screenshots to the snapshots folder. These screenshots will be accessible to Playwright in the next test run.
+```bash
+$ mv artifacts/{your-suite-name}/example-test-1-actual.png tests/example.test.js-snapshots/
+```
+
+4. Set `updateSnapshots` to `true`. Playwright will continue to update the baseline screenshots.
+```yaml
+    updateSnapshots: true
+```
+----
+
 ### `timeout`
 <p><small>| OPTIONAL | DURATION |</small></p>
 
