@@ -99,16 +99,16 @@ To install a remote app on a real device for a test:
   caps.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.3.0/Android.SauceLabs.Mobile.Sample.app.2.3.0.apk?raw=true");
   ```
 
-### Private Device Considerations
 
-If you are using a remote app download for testing on a private device and wish to also prevent the device from broad internet access while under test, you need to use a secure connection to reach the app URL.
+:::note LIMITATIONS
 
-* Ensure the app is available from a private hosting solution with the necessary permissions (e.g., GitHub repository or Amazon S3 with a strict bucket policy).
-* Ensure the hosted app URL is available to the machine running the automated test.
-* Enable the **Require Sauce Connect/VPN** setting in your [organization's security settings](/basics/acct-team-mgmt/org-settings).
+**Android:**
+* The Instrumentation feature will not work if the app is installed from external location.
 
-:::note
-Each session is a "fresh" installation of your app, meaning, you will not be able to access information about previous versions of your app.
+**iOS:**
+* The app cannot be installed on public devices due to signing.
+* The app can be installed on private devices. However, to make this work you must add the UDID of the private device to the provisioning profile for iOS (see our [resigning process](mobile-apps/automated-testing/ipa-files/) to learn more).
+* The Instrumentation feature will not work if the app is installed from external location.
 :::
 
 
