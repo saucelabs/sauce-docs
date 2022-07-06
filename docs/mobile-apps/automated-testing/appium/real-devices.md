@@ -166,6 +166,21 @@ For native app tests on real devices, you must provide a location from which you
 "appium:app","https://github.com/test-apps/ios-app.ipa"
 ```
 
+You can also install a dependent app or an app upgrade during a test by using the `driver.installApp('path-to-app')` command. 
+
+```js title=Driver App Example
+driver.installApp("https://github.com/saucelabs/my-demo-app-rn/releases/download/v1.3.0/Android-MyDemoAppRN.apk");
+```
+
+
+:::note Limitations
+* The provided app path needs to be publicly available as this method does not have access to your local path/storage.
+* This method does not have access to apps in Sauce Storage. Only apps that are publicly available can be installed with this command. Therefore, we also can't re-sign and instrument the app. The Instrumentation will not work for apps installed using the `driver.installApp('path-to-app')` command (see [App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-settings) to learn more).
+* This method will not work for iOS due to signing. Each iOS app needs to be resigned so it is allowed to be installed on our devices. To make this work you must use a private device and add the UDID of the private device to the provisioning profile for iOS (see our [resigning process](/mobile-apps/automated-testing/ipa-files/) to learn more).
+:::
+
+For more information about this command, see the [Appium documentation](http://appium.io/docs/en/commands/device/app/install-app/).
+
 ### Excluding the `browserName`
 
 When testing a native mobile app, no browser is accessed, so if you are re-using the capabilities from your mobile or desktop browser tests, omit the `browserName` capability. This is an important exclusion because if values are set for _both_ `app` and `browserName`, Sauce Labs defaults to the `browserName`. Similarly, if neither capability is specified, Sauce Labs automatically populates the `browserName` value that matches the `platformName` (Safari for iOS and Chrome for Android).
