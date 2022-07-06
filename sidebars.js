@@ -774,6 +774,18 @@ module.exports = {
           'mobile-apps/features/camera-image-injection',
           'mobile-apps/features/gestures',
           'mobile-apps/features/network-capture',
+          'mobile-apps/features/audio-capture',
+          {
+            type: 'category',
+            label: 'Mobile App Diagnostics',
+            link: { type: 'doc', id: 'mobile-apps/features/mobile-app-diagnostics/device-vitals' },
+            collapsed: true,
+            items: [
+              'mobile-apps/features/mobile-app-diagnostics/device-vitals',
+              'mobile-apps/features/mobile-app-diagnostics/interactions',
+              'mobile-apps/features/mobile-app-diagnostics/view-tree',
+            ],
+          },
         ],
       },
       {

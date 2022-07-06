@@ -61,12 +61,30 @@ Sauce Labs supports the following test configurations for TestCafe:
       <th>TestCafe Version</th>
       <th>Supported Platforms</th>
       <th>Supported Browsers</th>
+      <th>End of Life</th>
     </tr>
+    <tbody>
+    <tr>
+      <td rowspan='3'>1.19.0</td>
+      <td><b>macOS:</b> 11.00, 12</td>
+      <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+      <td rowspan='3'>Jun 6, 2023</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+      <td>Chrome, Firefox, MicrosoftEdge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+      <td>Safari</td>
+    </tr>
+    </tbody>
     <tbody>
     <tr>
       <td rowspan='3'>1.18.5</td>
       <td><b>macOS:</b> 11.00, 12</td>
       <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+      <td rowspan='3'>Apr 16, 2023</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>
@@ -82,6 +100,7 @@ Sauce Labs supports the following test configurations for TestCafe:
       <td rowspan='3'>1.18.3</td>
       <td><b>macOS:</b> 11.00</td>
       <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+      <td rowspan='3'>Feb 2, 2023</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10</td>
@@ -97,6 +116,7 @@ Sauce Labs supports the following test configurations for TestCafe:
       <td rowspan='3'>1.17.1</td>
       <td><b>macOS:</b> 11.00</td>
       <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+      <td rowspan='3'>Nov 29, 2022</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10</td>
@@ -112,6 +132,7 @@ Sauce Labs supports the following test configurations for TestCafe:
       <td rowspan='3'>1.16.1</td>
       <td><b>macOS:</b> 11.00</td>
       <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+      <td rowspan='3'>Oct 13, 2022</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10</td>
@@ -144,3 +165,9 @@ Sauce Labs supports the following test configurations for TestCafe:
 
 If you would prefer to stay in TestCafe, try the new [TestCafe Sauce Labs Plugin](https://github.com/DevExpress/testcafe-browser-provider-saucelabs). Connect to your Sauce Labs account from within your TestCafe project to configure and run your tests directly from TestCafe.
 If all you want is to publish your TestCafe test results to Sauce Labs (but not run on Sauce Labs), please check out our [TestCafe reporter](https://github.com/saucelabs/testcafe-reporter)!
+
+## Limitations
+
+:::caution Special Characters in Test Names
+We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
+:::
