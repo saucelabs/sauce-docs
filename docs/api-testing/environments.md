@@ -36,7 +36,7 @@ There are multiple ways to create and access Test environments:
 The resulting environment (along with its defined variables) will now appear in each of your Tests as an option in the environment dropdown.
 
 ### From a Project
-1. Locate the Environments dropdown from any of the following sections: **Tests**, **Compose**, or **HTTP Client**.
+1. From within a Project, go to any of the following sections: **Tests**, **Compose**, or **HTTP Client**.
 2. Under **Run Configuration**, click the **Environments** dropdown (defaults to **No environment**).
 3. Select **Add item**.
 4. Enter a name for your environment, then click **Confirm**.
