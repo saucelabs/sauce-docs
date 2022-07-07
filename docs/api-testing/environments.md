@@ -37,7 +37,7 @@ The resulting environment (along with its defined variables) will now appear in 
 
 ### From a Project
 1. Locate the Environments dropdown from any of the following sections: **Tests**, **Compose**, or **HTTP Client**.
-2. Under **Run Configuration**, click the **No environment** dropdown.
+2. Under **Run Configuration**, click the **Environments** dropdown (defaults to **No environment**).
 3. Select **Add item**.
 4. Enter a name for your environment, then click **Confirm**.
 5. Click **Create variable**, enter **Key** and **Value** pairs, then click **Confirm**.
