@@ -229,12 +229,12 @@ sauce:
 ## `env`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
+A property containing one or more environment variables that are global for all tests suites in this configuration. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
 
 ```yaml
   env:
     hello: world
-    my_var: $MY_VAR
+    my_var: $MY_VAR  # You can also pass through existing environment variables through parameter expansion
 ```
 
 :::caution
