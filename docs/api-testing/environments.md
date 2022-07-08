@@ -48,7 +48,7 @@ This new environment will be selected by default in the dropdown.
 ## Using Environments
 Once you've created an environment and added your variables, you can run your Test against that environment.
 
-1. Locate the Environments dropdown from any of the following sections: **Tests**, **Compose**, or **HTTP Client**. 
+1. From within a Project, go to any of the following sections: **Tests**, **Compose**, or **HTTP Client**.
 2. Under **Run Configuration**, click the **Environments** dropdown (defaults to **No environment**), then select the name of the environment you created.<br/><img src={useBaseUrl('img/api-fortress/2021/04/selectEnv.png')} alt="result in tests" width="300"/>
 
 By activating an environment here, you will be able to hit a different variable (key/value pair) in your current session without actually changing your Test.
