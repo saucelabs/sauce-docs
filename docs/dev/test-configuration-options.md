@@ -449,7 +449,7 @@ For virtual device mobile tests, the capability is `deviceOrientation`, but for 
 ### `setupDeviceLock`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Sets up the device pin code for the automated test session.  Valid values are `true` and `false`.
+Sets up the device pin code for the automated test session. Valid values are `true` and `false`.
 By defining this capability in your Appium test, we are setting up the device for you in a state your application need to be successfully launched. 
 
 :::important
