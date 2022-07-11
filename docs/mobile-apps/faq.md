@@ -59,7 +59,7 @@ Yes. See [Camera Image Injection](/mobile-apps/features/camera-image-injection).
 #### **Is there a maximum time I can use a real device for either manual or automated testing, provided I actually do interact with the device?**
 
 For real devices on the public cloud, the limit is 6 hours for Appium tests and 1 hour for Espresso and XCUITest; the same applies to private cloud devices.
-The limits are there to ensure that our public cloud has enough available devices for you. In the case of private cloud devices the limits help ensure  longevity of your private device.
+The limits for public cloud devices ensure that there are enough devices available for you, whereas the limits for private cloud devices ensure the longevity of your devices.
 
 #### **Can I upload files to or download files from a real device?**
 
