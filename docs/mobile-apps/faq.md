@@ -169,7 +169,7 @@ No. This is a feature request on our roadmap.
 
 #### **Can I use Bluetooth on a device?**
 
-Yes. Please contact your Customer Success Manager or SE to discuss your specific use case.
+No. We do not support Bluetooth connections between devices in our Real Device Cloud. If you have a Bluetooth feature request, please let our support team know.
 
 
 #### **What should the frame rate be on newer Android devices?**
