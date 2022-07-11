@@ -826,7 +826,7 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location --compressed \
 --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets/performance.json' | json_pp
 ```
 
@@ -835,7 +835,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location --compressed \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets/performance.json' | json_pp
 ```
 
