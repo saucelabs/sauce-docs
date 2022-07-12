@@ -21,7 +21,7 @@ Check out the docs below to get started with API Testing and Monitoring on the S
     <h2>Create an API Test</h2>
     <p>Below are the methods to create a test.</p>
     <ul>
-        <li><a href="/api-testing/quickstart">HTTP Client</a></li>
+        <li><a href="/api-testing/quickstart/#create-test">HTTP Client</a></li>
         <li><a href="/api-testing/build-from-spec">Import from Spec</a> or <a href="/api-testing/import-postman-collection/">Postman Collection</a></li>
         <li><a href="/api-testing/composer">Test Composer (write test from scratch)</a></li>
         <li><a href="/api-testing/import-export-tests">Import Legacy APIF Test</a></li>
