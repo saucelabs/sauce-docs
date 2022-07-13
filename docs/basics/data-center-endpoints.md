@@ -65,12 +65,14 @@ URLs vary based on the services you're using, your data center, and the types of
 </tr>
 <tr>
 <td rowspan="2" >Sauce Connect Proxy</td>
-<td>Virtual and Real Devices on Sauce: <code>https://saucelabs.com/rest/v1/</code></td>
+<td>Rest API: <code>https://api.us-west-1.saucelabs.com/rest/v1/*/tunnels</code></td>
+<td>Tunnel Server: <code>https://maki*.miso.saucelabs.com</code></td>
+<td>Tunnel Server v2alpha: <code>https://tunnel-*.tunnels.us-west-4.saucelabs.com</code></td>
 </tr>
 <tr>
-<td>Team Management: <code>https://api.us-west-1.saucelabs.com/team-management/v1/</code></td>
-</tr>
 <tr>
+<td>Team Management</td><td><code>https://api.us-west-1.saucelabs.com/team-management/v1/</code></td>
+</tr>
 <td>IP Ranges</td><td><code>162.222.72.0/21</code><br/><code>66.85.48.0/21</code></td>
 </tr>
 </table>
