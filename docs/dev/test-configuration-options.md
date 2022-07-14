@@ -443,6 +443,26 @@ For virtual device mobile tests, the capability is `deviceOrientation`, but for 
 ```
 
 ---
+
+
+---
+### `setupDeviceLock`
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+
+Sets up the device pin code for the automated test session. Valid values are `true` and `false`.
+This capability sets your device in the state required for your application to launch successfully. 
+
+:::important
+The `setupDeviceLock` capability helps to bypass the Security requirements from your applications, like pincode requirements for launching and app or invoking certain activities/features within your app. Example: https://developer.android.com/reference/android/app/KeyguardManager 
+:::
+
+```java title="Real Device Setting"
+"setupDeviceLock": "true"
+```
+
+---
+
+
 ### `otherApps`
 <p><small>| ARRAY | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
