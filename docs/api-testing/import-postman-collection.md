@@ -125,7 +125,7 @@ Your environmental variables will now available across all your Projects.
 
 ## Importing a HAR File (RDC and VDC)
 
-You can import a HAR (HTTP Archive) file into API Testing to automatically generate a functional test. Network Traffic Capture must be enabled to use this feature. See [Network Traffic Capture](/mobile-apps/features/network-capture) for more information.
+You can import a HAR (HTTP Archive) file into API Testing to automatically generate a functional test. Network Traffic Capture and Extended Debugging must be enabled to use this feature. See [Network Traffic Capture](/mobile-apps/features/network-capture) and [Enabling Extended Debugging](/insights/debug#enabling-extended-debugging) for more information.
 
 To import a HAR file:
 
