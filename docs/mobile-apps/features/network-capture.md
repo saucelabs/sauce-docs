@@ -73,6 +73,7 @@ Alternatively, some other commonly used HAR viewers include:
 :::note Not Supported
 * Android Emulators
 * iOS Simulators
+* Hybrid Applications
 :::
 
 ### Android
