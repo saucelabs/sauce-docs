@@ -532,13 +532,13 @@ We recommend reviewing [Device Management for Real Devices](/mobile-apps/support
 
 ---
 ### `sessionCreationRetry`
-<p><small>| INTEGER |</small></p>
+<p><small>| INTEGER |<span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 Specify the number of times the test should attempt to launch a session.
 
 ---
 ### `sessionCreationTimeout`
-<p><small>| INTEGER |</small></p>
+<p><small>| INTEGER |<span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 Specify the amount of time (in seconds) that the test should allow to launch a test before failing.
 
