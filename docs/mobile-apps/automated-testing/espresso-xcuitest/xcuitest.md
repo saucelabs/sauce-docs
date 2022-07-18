@@ -543,7 +543,8 @@ The name of the test suite, which will be reflected in the results and related a
 Set test application on suite level. See the full [usage](#testapp). If this field is not set, saucectl will pick the default `testApp` from [xcuitest](#xcuitest) level.
 
 ```yaml
-  testApp: ./apps/calc-success.apk
+suites:
+  - testApp: ./apps/calc-success.apk
 ```
 ---
 
