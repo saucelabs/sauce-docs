@@ -29,7 +29,7 @@ The Logger tool helps with API call recording by facilitating complete captures 
 ### Launch Piestry via CLI
 6. From your CLI, launch [Piestry, our API Mocking server tool](/api-testing/mocking), by running the following code. The last line will be the `--logger` switch, followed by the URL from the previous step:
    ```bash
-  docker run --pull -v "$(pwd)/myspec:/specs" \
+  docker run --pull always -v "$(pwd)/myspec:/specs" \
   -p 5000:5000 quay.io/saucelabs/piestry \
   -u /specs/myspec.yaml \
   --logger https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/logger
