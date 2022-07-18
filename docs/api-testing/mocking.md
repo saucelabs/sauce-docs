@@ -27,7 +27,7 @@ Sauce Labs [_Piestry_](/dev/glossary/#piestry) is our API mocking server tool th
 
 Piestry must be started from a Docker container in your CI/CD pipeline using the following code snippet:
 ```bash
-docker run -v "$(pwd)/specs:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
+docker run --pull -v "$(pwd)/specs:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
 ```
 
 `quay.io/saucelabs/piestry` is our Docker image and `/specs/myspec.yaml` needs to be the URI to your YAML spec file (can be local or remote).
@@ -53,7 +53,7 @@ If you provide a standard OpenAPI spec file, our system should bind a series of 
 1. On your local machine, place your spec file (or set of files in a folder) in a location of your choice. For this example, we'll call it `myspec.yaml`.
 2. Open your CLI terminal and navigate to right outside that folder, then run this command:
   ```bash
-  docker run -v "$(pwd)/myspec:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
+  docker run --pull -v "$(pwd)/myspec:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
   ```
   `$(pwd)/myspec` means the `{current_directory}/myspec` that gets mounted to the container in the `/specs` folder. Therefore, the -u (relative to the container is) `/specs/myspec.yaml`.
 3. If successful, you should see the listing of the available routes:

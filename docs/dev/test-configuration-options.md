@@ -10,7 +10,7 @@ This page provides a reference for the valid test configuration options (capabil
 Try our [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/)! It provides a graphical user interface where you can specify your settings using option buttons and drop-down menus, then automatically generates the corresponding capabilities code based on your selections. For examples, see [Examples of Test Configuration Options for Website Tests](/basics/test-config-annotation/test-config/#examples-of-test-configuration-options-for-website-tests).
 
 :::note Desktop and VDC Only
-The Platform Configurator does not support capabilities generation for real device (RDC) tests at this time.
+The Platform Configurator does not support capabilities generation for real device (RDC) tests at this time. For real device capabilities, see our code snippet examples.
 :::
 
 ## What You'll Need
