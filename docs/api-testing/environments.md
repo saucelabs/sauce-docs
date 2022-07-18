@@ -21,11 +21,11 @@ The **Environments** section lets you change anything, not just environments. Yo
 
 ## Creating Environments
 
-Once a domain is parametrized, you can override a variable if needed.
+Once you have a variable, you can override it if needed.
 
 There are multiple ways to create and access Test environments:
 
-### From a Project
+### From the Environments
 1. From within a Project, go to the **Environments** section.<br/><img src={useBaseUrl('img/api-fortress/2021/04/accessEnvironment.png')} alt="access environment"/>
 2. Click **Create Environment**.
 3. Enter a name for your environment, then click **Save** when finished.<img src={useBaseUrl('img/api-fortress/2021/04/createEnvironment.png')} alt="create environment" width="300"/>
@@ -33,11 +33,11 @@ There are multiple ways to create and access Test environments:
    * Add variable(s) manually by clicking **New Entry** > Enter **Key** and **Value** pairs > **Confirm**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/manualEntry.png')} alt="create environment" width="500"/>
    * Import an existing environment by clicking **Import** > **Choose File** (accepted file types are Postman, .json, .csv).<br/><img src={useBaseUrl('img/api-fortress/2021/04/importEnv.png')} alt="create environment" width="500"/>
 
- The resulting environment (along with its defined variables) will now appear each of your Tests as an option in the environment dropdown.
+The resulting environment (along with its defined variables) will now appear in each of your Tests as an option in the environment dropdown.
 
-### From a Test
-1. Locate your desired Test from any of the following sections: **Tests**, **Compose**, or **HTTP Client**.
-2. Under **Run Configuration**, click the **No environment** dropdown.
+### From a Project
+1. From within a Project, go to any of the following sections: **Tests**, **Compose**, or **HTTP Client**.
+2. Under **Run Configuration**, click the **Environments** dropdown (defaults to **No environment**).
 3. Select **Add item**.
 4. Enter a name for your environment, then click **Confirm**.
 5. Click **Create variable**, enter **Key** and **Value** pairs, then click **Confirm**.
@@ -48,8 +48,8 @@ This new environment will be selected by default in the dropdown.
 ## Using Environments
 Once you've created an environment and added your variables, you can run your Test against that environment.
 
-1. Locate your desired Test from any of the following sections: **Tests**, **Compose**, or **HTTP Client**. 
-2. Under **Run Configuration**, click the **No environment** dropdown, and select the name of the environment you created.<br/><img src={useBaseUrl('img/api-fortress/2021/04/selectEnv.png')} alt="result in tests" width="300"/>
+1. From within a Project, go to any of the following sections: **Tests**, **Compose**, or **HTTP Client**.
+2. Under **Run Configuration**, click the **Environments** dropdown (defaults to **No environment**), then select the name of the environment you created.<br/><img src={useBaseUrl('img/api-fortress/2021/04/selectEnv.png')} alt="result in tests" width="300"/>
 
 By activating an environment here, you will be able to hit a different variable (key/value pair) in your current session without actually changing your Test.
 
