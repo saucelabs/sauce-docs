@@ -89,7 +89,7 @@ sidebar_label: Supported Browsers and OSs
     macOS 12
    </td>
    <td>
-    Monterrey
+    Monterey
    </td>
   </tr>
   <tr>
