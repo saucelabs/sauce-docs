@@ -36,7 +36,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 </TabItem>
 <TabItem value="windows">
 
-* OS: Windows 10 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
+* OS: Windows 10 or 11 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
 * Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
 
 </TabItem>
@@ -61,22 +61,36 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
       <th>Cypress Version</th>
       <th>Supported Platforms</th>
       <th>Supported Browsers</th>
+      <th>End of Life</th>
     </tr>
     <tbody>
     <tr>
-      <td rowspan='2'>9.5.3</td>
-      <td><b>macOS:</b> 11.0</td>
+      <td rowspan='2'>9.7.0</td>
+      <td><b>macOS:</b> 11.00, 12</td>
       <td rowspan='2'>Chrome, Firefox, MicrosoftEdge</td>
+      <td rowspan='2'>Jun 6, 2023</td>
     </tr>
     <tr>
-      <td><b>Windows:</b> 10</td>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='2'>9.5.3</td>
+      <td><b>macOS:</b> 11.00, 12</td>
+      <td rowspan='2'>Chrome, Firefox, MicrosoftEdge</td>
+      <td rowspan='2'>Apr 16, 2023</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
     </tr>
     </tbody>
     <tbody>
     <tr>
       <td rowspan='2'>9.3.1</td>
-      <td><b>macOS:</b> 11.0</td>
+      <td><b>macOS:</b> 11.00</td>
       <td rowspan='2'>Chrome, Firefox, MicrosoftEdge</td>
+      <td rowspan='2'>Feb 2, 2023</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10</td>
@@ -87,6 +101,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
       <td rowspan='1'>9.1.0</td>
       <td><b>Windows:</b> 10</td>
       <td>Chrome, Firefox, MicrosoftEdge</td>
+      <td rowspan='2'>Nov 29, 2022</td>
     </tr>
     </tbody>
     <tbody>
@@ -94,20 +109,14 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
       <td rowspan='1'>8.6.0</td>
       <td><b>Windows:</b> 10</td>
       <td>Chrome, Firefox, MicrosoftEdge</td>
+      <td rowspan='2'>Oct 13, 2022</td>
     </tr>
     </tbody>
   </table>
  </TabItem>
  <TabItem value="docker">
 
- Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available release notes.
-
- |Cypress Version|Supported Browsers|
- |----|----|
- |9.3.1|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.1.0)|
- |9.1.0|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.0.0)|
- |8.6.0|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.4.0)|
- |8.3.0|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.3.1)|
+ Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases).
 
 </TabItem>
 </Tabs>
@@ -126,3 +135,13 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 ## Cypress Plugin for Sauce Labs
 
 If you would prefer to stay in Cypress, try the new [Cypress Sauce Labs Plugin](https://github.com/saucelabs/sauce-cypress-plugin). Connect to your Sauce Labs account from within your Cypress project to configure and run your tests directly from Cypress.
+
+## Limitations
+
+:::caution Special Characters in Test Names
+We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
+:::
+
+:::caution Firefox 101 + Windows
+Cypress does currently not work with Firefox 101 on Windows.
+:::

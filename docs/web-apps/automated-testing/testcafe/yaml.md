@@ -227,12 +227,12 @@ sauce:
 ## `env`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
+A property containing one or more environment variables that are global for all tests suites in this configuration. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
 
 ```yaml
   env:
     hello: world
-    my_var: $MY_VAR
+    my_var: $MY_VAR  # You can also pass through existing environment variables through parameter expansion
 ```
 ---
 
@@ -322,7 +322,7 @@ Specifies the location of the npm registry source. If the registry source is a p
 ### `packages`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specifies any NPM packages that are required to run tests and should, therefore, be included in the bundle. See [Including Node Dependencies](#including-node-dependencies).
+Specifies any npm packages that are required to run tests and should, therefore, be installed on the Sauce Labs VM. See [Including Node Dependencies](#including-node-dependencies).
 
 ```yaml
   packages:
@@ -331,6 +331,31 @@ Specifies any NPM packages that are required to run tests and should, therefore,
     "@testcafe/react": "^5.0.1"
 ```
 ---
+
+### `dependencies`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Specifies any npm packages that are required to run tests and should, therefore, be included in the bundle.
+Unlike `packages`, which installs dependencies on the VM, the dependencies specified here have to be already installed in the local `node_modules` folder. These dependencies, along with any related transitive dependencies, are then included in the bundle that is uploaded to Sauce Labs.
+
+If you have already been including `node_modules` in your bundle, then this feature will help you speed up your tests by reducing the amount of files in the bundle. A smaller bundle will upload and extract faster, which speeds up the setup on the VM, facilitating a faster test feedback cycle.
+
+Take note that the syntax is different from `packages`. It's a simple **list** of dependencies, without the need to specify the version.
+
+```yaml
+npm:
+  dependencies:
+    - lodash
+```
+
+To use this feature, make sure that `node_modules` is not ignored via `.sauceignore`.
+
+:::caution
+This feature is highly experimental.
+:::
+
+---
+
 ## `reporters`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -342,6 +367,62 @@ reporters:
     enabled: true
     filename: saucectl-report.xml
 ```
+
+---
+### `junit`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The JUnit reporter gathers JUnit reports from all jobs and combines them into a single report.
+
+```yaml
+reporters:
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
+```
+---
+### `json`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The JSON reporter gathers test results from all jobs and combines them into a single report.
+
+```yaml
+reporters:
+  json:
+    enabled: true
+    filename: saucectl-report.json
+    webhookURL:saucectl-report.json
+```
+---
+#### `enabled`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Toggles the reporter on/off.
+
+```yaml
+    enabled: true
+```
+
+---
+#### `webhookURL`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
+
+```yaml
+    webhookURL: https://my-webhook-url
+```
+
+---
+#### `filename`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the report filename. Defaults to "saucectl-report.json".
+
+```yaml
+    filename: my-saucectl-report.json
+```
+
 ---
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
@@ -413,7 +494,7 @@ Specifies which artifacts to download based on whether they match the name or fi
 #### `directory`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded.
+Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory will match the suite name. If a directory with the same name already exists, the new one will be suffixed by a serial number.
 
 ```yaml
     directory: ./artifacts/
@@ -629,6 +710,16 @@ The explicit name, file glob, or location of the test files to be included in th
     - "tests/test_file1.test.js"
     - "tests/integrations"
     - "*/*.test.js"
+```
+---
+
+### `excludedTestFiles`
+<p><small>| OPTIONAL | ARRAY/REGEX |</small></p>
+
+Excludes test files to skip the tests. Files are matched by shell pattern, such as the explicit name, file glob, or location of the test files.
+
+```yaml
+      excludedTestFiles: [ "*/*.test.js" ]
 ```
 ---
 
@@ -896,10 +987,37 @@ Determines whether to prevent the browser from caching page content. See [Testca
 
 Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.
 
+When the suite reaches the timeout limit, its status is set to '?' in the CLI. This does not reflect the actual status of the job in the Sauce Labs web UI or API.
+
 :::note
 Setting `0` reverts to the value set in `defaults`.
 :::
 
 ```yaml
   timeout: 15m
+```
+---
+
+### `preExec`
+<p><small>| OPTIONAL | STRING/ARRAY |</small></p>
+
+Specifies which commands needs to be executed before the tests are actually started. The commands are executed from the root directory of your project.
+
+:::note
+There is a 300-second limit for all `preExec` commands to complete.
+:::
+
+```yaml
+  preExec:
+    - node ./scripts/pre-execution-script.js
+```
+---
+
+### `timeZone`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
+
+```yaml
+  timeZone: New_York
 ```

@@ -37,18 +37,24 @@ In this configuration, the Site Under Test (SUT) is behind a proxy in order to a
 Proxies and proxy auto-configuration (PAC) (see [Proxy auto-config](https://en.wikipedia.org/wiki/Proxy_auto-config)) settings may be configured based on the operating system settings on the machine where it is installed.
 
 * On Windows, Sauce Connect Proxy will use the proxy settings for Internet Explorer, as well as the system-wide proxy settings that are set in the Control Panel.
-* On Mac OS X, Sauce Connect Proxy will use the proxy settings in Preferences/Network. Both proxy and PAC settings are supported.
-* On Linux, Sauce Connect Proxy looks for these variables, in this order:
-  * `http_proxy` or `https_proxy`
-  * `HTTP_PROXY` or `HTTPS_PROXY`
+* On macOS, Sauce Connect Proxy will use the proxy settings in Preferences/Network. Both proxy and PAC settings are supported.
+* On macOS and Linux, Sauce Connect Proxy looks for these variables, in this order:
+  * `http_proxy`
+  * `HTTP_PROXY`
   * `all_proxy`
   * `ALL_PROXY` (they can be in the form `http://host.name:port` or `host.name:port`)
 
-When a proxy is auto-detected, Sauce Connect Proxy will route the following traffic through the detected proxy:
+When a proxy is detected, Sauce Connect Proxy will route the following traffic through the detected proxy:
 
 * all network traffic between the Sauce Connect Proxy client running on your network and the Sauce Labs REST API
-* all network traffic between the Sauce Connect Proxy client running on your network and the Sauce Labs Sauce Connect server
 * all network traffic between the Sauce Connect Proxy client and the SUT
+
+
+:::note 
+Network traffic between the Sauce Connect Proxy client running on your network and the Sauce Connect server will not use the detected proxy unless the [--proxy-tunnel](/dev/cli/sauce-connect-proxy#--proxy-tunnel) flag is specified.
+:::
+
+
 
 You can disable automatic proxy detection with the command-line option [--no-autodetect](/dev/cli/sauce-connect-proxy#--no-autodetect).
 
@@ -247,7 +253,7 @@ The Charles Proxy is useful for monitoring traffic passing between your Sauce VM
 4. Create a pac.js file for Sauce Connect Proxy:
   ```java
   function FindProxyForURL(url, host) {
-      if (shExpMatch(host, "*.miso.saucelabs.com") ||
+      if (shExpMatch(host, "*.miso.saucelabs.com*") ||
           shExpMatch(host, "*.saucelabs.com") ||
           shExpMatch(host, "saucelabs.com")) {
           // KGP and REST connections. Another proxy can also be specified.
@@ -290,7 +296,7 @@ If `curl -v --proxy external.proxy.com private.mysite.com` does not get a respon
 ```javascript title="multiproxy proxy.pac"
 function FindProxyForURL(url, host) {
     // Sauce domain calls required to start a tunnel
-    if (shExpMatch(host, "*.miso.saucelabs.com") ||
+    if (shExpMatch(host, "*.miso.saucelabs.com*") ||
         shExpMatch(host, "*.saucelabs.com") ||
         shExpMatch(host, "saucelabs.com")) {
         // Send the required Sauce Traffic

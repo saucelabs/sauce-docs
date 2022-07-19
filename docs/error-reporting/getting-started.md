@@ -1,18 +1,18 @@
 ---
 id: getting-started
-title: Error Reporting
+title: Error and Crash Reporting
 sidebar_label: Getting Started
-description: Capture crash and error reports from your games and mobile apps with Backtrace.
+description: Capture error and crash reports from your games and mobile apps with Backtrace.
 ---
-Capture crash and error reports from your games and mobile apps with Backtrace.
+Capture error and crash reports from your games and mobile apps with Backtrace.
 
 ## Set Up Your Project
 <div className="box box1 card">
   <div className="container">
   <h3>Platform Integrations</h3>
-  <p>Integrate Backtrace in your games and apps across languages and platforms with our crash and error reporting libraries.</p>
+  <p>Integrate Backtrace in your games and apps across languages and platforms with our error and crash reporting libraries.</p>
   <ul>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040515611-Android-Integration-Guide">Android</a></li>
+    <li><a href="/error-reporting/platform-integrations/android/setup/">Android</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040104932-Integrating-Apache-Traffic-Server">Apache Traffic Server</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040106132-Breakpad-Integration-Guide">Breakpad</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040105292-C-Integration-Guide">C#</a></li>
@@ -23,7 +23,7 @@ Capture crash and error reports from your games and mobile apps with Backtrace.
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360058815691-CryEngine-Integration-Guide">CRYENGINE</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040517231-Electron-Integration-Guide">Electron</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040106032-Go-Integration-Guide">Go</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040104692-iOS-Integration-Guide">iOS</a></li>
+    <li><a href="/error-reporting/platform-integrations/ios/setup/">iOS</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040517211-Javascript-Integration-Guide">JavaScript</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360040517331-Minidump">Minidump</a></li>
     <li><a href="https://support.backtrace.io/hc/en-us/articles/360057860351-Nintendo-Switch-Support">Nintendo Switch</a></li>
@@ -43,11 +43,11 @@ Capture crash and error reports from your games and mobile apps with Backtrace.
   </div>
 </div>
 
-## View and Analyze Crash and Error Data
+## View and Analyze Error and Crash Data
 <div className="box box1 card">
   <div className="container">
   <h3>Web Console Views</h3>
-  <p>View and analyze crash and error data in the web console so you can triage, prioritize, and resolve each error.</p>
+  <p>View and analyze error and crash data in the web console so you can triage, prioritize, and resolve each error.</p>
   <ul>
     <li><a href="/error-reporting/web-console/getting-started/">Getting Started</a></li>
     <li><a href="/error-reporting/web-console/overview/">Overview</a></li>

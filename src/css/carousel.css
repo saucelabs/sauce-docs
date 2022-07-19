@@ -9,6 +9,12 @@
   padding-top: 8px;
 }
 
+/* .alice-carousel__stage {
+  display: flex;
+  gap: 10%;
+  align-items: baseline;
+} */
+
 .alice-carousel__prev-btn-wrapper {
   text-align: center;
 }
@@ -21,18 +27,24 @@
   font-size: 2.5rem;
 }
 
+/* .alice-carousel__prev-btn,
+.alice-carousel__next-btn {
+  padding: 0;
+  margin: 0;
+} */
+
 html[data-theme='dark'] .alice-carousel__dots {
-    margin: 16px 4px 4px;
+  margin: 0;
 }
 
 html[data-theme='light'] .alice-carousel__dots {
-    margin: 16px 4px 4px;
+  margin: 0;
 }
 
 html[data-theme='dark'] .alice-carousel__next-btn [data-area]::after {
   color: white;
 }
 
-html[data-theme='dark'] .alice-carousel__prev-btn [data-area]::after{
+html[data-theme='dark'] .alice-carousel__prev-btn [data-area]::after {
   color: white;
 }

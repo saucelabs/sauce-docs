@@ -26,7 +26,7 @@ You can check the current accessibility of any Sauce Labs system on the [Sauce L
 
 The Sauce Labs APIs are organized around REST. Each endpoint is structured as a resource-oriented URL that accepts inline query parameters and form-encoded request bodies, then returns JSON-encoded responses.
 
-Each endpoint is constructed from a `{base-url}` prefix that is based on the data center associated with the Sauce Labs account for which the request is relevant, plus the latests version for the given method. The following table provide the base URLs for each data center.
+Each endpoint is constructed from a `{base-url}` prefix that is based on the data center associated with the Sauce Labs account for which the request is relevant, plus the latest version for the given method. The following table provide the base URLs for each data center.
 
 |Data Center|API Base URL|
 |:---|:-------|

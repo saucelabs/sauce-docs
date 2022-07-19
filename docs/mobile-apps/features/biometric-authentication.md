@@ -28,27 +28,33 @@ Biometrics test support in Sauce Labs is not intended to test actual biometrics 
 
 To use biometric interception in a live mobile app test, you must ensure that the functionality is enabled for your app both through Sauce Labs AND through your app before you can mock the result as passing or failing.
 
-1. Click **LIVE** > **Mobile App** to navigate to Sauce Labs real devices.
-1. If you haven't already, upload your app file.
-1. Hover over your app row and click **Settings**.
-1. Set **Biometrics Interception** to **Enabled**.
-1. Hover over your app and click **Choose Device**.
-1. Hover an available device from the menu and click **Launch** to start your live test.
-1. Once in the test, if a login screen appears, but the facial or fingerprint recognition prompt does not appear, you may need to allow biometrics in the app itself. For example, in the Sauce Labs My Demo App:
-    1. Click **Menu** at the bottom of the device screen.
-    1. Choose **FaceID** from the menu.
-    1. Enable **Allow login with FaceID**.
-    :::note
-    In your own app, if the first screen is the login screen and you have not enabled biometrics, you will need to log into the app manually to enable biometrics, then log out to be able to test it. You do not need to access the device settings because Sauce Labs performs that instrumentation automatically when you enable biometric interception for your app in our platform.
-    :::
-1. Return to the Login screen to trigger the biometric interception prompt, then click the **More Device Options** icon in the right-side toolbar and select the **Biometric Authentication** fingerprint icon.
+1. In Sauce Labs, click **LIVE** and then click **Mobile App**.
+2. On the **App Selection** page, hover over the test and then click **Settings**.
+
+  <img src={useBaseUrl('img/live-testing/live-mobile-app-settings-nav.png')} alt="Mobile app settings navigation" width="650"/>
+
+3. On the **Settings** page, ensure that **Biometrics Interception** is enabled and then return to the **App Selection** page.
+
+  <img src={useBaseUrl('img/live-testing/biometrics-enabled.png')} alt="Biometrics Interception - Enabled" width="650"/>
+
+4. On the **App Selection** test page, hover over the test and then click **Choose Device**.
+
+  <img src={useBaseUrl('img/live-testing/image-injection-choose-device.png')} alt="Image Injection - Choose Device" width="650"/>
+
+5. On the device selection page, hover over a device and then click **Launch**.
+
+  <img src={useBaseUrl('img/live-testing/image-injection-launch.png')} alt="Image Injection - Launch" width="650"/>
 
     <img src={useBaseUrl('img/mobile-apps/bio-toolbar-icons.png')} alt="Biometric toolbar icons" width="300"/>
 
-1. Select a response to send a successful or failed authentication result to the app.  
 
-<img src={useBaseUrl('img/mobile-apps/biometric-auth-1.png')} alt="Biometric authorization live testing" width="500"/>
+6. In the live test window, in the right toolbar, click **More Device Options** and then click **Biometric Authentication**.
 
+  <img src={useBaseUrl('img/live-testing/biometric-toolbar.png')} alt="Image Injection - Launch" width="450"/>
+
+7. In the **Biometric Authentication** window, click **Pass** to imitate successful authentication or click **Fail** to imitate an unsuccessful authentication.
+
+    <img src={useBaseUrl('img/live-testing/biometric-nav.png')} alt="Biometric Authentication" width="450"/>
 
 
 ## Automated Testing

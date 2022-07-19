@@ -48,7 +48,7 @@ Since you can run `saucectl` locally via Docker or remotely via the Sauce Labs c
 </TabItem>
 <TabItem value="windows">
 
-* OS: Windows 10 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
+* OS: Windows 10 or 11 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
 * Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
 
 </TabItem>
@@ -73,177 +73,19 @@ Below are the frameworks supported on the Sauce Labs Cloud.
 <TabItem value="cypress">
 
 [Cypress on Sauce Docs](/web-apps/automated-testing/cypress/)
-<table id="table-fw">
-  <tr>
-    <th>Cypress Version</th>
-    <th>Supported Platforms</th>
-    <th>Supported Browsers</th>
-  </tr>
-  <tbody>
-  <tr>
-    <td rowspan='2'>9.3.1</td>
-    <td><b>macOS:</b> 11.0</td>
-    <td>Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  <tr>
-    <td><b>Windows:</b> 10</td>
-    <td>Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  </tbody>
-  <tbody>
-  <tr>
-    <td rowspan='1'>9.1.0</td>
-    <td><b>Windows:</b> 10</td>
-    <td>Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  </tbody>
-  <tbody>
-  <tr>
-    <td rowspan='1'>8.6.0</td>
-    <td><b>Windows:</b> 10</td>
-    <td>Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  </tbody>
-  <tbody>
-  <tr>
-    <td rowspan='1'>8.3.0</td>
-    <td><b>Windows:</b> 10</td>
-    <td>Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  </tbody>
-</table>
+
 </TabItem>
 
 <TabItem value="playwright">
 
 [Playwright on Sauce Docs](/web-apps/automated-testing/playwright/)
-<table id="table-fw">
-  <tr>
-    <th>Playwright Version</th>
-    <th>Supported Platforms</th>
-    <th>Supported Browsers</th>
-  </tr>
-  <tbody>
-  <tr>
-    <td rowspan='2'>1.18.1</td>
-    <td><b>macOS:</b> 11.0</td>
-    <td>Chromium, Firefox, Webkit</td>
-  </tr>
-  <tr>
-    <td><b>Windows:</b> 10</td>
-    <td>Chromium, Firefox, Webkit</td>
-  </tr>
-  </tbody>
-  <tbody>
-  <tr>
-    <td rowspan='1'>1.17.1</td>
-    <td><b>Windows:</b> 10</td>
-    <td>Chromium, Firefox, Webkit</td>
-  </tr>
-  </tbody>
-  <tbody>
-  <tr>
-    <td rowspan='1'>1.16.3</td>
-    <td><b>Windows:</b> 10</td>
-    <td>Chromium, Firefox, Webkit</td>
-  </tr>
-  </tbody>
-</table>
-</TabItem>
-
-<TabItem value="puppeteer">
-
-[Puppeteer on Sauce Docs](/web-apps/automated-testing/puppeteer/)
-|Puppeteer Version|Supported Platforms|Supported Browsers|
-|-----|-----|-----|
 
 </TabItem>
 
 <TabItem value="testcafe">
 
 [TestCafe on Sauce Docs](/web-apps/automated-testing/testcafe/)
-<table id="table-fw">
-  <tr>
-    <th>TestCafe Version</th>
-    <th>Supported Platforms</th>
-    <th>Supported Browsers</th>
-  </tr>
-  <tbody>
-  <tr>
-    <td rowspan='3'>1.18.3</td>
-    <td><b>macOS:</b> 11.0</td>
-    <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  <tr>
-    <td><b>Windows:</b> 10</td>
-    <td>Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  <tr>
-    <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-    <td>Safari</td>
-  </tr>
-  </tbody>
-  <tbody>
-  <tr>
-    <td rowspan='3'>1.17.1</td>
-    <td><b>macOS:</b> 11.0</td>
-    <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  <tr>
-    <td><b>Windows:</b> 10</td>
-    <td>Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  <tr>
-    <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-    <td>Safari</td>
-  </tr>
-  </tbody>
-  <tbody>
-  <tr>
-    <td rowspan='3'>1.16.1</td>
-    <td><b>macOS:</b> 11.0</td>
-    <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  <tr>
-    <td><b>Windows:</b> 10</td>
-    <td>Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  <tr>
-    <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-    <td>Safari</td>
-  </tr>
-  </tbody>
-  <tbody>
-  <tr>
-    <td rowspan='3'>1.15.3</td>
-    <td><b>macOS:</b> 11.0</td>
-    <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  <tr>
-    <td><b>Windows:</b> 10</td>
-    <td>Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  <tr>
-    <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-    <td>Safari</td>
-  </tr>
-  </tbody>
-  <tbody>
-  <tr>
-    <td rowspan='3'>1.15.0</td>
-    <td><b>macOS:</b> 11.0</td>
-    <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  <tr>
-    <td><b>Windows:</b> 10</td>
-    <td>Chrome, Firefox, MicrosoftEdge</td>
-  </tr>
-  <tr>
-    <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-    <td>Safari</td>
-  </tr>
-  </tbody>
-</table>
+
 </TabItem>
 
 <TabItem value="espresso">
@@ -286,23 +128,14 @@ Below are the frameworks supported on the Docker Runner. Browser support for eac
 
 [Cypress on Sauce Docs](/web-apps/automated-testing/cypress/)
 
-|Cypress Version|Supported Browsers|
-|----|----|
-|9.3.1|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.1.0)|
-|9.1.0|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v8.0.0)|
-|8.6.0|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.4.0)|
-|8.3.0|See [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.3.1)|
+Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases).
 
 </TabItem>
 <TabItem value="playwright">
 
 [Playwright on Sauce Docs](/web-apps/automated-testing/playwright/)
 
-|Playwright Version|Supported Browsers|
-|-----|----|
-|1.18.1|See [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.6.0)|
-|1.17.1|See [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.5.0)|
-|1.16.3|See [release notes](https://github.com/saucelabs/sauce-playwright-runner/releases/tag/v2.4.0)|
+Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-playwright-runner).
 
 </TabItem>
 
@@ -310,15 +143,7 @@ Below are the frameworks supported on the Docker Runner. Browser support for eac
 
 [Puppeteer on Sauce Docs](/web-apps/automated-testing/puppeteer/)
 
-|Puppeteer Version|Supported Browsers|
-|-----|----|
-|13.1.3|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v3.0.0)|
-|12.0.1|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v2.0.0)|
-|10.4.0|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.6.0)|
-|10.2.0|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.5.1)|
-|10.1.0|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.4.1)|
-|9.1.1|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.2.0)|
-|8.0.0|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.0.0)|
+Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases).
 
 </TabItem>
 
@@ -326,13 +151,7 @@ Below are the frameworks supported on the Docker Runner. Browser support for eac
 
 [TestCafe on Sauce Docs](/web-apps/automated-testing/testcafe/)
 
-|TestCafe Version|Supported Browsers|
-|----|----|
-|1.18.3|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v1.1.0)|
-|1.17.1|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v1.0.0)|
-|1.16.1|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.12.1)|
-|1.15.3|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.10.0)|
-|1.15.0|See [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases/tag/v0.9.0)|
+Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases).
 
 </TabItem>
 </Tabs>

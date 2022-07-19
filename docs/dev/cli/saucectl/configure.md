@@ -17,7 +17,7 @@ Generate a credentials file with your Sauce Labs Username and Access Key.
 
 Your Sauce Labs `username` and `accessKey` are required to post your test results to the Sauce Labs platform. These values are available on your [User Settings](https://app.saucelabs.com/user-settings) page.
 
-The `saucectl configure` command prompts you to provide your Sauce Labs credentials for the purpose of generating a `credentials.yml` file that `saucectl` can access to automatically authenticate commands without requiring manual authentication. The `credentials.yml` file is created in a `.sauce` folder in your `saucectl` project root.
+The `saucectl configure` command prompts you to provide your Sauce Labs credentials for the purpose of generating a `credentials.yml` file that `saucectl` can access to automatically authenticate commands without requiring manual authentication. The `credentials.yml` file is created in a `$HOME/.sauce` folder (or `%USERPROFILE%\.sauce` on Windows). If a user's home directory is not defined, the credentials are instead saved in your `saucectl` project root.
 
 You can run the `configure` command without flags, invoking it to prompt you for your credential values, or you can supply the values inline using the username and access key flags.
 

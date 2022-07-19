@@ -288,3 +288,15 @@ npm:
     "@babel/preset-typescript": "7.12"
     "@cypress/react": "^5.0.1"
 ```
+
+Alternatively, you can let `saucectl` selectively include already installed dependencies from the `node_modules` folder.
+
+```jsx title= "config.yml npm dependencies"
+npm:
+  dependencies:
+    - lodash
+```
+
+:::caution
+This feature is highly experimental.
+:::

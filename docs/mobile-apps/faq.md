@@ -58,7 +58,8 @@ Yes. See [Camera Image Injection](/mobile-apps/features/camera-image-injection).
 
 #### **Is there a maximum time I can use a real device for either manual or automated testing, provided I actually do interact with the device?**
 
-For real devices on the public cloud, the limit is 6 hours; for private cloud devices there is no limit.
+For real devices on the public cloud, the limit is 6 hours for Appium tests and 1 hour for Espresso and XCUITest; the same applies to private cloud devices.
+The limits for public cloud devices ensure that there are enough devices available for you, whereas the limits for private cloud devices ensure the longevity of your devices.
 
 #### **Can I upload files to or download files from a real device?**
 
@@ -168,7 +169,7 @@ No. This is a feature request on our roadmap.
 
 #### **Can I use Bluetooth on a device?**
 
-Yes. Please contact your Customer Success Manager or SE to discuss your specific use case.
+No. We do not support Bluetooth connections between devices in our Real Device Cloud. If you have a Bluetooth feature request, please let our support team know.
 
 
 #### **What should the frame rate be on newer Android devices?**
@@ -183,7 +184,7 @@ No.
 
 #### **Do you have any UI inspection tool built into your application like UI Automator viewer?**
 
-No, there are no inspection tools. We recommend using [Appium Desktop](https://github.com/appium/appium-desktop) for UI inspection, it has built in support for devices on the Real Device Cloud.
+No, there are no inspection tools. We recommend using [Appium Desktop](https://github.com/appium/appium-desktop) or [Appium Inspector](https://github.com/appium/appium-inspector) for UI inspection, it has built in support for devices on the Real Device Cloud.
 
 
 #### **Can I change the orientation of the device screen during a test?**

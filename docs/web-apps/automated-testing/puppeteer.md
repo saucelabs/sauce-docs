@@ -21,7 +21,7 @@ Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e
 
 ## System Requirements
 
-At this time, `saucectl` only runs Puppeteer tests locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms), which has the following general system requirements:
+At this time, `saucectl` only runs Puppeteer tests locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms)), which has the following general system requirements:
 
 <Tabs
   defaultValue="macos"
@@ -45,7 +45,7 @@ At this time, `saucectl` only runs Puppeteer tests locally via Docker ([Installa
 </TabItem>
 <TabItem value="windows">
 
-* OS: Windows 10 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
+* OS: Windows 10 or 11 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
 * Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
 
 </TabItem>
@@ -70,17 +70,7 @@ At this time, `saucectl` only runs Puppeteer tests locally via Docker ([Installa
  </TabItem>
  <TabItem value="docker">
 
- Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available release notes.
-
- |Puppeteer Version|Supported Browsers|
- |-----|----|
- |13.1.3|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v3.0.0)|
- |12.0.1|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v2.0.0)|
- |10.4.0|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.6.0)|
- |10.2.0|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.5.1)|
- |10.1.0|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.4.1)|
- |9.1.1|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.1.0)|
- |8.0.0|See [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases/tag/v1.0.0)|
+ Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases).
 
 </TabItem>
 </Tabs>
@@ -90,3 +80,9 @@ At this time, `saucectl` only runs Puppeteer tests locally via Docker ([Installa
 
 * [Quickstart](/web-apps/automated-testing/puppeteer/quickstart): Use our demo repo to quickly set up and run a sample Puppeteer project and test to see the results.
 * [Run your own tests](/web-apps/automated-testing/puppeteer/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
+
+## Limitations
+
+:::caution Special Characters in Test Names
+We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
+:::

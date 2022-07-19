@@ -10,7 +10,7 @@ This page provides a reference for the valid test configuration options (capabil
 Try our [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/)! It provides a graphical user interface where you can specify your settings using option buttons and drop-down menus, then automatically generates the corresponding capabilities code based on your selections. For examples, see [Examples of Test Configuration Options for Website Tests](/basics/test-config-annotation/test-config/#examples-of-test-configuration-options-for-website-tests).
 
 :::note Desktop and VDC Only
-The Platform Configurator does not support capabilities generation for real device (RDC) tests at this time.
+The Platform Configurator does not support capabilities generation for real device (RDC) tests at this time. For real device capabilities, see our code snippet examples.
 :::
 
 ## What You'll Need
@@ -443,6 +443,26 @@ For virtual device mobile tests, the capability is `deviceOrientation`, but for 
 ```
 
 ---
+
+
+---
+### `setupDeviceLock`
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+
+Sets up the device pin code for the automated test session. Valid values are `true` and `false`.
+This capability sets your device in the state required for your application to launch successfully. 
+
+:::important
+The `setupDeviceLock` capability helps to bypass the Security requirements from your applications, like pincode requirements for launching an app or invoking certain activities/features within your app. Example: https://developer.android.com/reference/android/app/KeyguardManager 
+:::
+
+```java title="Real Device Setting"
+"setupDeviceLock": "true"
+```
+
+---
+
+
 ### `otherApps`
 <p><small>| ARRAY | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
@@ -512,13 +532,13 @@ We recommend reviewing [Device Management for Real Devices](/mobile-apps/support
 
 ---
 ### `sessionCreationRetry`
-<p><small>| INTEGER |</small></p>
+<p><small>| INTEGER |<span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 Specify the number of times the test should attempt to launch a session.
 
 ---
 ### `sessionCreationTimeout`
-<p><small>| INTEGER |</small></p>
+<p><small>| INTEGER |<span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 Specify the amount of time (in seconds) that the test should allow to launch a test before failing.
 
@@ -589,7 +609,7 @@ Bypasses the restriction on taking screenshots for secure screens (i.e., secure 
 ### `allowTouchIdEnroll`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).Z
+Enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).
 
 ---
 ### `groupFolderRedirectEnabled`
@@ -598,10 +618,16 @@ Enables the interception of biometric input, allowing the test to simulate Touch
 Enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.
 
 ---
-### `networkCapture`
+### `sauceLabsNetworkCaptureEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | </p>
 
 Enables mobile app instrumentation (Android or iOS) and recording of HTTP/HTTPS network traffic for debugging purposes. API calls are collected into a HAR file, which you can view and download from your **Test Results** > **Network** tab console. The default value is `false`.
+
+---
+### `audioCapture`
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | </p>
+
+Enables audio recording in your iOS and Android native mobile app tests. The audio will be part of the **Test Results** page video file, which you can play back and download in our built-in media player. The default value is `false`.
 
 ---
 ### `systemAlertsDelayEnabled`
