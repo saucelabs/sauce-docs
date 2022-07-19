@@ -275,8 +275,9 @@ Enables Performance Capture feature. Sauce Performance Testing can be enabled by
 
 Specifies the screen resolution to be used during your test session. Default screen resolution for Sauce tests is `1024x768`.
 
-:::note
-We recommend that you specify the [`platformName`](#platformname) when you set the screen resolution. Additionally, if you want to set the screen resolution on Windows, we recommend that you use Windows 8 or newer (e.g., Windows 10).
+:::note notes
+- We recommend that you specify the [`platformName`](#platformname) when you set the screen resolution. 
+- Additionally, if you want to set the screen resolution on Windows, we recommend that you use Windows 8 or newer (e.g., Windows 10).
 :::
 
 
