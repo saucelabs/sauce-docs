@@ -842,6 +842,8 @@ The `numShards` and `shard` properties are mutually exclusive within each suite.
 :::
 
 ```yaml
+suites:
+  - name: "I am sharded"
     shard: spec
 ```
 
