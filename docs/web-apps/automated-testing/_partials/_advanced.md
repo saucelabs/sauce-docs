@@ -10,7 +10,7 @@ The following environment variables are available during test execution.
 | ------------------------- | ---------------------------------------- |
 | SAUCE_JOB_ID              | Job ID                                   |
 | SAUCE_SUITE_NAME          | Suite Name                               |
-| SAUCE_ARTIFACTS_DIRECTORY | The absolute path of `__assets__` folder |
+| SAUCE_ARTIFACTS_DIRECTORY | Absolute path to the artifacts directory. Files placed in this folder are persisted with the Job. |
 
 ### Tailoring Your Test File Bundle
 
