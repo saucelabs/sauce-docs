@@ -843,10 +843,6 @@ To split tests in the most efficient way possible, use:
 - `concurrency` when the number of specs is larger than your configured concurrency
 :::
 
-:::caution Shard Property Exclusivity
-The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
-:::
-
 ```yaml
 suites:
   - name: "I am sharded"
