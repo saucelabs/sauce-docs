@@ -4,7 +4,13 @@ All values in your `saucectl` configuration support environment variable expansi
 
 ### Predefined Environment Variables
 
-If you're running a test script where you need to communicate a Sauce Labs Job ID to a third-party tool, use the `SAUCE_JOB_ID` environment variable to reference it.
+If you're running a test script where you need to communicate a Sauce Labs Job to a third-party tool, use the following environment variables.
+
+| Environment Variable      | Description                              |
+| ------------------------- | ---------------------------------------- |
+| SAUCE_JOB_ID              | Job ID                                   |
+| SAUCE_SUITE_NAME          | Suite Name                               |
+| SAUCE_ARTIFACTS_DIRECTORY | The absolute path of `__assets__` folder |
 
 ### Tailoring Your Test File Bundle
 
