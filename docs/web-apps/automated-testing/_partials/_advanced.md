@@ -4,7 +4,7 @@ All values in your `saucectl` configuration support environment variable expansi
 
 ### Predefined Environment Variables
 
-If you're running a test script where you need to communicate a Sauce Labs Job to a third-party tool, use the following environment variables.
+The following environment variables are available during test execution.
 
 | Environment Variable      | Description                              |
 | ------------------------- | ---------------------------------------- |
