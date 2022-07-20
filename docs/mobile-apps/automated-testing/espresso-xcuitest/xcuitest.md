@@ -537,6 +537,17 @@ The name of the test suite, which will be reflected in the results and related a
 ```
 ---
 
+### `testApp`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Sets the test application on the suite level. See the full [usage](#testapp). If this property is not set, `saucectl` will use the default `testApp` from the [`xcuitest`](#xcuitest) level.
+
+```yaml
+suites:
+  - testApp: ./apps/calc-success.apk
+```
+---
+
 ### `timeout`
 <p><small>| OPTIONAL | DURATION |</small></p>
 
