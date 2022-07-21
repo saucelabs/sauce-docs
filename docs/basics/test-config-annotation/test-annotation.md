@@ -238,9 +238,7 @@ FirefoxOptions firefoxOptions = new FirefoxOptions();
 firefoxOptions.setCapability("sauce:options", sauceOptions);
 firefoxOptions.setCapability("platformName", "Windows 10");
 firefoxOptions.setCapability("browserVersion", "79.0");
-WebDriver driver = new RemoteWebDriver(
-new URL("https://ondemand.saucelabs.com/wd/hub"),
-    firefoxOptions);
+WebDriver driver = new RemoteWebDriver(new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub"), firefoxOptions);
 ```
 </TabItem>
 
@@ -264,8 +262,7 @@ var firefoxOptions = new FirefoxOptions()
     UseSpecCompliantProtocol = true
 };
 firefoxOptions.AddAdditionalCapability("sauce:options", sauceOptions, true);
-IWebDriver driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
-                firefoxOptions.ToCapabilities(), TimeSpan.FromSeconds(600));
+IWebDriver driver = new RemoteWebDriver(new Uri("https://ondemand.us-west-1.saucelabs.com/wd/hub"), firefoxOptions.ToCapabilities(), TimeSpan.FromSeconds(600));
 ```
 </TabItem>
 
@@ -288,8 +285,7 @@ const driver = new webdriver.Builder()
           'accessKey': accessKey
         }
     })
-    .usingServer("https://" + username + ":" + accessKey +
-          "@ondemand.saucelabs.com:443/wd/hub")
+    .usingServer("https://ondemand.us-west-1.saucelabs.com:443/wd/hub")
     .build();
 ```
 </TabItem>
@@ -309,7 +305,7 @@ browserOptions =  {
     'browserVersion': '79.0',
     'sauce:options': sauceOptions
 }
-browser = webdriver.Remote(“https://ondemand.saucelabs.com/wd/hub”, desired_capabilities=browserOptions)
+browser = webdriver.Remote(“https://ondemand.us-west-1.saucelabs.com/wd/hub”, desired_capabilities=browserOptions)
 ```
 </TabItem>
 <TabItem value="ruby">
@@ -328,7 +324,7 @@ caps = {
     }
 }
 driver = Selenium::WebDriver.for(:remote,
-    url: 'https://ondemand.saucelabs.com:443/wd/hub',
+    url: 'https://ondemand.us-west-1.saucelabs.com:443/wd/hub',
     desired_capabilities: caps)
 ```
 </TabItem>

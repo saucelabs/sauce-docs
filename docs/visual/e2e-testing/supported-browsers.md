@@ -86,6 +86,14 @@ sidebar_label: Supported Browsers and OSs
   </tr>
   <tr>
    <td>
+    macOS 12
+   </td>
+   <td>
+    Monterey
+   </td>
+  </tr>
+  <tr>
+   <td>
     macOS 11.00
    </td>
    <td>
