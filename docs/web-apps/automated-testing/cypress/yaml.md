@@ -839,7 +839,7 @@ Selectable values: `spec` to shard by spec file, `concurrency` to shard by concu
 
 :::tip
 To split tests in the most efficient way possible, use:
-- `spec` when the number of specs is less than your configured concurrency
+- `spec` when the number of specs is less than the configured concurrency.
 - `concurrency` when the number of specs is larger than your configured concurrency
 :::
 
