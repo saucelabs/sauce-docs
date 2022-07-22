@@ -1,14 +1,14 @@
 ---
 id: load-testing
 title: Load Testing with API Testing
-sidebar_label: Load Testing
+sidebar_label: API Load Testing
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The Sauce Labs API Testing load testing feature allows you to stress your endpoints using an existing functional test.
 
-The load agents run within your infrastructure.
+The load agents run within your infrastructure. We count 1 out of every 100 load testing executions against your monthly execution limit. To see how many executions you have remaining click on **Activity** in the left nav, and then on **Usage By Month**: **Monthly Usage Status** at the top shows the executions you have remaining for the month.
 
 The first step is running your load test agent. It’s up to you to run all the agents connected to the cloud. To make identifying them easier, you can group them by pool ID, assigning the same ID to more than one agent. A pool ID is an identifier of a group of workers. There’s no limit to the number of agents you can run. The only possible limitations are inherited from your infrastructure.
 
@@ -95,6 +95,7 @@ To stop a report before it is complete, click **Stop**.
 * Environment - The environment selected for running the test (if any).
 * Agents - The agents used to run the test.
 * Virtual Users - The number of virtual users for the execution of the test.
+* Failed Tests - The total failures happened during the load test execution. (it appears only if there are failures)
 
 The report contains a dropdown that shows all the endpoints the test is calling that you can use to filter to a specific one (the default value shows the data for All the endpoints). For best results, set up footprints to ensure the report is readable. For more information, see [Improving Metrics](/api-testing/composer#improving-metrics).
 
@@ -124,8 +125,9 @@ Click any of the measurement labels to remove them from the display.
 
 <img src={useBaseUrl('/img/api-testing/load-test-report-status-codes.png')} alt="Status codes graph" width="400"/>
 
-Once the test is completed, the Failures section will be shown at the bottom of the report. In this section, you will see all the failures that happened during the test. The section shows one row for each test execution. Each row has the date and time, the number of failures, and a link to the specific report for that test. 
-The **Load more failures** allows you to load more failures. 
+The data inside each graph can be downloaded in a CSV file: if the footprint is set up to `All` the data will be for all the endpoints, if a specific footprint has been selected the file will contain the data for that endpoint.
+
+Once the test is completed, the Failures section will be shown at the bottom of the report. In this section, you will see the hundred most recent failures that happened during the test. The section shows one row for each test execution. Each row has the date and time, the number of failures, and a link to the specific report for that failure. 
 
 <img src={useBaseUrl('/img/api-testing/load-test-failures-report.png')} alt="Load tests failures report" />
 
