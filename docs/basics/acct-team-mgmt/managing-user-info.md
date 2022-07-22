@@ -120,6 +120,3 @@ Strong passwords are required, and must include the following:
 * No blank spaces
 
 After five failed login attempts, users will be locked out.
-
-
-## Additional Resources
