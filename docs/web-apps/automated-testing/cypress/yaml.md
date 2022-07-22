@@ -832,13 +832,20 @@ Controls whether or not tests are run in headless mode.
 ### `shard`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-
 When sharding is configured, saucectl automatically splits the tests (e.g., by spec or concurrency) so that they can easily run in parallel.
 For sharding by concurrency, saucectl splits test files into several groups (the number of groups is determined by the concurrency setting). Each group will then run as an individual job.
 
 Selectable values: `spec` to shard by spec file, `concurrency` to shard by concurrency. Remove this field or leave it empty `""` for no sharding.
 
+:::tip
+To split tests in the most efficient way possible, use:
+- `spec` when the number of specs is less than the configured concurrency.
+- `concurrency` when the number of specs is larger than the configured concurrency.
+:::
+
 ```yaml
+suites:
+  - name: "I am sharded"
     shard: spec
 ```
 

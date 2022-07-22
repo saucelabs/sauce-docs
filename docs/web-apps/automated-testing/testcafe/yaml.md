@@ -694,7 +694,15 @@ For sharding by concurrency, saucectl splits test files into several groups (the
 
 Selectable values: `spec` to shard by spec file, `concurrency` to shard by concurrency. Remove this field or leave it empty `""` for no sharding.
 
+:::tip
+To split tests in the most efficient way possible, use:
+- `spec` when the number of specs is less than the configured concurrency.
+- `concurrency` when the number of specs is larger than the configured concurrency.
+:::
+
 ```yaml
+suites:
+  - name: "I am sharded"
     shard: spec
 ```
 
