@@ -73,7 +73,7 @@ If you provide a standard OpenAPI spec file, our system should bind a series of 
 ### Enhancing OpenAPI with x-sauce-cond
 You can enrich OpenAPI schemas using the `x-sauce` vendor extension. This extension will have no impact on the docs.
 
-There currently are three types of `x-sauce-cond` operations: `exists`, `equals` and `matches`.
+There currently are five types of `x-sauce-cond` operations: three evaluators `exists`, `equals`, `matches` and two logical operators, `or` and `and`.
 
 There also are four collections you can evaluate: `uriParams`, `queryParams`, `headers`, `body`.
 
@@ -126,6 +126,23 @@ On the examples:
 
 Pick one specific example based on the value of a URI param.
 
+If you have to add multiple conditions you can use `and` and `or` conditions. You can have the depth and nesting you want.
+
+```yaml
+  x-sauce-cond:
+    op: and
+    priority: 10
+    conditions:
+    - op: matches
+      collection: headers
+      key: authorization
+      value: Basic .*
+    - op: equals
+      collection: headers
+      key: key
+      value: ABC123
+```
+Mind that `priority` should be at the top level instruction.
 
 ### Enhancing Schemas with x-sauce-faker
 If you don't want to add examples because they're not useful to you, that's ok. You can still force the system to generate data that makes specific sense to you, using the Faker extension, `x-sauce-faker`.
