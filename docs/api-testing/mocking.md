@@ -73,9 +73,9 @@ If you provide a standard OpenAPI spec file, our system should bind a series of 
 ### Enhancing OpenAPI with x-sauce-cond
 You can enrich OpenAPI schemas using the `x-sauce` vendor extension. This extension will have no impact on the docs.
 
-There currently are five types of `x-sauce-cond` operations: three evaluators `exists`, `equals`, `matches` and two logical operators, `or` and `and`.
+There currently are five types of `x-sauce-cond` operations: three evaluators (`exists`, `equals`, and `matches`) and two logical operators (`or` and `and`).
 
-There also are four collections you can evaluate: `uriParams`, `queryParams`, `headers`, `body`.
+There also are four collections you can evaluate: `uriParams`, `queryParams`, `headers`, and `body`.
 
 In the below example, the `x-sauce-cond` extension tells the mock to take the `200` status code as response only when an `authorization` header is present and its value matches the `Basic .*` regex. The `priority` field determines the order of evaluation of multiple objects at the same level. For example, if both `200` and `404` have an `x-sauce-cond` instruction, they will be evaluated by descending priority.
 ```yaml
