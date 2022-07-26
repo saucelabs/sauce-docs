@@ -230,7 +230,7 @@ For more information on Sauce Headless, including full test walkthroughs, see [S
 <td>*.tunnels.us-east-1.saucelabs.com</td><td><code>34.73.48.119/32</code></td>
 </tr>
 <tr>
-<td>Other endpoints</td><td><code>N/A</code></td>
+<td>Other endpoints</td><td>N/A</td>
 </tr>
 </table>
 
