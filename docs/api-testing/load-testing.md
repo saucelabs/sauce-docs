@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The Sauce Labs API Testing load testing feature allows you to stress your endpoints using an existing functional test.
 
-The load agents run within your infrastructure. We count 1 out of every 100 load testing executions against your monthly execution limit. To see how many executions you have remaining click on **Activity** in the left nav, and then on **Usage By Month**: **Monthly Usage Status** at the top shows the executions you have remaining for the month.
+The load agents run within your infrastructure. We count 1 out of every 100 load testing executions against your monthly execution limit. To see how many executions you have remaining, in the left nav, click **Activity** and then click **Usage By Month**. On the **Usage By Month** page, the **Monthly Usage Status** shows the executions you have remaining for the month.
 
 The first step is running your load test agent. It’s up to you to run all the agents connected to the cloud. To make identifying them easier, you can group them by pool ID, assigning the same ID to more than one agent. A pool ID is an identifier of a group of workers. There’s no limit to the number of agents you can run. The only possible limitations are inherited from your infrastructure.
 
@@ -26,7 +26,7 @@ quay.io/saucelabs/loadtestingjs:latest
 
 This command will run the agent in a Docker container, but you can manage them in any infrastructure (for example, Kubernetes).
 
-Only two variables in the command are required: `SAUCE_URI` and `SAUCE_AUTH`; all the others are optional and, if not provided, will be auto-generated. The system will generate random names for `WORKER_ID`, `POOL_ID` will remain empty, and the default value for `MAX_VIRTUAL_USERS` is `100`. 
+Only two variables in the command are required: `SAUCE_URI` and `SAUCE_AUTH`; all the others are optional and, if not provided, will be auto-generated. The system will generate random names for `WORKER_ID`, `POOL_ID` will remain empty, and the default value for `MAX_VIRTUAL_USERS` is `100`.
 
 If your data center is `EU Central 1`, replace `api_domain` with `api.eu-central-1.saucelabs.com`. If your data center is `US West 1`, replace `api_domain` with `api.us-west-1.saucelabs.com`.
 
@@ -65,7 +65,7 @@ If you have saved a load test with an agent that is currently offline, you will 
 <img src={useBaseUrl('/img/api-testing/load-test-agents-offline.png')} alt="Alert that agents are offline" width="400"/>
 
 * Virtual users - The number of active users per agent you want to simulate. The value can be any value that is less than or equal to the max virtual users available for that agent. If more than one agent is selected, the lesser virtual users value is the max number of virtual users you can set up. If you try to set more agents than the available you will see an error message.
-* Environments - The environment dropdown allows you to select an environment to run the load test with or, if you haven't one already, you can create a new one. 
+* Environments - The environment dropdown allows you to select an environment to run the load test with or, if you haven't one already, you can create a new one.
 For more information, see [Creating Environments for Tests](/api-testing/environments/).
 
 :::note
@@ -95,7 +95,7 @@ To stop a report before it is complete, click **Stop**.
 * Environment - The environment selected for running the test (if any).
 * Agents - The agents used to run the test.
 * Virtual Users - The number of virtual users for the execution of the test.
-* Failed Tests - The total failures happened during the load test execution. (it appears only if there are failures)
+* Failed Tests - The number of load test execution failures. This will only be visible if there were failures.
 
 The report contains a dropdown that shows all the endpoints the test is calling that you can use to filter to a specific one (the default value shows the data for All the endpoints). For best results, set up footprints to ensure the report is readable. For more information, see [Improving Metrics](/api-testing/composer#improving-metrics).
 
@@ -125,9 +125,9 @@ Click any of the measurement labels to remove them from the display.
 
 <img src={useBaseUrl('/img/api-testing/load-test-report-status-codes.png')} alt="Status codes graph" width="400"/>
 
-The data inside each graph can be downloaded in a CSV file: if the footprint is set up to `All` the data will be for all the endpoints, if a specific footprint has been selected the file will contain the data for that endpoint.
+The data inside each graph can be downloaded in a CSV file. If the footprint is set to `All`, the file will contain the data for all endpoints; if a specific footprint is selected, the file will contain the data for only that endpoint.
 
-Once the test is completed, the Failures section will be shown at the bottom of the report. In this section, you will see the hundred most recent failures that happened during the test. The section shows one row for each test execution. Each row has the date and time, the number of failures, and a link to the specific report for that failure. 
+Once the test is completed, the **Failures** section will be shown at the bottom of the report. In this section, you will see the 100 most recent failures that occurred during the test. There will be one row for each test execution, and each row includes the date and time, the number of failures, and a link to the specific report for that failure.
 
 <img src={useBaseUrl('/img/api-testing/load-test-failures-report.png')} alt="Load tests failures report" />
 
