@@ -50,6 +50,11 @@ To easily copy a test's file name or ID, hover over the test and then click the 
 The app settings screen is only available for real device testing.
 :::
 
+To view your recent configurations, click **Recent**.
+
+<img src={useBaseUrl('img/live-testing/live-testing-recent-tests-nav.png')} alt="Recent tests" width="350"/>
+
+
 **Default App Settings**
 
 | Setting | Description |
