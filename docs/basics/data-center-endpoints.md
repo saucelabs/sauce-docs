@@ -49,10 +49,7 @@ URLs vary based on the services you're using, your data center, and the types of
 <td colSpan='2'><strong>US West OnDemand Endpoints</strong></td>
 </tr>
 <tr>
-<td>Desktop Browser and Virtual Device Cloud</td><td><code>https://ondemand.us-west-1.saucelabs.com/wd/hub</code></td>
-</tr>
-<tr>
-<td>RDC on Sauce</td><td><code>https://ondemand.us-west-1.saucelabs.com/</code></td>
+<td>Desktop Browser, Real and Virtual Device Cloud</td><td><code>https://ondemand.us-west-1.saucelabs.com/wd/hub</code></td>
 </tr>
 <tr>
 <td colSpan='2'><strong>US West REST API</strong></td>
@@ -70,7 +67,7 @@ URLs vary based on the services you're using, your data center, and the types of
 <td>Sauce Connect REST</td><td><code>https://api.us-west-1.saucelabs.com/rest/v1/*/tunnels</code></td>
 </tr>
 <tr>
-<td colSpan='2'><strong>Sauce Connect Proxy</strong></td>
+<td colSpan='2'><strong>Sauce Connect Proxy Server</strong></td>
 </tr>
 <tr>
 <td>Tunnel Server</td><td><code>maki*.miso.saucelabs.com:443</code></td>
@@ -88,7 +85,7 @@ URLs vary based on the services you're using, your data center, and the types of
 <td>*.miso.saucelabs.com</td><td><code>66.85.48.0/21</code></td>
 </tr>
 <tr>
-<td>Other endpoints</td><td><code>162.222.72.0/21</code></td>
+<td>Other endpoints</td><td><code>162.222.72.0/21</code><br/><code>66.85.48.0/21</code></td>
 </tr>
 </table>
 
@@ -107,10 +104,7 @@ Depending on the framework or driver you use, you might need to make additional 
 <td colSpan='2'><strong>EU Central OnDemand Endpoints</strong></td>
 </tr>
 <tr>
-<td>Desktop Browser and Virtual Device Cloud</td><td><code>https://ondemand.eu-central-1.saucelabs.com/wd/hub</code></td>
-</tr>
-<tr>
-<td>RDC on Sauce</td><td><code>https://ondemand.eu-central-1.saucelabs.com/</code></td>
+<td>Desktop Browser, Real and Virtual Device Cloud</td><td><code>https://ondemand.eu-central-1.saucelabs.com/wd/hub</code></td>
 </tr>
 <tr>
 <td colSpan='2'><strong>EU Central REST API</strong></td>
@@ -128,7 +122,7 @@ Depending on the framework or driver you use, you might need to make additional 
 <td>Sauce Connect REST</td><td><code>https://api.eu-central-1.saucelabs.com/rest/v1/*/tunnels</code></td>
 </tr>
 <tr>
-<td colSpan='2'><strong>Sauce Connect Proxy</strong></td>
+<td colSpan='2'><strong>Sauce Connect Proxy Server</strong></td>
 </tr>
 <tr>
 <td>Tunnel Server</td><td><code>maki*.eu-central-1.miso.saucelabs.com:443</code></td>
@@ -177,7 +171,7 @@ Depending on the framework or driver you use, you might need to make additional 
 <td>Sauce Connect REST</td><td><code>https://api.apac-southeast-1.saucelabs.com/rest/v1/*/tunnels</code></td>
 </tr>
 <tr>
-<td colSpan='2'><strong>Sauce Connect Proxy</strong></td>
+<td colSpan='2'><strong>Sauce Connect Proxy Server</strong></td>
 </tr>
 <tr>
 <td>Tunnel Server</td><td><code>tunnel-*.tunnels.apac-southeast-1.saucelabs.com:443</code></td>
@@ -224,7 +218,7 @@ For more information on Sauce Headless, including full test walkthroughs, see [S
 <td>Sauce Connect REST</td><td><code>https://api.us-east-1.saucelabs.com/rest/v1/*/tunnels</code></td>
 </tr>
 <tr>
-<td colSpan='2'><strong>Sauce Connect Proxy</strong></td>
+<td colSpan='2'><strong>Sauce Connect Proxy Server</strong></td>
 </tr>
 <tr>
 <td>Tunnel Server</td><td><code>tunnel-*.tunnels.us-east-1.saucelabs.com:443</code></td>
