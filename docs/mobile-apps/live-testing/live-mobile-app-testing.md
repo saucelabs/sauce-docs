@@ -91,6 +91,12 @@ The device selection page will open, with the option to test on a real device or
 If you are testing an iOS app, the **Virtual Devices** tab will only appear if the app is configured for simulators.
 :::
 
+To mark a device as a favorite so you can find it easily in the future, click the pin icon next to the device name.
+
+<img src={useBaseUrl('img/live-testing/device-favorite.png')} alt="Favorite a device" width="350"/>
+
+The default sorting for the device list is **Pinned First**.
+
 #### Real Devices
 On the device selection page, click the **Mobile Real** tab. Use the search box and filters to find the device you want to test on, or select the device in the grid.
 
