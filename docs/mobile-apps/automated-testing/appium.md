@@ -41,7 +41,7 @@ Install the doctor: `npm install -g appium-doctor`.
 Run the command: `appium-doctor --ios|--android`
 :::
 
-Appium 2.0 users may choose to install [Appium Inspector](https://github.com/appium/appium-inspector), which is basically an Appium client that includes a graphical user interface to specify which Appium server to use, which capabilities to set, and then interact with your app's elements, which can be very helpful in writing your tests.
+If you're using Appium 2.0, you can install [Appium Inspector](https://github.com/saucelabs/appium-inspector-saucelabs), which is basically an Appium client that includes a graphical user interface to specify which Appium server to use, which capabilities to set, and then interact with your app's elements, which can be very helpful in writing your tests.
 
 
 ## How to Get Started
