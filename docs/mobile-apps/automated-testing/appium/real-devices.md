@@ -217,7 +217,12 @@ _Dynamic Allocation_ allows you to specify the device attributes that are import
 
 Dynamic allocation is advised, in particular, for all automated mobile app testing in CI environments.
 
-To enable dynamic device allocation, you should specify the `deviceName` and `platformName`, and `platformVersion` capabilities at a minimum. The following table provides information about accepted values.
+To enable dynamic device allocation, you will have three options
+- **Only** provide `platformName`, it will then find the first available Android or iOS device. This could be a phone or a table
+- Provide `platformName` **AND** `deviceName` to narrow the search to a specific device based on the provided value
+- Provide `platformName` **AND** `platformVersion` to narrow the search to a specific platform version based on the provided value
+
+The following table provides information about accepted values.
 
 :::note
 The following sample values are presented using case for readability, but capabilities values are not case-sensitive, so there is no distinction between `iPhone` and `iphone`, for example.
@@ -227,12 +232,14 @@ The following sample values are presented using case for readability, but capabi
   <thead>
     <tr>
       <th width="20%">Capability</th>
+      <th>Required</th> 
       <th>Description and Sample Values</th>
     </tr>
   </thead>
   <tbody>
   <tr>
     <td><a href="/dev/test-configuration-options#deviceName"><code>deviceName</code></a></td>
+    <td>No</td>
     <td><p>Provide a device display name, or use regular expressions to provide a partial name, thus increasing the potential pool of matches. Some examples include:</p>
     <p>Any iPhone: <code>"appium:deviceName", "iPhone.*", "iPhone .*"</code></p>
     <p>Any device with the word "nexus" in its display name: <code>"appium:deviceName", ".*nexus.*"</code></p>
@@ -241,10 +248,12 @@ The following sample values are presented using case for readability, but capabi
   </tr>
   <tr>
    <td><a href="/dev/test-configuration-options#platformname"><code>platformName</code></a></td>
+   <td>Yes</td>
    <td>Specify the mobile operating system to use in your tests (i.e., <code>android</code> or <code>ios</code>.</td>
   </tr>
   <tr>
    <td><a href="/dev/test-configuration-options#platformVersion"><code>platformVersion</code></a></td>
+   <td>No</td>
    <td>Specify the OS version to use in your tests (i.e., <code>4</code> or <code>4.1</code>.
      <p>This property uses a substring match, so you can specify major and/or incremental versions. For example, if you set only a major version <code>4</code>, any devices running incremental versions (e.g., <code>4.1</code>, <code>4.2</code>, <code>4.2.1</code>, <code>4.4.4</code>) will also match. This behavior extends to minor and point versions as well, so <code>11.4</code> matches <code>11.4.0</code> and <code>11.4.1</code>.</p></td>
   </tr>
