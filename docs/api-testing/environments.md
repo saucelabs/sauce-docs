@@ -28,7 +28,7 @@ There are multiple ways to create and access Test environments:
 ### From the Environments
 1. From within a Project, go to the **Environments** section.<br/><img src={useBaseUrl('img/api-fortress/2021/04/accessEnvironment.png')} alt="access environment"/>
 2. Click **Create Environment**.
-3. Enter a name for your environment, then click **Save** when finished.<img src={useBaseUrl('img/api-fortress/2021/04/createEnvironment.png')} alt="create environment" width="300"/>
+3. Enter a name for your environment, then click **Save** when finished.<br/><img src={useBaseUrl('img/api-fortress/2021/04/createEnvironment.png')} alt="create environment" width="300"/>
 4. From here, you can:
    * Add variable(s) manually by clicking **New Entry** > Enter **Key** and **Value** pairs > **Confirm**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/manualEntry.png')} alt="create environment" width="500"/>
    * Import an existing environment by clicking **Import** > **Choose File** (accepted file types are Postman, .json, .csv).<br/><img src={useBaseUrl('img/api-fortress/2021/04/importEnv.png')} alt="create environment" width="500"/>
