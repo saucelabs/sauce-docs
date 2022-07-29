@@ -1,7 +1,6 @@
 const docusaurusConfig = {
   title: 'Sauce Labs Documentation',
-  tagline:
-    'Test all the things.',
+  tagline: 'Test all the things.',
   url: 'https://docs.saucelabs.com',
   noIndex: false,
   trailingSlash: true,
@@ -25,6 +24,13 @@ const docusaurusConfig = {
       type: 'application/javascript',
       'data-api-key': '1f0243be-fd74-4205-bbff-cf72bc3c96b3',
       'data-ft-location': 'docs',
+    },
+    {
+      src: 'https://app.getbeamer.com/js/beamer-embed.js',
+      type: 'text/javascript',
+      beamer_config: {
+        product_id: 'WyhkZHOU27797', //DO NOT CHANGE: This is your product code on Beamer
+      },
     },
   ],
   themeConfig: {
@@ -154,7 +160,7 @@ if (!process.env.SAUCE_DOCS_DEV) {
   docusaurusConfig.themeConfig.algolia = {
     appId: process.env.ALGOLIA_APP_ID || 'RO95H65NEO',
     apiKey: process.env.ALGOLIA_KEY || 'demo-key' || 'bad6042c91ae4419a94229edf20bc8ea',
-    indexName: "Sauce Docs Crawler",
+    indexName: 'Sauce Docs Crawler',
   };
 }
 
