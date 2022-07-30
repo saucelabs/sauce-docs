@@ -18,6 +18,10 @@ The Sauce Labs Slack app allows you to easily share your test results in Slack. 
 * Share a test result link in Slack, and it automatically expands to show the test summary
 * Configure `saucectl` to automatically post test result notifications to selected channels in Slack
 
+:::note
+Slack integration is supported for single workspace. If your organisation has other workspaces the slack integration will not integrate.
+:::
+
 ## What You'll Need
 
 * A Sauce Labs account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
