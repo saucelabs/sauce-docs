@@ -227,12 +227,12 @@ sauce:
 ## `env`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
+A property containing one or more environment variables that are global for all tests suites in this configuration. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
 
 ```yaml
   env:
     hello: world
-    my_var: $MY_VAR
+    my_var: $MY_VAR  # You can also pass through existing environment variables through parameter expansion
 ```
 ---
 
@@ -694,7 +694,15 @@ For sharding by concurrency, saucectl splits test files into several groups (the
 
 Selectable values: `spec` to shard by spec file, `concurrency` to shard by concurrency. Remove this field or leave it empty `""` for no sharding.
 
+:::tip
+To split tests in the most efficient way possible, use:
+- `spec` when the number of specs is less than the configured concurrency.
+- `concurrency` when the number of specs is larger than the configured concurrency.
+:::
+
 ```yaml
+suites:
+  - name: "I am sharded"
     shard: spec
 ```
 
