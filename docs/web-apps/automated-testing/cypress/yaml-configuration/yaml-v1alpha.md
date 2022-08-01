@@ -32,7 +32,7 @@ While you can use multiple files of different names or locations to specify your
 ## Example Configuration
 
 ```yaml reference
-https://github.com/saucelabs/saucectl-cypress-example/blob/755dadaa0ce299d3f7ab6c68a0979aebb0a35a52/.sauce/config.yml
+https://github.com/saucelabs/saucectl-cypress-example/blob/v1alpha/.sauce/config.yml
 ```
 
 Each of the properties supported for running Cypress tests through `saucectl` is defined below.
