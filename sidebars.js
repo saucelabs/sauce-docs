@@ -867,7 +867,15 @@ module.exports = {
             items: [
               'web-apps/automated-testing/cypress',
               'web-apps/automated-testing/cypress/quickstart',
-              'web-apps/automated-testing/cypress/yaml',
+              {
+                type: 'category',
+                label: 'YAML Configuration',
+                collapsed: true,
+                items: [
+                  'web-apps/automated-testing/cypress/yaml-configuration/yaml-v1',
+                  'web-apps/automated-testing/cypress/yaml-configuration/yaml-v1alpha',
+                ],
+              },
               'web-apps/automated-testing/cypress/advanced',
             ],
           },

@@ -1,7 +1,7 @@
 ---
-id: yaml
+id: yaml-v1alpha
 title: Configuring your Cypress Tests
-sidebar_label: YAML Configuration
+sidebar_label: v1alpha
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,6 +9,10 @@ import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 `saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your Cypress tests, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running Cypress tests.
+
+:::danger
+This `saucectl` configuration only works with Cypress 9 and below.
+:::
 
 ## Setting an Alternative Configuration File
 
@@ -28,7 +32,7 @@ While you can use multiple files of different names or locations to specify your
 ## Example Configuration
 
 ```yaml reference
-https://github.com/saucelabs/saucectl-cypress-example/blob/master/.sauce/config.yml
+https://github.com/saucelabs/saucectl-cypress-example/blob/755dadaa0ce299d3f7ab6c68a0979aebb0a35a52/.sauce/config.yml
 ```
 
 Each of the properties supported for running Cypress tests through `saucectl` is defined below.
@@ -36,11 +40,15 @@ Each of the properties supported for running Cypress tests through `saucectl` is
 ## `apiVersion`
 <p><small>| REQUIRED | STRING |</small></p>
 
-Identifies the version of the underlying configuration schema. At this time, `v1alpha` is the only supported value.
+Identifies the version of the underlying configuration schema.
 
 ```yaml
 apiVersion: v1alpha
 ```
+
+:::danger
+The `v1alpha` configuration only works with Cypress 9 and below.
+:::
 
 ---
 
