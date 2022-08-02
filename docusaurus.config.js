@@ -25,15 +25,13 @@ const docusaurusConfig = {
       'data-api-key': '1f0243be-fd74-4205-bbff-cf72bc3c96b3',
       'data-ft-location': 'docs',
     },
-    {
-      src: 'https://app.getbeamer.com/js/beamer-embed.js',
-      type: 'text/javascript',
-      beamer_config: {
-        product_id: 'WyhkZHOU27797', //DO NOT CHANGE: This is your product code on Beamer
-      },
-    },
   ],
   themeConfig: {
+    beamer: {
+      product_id: `'WyhkZHOU27797'`,
+      display: `'popup'`,
+      button_position: `'bottom-left'`,
+    },
     hideableSidebar: true,
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
@@ -93,16 +91,6 @@ const docusaurusConfig = {
           position: 'left',
           to: '/error-reporting/getting-started',
         },
-        // {
-        //   label: 'Try it Free',
-        //   position: 'right',
-        //   href: 'https://saucelabs.com/sign-up',
-        // },
-        // {
-        //   label: 'Sign In',
-        //   position: 'right',
-        //   href: 'https://accounts.saucelabs.com/',
-        // },
       ],
     },
     /* this is a swizzled component, see inside theme folder */
@@ -153,7 +141,7 @@ const docusaurusConfig = {
     ],
   ],
   themes: ['@saucelabs/theme-github-codeblock'],
-  plugins: [],
+  plugins: ['./src/plugins/beamer'],
 };
 
 if (!process.env.SAUCE_DOCS_DEV) {
