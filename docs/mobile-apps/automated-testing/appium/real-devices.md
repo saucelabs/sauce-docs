@@ -224,7 +224,7 @@ Dynamic allocation is advised, in particular, for all automated mobile app testi
 To enable dynamic device allocation, you will have three options:
 - **Only** provide `platformName` to find the first available Android or iOS device. This could be a phone or a tablet.
 - Provide `platformName` **AND** `deviceName` to narrow the search to a specific device based on the provided value.
-- Provide `platformName` **AND** `platformVersion` to narrow the search to a specific platform version based on the provided value
+- Provide `platformName` **AND** `platformVersion` to narrow the search to a specific platform version based on the provided value.
 
 The following table provides information about accepted values.
 
