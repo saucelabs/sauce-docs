@@ -1,7 +1,7 @@
 ---
 id: opsgenie
 title: OpsGenie Integration with Backtrace
-sidebar_label: OpsGenie 
+sidebar_label: OpsGenie
 description: Integrate Backtrace with OpsGenie.
 ---
 import Tabs from '@theme/Tabs';
