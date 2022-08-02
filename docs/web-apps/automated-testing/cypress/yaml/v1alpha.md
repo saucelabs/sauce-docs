@@ -1,7 +1,7 @@
 ---
-id: yaml-v1
+id: v1alpha
 title: Configuring your Cypress Tests
-sidebar_label: v1
+sidebar_label: v1alpha
 ---
 
 import Tabs from '@theme/Tabs';
@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 `saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your Cypress tests, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running Cypress tests.
 
 :::danger
-This `saucectl` configuration only works with Cypress 10 and above.
+This `saucectl` configuration only works with Cypress 9 and below.
 :::
 
 ## Setting an Alternative Configuration File
@@ -31,10 +31,8 @@ While you can use multiple files of different names or locations to specify your
 
 ## Example Configuration
 
-<!-- TODO need to create a new Cypress 10 example first. -->
-
 ```yaml reference
-https://github.com/saucelabs/saucectl-cypress-example/blob/master/.sauce/config.yml
+https://github.com/saucelabs/saucectl-cypress-example/blob/v1alpha/.sauce/config.yml
 ```
 
 Each of the properties supported for running Cypress tests through `saucectl` is defined below.
@@ -45,11 +43,11 @@ Each of the properties supported for running Cypress tests through `saucectl` is
 Identifies the version of the underlying configuration schema.
 
 ```yaml
-apiVersion: v1
+apiVersion: v1alpha
 ```
 
 :::danger
-The `v1` configuration only works with Cypress 10 and above.
+The `v1alpha` configuration only works with Cypress 9 and below.
 :::
 
 ---
@@ -586,8 +584,8 @@ The parent property containing the details specific to the Cypress project.
 
 ```yaml
 cypress:
-  version: 10.3.1
-  configFile: "cypress.config.js"
+  version: 6.6.0
+  configFile: "cypress.json"
 ```
 ---
 
@@ -597,7 +595,7 @@ cypress:
 The version of Cypress that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/cypress#supported-testing-platforms) for the list of Cypress versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
-  version: 10.3.1
+  version: 8.6.0
 ```
 
 :::tip
@@ -610,10 +608,10 @@ The path to your `package.json` file will be relative to the `rootDir` of your c
 ### `configFile`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The designated `cypress` configuration file.
+The designated `cypress` configuration file. `saucectl` determines related files based on the location of the config file. By default `saucectl` defers to the test file location defined in `cypress.json`.
 
 ```yaml
-  configFile: "cypress.config.js"
+  configFile: "cypress.json"
 ```
 ---
 
@@ -638,7 +636,7 @@ The secret key that grants permission to record your tests in the Cypress dashbo
   key: $MY_SECRET_KEY
 ```
 
-The `record` and `key` fields depend on the cypress `"projectId"` being set in your `cypress.config.js` file because the value of your `projectId` correlates directly with the value of the `key` field. See [Cypress Project-ID Documentation](https://docs.cypress.io/guides/dashboard/projects.html#Project-ID) for details about how to configure/retrieve the cypress `projectId` or [Cypress Record-Key Documentation](https://docs.cypress.io/guides/guides/command-line.html#cypress-run-record-key-lt-record-key-gt) for details about configuring Record-Key parameters.
+The `record` and `key` fields depend on the cypress `"projectId"` being set in your `cypress.json` file because the value of your `projectId` correlates directly with the value of the `key` field. See [Cypress Project-ID Documentation](https://docs.cypress.io/guides/dashboard/projects.html#Project-ID) for details about how to configure/retrieve the cypress `projectId` or [Cypress Record-Key Documentation](https://docs.cypress.io/guides/guides/command-line.html#cypress-run-record-key-lt-record-key-gt) for details about configuring Record-Key parameters.
 
 :::note
 For additional information regarding cypress configurations, please consult the [Cypress documentation](https://docs.cypress.io/guides/references/configuration.html#Options).
@@ -668,7 +666,7 @@ In order for your additional reporter to work, it must be compatible with the [c
 #### `name`
 <p><small>| REQUIRED | STRING |</small></p>
 
-The name of the reporter to enable, which corresponds to the `reporter` property in the `cypress.config.js` file.
+The name of the reporter to enable, which corresponds to the `reporter` property in the `cypres.json` file.
 
 ```yaml
       - name: cypress-mochawesome
@@ -683,7 +681,7 @@ Some reporters may require you to install dependencies.
 #### `options`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Any relevant settings that are be supported by the specified reporter. These properties correspond to the `reporterOptions` object in the `cypress.config.js` file.
+Any relevant settings that are be supported by the specified reporter. These properties correspond to the `reporterOptions` object in the `cypress.json` file.
 ```yaml
       options:
         reportDir: __assets__/cypress/report
@@ -774,8 +772,7 @@ Provides details related to the Cypress test configuration that are relevant for
       config:
         env:
           hello: world
-        specPattern: [ "cypress/e2e/**/*.cy.js" ]
-        excludeSpecPattern: [ "cypress/e2e/**/not_this_one.cy.js" ]
+        testFiles: [ "**/*.spec.js" ]
 ```
 ---
 
@@ -797,25 +794,33 @@ Since environment variables are provided to Cypress directly, avoid using `CYPRE
 
 ---
 
-#### `specPattern`
+#### `testFiles`
 <p><small>| REQUIRED | STRING/ARRAY/REGEX |</small></p>
 
-One or more paths to the Cypress test files to run for this suite. Regex values are supported to indicate all files of a certain type or in a certain directory, etc.
+One or more paths to the Cypress test files to run for this suite, if not otherwise specified explicitly in `cypress.json`. Regex values are supported to indicate all files of a certain type or in a certain directory, etc.
 
 ```yaml
-      specPattern: [ "**/*.*" ]
+      testFiles: [ "**/*.*" ]
 ```
+
+:::note
+`testFiles` must be a regex or a path relative to `cypress/integration` or the `integrationFolder` value set in `cypress.json`.
+:::
 
 ---
 
-#### `excludeSpecPattern`
+#### `excludedTestFiles`
 <p><small>| OPTIONAL | ARRAY/REGEX |</small></p>
 
 Excludes test files to skip the tests. Regex values are supported to indicate all files of a certain type or in a certain directory, etc.
 
 ```yaml
-      excludeSpecPattern: [ "**/*.*" ]
+      excludedTestFiles: [ "**/*.*" ]
 ```
+
+:::note
+`excludedTestFiles` must be a regex or a path relative to `cypress/integration` or the `integrationFolder` value set in `cypress.json`.
+:::
 
 ---
 
