@@ -774,8 +774,8 @@ Provides details related to the Cypress test configuration that are relevant for
       config:
         env:
           hello: world
-        specPattern: [ "**/*.spec.js" ]
-        excludeSpecPattern: [ "**/not_this_one.spec.js" ]
+        specPattern: [ "cypress/e2e/**/*.cy.js" ]
+        excludeSpecPattern: [ "cypress/e2e/**/not_this_one.cy.js" ]
 ```
 ---
 
