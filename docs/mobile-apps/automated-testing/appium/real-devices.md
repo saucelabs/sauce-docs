@@ -221,7 +221,7 @@ If you have both private **AND** public devices, dynamic device allocation will 
 
 Dynamic allocation is advised, in particular, for all automated mobile app testing in CI environments.
 
-To enable dynamic device allocation, you will have three options
+To enable dynamic device allocation, you will have three options:
 - **Only** provide `platformName`, it will then find the first available Android or iOS device. This could be a phone or a table
 - Provide `platformName` **AND** `deviceName` to narrow the search to a specific device based on the provided value
 - Provide `platformName` **AND** `platformVersion` to narrow the search to a specific platform version based on the provided value
