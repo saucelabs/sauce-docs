@@ -1,14 +1,13 @@
 ---
 id: opsgenie
-title: OpsGenie
-sidebar_label: OpsGenie
+title: OpsGenie Integration with Backtrace
+sidebar_label: OpsGenie 
 description: Integrate Backtrace with OpsGenie.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## OpsGenie Integration
 This guide goes through the steps necessary to integrate Backtrace with OpsGenie. Setting up integration with the OpsGenie ticketing system requires a valid OpsGenie REST API URL, as well as a valid username and password.
 
 The steps in this process are:
