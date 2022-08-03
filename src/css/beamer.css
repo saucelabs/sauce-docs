@@ -1,0 +1,28 @@
+.beamer_defaultBeamerSelector {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #00d8a6;
+  background-image: url(https://app.getbeamer.com/images/bell-full.svg);
+  border-radius: 50%;
+  color: #fff;
+  -webkit-box-shadow: 0 2px 5px 0 rgb(0 0 0 / 26%);
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 26%);
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-repeat: no-repeat;
+  background-position: 50% 49%;
+  z-index: 2147483000 !important;
+  -webkit-animation: beamer_pop-in 0.5s;
+}
+
+.beamer_defaultBeamerSelector .bottom-right .flame .beamer_beamerSelector {
+  background-color: #00d8a6;
+}
+
+.beamer_icon {
+  background-color: blue;
+}

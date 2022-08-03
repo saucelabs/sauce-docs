@@ -10,6 +10,7 @@
 @import 'admonitions.css';
 @import 'announcement-bar.css';
 @import 'api-override.css';
+@import 'beamer.css';
 @import 'button.css';
 @import 'carousel.css';
 @import 'cli-override.css';
@@ -434,7 +435,8 @@ html[data-theme='dark'] .card:hover {
   max-width: var(--ifm-container-width);
 }
 
-.container-landpage, .container-reverse {
+.container-landpage,
+.container-reverse {
   padding: 1rem;
   margin: 5%;
   display: flex;
@@ -458,10 +460,10 @@ html[data-theme='dark'] .card:hover {
 /* Information badges below */
 
 .sauceRed {
-  background:var(--ifm-color-primary);
-  color:white;
-  padding:.2rem;
-  font-weight:750;
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 0.2rem;
+  font-weight: 750;
   border-radius: 4px;
 }
 
@@ -677,7 +679,7 @@ html[data-theme='dark'] .hero--primary {
   font-family: var(--font-family-sans-serif);
   text-align: left;
 }
-html[data-theme='dark'] .hero__title{
+html[data-theme='dark'] .hero__title {
   color: var(--ds-blue-200);
 }
 
@@ -686,7 +688,7 @@ html[data-theme='dark'] .hero__title{
   font-size: 2rem;
   max-width: 650px;
 }
-html[data-theme='dark'] .hero__subtitle{
+html[data-theme='dark'] .hero__subtitle {
   color: var(--ds-gray-100);
 }
 
@@ -698,7 +700,7 @@ html[data-theme='dark'] .hero__subtitle{
   flex-direction: row;
   justify-content: flex-start;
 }
-html[data-theme='dark'] .hero__popular-searches{
+html[data-theme='dark'] .hero__popular-searches {
   color: var(--ds-gray-100);
 }
 
@@ -730,7 +732,7 @@ a.hero__button {
   padding: 15px 0 0 0;
   background: var(--ds-blue-50);
 }
-html[data-theme='dark'] .main__container-quickstart{
+html[data-theme='dark'] .main__container-quickstart {
   background: var(--ds-gray-700);
 }
 
@@ -738,7 +740,7 @@ html[data-theme='dark'] .main__container-quickstart{
   padding: 4px 0 4px 0;
   background: var(--ds-blue-50);
 }
-html[data-theme='dark'] .main__container-community{
+html[data-theme='dark'] .main__container-community {
   background: var(--ds-gray-700);
 }
 
@@ -1032,7 +1034,8 @@ ul.dropdown__menu li a:hover {
     width: 2.5rem;
   }
 
-  .container-landpage, .container-reverse {
+  .container-landpage,
+  .container-reverse {
     flex-wrap: wrap;
     padding: 0;
   }
@@ -1058,8 +1061,8 @@ ul.dropdown__menu li a:hover {
 }
 
 @media only screen and (min-width: 741px) and (max-width: 1023px) {
-  .container-landpage, .container-reverse {
+  .container-landpage,
+  .container-reverse {
     padding: 0;
   }
 }
-
