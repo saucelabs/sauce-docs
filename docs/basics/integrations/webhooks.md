@@ -12,7 +12,7 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Sauce Labs Webhooks integration allows you specify a URL to which Sauce Labs will push test result data as it becomes available, rather than forcing you to constantly poll for updates.
+The Sauce Labs Webhooks integration allows you to specify a URL to which Sauce Labs will push test result data as it becomes available, rather than forcing you to constantly poll for updates.
 
 ## What You'll Need
 

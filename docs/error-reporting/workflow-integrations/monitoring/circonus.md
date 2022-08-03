@@ -1,6 +1,6 @@
 ---
 id: circonus
-title: Circonus
+title: Circonus Integration with Backtrace
 sidebar_label: Circonus
 description: Integrate Backtrace with Circonus.
 ---
@@ -8,7 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Circonus Integration
 This guide goes through the steps necessary to integrate Backtrace with Datadog. Setting up integration with Datadog requires an API Key.
 
 The steps in this process are:

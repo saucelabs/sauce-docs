@@ -1,6 +1,6 @@
 ---
 id: stride
-title: Stride
+title: Stride Integration with Backtrace
 sidebar_label: Stride
 description: Integrate Backtrace with Stride.
 ---
@@ -8,7 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Stride Integration
 This guide goes through all the steps necessary to integrate Backtrace with Stride.
 
 The steps in this process are:

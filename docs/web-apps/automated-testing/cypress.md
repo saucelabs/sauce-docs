@@ -149,5 +149,5 @@ We recommend that you avoid the use of special characters when naming your tests
 :::
 
 :::caution Firefox 101 + Windows
-Cypress does currently not work with Firefox 101 on Windows.
+Cypress does not currently work with Firefox 101 on Windows.
 :::
