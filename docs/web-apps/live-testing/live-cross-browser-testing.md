@@ -28,9 +28,9 @@ You can run live tests of your websites on a wide variety of operating system, b
 
 <img src={useBaseUrl('img/live-testing/desktop-test-setup.jpg')} alt="Desktop test setup" width="550"/>
 
-7. Your recent  configurations are listed in the right panel, under **Recent**.
+7. To view your recent configurations, click **Recents**.
 
-<img src={useBaseUrl('img/live-testing/desktop-recent-saved.jpg')} alt="Recent tests" width="350"/>
+<img src={useBaseUrl('img/live-testing/live-testing-recent-tests-nav.png')} alt="Recent tests" width="550"/>
 
 8. Click **Start Session**.
 You'll see a loading screen, and then the app will launch in a live test window using the configuration you selected.

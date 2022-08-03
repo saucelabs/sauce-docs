@@ -73,7 +73,7 @@ URLs vary based on the services you're using, your data center, and the types of
 <td>Tunnel Server</td><td><code>maki*.miso.saucelabs.com:443</code></td>
 </tr>
 <tr>
-<td>Tunnel Server v2alpha</td><td><code>tunnel-*.tunnels.us-west-4.saucelabs.com:443</code></td>
+<td>Tunnel Server v2alpha</td><td><code>tunnel-*.tunnels.us-west-4-i3er.saucelabs.com:443</code></td>
 </tr>
 <tr>
 <td colSpan='2'><strong>IP Ranges</strong></td>
