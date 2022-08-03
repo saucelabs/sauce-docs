@@ -1,6 +1,6 @@
 ---
 id: asana
-title: Asana
+title: Asana Integration with Backtrace
 sidebar_label: Asana
 description: Integrate Backtrace with Asana.
 ---
@@ -8,7 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Asana Integration
 This guide goes through the steps necessary to integrate Backtrace with Asana.
 
 The steps in this process are:
