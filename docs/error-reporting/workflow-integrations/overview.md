@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 
-Workflow integrations allows you to have Backtrace automatically notify and alert users through issue tracking systems, JIRA and more.
+Workflow integrations allows you to have Backtrace automatically notify and alert users through issue tracking systems like Jira, and more.
 
 To configure a workflow integration, select **Project Settings** from the menu at the top-right, select the **Integrations** tab on the left, then start using the wizard:
 
