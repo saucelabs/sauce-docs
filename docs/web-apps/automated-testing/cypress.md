@@ -67,13 +67,13 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
     <tr>
       <td rowspan='2'>10.3.1</td>
       <td><b>macOS:</b> 11.00, 12</td>
-      <td rowspan='2'>Chrome, Firefox, MicrosoftEdge</td>
+      <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='2'>Jul 29, 2023</td>
     </tr>
     <tr>
       <td rowspan='2'>9.7.0</td>
       <td><b>macOS:</b> 11.00, 12</td>
-      <td rowspan='2'>Chrome, Firefox, MicrosoftEdge</td>
+      <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='2'>Jun 6, 2023</td>
     </tr>
     <tr>
@@ -84,7 +84,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
     <tr>
       <td rowspan='2'>9.5.3</td>
       <td><b>macOS:</b> 11.00, 12</td>
-      <td rowspan='2'>Chrome, Firefox, MicrosoftEdge</td>
+      <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='2'>Apr 16, 2023</td>
     </tr>
     <tr>
@@ -95,7 +95,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
     <tr>
       <td rowspan='2'>9.3.1</td>
       <td><b>macOS:</b> 11.00</td>
-      <td rowspan='2'>Chrome, Firefox, MicrosoftEdge</td>
+      <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='2'>Feb 2, 2023</td>
     </tr>
     <tr>
@@ -106,7 +106,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
     <tr>
       <td rowspan='1'>9.1.0</td>
       <td><b>Windows:</b> 10</td>
-      <td>Chrome, Firefox, MicrosoftEdge</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='2'>Nov 29, 2022</td>
     </tr>
     </tbody>
@@ -114,7 +114,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
     <tr>
       <td rowspan='1'>8.6.0</td>
       <td><b>Windows:</b> 10</td>
-      <td>Chrome, Firefox, MicrosoftEdge</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='2'>Oct 13, 2022</td>
     </tr>
     </tbody>
@@ -122,7 +122,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
  </TabItem>
  <TabItem value="docker">
 
- Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases).
+Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases).
 
 </TabItem>
 </Tabs>
