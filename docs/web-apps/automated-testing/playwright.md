@@ -69,7 +69,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
       <td rowspan='2'>1.24.1</td>
       <td><b>macOS:</b> 11.00, 12</td>
       <td rowspan='2'>Chromium, Firefox, Webkit</td>
-      <td rowspan='2'>Aug 3, 2023</td>
+      <td rowspan='2'>Jul 29, 2023</td>
     </tr>
     <tr>
       <td rowspan='2'>1.22.2</td>
