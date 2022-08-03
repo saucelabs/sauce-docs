@@ -97,7 +97,7 @@ In Sauce Labs API Testing you can create variables in several different ways by 
 
 ### Variable Mode: String
 
-This mode generates a String variable, the variable can be a static value or a variable taken from the response payload. If it is a static value you have just to write it and the engine will take it as is.
+This mode generates a String variable, which can be a static value or a variable taken from the response payload. If it is a static value you just have to write it and the engine will take it as is.
 
 Consider the following example:
 
