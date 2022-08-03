@@ -241,7 +241,7 @@ This property is valid for VDC tests only. It has no effect for tests run agains
 
 ```yaml
 sauce:
-  visibility:
+  visibility: private
 ```
 ---
 
