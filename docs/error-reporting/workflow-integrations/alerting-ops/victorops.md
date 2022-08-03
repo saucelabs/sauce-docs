@@ -1,6 +1,6 @@
 ---
 id: victorops
-title: VictorOps
+title: VictorOps Integration with Backtrace
 sidebar_label: VictorOps
 description: Integrate Backtrace with VictorOps.
 ---
@@ -8,7 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## VictorOps Integration
 This guide goes through the steps necessary to integrate Backtrace with VictorOps. Setting up integration with the VictorOps incident management system requires a valid VictorOps REST Endpoint for sending alerts.
 
 These are the main steps for setting up VictorOps:
