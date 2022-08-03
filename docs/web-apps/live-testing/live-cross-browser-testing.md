@@ -64,11 +64,11 @@ Know if your app is designed to run on internal or otherwise restricted networks
 <img src={useBaseUrl('img/live-testing/live-mobile-real-nav.png')} alt="Live mobile real device test navigation" width="650"/>
 
 3. Use the filter options or **Search** field to find the type of real device you want to use in your test.
-4. To mark a device as a favorite so you can find it easily in the future, click the star next to the device name.
+4. To mark a device as a favorite so you can find it easily in the future, click the pin icon next to the device name.
 
 <img src={useBaseUrl('img/live-testing/device-favorite.png')} alt="Favorite a device" width="350"/>
 
-  The default sorting for the device list is **Starred First**.
+  The default sorting for the device list is **Pinned First**.
 
 5. In the **URL** field, enter the URL of the website you want to test.
 6. If you are using Sauce Connect Proxy to access the web app you want to test, select the tunnel from the dropdown.
