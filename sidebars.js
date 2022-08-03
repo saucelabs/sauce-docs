@@ -946,6 +946,7 @@ module.exports = {
       },
       'api-testing/project-dashboard',
       'api-testing/mocking',
+      'api-testing/load-testing',
       'api-testing/contract-testing',
       'api-testing/logger',
       'api-testing/project-access',
