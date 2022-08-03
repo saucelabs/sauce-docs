@@ -29,10 +29,15 @@ const docusaurusConfig = {
   themeConfig: {
     beamer: {
       product_id: `'WyhkZHOU27797'`,
-      display: `'popup'`,
-      button_position: `'bottom-left'`,
+      // display: `'popup'`,
+      // button_position: `'bottom-left'`,
+      selector: '.beamer-connect',
+      top: 8,
+      right: 4,
+      lazy: true,
+      button: false, // hide default button
+      alert: true,
     },
-    hideableSidebar: true,
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
     },
@@ -42,20 +47,6 @@ const docusaurusConfig = {
       // Hides the switch in the navbar
       disableSwitch: false,
       respectPrefersColorScheme: false,
-      switchConfig: {
-        // Icon for the switch while in dark mode
-        darkIcon: '💡',
-        // CSS to apply to dark icon,
-        // React inline style object
-        // see https://reactjs.org/docs/dom-elements.html#style
-        darkIconStyle: {
-          marginLeft: '2px',
-        },
-        lightIcon: '🌙',
-        lightIconStyle: {
-          marginLeft: '1px',
-        },
-      },
     },
     navbar: {
       title: null,
