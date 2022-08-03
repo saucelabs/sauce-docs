@@ -57,8 +57,7 @@ All tags, dynamic and static will mark the test execution documents. On your pro
 
 ## Set (Variable)
 
-In Sauce Labs API Testing you can create the variables you need in a lot of different ways. The component you are looking for is the `SET (variable)`.
-This component has different modes that allow you to create the variable in different ways: `String`, `Data`, and `Language`. 
+In Sauce Labs API Testing you can create variables in several different ways by using `SET (variable)`. This component has different modes that allow you to create variables in different ways, such as `String`, `Data`, and `Language`. 
 
 <img src={useBaseUrl('img/api-testing/set-var-component.png')} alt="Set var component" />
 
