@@ -225,7 +225,7 @@ This property is only valid for tests run against emulators. It has no effect on
 * `public`: Accessible to anyone.
 * `public restricted`: Share your job's results page and video, but keeps the logs only for you.
 * `share`: Only accessible to people with a valid link.
-* `team`: Only accessible to people under the same root account as you. **default**
+* `team`: (Default) Only accessible to people under the same root account as you. 
 * `private`: Only you (the owner) will be able to view assets and test results page.
 
 ```yaml
