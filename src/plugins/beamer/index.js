@@ -30,13 +30,7 @@ module.exports = function (context) {
             tagName: 'script',
             innerHTML: `
                         var beamer_config = {
-                            ${product_id},
-                            ${selector},
-                            ${display},
-                            ${top},
-                            ${bottom},
-                            ${button_position},
-                            theme: 'docs-design',
+                            product_id : 'WyhkZHOU27797',
                         };`,
           },
           {

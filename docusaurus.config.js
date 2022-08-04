@@ -29,8 +29,8 @@ const docusaurusConfig = {
   themeConfig: {
     beamer: {
       product_id: `'WyhkZHOU27797'`,
-      // display: `'popup'`,
-      // button_position: `'bottom-left'`,
+      display: `'popup'`,
+      button_position: `'bottom-left'`,
       selector: '.beamer-connect',
       top: 8,
       right: 4,
