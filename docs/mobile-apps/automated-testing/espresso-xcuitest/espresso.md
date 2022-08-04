@@ -213,7 +213,7 @@ sauce:
 ```
 
 ---
-#### `visibility`
+### `visibility`
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Sets the visibility level of test results for suites run on Sauce Labs. If unspecified or empty, `team` visibility will be applied. Valid values are:
