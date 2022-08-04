@@ -213,6 +213,27 @@ sauce:
 ```
 
 ---
+#### `visibility`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Sets the visibility level of test results for suites run on Sauce Labs. If unspecified or empty, `team` visibility will be applied. Valid values are:
+
+:::note
+This property is only valid for tests run against emulators. It has no effect on tests run against real devices.
+:::
+
+* `public`: Accessible to anyone.
+* `public restricted`: Share your job's results page and video, but keeps the logs only for you.
+* `share`: Only accessible to people with a valid link.
+* `team`: Only accessible to people under the same root account as you. **default**
+* `private`: Only you (the owner) will be able to view assets and test results page.
+
+```yaml
+sauce:
+  visibility: private
+```
+
+---
 ## `reporters`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 

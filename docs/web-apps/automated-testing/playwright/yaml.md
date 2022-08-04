@@ -228,10 +228,6 @@ sauce:
 
 Sets the visibility level of test results for suites run on Sauce Labs. If unspecified or empty, `team` visibility will be applied. Valid values are:
 
-:::note
-This property is valid for VDC tests only. It has no effect for tests run against real devices.
-:::
-
 * `public`: Accessible to everyone.
 * `public restricted`: Share your job's results page and video, but keeps the logs only for you.
 * `share`: Only accessible to people with a valid link.
