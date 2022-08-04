@@ -57,7 +57,7 @@ All tags, dynamic and static will mark the test execution documents. On your pro
 
 ## Set (Variable)
 
-In Sauce Labs API Testing you can create variables in several different ways by using `SET (variable)`. This component has different modes that allow you to create variables in different ways, such as `String`, `Data`, and `Language`. 
+In Sauce Labs API Testing you can create variables in several different ways by using `SET (variable)`. This component has different modes that allow you to create variables in different ways, such as `String`, `Data`, and `Language`.
 
 <img src={useBaseUrl('img/api-testing/set-var-component.png')} alt="Set var component" />
 
@@ -167,7 +167,7 @@ The value will be `Long Sleeve Shirt`, without changing your test.
 
 ### Variable mode: Data
 
-Using this mode, the variable will be evaluated (like the Expression field), therefore the variable type can be everything. The variable type will depend on the object being evaluated. 
+Using this mode, the variable will be evaluated (like the Expression field), therefore the variable type can be everything. The variable type will depend on the object being evaluated.
 In the Data field, you need to enter a single line expression that returns a value.
 
 For example, you can create a new array in this way:
@@ -181,7 +181,7 @@ Data: ["Bluetooth Headphones","Long Sleeve Shirt","Baseball Cap"]
 ```
 Then, you can iterate over it using the `each` component or you can invoke a specific item using `${products[1]}` where the number inside the square brackets identifies the position of the item you want to reach out, starting from 0.
 
-Now, let's consider the example below and imagine we have the JSON payload stored in the `paylaod` variable:
+Now, let's consider the example below and imagine we have the JSON payload stored in the `payload` variable:
 
 ```json
 [
@@ -270,7 +270,7 @@ This is the most advanced way to create your variables. There are two different 
 
 #### Lang: Javascript
 
-In this mode you can create your variable by writing a Javascript script in the `Content` field. It can be a complete script with variable declarations, loops…
+In this mode you can create your variable by writing a Javascript script in the `Content` field. It can be a complete script with variable declarations or loops.
 
 For example, you have a JWT token stored in the `token` variable and we need to decode it and return the JSON payload it was generated from:
 
@@ -305,7 +305,7 @@ That’s producing the following JSON:
 }
 ```
 
-Then, you can retrieve all the keys as `jsonData.iat` where `jsonData` is the variable name you entered in the `Var` field. 
+Then, you can retrieve all the keys as `jsonData.iat` where `jsonData` is the variable name you entered in the `Var` field.
 
 #### Lang: Template
 
