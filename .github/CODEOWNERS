@@ -2,5 +2,5 @@
 # Each line is a file pattern followed by one or more owners.
 *        @spider-sauce @lauramthomas @lysannep @discombobulateme @aoleszyn
 /docs/   @lauramthomas @lysannep @aoleszyn
-/docs/web-apps @saucelabs/devx
+/docs/web-apps @lauramthomas @lysannep @aoleszyn @saucelabs/devx
 Dockerfile @spider-sauce @alexplischke @dpgraham
