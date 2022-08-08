@@ -82,7 +82,7 @@ You can also define custom attributes. For more information, see [Configuration]
 |`application.data_path`|The app's directory path.|User Defined|User Defined|
 |`application.debug`|Indicates whether the build is a development build.|User Defined|User Defined|
 |`application.editor`|Indicates whether the app instance is run via the Unity Editor.|User Defined|User Defined|
-|`application.focused`|Indicates whether the player is currently has focus.|User Defined|User Defined|
+|`application.focused`|Indicates whether the app has focus.|User Defined|User Defined|
 |`application.id`|The name of the app or product name. Defined in the Player Settings for the Unity project.|User Defined|User Defined|
 |`application.installer.name`|The name of the store or package that installed the app.|User Defined|User Defined|
 |`application.internet_reachability`|The type of internet reachability currently possible on the device running the app.|User Defined|User Defined|
@@ -109,7 +109,7 @@ You can also define custom attributes. For more information, see [Configuration]
 |`graphic.id`|The identifier code of the graphics device.|User Defined|User Defined|
 |`graphic.memory`|The total amount of graphics memory.|User Defined|User Defined|
 |`graphic.multithreaded`|Indicates whether the graphics processing unit (GPU) is multithreaded.|User Defined|User Defined|
-|`graphic.name`|The name of the graphics processing unity (GPU) or graphics card.|User Defined|User Defined|
+|`graphic.name`|The name of the graphics processing unit (GPU) or graphics card.|User Defined|User Defined|
 |`graphic.shader`|The shader capability level of the graphics device.|User Defined|User Defined|
 |`graphic.topUv`|Indicates whether UV coordinates start at the top.|User Defined|User Defined|
 |`graphic.type`|The graphics API type used by the graphics device.|User Defined|User Defined|
