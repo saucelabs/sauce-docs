@@ -96,7 +96,7 @@ To find dSYM files while building the project:
 To find dSYM files while archiving the project:
 1. In Xcode, archive your project.
 1. To open the Archives organizer, go to **Window > Organizer** and click **Archives**.
-1. Select your iOS app, then click **Show in Finder**. dSYMs are placed inside of an `.xcarchive` file in your project.
+1. Select your iOS app, then click **Show in Finder**. dSYMs are stored in a `.xcarchive` file.
 <img src={useBaseUrl('img/error-reporting/ios/xcode-organizer.png')} width="900" alt="" />
 1. Right-click, then click **Show Package Contents**.
 <img src={useBaseUrl('img/error-reporting/ios/finder-xcarchive.png')} width="700" alt="" />
