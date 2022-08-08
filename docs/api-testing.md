@@ -1,49 +1,78 @@
 ---
 id: api-testing
-title: API Testing Documentation
+title: API Testing
 sidebar_label: Getting Started
-description: Documentation for running API tests with Sauce Labs
+description: Running API tests with Sauce Labs
 hide_table_of_contents: true
 ---
 
-Check out the docs below to get started with API Testing and Monitoring on the Sauce Labs continuous testing cloud.
+At its core, Sauce Labs API Testing allows you to use either and HTTP client or a proprietary test composer to generate and edit intelligent contract or functional tests. The tests can be automated with any CI/CD tool or using the platform’s scheduler. Functional tests can then be used as load tests or scheduled as uptime monitors.
 
-
-<div className="box boxwidebottom card">
-  <div className="container">
-  <h3><a href="/api-testing/quickstart/">Quickstart</a></h3>
-  <p>Get up and running quickly with our API testing cloud.</p>
-  </div>
-</div><br/>
+<img src="/img/api-testing/API Testing Getting Started.png" width="600"/>
 <div className="box-wrapper" markdown="1">
-  <div className="box box1 card">
-    <div className="container">
-    <h2>Create an API Test</h2>
-    <p>Below are the methods to create a test.</p>
-    <ul>
-        <li><a href="/api-testing/quickstart">HTTP Client</a></li>
-        <li><a href="/api-testing/build-from-spec">Import from Spec</a> or <a href="/api-testing/import-postman-collection/">Postman Collection</a></li>
-        <li><a href="/api-testing/composer">Test Composer (write test from scratch)</a></li>
-        <li><a href="/api-testing/import-export-tests">Import Legacy APIF Test</a></li>
-    </ul>
-    </div>
-  </div>
-  <div className="box box2 card">
-    <div className="container">
-    <h2>Sauce School</h2>
-    <p>Browse through our courses to learn more about API testing.</p>
-    <ul>
-        <li><a href="https://training.saucelabs.com/codelabs/Module1-APITesting/index.html?index=..%2F..apiTesting#0">API Testing Basics</a></li>
-        <li><a href="https://training.saucelabs.com/codelabs/Module2-APITesting/index.html?index=..%2F..apiTesting#0">Best Practices</a></li>
-        <li><a href="https://training.saucelabs.com/codelabs/Module3-APITesting/index.html?index=..%2F..apiTesting#0">Writing Your First API Test</a></li>
-    </ul>
-    </div>
-  </div>
+
+<div className="box box1 card">
+<div className="container">
+<h2>Contract Testing</h2>
+<p>
+</p>
+<p>
+Use the API Testing platform to generate contract tests from an OpenAPI specification file. When used with Piestry, our mocking tool, you can test both the consumer and the provider.
+
+</p>
+<ul>
+<li><a href="/api-testing/contract-testing">API Contract Testing</a></li>
+<li><a href="/api-testing/mocking">API Mocking with Piestry</a></li>
+</ul>
+</div>
 </div>
 
-<br/>
-<br/>
+<div className="box box2 card">
+<div className="container">
 
-:::info
-Looking for our on-premise (legacy) docs? See the [API Fortress documentation](https://docs.saucelabs.com/api-testing/on-prem/quick-start/).
-:::
+<h2>Functional Testing</h2>
+<p></p>
+<p>
+Create functional tests from multiple locations:
+<ul>
+<li>
+<a href="/api-testing/quickstart">HTTP client</a></li>
+<li>
+<a href="/api-testing/import-postman-collection">Postman collection (in the HTTP client)</a></li>
+<li>
+<a href="/api-testing/build-from-spec">OpenAPI spec file or HAR file</a>
+</li>
+<li>
+<a href="/api-testing/import-postman-collection/#importing-a-har-file-from-an-rdc-job">HAR files captured during real device testing</a>
+</li>
+<li>
+<a href="/api-testing/composer">Test composer</a>
+</li>
+</ul>
+</p>
+</div>
+</div>
+
+<div className="box box3 card">
+<div className="container">
+
+<h2>Monitoring</h2>
+<p></p>
+<p>
+Schedule existing functional tests against any environment for staging and production monitoring, and to validate the functional uptime of business critical APIs. See <a href="/api-testing/schedule-test">Scheduling API Tests</a> for more information.
+</p>
+</div>
+</div>
+
+<div className="box box4 card">
+<div className="container">
+
+<h2>Testing Private APIs</h2>
+<p></p>
+<p>
+Use Sauce Connect Proxy to test APIs behind a firewall. This launches a secured tunnel between the Sauce Labs API Testing platform and your APIs. See <a href="/secure-connections/sauce-connect">Sauce Connect Proxy</a> for more information.
+</p>
+</div>
+</div>
+
+</div>
