@@ -30,13 +30,7 @@ const docusaurusConfig = {
     beamer: {
       product_id: `'WyhkZHOU27797'`,
       display: `'popup'`,
-      button_position: `'bottom-left'`,
-      selector: '.beamer-connect',
-      top: 8,
-      right: 4,
-      lazy: true,
-      button: false, // hide default button
-      alert: true,
+      // selector: `'.beamerContainer'`,
     },
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
@@ -81,6 +75,12 @@ const docusaurusConfig = {
           label: 'Error and Crash Reporting',
           position: 'left',
           to: '/error-reporting/getting-started',
+        },
+        {
+          type: 'html',
+          position: 'right',
+          className: 'beamerTrigger',
+          value: '<img src="img/beamer.svg" width="22" height="22" alt="Product Updates">',
         },
       ],
     },

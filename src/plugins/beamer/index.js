@@ -13,8 +13,7 @@ module.exports = function (context) {
     );
   }
 
-  const product_id = `product_id: ${themeConfig.beamer.product_id}`;
-  const selector = `selector: ${themeConfig.beamer.product_id}`;
+  const selector = `selector: ${themeConfig.beamer.selector}`;
   const display = `display: ${themeConfig.beamer.display}`; /* Choose how to display Beamer panel */
   const top = `top: ${themeConfig.beamer.top}`; /* Top position offset for notification bubble */
   const bottom = `bottom: ${themeConfig.beamer.bottom}`; /* Bottom position offset for notification bubble */
@@ -31,6 +30,8 @@ module.exports = function (context) {
             innerHTML: `
                         var beamer_config = {
                             product_id : 'WyhkZHOU27797',
+                            ${selector},
+                            ${display},
                         };`,
           },
           {
