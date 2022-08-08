@@ -58,8 +58,8 @@ Execute tests according to the environment, framework, and test suite specificat
      <td>Add a build reference to your tests.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--concurrency">--concurrency</a></span></td>
-     <td><span className="t-cli">-ccy</span></td>
+     <td><span className="t-cli"><a href="#--ccy">--ccy</a></span></td>
+     <td></td>
      <td>Maximum tests to run concurrently.</td>
     </tr>
     <tr>
@@ -223,13 +223,11 @@ saucectl run --build myBuildID
 ```
 </div>
 
-### <span className="cli">--concurrency</span>
+### <span className="cli">--ccy</span>
 <div className="cli-desc">
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-Sets the maximum number of suites to execute at the same time. If the test defines more suites than the max, excess suites are queued and run in order as each suite completes.
-
-**Shorthand:** `-ccy`
+Sets the maximum number of suites to execute at the same time. If the config defines more suites than the max, excess suites are queued and run in order as each suite completes.
 
 :::caution
 For tests running on Sauce, set this value to equal or less than your Sauce concurrency allowance, as setting a higher value may result in jobs dropped by the server.
@@ -276,7 +274,7 @@ saucectl run --dry-run
 An environment variable key value pair that may be referenced in the tests executed by this command. Expanded environment variables are supported.
 
 ```bash
-saucectl run --env <key1>=v<alue1> --env <key2>=<value2> ...
+saucectl run --env <key1>=<value1> --env <key2>=<value2> ...
 ```
 </div>
 

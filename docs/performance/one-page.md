@@ -298,9 +298,9 @@ The following values can be used with the `-m` parameter of either the `run` or 
 |`domContentLoaded`|The point at which visual content is fully rendered and backend scripts begin to execute.|seconds|
 |`estimatedInputLatency`|The amount of time the page takes to respond to user input.|milliseconds|
 |`firstContentfulPaint`|The time from when the page starts loading to when any part of the page's content is rendered on the screen. In this context, "content" can be text, images, elements, or canvas (non-white) elements. This does not mean that the page is fully rendered.|seconds|
-|`firstMeaningfulPaint`|<span className="sauceRed">DEPRECATED</span> The amount of time it takes for a page's primary body of content to rendeR. This metric is replaced by `largestContentfulPaint`.|seconds|
+|`firstMeaningfulPaint`|<span className="sauceRed">DEPRECATED</span> The amount of time it takes for a page's primary body of content to render. This metric is replaced by `largestContentfulPaint`.|seconds|
 |`firstPaint`|The time it takes to render the first pixel on the page once the URL has been called.|seconds|
-|`firstVisualChange`|The time it takes for anything to be visually painted in the viewport. Calculated by video analysis, this is an alternative metric to firstPaint that is browser agnostic.|seconds|
+|`firstVisualChange`|The time it takes for anything to be visually painted in the viewport. Calculated by video analysis, this is an alternative metric to `firstPaint` that is browser agnostic.|seconds|
 |`largestContentfulPaint`|The amount of time it takes for the page's largest visual element to display. This metric is considered a more accurate reflection of when the main content of a page has loaded.|seconds|
 |`lastVisualChange`|The amount of time it takes for the final visual element to display.|seconds|
 |`load`|The amount of time it takes for all page objects and dependent resources to be loaded.|seconds|
@@ -308,6 +308,48 @@ The following values can be used with the `-m` parameter of either the `run` or 
 |`speedIndex`|The average time is takes the contents of a page to fully render.|seconds|
 |`timeToFirstInteractive`|The amount of time it takes for a page to be able to reliably respond to user input.|seconds|
 |`totalBlockingTime`|The amount of time that elapses between `firstContentfulPaint` and `timeToFirstInteractive`, which is a key indicator of lag.|seconds|
+
+#### Detailed Metric Values
+
+Detailed metric values can be found in the `performance.json` log file.
+This file is generated when speedo is run with `-l` parameter.<br />
+The log file consists of the following metrics:
+
+|Metric|Description|Unit|
+|---|------|---|
+`rrt`|The time it takes for any redirects to happen.|milliseconds|
+`load`|The amount of time it takes for all page objects and dependent resources to be loaded.|milliseconds|
+`score`|The overall Lighthouse performance score.|percentage|
+`maxRtt`|The maximum amount of time it takes for any redirects to happen.|milliseconds|
+`numFonts` / `fontCount`|The number of fonts for the webpage to render.|number|
+`numTasks`|Total number of tasks run by a browser during a request.|number|
+`numTasksOverXms`|Total number of tasks run by a browser during a request that took more than X milliseconds.|milliseconds|
+`fontSize`|Size of the rendered fonts.|bytes|
+`firstPaint`|The time it takes to render the first pixel on the page once the URL has been called.|milliseconds|
+`imageSize`|Size of all loaded images.|bytes|
+`numScripts`|Number of external scripts found while rendering page.|number|
+`speedIndex`|The average time is takes the contents of a page to fully render.|milliseconds|
+`throughput`|Network throughput measured during the test run.|bytes|
+`imageCount`|Number of rendered images.|number|
+`numRequests` / `requestsCount`|Number of requests to the server.|number|
+`requestsSize`|The overall request size.|bytes|
+`documentSize` / `totalByteWeight`|Overall document size.|bytes|
+`totalTaskTime`|The amount of time it takes to fulfill all the scheduled tasks.|milliseconds|
+`numStylesheets`|Number of stylesheets rendered.|number|
+`domContentLoaded`|The point at which visual content is fully rendered and backend scripts begin to execute.|milliseconds|
+`firstInteractive`|The amount of time it takes for a page to be able to reliably respond to user input.|milliseconds|
+`lastVisualChange`|The amount of time it takes for the final visual element to display.|milliseconds|
+`maxServerLatency`|The maximum amount of time it takes for the server to respond.|milliseconds|
+`firstVisualChange`|The time it takes for anything to be visually painted in the viewport. Calculated by video analysis, this is an alternative metric to `firstPaint` that is browser agnostic.|milliseconds|
+`totalBlockingTime`|The amount of time that elapses between `firstContentfulPaint` and `timeToFirstInteractive`, which is a key indicator of lag.|milliseconds|
+`serverResponseTime`|Formerly `timeToFirstByte`, this is the amount of time it takes to receive the first data response from the server.|milliseconds|
+`firstContentfulPaint`|The time from when the page starts loading to when any part of the page's content is rendered on the screen. In this context, `content` can be text, images, elements, or canvas (non-white) elements. This does not mean that the page is fully rendered.|milliseconds|
+`firstMeaningfulPaint`|<span className="sauceRed">DEPRECATED</span> The amount of time it takes for a page's primary body of content to render. This metric is replaced by `largestContentfulPaint`.|milliseconds|
+`cumulativeLayoutShift`|An aggregate of unexpected movement of content as a page loads. The score is calculated as the percentage of space impacted by the movement times the percentage of distance the content moved on the screen.|percentage|
+`largestContentfulPaint`|The amount of time it takes for the page's largest visual element to display. This metric is considered a more accurate reflection of when the main content of a page has loaded.|milliseconds|
+`mainDocumentTransferSize`|The transfer size of the main HTML document.|bytes|
+
+
 
 ### Network Conditions Settings
 

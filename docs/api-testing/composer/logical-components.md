@@ -313,9 +313,9 @@ Here's the conversion map for formats:
  |`e`   |    day of week            |      number   |     2
  |`E`   |    day of week            |      text     |     Tuesday; Tue
  |`y`   |    year                   |      year     |     1996
- |`D`   |    day of year            |      number   |     189
  |`M`    |   month of year          |      month     |    July; Jul; 07
- |`d`   |    day of month           |      number    |    10
+ |`d`   |    day of week           |      text    |    Tue
+ |`D`   |    day of month            |      number   |     2
  |`a`   |    halfday of day          |     text      |    PM
  |`K`   |    hour of halfday (0~11)   |    number    |    0
  |`h`    |   clockhour of halfday (1~12) | number    |    12

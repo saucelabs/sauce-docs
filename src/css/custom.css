@@ -168,7 +168,6 @@ html[data-theme='dark'] .navbar-sidebar {
 }
 
 .navbar__items {
-  font-size: 110%;
   font-weight: 500;
   color: var(--ds-gray-600);
   text-decoration-color: var(--ds-gray-600);

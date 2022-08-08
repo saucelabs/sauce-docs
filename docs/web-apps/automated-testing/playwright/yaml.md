@@ -223,15 +223,32 @@ sauce:
 ```
 ---
 
+### `visibility`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Sets the visibility level of test results for suites run on Sauce Labs. If unspecified or empty, `team` visibility will be applied. Valid values are:
+
+* `public`: Accessible to everyone.
+* `public restricted`: Share your job's results page and video, but keeps the logs only for you.
+* `share`: Only accessible to people with a valid link.
+* `team`: (Default) Only accessible to people under the same root account as you.
+* `private`: Only you (the owner) will be able to view assets and test results page.
+
+```yaml
+sauce:
+  visibility: private
+```
+---
+
 ## `env`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
+A property containing one or more environment variables that are global for all tests suites in this configuration. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
 
 ```yaml
   env:
     hello: world
-    my_var: $MY_VAR
+    my_var: $MY_VAR  # You can also pass through existing environment variables through parameter expansion
 ```
 ---
 
@@ -321,7 +338,7 @@ Specifies the location of the npm registry source. If the registry source is a p
 ### `packages`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specifies any NPM packages that are required to run tests and should, therefore, be included in the bundle. See [Including Node Dependencies](#including-node-dependencies).
+Specifies any npm packages that are required to run tests and should, therefore, be installed on the Sauce Labs VM. See [Including Node Dependencies](#including-node-dependencies).
 
 ```yaml
   packages:
@@ -330,6 +347,31 @@ Specifies any NPM packages that are required to run tests and should, therefore,
     "@playwright/react": "^5.0.1"
 ```
 ---
+
+### `dependencies`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Specifies any npm packages that are required to run tests and should, therefore, be included in the bundle.
+Unlike `packages`, which installs dependencies on the VM, the dependencies specified here have to be already installed in the local `node_modules` folder. These dependencies, along with any related transitive dependencies, are then included in the bundle that is uploaded to Sauce Labs.
+
+If you have already been including `node_modules` in your bundle, then this feature will help you speed up your tests by reducing the amount of files in the bundle. A smaller bundle will upload and extract faster, which speeds up the setup on the VM, facilitating a faster test feedback cycle.
+
+Take note that the syntax is different from `packages`. It's a simple **list** of dependencies, without the need to specify the version.
+
+```yaml
+npm:
+  dependencies:
+    - lodash
+```
+
+To use this feature, make sure that `node_modules` is not ignored via `.sauceignore`.
+
+:::caution
+This feature is highly experimental.
+:::
+
+---
+
 ## `reporters`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -678,13 +720,21 @@ For sharding by concurrency, saucectl splits test files into several groups (the
 
 Selectable values: `spec` to shard by spec file, `concurrency` to shard by concurrency. Remove this field or leave it empty `""` for no sharding.
 
+```yaml
+suites:
+  - name: "I am sharded"
+    shard: spec
+```
+
+:::tip
+To split tests in the most efficient way possible, use:
+- `spec` when the number of specs is less than the configured concurrency.
+- `concurrency` when the number of specs is larger than the configured concurrency.
+:::
+
 :::caution Shard Property Exclusivity
 The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
 :::
-
-```yaml
-    shard: spec
-```
 
 ---
 
@@ -767,6 +817,42 @@ Patterns to skip tests based on their title.
     grepInvert: "should exclude"
 ```
 ---
+
+#### `updateSnapshots`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Determines whether to update snapshots with the actual results produced by the test run. Playwright tests support [visual comparisons](https://playwright.dev/docs/test-snapshots).
+
+```yaml
+    updateSnapshots: true
+```
+
+To run a test with `saucectl`:
+1. Use the following config to download the baseline screenshots generated in the first run. The baseline screenshots can be found in the **artifacts** folder and are named `example-test-1-actual.png`.
+```yaml
+artifacts:
+  download:
+    when: always
+    match:
+      - console.log
+      - "*.png" // this will download the new baseline screenshots
+```
+
+2. Create a snapshot folder for the test file (e.g., `tests/example.test.js`).
+```bash
+$ mkdir tests/example.test.js-snapshots
+```
+
+3. Move the downloaded baseline screenshots to the snapshots folder. These screenshots will be accessible to Playwright in the next test run.
+```bash
+$ mv artifacts/{your-suite-name}/example-test-1-actual.png tests/example.test.js-snapshots/
+```
+
+4. Set `updateSnapshots` to `true`. Playwright will continue to update the baseline screenshots.
+```yaml
+    updateSnapshots: true
+```
+----
 
 ### `timeout`
 <p><small>| OPTIONAL | DURATION |</small></p>

@@ -10,7 +10,7 @@ This page provides a reference for the valid test configuration options (capabil
 Try our [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/)! It provides a graphical user interface where you can specify your settings using option buttons and drop-down menus, then automatically generates the corresponding capabilities code based on your selections. For examples, see [Examples of Test Configuration Options for Website Tests](/basics/test-config-annotation/test-config/#examples-of-test-configuration-options-for-website-tests).
 
 :::note Desktop and VDC Only
-The Platform Configurator does not support capabilities generation for real device (RDC) tests at this time.
+The Platform Configurator does not support capabilities generation for real device (RDC) tests at this time. For real device capabilities, see our code snippet examples.
 :::
 
 ## What You'll Need
@@ -276,8 +276,7 @@ Enables Performance Capture feature. Sauce Performance Testing can be enabled by
 Specifies the screen resolution to be used during your test session. Default screen resolution for Sauce tests is `1024x768`.
 
 :::note
-You cannot set screen resolution on Windows 7 with IE 9.
-
+To specify the screen resolution on Windows, we recommend that you set the [`platformName`](#platformname) to Windows 8 or newer (e.g., Windows 10).
 :::
 
 
@@ -443,6 +442,26 @@ For virtual device mobile tests, the capability is `deviceOrientation`, but for 
 ```
 
 ---
+
+
+---
+### `setupDeviceLock`
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+
+Sets up the device pin code for the automated test session. Valid values are `true` and `false`.
+This capability sets your device in the state required for your application to launch successfully. 
+
+:::important
+The `setupDeviceLock` capability helps to bypass the Security requirements from your applications, like pincode requirements for launching an app or invoking certain activities/features within your app. Example: https://developer.android.com/reference/android/app/KeyguardManager 
+:::
+
+```java title="Real Device Setting"
+"setupDeviceLock": "true"
+```
+
+---
+
+
 ### `otherApps`
 <p><small>| ARRAY | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
@@ -512,13 +531,13 @@ We recommend reviewing [Device Management for Real Devices](/mobile-apps/support
 
 ---
 ### `sessionCreationRetry`
-<p><small>| INTEGER |</small></p>
+<p><small>| INTEGER |<span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 Specify the number of times the test should attempt to launch a session.
 
 ---
 ### `sessionCreationTimeout`
-<p><small>| INTEGER |</small></p>
+<p><small>| INTEGER |<span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 Specify the amount of time (in seconds) that the test should allow to launch a test before failing.
 

@@ -77,13 +77,17 @@ Sauce Connect Proxy Tunnel connection TLS specifications
   </tr>
 </table>
 
+## Start Sequence Diagram
+
+<img src={useBaseUrl('img/sauce-connect/start-sequence.png')} alt="Sauce Connect Proxy start sequence" width="800"/>
+
+## Shutdown Sequence Diagram
+
+<img src={useBaseUrl('img/sauce-connect/shutdown-sequence.png')} alt="Sauce Connect Proxy shutdown sequence" width="800"/>
+
 ## Timeout Values
 
-### Start Sequence
-1. Sauce Connect Proxy client sends a request to Sauce Labs REST API to get the latest configuration defaults.
-1. Sauce Connect Proxy client requests Sauce Labs REST API to provision a Sauce Connect Proxy server.
-1. Sauce Connect Proxy client establishes a secure connection to the server.
-1. Sauce Connect Proxy is ready, the console log would read "Sauce Connect is up, you may start your tests."
+### Start Timeouts
 
 <img src={useBaseUrl('img/sauce-connect/timeout-values.png')} alt="Sauce Connect download file contents" width="550" />
 

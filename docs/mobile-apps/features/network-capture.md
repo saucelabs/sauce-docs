@@ -30,8 +30,8 @@ To enable network traffic capturing in your tests:
 4. Under **Default Settings**, toggle Instrumentation and Network Capture to enable the feature.<br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr2.png')} alt="Mobile app settings navigation" width="800"/>
 5. For Automated Testing only: add the networkCapture capability to your test script. Click the link below corresponding to your framework:
 
-   * [Appium](/dev/test-configuration-options/#network-capture)
-   * [_Espresso via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#networkcapture)
+   * [Appium](/dev/test-configuration-options/#saucelabsnetworkcaptureenabled)
+   * [Espresso via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#networkcapture)
    * [XCUITest via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#networkcapture)
 
 Now you can start your live or automated testing session. Your network logs will be captured and displayed in the test results page.
@@ -73,6 +73,7 @@ Alternatively, some other commonly used HAR viewers include:
 :::note Not Supported
 * Android Emulators
 * iOS Simulators
+* Hybrid Applications
 :::
 
 ### Android

@@ -62,12 +62,36 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
       <th>Playwright Version</th>
       <th>Supported Platforms</th>
       <th>Supported Browsers</th>
+      <th>End of Life</th>
     </tr>
+    <tbody>
+    <tr>
+      <td rowspan='2'>1.24.1</td>
+      <td><b>macOS:</b> 11.00, 12</td>
+      <td rowspan='2'>Chromium, Firefox, Webkit</td>
+      <td rowspan='2'>Jul 29, 2023</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='2'>1.22.2</td>
+      <td><b>macOS:</b> 11.00, 12</td>
+      <td rowspan='2'>Chromium, Firefox, Webkit</td>
+      <td rowspan='2'>Jun 6, 2023</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+    </tbody>
     <tbody>
     <tr>
       <td rowspan='2'>1.20.2</td>
       <td><b>macOS:</b> 11.00, 12</td>
       <td rowspan='2'>Chromium, Firefox, Webkit</td>
+      <td rowspan='2'>Apr 16, 2023</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>
@@ -78,6 +102,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
       <td rowspan='2'>1.18.1</td>
       <td><b>macOS:</b> 11.00</td>
       <td>Chromium, Firefox</td>
+      <td rowspan='2'>Feb 2, 2023</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10</td>
@@ -89,6 +114,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
       <td rowspan='1'>1.17.1</td>
       <td><b>Windows:</b> 10</td>
       <td>Chromium, Firefox, Webkit</td>
+      <td>Nov 29, 2022</td>
     </tr>
     </tbody>
   </table>
