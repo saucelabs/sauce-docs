@@ -50,6 +50,11 @@ To easily copy a test's file name or ID, hover over the test and then click the 
 The app settings screen is only available for real device testing.
 :::
 
+To view your recent configurations, click **Recents**.
+
+<img src={useBaseUrl('img/live-testing/live-testing-recent-tests-nav.png')} alt="Recent tests" width="550"/>
+
+
 **Default App Settings**
 
 | Setting | Description |
@@ -57,9 +62,10 @@ The app settings screen is only available for real device testing.
 | Device Language | Use the dropdown to select the device language. |
 | Device Orientation | Use the dropdown to set the device orientation (Landscape or Portrait). |
 | Proxy | Enable/disable the use of a proxy. Enter the **Hostname** and **Port** and then click **Update**. |
+| Device Passcode <br/><p><span className="sauceDBlue">Android Only</span></p> | Enable/disable the device passcode for Android apps. If your app requires a device passcode to launch, you can enable this setting to run your tests on a passcode-protected device. |
 | Instrumentation | Enable/disable device instrumentation. Enabling allows you to use advanced features when testing your app in the real device cloud, like image injection and taking screenshots of secure views.  |
 | Image Injection | Enable/disable image injection. Image injection allows you to mimic camera behavior when testing apps by letting you upload an image and present it to the app as if it were read by the device camera. |
-| Bypass Screenshot Restriction <br/><p><span className="sauceDBlue">ANDROID ONLY</span></p> | Enable/disable Bypass Screenshot Restriction (not supported on apps uploaded to the legacy sauce storage). If you're testing Android mobile apps on Sauce Labs and see a black screen in your live testing session, you might need to enable the <b>Bypass Screenshot Restriction</b>. This allows Sauce Labs to work around a setting on those apps that prevents screenshots or videos from being taken. However, there are other details to keep in mind. To effectively test apps that have this setting, see [Bypass Screenshot Restriction](/mobile-apps/features/bypass-screenshot). |
+| Bypass Screenshot Restriction <br/><p><span className="sauceDBlue">Android Only</span></p> | Enable/disable Bypass Screenshot Restriction (not supported on apps uploaded to the legacy sauce storage). If you're testing Android mobile apps on Sauce Labs and see a black screen in your live testing session, you might need to enable the <b>Bypass Screenshot Restriction</b>. This allows Sauce Labs to work around a setting on those apps that prevents screenshots or videos from being taken. However, there are other details to keep in mind. To effectively test apps that have this setting, see [Bypass Screenshot Restriction](/mobile-apps/features/bypass-screenshot). |
 | System Alerts Display <br/><p><span className="sauceDBlue">iOS Only</span></p> | Enable/disable a system alerts delay. Enabling delays alerts, such as asking for permission to access the camera, to prevent app crashes at startup. |
 | Biometrics Interception | Enable/disable biometrics. Enabling allows you to choose authentication options if your mobile app requires a biometric authentication, such as fingerprint or face recognition on Android, and Face ID or Touch ID on iOS.<br/> This setting is disabled by default for iOS apps. |
 | Group Folder Redirect <br/><p><span className="sauceDBlue">iOS Only</span></p> | Enable/disable a group directory redirect. Enabling allows you to use your app's private app container directory instead of the shared app group container directory. When your app gets resigned, the shared directory is not accessible. |
@@ -90,6 +96,12 @@ The device selection page will open, with the option to test on a real device or
 :::note
 If you are testing an iOS app, the **Virtual Devices** tab will only appear if the app is configured for simulators.
 :::
+
+To mark a device as a favorite so you can find it easily in the future, click the pin icon next to the device name.
+
+<img src={useBaseUrl('img/live-testing/device-favorite.png')} alt="Favorite a device" width="350"/>
+
+The default sorting for the device list is **Pinned First**.
 
 #### Real Devices
 On the device selection page, click the **Mobile Real** tab. Use the search box and filters to find the device you want to test on, or select the device in the grid.

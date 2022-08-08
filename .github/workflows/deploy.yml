@@ -173,12 +173,12 @@ jobs:
           key: ${{ runner.os }}-${{ github.sha }}
 
       - name: Install Dependencies
-        if: steps.cache-build.outputs.cache-hit != 'true'
+#         if: steps.cache-build.outputs.cache-hit != 'true'
         run: |
           npm install
 
       - name: Run Build
-        if: steps.cache-build.outputs.cache-hit != 'true'
+#         if: steps.cache-build.outputs.cache-hit != 'true'
         run: |
           npm run build
 
