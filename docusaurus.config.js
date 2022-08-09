@@ -80,7 +80,7 @@ const docusaurusConfig = {
           type: 'html',
           position: 'right',
           className: 'beamerTrigger',
-          value: '<img src="/img/beamer.svg" width="22" height="22" alt="Product Updates">',
+          value: '<img src="/img/beamer.svg" width="22" height="22" class="beamer-navbar-bell" alt="Product Updates">',
         },
       ],
     },

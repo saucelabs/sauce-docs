@@ -1,2 +1,6 @@
 /*.beamerTrigger button {*/
 /*}*/
+
+.beamer-navbar-bell {
+  filter: invert(43%) sepia(88%) saturate(4869%) hue-rotate(197deg) brightness(92%) contrast(89%);
+}
