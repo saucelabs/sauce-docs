@@ -45,7 +45,7 @@ If a value is returned for both variables, they are set.
     ```
     saucectl configure
     ```
- 1. Enter your Sauce Labs Username and Access Key at the prompts.
+ 1. Enter your Sauce Labs username and access key at the prompts.
 
 
 ## Step 3: Set up Your Replay Project
@@ -83,7 +83,7 @@ cd saucectl-replay-example
 saucectl run
 ```
 
-The results are available immediately following Job completion in your [Sauce Labs Dashboard](https://app.saucelabs.com/dashboard/tests/vdc).
+The results are available immediately following job completion in your [Sauce Labs Dashboard](https://app.saucelabs.com/dashboard/tests/vdc).
 
 ## Step 5: Roll Your Own
 

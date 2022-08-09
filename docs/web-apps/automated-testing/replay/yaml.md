@@ -107,7 +107,7 @@ sauce:
 ### `region`
 <p><small>| OPTIONAL | STRING/ENUM |</small></p>
 
-Specifies on which Sauce Labs data center Jobs will run. Valid values are: `us-west-1` or `eu-central-1`.
+Specifies on which Sauce Labs data center jobs will run. Valid values are: `us-west-1` or `eu-central-1`.
 
 ```yaml
 sauce:
@@ -139,7 +139,7 @@ sauce:
 Sets the maximum number of suites to execute at the same time. If the config defines more suites than the max, excess suites are queued and run in order as each suite completes.
 
 :::caution
-Set this value to equal or less than your Sauce concurrency allowance, as setting a higher value may result in Jobs dropped by the server.
+Set this value to equal or less than your Sauce Labs concurrency allowance, as setting a higher value may result in jobs dropped by the server.
 :::
 
 ```yaml
@@ -174,7 +174,7 @@ saucectl run --retries 1
 ### `tunnel`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
+`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel, and then provide the name and owner (if applicable) in this property.
 
 ```yaml
 sauce:
@@ -203,7 +203,7 @@ sauce:
 #### `owner`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Identifies the Sauce Labs user who created the specified tunnel, which is required if the user running the Job did not create the tunnel.
+Identifies the Sauce Labs user who created the specified tunnel, which is required if the user running the job did not create the tunnel.
 
 :::note
 This property replaces the former `parent` property, which is deprecated.
@@ -223,7 +223,7 @@ sauce:
 Sets the visibility level of Jobs on Sauce Labs. If unspecified or empty, `team` visibility will be applied. Valid values are:
 
 * `public`: Accessible to everyone.
-* `public restricted`: Share your Job's results page and video, but keeps the logs only for you.
+* `public restricted`: Share your job's results page and video, but keeps the logs only for you.
 * `share`: Only accessible to people with a valid link.
 * `team`: (Default) Only accessible to people under the same root account as you.
 * `private`: Only you (the owner) will be able to view assets and test results page.
@@ -301,7 +301,7 @@ reporters:
 ## `artifacts`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specifies how to manage Job artifacts, such as logs, videos, and screenshots.
+Specifies how to manage job artifacts, such as logs, videos, and screenshots.
 
 ```yaml
 artifacts:
@@ -386,7 +386,7 @@ artifacts:
 ## `notifications`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specifies how to set up automatic Job result alerts.
+Specifies how to set up automatic job result alerts.
 
 ```yaml
 notifications:
