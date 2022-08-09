@@ -166,7 +166,7 @@ jobs:
           project_id: ${{ secrets.RUN_PROJECT_PROD }}
           service_account_key: ${{ secrets.RUN_SA_KEY_PROD }}
       - name: Remove NoIndex
-        run |
+        run: |
           export NO_INDEX = "false"
           echo $NO_INDEX
       - uses: actions/cache@v2
