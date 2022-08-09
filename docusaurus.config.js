@@ -2,7 +2,7 @@ const docusaurusConfig = {
   title: 'Sauce Labs Documentation',
   tagline: 'Test all the things.',
   url: 'https://docs.saucelabs.com',
-  noIndex: false,
+  noIndex: process.env.NO_INDEX,
   trailingSlash: true,
   baseUrl: '/',
   onBrokenLinks: 'throw',

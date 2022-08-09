@@ -6,6 +6,7 @@ on:
 env:
   ALGOLIA_APP_ID: ${{secrets.ALGOLIA_APP_ID}}
   ALGOLIA_KEY: ${{secrets.ALGOLIA_KEY}}
+  NO_INDEX: true
 
 jobs:
   deploy-dev:
