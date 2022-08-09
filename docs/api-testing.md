@@ -17,7 +17,7 @@ At its core, Sauce Labs API Testing allows you to use either and HTTP client or 
 <p>
 </p>
 <p>
-Use the API Testing platform to generate contract tests from an OpenAPI specification file. When used with Piestry, our mocking tool, you can test both the consumer and the provider.
+Use the API Testing platform to generate contract tests from an OpenAPI specification file. When used with Piestry, our mocking tool, you can test both the consumer and the producer side.
 
 </p>
 <ul>
