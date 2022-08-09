@@ -47,8 +47,8 @@ const docusaurusConfig = {
       hideOnScroll: false,
       logo: {
         alt: 'Sauce Labs logo',
-        src: 'img/logo-saucelabs.svg',
-        srcDark: 'img/logo-saucelabs-white.svg',
+        src: '/img/logo-saucelabs.svg',
+        srcDark: '/img/logo-saucelabs-white.svg',
       },
       items: [
         {
@@ -80,7 +80,7 @@ const docusaurusConfig = {
           type: 'html',
           position: 'right',
           className: 'beamerTrigger',
-          value: '<img src="img/beamer.svg" width="22" height="22" alt="Product Updates">',
+          value: '<img src="/img/beamer.svg" width="22" height="22" class="beamer-navbar-bell" alt="Product Updates">',
         },
       ],
     },
@@ -88,7 +88,7 @@ const docusaurusConfig = {
     footer: {
       logo: {
         alt: 'Sauce Logo',
-        src: 'img/logo-saucelabs-inverted.png',
+        src: '/img/logo-saucelabs-inverted.png',
         href: 'https://saucelabs.com',
       },
       style: 'light',
@@ -139,7 +139,7 @@ if (!process.env.SAUCE_DOCS_DEV) {
   docusaurusConfig.themeConfig.algolia = {
     appId: 'RO95H65NEO',
     apiKey: '3a5924ec9fa1457b4999d8dcfc382c2d',
-    indexName: "sauce-docs",
+    indexName: 'sauce-docs',
     contextualSearch: false,
   };
 }
