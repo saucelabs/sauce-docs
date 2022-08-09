@@ -167,7 +167,7 @@ jobs:
           service_account_key: ${{ secrets.RUN_SA_KEY_PROD }}
       - name: Remove NoIndex
         run: |
-          export NO_INDEX = "false"
+          export NO_INDEX=false
           echo $NO_INDEX
       - uses: actions/cache@v2
         id: cache-build
