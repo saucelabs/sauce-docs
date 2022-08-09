@@ -67,6 +67,17 @@ Schedule existing functional tests against any environment for staging and produ
 <div className="box box4 card">
 <div className="container">
 
+<h2>Load Testing</h2>
+<p></p>
+<p>
+Create and execute load tests using existing functional tests. See <a href="/api-testing/load-testing/">Load Testing with API Testing</a> for more information.
+</p>
+</div>
+</div>
+
+<div className="box box5 card">
+<div className="container">
+
 <h2>Testing Private APIs</h2>
 <p></p>
 <p>
