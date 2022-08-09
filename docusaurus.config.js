@@ -1,7 +1,6 @@
 const docusaurusConfig = {
   title: 'Sauce Labs Documentation',
-  tagline:
-    'Test all the things.',
+  tagline: 'Test all the things.',
   url: 'https://docs.saucelabs.com',
   noIndex: false,
   trailingSlash: true,
@@ -28,7 +27,11 @@ const docusaurusConfig = {
     },
   ],
   themeConfig: {
-    hideableSidebar: true,
+    beamer: {
+      product_id: `'WyhkZHOU27797'`,
+      display: `'popup'`,
+      // selector: `'.beamerContainer'`,
+    },
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
     },
@@ -38,20 +41,6 @@ const docusaurusConfig = {
       // Hides the switch in the navbar
       disableSwitch: false,
       respectPrefersColorScheme: false,
-      switchConfig: {
-        // Icon for the switch while in dark mode
-        darkIcon: '💡',
-        // CSS to apply to dark icon,
-        // React inline style object
-        // see https://reactjs.org/docs/dom-elements.html#style
-        darkIconStyle: {
-          marginLeft: '2px',
-        },
-        lightIcon: '🌙',
-        lightIconStyle: {
-          marginLeft: '1px',
-        },
-      },
     },
     navbar: {
       title: null,
@@ -87,16 +76,12 @@ const docusaurusConfig = {
           position: 'left',
           to: '/error-reporting/getting-started',
         },
-        // {
-        //   label: 'Try it Free',
-        //   position: 'right',
-        //   href: 'https://saucelabs.com/sign-up',
-        // },
-        // {
-        //   label: 'Sign In',
-        //   position: 'right',
-        //   href: 'https://accounts.saucelabs.com/',
-        // },
+        {
+          type: 'html',
+          position: 'right',
+          className: 'beamerTrigger',
+          value: '<img src="img/beamer.svg" width="22" height="22" alt="Product Updates">',
+        },
       ],
     },
     /* this is a swizzled component, see inside theme folder */
@@ -147,7 +132,7 @@ const docusaurusConfig = {
     ],
   ],
   themes: ['@saucelabs/theme-github-codeblock'],
-  plugins: [],
+  plugins: ['./src/plugins/beamer'],
 };
 
 if (!process.env.SAUCE_DOCS_DEV) {
