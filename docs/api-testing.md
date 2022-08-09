@@ -6,7 +6,7 @@ description: Running API tests with Sauce Labs
 hide_table_of_contents: true
 ---
 
-At its core, Sauce Labs API Testing allows you to use either and HTTP client or a proprietary test composer to generate and edit intelligent contract or functional tests. The tests can be automated with any CI/CD tool or using the platform’s scheduler. Functional tests can then be used as load tests or scheduled as uptime monitors.
+At its core, Sauce Labs API Testing allows you to use an HTTP client or a proprietary test composer to generate and edit intelligent contract or functional tests. The tests can be automated with any CI/CD tool or using the platform’s scheduler. Functional tests can then be used as load tests or scheduled as uptime monitors.
 
 <img src="/img/api-testing/API Testing Getting Started.png" width="600"/>
 <div className="box-wrapper" markdown="1">
