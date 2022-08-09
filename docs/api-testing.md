@@ -70,7 +70,7 @@ Schedule existing functional tests against any environment for staging and produ
 <h2>Testing Private APIs</h2>
 <p></p>
 <p>
-Use Sauce Connect Proxy to test APIs behind a firewall. This launches a secured tunnel between the Sauce Labs API Testing platform and your APIs. See <a href="/secure-connections/sauce-connect">Sauce Connect Proxy</a> for more information.
+Use Sauce Connect Proxy to test APIs behind a firewall. This launches a secure tunnel between the Sauce Labs API Testing platform and your APIs. See <a href="/api-testing/sauce-connect/">Sauce Connect Proxy</a> for more information.
 </p>
 </div>
 </div>
