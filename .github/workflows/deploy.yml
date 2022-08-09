@@ -146,6 +146,8 @@ jobs:
     needs: deploy-staging
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/main' }}
+    env:
+      NO_INDEX: false
 
     steps:
       - uses: actions/checkout@v2
@@ -180,8 +182,6 @@ jobs:
       - name: Run Build
 #         if: steps.cache-build.outputs.cache-hit != 'true'
         run: |
-          export NO_INDEX=false
-          echo $NO_INDEX
           npm run build
 
       - name: Deploy to Bucket
