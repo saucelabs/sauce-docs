@@ -27,7 +27,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: 16.x
 
       - uses: actions/cache@v2
         id: cache-npm-packages
@@ -106,7 +106,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: 16.x
       - name: Install Python
         uses: actions/setup-python@v2
         with:
@@ -152,7 +152,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: 16.x
       - name: Install Python
         uses: actions/setup-python@v2
         with:
