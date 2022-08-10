@@ -17,8 +17,8 @@ The Web Console’s Overview page provides an ‘at a glance’ view of your pro
 
 <img src={useBaseUrl('img/error-reporting/console-views/project-overview.png')} alt="Provides an ‘at a glance’ view of your project’s health by displaying different top down views of your error / crash data." />
 
-## Errors Through Time, By Version
-On the Overview page, you will have access to one of our new visualization tools: A line chart that shows you your project’s errors through time, by version. This tool makes it easy to see if  a particular build is problematic; great for monitoring a new release.
+## Errors Over Time By Version
+On the Overview page, you will have access to one of our new visualization tools: A line chart that shows you your project’s errors through time, by version. This tool makes it easy to see if a particular build is problematic and is great for monitoring a new release.
 
 <img src={useBaseUrl('img/error-reporting/console-views/overview-errors-by-version.png')} alt="Shows errors through time, by app version." />
 
@@ -29,13 +29,13 @@ If you want the same visualization to instead show the total error count through
 <img src={useBaseUrl('img/error-reporting/console-views/overview-errors-by-version-toggle.png')} alt="Shows total errors through time across all version groups." />
 
 ### Customize the Version Attribute
-For the errors through time by version widget, we offer the ability to change which attribute you may want to specify as “version”. We understand that different users often use their own custom attributes to signify the build version / app version so this will enable those users to utilize these tools as well.
+For the errors over time by version widget, we offer the ability to change which attribute you want to specify as “version”. We understand that different users often use their own custom attributes to signify the build version / app version so this will enable those users to utilize these tools as well.
 
 To change the version attribute used by the Overview page, click the pencil icon to the right of the relevant widget’s title as shown below.
 
 <img src={useBaseUrl('img/error-reporting/console-views/customize-version-attribute-button.png')} alt="Shows the button used to change the attribute for application version." />
 
-This will then display the below which will allow you to select the attribute of your choice from the dropdown menu.
+You can then select the attribute of your choice from the dropdown menu, as shown below.
 
 <img src={useBaseUrl('img/error-reporting/console-views/customize-version-attribute.png')} alt="Shows how to change the attribute for application version." />
 
