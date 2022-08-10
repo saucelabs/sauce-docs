@@ -27,7 +27,7 @@ Syntax:
 ## Local Variables
 Variables declared with `variable_name` within the test steps are local variables that are only accessible within the test case.
 
-:::
+:::note
 Local variables cannot be declared on the **Variables** tab.
 :::
 
@@ -76,10 +76,10 @@ Sauce Labs Low-Code uses Selenium click, but if it fails, it switches to Javascr
 
 If the application under test has spinners or progress bars as a part of the UI design, you can specify the spinner information as a variable on the **Variables** tab. When this information is provided, the test will wait until the spinner or progress bar disappears before proceeding to the next step.
 
-  Variable name: `spinner_xpath ``
+  Variable name: `spinner_xpath`
   Variable value: `xpath_of_the_spinner`
 
-### `no_scroll``
+### `no_scroll`
 If you don't require a full screenshot of your test steps, you can set the `no_scroll` option to `true` on the **Variables** tab. Setting this on the **Variables** tab applies the action to the entire project.
 
 The `--noscroll` action can also be applied in the step editor.
@@ -165,7 +165,7 @@ If `var` = `"testing"`, and `var_2` = `"printing variable: testing"`:
 `exec _js{return 'Modified variable: ' + aiq_1} with ${var1} returning ${var2}`
 `exec _bash(echo 'Modified variable: ' + aiq_1) with ${var1}returning ${var2}`
 
-:::
+:::note
 * Any reference to an input variable should be `aiq_1` , `aiq_2`, and so on.
 * Multiple input variables should be comma separated.
 * Only one output variable is supported.
@@ -191,7 +191,7 @@ Verify if a checkbox is selected if in iframe:
 `document.getElementsByName(“iframe_name”)[0].contentWindow.getElementById("exampleCheck1").checked
 save _js{return document.getElementById("iframeResult").contentWindow.document.getElementsByName("ve hicle1")[0].checked} as value3
 `
-:::
+:::note
 If multiple iframes are present, repeat the code to the level you need to reach:
 `document.getElementById(“iframeResult1”).contentWindow.`
 `document.getElementById(“iframeResult1”).contentWindow.document.getElementsByName("vehicle1")[0].checked`
