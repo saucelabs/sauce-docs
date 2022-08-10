@@ -915,6 +915,17 @@ module.exports = {
               'web-apps/automated-testing/puppeteer/yaml',
             ],
           },
+          {
+            type: 'category',
+            label: 'Replay',
+            link: { type: 'doc', id: 'web-apps/automated-testing/replay' },
+            collapsed: true,
+            items: [
+              'web-apps/automated-testing/replay',
+              'web-apps/automated-testing/replay/quickstart',
+              'web-apps/automated-testing/replay/yaml',
+            ],
+          },
         ],
       },
     ],
