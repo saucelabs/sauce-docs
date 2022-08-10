@@ -218,12 +218,12 @@ Yes, if you use the Spoon library.
 
 #### **Can I test MO (Mobile Originated) SMS text messages?**
 
-Yes, only on devices that have SIM cards and are connected to the Carrier Network.
+Yes, only on private devices that have SIM cards and are connected to the Carrier Network.
 
 
 #### **Can I access Mobile Data? Not just WiFi, but 4G and 5G networks?**
 
-Yes, only on devices that have SIM cards and are connected to the Carrier Network.
+Yes, only on private devices that have SIM cards and are connected to the Carrier Network.
 
 
 ### Live Testing
