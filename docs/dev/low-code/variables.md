@@ -25,7 +25,7 @@ Syntax:
   `save {xpath:"xpath_value"} as [variable name]`
 
 ## Local Variables
-Variables declared with `variable_name` within the test steps are local variables that are only accessible within the test case.
+Variables declared with `_variablename` within the test steps are local variables that are only accessible within the test case.
 
 :::note
 Local variables cannot be declared on the **Variables** tab.
