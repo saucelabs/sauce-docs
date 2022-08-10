@@ -54,9 +54,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```bash title="Header Authenticated Request Example"
 curl -L -X GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/' \
--H 'Authorization: Basic' \
--u $SAUCE_USERNAME \
--k $SAUCE_ACCESS_KEY
+-u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY
 ```
 
 
