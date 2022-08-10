@@ -174,7 +174,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 {
     "id": "80d69d16ebdb4c018cc9d81ea911761a",
     "name": "Sauce-Docs",
-    "organization": {
+    "org_uuid": {
         "id": "**********",
         "name": "SLTC",
         "created_at": "2020-10-05T16:21:01.513495Z",
@@ -306,7 +306,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 {
     "id": "9d3460738c28491a81d7ea16704a9edd",
     "name": "A-Team",
-    "organization": {...}
+    "org_uuid": {...}
     },
     "group": {...},
     "created_at": "2021-04-02T17:52:42.578095Z",
@@ -506,7 +506,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 {
     "id": "b3de7078b79841b59d2e54127269afe3",
     "name": "Doc-Team",
-    "organization": {...}
+    "org_uuid": {...}
     },
     "group": {...},
     "created_at": "2020-10-05T17:13:56.580592Z",
@@ -634,7 +634,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 {
     "id": "b3de7078b79841b59d2e54127269afe3",
     "name": "Doc-Team",
-    "organization": {...},
+    "org_uuid": {...},
     "group": {...},
     "created_at": "2020-10-05T17:13:56.580592Z",
     "updated_at": "2021-04-05T13:49:22.107825Z",
