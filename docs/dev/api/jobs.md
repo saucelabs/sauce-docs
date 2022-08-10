@@ -563,7 +563,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Delete a Job
 
-<details><summary><span className="api delete">DELETE</span> <code>/rest/v1.1/jobs/&#123;job_id&#125;</code></summary>
+<details><summary><span className="api delete">DELETE</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;</code></summary>
 <p/>
 
 Delete a job and all of its assets from the Sauce Labs test history.
