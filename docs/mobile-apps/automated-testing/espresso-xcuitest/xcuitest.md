@@ -223,9 +223,7 @@ sauce:
 ### `launchOrder`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Control starting order of suites. If unspecified or empty, the default is the order in which suites are written in the config file.
-
-* `fail rate`: Suites that historically have the highest failure rate start first.
+Specifies the execution order for your test suites. When set to `fail rate`, test suites with the highest failure rate will execute first. If unspecified, test suites will execute in the order in which they are written in the configuration file.
 
 ```yaml
 sauce:
