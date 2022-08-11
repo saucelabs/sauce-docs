@@ -89,7 +89,11 @@ This command should return the error message "Failed to reach https://saucelabs.
 
 To combat test failures caused by websites without valid SSL certificates, Sauce Connect Proxy has a security feature called SSL Bumping that automatically re-signs certificates in the course of testing.
 
-SSL Bumping is enabled by default when you download Sauce Connect Proxy. However, depending on your test scenario, SSL Bumping may occasionally cause problems for some sites. You can disable SSL Bumping for some or all domains by adding the `-B all` flag to your Sauce Connect Proxy startup commands. For more information on SSL Bumping and scenarios that would warrant disabling it, see SSL Certificate Bumping.
+SSL Bumping is enabled by default when you download Sauce Connect Proxy. However, depending on your test scenario, SSL Bumping may occasionally cause problems for some sites. You can disable SSL Bumping for some or all domains by adding the `-B all` flag to your Sauce Connect Proxy startup commands. For more information on SSL Bumping and scenarios that would warrant disabling it, see [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication).
+
+### Long Common Names in Bumped Certificates
+
+There is a limit of 64 characters in Common Names in certificates according to RFC 5280. SSL Bumping will fail if a certificate's Common Name (CN) is longer than 64 characters.
 
 ## Errors Running Tests on CORS-Enabled Sites
 Cross-Origin Resource Sharing (CORS) errors could be caused by a variety of reasons. We recommend the following solutions:

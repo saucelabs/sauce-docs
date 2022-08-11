@@ -87,7 +87,7 @@ To generate debug symbols in dSYM format:
 ### Find Debug Symbols
 To find dSYM files while building the project:
 1. In Xcode, build your project.
-1. From the **Products** folder, select your iOS app.
+1. From the **Products** folder, select your iOS app. <br/>
 <img src={useBaseUrl('img/error-reporting/ios/xcode-products.png')} width="400" alt="" />
 1. Right-click, then click **Show in Finder**.
 1. Zip all the dSYM files and upload to Backtrace.
@@ -95,14 +95,14 @@ To find dSYM files while building the project:
 
 To find dSYM files while archiving the project:
 1. In Xcode, archive your project.
-1. Go to **Window > Organizer** and click **Archives**.
-1. Select your iOS app, then click **Show in Finder**.
+1. To open the Archives organizer, go to **Window > Organizer** and click **Archives**.
+1. Select your iOS app, then click **Show in Finder**. dSYMs are stored in a `.xcarchive` file.
 <img src={useBaseUrl('img/error-reporting/ios/xcode-organizer.png')} width="900" alt="" />
-<br/> dSYMs are placed inside of an `.xcarchive` file of your project.
 1. Right-click, then click **Show Package Contents**.
 <img src={useBaseUrl('img/error-reporting/ios/finder-xcarchive.png')} width="700" alt="" />
 1. Search for the **dSYMs** folder.
-1. Zip all the dSYM files and upload to Backtrace. <img src={useBaseUrl('img/error-reporting/ios/finder-dsyms-archive.png')} width="400" alt="" />
+1. Zip all the dSYM files and upload to Backtrace. <br/>
+<img src={useBaseUrl('img/error-reporting/ios/finder-dsyms-archive.png')} width="400" alt="" />
 
 ## Verify the Setup
 At this point, you've installed and setup the Backtrace client to automatically capture exceptions, errors, and crashes in your iOS app.

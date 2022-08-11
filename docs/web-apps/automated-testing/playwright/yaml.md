@@ -223,6 +223,23 @@ sauce:
 ```
 ---
 
+### `visibility`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Sets the visibility level of test results for suites run on Sauce Labs. If unspecified or empty, `team` visibility will be applied. Valid values are:
+
+* `public`: Accessible to everyone.
+* `public restricted`: Share your job's results page and video, but keeps the logs only for you.
+* `share`: Only accessible to people with a valid link.
+* `team`: (Default) Only accessible to people under the same root account as you.
+* `private`: Only you (the owner) will be able to view assets and test results page.
+
+```yaml
+sauce:
+  visibility: private
+```
+---
+
 ## `env`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -703,13 +720,21 @@ For sharding by concurrency, saucectl splits test files into several groups (the
 
 Selectable values: `spec` to shard by spec file, `concurrency` to shard by concurrency. Remove this field or leave it empty `""` for no sharding.
 
+```yaml
+suites:
+  - name: "I am sharded"
+    shard: spec
+```
+
+:::tip
+To split tests in the most efficient way possible, use:
+- `spec` when the number of specs is less than the configured concurrency.
+- `concurrency` when the number of specs is larger than the configured concurrency.
+:::
+
 :::caution Shard Property Exclusivity
 The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
 :::
-
-```yaml
-    shard: spec
-```
 
 ---
 

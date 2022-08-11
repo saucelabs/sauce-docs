@@ -45,6 +45,10 @@ When you compare the most popular devices of your users with our top lists you p
 
 We strive to support the latest releases within 48 hours to ensure your website and apps work flawlessly across all platforms.
 
+#### **Is it possible to turn off the WiFi on Real Devices with SIM card included?**
+
+Yes. To test in offline mode with Real Devices, see our [Offline Mode Guide](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio/appium-web/examples/offline-testing).
+
 #### **Is it possible to test the camera behavior using your mobile devices?**
 
 Yes. See [Camera Image Injection](/mobile-apps/features/camera-image-injection).
@@ -184,7 +188,7 @@ No.
 
 #### **Do you have any UI inspection tool built into your application like UI Automator viewer?**
 
-No, there are no inspection tools. We recommend using [Appium Desktop](https://github.com/appium/appium-desktop) or [Appium Inspector](https://github.com/appium/appium-inspector) for UI inspection, it has built in support for devices on the Real Device Cloud.
+No, there are no inspection tools. We recommend using [Appium Desktop](https://github.com/appium/appium-desktop) or [Appium Inspector](https://github.com/saucelabs/appium-inspector-saucelabs) for UI inspection, it has built in support for devices on the Real Device Cloud.
 
 
 #### **Can I change the orientation of the device screen during a test?**
@@ -214,12 +218,12 @@ Yes, if you use the Spoon library.
 
 #### **Can I test MO (Mobile Originated) SMS text messages?**
 
-Yes, only on devices that have SIM cards and are connected to the Carrier Network.
+Yes, only on private devices that have SIM cards and are connected to the Carrier Network.
 
 
 #### **Can I access Mobile Data? Not just WiFi, but 4G and 5G networks?**
 
-Yes, only on devices that have SIM cards and are connected to the Carrier Network.
+Yes, only on private devices that have SIM cards and are connected to the Carrier Network.
 
 
 ### Live Testing
