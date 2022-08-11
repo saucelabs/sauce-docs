@@ -105,7 +105,6 @@ sauce:
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
   concurrency: 5
-  launchOrder: fail rate
 ```
 ---
 
