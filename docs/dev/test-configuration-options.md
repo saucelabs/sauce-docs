@@ -449,10 +449,10 @@ For virtual device mobile tests, the capability is `deviceOrientation`, but for 
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 Sets up the device pin code for the automated test session. Valid values are `true` and `false`.
-This capability sets your device in the state required for your application to launch successfully. 
+This capability sets your device in the state required for your application to launch successfully.
 
 :::important
-The `setupDeviceLock` capability helps to bypass the Security requirements from your applications, like pincode requirements for launching an app or invoking certain activities/features within your app. Example: https://developer.android.com/reference/android/app/KeyguardManager 
+The `setupDeviceLock` capability helps to bypass the Security requirements from your applications, like pincode requirements for launching an app or invoking certain activities/features within your app. Example: https://developer.android.com/reference/android/app/KeyguardManager
 :::
 
 ```java title="Real Device Setting"
@@ -502,7 +502,7 @@ If your pricing plan includes both private and public devices, use this capabili
 
 ---
 ### `carrierConnectivityOnly`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> <span className="sauceDBlue">Private Devices Only</span> |</small></p>
 
 Use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).
 
