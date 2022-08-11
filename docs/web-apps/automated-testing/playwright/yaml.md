@@ -111,6 +111,7 @@ sauce:
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
   concurrency: 10
+  launchOrder: fail rate
 ```
 ---
 
@@ -237,6 +238,19 @@ Sets the visibility level of test results for suites run on Sauce Labs. If unspe
 ```yaml
 sauce:
   visibility: private
+```
+---
+
+### `launchOrder`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Control starting order of suites. If unspecified or empty, the default is the order in which suites are written in the config file.
+
+* `fail rate`: Suites that historically have the highest failure rate start first.
+
+```yaml
+sauce:
+  launchOrder: fail rate
 ```
 ---
 

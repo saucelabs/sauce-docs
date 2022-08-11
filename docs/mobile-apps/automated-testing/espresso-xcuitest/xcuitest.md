@@ -105,6 +105,7 @@ sauce:
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
   concurrency: 5
+  launchOrder: fail rate
 ```
 ---
 
@@ -217,6 +218,19 @@ sauce:
   tunnel:
     name: your_tunnel_name
     owner: tunnel_owner_username
+```
+---
+
+### `launchOrder`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Control starting order of suites. If unspecified or empty, the default is the order in which suites are written in the config file.
+
+* `fail rate`: Suites that historically have the highest failure rate start first.
+
+```yaml
+sauce:
+  launchOrder: fail rate
 ```
 
 ---
