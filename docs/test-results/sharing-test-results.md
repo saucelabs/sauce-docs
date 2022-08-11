@@ -8,6 +8,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::note VDC Only
+The ability to share test results is currently only supported for virtual devices (VDC).
+:::
+
 Once your test has run and generated a **Test Details** page, you have several options for sharing a link to that page with others.
 
 1. On Sauce Labs, in the left panel, click **LIVE** or **AUTOMATED**, and then click **Test Results**.
