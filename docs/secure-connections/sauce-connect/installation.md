@@ -73,14 +73,29 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
   <details><summary>What's in the folder?</summary>
 
   #### Sauce Connect folder contents
-  <img src={useBaseUrl('img/sauce-connect/scp-download.png')} alt="Sauce Connect download file contents" width="500" />
+
+  ```bash
+  $ tree sc-4.8.1-osx/
+    sc-4.8.1-osx/
+    ├── COPYRIGHT.md
+    ├── bin
+    │   └── sc
+    ├── config_examples
+    │   ├── config.yml
+    │   └── systemd
+    │       ├── README.md
+    │       ├── sc.service
+    │       └── sc@.service
+    └── license.html
+  ```
+
   <table>
   <tr>
    <td>File</td>
    <td>Description</td>
   </tr>
   <tr>
-    <td><strong>sc</strong> (macOS) or <strong>sc.exe</strong> (Windows)</td>
+    <td><strong>sc</strong> (Linux/macOS) or <strong>sc.exe</strong> (Windows)</td>
     <td>Sauce Connect Proxy client executable file.</td>
    </tr>
    <tr>
