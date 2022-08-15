@@ -70,7 +70,7 @@ This command should return "Connected to saucelabs.com".
 telnet saucelabs.com 443
 ```
 
-This command should print an IP address of 34.96.70.78 and "Connected to saucelabs.com".
+This command should return an IP address of 34.96.70.78 and "Connected to saucelabs.com".
 
 </TabItem>
 
