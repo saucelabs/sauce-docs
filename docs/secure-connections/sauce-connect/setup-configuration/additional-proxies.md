@@ -253,7 +253,7 @@ The Charles Proxy is useful for monitoring traffic passing between your Sauce VM
 4. Create a pac.js file for Sauce Connect Proxy:
   ```java
   function FindProxyForURL(url, host) {
-      if (shExpMatch(host, "*.miso.saucelabs.com") ||
+      if (shExpMatch(host, "*.miso.saucelabs.com*") ||
           shExpMatch(host, "*.saucelabs.com") ||
           shExpMatch(host, "saucelabs.com")) {
           // KGP and REST connections. Another proxy can also be specified.
@@ -296,7 +296,7 @@ If `curl -v --proxy external.proxy.com private.mysite.com` does not get a respon
 ```javascript title="multiproxy proxy.pac"
 function FindProxyForURL(url, host) {
     // Sauce domain calls required to start a tunnel
-    if (shExpMatch(host, "*.miso.saucelabs.com") ||
+    if (shExpMatch(host, "*.miso.saucelabs.com*") ||
         shExpMatch(host, "*.saucelabs.com") ||
         shExpMatch(host, "saucelabs.com")) {
         // Send the required Sauce Traffic

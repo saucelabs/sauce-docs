@@ -27,10 +27,18 @@ Sauce Labs [_Piestry_](/dev/glossary/#piestry) is our API mocking server tool th
 
 Piestry must be started from a Docker container in your CI/CD pipeline using the following code snippet:
 ```bash
-docker run -v "$(pwd)/specs:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
+docker run --pull -v "$(pwd)/specs:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
 ```
 
 `quay.io/saucelabs/piestry` is our Docker image and `/specs/myspec.yaml` needs to be the URI to your YAML spec file (can be local or remote).
+
+:::note
+In the above command, `-p 5000:5000` is used to map the port on your machine and the port for Piestry. If you are using macOS Monterey, the command will not work because port 5000 is already used by the Airplay Receiver service by default. In this case, you have to remap the port for your local machine. To do so, enter a different port in the left part of the command. For example: `-p 8000:5000`, where port 8000 can be replaced with any other port. This scenario is valid every time your port is already used by any other service.
+:::
+
+:::tip
+Some container runtimes will maintain port bindings even when containers exit, making it impossible for a new instance of the same container to run again on the same port unless the dead container is removed. To avoid this issue you can use the flag ```--rm``` like in this example: ```docker run -v "$(pwd)/specs:/specs" -p 5000:5000 --rm quay.io/saucelabs/piestry -u /specs/myspec.yaml```.
+:::
 
 ### OpenAPI Spec Files
 
@@ -45,7 +53,7 @@ If you provide a standard OpenAPI spec file, our system should bind a series of 
 1. On your local machine, place your spec file (or set of files in a folder) in a location of your choice. For this example, we'll call it `myspec.yaml`.
 2. Open your CLI terminal and navigate to right outside that folder, then run this command:
   ```bash
-  docker run -v "$(pwd)/myspec:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
+  docker run --pull -v "$(pwd)/myspec:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
   ```
   `$(pwd)/myspec` means the `{current_directory}/myspec` that gets mounted to the container in the `/specs` folder. Therefore, the -u (relative to the container is) `/specs/myspec.yaml`.
 3. If successful, you should see the listing of the available routes:
@@ -65,9 +73,9 @@ If you provide a standard OpenAPI spec file, our system should bind a series of 
 ### Enhancing OpenAPI with x-sauce-cond
 You can enrich OpenAPI schemas using the `x-sauce` vendor extension. This extension will have no impact on the docs.
 
-There currently are three types of `x-sauce-cond` operations: `exists`, `equals` and `matches`.
+There currently are five types of `x-sauce-cond` operations: three evaluators (`exists`, `equals`, and `matches`) and two logical operators (`or` and `and`).
 
-There also are four collections you can evaluate: `uriParams`, `queryParams`, `headers`, `body`.
+There also are four collections you can evaluate: `uriParams`, `queryParams`, `headers`, and `body`.
 
 In the below example, the `x-sauce-cond` extension tells the mock to take the `200` status code as response only when an `authorization` header is present and its value matches the `Basic .*` regex. The `priority` field determines the order of evaluation of multiple objects at the same level. For example, if both `200` and `404` have an `x-sauce-cond` instruction, they will be evaluated by descending priority.
 ```yaml
@@ -118,6 +126,23 @@ On the examples:
 
 Pick one specific example based on the value of a URI param.
 
+If you have to add multiple conditions you can use `and` and `or` conditions. You can have the depth and nesting you want.
+
+```yaml
+  x-sauce-cond:
+    op: and
+    priority: 10
+    conditions:
+    - op: matches
+      collection: headers
+      key: authorization
+      value: Basic .*
+    - op: equals
+      collection: headers
+      key: key
+      value: ABC123
+```
+Mind that `priority` should be at the top level instruction.
 
 ### Enhancing Schemas with x-sauce-faker
 If you don't want to add examples because they're not useful to you, that's ok. You can still force the system to generate data that makes specific sense to you, using the Faker extension, `x-sauce-faker`.
@@ -136,7 +161,7 @@ releaseNotes:
     x-sauce-faker: internet.email
 ```
 
-Learn more about the Faker library [here](https://www.npmjs.com/package/faker).
+Learn more about the [Faker library](https://fakerjs.dev/guide/).
 
 
 ## Mocking Mode

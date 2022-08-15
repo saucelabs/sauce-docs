@@ -1,6 +1,6 @@
 ---
 id: webhook
-title: Webhook
+title: Webhook Integration with Backtrace
 sidebar_label: Webhook
 description: This guide will go through the steps necessary to integrate Backtrace with custom HTTP endpoints.
 ---
@@ -8,7 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Webhook Integration
 This guide will go through the steps necessary to integrate Backtrace with custom HTTP endpoints.
 
 There are two main steps for setting up a webhook:

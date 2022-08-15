@@ -1,6 +1,6 @@
 ---
 id: email
-title: Email
+title: Email Integration with Backtrace
 sidebar_label: Email
 description: Integrate Backtrace with Email.
 ---
@@ -8,7 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Email Integration
 This guide will go through the steps necessary to integrate Backtrace with email.
 
 ## Set Up the Integration

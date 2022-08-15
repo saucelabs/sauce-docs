@@ -111,6 +111,10 @@ We use a proprietary process that wipes every real device clean at the end of th
 While we take these actions to clean public real devices after each test session, we do not perform factory resets nor do we have anti-virus software installed on them. It is possible that other users of the public RDC may engage in malicious, careless or unsecure activity, and that sophisticated, persistent malware could therefore be present on any device in the public RDC.
 :::
 
+:::caution
+If you test a Progressive Web Application (PWA) and install it on the home screen of the device, make sure that you remove the PWA manually before you close your session. At the moment we can’t remove the PWA and its data during our cleaning process.
+:::
+
 #### Data Center Security
 
 Real Device Cloud Data Center security is described in [Data Center Endpoints](/basics/data-center-endpoints).
