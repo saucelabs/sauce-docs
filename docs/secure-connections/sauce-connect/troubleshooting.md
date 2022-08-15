@@ -25,7 +25,7 @@ You can enable verbose logging, which increases the logging level of Sauce Conne
 
 ## Network Configuration with Firewalls and Proxies
 
-Is there a firewall or proxy server in place between your machine running Sauce Connect Proxy and Sauce Labs (`*.saucelabs.com:443`)? You may need to allow access in your firewall rules or configure Sauce Connect Proxy to use an additional proxy. See [Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies)
+Is there a firewall or proxy server in place between your machine running Sauce Connect Proxy and Sauce Labs (`*.saucelabs.com:443`)? You may need to allow access in your firewall rules or configure Sauce Connect Proxy to use an additional proxy. For more information, see [Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
 
 Sauce Connect Proxy needs to establish outbound connections to both \*.saucelabs.com (or a [specific data center](/basics/data-center-endpoints)) on `port 443` and to a tunnel VM with an IP in the [Sauce Labs ranges](/basics/data-center-endpoints).
 
