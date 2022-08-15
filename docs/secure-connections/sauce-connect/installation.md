@@ -73,7 +73,6 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
   <details><summary>What's in the folder?</summary>
 
   #### Sauce Connect folder contents
-  <img src={useBaseUrl('img/sauce-connect/scp-download.png')} alt="Sauce Connect download file contents" width="500" />
   <table>
   <tr>
    <td>File</td>
