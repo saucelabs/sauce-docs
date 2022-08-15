@@ -369,6 +369,7 @@ module.exports = {
       collapsed: true,
       items: [
         'error-reporting/getting-started',
+        'error-reporting/whats-new',
         {
           type: 'category',
           label: 'Platform Integrations',
@@ -425,7 +426,7 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'View and Analyze Error and Crash Data',
+          label: 'Web Console Views',
           collapsed: true,
           items: [
             'error-reporting/web-console/getting-started',
