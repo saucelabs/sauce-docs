@@ -107,7 +107,7 @@ Yes.
 ## Can you allowlist IP addresses instead of using Sauce Connect Proxy?
 
 To create a secure connection, we strongly recommend using [Sauce Connect Proxy](/secure-connections/sauce-connect) or [Sauce IPSec Proxy](/secure-connections/ipsec-vpn) instead of allowlisting IP ranges.
-More information: [Why Sauce Labs Recommends Sauce Connect Proxy Over Allowlisting IP Addresses](/secure-connections/sauce-connect/#why-we-recommend-sauce-connect-proxy-over-allowlisting-ip-addresses).
+For more information, see [Why Sauce Labs Recommends Sauce Connect Proxy Over Allowlisting IP Addresses](/secure-connections/sauce-connect/#why-we-recommend-sauce-connect-proxy-over-allowlisting-ip-addresses).
 
 ## Where can I get more in-depth information about Sauce Connect Proxy?
 
