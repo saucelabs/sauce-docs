@@ -12,7 +12,7 @@ If you're new to Sauce Connect Proxy or troubleshooting, this list of frequently
 Sauce Connect Proxy can only communicate with Sauce Labs via `port 443`. This is not configurable.
 
 Sauce Connect Proxy requires outbound access to several Sauce Labs REST API endpoints (over HTTPS) and the Sauce Connect Server (over TLS1.2-encrypted [KGP](/secure-connections/sauce-connect/advanced/kgp)).
-See also [Data Center Endpoints](/basics/data-center-endpoints).
+For more information, see [Data Center Endpoints](/basics/data-center-endpoints).
 
 ## When do I need to use Port 443 and how does it relate to the --proxy flag?
 
