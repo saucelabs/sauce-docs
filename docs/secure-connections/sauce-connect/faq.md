@@ -48,7 +48,7 @@ Entering this code -- `(www.)?google-analytics.com,(www.)?googletagmanager.com,(
 
 When using Sauce Connect Proxy, local web apps running on commonly used ports are available to test at localhost URLs, just as if the Sauce Labs cloud were your local machine.
 
-However, because proxying requests to a localhost address is not supported by all platforms, tests may perform better when using a locally defined domain name (which can be set in your [`hosts file`](http://en.wikipedia.org/wiki/Hosts_file)) rather than localhost. Using a locally defined domain name also allows access to apps on any port.
+However, because proxy requests to a localhost address are not supported by all platforms, tests may perform better when using a locally defined domain name (which can be set in your [`hosts file`](http://en.wikipedia.org/wiki/Hosts_file)) rather than localhost. Using a locally defined domain name also allows access to apps on any port.
 
 See also [Supported Browsers and Ports Specification](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports).
 
