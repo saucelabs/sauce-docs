@@ -1,3 +1,6 @@
+// Author: Clara Ko
+// Co-authored / refactored by: James Tacker
+
 let fs = require('fs');
 let axios = require('axios');
 let cheerio = require('cheerio');
@@ -54,6 +57,9 @@ async function exit_code(summary_str,arr,broken_count) {
   console.log(date_str)
   if(broken_count>0) core.setFailed(`Action failed with error ${broken_count} Broken Links`);
 }
+
+/* This function was no longer needed as results output in pipeline and prevent merging */
+
 // async function send_slack(summary_str,arr,broken_count) {
 //   let url = process.env.SLACK_LINK
 //   let date_str = moment().format('LL')
