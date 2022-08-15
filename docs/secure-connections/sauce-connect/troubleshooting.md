@@ -60,7 +60,7 @@ If any of these commands fail, you should work with your internal network team t
 curl -v https://saucelabs.com/
 ```
 
-This command should return the status message connected to `saucelabs.com`.
+This command should return "Connected to saucelabs.com".
 
 </TabItem>
 
