@@ -10,7 +10,7 @@ If you're new to Sauce Connect Proxy or troubleshooting, this list of frequently
 ## What outbound ports do I need open for Sauce Connect Proxy?
 
 Sauce Connect Proxy can only communicate with Sauce Labs via `port 443`. This is not configurable.
-Sauce Connect Proxy requires an outbound access to several different Sauce Labs REST API endpoints (over HTTPS) and, also, Sauce Connect Server (over TLS1.2-encrypted [KGP](/secure-connections/sauce-connect/advanced/kgp)).
+Sauce Connect Proxy requires an outbound access to several Sauce Labs REST API endpoints (over HTTPS) and, also, Sauce Connect Server (over TLS1.2-encrypted [KGP](/secure-connections/sauce-connect/advanced/kgp)).
 See also [Data Center Endpoints](/basics/data-center-endpoints).
 
 ## When do I need to use Port 443 and how does it relate to the --proxy flag?
@@ -47,7 +47,7 @@ Entering this code -- `(www.)?google-analytics.com,(www.)?googletagmanager.com,(
 
 When using Sauce Connect Proxy, local web apps running on commonly used ports are available to test at localhost URLs, just as if the Sauce Labs cloud were your local machine.
 
-However, because an additional proxy is required for localhost URLs, tests may perform better when using a locally defined domain name (which can be set in your [`hosts file`](http://en.wikipedia.org/wiki/Hosts_file)) rather than localhost. Using a locally defined domain name also allows access to apps on any port.
+However, because proxying requests to a localhost address is not supported by all platforms, tests may perform better when using a locally defined domain name (which can be set in your [`hosts file`](http://en.wikipedia.org/wiki/Hosts_file)) rather than localhost. Using a locally defined domain name also allows access to apps on any port.
 
 See also [Supported Browsers and Ports Specification](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports).
 
@@ -105,7 +105,7 @@ Yes.
 
 ## Can you allowlist IP addresses instead of using Sauce Connect Proxy?
 
-To create a secure connection, we strongly recommend using [Sauce Connect Proxy](/secure-connections/sauce-connect)or [Sauce IPSec Proxy](/secure-connections/ipsec-vpn) instead of allowlisting IP ranges.
+To create a secure connection, we strongly recommend using [Sauce Connect Proxy](/secure-connections/sauce-connect) or [Sauce IPSec Proxy](/secure-connections/ipsec-vpn) instead of allowlisting IP ranges.
 More information: [Why Sauce Labs Recommends Sauce Connect Proxy Over Allowlisting IP Addresses](/secure-connections/sauce-connect/#why-we-recommend-sauce-connect-proxy-over-allowlisting-ip-addresses).
 
 ## Where can I get more in-depth information about Sauce Connect Proxy?
