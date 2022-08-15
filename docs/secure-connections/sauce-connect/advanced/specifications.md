@@ -138,7 +138,7 @@ Sauce Connect Proxy Tunnel connection TLS specifications
 
 ## Supported Browsers and Ports
 
-The following commonly used browsers and ports are subject to change as new versions are released:
+The following commonly used browsers and ports are subject to change as new versions are released.
 
 Microsoft Edge, Chrome 71+ and the Safari browser on OS X 10.10+ and mobile iOS 8+ proxy these common ports:
 
