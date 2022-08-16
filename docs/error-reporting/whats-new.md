@@ -5,7 +5,7 @@ sidebar_label: What's New
 description: See what's new with the Backtrace Console, including new features and improvements.
 ---
 
-## Help and Support Access (2022-08-XX)
+## Help and Support Access (2022-08-18)
 For easier access, the Help and support button is now located in the navigation bar.
 <img src="/img/error-reporting/whats-new/help-button.png" width="300"/>
 
@@ -16,22 +16,22 @@ In addition to filtering attributes by name, you can now use the global filter b
 In the Organization settings, you can now sort the Users page by username, email, and role.
 
 ## Releases Comparison View (2021-10-05)
-The Releases Comparison View allows you to easily monitor and compare stability, user adoption, and other crash and error metrics across all versions of your application. 
+The Releases Comparison View allows you to easily monitor and compare stability, user adoption, and other crash and error metrics across all versions of your application. For more information, see [Releases](/error-reporting/web-console/releases/).
 
 ## Project Overview Page (2021-06-04)
-Quickly monitor your project’s health with the Backtrace Web Console’s newest view:  The Project Overview. See total errors count, errors through time, errors by app version, errors by platform, and much more all on one page.
+Quickly monitor your project’s health with the Web Console’s newest view: The Project Overview. See total errors count, errors through time, errors by app version, errors by platform, and much more all on one page. For more information, see [Releases](/error-reporting/web-console/overview/).
 
 ## Attachment Preview (2021-04-30)
-If you add screenshots, logs, or other attachments to your errors, you can quickly view them on the Debugger.
+If you add screenshots, logs, or other attachments to your errors, you can quickly view them in the Debugger.
 
 ## Submission Actions (2021-03-16)
-As an admin user, you may be interested in "Submission Actions". You'll find them under Project Settings / Submission Actions. Submission Actions can configure projects to: Automate assignments, Set tags and attributes, Reject submission traffic, and more!
+As an admin user, you may be interested in "Submission Actions". You'll find them under Project Settings > Submission Actions. Submission Actions can configure projects to: automate assignments, set tags and attributes, reject submission traffic, and more.
 
 ## Game Console Connectors (2021-01-10)
-Backtrace now exposes additional support to manage crashes and errors for PlayStation4, PlayStation5, Microsoft Xbox One, Series X|S, and Nintendo Switch. 
+Backtrace now exposes additional support to manage crashes and errors for PlayStation 4, PlayStation 5, Microsoft Xbox One and Series X|S, and Nintendo Switch.
 
 ## Alerts (2020-11-19)
-Backtrace will allow admin users to define alert notifications to be sent to integration such as Slack, Jira, Datadog, or others whenever certain warning or error threshold values are breached. 
+Backtrace allows admin users to define alert notifications to be sent to third-party integrations such as Slack, Jira, Datadog, or others whenever certain warning or error threshold values are breached.
 
 ## Storage Sampling Management (2020-11-02)
 For high volume systems with minidump artifacts, there are diminishing returns to storing every single dump object. They can take up disk space and may not be needed. Backtrace provides Storage Sampling to allow administrators to control which dump objects are stored long term after processing.
@@ -57,23 +57,24 @@ Aggregation Filters are available as one of the operators in the drop down in th
 
 ## x86-64 Minidump -> Core (2020-07-08)
 The Debugger "Download" action now offers the ability to download a core file representation of a Linux x86-64 minidump crash. The core file can be used to view it locally in a debugger like gdb / lldb / etc and retrieve variable values.
-Teams and Project Permissions (2020-06-10)
+
+## Teams and Project Permissions (2020-06-10)
 A new Organization Setting object called Teams is available for Administrators to Manage. Teams consist of other Teams or users of the system. Teams be used as Project Members with defined Roles so that access can be restricted to both individual users or groups of users. 
 
 ## Reopen Criteria (2020-04-28)
-Use Resolved Until or Muted Until functionality to tell the system to reopen a fingerprint if it's seen in a future version or after a certain period of time.
+Use the Resolved Until or Muted Until functionality to tell the system to reopen a fingerprint if it's seen in a future version or after a certain period of time.
 
 ## PlayStation 4 Support (2020-03-18)
-Project Admins can use Project Settings -> Error Submission -> Data Sources to set up integration with their PS4 crash capture system.
+Project Admins can use Project Settings > Error Submission > Data Sources to set up integration with their PS4 crash capture system.
 
 ## Default Saved Views (2020-03-27)
 Admin users can set a Team Default Saved Views for each project that will be the default that users see when accessing the project. Users can further set their own User Default Saved View for each project that can further personalize the information they see when the open the project.
 
 ## Reprocess a subset of errors (2020-02-04)
-If you need to reprocess a subset of errors due to new debug symbols, source maps, or ProGuard files being uploaded, or new attributes to be indexed, you can now take the reprocess action from the Triage -> Fingerprint -> Actions dropdown or the Explore -> Actions dropdown. See [Object Reprocessing](/error-reporting/project-setup/object-reprocessing/) for more information.
+If you need to reprocess a subset of errors due to new debug symbols, source maps, or ProGuard files being uploaded, or new attributes to be indexed, you can now take the reprocess action from the Triage > Fingerprint > Actions dropdown or the Explore > Actions dropdown. See [Object Reprocessing](/error-reporting/project-setup/object-reprocessing/) for more information.
 
 ## Customize the Triage View (2020-02-04) 
-Users can now customize the columns that appear in the Triage view. These can be saved as Saved Views and in an upcoming release, users will be able to set default views for the project team or the individual user.
+You now customize the columns that appear in the Triage view. These can be saved as Saved Views and in an upcoming release, users will be able to set default views for the project team or the individual user.
 
 ## Fingerprint Merging with Union Semantics (2020-02-03)
 When performing a Merge action on 2 or more fingerprints, Backtrace will now show a union of all the linked Tickets, Assignees, and tags that have been applied.
@@ -89,19 +90,19 @@ A new, more compact debugger UI, designed to give the engineer all the debug inf
 
 ## Advanced Settings for Dedup and Symbol Servers; 2 way Jira Integration; MS Teams Integration (2019-07-25)
 * Admin users on an Enterprise Plan can use the Web Console Project Settings to configure custom deduplication rules, or private symbols servers.
-* Admin users on any Plan can configure Jira sync to be two-way, such that assignee and status are updated in both systems whenever a change is made.
-* Admin users on any Plan can configure integration with Microsoft Teams such that notifications can be sent to the appropriate channel and person.
+* Admin users on any plan can configure Jira sync to be two-way, such that assignee and status are updated in both systems whenever a change is made.
+* Admin users on any plan can configure integration with Microsoft Teams such that notifications can be sent to the appropriate channel and person.
 
 ## Filter Bar UX update and Support for MET (2019-06-12)
 * New UI and UX for using the filter bar. 
 * Support for Memory Error Tracker (MET) capabilities.
 
 ## Shortened Link Sharing Service & Support for Mobile Crash Reporting (2019-05-06)
-* The Web Console now has an integrated link sharing service. Check out the Copy Link icon in the upper right of any page to Web Console to copy and share a shortened link for any page!
-* The Console now supports using Triage, Explore and Debug on crashes and exceptions from mobile devices captured via the new backtrace-cocoa and backtrace-android libraries. 
+* The Web Console now has an integrated link sharing service. Check out the Copy Link icon in the upper right of any page to Web Console to copy and share a shortened link for any page.
+* The Console now supports using Triage, Explore, and Debug on crashes and exceptions from mobile devices captured via the new backtrace-cocoa and backtrace-android libraries. 
 
 ## New Web Console as the Default (2019-04-01)
-The new Web Console is now the default for all users. For more information, see [Overview](/error-reporting/web-console/overview/).
+The new Web Console is now the default for all users. For more information, see [Web Console Getting Started](/error-reporting/web-console/getting-started/).
 
 ## Navigation and Information Hierarchy Update (2019-04-01)
 * The Filter Bar has been moved to the upper header to better scope the working set of crashes and errors that users want analyze.
@@ -116,7 +117,7 @@ Customers on the Enterprise plan can now configure their SAML configuration unde
 When viewing the Details of a Fingerprint in the Triage view, a user can view list of comments associated to a fingerprint, and can create new / edit their comments. 
 
 ## Per User Default Setting for New Web Console (2019-03-01)
-Users can choose to have the new Web Console be their default using the Set As Default button after they login. This setting is also available under Organization Settings / My Account / Early Access toggles.
+Users can choose to have the new Web Console be their default using the Set As Default button after they login. This setting is also available under Organization Settings > My Account > Early Access toggles.
 
 ## Manual Issue (Jira) Creation (2019-01)
 When viewing a fingerprint in the Triage view, a user can choose to create a new issue in an issue tracking system like Jira.
