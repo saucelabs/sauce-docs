@@ -118,10 +118,10 @@ You can also provide the following parameters as an argument:
 The `BacktraceClient` allows you to customize the initialization of `BacktraceDatabase` for local storage of error reports by supplying a `BacktraceDatabaseSettings` parameter, as shown below:
 
 ```java
-BacktraceCredentials credentials = new BacktraceCredentials("https://myserver.sp.backtrace.io:6097/", "4dca18e8769d0f5d10db0d1b665e64b3d716f76bf182fbcdad5d1d8070c12db0");
+BacktraceCredentials credentials = new BacktraceCredentials("https://submit.backtrace.io/{subdomain-name}/{submission-token}/json");
 
 Context context = getApplicationContext();
-String dbPath = context.getFilesDir().getAbsolutePath(); // any path, eg. absolute path to the internal storage
+String dbPath = context.getFilesDir().getAbsolutePath() + "/sample/backtrace/path"; // any path, eg. absolute path to the internal storage
 
 BacktraceDatabaseSettings settings = new BacktraceDatabaseSettings(dbPath);
 settings.setMaxRecordCount(100);

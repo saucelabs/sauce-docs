@@ -1,6 +1,6 @@
 ---
 id: github
-title: GitHub
+title: GitHub Integration with Backtrace
 sidebar_label: GitHub
 description: Integrate Backtrace with GitHub.
 ---
@@ -8,7 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## GitHub Integration
 This guide goes through the steps necessary to integrate Backtrace with GitHub. Setting up integration with GitHub requires a valid GitHub endpoint URL, as well as an API token.
 
 The steps in this process are:
