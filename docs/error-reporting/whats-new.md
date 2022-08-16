@@ -22,7 +22,7 @@ The Releases Comparison View allows you to easily monitor and compare stability,
 Quickly monitor your project’s health with the Backtrace Web Console’s newest view:  The Project Overview.  See total errors count, errors through time, errors by app version, errors by platform, and much more all on one page.
 
 ## Attachment Preview (2021-04-30)
-If you add screenshots, logs, or other attachments to your errors, you can now quickly view them the Debugger
+If you add screenshots, logs, or other attachments to your errors, you can quickly view them on the Debugger.
 
 ## Submission Actions (2021-03-16)
 As an admin user, you may be interested in "Submission Actions". You'll find them under Project Settings / Submission Actions. Submission actions can configure projects to: Automate assignment, Set tags and attributes, Reject submission traffic, and more!
