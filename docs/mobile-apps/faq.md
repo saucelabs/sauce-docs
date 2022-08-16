@@ -6,19 +6,19 @@ sidebar_label: FAQ
 
 ## Virtual Devices
 
-#### **What type of keyboard and buttons do the Android emulators have?**
+#### **What type of keyboard and buttons do the Android Emulators have?**
 
-Android Emulators have software buttons and a hardware keyboard. In a regular Android emulator the device buttons are software buttons displayed on the right size of the emulator. For the Android emulators with different skins (e.g Google Nexus 7 HD, LG Nexus 4, Samsung Galaxy Nexus, Samsung Galaxy S3, etc) the device buttons are also software buttons that are overplayed on top of the skin. For instance, if you hover the mouse around the edges of any of our Android emulators with an specified skin, a hover icon will appear and you should be able to find whatever buttons actually exist on the device that the skinned emulator is trying to emulate (e.g power button along the top, volume buttons along the edge, back/home buttons right below the screen, etc).
+Android Emulators have software buttons and a hardware keyboard. In a regular Android Emulator the device buttons are software buttons displayed on the right size of the emulator. For the Android Emulators with different skins (e.g Google Nexus 7 HD, LG Nexus 4, Samsung Galaxy Nexus, Samsung Galaxy S3, etc) the device buttons are also software buttons that are overplayed on top of the skin. For instance, if you hover the mouse around the edges of any of our Android Emulators with a specified skin, a hover icon will appear and you should be able to find whatever buttons actually exist on the device that the skinned emulator is trying to emulate (e.g power button along the top, volume buttons along the edge, back/home buttons right below the screen, etc).
 
 
-#### **Can I run Android emulator tests using Espresso instead of Appium?**
+#### **Can I run Android Emulator tests using Espresso instead of Appium?**
 
 Yes - see [Espresso and XCUITest Testing for Virtual Devices](/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices).
 
 
-#### **What mobile web browsers can I automate in Android emulators?**
+#### **What mobile web browsers can I automate in Android Emulators?**
 
-Currently the only browser that can be automated in our Android emulators is the stock browser (i.e., Chrome).
+Currently the only browser that can be automated in our Android Emulators is the stock browser (i.e., Chrome).
 
 #### **How do I use XCUITest-driver on Appium 1.6.0 with iOS 9.x tests?**
 
@@ -57,7 +57,7 @@ Yes. See [Camera Image Injection](/mobile-apps/features/camera-image-injection).
 
 * **Android Real Devices** - Yes. It works automatically with no action required.
 * **iOS Real Devices** - Yes. Prior to testing, you'll need to disable resigning; this enables notifications testing. Disabling resigning is a feature available for [private devices only](/mobile-apps/supported-devices#private-device-cloud). To disable resigning, go to **Live** > **Mobile App** > Locate your iOS mobile app from your list of uploaded app > Click **Settings** > Toggle **Instrumentation** so that it says **Disabled**. You'll need to start keeping track of the iOS device UDIDs (Unique Device Identifier) by maintaining them in your own Apple Developer profile used at app build time.
-* **Android emulators** - not supported.
+* **Android Emulators** - not supported.
 * **iOS simulators** - Yes, when using Appium version 1.21.0. See [Announcing support for Appium v1.21.0 on iOS Simulators](https://changelog.saucelabs.com/en/announcing-support-for-appium-v-on-ios-simulators) for more information.
 
 #### **Is there a maximum time I can use a real device for either manual or automated testing, provided I actually do interact with the device?**
