@@ -19,7 +19,7 @@ In the Organization settings, you can now sort the Users page by username, email
 The Releases Comparison View allows you to easily monitor and compare stability, user adoption, and other crash and error metrics across all versions of your application. For more information, see [Releases](/error-reporting/web-console/releases/).
 
 ## Project Overview Page (2021-06-04)
-Quickly monitor your project’s health with the Web Console’s newest view: The Project Overview. See total errors count, errors through time, errors by app version, errors by platform, and much more all on one page. For more information, see [Releases](/error-reporting/web-console/overview/).
+Quickly monitor your project’s health with the Web Console’s newest view: The Project Overview. See total errors count, errors through time, errors by app version, errors by platform, and much more all on one page. For more information, see [Overview](/error-reporting/web-console/overview/).
 
 ## Attachment Preview (2021-04-30)
 If you add screenshots, logs, or other attachments to your errors, you can quickly view them in the Debugger.
