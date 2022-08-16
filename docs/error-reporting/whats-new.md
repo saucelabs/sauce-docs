@@ -28,7 +28,7 @@ If you add screenshots, logs, or other attachments to your errors, you can quick
 As an admin user, you may be interested in "Submission Actions". You'll find them under Project Settings / Submission Actions. Submission Actions can configure projects to: Automate assignments, Set tags and attributes, Reject submission traffic, and more!
 
 ## Game Console Connectors (2021-01-10)
-Backtrace now has exposes additional support to manage crashes and errors for PlayStation4, PlayStation5, Microsoft Xbox One, Series X|S, and Nintendo Switch. 
+Backtrace now exposes additional support to manage crashes and errors for PlayStation4, PlayStation5, Microsoft Xbox One, Series X|S, and Nintendo Switch. 
 
 ## Alerts (2020-11-19)
 Backtrace will allow admin users to define alert notifications to be sent to integration such as Slack, Jira, Datadog, or others whenever certain warning or error threshold values are breached. 
