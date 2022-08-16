@@ -25,7 +25,7 @@ Quickly monitor your project’s health with the Backtrace Web Console’s newes
 If you add screenshots, logs, or other attachments to your errors, you can quickly view them on the Debugger.
 
 ## Submission Actions (2021-03-16)
-As an admin user, you may be interested in "Submission Actions". You'll find them under Project Settings / Submission Actions. Submission actions can configure projects to: Automate assignment, Set tags and attributes, Reject submission traffic, and more!
+As an admin user, you may be interested in "Submission Actions". You'll find them under Project Settings / Submission Actions. Submission Actions can configure projects to: Automate assignments, Set tags and attributes, Reject submission traffic, and more!
 
 ## Game Console Connectors (2021-01-10)
 Backtrace now has exposes additional support to manage crashes and errors for PlayStation4, PlayStation5, Microsoft Xbox One, Series X|S, and Nintendo Switch. 
