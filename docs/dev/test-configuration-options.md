@@ -780,7 +780,7 @@ See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/b
 :::
 
 
-Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with a Sauce Labs test platform. This is alias for [tunnelName](#tunnelname).
+Specify a [Sauce Connect tunnel name](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) to establish connectivity with a Sauce Labs test platform. This is alias for [tunnelName](#tunnelname).
 
 
 :::note Choose the Correct Tunnel Identifier
