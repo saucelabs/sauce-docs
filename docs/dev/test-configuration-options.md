@@ -773,15 +773,13 @@ See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/b
 
 ---
 ### `tunnelIdentifier`
-<p><small>| STRING |</small></p>
+<p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
+
+Specify a [Sauce Connect tunnel name](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) to establish connectivity with a Sauce Labs test platform. This is an alias for [tunnelName](#tunnelname).
 
 :::caution Deprecation notice
 `tunnelIdentifier` is being deprecated in favor of `tunnelName`.
 :::
-
-
-Specify a [Sauce Connect tunnel name](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) to establish connectivity with a Sauce Labs test platform. This is alias for [tunnelName](#tunnelname).
-
 
 :::note Choose the Correct Tunnel Identifier
 The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
@@ -810,13 +808,13 @@ If the [tunnelName](#tunnelname) (or [tunnelIdentifier](#tunnelidentifier)) you'
 
 ---
 ### `parentTunnel`
-<p><small>| STRING |</small></p>
+<p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
+
+If the [tunnelName](#tunnelname) (or [tunnelIdentifier](#tunnelidentifier)) you've specified to establish connectivity with a Sauce Labs test platform is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test. This is an alias for [tunnelOwner](#tunnelowner).
 
 :::caution Deprecation notice
 `parentTunnel` is being deprecated in favor of `tunnelOwner`.
 :::
-
-If the [tunnelName](#tunnelname) (or [tunnelIdentifier](#tunnelidentifier)) you've specified to establish connectivity with a Sauce Labs test platform is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test. This is alias for [tunnelOwner](#tunnelowner).
 
 ```java
 "tunnelName": "MyTeamSharedTunnel"
