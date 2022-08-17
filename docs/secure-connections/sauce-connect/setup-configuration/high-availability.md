@@ -45,9 +45,9 @@ Exclusive to our HA Sauce Connect Proxy Setup, you can launch multiple tunnels a
 
 #### Launching Tunnel Pools
 
-* In your test script configuration, provide the name of the Sauce Connect Proxy tunnel by using the [`tunnelIdentifier`](/secure-connections/sauce-connect/setup-configuration/basic-setup#using-tunnel-identifiers) capability:
+* In your test script configuration, provide the name of the Sauce Connect Proxy tunnel by using the [`tunnelName`](/secure-connections/sauce-connect/setup-configuration/basic-setup#using-tunnel-names) capability:
   ```java
-  "tunnelIdentifier": "tunnel_name_here"
+  "tunnelName": "tunnel_name_here"
   ```
 * In your CLI, tunnels in the individual pools need to be started with both the [`--tunnel-identifier`](/dev/cli/sauce-connect-proxy#--tunnel-identifier) and [`--tunnel-pool`](/dev/cli/sauce-connect-proxy#--tunnel-pool) flags.
   ```bash

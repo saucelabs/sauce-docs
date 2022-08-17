@@ -119,11 +119,11 @@ Depending on the type of framework you're using and the device you're testing on
 #### Appium and Selenium Frameworks
 In your test script, you'll need to:
 1. Specify the [data center endpoint](/basics/data-center-endpoints) location of the device you're testing on. See the [Sauce Labs Training Repo](https://github.com/saucelabs-training) for examples in JavaScript, Java, Python, Ruby, and C#.
-2. Use the `tunnelIdentifier` capability to specify the name of your organization's Sauce IPSec Proxy tunnel, and then set the `parentTunnel` capability to the Sauce Labs username of your organization admin.
+2. Use the [`tunnelName`](/dev/test-configuration-options#tunnelName) capability to specify the name of your organization's Sauce IPSec Proxy tunnel, and then set the [`tunnelOwner`](/dev/test-configuration-options#tunnelOwner) capability to the Sauce Labs username of your organization admin.
   ```java title="Java example"
   MutableCapabilities caps = new MutableCapabilities();
-  caps.setCapability("tunnelIdentifier", "$TUNNEL_IDENTIFIER");
-  caps.setCapability("parentTunnel","$SAUCE_USERNAME");
+  caps.setCapability("tunnelName", "$TUNNEL_IDENTIFIER");
+  caps.setCapability("tunnelOwner","$SAUCE_USERNAME");
   ```
 
 #### Espresso and XCUITest Frameworks
