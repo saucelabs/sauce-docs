@@ -122,7 +122,7 @@ In your test script, you'll need to:
 2. Use the [`tunnelName`](/dev/test-configuration-options#tunnelName) capability to specify the name of your organization's Sauce IPSec Proxy tunnel, and then set the [`tunnelOwner`](/dev/test-configuration-options#tunnelOwner) capability to the Sauce Labs username of your organization admin.
   ```java title="Java example"
   MutableCapabilities caps = new MutableCapabilities();
-  caps.setCapability("tunnelName", "$TUNNEL_IDENTIFIER");
+  caps.setCapability("tunnelName", "$TUNNEL_NAME");
   caps.setCapability("tunnelOwner","$SAUCE_USERNAME");
   ```
 
