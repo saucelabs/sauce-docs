@@ -66,14 +66,14 @@ See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstar
    <TabItem value="Mac/Linux">
 
    ```bash
-   ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region $SAUCE_DC --tunnel-name $TUNNEL_IDENTIFIER
+   ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region $SAUCE_DC --tunnel-name $TUNNEL_NAME
    ```
 
    </TabItem>
    <TabItem value="Windows">
 
    ```bash
-   .\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region %SAUCE_DC% --tunnel-name $TUNNEL_IDENTIFIER
+   .\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region %SAUCE_DC% --tunnel-name $TUNNEL_NAME
    ```
 
    </TabItem>
@@ -106,7 +106,7 @@ caps.SetCapability("tunnelName", "TUNNEL_NAME");
 <TabItem value="Node.js">
 
 ```javascript
-'tunnelName': 'TUNNEL_IDENTIFIER'
+'tunnelName': 'TUNNEL_NAME'
 ```
 
 </TabItem>
