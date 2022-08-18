@@ -15,31 +15,48 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 <TabItem value="java" label="Java">
 
 ```java
-// replace with your endpoint url and token
-BacktraceCredentials credentials = new BacktraceCredentials("<endpoint-url>", "<token>");
+// replace with your submission url 
+BacktraceCredentials credentials = new BacktraceCredentials("<submissionUrl>");
 BacktraceClient backtraceClient = new BacktraceClient(getApplicationContext(), credentials);
 
-try {
-    // throw exception here
-} catch (Exception exception) {
-    backtraceClient.send(new BacktraceReport(e));
-}
+// send test report
+backtraceClient.send("test");
+
+// Capture uncaught exceptions
+BacktraceExceptionHandler.enable(backtraceClient);
+
+// Enable handling of native crashes
+backtraceClient.database.setupNativeIntegration(backtraceClient, credentials, false);
+
+// Enable ANR detection
+backtraceClient.enableAnr();
+
+// Enable Crash Free metrics
+backtraceClient.metrics.enable(new BacktraceMetricsSettings(credentials));
 ```
 
 </TabItem>
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-// replace with your endpoint url and token
-val backtraceCredentials = BacktraceCredentials("<endpoint-url>", "<token>")
-val backtraceClient = BacktraceClient(applicationContext, backtraceCredentials)
+// replace with your submission url
+val credentials = BacktraceCredentials("<submissionUrl>")
+val backtraceClient = BacktraceClient(applicationContext, credentials)
 
-try {
-    // throw exception here
-}
-catch (e: Exception) {
-    backtraceClient.send(BacktraceReport(e))
-}
+// send test report
+backtraceClient.send("test")
+
+// Capture uncaught exceptions
+BacktraceExceptionHandler.enable(backtraceClient)
+
+// Enable handling of native crashes
+backtraceClient.database.setupNativeIntegration(backtraceClient, credentials, false)
+
+// Enable ANR detection
+backtraceClient.enableAnr()
+
+// Enable Crash Free metrics
+backtraceClient.metrics.enable(BacktraceMetricsSettings(credentials))
 ```
 
 </TabItem>
