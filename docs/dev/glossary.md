@@ -624,7 +624,7 @@ See: [Tunnel Name](#tunnel-name)
 
 ### Tunnel Name
 
-The Sauce Connect Proxy test configuration option that allows you to assign a name to your tunnel(s), giving you more control and monitoring capability over the tunnel. If you launch a tunnel without naming it, your test traffic will default to running through that unnamed tunnel. More information: [Using Sauce Connect Tunnel Identifiers](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names).
+The Sauce Connect Proxy test configuration option that allows you to assign a name to your tunnel(s), giving you more control and monitoring capability over the tunnel. If you launch a tunnel without naming it, your test traffic will default to running through that unnamed tunnel. More information: [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names).
 
 See also: _[colliding tunnels](#colliding-tunnels)_.
 
