@@ -5,7 +5,7 @@ sidebar_label: What's New
 description: See what's new with the Backtrace Console, including new features and improvements.
 ---
 
-## Help and Support Access (2022-08-18)
+## Help and Support Access (2022-08-19)
 For easier access, the Help and support button is now located in the navigation bar.
 <img src="/img/error-reporting/whats-new/help-button.png" width="300"/>
 
