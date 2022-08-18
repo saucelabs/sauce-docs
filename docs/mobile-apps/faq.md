@@ -207,7 +207,7 @@ Yes. In Java, it can be done with the command: driver.setLocation(long, lat).
 
 #### **Can I change the device’s time and date?**
 
-Yes, but only for manual tests. The change can be made in the Settings of the device.
+No, the device's time and date cannot be changed.
 
 
 #### **Can I take screenshots during Espresso tests with the Real Device Cloud?**
