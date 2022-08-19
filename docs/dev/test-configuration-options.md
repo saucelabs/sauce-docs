@@ -199,7 +199,7 @@ Edge Driver is based on Chrome Driver, so the same caveats from [chromedriverVer
 
 ---
 ### `geckodriverVersion`
-<p><small>| STRING |</small></p>   
+<p><small>| STRING |</small></p>
 
 Specifies the Firefox GeckoDriver version. The default geckodriver version varies based on the version of Firefox specified. For a list of geckodriver versions and the Firefox versions they support, see [geckodriver Supported Platforms](https://firefox-source-docs.mozilla.org/testing/geckodriver/Support.html).
 
@@ -276,8 +276,7 @@ Enables Performance Capture feature. Sauce Performance Testing can be enabled by
 Specifies the screen resolution to be used during your test session. Default screen resolution for Sauce tests is `1024x768`.
 
 :::note
-You cannot set screen resolution on Windows 7 with IE 9.
-
+To specify the screen resolution on Windows, we recommend that you set the [`platformName`](#platformname) to Windows 8 or newer (e.g., Windows 10).
 :::
 
 
@@ -443,6 +442,26 @@ For virtual device mobile tests, the capability is `deviceOrientation`, but for 
 ```
 
 ---
+
+
+---
+### `setupDeviceLock`
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+
+Sets up the device pin code for the automated test session. Valid values are `true` and `false`.
+This capability sets your device in the state required for your application to launch successfully.
+
+:::important
+The `setupDeviceLock` capability helps to bypass the Security requirements from your applications, like pincode requirements for launching an app or invoking certain activities/features within your app. Example: https://developer.android.com/reference/android/app/KeyguardManager
+:::
+
+```java title="Real Device Setting"
+"setupDeviceLock": "true"
+```
+
+---
+
+
 ### `otherApps`
 <p><small>| ARRAY | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
@@ -483,7 +502,7 @@ If your pricing plan includes both private and public devices, use this capabili
 
 ---
 ### `carrierConnectivityOnly`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> <span className="sauceDBlue">Private Devices Only</span> |</small></p>
 
 Use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).
 
@@ -736,12 +755,31 @@ Available visibility modes are:
 "public": "team"
 ```
 
+---
+### `tunnelName`
+<p><small>| STRING |</small></p>
+
+Specify a [Sauce Connect tunnel name](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) to establish connectivity with a Sauce Labs test platform.
+
+:::note Choose the Correct Tunnel Identifier
+The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
+:::
+
+See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
+
+```java
+"tunnelName": "MyTunnel01"
+```
 
 ---
 ### `tunnelIdentifier`
-<p><small>| STRING |</small></p>
+<p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
 
-Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with a Sauce Labs test platform. Tunnels allow you to test an application that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
+Specify a [Sauce Connect tunnel name](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) to establish connectivity with a Sauce Labs test platform. This is an alias for [tunnelName](#tunnelname).
+
+:::caution Deprecation notice
+`tunnelIdentifier` is being deprecated in favor of `tunnelName`.
+:::
 
 :::note Choose the Correct Tunnel Identifier
 The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
@@ -753,25 +791,40 @@ See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/b
 "tunnelIdentifier": "MyTunnel01"
 ```
 
-:::caution Breaking Change
+:::warning Breaking Change
 Appium tests for the Real Device Cloud using the W3C protocol MUST use `tunnelName` instead of `tunnelIdentifier`.
 :::
 
 ---
-### `parentTunnel`  
+### `tunnelOwner`
 <p><small>| STRING |</small></p>
 
-If the [tunnelIdentifier](#tunnelidentifier) you've specified to establish connectivity with a Sauce Labs test platform is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test.
+If the [tunnelName](#tunnelname) (or [tunnelIdentifier](#tunnelidentifier)) you've specified to establish connectivity with a Sauce Labs test platform is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test.
 
 ```java
-"tunnelIdentifier": "MyTeamSharedTunnel"
+"tunnelName": "MyTeamSharedTunnel"
+"tunnelOwner": "<username of tunnel originator>"
+```
+
+---
+### `parentTunnel`
+<p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
+
+If the [tunnelName](#tunnelname) (or [tunnelIdentifier](#tunnelidentifier)) you've specified to establish connectivity with a Sauce Labs test platform is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test. This is an alias for [tunnelOwner](#tunnelowner).
+
+:::caution Deprecation notice
+`parentTunnel` is being deprecated in favor of `tunnelOwner`.
+:::
+
+```java
+"tunnelName": "MyTeamSharedTunnel"
 "parentTunnel": "<username of tunnel originator>"
 ```
 
-:::warning
-BREAKING CHANGE
-Appium tests for the Real Device Cloud using the W3C protocol MUST use tunnelOwner instead of parentTunnel.
+:::warning Breaking Change
+Appium tests for the Real Device Cloud using the W3C protocol MUST use `tunnelOwner` instead of `parentTunnel`.
 :::
+
 
 ---
 ### `recordVideo`

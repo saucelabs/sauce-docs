@@ -45,9 +45,9 @@ When you compare the most popular devices of your users with our top lists you p
 
 We strive to support the latest releases within 48 hours to ensure your website and apps work flawlessly across all platforms.
 
-#### **Is it possible to turn off the WiFi on a Real Devices with SIM card included?**
+#### **Is it possible to turn off the WiFi on Real Devices with SIM card included?**
 
-Yes. To test the offline mode with Real Devices see our [Offline Mode Guide](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio/appium-web/examples/offline-testing).
+Yes. To test in offline mode with Real Devices, see our [Offline Mode Guide](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio/appium-web/examples/offline-testing).
 
 #### **Is it possible to test the camera behavior using your mobile devices?**
 
@@ -62,7 +62,8 @@ Yes. See [Camera Image Injection](/mobile-apps/features/camera-image-injection).
 
 #### **Is there a maximum time I can use a real device for either manual or automated testing, provided I actually do interact with the device?**
 
-For real devices on the public cloud, the limit is 6 hours; for private cloud devices there is no limit.
+For real devices on the public cloud, the limit is 6 hours for Appium tests and 1 hour for Espresso and XCUITest; the same applies to private cloud devices.
+The limits for public cloud devices ensure that there are enough devices available for you, whereas the limits for private cloud devices ensure the longevity of your devices.
 
 #### **Can I upload files to or download files from a real device?**
 
@@ -172,7 +173,7 @@ No. This is a feature request on our roadmap.
 
 #### **Can I use Bluetooth on a device?**
 
-Yes. Please contact your Customer Success Manager or SE to discuss your specific use case.
+No. We do not support Bluetooth connections between devices in our Real Device Cloud. If you have a Bluetooth feature request, please let our support team know.
 
 
 #### **What should the frame rate be on newer Android devices?**
@@ -187,7 +188,7 @@ No.
 
 #### **Do you have any UI inspection tool built into your application like UI Automator viewer?**
 
-No, there are no inspection tools. We recommend using [Appium Desktop](https://github.com/appium/appium-desktop) or [Appium Inspector](https://github.com/appium/appium-inspector) for UI inspection, it has built in support for devices on the Real Device Cloud.
+No, there are no inspection tools. We recommend using [Appium Desktop](https://github.com/appium/appium-desktop) or [Appium Inspector](https://github.com/saucelabs/appium-inspector-saucelabs) for UI inspection, it has built in support for devices on the Real Device Cloud.
 
 
 #### **Can I change the orientation of the device screen during a test?**
@@ -217,12 +218,12 @@ Yes, if you use the Spoon library.
 
 #### **Can I test MO (Mobile Originated) SMS text messages?**
 
-Yes, only on devices that have SIM cards and are connected to the Carrier Network.
+Yes, only on private devices that have SIM cards and are connected to the Carrier Network.
 
 
 #### **Can I access Mobile Data? Not just WiFi, but 4G and 5G networks?**
 
-Yes, only on devices that have SIM cards and are connected to the Carrier Network.
+Yes, only on private devices that have SIM cards and are connected to the Carrier Network.
 
 
 ### Live Testing

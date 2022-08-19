@@ -91,7 +91,7 @@ Since the symbolication process relies on the name of the application, these sym
 Backtrace can be configured to pull from additional public or private symbol servers. For more information, see [Connecting to symbol servers](/error-reporting/project-setup/symbol-servers/).
 
 ## Symbol Formats and Upload Methods
-Navigate to your project configuration page and click on Symbols to see a record of all things symbol (including upload history, search functionality, symbol access tokens and more). Backtrace recommends uploading archives (a .tar.gz or .zip file containing one or more .sym ,.pdb , ELF  or dSYM files) of symbols for every build you except to see crashes for. These symbol files can be uploaded manually or hooked up into your build system so they are automatically uploaded.
+Navigate to your project configuration page and click on Symbols to see a record of all things symbol (including upload history, search functionality, symbol access tokens and more). Backtrace recommends uploading archives (a .tar.gz or .zip file containing one or more .sym ,.pdb , ELF  or dSYM files) of symbols for every build you expect to see crashes for. These symbol files can be uploaded manually or hooked up into your build system so they are automatically uploaded.
 
 Symbols can be uploaded via the web browser, morgue, curl, and HTTP.
 
@@ -101,7 +101,7 @@ The table above does not include .elf and dSYM files, which you can upload as an
 
 You may also specify a tag query string parameter to any of your symbol uploads in order to group symbols for ease of management. A tag is simply a group of symbols, like a folder on your filesystem. You may want to have different tags for different versions of your application or different platforms. If no tag is specified, symbols are placed into the anon tag.
 
-Regardless of your upload method, Backtrace provides a great of observability into symbol state. Backtrace supports .pdb + .sym  (Breakpad symbol files), ELF + dSYM  files and symbol archives (compressed or uncompressed archives containing the files). There are no restrictions on the layout of the files but you must ensure no relative paths are used and that files have the correct basename. For example, debug information for `Editor.exe` must be in a file called `Editor.pdb` or `Editor.sym`.
+Regardless of your upload method, Backtrace provides visibility into symbol state. Backtrace supports .pdb + .sym  (Breakpad symbol files), ELF + dSYM  files and symbol archives (compressed or uncompressed archives containing the files). There are no restrictions on the layout of the files but you must ensure no relative paths are used and that files have the correct basename. For example, debug information for `Editor.exe` must be in a file called `Editor.pdb` or `Editor.sym`.
 
 :::note
 To ensure proper processing, make sure that your symbols files (.pdb .sym, etc) are uploaded before their corresponding .exe and .dll files or included in the same archive.
