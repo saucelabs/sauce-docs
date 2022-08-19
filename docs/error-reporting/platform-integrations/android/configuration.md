@@ -25,9 +25,6 @@ backtraceClient.send("test");
 // Capture uncaught exceptions
 BacktraceExceptionHandler.enable(backtraceClient);
 
-// Enable handling of native crashes
-backtraceClient.database.setupNativeIntegration(backtraceClient, credentials, false);
-
 // Enable ANR detection
 backtraceClient.enableAnr();
 
@@ -48,9 +45,6 @@ backtraceClient.send("test")
 
 // Capture uncaught exceptions
 BacktraceExceptionHandler.enable(backtraceClient)
-
-// Enable handling of native crashes
-backtraceClient.database.setupNativeIntegration(backtraceClient, credentials, false)
 
 // Enable ANR detection
 backtraceClient.enableAnr()
