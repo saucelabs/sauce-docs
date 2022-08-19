@@ -211,7 +211,7 @@ sudo sh -c 'curl -L https://saucelabs.github.io/saucectl/install | bash -s -- -b
 ```bash title="Using Powershell (Windows)"
 $url = Invoke-RestMethod -Uri https://api.github.com/repos/saucelabs/saucectl/releases/latest | ForEach-Object {$_.assets} | Where-Object { $_.name -Like "*_win_64-bit.zip" }
 Invoke-RestMethod -Uri $url.browser_download_url -OutFile saucectl.zip
-Expand-Archive -Force -PassThru -Path ./saucectl.zip
+Expand-Archive -Force -Path ./saucectl.zip
 Move-Item -Path ./saucectl/saucectl.exe -Destination saucectl.exe
 Remove-Item -Force -Recurse  -Path ./saucectl,./saucectl.zip
 ```
