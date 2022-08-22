@@ -201,6 +201,7 @@ Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunne
 ---
 ### `--autodetect`
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceRed">4.8.x</span>| </small></p>
+
 __Description__: Enables the auto-detection of system proxy settings. Inverse of [`--no-autodetect`](#--no-autodetect). Default: `true`. See also [Automatic Proxy Auto-Configuration](/secure-connections/sauce-connect/setup-configuration/additional-proxies#proxy-auto-configuration-automatic).<br/>
 __Enviroment variable__: `SAUCE_AUTODETECT`<br/>
 __Shorthand__: n/a
