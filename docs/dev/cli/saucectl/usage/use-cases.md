@@ -18,6 +18,7 @@ The configuration file is flexible enough to allow for any customizations and de
 * [Configure Puppeteer](/web-apps/automated-testing/puppeteer/yaml)
 * [Configure Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso)
 * [Configure XCUITest](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest)
+* [Configure Replay](/web-apps/automated-testing/replay/yaml)
 
 
 ## Setting an Alternative Configuration File
