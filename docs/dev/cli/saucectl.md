@@ -67,6 +67,7 @@ Below are the frameworks supported on the Sauce Labs Cloud.
       {"label":"Cypress","value":"cypress"},
       {"label":"Playwright","value":"playwright"},
       {"label":"TestCafe","value":"testcafe"},
+      {"label":"Replay","value":"replay"},
       {"label":"Espresso","value":"espresso"},
       {"label":"XCUITest","value":"xcuitest"}
     ]}>
@@ -86,6 +87,12 @@ Below are the frameworks supported on the Sauce Labs Cloud.
 
 [TestCafe on Sauce Docs](/web-apps/automated-testing/testcafe/)
 
+</TabItem>
+  
+<TabItem value="replay">
+
+[Replay on Sauce Docs](/web-apps/automated-testing/replay/)
+  
 </TabItem>
 
 <TabItem value="espresso">
@@ -261,9 +268,10 @@ If you set your credentials using more than one of the methods above, `saucectl`
 `saucectl` provides working samples for each of its supported frameworks, so you can quickly run a sample test, or use the project as a template for your own tests.
 
 * [Cypress Demo](https://github.com/saucelabs/saucectl-cypress-example)
-* [TestCafe Demo](https://github.com/saucelabs/saucectl-testcafe-example)
 * [Playwright Demo](https://github.com/saucelabs/saucectl-playwright-example)
-* [Puppeteer Demo](https://github.com/saucelabs/saucectl-puppeteer-example/)
+* [TestCafe Demo](https://github.com/saucelabs/saucectl-testcafe-example)
+* [Replay Demo](https://github.com/saucelabs/saucectl-replay-example)
+* [Puppeteer Demo](https://github.com/saucelabs/saucectl-puppeteer-example)
 * [Espresso Demo](https://github.com/saucelabs/saucectl-espresso-example)
 * [XCUITest Demo](https://github.com/saucelabs/saucectl-xcuitest-example)
 
@@ -275,6 +283,7 @@ If you already have tests in the framework of your choice, you can use the [`sau
 * [Cypress YAML](/web-apps/automated-testing/cypress/yaml)
 * [Playwright YAML](/web-apps/automated-testing/playwright/yaml)
 * [TestCafe YAML](/web-apps/automated-testing/testcafe/yaml)
+* [Replay YAML](/web-apps/automated-testing/replay/yaml)
 * [Puppeteer YAML](/web-apps/automated-testing/puppeteer/yaml)
 * [Espresso YAML](/mobile-apps/automated-testing/espresso-xcuitest/espresso)
 * [XCUITest YAML](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest)
