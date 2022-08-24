@@ -272,7 +272,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api put">PUT</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;</code></summary>
 <p/>
 
-Edit job attributes based on parameters passed in the request, including setting the status of the job. Any parameter for which a new value is provided in the request will replace the existing value. For example, if you provide a set of tags, they will not be added to the current tags; they will replace them, so make sure you pass the entire set you wish to assign.
+Edit job attributes based on parameters passed in the request, including setting the status and name of the job. Any parameter for which a new value is provided in the request will replace the existing value. For example, if you provide a set of tags, they will not be added to the current tags; they will replace them, so make sure you pass the entire set you wish to assign.
 
 :::note RDC Jobs
 This call is specific to jobs running in simulation. To update a job for real devices, use the [Selenium JavaScript Executor](/basics/test-config-annotation/test-annotation/#selenium-javascript-executor).
