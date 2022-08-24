@@ -46,7 +46,7 @@ Setting `env` at the top of the file enables it globally in this workflow, so al
 :::
 
 ```yaml reference
-https://github.com/saucelabs/saucectl-cypress-example/blob/master/.github/workflows/test.yml#L3-L13
+https://github.com/saucelabs/saucectl-cypress-example/blob/master/.github/workflows/test-v1.yml#L3-L13
 ```
 
 ## Create the Test Job
@@ -70,14 +70,14 @@ For more detailed information on setting event-driven actions and jobs, please v
 <TabItem value="Docker">
 
 ```yaml reference
-https://github.com/saucelabs/saucectl-cypress-example/blob/master/.github/workflows/test.yml#L21-L25
+https://github.com/saucelabs/saucectl-cypress-example/blob/master/.github/workflows/test-v1.yml#L21-L25
 ```
 
 </TabItem>
 <TabItem value="Sauce Cloud">
 
 ```yaml reference
-https://github.com/saucelabs/saucectl-cypress-example/blob/master/.github/workflows/test.yml#L27-L31
+https://github.com/saucelabs/saucectl-cypress-example/blob/master/.github/workflows/test-v1.yml#L27-L31
 ```
 
 </TabItem>
