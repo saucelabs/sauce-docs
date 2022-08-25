@@ -519,12 +519,13 @@ capabilities.setCapability("appium:newCommandTimeout", 90);
 ## More Appium specific capabilities
 There are more Appium capabilities which are specific for each Appium Driver. They can be found here
 
-- **Android**
-  - [UIAutomator2-Driver](https://github.com/appium/appium-uiautomator2-driver#capabilities)
-  - [Espresso-Driver](https://github.com/appium/appium-espresso-driver#capabilities)
-- **iOS**
-  - [XCUITest-Driver](https://github.com/appium/appium-xcuitest-driver#capabilities)
-- [Flutter-Driver (Android and iOS)](https://github.com/appium-userland/appium-flutter-driver#desired-capabilities-for-flutter-driver-only)
+**Android**
+* [UIAutomator2-Driver](https://github.com/appium/appium-uiautomator2-driver#capabilities)
+* [Espresso-Driver](https://github.com/appium/appium-espresso-driver#capabilities)
+
+**iOS**
+* [XCUITest-Driver](https://github.com/appium/appium-xcuitest-driver#capabilities)
+* [Flutter-Driver (Android and iOS)](https://github.com/appium-userland/appium-flutter-driver#desired-capabilities-for-flutter-driver-only)
 
 
 ## Mobile App Appium Capabilities: Sauce-Specific – Optional
