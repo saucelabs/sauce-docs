@@ -125,7 +125,9 @@ To create a new schedule:
 
 <img src={useBaseUrl('/img/dev/low-code/schedule-create-job.png')} alt="Create Schedule window - Job tab" width="300"/>
 
-4. On the **Schedule** tab, enter a start and end time for the test. Below that, enter a length of time, in months, days, or hours.
+4. On the **Schedule** tab, enter a start and end time for the test.
+
+5. In the **Time span** field, enter the frequency at which the scheduled run will occur. For example, if you enter **1 Day**, it will repeat every day until the end date.
 
 <img src={useBaseUrl('/img/dev/low-code/schedule-create-schedule1.png')} alt="Create Schedule window - Schedule tab" width="400"/>
 
