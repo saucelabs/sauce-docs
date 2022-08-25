@@ -509,7 +509,7 @@ capabilities.setCapability("appium:noReset", true);
 
 <p><small>| DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
 
-Sets the amount of time, in seconds, a test can wait for the next command to execute on a real device before timing out. The default value is 60 seconds and the maximum allowed value is **not** limited for Virtual devices and **is** limited to 90 seconds for Real Devices.
+Sets the amount of time  in seconds. If there is no response during this time, the next executed command on the Virtual/Real Device will time out. The default value is 60 seconds while the maximum allowed value is not limited for Virtual Devices and is limited to 90 seconds for Real Devices.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
