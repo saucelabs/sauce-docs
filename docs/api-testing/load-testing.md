@@ -60,9 +60,9 @@ Once you have run the agents, you can continue in the API Testing platform:
 * Intensity map - Here you can set up the aggressiveness of the virtual users. Each virtual user will repeatedly execute the provided test. At intensity 100, it will relentlessly start a new cycle right after a cycle is completed. As you lower the intensity, the virtual users will take breaks between cycles. As not all virtual users will complete a cycle at the same time, the breaks will create a more distributed, lower intensity, but same complexity volume of requests.
 * Agents - The available agents (pools/workers) and the max virtual users you can set up for each one. This is the only mandatory field without any default, so you need to manually select the agents you want to set up. If these are not set up you will not be able to save or run the test.
 
-If you have saved a load test with an agent that is currently offline, you will see an alert and the system will prevent you from running the test with it. You will see the same alert if you are trying to use the same agent for more tests but there are no virtual users available.
+  If you have saved a load test with an agent that is currently offline, you will see an alert and the system will prevent you from running the test with it. You will see the same alert if you are trying to use the same agent for more tests but there are no virtual users available.
 
-<img src={useBaseUrl('/img/api-testing/load-test-agents-offline.png')} alt="Alert that agents are offline" width="400"/>
+  <img src={useBaseUrl('/img/api-testing/load-test-agents-offline.png')} alt="Alert that agents are offline" width="400"/>
 
 * Virtual users - The number of active users per agent you want to simulate. The value can be any value that is less than or equal to the max virtual users available for that agent. If more than one agent is selected, the lesser virtual users value is the max number of virtual users you can set up. If you try to set more agents than the available you will see an error message.
 * Environments - The environment dropdown allows you to select an environment to run the load test with or, if you haven't one already, you can create a new one.
