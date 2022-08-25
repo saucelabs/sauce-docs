@@ -8,6 +8,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::note VDC Only
+The ability to share test results is currently only supported for virtual devices (VDC).
+:::
+
 Once your test has run and generated a **Test Details** page, you have several options for sharing a link to that page with others.
 
 1. On Sauce Labs, in the left panel, click **LIVE** or **AUTOMATED**, and then click **Test Results**.
@@ -37,6 +41,9 @@ When generating a shareable link, you'll need to know your specific data center.
 ```
 https://app.eu-central-1.saucelabs.com/tests/YOUR_TEST_ID).
 ```
+:::note
+This solution is not supported for RDC.
+:::
 
 See [Data Center Endpoints](/basics/data-center-endpoints) for more info.
 
@@ -76,9 +83,10 @@ The example below demonstrates how to generate the token in a Python interpreter
 ```python
 >>> import hmac
 >>> from hashlib import md5
->>> hmac.new("SAUCE_USERNAME:SAUCE_ACCESS_KEY", "5f9fef27854ca50a3c132ce331cb6034", md5).hexdigest()
-Once the auth token has been obtained, you can use it to build a link in this format: https://app.saucelabs.com/tests/YOUR_TEST_ID?auth=AUTH_TOKEN.
+>>> hmac.new(b"SAUCE_USERNAME:SAUCE_ACCESS_KEY", b"5f9fef27854ca50a3c132ce331cb6034", md5).hexdigest()
 ```
+Once the auth token has been obtained, you can use it to build a link in this format: https://app.saucelabs.com/tests/YOUR_TEST_ID?auth=AUTH_TOKEN.
+
 
 #### Example - Java
 ```java
@@ -151,6 +159,59 @@ console.log('euUrl = ', euUrl);
 
 ```
 
+#### Example - C#
+```cs
+using System;
+using System.Security.Cryptography;
+using System.Text;
+
+namespace SauceLabsShareableLink
+{
+    class Program
+    {
+        private static string SAUCE_USERNAME = Environment.GetEnvironmentVariable("SAUCE_USERNAME");
+        private static string SAUCE_ACCESS_KEY = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY");
+        private static string KEY = string.Format("{0}:{1}", SAUCE_USERNAME, SAUCE_ACCESS_KEY);
+        private static string SAUCE_TESTS_URL = "https://app.eu-central-1.saucelabs.com/tests";
+
+        static void Main(string[] args)
+        {
+            string sauceJobId = "c5eb67f00e124ba0a46f2b7869bd418c";
+            string shareableLink = GetShareableLink(sauceJobId);
+
+            Console.WriteLine(shareableLink);
+            Console.ReadKey();
+        }
+
+        public static string GetShareableLink(string sauceJobId)
+        {
+            var data = Encoding.ASCII.GetBytes(sauceJobId);
+            var key = Encoding.ASCII.GetBytes(KEY);
+            var hmac = new HMACMD5(key);
+            var hashBytes = hmac.ComputeHash(data);
+
+            string digest = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+            string link = string.Format("{0}/{1}?auth={2}", SAUCE_TESTS_URL, sauceJobId, digest);
+
+            return link;
+        }
+    }
+}
+```
+
+#### Example - Ruby
+
+```rb
+require 'openssl'
+
+key = "#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}"
+job_id = '1409ca8f0c2a4461a3d2c91f671f7bef'
+auth = OpenSSL::HMAC.hexdigest("md5", key, job_id)
+url = "https://app.saucelabs.com/tests/#{job_id}?auth=#{auth}"
+```
+
+
+
 ## Support for Secondary Accounts
 If you want to authenticate as another user, just prefix the auth token with your user name, followed by a colon.
 
@@ -172,7 +233,7 @@ The date range can take two formats: `YYYY-MM-DD-HH` and `YYYY-MM-DD`. These sho
 
 ### Authentication Required
 
-Both of these configurations will only work for browsers logged in using your account, but you can use authentication tokens to make this work for anonymous viewers. For more information about creating authentication tokens, see [Building Sharable Links](/test-results/sharing-test-results).
+Both of these configurations will only work for browsers logged in using your account, but you can use authentication tokens to make this work for anonymous viewers. For more information about creating authentication tokens, see [Linking to Tests that Don't Require a Login to View](/test-results/sharing-test-results#linking-to-tests-that-dont-require-a-login-to-view).
 
 ```js
 https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN

@@ -50,6 +50,11 @@ To easily copy a test's file name or ID, hover over the test and then click the 
 The app settings screen is only available for real device testing.
 :::
 
+To view your recent configurations, click **Recents**.
+
+<img src={useBaseUrl('img/live-testing/live-testing-recent-tests-nav.png')} alt="Recent tests" width="550"/>
+
+
 **Default App Settings**
 
 | Setting | Description |
@@ -57,9 +62,10 @@ The app settings screen is only available for real device testing.
 | Device Language | Use the dropdown to select the device language. |
 | Device Orientation | Use the dropdown to set the device orientation (Landscape or Portrait). |
 | Proxy | Enable/disable the use of a proxy. Enter the **Hostname** and **Port** and then click **Update**. |
+| Device Passcode <br/><p><span className="sauceDBlue">Android Only</span></p> | Enable/disable the device passcode for Android apps. If your app requires a device passcode to launch, you can enable this setting to run your tests on a passcode-protected device. |
 | Instrumentation | Enable/disable device instrumentation. Enabling allows you to use advanced features when testing your app in the real device cloud, like image injection and taking screenshots of secure views.  |
 | Image Injection | Enable/disable image injection. Image injection allows you to mimic camera behavior when testing apps by letting you upload an image and present it to the app as if it were read by the device camera. |
-| Bypass Screenshot Restriction <br/><p><span className="sauceDBlue">ANDROID ONLY</span></p> | Enable/disable Bypass Screenshot Restriction (not supported on apps uploaded to the legacy sauce storage). Enabling **Bypass Screenshot Restriction** allows you to take screenshots of your app during tests, even if your app does not allow screenshots for security reasons. |
+| Bypass Screenshot Restriction <br/><p><span className="sauceDBlue">Android Only</span></p> | Enable/disable Bypass Screenshot Restriction (not supported on apps uploaded to the legacy sauce storage). If you're testing Android mobile apps on Sauce Labs and see a black screen in your live testing session, you might need to enable the <b>Bypass Screenshot Restriction</b>. This allows Sauce Labs to work around a setting on those apps that prevents screenshots or videos from being taken. However, there are other details to keep in mind. To effectively test apps that have this setting, see [Bypass Screenshot Restriction](/mobile-apps/features/bypass-screenshot). |
 | System Alerts Display <br/><p><span className="sauceDBlue">iOS Only</span></p> | Enable/disable a system alerts delay. Enabling delays alerts, such as asking for permission to access the camera, to prevent app crashes at startup. |
 | Biometrics Interception | Enable/disable biometrics. Enabling allows you to choose authentication options if your mobile app requires a biometric authentication, such as fingerprint or face recognition on Android, and Face ID or Touch ID on iOS.<br/> This setting is disabled by default for iOS apps. |
 | Group Folder Redirect <br/><p><span className="sauceDBlue">iOS Only</span></p> | Enable/disable a group directory redirect. Enabling allows you to use your app's private app container directory instead of the shared app group container directory. When your app gets resigned, the shared directory is not accessible. |
@@ -90,6 +96,12 @@ The device selection page will open, with the option to test on a real device or
 :::note
 If you are testing an iOS app, the **Virtual Devices** tab will only appear if the app is configured for simulators.
 :::
+
+To mark a device as a favorite so you can find it easily in the future, click the pin icon next to the device name.
+
+<img src={useBaseUrl('img/live-testing/device-favorite.png')} alt="Favorite a device" width="350"/>
+
+The default sorting for the device list is **Pinned First**.
 
 #### Real Devices
 On the device selection page, click the **Mobile Real** tab. Use the search box and filters to find the device you want to test on, or select the device in the grid.
@@ -146,12 +158,12 @@ If you upload an app that is signed with an enterprise certificate, and **Instru
 | <img src={useBaseUrl('img/live-testing/share-session-icon.png')} alt="Share Session icon" width="35"/> | Share Session | Opens the **Share Device** window. For a sharable link to the device, click **Get Link**. <br/>Users must be logged in to be able to view the test. |
 | <img src={useBaseUrl('img/live-testing/rotate-device-icon.png')} alt="Rotate Device icon" width="35"/> | Rotate Device | Rotates the device between portrait and landscape. |
 | <img src={useBaseUrl('img/live-testing/home-icon.png')} alt="Home icon" width="35"/> | Home | Opens the device home screen. |
-| <img src={useBaseUrl('img/live-testing/more-device-options-icon.png')} alt="More Device Options icon" width="35"/> | More Device Options | **Set Location** - Set the GPS location using coordinates or by dropping a pin on the map. <br/> **Camera Injection** - Opens the **Camera Injection** window. See [Camera Image Injection](/mobile-apps/live-testing/live-mobile-app-testing#camera-image-injection) for more information.<br/> **Biometric Injection** - Opens the **Biometric Authentication** window. |
+| <img src={useBaseUrl('img/live-testing/more-device-options-icon.png')} alt="More Device Options icon" width="35"/> | More Device Options | **Set Location** - Set the GPS location using coordinates or by dropping a pin on the map. <br/> **Camera Injection** - Opens the **Camera Injection** window. See [Camera Image Injection](/mobile-apps/features/camera-image-injection) for more information.<br/> **Biometric Injection** - Opens the **Biometric Authentication** window. |
 | <img src={useBaseUrl('img/live-testing/restart-app-icon.png')} alt="Restart App icon" width="35"/> | Restart App | Restarts the app. |
 | <img src={useBaseUrl('img/live-testing/switch-app-version-icon.png')} alt="Switch App Version icon" width="35"/> | Switch App Version | Opens the **Switch App Version** window. To change the version of the app you are testing, hover over the version and then click **Choose version**. |
 | <img src={useBaseUrl('img/live-testing/clipboard-icon.png')} alt="Clipboard icon" width="35"/> | Clipboard | Opens the **Paste Content Into Device** window. |
 | <img src={useBaseUrl('img/live-testing/install-dependency-icon.png')} alt="Install Dependency icon" width="35"/> | Install Dependency | Opens the **Install Dependent App** window. |
-| <img src={useBaseUrl('img/live-testing/dev-options-icon.png')} alt="Developer Options icon" width="35"/> | Developer Options | Opens the **Developer Options** panel, which includes the **Device Log**, **Device Vitals**, and **Dev Tools** tabs. |
+| <img src={useBaseUrl('img/live-testing/dev-options-icon.png')} alt="Developer Options icon" width="35"/> | Developer Options | Opens the **Developer Options** panel, which includes the **Device Log** and **Dev Tools** tabs. |
 
 ### Device Log
 
@@ -165,36 +177,6 @@ If you upload an app that is signed with an enterprise certificate, and **Instru
 | <img src={useBaseUrl('img/live-testing/wrap-text-icon.png')} alt="Wrap Text icon" width="40"/> | Wrap Text | Wraps text in the log for easier reading. |
 | <img src={useBaseUrl('img/live-testing/clear-log-icon.png')} alt="Clear Log icon" width="40"/> | Clear Log | Clears the log feed. |
 | <img src={useBaseUrl('img/live-testing/download-log-icon.png')} alt="Download Log icon" width="40"/> | Download Log | Downloads the log as a .txt file. |
-
-### Device Vitals
-Device Vitals is a feature that collects useful performance data in real time from a device during a live session. Data such as network, CPU, and memory usage helps users understand the general performance of a device and the app under test. Users can view a graph of this performance data in real time as the app is processing.
-
-<img src={useBaseUrl('img/live-testing/device-vitals.png')} alt="Device Vitals" width="450"/>
-
-| Icon | Name | Description |
-| :--- | :--- | :--- |
-| <img src={useBaseUrl('img/live-testing/graph-height.png')} alt="Graph Height" width="40"/> | Graph Height | Change the size of the graphs (S, M, L). |
-| <img src={useBaseUrl('img/live-testing/grid-layout-icon.png')} alt="Grid Layout icon" width="40"/> | Grid Layout | Displays graphs side by side. |
-| <img src={useBaseUrl('img/live-testing/row-layout-icon.png')} alt="Row Layout icon" width="40"/> | Row Layout | Displays graphs as as a list. |
-| <img src={useBaseUrl('img/live-testing/download-vitals-icon.png')} alt="Download Vitals icon" width="40"/> | Download Vitals | Downloads the device vitals as a .txt file. |
-
-**Performance Metrics for Android/iOS Devices**
-
-The graph and csv file will contain these performance metrics for devices.
-
-| Metric | Description |
-| :--- | :--- |
-| `cpu_total` | System-wide CPU usage in percentage across all CPU cores. 4 cores at max use would be shown as a value of 400% |
-| `cpu_user` | CPU usage for user processes in percentage across all CPU cores. 4 cores at max use would be shown as a value of 400% |
-| `cpu_kernal` | Android OS CPU usage in percentage across all CPU cores. 4 cores at max use would be shown as a value of 400% |
-| `n_threads` | Total threads in use by the app |
-| `memory_size_kb` | Total threads in use by the app |
-| `memory_resident_kb` | Memory currently in use by app in kilobytes |
-| `memory_shared_kb` | Anonymous shared memory currently in use by system shared between app(s) and system |
-| `network_wifi_receive_b` | Data in bytes received over wifi connection |
-| `network_wifi_sent_b` | Data in bytes sent over wifi connection |
-| `network_mobile_receive_b` | Data in bytes received from the mobile carrier network |
-| `network_mobile_sent_b` | Data in bytes sent over mobile carrier network |
 
 
 ## Changing an App Version

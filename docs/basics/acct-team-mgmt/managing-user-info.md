@@ -56,7 +56,7 @@ You can change a user’s role on the **Organization Management** page and also 
 
 ### Changing a User’s Role - Organization Management
 1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
-2. On the **USERS** tab, select the checkbox of the user you want to deactivate.
+2. On the **USERS** tab, select the checkbox of the user whose role you want to change.
 3. Above the list of users, in the **Action** dropdown, click **Assign Role** and then click the new role.
 
    <img src={useBaseUrl('img/team-mgmt/change-role-org-mgmt.jpg')} alt="Change a user's role"/>
@@ -103,7 +103,7 @@ In every organization, multiple Organization Admins and/or Team Admins can exist
 For more information on Sauce Connect and IPSec settings available to Organization Admins, see [Security Settings](/basics/acct-team-mgmt/org-settings#security-settings).
 
 ## User Settings
-The User Settings screen allows you to view and change your username, password, and email address. You can also regenerate an access key, as well as copy a driver string (for more information, see [Regenerating Access Keys](/basics/acct-team-mgmt/managing-user-info/#regenerating-access-keys) and [Create a RemoteWebDriver Instance](/web-apps/automated-testing/selenium/#step-1-create-a-remotewebdriver-instance)). If you are an admin and want to change the settings for users in your org, see [Updating User Information](/basics/acct-team-mgmt/managing-user-info/#updating-user-information).
+The User Settings screen allows you to view and change your password and email address. You can also regenerate an access key, as well as copy a driver string (for more information, see [Regenerating Access Keys](/basics/acct-team-mgmt/managing-user-info/#regenerating-access-keys) and [Create a RemoteWebDriver Instance](/web-apps/automated-testing/selenium/#step-1-create-a-remotewebdriver-instance)). If you are an admin and want to change the settings for users in your org, see [Updating User Information](/basics/acct-team-mgmt/managing-user-info/#updating-user-information).
 
 To access the User Settings screen, on Sauce Labs, click **ACCOUNT** and then click **User settings**.
 <img src={useBaseUrl('img/team-mgmt/user-settings-nav.png')} alt="User Settings navigation" width="350"/>
@@ -120,6 +120,3 @@ Strong passwords are required, and must include the following:
 * No blank spaces
 
 After five failed login attempts, users will be locked out.
-
-
-## Additional Resources

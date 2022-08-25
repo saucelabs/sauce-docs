@@ -23,17 +23,26 @@ Sauce Labs [_Piestry_](/dev/glossary/#piestry) is our API mocking server tool th
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * An OpenAPI spec file.
 
-## Getting Started
+## Usage
 
-Piestry must be started from a Docker container in your CI/CD pipeline using Docker image, `quay.io/saucelabs/piestry`. Use the code snippet below, where `/specs/myspec.yaml` is the URI to your YAML spec file (can be local or remote):
+Piestry must be started from a Docker container in your CI/CD pipeline using the following code snippet:
+```bash
+docker run --pull -v "$(pwd)/specs:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
+```
 
-  ```bash
-  docker run -v "$(pwd)/specs:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
-  ```
+`quay.io/saucelabs/piestry` is our Docker image and `/specs/myspec.yaml` needs to be the URI to your YAML spec file (can be local or remote).
 
-## OpenAPI Spec Files
+:::note
+In the above command, `-p 5000:5000` is used to map the port on your machine and the port for Piestry. If you are using macOS Monterey, the command will not work because port 5000 is already used by the Airplay Receiver service by default. In this case, you have to remap the port for your local machine. To do so, enter a different port in the left part of the command. For example: `-p 8000:5000`, where port 8000 can be replaced with any other port. This scenario is valid every time your port is already used by any other service.
+:::
 
-If you provide a standard OpenAPI spec file, our system should bind a series of endpoints to simulate whatever is in the spec.
+:::tip
+Some container runtimes will maintain port bindings even when containers exit, making it impossible for a new instance of the same container to run again on the same port unless the dead container is removed. To avoid this issue you can use the flag ```--rm``` like in this example: ```docker run -v "$(pwd)/specs:/specs" -p 5000:5000 --rm quay.io/saucelabs/piestry -u /specs/myspec.yaml```.
+:::
+
+### OpenAPI Spec Files
+
+If you provide a standard OpenAPI spec file, our system should bind a series of endpoints to simulate what's in the spec:
 * When only a response schema is present, the system will generate random data for each field.
 * When one response example is present, the system will present the example.
 * When multiple response examples are present, the system will present the first example.
@@ -44,7 +53,7 @@ If you provide a standard OpenAPI spec file, our system should bind a series of 
 1. On your local machine, place your spec file (or set of files in a folder) in a location of your choice. For this example, we'll call it `myspec.yaml`.
 2. Open your CLI terminal and navigate to right outside that folder, then run this command:
   ```bash
-  docker run -v "$(pwd)/myspec:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
+  docker run --pull -v "$(pwd)/myspec:/specs" -p 5000:5000 quay.io/saucelabs/piestry -u /specs/myspec.yaml
   ```
   `$(pwd)/myspec` means the `{current_directory}/myspec` that gets mounted to the container in the `/specs` folder. Therefore, the -u (relative to the container is) `/specs/myspec.yaml`.
 3. If successful, you should see the listing of the available routes:
@@ -64,11 +73,11 @@ If you provide a standard OpenAPI spec file, our system should bind a series of 
 ### Enhancing OpenAPI with x-sauce-cond
 You can enrich OpenAPI schemas using the `x-sauce` vendor extension. This extension will have no impact on the docs.
 
-There currently are three types of `x-sauce-cond` operations: `exists`, `equals` and `matches`.
+There currently are five types of `x-sauce-cond` operations: three evaluators (`exists`, `equals`, and `matches`) and two logical operators (`or` and `and`).
 
-There also are four collections you can evaluate: `uriParams`, `queryParams`, `headers`, `body`.
+There also are four collections you can evaluate: `uriParams`, `queryParams`, `headers`, and `body`.
 
-In the below example, `x-sauce-cond` extension tells the mock to take the `200` status code as response only when an `authorization` header is present and its value matches the `Basic .*` regex. The `priority` field determines the order of evaluation of multiple objects at the same level. For example, if both `200` and `404` have an `x-sauce-cond` instruction, they will be evaluated by descending priority.
+In the below example, the `x-sauce-cond` extension tells the mock to take the `200` status code as response only when an `authorization` header is present and its value matches the `Basic .*` regex. The `priority` field determines the order of evaluation of multiple objects at the same level. For example, if both `200` and `404` have an `x-sauce-cond` instruction, they will be evaluated by descending priority.
 ```yaml
 responses:
   '200':
@@ -117,6 +126,23 @@ On the examples:
 
 Pick one specific example based on the value of a URI param.
 
+If you have to add multiple conditions you can use `and` and `or` conditions. You can have the depth and nesting you want.
+
+```yaml
+  x-sauce-cond:
+    op: and
+    priority: 10
+    conditions:
+    - op: matches
+      collection: headers
+      key: authorization
+      value: Basic .*
+    - op: equals
+      collection: headers
+      key: key
+      value: ABC123
+```
+Mind that `priority` should be at the top level instruction.
 
 ### Enhancing Schemas with x-sauce-faker
 If you don't want to add examples because they're not useful to you, that's ok. You can still force the system to generate data that makes specific sense to you, using the Faker extension, `x-sauce-faker`.
@@ -135,7 +161,7 @@ releaseNotes:
     x-sauce-faker: internet.email
 ```
 
-Learn more about the faker library [here](https://www.npmjs.com/package/faker).
+Learn more about the [Faker library](https://fakerjs.dev/guide/).
 
 
 ## Mocking Mode
@@ -205,14 +231,12 @@ Run it with the `--validate-request` switch to activate the validation of inboun
 The response will also contain the `x-sauce-error: true` header, signifying that the response is not mocked, but it's an internal error.
 
 
-### Dynamic examples
+### Dynamic Examples
 The system allows for examples containing dynamic data using the Handlebars markup. Remember that if you use dynamic examples in your OpenAPI specs, your spec will reduce its usability for documentation purposes as documentation renderers don't support it.
 
-To have dynamic parameters, you simply place an expression between double curly brackets as in `{{requestUrl}}`.
+To have dynamic parameters, place an expression between double curly brackets, i.e., `{{requestUrl}}`.
 
-The available objects in the scope are the same as the ones used by `x-sauce-cond`, so: `uriParams`, `queryParams`, `headers`, `body`.
-
-As an example, the following template will echo the shape of the request back in the response:
+The available objects in the scope are the same as the ones used by `x-sauce-cond`, so: `uriParams`, `queryParams`, `headers`, `body`. As an example, the following template will echo the shape of the request back in the response:
 
 ```json
 {
@@ -229,16 +253,16 @@ Using the `json` keyword will convert a full data structure into its JSON equiva
 ## E2E Mode
 When Piestry is run with `--e2e`, it will turn into a reverse proxy gateway and forward the requests based to the origin, according to the OpenAPI specification. The requirement is the "server" definition of the OpenAPI spec should lead to an actual location.
 
-In this mode, you can enable contract validators as well as capture mode.
+In E2E mode, you can enable contract validators as well as capture mode.
 
 ### Contract Validators
 There are two types of validations you can activate, focusing on different areas.
 
 ### Validate Request
-If you want to make sure your requests are compliant with the origin, run it with the `--validate-request` switch to activate the validation of inbound requests."
+If you want to make sure your requests are compliant with the origin, run it with the `--validate-request` switch to activate the validation of inbound requests.
 
 ### Validate Response
-This is similar to [**Validate examples** (mocking mode)](#validate-examples); the difference is that will validate the actual responses in an end-to-end session. Use the switch `--validate-response` to enable it.
+This is similar to [**Validate Examples** (mocking mode)](#validate-examples); the difference is that it will validate the actual responses in an end-to-end session. Use the switch `--validate-response` to enable it.
 
 ### Capture Mode
 Capture mode is activated by passing the `--capture` parameter, followed by the path to a directory. As the requests go through, Piestry will capture the responses coming from the origin and save them to file.

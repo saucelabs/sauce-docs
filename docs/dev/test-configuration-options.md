@@ -90,7 +90,7 @@ This setting cannot be used for mobile browsers, as your test will use the defau
 Identifies the name of the operating system the browser or mobile device should be running on. You can use this for [dynamic device allocation](/mobile-apps/supported-devices#static-and-dynamic-device-allocation). Values are not case-sensitive (i.e., `"ios"` is the same as `"iOS"`). See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-platform-name) for more information.
 
 ```java
-"platformName": "macOS 10.13", "platformName": "iOS", "platformName": "Android"
+"platformName": "macOS 10.13"
 ```
 
 ## W3C WebDriver Browser Capabilities – Optional
@@ -217,7 +217,6 @@ Edge Driver is based on Chrome Driver, so the same caveats from [chromedriverVer
 ---
 
 ### `geckodriverVersion`
-
 <p><small>| STRING |</small></p>
 
 Specifies the Firefox GeckoDriver version. The default geckodriver version varies based on the version of Firefox specified. For a list of geckodriver versions and the Firefox versions they support, see [geckodriver Supported Platforms](https://firefox-source-docs.mozilla.org/testing/geckodriver/Support.html).
@@ -304,7 +303,7 @@ Enables Performance Capture feature. Sauce Performance Testing can be enabled by
 Specifies the screen resolution to be used during your test session. Default screen resolution for Sauce tests is `1024x768`.
 
 :::note
-You cannot set screen resolution on Windows 7 with IE 9.
+To specify the screen resolution on Windows, we recommend that you set the [`platformName`](#platformname) to Windows 8 or newer (e.g., Windows 10).
 :::
 
 ```java
@@ -337,32 +336,7 @@ Sets idle test timeout in seconds. As a safety measure to prevent tests from run
 
 ## Mobile Appium Capabilities
 
-Sauce Labs encourages adoption of the W3C WebDriver protocol for your Appium mobile app tests, but continues to support JSON Wire Protocol (JWP) in all currently supported Appium 1.X versions (Appium 2.0 will deprecate support for JWP).
-
-The capabilities defined here assume the W3C protocol, but it is important to make sure your test configurations accurately reflect your intended protocol so your settings are applied correctly. See [Appium Real Device W3C Specification](/mobile-apps/automated-testing/appium/real-devices/#using-the-w3c-webdriver-specification) for details.
-
----
-
-### `platformName`
-
-<p><small>| MANDATORY <span className="sauceDBlue">for Virtual and Real Devices</span> | STRING |</small></p>
-
-Identifies the name of the operating system the mobile device should be running on. Values are not case-sensitive (i.e., `"ios"` is the same as `"iOS"`). Valid values are `Android` and `iOS`. See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-platform-name) for more information.
-
-```java
-"platformName": "Android"
-```
-
----
-
-### `appium:platformVersion`
-
-<p><small>| MANDATORY <span className="sauceDBlue">for Virtual Devices</span> | OPTIONAL <span className="sauceDBlue">for Real Devices</span> | STRING |</small></p>
-
-Allows you to set the mobile OS platform version that you want to use in your test.
-
-:::note
-For Real Devices you can use this for [dynamic device allocation](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation) to specify incremental versions (e.g., `"15.1"`) or major versions (e.g., `"15"`). By setting a major version, you'd have access to all devices running incremental versions (`"15.1"`, `"15.2"`, `"15.3"`, `"15.3.1"`). This also extends to minor and point versions (e.g., specifying `"15.3"` will match `"15.3.0"`, `"15.3.1"`).
+If you have an app you have uploaded to [Sauce storage](https://app.saucelabs.com/live/app-testing), you can also set the `app` capability to `"storage:xxxxxxxxx-xxxxxxx-xxx"` and enter the **FILE ID** for your app. This allows you to set which specific version you uploaded, otherwise if you use the file name, it will use the latest one uploaded with the exact same name.
 :::
 
 ```java
@@ -579,22 +553,21 @@ caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
-
-<p><small>|OPTIONAL <span className="sauceDBlue">Virtual Devices Only</span> | STRING |</small></p>
+### `deviceOrientation` or `orientation`
 <p><small>| STRING |</small></p>
 
-Specifies the orientation of the virtual skin **and** screen during the test. Valid values are `PORTRAIT` and `LANDSCAPE`.
+Specifies the physical orientation of the screen during the test. Valid values are `portrait` and `landscape`.
 
 :::important
 For virtual device mobile tests, the capability is `deviceOrientation`, but for real device tests, the capability is [`orientation`](#orientation) in order to distinguish between flipping the skin (virtual) vs. rotating the screen (real).
 :::
 
-```java
-MutableCapabilities caps = new MutableCapabilities();
-//...
-MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("deviceOrientation", "PORTRAIT");
-caps.setCapability("sauce:options", sauceOptions);
+```java title="Virtual Device Setting"
+"deviceOrientation": "portrait"
+```
+
+```java title="Real Device Setting"
+"orientation": "portrait"
 ```
 
 ---
@@ -659,40 +632,21 @@ caps.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `privateDevicesOnly`
-
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-If your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
-
-```java
-MutableCapabilities caps = new MutableCapabilities();
-//...
-MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("privateDevicesOnly", true);
-caps.setCapability("sauce:options", sauceOptions);
-```
+If your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).
 
 ---
 
 ### `publicDevicesOnly`
-
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-If your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
-
-```java
-MutableCapabilities caps = new MutableCapabilities();
-//...
-MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("publicDevicesOnly", true);
-caps.setCapability("sauce:options", sauceOptions);
-```
+If your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).
 
 ---
 
 ### `carrierConnectivityOnly`
-
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> <span className="sauceDBlue">Private Devices Only</span> |</small></p>
 
 Use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
 
@@ -705,7 +659,6 @@ caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
-
 ### `cacheId`
 
 <p><small>| RANDOMIZED STRING | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
@@ -748,8 +701,36 @@ caps.setCapability("sauce:options", sauceOptions);
 
 ---
 
-### `resigningEnabled`
+### `noReset`
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
+Set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
+
+:::caution Known iOS Limitation
+On iOS devices, the `noReset` value is permanently set to `true` and cannot be overridden using `noReset:false`. If you check your Appium logs, you'll see that the value is `true`, even though the default setting technically is false. We've done this intentionally to ensure that your post-test iOS device cleaning process is optimal and secure.
+:::
+
+
+---
+### `crosswalkApplication`
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+
+As described in [Appium Issue 4597](https://github.com/appium/appium/issues/4597) and [ChromeDriver Issue 2375613002](https://codereview.chromium.org/2375613002), mobile tests using Crosswalk will fail because because of attempts to connect to the wrong socket on the device. We've developed a patched version of ChromeDriver that will work with Crosswalk. You can specify to use this patched version with the `crosswalkApplication` capability.
+
+---
+### `autoGrantPermissions`
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> <span className="sauceDBlue">Android Only</span> |</small></p>
+
+By default, apps are installed on devices in the Sauce Labs real device cloud with autoGrantPermissions capability set to `true`. As long as the API number of the device is equal to 23 or higher, you can disable this by explicitly setting `autoGrantPermissions` to `false`.
+
+---
+### `enableAnimations`
+<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+
+Use this capability to enable animations for real devices by setting it to `true`. By default, animations are disabled.
+
+---
+### `resigningEnabled`
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 Controls Sauce Labs default resigning (iOS) or instrumentation (Android) of mobile apps installed on our devices. By default, this property is always `true`, but it can be set to `false` for private devices to allow testing of specific behaviors that are not permitted under the Sauce Labs provisioning. See [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-resigning-enablements) for more information.
@@ -820,15 +801,7 @@ caps.setCapability("sauce:options", sauceOptions);
 
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
 
-Enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible. [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
-
-```java
-MutableCapabilities caps = new MutableCapabilities();
-//...
-MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("groupFolderRedirectEnabled", true);
-caps.setCapability("sauce:options", sauceOptions);
-```
+Enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.
 
 ---
 
@@ -1005,7 +978,6 @@ caps.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `tunnelName`
-
 <p><small>| STRING | </small></p>
 
 Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an app that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
@@ -1021,45 +993,43 @@ caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
-
-### `tunnelOwner`
-
+### `tunnelOwner`  
 <p><small>| STRING |</small></p>
 
-If the [tunnelName](#tunnelname) you've specified to establish connectivity with Sauce Labs for your test is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test.
+:::note Choose the Correct Tunnel Identifier
+The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
+:::
 
 See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
-//...
-MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("tunnelName", "MyTeamSharedTunnel");
-sauceOptions.put("tunnelOwner", "<username of tunnel originator>");
-caps.setCapability("sauce:options", sauceOptions);
+"tunnelName": "MyTeamSharedTunnel"
+"tunnelOwner": "<username of tunnel originator>"
 ```
 
----
+:::warning Breaking Change
+Appium tests for the Real Device Cloud using the W3C protocol MUST use `tunnelName` instead of `tunnelIdentifier`.
+:::
 
+---
 ### `tunnelIdentifier`
-
 <p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
 
-Deprecated, please use [`tunnelName`](#tunnelname) to specify the Sauce Connect tunnel you wish to use for your test.
+Please use [`tunnelName`](#tunnelname) to specify the Sauce Connect tunnel you wish to use for your test.
+
+
 
 ---
-
-### `parentTunnel`
-
+### `parentTunnel`  
 <p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
 
-Deprecated, please use [`tunnelOwner`](#tunnelowner) to identify the owner of a shared tunnel you're using for your test.
+Please use [`tunnelOwner`](#tunnelowner) to identify the owner of a shared tunnel you're using for your test.
+
 
 ---
 
 ### `recordVideo`
-
-<p><small>| BOOLEAN | <span className="sauceDBlue">Desktop and Virtual Devices Only |</small></p>
+<p><small>| BOOLEAN |</small></p>
 
 Use this to disable video recording. By default, Sauce Labs records a video of every test you run. Disabling video recording can be useful for debugging failing tests as well as having a visual confirmation that a certain feature works (or still works). However, there is an added wait time for screen recording during a test run.
 
@@ -1074,8 +1044,7 @@ caps.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `videoUploadOnPass`
-
-<p><small>| BOOLEAN | <span className="sauceDBlue">Desktop and Virtual Devices Only |</small></p>
+<p><small>| BOOLEAN |</small></p>
 
 Disables video upload for passing tests. `videoUploadOnPass` is an alternative to `recordVideo`; it lets you discard videos for tests you've marked as passing. It disables video post-processing and uploading that may otherwise consume some extra time after your test is complete.
 
@@ -1090,8 +1059,7 @@ caps.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `recordScreenshots`
-
-<p><small>| BOOLEAN | <span className="sauceDBlue">Desktop and Virtual Devices Only |</small></p>
+<p><small>| BOOLEAN |</small></p>
 
 Disables step-by-step screenshots. In addition to capturing video, Sauce Labs captures step-by-step screenshots of every test you run. Most users find it very useful to get a quick overview of what happened without having to watch the complete video. However, this feature may add some extra time to your tests.
 
@@ -1106,8 +1074,7 @@ caps.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `recordLogs`
-
-<p><small>| BOOLEAN | <span className="sauceDBlue">Desktop and Virtual Devices Only |</small></p>
+<p><small>| BOOLEAN |</small></p>
 
 Disables log recording. By default, Sauce creates a log of all the actions that you execute to create a report for the test run that lets you troubleshoot test failures more easily. This option disables only the recording of the log.json file; the selenium-server.log will still be recorded.
 
@@ -1219,7 +1186,7 @@ Read the descriptions of each key below the example.
 ```
 
 #### `prerun` (primary key)
-
+status
 Use this to define pre-run executables. You can provide a URL to an executable file, which will be downloaded and executed to configure the VM before the test starts. For faster performance, you may want to upload the executable to your [Sauce Apps Storage](/mobile-apps/app-storage) space. This capability takes a JSON object with four main keys. See [Using Pre-Run Executables to Configure Browsers and VMs](/web-apps/automated-testing/selenium/pre-run-executables) for more information.
 
 - Running AutoIt Scripts: If you want to run an AutoIt script during your test, compile it as an .exe, send it using this capability, and set background to true to allow AutoIt to continue running throughout the full duration of your test.

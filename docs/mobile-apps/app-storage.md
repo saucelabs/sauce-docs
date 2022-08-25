@@ -26,10 +26,6 @@ When testing mobile apps, you have the option to upload your app to our app stor
 
 For information about using the Sauce Labs UI to upload your mobile file to app storage, see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app).
 
-:::note
-This method currently supports live testing on **real devices only**. For virtual devices, upload your apps via the REST API.
-:::
-
 ## Uploading Apps via REST API
 
 You can upload your mobile app programmatically using the [File Storage API Methods](/dev/api/storage). The API endpoints are [Data center-specific](/basics/data-center-endpoints), so make sure you are using the endpoint that is applicable for your account data center, as shown in the following example requests.
@@ -103,16 +99,16 @@ To install a remote app on a real device for a test:
   caps.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.3.0/Android.SauceLabs.Mobile.Sample.app.2.3.0.apk?raw=true");
   ```
 
-### Private Device Considerations
 
-If you are using a remote app download for testing on a private device and wish to also prevent the device from broad internet access while under test, you need to use a secure connection to reach the app URL.
+:::note LIMITATIONS
 
-* Ensure the app is available from a private hosting solution with the necessary permissions (e.g. GitHub repository or Amazon S3 with a strict bucket policy).
-* Ensure the hosted app URL is available to the machine running the automated test.
-* Enable the **Require Sauce Connect/VPN** setting in your [organization's security settings](/basics/acct-team-mgmt/org-settings).
+**Android:**
+* The Instrumentation feature will not work if the app is installed from external location.
 
-:::note
-Each session is a "fresh" installation of your app, meaning, you will not be able to access information about previous versions of your app.
+**iOS:**
+* The app cannot be installed on public devices due to signing.
+* The app can be installed on private devices. However, to make this work you must add the UDID of the private device to the provisioning profile for iOS (see our [resigning process](/mobile-apps/automated-testing/ipa-files/) to learn more).
+* The Instrumentation feature will not work if the app is installed from external location.
 :::
 
 
@@ -333,7 +329,7 @@ caps.setCapability("otherApps", "storage:<fileId>")
 
 ### Espresso/XCUITest Configuration
 
-For [Espresso](/testrunner-toolkit/configuration/espresso) or [XCUITest](/testrunner-toolkit/configuration/xcuitest) testing, you can specify up to seven dependent apps to either upload from your local machine or that are already in App Storage. In your `saucectl` configuration file, specify a local filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, and `saucectl` will upload the app to App Storage for use with the test. Otherwise, specify an app in App Storage using the reference `storage:<fileId>` or `storage:filename=<filename>`.
+For [Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso) or [XCUITest](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest) testing, you can specify up to seven dependent apps to either upload from your local machine or that are already in App Storage. In your `saucectl` configuration file, specify a local filepath (relative location is `{project-root}/apps/app1.apk`) or an expanded environment variable representing the path, and `saucectl` will upload the app to App Storage for use with the test. Otherwise, specify an app in App Storage using the reference `storage:<fileId>` or `storage:filename=<filename>`.
 
 
 ```yaml
@@ -344,76 +340,3 @@ espresso:
     - storage:c78ec45e-ea3e-ac6a-b094-00364171addb
     - storage:filename=pre-installed-app3.apk
 ```
-
-## Uploading to Legacy Sauce Storage
-
-<p> <span className="sauceDBlue">VDC Only</span> </p>
-
-Sauce Storage is a short term storage space for apps. Files uploaded here expire and are removed from the platform after seven days. You can upload an app you want to test using the applicable REST API request below, and then access it for testing by specifying `sauce-storage:myapp` for the app capability in your test script:
-
-```
-"appium:app": "storage:my-app"
-```
-
-<Tabs
-  defaultValue="bash"
-  values={[
-    {label: 'bash', value: 'bash'},
-    {label: 'powershell', value: 'powershell'},
-  ]}>
-
-<TabItem value="bash">
-
-**US-WEST Data Center**
-
-MacOS/Linux Example:
-```
-$ curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY -X POST -H "Content-Type: application/octet-stream" \
-"https://saucelabs.com/rest/v1/storage/$SAUCE_USERNAME/$APP_NAME?overwrite=true" --data-binary @path/to/your_file_name
-```
-
-**US-EAST Data Center**
-
-MacOS/Linux Example:
-```
-$ curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY -X POST -H "Content-Type: application/octet-stream" \
-"https://us-east-1.saucelabs.com/rest/v1/storage/$SAUCE_USERNAME/$APP_NAME?overwrite=true" --data-binary @path/to/your_file_name
-```
-
-**EU-CENTRAL Data Center**
-
-MacOS/Linux Example:
-```
-$ curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY -X POST -H "Content-Type: application/octet-stream" \
-"https://eu-central-1.saucelabs.com/rest/v1/storage/$SAUCE_USERNAME/$APP_NAME?overwrite=true" --data-binary @path/to/your_file_name
-```
-
-</TabItem>
-<TabItem value="powershell">
-
-**US-WEST Data Center**
-
-Windows Example:
-```
-> curl -u %SAUCE_USERNAME%:%SAUCE_ACCESS_KEY% -X POST -H "Content-Type: application/octet-stream" \
-"https://saucelabs.com/rest/v1/storage/%SAUCE_USERNAME%/%APP_NAME%?overwrite=true" --data-binary @path\to\your_file_name
-```
-
-**US-EAST Data Center**
-
-Windows Example:
-```
-> curl -u %SAUCE_USERNAME%:%SAUCE_ACCESS_KEY% -X POST -H "Content-Type: application/octet-stream" \
-"https://us-east-1.saucelabs.com/rest/v1/storage/%SAUCE_USERNAME%/%APP_NAME%?overwrite=true" --data-binary @path\to\your_file_name
-```
-
-**EU-CENTRAL Data Center**
-
-Windows Example:
-```
-> curl -u %SAUCE_USERNAME%:%SAUCE_ACCESS_KEY% -X POST -H "Content-Type: application/octet-stream" \
-"https://eu-central-1.saucelabs.com/rest/v1/storage/%SAUCE_USERNAME%/%APP_NAME%?overwrite=true" --data-binary @path\to\your_file_name
-```
-
-</TabItem>
-</Tabs>

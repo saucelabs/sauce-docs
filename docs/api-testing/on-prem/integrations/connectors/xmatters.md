@@ -9,12 +9,18 @@ keywords:
     - connectors
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 This connection with xMatters allows you to notify on-call responders based on failures in your API Fortress tests. Send critical information on the failure as well as a link to the test report from the failed test.  
-  
+
 Below is a quick guide to setting up and using the xMatters connector.  
-  
+
 :::note
 This connector does not come pre-loaded out of the box for self-hosted/on-premises, and will need to be loaded separately. To learn how to load the connector into your API Fortress instance [click here.](/api-testing/on-prem/integrations/add-new-connector)  
 :::   
@@ -40,4 +46,3 @@ This connector does not come pre-loaded out of the box for self-hosted/on-premis
    <img src={useBaseUrl('img/api-fortress/2020/01/Settings.png')} alt="Settings.png"/>
 8. Add the alert group that contains your xMatters connector to this project  
    <img src={useBaseUrl('img/api-fortress/2020/02/Screen-Shot-2020-02-28-at-11.31.17-AM.png')} alt="screenshot.png"/>
-

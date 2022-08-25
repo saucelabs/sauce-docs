@@ -18,6 +18,10 @@ The Sauce Labs Slack app allows you to easily share your test results in Slack. 
 * Share a test result link in Slack, and it automatically expands to show the test summary
 * Configure `saucectl` to automatically post test result notifications to selected channels in Slack
 
+:::note
+The Slack integration is supported for a single workspace. If your organization has other workspaces, the Slack integration will not work.
+:::
+
 ## What You'll Need
 
 * A Sauce Labs account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
@@ -63,7 +67,7 @@ Setting up automatic notifications from `saucectl` requires you to first add the
 
 ### Configure Notifications from `saucectl`
 
-1. In the `config.yaml` file that defines your [`saucectl`](/testrunner-toolkit/configuration) test configuration settings, add the `notifications.slack` property.
+1. In the `config.yaml` file that defines your [`saucectl` test configuration settings](/dev/cli/saucectl/init), add the `notifications.slack` property.
     ```yml
     notifications:
       slack:

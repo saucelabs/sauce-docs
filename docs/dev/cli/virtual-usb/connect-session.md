@@ -4,24 +4,70 @@ title: "Virtual USB CLI: Connect to Existing Session"
 sidebar_label: Connect to Session
 ---
 
-The [`connect`](/mobile-apps/features/virtual-usb#start-test-session) command uses your user credentials and `sessionId` to connect to an existing live session, which will then connect the device to your local machine. This is one of two ways to start a Virtual USB test; the other is to [start a new test session from the command line](/dev/cli/virtual-usb/start-session).
+## Description
 
-## Required
+Connect to an existing Virtual USB (vUSB) session in lieu of launching a new vUSB session.
 
----
-### `--sessionId`
-__Description__: your test session ID, which you can find using the `sessions` command.
+## Usage
 
----
-### `--username`
-__Description__: your Sauce Labs username.
+<span className="cli">$ &lt;main class&gt; [OPTIONS] connect [OPTIONS]</span>
 
----
-### `--accessKey`
-__Description__: your Sauce Labs access key for authentication.<br/>
 
-```java title="Basic Example (required flags only)"
-java -jar virtual-usb-client.jar connect --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 --username {SAUCE_USERNAME} --accessKey {SAUCE_ACCESS_KEY}
+## Options Details
+
+### <span className="cli">--sessionId</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED | STRING |</small></p>
+
+The unique identifier of your test session. You can retrieve the session ID of an active session using the [`sessions` command](/dev/cli/virtual-usb/find-sessionid).
+
+</div>
+
+### <span className="cli">--username</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED | STRING |</small></p>
+
+A valid Sauce Labs user account. You can find your username on the Sauce Labs [User Settings page](https://app.saucelabs.com/user-settings). This option supports environment variable values.
+
+</div>
+
+### <span className="cli">--accessKey</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED | STRING |</small></p>
+
+The authentication access key associated with your Sauce Labs user account. You can find your access key on the Sauce Labs [User Settings page](https://app.saucelabs.com/user-settings). This option supports environment variable values.
+
+</div>
+
+### <span className="cli">--serverHost</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | URL ADDRESS |</small></p>
+
+A specific vUSB server host address. The default value, if not specified, is `http://127.0.0.1`.
+
+</div>
+
+
+### <span className="cli">--serverPort</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+A specific vUSB server port. The default value, if not specified, is `33657`.
+
+</div>
+
+
+## Examples
+
+### Basic Example with Required Flags
+
+```java title="Connection Request"
+java -jar virtual-usb-client.jar connect --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY
 ```
 
 ```bash title="Sample Response"
@@ -29,23 +75,13 @@ java -jar virtual-usb-client.jar connect --sessionId d03a1b81-158d-4bb4-bcc9-074
 localhost:7000  online
 ```
 
-## Optional
+### Full Example with Optional Flags
 
-These flags provide additional configuration options.
-
----
-### `--serverHost`
-__Description__: specifies a Virtual USB server host. Default: `http://127.0.0.1`.
-
----
-### `--serverPort`
-__Description__: specifies a Virtual USB server port. Default: `33657`.
-
-```bash title="Full Example (includes optional flags)"
+```bash
 java -jar virtual-usb-client.jar connect \
     --sessionId d03a1b81-158d-4bb4-bcc9-074e43dd8465 \
-    --username {SAUCE_USERNAME} \
-    --accessKey {SAUCE_ACCESS_KEY} \
+    --username $SAUCE_USERNAME \
+    --accessKey $SAUCE_ACCESS_KEY \
     --serverHost http://127.0.0.1 \
     --serverPort 8080 \
 ```

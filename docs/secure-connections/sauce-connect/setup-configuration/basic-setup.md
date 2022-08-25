@@ -45,13 +45,13 @@ See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstar
   <TabItem value="Mac/Linux">
 
   ```bash
-  cd sc-4.7.1-osx/bin
+  cd sc-4.8.0-osx/bin
   ```
   </TabItem>
   <TabItem value="Windows">
 
   ```bash
-  cd sc-4.7.1-win32/bin
+  cd sc-4.8.0-win32/bin
   ```
   </TabItem>
   </Tabs>
@@ -66,14 +66,14 @@ See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstar
    <TabItem value="Mac/Linux">
 
    ```bash
-   ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region $SAUCE_DC --tunnel-name {TUNNEL_NAME}
+   ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region $SAUCE_DC --tunnel-name $TUNNEL_NAME
    ```
 
    </TabItem>
    <TabItem value="Windows">
 
    ```bash
-   sc -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region %SAUCE_DC% --tunnel-name {TUNNEL_NAME}
+   .\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region %SAUCE_DC% --tunnel-name $TUNNEL_NAME
    ```
 
    </TabItem>
@@ -83,7 +83,7 @@ See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstar
 3. Select an appropriate test script. Options might include:
    * An existing test, if available.
    * Create a new test using an example from [Sauce Labs Demonstration Scripts](https://github.com/saucelabs-training). Follow those instructions to configure the test before proceeding to the next step.
-4. If you are using a name for your tunnel, add the [`TUNNEL_NAME`](/dev/test-configuration-options/#tunnelname) to the capabilities section of your test script. Use the same name you used in Step 1.
+4. If you are using a name for your tunnel, add the [`TUNNEL_NAME`](/dev/test-configuration-options/#tunnelName) to the capabilities section of your test script. Use the same name you used in Step 1.
 
 <Tabs
   defaultValue="Java"
@@ -158,14 +158,14 @@ For troubleshooting specific errors or common issues, see [Troubleshooting](/sec
 When launching a Sauce Connect Proxy tunnel for automated web and mobile app tests, you have two options:
 * Launch a Sauce Connect tunnel as-is, without naming it. That default, unnamed tunnel will automatically be used for all automated tests. This can be useful for small organizations with a limited number of tests.
 * **Recommended**: Assign a name to help distinguish tunnels in a way that is meaningful to your organization. To accomplish this:
-  * Use the [ `--tunnelName` flag](/dev/cli/sauce-connect-proxy/#--tunnel-name-or---tunnel-identifier) when you launch a tunnel.
-  * Specify the named tunnel in your automated tests by adding the [`tunnelName`](/dev/test-configuration-options#tunnelname) capability.
+  * Use the [ `--tunnel-name` flag](/dev/cli/sauce-connect-proxy/#--tunnel-name) when you launch a tunnel.
+  * Specify the named tunnel in your automated tests by adding the [`tunnelName`](/dev/test-configuration-options#tunnelName) capability.
 
 #### Example Configurations
 
 The following code samples demonstrate specifying a tunnel name when launching a tunnel and then referencing that tunnel in your automated test.
 
-Launch a new tunnel on the `SC_HOST` using the [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy) and the `--tunnelName` flag:
+Launch a new tunnel on the `SC_HOST` using the [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy) and the `--tunnel-name` flag:
 
 <Tabs
   defaultValue="macOS/Linux"
@@ -177,7 +177,7 @@ Launch a new tunnel on the `SC_HOST` using the [Sauce Connect Proxy CLI](/dev/cl
 <TabItem value="macOS/Linux">
 
 ```bash
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DC --tunnelName sc-proxy-tunnel
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DC --tunnel-name sc-proxy-tunnel
 ```
 
 </TabItem>
@@ -185,7 +185,7 @@ Launch a new tunnel on the `SC_HOST` using the [Sauce Connect Proxy CLI](/dev/cl
 <TabItem value="Windows">
 
 ```bash
-sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -r %SAUCE_DC% --tunnelName sc-proxy-tunnel
+.\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -r %SAUCE_DC% --tunnel-name sc-proxy-tunnel
 ```
 
 </TabItem>
@@ -193,7 +193,7 @@ sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% -r %SAUCE_DC% --tunnelName sc-p
 
 * Ensure that your network configuration allows for communication between the `SC Host`, the Tunnel VM, and the SUT (site under test). See the basic network configuration diagram for further explanation.
 * Select an example from [Sauce Labs Demonstration Scripts](https://github.com/saucelabs-training) and follow the instructions to configure the test in your dev environment.
-* Navigate to the desired test script and add the [`tunnelName`](/dev/test-configuration-options#tunnelname) capability to your [`sauce:options`](/dev/w3c-webdriver-capabilities).
+* Navigate to the desired test script and add the [`tunnelName`](/dev/test-configuration-options#tunnelName) capability to your [`sauce:options`](/dev/w3c-webdriver-capabilities).
 
 <Tabs
   defaultValue="Java"

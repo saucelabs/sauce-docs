@@ -15,6 +15,12 @@ Appium automated real device testing supports tests designed to run against a we
 
 See [When to Test on Real Devices](https://docs.saucelabs.com/mobile-apps/supported-devices/#when-to-test-on-real-devices) for deails about real device testing use cases, benefits, and system requirements.
 
+:::note
+Sauce Labs does not support automatic testing of ADB commands for Appium. To use ADB and shell commands, the usage of [vUSB](/mobile-apps/features/virtual-usb) with private devices is necessary as Sauce Labs does not support ADB without the use of vUSB.
+<br/>
+ADB can also be used during live testing.
+:::
+
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
@@ -39,11 +45,26 @@ The following app file types are supported for real device tests:
 * \*.apk or \*.aab for Android app files
 * \*.ipa for iOS app files (See [Create .ipa Files for Appium](/mobile-apps/automated-testing/ipa-files/#real-devices))
 
+The following Appium versions are supported on our Real Device Cloud:
+
+* Appium 2.0 Beta
+* 1.22.2
+* 1.22.0
+* 1.21.0
+* 1.20.1
+* 1.19.0
+* 1.18.1
+* 1.17.1
+* 1.17.0
+* 1.15.1
+* 1.15.0
+* 1.14.0
+
 ## Using the W3C WebDriver Specification
 
-Sauce Labs encourages adoption of the W3C WebDriver protocol, but supports both JSON Wire Protocol (JWP) or W3C in all currently supported Appium 1.X versions (Appium 2.0 will deprecate support for JWP).
+As the W3C WebDriver Protocol is supported in Appium v1.6.5 and higher, and required for Appium v2.0 (currently in beta), we recommend and support using it exclusively in your test scripts instead of the JSON Wire Protocol (JWP). See [Migrating Appium Real Device Tests to W3C](https://support.saucelabs.com/hc/en-us/articles/4412359870231) for more information.
 
-Since W3C and JWP use different formats for specifying your test capabilities, it is important to make sure you configure your tests accurately so your intended protocol is followed and your settings are applied correctly.
+The W3C WebDriver Protocol test capability syntax differs from that of JWP, so it's important to make sure you configure your tests accurately so your intended protocol is followed and your settings are applied correctly.
 
 ### How Sauce Labs Determines Your Protocol
 
@@ -79,10 +100,10 @@ values={[
 "desiredCapabilities": {
     "platformName" : "android",
     "app","storage:filename=mapp.pk",
-    “deviceName" : "Samsung.*Galaxy.*”,
-    “orientation” : “portrait”,
-    “platformVersion" : "8.1",
-    "appiumVersion" : "1.21.0"
+    "deviceName" : "Samsung.*Galaxy.*",
+    "orientation" : "PORTRAIT",
+    "platformVersion" : "8.1",
+    "appiumVersion" : "1.21.0",
     "sessionCreationRetry" : "2",
     "sessionCreationTimeout" : "300000",
     "name" : "MobileWebsiteTest (jwp)"
@@ -98,9 +119,9 @@ values={[
       {
         "platformName" : "android",                    #standard capability
         "appium:app","storage:filename=mapp.apk";       #Appium capabilities
-        “appium:deviceName" : "Samsung.*Galaxy.*”,
-        “appium:orientation” : “portrait”,
-        “appium:platformVersion" : "8.1",
+        "appium:deviceName" : "Samsung.*Galaxy.*",
+        "appium:orientation" : "PORTRAIT",
+        "appium:platformVersion" : "8.1",
         "sauce:options" : {                           #Sauce custom capabilities
            "appiumVersion" : "1.21.0",
            "sessionCreationRetry" : "2",
@@ -116,7 +137,7 @@ values={[
 </Tabs>
 
 :::note
-You can avoid having to add the `appium:` prefix to Appium specific capabilities by upgrading your [Appium client library](http://appium.io/docs/en/about-appium/appium-clients/) to a version that automatically applies the prefix or installing the [relaxed-caps plugin](https://github.com/appium/appium-plugins/tree/master/packages/relaxed-caps), but Sauce Labs advises including the prefix to avoid any confusion in the future.
+You can avoid having to add the `appium:` prefix to Appium specific capabilities by upgrading your [Appium client library](http://appium.io/docs/en/about-appium/appium-clients/) to a version that automatically applies the prefix.
 :::
 
 
@@ -144,6 +165,21 @@ For native app tests on real devices, you must provide a location from which you
 ```js title=Remote App Example
 "appium:app","https://github.com/test-apps/ios-app.ipa"
 ```
+
+You can also install a dependent app or an app upgrade during a test by using the `driver.installApp('path-to-app')` command. 
+
+```js title=Driver App Example
+driver.installApp("https://github.com/saucelabs/my-demo-app-rn/releases/download/v1.3.0/Android-MyDemoAppRN.apk");
+```
+
+
+:::note Limitations
+* The provided app path needs to be publicly available as this method does not have access to your local path/storage.
+* This method does not have access to apps in Sauce Storage. Only apps that are publicly available can be installed with this command. Therefore, we also can't re-sign and instrument the app. The Instrumentation will not work for apps installed using the `driver.installApp('path-to-app')` command (see [App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-settings) to learn more).
+* This method will not work for iOS due to signing. Each iOS app needs to be resigned so it is allowed to be installed on our devices. To make this work you must use a private device and add the UDID of the private device to the provisioning profile for iOS (see our [resigning process](/mobile-apps/automated-testing/ipa-files/) to learn more).
+:::
+
+For more information about this command, see the [Appium documentation](http://appium.io/docs/en/commands/device/app/install-app/).
 
 ### Excluding the `browserName`
 
@@ -179,9 +215,18 @@ Alternatively, you can find a device's ID in the Sauce Labs app:
 
 _Dynamic Allocation_ allows you to specify the device attributes that are important to you and then run your test against the first available device from the pool that matches your specifications, giving you greater flexibility and, likely, a faster test execution time, particularly if you are running tests in parallel.
 
-Dynamic allocation is advised, in particular, for all automated mobile app testing in CI/CD environments.
+:::note
+If you have both private **AND** public devices, dynamic device allocation will search for available matching private devices first, and if not found it will then search for available matching public devices.
+:::
 
-To enable dynamic device allocation, you should specify the `deviceName` and `platformName`, and `platformVersion` capabilities at a minimum. The following table provides information about accepted values.
+Dynamic allocation is advised, in particular, for all automated mobile app testing in CI environments.
+
+To enable dynamic device allocation, you will have three options:
+- **Only** provide `platformName` to find the first available Android or iOS device. This could be a phone or a tablet.
+- Provide `platformName` **AND** `deviceName` to narrow the search to a specific device based on the provided value.
+- Provide `platformName` **AND** `platformVersion` to narrow the search to a specific platform version based on the provided value.
+
+The following table provides information about accepted values.
 
 :::note
 The following sample values are presented using case for readability, but capabilities values are not case-sensitive, so there is no distinction between `iPhone` and `iphone`, for example.
@@ -191,12 +236,14 @@ The following sample values are presented using case for readability, but capabi
   <thead>
     <tr>
       <th width="20%">Capability</th>
+      <th>Required</th> 
       <th>Description and Sample Values</th>
     </tr>
   </thead>
   <tbody>
   <tr>
     <td><a href="/dev/test-configuration-options#deviceName"><code>deviceName</code></a></td>
+    <td>No</td>
     <td><p>Provide a device display name, or use regular expressions to provide a partial name, thus increasing the potential pool of matches. Some examples include:</p>
     <p>Any iPhone: <code>"appium:deviceName", "iPhone.*", "iPhone .*"</code></p>
     <p>Any device with the word "nexus" in its display name: <code>"appium:deviceName", ".*nexus.*"</code></p>
@@ -205,10 +252,12 @@ The following sample values are presented using case for readability, but capabi
   </tr>
   <tr>
    <td><a href="/dev/test-configuration-options#platformname"><code>platformName</code></a></td>
+   <td>Yes</td>
    <td>Specify the mobile operating system to use in your tests (i.e., <code>android</code> or <code>ios</code>.</td>
   </tr>
   <tr>
    <td><a href="/dev/test-configuration-options#platformVersion"><code>platformVersion</code></a></td>
+   <td>No</td>
    <td>Specify the OS version to use in your tests (i.e., <code>4</code> or <code>4.1</code>.
      <p>This property uses a substring match, so you can specify major and/or incremental versions. For example, if you set only a major version <code>4</code>, any devices running incremental versions (e.g., <code>4.1</code>, <code>4.2</code>, <code>4.2.1</code>, <code>4.4.4</code>) will also match. This behavior extends to minor and point versions as well, so <code>11.4</code> matches <code>11.4.0</code> and <code>11.4.1</code>.</p></td>
   </tr>
@@ -300,7 +349,7 @@ caps.setCapability("sauce:options", sauceOptions);
 
 ```py
 caps = {}
-caps['platformName'] = 'Android'
+caps['platformName'] = 'iOS'
 caps['appium:platformVersion'] = '15'
 caps['appium:deviceName'] = 'iPhone .*'
 caps['appium:orientation'] = "portrait"

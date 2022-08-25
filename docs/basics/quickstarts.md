@@ -24,7 +24,7 @@ Below you will find links to our quickstart guides and demo repos, listed by fra
 | Playwright | <img src={useBaseUrl('/img/mobile-icon.png')} alt="Mobile" width="15"/> | JavaScript | [Quickstart Guide](/web-apps/automated-testing/playwright/quickstart)<br/>[GitHub](https://github.com/saucelabs/saucectl-playwright-example) |
 | Protractor | <img src={useBaseUrl('/img/desktop-icon.png')} alt="Desktop" width="20"/> | JavaScript | [GitHub](https://github.com/saucelabs-training/demo-js/tree/master/protractor/) |
 | Puppeteer | <img src={useBaseUrl('/img/desktop-icon.png')} alt="Desktop" width="20"/> | JavaScript | [Quickstart Guide](/web-apps/automated-testing/puppeteer/quickstart)<br/>[GitHub](https://github.com/saucelabs/saucectl-puppeteer-example) |
-| Selenium | <img src={useBaseUrl('/img/mobile-icon.png')} alt="Mobile" width="15"/><img src={useBaseUrl('/img/desktop-icon.png')} alt="Desktop" width="20"/> | Java | [GitHub](https://github.com/saucelabs-training/demo-java) |
+| Selenium | <img src={useBaseUrl('/img/mobile-icon.png')} alt="Mobile" width="15"/><img src={useBaseUrl('/img/desktop-icon.png')} alt="Desktop" width="20"/> | Java | [Quickstart Guide](/web-apps/automated-testing/selenium/quickstart)<br/>[GitHub](https://github.com/saucelabs-training/demo-java) |
 | TestCafe | <img src={useBaseUrl('/img/mobile-icon.png')} alt="Mobile" width="15"/> | JavaScript | [Quickstart Guide](/web-apps/automated-testing/testcafe/quickstart)<br/>[GitHub](https://github.com/saucelabs/saucectl-testcafe-example) |
 | WebdriverIO | <img src={useBaseUrl('/img/desktop-icon.png')} alt="Desktop" width="20"/> | JavaScript | [GitHub](https://github.com/saucelabs-training/demo-js/tree/master/webdriverio/appium-app) |
 | XCUITest | <img src={useBaseUrl('/img/desktop-icon.png')} alt="Desktop" width="20"/> | Swift | [GitHub](https://github.com/saucelabs-training/demo-xcuitest) |
@@ -38,3 +38,10 @@ Below you will find links to our quickstart guides and demo repos, listed by fra
 | JavaScript | Cypress<br/>Selenium<br/>WebdriverIO<br/>Playwright<br/>Puppeteer<br/>TestCafe | Multiple Node.js-based automation frameworks and examples that will help you run tests with Node.js locally and in Sauce Labs. | [GitHub](https://github.com/saucelabs-training/demo-js) |
 | Python | Selenium<br/>Appium<br/>Headless | Use these scripts to test your Sauce Labs authentication credentials, set up your environment, and try out Sauce Labs features. | [GitHub](http://github.com/saucelabs-training/demo-python) |
 | Ruby | Selenium | Run simple automated tests to validate your Ruby testing environment and your Sauce Labs credentials. | [GitHub](https://github.com/saucelabs-training/demo-ruby) |
+
+## Sauce Labs Bindings
+
+Sauce Bindings provide you with a wrapper &#8212; or _binding_ &#8212; for our platform's most popular programming languages, allowing you to connect to Sauce Labs from your test framework to perform automated web and mobile app testing.
+
+* [Sauce Bindings website](https://opensource.saucelabs.com/sauce_bindings)
+* [Sauce Bindings GitHub repo](https://github.com/saucelabs/sauce_bindings)

@@ -9,6 +9,12 @@ keywords:
     - kong
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
+>**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 :::warning
@@ -73,7 +79,7 @@ The image below is the entry that you're looking for:
 
 <img src={useBaseUrl('img/api-fortress/2018/11/Screen-Shot-2018-11-08-at-10.05.35-AM.png')} alt="screeenshot"/>
 
-Next, we need to initialize Kong. This is done by running the previously mentioned script, `_init_kong.sh_`. 
+Next, we need to initialize Kong. This is done by running the previously mentioned script, `_init_kong.sh_`.
 
 Issue the following command from the command line:
 
@@ -105,7 +111,7 @@ curl -v http://apif.example.com:8001
 
 A positive response from this route indicates that the proxy server is up and running. Congratulations! You now have a live proxy server!
 
-Our last step in the setup phase is creating an API Fortress API key. The gif below shows the process. 
+Our last step in the setup phase is creating an API Fortress API key. The gif below shows the process.
 
 <img src={useBaseUrl('img/api-fortress/2018/11/make_api_key.gif')} alt="make_api_key.gif"/>
 
@@ -132,13 +138,13 @@ curl -v -XPOST -d "name=apif" -d "upstream_url=http://demoapi.apifortress.com" -
 
 ### Route Details
 
-* `name`: the name of the API profile 
+* `name`: the name of the API profile
 * `upstream_url`: the origin URL (the destination that we're passing through the proxy on our way to)
 * `hosts`: A list of hosts that will trigger this API profile (the URL(s) that will trigger this proxied response)
 
-So, we're sending a post to `apif.example.com:8001/apis` with headers defining a `name`, an `upstream_url` and `hosts`. The result is a profile of a proxied API. 
+So, we're sending a post to `apif.example.com:8001/apis` with headers defining a `name`, an `upstream_url` and `hosts`. The result is a profile of a proxied API.
 
-* The `name` of the profile is `"apif"`. 
+* The `name` of the profile is `"apif"`.
 * The `upstream_url` is `"http://demoapi.apifortress.com"`
 * The `host` for the profile is `"proxy-demoapi.apif.example.com"`
 
@@ -156,7 +162,7 @@ Here, the 'header:value' string would be replaced with any required header key/v
 
 ## Recording a Mock Endpoint
 
-:::note 
+:::note
 As with creating the actual proxied endpoints, creating recorded mocks requires a modification of the DNS. Adding a wildcard entry for the mock server (`*.demoapi-mocks.apif.example.com`) will allow these requests to be properly routed once the mocks are recorded.
 :::
 
@@ -174,7 +180,7 @@ Initially, we're passing a number of url-encoded key/value pairs in the POST bod
 
 - `config.api_key`: The _API Key_ value created in [step 1](#starting-kong).
 - `config.secret`: The _API Secret_ value created in [step 1](#starting-kong).
-- `config.mock_domain`: The mock domain you wish these routes to be appended to in API Fortress Mocking. _It does not need to already exist._ 
+- `config.mock_domain`: The mock domain you wish these routes to be appended to in API Fortress Mocking. _It does not need to already exist._
 
 The URL we're actually sending the request to:
 

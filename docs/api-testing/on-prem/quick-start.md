@@ -5,6 +5,10 @@ sidebar_label: Creating a Test
 description: Learn how to quickly generate a test in API Fortress. By using the payload from an API call or from a specification file.
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 >**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).

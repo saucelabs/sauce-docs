@@ -33,6 +33,7 @@ If you need...
 * To save costs.
 * Immediate availability.
 * Extremely low error rates for your test environment.
+* Longer test times -- native framework tests on real devices enforce a maximum test duration limit of 60 minutes.
 
 ### System Requirements
 
@@ -110,6 +111,10 @@ We use a proprietary process that wipes every real device clean at the end of th
 While we take these actions to clean public real devices after each test session, we do not perform factory resets nor do we have anti-virus software installed on them. It is possible that other users of the public RDC may engage in malicious, careless or unsecure activity, and that sophisticated, persistent malware could therefore be present on any device in the public RDC.
 :::
 
+:::caution
+If you test a Progressive Web Application (PWA) and install it on the home screen of the device, make sure that you remove the PWA manually before you close your session. At the moment we can’t remove the PWA and its data during our cleaning process.
+:::
+
 #### Data Center Security
 
 Real Device Cloud Data Center security is described in [Data Center Endpoints](/basics/data-center-endpoints).
@@ -164,11 +169,14 @@ This is specifying basic parameters for the platform, operating system, and/or t
 
 | Regex Input | Dynamic Allocation Action
 | :--- | :---
-| `"iPhone.*" ,  "iPhone .*"` | Allocates any iPhone.
-| `".*nexus.*"` | Allocates any device with the word "nexus" in its display name.  
-| `"iPhone [67]"` or `"iPhone [6-7]"` | Both will allocate either an iPhone 7 or iPhone 6 device.
-| `"iPhone [67]S"` or `"iPhone [6-7]S"` | Both will allocate either an iPhone 7S or iPhone 6S device.
-| `"iPhone 7.*"` | Allocates any device that starts with the display name "iPhone 7" (e.g., iPhone 7, iPhone 7S).
+| `"iPhone.*" ,  "iPhone .*"` | Allocates any iPhone device. See [example](https://regex101.com/r/PC63Dw/1) or this [example](https://regex101.com/r/WzEPxP/1).
+| `".*nexus.*"` | Allocates any device with the word "nexus" in its display name. See [example](https://regex101.com/r/dzDlCh/1).  
+| `"iPhone [67]"` or `"iPhone [6-7]"` | Both will allocate either an iPhone 7 or iPhone 6 device. See [example](https://regex101.com/r/KE9vt1/1) or this [example](https://regex101.com/r/xe0FgY/1).
+| `"iPhone [67]S"` or `"iPhone [6-7]S"` | Both will allocate either an iPhone 7S or iPhone 6S device. See [example](https://regex101.com/r/fkzBJj/2) or this [example](https://regex101.com/r/fkzBJj/3).
+| `"iPhone 7.*"` | Allocates any device that starts with the display name "iPhone 7" (e.g., iPhone 7, iPhone 7S). See [example](https://regex101.com/r/oTpgdA/1).
+| <code>"^(?!Nokia.\*&vert;Oppo.\*&vert;Huawei.\*&vert;Xiaomi.\*).\*"</code> | Allocates any Android devices, **except** Nokia, Oppo, Huawei, and Xiaomi. See [example](https://regex101.com/r/YKdiQQ/1).                                         |
+| <code>"^(?=Nokia.\*&vert;Oppo.\*&vert;Huawei.\*&vert;Xiaomi.\*).\*"</code> | Allocates **only** Nokia, Oppo, Huawei, and Xiaomi devices. See [example](https://regex101.com/r/yhQ3oy/2).
+
 
 <Tabs
   defaultValue="Appium (Android)"

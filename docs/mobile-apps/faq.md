@@ -6,19 +6,19 @@ sidebar_label: FAQ
 
 ## Virtual Devices
 
-#### **What type of keyboard and buttons do the Android emulators have?**
+#### **What type of keyboard and buttons do the Android Emulators have?**
 
-Android Emulators have software buttons and a hardware keyboard. In a regular Android emulator the device buttons are software buttons displayed on the right size of the emulator. For the Android emulators with different skins (e.g Google Nexus 7 HD, LG Nexus 4, Samsung Galaxy Nexus, Samsung Galaxy S3, etc) the device buttons are also software buttons that are overplayed on top of the skin. For instance, if you hover the mouse around the edges of any of our Android emulators with an specified skin, a hover icon will appear and you should be able to find whatever buttons actually exist on the device that the skinned emulator is trying to emulate (e.g power button along the top, volume buttons along the edge, back/home buttons right below the screen, etc).
+Android Emulators have software buttons and a hardware keyboard. In a regular Android Emulator the device buttons are software buttons displayed on the right size of the emulator. For the Android Emulators with different skins (e.g Google Nexus 7 HD, LG Nexus 4, Samsung Galaxy Nexus, Samsung Galaxy S3, etc) the device buttons are also software buttons that are overplayed on top of the skin. For instance, if you hover the mouse around the edges of any of our Android Emulators with a specified skin, a hover icon will appear and you should be able to find whatever buttons actually exist on the device that the skinned emulator is trying to emulate (e.g power button along the top, volume buttons along the edge, back/home buttons right below the screen, etc).
 
 
-#### **Can I run Android emulator tests using Espresso instead of Appium?**
+#### **Can I run Android Emulator tests using Espresso instead of Appium?**
 
 Yes - see [Espresso and XCUITest Testing for Virtual Devices](/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices).
 
 
-#### **What mobile web browsers can I automate in Android emulators?**
+#### **What mobile web browsers can I automate in Android Emulators?**
 
-Currently the only browser that can be automated in our Android emulators is the stock browser (i.e., Chrome).
+Currently the only browser that can be automated in our Android Emulators is the stock browser (i.e., Chrome).
 
 #### **How do I use XCUITest-driver on Appium 1.6.0 with iOS 9.x tests?**
 
@@ -33,7 +33,7 @@ Appium 1.6.0 will default to using `automationName: XCUITest` for iOS 10.x tests
 
 Our devices are real, physical devices. They are standard, commercially available devices and not modified or rooted. We use virtual networking computer (VNC) to transmit mouse and keyboard events on the devices. The VNC server on the devices relays back the content of the screen of the devices in real time.
 
-#### **What aware the top device lists by country, and how reliable are they?**
+#### **What are the top device lists by country, and how reliable are they?**
 
 The top lists indicate the ten most common devices by country. We gather information from an external provider who analyses mobile web traffic data from thousands of websites worldwide. The lists are generally reliable, but by using the "web traffic" metric for device distribution numbers, high-end devices and tablets might be overrepresented. Older and low-cost devices often have a smaller screen and a poorer performance, and are less used for surfing the web than top devices. This is why the  "web-traffic" metric might underrepresent the overall distribution of these devices.
 
@@ -45,6 +45,10 @@ When you compare the most popular devices of your users with our top lists you p
 
 We strive to support the latest releases within 48 hours to ensure your website and apps work flawlessly across all platforms.
 
+#### **Is it possible to turn off the WiFi on Real Devices with SIM card included?**
+
+Yes. To test in offline mode with Real Devices, see our [Offline Mode Guide](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio/appium-web/examples/offline-testing).
+
 #### **Is it possible to test the camera behavior using your mobile devices?**
 
 Yes. See [Camera Image Injection](/mobile-apps/features/camera-image-injection).
@@ -53,12 +57,13 @@ Yes. See [Camera Image Injection](/mobile-apps/features/camera-image-injection).
 
 * **Android Real Devices** - Yes. It works automatically with no action required.
 * **iOS Real Devices** - Yes. Prior to testing, you'll need to disable resigning; this enables notifications testing. Disabling resigning is a feature available for [private devices only](/mobile-apps/supported-devices#private-device-cloud). To disable resigning, go to **Live** > **Mobile App** > Locate your iOS mobile app from your list of uploaded app > Click **Settings** > Toggle **Instrumentation** so that it says **Disabled**. You'll need to start keeping track of the iOS device UDIDs (Unique Device Identifier) by maintaining them in your own Apple Developer profile used at app build time.
-* **Android emulators** - not supported.
+* **Android Emulators** - not supported.
 * **iOS simulators** - Yes, when using Appium version 1.21.0. See [Announcing support for Appium v1.21.0 on iOS Simulators](https://changelog.saucelabs.com/en/announcing-support-for-appium-v-on-ios-simulators) for more information.
 
 #### **Is there a maximum time I can use a real device for either manual or automated testing, provided I actually do interact with the device?**
 
-For real devices on the public cloud, the limit is 6 hours; for private cloud devices there is no limit.
+For real devices on the public cloud, the limit is 6 hours for Appium tests and 1 hour for Espresso and XCUITest; the same applies to private cloud devices.
+The limits for public cloud devices ensure that there are enough devices available for you, whereas the limits for private cloud devices ensure the longevity of your devices.
 
 #### **Can I upload files to or download files from a real device?**
 
@@ -87,6 +92,10 @@ It is of great importance for us to make sure that no other user can have access
 #### **Do you support SSO (Single Sign-On)?**
 
 Yes. We support OAuth login via Google and GitHub.
+
+#### **Are your devices jailbroken?**
+
+No. We do not offer jailbroken or rooted devices.
 
 
 ### Automated Testing
@@ -164,7 +173,7 @@ No. This is a feature request on our roadmap.
 
 #### **Can I use Bluetooth on a device?**
 
-Yes. Please contact your Customer Success Manager or SE to discuss your specific use case.
+No. We do not support Bluetooth connections between devices in our Real Device Cloud. If you have a Bluetooth feature request, please let our support team know.
 
 
 #### **What should the frame rate be on newer Android devices?**
@@ -179,7 +188,7 @@ No.
 
 #### **Do you have any UI inspection tool built into your application like UI Automator viewer?**
 
-No, there are no inspection tools. We recommend using [Appium Desktop](https://github.com/appium/appium-desktop) for UI inspection, it has built in support for devices on the Real Device Cloud.
+No, there are no inspection tools. We recommend using [Appium Desktop](https://github.com/appium/appium-desktop) or [Appium Inspector](https://github.com/saucelabs/appium-inspector-saucelabs) for UI inspection, it has built in support for devices on the Real Device Cloud.
 
 
 #### **Can I change the orientation of the device screen during a test?**
@@ -199,7 +208,7 @@ Yes. In Java, it can be done with the command: driver.setLocation(long, lat).
 
 #### **Can I change the device’s time and date?**
 
-Yes, but only for manual tests. The change can be made in the Settings of the device.
+No, the device's time and date cannot be changed.
 
 
 #### **Can I take screenshots during Espresso tests with the Real Device Cloud?**
@@ -209,12 +218,12 @@ Yes, if you use the Spoon library.
 
 #### **Can I test MO (Mobile Originated) SMS text messages?**
 
-Yes, only on devices that have SIM cards and are connected to the Carrier Network.
+Yes, only on private devices that have SIM cards and are connected to the Carrier Network.
 
 
 #### **Can I access Mobile Data? Not just WiFi, but 4G and 5G networks?**
 
-Yes, only on devices that have SIM cards and are connected to the Carrier Network.
+Yes, only on private devices that have SIM cards and are connected to the Carrier Network.
 
 
 ### Live Testing

@@ -146,7 +146,7 @@ There are simply too many different certificates for Sauce Labs to add each one.
 ### Using SSL Bumping and How It Works
 The solution, known as SSL Bumping, works like this:
 
-1. When Sauce Labs creates VMs, an SSL certificate issued by “Sauce Labs Tunnel Proxy” is installed and controlled from the Sauce Labs side.
+1. When Sauce Labs creates VMs, an [SSL certificate issued by “Sauce Labs Tunnel Proxy”](http://saucelabs.com/downloads/saucelabs-ssl-bumping.crt) is installed and controlled from the Sauce Labs side.
 2. When needed, the Sauce Labs browser requests resources from the Sauce Connect Proxy server.
 3. Sauce Connect Proxy server passes that request to the Sauce Connect Proxy client, running on your side. All SSL internet traffic between the Sauce Connect Proxy client (on your network) and the Sauce Connect Proxy server (inside our network) is encrypted twice: once by the original server and again by Sauce ConnectProxy.
 4. Sauce Connect Proxy client fetches the resource and returns it through the encrypted connection, back to the Sauce Connect Proxy server.
@@ -161,7 +161,8 @@ SSL Bumping is enabled by default for Sauce Connect Proxy, but there are some si
 
 * If you're working with sites that are highly dependent on AJAX
 * Some network components, such as browsers and servers that use WebSockets, won’t work if the traffic to them has been altered, which Sauce Connect Proxy appears to do
-* If you're running iOS 10.3 on iPad Pro (12.9 inch) simulator or iPad Pro (9.7 inch) simulator
+* If you're testing with iOS 10.3 on iPad Pro (12.9 inch) simulator or iPad Pro (9.7 inch) simulator
+* If you're testing with Android Real Devices
 
 #### How to Disable SSL Bumping
 Use the `-B (--no-ssl-bump-domains)` argument when you start Sauce Connect Proxy and specify which domains should not be bumped or specify `all` so that all domains that passed through the tunnel are not bumped.

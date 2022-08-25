@@ -174,7 +174,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 {
     "id": "80d69d16ebdb4c018cc9d81ea911761a",
     "name": "Sauce-Docs",
-    "organization": {
+    "org_uuid": {
         "id": "**********",
         "name": "SLTC",
         "created_at": "2020-10-05T16:21:01.513495Z",
@@ -306,7 +306,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 {
     "id": "9d3460738c28491a81d7ea16704a9edd",
     "name": "A-Team",
-    "organization": {...}
+    "org_uuid": {...}
     },
     "group": {...},
     "created_at": "2021-04-02T17:52:42.578095Z",
@@ -506,7 +506,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 {
     "id": "b3de7078b79841b59d2e54127269afe3",
     "name": "Doc-Team",
-    "organization": {...}
+    "org_uuid": {...}
     },
     "group": {...},
     "created_at": "2020-10-05T17:13:56.580592Z",
@@ -634,7 +634,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 {
     "id": "b3de7078b79841b59d2e54127269afe3",
     "name": "Doc-Team",
-    "organization": {...},
+    "org_uuid": {...},
     "group": {...},
     "created_at": "2020-10-05T17:13:56.580592Z",
     "updated_at": "2021-04-05T13:49:22.107825Z",
@@ -1511,7 +1511,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/rest/v1.2/users/&#123;username&#125;/concurrency</code></summary>
 <p/>
 
-Allows you to update individual user values without replacing the entire profile.
+Returns details about the current in-use virtual machines and real devices along with the maximum allowed values.
 
 #### Parameters
 
@@ -1579,6 +1579,49 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     <td colSpan='2'>Not found.</td>
   </tr>
 </tbody>
+</table>
+
+#### Response Details
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>concurrency.organization.allowed</code></td>
+     <td>The total allowed concurrency for each device type allocated to the organization.</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>concurrency.organization.current</code></td>
+     <td>The total concurrency for each device type currently in use by the organization.</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>concurrency.team.allowed</code></td>
+     <td>The total concurrency for each device type allocated to the logged-in user's team.</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>concurrency.team.current</code></td>
+     <td>The total concurrency for each device type currently in use by the user's team.</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>*.&#123;device_type&#125;</code></td>
+     <td><p>Each set of concurrency reported in the response is broken down by the following device types:
+     <ul>
+      <li><code>mac_vms</code> - Mac virtual machines represent any live, automated, desktop, or mobile test running in a Mac OS, which includes iOS Simulator tests.</li>
+      <li><code>rds</code> - real devices represent any live or automated mobile test running on a Sauce Labs real device.
+      <blockquote>At this time, the current usage for real devices is not accurately returned in this response.
+      Please use the following request as a workaround: <pre>curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location --request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/concurrency' --header 'Content-Type: application/json' | json_pp </pre></blockquote></li>
+      <li><code>vms</code> - Windows virtual machines represent any live, automated, desktop, or mobile test running in a Windows or Android OS, which includes Android Emulator tests.</li>
+    </ul>
+    </p><p>Note that <code>mac_vms</code> and <code>vms</code> are separated here, although they are typically presented as a combined total of virtual machine usage in other areas of the Sauce Labs platform.</p></td>
+    </tr>
+  </tbody>
 </table>
 
 ```jsx title="Sample Response"
