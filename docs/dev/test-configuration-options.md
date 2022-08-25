@@ -51,9 +51,9 @@ Use the latest version of the Selenium library in your code for the most up-to-d
 
 Identifies the user agent. See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-browser-name) for more information. This setting also applies to emulators, simulators and real devices when automating with a mobile browser. It must be set when [App Name](#app) is not set.
 
-- For Android v5 and below, the value needs to be `"Browser"`, v6 and above, it is `"Chrome"`.
-- For iOS, the value needs to be `"Safari"`.
-- For mobile native or hybrid apps, the value needs to be an empty String.
+* For Android v5 and below, the value needs to be `"Browser"`, v6 and above, it is `"Chrome"`.
+* For iOS, the value needs to be `"Safari"`.
+* For mobile native or hybrid apps, the value needs to be an empty String.
 
 ```java
 "browserName": "firefox"
