@@ -955,23 +955,23 @@ We support several test/job result visibility levels, which control who can view
 
 Available visibility modes are:
 
-- **public**:
-  - Accessible to everyone.
-  - May be listed on public web pages and indexed by search engines.
-- **public restricted**:
-  - Share your job's results page and video, but keeps the logs only for you.
-  - Hides the fancy job log.
-  - Prohibits access to the raw Selenium log so that anonymous users with the link will be able to watch the video and screen shots, but won't be able to see what's being typed and done to get there.
-- **share**:
-  - Only accessible to people with a valid link.
-  - Not listed on publicly available pages on Sauce Labs.
-  - Not indexed by search engines.
-- **team**:
-  - Best option if you want to share your jobs with other team members that were created as a sub-accounts of one parent account.
-  - Only accessible to people under the same root account as you.
-- **private**:
-  - Best option if you don't want to share your test results page and video with anyone.
-  - Only you (the owner) will be able to view assets and test results page.
+* **public**:
+  * Accessible to everyone.
+  * May be listed on public web pages and indexed by search engines.
+* **public restricted**:
+  * Share your job's results page and video, but keeps the logs only for you.
+  * Hides the fancy job log.
+  * Prohibits access to the raw Selenium log so that anonymous users with the link will be able to watch the video and screenshots, but won't be able to see what's being typed and done to get there.
+* **share**:
+  * Only accessible to people with a valid link.
+  * Not listed on publicly available pages on Sauce Labs.
+  * Not indexed by search engines.
+* **team**:
+  * Best option if you want to share your jobs with other team members that were created as a sub-accounts of one parent account.
+  * Only accessible to people under the same root account as you.
+* **private**:
+  * Best option if you don't want to share your test results page and video with anyone.
+  * Only you (the owner) will be able to view assets and test results page.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
