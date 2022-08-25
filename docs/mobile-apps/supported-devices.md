@@ -115,6 +115,11 @@ While we take these actions to clean public real devices after each test session
 If you test a Progressive Web Application (PWA) and install it on the home screen of the device, make sure that you remove the PWA manually before you close your session. At the moment we can’t remove the PWA and its data during our cleaning process.
 :::
 
+#### Allowlisting Apps and Accounts
+* Apps installed on the real device can be selected, by name, to be preserved between sessions. These apps and their data will not be cleaned.
+* Google accounts signed into the Play Store can be preserved between sessions.
+* Apple IDs signed in to the device and App Store can be preserved between sessions.
+
 #### Data Center Security
 
 Real Device Cloud Data Center security is described in [Data Center Endpoints](/basics/data-center-endpoints).
