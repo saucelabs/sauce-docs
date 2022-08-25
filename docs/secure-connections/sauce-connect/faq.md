@@ -92,7 +92,7 @@ No, tunnels to the Real Device Cloud are automatically shared with all of your t
 
 ## Can I run tests on Virtual Devices and Real Devices using the same Sauce Connect Proxy tunnel?
 
-Yes, you can use the same Sauce Connect Proxy tunnel and/or same machine to test with the Virtual Device Cloud Real Device Cloud.
+Yes, you can use the same Sauce Connect Proxy tunnel and/or same machine to test with the Virtual Device Cloud (VDC) and Real Device Cloud (RDC).
 
 
 ## Are there any special parameters when using a PAC file in real device tests?
