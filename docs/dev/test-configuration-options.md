@@ -336,44 +336,57 @@ Sets idle test timeout in seconds. As a safety measure to prevent tests from run
 
 ## Mobile Appium Capabilities
 
-If you have an app you have uploaded to [Sauce storage](https://app.saucelabs.com/live/app-testing), you can also set the `app` capability to `"storage:xxxxxxxxx-xxxxxxx-xxx"` and enter the **FILE ID** for your app. This allows you to set which specific version you uploaded, otherwise if you use the file name, it will use the latest one uploaded with the exact same name.
-:::
+As the W3C WebDriver Protocol is supported in Appium v1.6.5 and higher, and required for Appium v2.0 (currently in beta), we encourage and support using it for your Appium mobile app tests instead of the JSON Wire Protocol (JWP). We'll continue to support JWP in all currently supported Appium 1.X versions, but please be aware that with Appium 2.0 (currently in beta), JWP support will be fully deprecated in favor of W3C.
 
-```java
-"appium:platformVersion": "15.1"
-```
+The capabilities defined here assume the W3C WebDriver Protocol. See [Appium Real Device W3C Specification](/mobile-apps/automated-testing/appium/real-devices/#using-the-w3c-webdriver-specification) and [Migrating Appium Real Device Tests to W3C](https://support.saucelabs.com/hc/en-us/articles/4412359870231) for more information.
 
 ---
 
+### `platformName`
+
+<p><small>| MANDATORY <span className="sauceDBlue">for Virtual and Real Devices</span> | STRING |</small></p>
+
+Identifies the name of the operating system the mobile device should be running on. Values are not case-sensitive (i.e., `"ios"` is the same as `"iOS"`). Valid values are `Android` and `iOS`. See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-platform-name) for more information.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("platformName", "Android");
+```
+
 ### `appium:deviceName`
 
-<p><small>| MANDATORY <span className="sauceDBlue">for Virtual Devices</span> | OPTIONAL <span className="sauceDBlue">for Real Devices</span> | STRING |</small></p>
+<p><small>| MANDATORY for <span className="sauceDBlue">Virtual Devices</span> | OPTIONAL for <span className="sauceDBlue">Real Devices</span> | STRING |</small></p>
 
 Allows you to set the name of the simulator, emulator, or real device you want to use in the test.
 
 **For Real Devices:**
+
 You can use this to set up a test with either [static or dynamic allocation for RDC](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation), and run individual or parallel tests. Static allocation allows you to run your tests on a very specific device, while dynamic allocation allows you to specify a family of devices or any device with a certain OS so you can quickly run your test on the first available real device (RDC) device.
 
 - Dynamic allocation example: for an Android RDC test, you can request a generic Samsung Galaxy device by using the option `"appium:deviceName":"Samsung Galaxy.*"`.
 - Static allocation example: if you want to use a Samsung Real Device, you need to specify the exact Samsung Galaxy device by using it's device ID or display name (e.g., `"appium:deviceName":"Samsung_Galaxy_S20_real"` or `"appium:deviceName":"Samsung Galaxy S20"`).
 
 **For Android Emulators**
+
 Each Android emulator skin will have a different configuration depending on the phone or tablet that it emulates. For example, all the skins have different resolutions, screen dimensions, pixel densities, memory, etc. You can use our [Platform Configurator](https://saucelabs.com/platform/platform-configurator) to get a list of the available Android emulator skins for the various Android emulator versions.
 
+**Examples**
+
 ```java
+MutableCapabilities capabilities = new MutableCapabilities();
 // For a real device
-"appium:deviceName": "Samsung Galaxy S20"
+capabilities.setCapability("appium:deviceName", "Samsung Galaxy S20");
 // For an Android Emulator
-"appium:deviceName": "Google Nexus 7 HD Emulator"
+capabilities.setCapability("appium:deviceName", "Google Nexus 7 HD Emulator");
 // For an iOS Simulator
-"appium:deviceName": "iPhone XS Simulator"
+capabilities.setCapability("appium:deviceName", "iPhone XS Simulator");
 ```
 
 ---
 
 ### `appium:automationName`
 
-<p><small>| OPTIONAL for Appium 1.x (JWP) | MANDATORY for Appium 2.0 (W3C) | STRING  |</small></p>
+<p><small>| OPTIONAL for  <span className="sauceDBlue">Appium 1.x (JWP)</span> | MANDATORY for  <span className="sauceDBlue">Appium 2.0 (W3C)</span> | STRING  |</small></p>
 
 Allows you to set the automation engine that will be used.
 Possible values are:
@@ -386,14 +399,15 @@ Possible values are:
   - **iOS:** `XCUITest`
 
 ```java
-"appium:automationName": "UiAutomator2"
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:automationName", "UiAutomator2");
 ```
 
 ---
 
 ### `browserName`
 
-<p><small>| OPTIONAL <span className="sauceDBlue">for Virtual and Real Devices</span> | STRING |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
 
 Identifies the browser to be used when automating with a mobile browser. See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-browser-name) for more information. This capability is case-insensitive
 
@@ -401,33 +415,33 @@ Identifies the browser to be used when automating with a mobile browser. See the
 - For iOS, the value needs to be `"Safari"`.
 
 :::note
-
 - If this capability is not provided for a virtual device, the ['app'](#app) capability needs to be set. If none is set the test will throw an error.
 - This capability can be omitted for virtual devices if the ['app'](#app) capability is set.
 - If this capability is not provided for a real device session and also the ['app'](#app) capability is not provided then a real device session will automatically default back to the default browser. This will be Chrome for Android and Safari for iOS
-  :::
+:::
 
 ```java
-"browserName": "chrome"
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("browserName", "chrome");
 ```
 
 ---
 
 ### `appium:app`
 
-<p><small>| OPTIONAL <span className="sauceDBlue">for Virtual and Real Devices</span> | STRING |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
 
 Allows you to set a path to an `.ipa`, `.apk`, `.aab` or `.zip` file containing the mobile app you want to test. This could be the location of your app in [App Storage](/mobile-apps/app-storage) (e.g., `storage:filename=myapp.zip`) or the URL to a remote location where your app is located (e.g., `http://myappurl.zip`). The remote location needs to be accessible from the web, Sauce Connect can not access your internal file system where apps are hosted.
 
 :::note
-
 - If this capability is not provided for a virtual device, the ['browserName'](#browserName) capability needs to be set. If none is set the test will throw an error.
 - This capability can be omitted for virtual devices if the ['browserName'](#browserName) capability is set.
 - If this capability is not provided for a real device session and also the ['browserName'](#browserName) capability is not provided then a real device session will automatically default back to the default browser. This will be Chrome for Android and Safari for iOS
-  :::
+:::
 
 ```java
-"appium:app", "storage:filename=my_app.zip"
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:app", "storage:filename=my_app.zip");
 ```
 
 :::tip Using Storage Id
@@ -438,7 +452,7 @@ If you have an app you have uploaded to [Sauce storage](https://app.saucelabs.co
 
 ### `appium:orientation`
 
-<p><small>| OPTIONAL <span className="sauceDBlue">for Virtual and Real Devices</span> | STRING </small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
 
 Specifies the orientation of the screen during the test. Valid values are `PORTRAIT` and `LANDSCAPE`.
 
@@ -447,54 +461,63 @@ This capability is an Appium capability and needs to be pre-fixed with `appium:`
 :::
 
 ```java
-"appium:orientation", "LANDSCAPE"
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:orientation", "LANDSCAPE");
 ```
 
 ---
 
-### `noReset`
+### `appium:noReset`
 
-<p><small>| BOOLEAN | <span className="sauceDBlue">For Virtual and Real Devices</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
 
 **For Virtual Devices:**
+
 Set `noReset` to `true` when you execute multiple tests on a single virtual device to keep the state it is in between tests.
 
 **For Real Devices:**
+
 Set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
 
 **Specifics for Android Virtual and Real Devices:**
+
+
 If set to `true` it does:
 - not stop the app after a test/session, 
 - not clear app data between tests/sessions, 
 - not uninstall apk after a test/session
 
 **Specifics for iOS Virtual:**
+
 If set to `true` it does:
 - not stop the app after a test/session, 
 - not clear app data between tests/sessions, 
 - not uninstall apk after a test/session
 
 **Specifics for iOS Real Devices:**
+
 On iOS devices, the `noReset` value is permanently set to `true` and cannot be overridden using `noReset:false`. If you check your Appium logs, you'll see that the value is `true`, even though the default setting technically is false. We've done this intentionally to ensure that your post-test iOS device cleaning process is optimal and secure.
 
 ```java
-"appium:noReset", true
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:noReset", true);
 ```
 
 ---
 
-### `newCommandTimeout`
+### `appium:newCommandTimeout`
 
-<p><small>| DURATION | <span className="sauceDBlue">For Virtual and Real Devices</span> |</small></p>
+<p><small>| DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
 
 Sets the amount of time, in seconds, a test can wait for the next command to execute on a real device before timing out. The default value is 60 seconds and the maximum allowed value is **not** limited for Virtual devices and **is** limited to 90 seconds for Real Devices.
 
 ```java
-"appium:newCommandTimeout": 90
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:newCommandTimeout", 90);
 ```
 
 ## More Appium specific capabilities
-There are more Appium specific capabilities which are specific for each Appium Driver. They can be found here
+There are more Appium capabilities which are specific for each Appium Driver. They can be found here
 
 - **Android**
   - [UIAutomator2-Driver](https://github.com/appium/appium-uiautomator2-driver#capabilities)
@@ -509,10 +532,22 @@ There are more Appium specific capabilities which are specific for each Appium D
 Optional, Sauce-specific capabilities that you can use in your Appium tests. They can be added to the `sauce:options` block of your session creation code.
 
 ---
+### `deviceOrientation`
+<p><small>|OPTIONAL | STRING| <span className="sauceDBlue">Virtual Devices Only</span> |</small></p>
+
+Specifies the orientation of the virtual skin **and** screen during the test. Valid values are `PORTRAIT` and `LANDSCAPE`.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("deviceOrientation", "PORTRAIT");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
 
 ### `appiumVersion`
 
-<p><small>| OPTIONAL <span className="sauceDBlue">for Virtual and Real Devices</span> | STRING |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
 
 Specifies the Appium driver version you want to use. For most use cases, setting the `appiumVersion` is unnecessary because Sauce Labs defaults to the version that supports the broadest number of device combinations. Sauce Labs advises against setting this property unless you need to test a particular Appium feature or patch.
 
@@ -521,11 +556,11 @@ Sauce Labs waits a week following new Appium releases before setting them as the
 :::
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("appiumVersion", "1.22.0");
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("appiumVersion", "1.22.0");
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 #### Check on which Appium version your test ran:
@@ -540,41 +575,23 @@ caps.setCapability("sauce:options", sauceOptions);
 
 ### `deviceType`
 
-<p><small>| OPTIONAL <span className="sauceDBlue">Real Devices Only</span> | STRING |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 Specifies the type of device type to emulate. Options are: `tablet` and `phone`.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("deviceType", "tablet");
-caps.setCapability("sauce:options", sauceOptions);
-```
-
----
-### `deviceOrientation` or `orientation`
-<p><small>| STRING |</small></p>
-
-Specifies the physical orientation of the screen during the test. Valid values are `portrait` and `landscape`.
-
-:::important
-For virtual device mobile tests, the capability is `deviceOrientation`, but for real device tests, the capability is [`orientation`](#orientation) in order to distinguish between flipping the skin (virtual) vs. rotating the screen (real).
-:::
-
-```java title="Virtual Device Setting"
-"deviceOrientation": "portrait"
-```
-
-```java title="Real Device Setting"
-"orientation": "portrait"
+sauceOptions.setCapability("deviceType", "tablet");
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `otherApps`
 
-<p><small>| OPTIONAL <span className="sauceDBlue">Real Devices Only</span> | STRING or ARRAY |</small></p>
+<p><small>| OPTIONAL | STRING or LIST |<span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 A dependent app that has already been uploaded to [App Storage](/mobile-apps/app-storage) that will be pre-installed on the device under test for use during testing the main app. You can specify the app using its `storage:<fileId>` or `storage:filename=<filename>` reference.
 
@@ -583,85 +600,102 @@ Dependent apps inherit the configuration of the main app under test for [`Device
 Android-dependent apps will not be instrumented or modified. iOS-dependent apps will always be resigned/modified (even when resigning is disabled for the main app) because apps can't be installed on iOS devices without resigning them. If a dependent app cannot be resigned (such as a third party app), the test will not work as intended.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
 // Or for a single app by name
-sauceOptions.put("otherApps", "storage:filename=app0.apk");
+sauceOptions.setCapability("otherApps", "storage:filename=app0.apk");
 // Or for a single app by fileId
-sauceOptions.put("otherApps",  "storage:7435ab52-1eaa-4387-a67b-4d8e265f85");
+sauceOptions.setCapability("otherApps",  "storage:7435ab52-1eaa-4387-a67b-4d8e265f85");
 // Or for multiple apps by name
-sauceOptions.put("otherApps", ["storage:filename=app0.apk", "storage:filename=app1.apk"]);
+sauceOptions.setCapability("otherApps", ["storage:filename=app0.apk", "storage:filename=app1.apk"]);
 // Or for multiple apps by fileId
-sauceOptions.put("otherApps",  ["storage:7435ab52-1eaa-4387-a67b-4d8e265f8509","storage:9035342-f8ea-7687-a67b-4dd4365f8588"]);
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("otherApps",  ["storage:7435ab52-1eaa-4387-a67b-4d8e265f8509","storage:9035342-f8ea-7687-a67b-4dd4365f8588"]);
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `tabletOnly`
 
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 Use this capability to select only tablet devices for testing by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("tabletOnly", true);
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("tabletOnly", true);
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `phoneOnly`
 
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 Use this capability to select only phone devices by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("phoneOnly", true);
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("phoneOnly", true);
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `privateDevicesOnly`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 If your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("privateDevicesOnly", true);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
 
 ---
 
 ### `publicDevicesOnly`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 If your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("publicDevicesOnly", true);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
 
 ---
 
 ### `carrierConnectivityOnly`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> <span className="sauceDBlue">Private Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Private Devices Only</span> |</small></p>
 
 Use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("carrierConnectivityOnly", true);
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("carrierConnectivityOnly", true);
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
+
 ### `cacheId`
 
-<p><small>| RANDOMIZED STRING | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 Keeps a device allocated to you between test sessions, bypassing the device cleaning process and session exit that occurs by default after each test completes. Normally, you'd need to start over and reopen another device. You'll need to launch your next test **within 10 seconds** of your previous test ending to ensure that the same device will be allocated for the test (not cleaned or reset).
 
@@ -669,7 +703,7 @@ Keeps a device allocated to you between test sessions, bypassing the device clea
 **For Android:**
 If [`noReset`](#noreset) is also set to `true`, the app under test and its data will remain as-is on the device.
 
-**\*For iOS**
+**For iOS**
 Changing [`noReset`](#noreset) has no impact here. The app will not be removed, will stay on the phone/tablet and will keep it's state. This is caused by the re-signing process of the app.
 :::
 
@@ -692,46 +726,17 @@ Suitable for test setups that require the app's state to be reset between tests.
 We recommend reviewing [Device Management for Real Devices](/mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("cacheId", "Wou0L9usPI9v");
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("cacheId", "Wou0L9usPI9v");
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
-### `noReset`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
-
-Set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
-
-:::caution Known iOS Limitation
-On iOS devices, the `noReset` value is permanently set to `true` and cannot be overridden using `noReset:false`. If you check your Appium logs, you'll see that the value is `true`, even though the default setting technically is false. We've done this intentionally to ensure that your post-test iOS device cleaning process is optimal and secure.
-:::
-
-
----
-### `crosswalkApplication`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
-
-As described in [Appium Issue 4597](https://github.com/appium/appium/issues/4597) and [ChromeDriver Issue 2375613002](https://codereview.chromium.org/2375613002), mobile tests using Crosswalk will fail because because of attempts to connect to the wrong socket on the device. We've developed a patched version of ChromeDriver that will work with Crosswalk. You can specify to use this patched version with the `crosswalkApplication` capability.
-
----
-### `autoGrantPermissions`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> <span className="sauceDBlue">Android Only</span> |</small></p>
-
-By default, apps are installed on devices in the Sauce Labs real device cloud with autoGrantPermissions capability set to `true`. As long as the API number of the device is equal to 23 or higher, you can disable this by explicitly setting `autoGrantPermissions` to `false`.
-
----
-### `enableAnimations`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
-
-Use this capability to enable animations for real devices by setting it to `true`. By default, animations are disabled.
-
----
 ### `resigningEnabled`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Private Devices Only</span> |</small></p>
 
 Controls Sauce Labs default resigning (iOS) or instrumentation (Android) of mobile apps installed on our devices. By default, this property is always `true`, but it can be set to `false` for private devices to allow testing of specific behaviors that are not permitted under the Sauce Labs provisioning. See [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-resigning-enablements) for more information.
 
@@ -740,66 +745,66 @@ To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must 
 :::
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("resigningEnabled", true);
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("resigningEnabled", true);
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `sauceLabsImageInjectionEnabled`
 
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 Enables the [camera image injection](/mobile-apps/features/camera-image-injection) feature. [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("sauceLabsImageInjectionEnabled", true);
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("sauceLabsImageInjectionEnabled", true);
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `sauceLabsBypassScreenshotRestriction`
 
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Android Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Android Only</span> |</small></p>
 
 Bypasses the restriction on taking screenshots for secure screens (i.e., secure text entry). [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("sauceLabsBypassScreenshotRestriction", true);
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("sauceLabsBypassScreenshotRestriction", true);
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `allowTouchIdEnroll`
 
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 Enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability). [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("allowTouchIdEnroll", true);
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("allowTouchIdEnroll", true);
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `groupFolderRedirectEnabled`
 
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
 
 Enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.
 
@@ -807,16 +812,16 @@ Enables the use of the app's private app container directory instead of the shar
 
 ### `systemAlertsDelayEnabled`
 
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
 
 Delays system alerts, such as alerts asking for permission to access the camera, to prevent app crashes at startup. [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("systemAlertsDelayEnabled", true);
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("systemAlertsDelayEnabled", true);
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ## Desktop and Mobile Capabilities: Sauce-Specific – Optional
@@ -827,55 +832,55 @@ Optional Sauce Labs-specific capabilities that you can use for any Sauce Labs te
 
 ### `name`
 
-<p><small>| STRING |</small></p>
+<p><small>| OPTIONAL | STRING |</small></p>
 
 Records test names for jobs and make it easier to find individual tests.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("name", "You test name");
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("name", "You test name");
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `build`
 
-<p><small>| STRING |</small></p>
+<p><small>| OPTIONAL | STRING |</small></p>
 
 Associates multiple jobs with a build number or app version, which will then be displayed on both the **Test Results** dashboard and **Archive** view.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("build", "build-1234");
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("build", "build-1234");
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `tags`
 
-<p><small>| LIST |</small></p>
+<p><small>| OPTIONAL | LIST | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
 
 User-defined tags for grouping and filtering jobs on the **Test Results** dashboard and **Archive** view. Tags can facilitate team collaboration.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("tags", ["tag1","tag2","tag3"]);
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("tags", ["tag1","tag2","tag3"]);
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `username`
 
-<p><small>| STRING |</small></p>
+<p><small>| OPTIONAL | STRING |</small></p>
 
 Sets your Sauce Labs username for a test.
 
@@ -890,18 +895,18 @@ Good security practices include never putting credentials in plain text in your 
 :::
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `accessKey`
 
-<p><small>| STRING |</small></p>
+<p><small>| OPTIONAL | STRING |</small></p>
 
 Sets your Sauce Labs access key for the test.
 
@@ -916,34 +921,34 @@ Good security practices include never putting credentials in plain text in your 
 :::
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `custom-data`
 
-<p><small>| OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT | <span className="sauceDBlue">Desktop and Virtual Devices Only</span> |</small></p>
 
 User-defined custom data that will accept any valid JSON object, limited to 64KB in size.
 
 ```java
-"custom-data": {"release": "1.0",
-                "commit": "0k392a9dkjr",
-                "staging": true,
-                "execution_number": 5,
-                "server": "test.customer.com"}
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("custom-data", "{'release': '1.0','commit': '0k392a9dkjr','staging': true,'execution_number': 5,'server': ‘test.customer.com'}");
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `public`
 
-<p><small>| STRING | <span className="sauceDBlue">Desktop and Virtual Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Desktop and Virtual Devices Only</span> |</small></p>
 
 We support several test/job result visibility levels, which control who can view the test details. The visibility level for a test can be set manually from the test results page, but also programmatically when starting a test or with our REST API. For more information about sharing test results, see the topics under [Sharing the Results of Sauce Labs Tests](/test-results/sharing-test-results).
 
@@ -968,33 +973,40 @@ Available visibility modes are:
   - Only you (the owner) will be able to view assets and test results page.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("public", "team");
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("public", "team");
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `tunnelName`
-<p><small>| STRING | </small></p>
+<p><small>| OPTIONAL | STRING | </small></p>
 
 Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an app that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
 
 See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("tunnelName", "MyTunnel01");
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("tunnelName", "MyTunnel01");
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
-### `tunnelOwner`  
-<p><small>| STRING |</small></p>
+
+### `tunnelIdentifier`
+<p><small>| OPTIONAL | STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
+
+Specify a [Sauce Connect tunnel name](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) to establish connectivity with a Sauce Labs test platform. This is an alias for [tunnelName](#tunnelname).
+
+:::caution Deprecation notice
+`tunnelIdentifier` is being deprecated in favor of `tunnelName`.
+:::
 
 :::note Choose the Correct Tunnel Identifier
 The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
@@ -1003,92 +1015,122 @@ The value expected here is the value shown under the **Tunnel Name** column on t
 See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
 
 ```java
-"tunnelName": "MyTeamSharedTunnel"
-"tunnelOwner": "<username of tunnel originator>"
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("tunnelIdentifier", "MyTunnel01");
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 :::warning Breaking Change
 Appium tests for the Real Device Cloud using the W3C protocol MUST use `tunnelName` instead of `tunnelIdentifier`.
 :::
 
+### `tunnelOwner`  
+<p><small>| OPTIONAL | STRING |</small></p>
+
+:::note Choose the Correct Tunnel Identifier
+The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
+:::
+
+See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("tunnelName", "MyTunnel01");
+sauceOptions.setCapability("tunnelOwner", "<username of tunnel originator>");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
 ---
-### `tunnelIdentifier`
-<p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
 
-Please use [`tunnelName`](#tunnelname) to specify the Sauce Connect tunnel you wish to use for your test.
+### `parentTunnel`
+<p><small>| OPTIONAL | STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
 
+If the [tunnelName](#tunnelname) (or [tunnelIdentifier](#tunnelidentifier)) you've specified to establish connectivity with a Sauce Labs test platform is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test. This is an alias for [tunnelOwner](#tunnelowner).
 
+:::caution Deprecation notice
+`parentTunnel` is being deprecated in favor of `tunnelOwner`.
+:::
 
----
-### `parentTunnel`  
-<p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("tunnelIdentifier", "MyTunnel01");
+sauceOptions.setCapability("parentTunnel", "<username of tunnel originator>");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
 
-Please use [`tunnelOwner`](#tunnelowner) to identify the owner of a shared tunnel you're using for your test.
-
+:::warning Breaking Change
+Appium tests for the Real Device Cloud using the W3C protocol MUST use `tunnelName` instead of `tunnelIdentifier` **and** `tunnelOwner` instead of `parentTunnel`.
+:::
 
 ---
 
 ### `recordVideo`
-<p><small>| BOOLEAN |</small></p>
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Use this to disable video recording. By default, Sauce Labs records a video of every test you run. Disabling video recording can be useful for debugging failing tests as well as having a visual confirmation that a certain feature works (or still works). However, there is an added wait time for screen recording during a test run.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("recordVideo", false);
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("recordVideo", false);
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `videoUploadOnPass`
-<p><small>| BOOLEAN |</small></p>
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Disables video upload for passing tests. `videoUploadOnPass` is an alternative to `recordVideo`; it lets you discard videos for tests you've marked as passing. It disables video post-processing and uploading that may otherwise consume some extra time after your test is complete.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("videoUploadOnPass", false);
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("videoUploadOnPass", false);
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `recordScreenshots`
-<p><small>| BOOLEAN |</small></p>
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Disables step-by-step screenshots. In addition to capturing video, Sauce Labs captures step-by-step screenshots of every test you run. Most users find it very useful to get a quick overview of what happened without having to watch the complete video. However, this feature may add some extra time to your tests.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("recordScreenshots", false);
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("recordScreenshots", false);
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `recordLogs`
-<p><small>| BOOLEAN |</small></p>
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Disables log recording. By default, Sauce creates a log of all the actions that you execute to create a report for the test run that lets you troubleshoot test failures more easily. This option disables only the recording of the log.json file; the selenium-server.log will still be recorded.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("recordLogs", false);
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("recordLogs", false);
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 <br/>
 
-## Virtual Device Capabilities: Sauce-Specific – Optional
+## Desktop and Virtual Device Capabilities: Sauce-Specific – Optional
 
 The following are Sauce Labs-specific options that apply only to virtual devices (desktop sessions, emulators and simulators). These options can be added to the `sauce:options` block of your session creation code.
 
@@ -1096,7 +1138,7 @@ The following are Sauce Labs-specific options that apply only to virtual devices
 
 ### `maxDuration`
 
-<p><small>| INTEGER |</small></p>
+<p><small>| OPTIONAL | INTEGER | <span className="sauceDBlue">Desktop and Virtual Devices Only</span> |</small></p>
 
 Sets maximum test duration in seconds. As a safety measure to prevent tests from running indefinitely, the default is 1,800 seconds (30 minutes) and the maximum is 10,800 seconds (three hours).
 
@@ -1108,18 +1150,18 @@ We have a three-hour maximum in place to ease the transition of new users migrat
 :::
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("maxDuration", 1800);
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("maxDuration", 1800);
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `priority`
 
-<p><small>| INTEGER |</small></p>
+<p><small>| OPTIONAL | INTEGER | <span className="sauceDBlue">Desktop and Virtual Devices Only</span> |</small></p>
 
 Setting to prioritize jobs. If you have multiple new jobs waiting to start (i.e., across a collection of sub-accounts), jobs with a lower priority number take precedence over jobs with a higher number.
 
@@ -1128,18 +1170,18 @@ So, for example, if you have multiple jobs simultaneously waiting to start, we'l
 When we run out of available virtual machines, or when you hit your concurrency limit, any jobs not yet started will wait. Within each priority level, jobs that have been waiting the longest take precedence.
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("priority", 0);
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("priority", 0);
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `timeZone`
 
-<p><small>| STRING |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Desktop and Virtual Devices Only</span> |</small></p>
 
 Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
 
@@ -1160,16 +1202,18 @@ in the operating system. If you need to simulate the computer being in a differe
 :::
 
 ```java
-MutableCapabilities caps = new MutableCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.put("timeZone", "Los_Angeles");
-caps.setCapability("sauce:options", sauceOptions);
+sauceOptions.setCapability("timeZone", "Los_Angeles");
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### Pre-Run Executables
+
+<p><small>| OPTIONAL | <span className="sauceDBlue">Desktop and Virtual Devices Only</span> |</small></p>
 
 Pre-run executables have a primary key ([`prerun`](#prerun-primary-key)) and four secondary keys:
 
