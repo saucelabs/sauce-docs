@@ -594,7 +594,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | STRING or LIST |<span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-A dependent app that has already been uploaded to [App Storage](/mobile-apps/app-storage) that will be pre-installed on the device under test for use during testing the main app. You can specify the app using its `storage:<fileId>` or `storage:filename=<filename>` reference.
+A dependent app that has already been uploaded to [App Storage](/mobile-apps/app-storage) will be pre-installed on the device during the testing of the main app. You can specify the app using its `storage:<fileId>` or `storage:filename=<filename>` reference.
 
 Dependent apps inherit the configuration of the main app under test for [`Device Language`](https://app.saucelabs.com/live/app-testing#group-details), [`Device Orientation`](https://app.saucelabs.com/live/app-testing#group-details), and [`Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of what settings may have been applied to the app at the time of upload, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
 
