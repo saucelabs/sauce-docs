@@ -457,7 +457,7 @@ If you have an app you have uploaded to [Sauce storage](https://app.saucelabs.co
 Specifies the orientation of the screen during the test. Valid values are `PORTRAIT` and `LANDSCAPE`.
 
 :::important
-This capability is an Appium capability and needs to be pre-fixed with `appium:` so it becomes `appium:orientation`. It can be used for virtual device mobile tests **and** for real device tests. It will only flip the screen. The capability `deviceOrientation` will flip the skin **and** the screen, see [`deviceOrientation`](#deviceorientation) for more information.
+This capability is an Appium capability that needs to be pre-fixed with `appium:` so it becomes `appium:orientation`. It can be used for virtual device mobile tests and real device tests. The`appium:orientation` capability will only flip the screen while the capability `deviceOrientation` will flip the skin and the screen. See [`deviceOrientation`](#deviceorientation) for more information.
 :::
 
 ```java
