@@ -536,7 +536,7 @@ Optional, Sauce-specific capabilities that you can use in your Appium tests. The
 ### `deviceOrientation`
 <p><small>|OPTIONAL | STRING| <span className="sauceDBlue">Virtual Devices Only</span> |</small></p>
 
-Specifies the orientation of the virtual skin **and** screen during the test. Valid values are `PORTRAIT` and `LANDSCAPE`.
+Specifies the orientation of the virtual skin and screen during the test. Valid values are `PORTRAIT` and `LANDSCAPE`.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
