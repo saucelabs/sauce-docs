@@ -256,7 +256,7 @@ BacktraceClient.shared?.attributes = ["foo": "bar", "testing": true]
 <TabItem value="objc" label="Objective-C">
 
 ```objc
-BacktraceClient.shared.attributes = @{@"foo": @"bar", @"testing": YES};
+BacktraceClient.shared.attributes = @{@"foo": @"bar", @"testing": @YES};
 ```
 
 </TabItem>
@@ -292,7 +292,7 @@ BacktraceClient.shared?.attachments = crashAttachments
 NSString *fileName = @"myCustomFile.txt";
 NSURL *libraryUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSLibraryDirectory
          inDomains:NSUserDomainMask] lastObject];
-NSURL *fileUrl = [libraryUrl URLByAppendingPathComponent:fileName)];
+NSURL *fileUrl = [libraryUrl URLByAppendingPathComponent:fileName];
 
 BacktraceClient.shared.attachments = [NSArray arrayWithObjects:fileUrl, nil];
 ```
