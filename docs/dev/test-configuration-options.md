@@ -311,6 +311,30 @@ You cannot set screen resolution on Windows 7 with IE 9.
 "screenResolution": "1280x1024"
 ```
 
+---
+
+### `commandTimeout`
+
+<p><small>| INTEGER |</small></p>
+
+Sets command timeout in seconds. As a safety measure to prevent Selenium crashes from making your tests run indefinitely, we limit how long Selenium can take to run a command in our browsers. This is set to 300 seconds by default. The maximum command timeout value allowed is 600 seconds.
+
+```java
+"commandTimeout": 300
+```
+
+---
+
+### `idleTimeout`
+
+<p><small>| INTEGER |</small></p>
+
+Sets idle test timeout in seconds. As a safety measure to prevent tests from running too long after something has gone wrong, we limit how long a browser can wait for a test to send a new command. This is set to 90 seconds by default and limited to a maximum value of 1000 seconds.
+
+```java
+"idleTimeout": 90
+```
+
 ## Mobile Appium Capabilities
 
 Sauce Labs encourages adoption of the W3C WebDriver protocol for your Appium mobile app tests, but continues to support JSON Wire Protocol (JWP) in all currently supported Appium 1.X versions (Appium 2.0 will deprecate support for JWP).
@@ -454,7 +478,48 @@ This capability is an Appium capability and needs to be pre-fixed with `appium:`
 
 ---
 
-:::important
+### `noReset`
+
+<p><small>| BOOLEAN | <span className="sauceDBlue">For Virtual and Real Devices</span> |</small></p>
+
+**For Virtual Devices:**
+Set `noReset` to `true` when you execute multiple tests on a single virtual device to keep the state it is in between tests.
+
+**For Real Devices:**
+Set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
+
+**Specifics for Android Virtual and Real Devices:**
+If set to `true` it does:
+- not stop the app after a test/session, 
+- not clear app data between tests/sessions, 
+- not uninstall apk after a test/session
+
+**Specifics for iOS Virtual:**
+If set to `true` it does:
+- not stop the app after a test/session, 
+- not clear app data between tests/sessions, 
+- not uninstall apk after a test/session
+
+**Specifics for iOS Real Devices:**
+On iOS devices, the `noReset` value is permanently set to `true` and cannot be overridden using `noReset:false`. If you check your Appium logs, you'll see that the value is `true`, even though the default setting technically is false. We've done this intentionally to ensure that your post-test iOS device cleaning process is optimal and secure.
+
+```java
+"appium:noReset", true
+```
+
+---
+
+### `newCommandTimeout`
+
+<p><small>| DURATION | <span className="sauceDBlue">For Virtual and Real Devices</span> |</small></p>
+
+Sets the amount of time, in seconds, a test can wait for the next command to execute on a real device before timing out. The default value is 60 seconds and the maximum allowed value is **not** limited for Virtual devices and **is** limited to 90 seconds for Real Devices.
+
+```java
+"appium:newCommandTimeout": 90
+```
+
+## More Appium specific capabilities
 There are more Appium specific capabilities which are specific for each Appium Driver. They can be found here
 
 - **Android**
@@ -463,7 +528,7 @@ There are more Appium specific capabilities which are specific for each Appium D
 - **iOS**
   - [XCUITest-Driver](https://github.com/appium/appium-xcuitest-driver#capabilities)
 - [Flutter-Driver (Android and iOS)](https://github.com/appium-userland/appium-flutter-driver#desired-capabilities-for-flutter-driver-only)
-  :::
+
 
 ## Mobile App Appium Capabilities: Sauce-Specific – Optional
 
@@ -482,8 +547,11 @@ Sauce Labs waits a week following new Appium releases before setting them as the
 :::
 
 ```java
-Map<String, Object> sauceOptions = new HashMap<>();
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.put("appiumVersion", "1.22.0");
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 #### Check on which Appium version your test ran:
@@ -503,8 +571,11 @@ sauceOptions.put("appiumVersion", "1.22.0");
 Specifies the type of device type to emulate. Options are: `tablet` and `phone`.
 
 ```java
-Map<String, Object> sauceOptions = new HashMap<>();
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.put("deviceType", "tablet");
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
@@ -519,8 +590,11 @@ For virtual device mobile tests, the capability is `deviceOrientation`, but for 
 :::
 
 ```java
-Map<String, Object> sauceOptions = new HashMap<>();
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.put("deviceOrientation", "PORTRAIT");
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
@@ -536,7 +610,9 @@ Dependent apps inherit the configuration of the main app under test for [`Device
 Android-dependent apps will not be instrumented or modified. iOS-dependent apps will always be resigned/modified (even when resigning is disabled for the main app) because apps can't be installed on iOS devices without resigning them. If a dependent app cannot be resigned (such as a third party app), the test will not work as intended.
 
 ```java
-Map<String, Object> sauceOptions = new HashMap<>();
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
 // Or for a single app by name
 sauceOptions.put("otherApps", "storage:filename=app0.apk");
 // Or for a single app by fileId
@@ -545,6 +621,7 @@ sauceOptions.put("otherApps",  "storage:7435ab52-1eaa-4387-a67b-4d8e265f85");
 sauceOptions.put("otherApps", ["storage:filename=app0.apk", "storage:filename=app1.apk"]);
 // Or for multiple apps by fileId
 sauceOptions.put("otherApps",  ["storage:7435ab52-1eaa-4387-a67b-4d8e265f8509","storage:9035342-f8ea-7687-a67b-4dd4365f8588"]);
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
@@ -555,13 +632,29 @@ sauceOptions.put("otherApps",  ["storage:7435ab52-1eaa-4387-a67b-4d8e265f8509","
 
 Use this capability to select only tablet devices for testing by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
 
+```java
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("tabletOnly", true);
+caps.setCapability("sauce:options", sauceOptions);
+```
+
 ---
 
 ### `phoneOnly`
 
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Use this capability to select only phone devices by setting it to `"true"`. For **_Dynamic Allocation_**.
+Use this capability to select only phone devices by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
+
+```java
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("phoneOnly", true);
+caps.setCapability("sauce:options", sauceOptions);
+```
 
 ---
 
@@ -571,6 +664,14 @@ Use this capability to select only phone devices by setting it to `"true"`. For 
 
 If your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
 
+```java
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("privateDevicesOnly", true);
+caps.setCapability("sauce:options", sauceOptions);
+```
+
 ---
 
 ### `publicDevicesOnly`
@@ -578,6 +679,14 @@ If your pricing plan includes both private and public devices, use this capabili
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 If your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
+
+```java
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("publicDevicesOnly", true);
+caps.setCapability("sauce:options", sauceOptions);
+```
 
 ---
 
@@ -587,79 +696,55 @@ If your pricing plan includes both private and public devices, use this capabili
 
 Use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
 
+```java
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("carrierConnectivityOnly", true);
+caps.setCapability("sauce:options", sauceOptions);
+```
+
 ---
 
 ### `cacheId`
 
 <p><small>| RANDOMIZED STRING | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Keeps a device allocated to you between test sessions, bypassing the device cleaning process and session exit that occurs by default after each test completes. Normally, you'd need to start over and reopen another device. You'll need to launch your next test within 10 seconds of your previous test ending to ensure that the same device will be allocated for the test (not cleaned or reset).
+Keeps a device allocated to you between test sessions, bypassing the device cleaning process and session exit that occurs by default after each test completes. Normally, you'd need to start over and reopen another device. You'll need to launch your next test **within 10 seconds** of your previous test ending to ensure that the same device will be allocated for the test (not cleaned or reset).
 
+:::note
+**For Android:**
 If [`noReset`](#noreset) is also set to `true`, the app under test and its data will remain as-is on the device.
+
+**\*For iOS**
+Changing [`noReset`](#noreset) has no impact here. The app will not be removed, will stay on the phone/tablet and will keep it's state. This is caused by the re-signing process of the app.
+:::
 
 If you are running multiple test suites in parallel, the values for `cacheId` should be unique for each suite (to avoid mixing up the devices), and the value for `cacheId` must be the same for all test methods that you want to run on the cached device. In addition, the app and project ID used for the tests must remain the same, along with the values for these capabilities:
 
-- `deviceName`
 - `platformName`
-- `platformVersion`
+- `appium:deviceName`
+- `appium:platformVersion`
+- `appium:autoGrantPermissions`
+
+and specific `sauce:options` like:
+
 - `tabletOnly`
 - `phoneOnly`
 - `privateDevicesOnly`
-- `automationName`
-- `autoGrantPermissions`
 - `appiumVersion`
 
 Suitable for test setups that require the app's state to be reset between tests. Can be used for both [**static allocation and dynamic allocation**](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation).
 
 We recommend reviewing [Device Management for Real Devices](/mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
----
-
-### `newCommandTimeout`
-
-<p><small>| DURATION | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
-
-Sets the amount of time, in seconds, a test can wait for the next command to execute on a real device before timing out. The default value is 60 seconds and the maximum allowed value is 90 seconds.
-
 ```java
-"newCommandTimeout": 90
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("cacheId", "Wou0L9usPI9v");
+caps.setCapability("sauce:options", sauceOptions);
 ```
-
----
-
-### `noReset`
-
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
-
-Set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
-
-:::caution Known iOS Limitation
-On iOS devices, the `noReset` value is permanently set to `true` and cannot be overridden using `noReset:false`. If you check your Appium logs, you'll see that the value is `true`, even though the default setting technically is false. We've done this intentionally to ensure that your post-test iOS device cleaning process is optimal and secure.
-:::
-
----
-
-### `crosswalkApplication`
-
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
-
-As described in [Appium Issue 4597](https://github.com/appium/appium/issues/4597) and [ChromeDriver Issue 2375613002](https://codereview.chromium.org/2375613002), mobile tests using Crosswalk will fail because because of attempts to connect to the wrong socket on the device. We've developed a patched version of ChromeDriver that will work with Crosswalk. You can specify to use this patched version with the `crosswalkApplication` capability.
-
----
-
-### `autoGrantPermissions`
-
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> <span className="sauceDBlue">Android Only</span> |</small></p>
-
-By default, apps are installed on devices in the Sauce Labs real device cloud with autoGrantPermissions capability set to `true`. As long as the API number of the device is equal to 23 or higher, you can disable this by explicitly setting `autoGrantPermissions` to `false`.
-
----
-
-### `enableAnimations`
-
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
-
-Use this capability to enable animations for real devices by setting it to `true`. By default, animations are disabled.
 
 ---
 
@@ -673,13 +758,29 @@ Controls Sauce Labs default resigning (iOS) or instrumentation (Android) of mobi
 To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must sign the \*.apk using its own signature. In such cases, Sauce Labs signs both the `app` and `testApp` to ensure matching signatures, even if this capability is set to `false`. Otherwise, the app installation will fail.
 :::
 
+```java
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("resigningEnabled", true);
+caps.setCapability("sauce:options", sauceOptions);
+```
+
 ---
 
 ### `sauceLabsImageInjectionEnabled`
 
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Enables the [camera image injection](/mobile-apps/features/camera-image-injection) feature.
+Enables the [camera image injection](/mobile-apps/features/camera-image-injection) feature. [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
+
+```java
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("sauceLabsImageInjectionEnabled", true);
+caps.setCapability("sauce:options", sauceOptions);
+```
 
 ---
 
@@ -687,7 +788,15 @@ Enables the [camera image injection](/mobile-apps/features/camera-image-injectio
 
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Android Only</span> |</small></p>
 
-Bypasses the restriction on taking screenshots for secure screens (i.e., secure text entry).
+Bypasses the restriction on taking screenshots for secure screens (i.e., secure text entry). [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
+
+```java
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("sauceLabsBypassScreenshotRestriction", true);
+caps.setCapability("sauce:options", sauceOptions);
+```
 
 ---
 
@@ -695,7 +804,15 @@ Bypasses the restriction on taking screenshots for secure screens (i.e., secure 
 
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability).Z
+Enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability). [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
+
+```java
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("allowTouchIdEnroll", true);
+caps.setCapability("sauce:options", sauceOptions);
+```
 
 ---
 
@@ -703,7 +820,15 @@ Enables the interception of biometric input, allowing the test to simulate Touch
 
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
 
-Enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.
+Enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible. [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
+
+```java
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("groupFolderRedirectEnabled", true);
+caps.setCapability("sauce:options", sauceOptions);
+```
 
 ---
 
@@ -711,9 +836,15 @@ Enables the use of the app's private app container directory instead of the shar
 
 <p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
 
-Delays system alerts, such as alerts asking for permission to access the camera, to prevent app crashes at startup.
+Delays system alerts, such as alerts asking for permission to access the camera, to prevent app crashes at startup. [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
 
-<br/>
+```java
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("systemAlertsDelayEnabled", true);
+caps.setCapability("sauce:options", sauceOptions);
+```
 
 ## Desktop and Mobile Capabilities: Sauce-Specific – Optional
 
@@ -728,7 +859,11 @@ Optional Sauce Labs-specific capabilities that you can use for any Sauce Labs te
 Records test names for jobs and make it easier to find individual tests.
 
 ```java
-"name": "my example name"
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("name", "You test name");
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
@@ -740,7 +875,11 @@ Records test names for jobs and make it easier to find individual tests.
 Associates multiple jobs with a build number or app version, which will then be displayed on both the **Test Results** dashboard and **Archive** view.
 
 ```java
-"build": "build-1234"
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("build", "build-1234");
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
@@ -752,7 +891,11 @@ Associates multiple jobs with a build number or app version, which will then be 
 User-defined tags for grouping and filtering jobs on the **Test Results** dashboard and **Archive** view. Tags can facilitate team collaboration.
 
 ```java
-"tags": ["tag1","tag2","tag3"]
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("tags", ["tag1","tag2","tag3"]);
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
@@ -773,8 +916,12 @@ You can find your `username` value under **Account** > **User Settings**.
 Good security practices include never putting credentials in plain text in your code. We highly encourage you to reference this value from an Environment Variable and [Set Environment Variables for Authentication](/basics/environment-variables/) on every machine that executes your code. The example below is in JavaScript.
 :::
 
-```js
-"username": process.env.SAUCE_USERNAME
+```java
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
@@ -795,8 +942,12 @@ You can find your `accessKey` value under **Account** > **User Settings**.
 Good security practices include never putting credentials in plain text in your code. We highly encourage you to reference this value from an Environment Variable and [Set Environment Variables for Authentication](/basics/environment-variables/) on every machine that executes your code. The example below is in JavaScript.
 :::
 
-```js
-"accessKey": process.env.SAUCE_ACCESS_KEY
+```java
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
@@ -819,7 +970,7 @@ User-defined custom data that will accept any valid JSON object, limited to 64KB
 
 ### `public`
 
-<p><small>| STRING |</small></p>
+<p><small>| STRING | <span className="sauceDBlue">Desktop and Virtual Devices Only</span> |</small></p>
 
 We support several test/job result visibility levels, which control who can view the test details. The visibility level for a test can be set manually from the test results page, but also programmatically when starting a test or with our REST API. For more information about sharing test results, see the topics under [Sharing the Results of Sauce Labs Tests](/test-results/sharing-test-results).
 
@@ -844,7 +995,11 @@ Available visibility modes are:
   - Only you (the owner) will be able to view assets and test results page.
 
 ```java
-"public": "team"
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("public", "team");
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
@@ -858,7 +1013,11 @@ Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish
 See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information.
 
 ```java
-"tunnelName": "MyTunnel01"
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("tunnelName", "MyTunnel01");
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
@@ -872,8 +1031,12 @@ If the [tunnelName](#tunnelname) you've specified to establish connectivity with
 See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
 
 ```java
-"tunnelName": "MyTeamSharedTunnel"
-"tunnelOwner": "<username of tunnel originator>"
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("tunnelName", "MyTeamSharedTunnel");
+sauceOptions.put("tunnelOwner", "<username of tunnel originator>");
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
@@ -882,7 +1045,7 @@ See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/b
 
 <p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
 
-Please use [`tunnelName`](#tunnelname) to specify the Sauce Connect tunnel you wish to use for your test.
+Deprecated, please use [`tunnelName`](#tunnelname) to specify the Sauce Connect tunnel you wish to use for your test.
 
 ---
 
@@ -890,54 +1053,70 @@ Please use [`tunnelName`](#tunnelname) to specify the Sauce Connect tunnel you w
 
 <p><small>| STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
 
-Please use [`tunnelOwner`](#tunnelowner) to identify the owner of a shared tunnel you're using for your test.
+Deprecated, please use [`tunnelOwner`](#tunnelowner) to identify the owner of a shared tunnel you're using for your test.
 
 ---
 
 ### `recordVideo`
 
-<p><small>| BOOLEAN |</small></p>
+<p><small>| BOOLEAN | <span className="sauceDBlue">Desktop and Virtual Devices Only |</small></p>
 
 Use this to disable video recording. By default, Sauce Labs records a video of every test you run. Disabling video recording can be useful for debugging failing tests as well as having a visual confirmation that a certain feature works (or still works). However, there is an added wait time for screen recording during a test run.
 
 ```java
-"recordVideo": false
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("recordVideo", false);
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `videoUploadOnPass`
 
-<p><small>| BOOLEAN |</small></p>
+<p><small>| BOOLEAN | <span className="sauceDBlue">Desktop and Virtual Devices Only |</small></p>
 
 Disables video upload for passing tests. `videoUploadOnPass` is an alternative to `recordVideo`; it lets you discard videos for tests you've marked as passing. It disables video post-processing and uploading that may otherwise consume some extra time after your test is complete.
 
 ```java
-"videoUploadOnPass": false
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("videoUploadOnPass", false);
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `recordScreenshots`
 
-<p><small>| BOOLEAN |</small></p>
+<p><small>| BOOLEAN | <span className="sauceDBlue">Desktop and Virtual Devices Only |</small></p>
 
 Disables step-by-step screenshots. In addition to capturing video, Sauce Labs captures step-by-step screenshots of every test you run. Most users find it very useful to get a quick overview of what happened without having to watch the complete video. However, this feature may add some extra time to your tests.
 
 ```java
-"recordScreenshots": false
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("recordScreenshots", false);
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
 ### `recordLogs`
 
-<p><small>| BOOLEAN |</small></p>
+<p><small>| BOOLEAN | <span className="sauceDBlue">Desktop and Virtual Devices Only |</small></p>
 
 Disables log recording. By default, Sauce creates a log of all the actions that you execute to create a report for the test run that lets you troubleshoot test failures more easily. This option disables only the recording of the log.json file; the selenium-server.log will still be recorded.
 
 ```java
-"recordLogs": false
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("recordLogs", false);
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 <br/>
@@ -962,31 +1141,11 @@ We have a three-hour maximum in place to ease the transition of new users migrat
 :::
 
 ```java
-"maxDuration": 1800
-```
-
----
-
-### `commandTimeout`
-
-<p><small>| INTEGER |</small></p>
-
-Sets command timeout in seconds. As a safety measure to prevent Selenium crashes from making your tests run indefinitely, we limit how long Selenium can take to run a command in our browsers. This is set to 300 seconds by default. The maximum command timeout value allowed is 600 seconds.
-
-```java
-"commandTimeout": 300
-```
-
----
-
-### `idleTimeout`
-
-<p><small>| INTEGER |</small></p>
-
-Sets idle test timeout in seconds. As a safety measure to prevent tests from running too long after something has gone wrong, we limit how long a browser can wait for a test to send a new command. This is set to 90 seconds by default and limited to a maximum value of 1000 seconds.
-
-```java
-"idleTimeout": 90
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("maxDuration", 1800);
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
@@ -1002,7 +1161,11 @@ So, for example, if you have multiple jobs simultaneously waiting to start, we'l
 When we run out of available virtual machines, or when you hit your concurrency limit, any jobs not yet started will wait. Within each priority level, jobs that have been waiting the longest take precedence.
 
 ```java
-"priority": 0
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("priority", 0);
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
@@ -1014,8 +1177,8 @@ When we run out of available virtual machines, or when you hit your concurrency 
 Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
 
 - **For Desktop VMs**: can be configured with custom time zones. This feature should work on all operating systems, however, time zones on Windows VMs are approximate. The time zone defaults to UTC. Look for the "principal cities" examples on this [list of UTC time offsets](https://en.wikipedia.org/wiki/List_of_UTC_time_offsets).
-- **For iOS Devices**: you can use this capability to change the time on the Mac OS X VM, which will be picked up by the iOS simulator.
-- **For Android Devices**: this capability is not supported for Android devices, but for Android 7.2 or later, there is a workaround. Use the following ADB command to grant Appium notification read permission in order to use the time zone capability:
+- **For iOS Virtual Devices**: you can use this capability to change the time on the Mac OS X VM, which will be picked up by the iOS simulator.
+- **For Android Virtual Devices**: this capability is not supported for Android devices, but for Android 7.2 or later, there is a workaround. Use the following ADB command to grant Appium notification read permission in order to use the time zone capability:
 
 ```java
 adb shell cmd notification allow_listener
@@ -1027,16 +1190,19 @@ io.appium.settings/io.appium.settings.NLService
 :::note
 Most web apps serve localization content based on the computer's IP Address, not the time zone set
 in the operating system. If you need to simulate the computer being in a different location, you may need to set up a proxy.
-
 :::
 
 ```java
-"timeZone": "Los_Angeles", "timeZone": "New_York", "timeZone": "Honolulu", "timeZone": "Alaska"
+MutableCapabilities caps = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.put("timeZone", "Los_Angeles");
+caps.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
-#### Pre-Run Executables
+### Pre-Run Executables
 
 Pre-run executables have a primary key ([`prerun`](#prerun-primary-key)) and four secondary keys:
 
@@ -1052,7 +1218,7 @@ Read the descriptions of each key below the example.
          "executable": "http://url.to/your/executable.exe",
 ```
 
-### `prerun` (primary key)
+#### `prerun` (primary key)
 
 Use this to define pre-run executables. You can provide a URL to an executable file, which will be downloaded and executed to configure the VM before the test starts. For faster performance, you may want to upload the executable to your [Sauce Apps Storage](/mobile-apps/app-storage) space. This capability takes a JSON object with four main keys. See [Using Pre-Run Executables to Configure Browsers and VMs](/web-apps/automated-testing/selenium/pre-run-executables) for more information.
 
@@ -1060,13 +1226,13 @@ Use this to define pre-run executables. You can provide a URL to an executable f
 - Using Multiple Pre-Run Executables: If you need to send multiple pre-run executables, the best way is to bundle them into a single executable file, such as a self-extracting zip file.
 - Sending a Single String Instead of JSON: If a single string is sent as the pre-run capability rather than a JSON object, this string is considered to be the URL to the executable, and the executable launches with background set to `false`.
 
-### `executable` (secondary key)
+#### `executable` (secondary key)
 
 <p><small>| STRING |</small></p>
 
 Provide the URL to the executable you want to run before your browser session starts.
 
-### `args` (secondary key)
+#### `args` (secondary key)
 
 <p><small>| LIST |</small></p>
 
@@ -1076,13 +1242,13 @@ Lists the command line parameters that you want the executable to receive. Valid
 - `-a`: Add switches to the command line of the underlying setup.exe process.
 - `-q`: Like `--silent`, installs the script without raising any dialogs.
 
-### `background` (secondary key)
+#### `background` (secondary key)
 
 <p><small>| BOOLEAN |</small></p>
 
 Defines whether Sauce should wait for this executable to finish before your browser session starts. This setting overrides the values set by [`timeout`](#timeout-secondary-key).
 
-### `timeout` (secondary key)
+#### `timeout` (secondary key)
 
 <p><small>| INTEGER |</small></p>
 
