@@ -445,7 +445,7 @@ capabilities.setCapability("appium:app", "storage:filename=my_app.zip");
 ```
 
 :::tip Using Storage Id
-If you have an app you have uploaded to [Sauce storage](https://app.saucelabs.com/live/app-testing), you can also set the `app` capability to `"storage:xxxxxxxxx-xxxxxxx-xxx"` and enter the **FILE ID** for your app. This allows you to set which specific version you uploaded, otherwise if you use the file name, it will use the latest one uploaded with the exact same name.
+If your app has been uploaded to [Sauce storage](https://app.saucelabs.com/live/app-testing), you can set the `app` capability to `"storage:xxxxxxxxx-xxxxxxx-xxx"` and enter the **FILE ID** for your app. This allows you to set which specific version you uploaded. Otherwise, if you use the file name it will select the latest version uploaded with the exact same name.
 :::
 
 ---
