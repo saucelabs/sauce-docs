@@ -698,7 +698,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Keeps a device allocated to you between test sessions, bypassing the device cleaning process and session exit that occurs by default after each test completes. Normally, you'd need to start over and reopen another device. You'll need to launch your next test **within 10 seconds** of your previous test ending to ensure that the same device will be allocated for the test (not cleaned or reset).
+Keeps a device allocated to you between test sessions, bypassing the device cleaning process and session exit that occurs by default after each test completes. Normally, you'd need to start over and reopen another device. You'll need to launch your next test within 10 seconds of your previous test ending to ensure that the same device will be allocated for the test (not cleaned or reset).
 
 :::note
 **For Android:**
