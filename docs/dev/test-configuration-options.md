@@ -482,17 +482,17 @@ Set `noReset` to `true` to keep a device allocated to you during the device clea
 **Specifics for Android Virtual and Real Devices:**
 
 
-If set to `true` it does:
-- not stop the app after a test/session, 
-- not clear app data between tests/sessions, 
-- not uninstall apk after a test/session
+If `noReset` is set to `true`:
+* The app does not stop after a test/session.
+* The app data will not be cleared between tests/sessions.
+* Apk will not be uninstalled after a test/session.
 
 **Specifics for iOS Virtual:**
 
-If set to `true` it does:
-- not stop the app after a test/session, 
-- not clear app data between tests/sessions, 
-- not uninstall apk after a test/session
+If `noReset` set to `true`:
+* The app will not stop after a test/session.
+* The app will not clear between tests/sessions.
+* Apk will not be uninstalled after a test/session.
 
 **Specifics for iOS Real Devices:**
 
