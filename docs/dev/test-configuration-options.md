@@ -391,12 +391,12 @@ capabilities.setCapability("appium:deviceName", "iPhone XS Simulator");
 Allows you to set the automation engine that will be used.
 Possible values are:
 
-- **Emulators / Simulators:**
-  - **Android:** `UiAutomator2`, `Espresso`, `Flutter`
-  - **iOS:** `XCUITest`, `Flutter`
-- **Real Devices**
-  - **Android:** `UiAutomator2`
-  - **iOS:** `XCUITest`
+ **Emulators / Simulators:**
+ * **Android:** `UiAutomator2`, `Espresso`, `Flutter`
+ * **iOS:** `XCUITest`, `Flutter`
+**Real Devices**
+  * **Android:** `UiAutomator2`
+  * **iOS:** `XCUITest`
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
