@@ -193,7 +193,7 @@ No, there are no inspection tools. We recommend using [Appium Desktop](https://g
 
 #### **Can I change the orientation of the device screen during a test?**
 
-Yes.  For automated tests this can be done with a command (in Java, it would be: driver.setOrientation(orientation)).  For manual tests, click rotate device.
+Yes. For automated tests this can be done with a command (in Java, it would be: `driver.setOrientation(orientation)`). For manual tests, click Rotate Device.
 
 
 #### **Do you support code coverage reports by JaCoCo?**
@@ -203,7 +203,7 @@ No.
 
 #### **Can I change the geolocation of a device?**
 
-Yes. In Java, it can be done with the command: driver.setLocation(long, lat).
+Yes. In Java, it can be done with the `driver.setLocation(long, lat)` command.
 
 
 #### **Can I change the device’s time and date?**

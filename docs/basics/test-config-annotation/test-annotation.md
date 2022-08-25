@@ -2,6 +2,10 @@
 id: test-annotation
 title: Test Annotation
 sidebar_label: Test Annotation
+keywords: 
+    - update RDC job
+    - update real device
+    - update device job
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -16,7 +20,9 @@ export const Highlight = ({children, color}) => ( <span style={{
     }}>{children}</span> );
 
 
-Test annotation refers to adding information to your tests after they have completed, such as setting a name, build number, tag, and Pass/Fail status. These annotations are useful for managing your tests and builds (for example, when searching and sorting tests in your [Archives](/test-results/archived-test-results)). You can add annotations with our [REST API](/basics/test-config-annotation/test-annotation) or the [Selenium JavaScript Executor](/basics/test-config-annotation/test-annotation). You can also use [sample test frameworks](https://github.com/saucelabs-training) to automatically add annotations to your tests.
+Test annotation refers to adding information to your tests, such as a name, build number, tag, and pass/fail status. These annotations are useful for managing your tests and builds (for example, when searching and sorting tests in your [Archives](/test-results/archived-test-results)). 
+
+You can add annotations after test execution with our [REST API](/basics/test-config-annotation/test-annotation/#sauce-labs-rest-api) or during test execution with the [Selenium JavaScript Executor](/basics/test-config-annotation/test-annotation/#selenium-javascript-executor). You can also use [sample test frameworks](https://github.com/saucelabs-training) to automatically add annotations to your tests.
 
 ## What You'll Need
 
@@ -149,10 +155,19 @@ public class TextInputTest extends TestBase {
     }
 ```
 ## Sauce Labs REST API
-You can manage your tests more effectively from your Dashboard and Archives with annotations. The Sauce Labs REST API includes an [update_job](/dev/api/jobs) method that you can use to set a name, tags, pass/fail status, and custom data for your test after it runs. To automate test annotation with this method, you'll want to create a simple set of functions to perform the put request for you. We've developed a [Java library](https://github.com/saucelabs/saucerest-java) to do just that, with examples for [Python](https://gist.github.com/1644439) and [Ruby](https://gist.github.com/DylanLacey/5218959) on GitHub.
+<p><span className="sauceDBlue">Virtual Devices Only</span></p>
 
-:::note
-Adding Pass/Fail Status and Build Numbers to Test Results with Frameworks<br/>
+You can manage your tests more effectively from your Dashboard and Archives with annotations. The Sauce Labs REST API includes an [update_job](/dev/api/jobs/#update-a-job) method that you can use to set a name, tags, pass/fail status, and custom data for your test after it runs. To automate test annotation with this method, you'll want to create a simple set of functions to perform the put request for you.
+
+<details><summary>Sauce Labs REST API Examples</summary>
+
+- [Java](https://github.com/saucelabs/saucerest-java)
+- [Python](https://gist.github.com/1644439)
+- [Ruby](https://gist.github.com/DylanLacey/5218959)
+
+</details>
+
+:::note Adding Pass/Fail Status and Build Numbers to Test Results with Frameworks
 In addition to using the REST API to set these annotations once your test completes, you can use [one of the Sauce Labs test framework examples](https://github.com/saucelabs-training) to set these and other annotations for you automatically as part of the test execution.
 :::
 
