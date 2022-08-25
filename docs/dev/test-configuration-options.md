@@ -592,7 +592,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `otherApps`
 
-<p><small>| OPTIONAL | STRING or LIST |<span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING or LIST | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 A dependent app that has already been uploaded to [App Storage](/mobile-apps/app-storage) will be pre-installed on the device during the testing of the main app. You can specify the app using its `storage:<fileId>` or `storage:filename=<filename>` reference.
 
