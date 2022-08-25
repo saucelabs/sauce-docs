@@ -16,6 +16,7 @@ hs_err_pid*
 
 # node_modules
 **/node_modules
+yarn.lock
 
 # Optional npm cache directory
 **/.npm
