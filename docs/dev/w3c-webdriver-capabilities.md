@@ -66,6 +66,8 @@ To ensure W3C WebDriver compatibility:
   - `tags`
   - `timeZone`
   - `tunnelIdentifier`
+  - `tunnelName`
+  - `tunnelOwner`
   - `username`
   - `videoUploadOnPass`
 
