@@ -35,10 +35,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ### System Requirements
 * Xcode 10 or above
-* [CocoaPods](https://cocoapods.org/)
 
 ## Install the SDK
-Use CocoaPods to install the [latest version](https://github.com/backtrace-labs/backtrace-cocoa/releases) of the reporting library. To use CocoaPods, add the following to your `Podfile`:
+Use [CocoaPods](https://cocoapods.org/) to install the latest version of the reporting library. To use CocoaPods, add the [Backtrace pod](https://cocoapods.org/pods/Backtrace) to your `Podfile`:
 
 ```
 pod 'Backtrace'
