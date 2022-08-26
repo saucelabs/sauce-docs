@@ -84,6 +84,11 @@ This is dedicated pool of devices just for your organization. On the mobile devi
 * You need specific settings which are set on the devices all the time.
 * You need to establish a secure [IPSec VPN connection](/secure-connections/ipsec-vpn) between your network and the Sauce Labs cloud.
 
+#### Allowlisting Apps and Accounts
+* Apps installed on the private device can be selected, by name, to be preserved between sessions. These apps and their data will not be cleaned.
+* Google accounts signed into the Play Store can be preserved between sessions.
+* Apple IDs signed in to the device and App Store can be preserved between sessions.
+
 ### System Requirements
 
 | | iOS Mobile Apps | Android Mobile Apps |
@@ -114,11 +119,6 @@ While we take these actions to clean public real devices after each test session
 :::caution
 If you test a Progressive Web Application (PWA) and install it on the home screen of the device, make sure that you remove the PWA manually before you close your session. At the moment we can’t remove the PWA and its data during our cleaning process.
 :::
-
-#### Allowlisting Apps and Accounts
-* Apps installed on the real device can be selected, by name, to be preserved between sessions. These apps and their data will not be cleaned.
-* Google accounts signed into the Play Store can be preserved between sessions.
-* Apple IDs signed in to the device and App Store can be preserved between sessions.
 
 #### Data Center Security
 
