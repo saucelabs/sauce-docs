@@ -369,6 +369,7 @@ module.exports = {
       collapsed: true,
       items: [
         'error-reporting/getting-started',
+        'error-reporting/whats-new',
         {
           type: 'category',
           label: 'Platform Integrations',
@@ -425,7 +426,7 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'View and Analyze Error and Crash Data',
+          label: 'Web Console Views',
           collapsed: true,
           items: [
             'error-reporting/web-console/getting-started',
@@ -867,7 +868,16 @@ module.exports = {
             items: [
               'web-apps/automated-testing/cypress',
               'web-apps/automated-testing/cypress/quickstart',
-              'web-apps/automated-testing/cypress/yaml',
+              {
+                type: 'category',
+                label: 'YAML Configuration',
+                link: { type: 'doc', id: 'web-apps/automated-testing/cypress/yaml' },
+                collapsed: true,
+                items: [
+                  'web-apps/automated-testing/cypress/yaml/v1',
+                  'web-apps/automated-testing/cypress/yaml/v1alpha',
+                ],
+              },
               'web-apps/automated-testing/cypress/advanced',
             ],
           },
@@ -904,6 +914,17 @@ module.exports = {
               'web-apps/automated-testing/puppeteer',
               'web-apps/automated-testing/puppeteer/quickstart',
               'web-apps/automated-testing/puppeteer/yaml',
+            ],
+          },
+          {
+            type: 'category',
+            label: 'Replay',
+            link: { type: 'doc', id: 'web-apps/automated-testing/replay' },
+            collapsed: true,
+            items: [
+              'web-apps/automated-testing/replay',
+              'web-apps/automated-testing/replay/quickstart',
+              'web-apps/automated-testing/replay/yaml',
             ],
           },
         ],
@@ -946,6 +967,7 @@ module.exports = {
       },
       'api-testing/project-dashboard',
       'api-testing/mocking',
+      'api-testing/load-testing',
       'api-testing/contract-testing',
       'api-testing/logger',
       'api-testing/project-access',

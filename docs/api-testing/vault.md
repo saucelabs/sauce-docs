@@ -53,7 +53,7 @@ If the same variable with the same name definition exists in both the **Project 
 1. Click on the **Vault** tab.
 1. Select **New Entry**.
 1. Add a Key (e.g., `domain`).
-1. Add a Value (e.g., `api.us-west-1.com`).
+1. Add a Value (e.g., `api.us-west-1.saucelabs.com`).
 1. Select **Confirm**.
 
 <img src={useBaseUrl('img/api-fortress/2021/04/variableEntry2.png')} alt="Domain Variables"/>

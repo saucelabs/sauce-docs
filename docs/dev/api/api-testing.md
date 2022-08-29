@@ -264,13 +264,13 @@ Uploads a new test, which you need to provide in the Request Body, to the Sauce 
 <tbody>
   <tr>
    <td><code>input</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The input of your API Test. You can obtain this by going into a Test > **Compose** section > toggle **Code View**.</p></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The input of your API Test. You can obtain this by going into a Test > <strong>Compose</strong> section > toggle <strong>Code View</strong>.</p></td>
   </tr>
 </tbody>
 <tbody>
   <tr>
    <td><code>unit</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>Must contain the unit of the test you want to upload to the cloud. You can obtain this by going into a Test > **Compose** section > toggle **Code View**.</p></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>Must contain the unit of the test you want to upload to the cloud. You can obtain this by going into a Test > <strong>Compose*</strong>section > toggle <strong>Code View</strong>.</p></td>
   </tr>
 </tbody>
 </table>
@@ -470,7 +470,7 @@ When you run an API test using one of these methods, you'll receive a response i
 ### Run a Test
 
 <details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/&#123;testId&#125;/_run</code></summary>
-<p/>
+<p></p>
 
 Runs a single test on Sauce Labs API Testing, creates a Log in your Dashboard, and sends notifications, the same way it would when you run a test through the UI.
 
@@ -492,7 +492,19 @@ Runs a single test on Sauce Labs API Testing, creates a Log in your Dashboard, a
   <tbody>
     <tr>
      <td><code>buildId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If your test execution is associated with a build, you'll need to provide your <a href="/api-testing/integrations/apifctl-cicd-integration/#-b-build-id">build ID</a> so that its <a href="/api-testing/project-dashboard/#test-build-reports">results and details</a> will populate in your <strong>Dashboard</strong></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated to a build, the ID of the build should be provided, so that all resources can be associated to it.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tunnelId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+    <td><code>params</code></td>
+      <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>Specifies the environment variables you want to use in your test as key-value pairs. </p></td>
     </tr>
   </tbody>
 </table>
@@ -510,7 +522,14 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/621ad2cefd18a5416b299e98/_run' | json_pp
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/621ad2cefd18a5416b299e98/_run' \
+-H 'Content-Type: application/json' \
+-d '{
+      "params": {
+        "envVar1": "foo",
+        "envVar2": "bar"
+      }
+    }'
 ```
 
 </TabItem>
@@ -519,7 +538,14 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/621ad2cefd18a5416b299e98/_run' | json_pp
+--request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/621ad2cefd18a5416b299e98/_run' \
+-H 'Content-Type: application/json' \
+-d '{
+      "params": {
+        "envVar1": "foo",
+        "envVar2": "bar"
+      }
+    }'
 ```
 
 </TabItem>
@@ -577,6 +603,18 @@ Runs all tests in a project.
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated to a build, the ID of the build should be provided, so that all resources can be associated to it.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>tunnelId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+    <td><code>params</code></td>
+      <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>Specifies the environment variables you want to use in your test as key-value pairs. </p></td>
+    </tr>
+  </tbody>
 </table>
 
 
@@ -592,7 +630,14 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_run-all' | json_pp
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_run-all' \
+-H 'Content-Type: application/json' \
+-d '{
+      "params": {
+        "envVar1": "foo",
+        "envVar2": "bar"
+      }
+    }'
 ```
 
 </TabItem>
@@ -601,7 +646,14 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_run-all' | json_pp
+--request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_run-all' \
+-H 'Content-Type: application/json' \
+-d '{
+      "params": {
+        "envVar1": "foo",
+        "envVar2": "bar"
+      }
+    }'
 ```
 
 </TabItem>
@@ -666,6 +718,18 @@ Runs all tests in a project matching a tag.
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated to a build, the ID of the build should be provided, so that all resources can be associated to it.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>tunnelId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+    <td><code>params</code></td>
+      <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>Specifies the environment variables you want to use in your test as key-value pairs. </p></td>
+    </tr>
+  </tbody>
 </table>
 
 
@@ -681,7 +745,14 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_tag/doggos/_run' | json_pp
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_tag/doggos/_run' \
+-H 'Content-Type: application/json' \
+-d '{
+      "params": {
+        "envVar1": "foo",
+        "envVar2": "bar"
+      }
+    }'
 ```
 
 </TabItem>
@@ -690,7 +761,14 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_tag/doggos/_run' | json_pp
+--request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_tag/doggos/_run' \
+-H 'Content-Type: application/json' \
+-d '{
+      "params": {
+        "envVar1": "foo",
+        "envVar2": "bar"
+      }
+    }'
 ```
 
 </TabItem>
@@ -730,9 +808,9 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ### Execute a Test
 
 <details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_exec</code></summary>
-<p/>
+<p></p>
 
-Executes the test you send in the request body. It will create a Log in the project **Dashboard**, but the test itself will not populate in your project's **Tests** section.
+Executes the test you send in the request body and saves the results into the cloud. It will create a Log in the project **Dashboard**, but the test itself will not populate in your project's **Tests** section.
 
 #### Parameters
 
@@ -746,37 +824,43 @@ Executes the test you send in the request body. It will create a Log in the proj
   <tbody>
     <tr>
      <td><code>name</code></td>
-       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The name of a test. If it's the same as an existing one, it will be overwritten.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>description</code></td>
-       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>Description for your Test. This parameter is required, however, the field can be left empty.</p></td>
+       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The name of the test.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>tags</code></td>
-       <td><p><small>| BODY | OPTIONAL | ARRAY |</small></p><p>The set of distinguishing tags for your Test.</p></td>
+       <td><p><small>| BODY | OPTIONAL | ARRAY |</small></p><p>The set of distinguishing tags for your test.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>input</code></td>
-       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The input of your API Test. You can obtain this by going into a Test > **Compose** section > toggle **Code View**.</p></td>
+       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The input section of your test in the same format as in Test > <strong>Compose</strong> section > <strong>Input</strong> section > toggle <strong>Code View</strong>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>unit</code></td>
-       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>Must contain the unit of the test you want to upload to the cloud. You can obtain this by going into a Test > **Compose** section > toggle **Code View**.</p></td>
+       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>Must contain the unit of the test you want to execute in the same format as in Test > <strong>Compose</strong> section > toggle <strong>Code View</strong>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+    <td><code>params</code></td>
+      <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>Specifies the environment variables you want to use in your test as key-value pairs. </p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>buildId</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated to a build, the ID of the build should be provided, so that all resources can be associated to it.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tunnelId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
     </tr>
   </tbody>
 </table>
@@ -798,10 +882,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 -H 'Content-Type: application/json' \
 -d '{
     "name": "Get all retriever sub-breeds",
-    "description": "Returns an array of all the sub-breeds from a breed",
     "tags": ["dogs", "retrievers"],
     "unit": "<?xml version=\"1.0\"?>\n<unit>\n  <requirements/>\n  <configs/>\n  <sequence>\n    <get url=\"${protocol}${domain}${endpoint}\" params=\"[:]\" var=\"payload\" mode=\"json\"/>\n    <assert-equals expression=\"payload_response.headers['Content-Type']\" value=\"application/json\"/>\n    <assert-exists expression=\"payload\" gen=\"jag\"/>\n    <assert-is expression=\"payload.message\" type=\"array\" gen=\"jag\"/>\n    <each expression=\"payload.message\" gen=\"jag\">\n      <assert-exists expression=\"_1\" gen=\"jag\"/>\n    </each>\n    <assert-exists expression=\"payload.status\" gen=\"jag\"/>\n  </sequence>\n</unit>",
-    "input": "<?xml version=\"1.0\"?>\n<sets>\n  <global>\n    <param name=\"protocol\">https://</param>\n    <param name=\"domain\">dog.ceo</param>\n    <param name=\"endpoint\">/api/breed/retriever/list</param>\n  </global>\n  <set name=\"default\"/>\n</sets>"
+    "input": "<?xml version=\"1.0\"?>\n<sets>\n  <global>\n    <param name=\"protocol\">https://</param>\n    <param name=\"domain\">dog.ceo</param>\n    <param name=\"endpoint\">/api/breed/retriever/list</param>\n  </global>\n  <set name=\"default\"/>\n</sets>",
+    "params": {}
     }'
 ```
 
@@ -815,10 +899,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 -H 'Content-Type: application/json' \
 -d '{
     "name": "Get all retriever sub-breeds",
-    "description": "Returns an array of all the sub-breeds from a breed",
     "tags": ["dogs", "retrievers"],
     "unit": "<?xml version=\"1.0\"?>\n<unit>\n  <requirements/>\n  <configs/>\n  <sequence>\n    <get url=\"${protocol}${domain}${endpoint}\" params=\"[:]\" var=\"payload\" mode=\"json\"/>\n    <assert-equals expression=\"payload_response.headers['Content-Type']\" value=\"application/json\"/>\n    <assert-exists expression=\"payload\" gen=\"jag\"/>\n    <assert-is expression=\"payload.message\" type=\"array\" gen=\"jag\"/>\n    <each expression=\"payload.message\" gen=\"jag\">\n      <assert-exists expression=\"_1\" gen=\"jag\"/>\n    </each>\n    <assert-exists expression=\"payload.status\" gen=\"jag\"/>\n  </sequence>\n</unit>",
-    "input": "<?xml version=\"1.0\"?>\n<sets>\n  <global>\n    <param name=\"protocol\">https://</param>\n    <param name=\"domain\">dog.ceo</param>\n    <param name=\"endpoint\">/api/breed/retriever/list</param>\n  </global>\n  <set name=\"default\"/>\n</sets>"
+    "input": "<?xml version=\"1.0\"?>\n<sets>\n  <global>\n    <param name=\"protocol\">https://</param>\n    <param name=\"domain\">dog.ceo</param>\n    <param name=\"endpoint\">/api/breed/retriever/list</param>\n  </global>\n  <set name=\"default\"/>\n</sets>",
+    "params": {}
     }'
 ```
 
@@ -863,7 +947,7 @@ When you run an API test synchronously, you'll receive a response containing gra
 ### Run a Test Synchronously
 
 <details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/&#123;testId&#125;/_run-sync</code></summary>
-<p/>
+<p></p>
 
 Runs a single test synchronously.
 
@@ -894,6 +978,18 @@ Runs a single test synchronously.
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated to a build, the ID of the build should be provided, so that all resources can be associated to it.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>tunnelId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+    <td><code>params</code></td>
+      <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>Specifies the environment variables you want to use in your test as key-value pairs. </p></td>
+    </tr>
+  </tbody>
 </table>
 
 
@@ -909,7 +1005,14 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/621b20e8fd17b5416b299e9f/_run-sync?format=json' -H 'Content-Type: application/json' | json_pp
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/621b20e8fd17b5416b299e9f/_run-sync?format=json' -H 'Content-Type: application/json'\
+-H 'Content-Type: application/json' \
+-d '{
+      "params": {
+        "envVar1": "foo",
+        "envVar2": "bar"
+      }
+    }'
 ```
 
 </TabItem>
@@ -918,7 +1021,14 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/621b20e8fd17b5416b299e9f/_run-sync?format=json' -H 'Content-Type: application/json' | json_pp
+--request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/621b20e8fd17b5416b299e9f/_run-sync?format=json' -H 'Content-Type: application/json' \
+-H 'Content-Type: application/json' \
+-d '{
+      "params": {
+        "envVar1": "foo",
+        "envVar2": "bar"
+      }
+    }'
 ```
 
 </TabItem>
@@ -1075,6 +1185,18 @@ Runs all tests in a project synchronously.
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated to a build, the ID of the build should be provided, so that all resources can be associated to it.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>tunnelId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+    <td><code>params</code></td>
+      <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>Specifies the environment variables you want to use in your test as key-value pairs. </p></td>
+    </tr>
+  </tbody>
 </table>
 
 
@@ -1090,7 +1212,14 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_run-all-sync?format=json' -H 'Content-Type: application/json' | json_pp
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_run-all-sync?format=json' -H 'Content-Type: application/json'\
+-H 'Content-Type: application/json' \
+-d '{
+      "params": {
+        "envVar1": "foo",
+        "envVar2": "bar"
+      }
+    }'
 ```
 
 </TabItem>
@@ -1099,7 +1228,14 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_run-all-sync?format=json' -H 'Content-Type: application/json' | json_pp
+--request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_run-all-sync?format=json' -H 'Content-Type: application/json'\
+-H 'Content-Type: application/json' \
+-d '{
+      "params": {
+        "envVar1": "foo",
+        "envVar2": "bar"
+      }
+    }'
 ```
 
 </TabItem>
@@ -1333,6 +1469,18 @@ Run all tests in a project synchronously.
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated to a build, the ID of the build should be provided, so that all resources can be associated to it.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>tunnelId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+    <td><code>params</code></td>
+      <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>Specifies the environment variables you want to use in your test as key-value pairs. </p></td>
+    </tr>
+  </tbody>
 </table>
 
 
@@ -1348,7 +1496,14 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_tag/retrievers/_run-sync?format=json' -H 'Content-Type: application/json' | json_pp
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_tag/retrievers/_run-sync?format=json' -H 'Content-Type: application/json' \
+-H 'Content-Type: application/json' \
+-d '{
+      "params": {
+        "envVar1": "foo",
+        "envVar2": "bar"
+      }
+    }'
 ```
 
 </TabItem>
@@ -1357,7 +1512,14 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_tag/retrievers/_run-sync?format=json' -H 'Content-Type: application/json' | json_pp
+--request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_tag/retrievers/_run-sync?format=json' -H 'Content-Type: application/json' \
+-H 'Content-Type: application/json' \
+-d '{
+      "params": {
+        "envVar1": "foo",
+        "envVar2": "bar"
+      }
+    }'
 ```
 
 </TabItem>
@@ -1490,9 +1652,9 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ### Execute a Test Synchronously
 
 <details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_exec-sync</code></summary>
-<p/>
+<p></p>
 
-Executes a test synchronously that you send in the request body. It will create a Log in the project **Dashboard**, however, the test itself will not populate in your project's **Tests** section.
+Executes synchronously the test you send in the request body and saves the results into the cloud. It will create a Log in the project **Dashboard**, however, the test itself will not populate in your project's **Tests** section.
 
 #### Parameters
 
@@ -1506,37 +1668,43 @@ Executes a test synchronously that you send in the request body. It will create 
   <tbody>
     <tr>
      <td><code>name</code></td>
-       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The name of a test. If it's the same as an existing one, it will be overwritten.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>description</code></td>
-       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>Description for your Test. This parameter is required, however, the field can be left empty.</p></td>
+       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The name of the test.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>tags</code></td>
-       <td><p><small>| BODY | OPTIONAL | ARRAY |</small></p><p>The set of distinguishing tags for your Test.</p></td>
+       <td><p><small>| BODY | OPTIONAL | ARRAY |</small></p><p>The set of distinguishing tags for your test.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>input</code></td>
-       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The input of your API Test. You can obtain this by going into a Test > **Compose** section > toggle **Code View**.</p></td>
+       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The input section of your test in the same format as in Test > <strong>Compose</strong> section > <strong>Input</strong> section > toggle <strong>Code View</strong>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>unit</code></td>
-       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>Must contain the unit of the test you want to upload to the cloud. You can obtain this by going into a Test > **Compose** section > toggle **Code View**.</p></td>
+       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>Must contain the unit of the test you want to execute in the same format as in Test > <strong>Compose</strong> section > toggle <strong>Code View</strong>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+    <td><code>params</code></td>
+      <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>Specifies the environment variables you want to use in your test as key-value pairs. </p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>buildId</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated to a build, the ID of the build should be provided, so that all resources can be associated to it.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tunnelId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
     </tr>
   </tbody>
 </table>
@@ -1558,10 +1726,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 -H 'Content-Type: application/json' \
 -d '{
     "name": "Get all retriever sub-breeds",
-    "description": "Returns an array of all the sub-breeds from a breed",
     "tags": ["dogs", "retrievers"],
     "unit": "<?xml version=\"1.0\"?>\n<unit>\n  <requirements/>\n  <configs/>\n  <sequence>\n    <get url=\"${protocol}${domain}${endpoint}\" params=\"[:]\" var=\"payload\" mode=\"json\"/>\n    <assert-equals expression=\"payload_response.headers['Content-Type']\" value=\"application/json\"/>\n    <assert-exists expression=\"payload\" gen=\"jag\"/>\n    <assert-is expression=\"payload.message\" type=\"array\" gen=\"jag\"/>\n    <each expression=\"payload.message\" gen=\"jag\">\n      <assert-exists expression=\"_1\" gen=\"jag\"/>\n    </each>\n    <assert-exists expression=\"payload.status\" gen=\"jag\"/>\n  </sequence>\n</unit>",
-    "input": "<?xml version=\"1.0\"?>\n<sets>\n  <global>\n    <param name=\"protocol\">https://</param>\n    <param name=\"domain\">dog.ceo</param>\n    <param name=\"endpoint\">/api/breed/retriever/list</param>\n  </global>\n  <set name=\"default\"/>\n</sets>"
+    "input": "<?xml version=\"1.0\"?>\n<sets>\n  <global>\n    <param name=\"protocol\">https://</param>\n    <param name=\"domain\">dog.ceo</param>\n    <param name=\"endpoint\">/api/breed/retriever/list</param>\n  </global>\n  <set name=\"default\"/>\n</sets>",
+    "params" : {}
     }'
 ```
 
@@ -1575,10 +1743,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 -H 'Content-Type: application/json' \
 -d '{
     "name": "Get all retriever sub-breeds",
-    "description": "Returns an array of all the sub-breeds from a breed",
     "tags": ["dogs", "retrievers"],
     "unit": "<?xml version=\"1.0\"?>\n<unit>\n  <requirements/>\n  <configs/>\n  <sequence>\n    <get url=\"${protocol}${domain}${endpoint}\" params=\"[:]\" var=\"payload\" mode=\"json\"/>\n    <assert-equals expression=\"payload_response.headers['Content-Type']\" value=\"application/json\"/>\n    <assert-exists expression=\"payload\" gen=\"jag\"/>\n    <assert-is expression=\"payload.message\" type=\"array\" gen=\"jag\"/>\n    <each expression=\"payload.message\" gen=\"jag\">\n      <assert-exists expression=\"_1\" gen=\"jag\"/>\n    </each>\n    <assert-exists expression=\"payload.status\" gen=\"jag\"/>\n  </sequence>\n</unit>",
-    "input": "<?xml version=\"1.0\"?>\n<sets>\n  <global>\n    <param name=\"protocol\">https://</param>\n    <param name=\"domain\">dog.ceo</param>\n    <param name=\"endpoint\">/api/breed/retriever/list</param>\n  </global>\n  <set name=\"default\"/>\n</sets>"
+    "input": "<?xml version=\"1.0\"?>\n<sets>\n  <global>\n    <param name=\"protocol\">https://</param>\n    <param name=\"domain\">dog.ceo</param>\n    <param name=\"endpoint\">/api/breed/retriever/list</param>\n  </global>\n  <set name=\"default\"/>\n</sets>",
+    "params": {}
     }'
 ```
 
@@ -1946,7 +2114,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ### List All Events
 
 <details><summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/insights/events</code></summary>
-<p/>
+<p></p>
 
 Lists all events in a project.
 
@@ -1957,6 +2125,30 @@ Lists all events in a project.
     <tr>
      <td><code>hookId</code></td>
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Your project's hook ID, which you can create and/or retrieve from your project's <strong>Webhooks</strong> tab.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>from</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Identifies the start time, in UNIX time milliseconds. Default value is 2 days before.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+      <tr>
+      <td><code>to</code></td>
+      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Identifies the end time, in UNIX time milliseconds. Default value is current time.</p></td>
+      </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>limit</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Identifies the number of records to return. Default value is 100 and the max value is 500.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>offset</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Specifies the number of events to be skipped from the beginning of the list. Needs to be used in combination with limit.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1996,12 +2188,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   <tr>
     <td><code>200</code></td>
     <td colSpan='2'>Success.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>401</code></td>
-    <td colSpan='2'>Authentication error.</td>
   </tr>
 </tbody>
 </table>
@@ -2052,7 +2238,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ### Get Event Details
 
 <details><summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/insights/events/&#123;eventId&#125;</code></summary>
-<p/>
+<p></p>
 
 Returns the details of an event.
 
@@ -2068,11 +2254,10 @@ Returns the details of an event.
   <tbody>
     <tr>
      <td><code>eventId</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>An event ID, which you can find in a test's response payload under “events”. You can also obtain it via the following APIs: <a href="#run-a-test">Run a Test</a>, <a href="#run-all-tests">Run All Tests</a>, <a href="#run-tests-by-tag">Run Tests by Tag</a>.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The ID of an event, that you can retrieve from the <a href="#list-all-events">List All Events</a> response payload.</p></td>
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -2108,12 +2293,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   <tr>
     <td><code>200</code></td>
     <td colSpan='2'>Success.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>401</code></td>
-    <td colSpan='2'>Authentication error.</td>
   </tr>
 </tbody>
 </table>
@@ -2226,7 +2405,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ### Get Metrics
 
 <details><summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/insights/metrics</code></summary>
-<p/>
+<p></p>
 
 Returns metrics for all tests in a project.
 
@@ -2276,12 +2455,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   <tr>
     <td><code>200</code></td>
     <td colSpan='2'>Success.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>401</code></td>
-    <td colSpan='2'>Authentication error.</td>
   </tr>
 </tbody>
 </table>
