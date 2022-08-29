@@ -839,7 +839,7 @@ We have a three-hour maximum in place to ease the transition of new users migrat
 
 ---
 ### `commandTimeout`
-<p><small>| INTEGER |</small></p>
+<p><small>| INTEGER | <span className="sauceDBlue">Desktop Only</span> |</small></p>
 
 Sets command timeout in seconds. As a safety measure to prevent Selenium crashes from making your tests run indefinitely, we limit how long Selenium can take to run a command in our browsers. This is set to 300 seconds by default. The maximum command timeout value allowed is 600 seconds.
 
