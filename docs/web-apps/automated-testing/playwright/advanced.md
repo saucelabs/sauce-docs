@@ -13,3 +13,7 @@ import Advanced, {toc as AdvancedTOC} from '../_partials/_advanced.md';
 
 <!-- Using partials breaks table of contents. Using this workaround to get it working again. -->
 export const toc = [...AdvancedTOC];
+
+## Filtering tests using substring
+
+Playwright supports filtering tests using `grep` and `grepInvert` options. For more details, check [grep](./yaml.md#grep) and [grepInvert](./yaml.md#grepinvert).
