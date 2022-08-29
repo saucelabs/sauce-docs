@@ -20,9 +20,7 @@ Yes - see [Espresso and XCUITest Testing for Virtual Devices](/mobile-apps/autom
 
 Currently the only browser that can be automated in our Android Emulators is the stock browser (i.e., Chrome).
 
-#### **How do I use XCUITest-driver on Appium 1.6.0 with iOS 9.x tests?**
 
-Appium 1.6.0 will default to using `automationName: XCUITest` for iOS 10.x tests, and `automationName: UIAutomation` for iOS 9.x tests. However, if you specify `automationName: XCUITest` in the device capabilities for the test, you can get XCUITest for iOS 9.x tests.
 <br/>
 
 ## Real Devices
