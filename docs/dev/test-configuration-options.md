@@ -471,7 +471,7 @@ capabilities.setCapability("appium:orientation", "LANDSCAPE");
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
 
-Prevents the device to be reset before the session startup if set to `true`. This means that the application under test is not going to be terminated neither its data cleaned. This capability behaves differently across virtual and real devices.
+If set to `true` it prevents the device from resetting before the session startup. This means the application under test will not be terminated or its data cleaned. This capability behaves differently across virtual and real devices.
 
 **For Real Devices:**
 
