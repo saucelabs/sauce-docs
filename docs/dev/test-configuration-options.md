@@ -479,7 +479,7 @@ Set `noReset` to `true` to keep a device allocated to you during the device clea
 
 **For Virtual Devices:**
 
-This capability will have no effect on Sauce Labs virtual devices, it will only work on local Android emulators / iOS simulators. For local executions you will likely only have one device available, in Sauce Labs you will have a pool of devices available, depending on your concurrency. Each session will start a new clean session which will make this capability redundant.
+This capability will have no effect on Sauce Labs virtual devices, it will only work on local Android Emulators/iOS Simulators. For local executions, you will likely only have one device available, in Sauce Labs you will have a pool of devices available depending on your concurrency. Each session will start a new clean session which will make this capability redundant.
 
 **Specifics for Android Real Devices:**
 
