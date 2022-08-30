@@ -19,7 +19,7 @@ export const toc = [...AdvancedTOC];
 
 ## Filtering tests using substring
 
-With the [cypress-grep](https://github.com/cypress-io/cypress-grep), you can add tags to tests descriptions and filter tests with the tags or keywords in the title.
+With the [cypress-grep](https://github.com/cypress-io/cypress-grep) you can add tags to test descriptions and filter tests with the tags or keywords in the title.
 
 ```javascript
 	it('.type() - type into a DOM element', { tags: ['smoke'] }, () => {
