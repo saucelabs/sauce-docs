@@ -989,6 +989,14 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 Enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.
 
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("groupFolderRedirectEnabled", true);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
 ---
 
 ### `systemAlertsDelayEnabled`
