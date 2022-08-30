@@ -1348,6 +1348,11 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
+### `commandTimeout`
+<p><small>| INTEGER | <span className="sauceDBlue">Desktop Only</span> |</small></p>
+
+
+
 ### `priority`
 
 <p><small>| OPTIONAL | INTEGER | <span className="sauceDBlue">Desktop and Virtual Devices Only</span> |</small></p>
