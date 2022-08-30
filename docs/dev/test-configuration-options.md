@@ -583,7 +583,7 @@ These timeouts can be controlled by the driver during the test session. There ar
 
 <p><small>| DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">Android and iOS</span> |</small></p>
 
-Sets the amount of time in seconds how long the driver should wait for a new command from the client before assuming the clients has stopped sending requests. If there is no response during this time, the next executed command on the Virtual/Real Device will time out. The default value is 60 seconds while the maximum allowed value is not limited for Virtual Devices and is limited to 90 seconds for Real Devices.
+Specifies the amount of time in seconds, in which the driver waits for a new command from the client before assuming the client has stopped sending requests. If there is no response during this time, the next executed command on the Virtual/Real Device will time out. The default value is 60 seconds while the maximum allowed value is not limited for Virtual Devices and is limited to 90 seconds for Real Devices.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
