@@ -1,6 +1,6 @@
 ---
 id: gitter
-title: Gitter
+title: Gitter Integration with Backtrace
 sidebar_label: Gitter
 description: Integrate Backtrace with Gitter.
 ---
@@ -8,7 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Gitter Integration
 This guide goes through the steps necessary to integrate Backtrace with Gitter.
 
 The steps in this process are:
