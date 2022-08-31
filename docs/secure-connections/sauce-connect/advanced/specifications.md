@@ -95,11 +95,19 @@ Sauce Connect Proxy Tunnel connection TLS specifications
    </td>
   </tr>
   <tr>
-   <td>"REST API GET request" timeout
+   <td>"REST API GET `/USER/tunnels/ID`" timeout
+   </td>
+   <td>5 seconds
+   </td>
+   <td>Sauce Connect Proxy "HTTP long polling" (each 5 seconds) requests to get the backend status.
+   </td>
+  </tr>
+  <tr>
+   <td>"REST API POST `/USER/tunnels/ID`" timeout
    </td>
    <td>10 seconds
    </td>
-   <td>Sauce Connect Proxy periodically sends a GET request to get the tunnel status.
+   <td>Sauce Connect Proxy "HTTP long polling" (each 30 seconds) requests to update the client status.
    </td>
   </tr>
   <tr>
