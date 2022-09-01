@@ -224,6 +224,11 @@ Specifies the Firefox GeckoDriver version. The default geckodriver version varie
 ```java
 "geckodriverVersion": "0.27.0"
 ```
+:::Note
+
+ With geckodriver version 0.31.0, Mozilla removed the capability `--remote-debugging-port`, which was never officially supported. You can use the supported capability `moz:debuggerAddress`. See [this article on our blog](https://saucelabs.com/blog/update-firefox-tests-before-oct-4-2022) for more information.
+
+:::
 
 ---
 
