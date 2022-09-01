@@ -91,7 +91,7 @@ saucectl storage list --query myapp
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-The Sauce Labs region. Options: us-west-1, eu-central-1. (default "us-west-1")
+The Sauce Labs region. Options are `us-west-1` (default) and `eu-central-1`.
 
 **Shorthand:** `-r <region>`
 
