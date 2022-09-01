@@ -41,7 +41,7 @@ Returns the list of files that have been uploaded to Sauce Storage.
     <tr>
       <td><span className="t-cli"><a href="#--region">--region</a></span></td>
       <td><span className="t-cli">-r</span></td>
-      <td>The Sauce Labs region. Options: us-west-1, eu-central-1. (default "us-west-1")</td>
+      <td>The Sauce Labs region. Options are <code>us-west-1</code> (default) and <code>eu-central-1</code>.</td>
     </tr>
   </tbody>
 </table>
