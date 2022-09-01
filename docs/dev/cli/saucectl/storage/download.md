@@ -42,7 +42,7 @@ Downloads an app file from Sauce Storage.
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING |</small></p>
 
-Save the file to disk with this name.
+Saves the file to disk with this name.
 
 **Shorthand:** `-f <name>`
 
