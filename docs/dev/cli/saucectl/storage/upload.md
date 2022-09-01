@@ -58,7 +58,7 @@ saucectl storage upload app.apk --force
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Output format to the console. Options: text, json. (default "text")
+Output format to the console. Options are `text` (default) and `json`.
 
 **Shorthand:** `-o <format>`
 
