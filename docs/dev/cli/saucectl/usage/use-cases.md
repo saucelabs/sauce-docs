@@ -18,6 +18,7 @@ The configuration file is flexible enough to allow for any customizations and de
 * [Configure Puppeteer](/web-apps/automated-testing/puppeteer/yaml)
 * [Configure Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso)
 * [Configure XCUITest](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest)
+* [Configure Replay](/web-apps/automated-testing/replay/yaml)
 
 
 ## Setting an Alternative Configuration File
@@ -288,3 +289,15 @@ npm:
     "@babel/preset-typescript": "7.12"
     "@cypress/react": "^5.0.1"
 ```
+
+Alternatively, you can let `saucectl` selectively include already installed dependencies from the `node_modules` folder.
+
+```jsx title= "config.yml npm dependencies"
+npm:
+  dependencies:
+    - lodash
+```
+
+:::caution
+This feature is highly experimental.
+:::
