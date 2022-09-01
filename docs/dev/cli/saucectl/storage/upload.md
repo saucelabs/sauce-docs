@@ -36,7 +36,7 @@ Uploads an app file to Sauce Storage and returns a unique file ID assigned to th
     <tr>
       <td><span className="t-cli"><a href="#--region">--region</a></span></td>
       <td><span className="t-cli">-r</span></td>
-      <td>The Sauce Labs region. Options: us-west-1, eu-central-1. (default "us-west-1")</td>
+      <td>The Sauce Labs region. Options are <code>us-west-1</code> (default) and <code>eu-central-1</code>.</td>
     </tr>
   </tbody>
 </table>
