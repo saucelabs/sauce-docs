@@ -26,7 +26,7 @@ Downloads an app file from Sauce Storage.
     <tr>
       <td><span className="t-cli"><a href="#--filename">--filename</a></span></td>
       <td><span className="t-cli">-f</span></td>
-      <td>Save the file to disk with this name.</td>
+      <td>Saves the file to disk with this name.</td>
     </tr>
     <tr>
       <td><span className="t-cli"><a href="#--region">--region</a></span></td>
