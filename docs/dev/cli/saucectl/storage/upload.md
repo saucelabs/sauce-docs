@@ -31,7 +31,7 @@ Uploads an app file to Sauce Storage and returns a unique file ID assigned to th
     <tr>
       <td><span className="t-cli"><a href="#--out">--out</a></span></td>
       <td><span className="t-cli">-o</span></td>
-      <td>Output format to the console. Options: text, json. (default "text")</td>
+      <td>Output format to the console. Options are <code>text</code> (default) and <code>json</code>.</td>
     </tr>
     <tr>
       <td><span className="t-cli"><a href="#--region">--region</a></span></td>
