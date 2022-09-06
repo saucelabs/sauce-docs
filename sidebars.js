@@ -570,6 +570,9 @@ module.exports = {
                 'dev/cli/saucectl/configure',
                 'dev/cli/saucectl/run',
                 'dev/cli/saucectl/completion',
+                'dev/cli/saucectl/storage/download',
+                'dev/cli/saucectl/storage/list',
+                'dev/cli/saucectl/storage/upload'
               ],
             },
             'dev/cli/saucectl/usage/use-cases',
