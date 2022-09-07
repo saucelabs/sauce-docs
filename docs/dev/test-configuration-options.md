@@ -221,6 +221,10 @@ Edge Driver is based on Chrome Driver, so the same caveats from [chromedriverVer
 
 Specifies the Firefox GeckoDriver version. The default geckodriver version varies based on the version of Firefox specified. For a list of geckodriver versions and the Firefox versions they support, see [geckodriver Supported Platforms](https://firefox-source-docs.mozilla.org/testing/geckodriver/Support.html).
 
+:::note
+With geckodriver version 0.31.0, Mozilla removed the capability `--remote-debugging-port`, which was never officially supported. You can use the supported capability `moz:debuggerAddress`. See [this article on our blog](https://saucelabs.com/blog/update-firefox-tests-before-oct-4-2022) for more information.
+:::
+
 ```java
 "geckodriverVersion": "0.27.0"
 ```
