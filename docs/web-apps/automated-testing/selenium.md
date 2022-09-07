@@ -634,5 +634,5 @@ The [Sauce Labs Training Repo](https://github.com/saucelabs-training) contains a
 
 ## Selenium Resources
 
-* [Selenium HQ](http://www.seleniumhq.org): official Selenium website and documentation
+* [Selenium HQ](https://www.selenium.dev): official Selenium website and documentation
 * [How to Run a Selenium Test on Sauce Labs](https://www.youtube.com/watch?v=qq1WCsAMZsk): Automated testing guru Joe Colantonio demonstrates how to run a Selenium Test with Sauce Labs
