@@ -65,6 +65,12 @@ Sauce Labs supports the following test configurations for TestCafe:
     </tr>
     <tbody>
     <tr>
+      <td rowspan='3'>2.0.0</td>
+      <td><b>macOS:</b> 11.00, 12</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+      <td rowspan='3'>Sep 7, 2023</td>
+    </tr>
+    <tr>
       <td rowspan='3'>1.20.0</td>
       <td><b>macOS:</b> 11.00, 12</td>
       <td>Safari, Chrome, Firefox, Microsoft Edge</td>
