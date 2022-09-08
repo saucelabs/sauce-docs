@@ -2,21 +2,25 @@
 id: selenium-grid
 title: Selenium Grid and Sauce Labs
 sidebar_label: Selenium Grid
-description: Provides an overview of Selenium Grid, set up instructions, when to use it, and when to avoid it.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Testing new features and bug fixes is vital to enable quick software development. Selenium Grid helps with this by allowing concurrent execution of WebDriver tests across different browsers, platforms, and devices on multiple remote machines. In short, Selenium Grid:
-* Provides an easy way to run tests in parallel on multiple machines.
-* Allows testing on different browser versions.
-* Enables cross platform testing.
+Testing new features and bug fixes is vital to enable quick software development. Selenium Grid helps with this by allowing concurrent execution of WebDriver tests across different browsers, platforms, and devices on multiple remote machines.
+
+While building your own testing infrastructure with Selenium Grid might be interesting and fun, maintaining it becomes a huge challenge over time due to the continued releases of new browser versions, browser drivers, operating systems, and mobile devices. Large amount of time needs to be invested in order to set up a fine tuned Selenium Grid that supports cross browser, cross platform, and cross device testing.
+
+By executing your tests on Sauce Labs, aside of getting a solid testing infrastructure, a wide range of features gets added on top, such as:
+- Live debugging, video recording, command tracing, screenshots, and exception highlighting to enable easy debugging on the Sauce Labs [tests results dashboard](/test-results/viewing-test-results/).
+- Sharing test results securely between team members by configuring [users and teams](/basics/acct-team-mgmt-hub/).
+- Understanding how your application renders on every device and operating system by analyzing results from [Front-End Performance Testing](/performance/).
+- Interpreting test results over time and identifying failure patterns across through [Insights](/insights/).
+- Benefitting from the integrations Sauce Labs has with all major [CI/CD platforms](/ci/).
+
 
 ## What You'll Learn
-* How Selenium Grid works and how to set it up.
-* How to use Selenium Grid and its components.
 * How to extend Selenium Grid with Sauce Labs.
 * How to move from Selenium Grid to Sauce Labs.
 
@@ -175,7 +179,7 @@ java -jar selenium-server-<version>.jar node --publish-events tcp://<event-bus-i
 ```
 
 ## Running Tests on Selenium Grid
-After following the previous steps to get Selenium Grid up and running, tests that run locally need to be slightly modified to run them remotely on Selenium Grid. Test code needs to switch from using a local driver to use a remote driver.
+After following the steps to get Selenium Grid up and running, tests that run locally need to be slightly modified to run them remotely on Selenium Grid. Test code needs to switch from using a local driver to use a remote driver.
 
 A simple example shown in Java, where code is modified from using a local driver to use a remote one, is shown below.
 
@@ -292,6 +296,10 @@ driver.quit();
 ```
 
 ## Moving from Selenium Grid to Sauce
+Supporting a new browser version in a local Selenium Grid requires a complete verification of its functionality before running your actual tests with it. In addition, providing features like video recording, logs, and screenshots, comes with the burden of building a custom test results dashboard, which needs provisioning storage for those files plus an automated archiving strategy.
+
+With Sauce Labs, using new browser versions, platforms, or mobile devices, is as easy as setting the desired configuration options in your test. 
+
 A single line of code needs to be changed to execute the same test code directly on Sauce Labs. Instead of using `http://localhost:4444` as a URL, a Sauce Labs [endpoint](/basics/data-center-endpoints/) URL should be used in the `RemoteWebDriver`. See the code sample below.
 
 <Tabs
@@ -317,23 +325,9 @@ RemoteWebDriver driver = new RemoteWebDriver(new URL("https://ondemand.us-west-1
 </TabItem>
 </Tabs>
 
-While building your own testing infrastructure with Selenium Grid might be interesting and fun, maintaining it becomes a huge challenge over time due to the continued releases of new browser versions, browser drivers, operating systems, and mobile devices. Large amount of time needs to be invested in order to set up a fine tuned Selenium Grid that 
-supports cross browser, cross platform, and cross device testing. 
-
-Supporting a new browser version in a local Selenium Grid requires a complete verification of its functionality before running your actual tests with it. In addition, providing features like video recording, logs, and screenshots, comes with the burden of building a custom test results dashboard, which needs provisioning storage for those files plus an automated archiving strategy.
-
-With Sauce Labs, using new browser versions, platforms, or mobile devices, is as easy as setting the desired configuration options in your test. 
-
 :::tip
 Use our [Platform Configurator](https://saucelabs.com/platform/platform-configurator) to auto-generate test configuration options in the language of your choice to copy and paste into your source code.
 :::
-
-By executing your tests on Sauce Labs, aside of getting a solid testing infrastructure, a wide range of features gets added on top, such as:
-- Live debugging, video recording, command tracing, screenshots, and exception highlighting to enable easy debugging on the Sauce Labs [tests results dashboard](/test-results/viewing-test-results/).
-- Sharing test results securely between team members by configuring [users and teams](/basics/acct-team-mgmt-hub/).
-- Understanding how your application renders on every device and operating system by analyzing results from [Front-End Performance Testing](/performance/).
-- Interpreting test results over time and identifying failure patterns across through [Insights](/insights/).
-- Benefitting from the integrations Sauce Labs has with all major [CI/CD platforms](/ci/).
 
 ## More Information
 * [White Paper: Selenium Grid Build vs. Buy](https://saucelabs.com/resources/white-papers/selenium-grid-build-vs-buy)
