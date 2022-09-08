@@ -785,7 +785,11 @@ The `setupDeviceLock` capability helps to bypass the Security requirements from 
 :::
 
 ```java title="Real Device Setting"
-"setupDeviceLock": "true"
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("setupDeviceLock", true);
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
