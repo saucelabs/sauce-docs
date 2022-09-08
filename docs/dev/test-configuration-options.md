@@ -775,7 +775,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `setupDeviceLock`
-<p><small>| BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
 Sets up the device pin code for the automated test session. Valid values are `true` and `false`.
 This capability sets your device in the state required for your application to launch successfully.
