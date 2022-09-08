@@ -135,10 +135,10 @@ Script generation and execution can be done on a remote machine using the follow
 **Value:** `{ "url":"IP:PORT", "platform":"linux/windows", "browser": "chrome/firefox/ie"}`
 
 Where:
-    `IP` is the IP address of the remote machine
-    `PORT` is the port on which the Selenium grid is running on the remote machine
-    `platform` is the platform the remote machine runs on (Windows or Linux)
-    `browser` is the browser on which you want to generate or execute the script
+  - `IP` is the IP address of the remote machine.
+  - `PORT` is the port on which the [Selenium Grid](/web-apps/automated-testing/selenium/selenium-grid/) is running on the remote machine.
+  - `platform` is the platform the remote machine runs on (Windows or Linux).
+  - `browser` is the browser on which you want to generate or execute the script.
 
 ### `use custom code from [location]`
 This variable can be used if a file is added to artifacts.
