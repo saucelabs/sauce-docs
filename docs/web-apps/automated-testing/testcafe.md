@@ -64,12 +64,22 @@ Sauce Labs supports the following test configurations for TestCafe:
       <th>End of Life</th>
     </tr>
     <tbody>
-    <tr>
-      <td rowspan='3'>2.0.0</td>
-      <td><b>macOS:</b> 11.00, 12</td>
-      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='3'>Sep 7, 2023</td>
-    </tr>
+      <tr>
+        <td rowspan='3'>2.0.0</td>
+        <td><b>macOS:</b> 11.00, 12</td>
+        <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+        <td rowspan='3'>Sep 7, 2023</td>
+      </tr>
+      <tr>
+        <td><b>Windows:</b> 10, 11</td>
+        <td>Chrome, Firefox, Microsoft Edge</td>
+      </tr>
+      <tr>
+        <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+        <td>Safari</td>
+      </tr>
+    </tbody>
+    <tbody>
     <tr>
       <td rowspan='3'>1.20.0</td>
       <td><b>macOS:</b> 11.00, 12</td>
@@ -79,6 +89,10 @@ Sauce Labs supports the following test configurations for TestCafe:
     <tr>
       <td><b>Windows:</b> 10, 11</td>
       <td>Chrome, Firefox, Microsoft Edge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+      <td>Safari</td>
     </tr>
     </tbody>
     <tbody>
