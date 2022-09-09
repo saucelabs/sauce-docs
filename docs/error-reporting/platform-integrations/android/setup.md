@@ -71,7 +71,7 @@ dependencies {
 <dependency>
   <groupId>com.github.backtrace-labs.backtrace-android</groupId>
   <artifactId>backtrace-library</artifactId>
-  <version>add-latest-version</version>
+  <version><add-latest-version></version>
   <type>aar</type>
 </dependency>
 ```
@@ -124,9 +124,9 @@ To test the integration, throw an exception to send a report to your Backtrace i
 
 ```java
 try {
-// throw exception here
+   // throw exception here
 } catch (Exception exception) {
-backtraceClient.send(new BacktraceReport(e));
+   backtraceClient.send(new BacktraceReport(e));
 }
 ```
 
@@ -135,10 +135,9 @@ backtraceClient.send(new BacktraceReport(e));
 
 ```kotlin
 try {
-// throw exception here
-}
-catch (e: Exception) {
-backtraceClient.send(BacktraceReport(e))
+   // throw exception here
+} catch (e: Exception) {
+   backtraceClient.send(BacktraceReport(e))
 }
 ```
 </TabItem>

@@ -52,7 +52,7 @@ There are seven basic elements of a Selenium test script, which apply to any tes
 
 The following sections walk through each of these steps using a basic test case example &#8212; logging into a website. This example ensures that a specific user can successfully log into our demo site, [Swag Labs](https://www.saucedemo.com).
 
-### Step 1: Create a Remote Session.
+### Step 1: Create a Remote Session
 
 Create an instance of Selenium's Remote WebDriver class so you can invoke methods of the Selenium WebDriver API on Sauce Labs infrastructure.
 
@@ -634,5 +634,5 @@ The [Sauce Labs Training Repo](https://github.com/saucelabs-training) contains a
 
 ## Selenium Resources
 
-* [Selenium HQ](http://www.seleniumhq.org): official Selenium website and documentation
+* [Selenium HQ](https://www.selenium.dev): official Selenium website and documentation
 * [How to Run a Selenium Test on Sauce Labs](https://www.youtube.com/watch?v=qq1WCsAMZsk): Automated testing guru Joe Colantonio demonstrates how to run a Selenium Test with Sauce Labs

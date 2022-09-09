@@ -1,6 +1,6 @@
 ---
 id: jira
-title: Jira
+title: Jira Integration with Backtrace
 sidebar_label: Jira
 description: Integrate Backtrace with Jira.
 ---
@@ -8,7 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Jira Integration
 This guide goes through the steps necessary to integrate Backtrace with Jira. Setting up integration with the Jira ticketing system requires a valid Jira REST API URL, a user and either a password for the user or an API token.
 
 ### OAuth

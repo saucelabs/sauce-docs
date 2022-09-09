@@ -3,7 +3,7 @@ on:
   schedule:
     - cron: '0 0/12 * * *'
   workflow_dispatch:
-  
+
 env:
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
@@ -18,12 +18,12 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: 16.x
       - name: Install Dependencies
         run: |
           npm install
         working-directory: ${{env.working-directory}}
-        
+
       - name: Run WDIO Cross-Platform Tests
         run: |
           npx wdio run ./wdio.conf.js

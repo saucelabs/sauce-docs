@@ -47,17 +47,17 @@ While rare, there are some test cases that will require you to disable SSL Bumpi
 ### Selecting the Tunnel to Use
 Sauce Connect Proxy can have multiple tunnels running simultaneously, as described in [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). You can select which tunnel to use in a real device test in the same way as you would any other type of automated test.
 
-1. Start Sauce Command Proxy from the command line, using the [`-u (--user)`](/dev/cli/sauce-connect-proxy/#--user), [`-k (--api-key)`](/dev/cli/sauce-connect-proxy/#--api-key), [`-r (--region`)](/dev/cli/sauce-connect-proxy/#--region), and [`--tunnel-identifier`](/dev/cli/sauce-connect-proxy/#--tunnel-identifier) flags.
+1. Start Sauce Command Proxy from the command line, using the [`-u (--user)`](/dev/cli/sauce-connect-proxy/#--user), [`-k (--api-key)`](/dev/cli/sauce-connect-proxy/#--api-key), [`-r (--region`)](/dev/cli/sauce-connect-proxy/#--region), and [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) flags.
   ```bash
-  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DATA_CENTER --tunnel-identifier $TUNNEL_IDENTIFIER
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DATA_CENTER --tunnel-name $TUNNEL_NAME
   ```
 
   In this example, we'll [set our credentials (username/access key) as environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/), start a tunnel in US West Data Center and name the tunnel `rdc-on-sauce-tunnel-us`.
   ```bash
-  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-identifier rdc-on-sauce-tunnel-us
+  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-name rdc-on-sauce-tunnel-us
   ```
 
-2. In your device testing script, specify the tunnel name with `tunnelIdentifier` in your capabilities, as shown in this Java example:
+2. In your device testing script, specify the tunnel name with `tunnelName` in your capabilities, as shown in this Java example:
 
 ```java
 final DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -66,7 +66,7 @@ final DesiredCapabilities capabilities = new DesiredCapabilities();
     capabilities.setCapability("platformName", "Android");
     capabilities.setCapability("platformVersion,"  "81.0");
     capabilities.setCapability("deviceName", "Samsung_Galaxy_Note_5_real"); // Will only run on the specified device
-    capabilities.setCapability("tunnelIdentifier", "rdc-on-sauce-tunnel-us");
+    capabilities.setCapability("tunnelName", "rdc-on-sauce-tunnel-us");
 final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub"), capabilities);
 ```
 
