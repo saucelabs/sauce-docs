@@ -35,5 +35,5 @@ You can also use the API to fetch captured screenshots. To fetch the screenshots
 
 :::note 
 * The screenshots cannot exceed more than 200 MB in size.
-* You cannot change the filename of the screenshot. The code we provide allows you to supply the capture method with a string, but currently the string is ignored. We use a counter for the screenshot name. 
+* You cannot change the filename of the screenshot. The code we provide allows you to supply the capture method with a string, but currently the string is ignored. We use a counter for the screenshot name. This is a known bug.
 :::
