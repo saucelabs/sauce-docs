@@ -12,12 +12,12 @@ Testing new features and bug fixes is vital to enable quick software development
 
 While building your own testing infrastructure with Selenium Grid might be interesting and fun, maintaining it becomes a huge challenge over time due to the continued releases of new browser versions, browser drivers, operating systems, and mobile devices. Large amount of time needs to be invested in order to set up a fine tuned Selenium Grid that supports cross browser, cross platform, and cross device testing.
 
-By executing your tests on Sauce Labs, aside of getting a solid testing infrastructure, a wide range of features gets added on top, such as:
+By executing your tests on Sauce Labs, in addition to having a solid testing infrastructure, you can also benefit from the following features:
 - Live debugging, video recording, command tracing, screenshots, and exception highlighting to enable easy debugging on the Sauce Labs [tests results dashboard](/test-results/viewing-test-results/).
 - Sharing test results securely between team members by configuring [users and teams](/basics/acct-team-mgmt-hub/).
 - Understanding how your application renders on every device and operating system by analyzing results from [Front-End Performance Testing](/performance/).
-- Interpreting test results over time and identifying failure patterns across through [Insights](/insights/).
-- Benefitting from the integrations Sauce Labs has with all major [CI/CD platforms](/ci/).
+- Interpreting test results over time and identifying failure patterns across different platforms with [Insights](/insights/).
+- Integrating your Sauce Labs test suite with [CI/CD platforms](/ci/).
 
 
 ## What You'll Learn
@@ -35,159 +35,14 @@ By executing your tests on Sauce Labs, aside of getting a solid testing infrastr
 ## How Selenium Grid Works
 Selenium is built on a [client-server architecture](/web-apps/automated-testing/selenium/#architecture), where Selenium Grid is the server. For details on how Selenium Grid works, its components, and how to set it up, see the [Selenium Grid Documentation](https://www.selenium.dev/documentation/grid/getting_started/).
 
-The following Selenium Grid roles (or modes) are available:
-- [**Standalone**](#standalone): Starts all components in a single process.
-- [**Hub and node**](#hub-and-node): Starts grouped components in Hub and Node.
-- [**Distributed**](#distributed): Starts each component separately.
-
-### Standalone
-Standalone combines all Grid [components](https://www.selenium.dev/documentation/grid/components/) seamlessly into one. Running a Grid in Standalone mode gives you a fully functional Grid with a single command, within a single process. Standalone can only run on a single machine.
-
-Standalone is also the easiest mode to spin up a Selenium Grid. By default, the server will listen for [`RemoteWebDriver`](/web-apps/automated-testing/selenium/#step-1-create-a-remote-session) requests on [http://localhost:4444](http://localhost:4444), and it will detect the available browser drivers that it can use from the System `PATH`.
-
-```shell
-java -jar selenium-server-<version>.jar standalone
-```
-
-After successfully starting the Grid in Standalone mode, point your WebDriver tests to [http://localhost:4444](http://localhost:4444).
-
-Common use cases for Standalone are:
-* Developping or debugging tests using [`RemoteWebDriver`](/web-apps/automated-testing/selenium/#step-1-create-a-remote-session) locally.
-* Running quick test suites before pushing code.
-* Having an easy way to setup Grid in a CI/CD tool (GitHub Actions, Jenkins, etc.).
-
-### Hub and Node
-Hub and Node is the most used role because it allows you to:
-* Combine different machines with different operating systems and/or browser versions in a single Grid.
-* Have a single entry point to run WebDriver tests in different environments.
-* Scale capacity up or down without tearing down the Grid.
-
-#### Hub
-A Hub is composed by the following [components](https://www.selenium.dev/documentation/grid/components/): Router, Distributor, Session Map, New Session Queue, and Event Bus.
-
-The Hub acts as the entry point of the Grid, receives all external requests, creates sessions, and forwards commands to the Nodes.
-
-```shell
-java -jar selenium-server-<version>.jar hub
-```
-
-By default, the server will listen for [`RemoteWebDriver`](/web-apps/automated-testing/selenium/#step-1-create-a-remote-session) 
-requests on [http://localhost:4444](http://localhost:4444).
-
-#### Node
-During startup time, the Node will detect the available drivers that it can use from the system `PATH`.
-
-The command below assumes the Node is running on the same machine where the Hub is running.
-```shell
-java -jar selenium-server-<version>.jar node
-```
-
-##### More Than One Node on the Same Machine
-**Node 1**
-```shell
-java -jar selenium-server-<version>.jar node --port 5555
-```
-
-**Node 2**
-```shell
-java -jar selenium-server-<version>.jar node --port 6666
-```
-
-##### Node and Hub on Different Machines
-Hub and Nodes talk to each other via HTTP and the [Event Bus](https://www.selenium.dev/documentation/grid/components#event-bus), which lives inside the Hub. A Node sends a message to the Hub via the Event Bus to start the 
-registration process. When the Hub receives the message, it reaches out to the Node via HTTP to confirm its existence.
-
-To successfully register a Node to a Hub, it is important to expose the Event Bus ports (4442 and 4443 by default) on the Hub machine. This also applies for the Node port. With that, both Hub and Node will be able to communicate.
-
-If the Hub is using the default ports, the `--hub` flag can be used to register the Node as follows:
-```shell
-java -jar selenium-server-<version>.jar node --hub http://<hub-ip>:4444
-```
-
-When the Hub is not using the default ports, the `--publish-events` and `--subscribe-events` flags are needed.
-
-For example, if the Hub uses ports `8886`, `8887`, and `8888`:
-```shell
-java -jar selenium-server-<version>.jar hub --publish-events tcp://<hub-ip>:8886 --subscribe-events tcp://<hub-ip>:8887 --port 8888
-```
-The Node needs to use those ports to register successfully.
-```shell
-java -jar selenium-server-<version>.jar node --publish-events tcp://<hub-ip>:8886 --subscribe-events tcp://<hub-ip>:8887
-```
-
-### Distributed 
-When using a Distributed Grid, each component is started separately, and ideally on different machines.
-
-:::tip Expose ports
-It is important to expose all component ports properly in order to allow fluent communication between all components.
-:::
-
-#### 1. Event Bus
-The Event Bus serves as an internal communication path between the Nodes, Distributor, and Session Map. The Grid does most of its internal communication through messages, avoiding expensive HTTP calls. When 
-starting the Grid in its fully distributed mode, the Event Bus is the first component that should be started.
-
-Default ports are: `4442`, `4443`, and `5557`.
-```shell
-java -jar selenium-server-<version>.jar event-bus --publish-events tcp://<event-bus-ip>:4442 --subscribe-events tcp://<event-bus-ip>:4443 --port 5557
-```
-
-#### 2. New Session Queue
-The Router adds the new session request to the New Session Queue and waits for the response. Then the Distributor attempts to create a new session by matching one of the Nodes with new session request. 
-
-After a session is created successfully, the Distributor sends the session information back to the New Session Queue, which then gets sent back to the Router, and finally to the client.
-
-Default port is `5559`.
-```shell
-java -jar selenium-server-<version>.jar sessionqueue --port 5559
-```
-
-#### 3. Session Map
-The Session Map keeps the relationship between the session and the Node where the session is running. It helps the Router in the process of forwarding a request to the Node. The Session Map interacts with the Event Bus. 
-
-Default Session Map port is `5556`. 
-```shell
-java -jar selenium-server-<version>.jar sessions --publish-events tcp://<event-bus-ip>:4442 --subscribe-events tcp://<event-bus-ip>:4443 --port 5556
-```
-
-#### 4. Distributor
-The Distributor registers and keeps track of all Nodes and their capabilities. It also queries the New Session Queue and processes any pending new session requests, and assigns them to a Node when the capabilities match. The Distributor interacts with New Session Queue, Session Map, Event Bus, and the Node(s).
-
-Default Distributor port is `5553`.
-
-```shell
-java -jar selenium-server-<version>.jar distributor --publish-events tcp://<event-bus-ip>:4442 --subscribe-events tcp://<event-bus-ip>:4443 --sessions http://<sessions-ip>:5556 --sessionqueue http://<new-session-queue-ip>:5559 --port 5553 --bind-bus false
-```
-
-#### 5. Router
-The Router is the entry point of the Grid, receiving all external requests, and forwards them to the correct component. When the Router receives a new session request, it gets forwarded to the New Session Queue. If the request belongs to an existing session, the Router will ask the Session Map for the Node where the session is running, and then the request will be forwarded directly to the Node.
-
-The Router balances the load in the Grid by sending the requests to the component that is able to handle them better, without overloading any component that is not needed in the process. The Router interacts with New Session Queue, Session Map, and Distributor.
-
-Default Router port is `4444`.
-```shell
-java -jar selenium-server-<version>.jar router --sessions http://<sessions-ip>:5556 --distributor http://<distributor-ip>:5553 --sessionqueue http://<new-session-queue-ip>:5559 --port 4444
-```
-
-#### 6. Node(s)
-A Grid can contain multiple Nodes, and each one manages the available browsers of the machine where it is running. The Node registers itself to the Distributor, and its configuration is sent as part of the registration process.
-
-A Node will auto-register all browser drivers available on the `PATH` of the machine where it runs. The machines where the Node is running does not need to have the same operating system as the other components. For example, a Windows Node might have the capability of offering IE Mode on Edge as a browser option, whereas this would not be possible on Linux or Mac, and a Grid can have multiple Nodes configured with Windows, Mac, or Linux.
-
-Default Node port is `5555`.
-```shell
-java -jar selenium-server-<version>.jar node --publish-events tcp://<event-bus-ip>:4442 --subscribe-events tcp://<event-bus-ip>:4443
-```
 
 ## Running Tests on Selenium Grid
-After following the steps to get Selenium Grid up and running, tests that run locally need to be slightly modified to run them remotely on Selenium Grid. Test code needs to switch from using a local driver to use a remote driver.
+After following the steps to get Selenium Grid up and running, tests that run locally need to be modified to run remotely on Selenium Grid.
 
-A simple example shown in Java, where code is modified from using a local driver to use a remote one, is shown below.
-
-For extended examples on remote drivers, check the [`RemoteWebDriver`](/web-apps/automated-testing/selenium/#step-1-create-a-remote-session)
-section.
+Below is a Java example where code is modified from using a local driver to use a remote driver. For extended examples on remote drivers, see [Step 1: Create a Remote Session](/web-apps/automated-testing/selenium/#step-1-create-a-remote-session).
 
 :::note Check your Grid URL
-The example assumes that your Grid is running at [http://localhost:4444](http://localhost:4444). Replace the URL with the one where your Grid is actually running.
+The example assumes that your Grid is running on `http://localhost:4444`. Replace the URL with the one where your Grid is actually running.
 :::
 
 <Tabs
@@ -229,39 +84,47 @@ Setting up your own Grid can be simple at the beginning but as usage grows, and 
 
 Selenium Grid has a Relay feature that enables a local Grid to add Sauce Labs as an extra Node. In this way, Grid can enable more coverage to platforms and versions not present locally.
 
+### 1. Create a `toml` Configuration File
 A configuration file in [`toml`](https://toml.io/en/) format is needed to setup a Node and relay WebDriver sessions to Sauce Labs. For example, if your local Selenium Grid supports Chrome and Firefox on Linux, and you want to add support for Windows 11 and macOS, and also iOS and Android devices, you can configure those extra capabilities in the `toml` configuration file.
 
-Below is an example of a `config.toml` file with the following settings:
+<details>
+  <summary>
+    <strong>Click here</strong> to see an example <code>toml</code> configuration file.
+  </summary>
 
-OS | Browser/Device | Version | Concurrent sessions
----|---|---|---
-Windows 11 | Chrome | 104 | 5
-Windows 10 | Firefox | 103 | 10
-macOS Monterey (12) | Safari | 15 | 5
-iOS 15.4 | Safari on Simulator | iPhone 13 | 2
-Android 12 | Chrome on Emulator | Pixel 6 Pro | 2
+  For example, to support the following configuration settings:
 
+  OS | Browser/Device | Version | Concurrent sessions
+  ---|---|---|---
+  Windows 11 | Chrome | 104 | 5
+  Windows 10 | Firefox | 103 | 10
+  macOS Monterey (12) | Safari | 15 | 5
+  iOS 15.4 | Safari on Simulator | iPhone 13 | 2
+  Android 12 | Chrome on Emulator | Pixel 6 Pro | 2
 
-Here is how the `config.toml` would look like:
+  Here is how the `config.toml` would look like:
 
+  ```toml
+  [node]
+  detect-drivers = false
+
+  [relay]
+  url = "https://ondemand.us-west-1.saucelabs.com:443/wd/hub"
+  configs = [
+    "5", '{"browserName": "chrome", "platformName": "Windows 11", "browserVersion": "104"}',
+    "10", '{"browserName": "firefox", "platformName": "Windows 10", "browserVersion": "103"}',
+    "5", '{"browserName": "safari", "platformName": "macOS 12", "browserVersion": "15"}',
+    "2", '{"browserName": "safari", "platformName": "iOS", "appium:platformVersion": "15.4", "appium:deviceName": "iPhone 13 Simulator"}',
+    "2", '{"browserName": "chrome", "platformName": "android", "appium:platformVersion": "12.0", "appium:deviceName": "Google Pixel 6 Pro GoogleAPI Emulator"}'
+  ]
+  ```
 :::note Sauce Labs endpoint URL 
 The example file shows the US West data center. See the different [endpoints](/basics/data-center-endpoints/) if you want to use another region. 
 :::
 
-```toml
-[node]
-detect-drivers = false
+</details>
 
-[relay]
-url = "https://ondemand.us-west-1.saucelabs.com:443/wd/hub"
-configs = [
-  "5", '{"browserName": "chrome", "platformName": "Windows 11", "browserVersion": "104"}',
-  "10", '{"browserName": "firefox", "platformName": "Windows 10", "browserVersion": "103"}',
-  "5", '{"browserName": "safari", "platformName": "macOS 12", "browserVersion": "15"}',
-  "2", '{"browserName": "safari", "platformName": "iOS", "appium:platformVersion": "15.4", "appium:deviceName": "iPhone 13 Simulator"}',
-  "2", '{"browserName": "chrome", "platformName": "android", "appium:platformVersion": "12.0", "appium:deviceName": "Google Pixel 6 Pro GoogleAPI Emulator"}'
-]
-```
+### 2. Add a Node to your Local Grid
 
 Finally, adding a new Node to your local Selenium Grid is possible through the following command:
 
@@ -269,7 +132,9 @@ Finally, adding a new Node to your local Selenium Grid is possible through the f
 java -jar selenium-server-<version>.jar node --config config.toml
 ```
 
-With that, you will be able to send test requests to your local Grid and when the capabilities match, they will be redirected to Sauce Labs. Extra capabilities inside `sauce:options` are also supported to have better readability on the test reports page at Sauce Labs. 
+With that, you will be able to send test requests to your local Grid and when the capabilities match, they will be redirected to Sauce Labs. Extra capabilities in `sauce:options` are also supported to have better readability on the test reports page at Sauce Labs. 
+
+### 3. Create a Remote Session Request
 
 The following Java example shows how to create and send a session request to a local Grid with capabilities to match with Safari 15 on macOS Monterey served on Sauce Labs.
 
