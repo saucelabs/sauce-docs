@@ -23,7 +23,7 @@ SauceLabsCustomScreenshot.capture("my-screenshot");
 
 3.  Run your test on [Sauce Labs Real Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/).
 
-4. After the test has run successfully, on your **Test Cases** page, click the **Download Screenshots** tab to download a zip file with all the screenshots for each test case as shown below:
+4. After the test has run successfully, on the **Test Cases** page, click the **Download Screenshots** tab to download a .zip file with all the screenshots for each test case as shown below:
 <br/><img src={useBaseUrl('img/live-testing/rdc-espresso-capture.png')} alt="Mobile app settings navigation" width="800"/>
    
 
