@@ -14,7 +14,7 @@ The Espresso Screenshot Capture functionality allows you to easily take a snapsh
 
 ## Capturing Screenshots
 
-To take screenshots during an Espresso test run, add the code below to your Espresso test run.
+To take screenshots during an Espresso test run, Sauce Labs provides the code you can add to your Espresso tests:
 
 ```bash
 SauceLabsCustomScreenshot.capture("my-screenshot");
