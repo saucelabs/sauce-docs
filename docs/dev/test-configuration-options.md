@@ -357,6 +357,34 @@ MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("platformName", "Android");
 ```
 
+---
+
+### `appium:platformVersion`
+
+<p><small>| MANDATORY <span className="sauceDBlue">for Virtual Devices</span> | OPTIONAL <span className="sauceDBlue">for Virtual and Real Devices</span> | STRING |</small></p>
+
+Allows you to set the mobile OS platform version that you want to use in your test.
+
+**Virtual Devices**
+
+This is mandatory for Android Emulators and iOS Simulators. You can find the available versions in our [Platform Configurator](https://saucelabs.com/platform/platform-configurator).
+
+**Real Devices**
+
+This is optional for Real Devices and you can use this for [dynamic device allocation](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation) to specify incremental versions (e.g., `"15.1"`) or major versions (e.g., `"15"`). By setting a major version, you'd have access to all devices running incremental versions (`"15.1"`, `"15.2"`, `"15.2.1"`, "`15.4.4"`). This also extends to minor and point versions (e.g., specifying `"15.4"` will match `"15.4.0"`, `"15.4.1"`).
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+// For Android Emulators or iOS Simulators
+capabilities.setCapability("appium:platformVersion", "12.0");
+// For Real Devices, dynamically finding and available device with at least major version 12
+capabilities.setCapability("appium:platformVersion", "12");
+// For Real Devices when you exactly know the version of the device you want to use
+capabilities.setCapability("appium:platformVersion", "12.4.1");
+```
+
+---
+
 ### `appium:deviceName`
 
 <p><small>| MANDATORY for <span className="sauceDBlue">Virtual Devices</span> | OPTIONAL for <span className="sauceDBlue">Real Devices</span> | STRING |</small></p>
