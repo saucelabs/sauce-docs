@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Testing new features and bug fixes is vital to enable quick software development. Selenium Grid helps with this by allowing concurrent execution of WebDriver tests across different browsers, platforms, and devices on multiple remote machines.
 
-However, building your own testing infrastructure with Selenium Grid becomes challenging over time due to the continued releases of new browser versions, browser drivers, operating systems, and mobile devices. You'll need to invest a large amount of time needs to set up a fine tuned Selenium Grid that supports cross browser, cross platform, and cross device testing.
+However, building your own testing infrastructure with Selenium Grid becomes challenging over time due to the continued releases of new browser versions, browser drivers, operating systems, and mobile devices. You'll need to invest a large amount of time to set up a fine tuned Selenium Grid that supports cross browser, cross platform, and cross device testing.
 
 By executing your tests on Sauce Labs, in addition to having a solid testing infrastructure, you can also benefit from the following features:
 - Live debugging, video recording, command tracing, screenshots, and exception highlighting to enable easy debugging on the Sauce Labs [tests results dashboard](/test-results/viewing-test-results/).
