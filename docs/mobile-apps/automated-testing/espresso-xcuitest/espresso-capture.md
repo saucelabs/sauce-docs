@@ -14,7 +14,7 @@ To take screenshots during an Espresso test run, Sauce Labs provides the code yo
 
 ### To capture screenshots:
 
-1. Add the following class to your project. (See our Java an example [here](https://github.com/saucelabs/my-demo-app-android/blob/2daaab68f6b75dcd78533dda7ac1715eec070f99/app/src/androidTest/java/com/saucelabs/mydemoapp/android/screenshot/SauceLabsCustomScreenshot.java)).
+1. Add the utility class to your project. See our Java example on [GitHub](https://github.com/saucelabs/my-demo-app-android/blob/2daaab68f6b75dcd78533dda7ac1715eec070f99/app/src/androidTest/java/com/saucelabs/mydemoapp/android/screenshot/SauceLabsCustomScreenshot.java).
 2. Modify your test scripts to capture screenshots. To take screenshots during an Espresso test run, Sauce Labs provides the code you will find below to add to your Espresso tests. (See our demo app example [here](https://github.com/saucelabs/my-demo-app-android/blob/2daaab68f6b75dcd78533dda7ac1715eec070f99/app/src/androidTest/java/com/saucelabs/mydemoapp/android/view/activities/LoginTest.java)).
    
 ```bash
