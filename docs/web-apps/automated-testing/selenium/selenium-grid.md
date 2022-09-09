@@ -33,7 +33,7 @@ By executing your tests on Sauce Labs, aside of getting a solid testing infrastr
 
 
 ## How Selenium Grid Works
-Selenium is built on a [client-server architecture](/web-apps/automated-testing/selenium/#architecture), where Selenium Grid is the server. Selenium Grid has six different [components](https://www.selenium.dev/documentation/grid/components/), which gives you the option to deploy it in different ways.
+Selenium is built on a [client-server architecture](/web-apps/automated-testing/selenium/#architecture), where Selenium Grid is the server. For details on how Selenium Grid works, its components, and how to set it up, see the [Selenium Grid Documentation](https://www.selenium.dev/documentation/grid/getting_started/).
 
 The following Selenium Grid roles (or modes) are available:
 - [**Standalone**](#standalone): Starts all components in a single process.
