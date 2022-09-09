@@ -7,10 +7,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The Espresso Screenshot Capture functionality allows you to easily take a snapshot of the error as a part of debugging process. These screenshots also help in in identifying any errors or bugs within your application.
 
-## What You'll Need
-
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* A native Android, iOS, or iPadOS mobile app
 
 ## Capturing Screenshots
 
