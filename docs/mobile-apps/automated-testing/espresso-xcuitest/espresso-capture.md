@@ -27,7 +27,7 @@ SauceLabsCustomScreenshot.capture("my-screenshot");
 See our demo app example below:
 
 ```java reference title="Sample Espresso test script"
-  https://github.com/saucelabs/my-demo-app-android/blob/2daaab68f6b75dcd78533dda7ac1715eec070f99/app/src/androidTest/java/com/saucelabs/mydemoapp/android/view/activities/LoginTest.java
+  https://github.com/saucelabs/my-demo-app-android/blob/2daaab68f6b75dcd78533dda7ac1715eec070f99/app/src/androidTest/java/com/saucelabs/mydemoapp/android/view/activities/LoginTest.java#L131-L165
   ``` 
 
 
