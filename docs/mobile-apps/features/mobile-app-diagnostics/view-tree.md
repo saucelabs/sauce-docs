@@ -68,6 +68,7 @@ You can also download the results using the API call below:
 ### Inspect View Tree Attributes
 
 The following table lists the available attributes:
+
 |Name|Description|
 |:---|:---|
 |ID|The class identifier|
