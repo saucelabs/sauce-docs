@@ -213,6 +213,37 @@ sauce:
 ```
 
 ---
+### `visibility`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Sets the visibility level of test results for suites run on Sauce Labs. If unspecified or empty, `team` visibility will be applied. Valid values are:
+
+:::note
+This property is only valid for tests run against emulators. It has no effect on tests run against real devices.
+:::
+
+* `public`: Accessible to anyone.
+* `public restricted`: Share your job's results page and video, but keeps the logs only for you.
+* `share`: Only accessible to people with a valid link.
+* `team`: (Default) Only accessible to people under the same root account as you. 
+* `private`: Only you (the owner) will be able to view assets and test results page.
+
+```yaml
+sauce:
+  visibility: private
+```
+---
+
+### `launchOrder`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the execution order for your test suites. When set to `fail rate`, test suites with the highest failure rate will execute first. If unspecified, test suites will execute in the order in which they are written in the configuration file.
+
+```yaml
+sauce:
+  launchOrder: fail rate
+```
+---
 ## `reporters`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -539,6 +570,17 @@ The name of the test suite, which will be reflected in the results and related a
 
 ```yaml
   - name: "saucy test"
+```
+---
+
+### `testApp`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Sets the test application on the suite level. See the full [usage](#testapp). If this property is not set, `saucectl` will use the default `testApp` from the [`espresso`](#espresso) level.
+
+```yaml
+suites:
+  - testApp: ./apps/calc-success.apk
 ```
 ---
 

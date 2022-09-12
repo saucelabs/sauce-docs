@@ -5,7 +5,7 @@ sidebar_label: Getting Started
 description: Sauce Labs coordinates seamlessly with the most popular Continuous Integration platforms.
 ---
 
-Incorporating continuous testing into your CI pipeline means designing your tests to fit appropriately into each stage of your application development and delivery cycle. If you are already using one of the many platforms for continuous integration of your of your application development, we've got instructions for integrating your Sauce Labs test suite right into that pipeline.
+Incorporating continuous testing into your CI pipeline means designing your tests to fit appropriately into each stage of your application development and delivery cycle. If you are already using one of the many platforms for continuous integration of your application development, we've got instructions for integrating your Sauce Labs test suite right into that pipeline.
 
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">

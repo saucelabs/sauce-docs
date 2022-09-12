@@ -15,31 +15,42 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 <TabItem value="java" label="Java">
 
 ```java
-// replace with your endpoint url and token
-BacktraceCredentials credentials = new BacktraceCredentials("<endpoint-url>", "<token>");
+// replace with your submission url 
+BacktraceCredentials credentials = new BacktraceCredentials("<submissionUrl>");
 BacktraceClient backtraceClient = new BacktraceClient(getApplicationContext(), credentials);
 
-try {
-    // throw exception here
-} catch (Exception exception) {
-    backtraceClient.send(new BacktraceReport(e));
-}
+// send test report
+backtraceClient.send("test");
+
+// Capture uncaught exceptions
+BacktraceExceptionHandler.enable(backtraceClient);
+
+// Enable ANR detection
+backtraceClient.enableAnr();
+
+// Enable Crash Free metrics
+backtraceClient.metrics.enable(new BacktraceMetricsSettings(credentials));
 ```
 
 </TabItem>
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-// replace with your endpoint url and token
-val backtraceCredentials = BacktraceCredentials("<endpoint-url>", "<token>")
-val backtraceClient = BacktraceClient(applicationContext, backtraceCredentials)
+// replace with your submission url
+val credentials = BacktraceCredentials("<submissionUrl>")
+val backtraceClient = BacktraceClient(applicationContext, credentials)
 
-try {
-    // throw exception here
-}
-catch (e: Exception) {
-    backtraceClient.send(BacktraceReport(e))
-}
+// send test report
+backtraceClient.send("test")
+
+// Capture uncaught exceptions
+BacktraceExceptionHandler.enable(backtraceClient)
+
+// Enable ANR detection
+backtraceClient.enableAnr()
+
+// Enable Crash Free metrics
+backtraceClient.metrics.enable(BacktraceMetricsSettings(credentials))
 ```
 
 </TabItem>
@@ -118,10 +129,10 @@ You can also provide the following parameters as an argument:
 The `BacktraceClient` allows you to customize the initialization of `BacktraceDatabase` for local storage of error reports by supplying a `BacktraceDatabaseSettings` parameter, as shown below:
 
 ```java
-BacktraceCredentials credentials = new BacktraceCredentials("https://myserver.sp.backtrace.io:6097/", "4dca18e8769d0f5d10db0d1b665e64b3d716f76bf182fbcdad5d1d8070c12db0");
+BacktraceCredentials credentials = new BacktraceCredentials("https://submit.backtrace.io/{subdomain-name}/{submission-token}/json");
 
 Context context = getApplicationContext();
-String dbPath = context.getFilesDir().getAbsolutePath(); // any path, eg. absolute path to the internal storage
+String dbPath = context.getFilesDir().getAbsolutePath() + "/sample/backtrace/path"; // any path, eg. absolute path to the internal storage
 
 BacktraceDatabaseSettings settings = new BacktraceDatabaseSettings(dbPath);
 settings.setMaxRecordCount(100);
