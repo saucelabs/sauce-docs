@@ -72,11 +72,6 @@ __Shorthand__: `-r`
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region apac-southeast
 ```
 
-:::note
-Effective with version 4.7.0, this flag was deprecated and replaced by [`--rest-url`](#--rest-url).
-:::
-
-
 ---
 ### `--shared-tunnel`
 <p><small>| OPTIONAL | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
@@ -180,7 +175,7 @@ __Shorthand__: `-x`
 ```
 
 :::note
-Effective with version 4.7.0, this flag was deprecated and replaced [`--region`](/dev/cli/sauce-connect-proxy/#--region).
+Effective with version 4.7.0, this flag was deprecated and replaced by [`--region`](/dev/cli/sauce-connect-proxy/#--region).
 :::
 
 ---
