@@ -28,7 +28,14 @@ SauceLabsCustomScreenshot.capture("my-screenshot");
    
 
 
-You can also use the API to fetch captured screenshots. To fetch the screenshots through your CLI, use the [Get All Screenshots](https://docs.saucelabs.com/dev/api/jobs/#get-all-screenshots) and [List Job Assets](https://docs.saucelabs.com/dev/api/jobs/#list-job-assets) endpoints (you may also use the [RDC endpoints](https://docs.saucelabs.com/dev/api/rdc/#get-a-specific-real-device-job) directly). The endpoints will return a .zip file of all screenshots captured during the session.
+You can also use the API to fetch captured screenshots. To fetch the screenshots use the following API request:
+
+ ```java
+  curl --compressed \
+-O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.saucelabs.com/v1/rdc/jobs/{JOB_ID}/screenshots.zip
+  ```
+
+The endpoint will return a .zip file of all screenshots captured during the session.
    
 
 ## Limitations
