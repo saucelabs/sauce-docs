@@ -21,7 +21,7 @@ To take screenshots during an Espresso test run, follow the steps below. Make su
   ``` 
 2. Add the following code to your Espresso test scripts.
    
-```bash
+```java
 SauceLabsCustomScreenshot.capture("my-screenshot");
 ```
 See our demo app example below:
