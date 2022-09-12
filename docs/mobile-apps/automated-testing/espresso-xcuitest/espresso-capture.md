@@ -10,7 +10,7 @@ The Espresso Screenshot Capture functionality allows you to take screenshots of 
 
 ## Capturing Screenshots
 
-To take screenshots during an Espresso test run, follow the steps below. Make sure to handle exceptions in your test code to ensure a proper test run. This feature is supported on Android 4.3 and above.
+To take screenshots during an Espresso test run, follow the steps below. Make sure to handle exceptions in your test code to ensure a proper test run.
 
 ### To capture screenshots:
 
