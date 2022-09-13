@@ -171,7 +171,7 @@ You can incorporate your `saucectl` tests as part of your CI pipeline workflow. 
 * Understand the current automation framework in the stack
 * Understand your organization's preferred CI tool
 * Ensure you have appropriate administrator permissions
-* Successfully [run tests with `saucectl`](/dev/cli/saucectl/#running-tests) on their own before launching from your CI pipeline.
+* Successfully [run tests with `saucectl`](/dev/cli/saucectl/#run-your-tests) on their own before launching from your CI pipeline
 
 `saucectl` provides instructions for integrating with the following CI tools:
 
