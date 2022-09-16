@@ -229,6 +229,12 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
        <td><p><small>| QUERY | REQUIRED | DURATION + UNIT |</small></p><p>The amount of time backward from the current time representing the period during which the test runs executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
     </tr>
   </tbody>
+   <tbody>
+    <tr>
+     <td><code>query</code></td>
+     <td><p><small>| QUERY | REQUIRED | STRING |</small></p><p>The name of the test for which results are requested.</p></td>
+    </tr>
+  </tbody>
   <tbody>
     <tr>
      <td><code>scope</code></td>
@@ -258,13 +264,7 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
     </ul></p></td>
     </tr>
   </tbody>
-  <tbody>
-    <tr>
-     <td><code>query</code></td>
-     <td><p><small>| QUERY | REQUIRED | STRING |</small></p><p>The name of the test for which results are requested.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
+   <tbody>
     <tr>
      <td><code>os</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified operating systems.</p></td>
@@ -416,6 +416,12 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
        <td><p><small>| QUERY | REQUIRED | DURATION + UNIT |</small></p><p>The amount of time backward from the current time representing the period during which the test runs executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
     </tr>
   </tbody>
+   <tbody>
+    <tr>
+     <td><code>interval</code></td>
+     <td><p><small>| QUERY | REQUIRED | DURATION + UNIT |</small></p><p>The amount of time representing the boundary of each data bucket. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
+    </tr>
+  </tbody>
   <tbody>
     <tr>
      <td><code>scope</code></td>
@@ -443,12 +449,6 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
       <li><code>failed</code></li>
       <li><code>complete</code></li>
     </ul></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>interval</code></td>
-     <td><p><small>| QUERY | REQUIRED | DURATION + UNIT |</small></p><p>The amount of time representing the boundary of each data bucket. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
     </tr>
   </tbody>
   <tbody>

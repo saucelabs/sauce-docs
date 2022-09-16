@@ -828,6 +828,17 @@ module.exports = {
               'mobile-apps/automated-testing/espresso-xcuitest',
               'mobile-apps/automated-testing/espresso-xcuitest/espresso',
               'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
+          
+              {
+                type: 'category',
+                label: 'Espresso Features',
+                link: { type: 'doc', id: 'mobile-apps/automated-testing/espresso-xcuitest/espresso-capture' },
+                collapsed: true,
+                items: [
+              'mobile-apps/automated-testing/espresso-xcuitest/espresso-capture',
+                ]
+              }
+    
             ],
           },
           'mobile-apps/automated-testing/ipa-files',
