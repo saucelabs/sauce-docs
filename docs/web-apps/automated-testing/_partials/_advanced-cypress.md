@@ -26,7 +26,7 @@ You can pass env var `grep` to filter tests by keyword.
 saucectl run --env grep=".type()"
 ```
 
-## Filtering Cypress Cucumber Tests via Tags
+### Filtering Tests Using Cucumber Tags
 
 When running Cypress test along with Cucumber, you can use Cucumber tags to select which test should run using [cucumber's tag expressions](https://cucumber.io/docs/cucumber/api/?lang=javascript#tags).
 
