@@ -21,8 +21,6 @@ Yes - see [Espresso and XCUITest Testing for Virtual Devices](/mobile-apps/autom
 Currently the only browser that can be automated in our Android Emulators is the stock browser (i.e., Chrome).
 
 
-<br/>
-
 ## Real Devices
 
 ### General
@@ -117,7 +115,7 @@ Yes, but only on iOS 10 and iOS 9 (note these OS versions have different default
 
 #### **How do I upload an iOS app?**
 
-You'll need to export your app as an .ipa file for Ad Hoc Deployment as described in [Creating .ipa Files](/mobile-apps/creating-ipa-files).
+You'll need to export your app as an .ipa file for Ad Hoc Deployment as described in [Building an .ipa File](/mobile-apps/automated-testing/ipa-files/#building-an-ipa-file).
 
 You can upload your .ipa manually to create a project, then upload subsequent versions either manually or through our REST API, as described in [Uploading Your App to Real Device Storage with the REST API](/mobile-apps/app-storage).
 
