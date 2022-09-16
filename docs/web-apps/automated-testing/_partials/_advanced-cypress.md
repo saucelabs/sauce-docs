@@ -28,7 +28,7 @@ saucectl run --env grep=".type()"
 
 ## Filtering Cypress Cucumber Tests via Tags
 
-When running Cypress test along with Cucumber, you can use cucumber tags to select which test should run using [cucumber's tag expressions](https://cucumber.io/docs/cucumber/api/?lang=javascript#tags).
+When running Cypress test along with Cucumber, you can use Cucumber tags to select which test should run using [cucumber's tag expressions](https://cucumber.io/docs/cucumber/api/?lang=javascript#tags).
 
 ```
 saucectl run --env CYPRESS_TAGS="(@smoke or @ui) and (not @slow)"
