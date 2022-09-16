@@ -115,7 +115,7 @@ Yes, but only on iOS 10 and iOS 9 (note these OS versions have different default
 
 #### **How do I upload an iOS app?**
 
-You'll need to export your app as an .ipa file for Ad Hoc Deployment as described in [Creating .ipa Files for Appium and XCUITest](/mobile-apps/automated-testing/ipa-files/).
+You'll need to export your app as an .ipa file for Ad Hoc Deployment as described in [Creating .ipa Files for Appium and XCUITest](/mobile-apps/automated-testing/ipa-files/#building-an-ipa-file).
 
 You can upload your .ipa manually to create a project, then upload subsequent versions either manually or through our REST API, as described in [Uploading Your App to Real Device Storage with the REST API](/mobile-apps/app-storage).
 
