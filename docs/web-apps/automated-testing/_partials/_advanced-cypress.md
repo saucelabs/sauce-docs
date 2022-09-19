@@ -25,3 +25,11 @@ You can pass env var `grep` to filter tests by keyword.
 ```bash
 saucectl run --env grep=".type()"
 ```
+
+### Filtering Tests Using Cucumber Tags
+
+When running Cypress test along with Cucumber, you can use tags to select which test should run using [Cucumber's tag expressions](https://cucumber.io/docs/cucumber/api/?lang=javascript#tags).
+
+```
+saucectl run --env CYPRESS_TAGS="(@smoke or @ui) and (not @slow)"
+```
