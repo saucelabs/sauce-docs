@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 Do you have a mobile app with the ability to take images on the device camera, then process or store them within the app (e.g., scanning/depositing a check in a banking app)?
 
-Camera image injection, also known as camera mocking, is a Sauce Labs Real Device Cloud (RDC) core feature that simulates taking a picture through your mobile app. It then allows you to test your app's camera-based functionality and deliver the best possible user experience.
+Camera Image Injection, also known as camera mocking, is a Sauce Labs Real Device Cloud (RDC) core feature that simulates taking a picture through your mobile app. It then allows you to test your app's camera-based functionality and deliver the best possible user experience.
 
 You employ the built-in device camera in your live and automated testing and perform test cases that require taking images with any of the device cameras. To mimic the system camera behavior during a test, you'll provide the app with an image of your choosing. Your app will access the camera and instead of getting back the picture of the device camera, it'll retrieve the uploaded image.
 
@@ -20,7 +20,7 @@ You employ the built-in device camera in your live and automated testing and per
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* [Upload your app to Sauce Labs](/mobile-apps/app-storage) prior to testing. The camera image injection functionality points to Sauce Labs storage to get your app information.
+* [Upload your app to Sauce Labs](/mobile-apps/app-storage) prior to testing. The Camera Image Injection functionality points to Sauce Labs storage to get your app information.
 
 
 ## Key Specs
@@ -113,7 +113,7 @@ During a live test, you'll be prompted in Sauce Labs to upload a photo that will
   <img src={useBaseUrl('img/live-testing/camera-injection-camera.png')} alt="Image in camera app" width="350"/>
 
 ### Testing with QR Codes
-You can use the camera image injection feature to upload QR codes for testing.
+You can use the Camera Image Injection feature to upload QR codes for testing.
 
 1. In the live test window, in the right toolbar, click **More Device Options** and then click **Camera Injection**.
 
@@ -138,7 +138,7 @@ If your application only registers a code being read when it is within this targ
 
 During an automated test, you'll pass an image to the image injection endpoint. Image injection intercepts the camera input and replaces the camera output with the image file via the camera APIs. When the app requests an image from the device's camera, we inject your uploaded image into the response (the app doesn't know the difference).
 
-In your test script, you'll need to input the desired capabilities specific to camera image injection (see below code snippets). The code will execute your image upload and opening of the device camera.
+In your test script, you'll need to input the desired capabilities specific to Camera Image Injection (see below code snippets). The code will execute your image upload and opening of the device camera.
 
 
 1. First, add the camera instrumentation desired capability command,  `sauceLabsImageInjectionEnabled`, to your test script. This capability enables image injection functionality.
