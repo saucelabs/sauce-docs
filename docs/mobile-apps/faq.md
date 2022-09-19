@@ -13,17 +13,13 @@ Android Emulators have software buttons and a hardware keyboard. In a regular An
 
 #### **Can I run Android Emulator tests using Espresso instead of Appium?**
 
-Yes - see [Espresso and XCUITest Testing for Virtual Devices](/mobile-apps/automated-testing/espresso-xcuitest/virtual-devices).
+Yes - see [Espresso and XCUITest Testing for Virtual Devices](/mobile-apps/automated-testing/espresso-xcuitest/).
 
 
 #### **What mobile web browsers can I automate in Android Emulators?**
 
 Currently the only browser that can be automated in our Android Emulators is the stock browser (i.e., Chrome).
 
-#### **How do I use XCUITest-driver on Appium 1.6.0 with iOS 9.x tests?**
-
-Appium 1.6.0 will default to using `automationName: XCUITest` for iOS 10.x tests, and `automationName: UIAutomation` for iOS 9.x tests. However, if you specify `automationName: XCUITest` in the device capabilities for the test, you can get XCUITest for iOS 9.x tests.
-<br/>
 
 ## Real Devices
 
@@ -119,7 +115,7 @@ Yes, but only on iOS 10 and iOS 9 (note these OS versions have different default
 
 #### **How do I upload an iOS app?**
 
-You'll need to export your app as an .ipa file for Ad Hoc Deployment as described in [Creating .ipa Files](/mobile-apps/creating-ipa-files).
+You'll need to export your app as an .ipa file for Ad Hoc Deployment as described in [Building an .ipa File](/mobile-apps/automated-testing/ipa-files/#building-an-ipa-file).
 
 You can upload your .ipa manually to create a project, then upload subsequent versions either manually or through our REST API, as described in [Uploading Your App to Real Device Storage with the REST API](/mobile-apps/app-storage).
 

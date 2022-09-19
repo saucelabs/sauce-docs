@@ -570,6 +570,9 @@ module.exports = {
                 'dev/cli/saucectl/configure',
                 'dev/cli/saucectl/run',
                 'dev/cli/saucectl/completion',
+                'dev/cli/saucectl/storage/download',
+                'dev/cli/saucectl/storage/list',
+                'dev/cli/saucectl/storage/upload'
               ],
             },
             'dev/cli/saucectl/usage/use-cases',
@@ -825,6 +828,17 @@ module.exports = {
               'mobile-apps/automated-testing/espresso-xcuitest',
               'mobile-apps/automated-testing/espresso-xcuitest/espresso',
               'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
+          
+              {
+                type: 'category',
+                label: 'Espresso Features',
+                link: { type: 'doc', id: 'mobile-apps/automated-testing/espresso-xcuitest/espresso-capture' },
+                collapsed: true,
+                items: [
+              'mobile-apps/automated-testing/espresso-xcuitest/espresso-capture',
+                ]
+              }
+    
             ],
           },
           'mobile-apps/automated-testing/ipa-files',
@@ -858,6 +872,7 @@ module.exports = {
               'web-apps/automated-testing/selenium/selenium4',
               'web-apps/automated-testing/selenium/pre-run-executables',
               'web-apps/automated-testing/selenium/sample-scripts',
+              'web-apps/automated-testing/selenium/selenium-grid',
             ],
           },
           {

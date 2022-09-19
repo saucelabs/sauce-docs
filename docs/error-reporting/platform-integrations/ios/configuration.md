@@ -366,22 +366,15 @@ You can enable breadcrumbs as follows:
 <Tabs groupId="languages">
 <TabItem value="swift" label="Swift">
 
-```swift
-let backtraceCredentials = BacktraceCredentials(endpoint: URL(string: "https://backtrace.io")!, token: "token")
-let backtraceConfiguration = BacktraceClientConfiguration(credentials: backtraceCredentials)
-backtraceConfiguration.enableBreadCrumbs(breadCrumbTypes: [BacktraceBreadcrumbType.manual, BacktraceBreadcrumbType.log])
+```swift reference title="Code Sample"
+https://github.com/backtrace-labs/backtrace-cocoa/blob/a817605c07eb83af412533ac8e185ebcbdf79562/Examples/Example-iOS/AppDelegate.swift#L47
 ```
 
 </TabItem>
 <TabItem value="objc" label="Objective-C">
 
-```objc
-BacktraceCredentials *credentials = [[BacktraceCredentials alloc]
-                                     initWithEndpoint: [NSURL URLWithString: @"https://backtrace.io"]
-                                     token: @"token"];
-BacktraceClientConfiguration *configuration = [[BacktraceClientConfiguration alloc]
-                                                initWithCredentials: credentials];
-[configuration enableBreadCrumbs:@[@(BacktraceBreadcrumbTypeManual), @(BacktraceBreadcrumbTypeLog)]];
+```objc reference title="Code Sample"
+https://github.com/backtrace-labs/backtrace-cocoa/blob/a817605c07eb83af412533ac8e185ebcbdf79562/Examples/Example-iOS-ObjC/AppDelegate.m#L53
 ```
 
 </TabItem>

@@ -500,7 +500,7 @@ A portable framework for testing web apps.
 
 ### Selenium Grid
 
-A part of the Selenium suite that specializes in running multiple tests across different browsers, operating systems, and machines in parallel. Selenium Grid has two versions: Grid 1 (older) and Grid 2 (newer).
+A part of the Selenium suite that specializes in running multiple tests across different browsers, operating systems, and machines in parallel. Selenium Grid has two versions: Grid 1 (older) and Grid 2 (newer). More information: [Selenium Grid and Sauce Labs](/web-apps/automated-testing/selenium/selenium-grid/).
 
 
 ### Selenium IDE
@@ -517,7 +517,7 @@ A listener for Selenium commands built into Sauce Connect Proxy that enables inb
 
 A server required to run older Selenium RC tests or WebDriver tests in remote machines through the Selenium Grid.
 
-See also: _[webdriver](#webdriver)_.
+See also: _[webdriver](#webdriver), [selenium grid](#selenium-grid)_.
 
 
 ### Self-Service

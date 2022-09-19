@@ -221,6 +221,10 @@ Edge Driver is based on Chrome Driver, so the same caveats from [chromedriverVer
 
 Specifies the Firefox GeckoDriver version. The default geckodriver version varies based on the version of Firefox specified. For a list of geckodriver versions and the Firefox versions they support, see [geckodriver Supported Platforms](https://firefox-source-docs.mozilla.org/testing/geckodriver/Support.html).
 
+:::note
+With geckodriver version 0.31.0, Mozilla removed the capability `--remote-debugging-port`, which was never officially supported. You can use the supported capability `moz:debuggerAddress`. See [this article on our blog](https://saucelabs.com/blog/update-firefox-tests-before-oct-4-2022) for more information.
+:::
+
 ```java
 "geckodriverVersion": "0.27.0"
 ```
@@ -353,6 +357,34 @@ MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("platformName", "Android");
 ```
 
+---
+
+### `appium:platformVersion`
+
+<p><small>| MANDATORY <span className="sauceDBlue">for Virtual Devices</span> | OPTIONAL <span className="sauceDBlue">for Virtual and Real Devices</span> | STRING |</small></p>
+
+Allows you to set the mobile OS platform version that you want to use in your test.
+
+**Virtual Devices**
+
+This is mandatory for Android Emulators and iOS Simulators. You can find the available versions in our [Platform Configurator](https://saucelabs.com/platform/platform-configurator).
+
+**Real Devices**
+
+This is optional for Real Devices and you can use this for [dynamic device allocation](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation) to specify incremental versions (e.g., `"15.1"`) or major versions (e.g., `"15"`). By setting a major version, you'd have access to all devices running incremental versions (`"15.1"`, `"15.2"`, `"15.2.1"`, "`15.4.4"`). This also extends to minor and point versions (e.g., specifying `"15.4"` will match `"15.4.0"`, `"15.4.1"`).
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+// For Android Emulators or iOS Simulators
+capabilities.setCapability("appium:platformVersion", "12.0");
+// For Real Devices, dynamically finding and available device with at least major version 12
+capabilities.setCapability("appium:platformVersion", "12");
+// For Real Devices when you exactly know the version of the device you want to use
+capabilities.setCapability("appium:platformVersion", "12.4.1");
+```
+
+---
+
 ### `appium:deviceName`
 
 <p><small>| MANDATORY for <span className="sauceDBlue">Virtual Devices</span> | OPTIONAL for <span className="sauceDBlue">Real Devices</span> | STRING |</small></p>
@@ -471,27 +503,21 @@ capabilities.setCapability("appium:orientation", "LANDSCAPE");
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
 
-**For Virtual Devices:**
-
-Set `noReset` to `true` when you execute multiple tests on a single virtual device to keep the state it is in between tests.
+If set to `true` it prevents the device from resetting before the session startup. This means the application under test will not be terminated or its data cleaned. This capability behaves differently across virtual and real devices.
 
 **For Real Devices:**
 
 Set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
 
-**Specifics for Android Virtual and Real Devices:**
+**For Virtual Devices:**
 
+This capability will have no effect on Sauce Labs virtual devices, it will only work on local Android Emulators/iOS Simulators. For local executions, you will likely only have one device available, in Sauce Labs you will have a pool of devices available depending on your concurrency. Each session will start a new clean session which will make this capability redundant.
+
+**Specifics for Android Real Devices:**
 
 If `noReset` is set to `true`:
 * The app does not stop after a test/session.
 * The app data will not be cleared between tests/sessions.
-* Apk will not be uninstalled after a test/session.
-
-**Specifics for iOS Virtual:**
-
-If `noReset` set to `true`:
-* The app will not stop after a test/session.
-* The app will not clear between tests/sessions.
 * Apk will not be uninstalled after a test/session.
 
 **Specifics for iOS Real Devices:**
@@ -505,19 +531,202 @@ capabilities.setCapability("appium:noReset", true);
 
 ---
 
+### `appium:autoWebview`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
+
+Move directly into Webview context if available. This can come in handy when you need to automate a Hybrid app and the first screen in your app is a Hybrid screen. Default `false`.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:autoWebview", true);
+```
+
+---
+
+### `appium:includeSafariInWebviews`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS Only</span> |</small></p>
+
+Add Safari web contexts to the list of contexts available during a native/webview app test. This is useful if the test starts with an app and you eventually need to open Safari to be able to interact with it. Defaults to `false`.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:includeSafariInWebviews", true);
+```
+
+---
+
+### `appium:autoAcceptAlerts`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS Only</span> |</small></p>
+
+Accept all iOS alerts automatically if they pop up. This includes privacy access permission alerts (e.g., location, contacts, photos). Default is `false`.
+
+:::note
+The Android equivalent is [`appium:autoGrantPermissions`](#appiumautograntpermissions).
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:autoAcceptAlerts", true);
+```
+
+---
+
+### `appium:autoDismissAlerts`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS Only</span> |</small></p>
+
+Dismiss all iOS alerts automatically if they pop up. This includes privacy access permission alerts (e.g., location, contacts, photos). Default is `false`.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:autoDismissAlerts", true);
+```
+
+---
+
+### `appium:autoGrantPermissions`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">Android Only</span> |</small></p>
+
+Whether to grant all the requested application permissions automatically when a test starts(`true`). `false` by default.
+
+:::note
+The iOS equivalent is [`appium:autoAcceptAlerts`](#appiumautoacceptalerts).
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:autoGrantPermissions", true);
+```
+
+## Mobile Appium Timeout Capabilities
+As with Selenium Tests, Appium also supports different types of timeouts like:
+- [Implicit Wait Timeout](https://appium.io/docs/en/commands/session/timeouts/implicit-wait/#set-implicit-wait-timeout): Set the amount of time the driver should wait when searching for elements
+- [Script Timeouts](https://appium.io/docs/en/commands/session/timeouts/async-script/index.html): Sets the amount of time, in milliseconds, that asynchronous scripts executed by [execute async](https://appium.io/docs/en/commands/web/execute-async/index.html) are permitted to run before they are aborted (Web context only)
+
+These timeouts can be controlled by the driver during the test session. There are timeouts that can be set as a capability for when you start the driver and can be driver specific.
+
+---
+
 ### `appium:newCommandTimeout`
 
-<p><small>| DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
+<p><small>| DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">Android and iOS</span> |</small></p>
 
-Sets the amount of time  in seconds. If there is no response during this time, the next executed command on the Virtual/Real Device will time out. The default value is 60 seconds while the maximum allowed value is not limited for Virtual Devices and is limited to 90 seconds for Real Devices.
+Specifies the amount of time in seconds, in which the driver waits for a new command from the client before assuming the client has stopped sending requests. If there is no response during this time, the next executed command on the Virtual/Real Device will time out. The default value is 60 seconds while the maximum allowed value is not limited for Virtual Devices and is limited to 90 seconds for Real Devices.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:newCommandTimeout", 90);
 ```
 
+---
+
+### `appium:autoWebviewTimeout`
+
+<p><small>| DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">Android only</span> |</small></p>
+
+Set the maximum number of milliseconds to wait until a web view is available if autoWebview capability is set to true. 2000 ms by default
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:autoWebviewTimeout", 30000);
+```
+
+---
+
+### `appium:webkitResponseTimeout`
+
+<p><small>| DURATION | INTEGER | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+
+Set the time, in milliseconds, to wait for a response from `WebKit` in a Safari session. Defaults to `5000`
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:webkitResponseTimeout", 10000);
+```
+
+---
+
+### `appium:webviewConnectTimeout`
+
+<p><small>| DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+
+The time to wait, in milliseconds, for the initial presence of webviews in MobileSafari or hybrid apps. Defaults to 0
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:webviewConnectTimeout", 50000);
+```
+
+## Mobile Appium iOS `WebDriverAgent` Timeout Capabilities
+
+`WebDriverAgent` is a [WebDriver server](https://w3c.github.io/webdriver/) implementation for iOS that is used to remote control iOS devices. It is developed for end-to-end testing and is adopted via the [XCUITest driver](https://github.com/appium/appium-xcuitest-driver). The `WebDriverAgent` has it's own timeout capabilities that can be controlled by the driver during the test session. The most important ones are explained below.
+
+:::note
+It might be helpful to understand how the `WebDriverAgent` works before reading the following capabilities. You can check this video [Appium: Under the Hood of WebDriverAgent by Mykola Mokhnach](https://youtu.be/4i6x3j1D8C8) for a quick introduction. The reason for adjusting the timeouts, which are explained below, are explained in this video from [here](https://youtu.be/4i6x3j1D8C8?t=481).
+:::
+
+---
+
+### `appium:wdaLaunchTimeout`
+
+<p><small>| DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+
+Time, in ms, to wait for `WebDriverAgent` to be pingable. Defaults to 60000ms.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:wdaLaunchTimeout", 30000);
+```
+
+---
+
+### `appium:wdaConnectionTimeout`
+
+<p><small>| DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+
+Timeout, in ms, for waiting for a response from `WebDriverAgent`. Defaults to 240000ms.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:wdaConnectionTimeout", 30000);
+```
+
+---
+
+### `appium:waitForIdleTimeout`
+
+<p><small>| DURATION | FLOAT | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+
+The amount of time in float seconds to wait until the application under test is idling. XCTest requires the app's main thread to be idling in order to execute any action on it, so the `WebDriverAgent` might not even start/freeze if the app under test is constantly hogging the main thread. The default value is `10` (seconds). Setting it to zero disables idling checks completely (not recommended) and has the same effect as setting `waitForQuiescence` to false. Available since Appium `1.20.0`.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:waitForIdleTimeout", 60);
+```
+
+---
+
+### `appium:commandTimeouts`
+
+<p><small>| DURATION | STRING | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+
+Custom timeout(s) in milliseconds for `WebDriverAgent` backend commands execution. This might be useful if the `WebDriverAgent` backend freezes unexpectedly or requires too much time to fail and blocks automated test execution. The value is expected to be of type string and can either contain max milliseconds to wait for each `WebDriverAgent` command to be executed before terminating the session forcefully.
+
+:::note
+Don't confuse `appium:commandTimeouts` with [`appium:newCommandTimeout`](#appiumnewcommandtimeout) which is the timeout for the next command to be executed.
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:commandTimeouts", "120000");
+```
+
 ## More Appium specific capabilities
-There are more Appium capabilities which are specific for each Appium Driver. They can be found here
+Not all specific Appium Driver capabilities are explained here in preventing duplications. There are more capabilities which are specific for each Appium Driver. They can be found here
 
 **Android**
 * [UIAutomator2-Driver](https://github.com/appium/appium-uiautomator2-driver#capabilities)
@@ -533,18 +742,6 @@ There are more Appium capabilities which are specific for each Appium Driver. Th
 Optional, Sauce-specific capabilities that you can use in your Appium tests. They can be added to the `sauce:options` block of your session creation code.
 
 ---
-### `deviceOrientation`
-<p><small>|OPTIONAL | STRING| <span className="sauceDBlue">Virtual Devices Only</span> |</small></p>
-
-Specifies the orientation of the virtual skin and screen during the test. Valid values are `PORTRAIT` and `LANDSCAPE`.
-
-```java
-MutableCapabilities capabilities = new MutableCapabilities();
-//...
-MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("deviceOrientation", "PORTRAIT");
-capabilities.setCapability("sauce:options", sauceOptions);
-```
 
 ### `appiumVersion`
 
@@ -574,6 +771,21 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
+### `deviceOrientation`
+<p><small>|OPTIONAL | STRING| <span className="sauceDBlue">Virtual Devices Only</span> |</small></p>
+
+Specifies the orientation of the virtual skin and screen during the test. Valid values are `PORTRAIT` and `LANDSCAPE`.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("deviceOrientation", "PORTRAIT");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
 ### `deviceType`
 
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
@@ -585,6 +797,26 @@ MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("deviceType", "tablet");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `setupDeviceLock`
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+
+Sets up the device pin code for the automated test session. Valid values are `true` and `false`.
+This capability sets your device in the state required for your application to launch successfully.
+
+:::important
+The `setupDeviceLock` capability helps to bypass the Security requirements from your applications, like pincode requirements for launching and app or invoking certain activities/features within your app. For an example, see https://developer.android.com/reference/android/app/KeyguardManager.
+:::
+
+```java title="Real Device Setting"
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("setupDeviceLock", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
@@ -808,6 +1040,14 @@ capabilities.setCapability("sauce:options", sauceOptions);
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
 
 Enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("groupFolderRedirectEnabled", true);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
 
 ---
 
@@ -1159,6 +1399,11 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
+
+### `commandTimeout`
+<p><small>| INTEGER | <span className="sauceDBlue">Desktop Only</span> |</small></p>
+
+
 
 ### `priority`
 

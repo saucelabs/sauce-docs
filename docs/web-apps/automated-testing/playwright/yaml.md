@@ -690,7 +690,7 @@ Specifies whether the individual suite will run on `docker` or `sauce`, potentia
 ### `testMatch`
 <p><small>| REQUIRED | STRING/ARRAY |</small></p>
 
-One or more paths to the playwright test files to run for this suite. Regex values are supported to indicate all files of a certain type or in a certain directory, etc. If your tests are in TypeScript, you must [transpile them to JavaScript](#transpiling-typescript-tests).
+One or more paths to the Playwright test files to run for this suite. Regex values are supported to indicate all files of a certain type or in a certain directory, etc.
 
 ```yaml
     testMatch: ["**/*.js"]
