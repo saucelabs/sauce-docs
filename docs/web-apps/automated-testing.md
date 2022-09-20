@@ -13,6 +13,7 @@ Achieving digital confidence for your website app involves knowing that every us
     * Playwright
     * TestCafe
     * Puppeteer
+    * Replay
 * Tests written in the language of your choice:
     * JavaScript
     * Java

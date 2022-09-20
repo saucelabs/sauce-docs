@@ -25,31 +25,42 @@ You can enable verbose logging, which increases the logging level of Sauce Conne
 
 ## Network Configuration with Firewalls and Proxies
 
-Is there a firewall or proxy server in place between your machine running Sauce Connect Proxy and Sauce Labs (`*.saucelabs.com:443`)? You may need to allow access in your firewall rules or configure Sauce Connect Proxy to use an additional proxy. See [Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies)
-Sauce Connect Proxy needs to establish outbound connections to both \*.saucelabs.com (or a [specific data center](/basics/data-center-endpoints)) on `port 443` and to a tunnel VM with an IP in the Sauce Labs ranges (`162.222.72.0/21`, `66.85.48.0/21`, `185.94.24.0/22`).
+Is there a firewall or proxy server in place between your machine running Sauce Connect Proxy and Sauce Labs (`*.saucelabs.com:443`)? You may need to allow access in your firewall rules or configure Sauce Connect Proxy to use an additional proxy. For more information, see [Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
+
+Sauce Connect Proxy needs to establish outbound connections to both \*.saucelabs.com (or a [specific data center](/basics/data-center-endpoints)) on `port 443` and to a tunnel VM with an IP in the [Sauce Labs ranges](/basics/data-center-endpoints).
 
 For information on setting up Sauce Connect Proxy within various network environments, see [Security and Authentication](/secure-connections/sauce-connect/security-authentication).
 
 
 ## Checking Network Connectivity to Sauce Labs
 
-Make sure that saucelabs.com is accessible from the machine running Sauce Connect Proxy. This can be tested by issuing a ping, telnet, or cURL command to saucelabs.com from the machine's command line interface.
+It is essential to make sure that the Sauce Labs REST API is accessible from the machine running Sauce Connect Proxy.
+
+A typical error message that the Sauce Connect Proxy prints when it fails to connect to Sauce Labs would say something like this:
+
+```bash
+Sauce Connect failed to start - Failed to reach https://saucelabs.com/rest/v1/USERNAME/tunnels/info/updates.
+Please visit https://docs.saucelabs.com/secure-connections/sauce-connect/troubleshooting
+```
+
+The Sauce Labs connectivity can be tested by issuing a telnet, or cURL command to saucelabs.com and/or to a [specific data center](/basics/data-center-endpoints) endpoint from the machine's command line interface.
 
 If any of these commands fail, you should work with your internal network team to resolve them.
 
 <Tabs
-  defaultValue="ping"
+  defaultValue="curl"
   values={[
-    {label: 'ping', value: 'ping'},
-    {label: 'telnet', value: 'telnet'},
     {label: 'cURL', value: 'curl'},
+    {label: 'telnet', value: 'telnet'},
     {label: 'Sauce Connect Proxy', value: 'sc'},  ]}>
 
-<TabItem value="ping">
+<TabItem value="curl">
 
-```bash
-ping saucelabs.com
+```curl
+curl -v https://saucelabs.com/
 ```
+
+This command should return "Connected to saucelabs.com".
 
 </TabItem>
 
@@ -59,17 +70,7 @@ ping saucelabs.com
 telnet saucelabs.com 443
 ```
 
-This command should return an IP address of 162.222.73.2.
-
-</TabItem>
-
-<TabItem value="curl">
-
-```curl
-curl -v https://saucelabs.com/
-```
-
-This command should return the status message connected to `saucelabs.com`.
+This command should return an IP address of 34.96.70.78 and "Connected to saucelabs.com".
 
 </TabItem>
 
@@ -89,12 +90,16 @@ This command should return the error message "Failed to reach https://saucelabs.
 
 To combat test failures caused by websites without valid SSL certificates, Sauce Connect Proxy has a security feature called SSL Bumping that automatically re-signs certificates in the course of testing.
 
-SSL Bumping is enabled by default when you download Sauce Connect Proxy. However, depending on your test scenario, SSL Bumping may occasionally cause problems for some sites. You can disable SSL Bumping for some or all domains by adding the `-B all` flag to your Sauce Connect Proxy startup commands. For more information on SSL Bumping and scenarios that would warrant disabling it, see SSL Certificate Bumping.
+SSL Bumping is enabled by default when you download Sauce Connect Proxy. However, depending on your test scenario, SSL Bumping may occasionally cause problems for some sites. You can disable SSL Bumping for some or all domains by adding the `-B all` flag to your Sauce Connect Proxy startup commands. For more information on SSL Bumping and scenarios that would warrant disabling it, see [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication).
+
+### Long Common Names in Bumped Certificates
+
+There is a limit of 64 characters in Common Names in certificates according to RFC 5280. SSL Bumping will fail if a certificate's Common Name (CN) is longer than 64 characters.
 
 ## Errors Running Tests on CORS-Enabled Sites
 Cross-Origin Resource Sharing (CORS) errors could be caused by a variety of reasons. We recommend the following solutions:
 
-* Make sure that the ulimit/open file limit of your machine is at least 8000, which is the recommend value for Sauce Connect Proxy use.
+* Make sure that the ulimit/open file limit of your machine is at least 64000, which is the recommend value for Sauce Connect Proxy use.
 * Start a Sauce Connect Proxy instance using the `-B` all and `-N` flags. For more information about what these flags do for your tunnel, see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy).
 
 

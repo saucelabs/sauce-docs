@@ -545,7 +545,7 @@ ReloadPropagatedFrom=sc.service
   User=nobody
   Group=nobody
   WorkingDirectory=/tmp
-  LimitNOFILE=8192
+  LimitNOFILE=64000
   Restart=always
 
   # Set those to match your Saucelabs credentials

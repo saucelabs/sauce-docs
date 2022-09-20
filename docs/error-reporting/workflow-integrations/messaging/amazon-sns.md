@@ -1,6 +1,6 @@
 ---
 id: amazon-sns
-title: Amazon SNS
+title: Amazon SNS Integration with Backtrace
 sidebar_label: Amazon SNS
 description: Integrate Backtrace with Amazon SNS.
 ---
@@ -8,7 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Amazon SNS Integration
 This guide will go through the steps necessary to integrate Backtrace with Amazon SNS.
 
 There are two main steps for setting up Amazon SNS:

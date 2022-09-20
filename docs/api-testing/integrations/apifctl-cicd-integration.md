@@ -13,7 +13,7 @@ Execute API tests and interact with Sauce Labs API Testing (either locally or in
 
 ## Usage
 
-You'll need to run our Docker image as a container:<br/>`$ docker run quay.io/saucelabs/apifctl [COMMAND] [OPTIONS]`
+You'll need to run our Docker image as a container:<br/>`docker run --pull always quay.io/saucelabs/apifctl [COMMAND] [OPTIONS]`
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
@@ -46,7 +46,7 @@ You can then reuse this Webhook for future tests within that Project by returnin
 Runs a single test, using `hookId` and `testId`. The `testId` is located in the URL when viewing the test through the API Testing UI (e.g., `/api-testing/project/<projectId>/test/<testId>/`).
 
 ```bash
-docker run quay.io/saucelabs/apifctl run
+docker run --pull always quay.io/saucelabs/apifctl run
 ```
 
 Available Options:
@@ -59,7 +59,7 @@ Available Options:
 * [<code>-b &#60;build ID&#62;</code>](#-b-build-id) <small>| OPTIONAL | STRING |</small>  
 
 ```bash title="Full Example"
-docker run quay.io/saucelabs/apifctl run \
+docker run --pull always quay.io/saucelabs/apifctl run \
 -H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId} \
 -i 123a1a123456a12345aa1aaa
 ```
@@ -70,7 +70,7 @@ docker run quay.io/saucelabs/apifctl run \
 Runs all the complete tests in the Project referenced by the hook.
 
 ```bash
-docker run quay.io/saucelabs/apifctl run-all
+docker run --pull always quay.io/saucelabs/apifctl run-all
 ```
 
 Available Options:
@@ -83,7 +83,7 @@ Available Options:
 
 
 ```bash title="Full Example"
-docker run quay.io/saucelabs/apifctl run-all -H \
+docker run --pull always quay.io/saucelabs/apifctl run-all -H \
 https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId}
 ```
 
@@ -93,7 +93,7 @@ https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-test
 Runs all the tests marked with a specific tag.
 
 ```bash
-docker run quay.io/saucelabs/apifctl run-tag
+docker run --pull always quay.io/saucelabs/apifctl run-tag
 ```
 
 Available Options:
@@ -106,7 +106,7 @@ Available Options:
 * [<code>-b &#60;build ID&#62;</code>](#-b-build-id) <small>| OPTIONAL | STRING |</small>  
 
 ```bash title="Full Example"
-docker run quay.io/saucelabs/apifctl run-tag \
+docker run --pull always quay.io/saucelabs/apifctl run-tag \
 -H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId} \
 -tag production
 ```
@@ -117,7 +117,7 @@ docker run quay.io/saucelabs/apifctl run-tag \
 Sends a test residing in the local file system (directory with `unit.xml` and `input.xml`) to the cloud for execution.
 
 ```bash
-docker run quay.io/saucelabs/apifctl exec
+docker run --pull always quay.io/saucelabs/apifctl exec
 ```
 
 Available Options:
@@ -133,7 +133,7 @@ Available Options:
 
 
 ```bash title="Full Example"
-docker run -v "$(pwd)/tests:/tests" quay.io/saucelabs/apifctl exec \
+docker run --pull always -v "$(pwd)/tests:/tests" quay.io/saucelabs/apifctl exec \
 -H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId} \
 -p /tests/test_abc \
 -n local_test \
@@ -146,7 +146,7 @@ docker run -v "$(pwd)/tests:/tests" quay.io/saucelabs/apifctl exec \
 Uploads a local test residing in your local file system (directory with `unit.xml` and `input.xml`) to the cloud for storage.
 
 ```bash
-docker run quay.io/saucelabs/apifctl upload
+docker run --pull always quay.io/saucelabs/apifctl upload
 ```
 
 Available Options:
@@ -157,7 +157,7 @@ Available Options:
 * [<code>-d &#60;test description&#62;</code>](#-d-test-description) <small>| OPTIONAL | STRING |</small>
 
 ```bash title="Full Example"
-docker run -v "$(pwd)/tests:/tests" quay.io/saucelabs/apifctl upload \
+docker run --pull always -v "$(pwd)/tests:/tests" quay.io/saucelabs/apifctl upload \
 -H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId} \
 -p /tests/test_abc \
 -n local_test \
@@ -171,14 +171,14 @@ docker run -v "$(pwd)/tests:/tests" quay.io/saucelabs/apifctl upload \
 Displays the Project vault from the cloud.
 
 ```bash
-docker run quay.io/saucelabs/apifctl vault-get
+docker run --pull always quay.io/saucelabs/apifctl vault-get
 ```
 
 Available Options:
 * [<code>-H &#60;webhook&#62;</code>](#-h-webhook) <small>| REQUIRED | STRING |</small>
 
 ```bash title="Full Example"
-docker run quay.io/saucelabs/apifctl vault-get \
+docker run --pull always quay.io/saucelabs/apifctl vault-get \
 -H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/{hookId} \
 ```
 
@@ -188,7 +188,7 @@ docker run quay.io/saucelabs/apifctl vault-get \
 It updates the Project vault on the cloud.
 
 ```bash
-docker run quay.io/saucelabs/apifctl vault-update
+docker run --pull always quay.io/saucelabs/apifctl vault-update
 ```
 
 Available Options:
@@ -197,7 +197,7 @@ Available Options:
 * [<code>-v &#60;variables&#62;</code>](#-v-variables) <small>| OPTIONAL | STRING |</small>
 
 ```bash title="Full Example"
-docker run quay.io/saucelabs/apifctl vault-update \
+docker run --pull always quay.io/saucelabs/apifctl vault-update \
 -p /tests/vault/vault.json \
 -v key=production,id=123
 ```
@@ -208,7 +208,7 @@ docker run quay.io/saucelabs/apifctl vault-update \
 Displays all events of a Project.
 
 ```bash
-docker run quay.io/saucelabs/apifctl events  
+docker run --pull always quay.io/saucelabs/apifctl events  
 ```
 
 Available Options:
@@ -219,7 +219,7 @@ Available Options:
 * [<code>-o &#60;offset&#62;</code>](#-o-offset) <small>| OPTIONAL | INTEGER |</small>
 
 ```bash title=Full Example"
-docker run quay.io/saucelabs/apifctl events \
+docker run --pull always quay.io/saucelabs/apifctl events \
 -H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/36acf9c1-d5ad-4273-a233-a85470e1f502
 -f 2021-12-31T14:00 \
 -t 2021-12-31T15:00 \
@@ -233,7 +233,7 @@ docker run quay.io/saucelabs/apifctl events \
 Displays a specific event using its event ID.
 
 ```bash
-docker run quay.io/saucelabs/apifctl event
+docker run --pull always quay.io/saucelabs/apifctl event
 ```
 
 Available Options:
@@ -241,7 +241,7 @@ Available Options:
 * [<code>-i &#60;event ID&#62;</code>](#-i-event-id) <small>| REQUIRED | STRING |</small>
 
 ```bash title=Full Example"
-docker run quay.io/saucelabs/apifctl event \
+docker run --pull always quay.io/saucelabs/apifctl event \
 -H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/36acf9c1-d5ad-4273-a233-a85470e1f502
 -i 123456789abc1a1abcdef123 \
 ```
@@ -252,7 +252,7 @@ docker run quay.io/saucelabs/apifctl event \
 Displays metrics of a Project.
 
 ```bash
-docker run quay.io/saucelabs/apifctl metrics
+docker run --pull always quay.io/saucelabs/apifctl metrics
 ```
 
 Available Options:
@@ -263,7 +263,7 @@ Available Options:
 * [<code>-o &#60;offset&#62;</code>](#-o-offset) <small>| OPTIONAL | INTEGER |</small>
 
 ```bash title=Full Example"
-docker run quay.io/saucelabs/apifctl metrics \
+docker run --pull always quay.io/saucelabs/apifctl metrics \
 -H https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@api.us-west-1.saucelabs.com/api-testing/rest/v4/36acf9c1-d5ad-4273-a233-a85470e1f502
 -f 2021-12-31T14:00 \
 -t 2021-12-31T15:00 \
