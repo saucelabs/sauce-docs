@@ -85,7 +85,7 @@ URLs vary based on the services you're using, your data center, and the types of
 <td>*.miso.saucelabs.com</td><td><code>66.85.48.0/21</code></td>
 </tr>
 <tr>
-<td>Other endpoints</td><td><code>162.222.72.0/21</code><br/><code>66.85.48.0/21</code></td>
+<td>Other endpoints</td><td><code>34.125.90.96/27</code><br/><code>162.222.72.0/21</code><br/><code>66.85.48.0/21</code></td>
 </tr>
 </table>
 
@@ -137,7 +137,7 @@ Depending on the framework or driver you use, you might need to make additional 
 <td>*.tunnels.eu-west-3-lnbf.saucelabs.com</td><td><code>34.141.28.96/32</code></td>
 </tr>
 <tr>
-<td>Other endpoints</td><td><code>185.94.24.0/22</code></td>
+<td>Other endpoints</td><td><code>34.107.82.96/27</code><br/><code>185.94.24.0/22</code></td>
 </tr>
 </table>
 
