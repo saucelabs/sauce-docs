@@ -12,7 +12,6 @@ Our **Vault** feature allows you to store variables and code snippets to use in 
 ## What You'll Need
 * An existing API Testing project. For details on how to create one, see the [Quickstart](/api-testing/quickstart/) guide.
 
-
 ## Vault Types
 
 There are two types of API Testing vaults, the **Company Vault** and project-specific **Vault**. While their UI is the same, they serve two different purposes:
@@ -24,7 +23,6 @@ The **Company Vault** is where you can store variables and test code snippets to
 
 The project **Vault**, which you can access from within a project, is where you can store project-specific variables,  test code snippets, and files.<br/><img src={useBaseUrl('img/api-fortress/2021/04/vaultFromProject.png')} alt="Access Vault from Project View" />
 
-
 ## Variables
 
 In the **Variables** section, you can define environment variables to use in your tests, so that you don't need to rewrite them every time.
@@ -32,7 +30,6 @@ In the **Variables** section, you can define environment variables to use in you
 The screenshot below shows the **Company Vault**; these variables are available across all projects.
 
 <img src={useBaseUrl('img/api-fortress/2021/04/company_vault.png')} alt="Company Vault View"/>
-
 
 You should define a variable at the project-specific **Vault** when you need to use the same one across multiple tests. As an example, you could save a password here as a variable and reuse it in multiple tests.
 
@@ -57,7 +54,6 @@ If the same variable with the same name definition exists in both the **Projects
 
 Then in your tests, you'd reference the variable by the `Key` using the following syntax: `${domain}`.
 
-
 ### Use Case: Product Variable
 
 Consider a scenario where an `/product` endpoint requires a specific `id` query parameter.
@@ -78,7 +74,6 @@ Now you can switch the **Query Params** field from **String value** to **Variabl
 You can also reference this parameter in Code view with the following syntax: `params="['id':product_id]"`.
 :::
 
-
 ## Snippets
 
 In the **Snippets** section of the **Vault**, you can create or import test component/code examples. A _snippet_ is a test code fragment that you can create, import and store in your [Vault](/api-testing/vault) and reuse in multiple tests. Snippet length can range from one line of code to an entire test.
@@ -86,8 +81,6 @@ In the **Snippets** section of the **Vault**, you can create or import test comp
 Much like with variable scope, snippets saved in a project **Vault** are only available in that project and snippets saved in the **Company Vault** are available across all projects.
 
 When you save a snippet from the [**Composer**](/api-testing/composer/), it will be saved in the project **Vault**. While you cannot save a snippet from the **Composer** to the **Company Vault**, you can export there using the import/export feature (see screenshot below).<br/><img src={useBaseUrl('img/api-fortress/2021/04/exportSnippet.png')} alt="Snippet"/>
-
-
 
 ### Create a Snippet
 
@@ -112,13 +105,11 @@ That's it! Now that your snippet has been created, you can use it in every test 
 1. Click any of the fields and begin typing to edit the details.
 Your changes are saved automagically.
 
-
 ### Using Snippets
 
 For each snippet, two actions are available:
 * **Paste Snippet**: allows you to paste the entire component inside the test, allowing you to edit as needed. The pasted components will lose any reference to the original snippet.
 * **Invoke Snippet**: creates a **Call** component that will invoke the snippet. If the snippet changes, all the tests containing the Call component to that snippet will inherit the changes.
-
 
 ### Use Case: Authentication Snippet
 
@@ -141,7 +132,6 @@ In the **Drive** section of a project-specific **Vault**, you can upload files t
 
  The file size limit for an indivudal file is 16 MB. The total limit for the **Company Vault** is 100 MB. This means if one project-specific **Vault** is using 100 MB of storage, other projects cannot upload addtional files.
 
-
 ### Uploading a file
 
 1. Open a project.
@@ -151,7 +141,9 @@ In the **Drive** section of a project-specific **Vault**, you can upload files t
 
 If you upload a file via a URL, you can hover over **source url** to view it.  <br/><img src={useBaseUrl('img/api-fortress/2022/09/vaultuploadfileURL.png')} alt="View Source URL" /> 
 
-You can also rename, delete, or download your files.<br/><img src={useBaseUrl('img/api-fortress/2022/09/vaultfileoptions.png')} alt="Rename, delete or download files" />
+You can also rename, download, or delete individual files.<br/><img src={useBaseUrl('img/api-fortress/2022/09/vaultfileoptions.png')} alt="Rename, delete or download files" />
+
+To delete multiple files, select the checkbox next to the files, then click **Delete Selected**.<br/><img src={useBaseUrl('img/api-fortress/2022/09/vaultdeletefileoptions.png')} alt="Delete multiple files" /> 
 
 ## More Information
 * [API Fortress Legacy Migration Guide](/api-testing/legacy)
