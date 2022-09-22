@@ -7,7 +7,7 @@ description: "The Vault allows you to store variables, code snippets and files t
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Our **Vault** feature allows you to store variables and code snippets to use in your tests in one project, or across all projects. You can also store fles for use in one project. 
+Our **Vault** feature allows you to store variables and code snippets to use in your tests in one project, or across all projects. You can also store files for use in one project. 
 
 ## What You'll Need
 * An existing API Testing project. For details on how to create one, see the [Quickstart](/api-testing/quickstart/) guide.
